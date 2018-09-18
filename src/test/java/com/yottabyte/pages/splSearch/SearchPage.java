@@ -9,7 +9,6 @@ import com.yottabyte.utils.TakeScreenShot;
 import com.yottabyte.utils.WaitForElement;
 import com.yottabyte.webDriver.SharedDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -45,6 +44,95 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='yw-search-form-el-input normal-input margin-left el-input']/input")
     private WebElement searchSavedList;
+
+    @FindBy(className = "yw-search-allfields")
+    private WebElement allFields;
+
+    @FindBy(className = "el-message__group")
+    private WebElement errorMessage;
+
+    @FindBy(xpath = "//div[@class='dialog-title']/i")
+    private WebElement closeAllFields;
+
+    @FindBy(className = "yw-fields-tree")
+    private WebElement fieldsTree;
+
+    @FindBy(xpath = "//div[@class='tree-item folder-item root-item']/span[text()='java']")
+    private WebElement javaField;
+
+    @FindBy(xpath = "//span[text()='appname']")
+    private WebElement appName;
+
+    @FindBy(xpath = "//span[text()='TOP10字段']")
+    private List<WebElement> topTen;
+
+    @FindBy(xpath = "//span[text()='去重数']")
+    private List<WebElement> removeDuplicate;
+
+    @FindBy(xpath = "//span[text()='总数时序图']")
+    private List<WebElement> totalSequence;
+
+    @FindBy(xpath = "//span[text()='过滤选中字段值']")
+    private List<WebElement> fileterField;
+
+    @FindBy(xpath = "//span[text()='屏蔽选中字段值']")
+    private List<WebElement> shieldField;
+
+    public WebElement getShieldField() {
+        return shieldField.get(shieldField.size() - 1);
+    }
+
+    public WebElement getTotalSequence() {
+        return totalSequence.get(totalSequence.size() - 1);
+    }
+
+    public WebElement getFileterField() {
+        return fileterField.get(fileterField.size() - 1);
+    }
+
+    @FindBy(className = "yw-all-fields-list-item")
+    private List<WebElement> fieldCheckbox;
+
+    public List<WebElement> getFieldCheckbox() {
+        return fieldCheckbox;
+    }
+
+    public WebElement getRemoveDuplicate() {
+        return removeDuplicate.get(removeDuplicate.size() - 1);
+    }
+
+    public WebElement getTopTen() {
+        return topTen.get(topTen.size() - 1);
+    }
+
+    public WebElement getAppName() {
+        return appName;
+    }
+
+    public WebElement getJavaField() {
+        return javaField;
+    }
+
+    public WebElement getSavedFields() {
+        return fieldsTree.findElements(By.xpath("./li")).get(0).findElement(By.tagName("ul"));
+    }
+
+    public WebElement getUnsavedFields() {
+        return fieldsTree.findElements(By.xpath("./li")).get(1).findElement(By.tagName("ul"));
+    }
+
+    public WebElement getCloseAllFields() {
+        return closeAllFields;
+    }
+
+    @Override
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+
+    public WebElement getAllFields() {
+        return allFields;
+    }
 
     public WebElement getSearchSavedList() {
         return searchSavedList;

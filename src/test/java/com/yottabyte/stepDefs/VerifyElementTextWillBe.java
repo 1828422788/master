@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.utils.GetElementFromPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.WebElement;
 
@@ -12,9 +13,22 @@ import static org.junit.Assert.*;
 public class VerifyElementTextWillBe {
 
     @Then("^I will see the \"([^\"]*)\" result will be \"([^\"]*)\"$")
-    public void iWillSeeTheResultWillBe(String elementName, String excpText){
+    public void iWillSeeTheResultWillBe(String elementName, String excpText) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String realText = element.getText();
         assertEquals(excpText, realText);
+    }
+
+    /**
+     * 验证输入框中的内容
+     *
+     * @param elementName
+     * @param value
+     */
+    @Then("^I will see the input element \"([^\"]*)\" value will be \"([^\"]*)\"$")
+    public void verifyInputValue(String elementName, String value) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        String realValue = element.getAttribute("value");
+        assertEquals(value, realValue);
     }
 }

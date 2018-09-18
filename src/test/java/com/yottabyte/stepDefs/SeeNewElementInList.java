@@ -3,6 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.WaitForElement;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
@@ -88,5 +89,27 @@ public class SeeNewElementInList {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(paging.get(paging.size() - 1)));
         // 获取最后一页数据列表
         paging.get(paging.size() - 1).click();
+    }
+
+    /**
+     * 判断树状列表下是否有某字段（目前日志展现用到）
+     *
+     * @param elementName
+     * @param dataName
+     */
+    @Then("^I will see the tree \"([^\"]*)\" contains \"([^\"]*)\"$")
+    public void assertContainsName(String elementName, String dataName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        List<WebElement> liList = element.findElements(By.tagName("li"));
+
+        boolean flag = false;
+        for (WebElement li : liList) {
+            if (li.getText().equals(dataName)) {
+                flag = true;
+                break;
+            }
+        }
+
+        assertTrue(flag);
     }
 }
