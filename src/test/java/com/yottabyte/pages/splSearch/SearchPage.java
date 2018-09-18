@@ -40,6 +40,20 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "yw-searchbar__append")
     private WebElement searchButton;
 
+    @FindBy(className = "icon-dakai_icon")
+    private WebElement openSavedSearchButton;
+
+    @FindBy(xpath = "//div[@class='yw-search-form-el-input normal-input margin-left el-input']/input")
+    private WebElement searchSavedList;
+
+    public WebElement getSearchSavedList() {
+        return searchSavedList;
+    }
+
+    public WebElement getOpenSavedSearchButton() {
+        return openSavedSearchButton;
+    }
+
     // 搜索历史下拉框
     @FindBy(className = "el-collapse-item__wrap")
     private WebElement searchHistoryWindow;
@@ -231,6 +245,13 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(xpath = "//button[@class='el-button el-button--primary']/span[text()='确定']")
     private List<WebElement> ensureList;
+
+    @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
+    private WebElement deleteSavedSearch;
+
+    public WebElement getDeleteSavedSearch() {
+        return deleteSavedSearch;
+    }
 
     @FindBy(xpath = "//i[@title='暂停']")
     private WebElement pause;

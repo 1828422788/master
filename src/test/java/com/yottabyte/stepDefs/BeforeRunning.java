@@ -197,7 +197,7 @@ public class BeforeRunning {
 
 
     @Then("^I delete from \"([^\"]*)\" where \"([^\"]*)\" using mongodb$")
-    public void deleteFromMongodb(String database, List<String> deleteData) {
+    public void deleteFromMongodb(String database, String deleteData) {
         MongoDBJDBC.delete(database, deleteData);
     }
 }

@@ -132,4 +132,17 @@ public class Search {
         }
         search(columnNumber, keyword);
     }
+
+    @Then("^I will see the column \"([^\"]*)\" contains \"([^\"]*)\"$")
+    public void assertColumnName(String columnNum, String name) throws InterruptedException {
+        Thread.sleep(1000);
+        WebElement table = webDriver.findElement(By.className("yw-search-dialog-table"));
+        WebElement tableBody = table.findElement(By.tagName("tbody"));
+        List<WebElement> trList = tableBody.findElements(By.tagName("tr"));
+        for (WebElement webElement : trList) {
+            WebElement td = webElement.findElements(By.tagName("td")).get(Integer.parseInt(columnNum));
+            String acturalText = td.getText();
+            assertTrue(acturalText.contains(name));
+        }
+    }
 }

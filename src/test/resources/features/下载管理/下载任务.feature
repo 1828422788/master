@@ -3,7 +3,8 @@ Feature: 下载任务
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    Then I delete from "document" where "{'key':'autotestcsv'}" using mongodb
+    Then I delete from "download" where "{'key':['autotestcsv','autotestjson','autotest1json','autotest2json','autotest2txt']}" using mongodb
+    Then I delete from "download.files" where "{'filename':['autotest.csv','autotest.json','autotest1.json','autotest2.json','autotest2.txt']}" using mongodb
 
   Scenario Outline: 新建下载任务
     Given I set the parameter "SearchInput" with value "<splQuery>"

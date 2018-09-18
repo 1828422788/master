@@ -4,7 +4,9 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.WaitForElement;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +20,7 @@ import static junit.framework.TestCase.assertTrue;
  * 应用场景：删除最后一页列表最后一条数据，不支持模糊匹配
  */
 public class Delete {
+    private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
 
     /**
@@ -73,6 +76,21 @@ public class Delete {
         } else {
             System.out.println("暂无数据");
             assertTrue(false);
+        }
+    }
+
+    @Then("^\"([^\"]*)\" the data \"([^\"]*)\" in columnNum \"([^\"]*)\"$")
+    public void clickButton(String buttonName, String dataName, String columnNum) {
+        WebElement table = webDriver.findElement(By.className("yw-search-dialog-table"));
+        WebElement tableBody = table.findElement(By.tagName("tbody"));
+        List<WebElement> trList = tableBody.findElements(By.tagName("tr"));
+        String xpath = ".//span[text()='" + buttonName + "']";
+        for (WebElement tr : trList) {
+            String text = tr.findElements(By.tagName("td")).get(Integer.parseInt(columnNum)).getText();
+            if (text.equals(dataName)) {
+                tr.findElement(By.xpath(xpath)).click();
+                break;
+            }
         }
     }
 }

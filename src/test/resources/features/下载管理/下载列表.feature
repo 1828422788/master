@@ -7,7 +7,6 @@ Feature: 下载列表
   Scenario Outline:
     Given the data name is "<name>" then i click the "下载" button
     Then I embedding the file "<name>" into report
-    Then the data name is "<name>" then i click the "删除" button
 
     Examples:
       | name           |

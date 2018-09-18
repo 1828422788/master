@@ -7,10 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcUtils {
+    private static ConfigManager config = new ConfigManager();
+
+    private static String port = null;
+    private static String dbName = null;
+
+    public void setProperties() {
+        this.port = config.get("managerDBPort");
+        this.dbName = config.get("managerDBName");
+    }
+
 
     public static Connection getConnection() {
-        ConfigManager config = new ConfigManager();
-        String url = "jdbc:mysql://" + config.get("rizhiyi_server_host") + ":3306/" + config.get("dbName") + "?useUnicode=true&characterEncoding=UTF8";
+        if (port == null)
+            port = "3306";
+        if (dbName == null)
+            dbName = config.get("dbName");
+        String url = "jdbc:mysql://" + config.get("rizhiyi_server_host") + ":" + port + "/" + dbName + "?useUnicode=true&characterEncoding=UTF8";
         String user = config.get("dbUser");
         String pass = config.get("dbPassword");
         String driver = config.get("dbDriver");
