@@ -8,8 +8,7 @@ import cucumber.api.java.en.And;
 public class WaitForSomeSecond {
 
     @And("^I wait for \"([^\"]*)\" millsecond")
-    public void iWaitForSecond(int millseconds) throws InterruptedException {
-        Thread.sleep(millseconds);
+    public void iWaitForSecond(String millseconds) throws InterruptedException {
+        Thread.sleep(Long.parseLong(millseconds));
     }
-
 }

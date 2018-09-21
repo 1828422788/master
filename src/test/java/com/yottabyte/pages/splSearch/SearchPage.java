@@ -33,6 +33,13 @@ public class SearchPage extends PageTemplate {
         super(driver);
     }
 
+    @FindBy(xpath = "//div[text()='统计']")
+    private WebElement countButton;
+
+    public WebElement getCountButton() {
+        return countButton;
+    }
+
     @FindBy(xpath = "//div[@class='yw-searchbar__inner el-textarea']/textarea")
     private WebElement searchInput;
 
