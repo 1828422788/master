@@ -3,6 +3,7 @@ package com.yottabyte.pages.splSearch;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -170,6 +171,48 @@ public class StatisticalPage extends PageTemplate {
 
     @FindBy(xpath = "(//label[@class='el-checkbox'])[last()]")
     private WebElement lastCheckBox;
+
+    @FindBy(className = "icon-bianji")
+    private List<WebElement> editColourButtonList;
+
+    @FindBy(xpath = "(//span[contains(text(),'保存')])[last()]")
+    private WebElement saveButton;
+
+    public WebElement getSaveButton() {
+        return saveButton;
+    }
+
+    public WebElement getLowerLimit() {
+        return super.getInputElement("下限值");
+    }
+
+    public WebElement getMiddleLimit() {
+        return super.getInputElement("中值");
+    }
+
+    public WebElement getTopLimit() {
+        return super.getInputElement("上限值");
+    }
+
+    public WebElement getColourDropdown() {
+        return super.getDropdownList("颜色");
+    }
+
+    public WebElement getFirstEditColourButton() {
+        return editColourButtonList.get(0);
+    }
+
+    public WebElement getSecondEditColourButton() {
+        WebElement element = editColourButtonList.get(1);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(webDriver.findElement(By.className("preset-color"))));
+        return element;
+    }
+
+    public WebElement getThirdEditColourButton() {
+        WebElement element = editColourButtonList.get(2);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(saveButton));
+        return element;
+    }
 
     public WebElement getLastCheckBox() {
         return lastCheckBox;

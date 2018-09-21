@@ -3,12 +3,12 @@ Feature: 普通统计视图
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    Then I set the parameter "SearchInput" with value "*"
+    When I set the parameter "SearchInput" with value "*"
     And I click the "DateEditor" button
     And I click the "ThisMonth" button
     And I click the "SearchButton" button
     And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I click the "CountButton" button
+    And I click the "CountButton" button
     Then I will see the "splSearch.StatisticalPage" page
 
   Scenario: 事件计数(添加失败)
