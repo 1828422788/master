@@ -22,6 +22,7 @@ Feature: 新建搜索宏
       | test |               |            |       |                    |                   | error message "请选择资源分组" |
       | test | default_Macro |            |       |                    |                   | error message "定义不能为空"  |
 
+  @smoke
     Examples: 新建成功
-      | name     | group         | definition | param | validateExpression | validateFalseInfo | message |
-      | AutoTest | default_Macro | $arg1$     |       |                    |                   | 保存成功    |
+      | name | group | definition | param | validateExpression | validateFalseInfo | message |
+#      | AutoTest | default_Macro | $arg1$     |       |                    |                   | 保存成功    |
