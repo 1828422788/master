@@ -6,11 +6,11 @@ Feature: 知识分组
 
   @knowledge
   Scenario Outline:
-    Given I click the "changegroup" button which name is "<name>"
+    Given the data name is "<name>" then i click the "分组" button
     And I choose the "<Type>" from the "GroupComboBox"
     And I click the "Ensure" button
     Then I will see the <Result>
   @all @smoke
     Examples:
-      | name   | Type           | Result                 |
-      | sunxj1 | hunter_roles_m | success message "保存成功" |
+      | name   | Type | Result                 |
+      | sunxj1 | 王月明  | success message "保存成功" |

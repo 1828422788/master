@@ -1,8 +1,7 @@
 Feature: 新建报表
 
   Background:
-    Given I delete from "Report" where "{'name':['sxjautotest','自动化测试'],'group':'default_Report'}"
-    And I insert into table "Report" with "{'name':'自动化测试用例','owner':'1|owner|86bb700c6f5e48b094bbc73dd8f46a6a','domain':'ops','frequency':'day','triggertime':'001130','count':'0','domain_id':'0','crontab':'0','enabled':'1','repoprt_type':'pdf'}"
+    Given I delete from "Report" where "{'name':['自动化测试'],'group':'default_Report'}"
     And open the "report.ListPage" page for uri "/reports/"
 
   @report
@@ -26,17 +25,16 @@ Feature: 新建报表
 
   @all @smoke
     Examples: 保存成功
-      | name | describe | runningUser | reportGroup | reportType | email | subject | hour | minute | chartLists | layout | result |
-      | sxjautotest | autotest | owner       | default_Report | PDF        | 15194315230@163.com            | hello sxj | 11   | 30     | rose       | Layout1 | 保存成功   |
-      | 自动化测试       | 测试word   | owner       | default_Report | WORD       | 15194315230@163.com,144@qq.com | 我是自动化用例   | 11   | 30     | rose       | Layout1 | 保存成功   |
-      | 测试Excel     | 测试excel  | owner       | default_Report | EXCEL      |                                | 我是自动化用例   | 11   | 30     | rose       | Layout1 | 保存成功   |
-      | 乱码测试&$¥#    | 测试url    | owner       | default_Report | URL        |                                | 我是自动化用例   | 11   | 30     | rose       | Layout1 | 保存成功   |
+      | name        | describe | runningUser | reportGroup    | reportType | email                     | subject                                    | hour | minute | chartLists | layout  | result |
+      | sxjautotest | autotest | owner       | default_Report | PDF        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | url        | Layout1 | 保存成功   |
+      | 自动化测试       | 测试word   | owner       | default_Report | WORD       | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | url        | Layout1 | 保存成功   |
+      | 测试Excel     | 测试excel  | owner       | default_Report | EXCEL      | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | url        | Layout1 | 保存成功   |
+      | 乱码测试&$¥#    | 测试url    | owner       | default_Report | URL        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | url        | Layout1 | 保存成功   |
 
   @all
     Examples: 保存失败
-      | name    | describe | runningUser | reportGroup    | reportType | email | subject | hour | minute | chartLists | layout  | result               |
-      | 自动化测试   |          | owner       | default_Report | PDF        |       | 我是自动化用例 | 11   | 30     |            | Layout1 | 报表内容 不能为空            |
-      | 自动化测试用例 |          | owner       | default_Report | PDF        |       | 我是自动化用例 | 11   | 30     | rose       | Layout1 | 报表名称已存在\n错误码: FE_580 |
+      | name  | describe | runningUser | reportGroup    | reportType | email                     | subject                                    | hour | minute | chartLists | layout  | result    |
+      | 自动化测试 |          | owner       | default_Report | PDF        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     |            | Layout1 | 报表内容 不能为空 |
 
   @report
   Scenario Outline: 执行计划为crontab
@@ -57,16 +55,16 @@ Feature: 新建报表
     Then I will see the success message "<result>"
 
     Examples: 保存成功
-      | name        | describe | runningUser | reportGroup    | reportType | email | subject | crontab              | chartLists | layout  | result |
-      | sxjautotest |          | owner       | default_Report | PDF        |       | test    | 0 * * * * ?          | rose       | Layout1 | 保存成功   |
-      | 9点到9点02分    |          | owner       | default_Report | PDF        |       | test    | 0 0-2 9 * * ?        | rose       | Layout1 | 保存成功   |
-      | 周一到周五       |          | owner       | default_Report | PDF        |       | test    | 0 0/15 9 ? * MON-FRI | rose       | Layout1 | 保存成功   |
-      | 隔三天执行一次     |          | owner       | default_Report | PDF        |       | test    | 0 5 9 1/3 * ?        | rose       | Layout1 | 保存成功   |
+      | name        | describe | runningUser | reportGroup    | reportType | email                     | subject                                    | crontab              | chartLists | layout  | result |
+      | sxjautotest |          | owner       | default_Report | PDF        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 0 * * * * ?          | url        | Layout1 | 保存成功   |
+      | 9点到9点02分    |          | owner       | default_Report | PDF        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 0 0-2 9 * * ?        | url        | Layout1 | 保存成功   |
+      | 周一到周五       |          | owner       | default_Report | PDF        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 0 0/15 9 ? * MON-FRI | url        | Layout1 | 保存成功   |
+      | 隔三天执行一次     |          | owner       | default_Report | PDF        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 0 5 9 1/3 * ?        | url        | Layout1 | 保存成功   |
 
 
     Examples: 保存失败
       | name          | describe | runningUser | reportGroup    | reportType | email | subject | crontab     | chartLists | layout  | result                        |
-      | sunxjautotest |          | owner       | default_Report | PDF        |       | test    | 0 ? * * * ? | rose       | Layout1 | 无效参数, 参数：[crontab]\n错误码: FE_7 |
+      | sunxjautotest |          | owner       | default_Report | PDF        |       | test    | 0 ? * * * ? | url        | Layout1 | 无效参数, 参数：[crontab]\n错误码: FE_7 |
 
 
   @report

@@ -20,7 +20,6 @@ Feature: 重命名拓扑图
       | sxjautotest | autotest | success message "保存成功" |
 
     Examples: 重命名失败
-      | name        | newName       | message                                |
-      | sxjautotest |               | error message "请输入拓扑图名称"               |
-      | sxjautotest | sunxjautotest | error message "拓扑图名字已经存在\n错误码: FE_621" |
+      | name        | newName | message                  |
+      | sxjautotest |         | error message "请输入拓扑图名称" |
 

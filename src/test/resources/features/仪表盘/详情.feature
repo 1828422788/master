@@ -24,7 +24,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | button | disabledButton |
-      | first   | AddButton,MoveButton,RefreshButton,SaveAsReportButton,NightModeButton,FullScreenButton | AddButton,MoveButton,RefreshButton |
+#      | first   | AddButton,MoveButton,RefreshButton,SaveAsReportButton,NightModeButton,FullScreenButton | AddButton,MoveButton,RefreshButton |
 
   @smoke
   Scenario Outline: 移出标签页
@@ -40,7 +40,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | dashboardName |
-      | first   | autotest      |
+#      | first   | autotest      |
 
   @smoke
   Scenario Outline: 跳转到其他仪表盘
@@ -51,7 +51,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | dashboardName |
-      | first   | autotest      |
+#      | first   | autotest      |
 
   @smoke
   Scenario Outline: 回收站操作
@@ -72,7 +72,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | num | dashboardName |
-      | first   | [ 1 ] | autotest      |
+#      | first   | [ 1 ] | autotest      |
 
 
   @smoke
@@ -86,7 +86,7 @@ Feature: 仪表盘详情页
     Then I will see the success message "当前仪表盘无开启状态标签页, 请新建或者恢复关闭状态标签页"
 
     Examples:
-      | tagName | num |
+      | tagName | num   |
       | first   | [ 1 ] |
 
   Scenario Outline: 新建标签页失败
@@ -95,7 +95,7 @@ Feature: 仪表盘详情页
     Then I will see the success message "<message>"
 
     Examples:
-      | tagName | message |
+      | tagName | message                     |
       |         | 标签页名称不能为空                   |
       | t e s t | 名称格式有误, 仅支持汉字，数字，字母，中划线及下划线 |
 
@@ -132,7 +132,7 @@ Feature: 仪表盘详情页
     Then take a screenshot
 
     Examples:
-      | tagName | eventList | title | token | field | inputType | choiceValue |
+      | tagName | eventList | title | token | field | inputType | choiceValue   |
       | first   | 添加过滤项     | test  | token |       | 下拉菜单      | default_value |
 
   @smoke
@@ -156,7 +156,7 @@ Feature: 仪表盘详情页
     Then take a screenshot
 
     Examples:
-      | tagName | eventList | title | token | field | inputType | dynamicField | search | choiceValue |
+      | tagName | eventList | title | token | field | inputType | dynamicField | search                        | choiceValue |
       | first   | 添加过滤项     | test  | token |       | 动态菜单      | appname      | * \| stats count() by appname | java        |
 
 

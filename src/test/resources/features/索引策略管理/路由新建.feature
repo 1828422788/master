@@ -1,5 +1,5 @@
 @indexSetting @all @smoke
-Feature:
+Feature: 路由新建
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
@@ -18,6 +18,8 @@ Feature:
     Then I will see the success message "<message>"
 
     Examples:
-      | indexName | desc | appName | tag | rule | message |
-#      | autotest  |      |         |     |      |         |
+      | indexName | desc | appName | tag        | rule  | message |
+      | autotest  | test | iis     |            |       | 保存成功    |
+      | autotest  | test |         | index_test |       | 保存成功    |
+      | autotest  | test |         |            | iisdx | 保存成功    |
 

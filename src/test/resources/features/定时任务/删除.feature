@@ -12,5 +12,18 @@ Feature:删除定时任务
 
   @all @smoke
     Examples:
-      | name        |
-      | sxjAutoTest |
+      | name              |
+      | sxjAutoTest       |
+      | sxjtest           |
+      | lineAutoTest      |
+      | areaAutoTest      |
+      | columnAutoTest    |
+      | scatterAutoTest   |
+      | pieAutoTest       |
+      | roseAutoTest      |
+      | barAutoTest       |
+      | multiaxisAutoTest |
+      | chordAutoTest     |
+      | sankeyAutoTest    |
+      | forceAutoTest     |
+      | rangelineAutoTest |

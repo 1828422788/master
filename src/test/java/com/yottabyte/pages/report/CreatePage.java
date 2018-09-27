@@ -113,12 +113,8 @@ public class CreatePage extends PageTemplate {
     private WebElement chartDropdownList;
 
     public WebElement getChartList() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(chartList));
         chartList.click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return chartDropdownList;
     }
 

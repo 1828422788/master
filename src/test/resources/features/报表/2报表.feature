@@ -10,6 +10,6 @@ Feature: 已生成报表
 
   @all @smoke
     Examples:
-      | name          |
-      | sunxjautotest |
+      | name        |
+      | sxjautotest |
 

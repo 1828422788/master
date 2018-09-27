@@ -18,7 +18,3 @@ Feature: 仪表盘重命名
     Examples: 重命名成功
       | name        | newName  | message                    |
       | sxjautotest | autotest | success message "仪表盘重命名成功" |
-
-    Examples: 重命名失败
-      | name        | newName | message                                |
-      | sxjautotest | test    | error message "仪表盘分组名已存在\n错误码: FE_540" |

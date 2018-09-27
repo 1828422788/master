@@ -36,7 +36,6 @@ Feature: 编辑定时任务
     Given the data name is "<dataName>" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
     When I click the "ResultHandling" button
-    And I click the "AddJDBC" button
     And I set the parameter "ConnectName" with value "<connectName>"
     And I set the parameter "UserName" with value "<userName>"
     And I set the parameter "Password" with value "<password>"

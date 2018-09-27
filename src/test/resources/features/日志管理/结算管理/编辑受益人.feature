@@ -1,5 +1,5 @@
 @payments @all
-Feature: 编辑受益人
+Feature: 受益人编辑
 
   Background:
     Given I insert into table "Beneficiary" with "{'name':'autotest','domain_id':'1'}"

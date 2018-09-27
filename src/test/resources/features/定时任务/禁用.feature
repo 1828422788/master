@@ -7,9 +7,9 @@ Feature:禁用定时任务
   @timedTask
   Scenario Outline:
     Then I disabled the data "<name>"
-    Then I will see the success message "禁用成功"
+    Then I will see the success message "<message>"
 
     Examples:
-      | name        |
-      | sxjAutoTest |
-  
+      | name        | message |
+      | sxjAutoTest | 禁用成功    |
+      | sxjAutoTest | 启用成功    |

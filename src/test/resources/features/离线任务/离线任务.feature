@@ -52,7 +52,7 @@ Feature: 离线任务列表
 
   Scenario: 删除完成的离线任务
     Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then the data name is "autotest" then i click the "删除" button
+    Then the data name is "offlineAutoTest" then i click the "删除" button
     Then I click the "EnsureButton" button
     Then I will see the success message "删除成功"
 
@@ -66,7 +66,7 @@ Feature: 离线任务列表
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button
     Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then I will see the "DeleteButton" is not exist
+#    Then I will see the "DeleteButton" is not exist
     Then the data name is "<name>" then i click the "暂停" button
     Then I click the "EnsureButton" button
     Then the data name is "<name>" then i click the "删除" button
@@ -76,11 +76,3 @@ Feature: 离线任务列表
     Examples:
       | splQuery                                  | time      | name            |
       | * \| transaction apache.status maxspan=1s | WholeTime | offlineAutoTest |
-
-
-  Scenario: 删除失败的任务
-    Given open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then the data name is "autotest" then i click the "恢复" button
-    Then the data name is "autotest" then i click the "删除" button
-    Then I click the "EnsureButton" button
-    Then I will see the success message "删除成功"

@@ -780,6 +780,10 @@ public class SearchPage extends PageTemplate {
         return GetTime.getTime(webDriver, "Today");
     }
 
+    public WebElement getThisWeek() {
+        return GetTime.getTime(webDriver, "ThisWeek");
+    }
+
     // 获取昨天按钮
     public WebElement getYesterday() {
         DateEditorPage dateEditorPage = new DateEditorPage(webDriver);

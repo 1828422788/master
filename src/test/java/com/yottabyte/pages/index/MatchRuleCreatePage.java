@@ -16,11 +16,23 @@ public class MatchRuleCreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='appname']/ancestor::button/preceding-sibling::div//input")
     private WebElement appName;
 
-    @FindBy(xpath = "//span[text()='appname']/ancestor::button/preceding-sibling::div//input")
+    @FindBy(xpath = "//span[text()='tag']/ancestor::button/preceding-sibling::div//input")
     private WebElement tag;
 
-    @FindBy(xpath = "//span[text()='appname']/ancestor::button/preceding-sibling::div//input")
+    @FindBy(xpath = "//span[text()='匹配规则']/ancestor::button/preceding-sibling::div//input")
     private WebElement rule;
+
+    public WebElement getAppName() {
+        return appName;
+    }
+
+    public WebElement getTag() {
+        return tag;
+    }
+
+    public WebElement getRule() {
+        return rule;
+    }
 
     public WebElement getIndexName() {
         return super.getDropdownList("索引名");

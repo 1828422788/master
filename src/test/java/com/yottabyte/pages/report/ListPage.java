@@ -19,6 +19,13 @@ public class ListPage extends PageTemplate {
         super(driver);
     }
 
+    @FindBy(xpath = "//i[@class='el-input__icon el-icon-search']/following-sibling::input")
+    private WebElement searchInput;
+
+    public WebElement getSearchInput() {
+        return searchInput;
+    }
+
     @FindBy(xpath = "//span[text()='新建']")
     private WebElement createButton;
 

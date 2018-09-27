@@ -7,7 +7,7 @@ Feature:查询定时任务
   @timedTask
   Scenario Outline: 根据定时任务分组进行查询
     Given I choose the "<group>" from the "GroupList"
-    Then I will see the list of "" contains "" or I see the "Names" contains "<name>"
+    Then I will see the column contains "<name>"
 
   @all @smoke
     Examples:

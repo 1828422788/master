@@ -145,4 +145,45 @@ public class Search {
             assertTrue(acturalText.contains(name));
         }
     }
+
+    /**
+     * 报表中用到，写的不好，需要优化
+     *
+     * @param name
+     */
+    @Then("^I will see the column contains \"([^\"]*)\"$")
+    public void iWillSeeTheColumnContains(String name) {
+        // 分页标签
+        List<WebElement> paging = webDriver.findElements(By.className("number"));
+        // 总页数
+        int totalPage = Integer.parseInt(paging.get(paging.size() - 1).getText());
+        // 下一页按钮
+        WebElement nextPage = webDriver.findElement(By.className("btn-next"));
+
+        List<WebElement> tableBodyList = webDriver.findElements(By.className("el-table__body"));
+        WebElement tableBody;
+        if (tableBodyList.size() == 1) {
+            tableBody = tableBodyList.get(0);
+        } else {
+            tableBody = tableBodyList.get(1);
+        }
+        int i = 0;
+        boolean flag = false;
+        while (i < totalPage) {
+            if (i != 0 && i <= totalPage - 1)
+                nextPage.click();
+            List<WebElement> tr = tableBody.findElements(By.tagName("tr"));
+            int index = 1;
+            for (WebElement element : tr) {
+                WebElement td = element.findElements(By.tagName("td")).get(index - 1);
+                flag = td.getText().toLowerCase().contains(name.toLowerCase());
+                if (flag)
+                    break;
+            }
+            if (flag)
+                break;
+            i++;
+        }
+        assertTrue(flag);
+    }
 }
