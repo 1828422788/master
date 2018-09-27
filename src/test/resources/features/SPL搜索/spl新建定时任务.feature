@@ -23,19 +23,18 @@ Feature:spl搜索新增定时任务
     Then I will see the success message "<message>"
 
   @smoke @all
-    Examples:
-      | splQuery                                      | name    | describe | users | groups                | period | startTime | message |
-      | tag:"sample04061424" \| top 1 apache.resp_len | sxjAutoTest | autotest | owner | default_SavedSchedule | 1      | 15:36:55  | 保存成功    |
+    Examples: 保存成功
+      | splQuery                                      | name        | describe | users | groups                | period | startTime | message |
+      | tag:"sample04061424" \| top 1 apache.resp_len | sxjAutoTest | autotest | owner | default_SavedSchedule | 360    | 15:36:55  | 保存成功    |
 
   @all
-    Examples:
-      | splQuery                                                                                                                          | name    | describe | users | groups                | period | startTime | message                |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts |         |          |       |                       |        |           | 请填写名称！                 |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest |       |                       |        |           | 请选择分组                  |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule |        |           | 定时模式下, 时间间隔不能为零或空      |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule | 1.5    |           | 定时模式下, 时间间隔应该为正整数      |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | stest   | autotest | owner | default_SavedSchedule | 1      |           | 请输入开始时间                |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule | 1      | 15:36:55  | 定时任务已存在\n[错误码: FE_537] |
+    Examples: 保存失败
+      | splQuery                                                                                                                          | name    | describe | users | groups                | period | startTime | message           |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts |         |          |       |                       |        |           | 请填写名称！            |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest |       |                       |        |           | 请选择分组             |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule |        |           | 定时模式下, 时间间隔不能为零或空 |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule | 1.5    |           | 定时模式下, 时间间隔应该为正整数 |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | stest   | autotest | owner | default_SavedSchedule | 1      |           | 请输入开始时间           |
 
   @smoke @spl @all
   Scenario Outline: 生成图表类型的定时任务

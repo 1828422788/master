@@ -32,6 +32,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         PageFactory.initElements(driver, this);
         parentPageName = LoginBeforeAllTests.getPageFactory() == null ? "" : LoginBeforeAllTests.getPageFactory().getClass().getSimpleName();
     }
+
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
@@ -40,9 +41,9 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     protected WebElement getSuccessMessage() {
-        if (ElementExist.isElementExist(webDriver,By.className("el-message__group"))) {
+        if (ElementExist.isElementExist(webDriver, By.className("el-message__group"))) {
             return webDriver.findElement(By.className("el-message__group"));
-        }else {
+        } else {
             return message;
         }
     }
@@ -66,7 +67,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
                     return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
                 }
             });
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new Error("Can not locate " + this.getClass().getName() + "page");
         }
     }
@@ -90,7 +91,12 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getContainsTextButton(String text) {
-        String xpath = "//span[contains(text(),'" + text + "')]";
+        String xpath = "//span[contains(text(),'" + text + "')][not(@class)]";
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getLastDropdownList() {
+        List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
+        return list.get(list.size() - 1);
     }
 }

@@ -317,8 +317,8 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='分组']/following-sibling::div")
     private WebElement group;
 
-    @FindBy(xpath = "//button[@class='el-time-panel__btn confirm']")
-    private List<WebElement> ensureButton;
+    @FindBy(xpath = "//div[@class='el-time-panel__footer']/button[text()='确定']")
+    private WebElement ensureButton;
 
     @FindBy(className = "el-icon--right")
     private WebElement arrowDown;
@@ -481,7 +481,7 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getEnsureButton() {
-        return ensureButton.get(ensureButton.size() - 1);
+        return ensureButton;
     }
 
     public WebElement getYaxis() {
@@ -657,6 +657,7 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getEnsure() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(ensureButton));
         return ensure.get(1);
     }
 

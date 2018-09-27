@@ -406,10 +406,6 @@ public class StatisticalPage extends PageTemplate {
         return addButton;
     }
 
-    private WebElement getLastDropdownList() {
-        return dropdownList.get(dropdownList.size() - 1);
-    }
-
     public WebElement getPresentType() {
         presentType.click();
         return this.getLastDropdownList();

@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.GetLogger;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -30,6 +31,23 @@ public class ClickButtonWithGivenName {
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String buttonName) {
         WebElement tr = this.findName(dataName);
+        this.click(buttonName, tr);
+    }
+
+    @Given("^the data name \"([^\"]*)\" in table \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
+    public void clickButtonWithGivenName(String dataName, String tableName, String buttonName) {
+        WebElement table = GetElementFromPage.getWebElementWithName(tableName);
+        WebElement tr = this.findName(dataName, table);
+        this.click(buttonName, tr);
+    }
+
+    /**
+     * 点击对应行的按钮
+     *
+     * @param buttonName
+     * @param tr
+     */
+    private void click(String buttonName, WebElement tr) {
         String xpath = ".//span[contains(text(),'" + buttonName + "')]";
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         // 包含删除的按钮会有两个，因此需通过class属性去判断
@@ -65,22 +83,49 @@ public class ClickButtonWithGivenName {
         if (tableList.size() == 1) {
             // 表体
             WebElement table = tableList.get(0);
-            int i = 0;
-            while (i < this.getTotalPage()) {
-                // 找到一行元素
-                List<WebElement> trList = table.findElements(By.tagName("tr"));
-                if (i != 0 && i <= this.getTotalPage() - 1)
-                    this.getNextPage().click();
-
-                for (WebElement tr : trList) {
-                    if (tr.findElement(By.tagName("td")).getText().equals(name)) {
-                        return tr;
-                    }
-                }
-                i++;
-            }
+            return this.getRow(name, table);
         } else {
             return this.getSourcesGroupName(tableList, name);
+        }
+    }
+
+    private WebElement findName(String name, WebElement table) {
+        return this.getRowWithoutPaging(name, table);
+    }
+
+    /**
+     * 获取名称所在行
+     *
+     * @param name
+     * @param table
+     * @return
+     */
+    private WebElement getRow(String name, WebElement table) {
+        int i = 0;
+        while (i < this.getTotalPage()) {
+            // 找到一行元素
+            List<WebElement> trList = table.findElements(By.tagName("tr"));
+            if (i != 0 && i <= this.getTotalPage() - 1)
+                this.getNextPage().click();
+
+            for (WebElement tr : trList) {
+                if (tr.findElement(By.tagName("td")).getText().equals(name)) {
+                    return tr;
+                }
+            }
+            i++;
+        }
+        return null;
+    }
+
+    private WebElement getRowWithoutPaging(String name, WebElement table) {
+        // 找到一行元素
+        List<WebElement> trList = table.findElements(By.tagName("tr"));
+
+        for (WebElement tr : trList) {
+            if (tr.findElement(By.tagName("td")).getText().equals(name)) {
+                return tr;
+            }
         }
         return null;
     }
@@ -161,4 +206,6 @@ public class ClickButtonWithGivenName {
             }
         }
     }
+
+
 }
