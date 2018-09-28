@@ -16,7 +16,7 @@ public class ListPage extends PageTemplate {
         return super.getButton("新建");
     }
 
-    public WebElement getEnsureDeleteButton() {
+    public WebElement getEnsureButton() {
         return super.getContainsTextButton("确定");
     }
 

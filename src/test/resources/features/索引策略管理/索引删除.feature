@@ -7,5 +7,5 @@ Feature: 删除索引信息
 
   Scenario:
     Given the data name is "autotest" then i click the "删除" button
-    When I click the "EnsureDeleteButton" button
+    When I click the "EnsureButton" button
     Then I will see the success message "删除成功"

@@ -50,4 +50,8 @@ public class MatchRuleCreatePage extends PageTemplate {
         return super.getSuccessMessage();
     }
 
+    public WebElement getSavedButton() {
+        return super.getContainsTextButton("保存");
+    }
+
 }
