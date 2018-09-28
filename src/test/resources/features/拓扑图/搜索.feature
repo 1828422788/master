@@ -1,5 +1,5 @@
-@topology
-Feature: 搜索拓扑图
+@topology @all @smoke
+Feature: 拓扑图搜索
 
   Background:
     Given I insert into table "Topology" with "{'name':'sxjautotest','domain_id':'1','creator_id':'1','category':'0','group':'default_Topology'}"
@@ -13,7 +13,6 @@ Feature: 搜索拓扑图
     Then I set the search input with "<name>"
     Then I will see the column number "1" contains "<name>"
 
-  @all @smoke
     Examples:
       | group            | name |
       | default_Topology | 未分组  |

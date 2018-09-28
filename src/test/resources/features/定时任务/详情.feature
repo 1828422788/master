@@ -1,3 +1,4 @@
+@timedTask @all @smoke
 Feature: 定时任务详情页截图
 
   Background:

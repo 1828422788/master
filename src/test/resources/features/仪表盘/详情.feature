@@ -24,7 +24,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | button | disabledButton |
-#      | first   | AddButton,MoveButton,RefreshButton,SaveAsReportButton,NightModeButton,FullScreenButton | AddButton,MoveButton,RefreshButton |
+      | first   | AddButton,MoveButton,RefreshButton,SaveAsReportButton,NightModeButton,FullScreenButton | AddButton,MoveButton,RefreshButton |
 
   @smoke
   Scenario Outline: 移出标签页
@@ -40,7 +40,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | dashboardName |
-#      | first   | autotest      |
+      | first   | autotest      |
 
   @smoke
   Scenario Outline: 跳转到其他仪表盘
@@ -51,7 +51,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | dashboardName |
-#      | first   | autotest      |
+      | first   | autotest      |
 
   @smoke
   Scenario Outline: 回收站操作
@@ -72,7 +72,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | num | dashboardName |
-#      | first   | [ 1 ] | autotest      |
+      | first   | [ 1 ] | autotest      |
 
 
   @smoke

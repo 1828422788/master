@@ -81,8 +81,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         String xpath = "//label[contains(text(),'" + text + "')]/following-sibling::div//input[@class='el-input__inner']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        List<WebElement> dropdownList = webDriver.findElements(By.className("el-select-dropdown__list"));
-        return dropdownList.get(dropdownList.size() - 1);
+        return getLastDropdownList();
     }
 
     public WebElement getButton(String text) {

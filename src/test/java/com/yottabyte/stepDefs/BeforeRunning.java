@@ -132,9 +132,10 @@ public class BeforeRunning {
     @Given("^I delete from \"([^\"]*)\" where \"([^\"]*)\"$")
     public void deleteWithGroup(String tableName, String values) {
         Map<String, Object> map = JsonStringPaser.json2Stirng(values);
+        String key = map.keySet().iterator().next();
         // 资源信息
-        List<String> valueList = this.mapValue2List(map, "name");
-        StringBuffer queryResourceIdList = new StringBuffer("select id from " + tableName + " where name in (");
+        List<String> valueList = this.mapValue2List(map, key);
+        StringBuffer queryResourceIdList = new StringBuffer("select id from " + tableName + " where " + key + " in (");
         List<String> idList = JdbcUtils.query(this.assembleSql(valueList, queryResourceIdList.toString()));
         // 不存在该资源则返回
         if (idList.size() == 0)

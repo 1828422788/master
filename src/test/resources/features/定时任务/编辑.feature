@@ -1,10 +1,10 @@
-Feature: 编辑定时任务
+@timedTask @all
+Feature: 定时任务编辑
 
   Background:
     Given I insert into table "SavedSchedule" with "{'name':'sxjAutoTest','domain_id':'1','owner_id':'1','request_method':'GET','vis_type':'STATS_NEW','chart_type':'table','last_run_timestamp':'0','start_trigger_time':'1535614615','check_interval':'1','request':'yField=&owner_name=owner&defaultColor=%2319B8FF&xAxisRotate=&byStacks=&toLongitudeField=&sid=&legendPosition=&fromLongitudeField=&toLatitudeField=&time_range=now/d%2Cnow&yCharts=&ySmooths=&cur_ByField=&outlierField=&query=tag%3A%22sample04061424%22%20%7C%20top%201%20apache.resp_len&filter_field=&fromField=&size=20000&category=events&yFields=&colorValues=&cur_ByFields=&source_group=all&lowerField=&upperField=&legendEllipsis=&page=0&field=&token=1f0d166ab3e82d812fa2ed26aebdb0ac&yRanges=&mapType=&toField=&act=search&weightField=&labelField=&xField=&usetable=true&fromLatitudeField=&order=desc&xAxisSort=&owner_id=1','category':'1','crontab':'0','enabled':'1','group':'default_SavedSchedule'}"
     And open the "timedTask.ListPage" page for uri "/schedule/"
 
-  @timedTask
   Scenario Outline: 编辑定时任务
     When the data name is "<dataName>" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
@@ -19,19 +19,17 @@ Feature: 编辑定时任务
     Then I click the "SaveButton" button
     Then I will see the success message "<result>"
 
-  @all @smoke
+  @smoke
     Examples:
       | dataName    | name        | describe | user  | resource | taskGroup | period | startTime | result |
       | sxjAutoTest | sxjAutoTest | first    | owner | all_     |           | 10     | 16:37:55  | 保存成功   |
       | sxjAutoTest | sxjAutoTest |          | owner | all_     |           | 10     | 16:37:55  | 保存成功   |
 
-  @all
     Examples:
       | dataName    | name | describe | user | resource | taskGroup | period | startTime | result  |
       | sxjAutoTest |      |          |      |          |           |        |           | 名称 不能为空 |
 
 
-  @timedTask
   Scenario Outline: 成功编辑定时任务的结果处理方式
     Given the data name is "<dataName>" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
@@ -51,12 +49,11 @@ Feature: 编辑定时任务
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
-  @all @smoke
+  @smoke
     Examples:
       | dataName    | connectName | userName | password     | host          | port | dbType | dbName         | tableName | firstDataMapping | secondDataMapping |
       | sxjAutoTest | sxjtest     | root     | rizhiyi&2014 | 192.168.1.200 | 3306 | mysql  | rizhiyi_system | tyf       | count            | percent           |
 
-  @timedTask
   Scenario Outline: 未成功编辑定时任务的结果处理方式
     When the data name is "<dataName>" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
@@ -72,7 +69,6 @@ Feature: 编辑定时任务
     Then I click the "Verify" button
     Then I will see the success message "<result>"
 
-  @all
     Examples:
       | dataName    | connectName | userName | password     | host          | port | dbType | dbName         | tableName | result                             |
       | sxjAutoTest |             |          |              |               |      |        |                |           | SCHEDULED.CONNECTION_NAME 不能为空     |

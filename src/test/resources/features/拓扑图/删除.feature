@@ -1,5 +1,5 @@
-@topology
-Feature: 删除拓扑图
+@topology @all @smoke
+Feature: 拓扑图删除
 
   Background:
     Given I insert into table "Topology" with "{'name':'sxjautotest','domain_id':'1','creator_id':'1','category':'0','group':'default_Topology'}"
@@ -10,7 +10,6 @@ Feature: 删除拓扑图
     Then I click the "Ensure" button
     Then I will see the success message "删除成功"
 
-  @all @smoke
     Examples:
       | name        |
       | sxjautotest |

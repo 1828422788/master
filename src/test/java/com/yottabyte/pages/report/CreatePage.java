@@ -112,9 +112,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-dropdown-menu")
     private WebElement chartDropdownList;
 
-    public WebElement getChartList() {
+    public WebElement getChartList() throws InterruptedException {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(chartList));
         chartList.click();
+        Thread.sleep(2000);
         return chartDropdownList;
     }
 

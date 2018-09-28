@@ -1,6 +1,7 @@
 Feature: 新建知识
 
   Background:
+    Given I delete from "Knowledge" where "{'code':'sxjautotest'}"
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
 
   @knowledge
@@ -21,8 +22,8 @@ Feature: 新建知识
     Examples: 保存成功
       | EventCodeValue | NameValue | Type              | TagType | Describe   | Solution      | Result                              |
       | sxjautotest    | sunxj1    | default_Knowledge | 404     | sunxjTest  | do nothing    | "sunxj1" in the "ElementList"       |
-      | sxjautotest2   |           | default_Knowledge |         | 第二个自动化测试用例 |               | "sxjautotest2" in the "ElementList" |
-      | sxjautotest3   |           | default_Knowledge |         | 第三个自动化测试用例 | do everything | "sxjautotest3" in the "ElementList" |
+      | sxjautotest    |           | default_Knowledge |         | 第二个自动化测试用例 |               | "sxjautotest2" in the "ElementList" |
+      | sxjautotest    |           | default_Knowledge |         | 第三个自动化测试用例 | do everything | "sxjautotest3" in the "ElementList" |
 
   @all
     Examples: 保存失败
