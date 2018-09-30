@@ -4,6 +4,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.GetLogger;
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -71,7 +72,6 @@ public class ClickButtonWithGivenName {
         tr.findElement(By.xpath(xpath)).click();
     }
 
-
     /**
      * 寻找name所在行
      *
@@ -110,6 +110,26 @@ public class ClickButtonWithGivenName {
 
             for (WebElement tr : trList) {
                 if (tr.findElement(By.tagName("td")).getText().equals(name)) {
+                    return tr;
+                }
+            }
+            i++;
+        }
+        return null;
+    }
+
+    private WebElement getRowWithColumnNum(String name, int columnNum) {
+        WebElement table = webDriver.findElement(By.className("el-table__body"));
+
+        int i = 0;
+        while (i < this.getTotalPage()) {
+            // 找到一行元素
+            List<WebElement> trList = table.findElements(By.tagName("tr"));
+            if (i != 0 && i <= this.getTotalPage() - 1)
+                this.getNextPage().click();
+
+            for (WebElement tr : trList) {
+                if (tr.findElements(By.tagName("td")).get(columnNum).getText().equals(name)) {
                     return tr;
                 }
             }
@@ -207,5 +227,16 @@ public class ClickButtonWithGivenName {
         }
     }
 
-
+    /**
+     * 弹出框的多选操作
+     *
+     * @param name
+     */
+    @And("^I click the \"([^\"]*)\" checkbox$")
+    public void clickCheckBox(String name) {
+        String xpath = ".//ancestor::td/preceding-sibling::td//label";
+        WebElement tr = this.getRowWithColumnNum(name, 1);
+        // 找到禁用按钮并点击
+        tr.findElement(By.xpath(xpath)).click();
+    }
 }

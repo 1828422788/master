@@ -95,8 +95,11 @@ public class Search {
         }
         int i = 0;
         while (i < totalPage) {
-            if (i != 0 && i <= totalPage - 1)
+            if (i != 0 && i <= totalPage - 1) {
+                WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
+                WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
                 nextPage.click();
+            }
             List<WebElement> tr = tableBody.findElements(By.tagName("tr"));
             int index = Integer.parseInt(columnNumber);
             for (WebElement element : tr) {
@@ -119,9 +122,10 @@ public class Search {
         Map<String, Object> map = JsonStringPaser.json2Stirng(typeName);
         // 根据分组进行搜索
         if (map.containsKey("group")) {
+            WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
             webDriver.findElement(By.className("el-icon-arrow-down")).click();
             WebElement dropdownList = webDriver.findElement(By.className("yw-table-group__group-menu"));
-            WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
             WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
             List list = new ArrayList();
             list.add(map.get("group").toString());
@@ -170,8 +174,11 @@ public class Search {
         int i = 0;
         boolean flag = false;
         while (i < totalPage) {
-            if (i != 0 && i <= totalPage - 1)
+            if (i != 0 && i <= totalPage - 1) {
+                WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
+                WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
                 nextPage.click();
+            }
             List<WebElement> tr = tableBody.findElements(By.tagName("tr"));
             int index = 1;
             for (WebElement element : tr) {

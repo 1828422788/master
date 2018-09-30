@@ -2,12 +2,10 @@ package com.yottabyte.pages.resourceGroups;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -38,39 +36,41 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@class='el-message-box__btns']//span[contains(text(),'确定')]")
     private WebElement OKButton;
 
-    public WebElement getResourceGroupName(){
+    public WebElement getApp() {
+        return super.getDropdownList("所属应用");
+    }
+
+    public WebElement getResourceGroupName() {
         return inputs.get(0);
     }
 
-    public List<WebElement> getResourceGroupType(){
-        inputs.get(1).click();
-        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors.get(1));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
-        List<WebElement> list = selectors.get(1).findElements(By.tagName("li"));
-        return list;
+    public WebElement getResourceGroupType() {
+        return super.getDropdownList("分组类型");
     }
 
-    public WebElement getResourceGroupDes(){
-        return inputs.get(2);
+    public WebElement getResourceGroupDes() {
+        return super.getInputElement("描述");
     }
 
-    public List<WebElement> getResourceGroupOwner(){
-        inputs.get(3).click();
-        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors.get(1));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
-        List<WebElement> list = selectors.get(1).findElements(By.tagName("li"));
-        return list;
+    public WebElement getResourceGroupOwner() {
+        return super.getDropdownList("分配角色");
+    }
+
+    public WebElement getAddResourceMemberButton() {
+        return super.getButton("添加资源成员");
+    }
+
+    public WebElement getEnsureButton() {
+        return super.getButton("确定");
     }
 
     public WebElement getCreateButton() {
-//        webDriver.switchTo().activeElement().click();
         ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(createButton);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return createButton;
     }
 
     public WebElement getSuccessMessage() {
-        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(message);
         return message;
     }
 

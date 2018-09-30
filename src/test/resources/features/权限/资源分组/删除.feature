@@ -1,4 +1,4 @@
-Feature: 删除指定的资源分组
+Feature: 资源分组删除
 
   Background:
     Given Create a "resourceGroup" with "{'name':'AutoTest','type':['DashBoardGroup'],'owner':['admin']}"

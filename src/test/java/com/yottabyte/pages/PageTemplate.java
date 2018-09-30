@@ -4,12 +4,14 @@ import com.yottabyte.config.ConfigManager;
 import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.ElementExist;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
@@ -85,7 +87,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getButton(String text) {
-        String xpath = "//span[text()='" + text + "']";
+        String xpath = "//span[text()='" + text + "'][not(@class)]";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -97,5 +99,13 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     public WebElement getLastDropdownList() {
         List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
         return list.get(list.size() - 1);
+    }
+
+    public WebElement getGroupDropdownList() {
+        WebElement searchGroupButton = webDriver.findElement(By.className("el-icon-arrow-down"));
+        searchGroupButton.click();
+        WebElement groupDropdownList = webDriver.findElement(By.className("yw-table-group__group-menu"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(groupDropdownList));
+        return groupDropdownList;
     }
 }

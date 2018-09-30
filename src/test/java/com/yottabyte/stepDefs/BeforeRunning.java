@@ -201,4 +201,9 @@ public class BeforeRunning {
     public void deleteFromMongodb(String database, String deleteData) {
         MongoDBJDBC.delete(database, deleteData);
     }
+
+    @And("^insert with sql \"([^\"]*)\"$")
+    public void insertWithSql(String sql) {
+        JdbcUtils.insert(sql);
+    }
 }
