@@ -2,14 +2,11 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
-import com.yottabyte.utils.GetLogger;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -238,5 +235,30 @@ public class ClickButtonWithGivenName {
         WebElement tr = this.getRowWithColumnNum(name, 1);
         // 找到禁用按钮并点击
         tr.findElement(By.xpath(xpath)).click();
+    }
+
+    @When("^the data name contains \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
+    public void clickButtonWithBlurName(String name, String buttonName) {
+        WebElement tr = this.findLikelyName(name);
+        this.click(buttonName, tr);
+    }
+
+    private WebElement findLikelyName(String name) {
+        WebElement tableList = webDriver.findElement(By.className("el-table__body"));
+        int i = 0;
+        while (i < this.getTotalPage()) {
+            // 找到一行元素
+            List<WebElement> trList = tableList.findElements(By.tagName("tr"));
+            if (i != 0 && i <= this.getTotalPage() - 1)
+                this.getNextPage().click();
+
+            for (WebElement tr : trList) {
+                if (tr.findElement(By.tagName("td")).getText().contains(name)) {
+                    return tr;
+                }
+            }
+            i++;
+        }
+        return null;
     }
 }

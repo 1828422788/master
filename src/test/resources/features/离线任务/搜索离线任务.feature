@@ -1,5 +1,5 @@
 @offlineTask @all @smoke
-Feature: 搜索离线任务
+Feature: 离线任务搜索
 
   Background:
     Given open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"

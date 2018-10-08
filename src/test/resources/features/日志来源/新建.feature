@@ -1,12 +1,11 @@
-@sourceGroups
-Feature: 新建日志来源
+@sourceGroups @all @smoke
+Feature: 日志来源新建
 
   Background:
     Given I delete from "SourceGroup" where "{'name':'sxjautotest'}"
     And I insert into table "SourceGroup" with "{'name':'autotest','domain_id':'1','owner_id':'1','group':'default_SourceGroup'}"
     Then open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
 
-  @all
   Scenario Outline:
     Then I click the "CreateButton" button
     Then I will see the "sourceGroup.CreatePage" page
@@ -20,7 +19,6 @@ Feature: 新建日志来源
     Then I click the "EnsureCreateButton" button
     Then I will see the success message "<message>"
 
-  @smoke
     Examples: 新建成功
       | name        | describe | sourceGroup         | hostname | appname | tag     | spl                               | message |
       | sxjautotest | autotest | default_SourceGroup | 192*     | apache* | apache* | tag:apache* AND NOT logtype:other | 创建成功    |

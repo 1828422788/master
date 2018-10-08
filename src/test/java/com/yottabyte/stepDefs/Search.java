@@ -111,6 +111,45 @@ public class Search {
         }
     }
 
+    @Then("^I will see the special column contains \"([^\"]*)\"$")
+    public void search(String name) {
+        // 分页标签
+        List<WebElement> paging = webDriver.findElements(By.className("number"));
+        // 总页数
+        int totalPage = Integer.parseInt(paging.get(paging.size() - 1).getText());
+        // 下一页按钮
+        WebElement nextPage = webDriver.findElement(By.className("btn-next"));
+
+        List<WebElement> tableBodyList = webDriver.findElements(By.className("el-table__body"));
+        WebElement tableBody;
+        if (tableBodyList.size() == 1) {
+            tableBody = tableBodyList.get(0);
+        } else {
+            tableBody = tableBodyList.get(1);
+        }
+        int i = 0;
+        boolean flag = false;
+        while (i < totalPage) {
+            if (i != 0 && i <= totalPage - 1) {
+                WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
+                WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+                nextPage.click();
+            }
+            List<WebElement> tr = tableBody.findElements(By.tagName("tr"));
+            int index = 1;
+            for (WebElement element : tr) {
+                WebElement td = element.findElements(By.tagName("td")).get(index - 1);
+                flag = td.getText().toLowerCase().contains(name.toLowerCase());
+                if (flag == true)
+                    break;
+            }
+            if (flag == true)
+                break;
+            i++;
+        }
+        assertTrue(flag);
+    }
+
     @Then("^I set the search input with \"([^\"]*)\"$")
     public void setSearchInput(String name) {
         WebElement searchInput = webDriver.findElement(By.xpath("//div[@class='yw-table-group__basic el-input']/input"));

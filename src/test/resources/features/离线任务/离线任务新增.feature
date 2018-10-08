@@ -1,5 +1,5 @@
 @offlineTask @all
-Feature: 存为离线任务
+Feature: 离线任务新增
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

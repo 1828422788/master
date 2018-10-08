@@ -1,5 +1,5 @@
-@sourceGroup
-Feature: 编辑日志来源
+@sourceGroup @all
+Feature: 日志来源编辑
 
   Background:
     Given I insert into table "SourceGroup" with "{'name':'sxjautotest','domain_id':'1','owner_id':'1','group':'default_SourceGroup'}"

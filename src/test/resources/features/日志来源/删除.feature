@@ -1,5 +1,5 @@
 @sourceGroups
-Feature: 删除日志来源
+Feature: 日志来源删除
 
   Background:
     Given I insert into table "SourceGroup" with "{'name':'sxjautotest','domain_id':'1','owner_id':'1','group':'default_SourceGroup'}"
