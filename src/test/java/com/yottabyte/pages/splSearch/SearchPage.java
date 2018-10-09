@@ -369,6 +369,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
     private WebElement downloadEvent;
 
+    @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
+    private WebElement noDataInfo;
+
+    public WebElement getNoDataInfo() {
+        return noDataInfo;
+    }
+
     public WebElement getSavedSearch() {
         return savedSearch;
     }
@@ -658,6 +665,10 @@ public class SearchPage extends PageTemplate {
 
     public WebElement getEnsure() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(ensureButton));
+        return ensure.get(1);
+    }
+
+    public WebElement getEnsureCreateTask() {
         return ensure.get(1);
     }
 

@@ -40,29 +40,15 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='operation-btn-block']/button/span[text()='保存']")
     private WebElement saveButton;
 
-//    public WebElement getUserGroupTab() {
-//        return userGroupTab;
-//    }
-
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
-
-//    @FindBy(className = "el-message-box__message")
-//    private WebElement message;
-
-//    public WebElement getAgentManagerTab() {
-//        return agentManagerTab;
-//    }
-//
-//    public WebElement getAlertTab() {
-//        return alertTab;
-//    }
 
     public WebElement getSaveButton() {
         return saveButton;
     }
 
     public WebElement getTabButton(String tabName) {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
         return webDriver.findElement(By.xpath("//span[text()='" + tabName + "']/parent::button"));
     }
 
@@ -82,7 +68,7 @@ public class AuthorizationPage extends PageTemplate {
     public List<WebElement> getIntraGroupManagement(String targetName) {
         if (webElement != null) {
             return webElement.findElements(By.tagName("td")).get(3).findElements(By.className("el-checkbox"));
-        }else {
+        } else {
             return getElementFromTable(targetName).findElements(By.tagName("td")).get(3).findElements(By.className("el-checkbox"));
         }
     }
@@ -124,6 +110,7 @@ public class AuthorizationPage extends PageTemplate {
         LoginBeforeAllTests.login();
         webDriver.get("http://" + config.get("rizhiyi_server_host") + "/account/roles/");
     }
+
     @Override
     protected void isLoaded() throws Error {
         try {
@@ -137,7 +124,7 @@ public class AuthorizationPage extends PageTemplate {
     public static void main(String[] args) throws InterruptedException {
         SharedDriver driver = new SharedDriver();
         ConfigManager c = new ConfigManager();
-        LoginBeforeAllTests login = new LoginBeforeAllTests(driver,c);
+        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
         login.beforeScenario();
         Thread.sleep(3000);
         driver.get("http://192.168.1.134/account/roles/assign/1/");
@@ -146,8 +133,6 @@ public class AuthorizationPage extends PageTemplate {
         List<String> list = new ArrayList<>();
         list.add("读取");
         list.add("编辑");
-//        Pagination pagination = new Pagination();
-//        WebElement element = pagination.forEachThePaginationDesc(2, "AutoTest");
         checkBox.iCheckFromThe(list, "{'GroupManagement':['AutoTest']}");
     }
 
