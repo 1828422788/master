@@ -1,4 +1,4 @@
-Feature: 新建Spl统计监控
+Feature: 监控新建Spl统计
 
   Background:
     Given Delete a "alert" with "{'name':['AutoTest']}"

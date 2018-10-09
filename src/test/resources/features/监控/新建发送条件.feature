@@ -1,4 +1,4 @@
-Feature: 新建事件数监控并填写发送条件
+Feature: 监控新建事件数并填写发送条件
 
   Background:
     Given Delete a "alert" with "{'name':['AutoTest']}"

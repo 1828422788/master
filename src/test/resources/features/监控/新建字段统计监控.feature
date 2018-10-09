@@ -1,4 +1,4 @@
-Feature: 新建字段统计监控
+Feature: 监控新建字段统计
 
   Background:
     Given Delete a "alert" with "{'name':['AutoTest','AutoTest_sum','AutoTest_avg','AutoTest_max','AutoTest_min']}"

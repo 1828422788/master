@@ -94,6 +94,7 @@ public class IChooseValueFromSelectList {
         for (String value : values) {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
                     if (value.equals(e.getText())) {
                         e.click();
                         if (values.size() == 1)

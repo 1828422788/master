@@ -1,4 +1,4 @@
-Feature: 新建基线对比监控
+Feature: 监控新建基线对比
 
   Background:
     Given Delete a "alert" with "{'name':['AutoTest']}"

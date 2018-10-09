@@ -1,4 +1,4 @@
-Feature: 新建事件数监控及页面的各个检查项
+Feature: 监控新建事件数及页面的各个检查项
 
   Background:
     Given Create a "user" with "{'name':'AutoTestForAlert','fullname':'','email':'AutoTestForAlert@yottabyte.cn','telephone':'','password':'qqqqq11111','userGroup':['admin']}"
