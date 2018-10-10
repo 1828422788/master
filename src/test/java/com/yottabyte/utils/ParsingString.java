@@ -1,6 +1,9 @@
 package com.yottabyte.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,5 +24,16 @@ public class ParsingString {
                 numberList.add(s);
         }
         return numberList;
+    }
+
+    public static long getLongDate(String time) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = null;
+        try {
+            date = format.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date.getTime();
     }
 }

@@ -17,13 +17,14 @@ public class GetTime {
         try {
             DateEditorPage dateEditorPage = new DateEditorPage(webDriver);
             LoginBeforeAllTests.setPageFactory(dateEditorPage);
+
             Class<DateEditorPage> dateEditorPageClass = DateEditorPage.class;
             String methodName = "get" + time;
             Method method = dateEditorPageClass.getDeclaredMethod(methodName);
             webElement = (WebElement) method.invoke(dateEditorPageClass.getDeclaredConstructor(WebDriver.class).newInstance(webDriver));
+
             LoginBeforeAllTests.setPageFactory(new Exception().getStackTrace()[1].getClassName());
-            System.out.println(new Exception().getStackTrace()[1].getClassName());
-        } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return webElement;

@@ -54,22 +54,22 @@ public class DateEditorPage extends PageTemplate {
     @FindBy(xpath = "//button[text()='上月']")
     private WebElement lastMonth;
 
-    @FindBy(xpath = "//button[text()='10分钟']")
+    @FindBy(xpath = "//button[text()='最近10分钟']")
     private WebElement tenMinutes;
 
-    @FindBy(xpath = "//button[text()='30分钟']")
+    @FindBy(xpath = "//button[text()='最近30分钟']")
     private WebElement halfHour;
 
-    @FindBy(xpath = "//button[text()='1小时']")
+    @FindBy(xpath = "//button[text()='最近1小时']")
     private WebElement oneHour;
 
-    @FindBy(xpath = "//button[text()='1天']")
+    @FindBy(xpath = "//button[text()='最近1天']")
     private WebElement oneDay;
 
-    @FindBy(xpath = "//button[text()='2天']")
+    @FindBy(xpath = "//button[text()='最近2天']")
     private WebElement twoDays;
 
-    @FindBy(xpath = "//button[text()='7天']")
+    @FindBy(xpath = "//button[text()='最近7天']")
     private WebElement sevenDays;
 
     @FindBy(xpath = "//button[text()='所有时间']")

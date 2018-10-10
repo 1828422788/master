@@ -25,6 +25,9 @@ public class OfflineTaskPage extends PageTemplate {
     @FindBy(className = "el-table__empty-text")
     private WebElement emptyElement;
 
+    @FindBy(className = "el-button--primary")
+    private WebElement ensureButton;
+
     public WebElement getFirstData() {
         return tdList.get(1);
     }
@@ -36,9 +39,6 @@ public class OfflineTaskPage extends PageTemplate {
     public WebElement getSuccessMessage() {
         return super.getSuccessMessage();
     }
-
-    @FindBy(className = "el-button--primary")
-    private WebElement ensureButton;
 
     public WebElement getEnsureButton() {
         return ensureButton;

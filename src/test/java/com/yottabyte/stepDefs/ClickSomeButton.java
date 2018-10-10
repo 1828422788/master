@@ -2,9 +2,8 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -80,7 +79,7 @@ public class ClickSomeButton {
         boolean flag = ElementExist.isElementExist(webDriver, expandButton);
         if (flag) {
             String text = expandButton.getText();
-            int dumplicateNum = Integer.parseInt(ParsingString.getNumberInString(text).get(0));
+            int duplicatedNum = Integer.parseInt(ParsingString.getNumberInString(text).get(0));
 
             expandButton.click();
             try {
@@ -91,7 +90,7 @@ public class ClickSomeButton {
 
             List<WebElement> list = expandButton.findElements(By.xpath(".//ancestor::tr/following-sibling::tr"));
             String alertName = null;
-            for (int i = 0; i < dumplicateNum; i++) {
+            for (int i = 0; i < duplicatedNum; i++) {
                 WebElement element = list.get(i);
                 String name = element.findElement(By.xpath(".//td[2]")).getText();
                 if (alertName == null)
@@ -100,5 +99,18 @@ public class ClickSomeButton {
                     Assert.assertEquals(alertName, name);
             }
         }
+    }
+
+    @Given("^I click the first checkbox in table$")
+    public void iClickTheFirstCheckboxInTable() {
+        List<WebElement> trList = TableInfo.getTrList();
+        if (trList == null)
+            return;
+
+        List<WebElement> tdList = trList.get(0).findElements(By.xpath(".//td"));
+        if (tdList.size() != 1) {
+            tdList.get(0).findElement(By.className("el-checkbox")).click();
+        }
+
     }
 }
