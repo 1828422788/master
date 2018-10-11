@@ -2,12 +2,16 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class SetTime {
@@ -34,5 +38,12 @@ public class SetTime {
             }
         }
         webDriver.findElement(By.xpath("//button[@class='el-time-panel__btn confirm']")).click();
+    }
+
+    @And("^I set the time input \"([^\"]*)\" to \"([^\"]*)\" minutes later$")
+    public void iSetTheTimeInputToMinutesLater(String element, String minutes) {
+        long twoMinutesLater = System.currentTimeMillis() + 2 * 60 * 1000;
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        String time = format.format(new Date(twoMinutesLater));
     }
 }

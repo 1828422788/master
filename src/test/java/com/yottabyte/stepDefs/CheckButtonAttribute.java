@@ -61,8 +61,8 @@ public class CheckButtonAttribute {
         }
     }
 
-    @Then("^I will see the button \"([^\"]*)\" name is \"([^\"]*)\"$")
-    public void checkButtonName(String buttonName, String expectButtonName) {
+    @Then("^I will see the element \"([^\"]*)\" name is \"([^\"]*)\"$")
+    public void checkElementName(String buttonName, String expectButtonName) {
         WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
         Assert.assertTrue(element.getText().equals(expectButtonName));
     }

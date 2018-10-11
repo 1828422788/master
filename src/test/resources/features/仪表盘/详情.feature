@@ -23,7 +23,7 @@ Feature: 仪表盘详情页
     Then take a screenshot
 
     Examples:
-      | tagName | button | disabledButton |
+      | tagName | button                                                                                 | disabledButton                     |
       | first   | AddButton,MoveButton,RefreshButton,SaveAsReportButton,NightModeButton,FullScreenButton | AddButton,MoveButton,RefreshButton |
 
   @smoke
@@ -36,7 +36,7 @@ Feature: 仪表盘详情页
     Then open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I click the detail which name is "<dashboardName>"
     Then I will see the "dashboard.DetailPage" page
-    Then I will see the button "Tab" name is "<tagName>"
+    Then I will see the element "Tab" name is "<tagName>"
 
     Examples:
       | tagName | dashboardName |
@@ -60,7 +60,7 @@ Feature: 仪表盘详情页
     Then I click the "CloseTag" button
     Then I will see the "DropDownLinkButton" result will be "<num>"
     Then I click the "RecoverTag" button
-    Then I will see the button "Tab" name is "<tagName>"
+    Then I will see the element "Tab" name is "<tagName>"
     Then I click the "CloseTag" button
     Then I click the "MoveoutTag" button
     Then I check "<dashboardName>" from the "CheckBox"
@@ -68,10 +68,10 @@ Feature: 仪表盘详情页
     Then open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I click the detail which name is "<dashboardName>"
     Then I will see the "dashboard.DetailPage" page
-    Then I will see the button "Tab" name is "<tagName>"
+    Then I will see the element "Tab" name is "<tagName>"
 
     Examples:
-      | tagName | num | dashboardName |
+      | tagName | num   | dashboardName |
       | first   | [ 1 ] | autotest      |
 
 

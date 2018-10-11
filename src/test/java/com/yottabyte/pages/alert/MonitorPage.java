@@ -58,6 +58,96 @@ public class MonitorPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='忽略']")
     private WebElement ignore;
 
+    @FindBy(xpath = "//textarea[@placeholder='请输入']")
+    private WebElement handlingSuggestion;
+
+    @FindBy(xpath = "//li[text()='ping主机']")
+    private WebElement pingHost;
+
+    @FindBy(xpath = "//li[text()='rsyslog告警']")
+    private WebElement rsyslogAlert;
+
+    @FindBy(xpath = "//li[text()='邮件告警']")
+    private WebElement emailAlert;
+
+    @FindBy(xpath = "//div[@class='method-input-block']//input")
+    private WebElement ipAddress;
+
+    @FindBy(xpath = "//span[text()='执行']")
+    private WebElement executeButton;
+
+    @FindBy(className = "plugin-result-content")
+    private WebElement executeResult;
+
+    @FindBy(xpath = "//li[text()='告警转发']")
+    private WebElement forwardAlert;
+
+    @FindBy(xpath = "//div[text()='已处理']")
+    private WebElement handled;
+
+    @FindBy(className = "el-icon-edit")
+    private WebElement editButton;
+
+    @FindBy(className = "el-icon-circle-check")
+    private WebElement Check;
+
+    public WebElement getReturnToAlertPage() {
+        return super.getButton("返回监控首页");
+    }
+
+    public WebElement getCheck() {
+        return Check;
+    }
+
+    public WebElement getEditButton() {
+        return editButton;
+    }
+
+    public WebElement getHandled() {
+        return handled;
+    }
+
+    public WebElement getForwardAlert() {
+        return forwardAlert;
+    }
+
+    public WebElement getEmailAlert() {
+        return emailAlert;
+    }
+
+    public WebElement getRsyslogAlert() {
+        return rsyslogAlert;
+    }
+
+    public WebElement getSyslogAddress() {
+        return super.getInputElement("Syslog地址");
+    }
+
+    public WebElement getReceiver() {
+        return super.getInputElement("接收者");
+    }
+
+    public WebElement getExecuteResult() {
+        return executeResult;
+    }
+
+    public WebElement getExecuteButton() {
+        return executeButton;
+    }
+
+    public WebElement getIpAddress() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(ipAddress));
+        return ipAddress;
+    }
+
+    public WebElement getPingHost() {
+        return pingHost;
+    }
+
+    public WebElement getHandlingSuggestion() {
+        return handlingSuggestion;
+    }
+
     public WebElement getIgnore() {
         return ignore;
     }
@@ -70,15 +160,16 @@ public class MonitorPage extends PageTemplate {
         return super.getSuccessMessage();
     }
 
+    public WebElement getErrorMessage() {
+        return super.getErrorMessage();
+    }
+
     public WebElement getMarkDropdown() {
-//        markDropdown.click();
-//        return getLastDropdownList();
         return markDropdown;
     }
 
     public WebElement getOperatorDropdown() {
-        operatorDropdown.click();
-        return getLastDropdownList();
+        return operatorDropdown;
     }
 
     public WebElement getDateEditor() {
@@ -86,6 +177,7 @@ public class MonitorPage extends PageTemplate {
     }
 
     public WebElement getStatusDropdown() {
+        WaitForElement.waitUntilLoadingDisappear();
         statusDropdown.click();
         return getLastDropdownList();
     }

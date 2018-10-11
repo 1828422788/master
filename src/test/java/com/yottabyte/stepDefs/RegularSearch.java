@@ -19,19 +19,37 @@ import java.util.*;
 public class RegularSearch {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
+    /**
+     * 验证每一行数据均为某一值
+     *
+     * @param dropdownMenu
+     * @param searchResult
+     */
     @Given("^search from \"([^\"]*)\" then I will see the result \"([^\"]*)\"$")
     public void searchFromDropdown(String dropdownMenu, String searchResult) {
         this.chooseFromDropdown(dropdownMenu);
-        this.analyzeSearchResult(searchResult);
+        this.validateSearchResult(searchResult);
     }
 
+    /**
+     * 验证任意一行数据为某一值
+     *
+     * @param dropdownMenu
+     * @param searchResult
+     */
+    @Given("^search from \"([^\"]*)\" then I will see the result contains \"([^\"]*)\"$")
+    public void searchFromThenIWillSeeTheResultContains(String dropdownMenu, String searchResult) {
+        this.chooseFromDropdown(dropdownMenu);
+        this.validateSearchResultContainsValue(searchResult);
+    }
 
     private void waitUntilLoadingDisappear() {
         WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
     }
 
-    private void analyzeSearchResult(String searchResult) {
+    @Then("^I will see the search result \"([^\"]*)\"$")
+    public void validateSearchResult(String searchResult) {
         List<WebElement> trList = this.getTrList();
         if (trList == null)
             return;
@@ -53,6 +71,35 @@ public class RegularSearch {
                     String actualText = tdList.get(columnNum).getText();
                     String expectText = resultMap.get("name").toString();
                     Assert.assertTrue(actualText.contains(expectText));
+                }
+            }
+        }
+    }
+
+    private void validateSearchResultContainsValue(String searchResult) {
+        List<WebElement> trList = this.getTrList();
+        if (trList == null)
+            return;
+
+        Paging paging = GetPaging.getPagingInfo();
+        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
+        int columnNum = Integer.parseInt(resultMap.get("column").toString());
+
+        outer:
+        for (int i = 0; i < paging.getTotalPage(); i++) {
+            if (i != 0) {
+                paging.getNextPage().click();
+                this.waitUntilLoadingDisappear();
+                trList = this.getTrList();
+            }
+
+            for (WebElement tr : trList) {
+                List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
+                if (tdList.size() >= columnNum) {
+                    String actualText = tdList.get(columnNum).getText();
+                    String expectText = resultMap.get("name").toString();
+                    if (actualText.contains(expectText))
+                        break outer;
                 }
             }
         }
@@ -127,6 +174,7 @@ public class RegularSearch {
 
     @Given("^choose from \"([^\"]*)\"$")
     public void chooseFromDropdown(String dropdownMenu) {
+        WaitForElement.waitUntilLoadingDisappear();
         Map<String, Object> dropdownMap = JsonStringPaser.json2Stirng(dropdownMenu);
         String dropdownKey = dropdownMap.keySet().iterator().next();
         WebElement dropdownList = GetElementFromPage.getWebElementWithName(dropdownKey);

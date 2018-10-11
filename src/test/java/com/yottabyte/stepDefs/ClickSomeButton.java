@@ -111,6 +111,5 @@ public class ClickSomeButton {
         if (tdList.size() != 1) {
             tdList.get(0).findElement(By.className("el-checkbox")).click();
         }
-
     }
 }
