@@ -198,8 +198,8 @@ public class BeforeRunning {
 
 
     @Then("^I delete from \"([^\"]*)\" where \"([^\"]*)\" using mongodb$")
-    public void deleteFromMongodb(String database, String deleteData) {
-        MongoDBJDBC.delete(database, deleteData);
+    public void deleteFromMongodb(String dbInfo, String deleteData) {
+        MongoDBJDBC.delete(dbInfo, deleteData);
     }
 
     @And("^insert with sql \"([^\"]*)\"$")

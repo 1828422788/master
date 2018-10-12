@@ -23,8 +23,8 @@ import java.util.Map;
  */
 public class MongoDBJDBC {
 
-    private static MongoDatabase getMongoDatabase() {
-        MongoDatabase mongoDatabase = getMongoClient().getDatabase("spl");
+    private static MongoDatabase getMongoDatabase(String database) {
+        MongoDatabase mongoDatabase = getMongoClient().getDatabase(database);
         return mongoDatabase;
     }
 
@@ -54,8 +54,8 @@ public class MongoDBJDBC {
         return finalUri;
     }
 
-    private static List<ObjectId> search(Map<String, Object> map, String documentName) {
-        MongoCollection<Document> collection = getMongoDatabase().getCollection(documentName);
+    private static List<ObjectId> search(String database, Map<String, Object> map, String documentName) {
+        MongoCollection<Document> collection = getMongoDatabase(database).getCollection(documentName);
         List<ObjectId> idList = new ArrayList<>();
 
         BasicDBObject basicDBObject = new BasicDBObject();
@@ -68,8 +68,9 @@ public class MongoDBJDBC {
 
             for (String value : valueList) {
                 basicDBObject.put(key, value);
-                basicDBObject.put("metadata.domain", Account.getAccountName());
-                basicDBObject.put("metadata.user_id", Account.getAccountId());
+//                basicDBObject.put("metadata.domain", Account.getAccountName());
+//                basicDBObject.put("metadata.user_id", Account.getAccountId());
+                basicDBObject.put("domain_id", Account.getAccountId());
 
                 FindIterable<Document> dbCursor = collection.find(basicDBObject);
                 MongoCursor<Document> dbCursorIterator = dbCursor.iterator();
@@ -85,18 +86,22 @@ public class MongoDBJDBC {
         return idList;
     }
 
-    public static void delete(String documentName, String deleteData) {
-        MongoCollection<Document> collection = getMongoDatabase().getCollection(documentName);
+    public static void delete(String dbInfo, String deleteData) {
+        Map<String, Object> mongodbInfo = JsonStringPaser.json2Stirng(dbInfo);
+        String database = mongodbInfo.get("database").toString();
+        String documentName = mongodbInfo.get("documentName").toString();
+
+        MongoCollection<Document> collection = getMongoDatabase(database).getCollection(documentName);
         GridFS fs = null;
-        if (documentName.contains(".files")) {
-            fs = new GridFS(getMongoClient().getDB("spl"), documentName.split("\\.")[0]);
+        if (documentName.contains(".")) {
+            fs = new GridFS(getMongoClient().getDB(database), documentName.split("\\.")[0]);
         }
 
         Map<String, Object> deleteMap = JsonStringPaser.json2Stirng(deleteData);
         if (deleteMap.containsKey("key")) {
             normalDelete(deleteMap, collection);
         } else {
-            List<ObjectId> deleteIdList = search(deleteMap, documentName);
+            List<ObjectId> deleteIdList = search(database, deleteMap, documentName);
             for (ObjectId deleteId : deleteIdList) {
                 if (deleteId != null) {
                     fs.remove(deleteId);

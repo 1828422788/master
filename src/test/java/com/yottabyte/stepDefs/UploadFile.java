@@ -115,9 +115,5 @@ public class UploadFile {
         System.out.println(fileName);
         System.out.println(tmpFile);
         new UploadFile().uploadFileToSeleniumServer(fileNameWithPath);
-//        SFTPUtil sftpUtil = new SFTPUtil("ftp", "YottaByte&2018", "192.168.1.164", 22);
-//        sftpUtil.login();
-//        sftpUtil.upload("/", path, fileName, new FileInputStream(tmpFile));
-//        sftpUtil.logout();
     }
 }
