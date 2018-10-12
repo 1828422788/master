@@ -54,6 +54,17 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='处理及时率']")
     private WebElement workLoads;
 
+    @FindBy(className = "el-icon-arrow-down")
+    private WebElement dropdownButton;
+
+    @FindBy(className = "el-dropdown-menu")
+    private WebElement dropdownMenu;
+
+    public WebElement getDropdownMenu() {
+        dropdownButton.click();
+        return dropdownMenu;
+    }
+
     public WebElement getWorkLoads() {
         return workLoads;
     }

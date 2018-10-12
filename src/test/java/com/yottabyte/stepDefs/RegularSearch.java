@@ -48,6 +48,12 @@ public class RegularSearch {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
     }
 
+    /**
+     * 验证搜索列表
+     * contains可省，只要有contains则为不包含某一字段
+     *
+     * @param searchResult 格式：{'column':'列数-1','name':'关键字名称','contains':'no'}
+     */
     @Then("^I will see the search result \"([^\"]*)\"$")
     public void validateSearchResult(String searchResult) {
         List<WebElement> trList = this.getTrList();
@@ -70,7 +76,10 @@ public class RegularSearch {
                 if (tdList.size() >= columnNum) {
                     String actualText = tdList.get(columnNum).getText();
                     String expectText = resultMap.get("name").toString();
-                    Assert.assertTrue(actualText.contains(expectText));
+                    if (resultMap.containsKey("contains"))
+                        Assert.assertFalse(actualText.contains(expectText));
+                    else
+                        Assert.assertTrue(actualText.contains(expectText));
                 }
             }
         }
@@ -172,6 +181,11 @@ public class RegularSearch {
         Assert.assertTrue(actualDate >= expect && actualDate <= currentDate);
     }
 
+    /**
+     * 搜索下拉列表
+     *
+     * @param dropdownMenu json格式 {'dropdownElement':'selectName'}
+     */
     @Given("^choose from \"([^\"]*)\"$")
     public void chooseFromDropdown(String dropdownMenu) {
         WaitForElement.waitUntilLoadingDisappear();

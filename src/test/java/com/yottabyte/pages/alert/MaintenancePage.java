@@ -1,9 +1,11 @@
 package com.yottabyte.pages.alert;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * @author sunxj
@@ -22,10 +24,44 @@ public class MaintenancePage extends PageTemplate {
     @FindBy(xpath = "(//a[text()='此刻'])[last()]")
     private WebElement rightNow;
 
-    @FindBy(xpath = "//input[@placeholder='选择时间']")
+    @FindBy(xpath = "(//input[@placeholder='选择时间'])[last()]")
     private WebElement timeInput;
 
+    @FindBy(xpath = "(//button[@class='el-picker-panel__btn'])[last()]")
+    private WebElement ensureButton;
+
+    @FindBy(className = "available")
+    private WebElement available;
+
+    @FindBy(xpath = "//input[@placeholder='输入维护原因']")
+    private WebElement searchReason;
+
+    public WebElement getReturnToAlertPage() {
+        return super.getButton("返回监控首页");
+    }
+
+    public WebElement getEnsureDelete() {
+        return super.getContainsTextButton("确定");
+    }
+
+    public WebElement getSearchReason() {
+        return searchReason;
+    }
+
+    public WebElement getAvailable() {
+        return available;
+    }
+
+    public WebElement getSaveButton() {
+        return super.getContainsTextButton("保存");
+    }
+
+    public WebElement getEnsureButton() {
+        return ensureButton;
+    }
+
     public WebElement getTimeInput() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(timeInput));
         return timeInput;
     }
 
@@ -51,5 +87,13 @@ public class MaintenancePage extends PageTemplate {
 
     public WebElement getGroup() {
         return super.getDropdownList("影响涉及范围");
+    }
+
+    public WebElement getErrorMessage() {
+        return super.getErrorMessage();
+    }
+
+    public WebElement getSuccessMessage() {
+        return super.getSuccessMessage();
     }
 }

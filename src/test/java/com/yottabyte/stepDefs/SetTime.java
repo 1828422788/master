@@ -40,10 +40,19 @@ public class SetTime {
         webDriver.findElement(By.xpath("//button[@class='el-time-panel__btn confirm']")).click();
     }
 
+    /**
+     * 输入当前时间后的若干分钟，格式为HH:mm:ss
+     *
+     * @param elementName
+     * @param time
+     */
     @And("^I set the time input \"([^\"]*)\" to \"([^\"]*)\" minutes later$")
-    public void iSetTheTimeInputToMinutesLater(String element, String minutes) {
-        long twoMinutesLater = System.currentTimeMillis() + 2 * 60 * 1000;
+    public void iSetTheTimeInputToMinutesLater(String elementName, String time) {
+        int minutes = Integer.parseInt(time);
+        long minutesLater = System.currentTimeMillis() + minutes * 60 * 1000;
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-        String time = format.format(new Date(twoMinutesLater));
+        String laterTime = format.format(new Date(minutesLater));
+        WebElement inputElement = GetElementFromPage.getWebElementWithName(elementName);
+        new SetKeyWithValue().iSetTheParameterWithValue(inputElement, laterTime);
     }
 }
