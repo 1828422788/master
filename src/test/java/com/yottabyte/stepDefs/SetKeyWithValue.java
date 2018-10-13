@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.utils.GetElementFromPage;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ public class SetKeyWithValue {
      * @param elementName 元素名称
      * @param value       输入的值
      */
-    @When("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\"$")
+    @And("^I set the parameter \"([^\"]*)\" with value \"([^割]*)\"$")
     public void iSetTheParameterWithValue(String elementName, String value) {
         if (elementName != null && elementName.trim().length() != 0) {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);

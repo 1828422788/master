@@ -127,6 +127,7 @@ public class Search {
         }
         int i = 0;
         boolean flag = false;
+        outer:
         while (i < totalPage) {
             if (i != 0 && i <= totalPage - 1) {
                 WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
@@ -138,11 +139,9 @@ public class Search {
             for (WebElement element : tr) {
                 WebElement td = element.findElements(By.tagName("td")).get(index - 1);
                 flag = td.getText().toLowerCase().contains(name.toLowerCase());
-                if (flag == true)
-                    break;
+                if (flag)
+                    break outer;
             }
-            if (flag == true)
-                break;
             i++;
         }
         assertTrue(flag);
@@ -210,6 +209,7 @@ public class Search {
         }
         int i = 0;
         boolean flag = false;
+        outer:
         while (i < totalPage) {
             if (i != 0 && i <= totalPage - 1) {
                 WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
@@ -222,10 +222,8 @@ public class Search {
                 WebElement td = element.findElements(By.tagName("td")).get(index - 1);
                 flag = td.getText().toLowerCase().contains(name.toLowerCase());
                 if (flag)
-                    break;
+                    break outer;
             }
-            if (flag)
-                break;
             i++;
         }
         assertTrue(flag);

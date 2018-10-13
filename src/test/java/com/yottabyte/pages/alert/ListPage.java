@@ -60,6 +60,46 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-dropdown-menu")
     private WebElement dropdownMenu;
 
+    @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
+    private WebElement searchInputElement;
+
+    @FindBy(xpath = "(//span[contains(text(),'确定')])[last()]")
+    private WebElement ensureDeleteButton;
+
+    @FindBy(xpath = "//textarea[@placeholder='请输入搜索内容']")
+    private WebElement splSearchInput;
+
+    @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
+    private WebElement dateEditor;
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    public WebElement getSplSearchInput() {
+        return splSearchInput;
+    }
+
+    public WebElement getEnsureDeleteButton() {
+        return ensureDeleteButton;
+    }
+
+    public WebElement getSuccessMessage() {
+        return super.getSuccessMessage();
+    }
+
+    public WebElement getEnsureButton() {
+        return super.getContainsTextButton("确定");
+    }
+
+    public WebElement getChangeGroup() {
+        return super.getDropdownList("分组");
+    }
+
+    public WebElement getSearchInputElement() {
+        return searchInputElement;
+    }
+
     public WebElement getDropdownMenu() {
         dropdownButton.click();
         return dropdownMenu;

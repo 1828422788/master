@@ -1,0 +1,15 @@
+@smoke @all @alert
+Feature: 监控复制
+
+  Background:
+    Given open the "alert.ListPage" page for uri "/alerts/"
+
+  Scenario Outline:
+    Given the data name is "<name>" then i click the "分组" button
+    When choose from "{'ChangeGroup':'AutoTestForAlert'}"
+    And I click the "EnsureButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name     |
+      | AutoTest |
