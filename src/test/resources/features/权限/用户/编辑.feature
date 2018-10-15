@@ -22,21 +22,21 @@ Feature: 编辑指定用户
     Then I will see the <Result>
 
   @smoke @all
-  Examples: 编辑用户成功
-    |NeedRun|UserName           |NewUserName           |FullName   |Email                               |Telephone  |Result|
-    |N      |AutoTestForUserEdit|AutoTestForUserEditNew|FullName   |AutoTestForUserEdit@yottabyte.cn    |13111111111|success message "更新成功"|
-    |N      |AutoTestForUserEdit|AutoTestForUserEdit   |NewFullName|AutoTestForUserEdit@yottabyte.cn    |13111111111|success message "更新成功"|
-    |N      |AutoTestForUserEdit|AutoTestForUserEdit   |NewFullName|AutoTestForUserEditNew@yottabyte.cn |13111111111|success message "更新成功"|
-    |N      |AutoTestForUserEdit|AutoTestForUserEdit   |NewFullName|AutoTestForUserEdit@yottabyte.cn    |13111112222|success message "更新成功"|
+    Examples: 编辑用户成功
+      | NeedRun | UserName            | NewUserName            | FullName    | Email                               | Telephone   | Result                 |
+      | N       | AutoTestForUserEdit | AutoTestForUserEditNew | FullName    | AutoTestForUserEdit@yottabyte.cn    | 13111111111 | success message "更新成功" |
+      | N       | AutoTestForUserEdit | AutoTestForUserEdit    | NewFullName | AutoTestForUserEdit@yottabyte.cn    | 13111111111 | success message "更新成功" |
+      | N       | AutoTestForUserEdit | AutoTestForUserEdit    | NewFullName | AutoTestForUserEditNew@yottabyte.cn | 13111111111 | success message "更新成功" |
+      | N       | AutoTestForUserEdit | AutoTestForUserEdit    | NewFullName | AutoTestForUserEdit@yottabyte.cn    | 13111112222 | success message "更新成功" |
 
   @all
-  Examples:  编辑用户失败
-    |NeedRun|UserName           |NewUserName           |FullName|Email                               |Telephone  |Result|
-    |Y      |AutoTestForUserEdit|AutoTestForUserEditNew|        |AutoTestForUserEdit@yottabyte.cn    |           |error message "用户名已存在\n错误码: FE_532"|
-    |N      |AutoTestForUserEdit|                      |        |AutoTestForUserEdit@yottabyte.cn    |           |error message "用户名 不能为空"|
-    |N      |AutoTestForUserEdit|AutoTestForUserEditNew|        |                                    |           |error message "邮箱地址 不能为空"|
-    |Y      |AutoTestForUserEdit|AutoTestForUserEditTmp|        |AutoTestForUserEditNew@yottabyte.cn |           |error message "邮件名已存在\n错误码: FE_533"|
-    |Y      |AutoTestForUserEdit|AutoTestForUserEditNew|        |AutoTestForUserEditTmp@yottabyte.cn |           |error message "用户名已存在\n错误码: FE_532"|
+    Examples:  编辑用户失败
+      | NeedRun | UserName            | NewUserName            | FullName | Email                               | Telephone | Result                              |
+      | Y       | AutoTestForUserEdit | AutoTestForUserEditNew |          | AutoTestForUserEdit@yottabyte.cn    |           | error message "用户名已存在\n错误码: FE_532" |
+      | N       | AutoTestForUserEdit |                        |          | AutoTestForUserEdit@yottabyte.cn    |           | error message "用户名 不能为空"            |
+      | N       | AutoTestForUserEdit | AutoTestForUserEditNew |          |                                     |           | error message "邮箱地址 不能为空"           |
+      | Y       | AutoTestForUserEdit | AutoTestForUserEditTmp |          | AutoTestForUserEditNew@yottabyte.cn |           | error message "邮件名已存在\n错误码: FE_533" |
+      | Y       | AutoTestForUserEdit | AutoTestForUserEditNew |          | AutoTestForUserEditTmp@yottabyte.cn |           | error message "用户名已存在\n错误码: FE_532" |
 
   @users
   Scenario Outline:
@@ -53,14 +53,16 @@ Feature: 编辑指定用户
     Then I will see the <Result>
 
   @all
-  Examples:
-    |UserName           |NewPassword|RepeatPassword|Result|
-    |AutoTestForUserEdit|qqqqq11111 |qqqqq11111    |success message "更新成功"|
+    Examples:
+      | UserName            | NewPassword | RepeatPassword | Result                 |
+      | AutoTestForUserEdit | qqqqq11111  | qqqqq11111     | success message "更新成功" |
 
   @all
-  Examples:
-    |UserName           |NewPassword|RepeatPassword|Result|
-    |AutoTestForUserEdit|qqqqq11111 |              |error message "重复密码 不能为空"|
-    |AutoTestForUserEdit|           |qqqqq11111    |error message "新密码 不能为空"|
-    |AutoTestForUserEdit| 112       |qqqqq11111    |error message "新密码输入有误，请重新输入"|
-    |AutoTestForUserEdit|qqqqq      |qqqqq         |error message "新密码输入有误，请重新输入"|
+    Examples:
+      | UserName            | NewPassword | RepeatPassword | Result                           |
+      | AutoTestForUserEdit | qqqqq11111  |                | error message "重复密码 不能为空"        |
+      | AutoTestForUserEdit |             | qqqqq11111     | error message "新密码 不能为空"         |
+      | AutoTestForUserEdit | 112         | qqqqq11111     | error message "密码需满足: 8-16个字符"   |
+      | AutoTestForUserEdit | qqqqq       | qqqqq          | error message "密码需满足: 8-16个字符"   |
+      | AutoTestForUserEdit | qqqqqqqq    | qqqqqqqqq      | error message "密码需满足: 至少包含数字和字母" |
+      | AutoTestForUserEdit | 1234567qwer | 123456qwert    | error message "两次密码输入不一致，请重新输入"  |

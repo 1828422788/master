@@ -1,5 +1,5 @@
 @authorization @all @smoke
-Feature: 角色权限授权
+Feature: 授权角色权限
 
   Background:
     Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"

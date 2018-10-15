@@ -112,4 +112,11 @@ public class ClickSomeButton {
             tdList.get(0).findElement(By.className("el-checkbox")).click();
         }
     }
+
+    @When("^I click the button \"([^\"]*)\" if exist$")
+    public void clickTheButtonIfExist(String buttonName) {
+        WebElement webElement = GetElementFromPage.getWebElementWithName(buttonName);
+        if (ElementExist.isElementExist(webDriver, webElement))
+            webElement.click();
+    }
 }

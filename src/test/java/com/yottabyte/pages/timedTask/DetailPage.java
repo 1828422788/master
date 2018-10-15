@@ -19,4 +19,8 @@ public class DetailPage extends PageTemplate {
     public WebElement getShow() {
         return show.get(0);
     }
+
+    public WebElement getLookUpButton() {
+        return super.getContainsTextButton("查看");
+    }
 }

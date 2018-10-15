@@ -11,5 +11,5 @@ Feature: 定时任务删除
     Then I will see the success message "删除成功"
 
     Examples:
-      | name     |
-      | AutoTest |
+      | name        |
+      | sxjAutoTest |

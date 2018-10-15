@@ -1,4 +1,4 @@
-Feature: 检索配置的授权
+Feature: 授权检索配置
   Background:
     Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"
     And Create a "role" with "{'name':'AutoTestForAuth','RoleDes':'','ResourceGroups':['日志来源']}"

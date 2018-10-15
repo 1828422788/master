@@ -1,4 +1,5 @@
-Feature: URL访问的授权
+Feature: 授权URL访问
+
   Background:
     Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"
     And Create a "role" with "{'name':'AutoTestForAuth','RoleDes':'','ResourceGroups':['日志来源']}"
@@ -16,9 +17,9 @@ Feature: URL访问的授权
     Then I will see the success message "保存成功"
 
     Examples:
-      |URLName     |
-      |资源分组          |
-      |告警插件          |
+      | URLName |
+      | 资源分组    |
+      | 告警插件    |
 
   @authorization @all @smoke
   Scenario:

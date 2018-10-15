@@ -17,10 +17,10 @@ Feature: 给指定用户分组
     Then I will see the success message "保存成功"
 
   @all @smoke
-  Examples:
-    |UserGroups|
-    |AutoTestForUser  |
-    |AutoTestForUser,AutoTestForUser1|
+    Examples:
+      | UserGroups                       |
+      | AutoTestForUser                  |
+      | AutoTestForUser,AutoTestForUser1 |
 
 
   @users
@@ -33,6 +33,6 @@ Feature: 给指定用户分组
     Then I will see the <Result>
 
   @all
-  Examples:
-    |UserGroups|Result|
-    |admin     |error message "保存失败: 没有参数, 参数：[user_group_ids]\n错误码: FE_3"|
+    Examples:
+      | UserGroups | Result                    |
+      | admin      | error message "用户分组 不能为空" |

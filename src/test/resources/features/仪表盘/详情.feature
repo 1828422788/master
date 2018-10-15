@@ -2,24 +2,24 @@
 Feature: 仪表盘详情页
 
   Background:
-    Given I delete from "DashBoardGroup" where "{'name':'sxjautotest'}"
-    Then I insert into table "DashBoardGroup" with "{'name':'sxjautotest','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
-    Then I insert into table "DashBoardGroup" with "{'name':'autotest','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
-    Then open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I click the detail which name is "sxjautotest"
+    Given I delete from "DashBoardGroup" where "{'name':['sxjautotest','sunxjautotest']}"
+    And I insert into table "DashBoardGroup" with "{'name':'sxjautotest','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
+    And I insert into table "DashBoardGroup" with "{'name':'sunxjautotest','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "sxjautotest"
     Then I will see the "dashboard.DetailPage" page
 
   @smoke
   Scenario Outline: 检查按钮
-    Then I set the parameter "TagName" with value "<tagName>"
-    Then I click the "EnsureCreateTagButton" button
-    Then I will see the "<button>" is clickable
-    Then I click the "ClickableButton" button
-    Then I will see the "<disabledButton>" is "disabled"
-    Then I click the "ShowFilter" button
-    Then I will see the "Filter" is display
-    Then I click the "NightModeButton" button
-    Then I click the "FullScreenButton" button
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
+    And I will see the "<button>" is clickable
+    And I click the "ClickableButton" button
+    And I will see the "<disabledButton>" is "disabled"
+    And I click the "ShowFilter" button
+    And I will see the "Filter" is display
+    And I click the "NightModeButton" button
+    And I click the "FullScreenButton" button
     Then take a screenshot
 
     Examples:
@@ -28,60 +28,61 @@ Feature: 仪表盘详情页
 
   @smoke
   Scenario Outline: 移出标签页
-    Then I set the parameter "TagName" with value "<tagName>"
-    Then I click the "EnsureCreateTagButton" button
-    Then I click the "MoveButton" button
-    Then I check "<dashboardName>" from the "CheckBox"
-    Then I click the "EnsureMoveTagButton" button
-    Then open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I click the detail which name is "<dashboardName>"
-    Then I will see the "dashboard.DetailPage" page
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
+    And I click the "MoveButton" button
+    And I check "<dashboardName>" from the "CheckBox"
+    And I click the "EnsureMoveTagButton" button
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "<dashboardName>"
+    And I will see the "dashboard.DetailPage" page
     Then I will see the element "Tab" name is "<tagName>"
 
     Examples:
       | tagName | dashboardName |
-      | first   | autotest      |
+      | first   | sunxjautotest |
 
   @smoke
   Scenario Outline: 跳转到其他仪表盘
-    Then I set the parameter "TagName" with value "<tagName>"
-    Then I click the "EnsureCreateTagButton" button
-    Then I choose the "<dashboardName>" from the "DropdownList"
-    Then the page's title will be "autotest | 仪表盘"
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
+    And I choose the "<dashboardName>" from the "DropdownList"
+    Then the page's title will be "sunxjautotest | 仪表盘"
 
     Examples:
       | tagName | dashboardName |
-      | first   | autotest      |
+      | first   | sunxjautotest |
 
   @smoke
   Scenario Outline: 回收站操作
-    Then I set the parameter "TagName" with value "<tagName>"
-    Then I click the "EnsureCreateTagButton" button
-    Then I click the "CloseTag" button
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
+    And I click the "CloseTag" button
     Then I will see the "DropDownLinkButton" result will be "<num>"
-    Then I click the "RecoverTag" button
+    When I click the "RecoverTag" button
     Then I will see the element "Tab" name is "<tagName>"
-    Then I click the "CloseTag" button
-    Then I click the "MoveoutTag" button
-    Then I check "<dashboardName>" from the "CheckBox"
-    Then I click the "EnsureMoveTagButton" button
-    Then open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I click the detail which name is "<dashboardName>"
-    Then I will see the "dashboard.DetailPage" page
-    Then I will see the element "Tab" name is "<tagName>"
+    When I click the "CloseTag" button
+    And I click the "MoveoutTag" button
+    And I check "<dashboardName>" from the "CheckBox"
+    And I click the "EnsureMoveTagButton" button
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "<dashboardName>"
+    And I will see the "dashboard.DetailPage" page
+    And I will see the "DropDownLinkButton" result will be "<num>"
+    Then I will see the element "LabelName" name is "<tagName>"
 
     Examples:
       | tagName | num   | dashboardName |
-      | first   | [ 1 ] | autotest      |
+      | first   | [ 1 ] | sunxjautotest |
 
 
   @smoke
   Scenario Outline: 标签页删除
-    Then I set the parameter "TagName" with value "<tagName>"
-    Then I click the "EnsureCreateTagButton" button
-    Then I click the "CloseTag" button
-    Then I will see the "DropDownLinkButton" result will be "<num>"
-    Then I click the "DeleteTag" button
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
+    And I click the "CloseTag" button
+    And I will see the "DropDownLinkButton" result will be "<num>"
+    And I click the "DeleteTag" button
     And I click the "EnsureDeleteTagButton" button
     Then I will see the success message "当前仪表盘无开启状态标签页, 请新建或者恢复关闭状态标签页"
 
@@ -90,8 +91,8 @@ Feature: 仪表盘详情页
       | first   | [ 1 ] |
 
   Scenario Outline: 新建标签页失败
-    Then I set the parameter "TagName" with value "<tagName>"
-    Then I click the "EnsureCreateTagButton" button
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
     Then I will see the success message "<message>"
 
     Examples:
@@ -100,12 +101,12 @@ Feature: 仪表盘详情页
       | t e s t | 名称格式有误, 仅支持汉字，数字，字母，中划线及下划线 |
 
   Scenario Outline: 添加过滤项以及输入项失败
-    Then I set the parameter "TagName" with value "<tagName>"
-    Then I click the "EnsureCreateTagButton" button
-    Then I click the "AddEventButton" button
-    Then I choose the "<eventList>" from the "EventList"
-    Then I set the parameter "<titleName>" with value "<title>"
-    Then I click the "<ensure>" button
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
+    And I click the "AddEventButton" button
+    And I choose the "<eventList>" from the "EventList"
+    And I set the parameter "<titleName>" with value "<title>"
+    And I click the "<ensure>" button
     Then I will see the success message "<message>"
 
     Examples:
@@ -117,18 +118,18 @@ Feature: 仪表盘详情页
 
   @smoke
   Scenario Outline: 添加下拉菜单类型的过滤项
-    Then I set the parameter "TagName" with value "<tagName>"
-    Then I click the "EnsureCreateTagButton" button
-    Then I click the "AddEventButton" button
-    Then I choose the "<eventList>" from the "EventList"
-    Then I set the parameter "FilterTitle" with value "<title>"
-    Then I set the parameter "FilterToken" with value "<token>"
-    Then I set the parameter "FilterField" with value "<field>"
-    Then I choose the "<inputType>" from the "InputType"
-    Then I set the parameter "ChoiceValue" with value "<choiceValue>"
-    Then I click the "AddChoiceValueButton" button
-    Then I choose the "<choiceValue>" from the "DefaultDropdownList"
-    Then I click the "EnsureCreateFilter" button
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
+    And I click the "AddEventButton" button
+    And I choose the "<eventList>" from the "EventList"
+    And I set the parameter "FilterTitle" with value "<title>"
+    And I set the parameter "FilterToken" with value "<token>"
+    And I set the parameter "FilterField" with value "<field>"
+    And I choose the "<inputType>" from the "InputType"
+    And I set the parameter "ChoiceValue" with value "<choiceValue>"
+    And I click the "AddChoiceValueButton" button
+    And I choose the "<choiceValue>" from the "DefaultDropdownList"
+    And I click the "EnsureCreateFilter" button
     Then take a screenshot
 
     Examples:
@@ -137,22 +138,23 @@ Feature: 仪表盘详情页
 
   @smoke
   Scenario Outline: 添加动态菜单类型的过滤项
-    Then I set the parameter "TagName" with value "<tagName>"
-    Then I click the "EnsureCreateTagButton" button
-    Then I click the "AddEventButton" button
-    Then I choose the "<eventList>" from the "EventList"
-    Then I set the parameter "FilterTitle" with value "<title>"
-    Then I set the parameter "FilterToken" with value "<token>"
-    Then I set the parameter "FilterField" with value "<field>"
-    Then I choose the "<inputType>" from the "InputType"
-    Then I set the parameter "DynamicField" with value "<dynamicField>"
-    Then I set the parameter "SearchInput" with value "<search>"
-    Then I click the "TimeRange" button
-    Then I click the "ThisMonth" button
-    Then I click the "SearchInputButton" button
-    Then I will see the success message "动态字段搜索完成"
-    Then I choose the "<choiceValue>" from the "DefaultDropdownList"
-    Then I click the "EnsureCreateFilter" button
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
+    And I wait for loading invisible
+    And I click the "AddEventButton" button
+    And I choose the "<eventList>" from the "EventList"
+    And I set the parameter "FilterTitle" with value "<title>"
+    And I set the parameter "FilterToken" with value "<token>"
+    And I set the parameter "FilterField" with value "<field>"
+    And I choose the "<inputType>" from the "InputType"
+    And I set the parameter "DynamicField" with value "<dynamicField>"
+    And I set the parameter "SearchInput" with value "<search>"
+    And I click the "TimeRange" button
+    And I click the "ThisMonth" button
+    And I click the "SearchInputButton" button
+    And I will see the success message "动态字段搜索完成"
+    And I choose the "<choiceValue>" from the "DefaultDropdownList"
+    And I click the "EnsureCreateFilter" button
     Then take a screenshot
 
     Examples:

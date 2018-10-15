@@ -102,6 +102,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'标题')]/following-sibling::div//input[@class='el-input__inner']")
     private List<WebElement> titleList;
 
+    @FindBy(xpath = "//div[@class='control']/following-sibling::span")
+    private WebElement labelName;
+
+    public WebElement getLabelName() {
+        return labelName;
+    }
+
     public WebElement getInputTitle() {
         return titleList.get(titleList.size() - 1);
     }

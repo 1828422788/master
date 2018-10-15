@@ -1,4 +1,4 @@
-Feature: 功能类的授权
+Feature: 授权功能类
   Background:
     Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"
     And Create a "role" with "{'name':'AutoTestForAuth','RoleDes':'','ResourceGroups':['日志来源']}"

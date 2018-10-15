@@ -6,7 +6,9 @@ Feature: 报表详情
 
   Scenario Outline:
     Given I click the detail which name is "<name>"
-    Then I download the file
+    When I download the file
+    Then I delete from "Report" where "{'name':'<name>'}"
+
 
     Examples:
       | name     |

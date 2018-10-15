@@ -1,5 +1,5 @@
 @authorization @all @smoke
-Feature: [授权]授权组内管理权限
+Feature: 授权组内管理权限
 
   Background:
     Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"

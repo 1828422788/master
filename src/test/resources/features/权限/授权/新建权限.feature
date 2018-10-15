@@ -1,4 +1,4 @@
-Feature: [授权]新建相关授权
+Feature: 授权新建
   
   Background: 
     Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"

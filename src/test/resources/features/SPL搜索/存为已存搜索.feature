@@ -27,5 +27,5 @@ Feature: 已存搜索
       | starttime="-2d/w" endtime="now" tag:ty* |               |                     | 请选择分组                      |
       | starttime="-2d/w" endtime="now" tag:ty* | test          |                     | 请选择分组                      |
       | starttime="-2d/w" endtime="now" tag:ty* |               | default_SavedSearch | 没有参数, 参数：[name]\n错误码: FE_3 |
-      | starttime="-2d/w" endtime="now" tag:ty* | sunxjAutoTest | default_SavedSearch | 已存搜索名已存在\n错误码: FE_534      |
+#      | starttime="-2d/w" endtime="now" tag:ty* | sunxjAutoTest | default_SavedSearch | 已存搜索名已存在\n错误码: FE_534      |
 

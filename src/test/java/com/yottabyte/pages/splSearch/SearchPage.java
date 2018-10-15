@@ -3,12 +3,10 @@ package com.yottabyte.pages.splSearch;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.DateEditorPage;
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.ElementExist;
-import com.yottabyte.utils.GetTime;
-import com.yottabyte.utils.TakeScreenShot;
-import com.yottabyte.utils.WaitForElement;
+import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -287,10 +285,10 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'生成')]")
     private WebElement generate;
 
-    @FindBy(xpath = "//span[contains(text(),'权重')]")
+    @FindBy(xpath = "//div[contains(text(),'权重')]")
     private WebElement weight;
 
-    @FindBy(xpath = "//span[contains(text(),'展示')]")
+    @FindBy(xpath = "//div[contains(text(),'展示')]")
     private WebElement show;
 
     @FindBy(className = "sequence")
@@ -371,6 +369,13 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
+
+    @FindBy(className = "el-time-panel")
+    private WebElement timePanel;
+
+    public WebElement getTimePanel() {
+        return timePanel;
+    }
 
     public WebElement getNoDataInfo() {
         return noDataInfo;
@@ -496,8 +501,6 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getActuralData() {
-//        ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", dropdownList.get(dropdownList.size() - 1));
-
         yaxisGroup.get(0).click();
         return dropdownList.get(dropdownList.size() - 1);
     }
@@ -561,8 +564,7 @@ public class SearchPage extends PageTemplate {
 
     public WebElement getSelectData() {
         selectData.click();
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(dropdownList.get(dropdownList.size() - 1)));
-        return dropdownList.get(dropdownList.size() - 1);
+        return super.getLastDropdownList();
     }
 
     public WebElement getSetting() {
@@ -743,10 +745,6 @@ public class SearchPage extends PageTemplate {
     }
 
     public void getCustomTime() {
-//        DateEditorPage dateEditorPage = new DateEditorPage(webDriver);
-//        LoginBeforeAllTests.setPageFactory(dateEditorPage);
-//        dateEditorPage.getCustomTime("00:00:00", "00:00:00", "2016-08-01", "2018-08-03");
-//        LoginBeforeAllTests.setPageFactory(this);
         GetTime.getTime(webDriver, "CustomTime");
     }
 
@@ -817,15 +815,10 @@ public class SearchPage extends PageTemplate {
     private WebElement dateEditor;
 
     public WebElement getDateEditor() {
-//        DateEditorPage date = new DateEditorPage(webDriver);
-//        LoginBeforeAllTests.setPageFactory(date);
-//        WebElement webElement = date.getPublicDateEditor();
-
         return dateEditor;
     }
 
     public WebElement getSearchButton() {
-//        LoginBeforeAllTests.setPageFactory(this);
         expectedCondition = ExpectedConditions.elementToBeClickable(searchButton);
         WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return searchButton;

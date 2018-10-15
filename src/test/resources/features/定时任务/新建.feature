@@ -10,16 +10,17 @@ Feature: 定时任务新增
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I click the "SaveAsOther" button
-    Then I click the "TimedTask" button
-    Then I set the parameter "TaskName" with value "<name>"
-    Then I set the parameter "Describe" with value "<describe>"
-    Then I choose the "<users>" from the "UserComboBox"
-    Then I choose the "<groups>" from the "GroupComboBox"
-    Then I set the parameter "Period" with value "<period>"
-    Then I set the parameter "StartTime" with value "<startTime>"
-    Then I click the "EnsureButton" button
-    Then I click the "Ensure" button
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<users>" from the "UserComboBox"
+    And I choose the "<groups>" from the "GroupComboBox"
+    And I set the parameter "Period" with value "<period>"
+    And I set the time input "StartTime" to "2" minutes later
+    And I click the "EnsureButton" button
+    And I display the element "TimePanel"
+    And I click the "Ensure" button
     Then I will see the success message "<message>"
 
   @smoke
@@ -54,7 +55,7 @@ Feature: 定时任务新增
   @smoke
   Scenario Outline: 生成图表类型的定时任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
+    When I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait element "SearchStatus" change text to "搜索完成!"
@@ -62,16 +63,17 @@ Feature: 定时任务新增
     And I click the "<groupType>" button
     And I click the "<type>" button
     And I click the "SearchComplete" button
-    Then I click the "SaveAsOther" button
-    Then I click the "TimedTask" button
-    Then I set the parameter "TaskName" with value "<name>"
-    Then I set the parameter "Describe" with value "<describe>"
-    Then I choose the "<users>" from the "UserComboBox"
-    Then I choose the "<groups>" from the "GroupComboBox"
-    Then I set the parameter "Period" with value "<period>"
-    Then I set the parameter "StartTime" with value "<startTime>"
-    Then I click the "EnsureButton" button
-    Then I click the "Ensure" button
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<users>" from the "UserComboBox"
+    And I choose the "<groups>" from the "GroupComboBox"
+    And I set the parameter "Period" with value "<period>"
+    And I set the time input "StartTime" to "2" minutes later
+    And I click the "EnsureButton" button
+    And I display the element "TimePanel"
+    And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
     Examples:
@@ -94,7 +96,7 @@ Feature: 定时任务新增
   @smoke
   Scenario Outline: 生成循序图的定时任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
+    When I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait element "SearchStatus" change text to "搜索完成!"
@@ -105,24 +107,26 @@ Feature: 定时任务新增
     And I click the "Setting" button
     And I choose the "<timeSequence>" from the "SelectData"
     And I click the "Source" button
-    Then I choose the "<source>" from the "SelectData"
+    And I choose the "<source>" from the "SelectData"
     And I click the "Target" button
-    Then I choose the "<target>" from the "SelectData"
+    And I choose the "<target>" from the "SelectData"
     And I click the "Cut" button
-    Then I choose the "<cut>" from the "SelectData"
+    And I choose the "<cut>" from the "SelectData"
     And I click the "Mark" button
-    Then I choose the "<mark>" from the "SelectData"
+    And I choose the "<mark>" from the "SelectData"
     And I click the "Generate" button
-    Then I click the "SaveAsOther" button
-    Then I click the "TimedTask" button
-    Then I set the parameter "TaskName" with value "<name>"
-    Then I set the parameter "Describe" with value "<describe>"
-    Then I choose the "<users>" from the "UserComboBox"
-    Then I choose the "<groups>" from the "GroupComboBox"
-    Then I set the parameter "Period" with value "<period>"
-    Then I set the parameter "StartTime" with value "<startTime>"
-    Then I click the "EnsureButton" button
-    Then I click the "Ensure" button
+    And I click the "SaveAsOther" button
+    And I wait for loading invisible
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<users>" from the "UserComboBox"
+    And I choose the "<groups>" from the "GroupComboBox"
+    And I set the parameter "Period" with value "<period>"
+    And I set the time input "StartTime" to "2" minutes later
+    And I click the "EnsureButton" button
+    And I display the element "TimePanel"
+    And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
     Examples:
@@ -132,7 +136,7 @@ Feature: 定时任务新增
   @smoke
   Scenario Outline: 生成力图的定时任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
+    When I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait element "SearchStatus" change text to "搜索完成!"
@@ -147,19 +151,18 @@ Feature: 定时任务新增
     And I click the "Weight" button
     Then I choose the "<weight>" from the "SelectData"
     And I click the "Show" button
-    And I click the "StartColour" button
-    And I click the "Pink" button
     And I click the "Generate" button
-    Then I click the "SaveAsOther" button
-    Then I click the "TimedTask" button
-    Then I set the parameter "TaskName" with value "<name>"
-    Then I set the parameter "Describe" with value "<describe>"
-    Then I choose the "<users>" from the "UserComboBox"
-    Then I choose the "<groups>" from the "GroupComboBox"
-    Then I set the parameter "Period" with value "<period>"
-    Then I set the parameter "StartTime" with value "<startTime>"
-    Then I click the "EnsureButton" button
-    Then I click the "Ensure" button
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<users>" from the "UserComboBox"
+    And I choose the "<groups>" from the "GroupComboBox"
+    And I set the parameter "Period" with value "<period>"
+    And I set the time input "StartTime" to "2" minutes later
+    And I click the "EnsureButton" button
+    And I display the element "TimePanel"
+    And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
     Examples:
@@ -192,8 +195,9 @@ Feature: 定时任务新增
     Then I choose the "<users>" from the "UserComboBox"
     Then I choose the "<groups>" from the "GroupComboBox"
     Then I set the parameter "Period" with value "<period>"
-    Then I set the parameter "StartTime" with value "<startTime>"
+    And I set the time input "StartTime" to "2" minutes later
     Then I click the "EnsureButton" button
+    And I display the element "TimePanel"
     Then I click the "Ensure" button
     Then I will see the success message "保存成功"
 
