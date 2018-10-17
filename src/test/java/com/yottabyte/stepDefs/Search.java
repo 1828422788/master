@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.WaitForElement;
@@ -94,8 +95,7 @@ public class Search {
         int i = 0;
         while (i < totalPage) {
             if (i != 0 && i <= totalPage - 1) {
-                WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
-                WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+                isLoadingMaskExist();
                 nextPage.click();
             }
             List<WebElement> tr = tableBody.findElements(By.tagName("tr"));
@@ -106,6 +106,13 @@ public class Search {
                 assertTrue(flag);
             }
             i++;
+        }
+    }
+
+    private void isLoadingMaskExist() {
+        if (ElementExist.isElementExist(webDriver, By.className("el-loading-mask"))) {
+            WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
         }
     }
 
@@ -130,8 +137,7 @@ public class Search {
         outer:
         while (i < totalPage) {
             if (i != 0 && i <= totalPage - 1) {
-                WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
-                WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+                isLoadingMaskExist();
                 nextPage.click();
             }
             List<WebElement> tr = tableBody.findElements(By.tagName("tr"));
@@ -158,11 +164,10 @@ public class Search {
         Map<String, Object> map = JsonStringPaser.json2Stirng(typeName);
         // 根据分组进行搜索
         if (map.containsKey("group")) {
-            WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+            isLoadingMaskExist();
             webDriver.findElement(By.className("el-icon-arrow-down")).click();
             WebElement dropdownList = webDriver.findElement(By.className("yw-table-group__group-menu"));
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+            isLoadingMaskExist();
             List list = new ArrayList();
             list.add(map.get("group").toString());
             new IChooseValueFromSelectList().iChooseTheFromThe(list, dropdownList);
@@ -184,48 +189,5 @@ public class Search {
             String acturalText = td.getText();
             assertTrue(acturalText.contains(name));
         }
-    }
-
-    /**
-     * 报表中用到，写的不好，需要优化
-     *
-     * @param name
-     */
-    @Then("^I will see the column contains \"([^\"]*)\"$")
-    public void iWillSeeTheColumnContains(String name) {
-        // 分页标签
-        List<WebElement> paging = webDriver.findElements(By.className("number"));
-        // 总页数
-        int totalPage = Integer.parseInt(paging.get(paging.size() - 1).getText());
-        // 下一页按钮
-        WebElement nextPage = webDriver.findElement(By.className("btn-next"));
-
-        List<WebElement> tableBodyList = webDriver.findElements(By.className("el-table__body"));
-        WebElement tableBody;
-        if (tableBodyList.size() == 1) {
-            tableBody = tableBodyList.get(0);
-        } else {
-            tableBody = tableBodyList.get(1);
-        }
-        int i = 0;
-        boolean flag = false;
-        outer:
-        while (i < totalPage) {
-            if (i != 0 && i <= totalPage - 1) {
-                WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
-                WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
-                nextPage.click();
-            }
-            List<WebElement> tr = tableBody.findElements(By.tagName("tr"));
-            int index = 1;
-            for (WebElement element : tr) {
-                WebElement td = element.findElements(By.tagName("td")).get(index - 1);
-                flag = td.getText().toLowerCase().contains(name.toLowerCase());
-                if (flag)
-                    break outer;
-            }
-            i++;
-        }
-        assertTrue(flag);
     }
 }

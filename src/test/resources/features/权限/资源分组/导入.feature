@@ -19,7 +19,7 @@ Feature: 资源分组导入
     And I wait for "1000" millsecond
     And I click the "NextButton" button
     And I click the "FinishButton" button
-    Then I will see the column contains "<groupNameInput>"
+    Then I will see the special column contains "<groupNameInput>"
 
     Examples:
       | InputFileName                                           | role  | groupNameInput |

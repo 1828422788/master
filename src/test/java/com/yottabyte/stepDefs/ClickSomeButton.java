@@ -2,6 +2,7 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -118,5 +119,11 @@ public class ClickSomeButton {
         WebElement webElement = GetElementFromPage.getWebElementWithName(buttonName);
         if (ElementExist.isElementExist(webDriver, webElement))
             webElement.click();
+    }
+
+    @And("^I click the \"([^\"]*)\" button under some element$")
+    public void iClickTheButtonUnderSomeElement(String elementName){
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click()", element);
     }
 }

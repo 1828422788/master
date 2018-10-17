@@ -8,7 +8,6 @@ Feature: 定时任务详情页截图
     Given I click the detail which name is "<name>"
     When I click the button "LookUpButton" if exist
     And take a screenshot
-    Then I delete from "SavedSchedule" where "{'name':'<name>'}"
 
     Examples:
       | name               |
@@ -26,4 +25,10 @@ Feature: 定时任务详情页截图
       | multiaxisAutoTest  |
       | chordAutoTest      |
       | sankeyAutoTest     |
-      | forceAutoTest      |
+      | forceSunAutoTest   |
+      | sequenceAutoTest   |
+      | rangelineAutoTest  |
+
+  Scenario: 删除所有自动化新建的定时任务
+    Then I delete from "SavedSchedule" where "{'name':['rangelineAutoTest','sequenceAutoTest','forceSunAutoTest','sankeyAutoTest','chordAutoTest','multiaxisAutoTest','barAutoTest','roseAutoTest','pieAutoTest','scatterAutoTest','columnAutoTest','areaAutoTest','liquidfillAutoTest','singleAutoTest','wordcloudAutoTest','lineAutoTest','sxjAutoTest','forceAutoTest']}"
+

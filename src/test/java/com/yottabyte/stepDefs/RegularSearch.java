@@ -38,7 +38,7 @@ public class RegularSearch {
      * @param searchResult
      */
     @Given("^search from \"([^\"]*)\" then I will see the result contains \"([^\"]*)\"$")
-    public void searchFromThenIWillSeeTheResultContains(String dropdownMenu, String searchResult) {
+    public void verifyResultContains(String dropdownMenu, String searchResult) {
         this.chooseFromDropdown(dropdownMenu);
         this.validateSearchResultContainsValue(searchResult);
     }
@@ -46,6 +46,36 @@ public class RegularSearch {
     private void waitUntilLoadingDisappear() {
         WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+    }
+
+    /**
+     * 验证数据已从列表页删除（第一列无该名称则通过）
+     *
+     * @param dataName
+     */
+    @Then("^I will see the data \"([^\"]*)\" is not available on the list$")
+    public void iWillSeeTheDataIsNotAvailableOnTheList(String dataName) {
+        List<WebElement> trList = this.getTrList();
+        if (trList == null)
+            return;
+
+        Paging paging = GetPaging.getPagingInfo();
+
+        for (int i = 0; i < paging.getTotalPage(); i++) {
+            if (i != 0) {
+                paging.getNextPage().click();
+                this.waitUntilLoadingDisappear();
+                trList = this.getTrList();
+            }
+
+            for (WebElement tr : trList) {
+                List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
+                if (tdList.size() >= 1) {
+                    String actualText = tdList.get(0).getText();
+                    Assert.assertFalse(dataName.equals(actualText));
+                }
+            }
+        }
     }
 
     /**
@@ -85,7 +115,8 @@ public class RegularSearch {
         }
     }
 
-    private void validateSearchResultContainsValue(String searchResult) {
+    @Then("^I will see the search result contains \"([^\"]*)\"$")
+    public void validateSearchResultContainsValue(String searchResult) {
         List<WebElement> trList = this.getTrList();
         if (trList == null)
             return;

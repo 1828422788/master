@@ -7,7 +7,7 @@ Feature: 定时任务查询
 
   Scenario Outline: 根据定时任务分组进行查询
     Given I choose the "<group>" from the "GroupList"
-    Then I will see the column contains "<name>"
+    Then I will see the special column contains "<name>"
 
     Examples:
       | group                 | name        |

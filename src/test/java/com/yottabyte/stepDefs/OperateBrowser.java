@@ -1,13 +1,14 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.WebDriver;
 
 /**
  * @author sunxj
  */
-public class SwitchWindow {
+public class OperateBrowser {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     @Then("switch to another window")
@@ -18,5 +19,10 @@ public class SwitchWindow {
                 continue;
             webDriver.switchTo().window(handles);
         }
+    }
+
+    @And("^I refresh the website$")
+    public void refreshWebSite() {
+        webDriver.navigate().refresh();
     }
 }

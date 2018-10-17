@@ -6,7 +6,7 @@ Feature: 报表查询
 
   Scenario Outline: 根据分组查询
     Given I choose the "<group>" from the "GroupList"
-    Then I will see the column contains "<name>"
+    Then I will see the special column contains "<name>"
 
   @all
     Examples:

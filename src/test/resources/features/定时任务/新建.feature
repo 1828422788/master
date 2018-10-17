@@ -25,8 +25,8 @@ Feature: 定时任务新增
 
   @smoke
     Examples: 保存成功
-      | splQuery                                      | name        | describe | users | groups                | period | startTime | message |
-      | tag:"sample04061424" \| top 1 apache.resp_len | sxjAutoTest | autotest | owner | default_SavedSchedule | 360    | 15:36:55  | 保存成功    |
+      | splQuery                                      | name        | describe | users | groups                | period | message |
+      | tag:"sample04061424" \| top 1 apache.resp_len | sxjAutoTest | autotest | owner | default_SavedSchedule | 360    | 保存成功    |
 
   Scenario Outline: 生成表格类型的定时任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
@@ -77,21 +77,21 @@ Feature: 定时任务新增
     Then I will see the success message "保存成功"
 
     Examples:
-      | splQuery                                                                                                                       | groupType  | type       | name               | describe | users | groups                | period | startTime |
-      | (tag:heka) \|bucket timestamp timeranges=((2018-07-26:10:39:50, 2018-07-27:10:40:02)) as tr \| stats dc('appname') as ct by tr | Order      | Line       | lineAutoTest       |          | owner | default_SavedSchedule | 10     | 15:36:55  |
-      | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Wordcloud  | wordcloudAutoTest  |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Single     | singleAutoTest     |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Liquidfill | liquidfillAutoTest |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Area       | areaAutoTest       |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Column     | columnAutoTest     |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Scatter    | scatterAutoTest    |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Dimension  | Pie        | pieAutoTest        |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Dimension  | Rose       | roseAutoTest       |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Dimension  | Bar        | barAutoTest        |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Compound   | Multiaxis  | multiaxisAutoTest  |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Chord      | chordAutoTest      |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Sankey     | sankeyAutoTest     |          | owner | default_SavedSchedule | 15     | 15:36:55  |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Force      | forceAutoTest      |          | owner | default_SavedSchedule | 15     | 15:36:55  |
+      | splQuery                                                                                                                       | groupType  | type       | name               | describe | users | groups                | period |
+      | (tag:heka) \|bucket timestamp timeranges=((2018-07-26:10:39:50, 2018-07-27:10:40:02)) as tr \| stats dc('appname') as ct by tr | Order      | Line       | lineAutoTest       |          | owner | default_SavedSchedule | 10     |
+      | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Wordcloud  | wordcloudAutoTest  |          | owner | default_SavedSchedule | 15     |
+      | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Single     | singleAutoTest     |          | owner | default_SavedSchedule | 15     |
+      | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Liquidfill | liquidfillAutoTest |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Area       | areaAutoTest       |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Column     | columnAutoTest     |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Scatter    | scatterAutoTest    |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Dimension  | Pie        | pieAutoTest        |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Dimension  | Rose       | roseAutoTest       |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Dimension  | Bar        | barAutoTest        |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Compound   | Multiaxis  | multiaxisAutoTest  |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Chord      | chordAutoTest      |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Sankey     | sankeyAutoTest     |          | owner | default_SavedSchedule | 15     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Force      | forceAutoTest      |          | owner | default_SavedSchedule | 15     |
 
   @smoke
   Scenario Outline: 生成循序图的定时任务
@@ -130,8 +130,8 @@ Feature: 定时任务新增
     Then I will see the success message "保存成功"
 
     Examples:
-      | splQuery                                      | groupType | type     | timeSequence | source          | target   | cut             | mark            | name             | describe | users | groups                | period | startTime |
-      | *\| stats count() by hostname,apache.clientip | Other     | Sequence | hostname     | apache.clientip | hostname | apache.clientip | apache.clientip | sequenceAutoTest |          | owner | default_SavedSchedule | 15     | 15:36:55  |
+      | splQuery                                      | groupType | type     | timeSequence | source          | target   | cut             | mark            | name             | describe | users | groups                | period |
+      | *\| stats count() by hostname,apache.clientip | Other     | Sequence | hostname     | apache.clientip | hostname | apache.clientip | apache.clientip | sequenceAutoTest |          | owner | default_SavedSchedule | 15     |
 
   @smoke
   Scenario Outline: 生成力图的定时任务
@@ -166,8 +166,8 @@ Feature: 定时任务新增
     Then I will see the success message "保存成功"
 
     Examples:
-      | splQuery                                                                                                            | groupType  | type  | source  | target  | weight   | name          | describe | users | groups                | period | startTime |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count | Connection | Force | appname | appname | ip_count | forceAutoTest |          | owner | default_SavedSchedule | 15     | 15:36:55  |
+      | splQuery                                                                                                            | groupType  | type  | source  | target  | weight   | name             | describe | users | groups                | period |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count | Connection | Force | appname | appname | ip_count | forceSunAutoTest |          | owner | default_SavedSchedule | 15     |
 
   @smoke
   Scenario Outline: 生成区间图的定时任务
@@ -202,5 +202,5 @@ Feature: 定时任务新增
     Then I will see the success message "保存成功"
 
     Examples:
-      | splQuery                                                                                                                                                                                                                                     | groupType | type      | xaxis | acturalData | predictData | topLimit | lowerLimit | name              | describe | users | groups                | period | startTime |
-      | * \| bucket timestamp span=3h as ts\| stats count(appname) as count_ by ts \| movingavg count_,5 as ma \| rollingstd count_,5 as rs\| eval lower=ma-3*rs\| eval upper=ma+3*rs \| eval outlier=if(count_>upper\|\|count_<lower, count_, null) | Compound  | rangeline | ts    | count_      | count_      | upper    | lower      | rangelineAutoTest |          | owner | default_SavedSchedule | 15     | 15:36:55  |
+      | splQuery                                                                                                                                                                                                                                     | groupType | type      | xaxis | acturalData | predictData | topLimit | lowerLimit | name              | describe | users | groups                | period |
+      | * \| bucket timestamp span=3h as ts\| stats count(appname) as count_ by ts \| movingavg count_,5 as ma \| rollingstd count_,5 as rs\| eval lower=ma-3*rs\| eval upper=ma+3*rs \| eval outlier=if(count_>upper\|\|count_<lower, count_, null) | Compound  | rangeline | ts    | count_      | count_      | upper    | lower      | rangelineAutoTest |          | owner | default_SavedSchedule | 15     |
