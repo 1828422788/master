@@ -172,7 +172,7 @@ public class UploadFile {
     @Given("^delete file \"([^\"]*)\"$")
     public void deleteFile(String relativePath) {
         try {
-            InputStream is = new FileInputStream("/data");
+            InputStream is = new FileInputStream("/data/package-lock.json");
             System.out.println(is.read());
             System.out.println((byte) is.read());
 
@@ -180,7 +180,7 @@ public class UploadFile {
             String name = fileName.replaceAll("/", "\\\\");
             System.out.println("看这里！fileName:" + name);
             File file = new File(name);
-            System.out.println(file.isDirectory());
+            System.out.println(file.exists());
 //            boolean flag = false;
 //            if (file.exists()) {
 //                System.out.println("文件存在！！！！！！！！！！");
