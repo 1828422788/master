@@ -7,7 +7,7 @@ Feature: 应用安装
     Then I will see the "app.InstallPage" page
 
   @smoke
-  Scenario Outline:
+  Scenario Outline: 安装成功
     When I upload a file with name "/target/download-files/AutoTest.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "<role>" from the "Role"

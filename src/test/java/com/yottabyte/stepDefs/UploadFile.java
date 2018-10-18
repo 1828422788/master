@@ -173,6 +173,7 @@ public class UploadFile {
     public void deleteFile(String relativePath) {
         try {
             String fileName = getAbsolutePath(relativePath);
+            System.out.println("看这里！fileName:" + fileName);
             File file = new File(fileName);
             if (file.exists())
                 file.delete();
