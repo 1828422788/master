@@ -198,7 +198,7 @@ public class UploadFile {
             System.out.println("文件路径tmpfilepath :" + tmpFile.getPath());
 
 //            String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
-            courseFile = courseFile + "/" + tmpFile.getPath();
+            courseFile = courseFile + tmpFile.getPath();
             fileNameWithPath = fileName;
             return courseFile;
         } else {
