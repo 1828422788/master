@@ -172,6 +172,10 @@ public class UploadFile {
     @Given("^delete file \"([^\"]*)\"$")
     public void deleteFile(String relativePath) {
         try {
+            InputStream is = new FileInputStream("C:/ftp/testdata/alertPlugins/testAlertPlugins.txt");
+            System.out.println(is.read());
+            System.out.println((byte) is.read());
+
             String fileName = getAbsolutePath(relativePath);
             String name = fileName.replaceAll("/", "\\\\");
             System.out.println("看这里！fileName:" + name);
