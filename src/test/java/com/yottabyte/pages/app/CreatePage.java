@@ -79,9 +79,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-dialog__wrapper yw-modal-form yw-new-modal-form dialog-fade-leave-active dialog-fade-leave-to']")
     private WebElement fadeLeave;
 
-    public WebElement getAddSubmenu() {
-        return super.getButton("添加子菜单");
-    }
+    @FindBy(className = "item-title-edit-group")
+    private WebElement editGroup;
+
+    @FindBy(xpath = "//span[text()='添加子菜单']")
+    private WebElement addSubmenu;
 
     public WebElement getFirstMenu() {
         return super.getButton("应用管理");
@@ -101,6 +103,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAddMenuButton() {
         return super.getButton("添加一级菜单");
+    }
+
+    public WebElement getSaveButton() {
+        return super.getButton("保存");
     }
 
     public WebElement getImportButton() {
@@ -205,5 +211,13 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getFadeLeave() {
         return fadeLeave;
+    }
+
+    public WebElement getEditGroup() {
+        return editGroup;
+    }
+
+    public WebElement getAddSubmenu() {
+        return addSubmenu;
     }
 }

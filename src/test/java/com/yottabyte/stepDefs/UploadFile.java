@@ -155,6 +155,10 @@ public class UploadFile {
             courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
             File tmpFile = new File(fileNameWithPath);
             String fileName = tmpFile.getName();
+
+            System.out.println(fileName);
+            System.out.println(tmpFile.getPath());
+
             String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
             courseFile = courseFile + "/" + path;
             fileNameWithPath = fileName;

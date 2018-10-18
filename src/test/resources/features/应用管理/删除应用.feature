@@ -1,5 +1,5 @@
 @all @smoke @app
-Feature: 删除应用
+Feature: 应用删除
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"

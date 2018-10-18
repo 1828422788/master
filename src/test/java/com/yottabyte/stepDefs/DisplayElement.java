@@ -22,11 +22,18 @@ public class DisplayElement {
     @And("^I display the element \"([^\"]*)\"$")
     public void iDisplayTheElement(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-//        ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='inline';", element);
-//        ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('style','display');", element);
-
         if (element.isDisplayed()) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", element);
+            ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(element);
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        }
+    }
+
+    @And("^I make the element \"([^\"]*)\" visible$")
+    public void iMakeTheElementVisible(String elementName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        if (!element.isDisplayed()) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", element);
             ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(element);
             WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         }

@@ -3,7 +3,7 @@ Feature: 应用app新建
 
   Background:
     Given delete file "/target/download-files/AutoTest.tar"
-    Given open the "app.ListPage" page for uri "/app/list/"
+    And open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
 

@@ -1,5 +1,5 @@
 @all @app
-Feature: 应用安装
+Feature: 应用b安装
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
