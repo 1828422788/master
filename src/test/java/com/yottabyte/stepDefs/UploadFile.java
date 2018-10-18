@@ -189,7 +189,7 @@ public class UploadFile {
         File directory = new File("");
 
         if ("Remote".equalsIgnoreCase(type)) {
-            courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
+            courseFile = new ConfigManager().get("ftp_base_path");  // c:\ftp
             File tmpFile = new File(fileNameWithPath);
             String fileName = tmpFile.getName();
 
@@ -205,10 +205,11 @@ public class UploadFile {
         }
 
         fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
-        if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
-            return courseFile + fileNameWithPath;
-        } else {
-            return courseFile + s + fileNameWithPath;
-        }
+        System.out.println("!!!!!!!!!!!!!!!!!!!fileNameWithPath = [" + fileNameWithPath + "]");
+//        if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
+        return courseFile + fileNameWithPath;
+//        } else {
+//            return courseFile + s + fileNameWithPath;
+//        }
     }
 }
