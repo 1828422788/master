@@ -156,11 +156,12 @@ public class UploadFile {
             File tmpFile = new File(fileNameWithPath);
             String fileName = tmpFile.getName();
 
-            System.out.println(fileName);
-            System.out.println(tmpFile.getPath());
+            System.out.println("courseFile :" + courseFile);
+            System.out.println("文件名称filename :" + fileName);
+            System.out.println("文件路径tmpfilepath :" + tmpFile.getPath());
 
-            String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
-            courseFile = courseFile + "/" + path;
+//            String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
+            courseFile = courseFile + "/" + tmpFile.getPath();
             fileNameWithPath = fileName;
         } else {
             courseFile = directory.getCanonicalPath();
