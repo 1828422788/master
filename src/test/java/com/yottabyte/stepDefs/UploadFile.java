@@ -30,7 +30,10 @@ public class UploadFile {
     @And("^I upload a file with name \"([^\"]*)\"$")
     public void iUploadAFileWithName(String fileNameWithPath) {
         WebElement uploadInput = webDriver.findElement(By.name("file"));
-        uploadFile(uploadInput, fileNameWithPath);
+        if (fileNameWithPath.contains("target"))
+            uploadFileWithDifferentPath(uploadInput, fileNameWithPath);
+        else
+            uploadFile(uploadInput, fileNameWithPath);
     }
 
     /**
@@ -114,6 +117,39 @@ public class UploadFile {
                     String fileName = tmpFile.getName();
                     String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
                     courseFile = courseFile + "/" + path;
+                    fileNameWithPath = fileName;
+                } else {
+                    courseFile = directory.getCanonicalPath();
+                }
+                fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
+
+                if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
+                    uploadInput.sendKeys(courseFile + fileNameWithPath);
+                } else {
+                    uploadInput.sendKeys(courseFile + s + fileNameWithPath);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("skip this step !");
+        }
+    }
+
+    private void uploadFileWithDifferentPath(WebElement uploadInput, String fileNameWithPath) {
+        String type = SharedDriver.WebDriverType;
+        if (fileNameWithPath != null && fileNameWithPath.trim().length() != 0) {
+            String s = File.separator;
+            String courseFile = "";
+            try {
+                File directory = new File("");
+                if ("Remote".equalsIgnoreCase(type)) {
+                    courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
+                    uploadFileToSeleniumServer(fileNameWithPath);
+                    File tmpFile = new File(fileNameWithPath);
+                    String fileName = tmpFile.getName();
+//                    String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
+                    courseFile = courseFile + "/" + tmpFile.getPath();
                     fileNameWithPath = fileName;
                 } else {
                     courseFile = directory.getCanonicalPath();
