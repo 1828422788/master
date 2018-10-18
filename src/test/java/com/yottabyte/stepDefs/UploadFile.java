@@ -177,8 +177,10 @@ public class UploadFile {
             System.out.println("看这里！fileName:" + name);
             File file = new File(name);
             boolean flag = false;
-            if (file.exists())
+            if (file.exists()) {
+                System.out.println("文件存在！！！！！！！！！！");
                 flag = file.delete();
+            }
             System.out.println(flag);
         } catch (IOException e) {
             e.printStackTrace();
