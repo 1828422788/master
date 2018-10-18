@@ -172,7 +172,7 @@ public class UploadFile {
     @Given("^delete file \"([^\"]*)\"$")
     public void deleteFile(String relativePath) {
         try {
-            InputStream is = new FileInputStream("C:/ftp/testdata/alertPlugins/testAlertPlugins.txt");
+            InputStream is = new FileInputStream("/data");
             System.out.println(is.read());
             System.out.println((byte) is.read());
 
@@ -180,12 +180,13 @@ public class UploadFile {
             String name = fileName.replaceAll("/", "\\\\");
             System.out.println("看这里！fileName:" + name);
             File file = new File(name);
-            boolean flag = false;
-            if (file.exists()) {
-                System.out.println("文件存在！！！！！！！！！！");
-                flag = file.delete();
-            }
-            System.out.println(flag);
+            System.out.println(file.isDirectory());
+//            boolean flag = false;
+//            if (file.exists()) {
+//                System.out.println("文件存在！！！！！！！！！！");
+//                flag = file.delete();
+//            }
+//            System.out.println(flag);
         } catch (IOException e) {
             e.printStackTrace();
         }
