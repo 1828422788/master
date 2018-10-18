@@ -176,8 +176,10 @@ public class UploadFile {
             String name = fileName.replaceAll("\\\\", "/");
             System.out.println("看这里！fileName:" + name);
             File file = new File(name);
+            boolean flag = false;
             if (file.exists())
-                file.delete();
+                flag = file.delete();
+            System.out.println(flag);
         } catch (IOException e) {
             e.printStackTrace();
         }
