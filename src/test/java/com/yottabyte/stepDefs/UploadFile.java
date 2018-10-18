@@ -200,14 +200,16 @@ public class UploadFile {
 //            String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
             courseFile = courseFile + "/" + tmpFile.getPath();
             fileNameWithPath = fileName;
+            return courseFile;
         } else {
             courseFile = directory.getCanonicalPath();
+            return courseFile + fileNameWithPath;
         }
 
-        fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
-        System.out.println("!!!!!!!!!!!!!!!!!!!fileNameWithPath = [" + fileNameWithPath + "]");
+//        fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
+//        System.out.println("!!!!!!!!!!!!!!!!!!!fileNameWithPath = [" + fileNameWithPath + "]");
 //        if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
-        return courseFile + fileNameWithPath;
+//        return courseFile + fileNameWithPath;
 //        } else {
 //            return courseFile + s + fileNameWithPath;
 //        }
