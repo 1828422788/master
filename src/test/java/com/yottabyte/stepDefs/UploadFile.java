@@ -16,7 +16,6 @@ import org.openqa.selenium.WebElement;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.List;
 
 public class UploadFile {
     ConfigManager config = new ConfigManager();
@@ -85,18 +84,6 @@ public class UploadFile {
             return true;
         }
     }
-
-
-//    public static void main(String args[]) throws FileNotFoundException, SftpException {
-//        String fileNameWithPath = "/src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py";
-//        File tmpFile = new File(fileNameWithPath);
-//        String fileName = tmpFile.getName();
-//        String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
-//        System.out.println(path);
-//        System.out.println(fileName);
-//        System.out.println(tmpFile);
-//        new UploadFile().uploadFileToSeleniumServer(fileNameWithPath);
-//    }
 
     @And("^I upload a file \"([^\"]*)\" with name \"([^\"]*)\"$")
     public void uploadFileWithName(String inputName, String fileNameWithPath) {
@@ -170,72 +157,51 @@ public class UploadFile {
         }
     }
 
+
+    /**
+     * 删除文件
+     *
+     * @param relativePath 远程去掉C：/ftp
+     */
     @Given("^delete file \"([^\"]*)\"$")
-    public void deleteFile(String relativePath) throws SftpException {
-//        try {
-////            InputStream is = new FileInputStream("/data");
-////            System.out.println(is.read());
-////            System.out.println((byte) is.read());
-//
-//            String fileName = getAbsolutePath(relativePath);
-//            String name = fileName.replaceAll("/", "\\\\");
-//            System.out.println("看这里！fileName:" + name);
-//            File file = new File("/data");
-//            System.out.println(file.isDirectory());
-//            File file1 = new File("/data/package-lock.json");
-//            System.out.println(file1.exists());
-//
-////            boolean flag = false;
-////            if (file.exists()) {
-////                System.out.println("文件存在！！！！！！！！！！");
-////                flag = file.delete();
-////            }
-////            System.out.println(flag);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        SFTPUtil sftpUtil = new SFTPUtil();
-        SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
-//        List list = sftpUtil.listFiles("C:/ftp/target/download-files");
-//        System.out.println(list.toArray());
-        sftpUtil.login();
-        sftpUtil.delete("C:/ftp/target/download-files", "AutoTest.tar");
+    public void deleteFile(String relativePath) {
+        String type = SharedDriver.WebDriverType;
+        if ("Remote".equalsIgnoreCase(type)) {
+            deleteRemoteFile(relativePath);
+        } else {
+            deleteLocalFile(relativePath);
+        }
     }
 
-//    public static void main(String[] args) throws SftpException {
-//        new UploadFile().deleteFile("");
-//    }
+    private void deleteRemoteFile(String relativePath) {
+        int index = relativePath.lastIndexOf("/");
+        String directory = relativePath.substring(0, index);
+        String fileName = relativePath.substring(index + 1);
 
-    private String getAbsolutePath(String fileNameWithPath) throws IOException {
-        String type = SharedDriver.WebDriverType;
-        String courseFile;
-        String s = File.separator;
-        File directory = new File("");
+        SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), "192.168.1.164", 22);
+        sftpUtil.login();
 
-        if ("Remote".equalsIgnoreCase(type)) {
-            courseFile = new ConfigManager().get("ftp_base_path");  // c:\ftp
-            File tmpFile = new File(fileNameWithPath);
-            String fileName = tmpFile.getName();
-
-            System.out.println("courseFile :" + courseFile);
-            System.out.println("文件名称filename :" + fileName);
-            System.out.println("文件路径tmpfilepath :" + tmpFile.getPath());
-
-//            String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
-            courseFile = courseFile + tmpFile.getPath();
-            fileNameWithPath = fileName;
-            return courseFile;
-        } else {
-            courseFile = directory.getCanonicalPath();
-            return courseFile + fileNameWithPath;
+        try {
+            if (sftpUtil.isDirExist(relativePath))
+                sftpUtil.delete(directory, fileName);
+        } catch (SftpException e) {
+            e.printStackTrace();
+        } finally {
+            sftpUtil.logout();
         }
+    }
 
-//        fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
-//        System.out.println("!!!!!!!!!!!!!!!!!!!fileNameWithPath = [" + fileNameWithPath + "]");
-//        if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
-//        return courseFile + fileNameWithPath;
-//        } else {
-//            return courseFile + s + fileNameWithPath;
-//        }
+    private void deleteLocalFile(String relativePath) {
+        File directory = new File("");
+        String courseFile = null;
+        try {
+            courseFile = directory.getCanonicalPath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String absolutePath = courseFile + relativePath;
+        File file = new File(absolutePath);
+        if (file.exists())
+            file.delete();
     }
 }

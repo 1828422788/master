@@ -1,4 +1,4 @@
-@all @app
+#@all @app
 Feature: 应用编辑
 
   Background:

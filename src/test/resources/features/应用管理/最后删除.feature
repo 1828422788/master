@@ -1,4 +1,4 @@
-@all @smoke @app
+#@all @smoke @app
 Feature: 应用删除
 
   Background:

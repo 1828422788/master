@@ -172,10 +172,10 @@ public class SFTPUtil {
     }
 
     /**
-     *  读取文件
+     * 读取文件
      *
      * @param directory 文件路径
-     * @param readFile 文件名
+     * @param readFile  文件名
      * @return 输入流
      */
     public InputStream readFile(String directory, String readFile) {
@@ -184,7 +184,7 @@ public class SFTPUtil {
             if (directory != null && !"".equals(directory)) {
                 sftp.cd(directory);
             }
-             is = sftp.get(readFile);
+            is = sftp.get(readFile);
         } catch (SftpException e) {
             e.printStackTrace();
         }
@@ -198,8 +198,62 @@ public class SFTPUtil {
      * @param deleteFile 要删除的文件
      */
     public void delete(String directory, String deleteFile) throws SftpException {
-        sftp.cd(directory);
-        sftp.rm(deleteFile);
+        if (isDirExist(directory)) {
+
+            sftp.cd(directory);
+            sftp.rm(deleteFile);
+        }
+    }
+
+    public ChannelSftp getSftp() {
+        return sftp;
+    }
+
+    /**
+     * 370      * 删除stfp文件
+     * 371      *
+     * 372      * @param directory：要删除文件所在目录
+     * 373
+     */
+    public void deleteSFTP(String directory) {
+        try {
+            if (isDirExist(directory)) {
+                Vector<ChannelSftp.LsEntry> vector = sftp.ls(directory);
+                if (vector.size() == 1) { // 文件，直接删除
+                    sftp.rm(directory);
+                } else if (vector.size() == 2) { // 空文件夹，直接删除
+                    sftp.rmdir(directory);
+                } else {
+                    String fileName = "";
+                    // 删除文件夹下所有文件
+                    for (ChannelSftp.LsEntry en : vector) {
+                        fileName = en.getFilename();
+                        if (".".equals(fileName) || "..".equals(fileName)) {
+                            continue;
+                        } else {
+                            deleteSFTP(directory + "/" + fileName);
+                        }
+                    }
+                    // 删除文件夹
+                    sftp.rmdir(directory);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean isDirExist(String directory) {
+        try {
+            Vector<?> vector = sftp.ls(directory);
+            if (null == vector) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 
@@ -252,17 +306,22 @@ public class SFTPUtil {
     public static void main(String[] args) throws Exception {
         SFTPUtil sftp = new SFTPUtil("ftp", "YottaByte&2018", "192.168.1.164", 22);
         sftp.login();
-        String fileName = "src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py";
-        File file = new File(fileName);
-        InputStream is = new FileInputStream(file);
-        String s = File.separator;
-        PdfToImages c = new PdfToImages();
-        is = sftp.readFile("./", "1122.pdf");
+//        String fileName = "src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py";
+//        File file = new File(fileName);
+//        InputStream is = new FileInputStream(file);
+//        String s = File.separator;
+//        PdfToImages c = new PdfToImages();
+//        is = sftp.readFile("./", "1122.pdf");
+//
+////        sftp.upload("/", "alertPlugins/a", "hengshuiyinhang_socket.py", is);
+////        String result = sftp.execCommand("/usr/bin/python /home/sendlog/200/log_gen.py -d192.168.1.200 -p5140 -l/home/sendlog/all_format_log/baimi -c/home/sendlog/200/200.conf -r2");
+////        System.out.println(result);
+//        sftp.logout();
+        sftp.mkdir();
+    }
 
-//        sftp.upload("/", "alertPlugins/a", "hengshuiyinhang_socket.py", is);
-//        String result = sftp.execCommand("/usr/bin/python /home/sendlog/200/log_gen.py -d192.168.1.200 -p5140 -l/home/sendlog/all_format_log/baimi -c/home/sendlog/200/200.conf -r2");
-//        System.out.println(result);
-        sftp.logout();
+    public void mkdir() throws SftpException {
+        sftp.mkdir("C:/ftp/sunxj");
     }
 }
 

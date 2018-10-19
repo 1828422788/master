@@ -14,7 +14,7 @@ Feature: 应用app新建
 
     Examples:
       | name | message |
-      |      | 请输入名称   |
+#      |      | 请输入名称   |
 #      | test | 请设置默认首页 |
 
   Scenario Outline: 新建失败（名称长度校验）
@@ -28,7 +28,7 @@ Feature: 应用app新建
     Then I will see the error message "<message>"
 
     Examples:
-      | name                             | menuName | url   | message          |
+      | name | menuName | url | message |
 #      | 我有三十个字不管你信不信反正我有三十个字不管你信不信反正我信了呢 | test     | /app/ | APP名称过长，请小于60个字符 |
 
 
@@ -39,7 +39,7 @@ Feature: 应用app新建
     And I click the "SaveMenuButton" button
     Then I will see the error message "<message>"
     Examples:
-      | menuName                                                         | url   | message                   |
+      | menuName | url | message |
 #      |                                                                  |       | 请输入名称和URL                 |
 #      | test                                                             |       | 请输入名称和URL                 |
 #      | test                                                             | test  | URL不合法，请以/或http:或https:开头 |
