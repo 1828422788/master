@@ -1,4 +1,4 @@
-#@all @smoke @app
+@all @smoke @app
 Feature: 打开应用
 
   Background:

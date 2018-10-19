@@ -127,29 +127,17 @@ public class UploadFile {
     private void uploadFileWithDifferentPath(WebElement uploadInput, String fileNameWithPath) {
         String type = SharedDriver.WebDriverType;
         if (fileNameWithPath != null && fileNameWithPath.trim().length() != 0) {
-            String s = File.separator;
-            String courseFile = "";
+            String courseFile;
             try {
                 File directory = new File("");
                 if ("Remote".equalsIgnoreCase(type)) {
                     courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
-//                    uploadFileToSeleniumServer(fileNameWithPath);
                     File tmpFile = new File(fileNameWithPath);
-                    String fileName = tmpFile.getName();
-//                    String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
                     courseFile = courseFile + "/" + tmpFile.getPath();
-                    fileNameWithPath = fileName;
                 } else {
-                    courseFile = directory.getCanonicalPath();
+                    courseFile = directory.getCanonicalPath() + fileNameWithPath;
                 }
-                fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
-                System.out.println("看这里！！！！！！fileNameWithPath:" + fileNameWithPath + " courseFile:" + courseFile);
-
-//                if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
-//                    uploadInput.sendKeys(courseFile + fileNameWithPath);
-//                } else {
                 uploadInput.sendKeys(courseFile.replace("//", "/"));
-//                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

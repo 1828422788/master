@@ -1,4 +1,4 @@
-#@all @app
+@all @app
 Feature: 应用编辑
 
   Background:
@@ -24,10 +24,10 @@ Feature: 应用编辑
 
     Examples: 编辑失败
       | menuName | url         | SubmenuName | SubUrl  | chooseMenuName | message |
-#      | 仪表盘      | /dashboard/ | Auto趋势图     | /trend/ |                | 请设置默认首页 |
+      | 仪表盘      | /dashboard/ | Auto趋势图     | /trend/ |                | 请设置默认首页 |
 
     Examples: 编辑成功
-      | menuName | url | SubmenuName | SubUrl | chooseMenuName | message |
+      | menuName | url         | SubmenuName | SubUrl  | chooseMenuName | message |
       | Auto仪表盘  | /dashboard/ | Auto趋势图     | /trend/ | Auto仪表盘        | 保存成功    |
 
   Scenario Outline: 编辑失败（菜单同名校验）

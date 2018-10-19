@@ -1,4 +1,4 @@
-@sourceGroups @all @smoke
+@resourceGroups @all @smoke
 Feature: 日志来源搜索
 
   Background:

@@ -1,4 +1,4 @@
-@sourceGroup @all
+@resourceGroup @all
 Feature: 日志来源编辑
 
   Background:

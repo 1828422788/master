@@ -1,4 +1,4 @@
-@sourceGroups
+@resourceGroups
 Feature: 日志来源删除
 
   Background:

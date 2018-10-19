@@ -24,5 +24,5 @@ Feature: 新建搜索宏
 
   @smoke
     Examples: 新建成功
-      | name | group | definition | param | validateExpression | validateFalseInfo | message |
-#      | AutoTest | default_Macro | $arg1$     |       |                    |                   | 保存成功    |
+      | name     | group         | definition | param | validateExpression | validateFalseInfo | message                |
+      | AutoTest | default_Macro | $arg1$     |       |                    |                   | success message "保存成功" |

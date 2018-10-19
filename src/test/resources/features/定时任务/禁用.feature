@@ -11,5 +11,5 @@ Feature: 定时任务禁用
 
     Examples:
       | name            | message |
-      | sunxiaojingTest | 禁用成功    |
       | sunxiaojingTest | 启用成功    |
+      | sunxiaojingTest | 禁用成功    |

@@ -20,8 +20,7 @@ Feature: 拓扑图新建
       | 测试中文名称      | default_Topology | success message "创建成功" |
 
     Examples: 新建拓扑图失败
-      | name             | group            | message                                |
-      |                  |                  | error message "请输入拓扑图名称"               |
-      | test             |                  | error message "请选择拓扑图分组"               |
-      | 我是超出长度的名称哦我有十六个字 | default_Topology | error message "名称太长, 请输入小于32个字符的名称"    |
-      | sunxjautotest    | default_Topology | error message "拓扑图名字已经存在\n错误码: FE_621" |
+      | name             | group            | message                             |
+      |                  |                  | error message "请输入拓扑图名称"            |
+      | test             |                  | error message "请选择拓扑图分组"            |
+      | 我是超出长度的名称哦我有十六个字 | default_Topology | error message "名称太长, 请输入小于32个字符的名称" |

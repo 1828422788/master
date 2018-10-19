@@ -22,13 +22,13 @@ Feature: 定时任务编辑
 
   @smoke
     Examples: 编辑成功
-      | dataName | name | describe | user | resource | taskGroup | period | startTime | result |
-#      | sxjAutoTest | sxjAutoTest | first    | owner | all_     |           | 10     | 16:37:55  | 保存成功   |
-#      | sxjAutoTest | sxjAutoTest |          | owner | all_     |           | 10     | 16:37:55  | 保存成功   |
+      | dataName    | name        | describe | user  | resource | taskGroup | period | startTime | result |
+      | sxjAutoTest | sxjAutoTest | first    | owner | all_     |           | 10     | 16:37:55  | 保存成功   |
+      | sxjAutoTest | sxjAutoTest |          | owner | all_     |           | 10     | 16:37:55  | 保存成功   |
 
     Examples: 编辑失败
-      | dataName | name | describe | user | resource | taskGroup | period | startTime | result |
-#      | sxjAutoTest |      |          |      |          |           |        |           | 名称 不能为空 |
+      | dataName    | name | describe | user | resource | taskGroup | period | startTime | result  |
+      | sxjAutoTest |      |          |      |          |           |        |           | 名称 不能为空 |
 
 
   Scenario Outline: 成功编辑定时任务的结果处理方式
