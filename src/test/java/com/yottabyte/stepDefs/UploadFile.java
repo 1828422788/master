@@ -148,7 +148,7 @@ public class UploadFile {
 //                if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
 //                    uploadInput.sendKeys(courseFile + fileNameWithPath);
 //                } else {
-                uploadInput.sendKeys(courseFile + fileNameWithPath);
+                uploadInput.sendKeys(courseFile.replace("//", "/"));
 //                }
             } catch (IOException e) {
                 e.printStackTrace();
