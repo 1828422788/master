@@ -1,5 +1,5 @@
-@all @app
-Feature: 应用app新建
+#@all @app
+Feature: 应用新建
 
   Background:
     Given delete file "/target/download-files/AutoTest.tar"
@@ -45,7 +45,7 @@ Feature: 应用app新建
 #      | test                                                             | test  | URL不合法，请以/或http:或https:开头 |
 #      | 我有三十个字不管你信不信反正我有三十个字不管你信不信反正我信了呢我有三十个字不管你信不信反正我有三十个字不管你信不信反正我信了呢 | /app/ | 菜单栏名称过长，请小于60个字符          |
 
-  Scenario: 新建失败（上传logo失败）
+#  Scenario: 新建失败（上传logo失败）
 #    When I upload a file "LogoInput" with name "/src/test/resources/testdata/resourceGroups/testcase.txt"
 #    Then I will see the error message "文件类型不符"
 
@@ -71,8 +71,8 @@ Feature: 应用app新建
     Then I will see the success message "新建成功，请等待下载完成。"
 
     Examples:
-      | name     | describe | sourceName | menuName | url        | color   |
-      | AutoTest | AutoTest | AutoTest   | 应用管理     | /app/list/ | #F9C7EB |
+      | name     | describe | sourceName | menuName | url         | color   |
+      | AutoTest | AutoTest | AutoTest   | 仪表盘      | /dashboard/ | #F9C7EB |
 
 
 

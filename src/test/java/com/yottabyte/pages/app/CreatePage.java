@@ -113,6 +113,10 @@ public class CreatePage extends PageTemplate {
         return super.getContainsTextButton("导入");
     }
 
+    public WebElement getExportButton() {
+        return super.getButton("导出");
+    }
+
     public WebElement getUrl() {
         return super.getInputElement("URL");
     }

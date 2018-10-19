@@ -143,6 +143,7 @@ public class UploadFile {
                     courseFile = directory.getCanonicalPath();
                 }
                 fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
+                System.out.println("看这里！！！！！！fileNameWithPath:" + fileNameWithPath + " courseFile:" + courseFile);
 
                 if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
                     uploadInput.sendKeys(courseFile + fileNameWithPath);
