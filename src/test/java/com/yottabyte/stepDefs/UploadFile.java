@@ -145,11 +145,11 @@ public class UploadFile {
                 fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
                 System.out.println("看这里！！！！！！fileNameWithPath:" + fileNameWithPath + " courseFile:" + courseFile);
 
-                if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
-                    uploadInput.sendKeys(courseFile + fileNameWithPath);
-                } else {
-                    uploadInput.sendKeys(courseFile + s + fileNameWithPath);
-                }
+//                if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
+//                    uploadInput.sendKeys(courseFile + fileNameWithPath);
+//                } else {
+                uploadInput.sendKeys(courseFile + fileNameWithPath);
+//                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
