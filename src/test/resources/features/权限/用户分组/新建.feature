@@ -1,4 +1,4 @@
-Feature: 创建一个用户分组
+Feature: 用户分组创建
 
   Background:
     Given Delete a "userGroup" with "{'name':['AutoTest','><script>alert(1)</script>']}"

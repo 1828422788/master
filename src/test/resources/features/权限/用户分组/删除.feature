@@ -1,4 +1,4 @@
-Feature: 删除一个用户分组
+Feature: 用户分组删除
 
   Background:
     Given Create a "userGroup" with "{'name':'AutoTest','owner':['admin'],'role':['admin']}"

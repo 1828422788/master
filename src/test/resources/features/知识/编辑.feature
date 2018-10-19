@@ -1,4 +1,4 @@
-Feature: 编辑知识
+Feature: 知识编辑
 
   Background:
     Given I insert into table "Knowledge" with "{'name':'sunxj1','code':'sunxj1','creator_id':'1','creator_name':'owner','description':'3','domain_id':'1','solution':'test','group':'default_Knowledge'}"

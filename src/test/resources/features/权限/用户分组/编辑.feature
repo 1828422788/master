@@ -1,4 +1,4 @@
-Feature: 修改一个已经存在的用户分组
+Feature: 用户分组修改已存在
 
   Background:
     Given Delete a "userGroup" with "{'name':['NewAutoTest','AutoTest']}"

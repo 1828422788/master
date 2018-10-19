@@ -1,4 +1,4 @@
-Feature: 切换资源分组
+Feature: 知识搜索
 
   Background:
     Given I insert into table "Knowledge" with "{'name':'sunxj1','code':'sunxj1','creator_id':'1','creator_name':'owner','description':'3','domain_id':'1','solution':'test','group':'default_Knowledge'}"

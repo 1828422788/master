@@ -1,10 +1,10 @@
-Feature: 新建知识
+@all @knowledge
+Feature: 知识新建
 
   Background:
     Given I delete from "Knowledge" where "{'code':'sxjautotest'}"
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
 
-  @knowledge
   Scenario Outline: 新建知识
     Given I click the "CreateKnowledge" button
     When I set the parameter "EventCode" with value "<EventCodeValue>"
@@ -16,16 +16,16 @@ Feature: 新建知识
     And I set the parameter "Describe" with value "<Describe>"
     And I set the parameter "Solution" with value "<Solution>"
     And I click the "Confirm" button
+    And I wait for loading invisible
     Then I will see the <Result>
 
-  @smoke @all
+  @smoke
     Examples: 保存成功
-      | EventCodeValue | NameValue | Type              | TagType | Describe   | Solution      | Result                              |
-      | sxjautotest    | sunxj1    | default_Knowledge | 404     | sunxjTest  | do nothing    | "sunxj1" in the "ElementList"       |
-      | sxjautotest    |           | default_Knowledge |         | 第二个自动化测试用例 |               | "sxjautotest2" in the "ElementList" |
-      | sxjautotest    |           | default_Knowledge |         | 第三个自动化测试用例 | do everything | "sxjautotest3" in the "ElementList" |
+      | EventCodeValue | NameValue | Type              | TagType | Describe   | Solution      | Result                                                       |
+      | sxjautotest    | sunxj1    | default_Knowledge | 404     | sunxjTest  | do nothing    | search result contains "{'column':'0','name':'sunxj1'}"      |
+      | sxjautotest    |           | default_Knowledge |         | 第二个自动化测试用例 |               | search result contains "{'column':'0','name':'sxjautotest'}" |
+      | sxjautotest    |           | default_Knowledge |         | 第三个自动化测试用例 | do everything | search result contains "{'column':'0','name':'sxjautotest'}" |
 
-  @all
     Examples: 保存失败
       | EventCodeValue | NameValue | Type              | TagType | Describe | Solution | Result                  |
       |                |           |                   |         |          |          | error message "请输入事件代码" |
