@@ -16,6 +16,7 @@ import org.openqa.selenium.WebElement;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.List;
 
 public class UploadFile {
     ConfigManager config = new ConfigManager();
@@ -86,16 +87,16 @@ public class UploadFile {
     }
 
 
-    public static void main(String args[]) throws FileNotFoundException, SftpException {
-        String fileNameWithPath = "./src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py";
-        File tmpFile = new File(fileNameWithPath);
-        String fileName = tmpFile.getName();
-        String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
-        System.out.println(path);
-        System.out.println(fileName);
-        System.out.println(tmpFile);
-        new UploadFile().uploadFileToSeleniumServer(fileNameWithPath);
-    }
+//    public static void main(String args[]) throws FileNotFoundException, SftpException {
+//        String fileNameWithPath = "/src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py";
+//        File tmpFile = new File(fileNameWithPath);
+//        String fileName = tmpFile.getName();
+//        String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
+//        System.out.println(path);
+//        System.out.println(fileName);
+//        System.out.println(tmpFile);
+//        new UploadFile().uploadFileToSeleniumServer(fileNameWithPath);
+//    }
 
     @And("^I upload a file \"([^\"]*)\" with name \"([^\"]*)\"$")
     public void uploadFileWithName(String inputName, String fileNameWithPath) {
@@ -193,8 +194,17 @@ public class UploadFile {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-        new SFTPUtil().delete("C:/ftp/target/download-files", "AutoTest.tar");
+//        SFTPUtil sftpUtil = new SFTPUtil();
+        SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
+//        List list = sftpUtil.listFiles("C:/ftp/target/download-files");
+//        System.out.println(list.toArray());
+        sftpUtil.login();
+        sftpUtil.delete("C:/ftp/target/download-files", "AutoTest.tar");
     }
+
+//    public static void main(String[] args) throws SftpException {
+//        new UploadFile().deleteFile("");
+//    }
 
     private String getAbsolutePath(String fileNameWithPath) throws IOException {
         String type = SharedDriver.WebDriverType;
