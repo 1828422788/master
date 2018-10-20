@@ -23,7 +23,8 @@ public class DownLoadFiles {
         WebElement table = webDriver.findElement(By.className("el-table__body"));
         try {
             table.findElement(By.xpath("//span[contains(text(),'下载')]")).click();
-            EmbeddingFile.embeddingPdfToscenario(table.findElement(By.tagName("td")).getText());
+            WebElement fileElement = table.findElement(By.xpath("//span[contains(text(),'下载')]/ancestor::td/preceding-sibling::td[@class='el-table_1_column_1']"));
+            EmbeddingFile.embeddingPdfToscenario(fileElement.getText());
         } catch (NoSuchElementException e) {
             return;
         }

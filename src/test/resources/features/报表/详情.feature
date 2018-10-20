@@ -7,8 +7,7 @@ Feature: 报表详情
   Scenario Outline:
     Given I click the report detail which name is "<name>"
     When I download the file
-    Then I delete from "Report" where "{'name':'<name>'}"
-
+    Then I delete from "Report" where "{'name':['<name>','sxjautotest']}"
 
     Examples:
       | name     |
