@@ -1,9 +1,9 @@
+@report @all @smoke
 Feature: 报表编辑
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-  @report
   Scenario Outline:
     When the data name is "<dataName>" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
@@ -22,7 +22,6 @@ Feature: 报表编辑
     Then I click the "Save" button
     Then I will see the success message "<result>"
 
-  @all @smoke
     Examples: 保存成功
       | dataName    | name        | describe | runningUser | reportGroup | reportType | email               | subject   | hour | minute | chartLists                        | layout  | result |
       | sxjautotest | sxjautotest | autotest | owner       |             | PDF        | 15194315230@163.com | hello sxj | 11   | 30     | bin-zft,bin-zft-spl,bin-zft-local | Layout1 | 保存成功   |

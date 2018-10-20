@@ -1,3 +1,4 @@
+@all @report @smoke
 Feature: 报表禁用
 
   Background:
@@ -8,7 +9,6 @@ Feature: 报表禁用
     Then I disabled the data "<name>"
     Then I will see the success message "<result>"
 
-  @all
     Examples:
       | name    | result |
       | 自动化测试用例 | 禁用成功   |

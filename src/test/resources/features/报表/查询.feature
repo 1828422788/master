@@ -1,3 +1,4 @@
+@report @all
 Feature: 报表查询
 
   Background:
@@ -8,7 +9,6 @@ Feature: 报表查询
     Given I choose the "<group>" from the "GroupList"
     Then I will see the special column contains "<name>"
 
-  @all
     Examples:
       | group          | name    |
       | default_Report | 自动化测试用例 |
@@ -17,7 +17,6 @@ Feature: 报表查询
     Given I set the parameter "SearchInput" with value "<searchInput>"
     Then I will see the column number "1" contains "<name>"
 
-  @all
     Examples:
       | searchInput | name    |
       | 自动化         | 自动化测试用例 |
