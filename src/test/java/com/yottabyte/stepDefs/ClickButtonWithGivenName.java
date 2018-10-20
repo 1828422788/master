@@ -261,4 +261,11 @@ public class ClickButtonWithGivenName {
         }
         return null;
     }
+
+    @Given("^I click the report detail which name is \"([^\"]*)\"$")
+    public void clickReportDetail(String name) {
+        String xpath = "//span[contains(text(),'" + name + "')][@class]";
+        WebElement tr = this.findName(name);
+        tr.findElement(By.xpath(xpath)).click();
+    }
 }

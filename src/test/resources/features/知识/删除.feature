@@ -7,8 +7,10 @@ Feature: 知识删除
 
   Scenario Outline:删除知识
     Given the data name is "<Name>" then i click the "删除" button
-    Then I click the "EnsureDeleteButton" button
-    Then I will see the success message "<SuccessMsg>"
+    When I click the "EnsureDeleteButton" button
+    And I will see the success message "<SuccessMsg>"
+    And I refresh the website
+    Then I will see the search result "{'column':'0','name':'<Name>','contains':'n'}"
 
     Examples:
       | Name   | SuccessMsg |

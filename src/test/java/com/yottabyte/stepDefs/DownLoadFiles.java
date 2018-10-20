@@ -22,7 +22,7 @@ public class DownLoadFiles {
     public void downLoadFiles() {
         WebElement table = webDriver.findElement(By.className("el-table__body"));
         try {
-            table.findElement(By.tagName("td")).click();
+            table.findElement(By.xpath("//span[contains(text(),'下载')]")).click();
             EmbeddingFile.embeddingPdfToscenario(table.findElement(By.tagName("td")).getText());
         } catch (NoSuchElementException e) {
             return;

@@ -7,7 +7,6 @@ Feature: 应用编辑
     And I wait for loading invisible
     Then I will see the "app.CreatePage" page
 
-  @smoke
   Scenario Outline:
     When I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "<menuName>"
@@ -24,8 +23,9 @@ Feature: 应用编辑
 
     Examples: 编辑失败
       | menuName | url         | SubmenuName | SubUrl  | chooseMenuName | message |
-      | 仪表盘      | /dashboard/ | Auto趋势图     | /trend/ |                | 请设置默认首页 |
+      | 知识       | /knowledge/ | Auto趋势图     | /trend/ |                | 请设置默认首页 |
 
+  @smoke
     Examples: 编辑成功
       | menuName | url         | SubmenuName | SubUrl  | chooseMenuName | message |
       | Auto仪表盘  | /dashboard/ | Auto趋势图     | /trend/ | Auto仪表盘        | 保存成功    |
@@ -39,4 +39,4 @@ Feature: 应用编辑
 
     Examples:
       | menuName | url         |
-      | Auto仪表盘  | /dashboard/ |
+      | 仪表盘      | /dashboard/ |
