@@ -115,6 +115,11 @@ public class RegularSearch {
         }
     }
 
+    /**
+     * 验证搜索列表包含某一字段
+     *
+     * @param searchResult 格式：{'column':'列数-1','name':'关键字名称'}
+     */
     @Then("^I will see the search result contains \"([^\"]*)\"$")
     public void validateSearchResultContainsValue(String searchResult) {
         List<WebElement> trList = this.getTrList();

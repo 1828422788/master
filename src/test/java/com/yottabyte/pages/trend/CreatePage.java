@@ -113,15 +113,152 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
     private WebElement startColour;
 
-    @FindBy(xpath = "//span[@style='background: rgb(255, 152, 0);']")
-    private WebElement orange;
+    @FindBy(className = "el-select-dropdown__item")
+    private List<WebElement> liList;
 
-    @FindBy(xpath = "//span[@style='background: rgb(205, 220, 57);']")
-    private WebElement green;
+    @FindBy(className = "yw-search-setting-switch")
+    private WebElement settingSwitch;
 
-    @FindBy(xpath = "//span[@style='background: rgb(103, 58, 183);']")
-    private WebElement purple;
+    @FindBy(xpath = "//div[contains(text(),'维度')]")
+    private WebElement dimension;
 
+    @FindBy(xpath = "//div[contains(text(),'关系')]")
+    private WebElement relation;
+
+    @FindBy(xpath = "//div[contains(text(),'复合')]")
+    private WebElement compound;
+
+    @FindBy(xpath = "//div[contains(text(),'地图')]")
+    private WebElement map;
+
+    @FindBy(xpath = "//div[contains(text(),'其他')]")
+    private WebElement other;
+
+    @FindBy(className = "pie")
+    private WebElement pie;
+
+    @FindBy(className = "rose")
+    private WebElement rose;
+
+    @FindBy(className = "bar")
+    private WebElement bar;
+
+    @FindBy(className = "sunburst")
+    private WebElement sunburst;
+
+    @FindBy(xpath = "//div[contains(text(),'切分')]")
+    private WebElement divide;
+
+    @FindBy(xpath = "//p[text()='+ 添加']")
+    private WebElement addField;
+
+    @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
+    private WebElement secondSettingSelect;
+
+    @FindBy(className = "chord")
+    private WebElement chord;
+
+    @FindBy(className = "sankey")
+    private WebElement sankey;
+
+    @FindBy(className = "force")
+    private WebElement force;
+
+    @FindBy(xpath = "//div[text()='目标']")
+    private WebElement target;
+
+    @FindBy(xpath = "//div[text()='权重']")
+    private WebElement weight;
+
+    @FindBy(className = "rangeline")
+    private WebElement rangeline;
+
+    @FindBy(className = "multiaxis")
+    private WebElement multiaxis;
+
+    @FindBy(xpath = "//span[text()='预测值']/ancestor::div/following-sibling::div")
+    private WebElement predict;
+
+    @FindBy(xpath = "//span[text()='上限']/ancestor::div/following-sibling::div")
+    private WebElement topLimit;
+
+    @FindBy(xpath = "//span[text()='下限']/ancestor::div/following-sibling::div")
+    private WebElement lowerLimit;
+
+    @FindBy(className = "heatmap")
+    private WebElement heatmap;
+
+    @FindBy(className = "attackmap")
+    private WebElement attackmap;
+
+    @FindBy(className = "regionmap")
+    private WebElement regionmap;
+
+    @FindBy(className = "geostatsmap")
+    private WebElement geostatsmap;
+
+    @FindBy(className = "table")
+    private WebElement table;
+
+    @FindBy(className = "single")
+    private WebElement single;
+
+    @FindBy(className = "liquidfill")
+    private WebElement liquidfill;
+
+    @FindBy(className = "wordcloud")
+    private WebElement wordcloud;
+
+    @FindBy(className = "sequence")
+    private WebElement sequence;
+
+    @FindBy(className = "radar")
+    private WebElement radar;
+
+    @FindBy(className = "funnel")
+    private WebElement funnel;
+
+    @FindBy(className = "matrixheatmap")
+    private WebElement matrixheatmap;
+
+    @FindBy(xpath = "//div[text()='背景']")
+    private WebElement background;
+
+    @FindBy(xpath = "//div[text()='字体']")
+    private WebElement font;
+
+    @FindBy(xpath = "//div[text()='图标']")
+    private WebElement icon;
+
+    @FindBy(xpath = "//div[text()='按字段']")
+    private WebElement accordingField;
+
+    @FindBy(xpath = "//div[text()='按名称']")
+    private WebElement accordingName;
+
+    @FindBy(xpath = "//div[text()='按趋势']")
+    private WebElement accordingTrend;
+
+    @FindBy(xpath = "//div[text()='按区间']")
+    private WebElement accordingArea;
+
+    @FindBy(xpath = "//div[text()='绝对值']")
+    private WebElement absolute;
+
+    @FindBy(xpath = "//div[text()='百分比']")
+    private WebElement percent;
+
+    @FindBy(xpath = "//div[@class='el-autocomplete yw-search-setting-select']//input")
+    private WebElement iconName;
+
+    @FindBy(xpath = "//div[@class='range-input-group']//input")
+    private List<WebElement> inputList;
+
+    @FindBy(className = "yw-search-setting-switch")
+    private WebElement switchButton;
+
+    @FindBy(xpath = "//div[text()='指示器']")
+    private WebElement indicator;
 
     public WebElement getGenerate() {
         return super.getButton("生成");
@@ -190,6 +327,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSettingSelect() {
         settingSelect.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getSecondSettingSelect() {
+        secondSettingSelect.click();
         return super.getLastDropdownList();
     }
 
@@ -289,14 +431,214 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getOrange() {
-        return orange;
+        return liList.get(2);
     }
 
     public WebElement getGreen() {
-        return green;
+        return liList.get(6);
     }
 
     public WebElement getPurple() {
-        return purple;
+        return liList.get(liList.size() - 1);
+    }
+
+    public WebElement getSettingSwitch() {
+        return settingSwitch;
+    }
+
+    public WebElement getDimension() {
+        return dimension;
+    }
+
+    public WebElement getRelation() {
+        return relation;
+    }
+
+    public WebElement getCompound() {
+        return compound;
+    }
+
+    public WebElement getMap() {
+        return map;
+    }
+
+    public WebElement getOther() {
+        return other;
+    }
+
+    public WebElement getPie() {
+        return pie;
+    }
+
+    public WebElement getRose() {
+        return rose;
+    }
+
+    public WebElement getBar() {
+        return bar;
+    }
+
+    public WebElement getSunburst() {
+        return sunburst;
+    }
+
+    public WebElement getAddField() {
+        return addField;
+    }
+
+    public WebElement getDivide() {
+        return divide;
+    }
+
+    public WebElement getChord() {
+        return chord;
+    }
+
+    public WebElement getSankey() {
+        return sankey;
+    }
+
+    public WebElement getForce() {
+        return force;
+    }
+
+    public WebElement getTarget() {
+        return target;
+    }
+
+    public WebElement getWeight() {
+        return weight;
+    }
+
+    public WebElement getRangeline() {
+        return rangeline;
+    }
+
+    public WebElement getMultiaxis() {
+        return multiaxis;
+    }
+
+    public WebElement getPredict() {
+        predict.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getTopLimit() {
+        topLimit.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getLowerLimit() {
+        lowerLimit.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getHeatmap() {
+        return heatmap;
+    }
+
+    public WebElement getAttackmap() {
+        return attackmap;
+    }
+
+    public WebElement getRegionmap() {
+        return regionmap;
+    }
+
+    public WebElement getGeostatsmap() {
+        return geostatsmap;
+    }
+
+    public WebElement getTable() {
+        return table;
+    }
+
+    public WebElement getSingle() {
+        return single;
+    }
+
+    public WebElement getLiquidfill() {
+        return liquidfill;
+    }
+
+    public WebElement getWordcloud() {
+        return wordcloud;
+    }
+
+    public WebElement getSequence() {
+        return sequence;
+    }
+
+    public WebElement getRadar() {
+        return radar;
+    }
+
+    public WebElement getFunnel() {
+        return funnel;
+    }
+
+    public WebElement getMatrixheatmap() {
+        return matrixheatmap;
+    }
+
+    public WebElement getBackground() {
+        return background;
+    }
+
+    public WebElement getFont() {
+        return font;
+    }
+
+    public WebElement getIcon() {
+        return icon;
+    }
+
+    public WebElement getAccordingField() {
+        return accordingField;
+    }
+
+    public WebElement getAccordingName() {
+        return accordingName;
+    }
+
+    public WebElement getAccordingTrend() {
+        return accordingTrend;
+    }
+
+    public WebElement getAccordingArea() {
+        return accordingArea;
+    }
+
+    public WebElement getAbsolute() {
+        return absolute;
+    }
+
+    public WebElement getPercent() {
+        return percent;
+    }
+
+    public WebElement getCompareTime() {
+        settingSelect.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getIconName() {
+        return iconName;
+    }
+
+    public WebElement getStartArea() {
+        return inputList.get(0);
+    }
+
+    public WebElement getEndArea() {
+        return inputList.get(1);
+    }
+
+    public WebElement getSwitchButton() {
+        return switchButton;
+    }
+
+    public WebElement getIndicator() {
+        return indicator;
     }
 }
