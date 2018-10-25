@@ -25,4 +25,8 @@ public class AppPage extends PageTemplate {
     public WebElement getSecondSubNav() {
         return subNavList.get(1);
     }
+
+    public WebElement getThirdSubNav() {
+        return subNavList.get(2);
+    }
 }

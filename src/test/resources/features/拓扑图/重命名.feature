@@ -1,5 +1,5 @@
-@topology
-Feature: 重命名拓扑图
+@topology @all
+Feature: 拓扑图重命名
 
   Background:
     Given I insert into table "Topology" with "{'name':'sxjautotest','domain_id':'1','creator_id':'1','category':'0','group':'default_Topology'}"
@@ -7,7 +7,6 @@ Feature: 重命名拓扑图
     And I delete from "Topology" where "{'name':'autotest','group':'default_Topology'}"
     Then open the "topology.ListPage" page for uri "/topology/"
 
-  @all
   Scenario Outline:
     Given the data name is "<name>" then i click the "重命名" button
     Then I set the parameter "NameInput" with value "<newName>"
