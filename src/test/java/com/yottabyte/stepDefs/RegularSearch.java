@@ -3,6 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -236,6 +237,11 @@ public class RegularSearch {
         this.waitUntilLoadingDisappear();
     }
 
+    /**
+     * 验证告警等级
+     *
+     * @param colour
+     */
     @Then("^I will see the alert grade is \"([^\"]*)\"$")
     public void checkGradeColour(String colour) {
         List<WebElement> trList = this.getTrList();
@@ -261,5 +267,21 @@ public class RegularSearch {
                 }
             }
         }
+    }
+
+
+    /**
+     * 验证某一行某一列的值是否修改正确
+     *
+     * @param benchmarkName 基准名称
+     * @param values        格式：{'column':'比较列','name':'比较名称'}
+     */
+    @Then("^I will see the data \"([^\"]*)\" values \"([^\"]*)\"$")
+    public void iWillSeeTheData(String benchmarkName, String values) {
+        WebElement tr = new ClickButtonWithGivenName().findName(benchmarkName);
+        Map<String, Object> valuesMap = JsonStringPaser.json2Stirng(values);
+        String xpath = ".//td[" + valuesMap.get("column") + "]";
+        String actualName = tr.findElement(By.xpath(xpath)).getText();
+        Assert.assertEquals(valuesMap.get("name"), actualName);
     }
 }

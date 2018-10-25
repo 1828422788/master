@@ -159,6 +159,13 @@ public class Search {
         searchInput.sendKeys(name);
     }
 
+    /**
+     * 下拉列表搜索以及输入框搜索
+     *
+     * @param typeName     格式{'group':'name'}/{'input':'name'}
+     * @param columnNumber 列数（无需-1）
+     * @param keyword
+     */
     @Given("^search \"([^\"]*)\" and I will see the column number \"([^\"]*)\" contains \"([^\"]*)\"$")
     public void search(String typeName, String columnNumber, String keyword) {
         Map<String, Object> map = JsonStringPaser.json2Stirng(typeName);
@@ -175,6 +182,7 @@ public class Search {
             // 根据内容进行搜索
             setSearchInput(keyword);
         }
+        WaitForElement.waitUntilLoadingDisappear();
         search(columnNumber, keyword);
     }
 

@@ -21,18 +21,18 @@ import java.util.List;
         features = {"src/test/resources"},
         monochrome = true,
         strict = true,
-        dryRun= false,
+        dryRun = false,
         snippets = SnippetType.CAMELCASE,
         glue = {"com.yottabyte"},
-        tags = {"@app"}
+        tags = {"@new,@topology"}
 )
 /**
  * @param projectName
  *可以根据实际项目名称更改该参数
  */
-public class TestCucumberRunner{
+public class TestCucumberRunner {
     @AfterAll
-    public static void generateReport(){
+    public static void generateReport() {
         File reportOutputDirectory = new File("target");
         List<String> jsonFiles = new ArrayList<>();
         jsonFiles.add("target/cucumber.json");

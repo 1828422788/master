@@ -5,15 +5,15 @@ Feature: 趋势图分组
     Given open the "trend.ListPage" page for uri "/trend/"
 
   Scenario Outline:
-    When the data name is "AutoTest" then i click the "分组" button
+    When the data name is "<name>" then i click the "分组" button
     And I cancel selection "<group>" from the "Group"
     And I click the "Ensure" button
     And I will see the error message "至少选择一个分组"
-    And I choose the "<group>" from the "Group"
-    And I will see the success message "保存成功"
-#    And I refresh the website
-#    And I
+    And I choose the "<extraGroup>" from the "Group"
+    And I click the "Ensure" button
+    And I refresh the website
+    Then I will see the data "<name>" values "{'column':'3','name':'<extraGroup>'}"
 
     Examples:
-      | group         |
-      | default_Trend |
+      | name     | group         | extraGroup                    |
+      | AutoTest | default_Trend | AutoTestForAuth,default_Trend |

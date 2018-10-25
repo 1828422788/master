@@ -75,7 +75,7 @@ public class ClickButtonWithGivenName {
      * @param name
      * @return 行元素
      */
-    private WebElement findName(String name) {
+    public WebElement findName(String name) {
         List<WebElement> tableList = webDriver.findElements(By.className("el-table__body"));
         if (tableList.size() == 1) {
             // 表体
