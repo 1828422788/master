@@ -1,5 +1,5 @@
 @smoke @spl @all
-Feature: 加载已存搜索
+Feature: 已存搜索查询
 
   Background:
     Given I insert into table "SavedSearch" with "{'name':'sunxjAutoTest','domain_id':'1','creator_id':'1','query':'*','source_groups':'all'}"

@@ -7,6 +7,7 @@ Feature: 报表查询
 
   Scenario Outline: 根据分组查询
     Given I choose the "<group>" from the "GroupList"
+    And I wait for loading invisible
     Then I will see the special column contains "<name>"
 
     Examples:
