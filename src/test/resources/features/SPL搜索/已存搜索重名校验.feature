@@ -2,13 +2,13 @@
 Feature: 已存搜索重名校验
 
   Background:
-    Given I insert into table "SavedSearch" with "{'name':'sunxjautotest','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_'}"
-    Given I insert into table "SavedSearch" with "{'name':'11','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_'}"
-    Given I insert into table "SavedSearch" with "{'name':'test','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_'}"
-    Given I insert into table "SavedSearch" with "{'name':'1test','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_'}"
-    Given I insert into table "SavedSearch" with "{'name':'1重名','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_'}"
-    Given I insert into table "SavedSearch" with "{'name':'test重名','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_'}"
-    Given I insert into table "SavedSearch" with "{'name':'test重名12','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_'}"
+    Given I insert into table "SavedSearch" with "{'name':'sunxjautotest','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
+    Given I insert into table "SavedSearch" with "{'name':'11','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
+    Given I insert into table "SavedSearch" with "{'name':'test','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
+    Given I insert into table "SavedSearch" with "{'name':'1test','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
+    Given I insert into table "SavedSearch" with "{'name':'1重名','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
+    Given I insert into table "SavedSearch" with "{'name':'test重名','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
+    Given I insert into table "SavedSearch" with "{'name':'test重名12','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
     Then open the "splSearch.SearchPage" page for uri "/search/"
 
   Scenario Outline:

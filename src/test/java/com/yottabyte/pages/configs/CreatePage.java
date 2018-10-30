@@ -1,0 +1,222 @@
+package com.yottabyte.pages.configs;
+
+import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
+
+/**
+ * @author sunxj
+ */
+public class CreatePage extends PageTemplate {
+    public CreatePage(WebDriver driver) {
+        super(driver);
+    }
+
+    @FindBy(xpath = "//h3[text()='日志样例']/following-sibling::div/textarea")
+    private WebElement logSample;
+
+    @FindBy(xpath = "//label[text()='正则表达式']/following-sibling::div/textarea")
+    private WebElement regex;
+
+    @FindBy(className = "json-formatter-string")
+    private List<WebElement> valueList;
+
+    @FindBy(xpath = "//label[text()='来源字段']")
+    private WebElement sourceFieldLabel;
+
+    @FindBy(xpath = "//label[text()='来源字段']/following-sibling::div//i")
+    private WebElement sourceField;
+
+    @FindBy(xpath = "(//label[contains(text(),'来源字段')]/following-sibling::div//input[@class='el-input__inner'])[2]")
+    private WebElement sourceFieldLabel2;
+
+    @FindBy(className = "el-icon-plus")
+    private WebElement plusButton;
+
+    @FindBy(className = "yw-extract-big-input")
+    private WebElement pathInput;
+
+    @FindBy(className = "json-formatter-number")
+    private List<WebElement> numberList;
+
+    public WebElement getName() {
+        return getInputElement("规则名称");
+    }
+
+    public WebElement getLogtype() {
+        return getInputElement("Logtype");
+    }
+
+    public WebElement getGroup() {
+        return super.getDropdownList("分组");
+    }
+
+    public WebElement getParseButton() {
+        return super.getButton("解析");
+    }
+
+    public WebElement getParseRule() {
+        return super.getDropdownList("添加解析规则");
+    }
+
+    public WebElement getContinueButton() {
+        return super.getButton("继续");
+    }
+
+    public WebElement getSourceFieldLabel2() {
+        sourceFieldLabel2.click();
+        return getLastDropdownList();
+    }
+
+    public WebElement getSourceField() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(sourceFieldLabel));
+        sourceField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getFieldSeparator() {
+        return getInputElement("字段分隔符");
+    }
+
+    public WebElement getKeyRegex() {
+        return getInputElement("key正则");
+    }
+
+    public WebElement getValueRegex() {
+        return getInputElement("value正则");
+    }
+
+    public WebElement getKVSeparator() {
+        return getInputElement("k-v分隔符");
+    }
+
+    public WebElement getKeepKey() {
+        return getInputElement("保留key");
+    }
+
+    public WebElement getDumpKey() {
+        return getInputElement("丢弃key");
+    }
+
+    public WebElement getTimeFormat() {
+        return getInputElement("时间格式");
+    }
+
+    public WebElement getDecimal() {
+        return super.getDropdownList("数值进制");
+    }
+
+    public WebElement getSeparate() {
+        return getInputElement("分隔符");
+    }
+
+    public WebElement getFieldList() {
+        return getInputElement("字段列表");
+    }
+
+    public WebElement getLogSample() {
+        return logSample;
+    }
+
+    public WebElement getRegex() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(regex));
+        return regex;
+    }
+
+    public WebElement getPathInput() {
+        plusButton.click();
+        return pathInput;
+    }
+
+    public WebElement getSuccessMessage() {
+        return super.getSuccessMessage();
+    }
+
+    public WebElement getNumber1() {
+        return numberList.get(0);
+    }
+
+    public WebElement getValue1() {
+        return valueList.get(0);
+    }
+
+    public WebElement getValue2() {
+        return valueList.get(1);
+    }
+
+    public WebElement getValue3() {
+        return valueList.get(2);
+    }
+
+    public WebElement getValue4() {
+        return valueList.get(3);
+    }
+
+    public WebElement getValue5() {
+        return valueList.get(4);
+    }
+
+    public WebElement getValue6() {
+        return valueList.get(5);
+    }
+
+    public WebElement getValue7() {
+        return valueList.get(6);
+    }
+
+    public WebElement getValue8() {
+        return valueList.get(7);
+    }
+
+    public WebElement getValue9() {
+        return valueList.get(8);
+    }
+
+    public WebElement getValue10() {
+        return valueList.get(9);
+    }
+
+    public WebElement getValue11() {
+        return valueList.get(10);
+    }
+
+    public WebElement getValue12() {
+        return valueList.get(11);
+    }
+
+    public WebElement getValue13() {
+        return valueList.get(12);
+    }
+
+    public WebElement getValue14() {
+        return valueList.get(13);
+    }
+
+    public WebElement getValue15() {
+        return valueList.get(14);
+    }
+
+    public WebElement getValue16() {
+        return valueList.get(15);
+    }
+
+    public WebElement getValue17() {
+        return valueList.get(16);
+    }
+
+    public WebElement getValue18() {
+        return valueList.get(17);
+    }
+
+    @Override
+    public WebElement getInputElement(String text) {
+        String xpath = "//label[contains(text(),'" + text + "')]/following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+}

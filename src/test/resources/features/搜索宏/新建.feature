@@ -1,5 +1,5 @@
 @all @searchMacro
-Feature: 新建搜索宏
+Feature: 搜索宏新建
 
   Background:
     Given open the "searchMacro.ListPage" page for uri "/macro/"

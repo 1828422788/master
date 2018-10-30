@@ -61,9 +61,26 @@ public class CheckButtonAttribute {
         }
     }
 
-    @Then("^I will see the element \"([^\"]*)\" name is \"([^\"]*)\"$")
-    public void checkElementName(String buttonName, String expectButtonName) {
-        WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
-        Assert.assertTrue(element.getText().equals(expectButtonName));
+    /**
+     * 验证元素名称是否正确
+     *
+     * @param buttonNameList
+     * @param expectButtonName
+     */
+    @Then("^I will see the element \"([^\"]*)\" name is \"([^割]*)\"$")
+    public void checkElementName(List<String> buttonNameList, List<String> expectButtonName) {
+        if (buttonNameList.size() == 1 && expectButtonName.size() != 1) {
+            String finalName = expectButtonName.get(0) + expectButtonName.get(1);
+            expectButtonName.clear();
+            expectButtonName.add(finalName);
+        }
+
+        for (int i = 0; i < buttonNameList.size(); i++) {
+            String buttonName = buttonNameList.get(i);
+            WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
+            String actualText = element.getText();
+            String expectText = expectButtonName.get(i);
+            Assert.assertEquals(expectText, actualText);
+        }
     }
 }
