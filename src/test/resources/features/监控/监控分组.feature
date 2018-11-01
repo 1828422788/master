@@ -1,5 +1,5 @@
 @smoke @all @alert
-Feature: 监控复制
+Feature: 监控分组
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"

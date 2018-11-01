@@ -1,4 +1,4 @@
-@spl @all
+@spl @all @test
 Feature: 已存搜索重名校验
 
   Background:

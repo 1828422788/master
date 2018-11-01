@@ -1,15 +1,14 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.utils.GetElementFromPage;
-import cucumber.api.PendingException;
+import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author sunxj
@@ -77,10 +76,27 @@ public class CheckButtonAttribute {
 
         for (int i = 0; i < buttonNameList.size(); i++) {
             String buttonName = buttonNameList.get(i);
-            WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
-            String actualText = element.getText();
             String expectText = expectButtonName.get(i);
-            Assert.assertEquals(expectText, actualText);
+            validateElementName(expectText, buttonName);
         }
+    }
+
+    /**
+     * 验证元素名称是否正确（传入json格式的参数，目的是避免检验值中出现逗号给分割成另一个参数）
+     *
+     * @param jsonString
+     */
+    @Then("^I will see the element value in json \"([^割]*)\"$")
+    public void checkElementName(String jsonString) {
+        Map<String, Object> map = JsonStringPaser.json2Stirng(jsonString);
+        for (String key : map.keySet()) {
+            validateElementName(map.get(key).toString(), key);
+        }
+    }
+
+    private void validateElementName(String expect, String actualElementName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(actualElementName);
+        String actualText = element.getText();
+        Assert.assertEquals(expect, actualText);
     }
 }

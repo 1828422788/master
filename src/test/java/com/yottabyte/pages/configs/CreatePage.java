@@ -24,8 +24,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='正则表达式']/following-sibling::div/textarea")
     private WebElement regex;
 
+    @FindBy(xpath = "(//label[text()='正则表达式']/following-sibling::div/textarea)[2]")
+    private WebElement regex2;
+
     @FindBy(className = "json-formatter-string")
     private List<WebElement> valueList;
+
+    @FindBy(className = "json-formatter-number")
+    private List<WebElement> numberList;
 
     @FindBy(xpath = "//label[text()='来源字段']")
     private WebElement sourceFieldLabel;
@@ -36,14 +42,26 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[contains(text(),'来源字段')]/following-sibling::div//input[@class='el-input__inner'])[2]")
     private WebElement sourceFieldLabel2;
 
+    @FindBy(xpath = "(//label[contains(text(),'来源字段')]/following-sibling::div//input[@class='el-input__inner'])[3]")
+    private WebElement sourceFieldLabel3;
+
+    @FindBy(xpath = "(//label[contains(text(),'来源字段')]/following-sibling::div//input[@class='el-input__inner'])[4]")
+    private WebElement sourceFieldLabel4;
+
     @FindBy(className = "el-icon-plus")
     private WebElement plusButton;
 
     @FindBy(className = "yw-extract-big-input")
     private WebElement pathInput;
 
-    @FindBy(className = "json-formatter-number")
-    private List<WebElement> numberList;
+    @FindBy(className = "el-checkbox")
+    private WebElement checkbox;
+
+    @FindBy(xpath = "//div[text()='source']/preceding-sibling::input")
+    private WebElement source;
+
+    @FindBy(xpath = "//label[text()='替换内容']/following-sibling::div/textarea")
+    private WebElement replaceContent;
 
     public WebElement getName() {
         return getInputElement("规则名称");
@@ -67,6 +85,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getContinueButton() {
         return super.getButton("继续");
+    }
+
+    public WebElement getFormatRule() {
+        return getInputElement("格式规则");
+    }
+
+    public WebElement getTargetField() {
+        return getInputElement("目标字段");
     }
 
     public WebElement getSourceFieldLabel2() {
@@ -142,6 +168,10 @@ public class CreatePage extends PageTemplate {
         return numberList.get(0);
     }
 
+    public WebElement getNumber2() {
+        return numberList.get(1);
+    }
+
     public WebElement getValue1() {
         return valueList.get(0);
     }
@@ -212,6 +242,32 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getValue18() {
         return valueList.get(17);
+    }
+
+    public WebElement getCheckbox() {
+        return checkbox;
+    }
+
+    public WebElement getSource() {
+        return source;
+    }
+
+    public WebElement getSourceFieldLabel3() {
+        sourceFieldLabel3.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getSourceFieldLabel4() {
+        sourceFieldLabel4.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getRegex2() {
+        return regex2;
+    }
+
+    public WebElement getReplaceContent() {
+        return replaceContent;
     }
 
     @Override
