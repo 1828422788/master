@@ -63,6 +63,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='替换内容']/following-sibling::div/textarea")
     private WebElement replaceContent;
 
+    @FindBy(className = "json-formatter-boolean")
+    private List<WebElement> booleanList;
+
     public WebElement getName() {
         return getInputElement("规则名称");
     }
@@ -146,6 +149,10 @@ public class CreatePage extends PageTemplate {
         return getInputElement("字段列表");
     }
 
+    public WebElement getSourceFieldInput() {
+        return getInputElement("来源字段");
+    }
+
     public WebElement getLogSample() {
         return logSample;
     }
@@ -158,6 +165,10 @@ public class CreatePage extends PageTemplate {
     public WebElement getPathInput() {
         plusButton.click();
         return pathInput;
+    }
+
+    public WebElement getBoolean1() {
+        return booleanList.get(0);
     }
 
     public WebElement getSuccessMessage() {
