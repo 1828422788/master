@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.*;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ListPage extends PageTemplate{
+public class ListPage extends PageTemplate {
 
     public ListPage(WebDriver driver) {
         super(driver);
@@ -20,47 +20,54 @@ public class ListPage extends PageTemplate{
     private WebElement loadingElement;
 
     @FindBys({
-            @FindBy (className = "yw-table-group__basic"),
-            @FindBy (className = "el-input__inner")
+            @FindBy(className = "yw-table-group__basic"),
+            @FindBy(className = "el-input__inner")
     })
     private WebElement searchInput;
 
-    @FindBy (xpath = "//*[text()='新建']")
+    @FindBy(xpath = "//*[text()='新建']")
     private WebElement createUser;
 
-    @FindBy (className = "el-table__body")
+    @FindBy(className = "el-table__body")
     private WebElement searchResultTable;
     // 搜索结果 (只搜索显示出来的元素)
-    @FindBy (xpath = "//div[@class='runner-cell']/*[not(@style='display: none;')]")
+    @FindBy(xpath = "//div[@class='runner-cell']/*[not(@style='display: none;')]")
     private List<WebElement> searchResultRows;
 
-    @FindBy (className = "el-table__empty-text")
+    @FindBy(className = "el-table__empty-text")
     private WebElement noSearchResultMessage;
 
-    @FindBy (className = "el-message-box__content")
+    @FindBy(className = "el-message-box__content")
     private WebElement messageInfo;
 
-    @FindBy (className = "el-message-box__btns")
+    @FindBy(className = "el-message-box__btns")
     private WebElement messageBoxButtons;
 
-    @FindBy (className = "el-message__group")
+    @FindBy(className = "el-message__group")
     private WebElement suspensionMessage;
 
-    @FindBy (className = "el-dialog")
+    @FindBy(className = "el-dialog")
     private WebElement dialog;
 
-    @FindBy (className = "group-modal-select")
+    @FindBy(className = "group-modal-select")
     private WebElement changeGroupButton;
 
-    @FindBy (className = "el-select-dropdown")
+    @FindBy(className = "el-select-dropdown")
     private List<WebElement> dropdownLists;
 
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[2]")
+    private WebElement ensureButton;
+
+    public WebElement getEnsureButton() {
+        return ensureButton;
+    }
+
     public WebElement getSearchInput() {
         ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(loadingElement);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return searchInput;
     }
 
@@ -68,22 +75,22 @@ public class ListPage extends PageTemplate{
         return createUser;
     }
 
-    public WebElement getSearchResult(){
-        if (searchResultRows.size() >= 1){
+    public WebElement getSearchResult() {
+        if (searchResultRows.size() >= 1) {
             List<WebElement> list = searchResultRows.get(0).findElements(By.tagName("span"));
-            if (list.size() >= 1){
+            if (list.size() >= 1) {
                 return list.get(0);
-            }else {
+            } else {
                 return searchResultRows.get(0);
             }
-        }else {
+        } else {
             ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(noSearchResultMessage);
-            WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
             return noSearchResultMessage;
         }
     }
 
-    public WebElement getUserStatus(){
+    public WebElement getUserStatus() {
         ExpectedCondition expectedCondition = ExpectedConditions.refreshed(new ExpectedCondition<Object>() {
             @Nullable
             @Override
@@ -91,7 +98,7 @@ public class ListPage extends PageTemplate{
                 return webDriver.findElements(By.xpath("//div[@class='runner-cell']/*[not(@style='display: none;')]")).get(0).findElements(By.tagName("span")).get(1);
             }
         });
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
 //        List<WebElement> list = searchResultRows.get(0).findElements(By.tagName("span"));
 //        if (list.size() >= 1){
 //            return list.get(1);
@@ -105,38 +112,39 @@ public class ListPage extends PageTemplate{
         return searchResultTable;
     }
 
-    public WebElement getTableSeeDetailButton(int row){
+    public WebElement getTableSeeDetailButton(int row) {
         WebElement e = getTableRowButtons(row);
         return e.findElement(By.xpath("//button/span[contains(text(),'查看')]"));
     }
 
-    public WebElement getTableChangeGroupButton(int row){
+    public WebElement getTableChangeGroupButton(int row) {
         WebElement e = getTableRowButtons(row);
         return e.findElement(By.xpath("//button/span[contains(text(),'分组')]"));
     }
 
-    public WebElement getTableDeleteButton(int row){
+    public WebElement getTableDeleteButton(int row) {
         WebElement e = getTableRowButtons(row);
         return e.findElement(By.xpath("//button/span[contains(text(),'删除')]"));
     }
 
-    public WebElement getTableDisableButton(int row){
+    public WebElement getTableDisableButton(int row) {
         WebElement e = getTableRowButtons(row);
         return e.findElement(By.xpath("//button/span[contains(text(),'禁用')]"));
     }
 
-    public WebElement getTableEnableButton(int row){
+    public WebElement getTableEnableButton(int row) {
         ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(loadingElement);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         WebElement e = getTableRowButtons(row);
         return e.findElement(By.xpath("//button/span[contains(text(),'启用')]"));
     }
 
     public WebElement getUserGroups() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,ExpectedConditions.visibilityOf(dialog));
-        changeGroupButton.click();
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,ExpectedConditions.visibilityOf(dropdownLists.get(dropdownLists.size()-1)));
-        return dropdownLists.get(dropdownLists.size()-1);
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(dialog));
+//        changeGroupButton.click();
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(dropdownLists.get(dropdownLists.size() - 1)));
+//        return dropdownLists.get(dropdownLists.size() - 1);
+        return super.getDropdownList("分组");
     }
 
     public WebElement getConfirmButton() {
@@ -147,12 +155,12 @@ public class ListPage extends PageTemplate{
         return messageBoxButtons;
     }
 
-    public WebElement getMessageBoxOKButton(){
-        ExpectedCondition expectedCondition = ExpectedConditions.textToBePresentInElement(messageInfo,"将删除");
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+    public WebElement getMessageBoxOKButton() {
+        ExpectedCondition expectedCondition = ExpectedConditions.textToBePresentInElement(messageInfo, "将删除");
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         List<WebElement> list = getMessageBoxButtons().findElements(By.tagName("button"));
-        for (WebElement e : list){
-            if ("确定".equals(e.getText())){
+        for (WebElement e : list) {
+            if ("确定".equals(e.getText())) {
                 return e;
             }
         }
@@ -161,15 +169,15 @@ public class ListPage extends PageTemplate{
 
     public WebElement getSuccessMessage() {
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(suspensionMessage);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return suspensionMessage;
     }
 
-    public WebElement getErrorMessage(){
+    public WebElement getErrorMessage() {
         return message;
     }
 
-    public void thereIsAUser(String userName, String fullName, String email, String telephone, String password, List<String> userGroup){
+    public void thereIsAUser(String userName, String fullName, String email, String telephone, String password, List<String> userGroup) {
 //        ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(loadingElement);
 //        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
 //        getSearchInput().sendKeys(Keys.END);
@@ -196,26 +204,26 @@ public class ListPage extends PageTemplate{
 
     public void thereIsNoUser(String userName) {
         ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(loadingElement);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         getSearchInput().sendKeys(Keys.END);
         getSearchInput().sendKeys(Keys.SHIFT, Keys.HOME);
         getSearchInput().sendKeys(Keys.BACK_SPACE);
         getSearchInput().sendKeys(userName);
         String text = getSearchResult().getText();
-        if (text.equals(userName)){
+        if (text.equals(userName)) {
             getTableDeleteButton(1).click();
             ExpectedCondition e = ExpectedConditions.elementToBeClickable(getMessageBoxOKButton());
-            WaitForElement.waitForElementWithExpectedCondition(webDriver,e);
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, e);
             getMessageBoxOKButton().click();
-            WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
             webDriver.navigate().refresh();
         }
     }
 
 
-    private WebElement getTableRowButtons(int row){
+    private WebElement getTableRowButtons(int row) {
         WebElement table = getSearchResultTable();
-        return table.findElements(By.className("el-table_1_column_4")).get(row-1);
+        return table.findElements(By.className("el-table_1_column_4")).get(row - 1);
     }
 
 }

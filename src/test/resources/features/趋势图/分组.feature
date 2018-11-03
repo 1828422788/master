@@ -15,5 +15,5 @@ Feature: 趋势图分组
     Then I will see the data "<name>" values "{'column':'3','name':'<extraGroup>'}"
 
     Examples:
-      | name     | group         | extraGroup                    |
-      | AutoTest | default_Trend | AutoTestForAuth,default_Trend |
+      | name     | group           | extraGroup                    |
+      | AutoTest | AutoTestForAuth | AutoTestForAuth,default_Trend |

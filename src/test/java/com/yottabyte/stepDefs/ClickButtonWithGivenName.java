@@ -2,6 +2,7 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
+import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -11,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 点击对应名称下的操作按钮
@@ -23,12 +25,20 @@ public class ClickButtonWithGivenName {
     /**
      * 寻找对应的操作按钮并点击
      *
-     * @param dataName   第一列所要匹配的名称
+     * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start 0','name':''}
      * @param buttonName 按钮名称
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String buttonName) {
-        WebElement tr = this.findName(dataName);
+        WebElement tr;
+        if (!JsonStringPaser.isJson(dataName)) {
+            tr = this.findName(dataName);
+        } else {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
+            String name = map.get("name").toString();
+            int columnNum = Integer.parseInt(map.get("column").toString());
+            tr = this.getRowWithColumnNum(name, columnNum);
+        }
         this.click(buttonName, tr);
     }
 
@@ -115,7 +125,7 @@ public class ClickButtonWithGivenName {
         return null;
     }
 
-    private WebElement getRowWithColumnNum(String name, int columnNum) {
+    public WebElement getRowWithColumnNum(String name, int columnNum) {
         WebElement table = webDriver.findElement(By.className("el-table__body"));
 
         int i = 0;
@@ -194,12 +204,22 @@ public class ClickButtonWithGivenName {
     /**
      * 点击详情页
      *
-     * @param name
+     * @param name 若为json格式{'column':'start 0','name':''}
      */
     @Given("^I click the detail which name is \"([^\"]*)\"$")
     public void clickName(String name) {
-        String xpath = "//span[contains(text(),'" + name + "')]";
-        WebElement tr = this.findName(name);
+        String xpath;
+        WebElement tr;
+        if (!JsonStringPaser.isJson(name)) {
+            tr = this.findName(name);
+            xpath = "//span[contains(text(),'" + name + "')]";
+        } else {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(name);
+            String text = map.get("name").toString();
+            int columnNum = Integer.parseInt(map.get("column").toString());
+            tr = this.getRowWithColumnNum(text, columnNum);
+            xpath = "//span[contains(text(),'" + text + "')]";
+        }
         tr.findElement(By.xpath(xpath)).click();
     }
 

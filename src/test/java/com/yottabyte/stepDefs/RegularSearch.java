@@ -274,12 +274,23 @@ public class RegularSearch {
      * 验证某一行某一列的值是否修改正确
      *
      * @param benchmarkName 基准名称
-     * @param values        格式：{'column':'比较列','name':'比较名称'}
+     * @param values        格式：{'column':'比较列(from 1)','name':'比较名称'}
      */
     @Then("^I will see the data \"([^\"]*)\" values \"([^\"]*)\"$")
     public void iWillSeeTheData(String benchmarkName, String values) {
-        WebElement tr = new ClickButtonWithGivenName().findName(benchmarkName);
         Map<String, Object> valuesMap = JsonStringPaser.json2Stirng(values);
+        ClickButtonWithGivenName clickButton = new ClickButtonWithGivenName();
+        WebElement tr;
+
+        if (!JsonStringPaser.isJson(benchmarkName)) {
+            tr = clickButton.findName(benchmarkName);
+        } else {
+            Map<String, Object> benchmarkNameMap = JsonStringPaser.json2Stirng(benchmarkName);
+            String name = benchmarkNameMap.get("name").toString();
+            int columnNum = Integer.parseInt(benchmarkNameMap.get("column").toString());
+            tr = clickButton.getRowWithColumnNum(name, columnNum);
+        }
+
         String xpath = ".//td[" + valuesMap.get("column") + "]";
         String actualName = tr.findElement(By.xpath(xpath)).getText();
         Assert.assertEquals(valuesMap.get("name"), actualName);

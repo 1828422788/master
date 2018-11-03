@@ -16,38 +16,42 @@ public class EditPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy (xpath = "//input[@placeholder='请输入用户名']")
+    @FindBy(xpath = "//input[@placeholder='请输入用户名']")
     private WebElement userName;
 
-    @FindBy (xpath = "//input[@placeholder='请输入全名']")
+    @FindBy(xpath = "//input[@placeholder='请输入全名']")
     private WebElement fullName;
 
-    @FindBy (xpath = "//input[@placeholder='请输入邮箱地址']")
+    @FindBy(xpath = "//input[@placeholder='请输入邮箱地址']")
     private WebElement email;
 
-    @FindBy (xpath = "//input[@placeholder='请输入电话号码']")
+    @FindBy(xpath = "//input[@placeholder='请输入电话号码']")
     private WebElement telephone;
 
-    @FindBy (className = "yw-select")
+    @FindBy(className = "yw-select")
     private WebElement groupButton;
 
-    @FindBy (className = "el-select-dropdown")
+    @FindBy(className = "el-select-dropdown")
     private WebElement selectors;
 
-    @FindBy (className = "el-checkbox__inner")
+    @FindBy(className = "el-checkbox__inner")
     private WebElement modifyPassword;
 
-    @FindBy (xpath = "//label[text()='新密码']//following-sibling::div//input[@type='password']")
+    @FindBy(xpath = "//label[text()='新密码']//following-sibling::div//input[@type='password']")
     private WebElement newPassword;
 
-    @FindBy (xpath = "//label[text()='重复密码']//following-sibling::div//input[@type='password']")
+    @FindBy(xpath = "//label[text()='重复密码']//following-sibling::div//input[@type='password']")
     private WebElement repeatPassword;
 
-    @FindBy (className = "btn-submit")
+    @FindBy(className = "btn-submit")
     private WebElement saveButton;
 
-    @FindBy (className = "el-message-box__message")
+    @FindBy(className = "el-message-box__message")
     private WebElement message;
+
+    public WebElement getEnsureButton() {
+        return super.getContainsTextButton("确定");
+    }
 
     public WebElement getUserName() {
         return userName;
@@ -68,7 +72,7 @@ public class EditPage extends PageTemplate {
     public List<WebElement> getUserGroups() {
         groupButton.click();
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return selectors.findElements(By.tagName("li"));
     }
 
@@ -88,11 +92,11 @@ public class EditPage extends PageTemplate {
         return saveButton;
     }
 
-    public WebElement getSuccessMessage(){
+    public WebElement getSuccessMessage() {
         return message;
     }
 
-    public WebElement getErrorMessage(){
+    public WebElement getErrorMessage() {
         return message;
     }
 }
