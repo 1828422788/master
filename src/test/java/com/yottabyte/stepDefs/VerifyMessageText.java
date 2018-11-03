@@ -16,8 +16,15 @@ public class VerifyMessageText {
         assertEquals(messageText, realText);
     }
 
+    @Then("^I will see the success message contains \"([^\"]*)\"$")
+    public void iWillSeeTheSuccessMessageContains(String messageText) {
+        WebElement element = GetElementFromPage.getWebElementWithName("getSuccessMessage");
+        String realText = element.getText();
+        assertTrue(realText.contains(messageText));
+    }
+
     @Then("^I will see the error message \"([^\"]*)\"$")
-    public void iWillSeeErrorMessage(String errorMessage){
+    public void iWillSeeErrorMessage(String errorMessage) {
         WebElement element = GetElementFromPage.getWebElementWithName("ErrorMessage");
         String realResult = element.getText();
         assertEquals(errorMessage, realResult);

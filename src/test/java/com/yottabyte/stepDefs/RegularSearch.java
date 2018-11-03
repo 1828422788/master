@@ -273,12 +273,14 @@ public class RegularSearch {
     /**
      * 验证某一行某一列的值是否修改正确
      *
-     * @param benchmarkName 基准名称
+     * @param benchmarkName 基准名称 {'column':'比较列(from 0)','name':'名称'} 字符串则默认为第一列
      * @param values        格式：{'column':'比较列(from 1)','name':'比较名称'}
      */
     @Then("^I will see the data \"([^\"]*)\" values \"([^\"]*)\"$")
     public void iWillSeeTheData(String benchmarkName, String values) {
         Map<String, Object> valuesMap = JsonStringPaser.json2Stirng(values);
+        if (valuesMap.get("name") == null)
+            return;
         ClickButtonWithGivenName clickButton = new ClickButtonWithGivenName();
         WebElement tr;
 

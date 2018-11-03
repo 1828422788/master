@@ -1,3 +1,4 @@
+@all @smoke @role @roleSmoke
 Feature: 复制一个角色
 
   Background:
@@ -5,7 +6,6 @@ Feature: 复制一个角色
     And Create a "role" with "{'name':'AutoTest','RoleDes':'','ResourceGroups':['日志来源']}"
     And open the "roles.ListPage" page for uri "/account/roles/"
 
-  @all @smoke @role
   Scenario: 复制角色成功
     Given I set the parameter "SearchInput" with value "AutoTest"
     And I wait table element "SearchResultTable-1.1" change text to "AutoTest"

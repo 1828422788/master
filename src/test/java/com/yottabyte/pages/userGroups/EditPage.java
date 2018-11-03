@@ -11,25 +11,25 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class EditPage extends PageTemplate{
+public class EditPage extends PageTemplate {
 
     public EditPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy (className = "el-input__inner")
+    @FindBy(className = "el-input__inner")
     private List<WebElement> inputs;
 
-    @FindBy (className = "box")
+    @FindBy(className = "box")
     private List<WebElement> groups;
 
-    @FindBy (className = "yw-select-info")
+    @FindBy(className = "yw-select-info")
     private WebElement rolesButton;
 
-    @FindBy (className = "el-select-dropdown")
+    @FindBy(className = "el-select-dropdown")
     private WebElement selectors;
 
-    @FindBy (className = "hoist-list")
+    @FindBy(className = "hoist-list")
     private WebElement selectedList;
 
 
@@ -39,6 +39,13 @@ public class EditPage extends PageTemplate{
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    @FindBy(xpath = "(//span[contains(text(),'保存')][not(@class)])[last()]")
+    private WebElement saveButton;
+
+    public WebElement getReturnList() {
+        return super.getButton("返回列表");
+    }
+
     public WebElement getUserGroupName() {
         return inputs.get(0);
     }
@@ -47,24 +54,25 @@ public class EditPage extends PageTemplate{
         return inputs.get(1);
     }
 
-    public WebElement getBasicSaveButton(){
+    public WebElement getBasicSaveButton() {
         return groups.get(0).findElement(By.className("el-button"));
     }
 
-    public List<WebElement> getUserGroupRole() {
-        rolesButton.click();
-        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
-        if (selectedList.findElements(By.tagName("li")).size() >= 1){
-            return selectedList.findElements(By.tagName("li"));
-        }else {
-            return selectors.findElements(By.tagName("li"));
-        }
+    public WebElement getUserGroupRole() {
+//        rolesButton.click();
+//        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors);
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+//        if (selectedList.findElements(By.tagName("li")).size() >= 1) {
+//            return selectedList.findElements(By.tagName("li"));
+//        } else {
+//            return selectors.findElements(By.tagName("li"));
+//        }
+        return super.getDropdownList("角色");
     }
 
-    public WebElement getAdvancedSaveButton(){
+    public WebElement getAdvancedSaveButton() {
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(groups.get(1).findElement(By.className("el-button")));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return groups.get(1).findElement(By.className("el-button"));
     }
 
@@ -76,6 +84,7 @@ public class EditPage extends PageTemplate{
         return message;
     }
 
-
-
+    public WebElement getSaveButton() {
+        return saveButton;
+    }
 }
