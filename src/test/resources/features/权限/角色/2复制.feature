@@ -1,16 +1,20 @@
 @all @smoke @role @roleSmoke
-Feature: 复制一个角色
+Feature: 角色复制
 
   Background:
-    Given Delete a "role" with "{'name':['AutoTestCopy']}"
-    And Create a "role" with "{'name':'AutoTest','RoleDes':'','ResourceGroups':['日志来源']}"
-    And open the "roles.ListPage" page for uri "/account/roles/"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
 
-  Scenario: 复制角色成功
-    Given I set the parameter "SearchInput" with value "AutoTest"
-    And I wait table element "SearchResultTable-1.1" change text to "AutoTest"
-    And I click the table "TableCopyButton-1" button
+  Scenario Outline: 复制角色成功
+    Given the data name is "<name>" then i click the "复制" button
     And I will see the "roles.CreatePage" page
-    And I set the parameter "RoleName" with value "AutoTestCopy"
+    And I set the parameter "RoleName" with value "<newName>"
     When I click the "CreateButton" button
     Then I will see the success message "创建成功"
+    And I click the "OKButton" button
+    And I refresh the website
+    Then I will see the search result contains "{'column':'0','name':'<newName>'}"
+
+
+    Examples:
+      | name                  | newName      |
+      | AutoTestRoleWithMacro | AutoTestCopy |

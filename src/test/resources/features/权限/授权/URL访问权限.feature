@@ -1,15 +1,11 @@
-Feature: 授权URL访问
+Feature: 角色授权URL访问
 
   Background:
-    Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"
-    And Create a "role" with "{'name':'AutoTestForAuth','RoleDes':'','ResourceGroups':['日志来源']}"
-    And open the "roles.ListPage" page for uri "/account/roles/"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
 
   @authorization @all
   Scenario Outline:
-    Given I set the parameter "SearchInput" with value "AutoTestForAuth"
-    And I wait table element "SearchResultTable-1.1" change text to "AutoTestForAuth"
-    And I click the table "TableAuthorizeButton-1" button
+    Given the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'URL 访问'}" button
     When I check "<URLName>" from the "UrlCheckboxes"
@@ -23,11 +19,14 @@ Feature: 授权URL访问
 
   @authorization @all @smoke
   Scenario:
-    Given I set the parameter "SearchInput" with value "AutoTestForAuth"
-    And I wait table element "SearchResultTable-1.1" change text to "AutoTestForAuth"
-    And I click the table "TableAuthorizeButton-1" button
+    Given the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'URL 访问'}" button
     When I click the "ChooseAllCheckBoxes" button
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "<usernameValue>"
+    And I set the parameter "Password" with value "<passwordValue>"
+    And I click the "LoginButton" button

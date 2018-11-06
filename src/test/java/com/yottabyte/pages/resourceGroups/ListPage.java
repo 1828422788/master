@@ -110,6 +110,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'hunter_roles_m')]")
     private WebElement sourceGroup;
 
+    @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
+    private WebElement ensureButton;
+
+    public WebElement getEnsureButton() {
+        return ensureButton;
+    }
+
     public WebElement getGroupDropdownList() {
         return super.getGroupDropdownList();
     }

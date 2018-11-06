@@ -14,4 +14,3 @@ Feature: 用户删除
     Examples:
       | name                |
       | SuccessEditAutoTest |
-      | AutoTestForEdit     |

@@ -4,7 +4,7 @@ Feature: 资源分组导入
   Background:
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
 
-  @smoke
+  @smoke @resourceGroupsSmoke
   Scenario Outline: 导入资源包的正常流程测试
     Given I click the "UploadButton" button
     When I upload a file with name "<InputFileName>"

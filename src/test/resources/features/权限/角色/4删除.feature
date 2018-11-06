@@ -1,5 +1,5 @@
 @all @smoke @role @roleSmoke
-Feature: 删除角色
+Feature: 角色删除
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -11,5 +11,4 @@ Feature: 删除角色
 
     Examples:
       | name         |
-      | AutoTest     |
       | AutoTestCopy |

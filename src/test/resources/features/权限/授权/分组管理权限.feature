@@ -2,16 +2,10 @@
 Feature: 授权角色权限
 
   Background:
-    Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"
-    And Create a "role" with "{'name':'AutoTestForAuth','RoleDes':'','ResourceGroups':['日志来源']}"
-    And Create a "userGroup" with "{'name':'AutoTestForAuth','owner':['admin'],'role':['admin']}"
-    And Create a "resourceGroup" with "{'name':'AutoTestForAuth','type':['all'],'owner':['admin']}"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
 
   Scenario Outline:
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I set the parameter "SearchInput" with value "AutoTestForAuth"
-    And I wait table element "SearchResultTable-1.1" change text to "AutoTestForAuth"
-    And I click the table "TableAuthorizeButton-1" button
+    When the data name is "AutoTestWithAllResource" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     When I click the "{'TabButton':'<Tab>'}" button
     And I check "<CheckBoxes>" from the "{'GroupManagement':['<GroupName>']}"

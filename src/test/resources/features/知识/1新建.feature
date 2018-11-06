@@ -2,7 +2,6 @@
 Feature: 知识新建
 
   Background:
-    Given I delete from "Knowledge" where "{'code':'sxjautotest'}"
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
 
   Scenario Outline: 新建知识

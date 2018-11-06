@@ -2,9 +2,7 @@
 Feature: 资源分组新建
 
   Background:
-    Given I delete from "ResourceGroup" where "{'name':'sunxjautotest'}"
-    And insert with sql "insert into ResourceGroup(domain_id, name, memo, creator_id, category) select d.id, 'AutoInsertTest', 'memo', a.id, 'DashBoardGroup' from Account a left join Domain d on a.domain_id=d.id where d.name='ops' and a.name='owner'"
-    And open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
+    Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
 
   Scenario Outline: 为指定角色创建资源分组
     Given I click the "CreateResourceGroup" button
@@ -17,17 +15,17 @@ Feature: 资源分组新建
     And I click the "CreateButton" button
     Then I will see the <result>
 
-  @smoke
+  @smoke @resourceGroupsSmoke
     Examples: 创建资源分组成功
-      | name          | type | des | app | owner | result                 |
-      | sunxjautotest | 趋势图  | UI  |     | admin | success message "创建成功" |
+      | name             | type | des  | app | owner | result                 |
+      | AutoTestForTrend | 趋势图  | test |     | admin | success message "创建成功" |
 
     Examples: 创建资源分组失败
-      | name           | type | des | app | owner | result                                      |
-      | AutoInsertTest | 仪表盘  |     |     | admin | error message "保存失败: 资源组名称已存在\n错误码: FE_546" |
-      |                |      |     |     |       | error message "填写资源分组名称"                    |
-      | test           |      |     |     |       | error message "请选择分组类型"                     |
-      | test           | 仪表盘  |     |     |       | error message "请分配角色"                       |
+      | name             | type | des | app | owner | result                                      |
+      | AutoTestForTrend | 仪表盘  |     |     | admin | error message "保存失败: 资源组名称已存在\n错误码: FE_546" |
+      |                  |      |     |     |       | error message "填写资源分组名称"                    |
+      | test             |      |     |     |       | error message "请选择分组类型"                     |
+      | test             | 仪表盘  |     |     |       | error message "请分配角色"                       |
 
   Scenario Outline: 新建资源分组并添加资源成员
     Given I click the "CreateResourceGroup" button
@@ -43,8 +41,7 @@ Feature: 资源分组新建
     And I click the "CreateButton" button
     Then I will see the <result>
 
-  @smoke
+  @smoke @resourceGroupsSmoke
     Examples: 创建资源分组成功
-      | name          | type | des | app | owner | resourceMember | result                 |
-      | sunxjautotest | 趋势图  | UI  |     | admin | sp_line        | success message "创建成功" |
-
+      | name                 | type | des | app | owner | resourceMember | result                 |
+      | AutoTestForKnowledge | 知识   | UI  |     | admin | 孙小晶            | success message "创建成功" |

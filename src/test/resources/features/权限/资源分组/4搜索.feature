@@ -1,4 +1,4 @@
-@resourceGroups @all
+@resourceGroups @all @resourceGroupsSmoke @smoke
 Feature: 资源分组搜索
 
   Background:

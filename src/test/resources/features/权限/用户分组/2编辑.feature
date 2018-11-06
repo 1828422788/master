@@ -21,7 +21,7 @@ Feature: 用户分组修改
 
     Examples:
       | UserGroupName   | NewUserGroupName | NewUserGroupDes | Result                              |
-      | AutoTest        |                  | NewDes          | error message "分组名 不能为空"            |
+      | AutoTestForEdit |                  | NewDes          | error message "分组名 不能为空"            |
       | AutoTestForEdit | AutoTestForUser  | NewDes          | error message "用户组已存在\n错误码: FE_536" |
 
   @all
@@ -48,5 +48,5 @@ Feature: 用户分组修改
     Then I will see the data "{'column':'1','name':'<name>'}" values "{'column':'4','name':'<finalGroups>'}"
 
     Examples:
-      | name            | NewRoleName                  | Result                 | finalGroups     |
-      | AutoTestForEdit | AutoTestWithAuth&SourceGroup | success message "更新成功" | admin, AutoTest |
+      | name            | NewRoleName                  | Result                 | finalGroups          |
+      | AutoTestForEdit | AutoTestWithAuth&SourceGroup | success message "更新成功" | admin, AutoTestGroup |

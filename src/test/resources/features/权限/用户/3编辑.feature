@@ -21,8 +21,8 @@ Feature: 用户编辑
     Then I will see the search result contains "{'column':'1','name':'<NewUserName>'}"
 
     Examples:
-      | UserName | NewUserName         | FullName | Email                            | Telephone   | Result                 |
-      | AutoTest | SuccessEditAutoTest | FullName | AutoTestForUserEdit@yottabyte.cn | 13111111111 | success message "更新成功" |
+      | UserName        | NewUserName         | FullName | Email                            | Telephone   | Result                 |
+      | AutoTestForEdit | SuccessEditAutoTest | FullName | AutoTestForUserEdit@yottabyte.cn | 13111111111 | success message "更新成功" |
 
   @all
   Scenario Outline: 编辑用户信息失败
@@ -39,7 +39,7 @@ Feature: 用户编辑
 
     Examples:
       | UserName            | NewUserName            | FullName | Email                            | Telephone | Result                              |
-      | SuccessEditAutoTest | AutoTestForEdit        |          | AutoTestForUserEdit@yottabyte.cn |           | error message "用户名已存在\n错误码: FE_532" |
+      | SuccessEditAutoTest | AutoTest               |          | AutoTestForUserEdit@yottabyte.cn |           | error message "用户名已存在\n错误码: FE_532" |
       | SuccessEditAutoTest |                        |          | AutoTestForUserEdit@yottabyte.cn |           | error message "用户名 不能为空"            |
       | SuccessEditAutoTest | AutoTestForUserEditNew |          |                                  |           | error message "邮箱地址 不能为空"           |
       | SuccessEditAutoTest | AutoTestForUserEditTmp |          | autoTest@yottabyte.cn            |           | error message "邮件名已存在\n错误码: FE_533" |

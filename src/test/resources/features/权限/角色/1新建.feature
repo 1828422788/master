@@ -14,8 +14,8 @@ Feature: 角色新建
 
   @all @smoke @roleSmoke
     Examples:
-      | RoleName | RoleDes | Result                 |
-      | AutoTest | 无资源分组   | success message "创建成功" |
+      | RoleName     | RoleDes | Result                 |
+      | AutoTestRole | 无资源分组   | success message "创建成功" |
 
   @all
     Examples:
@@ -36,7 +36,7 @@ Feature: 角色新建
 
   @all @roleSmoke @smoke
     Examples:
-      | RoleName                     | RoleDes       | ResourceGroups |
-      | AutoTestWithAllResource      | 创建所有资源分组      | all            |
-      | AutoTestWithAuth&SourceGroup | 资源分组：仪表盘,日志来源 | 仪表盘,日志来源       |
-      | AutoTestWithMacro            | 资源分组：搜索宏      | 搜索宏            |
+      | RoleName                         | RoleDes       | ResourceGroups |
+      | AutoTestRoleWithAllResource      | 创建所有资源分组      | all            |
+      | AutoTestRoleWithAuth&SourceGroup | 资源分组：仪表盘,日志来源 | 仪表盘,日志来源       |
+      | AutoTestRoleWithMacro            | 资源分组：搜索宏      | 搜索宏            |

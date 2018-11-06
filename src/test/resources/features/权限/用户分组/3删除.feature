@@ -2,8 +2,7 @@
 Feature: 用户分组删除
 
   Background:
-    Given Create a "userGroup" with "{'name':'AutoTest','owner':['admin'],'role':['admin']}"
-    And open the "userGroups.ListPage" page for uri "/account/usergroups/"
+    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
 
   Scenario Outline:
     Given I set the parameter "SearchInput" with value "<name>"
