@@ -1,15 +1,8 @@
-@report @all
+#@report @all
 Feature: 报表重名校验
 
   Background:
-    Given I insert into table "Report" with "{'name':'自动化','owner':'1|owner|86bb700c6f5e48b094bbc73dd8f46a6a','domain':'ops','frequency':'day','triggertime':'001130','count':'0','domain_id':'1','crontab':'0','enabled':'1','report_type':'pdf'}"
-    And I insert into table "Report" with "{'name':'11','owner':'1|owner|86bb700c6f5e48b094bbc73dd8f46a6a','domain':'ops','frequency':'day','triggertime':'001130','count':'0','domain_id':'1','crontab':'0','enabled':'1','report_type':'pdf'}"
-    And I insert into table "Report" with "{'name':'test','owner':'1|owner|86bb700c6f5e48b094bbc73dd8f46a6a','domain':'ops','frequency':'day','triggertime':'001130','count':'0','domain_id':'1','crontab':'0','enabled':'1','report_type':'pdf'}"
-    And I insert into table "Report" with "{'name':'1test','owner':'1|owner|86bb700c6f5e48b094bbc73dd8f46a6a','domain':'ops','frequency':'day','triggertime':'001130','count':'0','domain_id':'1','crontab':'0','enabled':'1','report_type':'pdf'}"
-    And I insert into table "Report" with "{'name':'1重名','owner':'1|owner|86bb700c6f5e48b094bbc73dd8f46a6a','domain':'ops','frequency':'day','triggertime':'001130','count':'0','domain_id':'1','crontab':'0','enabled':'1','report_type':'pdf'}"
-    And I insert into table "Report" with "{'name':'test重名','owner':'1|owner|86bb700c6f5e48b094bbc73dd8f46a6a','domain':'ops','frequency':'day','triggertime':'001130','count':'0','domain_id':'1','crontab':'0','enabled':'1','report_type':'pdf'}"
-    And I insert into table "Report" with "{'name':'test重名11','owner':'1|owner|86bb700c6f5e48b094bbc73dd8f46a6a','domain':'ops','frequency':'day','triggertime':'001130','count':'0','domain_id':'1','crontab':'0','enabled':'1','report_type':'pdf'}"
-    Then open the "report.ListPage" page for uri "/reports/"
+    Given open the "report.ListPage" page for uri "/reports/"
 
   Scenario Outline:
     When I click the "CreateButton" button

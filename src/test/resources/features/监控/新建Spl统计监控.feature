@@ -1,10 +1,9 @@
+@alert @all @smoke @alertSmoke
 Feature: 监控新建Spl统计
 
   Background:
-    Given Delete a "alert" with "{'name':['AutoTest']}"
-    And open the "alert.ListPage" page for uri "/alerts/"
+    Given open the "alert.ListPage" page for uri "/alerts/"
 
-  @alert
   Scenario Outline: 创建一个新的告警-Spl统计监控-定时执行
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -32,7 +31,6 @@ Feature: 监控新建Spl统计
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @all @smoke
     Examples: 创建字段统计监控成功
       | AlertName | AlertGroup    | AlertUser | AlertSource | SearchContent                                | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | FieldInput | AlertLevelInput | AlertLevel | MiddleLevelInput | HighLevelInput | Result                 |
       | AutoTest  | default_Alert | owner     | 所有日志        | * \| stats count() as cnt by apache.clientip | 2             | 分钟        | 5            | 分钟内                   | cnt        | 100             | 低          | 200              | 250            | success message "保存成功" |

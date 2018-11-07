@@ -1,4 +1,4 @@
-@alert @all @smoke
+@alert @all @smoke @alertSmoke
 Feature: 监控搜索
 
   Background:

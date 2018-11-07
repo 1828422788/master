@@ -373,6 +373,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "el-time-panel")
     private WebElement timePanel;
 
+    @FindBy(xpath = "//div[@class='el-message-box']//span[contains(text(),'确定')]")
+    private WebElement sourceEnsure;
+
+    public WebElement getSourceEnsure() {
+        return sourceEnsure;
+    }
+
     public WebElement getTimePanel() {
         return timePanel;
     }

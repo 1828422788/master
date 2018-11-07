@@ -313,7 +313,7 @@ public class DetailPage extends PageTemplate {
         return dropdownList.get(dropdownList.size() - 1);
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入']")
+    @FindBy(xpath = "//span[text()='展示单位']/ancestor::div/following-sibling::div/input")
     private WebElement unit;
 
     public WebElement getUnit() {

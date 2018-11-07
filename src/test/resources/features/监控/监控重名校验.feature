@@ -1,15 +1,8 @@
-@alert @all
+#@alert @all
 Feature: 监控重名校验
 
   Background:
-    Given I insert into table "Alert" with "{'name':'sunxjautotest','domain_id':'1','saved_search_id':'1','owner_id':'1'}"
-    And I insert into table "Alert" with "{'name':'11','domain_id':'1','saved_search_id':'1','owner_id':'1'}"
-    And I insert into table "Alert" with "{'name':'test','domain_id':'1','saved_search_id':'1','owner_id':'1'}"
-    And I insert into table "Alert" with "{'name':'1test','domain_id':'1','saved_search_id':'1','owner_id':'1'}"
-    And I insert into table "Alert" with "{'name':'1重名','domain_id':'1','saved_search_id':'1','owner_id':'1'}"
-    And I insert into table "Alert" with "{'name':'test重名','domain_id':'1','saved_search_id':'1','owner_id':'1'}"
-    And I insert into table "Alert" with "{'name':'test重名12','domain_id':'1','saved_search_id':'1','owner_id':'1'}"
-    Then open the "alert.ListPage" page for uri "/alerts/"
+    Given open the "alert.ListPage" page for uri "/alerts/"
 
   Scenario Outline: 创建一个新的告警-事件数监控-crontab
     Given I click the "CreateAlert" button

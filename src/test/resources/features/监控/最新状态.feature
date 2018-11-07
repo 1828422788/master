@@ -4,7 +4,7 @@ Feature: 监控最新状态
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
 
-  @smoke
+  @smoke @alertSmoke
   Scenario: 展开/收起重复告警
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -12,7 +12,7 @@ Feature: 监控最新状态
     And I click the "Retract" button
     Then take a screenshot
 
-  @smoke
+  @smoke @alertSmoke
   Scenario Outline: 按分组和状态搜索
     Given I click the "LatestStatus" button
     And I will see the "alert.MonitorPage" page
@@ -25,7 +25,7 @@ Feature: 监控最新状态
       | {'StatusDropdown':'已处理'}          | 6   | 已处理           |
       | {'StatusDropdown':'已忽略'}          | 6   | 已忽略           |
 
-  @smoke
+  @smoke @alertSmoke
   Scenario Outline: 按告警时间搜索
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -42,7 +42,7 @@ Feature: 监控最新状态
       | TwoDays    | 5   | 2d         |
       | SevenDays  | 5   | 7d         |
 
-  @smoke
+  @smoke @alertSmoke
   Scenario Outline: 按等级搜索
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -55,7 +55,7 @@ Feature: 监控最新状态
       | {'GradeDropdown':'高'} | red         |
       | {'GradeDropdown':'中'} | yellow      |
 
-  @smoke
+  @smoke @alertSmoke
   Scenario Outline: 标记为处理/忽略
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -85,7 +85,7 @@ Feature: 监控最新状态
       | OperatorDropdown | EmailAlert   |
       | OperatorDropdown | ForwardAlert |
 
-  @smoke
+  @smoke @alertSmoke
   Scenario Outline: 处理意见
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -102,7 +102,7 @@ Feature: 监控最新状态
       | dropdownMenu             | handlingSuggestion | mark | message | switchDropdown           |
       | {'StatusDropdown':'待处理'} | AutoTestHandling   | Deal | 处理成功    | {'StatusDropdown':'已处理'} |
 
-  @smoke
+  @smoke @alertSmoke
   Scenario Outline: 修改处理意见
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -119,7 +119,7 @@ Feature: 监控最新状态
       | dropdownMenu             | handlingSuggestion |
       | {'StatusDropdown':'已处理'} | already done       |
 
-  @smoke
+  @smoke @alertSmoke
   Scenario Outline: 操作（ping主机）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -135,7 +135,7 @@ Feature: 监控最新状态
       | ipAddress |
       | 10.0.0.1  |
 
-  @smoke
+  @smoke @alertSmoke
   Scenario Outline: 操作（rsyslog告警）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -150,7 +150,7 @@ Feature: 监控最新状态
       | syslogAddress    | result                        |
       | 192.168.1.82:514 | rsyslog plugin run success!!! |
 
-  @smoke
+  @smoke @alertSmoke
   Scenario Outline: 在监控中点击今日待处理、已处理以及高级告警
     Given I click the "<status>" button
     And I will see the "alert.MonitorPage" page
@@ -162,7 +162,7 @@ Feature: 监控最新状态
       | Handled   | search result "{'column':'6','name':'已处理'}" |
       | HighAlert | alert grade is "red"                        |
 
-  @smoke
+  @smoke @alertSmoke
   Scenario: 返回到监控页
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page

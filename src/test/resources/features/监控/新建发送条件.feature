@@ -1,10 +1,10 @@
+@alert @all
 Feature: 监控新建事件数并填写发送条件
 
   Background:
-    Given Delete a "alert" with "{'name':['AutoTest']}"
-    And open the "alert.ListPage" page for uri "/alerts/"
+    Given open the "alert.ListPage" page for uri "/alerts/"
 
-  @alert @all @smoke
+  @smoke @alertSmoke
   Scenario Outline: 创建一个发送条件的监控
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -24,16 +24,15 @@ Feature: 监控新建事件数并填写发送条件
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
-  Examples:
-    |     Type    |  Parameter  |
-    |  emailType  |{'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低'],'content':''}|
-    |  emailType  |{'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['中'],'content':''}|
-    |  emailType  |{'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['高'],'content':''}|
-    |  emailType  |{'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':[''],'content':''}|
-    |  emailType  |{'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低','中','高'],'content':''}|
+    Examples:
+      | Type      | Parameter                                                                                             |
+      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低'],'content':''}         |
+      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['中'],'content':''}         |
+      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['高'],'content':''}         |
+      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':[''],'content':''}          |
+      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低','中','高'],'content':''} |
 
 
-  @alert @all
   Scenario Outline: 创建三个相同告警方式不同发送条件的监控
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -55,7 +54,7 @@ Feature: 监控新建事件数并填写发送条件
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
-  Examples:
-    |     Type    |  Parameter1  |  Parameter2  |  Parameter3  |
-    |  emailType  |{'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低'],'content':''}|{'title':'auto test alert.','email':['autotest1@yottabyte.cn'],'condition':['中'],'content':''}|{'title':'auto test alert.','email':['autotest2@yottabyte.cn'],'condition':['高'],'content':''}|
-    | forwardType |{'address':'http://192.168.1.82:511111/','condition':['低']}                                  |{'address':'http://192.168.1.82:511111/','condition':['中']}                                   |{'address':'http://192.168.1.82:511111/','condition':['高']}|
+    Examples:
+      | Type        | Parameter1                                                                                    | Parameter2                                                                                     | Parameter3                                                                                     |
+      | emailType   | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低'],'content':''} | {'title':'auto test alert.','email':['autotest1@yottabyte.cn'],'condition':['中'],'content':''} | {'title':'auto test alert.','email':['autotest2@yottabyte.cn'],'condition':['高'],'content':''} |
+      | forwardType | {'address':'http://192.168.1.82:511111/','condition':['低']}                                   | {'address':'http://192.168.1.82:511111/','condition':['中']}                                    | {'address':'http://192.168.1.82:511111/','condition':['高']}                                    |

@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 /**
  * 导航栏页面元素
  */
@@ -52,8 +54,132 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(partialLinkText = "关联搜索")
     private WebElement customApplicationPage;
 
+    @FindBy(partialLinkText = "仪表盘")
+    private WebElement dashboard;
+
+    @FindBy(partialLinkText = "报表")
+    private WebElement report;
+
+    @FindBy(partialLinkText = "趋势图")
+    private WebElement trend;
+
     @FindBy(className = "el-loading-mask")
     private WebElement loadingElement;
+
+    @FindBy(className = "icon-shezhi_icon")
+    private WebElement setting;
+
+    @FindBy(xpath = "//span[text()='资源']/ancestor::p//following-sibling::div/a")
+    private List<WebElement> resourceList;
+
+    @FindBy(xpath = "//span[text()='数据']/ancestor::p//following-sibling::div/a")
+    private List<WebElement> dataList;
+
+    @FindBy(xpath = "//span[text()='权限']/ancestor::p//following-sibling::div/a")
+    private List<WebElement> authorityList;
+
+    @FindBy(xpath = "//span[text()='您暂无设置权限。']")
+    private WebElement nonPrivileged;
+
+    public WebElement getNonPrivileged() {
+        return nonPrivileged;
+    }
+
+    public WebElement getResource1() {
+        return resourceList.get(0);
+    }
+
+    public WebElement getResource2() {
+        return resourceList.get(1);
+    }
+
+    public WebElement getResource3() {
+        return resourceList.get(2);
+    }
+
+    public WebElement getResource4() {
+        return resourceList.get(3);
+    }
+
+    public WebElement getResource5() {
+        return resourceList.get(4);
+    }
+
+    public WebElement getResource7() {
+        return resourceList.get(6);
+    }
+
+    public WebElement getResource8() {
+        return resourceList.get(7);
+    }
+
+    public WebElement getResource9() {
+        return resourceList.get(8);
+    }
+
+    public WebElement getResource10() {
+        return resourceList.get(9);
+    }
+
+    public WebElement getResource11() {
+        return resourceList.get(10);
+    }
+
+    public WebElement getResource12() {
+        return resourceList.get(11);
+    }
+
+    public WebElement getData1() {
+        return dataList.get(0);
+    }
+
+    public WebElement getData2() {
+        return dataList.get(1);
+    }
+
+    public WebElement getData3() {
+        return dataList.get(2);
+    }
+
+    public WebElement getData5() {
+        return dataList.get(4);
+    }
+
+    public WebElement getData6() {
+        return dataList.get(5);
+    }
+
+    public WebElement getAuthority1() {
+        return authorityList.get(0);
+    }
+
+    public WebElement getAuthority2() {
+        return authorityList.get(1);
+    }
+
+    public WebElement getAuthority3() {
+        return authorityList.get(2);
+    }
+
+    public WebElement getAuthority4() {
+        return authorityList.get(3);
+    }
+
+    public WebElement getSetting() {
+        return setting;
+    }
+
+    public WebElement getDashboard() {
+        return dashboard;
+    }
+
+    public WebElement getReport() {
+        return report;
+    }
+
+    public WebElement getTrend() {
+        return trend;
+    }
 
     public WebElement getTimedTaskPage() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(timedTaskPage));
@@ -120,7 +246,7 @@ public class PublicNavBarPage extends PageTemplate {
         if (LoginBeforeAllTests.getCookie() != null) {
             webDriver.get("http://alltest.rizhiyi.com/dashboard/");
             webDriver.manage().addCookie(LoginBeforeAllTests.getCookie());
-        }else {
+        } else {
             LoginBeforeAllTests.login();
         }
     }
@@ -130,7 +256,7 @@ public class PublicNavBarPage extends PageTemplate {
         super.isLoaded();
         try {
             WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(getLocateSearchPage()));
-        }catch (Exception e){
+        } catch (Exception e) {
             GetLogger.getLogger().error("can not load % with error %", this.getClass().getSimpleName(), e);
         }
 

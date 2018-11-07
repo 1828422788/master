@@ -1,4 +1,4 @@
-@all @smoke @alert
+@all @smoke @alert @alertSmoke
 Feature: 监控启用/禁用
 
   Background:

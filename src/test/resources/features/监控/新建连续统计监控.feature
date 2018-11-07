@@ -1,10 +1,10 @@
+@alert @all @smoke @alertSmoke
 Feature: 监控新建连续统计
 
   Background:
     Given Delete a "alert" with "{'name':['AutoTest']}"
     And open the "alert.ListPage" page for uri "/alerts/"
 
-  @alert
   Scenario Outline: 创建一个新的告警-连续统计监控-定时执行
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -30,11 +30,10 @@ Feature: 监控新建连续统计
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @all @smoke
-  Examples: 创建字段统计监控成功
-    | AlertName     | AlertGroup     | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTriggerFields  |AlertTrigger | AlertTriggerTimeUnits | ConditionTypes  |BaseValue|AlertLevelInput | AlertLevel |  Result |
-    | AutoTest      | default_Alert  | owner     | 所有日志     |appname:apache | 2             | 分钟       | apache.status      | 200         | 小时内                 | =               |  200    | 2              | 低         |success message "保存成功" |
-    | AutoTest      | default_Alert  | owner     | 所有日志     |appname:apache | 2             | 分钟       | apache.status      | 200         | 小时内                 | >               |  200    | 2              | 低         |success message "保存成功" |
-    | AutoTest      | default_Alert  | owner     | 所有日志     |appname:apache | 2             | 分钟       | apache.status      | 200         | 小时内                 | <               |  404    | 2              | 低         |success message "保存成功" |
-    | AutoTest      | default_Alert  | owner     | 所有日志     |appname:apache | 2             | 分钟       | apache.status      | 200         | 小时内                 | >=              |  404    | 2              | 低         |success message "保存成功" |
-    | AutoTest      | default_Alert  | owner     | 所有日志     |appname:apache | 2             | 分钟       | apache.status      | 200         | 小时内                 | <=              |  404    | 2              | 低         |success message "保存成功" |
+    Examples: 创建字段统计监控成功
+      | AlertName | AlertGroup    | AlertUser | AlertSource | SearchContent  | AlertPlanTime | TimeUnits | AlertTriggerFields | AlertTrigger | AlertTriggerTimeUnits | ConditionTypes | BaseValue | AlertLevelInput | AlertLevel | Result                 |
+      | AutoTest  | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | =              | 200       | 2               | 低          | success message "保存成功" |
+      | AutoTest  | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | >              | 200       | 2               | 低          | success message "保存成功" |
+      | AutoTest  | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | <              | 404       | 2               | 低          | success message "保存成功" |
+      | AutoTest  | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | >=             | 404       | 2               | 低          | success message "保存成功" |
+      | AutoTest  | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | <=             | 404       | 2               | 低          | success message "保存成功" |

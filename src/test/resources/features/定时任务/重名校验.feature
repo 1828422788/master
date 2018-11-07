@@ -2,14 +2,7 @@
 Feature: 定时任务重名校验
 
   Background:
-    Given I insert into table "SavedSchedule" with "{'name':'AutoTestForDuplicateName','domain_id':'1','owner_id':'1'}"
-    Given I insert into table "SavedSchedule" with "{'name':'11','domain_id':'1','owner_id':'1'}"
-    Given I insert into table "SavedSchedule" with "{'name':'test','domain_id':'1','owner_id':'1'}"
-    Given I insert into table "SavedSchedule" with "{'name':'1test','domain_id':'1','owner_id':'1'}"
-    Given I insert into table "SavedSchedule" with "{'name':'1重名','domain_id':'1','owner_id':'1'}"
-    Given I insert into table "SavedSchedule" with "{'name':'test重名','domain_id':'1','owner_id':'1'}"
-    Given I insert into table "SavedSchedule" with "{'name':'test重名12','domain_id':'1','owner_id':'1'}"
-    And open the "splSearch.SearchPage" page for uri "/search/"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
 
   Scenario Outline:
     When I set the parameter "SearchInput" with value "<splQuery>"

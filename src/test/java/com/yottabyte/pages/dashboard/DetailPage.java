@@ -33,6 +33,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "el-switch__label--left")
     private WebElement clickableButton;
 
+    @FindBy(className = "el-switch__label--right")
+    private WebElement openEdit;
+
     @FindBy(className = "icon-tianjiatubiaoxuanting_icon")
     private WebElement addButton;
 
@@ -104,6 +107,10 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='control']/following-sibling::span")
     private WebElement labelName;
+
+    public WebElement getOpenEdit() {
+        return openEdit;
+    }
 
     public WebElement getLabelName() {
         return labelName;

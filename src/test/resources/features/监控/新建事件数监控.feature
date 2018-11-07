@@ -1,12 +1,9 @@
+@alert @all
 Feature: 监控新建事件数及页面的各个检查项
 
   Background:
-    Given Create a "user" with "{'name':'AutoTestForAlert','fullname':'','email':'AutoTestForAlert@yottabyte.cn','telephone':'','password':'qqqqq11111','userGroup':['admin']}"
-    And Create a "resourceGroup" with "{'name':'AutoTestForAlert','type':['Alert'],'owner':['admin']}"
-    And Delete a "alert" with "{'name':['AutoTest']}"
-    And open the "alert.ListPage" page for uri "/alerts/"
+    Given open the "alert.ListPage" page for uri "/alerts/"
 
-  @alert
   Scenario Outline: 创建一个新的告警-事件数监控-定时执行
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -30,14 +27,13 @@ Feature: 监控新建事件数及页面的各个检查项
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @smoke @all
+  @smoke @alertSmoke
     Examples: 创建事件数监控成功
       | AlertName | AlertDes | AlertGroup                     | AlertUser        | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | Result                 |
       | AutoTest  | alertDes | default_Alert                  | owner            | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | success message "保存成功" |
       | AutoTest  |          | default_Alert                  | AutoTestForAlert | 所有日志        | *             | 3             | 分钟        | 5            | 分钟内                   | 3               | 高          | success message "保存成功" |
       | AutoTest  |          | default_Alert,AutoTestForAlert | owner            | 所有日志        | *             | 3             | 分钟        | 5            | 小时内                   | 3               | 中          | success message "保存成功" |
 
-  @all
     Examples: 创建事件数监控失败
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | Result                                                 |
       |           | alertDes | default_Alert | owner     | 所有日志        | *             | 10            | 分钟        | 10           | 分钟内                   | 100             | 低          | error message "请填写监控名称"                                |
@@ -50,7 +46,6 @@ Feature: 监控新建事件数及页面的各个检查项
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 10            | 分钟        | 10           | 分钟内                   |                 | 低          | error message "请检查并填写数字类型阈值！低、中、高全部填写，或任填其一；阈值等级不可重复。" |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 10            | 分钟        | 10           | 分钟内                   | a               | 低          | error message "请正确填写数字型阈值"                             |
 
-  @alert
   Scenario Outline: 创建一个新的告警-事件数监控-crontab
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -73,13 +68,13 @@ Feature: 监控新建事件数及页面的各个检查项
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @all @smoke
+  @smoke @alertSmoke
     Examples: 创建成功
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanCrontab | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | Result                 |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | where_es      | 0 5 9 1/3 * ?    | 10           | 分钟内                   | 100             | success message "保存成功" |
 
 
-  @alert @smoke @all
+  @smoke @alertSmoke
   Scenario: 创建一个新的告警-事件数监控-设置三种监控级别
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page

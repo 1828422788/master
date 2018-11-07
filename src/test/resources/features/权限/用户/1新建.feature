@@ -20,6 +20,7 @@ Feature: 用户新建
     Examples: 成功添加一个用户
       | UserName        | FullName         | Email                        | Telephone | Password   | UserGroups      | Result                 |
       | AutoTest        | autoTestFullName | autoTest@yottabyte.cn        |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
+#      | AutoTestUser    | autoTestFullName | autoTestUser@yottabyte.cn        |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
       | AutoTestForEdit | autoTestFullName | autoTestForEdit@yottabyte.cn |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
 
   @all

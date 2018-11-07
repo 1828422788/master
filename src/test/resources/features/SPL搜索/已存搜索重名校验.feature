@@ -2,14 +2,7 @@
 Feature: 已存搜索重名校验
 
   Background:
-    Given I insert into table "SavedSearch" with "{'name':'sunxjautotest','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
-    Given I insert into table "SavedSearch" with "{'name':'11','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
-    Given I insert into table "SavedSearch" with "{'name':'test','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
-    Given I insert into table "SavedSearch" with "{'name':'1test','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
-    Given I insert into table "SavedSearch" with "{'name':'1重名','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
-    Given I insert into table "SavedSearch" with "{'name':'test重名','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
-    Given I insert into table "SavedSearch" with "{'name':'test重名12','domain_id':'1','creator_id':'1','query':'*','source_groups':'all_','filters':''}"
-    Then open the "splSearch.SearchPage" page for uri "/search/"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
 
   Scenario Outline:
     When I click the "SearchButton" button
@@ -30,5 +23,3 @@ Feature: 已存搜索重名校验
       | test重名        | default_SavedSearch | 创建成功    |
       | test重名12      | default_SavedSearch | 创建成功    |
 
-  Scenario:
-    Given I delete from "SavedSearch" where "{'name':['sunxjautotest','11','test','1test','1重名','test重名','test重名12']}"

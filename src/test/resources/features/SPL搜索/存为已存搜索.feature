@@ -2,8 +2,7 @@
 Feature: 已存搜索新建
 
   Background:
-    Given I delete from "SavedSearch" where "{'name':'AutoTest'}"
-    Then open the "splSearch.SearchPage" page for uri "/search/"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
 
   Scenario Outline: 新建已存搜索
     Given I set the parameter "SearchInput" with value "<splQuery>"

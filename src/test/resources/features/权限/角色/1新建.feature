@@ -19,9 +19,9 @@ Feature: 角色新建
 
   @all
     Examples:
-      | RoleName | RoleDes | Result                                     |
-      | AutoTest |         | error message "保存失败: 角色名称已经在\n错误码: FE_590" |
-      |          | RoleDes | error message "填写角色名称"                     |
+      | RoleName     | RoleDes | Result                                     |
+      | AutoTestRole |         | error message "保存失败: 角色名称已经在\n错误码: FE_590" |
+      |              | RoleDes | error message "填写角色名称"                     |
 
   @role
   Scenario Outline: 创建角色同时创建资源分组

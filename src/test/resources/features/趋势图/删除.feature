@@ -1,4 +1,4 @@
-@all @smoke @trend
+@all @smoke @trend @trendSmoke
 Feature: 趋势图删除
 
   Background:

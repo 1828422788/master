@@ -1,10 +1,9 @@
+@alert @all @smoke @alertSmoke
 Feature: 监控新建事件数并填写告警方式
 
   Background:
-    Given Delete a "alert" with "{'name':['AutoTest']}"
-    And open the "alert.ListPage" page for uri "/alerts/"
+    Given open the "alert.ListPage" page for uri "/alerts/"
 
-  @alert
   Scenario Outline: 创建一个事件数监控-一种告警方式
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -22,16 +21,13 @@ Feature: 监控新建事件数并填写告警方式
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @all @smoke
-  Examples: 创建监控成功
-    | AlertName | FunctionName  |   Parameter   |  Result                 |
-    | AutoTest  | rsyslogType   |{'address':'alltest.rizhiyi.com:514','protocol':['UDP'],'level':['INFO'],'facility':'local0','condition':[''],'content':'{{ alert.name }}\|{{ alert.strategy.trigger.start_time\|date:\'Y-m-d H:i:s\' }}\|{{ alert.strategy.trigger.end_time\|date:\'Y-m-d H:i:s\' }}\|{{ alert.search.query }}'}  | success message "保存成功" |
-    | AutoTest  | emailType     |{'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':[''],'content':''}  | success message "保存成功" |
-    | AutoTest  | forwardType   |{'address':'http://192.168.1.82:511111/','condition':['低']}  | success message "保存成功" |
-    | AutoTest  | pingHostType  |{'address':'192.168.1.82','condition':['高','中','低']}  | success message "保存成功" |
+    Examples: 创建监控成功
+      | AlertName | FunctionName | Parameter                                                                                                                                                                                                                                                                                         | Result                 |
+      | AutoTest  | rsyslogType  | {'address':'alltest.rizhiyi.com:514','protocol':['UDP'],'level':['INFO'],'facility':'local0','condition':[''],'content':'{{ alert.name }}\|{{ alert.strategy.trigger.start_time\|date:\'Y-m-d H:i:s\' }}\|{{ alert.strategy.trigger.end_time\|date:\'Y-m-d H:i:s\' }}\|{{ alert.search.query }}'} | success message "保存成功" |
+      | AutoTest  | emailType    | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':[''],'content':''}                                                                                                                                                                                                      | success message "保存成功" |
+      | AutoTest  | forwardType  | {'address':'http://192.168.1.82:511111/','condition':['低']}                                                                                                                                                                                                                                       | success message "保存成功" |
+      | AutoTest  | pingHostType | {'address':'192.168.1.82','condition':['高','中','低']}                                                                                                                                                                                                                                              | success message "保存成功" |
 
-
-  @alert @all @smoke
   Scenario: 创建一个事件数监控-多种告警方式
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page

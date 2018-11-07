@@ -1,10 +1,10 @@
+@alert @all
 Feature: 监控新建事件数并填写高级设置
 
   Background:
     Given Delete a "alert" with "{'name':['AutoTest']}"
     And open the "alert.ListPage" page for uri "/alerts/"
 
-  @alert
   Scenario Outline: 创建一个事件数监控-高级配置-扩展搜索
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -31,18 +31,16 @@ Feature: 监控新建事件数并填写高级设置
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @all
+  @smoke @alertSmoke
     Examples: 创建监控成功
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent  | ExAlertSources | Result                 |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | logtype:"apache" | 所有日志           | success message "保存成功" |
 
-  @all
     Examples: 创建监控失败
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent  | ExAlertSources | Result                      |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          |                  | 所有日志           | error message "请填写扩展搜索内容"   |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | logtype:"apache" |                | error message "请填写扩展搜索日志来源" |
 
-  @alert
   Scenario Outline: 创建一个事件数监控-高级配置-抑制告警-固定时间
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -70,20 +68,18 @@ Feature: 监控新建事件数并填写高级设置
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @all
+  @smoke @alertSmoke
     Examples: 创建监控成功
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | Result                 |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 1                | 天内               | success message "保存成功" |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 20               | 分钟内              | success message "保存成功" |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 1                | 小时内              | success message "保存成功" |
 
-  @all
     Examples: 创建监控失败
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | Result                            |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          |                  | 小时内              | error message "告警抑制的初始值（第一次告警）非法" |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | a                | 小时内              | error message "告警抑制的初始值（第一次告警）非法" |
 
-  @alert
   Scenario Outline: 创建一个事件数监控-高级配置-抑制告警-倍增时间
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -114,19 +110,18 @@ Feature: 监控新建事件数并填写高级设置
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @all
+  @smoke @alertSmoke
     Examples: 创建监控成功
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | CancelSuppressInput | CancelSuppressUnits | Result                 |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              | 50                  | 分钟后                 | success message "保存成功" |
 
-  @all
     Examples: 创建监控失败
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | CancelSuppressInput | CancelSuppressUnits | Result                            |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              |                     | 分钟后                 | error message "告警抑制的最大时间（取消抑制）非法" |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              | a                   | 分钟后                 | error message "告警抑制的最大时间（取消抑制）非法" |
 
 
-  @alert
+  @smoke @alertSmoke
   Scenario Outline: 创建一个事件数监控-高级配置-启用效果插图
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -154,7 +149,6 @@ Feature: 监控新建事件数并填写高级设置
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @all
     Examples: 创建监控成功
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent                    | ExAlertSources | Result                 |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | * \| timechart count() by hostname | 所有日志           | success message "保存成功" |
