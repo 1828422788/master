@@ -38,7 +38,7 @@ Feature: 日志展现
       | index=yott* ERROR AND tag:sample04061424* | java.message | iconfont icon-shoucang pointer-btn   | SavedFields   | ajava.message |
       | index=yott* ERROR AND tag:sample04061424* | java.message | iconfont icon-yishoucang pointer-btn | UnsavedFields | amessage      |
 
-  Scenario Outline: 字段列表快捷过滤
+  Scenario Outline: 字段列表快捷过滤  异常
     Given I set the parameter "SearchInput" with value "index=yott* ERROR AND tag:sample04061424* "
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -51,8 +51,8 @@ Feature: 日志展现
 
     Examples:
       | optional        | fieldValue | spl                                                                  |
-      | TopTen          |            | index=yott* ERROR AND tag:sample04061424* \|top 10 appname           |
-      | RemoveDuplicate |            | index=yott* ERROR AND tag:sample04061424* \|stats dc(appname)        |
-      | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count(appname) |
+      | TopTen          |            | index=yott* ERROR AND tag:sample04061424* \|top 10 'appname'           |
+      | RemoveDuplicate |            | index=yott* ERROR AND tag:sample04061424* \|stats dc('appname')        |
+      | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count('appname') |
       | FileterField    | java       | index=yott* (ERROR AND tag:sample04061424*) AND appname:java         |
       | ShieldField     | java       | index=yott* (ERROR AND tag:sample04061424*) AND NOT appname:java     |

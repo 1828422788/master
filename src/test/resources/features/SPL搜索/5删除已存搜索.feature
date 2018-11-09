@@ -10,8 +10,10 @@ Feature: 已存搜索删除
     Then I click the "DeleteSavedSearch" button
 
     Examples:
-      | name          |
-      | sunxjAutoTest |
+      | name        |
+      | AutoTest重名1 |
+      | AutoTest重名1 |
+      | AutoTest    |
 
       
 

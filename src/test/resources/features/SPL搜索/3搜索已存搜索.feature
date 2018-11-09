@@ -10,5 +10,5 @@ Feature: 已存搜索查询
     Then I will see the column "1" contains "<name>"
 
     Examples:
-      | name  |
-      | sunxj |
+      | name     |
+      | AutoTest |

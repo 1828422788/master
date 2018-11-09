@@ -1,4 +1,4 @@
-@report @all @smoke
+@report @all @smoke @reportSmoke
 Feature: 报表详情
 
   Background:

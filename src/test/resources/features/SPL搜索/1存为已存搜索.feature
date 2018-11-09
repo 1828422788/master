@@ -1,4 +1,4 @@
-@smoke @spl @all
+@spl @all
 Feature: 已存搜索新建
 
   Background:
@@ -16,9 +16,11 @@ Feature: 已存搜索新建
     Then I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "<message>"
 
+  @smoke
     Examples: 保存成功
-      | splQuery                                | name     | group               | message |
-      | starttime="-2d/w" endtime="now" tag:ty* | AutoTest | default_SavedSearch | 创建成功    |
+      | splQuery                                | name        | group               | message |
+      | starttime="-2d/w" endtime="now" tag:ty* | AutoTest    | default_SavedSearch | 创建成功    |
+      | starttime="-2d/w" endtime="now" tag:ty* | AutoTest重名1 | default_SavedSearch | 创建成功    |
 
     Examples: 保存失败
       | splQuery                                | name | group               | message                    |

@@ -25,7 +25,7 @@ public class VerifyElementTextWillBe {
      * @param elementName
      * @param value
      */
-    @Then("^I will see the input element \"([^\"]*)\" value will be \"([^\"]*)\"$")
+    @Then("^I will see the input element \"([^\"]*)\" value will be \"([^割]*)\"$")
     public void verifyInputValue(String elementName, String value) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String realValue = element.getAttribute("value");

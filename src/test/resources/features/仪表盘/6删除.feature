@@ -1,9 +1,8 @@
-@dashboard @all @smoke
+@dashboard @all @smoke @dashboardSmoke
 Feature: 仪表盘删除
 
   Background:
-    Given I insert into table "DashBoardGroup" with "{'name':'sxjautotest','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
-    Then open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
 
   Scenario Outline:
     Given the data name is "<name>" then i click the "删除" button
