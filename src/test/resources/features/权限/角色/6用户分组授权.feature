@@ -12,8 +12,8 @@ Feature: 授权角色权限
     And I will see the element value in json "<value>"
 
     Examples:
-      | username | password   | value                |
-      | AutoTest | qqqqq11111 | {'EmptyText':'暂无数据'} |
+      | username     | password   | value                |
+      | AutoTestRole | qqqqq11111 | {'EmptyText':'暂无数据'} |
 
   Scenario Outline: 授权读取
     Given open the "roles.ListPage" page for uri "/account/roles/"

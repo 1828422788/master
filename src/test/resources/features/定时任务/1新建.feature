@@ -1,4 +1,4 @@
-@spl @all @timedTaskSmoke
+@spl @all @timedTask
 Feature: 定时任务新增
 
   Background:
@@ -23,7 +23,7 @@ Feature: 定时任务新增
     And I click the "Ensure" button
     Then I will see the success message "<message>"
 
-  @smoke
+  @smoke @timedTaskSmoke
     Examples: 保存成功
       | splQuery                                      | name        | describe | users | groups                | period | message |
       | tag:"sample04061424" \| top 1 apache.resp_len | sxjAutoTest | autotest | owner | default_SavedSchedule | 360    | 保存成功    |
@@ -52,7 +52,7 @@ Feature: 定时任务新增
       | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule | 1.5    | 定时模式下, 时间间隔应该为正整数 |
       | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | stest   | autotest | owner | default_SavedSchedule | 1      | 请输入开始时间           |
 
-  @smoke
+  @smoke @timedTaskSmoke
   Scenario Outline: 生成图表类型的定时任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
@@ -93,7 +93,7 @@ Feature: 定时任务新增
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Sankey     | sankeyAutoTest     |          | owner | default_SavedSchedule | 15     |
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Force      | forceAutoTest      |          | owner | default_SavedSchedule | 15     |
 
-  @smoke
+  @smoke @timedTaskSmoke
   Scenario Outline: 生成循序图的定时任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
@@ -133,7 +133,7 @@ Feature: 定时任务新增
       | splQuery                                      | groupType | type     | timeSequence | source          | target   | cut             | mark            | name             | describe | users | groups                | period |
       | *\| stats count() by hostname,apache.clientip | Other     | Sequence | hostname     | apache.clientip | hostname | apache.clientip | apache.clientip | sequenceAutoTest |          | owner | default_SavedSchedule | 15     |
 
-  @smoke
+  @smoke @timedTaskSmoke
   Scenario Outline: 生成力图的定时任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
@@ -169,7 +169,7 @@ Feature: 定时任务新增
       | splQuery                                                                                                            | groupType  | type  | source  | target  | weight   | name             | describe | users | groups                | period |
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count | Connection | Force | appname | appname | ip_count | forceSunAutoTest |          | owner | default_SavedSchedule | 15     |
 
-  @smoke
+  @smoke @timedTaskSmoke
   Scenario Outline: 生成区间图的定时任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button

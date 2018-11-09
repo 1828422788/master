@@ -10,7 +10,7 @@ Feature: 角色清理
 
     Examples:
       | name                             |
-      | AutoTest                         |
+      | AutoTestRole                     |
       | AutoTestRoleWithAllResource      |
       | AutoTestRoleWithAuth&SourceGroup |
       | AutoTestRoleWithMacro            |

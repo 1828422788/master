@@ -1,4 +1,4 @@
-@timedTask @all @smoke
+@timedTask @all @smoke @timedTaskSmoke
 Feature: 定时任务删除
 
   Background:

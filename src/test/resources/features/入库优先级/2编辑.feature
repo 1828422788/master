@@ -1,10 +1,9 @@
-@all @indexSetting
+@all @indexSetting @smoke @indexSettingSmoke
 Feature: 入库优先级编辑
 
   Background:
-    Given I insert into table "IngestPriority" with "{'appname':'autotest','domain_id':'1','priority':'100','tag':'[]'}"
-    Then open the "ingestPriority.ListPage" page for uri "/ingestpriority/"
-    When the data name is "autotest" then i click the "编辑" button
+    Given open the "ingestPriority.ListPage" page for uri "/ingestpriority/"
+    When the data name is "AutoTest" then i click the "编辑" button
     Then I will see the "ingestPriority.CreatePage" page
 
   Scenario Outline:

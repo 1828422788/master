@@ -18,7 +18,7 @@ Feature: 定时任务编辑
     Then I click the "SaveButton" button
     Then I will see the success message "<result>"
 
-  @smoke
+  @smoke @timedTaskSmoke
     Examples: 编辑成功
       | dataName    | name        | describe | user  | resource | taskGroup | period | startTime | result |
       | sxjAutoTest | sxjAutoTest | first    | owner | all_     |           | 10     | 16:37:55  | 保存成功   |
@@ -49,7 +49,7 @@ Feature: 定时任务编辑
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
-  @smoke
+  @smoke @timedTaskSmoke
     Examples:
       | dataName    | connectName | userName | password     | host          | port | dbType | dbName         | tableName | firstDataMapping | secondDataMapping |
       | sxjAutoTest | sxjtest     | root     | rizhiyi&2014 | 192.168.1.200 | 3306 | mysql  | rizhiyi_system | tyf       | count            | percent           |

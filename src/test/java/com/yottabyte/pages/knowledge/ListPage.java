@@ -105,6 +105,21 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
     private WebElement ensureDeleteButton;
 
+    @FindBy(className = "search-item-title")
+    private List<WebElement> resultTitleList;
+
+    public WebElement getResultTitle1() {
+        return resultTitleList.get(0);
+    }
+
+    public WebElement getResultTitle2() {
+        return resultTitleList.get(1);
+    }
+
+    public WebElement getResultTitle3() {
+        return resultTitleList.get(2);
+    }
+
     public WebElement getEnsureDeleteButton() {
         return ensureDeleteButton;
     }
@@ -127,7 +142,6 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getTableBody() {
-
         return tableBody;
     }
 
@@ -155,6 +169,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getEventCode() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(eventCode));
         return eventCode;
     }
 
@@ -181,9 +196,6 @@ public class ListPage extends PageTemplate {
 
     // 获取标签下拉菜单
     public WebElement getTagComboBox() {
-//        tagInput.click();
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(selectors.get(selectors.size() - 1)));
-//        return selectors.get(selectors.size() - 1).findElements(By.tagName("li"));
         return selectors.get(selectors.size() - 1);
     }
 

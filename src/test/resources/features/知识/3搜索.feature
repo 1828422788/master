@@ -1,18 +1,23 @@
 Feature: 知识搜索
 
   Background:
-    Given I insert into table "Knowledge" with "{'name':'sunxj1','code':'sunxj1','creator_id':'1','creator_name':'owner','description':'3','domain_id':'1','solution':'test','group':'default_Knowledge'}"
-    And open the "knowledge.ListPage" page for uri "/knowledge/"
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
 
   @knowledge
-  Scenario Outline:
-    Then I choose the "<GroupList>" from the "GroupList"
-    And I set the parameter "SearchInput" with value "<Search>"
-    Then I will see the list of "<TableHeader>" contains "<GroupList>" or I see the "SearchList" contains "<Search>"
+  Scenario Outline: 按分组搜索
+    When I choose the "<GroupList>" from the "GroupList"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'2','name':'<GroupList>'}"
 
   @smoke @all
     Examples:
-      | GroupList         | Search | TableHeader |
-      | default_Knowledge |        | 分组          |
-      |                   | sunxj1 |             |
+      | GroupList         |
+      | default_Knowledge |
 
+  Scenario Outline: 全文搜索
+    When I set the parameter "SearchInput" with value "<search>"
+    Then I will see the element value in json "<value>"
+
+    Examples:
+      | search   | value                                                                               |
+      | autotest | {'ResultTitle1':'sunxj1','ResultTitle2':'sxjautotest','ResultTitle3':'sxjautotest'} |
