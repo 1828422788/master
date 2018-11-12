@@ -2,10 +2,7 @@
 Feature: 拓扑图重命名
 
   Background:
-    Given I insert into table "Topology" with "{'name':'sxjautotest','domain_id':'1','creator_id':'1','category':'0','group':'default_Topology'}"
-    Then I insert into table "Topology" with "{'name':'sunxjautotest','domain_id':'1','creator_id':'1','category':'0','group':'default_Topology'}"
-    And I delete from "Topology" where "{'name':'autotest','group':'default_Topology'}"
-    Then open the "topology.ListPage" page for uri "/topology/"
+    Given open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline:
     Given the data name is "<name>" then i click the "重命名" button
@@ -19,6 +16,6 @@ Feature: 拓扑图重命名
       | sxjautotest | autotest | success message "保存成功" |
 
     Examples: 重命名失败
-      | name        | newName | message                  |
-      | sxjautotest |         | error message "请输入拓扑图名称" |
+      | name     | newName | message                  |
+      | autotest |         | error message "请输入拓扑图名称" |
 

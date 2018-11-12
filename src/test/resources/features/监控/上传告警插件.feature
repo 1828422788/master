@@ -1,10 +1,10 @@
-@alert @all
+#@alert @all
 Feature: 监控上传告警插件
 
   Background:
-    Given I delete from "AlertPlugin" where "{'name':'hengshuiyinhang_socket'}"
-    And I delete from "{'database':'share','documentName':'alert_plugin.files'}" where "{'filename':'hengshuiyinhang_socket'}" using mongodb
-    Then open the "alert.PluginPage" page for uri "/plugins/"
+#    Given I delete from "AlertPlugin" where "{'name':'hengshuiyinhang_socket'}"
+#    And I delete from "{'database':'share','documentName':'alert_plugin.files'}" where "{'filename':'hengshuiyinhang_socket'}" using mongodb
+#    Then open the "alert.PluginPage" page for uri "/plugins/"
 
 #  @smoke
 #  Scenario: 上传告警插件成功

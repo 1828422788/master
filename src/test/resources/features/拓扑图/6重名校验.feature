@@ -1,5 +1,5 @@
 @topology @all @topologySmoke @smoke
-Feature: 拓扑图分组
+Feature: 拓扑图重名校验
 
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"

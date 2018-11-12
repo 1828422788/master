@@ -33,5 +33,5 @@ Feature: 监控重名校验
       | test重名12      | alertDes | default_Alert | owner     | 所有日志        | where_es      | 0 5 9 1/3 * ?    | 10           | 分钟内                   | 100             | 保存成功    |
 
   Scenario:
-    Given I delete from "Alert" where "{'name':['sunxjautotest','11','test','1test','1重名','test重名','test重名12']}"
-    And I delete from "Alert" where "{'name':['AutoTest','AutoTest_sum','AutoTest_avg','AutoTest_max','AutoTest_min','AutoTest_max']}"
+#    Given I delete from "Alert" where "{'name':['sunxjautotest','11','test','1test','1重名','test重名','test重名12']}"
+#    And I delete from "Alert" where "{'name':['AutoTest','AutoTest_sum','AutoTest_avg','AutoTest_max','AutoTest_min','AutoTest_max']}"

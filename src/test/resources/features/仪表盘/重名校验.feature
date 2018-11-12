@@ -1,12 +1,12 @@
 Feature: 仪表盘重名校验
 
   Background:
-    Given I insert into table "DashBoardGroup" with "{'name':'sxjautotest','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
-    And I insert into table "DashBoardGroup" with "{'name':'11','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
-    And I insert into table "DashBoardGroup" with "{'name':'自动化测试','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
-    And I insert into table "DashBoardGroup" with "{'name':'11test','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
-    And I insert into table "DashBoardGroup" with "{'name':'11自动化','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
-    And I insert into table "DashBoardGroup" with "{'name':'自动化test','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
+#    Given I insert into table "DashBoardGroup" with "{'name':'sxjautotest','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
+#    And I insert into table "DashBoardGroup" with "{'name':'11','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
+#    And I insert into table "DashBoardGroup" with "{'name':'自动化测试','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
+#    And I insert into table "DashBoardGroup" with "{'name':'11test','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
+#    And I insert into table "DashBoardGroup" with "{'name':'11自动化','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
+#    And I insert into table "DashBoardGroup" with "{'name':'自动化test','domain_id':'1','creator_id':'1','group':'default_DashBoardGroup'}"
     Then open the "dashboard.ListPage" page for uri "/dashboard/"
 
   Scenario Outline:
@@ -26,7 +26,7 @@ Feature: 仪表盘重名校验
       | 自动化test     | default_DashBoardGroup |
 
   Scenario:
-    Given I delete from "DashBoardGroup" where "{'name':['sxjautotest','11','自动化测试','11test','11自动化','自动化test']}"
+#    Given I delete from "DashBoardGroup" where "{'name':['sxjautotest','11','自动化测试','11test','11自动化','自动化test']}"
 
 
 

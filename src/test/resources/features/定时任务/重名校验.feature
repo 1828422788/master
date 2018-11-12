@@ -1,4 +1,4 @@
-@timedTask @all
+#@timedTask @all
 Feature: 定时任务重名校验
 
   Background:
@@ -34,5 +34,5 @@ Feature: 定时任务重名校验
       | tag:"sample04061424" \| top 1 apache.resp_len | test重名12                 | autotest | owner | default_SavedSchedule | 360    | 保存成功    |
 
   Scenario:
-    Given I delete from "SavedSchedule" where "{'name':['AutoTestForDuplicateName','11','test','1test','1重名','test重名','test重名12']}"
+#    Given I delete from "SavedSchedule" where "{'name':['AutoTestForDuplicateName','11','test','1test','1重名','test重名','test重名12']}"
 

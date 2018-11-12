@@ -33,5 +33,5 @@ Feature: 报表重名校验
       | test重名11 |          | owner       | default_Report | WORD       |       | test    | 11   | 30     | rose       | Layout1 | 保存成功   |
 
   Scenario:
-    Given I delete from "Report" where "{'name':['自动化','11','test','1test','1重名','test重名','test重名11']}"
+#    Given I delete from "Report" where "{'name':['自动化','11','test','1test','1重名','test重名','test重名11']}"
 
