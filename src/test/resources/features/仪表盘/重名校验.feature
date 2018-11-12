@@ -1,4 +1,3 @@
-@dashboard @all
 Feature: 仪表盘重名校验
 
   Background:
