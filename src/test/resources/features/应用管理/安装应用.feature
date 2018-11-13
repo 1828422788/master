@@ -6,7 +6,7 @@ Feature: 应用安装
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
 
-  @smoke
+  @smoke @appSmoke
   Scenario Outline: 安装成功
     When I upload a file with name "/target/download-files/AutoTest.tar"
     And I will see the element "VerifyText" name is "上传完成"

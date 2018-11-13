@@ -49,7 +49,7 @@ Feature: 应用新建
     When I upload a file "LogoInput" with name "/src/test/resources/testdata/resourceGroups/testcase.txt"
     Then I will see the error message "文件类型不符"
 
-  @smoke
+  @smoke @appSmoke
   Scenario Outline: 新建（资源为系统内选择）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"

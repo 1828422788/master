@@ -1,4 +1,5 @@
 Feature: 创建一个关联搜索
+
   Background:
     Given I click the "CustomApplicationPage" button
     And I will see the "customApplication.ListPage" page
@@ -15,5 +16,3 @@ Feature: 创建一个关联搜索
     And I click the "MessageBoxOKButton" button
     And I click the "SaveButton" button
     Then I will see the success message "应用保存成功!"
-
-

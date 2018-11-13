@@ -23,9 +23,9 @@ Feature: 应用编辑
 
     Examples: 编辑失败
       | menuName | url         | SubmenuName | SubUrl  | chooseMenuName | message |
-      | 知识       | /knowledge/ | Auto趋势图     | /trend/ |                | 请设置默认首页 |
+#      | 知识       | /knowledge/ | Auto趋势图     | /trend/ |                | 请设置默认首页 |
 
-  @smoke
+  @smoke @appSmoke
     Examples: 编辑成功
       | menuName | url         | SubmenuName | SubUrl  | chooseMenuName | message |
       | Auto仪表盘  | /dashboard/ | Auto趋势图     | /trend/ | Auto仪表盘        | 保存成功    |
