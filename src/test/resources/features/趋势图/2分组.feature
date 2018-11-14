@@ -6,14 +6,11 @@ Feature: 趋势图分组
 
   Scenario Outline:
     When the data name is "<name>" then i click the "分组" button
-    And I cancel selection "<group>" from the "Group"
+    And I <group>
     And I click the "Ensure" button
-    And I will see the error message "至少选择一个分组"
-    And I choose the "<extraGroup>" from the "Group"
-    And I click the "Ensure" button
-    And I refresh the website
-    Then I will see the data "<name>" values "{'column':'3','name':'<extraGroup>'}"
+    And I will see the error message "保存成功"
 
     Examples:
-      | name     | group           | extraGroup                    |
-      | AutoTest | AutoTestForAuth | AutoTestForAuth,default_Trend |
+      | name      | group                                                               |
+      | AutoTest1 | cancel selection "default_Trend" from the "Group"                   |
+      | AutoTest1 | choose the "AutoTestWithAllResource,default_Trend" from the "Group" |
