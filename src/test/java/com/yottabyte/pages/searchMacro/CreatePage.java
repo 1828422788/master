@@ -16,6 +16,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='定义']/following-sibling::div/textarea")
     private WebElement definition;
 
+    @FindBy(className = "el-checkbox")
+    private WebElement checkbox;
+
     public WebElement getDefinition() {
         return definition;
     }
@@ -52,4 +55,7 @@ public class CreatePage extends PageTemplate {
         return super.getSuccessMessage();
     }
 
+    public WebElement getCheckbox() {
+        return checkbox;
+    }
 }

@@ -376,6 +376,35 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-message-box']//span[contains(text(),'确定')]")
     private WebElement sourceEnsure;
 
+    @FindBy(xpath = "//td[@data-col-name]/span")
+    private List<WebElement> columnList;
+
+    @FindBy(className = "el-icon-caret-right")
+    private WebElement rightIcon;
+
+    @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
+    private WebElement xValue;
+
+    public WebElement getXValue() {
+        return xValue;
+    }
+
+    public WebElement getRightIcon() {
+        return rightIcon;
+    }
+
+    public WebElement getColumn1() {
+        return columnList.get(0);
+    }
+
+    public WebElement getColumn2() {
+        return columnList.get(1);
+    }
+
+    public WebElement getColumn3() {
+        return columnList.get(2);
+    }
+
     public WebElement getSourceEnsure() {
         return sourceEnsure;
     }
