@@ -4,11 +4,12 @@ import com.yottabyte.config.ConfigManager;
 import com.yottabyte.entity.Account;
 import com.yottabyte.pages.LoginPage;
 import com.yottabyte.utils.JdbcUtils;
-import com.yottabyte.utils.WaitForElement;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.Before;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

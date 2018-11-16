@@ -26,4 +26,4 @@ Feature: 用户分组
 
     Examples:
       | name     | newGroups     | finalGroups                     |
-      | AutoTest | AutoTestGroup | AutoTestGroup , AutoTestForUser |
+      | AutoTest | AutoTestGroup | AutoTestGroup, AutoTestForUser |
