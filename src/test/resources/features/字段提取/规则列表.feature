@@ -1,4 +1,4 @@
-@all @smoke @configs
+@all @smoke @configs @configsSmoke
 Feature: 字段提取规则列表
 
   Background:

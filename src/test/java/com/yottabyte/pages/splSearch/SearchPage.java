@@ -385,6 +385,27 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
     private WebElement xValue;
 
+    @FindBy(xpath = "//span[text()='other.key']/ancestor::td/following-sibling::td/span")
+    private WebElement otherValue;
+
+    @FindBy(className = "icon-fanyeqishangjiantou")
+    private WebElement eventOperate;
+
+    @FindBy(xpath = "//li[text()='配置字段提取']")
+    private WebElement configField;
+
+    public WebElement getConfigField() {
+        return configField;
+    }
+
+    public WebElement getEventOperate() {
+        return eventOperate;
+    }
+
+    public WebElement getOtherValue() {
+        return otherValue;
+    }
+
     public WebElement getXValue() {
         return xValue;
     }

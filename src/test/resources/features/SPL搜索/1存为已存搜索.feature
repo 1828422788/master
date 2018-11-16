@@ -5,15 +5,15 @@ Feature: 已存搜索新建
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
   Scenario Outline: 新建已存搜索
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    Then I click the "DateEditor" button
+    When I set the parameter "SearchInput" with value "<splQuery>"
+    And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    Then I click the "SaveAsReport" button
-    Then I click the "SavedSearch" button
-    Then I set the parameter "OfflineTaskName" with value "<name>"
-    Then I choose the "<group>" from the "GroupComboBox"
-    Then I click the "EnsureCreateSavedSearch" button
+    And I click the "SaveAsReport" button
+    And I click the "SavedSearch" button
+    And I set the parameter "OfflineTaskName" with value "<name>"
+    And I choose the "<group>" from the "GroupComboBox"
+    And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "<message>"
 
   @smoke

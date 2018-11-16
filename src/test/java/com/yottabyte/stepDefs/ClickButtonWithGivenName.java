@@ -3,6 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -78,6 +79,7 @@ public class ClickButtonWithGivenName {
         // 找到禁用按钮并点击
         tr.findElement(By.xpath(xpath)).click();
     }
+
 
     /**
      * 寻找name所在行
@@ -287,5 +289,13 @@ public class ClickButtonWithGivenName {
         String xpath = "//span[contains(text(),'" + name + "')][@class]";
         WebElement tr = this.findName(name);
         tr.findElement(By.xpath(xpath)).click();
+    }
+
+    @Then("^I will see the element \"([^\"]*)\" is disabled$")
+    public void disabledElement(String elementName) {
+        String xpath = "//span[contains(text(),'" + elementName + "')]/preceding-sibling::label/div[@class='el-switch__label el-switch__label--left']";
+        WebElement tr = this.findName(elementName);
+        WebElement button = tr.findElement(By.xpath(xpath));
+        CheckButtonAttribute.checkIsDisplay(button);
     }
 }

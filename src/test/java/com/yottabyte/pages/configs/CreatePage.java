@@ -21,6 +21,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//h3[text()='日志样例']/following-sibling::div/textarea")
     private WebElement logSample;
 
+    @FindBy(xpath = "//h3[text()='基本信息']")
+    private WebElement basicInfo;
+
+    @FindBy(xpath = "//h3[text()='规则配置完成！']")
+    private WebElement configDone;
+
     @FindBy(xpath = "//label[text()='正则表达式']/following-sibling::div/textarea")
     private WebElement regex;
 
@@ -65,6 +71,67 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "json-formatter-boolean")
     private List<WebElement> booleanList;
+
+    @FindBy(xpath = "//a[text()='+ 解析成功时添加字段']")
+    private WebElement addField;
+
+    @FindBy(xpath = "//input[@placeholder='请输入键']")
+    private WebElement key;
+
+    @FindBy(xpath = "//input[@placeholder='请输入键']/ancestor::div/following-sibling::div/input")
+    private WebElement value;
+
+    @FindBy(className = "el-switch")
+    private WebElement switchButton;
+
+    @FindBy(xpath = "//div[text()='appname']/preceding-sibling::input")
+    private WebElement appName;
+
+    @FindBy(xpath = "//div[text()='tag']/preceding-sibling::input")
+    private WebElement tag;
+
+    @FindBy(xpath = "//div[text()='hostname']/preceding-sibling::input")
+    private WebElement hostName;
+
+    public WebElement getConfigDone() {
+        return configDone;
+    }
+
+    public WebElement getBasicInfo() {
+        return basicInfo;
+    }
+
+    public WebElement getHostName() {
+        return hostName;
+    }
+
+    public WebElement getAppName() {
+        return appName;
+    }
+
+    public WebElement getTag() {
+        return tag;
+    }
+
+    public WebElement getSwitchButton() {
+        return switchButton;
+    }
+
+    public WebElement getNextButton() {
+        return super.getButton("下一步");
+    }
+
+    public WebElement getKey() {
+        return key;
+    }
+
+    public WebElement getValue() {
+        return value;
+    }
+
+    public WebElement getAddField() {
+        return addField;
+    }
 
     public WebElement getName() {
         return getInputElement("规则名称");

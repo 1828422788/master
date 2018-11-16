@@ -39,12 +39,26 @@ public class CheckButtonAttribute {
         }
     }
 
+    /**
+     * 判断按钮显示
+     *
+     * @param buttonNameList
+     */
     @And("^I will see the \"([^\"]*)\" is display$")
     public void checkIsDisplay(List<String> buttonNameList) {
         for (String buttonName : buttonNameList) {
             WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
             Assert.assertFalse(element.getAttribute("style").contains("display: none;"));
         }
+    }
+
+    /**
+     * 判断按钮不显示
+     *
+     * @param webElement
+     */
+    public static void checkIsDisplay(WebElement webElement) {
+        Assert.assertTrue(webElement.getAttribute("style").contains("display: none;"));
     }
 
     @Then("^I will see the \"([^\"]*)\" node is \"([^\"]*)\"$")

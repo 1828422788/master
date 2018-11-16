@@ -12,6 +12,12 @@ import static org.junit.Assert.*;
  */
 public class VerifyElementTextWillBe {
 
+    /**
+     * 验证某一元素文本内容是否正确
+     *
+     * @param elementName
+     * @param excpText
+     */
     @Then("^I will see the \"([^\"]*)\" result will be \"([^\"]*)\"$")
     public void iWillSeeTheResultWillBe(String elementName, String excpText) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
