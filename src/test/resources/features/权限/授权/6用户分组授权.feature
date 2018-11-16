@@ -1,4 +1,4 @@
-@authorization @all @smoke @roleSmoke
+#@authorization @all @smoke @roleSmoke
 Feature: 授权角色权限
 
   Scenario Outline:
