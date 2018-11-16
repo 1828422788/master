@@ -14,6 +14,6 @@ Feature: 字段提取删除
 #    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
     Examples:
-      | name      |
-      | AutoTest  |
-      | sunxjtest |
+      | name        |
+      | AutoTest    |
+      | AutoTest(1) |

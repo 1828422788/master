@@ -20,6 +20,6 @@ Feature: 角色编辑
 
   @all
     Examples: 编辑失败
-      | OldName      | RoleName                | RoleDes | Result                                     |
-      | AutoTestCopy |                         |         | error message "填写角色名称"                     |
-      | AutoTestCopy | AutoTestWithAllResource |         | error message "保存失败: 角色名称已经在\n错误码: FE_590" |
+      | OldName      | RoleName              | RoleDes | Result                                     |
+      | AutoTestCopy |                       |         | error message "填写角色名称"                     |
+      | AutoTestCopy | AutoTestRoleWithMacro |         | error message "保存失败: 角色名称已经在\n错误码: FE_590" |
