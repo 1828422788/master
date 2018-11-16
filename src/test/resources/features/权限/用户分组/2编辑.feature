@@ -48,5 +48,5 @@ Feature: 用户分组修改
     Then I will see the data "{'column':'1','name':'<name>'}" values "{'column':'4','name':'<finalGroups>'}"
 
     Examples:
-      | name            | NewRoleName                  | Result                 | finalGroups          |
-      | AutoTestForEdit | AutoTestWithAuth&SourceGroup | success message "更新成功" | admin, AutoTestGroup |
+      | name            | NewRoleName                      | Result                 | finalGroups                             |
+      | AutoTestForEdit | AutoTestRoleWithAuth&SourceGroup | success message "更新成功" | admin, AutoTestRoleWithAuth&SourceGroup |
