@@ -1,3 +1,4 @@
+@all @tenant @smoke @tenantSmoke
 Feature: 租户搜索
 
   Background:

@@ -1,4 +1,4 @@
-@all
+@all @tenant
 Feature: 租户登陆
 
   Background:
