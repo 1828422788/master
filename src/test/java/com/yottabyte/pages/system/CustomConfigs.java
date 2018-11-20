@@ -34,6 +34,13 @@ public class CustomConfigs extends PageTemplate {
     @FindBy(xpath = "//span[text()='/offlinetask']/following-sibling::i")
     private WebElement closeOfflinetask;
 
+    @FindBy(xpath = "//span[text()='图表配置自动填充']/ancestor::label")
+    private WebElement chartLabel;
+
+    public WebElement getChartLabel() {
+        return chartLabel;
+    }
+
     public WebElement getTest() {
         return test;
     }
@@ -72,5 +79,9 @@ public class CustomConfigs extends PageTemplate {
 
     public WebElement getHomePage() {
         return super.getDropdownList("首页");
+    }
+
+    public WebElement getWholeTime() {
+        return super.getInputElement("所有时间定义");
     }
 }

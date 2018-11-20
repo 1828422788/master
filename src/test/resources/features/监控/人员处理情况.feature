@@ -1,4 +1,4 @@
-@alert @all
+@alert @all @alertSmoke
 Feature: 监控人员处理情况
 
   Background:

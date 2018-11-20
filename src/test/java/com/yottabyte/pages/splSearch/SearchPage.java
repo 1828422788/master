@@ -394,6 +394,20 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='配置字段提取']")
     private WebElement configField;
 
+    @FindBy(xpath = "(//span[text()='无可展示数据～'])[last()]")
+    private WebElement noneData;
+
+    @FindBy(xpath = "(//canvas)[last()]")
+    private WebElement canvas;
+
+    public WebElement getCanvas() {
+        return canvas;
+    }
+
+    public WebElement getNoneData() {
+        return noneData;
+    }
+
     public WebElement getConfigField() {
         return configField;
     }
