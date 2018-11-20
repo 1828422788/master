@@ -5,7 +5,7 @@ import cucumber.api.java.en.And;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
-public class LouOut {
+public class LogOut {
 
     public Cookie cookie = LoginBeforeAllTests.getCookie();
 

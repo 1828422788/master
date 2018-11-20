@@ -31,15 +31,7 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String buttonName) {
-        WebElement tr;
-        if (!JsonStringPaser.isJson(dataName)) {
-            tr = this.findName(dataName);
-        } else {
-            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
-            String name = map.get("name").toString();
-            int columnNum = Integer.parseInt(map.get("column").toString());
-            tr = this.getRowWithColumnNum(name, columnNum);
-        }
+        WebElement tr = this.getTr(dataName);
         this.click(buttonName, tr);
     }
 
@@ -297,5 +289,36 @@ public class ClickButtonWithGivenName {
         WebElement tr = this.findName(elementName);
         WebElement button = tr.findElement(By.xpath(xpath));
         CheckButtonAttribute.checkIsDisplay(button);
+    }
+
+    /**
+     * 租户管理中点击对应的按钮
+     *
+     * @param dataName
+     * @param labelName
+     */
+    @When("^the data name is \"([^\"]*)\" then i click the label \"([^\"]*)\"$")
+    public void clickLabelWithGivenName(String dataName, String labelName) {
+        WebElement tr = this.getTr(dataName);
+        this.clickLabel(labelName, tr);
+    }
+
+    private void clickLabel(String labelName, WebElement tr) {
+        String xpath = ".//label[contains(text(),'" + labelName + "')]";
+        WebElement button = tr.findElement(By.xpath(xpath));
+        button.click();
+    }
+
+    private WebElement getTr(String dataName) {
+        WebElement tr;
+        if (!JsonStringPaser.isJson(dataName)) {
+            tr = this.findName(dataName);
+        } else {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
+            String name = map.get("name").toString();
+            int columnNum = Integer.parseInt(map.get("column").toString());
+            tr = this.getRowWithColumnNum(name, columnNum);
+        }
+        return tr;
     }
 }

@@ -27,7 +27,19 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     public WebDriver webDriver;
     public static ConfigManager config = new ConfigManager();
-    String parentPageName;
+    public String parentPageName;
+
+    public WebElement getUsername() {
+        return null;
+    }
+
+    public WebElement getPassword() {
+        return null;
+    }
+
+    public WebElement getLoginButton() {
+        return null;
+    }
 
     public PageTemplate(WebDriver driver) {
         this.webDriver = driver;

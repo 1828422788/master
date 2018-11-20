@@ -3,6 +3,8 @@ package com.yottabyte.hooks;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.entity.Account;
 import com.yottabyte.pages.LoginPage;
+import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.saas.SaasLoginPage;
 import com.yottabyte.utils.JdbcUtils;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.Before;
@@ -24,18 +26,21 @@ public class LoginBeforeAllTests {
     private static Object pageFactory;
     private static ConfigManager config;
     private static Cookie cookie;
+    private static String loginURL;
 
     public LoginBeforeAllTests(SharedDriver driver, ConfigManager manager) {
         webDriver = driver;
         config = manager;
         baseURL = "http://" + manager.get("rizhiyi_server_host");
+        loginURL = manager.get("login_url");
     }
 
     @Before
     public void beforeScenario() {
         System.out.println("Login Before Test!");
         webDriver.manage().deleteAllCookies();
-        webDriver.get(baseURL + "/auth/login/");
+//        webDriver.get(baseURL + "/auth/login/");
+        webDriver.get(baseURL + loginURL);
         if (cookie == null) {
             login();
         } else {
@@ -55,7 +60,13 @@ public class LoginBeforeAllTests {
     }
 
     public static void login() {
-        LoginPage loginPage = new LoginPage(webDriver);
+        PageTemplate loginPage = null;
+        if (loginURL.contains("domainlogin"))
+            loginPage = new SaasLoginPage(webDriver);
+        else
+            loginPage = new LoginPage(webDriver);
+
+
         loginPage.getUsername().clear();
         String username = config.get("username");
         loginPage.getUsername().sendKeys(username);
