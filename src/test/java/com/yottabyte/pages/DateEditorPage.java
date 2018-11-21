@@ -57,20 +57,38 @@ public class DateEditorPage extends PageTemplate {
     @FindBy(xpath = "//button[text()='最近10分钟']")
     private WebElement tenMinutes;
 
+    @FindBy(xpath = "//button[text()='10分钟']")
+    private WebElement recentTenMinutes;
+
     @FindBy(xpath = "//button[text()='最近30分钟']")
     private WebElement halfHour;
+
+    @FindBy(xpath = "//button[text()='30分钟']")
+    private WebElement recentHalfHour;
 
     @FindBy(xpath = "//button[text()='最近1小时']")
     private WebElement oneHour;
 
+    @FindBy(xpath = "//button[text()='1小时']")
+    private WebElement recentOneHour;
+
     @FindBy(xpath = "//button[text()='最近1天']")
     private WebElement oneDay;
+
+    @FindBy(xpath = "//button[text()='1天']")
+    private WebElement recentOneDay;
 
     @FindBy(xpath = "//button[text()='最近2天']")
     private WebElement twoDays;
 
+    @FindBy(xpath = "//button[text()='2天']")
+    private WebElement recentTwoDays;
+
     @FindBy(xpath = "//button[text()='最近7天']")
     private WebElement sevenDays;
+
+    @FindBy(xpath = "//button[text()='7天']")
+    private WebElement recentSevenDays;
 
     @FindBy(xpath = "//button[text()='所有时间']")
     private WebElement wholeTime;
@@ -125,6 +143,30 @@ public class DateEditorPage extends PageTemplate {
 
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> daysDropDown;
+
+    public WebElement getRecentTenMinutes() {
+        return recentTenMinutes;
+    }
+
+    public WebElement getRecentHalfHour() {
+        return recentHalfHour;
+    }
+
+    public WebElement getRecentOneHour() {
+        return recentOneHour;
+    }
+
+    public WebElement getRecentOneDay() {
+        return recentOneDay;
+    }
+
+    public WebElement getRecentTwoDays() {
+        return recentTwoDays;
+    }
+
+    public WebElement getRecentSevenDays() {
+        return recentSevenDays;
+    }
 
     public WebElement getDaysDropDown() {
         dropDownButton.click();

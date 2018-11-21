@@ -10,5 +10,5 @@ Feature: 报表禁用/启用
 
     Examples:
       | name    | result |
-      | 自动化测试用例 | 禁用成功   |
-      | 自动化测试用例 | 启用成功   |
+      | autotest | 禁用成功   |
+      | autotest | 启用成功   |

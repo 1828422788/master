@@ -8,8 +8,6 @@ Feature: 拓扑图删除
     Given the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
-    And I refresh the website
-    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
     Examples:
       | name     |

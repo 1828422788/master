@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 /**
  * @author sunxj
  */
@@ -21,6 +23,71 @@ public class ModelManagerPage extends PageTemplate {
 
     @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
     private WebElement ensureButton;
+
+    @FindBy(className = "col-edit-btn")
+    private WebElement edit;
+
+    @FindBy(xpath = "//span[text()='ops']")
+    private List<WebElement> lineList;
+
+    @FindBy(className = "confirm_icon")
+    private WebElement confirm;
+
+    @FindBy(className = "model_name")
+    private WebElement nameInput;
+
+    @FindBy(className = "verify-text")
+    private WebElement verifyText;
+
+    @FindBy(xpath = "//i[@class='el-icon-circle-check']/following-sibling::span")
+    private WebElement importSuccess;
+
+    @FindBy(xpath = "//i[@class='el-input__icon el-icon-search']/following-sibling::input")
+    private WebElement searchInput;
+
+    public WebElement getSearchInput() {
+        return searchInput;
+    }
+
+    public WebElement getImportSuccess() {
+        return importSuccess;
+    }
+
+    public WebElement getVerifyText() {
+        return verifyText;
+    }
+
+    public WebElement getNameInput() {
+        return nameInput;
+    }
+
+    public WebElement getConfirm() {
+        return confirm;
+    }
+
+    public WebElement getLine1() {
+        return lineList.get(0);
+    }
+
+    public WebElement getLine2() {
+        return lineList.get(2);
+    }
+
+    public WebElement getLine3() {
+        return lineList.get(4);
+    }
+
+    public WebElement getLine4() {
+        return lineList.get(6);
+    }
+
+    public WebElement getLine5() {
+        return lineList.get(8);
+    }
+
+    public WebElement getEdit() {
+        return edit;
+    }
 
     public WebElement getEnsureButton() {
         return ensureButton;
@@ -56,5 +123,9 @@ public class ModelManagerPage extends PageTemplate {
 
     public WebElement getSuccessMessage() {
         return super.getErrorMessage();
+    }
+
+    public WebElement getNextButton() {
+        return super.getButton("下一步");
     }
 }

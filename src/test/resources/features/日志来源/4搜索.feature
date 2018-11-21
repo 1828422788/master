@@ -12,6 +12,6 @@ Feature: 日志来源搜索
     Then I will see the column number "1" contains "<name>"
 
     Examples:
-      | group               | name        |
-      | default_SourceGroup | sxjautotest |
+      | group               | name          |
+      | default_SourceGroup | sunxjautotest |
 

@@ -107,10 +107,12 @@ public class RegularSearch {
                 if (tdList.size() >= columnNum) {
                     String actualText = tdList.get(columnNum).getText();
                     String expectText = resultMap.get("name").toString();
+                    if (actualText.equals(""))
+                        return;
                     if (resultMap.containsKey("contains"))
                         Assert.assertFalse(actualText.contains(expectText));
                     else
-                        Assert.assertTrue(actualText.contains(expectText));
+                        Assert.assertTrue(actualText.toLowerCase().contains(expectText.toLowerCase()));
                 }
             }
         }

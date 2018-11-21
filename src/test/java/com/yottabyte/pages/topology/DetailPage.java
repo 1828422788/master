@@ -196,32 +196,32 @@ public class DetailPage extends PageTemplate {
 
     // 获取十分钟按钮
     public WebElement getTenMinutes() {
-        return GetTime.getTime(webDriver, "TenMinutes");
+        return GetTime.getTime(webDriver, "RecentTenMinutes");
     }
 
     // 获取30分钟按钮
     public WebElement getHalfHour() {
-        return GetTime.getTime(webDriver, "HalfHour");
+        return GetTime.getTime(webDriver, "RecentHalfHour");
     }
 
     // 获取1小时按钮
     public WebElement getOneHour() {
-        return GetTime.getTime(webDriver, "OneHour");
+        return GetTime.getTime(webDriver, "RecentOneHour");
     }
 
     // 获取1天按钮
     public WebElement getOneDay() {
-        return GetTime.getTime(webDriver, "OneDay");
+        return GetTime.getTime(webDriver, "RecentOneDay");
     }
 
     // 获取2天按钮
     public WebElement getTwoDays() {
-        return GetTime.getTime(webDriver, "TwoDays");
+        return GetTime.getTime(webDriver, "RecentTwoDays");
     }
 
     // 获取7天按钮
     public WebElement getSevenDays() {
-        return GetTime.getTime(webDriver, "SevenDays");
+        return GetTime.getTime(webDriver, "RecentSevenDays");
     }
 
     // 获取全部时间

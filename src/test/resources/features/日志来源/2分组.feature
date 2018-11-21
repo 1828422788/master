@@ -6,14 +6,12 @@ Feature: 日志来源分组
 
   Scenario Outline:
     Given the data name is "<name>" then i click the "分组" button
-    Then I cancel selection "<group>" from the "GroupInput"
+    Then I <group>
     And I click the "EnsureButton" button
-    Then I will see the error message "<errorMsg>"
-    Then I click the "Ensure" button
-    And I choose the "<group>" from the "GroupInput"
-    Then I click the "EnsureButton" button
-    Then I will see the success message "<successMsg>"
+    Then I will see the success message "保存成功"
 
     Examples:
-      | name        | group               | errorMsg  | successMsg |
-      | sxjautotest | default_SourceGroup | 来源分组 不能为空 | 保存成功       |
+      | name        | group                                                        |
+      | sxjautotest | cancel selection "default_SourceGroup" from the "GroupInput" |
+      | sxjautotest | choose the "default_SourceGroup" from the "GroupInput"       |
+

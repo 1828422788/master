@@ -12,5 +12,12 @@ Feature: 报表删除
     Then I will see the search result "{'column':'0','name':'自动化测试用例','contains':'n'}"
 
     Examples:
-      | name    |
-      | 自动化测试用例 |
+      | name             |
+      | autotest         |
+      | 自动化测试            |
+      | 自动化AutoTest      |
+      | ExcelAutoTest    |
+      | 乱码测试&$¥#AutoTest |
+      | autotest1        |
+      | autotest2        |
+      | autotest3        |

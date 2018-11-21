@@ -23,5 +23,5 @@ Feature: 报表编辑
     Then I will see the success message "<result>"
 
     Examples: 保存成功
-      | dataName | name  | describe | runningUser | reportGroup | reportType | email               | subject   | hour | minute | chartLists  | layout  | result |
-      | 自动化测试用例  | 自动化测试 | autotest | owner       |             | PDF        | 15194315230@163.com | hello sxj | 11   | 30     | singlevalue | Layout1 | 保存成功   |
+      | dataName    | name  | describe | runningUser | reportGroup | reportType | email               | subject   | hour | minute | chartLists | layout  | result |
+      | sxjautotest | 自动化测试 | autotest | owner       |             | PDF        | 15194315230@163.com | hello sxj | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |

@@ -5,7 +5,7 @@ Feature: 日志来源编辑
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
 
   Scenario Outline:
-    Given the data name is "sxjautotest" then i click the "编辑" button
+    Given the data name is "<oldName>" then i click the "编辑" button
     Then I will see the "sourceGroup.CreatePage" page
     Then I set the parameter "Name" with value "<name>"
     Then I set the parameter "Describe" with value "<describe>"
@@ -19,10 +19,9 @@ Feature: 日志来源编辑
 
   @smoke @resourceGroupsSmoke
     Examples: 编辑成功
-      | name          | describe | sourceGroup         | hostname | appname | tag     | spl                               | message |
-      | sunxjautotest | change   | default_SourceGroup | 192*     | apache* | apache* | tag:apache* AND NOT logtype:other | 更新成功    |
+      | oldName     | name          | describe | sourceGroup         | hostname | appname | tag     | spl                               | message |
+      | sxjautotest | sunxjautotest | change   | default_SourceGroup | 192*     | apache* | apache* | tag:apache* AND NOT logtype:other | 更新成功    |
 
     Examples: 编辑失败
-      | name          | describe | sourceGroup         | hostname | appname | tag | spl | message               |
-      |               |          |                     |          |         |     |     | 名称 不能为空               |
-      | sunxjautotest |          | default_SourceGroup |          |         |     |     | 日志分组名已存在\n错误码: FE_545 |
+      | oldName       | name | describe | sourceGroup | hostname | appname | tag | spl | message |
+      | sunxjautotest |      |          |             |          |         |     |     | 名称 不能为空 |

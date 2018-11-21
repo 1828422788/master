@@ -23,7 +23,5 @@ Feature: 日志来源新建
       | sxjautotest | autotest | default_SourceGroup | 192*     | apache* | apache* | tag:apache* AND NOT logtype:other | 创建成功    |
 
     Examples: 新建失败
-      | name        | describe | sourceGroup         | hostname | appname | tag | spl | message               |
-      |             |          |                     |          |         |     |     | 名称 不能为空               |
-      | test        |          |                     |          |         |     |     | 来源分组 不能为空             |
-      | sxjautotest |          | default_SourceGroup |          |         |     |     | 日志分组名已存在\n错误码: FE_545 |
+      | name | describe | sourceGroup | hostname | appname | tag | spl | message |
+      |      |          |             |          |         |     |     | 名称 不能为空 |

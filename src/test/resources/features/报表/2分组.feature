@@ -6,14 +6,11 @@ Feature: 报表分组
 
   Scenario Outline:
     When the data name is "<name>" then i click the "分组" button
-    And I cancel selection "<group>" from the "ChangeGroup"
+    And I <group>
     And I click the "Ensure" button
-    And I will see the success message "至少选择一个报表分组"
-    And I wait for "SuccessMessage" will be invisible
-    And I choose the "<newGroup>" from the "ChangeGroup"
-    And I click the "Ensure" button
-    Then I will see the success message "保存成功"
+    And I will see the success message "保存成功"
 
     Examples:
-      | name        | group          | newGroup                               |
-      | sxjautotest | default_Report | default_Report,AutoTestWithAllResource |
+      | name        | group                                                                      |
+      | sxjautotest | cancel selection "default_Report" from the "ChangeGroup"                   |
+      | sxjautotest | choose the "default_Report,AutoTestWithAllResource" from the "ChangeGroup" |
