@@ -13,6 +13,6 @@ Feature: 入库优先级删除
 
     Examples:
       | name                 |
-      | AutoTest             |
+      | AutoTestWithNothing  |
       | AutoTestWithTag      |
       | AutoTestHighPriority |

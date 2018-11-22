@@ -16,7 +16,7 @@ Feature: 入库优先级新建
   @smoke @indexSettingSmoke
     Examples: 保存成功
       | appName              | tag             | priority | message                |
-      | AutoTest             |                 |          | success message "保存成功" |
+      | AutoTestWithNothing  |                 |          | success message "保存成功" |
       | AutoTestWithTag      | top_info_s      |          | success message "保存成功" |
       | AutoTestHighPriority | top_info_s,heka | 高        | success message "保存成功" |
 

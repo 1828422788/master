@@ -9,5 +9,4 @@ Feature: 仪表盘搜索
 
     Examples:
       | searchData                         | columnNum | name                   |
-      | {'group':'default_DashBoardGroup'} | 2         | default_DashBoardGroup |
       | {'input':'autotest'}               | 1         | autotest               |

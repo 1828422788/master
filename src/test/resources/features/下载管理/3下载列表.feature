@@ -12,7 +12,7 @@ Feature: 下载列表
       | name           |
       | autotest.csv   |
       | autotest.json  |
-      | autotest1.json |
+#      | autotest1.json |
       | autotest2.json |
       | autotest2.txt  |
 

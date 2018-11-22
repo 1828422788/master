@@ -3,7 +3,7 @@ Feature: 入库优先级编辑
 
   Background:
     Given open the "ingestPriority.ListPage" page for uri "/ingestpriority/"
-    When the data name is "AutoTest" then i click the "编辑" button
+    When the data name is "AutoTestWithNothing" then i click the "编辑" button
     Then I will see the "ingestPriority.CreatePage" page
 
   Scenario Outline:

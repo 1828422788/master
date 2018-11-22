@@ -8,8 +8,12 @@ Feature: 受益人删除
   Scenario Outline:
     Given the data name is "<name>" then i click the "删除" button
     Then I click the "EnsureButton" button
-    Then I will see the success message "<message>"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "删除成功"
 
     Examples:
-      | name     | message |
-      | autotest | 删除成功    |
+      | name            |
+      | autotest        |
+      | 测试中文名           |
+      | 测试乱码&%¥*        |
+      | 测试超出长度的名称能否保存成功 |

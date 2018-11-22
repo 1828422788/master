@@ -5,7 +5,7 @@ Feature: 受益人编辑
     Given open the "payments.ListPage" page for uri "/payments/"
 
   Scenario Outline:
-    Given the data name is "autotest" then i click the "编辑" button
+    Given the data name is "<oldName>" then i click the "编辑" button
     Then I will see the "payments.CreatePage" page
     Then I set the parameter "PaymentsName" with value "<name>"
     Then I set the parameter "Describe" with value "<describe>"
@@ -15,13 +15,10 @@ Feature: 受益人编辑
 
   @smoke
     Examples: 保存成功
-      | name            | describe | appName | message                         |
-      | sxjautotest     | autotest | apache  | 保存成功                            |
-      | 测试中文名           |          | json    | 保存成功                            |
-      | 测试乱码&%¥*        |          |         | 受益人保存成功，但Appname分配失败\n错误码: FE_3 |
-      | 测试超出长度的名称能否保存成功 |          | apache  | 保存成功                            |
+      | oldName     | name     | describe | appName | message |
+      | sxjautotest | autotest | autotest | apache  | 保存成功    |
 
     Examples: 保存失败
-      | name        | describe | appName | message                     |
-      |             |          |         | 请填写受益人                      |
-      | sxjautotest |          |         | 保存失败: 受益人名称已存在\n错误码: FE_610 |
+      | oldName  | name  | describe | appName | message                     |
+      | autotest |       |          |         | 请填写受益人                      |
+      | autotest | 测试中文名 |          |         | 保存失败: 受益人名称已存在\n错误码: FE_610 |

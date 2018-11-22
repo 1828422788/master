@@ -43,7 +43,7 @@ Feature: 离线任务新增
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button
     Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then I will see the "FirstData" result will be "<name>"
+    Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
       | splQuery                                                                                                                                                                                                               | time           | name                       |
@@ -67,7 +67,7 @@ Feature: 离线任务新增
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button
     Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then I will see the "FirstData" result will be "<name>"
+    Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
       | splQuery                                  | time                | beginTime | name            |
@@ -101,7 +101,7 @@ Feature: 离线任务新增
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button
     Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then I will see the "FirstData" result will be "<name>"
+    Then I will see the search result contains "{'column':'0','name':'<name>'}"
     Then the data name is "<name>" then i click the "暂停" button
 
     Examples:
