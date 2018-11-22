@@ -2,8 +2,7 @@
 Feature: 监控新建事件数并填写高级设置
 
   Background:
-    Given Delete a "alert" with "{'name':['AutoTest']}"
-    And open the "alert.ListPage" page for uri "/alerts/"
+    Given open the "alert.ListPage" page for uri "/alerts/"
 
   Scenario Outline: 创建一个事件数监控-高级配置-扩展搜索
     Given I click the "CreateAlert" button
@@ -33,8 +32,8 @@ Feature: 监控新建事件数并填写高级设置
 
   @smoke @alertSmoke
     Examples: 创建监控成功
-      | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent  | ExAlertSources | Result                 |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | logtype:"apache" | 所有日志           | success message "保存成功" |
+      | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent  | ExAlertSources | Result                 |
+      | AutoTest30 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | logtype:"apache" | 所有日志           | success message "保存成功" |
 
     Examples: 创建监控失败
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent  | ExAlertSources | Result                      |
@@ -69,10 +68,10 @@ Feature: 监控新建事件数并填写高级设置
 
   @smoke @alertSmoke
     Examples: 创建监控成功
-      | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | Result                 |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 1                | 天内               | success message "保存成功" |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 20               | 分钟内              | success message "保存成功" |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 1                | 小时内              | success message "保存成功" |
+      | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | Result                 |
+      | AutoTest31 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 1                | 天内               | success message "保存成功" |
+      | AutoTest32 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 20               | 分钟内              | success message "保存成功" |
+      | AutoTest33 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 1                | 小时内              | success message "保存成功" |
 
     Examples: 创建监控失败
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | Result                            |
@@ -111,8 +110,8 @@ Feature: 监控新建事件数并填写高级设置
 
   @smoke @alertSmoke
     Examples: 创建监控成功
-      | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | CancelSuppressInput | CancelSuppressUnits | Result                 |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              | 50                  | 分钟后                 | success message "保存成功" |
+      | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | CancelSuppressInput | CancelSuppressUnits | Result                 |
+      | AutoTest34 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              | 50                  | 分钟后                 | success message "保存成功" |
 
     Examples: 创建监控失败
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | CancelSuppressInput | CancelSuppressUnits | Result                            |
@@ -149,5 +148,5 @@ Feature: 监控新建事件数并填写高级设置
     Then I will see the <Result>
 
     Examples: 创建监控成功
-      | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent                    | ExAlertSources | Result                 |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | * \| timechart count() by hostname | 所有日志           | success message "保存成功" |
+      | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent                    | ExAlertSources | Result                 |
+      | AutoTest35 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | * \| timechart count() by hostname | 所有日志           | success message "保存成功" |

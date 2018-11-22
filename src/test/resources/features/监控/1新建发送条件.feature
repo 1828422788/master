@@ -8,7 +8,7 @@ Feature: 监控新建事件数并填写发送条件
   Scenario Outline: 创建一个发送条件的监控
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "AutoTest"
+    When I set the parameter "AlertName" with value "<name>"
     And I choose the "default_Alert" from the "AlertGroups"
     And I choose the "所有日志" from the "AlertSources"
     And I set the parameter "SearchContent" with value "*"
@@ -25,18 +25,18 @@ Feature: 监控新建事件数并填写发送条件
     Then I will see the success message "保存成功"
 
     Examples:
-      | Type      | Parameter                                                                                             |
-      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低'],'content':''}         |
-      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['中'],'content':''}         |
-      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['高'],'content':''}         |
-      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':[''],'content':''}          |
-      | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低','中','高'],'content':''} |
+      | name       | Type      | Parameter                                                                                             |
+      | AutoTest7  | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低'],'content':''}         |
+      | AutoTest8  | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['中'],'content':''}         |
+      | AutoTest9  | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['高'],'content':''}         |
+      | AutoTest10 | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':[''],'content':''}          |
+      | AutoTest11 | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低','中','高'],'content':''} |
 
 
   Scenario Outline: 创建三个相同告警方式不同发送条件的监控
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "AutoTest"
+    When I set the parameter "AlertName" with value "<name>"
     And I choose the "default_Alert" from the "AlertGroups"
     And I choose the "所有日志" from the "AlertSources"
     And I set the parameter "SearchContent" with value "*"
@@ -55,6 +55,6 @@ Feature: 监控新建事件数并填写发送条件
     Then I will see the success message "保存成功"
 
     Examples:
-      | Type        | Parameter1                                                                                    | Parameter2                                                                                     | Parameter3                                                                                     |
-      | emailType   | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低'],'content':''} | {'title':'auto test alert.','email':['autotest1@yottabyte.cn'],'condition':['中'],'content':''} | {'title':'auto test alert.','email':['autotest2@yottabyte.cn'],'condition':['高'],'content':''} |
-      | forwardType | {'address':'http://192.168.1.82:511111/','condition':['低']}                                   | {'address':'http://192.168.1.82:511111/','condition':['中']}                                    | {'address':'http://192.168.1.82:511111/','condition':['高']}                                    |
+      | name       | Type        | Parameter1                                                                                    | Parameter2                                                                                     | Parameter3                                                                                     |
+      | AutoTest12 | emailType   | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低'],'content':''} | {'title':'auto test alert.','email':['autotest1@yottabyte.cn'],'condition':['中'],'content':''} | {'title':'auto test alert.','email':['autotest2@yottabyte.cn'],'condition':['高'],'content':''} |
+      | AutoTest13 | forwardType | {'address':'http://192.168.1.82:511111/','condition':['低']}                                   | {'address':'http://192.168.1.82:511111/','condition':['中']}                                    | {'address':'http://192.168.1.82:511111/','condition':['高']}                                    |

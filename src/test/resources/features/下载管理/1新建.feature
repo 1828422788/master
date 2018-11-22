@@ -3,13 +3,11 @@ Feature: 下载任务
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-#    Then I delete from "{'database':'spl','documentName':'download'}" where "{'key':['autotestcsv','autotestjson','autotest1json','autotest2json','autotest2txt']}" using mongodb
-#    Then I delete from "{'database':'spl','documentName':'download.files'}" where "{'filename':['autotest.csv','autotest.json','autotest1.json','autotest2.json','autotest2.txt']}" using mongodb
 
   Scenario Outline: 新建下载任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
-    And I click the "ThisWeek" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait element "SearchStatus" change text to "搜索完成!"
     Then I click the "<downloadButton>" button
@@ -26,7 +24,7 @@ Feature: 下载任务
       | splQuery                                                                                                                                              | downloadButton | name      | maxLineNum | unit | type | encode | message                |
       | * \| stats extend_stat(apache.resp_len), count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) | Download       | autotest  | 1          |      | CSV  |        | 提交成功，请到设置-下载管理页查看下载状态！ |
       | * \| stats extend_stat(apache.resp_len), count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) | Download       | autotest  | 1          | GB   | JSON |        | 提交成功，请到设置-下载管理页查看下载状态！ |
-      | * \| transaction apache.status maxspan=1s                                                                                                             | DownloadEvent  | autotest1 | 1          | MB   | JSON |        | 提交成功，请到设置-下载管理页查看下载状态！ |
+#      | * \| transaction apache.status maxspan=1s                                                                                                             | DownloadEvent  | autotest1 | 1          | MB   | JSON |        | 提交成功，请到设置-下载管理页查看下载状态！ |
       | starttime="now-1M/M-1d/w" endtime="now" tag:sample04061424                                                                                            | DownloadEvent  | autotest2 | 1          | KB   | JSON |        | 提交成功，请到设置-下载管理页查看下载状态！ |
       | starttime="now-1M/M-1d/w" endtime="now" tag:sample04061424                                                                                            | DownloadEvent  | autotest2 | 1          |      | TXT  |        | 提交成功，请到设置-下载管理页查看下载状态！ |
 

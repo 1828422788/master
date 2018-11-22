@@ -22,16 +22,16 @@ Feature: 监控新建事件数并填写告警方式
     Then I will see the <Result>
 
     Examples: 创建监控成功
-      | AlertName | FunctionName | Parameter                                                                                                                                                                                                                                                                                         | Result                 |
-      | AutoTest  | rsyslogType  | {'address':'alltest.rizhiyi.com:514','protocol':['UDP'],'level':['INFO'],'facility':'local0','condition':[''],'content':'{{ alert.name }}\|{{ alert.strategy.trigger.start_time\|date:\'Y-m-d H:i:s\' }}\|{{ alert.strategy.trigger.end_time\|date:\'Y-m-d H:i:s\' }}\|{{ alert.search.query }}'} | success message "保存成功" |
-      | AutoTest  | emailType    | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':[''],'content':''}                                                                                                                                                                                                      | success message "保存成功" |
-      | AutoTest  | forwardType  | {'address':'http://192.168.1.82:511111/','condition':['低']}                                                                                                                                                                                                                                       | success message "保存成功" |
-      | AutoTest  | pingHostType | {'address':'192.168.1.82','condition':['高','中','低']}                                                                                                                                                                                                                                              | success message "保存成功" |
+      | AlertName  | FunctionName | Parameter                                                                                                                                                                                                                                                                                         | Result                 |
+      | AutoTest14 | rsyslogType  | {'address':'alltest.rizhiyi.com:514','protocol':['UDP'],'level':['INFO'],'facility':'local0','condition':[''],'content':'{{ alert.name }}\|{{ alert.strategy.trigger.start_time\|date:\'Y-m-d H:i:s\' }}\|{{ alert.strategy.trigger.end_time\|date:\'Y-m-d H:i:s\' }}\|{{ alert.search.query }}'} | success message "保存成功" |
+      | AutoTest15 | emailType    | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':[''],'content':''}                                                                                                                                                                                                      | success message "保存成功" |
+      | AutoTest16 | forwardType  | {'address':'http://192.168.1.82:511111/','condition':['低']}                                                                                                                                                                                                                                       | success message "保存成功" |
+      | AutoTest17 | pingHostType | {'address':'192.168.1.82','condition':['高','中','低']}                                                                                                                                                                                                                                              | success message "保存成功" |
 
   Scenario: 创建一个事件数监控-多种告警方式
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "AutoTest"
+    When I set the parameter "AlertName" with value "AutoTest18"
     And I choose the "default_Alert" from the "AlertGroups"
     And I choose the "所有日志" from the "AlertSources"
     And I set the parameter "SearchContent" with value "*"

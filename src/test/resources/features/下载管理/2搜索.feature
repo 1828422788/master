@@ -5,8 +5,9 @@ Feature: 下载列表搜索
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
 
   Scenario Outline:
-    Given search "<searchName>" and I will see the column number "1" contains "<name>"
+    Given I set the search input with "<name>"
+    Then I will see the search result "{'column':'0','name':'<name>'}"
 
     Examples:
-      | searchName           | name     |
-      | {'input':'autotest'} | autotest |
+      | name     |
+      | autotest |

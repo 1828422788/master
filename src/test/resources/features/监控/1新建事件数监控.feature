@@ -29,15 +29,14 @@ Feature: 监控新建事件数及页面的各个检查项
 
   @smoke @alertSmoke
     Examples: 创建事件数监控成功
-      | AlertName | AlertDes | AlertGroup                     | AlertUser        | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | Result                 |
-      | AutoTest  | alertDes | default_Alert                  | owner            | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | success message "保存成功" |
-      | AutoTest  |          | default_Alert                  | AutoTestForAlert | 所有日志        | *             | 3             | 分钟        | 5            | 分钟内                   | 3               | 高          | success message "保存成功" |
-      | AutoTest  |          | default_Alert,AutoTestForAlert | owner            | 所有日志        | *             | 3             | 分钟        | 5            | 小时内                   | 3               | 中          | success message "保存成功" |
+      | AlertName | AlertDes | AlertGroup    | AlertUser        | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | Result                 |
+      | AutoTest2 | alertDes | default_Alert | owner            | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | success message "保存成功" |
+      | AutoTest3 |          | default_Alert | AutoTestForAlert | 所有日志        | *             | 3             | 分钟        | 5            | 分钟内                   | 3               | 高          | success message "保存成功" |
+      | AutoTest4 |          |               | owner            | 所有日志        | *             | 3             | 分钟        | 5            | 小时内                   | 3               | 中          | success message "保存成功" |
 
     Examples: 创建事件数监控失败
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | Result                                                 |
       |           | alertDes | default_Alert | owner     | 所有日志        | *             | 10            | 分钟        | 10           | 分钟内                   | 100             | 低          | error message "请填写监控名称"                                |
-      | AutoTest  | alertDes |               | owner     | 所有日志        | *             | 10            | 分钟        | 10           | 分钟内                   | 100             | 低          | error message "请选择监控分组"                                |
       | AutoTest  | alertDes | default_Alert | owner     |             | *             | 10            | 分钟        | 10           | 分钟内                   | 100             | 低          | error message "请填写日志来源"                                |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        |               | 10            | 分钟        | 10           | 分钟内                   | 100             | 低          | error message "请填写搜索内容"                                |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             |               | 分钟        | 10           | 分钟内                   | 100             | 低          | error message "请填写执行计划"                                |
@@ -71,14 +70,14 @@ Feature: 监控新建事件数及页面的各个检查项
   @smoke @alertSmoke
     Examples: 创建成功
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanCrontab | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | Result                 |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | where_es      | 0 5 9 1/3 * ?    | 10           | 分钟内                   | 100             | success message "保存成功" |
+      | AutoTest5 | alertDes | default_Alert | owner     | 所有日志        | where_es      | 0 5 9 1/3 * ?    | 10           | 分钟内                   | 100             | success message "保存成功" |
 
 
   @smoke @alertSmoke
   Scenario: 创建一个新的告警-事件数监控-设置三种监控级别
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "AutoTest"
+    When I set the parameter "AlertName" with value "AutoTest6"
     And I set the parameter "AlertDes" with value "alertDes"
     And I choose the "default_Alert" from the "AlertGroups"
     And I choose the "owner" from the "AlertUsers"
