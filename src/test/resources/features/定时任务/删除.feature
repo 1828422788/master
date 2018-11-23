@@ -13,7 +13,9 @@ Feature: 定时任务删除
 
     Examples:
       | name               |
+      | sxjAutoTest(1)     |
       | sxjAutoTest        |
+      | rangelineAutoTest  |
       | lineAutoTest       |
       | wordcloudAutoTest  |
       | singleAutoTest     |
@@ -29,4 +31,3 @@ Feature: 定时任务删除
       | sankeyAutoTest     |
       | forceSunAutoTest   |
       | sequenceAutoTest   |
-      | rangelineAutoTest  |

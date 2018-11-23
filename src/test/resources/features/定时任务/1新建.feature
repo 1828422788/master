@@ -97,7 +97,7 @@ Feature: 定时任务新增
   Scenario Outline: 生成循序图的定时任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
     And I wait element "SearchStatus" change text to "搜索完成!"
     And I click the "Type" button
