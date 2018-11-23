@@ -89,9 +89,9 @@ Feature: 监控维护期
     When the data name is "AutoTest" then i click the "删除" button
     And I click the "EnsureDelete" button
     Then I will see the success message "删除成功"
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    When choose from "{'DropdownMenu':'<group>'}"
-    Then I will see the search result "{'column':'0','name':'正在维护','contains':'no'}"
+#    Given open the "alert.ListPage" page for uri "/alerts/"
+#    When choose from "{'DropdownMenu':'<group>'}"
+#    Then I will see the search result "{'column':'0','name':'正在维护','contains':'no'}"
 
     Examples:
       | group         |

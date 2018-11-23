@@ -225,5 +225,9 @@ public class MonitorPage extends PageTemplate {
         return GetTime.getTime(webDriver, "HalfHour");
     }
 
+    public WebElement getSevenDays() {
+        return GetTime.getTime(webDriver, "SevenDays");
+    }
+
 
 }

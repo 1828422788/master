@@ -30,4 +30,5 @@ Feature: 定时任务删除
       | chordAutoTest      |
       | sankeyAutoTest     |
       | forceSunAutoTest   |
+      | forceAutoTest      |
       | sequenceAutoTest   |
