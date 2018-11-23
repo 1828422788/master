@@ -10,7 +10,7 @@ Feature: 仪表盘删除
     Then I will see the success message "仪表盘删除成功"
 
     Examples:
-      | name     |
-      | autotest |
-      | autotest |
+      | name           |
+      | autotestRename |
+      | UIautotest     |
 

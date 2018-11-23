@@ -46,7 +46,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | dashboardName |
-      | first   | autotest      |
+      | first   | UIautotest    |
 
   @smoke @dashboardSmoke
   Scenario Outline: 跳转到其他仪表盘
@@ -54,11 +54,11 @@ Feature: 仪表盘详情页
     And I click the "EnsureCreateTagButton" button
     When I choose the "<dashboardName>" from the "DropdownList"
     And I wait for loading invisible
-    Then the page's title will be "autotest | 仪表盘"
+    Then the page's title will be "UIautotest | 仪表盘"
 
     Examples:
       | tagName | dashboardName |
-      | first   | autotest      |
+      | first   | UIautotest    |
 
   @smoke @dashboardSmoke
   Scenario Outline: 回收站操作
@@ -77,7 +77,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | num   | dashboardName |
-      | first   | [ 1 ] | autotest      |
+      | first   | [ 1 ] | UIautotest    |
 
 
   @smoke @dashboardSmoke

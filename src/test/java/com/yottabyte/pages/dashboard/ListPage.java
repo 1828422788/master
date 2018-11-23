@@ -1,11 +1,17 @@
 package com.yottabyte.pages.dashboard;
 
+import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.FluentWait;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author sunxj
@@ -35,6 +41,13 @@ public class ListPage extends PageTemplate {
 
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> groupInput;
+
+    @FindBy(xpath = "//span[@class='link-label'][contains(text(),'返回列表')]")
+    private WebElement returnList;
+
+    public WebElement getReturnList() {
+        return returnList;
+    }
 
     public WebElement getGroupInput() {
         dashBoardGroup.click();
@@ -79,5 +92,27 @@ public class ListPage extends PageTemplate {
 
     public WebElement getEnsureRenameButton() {
         return ensureButtonList.get(2);
+    }
+
+    public WebElement getEnsureSetDefaultButton() {
+        return ensureButtonList.get(3);
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        FluentWait wait = new FluentWait(webDriver)
+                .withTimeout(8000, TimeUnit.MILLISECONDS)
+                .pollingEvery(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS)
+                .ignoring(NoSuchElementException.class);
+        try {
+            wait.until(new ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver driver) {
+                    System.out.println("Waiting " + this.getClass().getName() + " Dom loading complete");
+                    return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+                }
+            });
+        } catch (Exception e) {
+            throw new Error("Can not locate " + this.getClass().getName() + "page");
+        }
     }
 }

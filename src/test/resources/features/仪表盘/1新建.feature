@@ -14,7 +14,7 @@ Feature: 仪表盘新建
   @all @smoke @dashboardSmoke
     Examples: 新建成功
       | name        | group                       | result                    |
-      | autotest    | AutoTestRoleWithAllResource | success message "仪表盘新建成功" |
+      | UIautotest  | AutoTestRoleWithAllResource | success message "仪表盘新建成功" |
       | sxjautotest |                             | success message "仪表盘新建成功" |
 
   @all

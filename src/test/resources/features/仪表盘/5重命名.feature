@@ -11,5 +11,5 @@ Feature: 仪表盘重命名
     Then I will see the <message>
 
     Examples: 重命名成功
-      | name        | newName  | message                    |
-      | sxjautotest | autotest | success message "仪表盘重命名成功" |
+      | name        | newName        | message                    |
+      | sxjautotest | autotestRename | success message "仪表盘重命名成功" |

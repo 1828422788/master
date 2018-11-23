@@ -11,6 +11,7 @@ Feature: 仪表盘分组
     Then I will see the success message "仪表盘更改分组成功"
 
     Examples:
-      | name     | group                                                                                            |
-      | autotest | cancel selection "AutoTestRoleWithAllResource" from the "GroupInput"                             |
-      | autotest | choose the "AutoTestRoleWithAllResource, AutoTestRoleWithAuth&SourceGroup" from the "GroupInput" |
+      | name        | group                                                                                            |
+      | UIautotest  | cancel selection "AutoTestRoleWithAllResource" from the "GroupInput"                             |
+      | UIautotest  | choose the "AutoTestRoleWithAllResource, AutoTestRoleWithAuth&SourceGroup" from the "GroupInput" |
+      | sxjautotest | choose the "AutoTestRoleWithAllResource, AutoTestRoleWithAuth&SourceGroup" from the "GroupInput" |
