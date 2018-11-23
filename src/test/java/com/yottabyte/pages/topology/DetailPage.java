@@ -1,19 +1,21 @@
 package com.yottabyte.pages.topology;
 
+import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.DateEditorPage;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author sunxj
@@ -470,5 +472,23 @@ public class DetailPage extends PageTemplate {
     public WebElement getDynamicDefault() {
         defaultValue.click();
         return dropdownList.get(dropdownList.size() - 1);
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        FluentWait wait = new FluentWait(webDriver)
+                .withTimeout(8000, TimeUnit.MILLISECONDS)
+                .pollingEvery(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS)
+                .ignoring(NoSuchElementException.class);
+        try {
+            wait.until(new ExpectedCondition<Boolean>() {
+                public Boolean apply(WebDriver driver) {
+                    System.out.println("Waiting " + this.getClass().getName() + " Dom loading complete");
+                    return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+                }
+            });
+        } catch (Exception e) {
+            throw new Error("Can not locate " + this.getClass().getName() + "page");
+        }
     }
 }
