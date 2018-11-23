@@ -63,6 +63,7 @@ Feature: 仪表盘详情页
   @smoke @dashboardSmoke
   Scenario Outline: 回收站操作
     When I click the "CloseTag" button
+    And I wait for loading invisible
     Then I will see the "DropDownLinkButton" result will be "<num>"
     When I click the "RecoverTag" button
     Then I will see the element "Tab" name is "<tagName>"
