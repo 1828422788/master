@@ -31,7 +31,5 @@ Feature: 知识新建
       |                |           | default_Knowledge |         | 22       |          | error message "请输入事件代码" |
       |                |           | default_Knowledge |         |          |          | error message "请输入事件代码" |
       |                |           |                   |         | 22       |          | error message "请输入事件代码" |
-      | newCode        |           |                   |         | test     |          | error message "请选择分组"   |
-      | newCode        |           |                   |         |          |          | error message "请选择分组"   |
       | newCode        |           | default_Knowledge |         |          |          | error message "请输入描述"   |
 
