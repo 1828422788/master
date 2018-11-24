@@ -477,7 +477,7 @@ public class DetailPage extends PageTemplate {
     @Override
     protected void isLoaded() throws Error {
         FluentWait wait = new FluentWait(webDriver)
-                .withTimeout(8000, TimeUnit.MILLISECONDS)
+                .withTimeout(10000, TimeUnit.MILLISECONDS)
                 .pollingEvery(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS)
                 .ignoring(NoSuchElementException.class);
         try {
