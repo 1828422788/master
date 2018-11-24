@@ -104,8 +104,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getGroup() {
-        groups.get(groups.size() - 1).click();
-        return dropdownLists.get(dropdownLists.size() - 1);
+        return super.getDropdownList("分组");
     }
 
     public WebElement getSuccessMessage() {

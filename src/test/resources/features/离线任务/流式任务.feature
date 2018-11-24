@@ -35,6 +35,7 @@ Feature: 流式任务
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
     Then I click the "Pause" button
+    And I wait for "2000" millsecond
     Then I click the "Recover" button
     Then I will see the "StatusText" result will be "<status>"
 
