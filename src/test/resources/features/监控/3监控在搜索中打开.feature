@@ -10,4 +10,3 @@ Feature: 监控在搜索中打开
     And I wait for "SplSearchInput" will be visible
     And I wait for "2000" millsecond
     And I will see the input element "SplSearchInput" value will be "* | stats count() as cnt by apache.clientip"
-    Then I will see the input element "DateEditor" value will be "最近1天"

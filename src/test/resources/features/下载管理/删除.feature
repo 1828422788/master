@@ -1,5 +1,5 @@
 @offlineTask @all @smoke
-Feature: 下载列表
+Feature: 下载删除
 
   Background:
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"

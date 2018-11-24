@@ -11,6 +11,7 @@ Feature: 已存搜索新建
     And I click the "SearchButton" button
     And I click the "SaveAsReport" button
     And I click the "SavedSearch" button
+    And I wait for loading invisible
     And I set the parameter "OfflineTaskName" with value "<name>"
     And I choose the "<group>" from the "GroupComboBox"
     And I click the "EnsureCreateSavedSearch" button
