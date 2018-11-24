@@ -51,12 +51,6 @@ Feature: 离线任务列表
     And I click the "EnsureButton" button
     Then I will see the success message "删除成功"
 
-  Scenario: 删除完成的离线任务
-    Given open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    And the data name is "offlineAutoTest" then i click the "删除" button
-    And I click the "EnsureButton" button
-    Then I will see the success message "删除成功"
-
   Scenario Outline: 验证正在运行中的任务无删除按钮以及删除处于暂停状态的数据
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -76,4 +70,4 @@ Feature: 离线任务列表
 
     Examples:
       | splQuery                                  | time      | name            |
-      | * \| transaction apache.status maxspan=1s | WholeTime | offlineAutoTest |
+      | * \| transaction apache.status maxspan=1s | WholeTime | TempofflineAutoTest |

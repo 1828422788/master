@@ -46,7 +46,8 @@ public class RegularSearch {
 
     private void waitUntilLoadingDisappear() {
         WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+        if (ElementExist.isElementExist(webDriver, loadingMask))
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
     }
 
     /**

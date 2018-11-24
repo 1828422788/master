@@ -63,7 +63,7 @@ Feature: 趋势图新建
     And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -124,7 +124,7 @@ Feature: 趋势图新建
     And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -185,7 +185,7 @@ Feature: 趋势图新建
     And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -369,7 +369,7 @@ Feature: 趋势图新建
     And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -400,7 +400,7 @@ Feature: 趋势图新建
     And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button

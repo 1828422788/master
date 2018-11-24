@@ -292,6 +292,10 @@ public class CreatePage extends PageTemplate {
         return GetTime.getTime(webDriver, "Today");
     }
 
+    public WebElement getYesterday() {
+        return GetTime.getTime(webDriver, "Yesterday");
+    }
+
     public WebElement getSuccessMessage() {
         return message;
     }

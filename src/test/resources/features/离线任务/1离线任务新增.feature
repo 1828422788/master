@@ -4,14 +4,13 @@ Feature: 离线任务新增
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
-  @smoke
   Scenario Outline: 实时窗口离线任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "ThirtySeconds" button
     And I click the "SearchButton" button
-    Then I click the "SaveAsReport" button
-    Then I click the "OfflineTask" button
+    And I click the "SaveAsReport" button
+    And I click the "OfflineTask" button
     Then I will see the success message "实时窗口搜索模式无法进行该操作!"
 
     Examples:
@@ -46,12 +45,12 @@ Feature: 离线任务新增
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
-      | splQuery                                                                                                                                                                                                               | time           | name                       |
-      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | WholeTime      | offlineAutoTest            |
-      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | RecentSevenDay | transactionofflineAutoTest |
-      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | ThisMonth      | transactionofflineAutoTest |
-      | apache.status:>=405                                                                                                                                                                                                    | WholeTime      | offlineAutoTest1           |
-      | * \| stats count(apache.resp_len) as count_len, max(apache.resp_len) as max_len, min(apache.resp_len) as min_len, sum(apache.status) as sum_len, avg(apache.resp_len) as avg_len by apache.geo.city \| sort by max_len | WholeTime      | offlineAutoTest2           |
+      | splQuery                                                                                                                                                                                                               | time           | name                        |
+      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | WholeTime      | WholeTimeOfflineAutoTest    |
+      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | RecentSevenDay | transactionofflineAutoTest1 |
+      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | ThisMonth      | transactionofflineAutoTest2 |
+      | apache.status:>=405                                                                                                                                                                                                    | WholeTime      | offlineAutoTest1            |
+      | * \| stats count(apache.resp_len) as count_len, max(apache.resp_len) as max_len, min(apache.resp_len) as min_len, sum(apache.status) as sum_len, avg(apache.resp_len) as avg_len by apache.geo.city \| sort by max_len | WholeTime      | offlineAutoTest2            |
 
   @smoke
   Scenario Outline: 新建最近类型的离线任务
@@ -70,10 +69,9 @@ Feature: 离线任务新增
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
-      | splQuery                                  | time                | beginTime | name            |
-      | * \| transaction apache.status maxspan=1s | RecentlyRadioButton | 1000      | offlineAutoTest |
+      | splQuery                                  | time                | beginTime | name                    |
+      | * \| transaction apache.status maxspan=1s | RecentlyRadioButton | 1000      | recentlyOfflineAutoTest |
 
-  @smoke
   Scenario Outline: 新建实时类型的离线任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
