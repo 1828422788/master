@@ -21,7 +21,7 @@ Feature: 租户新建
     And I click the "SaveButton" button
     Then I will see the <message>
 
-  @smoke @tenantSmoke
+#  @smoke @tenantSmoke
     Examples: 保存成功
       | name     | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | uploadLimit | excessLimit | excessBehavior | managerName | managerEmail       | managerPassword | inputAgain  | message                |
       | AutoTest | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 10          | 10          | 拒绝采集输入         | UIAutoTest  | tools@yottabyte.cn | sxj04030803     | sxj04030803 | success message "保存成功" |
