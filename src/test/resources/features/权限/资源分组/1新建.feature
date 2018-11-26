@@ -22,13 +22,19 @@ Feature: 资源分组新建
 
     Examples: 创建资源分组失败
       | name             | type | des | app | owner | result                                      |
-      | AutoTestForTrend | 仪表盘  |     |     | admin | error message "保存失败: 资源组名称已存在\n错误码: FE_546" |
+      | AutoTestForTrend | 趋势图  |     |     | admin | error message "保存失败: 资源组名称已存在\n错误码: FE_546" |
       |                  |      |     |     |       | error message "填写资源分组名称"                    |
       | test             |      |     |     |       | error message "请选择分组类型"                     |
       | test             | 仪表盘  |     |     |       | error message "请分配角色"                       |
 
   Scenario Outline: 新建资源分组并添加资源成员
-    Given I click the "CreateResourceGroup" button
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    And I click the "CreateKnowledge" button
+    When I set the parameter "EventCode" with value "孙小晶"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I click the "Confirm" button
+    And open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
+    And I click the "CreateResourceGroup" button
     Then I will see the "resourceGroups.CreatePage" page
     When I set the parameter "ResourceGroupName" with value "<name>"
     And I choose the "<type>" from the "ResourceGroupType"

@@ -10,5 +10,10 @@ Feature: 资源分组清理
 
     Examples:
       | name                 |
-      | AutoTestForTrend     |
+      | AutoTestNew          |
       | AutoTestForKnowledge |
+
+  Scenario:
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    When the data name is "孙小晶" then i click the "删除" button
+    And I click the "EnsureDeleteButton" button

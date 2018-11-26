@@ -61,6 +61,7 @@ public class LoginBeforeAllTests {
 
     public static void login() {
         PageTemplate loginPage = null;
+        System.out.println("看这里！！！" + loginURL + loginURL.contains("domainlogin"));
         if (loginURL.contains("domainlogin"))
             loginPage = new SaasLoginPage(webDriver);
         else
