@@ -24,7 +24,7 @@ Feature: 监控新建事件数及页面的各个检查项
     And I choose the ">" from the "Conditions"
     And I set the parameter "AlertLevelInput" with value "<AlertLevelInput>"
     And I choose the "<AlertLevel>" from the "AlertLevelUnit"
-    And I drag the scroll bar to the top
+#    And I drag the scroll bar to the top
     And I click the "SaveButton" button
     Then I will see the <Result>
 
@@ -65,7 +65,7 @@ Feature: 监控新建事件数及页面的各个检查项
     And I choose the ">" from the "Conditions"
     And I set the parameter "AlertLevelInput" with value "<AlertLevelInput>"
     And I choose the "低" from the "AlertLevelUnit"
-    And I drag the scroll bar to the top
+#    And I drag the scroll bar to the top
     And I click the "SaveButton" button
     Then I will see the <Result>
 

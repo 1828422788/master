@@ -43,6 +43,7 @@ Feature: 离线任务列表
     And the data name is "offlineAutoTest" then i click the "加载" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
+    And I wait for "2000" millsecond
     Then I will see the input element "SearchInput" value will be "* | transaction apache.status maxspan=1s"
 
   Scenario: 删除已中断的离线任务

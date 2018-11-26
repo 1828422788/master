@@ -1,10 +1,10 @@
 @backup @all
-Feature: 新增appName
+Feature: 备份恢复新增
 
   Background:
     Given open the "backup.ListPage" page for uri "/backup/"
 
-  Scenario Outline:
+  Scenario Outline: 新增appname
     Given I set the parameter "AppNameInput" with value "<appName>"
     When I click the "AddButton" button
     Then I will see the <message>
