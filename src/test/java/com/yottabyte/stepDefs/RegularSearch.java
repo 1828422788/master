@@ -207,7 +207,8 @@ public class RegularSearch {
             } else if (resultValue.contains("h")) {
                 calendar.set(Calendar.HOUR, calendar.get(Calendar.HOUR) - recentlyTime);
             } else if (resultValue.contains("d")) {
-                calendar.set(Calendar.DAY_OF_WEEK, calendar.get(Calendar.DAY_OF_WEEK_IN_MONTH) - recentlyTime);
+                int day = calendar.get(Calendar.DATE);
+                calendar.set(Calendar.DATE, day - recentlyTime);
             }
 
             return calendar.getTimeInMillis();
