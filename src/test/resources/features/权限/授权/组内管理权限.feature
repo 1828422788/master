@@ -2,9 +2,7 @@
 Feature: 授权组内管理权限
 
   Background:
-    Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"
-    And Create a "role" with "{'name':'AutoTestForAuth','RoleDes':'','ResourceGroups':['日志来源']}"
-    And open the "roles.ListPage" page for uri "/account/roles/"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
 
   Scenario Outline:
     Given I set the parameter "SearchInput" with value "AutoTestForAuth"

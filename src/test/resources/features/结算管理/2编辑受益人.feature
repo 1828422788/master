@@ -13,7 +13,7 @@ Feature: 受益人编辑
     Then I click the "EditButton" button
     Then I will see the success message "<message>"
 
-  @smoke
+  @smoke @paymentsSmoke
     Examples: 保存成功
       | oldName     | name     | describe | appName | message |
       | sxjautotest | autotest | autotest | apache  | 保存成功    |

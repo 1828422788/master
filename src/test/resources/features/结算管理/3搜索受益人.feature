@@ -1,4 +1,4 @@
-@payments @all
+@payments @all @paymentsSmoke
 Feature: 受益人搜索
 
   Background:

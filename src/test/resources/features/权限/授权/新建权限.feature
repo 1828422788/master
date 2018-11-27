@@ -1,9 +1,7 @@
 Feature: 授权新建
 
   Background:
-    Given Delete a "role" with "{'name':['AutoTestForAuth','AutoTestNew']}"
-    And Create a "role" with "{'name':'AutoTestForAuth','RoleDes':'','ResourceGroups':['日志来源']}"
-    And open the "roles.ListPage" page for uri "/account/roles/"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
 
   @authorization
   Scenario Outline:
