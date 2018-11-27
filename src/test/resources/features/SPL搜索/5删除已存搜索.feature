@@ -1,4 +1,4 @@
-@smoke @spl @all
+@smoke @spl @all @splSmoke
 Feature: 已存搜索删除
 
   Background:

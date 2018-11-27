@@ -3,7 +3,7 @@ Feature: 输入SPL语句，检查搜索完成后的事件数
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
-  @smoke @spl @all
+#  @smoke @spl @all
   Scenario Outline: 根据生成的事件个数进行判断
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -233,7 +233,7 @@ Feature: 输入SPL语句，检查搜索完成后的事件数
 #      | tag:"sample04061424" AND apache.resp_len:*  \| eval r_log_f=log(apache.resp_len) \| eval r_log_int = log(apache.status) \| table r_log_f, r_log_int | 7,8          | 5,6     |
 #tag:"sample04061424" AND apache.status:* | transaction apache.status maxspan=10 语法错误
 
-  @smoke @spl @all
+#  @smoke @spl @all
   Scenario Outline: 根据生成的字段值进行判断
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -293,7 +293,7 @@ Feature: 输入SPL语句，检查搜索完成后的事件数
       |        | tag:json_jpath0 \| jpath output=x path="a[*][2]" \| stats sum(x)                                                                                                                                                                                                                                                             | sum(x)                                          | 3                                                                                                                                                      |
       | 2      | tag:json_jpath_mv_where \| jpath output=city path="a[*].city" \| jpath output=status path="a[*].status" \| eval x=mvszip(city,status) \| mvexpand x \| parse field=x "(?<ccc>\w+),(?<ddd>\d+)"  \| where ccc=="beijing" \| stats count() by ddd                                                                              | ddd,count()                                     | 403,1,200,1                                                                                                                                            |
 
-  @smoke @spl @all
+#  @smoke @spl @all
   Scenario Outline: 根据生成的日志条数进行判断
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -315,7 +315,7 @@ Feature: 输入SPL语句，检查搜索完成后的事件数
       | tag:"sample04061424"\| limit 10                                                                                                  | 10  |
       | tag:"sample04061424" \| transaction apache.resp_len \| sort by apache.resp_len                                                   | 29  |
 
-  @smoke @spl @all
+#  @smoke @spl @all
   Scenario Outline: 判断是否排序
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -333,7 +333,7 @@ Feature: 输入SPL语句，检查搜索完成后的事件数
       | index=* starttime="-50h" endtime="now" * \| top 10 appname \| limit 10 \|sort by count                                                                                                                                                                                                                               | +count                          |
       | index=* starttime="-50h" endtime="now" * \| stats count() as ct by appname \| limit 10 \| sort by +ct                                                                                                                                                                                                                | +ct                             |
 
-  @all @apl @smoke
+#  @all @apl @smoke
   Scenario Outline: 查询无结果
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button

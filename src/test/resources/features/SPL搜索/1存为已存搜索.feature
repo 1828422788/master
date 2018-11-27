@@ -17,7 +17,7 @@ Feature: 已存搜索新建
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "<message>"
 
-  @smoke
+  @smoke @splSmoke
     Examples: 保存成功
       | splQuery                                | name        | group               | message |
       | starttime="-2d/w" endtime="now" tag:ty* | AutoTest    | default_SavedSearch | 创建成功    |

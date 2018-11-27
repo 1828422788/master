@@ -1,4 +1,4 @@
-@spl @all @test
+@spl @all @test @splSmoke @smoke
 Feature: 已存搜索重名校验
 
   Background:
@@ -15,11 +15,5 @@ Feature: 已存搜索重名校验
 
     Examples: 保存成功
       | name        | group               | message |
-#      | sunxjautotest | default_SavedSearch | 创建成功    |
-#      | 11            | default_SavedSearch | 创建成功    |
-#      | test          | default_SavedSearch | 创建成功    |
-#      | 1test         | default_SavedSearch | 创建成功    |
-#      | 1重名           | default_SavedSearch | 创建成功    |
-#      | test重名        | default_SavedSearch | 创建成功    |
       | AutoTest重名1 | default_SavedSearch | 创建成功    |
 
