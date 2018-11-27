@@ -1,4 +1,4 @@
-@alert @all @smoke @alertSmoke
+#@alert @all @smoke @alertSmoke
 Feature: 监控新建连续统计
 
   Background:

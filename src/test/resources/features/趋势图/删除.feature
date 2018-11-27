@@ -13,14 +13,6 @@ Feature: 趋势图删除
 
     Examples:
       | name       |
-      | AutoTest2  |
-      | AutoTest3  |
-      | AutoTest4  |
-      | AutoTest5  |
-      | AutoTest6  |
-      | AutoTest7  |
-      | AutoTest8  |
-      | AutoTest9  |
       | AutoTest10 |
       | AutoTest11 |
       | AutoTest12 |
@@ -42,3 +34,11 @@ Feature: 趋势图删除
       | AutoTest28 |
       | AutoTest29 |
       | AutoTest30 |
+      | AutoTest2  |
+      | AutoTest3  |
+      | AutoTest4  |
+      | AutoTest5  |
+      | AutoTest6  |
+      | AutoTest7  |
+      | AutoTest8  |
+      | AutoTest9  |

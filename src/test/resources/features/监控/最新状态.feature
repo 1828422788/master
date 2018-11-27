@@ -55,7 +55,7 @@ Feature: 监控最新状态
       | {'GradeDropdown':'高'} | red         |
       | {'GradeDropdown':'中'} | yellow      |
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 标记为处理/忽略
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -85,7 +85,7 @@ Feature: 监控最新状态
       | OperatorDropdown | EmailAlert   |
       | OperatorDropdown | ForwardAlert |
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 处理意见
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -102,7 +102,7 @@ Feature: 监控最新状态
       | dropdownMenu             | handlingSuggestion | mark | message | switchDropdown           |
       | {'StatusDropdown':'待处理'} | AutoTestHandling   | Deal | 处理成功    | {'StatusDropdown':'已处理'} |
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 修改处理意见
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -119,7 +119,7 @@ Feature: 监控最新状态
       | dropdownMenu             | handlingSuggestion |
       | {'StatusDropdown':'已处理'} | already done       |
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 操作（ping主机）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -135,7 +135,7 @@ Feature: 监控最新状态
       | ipAddress |
       | 10.0.0.1  |
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 操作（rsyslog告警）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page

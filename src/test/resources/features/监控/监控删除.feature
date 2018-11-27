@@ -14,10 +14,10 @@ Feature: 监控删除
       | AutoTest     |
       | AutoTest1    |
       | AutoTest(1)  |
-      | AutoTest2    |
-      | AutoTest3    |
-      | AutoTest4    |
-      | AutoTest5    |
+#      | AutoTest2    |
+#      | AutoTest3    |
+#      | AutoTest4    |
+#      | AutoTest5    |
       | AutoTest6    |
       | AutoTest7    |
       | AutoTest8    |
@@ -37,11 +37,11 @@ Feature: 监控删除
       | AutoTest22   |
       | AutoTest23   |
       | AutoTest24   |
-      | AutoTest25   |
-      | AutoTest26   |
-      | AutoTest27   |
-      | AutoTest28   |
-      | AutoTest29   |
+#      | AutoTest25   |
+#      | AutoTest26   |
+#      | AutoTest27   |
+#      | AutoTest28   |
+#      | AutoTest29   |
       | AutoTest30   |
       | AutoTest31   |
       | AutoTest32   |

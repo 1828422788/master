@@ -27,7 +27,7 @@ Feature: 监控新建事件数及页面的各个检查项
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
     Examples: 创建事件数监控成功
       | AlertName | AlertDes | AlertGroup    | AlertUser        | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | Result                 |
       | AutoTest2 | alertDes | default_Alert | owner            | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | success message "保存成功" |
@@ -67,13 +67,13 @@ Feature: 监控新建事件数及页面的各个检查项
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
     Examples: 创建成功
       | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanCrontab | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | Result                 |
       | AutoTest5 | alertDes | default_Alert | owner     | 所有日志        | where_es      | 0 5 9 1/3 * ?    | 10           | 分钟内                   | 100             | success message "保存成功" |
 
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario: 创建一个新的告警-事件数监控-设置三种监控级别
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
