@@ -64,6 +64,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-checkbox")
     private WebElement allCheck;
 
+    // bug修复后删掉
+    @FindBy(xpath = "(//label[@class='el-checkbox'])[2]")
+    private WebElement tmpCheckBox;
+
+    public WebElement getTmpCheckBox() {
+        return tmpCheckBox;
+    }
+
     @FindBy(className = "el-dialog__close")
     private WebElement closeDialog;
 

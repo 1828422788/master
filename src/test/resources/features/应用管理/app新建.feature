@@ -56,7 +56,8 @@ Feature: 应用新建
     And I click the "ChoiceButton" button
     And I click the "ChooseFromSystemButton" button
     And I set the parameter "SearchSource" with value "<sourceName>"
-    And I click the "AllCheck" button
+#    And I click the "AllCheck" button
+    And I click the "TmpCheckBox" button
     And I click the "CloseDialog" button
     And I wait for "ResourceConfig" will be invisible
     And I click the "AddMenuButton" button
