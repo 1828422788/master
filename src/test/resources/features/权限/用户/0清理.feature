@@ -1,4 +1,4 @@
-#@all @smoke @users @usersSmoke
+@clean
 Feature: 用户清理
 
   Background:

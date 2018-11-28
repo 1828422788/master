@@ -16,7 +16,7 @@ Feature: 用户新建
     And I click the "CreateButton" button
     Then I will see the <Result>
 
-  @smoke @all @usersSmoke
+  @createUsers
     Examples: 成功添加一个用户
       | UserName        | FullName         | Email                        | Telephone | Password   | UserGroups      | Result                 |
       | AutoTest        | autoTestFullName | autoTest@yottabyte.cn        |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |

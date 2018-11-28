@@ -14,7 +14,7 @@ Feature: 用户分组创建
     And I click the "CreateButton" button
     Then I will see the <Result>
 
-  @smoke @userGroupsSmoke
+  @createUserGroups
     Examples: 创建成功
       | UserGroupName     | UserGroupDes | Owner              | Role         | Result                 |
       | AutoTestGroup     | des1         | AutoTestRole       | AutoTestRole | success message "创建成功" |

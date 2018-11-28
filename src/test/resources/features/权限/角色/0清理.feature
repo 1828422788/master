@@ -1,4 +1,4 @@
-@all @smoke @roleSmoke @role
+@clean
 Feature: 角色清理
 
   Background:

@@ -1,4 +1,4 @@
-#@smoke @userGroups @all @userGroupsSmoke
+@clean
 Feature: 用户分组清理
 
   Background:

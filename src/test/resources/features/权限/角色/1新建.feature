@@ -1,9 +1,9 @@
+@all @role
 Feature: 角色新建
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
 
-  @role
   Scenario Outline: 创建角色同时不创建资源分组
     Given I click the "CreateRoleButton" button
     And I will see the "roles.CreatePage" page
@@ -12,18 +12,16 @@ Feature: 角色新建
     When I click the "CreateButton" button
     Then I will see the <Result>
 
-  @all @smoke @roleSmoke
+  @createRole
     Examples:
       | RoleName     | RoleDes | Result                 |
       | AutoTestRole | 无资源分组   | success message "创建成功" |
 
-  @all
     Examples:
       | RoleName     | RoleDes | Result                                     |
       | AutoTestRole |         | error message "保存失败: 角色名称已经在\n错误码: FE_590" |
       |              | RoleDes | error message "填写角色名称"                     |
 
-  @role
   Scenario Outline: 创建角色同时创建资源分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I click the "CreateRoleButton" button
@@ -34,7 +32,7 @@ Feature: 角色新建
     When I click the "CreateButton" button
     Then I will see the success message contains "创建成功"
 
-  @all @roleSmoke @smoke
+  @createRole
     Examples:
       | RoleName                         | RoleDes       | ResourceGroups |
       | AutoTestRoleWithAllResource      | 创建所有资源分组      | all            |
