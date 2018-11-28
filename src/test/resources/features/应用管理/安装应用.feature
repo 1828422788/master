@@ -8,21 +8,25 @@ Feature: 应用安装
 
   @smoke @appSmoke
   Scenario Outline: 安装成功
-    When I upload a file with name "/target/download-files/AutoTest.tar"
+    When I upload a file with name "/target/download-files/AutoTestApp.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "<role>" from the "Role"
     And I choose the "<resource>" from the "Resource"
     And I click the "NextButton" button
-    And I will see the "GroupPreview" is "active"
+    And I click the "RepeatResource" button
+    And I click the "EditButton" button
+    And I set the parameter "RenameInput" with value "<renameInput>"
+    And I click the "Confirm" button
+    And I wait for "2000" millsecond
     And I click the "NextButton" button
     And I will see the "ResourcePreview" is "active"
     And I click the "NextButton" button
     And I click the "CompleteButton" button
-    Then I will see the search result contains "{'column':'0','name':'AutoTest'}"
+    Then I will see the search result contains "{'column':'0','name':'AutoTestApp'}"
 
     Examples:
-      | role  | resource |
-      | admin | alltag   |
+      | role  | resource          | renameInput          |
+      | admin | AutoTestLogSource | AutoTestSourceForApp |
 
   Scenario: 上传APP包失败（上传格式校验）
     When I upload a file with name "/src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py"
@@ -43,8 +47,8 @@ Feature: 应用安装
       | fileName                                                | role  | message      |
       |                                                         |       | 请上传资源包       |
       | /src/test/resources/testdata/resourceGroups/success.tar |       | 数据格式错误，请重新上传 |
-      | /target/download-files/AutoTest.tar                     |       | 请选择角色        |
-      | /target/download-files/AutoTest.tar                     | admin | 请选择日志来源      |
+      | /target/download-files/AutoTestApp.tar                  |       | 请选择角色        |
+      | /target/download-files/AutoTestApp.tar                  | admin | 请选择日志来源      |
 
 
 

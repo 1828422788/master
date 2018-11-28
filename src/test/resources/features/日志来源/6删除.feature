@@ -1,4 +1,4 @@
-@resourceGroups @all @smoke @resourceGroupsSmoke
+@resourceGroups @all
 Feature: 日志来源删除
 
   Background:
@@ -10,6 +10,12 @@ Feature: 日志来源删除
     Then I click the "Ensure" button
     Then I will see the success message "删除成功"
 
+  @smoke @resourceGroupsSmoke
     Examples:
       | name          |
       | sunxjautotest |
+
+  @clean
+    Examples:
+      | name              |
+      | AutoTestLogSource |

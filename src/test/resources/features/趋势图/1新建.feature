@@ -43,7 +43,7 @@ Feature: 趋势图新建
     And I click the "Save" button
     Then I will see the success message "创建成功"
 
-  @createTrend
+  @createEssentialData
     Examples:
       | name      | describe | group         | spl                                  | chart | xAxis   | tag        | order        | yAxis   | unit | smooth | connectEmptyData | min | max   | settingSwitch | fieldValue | position | colour |
       | AutoTest1 | test     | default_Trend | * \|stats count() by appname,logtype | Line  | appname | Horizontal | DefaultOrder | count() |      | Smooth | ConnectEmptyData | 10  | 30000 |               | logtype    |          | Purple |

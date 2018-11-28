@@ -25,3 +25,17 @@ Feature: 日志来源新建
     Examples: 新建失败
       | name | describe | sourceGroup | hostname | appname | tag | spl | message |
       |      |          |             |          |         |     |     | 名称 不能为空 |
+
+  @createEssentialData
+  Scenario Outline: 创建日志来源以备其他资源使用
+    When I click the "CreateButton" button
+    And I will see the "sourceGroup.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I click the "EnsureCreateButton" button
+    Then I will see the success message "<message>"
+
+    Examples: 新建成功
+      | name              | message |
+      | AutoTestLogSource | 创建成功    |
+
+

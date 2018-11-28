@@ -3,7 +3,7 @@ Feature: 应用编辑
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
-    And the data name is "AutoTest" then i click the "编辑" button
+    And the data name is "AutoTestApp" then i click the "编辑" button
     And I wait for loading invisible
     Then I will see the "app.CreatePage" page
 
@@ -22,7 +22,7 @@ Feature: 应用编辑
     Then I will see the success message "<message>"
 
     Examples: 编辑失败
-      | menuName | url         | SubmenuName | SubUrl  | chooseMenuName | message |
+      | menuName | url | SubmenuName | SubUrl | chooseMenuName | message |
 #      | 知识       | /knowledge/ | Auto趋势图     | /trend/ |                | 请设置默认首页 |
 
   @smoke @appSmoke

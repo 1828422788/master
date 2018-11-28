@@ -10,13 +10,13 @@ Feature: 应用打开
     And I will see the element "FirstSubNav" name is "仪表盘"
     And I will see the element "SecondSubNav" name is "URL校验"
     And I will see the element "ThirdSubNav" name is "<name>"
-    And I click the detail which name is "sunxjTest"
-    And I will see the element "FirstSubNav" name is "仪表盘"
-    And I will see the element "ThirdSubNav" name is "<name>"
-    And I click the "SecondSubNav" button
-    And switch to another window
-    And the page's title will be "拓扑图列表"
+#    And I click the detail which name is "sunxjTest"
+#    And I will see the element "FirstSubNav" name is "仪表盘"
+#    And I will see the element "ThirdSubNav" name is "<name>"
+#    And I click the "SecondSubNav" button
+#    And switch to another window
+#    And the page's title will be "拓扑图列表"
 
     Examples:
-      | name     |
-      | AutoTest |
+      | name        |
+      | AutoTestApp |

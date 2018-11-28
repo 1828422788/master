@@ -14,8 +14,8 @@ Feature: 应用查看
     And I will see the element "ResourceRange" name is "<resourceRange>"
 
     Examples:
-      | name     | describe | menuName | defaultPage | resourceRange |
-      | AutoTest | AutoTest | 仪表盘      | 仪表盘         | 全局            |
+      | name        | describe | menuName | defaultPage | resourceRange |
+      | AutoTestApp | AutoTest | 仪表盘      | 仪表盘         | 全局            |
 
 
 

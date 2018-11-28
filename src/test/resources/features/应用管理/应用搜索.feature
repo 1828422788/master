@@ -8,5 +8,5 @@ Feature: 应用搜索
     When search "{'input':'<appName>'}" and I will see the column number "1" contains "<appName>"
 
     Examples:
-      | appName  |
-      | AutoTest |
+      | appName     |
+      | AutoTestApp |

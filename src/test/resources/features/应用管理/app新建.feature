@@ -2,7 +2,7 @@
 Feature: 应用新建
 
   Background:
-    Given delete file "/target/download-files/AutoTest.tar"
+    Given delete file "/target/download-files/AutoTestApp.tar"
     And open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
@@ -77,8 +77,8 @@ Feature: 应用新建
     Then I will see the success message "新建成功，请等待下载完成。"
 
     Examples:
-      | name     | describe | sourceName | menuName | url         | menuName1 | url1                           | color   |
-      | AutoTest | AutoTest | AutoTest   | 仪表盘      | /dashboard/ | URL校验     | http://192.168.1.134/topology/ | #F9C7EB |
+      | name        | describe | sourceName | menuName | url         | menuName1 | url1                           | color   |
+      | AutoTestApp | AutoTest | AutoTest   | 仪表盘      | /dashboard/ | URL校验     | http://192.168.1.134/topology/ | #F9C7EB |
 
 
 

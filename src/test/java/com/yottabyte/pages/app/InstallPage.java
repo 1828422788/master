@@ -24,6 +24,34 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='资源预览']/ancestor::div[@class='yw-one-step active']")
     private WebElement resourcePreview;
 
+    @FindBy(xpath = "(//td[@class='el-table_1_column_2'])[1]")
+    private WebElement repeatResource;
+
+    @FindBy(className = "icon-bianji")
+    private WebElement editButton;
+
+    @FindBy(className = "confirm_icon")
+    private WebElement confirm;
+
+    @FindBy(xpath = "//span[@class='confirm_icon']/preceding-sibling::input")
+    private WebElement renameInput;
+
+    public WebElement getRenameInput() {
+        return renameInput;
+    }
+
+    public WebElement getConfirm() {
+        return confirm;
+    }
+
+    public WebElement getEditButton() {
+        return editButton;
+    }
+
+    public WebElement getRepeatResource() {
+        return repeatResource;
+    }
+
     public WebElement getRole() {
         return super.getDropdownList("分配角色");
     }
