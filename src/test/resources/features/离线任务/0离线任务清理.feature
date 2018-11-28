@@ -1,4 +1,4 @@
-@offlineTask @all @smoke
+@clean
 Feature: 离线任务清理
 
   Background:
