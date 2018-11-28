@@ -1,4 +1,4 @@
-@smoke @all @resourceGroups @resourceGroupsSmoke
+#@smoke @all @resourceGroups @resourceGroupsSmoke
 Feature: 资源分组清理
 
   Background:
