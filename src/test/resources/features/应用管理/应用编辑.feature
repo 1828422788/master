@@ -12,10 +12,10 @@ Feature: 应用编辑
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
     And I click the "SaveMenuButton" button
-    And I click the "AddSubmenu" button
-    And I set the parameter "MenuName" with value "<SubmenuName>"
-    And I set the parameter "Url" with value "<SubUrl>"
-    And I click the "SaveMenuButton" button
+#    And I click the "AddSubmenu" button
+#    And I set the parameter "MenuName" with value "<SubmenuName>"
+#    And I set the parameter "Url" with value "<SubUrl>"
+#    And I click the "SaveMenuButton" button
     And I choose the "<chooseMenuName>" from the "DefaultPage"
     And I click the "CurrentApp" button
     And I click the "SaveButton" button
