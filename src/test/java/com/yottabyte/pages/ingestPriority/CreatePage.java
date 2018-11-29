@@ -29,10 +29,14 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getSuccessMessage();
+        return super.getErrorMessage();
     }
 
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
+    }
+
+    public WebElement getEnsureButton() {
+        return super.getContainsTextButton("确定");
     }
 }
