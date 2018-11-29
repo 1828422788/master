@@ -26,9 +26,9 @@ Feature: 监控维护期
       | AutoTest | default_Alert |
 
   @smoke @alertSmoke
-  Scenario Outline: 编辑维护期成功
+  Scenario Outline: 编辑维护期（修改影响涉及范围并检查）
     Given the data name is "<name>" then i click the "编辑" button
-    When I set the parameter "Reason" with value "<name>"
+    And I choose the "<group>" from the "Group"
     And I click the "StartTime" button
     And I click the "RightNow" button
     And I click the "EndTime" button
@@ -42,8 +42,8 @@ Feature: 监控维护期
     Then I will see the search result "{'column':'0','name':'正在维护'}"
 
     Examples:
-      | name     | group         |
-      | AutoTest | default_Alert |
+      | name     | group                   |
+      | AutoTest | AutoTestWithAllResource |
 
   Scenario Outline: 新建维护期失败（为空校验）
     Given I click the "Create" button

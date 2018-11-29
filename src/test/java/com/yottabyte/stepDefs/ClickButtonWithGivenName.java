@@ -1,16 +1,20 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
+import com.yottabyte.utils.GetPaging;
 import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 import java.util.Map;
@@ -320,5 +324,34 @@ public class ClickButtonWithGivenName {
             tr = this.getRowWithColumnNum(name, columnNum);
         }
         return tr;
+    }
+
+    /**
+     * 判断某一列为某一值时另一列的值是否符合预期
+     *
+     * @param baseValue    {'column':'1','name':''}
+     * @param compareValue {'column':'1','name':''}
+     */
+    @When("^the data name is \"([^\"]*)\" then the result is \"([^\"]*)\"$")
+    public void verifyData(String baseValue, String compareValue) {
+        Map<String, Object> baseValueMap = JsonStringPaser.json2Stirng(baseValue);
+        Map<String, Object> compareValueMap = JsonStringPaser.json2Stirng(compareValue);
+        Paging paging = GetPaging.getPagingInfo();
+
+        for (int i = 0; i < paging.getTotalPage(); i++) {
+            if (i != 0) {
+                paging.getNextPage().click();
+            }
+            String xpath = "//td[@class='el-table_1_column_" + baseValueMap.get("column") + "']";
+            List<WebElement> dataList = webDriver.findElements(By.xpath(xpath));
+            
+            for (WebElement element : dataList) {
+                if (element.getText().equals(baseValueMap.get("name"))) {
+                    String path = ".//following-sibling::td[@class='el-table_1_column_" + compareValueMap.get("column") + "']";
+                    String actualText = element.findElement(By.xpath(path)).getText();
+                    Assert.assertEquals(compareValueMap.get("name"), actualText);
+                }
+            }
+        }
     }
 }
