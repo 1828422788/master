@@ -15,7 +15,7 @@ Feature: 应用查看
 
     Examples:
       | name        | describe | menuName | defaultPage | resourceRange |
-      | AutoTestApp | AutoTest | 仪表盘      | 仪表盘         | 全局            |
+      | AutoTestApp | AutoTest | 仪表盘      | 仪表盘         | 本APP          |
 
 
 

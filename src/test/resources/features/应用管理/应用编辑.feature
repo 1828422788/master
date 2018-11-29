@@ -22,8 +22,8 @@ Feature: 应用编辑
     Then I will see the success message "<message>"
 
     Examples: 编辑失败
-      | menuName | url | SubmenuName | SubUrl | chooseMenuName | message |
-#      | 知识       | /knowledge/ | Auto趋势图     | /trend/ |                | 请设置默认首页 |
+      | menuName | url         | SubmenuName | SubUrl  | chooseMenuName | message |
+      | 知识       | /knowledge/ | Auto趋势图     | /trend/ |                | 请设置默认首页 |
 
   @smoke @appSmoke
     Examples: 编辑成功

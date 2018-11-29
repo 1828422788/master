@@ -17,7 +17,7 @@ Feature: 应用安装
     And I click the "EditButton" button
     And I set the parameter "RenameInput" with value "<renameInput>"
     And I click the "Confirm" button
-    And I wait for "2000" millsecond
+    And I wait for "EditText" will be visible
     And I click the "NextButton" button
     And I will see the "ResourcePreview" is "active"
     And I click the "NextButton" button

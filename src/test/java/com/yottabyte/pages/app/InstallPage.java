@@ -36,6 +36,13 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[@class='confirm_icon']/preceding-sibling::input")
     private WebElement renameInput;
 
+    @FindBy(xpath = "//span[contains(text(),'AutoTestSourceForApp')]")
+    private WebElement editText;
+
+    public WebElement getEditText() {
+        return editText;
+    }
+
     public WebElement getRenameInput() {
         return renameInput;
     }
