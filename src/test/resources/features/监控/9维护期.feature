@@ -17,13 +17,10 @@ Feature: 监控维护期
     And I wait for "Available" will be invisible
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    When choose from "{'DropdownMenu':'<group>'}"
-    Then I will see the search result "{'column':'0','name':'正在维护'}"
 
     Examples:
-      | reason   | group         |
-      | AutoTest | default_Alert |
+      | reason   | group |
+      | AutoTest | 未分组   |
 
   @smoke @alertSmoke
   Scenario Outline: 编辑维护期（修改影响涉及范围并检查）
@@ -32,18 +29,15 @@ Feature: 监控维护期
     And I click the "StartTime" button
     And I click the "RightNow" button
     And I click the "EndTime" button
-    And I set the time input "TimeInput" to "5" minutes later
+    And I set the time input "TimeInput" to "35" minutes later
     And I click the "EnsureButton" button
     And I wait for "Available" will be invisible
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    When choose from "{'DropdownMenu':'<group>'}"
-    Then I will see the search result "{'column':'0','name':'正在维护'}"
 
     Examples:
-      | name     | group                   |
-      | AutoTest | AutoTestWithAllResource |
+      | name     | group         |
+      | AutoTest | default_Alert |
 
   Scenario Outline: 新建维护期失败（为空校验）
     Given I click the "Create" button
@@ -85,17 +79,16 @@ Feature: 监控维护期
       | AutoTest |
 
   @smoke @alertSmoke
-  Scenario Outline: 删除维护期
+  Scenario: 查看监控是否正在维护
+    Given open the "alert.ListPage" page for uri "/alerts/"
+    When choose from "{'DropdownMenu':'default_Alert'}"
+    Then I will see the search result "{'column':'0','name':'正在维护'}"
+
+  @smoke @alertSmoke
+  Scenario: 删除维护期
     When the data name is "AutoTest" then i click the "删除" button
     And I click the "EnsureDelete" button
     Then I will see the success message "删除成功"
-#    Given open the "alert.ListPage" page for uri "/alerts/"
-#    When choose from "{'DropdownMenu':'<group>'}"
-#    Then I will see the search result "{'column':'0','name':'正在维护','contains':'no'}"
-
-    Examples:
-      | group         |
-      | default_Alert |
 
   @smoke @alertSmoke
   Scenario: 返回监控首页
