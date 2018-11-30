@@ -1,11 +1,9 @@
 @alert @all @smoke @alertSmoke
 Feature: 监控新建事件数并填写告警方式
 
-  Background:
-    Given open the "alert.ListPage" page for uri "/alerts/"
-
   Scenario Outline: 创建一个事件数监控-一种告警方式
-    Given I click the "CreateAlert" button
+    Given open the "alert.ListPage" page for uri "/alerts/"
+    When I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "<AlertName>"
     And I choose the "default_Alert" from the "AlertGroups"
@@ -28,12 +26,25 @@ Feature: 监控新建事件数并填写告警方式
       | AutoTest16 | forwardType  | {'address':'http://192.168.1.82:511111/','condition':['低']}                                                                                                                                                                                                                                       | success message "保存成功" |
       | AutoTest17 | pingHostType | {'address':'192.168.1.82','condition':['高','中','低']}                                                                                                                                                                                                                                              | success message "保存成功" |
 
-  Scenario: 创建一个事件数监控-多种告警方式
-    Given I click the "CreateAlert" button
+  Scenario Outline: 创建一个事件数监控-多种告警方式
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    When I set the parameter "SearchInput" with value "*"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I click the "SaveAsReport" button
+    And I click the "SavedSearch" button
+    And I wait for loading invisible
+    And I set the parameter "OfflineTaskName" with value "<savedSearch>"
+    And I choose the "default_SavedSearch" from the "GroupComboBox"
+    And I click the "EnsureCreateSavedSearch" button
+    Given open the "alert.ListPage" page for uri "/alerts/"
+    And I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "AutoTest18"
     And I choose the "default_Alert" from the "AlertGroups"
     And I choose the "所有日志" from the "AlertSources"
+    And I choose the "<savedSearch>" from the "SavedSearch"
     And I set the parameter "SearchContent" with value "*"
     And I switch the "AlertEnable" button to "disable"
     And I set the parameter "AlertTriggerInput" with value "5"
@@ -48,3 +59,6 @@ Feature: 监控新建事件数并填写告警方式
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
+    Examples:
+      | savedSearch      |
+      | alertSavedSearch |

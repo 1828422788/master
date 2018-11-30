@@ -119,6 +119,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-collapse")
     private WebElement alertNoteFrame;
 
+
     // 基本配置tab
     public WebElement getBasicConfigTab() {
         return tabs.get(0);

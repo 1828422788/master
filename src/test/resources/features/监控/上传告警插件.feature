@@ -1,4 +1,4 @@
-#@alert @all
+@alert @all
 Feature: 监控上传告警插件
 
   Background:
@@ -27,6 +27,6 @@ Feature: 监控上传告警插件
     Then I will see the error message "<errorMessage>"
 
     Examples:
-      | inputFileName | errorMessage |
-#      | /src/test/resources/testdata/alertPlugins/testAlertPlugins.txt | 仅支持 .py 格式文件 |
-#      | /src/test/resources/testdata/alertPlugins/testAlertPlugins.py  | 插件有误，请检查后重试。 |
+      | inputFileName                                                  | errorMessage |
+      | /src/test/resources/testdata/alertPlugins/testAlertPlugins.txt | 仅支持 .py 格式文件 |
+      | /src/test/resources/testdata/alertPlugins/testAlertPlugins.py  | 插件有误，请检查后重试。 |

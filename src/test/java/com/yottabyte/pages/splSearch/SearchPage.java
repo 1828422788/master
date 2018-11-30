@@ -336,6 +336,9 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='已存搜索']")
     private WebElement savedSearch;
 
+    @FindBy(xpath = "//li[text()='监控']")
+    private WebElement alert;
+
     @FindBy(xpath = "//button[@class='el-button el-button--primary']/span[text()='确定']")
     private List<WebElement> ensureList;
 
@@ -399,6 +402,10 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(xpath = "(//canvas)[last()]")
     private WebElement canvas;
+
+    public WebElement getAlert() {
+        return alert;
+    }
 
     public WebElement getCanvas() {
         return canvas;

@@ -2,17 +2,22 @@
 Feature: 监控新建Spl统计
 
   Background:
-    Given open the "alert.ListPage" page for uri "/alerts/"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
 
-  Scenario Outline: 创建一个新的告警-Spl统计监控-定时执行
-    Given I click the "CreateAlert" button
+  Scenario Outline: 创建一个新的告警-Spl统计监控-定时执行（在搜索中进入监控页）
+    When I set the parameter "SearchInput" with value "<SearchContent>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I click the "SaveAsReport" button
+    And I click the "Alert" button
+    And switch to another window
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "<AlertName>"
     And I set the parameter "AlertDes" with value "alertDes"
     And I choose the "<AlertGroup>" from the "AlertGroups"
     And I choose the "<AlertUser>" from the "AlertUsers"
     And I choose the "<AlertSource>" from the "AlertSources"
-    And I set the parameter "SearchContent" with value "<SearchContent>"
     And I switch the "AlertEnable" button to "disable"
     And I choose the "Spl统计监控" from the "AlertTypes"
     And I click the "AlertPlanTimeButton" button
