@@ -39,6 +39,13 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'AutoTestSourceForApp')]")
     private WebElement editText;
 
+    @FindBy(xpath = "//i[@class='el-icon-circle-check']/following-sibling::span")
+    private WebElement importSuccess;
+
+    public WebElement getImportSuccess() {
+        return importSuccess;
+    }
+
     public WebElement getEditText() {
         return editText;
     }

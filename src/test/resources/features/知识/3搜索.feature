@@ -7,12 +7,12 @@ Feature: 知识搜索
   Scenario Outline: 按分组搜索
     When I choose the "<GroupList>" from the "GroupList"
     And I wait for loading invisible
-    Then I will see the search result "{'column':'2','name':'<GroupList>'}"
+    Then I will see the search result contains "{'column':'0','name':'sunxj1'}"
 
   @smoke @all
     Examples:
-      | GroupList         |
-      | default_Knowledge |
+      | GroupList               |
+      | AutoTestWithAllResource |
 
   Scenario Outline: 全文搜索
     When I set the parameter "SearchInput" with value "<search>"

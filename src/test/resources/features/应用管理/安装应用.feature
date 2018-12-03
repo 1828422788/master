@@ -21,6 +21,7 @@ Feature: 应用安装
     And I click the "NextButton" button
     And I will see the "ResourcePreview" is "active"
     And I click the "NextButton" button
+    And I will see the element "ImportSuccess" name is "导入成功"
     And I click the "CompleteButton" button
     Then I will see the search result contains "{'column':'0','name':'AutoTestApp'}"
 

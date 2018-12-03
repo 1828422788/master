@@ -52,7 +52,7 @@ Feature: 定时任务编辑
   @smoke @timedTaskSmoke
     Examples:
       | dataName    | connectName | userName | password     | host          | port | dbType | dbName         | tableName | firstDataMapping | secondDataMapping |
-      | sxjAutoTest | sxjtest     | root     | rizhiyi&2014 | 192.168.1.200 | 3306 | mysql  | rizhiyi_system | tyf       | count            | percent           |
+      | sxjAutoTest | sxjtest     | root     | rizhiyi&2014 | 192.168.1.134 | 3306 | mysql  | rizhiyi_system | tyf1128   | count            | percent           |
 
   Scenario Outline: 未成功编辑定时任务的结果处理方式
     When the data name is "<dataName>" then i click the "编辑" button

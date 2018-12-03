@@ -190,7 +190,7 @@ public class RegularSearch {
     private List<WebElement> getTrList() {
         List<WebElement> trList = webDriver.findElements(By.xpath("//table[@class='el-table__body']//tr"));
         // 列表下无数据则返回空
-        if (trList.size() == 1 && "el-table__row no-data".equals(trList.get(0).getAttribute("class")))
+        if (trList.size() == 0 || trList.size() == 1 && "el-table__row no-data".equals(trList.get(0).getAttribute("class")))
             return null;
         return trList;
     }

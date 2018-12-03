@@ -10,6 +10,23 @@ Feature: 资源分组导入
     When I upload a file with name "<InputFileName>"
     And I choose the "<role>" from the "Role"
     And I click the "NextButton" button
+    And I wait for "1000" millsecond
+    And I click the "NextButton" button
+    And I wait for "1000" millsecond
+    And I click the "NextButton" button
+    And I click the "FinishButton" button
+    Then I will see the search result contains "{'column':'0','name':'<groupNameInput>'}"
+
+    Examples:
+      | InputFileName                                           | role  | groupNameInput |
+      | /src/test/resources/testdata/resourceGroups/success.tar | admin | hunter_roles_m |
+
+  @smoke @resourceGroupsSmoke
+  Scenario Outline: 重复导入资源包测试
+    Given I click the "UploadButton" button
+    When I upload a file with name "<InputFileName>"
+    And I choose the "<role>" from the "Role"
+    And I click the "NextButton" button
     And I click the "SourceGroup" button
     And I click the "Edit" button
     And I set the parameter "GroupNameInput" with value "<groupNameInput>"
@@ -19,7 +36,7 @@ Feature: 资源分组导入
     And I wait for "1000" millsecond
     And I click the "NextButton" button
     And I click the "FinishButton" button
-    Then I will see the special column contains "<groupNameInput>"
+    Then I will see the search result contains "{'column':'0','name':'<groupNameInput>'}"
 
     Examples:
       | InputFileName                                           | role  | groupNameInput |

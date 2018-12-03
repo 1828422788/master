@@ -1,10 +1,8 @@
 @all @smoke @alert @alertSmoke
 Feature: 监控删除
 
-  Background:
-    Given open the "alert.ListPage" page for uri "/alerts/"
-
   Scenario Outline:
+    Given open the "alert.ListPage" page for uri "/alerts/"
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureDeleteButton" button
     Then I will see the success message "删除成功"
@@ -52,4 +50,11 @@ Feature: 监控删除
       | AutoTest_avg |
       | AutoTest_max |
       | AutoTest_min |
+
+
+  Scenario:
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    Given I click the "OpenSavedSearchButton" button
+    Then "删除" the data "alertSavedSearch" in columnNum "1"
+    Then I click the "DeleteSavedSearch" button
 
