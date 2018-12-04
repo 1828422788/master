@@ -282,3 +282,11 @@ Feature: 字段提取规则列表
     Examples:
       | log                   | result           |
       | {"a":{"b":{"c":"d"}}} | {'Value1':'"d"'} |
+
+  Scenario: XML解析
+    When I set the parameter "LogSample" with value "<root><test><a>1</a><a>2</a></test><test>3</test></root>"
+    And I choose the "XML解析" from the "ParseRule"
+    And I choose the "raw_message" from the "SourceField"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Value1':'"3"','Value2':'"1"','Value3':'"2"'}"

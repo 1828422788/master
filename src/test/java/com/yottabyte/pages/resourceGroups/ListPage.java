@@ -113,6 +113,27 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
     private WebElement ensureButton;
 
+    @FindBy(className = "el-checkbox")
+    private WebElement allCheck;
+
+    @FindBy(xpath = "//div[@class='el-message-box__input']//input")
+    private WebElement resourceTarName;
+
+    @FindBy(xpath = "//div[@class='el-message-box__btns']/button[last()]")
+    private WebElement ensureExportResource;
+
+    public WebElement getEnsureExportResource() {
+        return ensureExportResource;
+    }
+
+    public WebElement getResourceTarName() {
+        return resourceTarName;
+    }
+
+    public WebElement getAllCheck() {
+        return allCheck;
+    }
+
     public WebElement getEnsureButton() {
         return ensureButton;
     }
@@ -152,6 +173,10 @@ public class ListPage extends PageTemplate {
 
     public WebElement getSourceGroup() {
         return sourceGroup;
+    }
+
+    public WebElement getMessage() {
+        return super.getErrorMessage();
     }
 
     public List<WebElement> getGroupTypes() {

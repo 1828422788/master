@@ -5,16 +5,16 @@ Feature: 日志来源新建
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
 
   Scenario Outline:
-    Then I click the "CreateButton" button
-    Then I will see the "sourceGroup.CreatePage" page
-    Then I set the parameter "Name" with value "<name>"
-    Then I set the parameter "Describe" with value "<describe>"
-    Then I choose the "<sourceGroup>" from the "SourceGroup"
-    Then I set the parameter "Hostname" with value "<hostname>"
-    Then I set the parameter "Appname" with value "<appname>"
-    Then I set the parameter "Tag" with value "<tag>"
-    Then I set the parameter "Spl" with value "<spl>"
-    Then I click the "EnsureCreateButton" button
+    When I click the "CreateButton" button
+    And I will see the "sourceGroup.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<sourceGroup>" from the "SourceGroup"
+    And I set the parameter "Hostname" with value "<hostname>"
+    And I set the parameter "Appname" with value "<appname>"
+    And I set the parameter "Tag" with value "<tag>"
+    And I set the parameter "Spl" with value "<spl>"
+    And I click the "EnsureCreateButton" button
     Then I will see the success message "<message>"
 
   @smoke @resourceGroupsSmoke
@@ -31,6 +31,7 @@ Feature: 日志来源新建
     When I click the "CreateButton" button
     And I will see the "sourceGroup.CreatePage" page
     And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Appname" with value "*"
     And I click the "EnsureCreateButton" button
     Then I will see the success message "<message>"
 
@@ -38,4 +39,6 @@ Feature: 日志来源新建
       | name              | message |
       | AutoTestLogSource | 创建成功    |
 
-
+  @createEssentialData
+  Scenario:
+    Given the data name is "AutoTestLogSource" then i click the "设为默认" button

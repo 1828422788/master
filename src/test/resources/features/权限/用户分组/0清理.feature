@@ -12,3 +12,4 @@ Feature: 用户分组清理
       | name            |
       | AutoTestGroup   |
       | AutoTestForUser |
+      | AutoTest        |

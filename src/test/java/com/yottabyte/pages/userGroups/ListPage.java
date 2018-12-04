@@ -53,6 +53,10 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-table__empty-text")
     private WebElement emptyText;
 
+    public WebElement getMessage() {
+        return super.getErrorMessage();
+    }
+
     public WebElement getDescribe() {
         return super.getInputElement("描述");
     }

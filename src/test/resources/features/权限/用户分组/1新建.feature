@@ -21,6 +21,11 @@ Feature: 用户分组创建
       | AutoTestForUser   |              | admin,AutoTestRole | AutoTestRole | success message "创建成功" |
       | AutoTestForDelete | des1         | admin              | admin        | success message "创建成功" |
 
+  @smoke @userGroupsSmoke
+    Examples:
+      | UserGroupName | UserGroupDes | Owner | Role  | Result                 |
+      | AutoTest      |              | admin | admin | success message "创建成功" |
+
     Examples: 创建失败及为空校验
       | UserGroupName | UserGroupDes | Owner | Role         | Result                              |
       |               | des          | admin | AutoTestRole | error message "分组名 不能为空"            |

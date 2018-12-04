@@ -32,7 +32,6 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "hoist-list")
     private WebElement selectedList;
 
-
     @FindBy(className = "el-message__group")
     private WebElement suspensionMessage;
 
@@ -42,8 +41,30 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'保存')][not(@class)])[last()]")
     private WebElement saveButton;
 
+    @FindBy(xpath = "//div[text()='AutoTest']/ancestor::td/preceding-sibling::td//label")
+    private WebElement checkBox;
+
+    @FindBy(xpath = "(//span[contains(text(),'保存')])[last()]")
+    private WebElement saveMember;
+
+    public WebElement getSaveMember() {
+        return saveMember;
+    }
+
+    public WebElement getEnsureButton() {
+        return super.getButton("确定");
+    }
+
+    public WebElement getCheckBox() {
+        return checkBox;
+    }
+
     public WebElement getReturnList() {
         return super.getButton("返回列表");
+    }
+
+    public WebElement getAddMember() {
+        return super.getContainsTextButton("添加成员");
     }
 
     public WebElement getUserGroupName() {
@@ -59,14 +80,6 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getUserGroupRole() {
-//        rolesButton.click();
-//        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors);
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-//        if (selectedList.findElements(By.tagName("li")).size() >= 1) {
-//            return selectedList.findElements(By.tagName("li"));
-//        } else {
-//            return selectors.findElements(By.tagName("li"));
-//        }
         return super.getDropdownList("角色");
     }
 

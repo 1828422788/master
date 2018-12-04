@@ -50,3 +50,13 @@ Feature: 用户分组修改
     Examples:
       | name            | NewRoleName                      | Result                 | finalGroups                             |
       | AutoTestForEdit | AutoTestRoleWithAuth&SourceGroup | success message "更新成功" | admin, AutoTestRoleWithAuth&SourceGroup |
+
+  @all @smoke @userGroupsSmoke
+  Scenario: 添加成员
+    Given the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
+    And I will see the "userGroups.EditPage" page
+    And I click the "AddMember" button
+    And I click the "CheckBox" button
+    And I click the "EnsureButton" button
+    And I click the "SaveMember" button
+    Then I will see the success message "更新成功"

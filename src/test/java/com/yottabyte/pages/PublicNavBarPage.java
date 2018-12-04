@@ -81,6 +81,20 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='您暂无设置权限。']")
     private WebElement nonPrivileged;
 
+    @FindBy(xpath = "//span[@class='yw-nav-icon iconfont icon-owner_icon']")
+    private WebElement ownerIcon;
+
+    @FindBy(xpath = "//a[text()='账号信息']")
+    private WebElement accountInfo;
+
+    public WebElement getAccountInfo() {
+        return accountInfo;
+    }
+
+    public WebElement getOwnerIcon() {
+        return ownerIcon;
+    }
+
     public WebElement getNonPrivileged() {
         return nonPrivileged;
     }

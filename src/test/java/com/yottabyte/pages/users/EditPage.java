@@ -49,6 +49,10 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    public WebElement getEditInfoButton() {
+        return super.getContainsTextButton("修改信息");
+    }
+
     public WebElement getEnsureButton() {
         return super.getContainsTextButton("确定");
     }

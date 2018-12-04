@@ -159,6 +159,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'已存搜索 +')])[2]")
     private WebElement advanceSavedSearch;
 
+    public WebElement getPreviewButton() {
+        return super.getButton("预览");
+    }
+
     public WebElement getKey() {
         return key;
     }
