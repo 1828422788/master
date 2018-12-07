@@ -9,5 +9,6 @@ Feature: 用户清理
     And I click the "EnsureButton" button
 
     Examples:
-      | name     |
-      | AutoTest |
+      | name                   |
+      | AutoTest               |
+      | AutoTestForSavedSearch |

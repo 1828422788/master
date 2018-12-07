@@ -25,5 +25,6 @@ Feature: 用户分组
     Then I will see the data "{'column':'1','name':'<name>'}" values "{'column':'4','name':'<finalGroups>'}"
 
     Examples:
-      | name     | newGroups     | finalGroups                     |
-      | AutoTest | AutoTestGroup | AutoTestGroup, AutoTestForUser |
+      | name                   | newGroups     | finalGroups                    |
+      | AutoTest               | AutoTestGroup | AutoTestGroup, AutoTestForUser |
+      | AutoTestForSavedSearch | AutoTestGroup | AutoTestGroup, AutoTestForUser |

@@ -1,12 +1,10 @@
 @all @searchMacro
 Feature: 搜索宏新建
 
-  Background:
+  Scenario Outline:
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     When I click the "CreateButton" button
     Then I will see the "searchMacro.CreatePage" page
-
-  Scenario Outline:
     When I set the parameter "Name" with value "<name>"
     And I choose the "<group>" from the "Group"
     And I set the parameter "Definition" with value "<definition>"

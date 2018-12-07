@@ -29,9 +29,9 @@ Feature: 资源分组导出
       | 拓扑图  |
       | 搜索宏  |
 
-  Scenario: 导出全部资源（未完成）
+  Scenario: 导出全部资源
     And I click the "DownloadButton" button
-    And I click the "AllCheck" button
+    And I click the "AllCheck" button in each page
     And I click the "EnsureDownloadButton" button
     And I set the parameter "ResourceTarName" with value "resource_group"
     And I click the "EnsureExportResource" button

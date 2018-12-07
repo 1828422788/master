@@ -45,16 +45,20 @@ Feature: 日志展现
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I click the "AppName" button
+    Then I click the "<fieldName>" button
     And I check "<fieldValue>" from the "FieldCheckbox"
     And I click the "<optional>" button
     And I wait for "1000" millsecond
     Then I will see the input element "SearchInput" value will be "<spl>"
 
     Examples:
-      | optional        | fieldValue | spl                                                                    |
-      | TopTen          |            | index=yott* ERROR AND tag:sample04061424* \|top 10 'appname'           |
-      | RemoveDuplicate |            | index=yott* ERROR AND tag:sample04061424* \|stats dc('appname')        |
-      | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count('appname') |
-      | FileterField    | java       | index=yott* (ERROR AND tag:sample04061424*) AND 'appname':java         |
-      | ShieldField     | java       | index=yott* (ERROR AND tag:sample04061424*) AND NOT 'appname':java     |
+      | fieldName | optional      | fieldValue | spl                                                                    |
+#      | AppName   | TopTen          |            | index=yott* ERROR AND tag:sample04061424* \|top 10 'appname'           |
+#      | AppName   | RemoveDuplicate |            | index=yott* ERROR AND tag:sample04061424* \|stats dc('appname')        |
+#      | AppName   | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count('appname') |
+#      | AppName   | FileterField    | java       | index=yott* (ERROR AND tag:sample04061424*) AND 'appname':java         |
+#      | AppName   | ShieldField     | java       | index=yott* (ERROR AND tag:sample04061424*) AND NOT 'appname':java     |
+      | Timestamp | MaxValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats max('timestamp')     |
+      | Timestamp | MinValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats min('timestamp')     |
+      | Timestamp | AvgStats      | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('timestamp')     |
+      | Timestamp | AvgSequential | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('timestamp') |

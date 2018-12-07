@@ -4,7 +4,7 @@ Feature: 用户新建
     Given open the "users.ListPage" page for uri "/account/users/"
 
   @users
-  Scenario Outline:
+  Scenario Outline: 添加用户
     And I click the "CreateUser" button
     And I will see the "users.CreatePage" page
     When I set the parameter "UserName" with value "<UserName>"
@@ -18,10 +18,10 @@ Feature: 用户新建
 
   @createUsers
     Examples: 成功添加一个用户
-      | UserName        | FullName         | Email                        | Telephone | Password   | UserGroups      | Result                 |
-      | AutoTest        | autoTestFullName | autoTest@yottabyte.cn        |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
-#      | AutoTestUser    | autoTestFullName | autoTestUser@yottabyte.cn        |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
-      | AutoTestForEdit | autoTestFullName | autoTestForEdit@yottabyte.cn |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
+      | UserName               | FullName               | Email                               | Telephone | Password   | UserGroups      | Result                 |
+      | AutoTest               | autoTestFullName       | autoTest@yottabyte.cn               |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
+      | AutoTestForEdit        | autoTestFullName       | autoTestForEdit@yottabyte.cn        |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
+      | AutoTestForSavedSearch | AutoTestForSavedSearch | AutoTestForSavedSearch@yottabyte.cn |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
 
   @all
     Examples: 添加用户失败

@@ -52,7 +52,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getSuccessMessage();
+        return super.getErrorMessage();
     }
 
     public WebElement getCheckbox() {

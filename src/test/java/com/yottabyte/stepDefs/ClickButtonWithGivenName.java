@@ -5,7 +5,6 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.GetPaging;
 import com.yottabyte.utils.JsonStringPaser;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -14,7 +13,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 import java.util.Map;
@@ -344,7 +342,7 @@ public class ClickButtonWithGivenName {
             }
             String xpath = "//td[@class='el-table_1_column_" + baseValueMap.get("column") + "']";
             List<WebElement> dataList = webDriver.findElements(By.xpath(xpath));
-            
+
             for (WebElement element : dataList) {
                 if (element.getText().equals(baseValueMap.get("name"))) {
                     String path = ".//following-sibling::td[@class='el-table_1_column_" + compareValueMap.get("column") + "']";
@@ -352,6 +350,17 @@ public class ClickButtonWithGivenName {
                     Assert.assertEquals(compareValueMap.get("name"), actualText);
                 }
             }
+        }
+    }
+
+    @And("^I click the \"([^\"]*)\" button in each page$")
+    public void iClickTheButtonInEachPage(String buttonName) {
+        Paging paging = GetPaging.getPagingInfo();
+        for (int i = 0; i < paging.getTotalPage(); i++) {
+            if (i != 0)
+                paging.getNextPage().click();
+            WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
+            element.click();
         }
     }
 }
