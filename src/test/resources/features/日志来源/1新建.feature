@@ -21,6 +21,7 @@ Feature: 日志来源新建
     Examples: 新建成功
       | name        | describe | sourceGroup         | hostname | appname | tag     | spl                               | message |
       | sxjautotest | autotest | default_SourceGroup | 192*     | apache* | apache* | tag:apache* AND NOT logtype:other | 创建成功    |
+      | temptest    |          |                     |          |         |         |                                   | 创建成功    |
 
     Examples: 新建失败
       | name | describe | sourceGroup | hostname | appname | tag | spl | message |

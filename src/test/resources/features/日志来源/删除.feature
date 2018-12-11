@@ -14,6 +14,7 @@ Feature: 日志来源删除
     Examples:
       | name          |
       | sunxjautotest |
+      | temptest      |
 
   @clean
     Examples:

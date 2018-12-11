@@ -426,6 +426,42 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "(//canvas)[last()]")
     private WebElement canvas;
 
+    @FindBy(xpath = "//span[text()='sunxjautotest']")
+    private WebElement sunxjautotest;
+
+    @FindBy(xpath = "//span[text()='AutoTestLogSource']")
+    private WebElement autoTestLogSource;
+
+    @FindBy(className = "basic-item-value")
+    private List<WebElement> valueList;
+
+    @FindBy(xpath = "(//span[text()='查询无结果。'])[1]")
+    private WebElement noResult;
+
+    public WebElement getAutoTestLogSource() {
+        return autoTestLogSource;
+    }
+
+    public WebElement getNoResult() {
+        return noResult;
+    }
+
+    public WebElement getAppnameValue() {
+        return valueList.get(0);
+    }
+
+    public WebElement getTagValue() {
+        return valueList.get(3);
+    }
+
+    public WebElement getSunxjautotest() {
+        return sunxjautotest;
+    }
+
+    public WebElement getResourceGroup() {
+        return super.getLastDropdownList();
+    }
+
     public WebElement getAlert() {
         return alert;
     }

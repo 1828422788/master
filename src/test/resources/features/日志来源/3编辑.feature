@@ -19,8 +19,8 @@ Feature: 日志来源编辑
 
   @smoke @resourceGroupsSmoke
     Examples: 编辑成功
-      | oldName     | name          | describe | sourceGroup         | hostname | appname | tag     | spl                               | message |
-      | sxjautotest | sunxjautotest | change   | default_SourceGroup | 192*     | apache* | apache* | tag:apache* AND NOT logtype:other | 更新成功    |
+      | oldName     | name          | describe | sourceGroup         | hostname | appname         | tag         | spl | message |
+      | sxjautotest | sunxjautotest | change   | default_SourceGroup |          | AutoTestAppname | AutoTestTag |     | 更新成功    |
 
     Examples: 编辑失败
       | oldName       | name | describe | sourceGroup | hostname | appname | tag | spl | message |

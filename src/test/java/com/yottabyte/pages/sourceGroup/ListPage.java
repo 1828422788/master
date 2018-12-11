@@ -42,6 +42,25 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-icon-arrow-down")
     private WebElement arrowDown;
 
+    @FindBy(className = "verify-text")
+    private WebElement verifyText;
+
+    public WebElement getVerifyText() {
+        return verifyText;
+    }
+
+    public WebElement getTag() {
+        return super.getInputElement("Tag");
+    }
+
+    public WebElement getAppname() {
+        return super.getInputElement("Appname");
+    }
+
+    public WebElement getUploadButton() {
+        return super.getButton("上传");
+    }
+
     public WebElement getGroupDropdownList() {
         arrowDown.click();
         return GroupDropdownList;
