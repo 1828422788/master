@@ -12,9 +12,12 @@ Feature: 日志来源删除
 
   @smoke @resourceGroupsSmoke
     Examples:
-      | name          |
-      | sunxjautotest |
-      | temptest      |
+      | name                    |
+      | sunxjautotest           |
+      | temptest                |
+      | AutoTestUploadTest      |
+      | AutoTestUploadSubSource |
+      | AutoTestUploadFather    |
 
   @clean
     Examples:

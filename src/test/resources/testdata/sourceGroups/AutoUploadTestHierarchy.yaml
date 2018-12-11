@@ -1,0 +1,13 @@
+AutoTestUploadFather:
+  appname: '*'
+  children:
+    AutoTestUploadSubSource:
+      appname: ''
+      description: ''
+      hostname: ''
+      queryFilter: ''
+      tag: ''
+  description: ''
+  hostname: ''
+  queryFilter: ''
+  tag: ''

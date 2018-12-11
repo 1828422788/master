@@ -1,0 +1,6 @@
+AutoTestUploadTest:
+  appname: '*'
+  description: ''
+  hostname: ''
+  queryFilter: ''
+  tag: ''

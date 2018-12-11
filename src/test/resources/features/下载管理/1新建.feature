@@ -1,5 +1,5 @@
 @offlineTask @all
-Feature: 下载任务
+Feature: 下载任务新建
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
