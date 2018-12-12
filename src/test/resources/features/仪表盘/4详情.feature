@@ -89,7 +89,7 @@ Feature: 仪表盘详情页
     And I will see the "DropDownLinkButton" result will be "<num>"
     And I click the "DeleteTag" button
     And I click the "EnsureDeleteTagButton" button
-    Then I will see the success message "当前仪表盘无开启状态标签页, 请新建或者恢复关闭状态标签页"
+    Then I will see the success message "标签页删除成功"
 
     Examples:
       | tagName | num   |

@@ -1,7 +1,7 @@
 @authorization @all @smoke @roleSmoke
 Feature: 授权角色权限
 
-  Scenario Outline:
+  Scenario Outline: 无任何授权
     Given I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "<username>"

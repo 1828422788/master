@@ -14,4 +14,4 @@ Feature: 租户登陆
     Examples:
       | name  | password | message                |
       | test  | 111      | 不存在的系统管理员\n错误码: FE_182 |
-      | owner | 11       | 密码错误\n错误码: FE_183      |
+      | admin | 11       | 密码错误\n错误码: FE_183      |

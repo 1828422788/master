@@ -45,6 +45,13 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "verify-text")
     private WebElement verifyText;
 
+    @FindBy(xpath = "//span[@class='name']/following-sibling::div//input")
+    private WebElement recentDays;
+
+    public WebElement getRecentDays() {
+        return recentDays;
+    }
+
     public WebElement getVerifyText() {
         return verifyText;
     }

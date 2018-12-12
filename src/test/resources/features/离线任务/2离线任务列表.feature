@@ -1,5 +1,5 @@
 @offlineTask @all @smoke
-Feature: 离线任务列表
+Feature: 离线任务的暂停、恢复、取消、加载以及删除
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -70,5 +70,5 @@ Feature: 离线任务列表
     Then I will see the success message "删除成功"
 
     Examples:
-      | splQuery                                  | time      | name            |
+      | splQuery                                  | time      | name                |
       | * \| transaction apache.status maxspan=1s | WholeTime | TempofflineAutoTest |

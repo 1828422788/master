@@ -3,7 +3,7 @@ Feature: 日志来源展示结构
 
   Scenario Outline: 层级结构-展示（RZY-375）
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    Then I click the "ArrowDown" button
+    And I click the "ArrowDown" button
     Then I will see the "<nodeName>" node is "<attribute>"
 
     Examples:

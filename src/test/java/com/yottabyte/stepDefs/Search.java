@@ -5,6 +5,8 @@ import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.WaitForElement;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
@@ -197,5 +199,16 @@ public class Search {
             String acturalText = td.getText();
             assertTrue(acturalText.contains(name));
         }
+    }
+
+    @And("^I search the group \"([^\"]*)\"$")
+    public void searchGroup(String groupName) {
+        isLoadingMaskExist();
+        webDriver.findElement(By.className("el-icon-arrow-down")).click();
+        WebElement dropdownList = webDriver.findElement(By.className("yw-table-group__group-menu"));
+        isLoadingMaskExist();
+        List list = new ArrayList();
+        list.add(groupName);
+        new IChooseValueFromSelectList().iChooseTheFromThe(list, dropdownList);
     }
 }

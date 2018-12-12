@@ -438,6 +438,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='查询无结果。'])[1]")
     private WebElement noResult;
 
+    @FindBy(xpath = "//div[@class='yw-searchbar__prepend el-dropdown']/following-sibling::sup")
+    private WebElement sup;
+
+    public WebElement getSup() {
+        return sup;
+    }
+
     public WebElement getAutoTestLogSource() {
         return autoTestLogSource;
     }
