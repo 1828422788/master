@@ -174,7 +174,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "el-collapse-item__wrap")
     private WebElement searchHistoryWindow;
 
-    @FindBy(className = "yw-search-tabbar-status")
+    @FindBy(className = "status-text")
     private WebElement searchStatus;
 
     @FindBy(xpath = "//div[@class='yw-search-tabbar']//div[text()='统计']")

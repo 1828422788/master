@@ -1,4 +1,4 @@
-@spl @all @smoke
+@spl @all @smoke @splSmoke
 Feature: 日志展现
 
   Background:
@@ -52,13 +52,13 @@ Feature: 日志展现
     Then I will see the input element "SearchInput" value will be "<spl>"
 
     Examples:
-      | fieldName | optional      | fieldValue | spl                                                                    |
-#      | AppName   | TopTen          |            | index=yott* ERROR AND tag:sample04061424* \|top 10 'appname'           |
-#      | AppName   | RemoveDuplicate |            | index=yott* ERROR AND tag:sample04061424* \|stats dc('appname')        |
-#      | AppName   | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count('appname') |
-#      | AppName   | FileterField    | java       | index=yott* (ERROR AND tag:sample04061424*) AND 'appname':java         |
-#      | AppName   | ShieldField     | java       | index=yott* (ERROR AND tag:sample04061424*) AND NOT 'appname':java     |
-      | Timestamp | MaxValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats max('timestamp')     |
-      | Timestamp | MinValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats min('timestamp')     |
-      | Timestamp | AvgStats      | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('timestamp')     |
-      | Timestamp | AvgSequential | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('timestamp') |
+      | fieldName | optional        | fieldValue | spl                                                                    |
+      | AppName   | TopTen          |            | index=yott* ERROR AND tag:sample04061424* \|top 10 'appname'           |
+      | AppName   | RemoveDuplicate |            | index=yott* ERROR AND tag:sample04061424* \|stats dc('appname')        |
+      | AppName   | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count('appname') |
+      | AppName   | FileterField    | java       | index=yott* (ERROR AND tag:sample04061424*) AND 'appname':java         |
+      | AppName   | ShieldField     | java       | index=yott* (ERROR AND tag:sample04061424*) AND NOT 'appname':java     |
+      | Timestamp | MaxValue        | all        | index=yott* ERROR AND tag:sample04061424* \|stats max('timestamp')     |
+      | Timestamp | MinValue        | all        | index=yott* ERROR AND tag:sample04061424* \|stats min('timestamp')     |
+      | Timestamp | AvgStats        | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('timestamp')     |
+      | Timestamp | AvgSequential   | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('timestamp') |
