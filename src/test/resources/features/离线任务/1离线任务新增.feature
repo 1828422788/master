@@ -9,7 +9,6 @@ Feature: 离线任务新增
     And I click the "DateEditor" button
     And I click the "ThirtySeconds" button
     And I click the "SearchButton" button
-    And I click the "SaveAsReport" button
     And I click the "OfflineTask" button
     Then I will see the success message "实时窗口搜索模式无法进行该操作!"
 
@@ -22,7 +21,6 @@ Feature: 离线任务新增
     And I click the "DateEditor" button
     And I click the "WholeTime" button
     And I click the "SearchButton" button
-    Then I click the "SaveAsReport" button
     Then I click the "OfflineTask" button
     Then I click the "EnsureCreateOfflineTask" button
     Then I will see the success message "<message>"
@@ -37,7 +35,6 @@ Feature: 离线任务新增
     And I click the "DateEditor" button
     And I click the "<time>" button
     And I click the "SearchButton" button
-    Then I click the "SaveAsReport" button
     Then I click the "OfflineTask" button
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button
@@ -61,7 +58,6 @@ Feature: 离线任务新增
     And I choose the "天前" from the "DaysDropDown"
     Then I click the "ApplyButton" button
     And I click the "SearchButton" button
-    Then I click the "SaveAsReport" button
     Then I click the "OfflineTask" button
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button
@@ -79,7 +75,6 @@ Feature: 离线任务新增
     Then I set the parameter "TimeInput" with value "<beginTime>"
     Then I click the "ApplyButton" button
     And I click the "SearchButton" button
-    Then I click the "SaveAsReport" button
     Then I click the "OfflineTask" button
     Then I will see the success message "实时窗口搜索模式无法进行该操作!"
 
@@ -94,7 +89,6 @@ Feature: 离线任务新增
     And I trigger the button "CustomTime"
     And I click the "SearchButton" button
     Then take a screenshot
-    Then I click the "SaveAsReport" button
     Then I click the "OfflineTask" button
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button

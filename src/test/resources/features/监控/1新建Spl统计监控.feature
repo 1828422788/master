@@ -9,7 +9,6 @@ Feature: 监控新建Spl统计
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I click the "SaveAsReport" button
     And I click the "Alert" button
     And switch to another window
     And I will see the "alert.CreatePage" page

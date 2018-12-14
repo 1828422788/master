@@ -353,13 +353,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "el-dropdown-menu")
     private List<WebElement> dropDownMenu;
 
-    @FindBy(xpath = "//li[text()='离线任务']")
+    @FindBy(xpath = "//span[text()='新建离线任务']")
     private WebElement offlineTask;
 
     @FindBy(xpath = "//span[text()='新建搜索']")
     private WebElement savedSearch;
 
-    @FindBy(xpath = "//li[text()='监控']")
+    @FindBy(xpath = "//span[text()='新建监控']")
     private WebElement alert;
 
     @FindBy(xpath = "//button[@class='el-button el-button--primary']/span[text()='确定']")
