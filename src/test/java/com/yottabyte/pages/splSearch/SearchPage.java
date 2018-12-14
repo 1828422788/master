@@ -44,7 +44,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "yw-searchbar__append")
     private WebElement searchButton;
 
-    @FindBy(className = "icon-dakai_icon")
+    @FindBy(xpath = "//span[text()='已存搜索']")
     private WebElement openSavedSearchButton;
 
     @FindBy(xpath = "//div[@class='yw-search-form-el-input normal-input margin-left el-input']/input")
@@ -356,7 +356,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='离线任务']")
     private WebElement offlineTask;
 
-    @FindBy(xpath = "//li[text()='已存搜索']")
+    @FindBy(xpath = "//span[text()='新建搜索']")
     private WebElement savedSearch;
 
     @FindBy(xpath = "//li[text()='监控']")
