@@ -53,6 +53,13 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-table__empty-text")
     private WebElement emptyText;
 
+    @FindBy(xpath = "//span[text()='更多']/following-sibling::div//label")
+    private WebElement title;
+
+    public WebElement getTitle() {
+        return title;
+    }
+
     public WebElement getMessage() {
         return super.getErrorMessage();
     }

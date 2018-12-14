@@ -47,6 +47,13 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'保存')])[last()]")
     private WebElement saveMember;
 
+    @FindBy(xpath = "//span[contains(text(),'添加成员')]/ancestor::button")
+    private WebElement addMemberButtonStatus;
+
+    public WebElement getAddMemberButtonStatus() {
+        return addMemberButtonStatus;
+    }
+
     public WebElement getSaveMember() {
         return saveMember;
     }

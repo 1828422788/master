@@ -26,7 +26,7 @@ public class ClickSomeButton {
     public void iClickTheButton(String buttonName) {
         if (buttonName != null && buttonName.trim().length() != 0) {
             String parameters = "";
-            WebElement button = null;
+            WebElement button;
             if (JsonStringPaser.isJson(buttonName)) {
                 Map<String, Object> map = JsonStringPaser.json2Stirng(buttonName);
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
@@ -122,8 +122,8 @@ public class ClickSomeButton {
     }
 
     @And("^I click the \"([^\"]*)\" button under some element$")
-    public void iClickTheButtonUnderSomeElement(String elementName){
+    public void iClickTheButtonUnderSomeElement(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        ((JavascriptExecutor)webDriver).executeScript("arguments[0].click()", element);
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", element);
     }
 }

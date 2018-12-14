@@ -66,11 +66,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public List<WebElement> getIntraGroupManagement(String targetName) {
-        if (webElement != null) {
-            return webElement.findElements(By.tagName("td")).get(3).findElements(By.className("el-checkbox"));
-        } else {
-            return getElementFromTable(targetName).findElements(By.tagName("td")).get(3).findElements(By.className("el-checkbox"));
-        }
+        return getElementFromTable(targetName).findElements(By.tagName("td")).get(3).findElements(By.className("el-checkbox"));
     }
 
     public WebElement getChooseAllCheckBoxes() {
