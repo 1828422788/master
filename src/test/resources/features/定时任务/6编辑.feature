@@ -13,7 +13,8 @@ Feature: 定时任务编辑
     Then I choose the "<resource>" from the "Resource"
     Then I choose the "<taskGroup>" from the "TaskGroup"
     Then I set the parameter "Period" with value "<period>"
-    Then I set the parameter "StartTime" with value "<startTime>"
+    And I click the "StartTime" button
+    And I set the parameter "StartTomrrow" with value "<startTime>"
     Then I click the "EnsureButton" button
     Then I click the "SaveButton" button
     Then I will see the success message "<result>"

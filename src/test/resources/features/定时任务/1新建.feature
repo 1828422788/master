@@ -63,7 +63,6 @@ Feature: 定时任务新增
     And I click the "Type" button
     And I click the "<groupType>" button
     And I click the "<type>" button
-    And I click the "SearchComplete" button
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "<name>"
@@ -105,7 +104,6 @@ Feature: 定时任务新增
     And I click the "Type" button
     And I click the "<groupType>" button
     And I click the "<type>" button
-    And I click the "SearchComplete" button
     And I click the "Setting" button
     And I choose the "<timeSequence>" from the "SelectData"
     And I click the "Source" button
@@ -146,7 +144,6 @@ Feature: 定时任务新增
     And I click the "Type" button
     And I click the "<groupType>" button
     And I click the "<type>" button
-    And I click the "SearchComplete" button
     And I click the "Setting" button
     Then I choose the "<source>" from the "SelectData"
     And I click the "Target" button
@@ -183,7 +180,6 @@ Feature: 定时任务新增
     And I click the "Type" button
     And I click the "<groupType>" button
     And I click the "<type>" button
-    And I click the "SearchComplete" button
     And I click the "Setting" button
     Then I choose the "<xaxis>" from the "SelectData"
     And I click the "Yaxis" button

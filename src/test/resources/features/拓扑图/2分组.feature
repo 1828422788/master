@@ -11,6 +11,6 @@ Feature: 拓扑图分组
     Then I will see the success message "保存成功"
 
     Examples:
-      | group                                                                       |
-      | cancel selection "default_Topology" from the "GroupInput"                   |
-      | choose the "AutoTestWithAllResource,default_Topology" from the "GroupInput" |
+      | group                                                                           |
+      | cancel selection "default_Topology" from the "GroupInput"                       |
+      | choose the "AutoTestRoleWithAllResource,default_Topology" from the "GroupInput" |
