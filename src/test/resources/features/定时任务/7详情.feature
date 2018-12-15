@@ -6,6 +6,7 @@ Feature: 定时任务详情页截图
 
   Scenario Outline:
     Given I click the detail which name is "<name>"
+    And I will see the "timedTask.DetailPage" page
     When I click the button "LookUpButton" if exist
     And take a screenshot
 
