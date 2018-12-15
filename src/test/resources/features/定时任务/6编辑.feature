@@ -13,21 +13,18 @@ Feature: 定时任务编辑
     Then I choose the "<resource>" from the "Resource"
     Then I choose the "<taskGroup>" from the "TaskGroup"
     Then I set the parameter "Period" with value "<period>"
-    And I click the "StartTime" button
-    And I set the parameter "StartTomrrow" with value "<startTime>"
-    Then I click the "EnsureButton" button
     Then I click the "SaveButton" button
     Then I will see the success message "<result>"
 
   @smoke @timedTaskSmoke
     Examples: 编辑成功
-      | dataName    | name        | describe | user  | resource | taskGroup | period | startTime | result |
-      | sxjAutoTest | sxjAutoTest | first    | owner | all_     |           | 10     | 16:37:55  | 保存成功   |
-      | sxjAutoTest | sxjAutoTest |          | owner | all_     |           | 10     | 16:37:55  | 保存成功   |
+      | dataName    | name        | describe | user  | resource | taskGroup | period | result |
+      | sxjAutoTest | sxjAutoTest | first    | owner | all_     |           | 10     | 保存成功   |
+      | sxjAutoTest | sxjAutoTest |          | owner | all_     |           | 10     | 保存成功   |
 
     Examples: 编辑失败
-      | dataName    | name | describe | user | resource | taskGroup | period | startTime | result  |
-      | sxjAutoTest |      |          |      |          |           |        |           | 名称 不能为空 |
+      | dataName    | name | describe | user | resource | taskGroup | period | result  |
+      | sxjAutoTest |      |          |      |          |           |        | 名称 不能为空 |
 
 
   Scenario Outline: 成功编辑定时任务的结果处理方式
