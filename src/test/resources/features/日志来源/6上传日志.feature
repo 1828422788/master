@@ -1,3 +1,4 @@
+@resourceGroups @all @smoke @resourceGroupsSmoke
 Feature: 日志来源上传日志
 
   Scenario: 上传日志

@@ -3,7 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
-import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -134,6 +134,8 @@ public class RegularSearch {
         Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
         int columnNum = Integer.parseInt(resultMap.get("column").toString());
 
+        boolean flag = false;
+
         outer:
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
@@ -147,11 +149,14 @@ public class RegularSearch {
                 if (tdList.size() >= columnNum) {
                     String actualText = tdList.get(columnNum).getText();
                     String expectText = resultMap.get("name").toString();
-                    if (actualText.contains(expectText))
+                    if (actualText.contains(expectText)) {
+                        flag = true;
                         break outer;
+                    }
                 }
             }
         }
+        Assert.assertTrue(flag);
     }
 
     @Then("^I will see the result time in \"([^\"]*)\"$")
@@ -300,5 +305,29 @@ public class RegularSearch {
         String xpath = ".//td[" + valuesMap.get("column") + "]";
         String actualName = tr.findElement(By.xpath(xpath)).getText();
         Assert.assertEquals(valuesMap.get("name"), actualName);
+    }
+
+    @And("^I will see the search result without paging contains \"([^\"]*)\"$")
+    public void iWillSeeTheSearchResultWithoutPagingContains(String searchResult) {
+        List<WebElement> trList = this.getTrList();
+        if (trList == null)
+            return;
+
+        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
+        int columnNum = Integer.parseInt(resultMap.get("column").toString());
+
+        boolean flag = false;
+        for (WebElement tr : trList) {
+            List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
+            if (tdList.size() >= columnNum) {
+                String actualText = tdList.get(columnNum).getText();
+                String expectText = resultMap.get("name").toString();
+                if (actualText.contains(expectText)) {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        Assert.assertTrue(flag);
     }
 }

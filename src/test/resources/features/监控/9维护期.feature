@@ -5,10 +5,11 @@ Feature: 监控维护期
     Given open the "alert.MaintenancePage" page for uri "/alerts/maintenance/"
 
   @smoke @alertSmoke
-  Scenario Outline: 新建维护期成功
+  Scenario Outline: 新建维护期成功（单次执行）
     Given I click the "Create" button
     When I set the parameter "Reason" with value "<reason>"
     And I choose the "<group>" from the "Group"
+    And I click the "Single" button
     And I click the "StartTime" button
     And I click the "RightNow" button
     And I click the "EndTime" button

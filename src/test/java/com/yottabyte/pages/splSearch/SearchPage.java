@@ -825,6 +825,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='开始']/preceding-sibling::div/input")
     private WebElement startTime;
 
+    @FindBy(xpath = "//span[text()='明天开始']/preceding-sibling::div/input")
+    private WebElement startTomrrow;
+
+    public WebElement getStartTomrrow() {
+        return startTomrrow;
+    }
+
     public WebElement getStartTime() {
         return startTime;
     }

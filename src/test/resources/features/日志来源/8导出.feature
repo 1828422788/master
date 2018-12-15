@@ -1,4 +1,4 @@
-@sourceGroups @all @smoke
+@resourceGroups @all @smoke @resourceGroupsSmoke
 Feature: 日志来源导入来源结构
 
   Background:

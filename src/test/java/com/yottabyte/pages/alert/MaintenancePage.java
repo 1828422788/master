@@ -36,6 +36,13 @@ public class MaintenancePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='输入维护原因']")
     private WebElement searchReason;
 
+    @FindBy(xpath = "//span[text()='单次']")
+    private WebElement single;
+
+    public WebElement getSingle() {
+        return single;
+    }
+
     public WebElement getReturnToAlertPage() {
         return super.getButton("返回监控首页");
     }

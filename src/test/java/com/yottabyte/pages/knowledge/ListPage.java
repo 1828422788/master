@@ -27,16 +27,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//*[text()='编辑']")
     private WebElement edit;
 
-    @FindBy(xpath = "//label[@class='el-form-item__label'][contains(text(),'事件代码')]/following-sibling::div//input")
-    private WebElement eventCode;
-
     @FindBy(xpath = "//input[@placeholder='默认与事件代码相同']")
     private WebElement knowledgeName;
 
     @FindBy(className = "el-select-dropdown")
     private List<WebElement> selectors;
 
-    @FindBy(xpath = "//label[@class='el-form-item__label'][contains(text(),'描述')]/following-sibling::div//textarea")
+    @FindBy(xpath = "//label[contains(text(),'事件描述')]/following-sibling::div//textarea")
     private WebElement describe;
 
     @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//span[@class='modal-footer']//span[contains(text(),'确定')]")
@@ -49,7 +46,7 @@ public class ListPage extends PageTemplate {
         return ensure;
     }
 
-    @FindBy(xpath = "//label[@class='el-form-item__label'][contains(text(),'解决方案')]/following-sibling::div//textarea")
+    @FindBy(xpath = "//label[contains(text(),'解决方案')]/following-sibling::div//textarea")
     private WebElement solution;
 
     @FindBy(className = "el-dialog--tiny")
@@ -169,8 +166,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getEventCode() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(eventCode));
-        return eventCode;
+        return super.getInputElement("事件代码");
     }
 
     public List<WebElement> getSelectors() {

@@ -10,7 +10,7 @@ Feature: 高级搜索视图
     And I wait element "SearchStatus" change text to "搜索完成!"
     Then I will see the "splSearch.StatisticalPage" page
 
-  @smoke
+  @splSmoke
   Scenario: 设置表格颜色（第一列为梯度、第二列为范围、第三列为值）
     Given I click the "FirstEditColourButton" button
     When I choose the "梯度" from the "ColourDropdown"

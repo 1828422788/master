@@ -17,7 +17,8 @@ Feature: 定时任务新增
     And I choose the "<users>" from the "UserComboBox"
     And I choose the "<groups>" from the "GroupComboBox"
     And I set the parameter "Period" with value "<period>"
-    And I set the time input "StartTime" to "2" minutes later
+    And I click the "StartTime" button
+    And I set the time input "StartTomrrow" to "2" minutes later
     And I click the "EnsureButton" button
     And I display the element "TimePanel"
     And I click the "Ensure" button
@@ -70,7 +71,8 @@ Feature: 定时任务新增
     And I choose the "<users>" from the "UserComboBox"
     And I choose the "<groups>" from the "GroupComboBox"
     And I set the parameter "Period" with value "<period>"
-    And I set the time input "StartTime" to "2" minutes later
+    And I click the "StartTime" button
+    And I set the time input "StartTomrrow" to "2" minutes later
     And I click the "EnsureButton" button
     And I display the element "TimePanel"
     And I click the "Ensure" button
@@ -123,7 +125,8 @@ Feature: 定时任务新增
     And I choose the "<users>" from the "UserComboBox"
     And I choose the "<groups>" from the "GroupComboBox"
     And I set the parameter "Period" with value "<period>"
-    And I set the time input "StartTime" to "2" minutes later
+    And I click the "StartTime" button
+    And I set the time input "StartTomrrow" to "2" minutes later
     And I click the "EnsureButton" button
     And I display the element "TimePanel"
     And I click the "Ensure" button
@@ -159,7 +162,8 @@ Feature: 定时任务新增
     And I choose the "<users>" from the "UserComboBox"
     And I choose the "<groups>" from the "GroupComboBox"
     And I set the parameter "Period" with value "<period>"
-    And I set the time input "StartTime" to "2" minutes later
+    And I click the "StartTime" button
+    And I set the time input "StartTomrrow" to "2" minutes later
     And I click the "EnsureButton" button
     And I display the element "TimePanel"
     And I click the "Ensure" button
@@ -195,7 +199,8 @@ Feature: 定时任务新增
     Then I choose the "<users>" from the "UserComboBox"
     Then I choose the "<groups>" from the "GroupComboBox"
     Then I set the parameter "Period" with value "<period>"
-    And I set the time input "StartTime" to "2" minutes later
+    And I click the "StartTime" button
+    And I set the time input "StartTomrrow" to "2" minutes later
     Then I click the "EnsureButton" button
     And I display the element "TimePanel"
     Then I click the "Ensure" button

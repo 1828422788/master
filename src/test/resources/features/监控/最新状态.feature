@@ -5,14 +5,6 @@ Feature: 监控最新状态
     Given open the "alert.ListPage" page for uri "/alerts/"
 
   @smoke @alertSmoke
-  Scenario: 展开/收起重复告警
-    Given I click the "LatestStatus" button
-    Then I will see the "alert.MonitorPage" page
-    When I click the expand button "Expand" if exist
-    And I click the "Retract" button
-    Then take a screenshot
-
-  @smoke @alertSmoke
   Scenario Outline: 按分组和状态搜索
     Given I click the "LatestStatus" button
     And I will see the "alert.MonitorPage" page
@@ -35,9 +27,9 @@ Feature: 监控最新状态
 
     Examples:
       | time       | num | searchTime |
-#      | TenMinutes | 5   | 10m        |
-#      | HalfHour   | 5   | 30m        |
-#      | OneHour    | 5   | 1h         |
+      | TenMinutes | 5   | 10m        |
+      | HalfHour   | 5   | 30m        |
+      | OneHour    | 5   | 1h         |
       | OneDay     | 5   | 1d         |
       | TwoDays    | 5   | 2d         |
       | SevenDays  | 5   | 7d         |

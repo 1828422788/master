@@ -1,5 +1,5 @@
 @spl @all
-Feature: 普通统计视图
+Feature: 普通统计视图（有截图）
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -15,7 +15,7 @@ Feature: 普通统计视图
     Then I click the "AddButton" button
     Then I will see the error message "请选择统计字段"
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 事件计数
     Given I choose the "<presentType>" from the "PresentType"
     Then I choose the "<fieldValue>" from the "FieldValue"
@@ -70,7 +70,7 @@ Feature: 普通统计视图
       | 柱状图         | tag        | appname     | logtype     | hostname    | ip          |             |
       | 柱状图         | tag        | appname     | logtype     | hostname    | ip          | source      |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 事件计数(勾选独立数统计)
     Given I choose the "<presentType>" from the "PresentType"
     Then I choose the "<fieldValue>" from the "FieldValue"
@@ -126,7 +126,7 @@ Feature: 普通统计视图
       | 柱状图         | tag        | appname     | logtype     | hostname    | ip          |             |
       | 柱状图         | tag        | appname     | logtype     | hostname    | ip          | source      |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 时间分段
     Given I click the "TimeSlice" button
     Then I choose the "<fieldValue>" from the "FieldValue"
@@ -171,7 +171,7 @@ Feature: 普通统计视图
       | json.duration |            | 请填写合理的数值分段！ |
       | json.duration | 1          | 请填写合理的数值分段！ |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 数值分段
     Given I click the "DataSlice" button
     When I choose the "<fieldValue>" from the "FieldValue"
@@ -199,7 +199,7 @@ Feature: 普通统计视图
       | -1       | 请输入正整数      |
       | 0.5      | 请输入正整数      |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 时间直方图
     Given I click the "TimeHistogram" button
     Then I set the parameter "TimeSpan" with value "<timeSpan>"
@@ -232,7 +232,7 @@ Feature: 普通统计视图
       | json.duration | -1     | 请输入正整数      |
       | json.duration | 0.5    | 请输入正整数      |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 生成数值直方图
     Given I click the "DataHistogram" button
     When I choose the "<fieldValue>" from the "FieldValue"
@@ -255,7 +255,7 @@ Feature: 普通统计视图
       | message |
       | 请选择统计字段 |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 生成字段值分类
     Given I click the "ClassifyFieldValue" button
     When I choose the "<fieldValue>" from the "FieldValue"
@@ -298,7 +298,7 @@ Feature: 普通统计视图
       | apache.resp_len | apache.clientip | -1     | 1          | 请正确填写分组字段值! |
       | apache.resp_len | apache.clientip | 0.5    | 1          | 请正确填写分组字段值! |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 生成字段数值
     Given I click the "FieldNumber" button
     When I choose the "<yAxis>" from the "YAxis"
@@ -330,7 +330,7 @@ Feature: 普通统计视图
       | apache.resp_len | apache.clientip | 5      | 最小值           |             | 1          | 天        |
       | apache.resp_len | apache.clientip | 5      | 最小值           | 柱状图         | 1          | 天        |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 生成字段数值
     Given I click the "FieldNumber" button
     When I choose the "<yAxis>" from the "YAxis"
@@ -368,7 +368,7 @@ Feature: 普通统计视图
       | json.duration | 0       | 请输入正确的数值(0<数值<100) |
       | json.duration | -1      | 请输入正确的数值(0<数值<100) |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 生成累计百分比
     Given I click the "TotalPercent" button
     When I choose the "<fieldValue>" from the "FieldValue"
@@ -396,7 +396,7 @@ Feature: 普通统计视图
       | apache.status |           | 请输入目标值。   |
       | apache.status | test      | 请填写合理的数值！ |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 生成百分位等级成功
     Given I click the "PercentDegree" button
     When I choose the "<fieldValue>" from the "FieldValue"
@@ -415,7 +415,7 @@ Feature: 普通统计视图
     When I click the "Generate" button
     Then I will see the error message "请选择统计字段"
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 生成多级统计成功(统计图)
     Given I click the "MultilevelStatistics" button
     When I choose the "<fieldValue>" from the "FieldValue"
@@ -439,7 +439,7 @@ Feature: 普通统计视图
       | tag        | 20         | 柱状图         | 120        | 分钟         |
       | tag        |            | 柱状图         | 3600       | 秒          |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 生成多级统计成功(统计图)
     Given I click the "MultilevelStatistics" button
     When I choose the "<fieldValue>" from the "FieldValue"
@@ -458,7 +458,7 @@ Feature: 普通统计视图
       | tag        | 10         | 饼图          |
       | tag        | 20         | 条形图         |
 
-  @smoke
+  @smoke @splSmoke
   Scenario Outline: 生成多级统计成功(下一步)
     Given I click the "MultilevelStatistics" button
     When I choose the "<fieldValue>" from the "FieldValue"
@@ -491,7 +491,7 @@ Feature: 普通统计视图
     When I click the "Generate" button
     Then I will see the error message "请选择统计字段"
 
-  @smoke
+  @smoke @splSmoke
   Scenario: 生成地理分布成功
     Given I click the "GeographicalDistribution" button
     When I choose the "apache.geo.country" from the "FieldValue"
