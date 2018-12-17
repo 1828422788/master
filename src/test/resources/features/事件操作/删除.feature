@@ -1,5 +1,5 @@
 @all @event @smoke @eventSmoke
-Feature: 事件操作搜索
+Feature: 事件操作删除
 
   Background:
     Given open the "event.ListPage" page for uri "/event/action/"

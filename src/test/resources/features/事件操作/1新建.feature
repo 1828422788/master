@@ -1,5 +1,5 @@
 @all @event
-Feature: 事件操作新建
+Feature: 事件操作新建（RZY-1387）
 
   Background:
     Given open the "event.ListPage" page for uri "/event/action/"
@@ -24,7 +24,6 @@ Feature: 事件操作新建
     Examples:
       | name     | alias              | field | display | action | url                                                                                                                                            | openUrl | message |
       | AutoTest | ${apache.clientip} |       | 两者      | 链接     | http://192.168.1.200/search/?query=${apache.clientip}&time_range=-30m,now&order=desc&size=20&page=1&sourcegroup=all&_t=1530688101882&title=tyf | 新窗口     | 保存成功    |
-
 
   Scenario Outline: 保存失败
     When I click the "CreateButton" button

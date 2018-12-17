@@ -6,7 +6,7 @@ Feature: 事件操作编辑
     And the data name is "AutoTest" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
 
-  Scenario Outline: 链接类型
+  Scenario Outline: 链接类型（RZY-1377）
     When I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Field" with value "<field>"
     And I choose the "<action>" from the "Action"
@@ -19,7 +19,7 @@ Feature: 事件操作编辑
       | alias | field   | action | inputName | url                                   | openUrl |
       |       | logtype |        | Url       | https://www.baidu.com/s?wd=${logtype} | 当前窗口    |
 
-  Scenario Outline: 搜索类型
+  Scenario Outline: 搜索类型（RZY-1378）
     When I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Field" with value "<field>"
     And I choose the "<action>" from the "Action"
@@ -31,7 +31,7 @@ Feature: 事件操作编辑
       | alias | field   | action | inputName | url                  |
       |       | logtype | 搜索     | Spl       | hostname:${hostname} |
 
-  Scenario Outline: 美化格式
+  Scenario Outline: 美化格式（RZY-1379，RZY-1388）
     When I choose the "美化格式" from the "Action"
     And I choose the "<displayMethod>" from the "DisplayMethod"
     And I click the "SaveButton" button
