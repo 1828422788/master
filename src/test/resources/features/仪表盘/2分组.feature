@@ -1,5 +1,5 @@
 @dashboard @all @smoke @dashboardSmoke
-Feature: 仪表盘分组
+Feature: 仪表盘分组（RZY-212、RZY-217至RZY-221）
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

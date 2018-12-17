@@ -1,5 +1,5 @@
 @dashboard
-Feature: 仪表盘新建
+Feature: 仪表盘新建（RZY-208至RZY-210）
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

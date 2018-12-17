@@ -1,5 +1,5 @@
 @resourceGroups @all @smoke @resourceGroupsSmoke
-Feature: 日志来源导入来源结构
+Feature: 日志来源导入来源结构（RZY-374）
 
   Background:
     Given open the "sourceGroup.StructurePage" page for uri "/sources/sourcegroups/structure/"

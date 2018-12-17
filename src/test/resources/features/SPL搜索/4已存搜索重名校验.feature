@@ -14,4 +14,3 @@ Feature: 已存搜索重名校验
     Examples: 保存成功
       | name        | group               | message |
       | AutoTest重名1 | default_SavedSearch | 创建成功    |
-

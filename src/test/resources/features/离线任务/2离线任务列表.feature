@@ -9,7 +9,6 @@ Feature: 离线任务的暂停、恢复、取消、加载以及删除
     And I click the "DateEditor" button
     And I click the "<time>" button
     And I click the "SearchButton" button
-    And I click the "SaveAsReport" button
     And I click the "OfflineTask" button
     And I set the parameter "OfflineTaskName" with value "<name>"
     And I click the "EnsureCreateOfflineTask" button
@@ -57,12 +56,10 @@ Feature: 离线任务的暂停、恢复、取消、加载以及删除
     And I click the "DateEditor" button
     And I click the "<time>" button
     And I click the "SearchButton" button
-    And I click the "SaveAsReport" button
     And I click the "OfflineTask" button
     And I set the parameter "OfflineTaskName" with value "<name>"
     And I click the "EnsureCreateOfflineTask" button
     And open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-#    Then I will see the "DeleteButton" is not exist
     And the data name is "<name>" then i click the "暂停" button
     And I click the "EnsureButton" button
     And the data name is "<name>" then i click the "删除" button

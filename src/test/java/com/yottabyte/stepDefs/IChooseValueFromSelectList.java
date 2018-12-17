@@ -18,6 +18,9 @@ public class IChooseValueFromSelectList {
 
     @And("^I choose the \"([^\"]*)\" from the \"([^\"]*)\"$")
     public void iChooseTheFromThe(List<String> values, String selectListName) {
+        if (values.size() == 0) {
+            return;
+        }
         Object o = GetElementFromPage.getWebElementWithName(selectListName);
         if (o != null) {
             if (GetElementFromPage.type.getTypeName().contains("List")) {

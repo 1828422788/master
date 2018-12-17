@@ -1,5 +1,5 @@
 @all @indexSetting @smoke @indexSettingSmoke
-Feature: 入库优先级删除
+Feature: 入库优先级删除（RZY-1486）
 
   Background:
     Given open the "ingestPriority.ListPage" page for uri "/ingestpriority/"

@@ -16,6 +16,7 @@ Feature: 知识搜索
 
   Scenario Outline: 全文搜索
     When I set the parameter "SearchInput" with value "<search>"
+    And I click the "SearchButton" button
     Then I will see the element value in json "<value>"
 
     Examples:

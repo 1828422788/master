@@ -1,5 +1,5 @@
 @dashboard @smoke @dashboardSmoke @all
-Feature: 仪表盘重命名
+Feature: 仪表盘重命名（RZY-213）
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

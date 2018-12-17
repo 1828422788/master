@@ -13,7 +13,7 @@ Feature: 日志来源搜索
 
     Examples:
       | group               | name          |
-      | default_SourceGroup | sunxjautotest |
+      | default_SourceGroup | sxjautotest |
 
   Scenario Outline: 查看最近几天的日志来源
     When I set the parameter "RecentDays" with value "<recentDays>"

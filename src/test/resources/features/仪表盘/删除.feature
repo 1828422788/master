@@ -1,5 +1,5 @@
 @dashboard @all @smoke @dashboardSmoke
-Feature: 仪表盘删除
+Feature: 仪表盘删除（RZY-214）
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

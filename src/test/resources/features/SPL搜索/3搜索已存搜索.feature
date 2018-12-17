@@ -1,5 +1,5 @@
 @smoke @spl @all @splSmoke
-Feature: 已存搜索查询
+Feature: 已存搜索查询（RZY-157）
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

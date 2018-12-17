@@ -15,7 +15,7 @@ Feature: 知识新建
     And I set the parameter "Describe" with value "<Describe>"
     And I set the parameter "Solution" with value "<Solution>"
     And I click the "Confirm" button
-    And I wait for loading invisible
+#    And I wait for loading invisible
     Then I will see the <Result>
 
   @smoke
@@ -27,9 +27,9 @@ Feature: 知识新建
 
     Examples: 保存失败
       | EventCodeValue | NameValue | Type              | TagType | Describe | Solution | Result                  |
-      |                |           |                   |         |          |          | error message "请输入事件代码" |
-      |                |           | default_Knowledge |         | 22       |          | error message "请输入事件代码" |
-      |                |           | default_Knowledge |         |          |          | error message "请输入事件代码" |
-      |                |           |                   |         | 22       |          | error message "请输入事件代码" |
-      | newCode        |           | default_Knowledge |         |          |          | error message "请输入描述"   |
+      |                |           |                   | 404     |          |          | error message "请输入事件代码" |
+      |                |           | default_Knowledge | 404     | 22       |          | error message "请输入事件代码" |
+      |                |           | default_Knowledge | 404     |          |          | error message "请输入事件代码" |
+      |                |           |                   | 404     | 22       |          | error message "请输入事件代码" |
+      | newCode        |           | default_Knowledge | 404     |          |          | error message "请输入描述"   |
 

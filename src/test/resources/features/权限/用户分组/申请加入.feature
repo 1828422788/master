@@ -12,7 +12,7 @@ Feature: 用户分组申请加入
     And I wait for "2000" millsecond
     And open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And the data name is "{'column':'1','name':'admin'}" then i click the "申请加入" button
-    Then I will see the message "请自己联系该分组的管理角色进行授权，可找角色: admin"
+    Then I will see the message contains "请自己联系该分组的管理角色进行授权，可找角色: admin"
 
     Examples:
       | username | password   |

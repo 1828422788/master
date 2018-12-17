@@ -1,7 +1,7 @@
 @alert @all @smoke @alertSmoke
 Feature: 监控新建事件数并填写告警方式
 
-  Scenario Outline: 创建一个事件数监控-一种告警方式
+  Scenario Outline: 创建一个事件数监控-一种告警方式（RZY-445、RZY-446、RZY-448、RZY-449）
     Given open the "alert.ListPage" page for uri "/alerts/"
     When I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
@@ -32,7 +32,6 @@ Feature: 监控新建事件数并填写告警方式
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I click the "SaveAsReport" button
     And I click the "SavedSearch" button
     And I wait for loading invisible
     And I set the parameter "OfflineTaskName" with value "<savedSearch>"

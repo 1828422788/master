@@ -36,9 +36,6 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'事件描述')]/following-sibling::div//textarea")
     private WebElement describe;
 
-    @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//span[@class='modal-footer']//span[contains(text(),'确定')]")
-    private WebElement confirm;
-
     @FindBy(xpath = "//div[@class='el-dialog el-dialog--tiny']//span[@class='modal-footer']//span[contains(text(),'确定')]")
     private WebElement ensure;
 
@@ -155,7 +152,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getConfirm() {
-        return confirm;
+        return super.getButton("保存");
     }
 
     public WebElement getDescribe() {
@@ -234,5 +231,9 @@ public class ListPage extends PageTemplate {
         String className = null;
         List<WebElement> list = tableBody.findElements(By.tagName("tr"));
         return list;
+    }
+
+    public WebElement getSearchButton(){
+        return super.getButton("全文搜索");
     }
 }

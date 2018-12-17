@@ -1,12 +1,12 @@
 @all @indexSetting
-Feature: 入库优先级新建
+Feature: 入库优先级新建（RZY-1485）
 
   Background:
     Given open the "ingestPriority.ListPage" page for uri "/ingestpriority/"
     And I click the "CreateButton" button
     Then I will see the "ingestPriority.CreatePage" page
 
-  Scenario Outline:
+  Scenario Outline: 入库优先级新建
     When I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<tag>"
     And I choose the "<priority>" from the "Priority"

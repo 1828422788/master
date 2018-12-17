@@ -1,5 +1,5 @@
 @spl @all
-Feature: 已存搜索新建
+Feature: 已存搜索新建（RZY-150）
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

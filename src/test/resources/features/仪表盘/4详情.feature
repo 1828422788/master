@@ -17,7 +17,7 @@ Feature: 仪表盘详情页
       | t e s t | 名称格式有误, 仅支持汉字，数字，字母，中划线及下划线 |
 
   @smoke @dashboardSmoke
-  Scenario Outline: 检查按钮
+  Scenario Outline: 打开/关闭编辑、全屏操作、夜间模式（RZY-228、RZY-229、RZY-237、RZY-238）
     When I set the parameter "TagName" with value "<tagName>"
     And I click the "EnsureCreateTagButton" button
     And I will see the "<button>" is clickable
@@ -27,14 +27,13 @@ Feature: 仪表盘详情页
     And I will see the "Filter" is display
     And I click the "NightModeButton" button
     And I click the "FullScreenButton" button
-    Then take a screenshot
 
     Examples:
       | tagName | button                                                                                 | disabledButton                     |
       | first   | AddButton,MoveButton,RefreshButton,SaveAsReportButton,NightModeButton,FullScreenButton | AddButton,MoveButton,RefreshButton |
 
   @smoke @dashboardSmoke
-  Scenario Outline: 移出标签页
+  Scenario Outline: 移出标签页（RZY-230）
     When I click the "OpenEdit" button
     And I click the "MoveButton" button
     And I check "<dashboardName>" from the "CheckBox"
@@ -49,7 +48,7 @@ Feature: 仪表盘详情页
       | first   | UIautotest    |
 
   @smoke @dashboardSmoke
-  Scenario Outline: 跳转到其他仪表盘
+  Scenario Outline: 跳转到其他仪表盘（RZY-240）
     When I set the parameter "TagName" with value "<tagName>"
     And I click the "EnsureCreateTagButton" button
     When I choose the "<dashboardName>" from the "DropdownList"
@@ -61,7 +60,7 @@ Feature: 仪表盘详情页
       | first   | UIautotest    |
 
   @smoke @dashboardSmoke
-  Scenario Outline: 回收站操作
+  Scenario Outline: 回收站操作（RZY-241至RZY-244）
     When I click the "CloseTag" button
     And I wait for loading invisible
     Then I will see the "DropDownLinkButton" result will be "<num>"
@@ -96,7 +95,7 @@ Feature: 仪表盘详情页
       | first   | [ 1 ] |
 
   @smoke @dashboardSmoke
-  Scenario Outline: 添加下拉菜单类型的过滤项
+  Scenario Outline: 添加下拉菜单类型的过滤项（RZY-253）
     When I set the parameter "TagName" with value "<tagName>"
     And I click the "EnsureCreateTagButton" button
     And I click the "AddEventButton" button
@@ -130,7 +129,7 @@ Feature: 仪表盘详情页
       | 添加输入项     | InputTitle  | test  | EnsureCreateInput  | 请输入输入项token |
 
   @smoke @dashboardSmoke
-  Scenario Outline: 添加动态菜单类型的过滤项
+  Scenario Outline: 添加动态菜单类型的过滤项（RZY-258）
     Given I click the "AddEventButton" button
     And I choose the "<eventList>" from the "EventList"
     And I set the parameter "FilterTitle" with value "<title>"

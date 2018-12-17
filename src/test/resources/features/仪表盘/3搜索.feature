@@ -1,5 +1,5 @@
 @dashboard @all @smoke @dashboardSmoke
-Feature: 仪表盘搜索
+Feature: 仪表盘搜索（RZY-216）
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

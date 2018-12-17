@@ -1,5 +1,5 @@
 @all @indexSetting @smoke @indexSettingSmoke
-Feature: 入库优先级编辑
+Feature: 入库优先级编辑（RZY-1487）
 
   Background:
     Given open the "ingestPriority.ListPage" page for uri "/ingestpriority/"
