@@ -4,7 +4,7 @@ Feature: 日志展现
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
-  Scenario Outline: 内置字段不可移除（取消内置字段的星号）
+  Scenario Outline: 内置字段不可移除（取消内置字段的星号）（RZY-207）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -22,7 +22,7 @@ Feature: 日志展现
       | index=yott* ERROR AND tag:sample04061424* | logtype  | iconfont icon-yishoucang pointer-btn |
       | index=yott* ERROR AND tag:sample04061424* | hostname | iconfont icon-yishoucang pointer-btn |
 
-  Scenario Outline: 选中字段（标记星号）
+  Scenario Outline: 选中字段（标记星号）（RZY-207）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -39,7 +39,7 @@ Feature: 日志展现
       | index=yott* ERROR AND tag:sample04061424* | java.message | iconfont icon-shoucang pointer-btn   | SavedFields   | ajava.message |
       | index=yott* ERROR AND tag:sample04061424* | java.message | iconfont icon-yishoucang pointer-btn | UnsavedFields | amessage      |
 
-  Scenario Outline: 字段列表快捷过滤
+  Scenario Outline: 字段列表快捷过滤（RZY-171）
     Given I set the parameter "SearchInput" with value "index=yott* ERROR AND tag:sample04061424* "
     And I click the "DateEditor" button
     And I click the "Today" button

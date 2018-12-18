@@ -142,7 +142,7 @@ Feature: 拓扑图详情页
     Then I click the "LeftValueButton" button
     Then I set the parameter "TextArea" with value "<leftValue>"
     Then I click the "DateEditor" button
-    And I click the "Yesterday" button
+    And I click the "LastWeek" button
     And I click the "SearchButton" button
     Then I will see the success message "搜索完成!"
     Then I choose the "<leftField>" from the "FiledInput"
@@ -218,8 +218,8 @@ Feature: 拓扑图详情页
 
   @all @smoke @topologySmoke
     Examples:
-      | nodeName    | nodeGroup     | leftValue                                                                                                                                                                                                                                                                                                   | leftField | rightValue                                                               | rightField               |
-      | sxjautotest | autotestgroup | tag:"sample04061424" \| eval res_mul=apache.resp_len*apache.status*0 - apache.resp_len*apache.status/apache.status%1000 \| eval r_add=apache.resp_len+apache.status*10-apache.resp_len-9*apache.status \| eval res_concat = appname + apache.clientip + apache.geo.city \| table res_mul, r_add, res_concat | r_add     | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
+      | nodeName    | nodeGroup     | leftValue          | leftField | rightValue                                                               | rightField               |
+      | sxjautotest | autotestgroup | * \| stats count() | count()   | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
 
   Scenario Outline: 第四种布局方式（RZY-1152）
     Given I click the "SwitchButton" button
@@ -279,8 +279,8 @@ Feature: 拓扑图详情页
 
   @all @smoke @topologySmoke
     Examples:
-      | nodeName    | nodeGroup     | leftValue                                                                                                                                                                                                                                                  | leftField | rightValue         | rightField |
-      | sxjautotest | autotestgroup | tag:"sample04061424" AND apache.resp_len:>2000 \| eval resplen=apache.resp_len \| eval status=apache.status \| eval mid=apache.resp_len+apache.status \| eval res_mul=(apache.resp_len+apache.status)*apache.status \| table resplen, status, mid, res_mul | status    | * \| stats count() | count()    |
+      | nodeName    | nodeGroup     | leftValue          | leftField | rightValue         | rightField |
+      | sxjautotest | autotestgroup | * \| stats count() | count()   | * \| stats count() | count()    |
 
   Scenario Outline: 第五种布局方式（RZY-1153）
     Given I click the "SwitchButton" button

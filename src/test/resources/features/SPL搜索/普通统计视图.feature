@@ -16,7 +16,7 @@ Feature: 普通统计视图（有截图）
     Then I will see the error message "请选择统计字段"
 
   @smoke @splSmoke
-  Scenario Outline: 事件计数
+  Scenario Outline: 事件计数（RZY-806至810）
     Given I choose the "<presentType>" from the "PresentType"
     Then I choose the "<fieldValue>" from the "FieldValue"
     Then I click the "AddButton" button
@@ -71,7 +71,7 @@ Feature: 普通统计视图（有截图）
       | 柱状图         | tag        | appname     | logtype     | hostname    | ip          | source      |
 
   @smoke @splSmoke
-  Scenario Outline: 事件计数(勾选独立数统计)
+  Scenario Outline: 事件计数(勾选独立数统计)（RZY-811）
     Given I choose the "<presentType>" from the "PresentType"
     Then I choose the "<fieldValue>" from the "FieldValue"
     And I click the "EventCheckBox" button
@@ -127,7 +127,7 @@ Feature: 普通统计视图（有截图）
       | 柱状图         | tag        | appname     | logtype     | hostname    | ip          | source      |
 
   @smoke @splSmoke
-  Scenario Outline: 时间分段
+  Scenario Outline: 时间分段（RZY-812至813）
     Given I click the "TimeSlice" button
     Then I choose the "<fieldValue>" from the "FieldValue"
     Then I choose the "<statisticType>" from the "StatisticType"
@@ -172,7 +172,7 @@ Feature: 普通统计视图（有截图）
       | json.duration | 1          | 请填写合理的数值分段！ |
 
   @smoke @splSmoke
-  Scenario Outline: 数值分段
+  Scenario Outline: 数值分段（RZY-814）
     Given I click the "DataSlice" button
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "StartDataValue" with value "<startValue>"
@@ -200,7 +200,7 @@ Feature: 普通统计视图（有截图）
       | 0.5      | 请输入正整数      |
 
   @smoke @splSmoke
-  Scenario Outline: 时间直方图
+  Scenario Outline: 时间直方图（RZY-815）
     Given I click the "TimeHistogram" button
     Then I set the parameter "TimeSpan" with value "<timeSpan>"
     And I choose the "<time>" from the "Time"
@@ -233,7 +233,7 @@ Feature: 普通统计视图（有截图）
       | json.duration | 0.5    | 请输入正整数      |
 
   @smoke @splSmoke
-  Scenario Outline: 生成数值直方图
+  Scenario Outline: 生成数值直方图（RZY-816）
     Given I click the "DataHistogram" button
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "DataSpan" with value "<number>"
@@ -256,7 +256,7 @@ Feature: 普通统计视图（有截图）
       | 请选择统计字段 |
 
   @smoke @splSmoke
-  Scenario Outline: 生成字段值分类
+  Scenario Outline: 生成字段值分类（RZY-817）
     Given I click the "ClassifyFieldValue" button
     When I choose the "<fieldValue>" from the "FieldValue"
     And I choose the "<presentType>" from the "PresentType"
@@ -299,7 +299,7 @@ Feature: 普通统计视图（有截图）
       | apache.resp_len | apache.clientip | 0.5    | 1          | 请正确填写分组字段值! |
 
   @smoke @splSmoke
-  Scenario Outline: 生成字段数值
+  Scenario Outline: 生成字段数值（RZY-818）
     Given I click the "FieldNumber" button
     When I choose the "<yAxis>" from the "YAxis"
     And I choose the "<groupField>" from the "GroupField"
@@ -331,7 +331,7 @@ Feature: 普通统计视图（有截图）
       | apache.resp_len | apache.clientip | 5      | 最小值           | 柱状图         | 1          | 天        |
 
   @smoke @splSmoke
-  Scenario Outline: 生成字段数值
+  Scenario Outline: 生成字段数值（RZY-818）
     Given I click the "FieldNumber" button
     When I choose the "<yAxis>" from the "YAxis"
     And I choose the "<groupField>" from the "GroupField"
@@ -369,7 +369,7 @@ Feature: 普通统计视图（有截图）
       | json.duration | -1      | 请输入正确的数值(0<数值<100) |
 
   @smoke @splSmoke
-  Scenario Outline: 生成累计百分比
+  Scenario Outline: 生成累计百分比（RZY-819至820）
     Given I click the "TotalPercent" button
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "AddPercent" with value "<percent>"
@@ -397,7 +397,7 @@ Feature: 普通统计视图（有截图）
       | apache.status | test      | 请填写合理的数值！ |
 
   @smoke @splSmoke
-  Scenario Outline: 生成百分位等级成功
+  Scenario Outline: 生成百分位等级成功（RZY-821）
     Given I click the "PercentDegree" button
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "GoalValue" with value "<goalValue>"
@@ -416,7 +416,7 @@ Feature: 普通统计视图（有截图）
     Then I will see the error message "请选择统计字段"
 
   @smoke @splSmoke
-  Scenario Outline: 生成多级统计成功(统计图)
+  Scenario Outline: 生成多级统计成功(统计图)（RZY-822）
     Given I click the "MultilevelStatistics" button
     When I choose the "<fieldValue>" from the "FieldValue"
     And I choose the "<topElement>" from the "TopElement"
@@ -492,11 +492,10 @@ Feature: 普通统计视图（有截图）
     Then I will see the error message "请选择统计字段"
 
   @smoke @splSmoke
-  Scenario: 生成地理分布成功
+  Scenario: 生成地理分布成功（RZY-825）
     Given I click the "GeographicalDistribution" button
     When I choose the "apache.geo.country" from the "FieldValue"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
-    Then take a screenshot
+    Then I wait for "1000" millsecond
 
