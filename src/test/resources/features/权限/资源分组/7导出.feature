@@ -29,7 +29,7 @@ Feature: 资源分组导出
       | 拓扑图  |
       | 搜索宏  |
 
-  Scenario: 导出全部资源
+  Scenario: 导出全部资源（RZY-857）
     And I click the "DownloadButton" button
     And I click the "AllCheck" button in each page
     And I click the "EnsureDownloadButton" button
@@ -38,7 +38,7 @@ Feature: 资源分组导出
     And I wait element "Message" change text to "导出成功，请等待下载完成。"
     Then I will see the message "导出成功，请等待下载完成。"
 
-  Scenario: 不勾选任何资源时点击导出
+  Scenario: 不勾选任何资源时点击导出（RZY-856）
     When I click the "DownloadButton" button
     And I click the "EnsureDownloadButton" button
     Then I will see the error message "请先选择资源分组，然后再重试导出"

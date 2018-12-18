@@ -1,5 +1,5 @@
 @users @all
-Feature: 用户分组
+Feature: 用户分组（RZY-1167）
 
   Background:
     Given open the "users.ListPage" page for uri "/account/users/"

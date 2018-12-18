@@ -5,7 +5,7 @@ Feature: 监控最新状态
     Given open the "alert.ListPage" page for uri "/alerts/"
 
   @smoke @alertSmoke
-  Scenario Outline: 按分组和状态搜索
+  Scenario Outline: 按分组和状态搜索（RZY-462、RZY-464）
     Given I click the "LatestStatus" button
     And I will see the "alert.MonitorPage" page
     Then search from "<dropdownMenu>" then I will see the result "{'column':'<num>','name':'<name>'}"
@@ -18,7 +18,7 @@ Feature: 监控最新状态
       | {'StatusDropdown':'已忽略'}          | 6   | 已忽略           |
 
   @smoke @alertSmoke
-  Scenario Outline: 按告警时间搜索
+  Scenario Outline: 按告警时间搜索（RZY-465）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When I click the "DateEditor" button
@@ -35,7 +35,7 @@ Feature: 监控最新状态
       | SevenDays  | 5   | 7d         |
 
   @smoke @alertSmoke
-  Scenario Outline: 按等级搜索
+  Scenario Outline: 按等级搜索（RZY-463）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When choose from "<dropdownMenu>"
@@ -48,7 +48,7 @@ Feature: 监控最新状态
       | {'GradeDropdown':'中'} | yellow      |
 
 #  @smoke @alertSmoke
-  Scenario Outline: 标记为处理/忽略
+  Scenario Outline: 标记为处理/忽略（RZY-470、RZY-471）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When I click the first checkbox in table
@@ -78,7 +78,7 @@ Feature: 监控最新状态
       | OperatorDropdown | ForwardAlert |
 
 #  @smoke @alertSmoke
-  Scenario Outline: 处理意见
+  Scenario Outline: 处理意见（RZY-469）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When choose from "<dropdownMenu>"
@@ -95,7 +95,7 @@ Feature: 监控最新状态
       | {'StatusDropdown':'待处理'} | AutoTestHandling   | Deal | 处理成功    | {'StatusDropdown':'已处理'} |
 
 #  @smoke @alertSmoke
-  Scenario Outline: 修改处理意见
+  Scenario Outline: 修改处理意见（RZY-469）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When choose from "<dropdownMenu>"
@@ -112,7 +112,7 @@ Feature: 监控最新状态
       | {'StatusDropdown':'已处理'} | already done       |
 
 #  @smoke @alertSmoke
-  Scenario Outline: 操作（ping主机）
+  Scenario Outline: 操作（ping主机）（RZY-476）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When I click the first checkbox in table
@@ -128,7 +128,7 @@ Feature: 监控最新状态
       | 10.0.0.1  |
 
 #  @smoke @alertSmoke
-  Scenario Outline: 操作（rsyslog告警）
+  Scenario Outline: 操作（rsyslog告警）（RZY-475）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When I click the first checkbox in table
@@ -155,7 +155,7 @@ Feature: 监控最新状态
       | HighAlert | alert grade is "red"                        |
 
   @smoke @alertSmoke
-  Scenario: 返回到监控页
+  Scenario: 返回到监控页（RZY-482）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When I click the "ReturnToAlertPage" button

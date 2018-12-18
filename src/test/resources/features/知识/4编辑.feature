@@ -1,4 +1,4 @@
-Feature: 知识编辑
+Feature: 知识编辑（RZY-879）
 
   Background:
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
@@ -21,6 +21,6 @@ Feature: 知识编辑
 
   @all
     Examples: 保存失败
-      | EventCodeValue | NameValue   | TagType | Describe | Solution | Result                  |
-      |                | sxjautotest |         |          |          | error message "请输入事件代码" |
-      | sxjautotest1   | sxjautotest |         |          |          | error message "请输入描述"   |
+      | EventCodeValue | NameValue   | TagType | Describe | Solution | Result                  | newNameValue |
+      |                | sxjautotest |         |          |          | error message "请输入事件代码" |              |
+      | sxjautotest1   | sxjautotest |         |          |          | error message "请输入描述"   |              |

@@ -1,5 +1,5 @@
 @report @all @smoke @reportSmoke
-Feature: 报表查询
+Feature: 报表查询（RZY-136）
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

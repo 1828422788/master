@@ -27,7 +27,7 @@ Feature: 资源分组新建
       | test             |      |     |     |       | error message "请选择分组类型"                     |
       | test             | 仪表盘  |     |     |       | error message "请分配角色"                       |
 
-  Scenario Outline: 新建资源分组并添加资源成员
+  Scenario Outline: 新建资源分组并添加资源成员（RZY-1183）
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I click the "CreateKnowledge" button
     When I set the parameter "EventCode" with value "孙小晶"

@@ -1,5 +1,5 @@
 @indexSetting @all
-Feature: 路由新建
+Feature: 路由新建（RZY-1481）
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
@@ -16,7 +16,7 @@ Feature: 路由新建
     And I click the "CreateButton" button
     Then I will see the success message "<message>"
 
-  @smoke
+  @smoke @indexSettingSmoke
     Examples:
       | indexName | desc | appName | tag        | rule  | message |
       | autotest  | test | iis     |            |       | 保存成功    |

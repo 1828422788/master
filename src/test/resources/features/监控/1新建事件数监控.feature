@@ -1,5 +1,5 @@
 @alert @all
-Feature: 监控新建事件数及页面的各个检查项
+Feature: 监控新建事件数及页面的各个检查项（RZY-431、RZY-879）
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -45,7 +45,7 @@ Feature: 监控新建事件数及页面的各个检查项
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 10            | 分钟        | 10           | 分钟内                   |                 | 低          | error message "请检查并填写数字类型阈值！低、中、高全部填写，或任填其一；阈值等级不可重复。" |
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 10            | 分钟        | 10           | 分钟内                   | a               | 低          | error message "请正确填写数字型阈值"                             |
 
-  Scenario Outline: 创建一个新的告警-事件数监控-crontab
+  Scenario Outline: 创建一个新的告警-事件数监控-crontab（RZY-433）
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "<AlertName>"

@@ -1,5 +1,5 @@
 @all @smoke @trend @trendSmoke
-Feature: 趋势图删除
+Feature: 趋势图删除（RZY-1891）
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

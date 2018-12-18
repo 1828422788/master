@@ -1,5 +1,5 @@
 @report @all
-Feature: 报表新建
+Feature: 报表新建（RZY-116）
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
@@ -130,7 +130,7 @@ Feature: 报表新建
       | sunxjautotest |          | owner       | default_Report | PDF        |       | test    | 0 ? * * * ? | AutoTest1  | Layout1 | 无效参数, 参数：[crontab]\n错误码: FE_7 |
 
 
-  Scenario Outline:
+  Scenario Outline: 执行下一步失败
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -145,7 +145,7 @@ Feature: 报表新建
     Then I click the "NextButton" button
     Then I will see the success message "<result>"
 
-    Examples: 执行下一步失败
+    Examples:
       | name | describe | runningUser | reportGroup    | reportType | email | subject | hour | minute | result    |
       |      |          |             |                |            |       |         |      |        | 名称 不能为空   |
       | test |          |             | default_Report |            |       |         |      |        | 邮件主题 不能为空 |

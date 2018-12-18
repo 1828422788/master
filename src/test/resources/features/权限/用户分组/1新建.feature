@@ -1,5 +1,5 @@
 @userGroups @all
-Feature: 用户分组创建
+Feature: 用户分组创建（RZY-545）
 
   Background:
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"

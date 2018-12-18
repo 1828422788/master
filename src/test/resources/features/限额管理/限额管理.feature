@@ -1,4 +1,4 @@
-@all @usage @smoke
+@all @usage @smoke @paymentsSmoke
 Feature: 限额管理截图
 
   Background:
@@ -6,4 +6,3 @@ Feature: 限额管理截图
 
   Scenario:
     When I click the "ShowButton" button
-    Then take a screenshot

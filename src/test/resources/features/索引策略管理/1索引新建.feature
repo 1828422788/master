@@ -1,5 +1,5 @@
 @indexSetting @all
-Feature: 索引新建
+Feature: 索引信息新建（RZY-1474）
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
@@ -17,7 +17,7 @@ Feature: 索引新建
     And I click the "CreateButton" button
     Then I will see the <message>
 
-  @smoke
+  @smoke @indexSettingSmoke
     Examples: 新建成功
       | name     | desc | savedTime | divideTime | coldTime | savedSize | savedSizeDropDown | message                |
       | autotest |      | 2         | 1          | 1        | 100       | MB                | success message "保存成功" |

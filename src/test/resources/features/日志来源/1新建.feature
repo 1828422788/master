@@ -1,5 +1,5 @@
 @resourceGroups @all
-Feature: 日志来源新建
+Feature: 日志来源新建（RZY-365）
 
   Background:
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"

@@ -1,10 +1,10 @@
 @authorization @all @smoke @roleSmoke
-Feature: 角色授权URL访问
+Feature: 角色授权URL访问（RZY-558、RZY-559）
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
 
-  Scenario Outline: 无任何URL访问权限时
+  Scenario Outline: 无任何URL访问权限时（RZY-558）
     Given I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "<username>"
@@ -18,7 +18,7 @@ Feature: 角色授权URL访问
       | username | password   | value                        |
       | AutoTest | qqqqq11111 | {'NonPrivileged':'您暂无设置权限。'} |
 
-  Scenario Outline: 勾选所有URL访问权限
+  Scenario Outline: 勾选所有URL访问权限（RZY-559）
     Given the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'URL 访问'}" button

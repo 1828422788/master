@@ -1,5 +1,5 @@
 @all @knowledge
-Feature: 知识新建
+Feature: 知识新建（RZY-868）
 
   Background:
     Given open the "knowledge.ListPage" page for uri "/knowledge/"

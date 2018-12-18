@@ -1,5 +1,5 @@
 @timedTask @all @smoke @timedTaskSmoke
-Feature: 定时任务禁用
+Feature: 定时任务禁用（RZY-414、RZY-415）
 
   Background:
     Given open the "timedTask.ListPage" page for uri "/schedule/"

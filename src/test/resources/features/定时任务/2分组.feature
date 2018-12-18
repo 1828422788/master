@@ -1,5 +1,5 @@
 @timedTask @all @smoke @timedTaskSmoke
-Feature: 定时任务分组
+Feature: 定时任务分组（RZY-411）
 
   Background:
     Given open the "timedTask.ListPage" page for uri "/schedule/"

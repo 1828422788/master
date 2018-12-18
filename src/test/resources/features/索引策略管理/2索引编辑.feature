@@ -1,5 +1,5 @@
-@indexSetting @all @smoke
-Feature: 索引信息编辑
+@indexSetting @all @smoke @indexSettingSmoke
+Feature: 索引信息编辑（RZY-1477至1480）
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"

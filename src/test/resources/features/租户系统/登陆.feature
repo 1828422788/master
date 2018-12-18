@@ -1,5 +1,5 @@
 @all @tenant
-Feature: 租户登陆
+Feature: 租户登陆（RZY-1695）
 
   Background:
     Given I logout current user

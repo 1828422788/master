@@ -1,5 +1,5 @@
-@indexSetting @all
-Feature: 路由新建
+@indexSetting @all @indexSettingSmoke @smoke
+Feature: 路由搜索
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"

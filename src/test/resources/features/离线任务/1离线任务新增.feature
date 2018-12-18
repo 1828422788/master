@@ -4,18 +4,6 @@ Feature: 离线任务新增
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
-#  Scenario Outline: 实时窗口离线任务
-#    Given I set the parameter "SearchInput" with value "<splQuery>"
-#    And I click the "DateEditor" button
-#    And I click the "ThirtySeconds" button
-#    And I click the "SearchButton" button
-#    And I click the "OfflineTask" button
-#    Then I will see the success message "实时窗口搜索模式无法进行该操作!"
-#
-#    Examples:
-#      | splQuery                                  |
-#      | * \| transaction apache.status maxspan=1s |
-
   Scenario Outline: 新建离线任务失败
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -55,14 +43,14 @@ Feature: 离线任务新增
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "<time>" button
-    Then I set the parameter "TimeInput" with value "<beginTime>"
+    And I set the parameter "TimeInput" with value "<beginTime>"
     And I choose the "天前" from the "DaysDropDown"
-    Then I click the "ApplyButton" button
+    And I click the "ApplyButton" button
     And I click the "SearchButton" button
-    Then I click the "OfflineTask" button
-    Then I set the parameter "OfflineTaskName" with value "<name>"
-    Then I click the "EnsureCreateOfflineTask" button
-    Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
+    And I click the "OfflineTask" button
+    And I set the parameter "OfflineTaskName" with value "<name>"
+    And I click the "EnsureCreateOfflineTask" button
+    And open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
@@ -73,15 +61,18 @@ Feature: 离线任务新增
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "<time>" button
-    Then I set the parameter "TimeInput" with value "<beginTime>"
-    Then I click the "ApplyButton" button
+    And I set the parameter "TimeInput" with value "<beginTime>"
+    And I click the "ApplyButton" button
     And I click the "SearchButton" button
-    Then I click the "OfflineTask" button
-    Then I will see the success message "实时窗口搜索模式无法进行该操作!"
+    And I click the "OfflineTask" button
+    And I set the parameter "OfflineTaskName" with value "<name>"
+    And I click the "EnsureCreateOfflineTask" button
+    And open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
+    Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
-      | splQuery                                  | time           | beginTime |
-      | * \| transaction apache.status maxspan=1s | RealTimeButton | 1000      |
+      | splQuery                                  | time           | beginTime | name                    |
+      | * \| transaction apache.status maxspan=1s | RealTimeButton | 1000      | realTimeOfflineAutoTest |
 
   @smoke
   Scenario Outline: 新建自定义时间类型的离线任务

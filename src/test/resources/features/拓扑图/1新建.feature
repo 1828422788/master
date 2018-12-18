@@ -1,10 +1,10 @@
 @topology @all
-Feature: 拓扑图新建
+Feature: 拓扑图新建（RZY-346至348）
 
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"
 
-  Scenario Outline: 成功新建拓扑图
+  Scenario Outline: 成功新建拓扑图（RZY-346）
     When I click the "CreateButton" button
     And I set the parameter "NameInput" with value "<name>"
     And I choose the "<group>" from the "GroupInput"
@@ -19,7 +19,7 @@ Feature: 拓扑图新建
       | sxjautotest | default_Topology | success message "创建成功" |
       | 测试中文名称      |                  | success message "创建成功" |
 
-  Scenario Outline: 新建拓扑图失败
+  Scenario Outline: 新建拓扑图失败（RZY-347至348）
     When I click the "CreateButton" button
     And I set the parameter "NameInput" with value "<name>"
     And I choose the "<group>" from the "GroupInput"

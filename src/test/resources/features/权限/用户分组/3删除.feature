@@ -1,5 +1,5 @@
 @smoke @userGroups @all @userGroupsSmoke
-Feature: 用户分组删除
+Feature: 用户分组删除（RZY-1180）
 
   Background:
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"

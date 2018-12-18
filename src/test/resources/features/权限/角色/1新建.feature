@@ -1,5 +1,5 @@
 @all @role
-Feature: 角色新建
+Feature: 角色新建（RZY-517至521）
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -22,7 +22,7 @@ Feature: 角色新建
       | AutoTestRole |         | error message "保存失败: 角色名称已经在\n错误码: FE_590" |
       |              | RoleDes | error message "填写角色名称"                     |
 
-  Scenario Outline: 创建角色同时创建资源分组
+  Scenario Outline: 创建角色同时创建资源分组（RZY-513）
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I click the "CreateRoleButton" button
     And I will see the "roles.CreatePage" page

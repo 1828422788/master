@@ -1,5 +1,5 @@
 @all @tenant @smoke @tenantSmoke
-Feature: 租户搜索
+Feature: 租户搜索（RZY-1713）
 
   Background:
     Given open the "tenant.ListPage" page for uri "/domain/tenant/"

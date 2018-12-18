@@ -14,10 +14,10 @@ Feature: 监控人员处理情况
       | name  |
       | owner |
 
-  Scenario: 返回监控首页
+  Scenario: 返回监控首页（RZY-494）
     When I click the "ReturnButton" button
     Then the page's title will be "监控"
 
-  Scenario: 检查高级告警数量为0时，高级告警及时率是否为100%
+  Scenario: 检查高级告警数量为0时，高级告警及时率是否为100%（RZY-493）
     When the data name is "{'column':'3','name':'0'}" then the result is "{'column':'5','name':'100%'}"
 

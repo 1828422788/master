@@ -1,5 +1,5 @@
 @payments @all
-Feature: 受益人编辑
+Feature: 受益人编辑（RZY-386）
 
   Background:
     Given open the "payments.ListPage" page for uri "/payments/"

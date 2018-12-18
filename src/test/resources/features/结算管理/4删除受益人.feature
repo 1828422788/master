@@ -1,5 +1,5 @@
 @payments @all @paymentsSmoke
-Feature: 受益人删除
+Feature: 受益人删除（RZY-388）
 
   Background:
     Given open the "payments.ListPage" page for uri "/payments/"

@@ -1,11 +1,11 @@
 @users
-Feature: 用户编辑
+Feature: 用户编辑（RZY-1554）
 
   Background:
     Given open the "users.ListPage" page for uri "/account/users/"
 
   @smoke @all @usersSmoke
-  Scenario Outline: 编辑用户信息成功
+  Scenario Outline: 编辑用户信息成功（RZY-2214）
     When I click the detail which name is "{'column':'1','name':'<UserName>'}"
     And I will see the "users.DetailPage" page
     And I click the "EditButton" button

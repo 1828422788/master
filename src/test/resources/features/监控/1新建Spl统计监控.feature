@@ -1,5 +1,5 @@
 @alert @all @smoke @alertSmoke
-Feature: 监控新建Spl统计
+Feature: 监控新建Spl统计（RZY-436）
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

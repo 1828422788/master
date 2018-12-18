@@ -1,4 +1,4 @@
-Feature: 知识分组
+Feature: 知识分组（RZY-880）
 
   Background:
     Given open the "knowledge.ListPage" page for uri "/knowledge/"

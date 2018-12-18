@@ -1,5 +1,5 @@
 @smoke @all @knowledge
-Feature: 知识删除
+Feature: 知识删除（RZY-881）
 
   Background:
     Given open the "knowledge.ListPage" page for uri "/knowledge/"

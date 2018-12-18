@@ -1,5 +1,5 @@
 @all @smoke @role @roleSmoke
-Feature: 角色删除
+Feature: 角色删除（RZY-524）
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"

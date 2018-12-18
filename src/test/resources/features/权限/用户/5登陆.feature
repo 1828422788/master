@@ -1,5 +1,5 @@
 @all @users
-Feature: 用户登陆
+Feature: 用户登陆（RZY-1152、RZY-1153）
 
   Scenario Outline: 登陆失败
     Given I logout current user

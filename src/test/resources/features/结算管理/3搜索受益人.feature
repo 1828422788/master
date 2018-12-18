@@ -1,5 +1,5 @@
 @payments @all @paymentsSmoke
-Feature: 受益人搜索
+Feature: 受益人搜索（RZY-389）
 
   Background:
     Given open the "payments.ListPage" page for uri "/payments/"

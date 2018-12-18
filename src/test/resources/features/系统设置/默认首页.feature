@@ -1,3 +1,4 @@
+@all @configs @smoke @configsSmoke
 Feature: 系统设置默认首页
 
   Scenario Outline:

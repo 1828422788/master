@@ -1,5 +1,5 @@
 @all @smoke @users @usersSmoke
-Feature: 用户禁用
+Feature: 用户禁用（RZY-1165）
 
   Background:
     Given open the "users.ListPage" page for uri "/account/users/"

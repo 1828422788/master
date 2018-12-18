@@ -1,5 +1,5 @@
 @resourceGroup @all
-Feature: 日志来源编辑
+Feature: 日志来源编辑（RZY-1563至1569）
 
   Background:
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"

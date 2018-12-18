@@ -1,5 +1,5 @@
-@indexSetting @all @smoke
-Feature: 路由删除
+@indexSetting @all @smoke @indexSettingSmoke
+Feature: 路由删除（RZY-1482）
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"

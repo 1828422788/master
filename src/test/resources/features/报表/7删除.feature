@@ -1,5 +1,5 @@
 @report @all @smoke @reportSmoke
-Feature: 报表删除
+Feature: 报表删除（RZY-131）
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

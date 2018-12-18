@@ -1,5 +1,5 @@
 @alert @all
-Feature: 监控新建事件数并填写高级设置
+Feature: 监控新建事件数并填写高级设置（RZY-440、RZY-1866）
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"

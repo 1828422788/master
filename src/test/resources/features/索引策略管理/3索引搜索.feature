@@ -1,5 +1,5 @@
-@indexSetting @all @smoke
-Feature: 搜索索引信息
+@indexSetting @all @smoke @indexSettingSmoke
+Feature: 索引信息搜索
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"

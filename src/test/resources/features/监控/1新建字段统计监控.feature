@@ -1,5 +1,5 @@
 @alert @all @smoke @alertSmoke
-Feature: 监控新建字段统计
+Feature: 监控新建字段统计（RZY-434）
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"

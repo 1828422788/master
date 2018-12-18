@@ -1,4 +1,4 @@
-Feature: 知识搜索
+Feature: 知识搜索（RZY-884）
 
   Background:
     Given open the "knowledge.ListPage" page for uri "/knowledge/"

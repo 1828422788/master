@@ -1,4 +1,4 @@
-Feature: 用户新建
+Feature: 用户新建（RZY-1164）
 
   Background:
     Given open the "users.ListPage" page for uri "/account/users/"

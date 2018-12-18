@@ -1,5 +1,5 @@
 @all @smoke @trend @trendSmoke
-Feature: 趋势图分组
+Feature: 趋势图分组（RZY-1890）
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

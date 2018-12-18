@@ -1,5 +1,5 @@
 @all @smoke @trend @trendSmoke
-Feature: 趋势图复制
+Feature: 趋势图复制（RZY-1889）
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"

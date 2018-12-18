@@ -1,5 +1,5 @@
 @payments
-Feature: 受益人添加
+Feature: 受益人添加（RZY-380至RZY-384）
 
   Background:
     Given open the "payments.ListPage" page for uri "/payments/"

@@ -1,5 +1,5 @@
 @all @tenant
-Feature: 租户新建
+Feature: 租户新建（RZY-1691）
 
   Background:
     Given open the "tenant.ListPage" page for uri "/domain/tenant/"
@@ -24,7 +24,7 @@ Feature: 租户新建
   @smoke @tenantSmoke
     Examples: 保存成功
       | name | domainName | supportFeature | dailyLimit | uploadLimit | excessLimit | excessBehavior | managerName | managerEmail | managerPassword | inputAgain | message |
-      | AutoTest | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 10          | 10          | 拒绝采集输入         | UIAutoTest  | tools@yottabyte.cn | sxj04030803     | sxj04030803 | success message "保存成功" |
+      | AutoTest | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 10          | 10          | 拒绝采集输入         | UIAutoTest  | tools@yottabyte.cn | sxj04030803     | sxj04030803 | success message "域名已存在\n错误码: FE_531" |
 
     Examples: 保存失败
       | name                                                                                                                              | domainName         | supportFeature | dailyLimit | uploadLimit | excessLimit | excessBehavior | managerName                                                                                                                        | managerEmail       | managerPassword | inputAgain | message                                           |

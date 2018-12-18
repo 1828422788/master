@@ -1,5 +1,5 @@
 @topology @all @smoke @topologySmoke
-Feature: 拓扑图删除
+Feature: 拓扑图删除（RZY-350）
 
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"

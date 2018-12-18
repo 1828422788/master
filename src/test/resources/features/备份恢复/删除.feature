@@ -1,5 +1,5 @@
 @backup @all @smoke
-Feature: 备份恢复删除
+Feature: 备份恢复删除（RZY-1501）
 
   Background:
     Given open the "backup.ListPage" page for uri "/backup/"

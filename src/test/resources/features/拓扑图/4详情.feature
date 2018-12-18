@@ -7,13 +7,12 @@ Feature: 拓扑图详情页
     Then I will see the "topology.DetailPage" page
 
   @all
-  Scenario: 夜间模式截图
+  Scenario: 夜间模式截图（RZY-1230）
     Given I click the "SwitchButton" button
     Then I click the "NightMode" button
-    Then take a screenshot
 
   @all @smoke @topologySmoke
-  Scenario Outline: 添加文本、下拉输入项成功
+  Scenario Outline: 添加文本、下拉输入项成功（RZY-1239、RZY-1240）
     Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
@@ -44,7 +43,7 @@ Feature: 拓扑图详情页
       | apache.resp_len | tag3  | 动态菜单      | apache.resp_len |                                               | 请输入搜索内容   |
       | apache.resp_len | tag3  | 动态菜单      | apache.resp_len | tag:"sample04061424" \| top 1 apache.resp_len | 请输入搜索时间范围 |
 
-  Scenario Outline: 添加动态菜单输入项成功
+  Scenario Outline: 添加动态菜单输入项成功（RZY-1243）
     Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
@@ -82,7 +81,7 @@ Feature: 拓扑图详情页
       | apache.resp_len | tag1  | 当前标识已存在! |
 
 
-  Scenario Outline: 禁用、启用编辑
+  Scenario Outline: 禁用、启用编辑（RZY-356至357）
     Then I will see the "<button>" is "<attribute>"
     Then I click the "SwitchButton" button
     And I will see the "<button>" is clickable
@@ -105,7 +104,7 @@ Feature: 拓扑图详情页
       |          |           | 请输入节点名称 |
       |          | test      | 请输入节点名称 |
 
-  Scenario Outline: 第一种布局方式
+  Scenario Outline: 第一种布局方式（RZY-1146）
     Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
@@ -134,7 +133,7 @@ Feature: 拓扑图详情页
       | autotest | testGroup | *\|stats count() | count() |
 
 
-  Scenario Outline: 第二种布局方式
+  Scenario Outline: 第二种布局方式（RZY-1147）
     Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
@@ -178,7 +177,7 @@ Feature: 拓扑图详情页
       | nodeName    | nodeGroup     | leftValue                                                                                                                                                                                                                      | leftField | rightValue                                                               | rightField               |
       | sxjautotest | autotestgroup | tag:sample04061424 \| eval is_resplen_empty=empty(apache.resp_len) \| eval res_str=if(is_resplen_empty,"repslen_empty","resplen_non_null") \| table apache.resp_len, is_resplen_empty, res_str \| where is_resplen_empty==true | res_str   | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
 
-  Scenario Outline: 第三种布局方式
+  Scenario Outline: 第三种布局方式（RZY-1151）
     Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
@@ -222,7 +221,7 @@ Feature: 拓扑图详情页
       | nodeName    | nodeGroup     | leftValue                                                                                                                                                                                                                                                                                                   | leftField | rightValue                                                               | rightField               |
       | sxjautotest | autotestgroup | tag:"sample04061424" \| eval res_mul=apache.resp_len*apache.status*0 - apache.resp_len*apache.status/apache.status%1000 \| eval r_add=apache.resp_len+apache.status*10-apache.resp_len-9*apache.status \| eval res_concat = appname + apache.clientip + apache.geo.city \| table res_mul, r_add, res_concat | r_add     | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
 
-  Scenario Outline: 第四种布局方式
+  Scenario Outline: 第四种布局方式（RZY-1152）
     Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
@@ -283,7 +282,7 @@ Feature: 拓扑图详情页
       | nodeName    | nodeGroup     | leftValue                                                                                                                                                                                                                                                  | leftField | rightValue         | rightField |
       | sxjautotest | autotestgroup | tag:"sample04061424" AND apache.resp_len:>2000 \| eval resplen=apache.resp_len \| eval status=apache.status \| eval mid=apache.resp_len+apache.status \| eval res_mul=(apache.resp_len+apache.status)*apache.status \| table resplen, status, mid, res_mul | status    | * \| stats count() | count()    |
 
-  Scenario Outline: 第五种布局方式
+  Scenario Outline: 第五种布局方式（RZY-1153）
     Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
@@ -345,7 +344,7 @@ Feature: 拓扑图详情页
       | nodeName    | nodeGroup     | leftValue          | leftField | rightValue                                                               | rightField               |
       | sxjautotest | autotestgroup | * \| stats count() | count()   | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
 
-  Scenario Outline: 第六种布局方式
+  Scenario Outline: 第六种布局方式（RZY-1154）
     Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
@@ -407,7 +406,7 @@ Feature: 拓扑图详情页
       | nodeName    | nodeGroup     | leftValue                                                                                                       | leftField | rightValue         | rightField |
       | sxjautotest | autotestgroup | tag:"sample04061424" \| eval x_format = format("%s, %s => %s", logtype, tag, apache.clientip) \| table x_format | x_format  | * \| stats count() | count()    |
 
-  Scenario Outline: 第七种布局方式
+  Scenario Outline: 第七种布局方式（RZY-1155）
     Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
@@ -469,7 +468,7 @@ Feature: 拓扑图详情页
       | nodeName    | nodeGroup     | leftValue          | leftField | rightValue                                                               | rightField               |
       | sxjautotest | autotestgroup | * \| stats count() | count()   | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
 
-  Scenario Outline: 第八种布局方式
+  Scenario Outline: 第八种布局方式（RZY-1156）
     Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"

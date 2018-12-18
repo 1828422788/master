@@ -1,5 +1,5 @@
 @all @resourceGroups @smoke @resourceGroupsSmoke
-Feature: 资源分组跳转
+Feature: 资源分组跳转（RZY-1185）
 
   Background:
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"

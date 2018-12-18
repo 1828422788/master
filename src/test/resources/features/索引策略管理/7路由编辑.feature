@@ -1,5 +1,5 @@
-@indexSetting @all @smoke
-Feature: 路由编辑
+@indexSetting @all @smoke @indexSettingSmoke
+Feature: 路由编辑（RZY-1484）
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"

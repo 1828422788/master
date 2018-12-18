@@ -1,5 +1,5 @@
 @all @smoke @role @roleSmoke
-Feature: 角色查询
+Feature: 角色查询（RZY-523）
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"

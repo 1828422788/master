@@ -1,4 +1,4 @@
-Feature: 资源分组编辑
+Feature: 资源分组编辑（RZY-532）
 
   Background:
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"

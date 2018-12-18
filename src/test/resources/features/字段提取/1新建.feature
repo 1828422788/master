@@ -1,7 +1,7 @@
 @all @smoke @configs @configsSmoke
 Feature: 字段提取规则配置页面优化
 
-  Scenario Outline: 创建规则并关联日志
+  Scenario Outline: 创建规则并关联日志（RZY-1880）
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
@@ -37,7 +37,7 @@ Feature: 字段提取规则配置页面优化
       | appName | tag | splQuery          |
       | 108     | 1   | appname:108 tag:1 |
 
-  Scenario: 验证从搜索页跳转到字段提取
+  Scenario: 验证从搜索页跳转到字段提取（RZY-1881）
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "appname:108 tag:1"
     And I click the "DateEditor" button

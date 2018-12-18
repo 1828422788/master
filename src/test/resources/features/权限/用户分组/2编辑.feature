@@ -1,4 +1,4 @@
-Feature: 用户分组修改
+Feature: 用户分组修改（RZY-1179）
 
   Background:
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"

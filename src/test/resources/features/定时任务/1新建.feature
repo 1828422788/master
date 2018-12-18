@@ -54,35 +54,7 @@ Feature: 定时任务新增
       | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | stest   | autotest | owner | default_SavedSchedule | 1      | 请输入开始时间           |
 
   @smoke @timedTaskSmoke
-  Scenario Outline: 生成曲线图类型的定时任务
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    When I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    And I click the "Type" button
-    And I click the "<groupType>" button
-    And I click the "<type>" button
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "<name>"
-    And I set the parameter "Describe" with value "<describe>"
-    And I choose the "<users>" from the "UserComboBox"
-    And I choose the "<groups>" from the "GroupComboBox"
-    And I set the parameter "Period" with value "<period>"
-    And I click the "StartTime" button
-    And I set the time input "StartTomrrow" to "2" minutes later
-    And I click the "EnsureButton" button
-    And I display the element "TimePanel"
-    And I click the "Ensure" button
-    Then I will see the success message "保存成功"
-
-    Examples:
-      | splQuery                                                                                                                       | groupType  | type       | name               | describe | users | groups                | period |
-      | (tag:heka) \|bucket timestamp timeranges=((2018-07-26:10:39:50, 2018-07-27:10:40:02)) as tr \| stats dc('appname') as ct by tr | Order      | Line       | lineAutoTest       |          | owner | default_SavedSchedule | 10     |
-
-  @smoke @timedTaskSmoke
-  Scenario Outline: 生成图表类型的定时任务
+  Scenario Outline: 生成图表类型的定时任务（RZY-1488、RZY-2296、RZY-2297、RZY-2298、RZY-2300）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
     And I click the "Today" button
@@ -123,7 +95,7 @@ Feature: 定时任务新增
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Force      | forceAutoTest      |          | owner | default_SavedSchedule | 15     |
 
   @smoke @timedTaskSmoke
-  Scenario Outline: 生成循序图的定时任务
+  Scenario Outline: 生成循序图的定时任务（RZY-2300步骤5）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
     And I click the "Yesterday" button
@@ -163,7 +135,7 @@ Feature: 定时任务新增
       | *\| stats count() by hostname,apache.clientip | Other     | Sequence | hostname     | apache.clientip | hostname | apache.clientip | apache.clientip | sequenceAutoTest |          | owner | default_SavedSchedule | 15     |
 
   @smoke @timedTaskSmoke
-  Scenario Outline: 生成力图的定时任务
+  Scenario Outline: 生成力图的定时任务（RZY-2297步骤3）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
     And I click the "Today" button
@@ -199,7 +171,7 @@ Feature: 定时任务新增
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count | Connection | Force | appname | appname | ip_count | forceSunAutoTest |          | owner | default_SavedSchedule | 15     |
 
   @smoke @timedTaskSmoke
-  Scenario Outline: 生成区间图的定时任务
+  Scenario Outline: 生成区间图的定时任务（RZY-2298步骤1）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button

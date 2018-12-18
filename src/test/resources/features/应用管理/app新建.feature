@@ -1,5 +1,5 @@
 @all @app
-Feature: 应用新建
+Feature: 应用新建（RZY-1899）
 
   Background:
     Given delete file "/target/download-files/AutoTestApp.tar"

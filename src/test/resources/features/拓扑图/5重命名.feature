@@ -1,5 +1,5 @@
 @topology @all
-Feature: 拓扑图重命名
+Feature: 拓扑图重命名（RZY-352）
 
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"

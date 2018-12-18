@@ -1,5 +1,5 @@
 @report @all @smoke @reportSmoke
-Feature: 报表分组
+Feature: 报表分组修改（RZY-130）
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

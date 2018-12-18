@@ -1,5 +1,5 @@
 @resourceGroups @all @resourceGroupsSmoke @smoke
-Feature: 资源分组搜索
+Feature: 资源分组搜索（RZY-534）
 
   Background:
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"

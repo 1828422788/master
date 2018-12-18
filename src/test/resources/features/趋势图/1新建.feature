@@ -6,7 +6,7 @@ Feature: 趋势图新建
     And I click the "CreateButton" button
     Then I will see the "trend.CreatePage" page
 
-  Scenario Outline: 序列图
+  Scenario Outline: 序列图（RZY-1898、RZY-2005、RZY-1903）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"
@@ -57,7 +57,7 @@ Feature: 趋势图新建
       | AutoTest10 | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Column  | appname | Vertical   | DescendingOrder | count() |      |        |                  |     | 2000  |               | logtype    |                | Purple |
 
   @trendSmoke
-  Scenario Outline: 维度图
+  Scenario Outline: 维度图（RZY-2099、RZY-2006至2008）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"
@@ -90,7 +90,7 @@ Feature: 趋势图新建
       | AutoTest14 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | Sunburst | count() | apache.status | apache.geo.city |
 
   @trendSmoke
-  Scenario Outline: 关系图
+  Scenario Outline: 关系图（RZY-2089、RZY-2090、RZY-2092）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"
@@ -120,7 +120,7 @@ Feature: 趋势图新建
       | AutoTest17 | test     | default_Trend | *\|stats count() by appname,logtype                               | Force  | appname | logtype | count() |
 
   @trendSmoke
-  Scenario Outline: 复合图（区间图）
+  Scenario Outline: 复合图（区间图）（RZY-2093）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"
@@ -151,7 +151,7 @@ Feature: 趋势图新建
       | AutoTest18 | test     | default_Trend | * \| bucket timestamp span=15s as ts \| stats count('appname') as 'count' by ts \| esma count timefield=ts | Rangeline | ts    | count  | _predict_count | upper95  | lower95    |
 
   @trendSmoke
-  Scenario Outline: 复合图（多Y轴图）
+  Scenario Outline: 复合图（多Y轴图）（RZY-2094）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"
@@ -183,7 +183,7 @@ Feature: 趋势图新建
       | AutoTest19 | test     | default_Trend | * \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.geo.city | Multiaxis | apache.geo.city | count(apache.resp_len) | 曲线图  | k    | max(apache.resp_len) |
 
   @trendSmoke
-  Scenario Outline: 热力地图
+  Scenario Outline: 热力地图（RZY-2095）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"
@@ -245,7 +245,7 @@ Feature: 趋势图新建
 #    And I click the "Setting" button
 
   @trendSmoke
-  Scenario Outline: 单值
+  Scenario Outline: 单值（RZY-2104）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"
@@ -342,7 +342,7 @@ Feature: 趋势图新建
       | AutoTest26 | test     | default_Trend | *\|stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | a_    | 12        | 666     | Font          |
 
   @trendSmoke
-  Scenario Outline: 字符云图
+  Scenario Outline: 字符云图（RZY-2107）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"
@@ -372,7 +372,7 @@ Feature: 趋势图新建
       | AutoTest27 | test     | default_Trend | *\|stats count() by appname,logtype | count() | appname     |
 
   @trendSmoke
-  Scenario Outline: 雷达图
+  Scenario Outline: 雷达图（RZY-2109）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"
@@ -404,7 +404,7 @@ Feature: 趋势图新建
       | AutoTest29 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | count() | apache.status |              | apache.geo.city |
 
   @trendSmoke
-  Scenario Outline: 漏斗图
+  Scenario Outline: 漏斗图（RZY-2110）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
     And I choose the "<group>" from the "GroupDropdown"

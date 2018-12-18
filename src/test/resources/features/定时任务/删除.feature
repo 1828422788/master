@@ -1,5 +1,5 @@
 @timedTask @all @smoke @timedTaskSmoke
-Feature: 定时任务删除
+Feature: 定时任务删除（RZY-412）
 
   Background:
     Given open the "timedTask.ListPage" page for uri "/schedule/"

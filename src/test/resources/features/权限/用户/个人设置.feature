@@ -1,5 +1,5 @@
-@users @smoke @all @usersSmoke
-Feature: 用户个人设置
+#@users @smoke @all @usersSmoke
+Feature: 用户个人设置 需先赋予权限
 
   Background:
     Given I logout current user

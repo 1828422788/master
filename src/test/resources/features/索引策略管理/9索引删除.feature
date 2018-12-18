@@ -1,5 +1,5 @@
-@indexSetting @all @smoke
-Feature: 删除索引信息
+@indexSetting @all @smoke @indexSettingSmoke
+Feature: 索引信息删除（RZY-1476）
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"

@@ -1,5 +1,5 @@
 @timedTask @all
-Feature: 定时任务编辑
+Feature: 定时任务编辑（RZY-409、RZY-1205）
 
   Background:
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -27,7 +27,7 @@ Feature: 定时任务编辑
       | sxjAutoTest |      |          |      |          |           |        | 名称 不能为空 |
 
 
-  Scenario Outline: 成功编辑定时任务的结果处理方式
+  Scenario Outline: 成功编辑定时任务的结果处理方式（RZY-1205）
     Given the data name is "<dataName>" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
     When I click the "ResultHandling" button

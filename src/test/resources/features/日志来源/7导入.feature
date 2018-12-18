@@ -1,5 +1,5 @@
 @resourceGroups @all @smoke @resourceGroupsSmoke
-Feature: 日志来源导入来源结构（RZY-374）
+Feature: 日志来源导入来源结构（RZY-374、RZY-2214）
 
   Background:
     Given open the "sourceGroup.StructurePage" page for uri "/sources/sourcegroups/structure/"
@@ -48,6 +48,6 @@ Feature: 日志来源导入来源结构（RZY-374）
     And I click the "CompleteButton" button
     Then I will see the element "AutoTestEditSubSource" name is "AutoTestEditSubSource"
 
-  Scenario: 上传非yaml格式的文件
+  Scenario: 上传非yaml格式的文件（RZY-2214）
     When I upload a file with name "/src/test/resources/testdata/resourceGroups/success.tar"
     Then I will see the error message "请上传.yml或者.yaml格式文件。"

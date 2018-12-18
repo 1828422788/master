@@ -1,5 +1,5 @@
 @smoke @all @resourceGroups @resourceGroupsSmoke
-Feature: 资源分组删除
+Feature: 资源分组删除（RZY-533）
 
   Background:
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"

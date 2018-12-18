@@ -21,7 +21,7 @@ Feature: 监控上传告警插件
 #    And I click the "EnsureReplace" button
 #    Then I will see the success message "上传成功"
 
-  Scenario Outline: 上传告警插件失败
+  Scenario Outline: 上传告警插件失败（RZY-1192）
     Given I click the "Upload" button
     When I upload a file with name "<inputFileName>"
     Then I will see the error message "<errorMessage>"

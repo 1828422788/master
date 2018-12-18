@@ -1,11 +1,11 @@
 @alert @all
-Feature: 监控新建事件数并填写发送条件
+Feature: 监控新建事件数并填写发送条件（RZY-450、RZY-451）
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
 
   @smoke @alertSmoke
-  Scenario Outline: 创建一个发送条件的监控
+  Scenario Outline: 创建一个发送条件的监控（RZY-450）
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "<name>"
@@ -33,7 +33,7 @@ Feature: 监控新建事件数并填写发送条件
       | AutoTest11 | emailType | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':['低','中','高'],'content':''} |
 
 
-  Scenario Outline: 创建三个相同告警方式不同发送条件的监控
+  Scenario Outline: 创建三个相同告警方式不同发送条件的监控（RZY-451）
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "<name>"
