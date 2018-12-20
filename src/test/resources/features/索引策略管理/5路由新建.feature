@@ -2,8 +2,7 @@
 Feature: 路由新建（RZY-1481）
 
   Background:
-    Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
-    Then I click the "IndexMatchRule" button
+    Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
 
   Scenario Outline:
     When I click the "AddButton" button

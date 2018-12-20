@@ -4,6 +4,7 @@ Feature: 日志来源上传日志（RZY-366、RZY-367）
   Scenario: 上传日志
     Given open the "sourceGroup.ListPage" page for uri "/sources/input/os/"
     When I set the parameter "Tag" with value "AutoTestTag"
+    And I let element "Tag" lose focus
     And I set the parameter "Appname" with value "AutoTestAppname"
     And I upload a file with name "/src/test/resources/testdata/log/test.log"
     And I click the "UploadButton" button

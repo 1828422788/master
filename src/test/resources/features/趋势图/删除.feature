@@ -46,5 +46,5 @@ Feature: 趋势图删除（RZY-1891）
 
   @clean
     Examples:
-      | name      |
-      | AutoTest1 |
+      | name |
+      | 曲线图  |

@@ -16,11 +16,8 @@ public class CustomConfigs extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'黑名单地址')]/following-sibling::div//input[@class='el-select__input is-undefined']")
     private WebElement blacklistInput;
 
-    @FindBy(xpath = "//span[text()='/knowledge']")
+    @FindBy(xpath = "//span[text()='/knowledge/']")
     private WebElement liButton;
-
-    @FindBy(xpath = "//span[text()='/offlinetask']")
-    private WebElement offlinetask;
 
     @FindBy(xpath = "//span[text()='测试是否保存']")
     private WebElement test;
@@ -28,14 +25,27 @@ public class CustomConfigs extends PageTemplate {
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//span[text()='/knowledge']/following-sibling::i")
+    @FindBy(xpath = "//span[text()='/knowledge/']/following-sibling::i")
     private WebElement close;
-
-    @FindBy(xpath = "//span[text()='/offlinetask']/following-sibling::i")
-    private WebElement closeOfflinetask;
 
     @FindBy(xpath = "//span[text()='图表配置自动填充']/ancestor::label")
     private WebElement chartLabel;
+
+    public WebElement getSMTPPort() {
+        return super.getInputElement("SMTP服务器端口");
+    }
+
+    public WebElement getSMTPAddress() {
+        return super.getInputElement("SMTP服务器地址");
+    }
+
+    public WebElement getSendEmail() {
+        return super.getInputElement("发送邮箱");
+    }
+
+    public WebElement getEmailPassword() {
+        return super.getInputElement("邮箱密码");
+    }
 
     public WebElement getChartLabel() {
         return chartLabel;
@@ -43,14 +53,6 @@ public class CustomConfigs extends PageTemplate {
 
     public WebElement getTest() {
         return test;
-    }
-
-    public WebElement getCloseOfflinetask() {
-        return closeOfflinetask;
-    }
-
-    public WebElement getOfflinetask() {
-        return offlinetask;
     }
 
     public WebElement getClose() {

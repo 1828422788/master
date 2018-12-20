@@ -4,51 +4,6 @@ Feature: 报表新建（RZY-116）
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-  @smoke @reportSmoke
-  Scenario Outline: 新建报表所需趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
-    Then I will see the "trend.CreatePage" page
-    When I set the parameter "NameInput" with value "<name>"
-    And I set the parameter "DescribeInput" with value "<describe>"
-    And I choose the "<group>" from the "GroupDropdown"
-    And I click the "NextButton" button
-    And I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    And I click the "ChartType" button
-    And I click the "<chart>" button
-    And I wait for loading invisible
-    And I click the "Setting" button
-    And I choose the "<xAxis>" from the "SettingSelect"
-    And I click the "<tag>" button
-    And I click the "<order>" button
-    And I click the "Yaxis" button
-    And I choose the "<yAxis>" from the "SettingSelect"
-    And I set the parameter "Unit" with value "<unit>"
-    And I click the "<smooth>" button
-    And I click the "<connectEmptyData>" button
-    And I set the parameter "Min" with value "<min>"
-    And I set the parameter "Max" with value "<max>"
-    And I click the "Group" button
-    And I click the "<settingSwitch>" button
-    And I choose the "<fieldValue>" from the "SettingSelect"
-    And I click the "Example" button
-    And I click the "<position>" button
-    And I click the "Exhibition" button
-    And I click the "StartColour" button
-    And I click the "<colour>" button
-    And I click the "Generate" button
-    And I click the "Save" button
-    Then I will see the success message "创建成功"
-
-    Examples:
-      | name      | describe | group         | spl                                  | chart | xAxis   | tag        | order        | yAxis   | unit | smooth | connectEmptyData | min | max   | settingSwitch | fieldValue | position | colour |
-      | AutoTest1 | test     | default_Trend | * \|stats count() by appname,logtype | Line  | appname | Horizontal | DefaultOrder | count() |      | Smooth | ConnectEmptyData | 10  | 30000 |               | logtype    |          | Purple |
-
   Scenario Outline: 执行计划为定时（保存成功）
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
@@ -57,12 +12,31 @@ Feature: 报表新建（RZY-116）
     And I choose the "<runningUser>" from the "RunningUser"
     And I choose the "<reportGroup>" from the "ReportGroup"
     And I choose the "<reportType>" from the "ReportType"
-    And I choose the "<email>" from the "Email"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     And I choose the "<chartLists>" from the "ChartList"
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Left" button
+    And I click the "Yaxis" button
+    And I set the parameter "Unit" with value "个"
+    And I set the parameter "Min" with value "500"
+    And I set the parameter "Max" with value "7000"
+    And I click the "Example" button
+    And I click the "FirstPosition" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+
+
+
+    And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
@@ -70,11 +44,11 @@ Feature: 报表新建（RZY-116）
 
   @smoke @reportSmoke
     Examples: 保存成功
-      | name             | describe | runningUser | reportGroup    | reportType | email                     | subject                                    | hour | minute | chartLists | layout  | result |
-      | sxjautotest      | autotest | owner       | default_Report | PDF        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
-      | 自动化AutoTest      | 测试word   | owner       | default_Report | WORD       | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
-      | ExcelAutoTest    | 测试excel  | owner       | default_Report | EXCEL      | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
-      | 乱码测试&$¥#AutoTest | 测试url    | owner       | default_Report | URL        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
+      | name         | describe                                                                           | runningUser | reportGroup    | reportType | email                     | subject                                    | hour | minute | chartLists | layout  | result |
+      | 曲线图类型报表(PDF) | x轴:appname，标签2，排序默认，y轴:count()，单位个，开启平滑，开启连接空数据，范围500-7000，分组:logotype，图例left，紫色 | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | 曲线图        | Layout1 | 保存成功   |
+#      | 自动化AutoTest      | 测试word   | owner       | default_Report | WORD       | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
+#      | ExcelAutoTest    | 测试excel  | owner       | default_Report | EXCEL      | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
+#      | 乱码测试&$¥#AutoTest | 测试url    | owner       | default_Report | URL        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
 
   Scenario Outline: 执行计划为定时（保存失败）
     Given I click the "CreateButton" button

@@ -411,7 +411,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
     private WebElement xValue;
 
-    @FindBy(xpath = "//span[text()='other.key']/ancestor::td/following-sibling::td/span")
+    @FindBy(xpath = "//span[text()='test.key']/ancestor::td/following-sibling::td/span")
     private WebElement otherValue;
 
     @FindBy(className = "icon-fanyeqishangjiantou")

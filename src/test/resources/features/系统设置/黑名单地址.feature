@@ -6,27 +6,18 @@ Feature: 系统设置黑名单地址
 
   Scenario: 设置黑名单
     When I click the "BlacklistInput" button
-    When I set the parameter "BlacklistInput" with value "/knowledge"
+    When I set the parameter "BlacklistInput" with value "/knowledge/"
     And I click the "LiButton" button
     And I let element "Blacklist" lose focus
     Then I will see the success message "黑名单地址保存成功"
-    When I set the parameter "BlacklistInput" with value "/offlinetask"
-    And I click the "Offlinetask" button
-    Then I will see the success message "黑名单地址保存成功"
     And open the "system.CustomConfigs" page for uri "/knowledge/"
-    Then the page's title will be "404 Page Not Found"
-    And open the "system.CustomConfigs" page for uri "/offlinetask/"
     Then the page's title will be "404 Page Not Found"
 
   Scenario: 取消设置黑名单
     When I click the "Close" button
     Then I will see the success message "黑名单地址保存成功"
-    And I click the "CloseOfflinetask" button
-    Then I will see the success message "黑名单地址保存成功"
     And open the "system.CustomConfigs" page for uri "/knowledge/"
     Then the page's title will be "知识"
-    And open the "system.CustomConfigs" page for uri "/offlinetask/"
-    Then the page's title will be "离线任务"
 
   Scenario: 设置黑名单地址不合法
     When I click the "BlacklistInput" button

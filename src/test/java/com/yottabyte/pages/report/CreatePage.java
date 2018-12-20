@@ -44,6 +44,79 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[@class='yw-title']")
     private WebElement topoTitle;
 
+    @FindBy(xpath = "//label[text()='接收邮箱']/following-sibling::div//input")
+    private WebElement emailInput;
+
+    @FindBy(xpath = "(//div[@class='el-scrollbar'])[last()]")
+    private WebElement scrollbar;
+
+    @FindBy(xpath = "//label[text()='邮件主题']/following-sibling::div//input")
+    private WebElement subject;
+
+    @FindBy(xpath = "//label[text()='趋势图列表']/following-sibling::div/button")
+    private WebElement chartList;
+
+    @FindBy(className = "el-dropdown-menu")
+    private WebElement chartDropdownList;
+
+    @FindBy(xpath = "//span[text()='crontab']")
+    private WebElement crontabButton;
+
+    @FindBy(xpath = "//div[@class='crontab']//input")
+    private WebElement crontab;
+
+    // 下一步
+    @FindBy(className = "yw-extract-primary-btn")
+    private WebElement nextButton;
+
+    @FindBy(xpath = "//input[@placeholder='分']")
+    private WebElement minute;
+
+    @FindBy(xpath = "//input[@placeholder='时']")
+    private WebElement hour;
+
+    @FindBy(xpath = "//span[text()='保存']")
+    private WebElement save;
+
+    @FindBy(id = "layout1")
+    private WebElement layout1;
+
+    @FindBy(className = "el-collapse-item__header__arrow")
+    private WebElement arrow;
+
+    @FindBy(xpath = "//label[text()='参数设置']")
+    private WebElement parameterSetting;
+
+    @FindBy(className = "btn-submit")
+    private WebElement saveTrend;
+
+    @FindBy(className = "popover-setting-content")
+    private WebElement settingContent;
+
+    public WebElement getSettingContent() {
+        return settingContent;
+    }
+
+    public WebElement getSaveTrend() {
+        return saveTrend;
+    }
+
+    public WebElement getParameterSetting() {
+        return parameterSetting;
+    }
+
+    public WebElement getEditButton() {
+        return super.getButton("编辑");
+    }
+
+    public WebElement getArrow() {
+        return arrow;
+    }
+
+    public WebElement getScrollbar() {
+        return scrollbar;
+    }
+
     public WebElement getTopoTitle() {
         return topoTitle;
     }
@@ -79,48 +152,29 @@ public class CreatePage extends PageTemplate {
         return this.getDropdownList();
     }
 
-    @FindBy(xpath = "//label[text()='接收邮箱']/following-sibling::div//input[@class='el-input__inner']")
-    private WebElement email;
-
-    public WebElement getEmail() {
-        email.click();
-        return this.getDropdownList();
+    public WebElement getEmailInput() {
+        return emailInput;
     }
 
-    @FindBy(xpath = "//label[text()='邮件主题']/following-sibling::div//input")
-    private WebElement subject;
+    public WebElement getEmail() {
+        return super.getButton("wang.yueming@yottabyte.cn");
+    }
 
     public WebElement getSubject() {
         return subject;
     }
 
-    @FindBy(xpath = "//input[@placeholder='时']")
-    private WebElement hour;
-
     public WebElement getHour() {
         return hour;
     }
-
-    @FindBy(xpath = "//input[@placeholder='分']")
-    private WebElement minute;
 
     public WebElement getMinute() {
         return minute;
     }
 
-    // 下一步
-    @FindBy(className = "yw-extract-primary-btn")
-    private WebElement nextButton;
-
     public WebElement getNextButton() {
         return nextButton;
     }
-
-    @FindBy(xpath = "//label[text()='趋势图列表']/following-sibling::div/button")
-    private WebElement chartList;
-
-    @FindBy(className = "el-dropdown-menu")
-    private WebElement chartDropdownList;
 
     public WebElement getChartList() throws InterruptedException {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(chartList));
@@ -129,25 +183,13 @@ public class CreatePage extends PageTemplate {
         return chartDropdownList;
     }
 
-    @FindBy(id = "layout1")
-    private WebElement layout1;
-
     public WebElement getLayout1() {
         return layout1;
     }
 
-    @FindBy(xpath = "//span[text()='保存']")
-    private WebElement save;
-
     public WebElement getSave() {
         return save;
     }
-
-    @FindBy(xpath = "//span[text()='crontab']")
-    private WebElement crontabButton;
-
-    @FindBy(xpath = "//div[@class='crontab']//input")
-    private WebElement crontab;
 
     public WebElement getCrontab() {
         crontabButton.click();
