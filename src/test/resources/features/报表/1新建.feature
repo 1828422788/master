@@ -4,7 +4,8 @@ Feature: 报表新建（RZY-116）
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-  Scenario Outline: 执行计划为定时（保存成功）
+  @smoke @reportSmoke
+  Scenario Outline: 曲线图类型报表，每日11：10执行
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -33,22 +34,117 @@ Feature: 报表新建（RZY-116）
     And I click the "FirstPosition" button
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
-
-
-
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
-    Then I will see the success message "<result>"
+    Then I will see the success message "保存成功"
+
+    Examples: 保存成功
+      | name          | describe                                                                         | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | chartLists | layout  |
+      | 曲线图类型报表(word) | x轴:appname，标签2，排序默认，y轴:count()，单位个，开启平滑，开启连接空数据，范围500-7000，分组:logotype，图例left，紫色 | owner       | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图        | Layout1 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 面积图+散点图报表，11：11执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
+    And I choose the "面积图" from the "ChartList"
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Left" button
+    And I click the "Yaxis" button
+    And I set the parameter "Unit" with value "个"
+    And I click the "Smooth" button
+    And I set the parameter "Min" with value ""
+    And I set the parameter "Max" with value "5000"
+    And I click the "Example" button
+    And I click the "ThirdPosition" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
+    And I choose the "散点图" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I click the "AscendingOrder2" button
+    And I click the "Yaxis" button
+    And I set the parameter "Min" with value "0"
+    And I set the parameter "Max" with value ""
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
 
   @smoke @reportSmoke
     Examples: 保存成功
-      | name         | describe                                                                           | runningUser | reportGroup    | reportType | email                     | subject                                    | hour | minute | chartLists | layout  | result |
-      | 曲线图类型报表(PDF) | x轴:appname，标签2，排序默认，y轴:count()，单位个，开启平滑，开启连接空数据，范围500-7000，分组:logotype，图例left，紫色 | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | 曲线图        | Layout1 | 保存成功   |
-#      | 自动化AutoTest      | 测试word   | owner       | default_Report | WORD       | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
+      | name          | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 面积图散点图报表(PDF) |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第二种布局方式 | 11   | 11     | Layout2 |
 #      | ExcelAutoTest    | 测试excel  | owner       | default_Report | EXCEL      | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
 #      | 乱码测试&$¥#AutoTest | 测试url    | owner       | default_Report | URL        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
+
+  @smoke @reportSmoke
+  Scenario Outline: 柱状图+饼状图+玫瑰图报表，11：12执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
+    And I choose the "柱状图" from the "ChartList"
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Yaxis" button
+    And I set the parameter "Min" with value ""
+    And I set the parameter "Max" with value ""
+    And I click the "Example" button
+    And I click the "SecondPosition" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
+    And I choose the "饼状图" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I choose the "玫瑰图" from the "ChartList"
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name           | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 柱状饼状玫瑰图报表(PDF) |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第3种布局方式 | 11   | 12     | Layout3 |
+
 
   Scenario Outline: 执行计划为定时（保存失败）
     Given I click the "CreateButton" button

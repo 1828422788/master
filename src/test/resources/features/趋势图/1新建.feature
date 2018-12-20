@@ -1,4 +1,4 @@
-@all @smoke @trend
+@all @smoke @trendSmoke @trend
 Feature: 趋势图新建
 
   Background:
@@ -43,20 +43,15 @@ Feature: 趋势图新建
     And I click the "Save" button
     Then I will see the success message "创建成功"
 
-  @trendSmoke
     Examples:
-      | name       | describe | group         | spl                                                               | chart   | xAxis   | tag        | order           | yAxis   | unit | smooth | connectEmptyData | min | max   | settingSwitch | fieldValue | position       | colour |
-      | AutoTest2  | test     | default_Trend | * \|stats count() by appname,logtype                              | Line    | appname | Left       | AscendingOrder  | count() | k    |        |                  |     | 30000 |               | logtype    | BottomPosition | Green  |
-      | AutoTest3  | test     | default_Trend | * \|stats count() by appname,logtype                              | Line    | appname | Right      | DescendingOrder | count() | 吨    | Smooth | ConnectEmptyData | 10  |       |               | logtype    | FirstPosition  | Orange |
-      | AutoTest4  | test     | default_Trend | * \|stats count() by appname,logtype                              | Line    | appname | Vertical   | DescendingOrder | count() | 吨    | Smooth |                  |     |       |               | logtype    | SecondPosition | Purple |
-      | AutoTest5  | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Area    | appname | Horizontal | DefaultOrder    | count() | 吨    | Smooth | ConnectEmptyData | 10  | 2000  | SettingSwitch | logtype    |                | Purple |
-      | AutoTest6  | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Area    | appname | Left       | AscendingOrder  | count() | kg   |        |                  |     |       |               | logtype    |                | Green  |
-      | AutoTest7  | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Area    | appname | Right      | DescendingOrder | count() | kg   | Smooth | ConnectEmptyData | 0   |       | SettingSwitch | logtype    |                | Orange |
-      | AutoTest8  | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Area    | appname | Vertical   | DescendingOrder | count() |      |        |                  |     | 2000  |               | logtype    |                | Purple |
-      | AutoTest9  | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Scatter | appname | Vertical   | DescendingOrder | count() |      |        |                  |     | 2000  |               | logtype    |                | Purple |
-      | AutoTest10 | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Column  | appname | Vertical   | DescendingOrder | count() |      |        |                  |     | 2000  |               | logtype    |                | Purple |
+      | name      | describe | group         | spl                                                               | chart | xAxis   | tag      | order           | yAxis   | unit | smooth | connectEmptyData | min | max   | settingSwitch | fieldValue | position       | colour |
+      | AutoTest2 | test     | default_Trend | * \|stats count() by appname,logtype                              | Line  | appname | Left     | AscendingOrder  | count() | k    |        |                  |     | 30000 |               | logtype    | BottomPosition | Green  |
+      | AutoTest3 | test     | default_Trend | * \|stats count() by appname,logtype                              | Line  | appname | Right    | DescendingOrder | count() | 吨    | Smooth | ConnectEmptyData | 10  |       |               | logtype    | FirstPosition  | Orange |
+      | AutoTest4 | test     | default_Trend | * \|stats count() by appname,logtype                              | Line  | appname | Vertical | DescendingOrder | count() | 吨    | Smooth |                  |     |       |               | logtype    | SecondPosition | Purple |
+      | AutoTest6 | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Area  | appname | Left     | AscendingOrder  | count() | kg   |        |                  |     |       |               | logtype    |                | Green  |
+      | AutoTest7 | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Area  | appname | Right    | DescendingOrder | count() | kg   | Smooth | ConnectEmptyData | 0   |       | SettingSwitch | logtype    |                | Orange |
+      | AutoTest8 | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Area  | appname | Vertical | DescendingOrder | count() |      |        |                  |     | 2000  |               | logtype    |                | Purple |
 
-  @trendSmoke
   Scenario Outline: 维度图（RZY-2099、RZY-2006至2008）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -83,13 +78,9 @@ Feature: 趋势图新建
     Then I will see the success message "创建成功"
 
     Examples:
-      | name       | describe | group         | spl                                               | chart    | field   | divideField1  | divideField2    |
-      | AutoTest11 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | Pie      | count() | apache.status | apache.geo.city |
-      | AutoTest12 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | Rose     | count() | apache.status | apache.geo.city |
-      | AutoTest13 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | Bar      | count() | apache.status | apache.geo.city |
-      | AutoTest14 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | Sunburst | count() | apache.status | apache.geo.city |
+      | name | describe | group         | spl                                               | chart    | field   | divideField1  | divideField2    |
+      | 旭日图  | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | Sunburst | count() | apache.status | apache.geo.city |
 
-  @trendSmoke
   Scenario Outline: 关系图（RZY-2089、RZY-2090、RZY-2092）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -119,7 +110,6 @@ Feature: 趋势图新建
       | AutoTest16 | test     | default_Trend | *\|bucket timestamp span=1d as ts \| stats count() by appname, ts | Sankey | appname | ts      | count() |
       | AutoTest17 | test     | default_Trend | *\|stats count() by appname,logtype                               | Force  | appname | logtype | count() |
 
-  @trendSmoke
   Scenario Outline: 复合图（区间图）（RZY-2093）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -150,7 +140,6 @@ Feature: 趋势图新建
       | name       | describe | group         | spl                                                                                                        | chartType | xAxis | actual | predict        | topLimit | lowerLimit |
       | AutoTest18 | test     | default_Trend | * \| bucket timestamp span=15s as ts \| stats count('appname') as 'count' by ts \| esma count timefield=ts | Rangeline | ts    | count  | _predict_count | upper95  | lower95    |
 
-  @trendSmoke
   Scenario Outline: 复合图（多Y轴图）（RZY-2094）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -182,7 +171,6 @@ Feature: 趋势图新建
       | name       | describe | group         | spl                                                                                                                                        | chartType | xAxis           | field                  | type | unit | groupValue           |
       | AutoTest19 | test     | default_Trend | * \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.geo.city | Multiaxis | apache.geo.city | count(apache.resp_len) | 曲线图  | k    | max(apache.resp_len) |
 
-  @trendSmoke
   Scenario Outline: 热力地图（RZY-2095）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -244,7 +232,6 @@ Feature: 趋势图新建
 #    And I wait for loading invisible
 #    And I click the "Setting" button
 
-  @trendSmoke
   Scenario Outline: 单值（RZY-2104）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -277,7 +264,6 @@ Feature: 趋势图新建
       | AutoTest21 | test     | default_Trend | *\|stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | a_    | Font          | a_   |
       | AutoTest22 | test     | default_Trend | *\|stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | a_    | Background    | icon |
 
-  @trendSmoke
   Scenario Outline: 单值（按趋势）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -311,7 +297,6 @@ Feature: 趋势图新建
       | AutoTest24 | test     | default_Trend | *\|stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | a_    | 两天前  | Percent    | air-freshener |
       | AutoTest25 | test     | default_Trend | *\|stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | a_    | 一周前  | Percent    | aws           |
 
-  @trendSmoke
   Scenario Outline: 单值（按区间）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -341,7 +326,6 @@ Feature: 趋势图新建
       | name       | describe | group         | spl                                                                               | field | startArea | endArea | colourFilling |
       | AutoTest26 | test     | default_Trend | *\|stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | a_    | 12        | 666     | Font          |
 
-  @trendSmoke
   Scenario Outline: 字符云图（RZY-2107）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -371,7 +355,6 @@ Feature: 趋势图新建
       | name       | describe | group         | spl                                 | field   | divideValue |
       | AutoTest27 | test     | default_Trend | *\|stats count() by appname,logtype | count() | appname     |
 
-  @trendSmoke
   Scenario Outline: 雷达图（RZY-2109）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -403,7 +386,6 @@ Feature: 趋势图新建
       | AutoTest28 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | count() | apache.status | SwitchButton | apache.geo.city |
       | AutoTest29 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | count() | apache.status |              | apache.geo.city |
 
-  @trendSmoke
   Scenario Outline: 漏斗图（RZY-2110）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"

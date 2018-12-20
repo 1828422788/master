@@ -12,12 +12,19 @@ Feature: 报表删除（RZY-131）
     Then I will see the search result "{'column':'0','name':'自动化测试用例','contains':'n'}"
 
     Examples:
+      | name      |
+      | autotest  |
+      | 自动化测试     |
+#      | 自动化AutoTest      |
+#      | ExcelAutoTest    |
+#      | 乱码测试&$¥#AutoTest |
+      | autotest1 |
+      | autotest2 |
+      | autotest3 |
+
+  @clean
+    Examples:
       | name             |
-      | autotest         |
-      | 自动化测试            |
-      | 自动化AutoTest      |
-      | ExcelAutoTest    |
-      | 乱码测试&$¥#AutoTest |
-      | autotest1        |
-      | autotest2        |
-      | autotest3        |
+      | 柱状饼状玫瑰图报表(PDF) |
+      | 面积图散点图报表(PDF)    |
+      | 曲线图类型报表(word)    |

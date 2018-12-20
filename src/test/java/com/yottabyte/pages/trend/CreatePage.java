@@ -65,7 +65,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(tagName = "th")
     private WebElement header;
 
-    @FindBy(xpath = "//div[text()='Y轴']")
+    @FindBy(xpath = "(//div[text()='Y轴'])[last()]")
     private WebElement yaxis;
 
     @FindBy(xpath = "//div[contains(text(),'分组')]")
@@ -86,10 +86,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='连接空数据']/ancestor::div/following-sibling::label")
     private WebElement connectEmptyData;
 
-    @FindBy(xpath = "//div[text()='min']/preceding-sibling::input")
+    @FindBy(xpath = "(//div[text()='min']/preceding-sibling::input)[last()]")
     private WebElement min;
 
-    @FindBy(xpath = "//div[text()='max']/preceding-sibling::input")
+    @FindBy(xpath = "(//div[text()='max']/preceding-sibling::input)[last()]")
     private WebElement max;
 
     @FindBy(className = "el-radio-button")
@@ -365,6 +365,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAscendingOrder() {
         return radioButtonList.get(5);
+    }
+
+    public WebElement getAscendingOrder2() {
+        return radioButtonList.get(12);
     }
 
     public WebElement getDescendingOrder() {

@@ -81,17 +81,41 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "layout1")
     private WebElement layout1;
 
-    @FindBy(className = "el-collapse-item__header__arrow")
+    @FindBy(id = "layout2")
+    private WebElement layout2;
+
+    @FindBy(id = "layout3")
+    private WebElement layout3;
+
+    @FindBy(id = "layout4")
+    private WebElement layout4;
+
+    @FindBy(id = "layout5")
+    private WebElement layout5;
+
+    @FindBy(id = "layout6")
+    private WebElement layout6;
+
+    @FindBy(id = "layout7")
+    private WebElement layout7;
+
+    @FindBy(id = "layout8")
+    private WebElement layout8;
+
+    @FindBy(xpath = "(//i[@class='el-collapse-item__header__arrow el-icon-arrow-right'])[last()]")
     private WebElement arrow;
 
-    @FindBy(xpath = "//label[text()='参数设置']")
+    @FindBy(xpath = "(//label[text()='参数设置'])[last()]")
     private WebElement parameterSetting;
 
-    @FindBy(className = "btn-submit")
+    @FindBy(xpath = "(//button[@class='el-button btn-submit el-button--primary'])[last()]")
     private WebElement saveTrend;
 
-    @FindBy(className = "popover-setting-content")
+    @FindBy(xpath = "(//div[@class='popover-setting-content'])[last()]")
     private WebElement settingContent;
+
+    @FindBy(xpath = "(//span[text()='编辑'][not(@class)])[last()]")
+    private WebElement editButton;
 
     public WebElement getSettingContent() {
         return settingContent;
@@ -106,7 +130,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getEditButton() {
-        return super.getButton("编辑");
+        return editButton;
     }
 
     public WebElement getArrow() {
@@ -194,5 +218,33 @@ public class CreatePage extends PageTemplate {
     public WebElement getCrontab() {
         crontabButton.click();
         return crontab;
+    }
+
+    public WebElement getLayout2() {
+        return layout2;
+    }
+
+    public WebElement getLayout3() {
+        return layout3;
+    }
+
+    public WebElement getLayout4() {
+        return layout4;
+    }
+
+    public WebElement getLayout5() {
+        return layout5;
+    }
+
+    public WebElement getLayout6() {
+        return layout6;
+    }
+
+    public WebElement getLayout7() {
+        return layout7;
+    }
+
+    public WebElement getLayout8() {
+        return layout8;
     }
 }

@@ -100,11 +100,9 @@ public class IChooseValueFromSelectList {
                     ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
                     if (value.equals(e.getText())) {
                         e.click();
-                        if (values.size() == 1)
-                            break;
+                        break;
                     }
                 }
-
             }
         }
         if (parentElement.isDisplayed()) {
