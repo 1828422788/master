@@ -9,18 +9,18 @@ Feature: 路由新建（RZY-1481）
     Then I will see the "index.MatchRuleCreatePage" page
     When I choose the "<indexName>" from the "IndexName"
     And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "AppName" with value "<appName>"
-    And I set the parameter "Tag" with value "<tag>"
     And I set the parameter "Rule" with value "<rule>"
+    And I set the parameter "Tag" with value "<tag>"
+    And I set the parameter "AppName" with value "<appName>"
     And I click the "CreateButton" button
     Then I will see the success message "<message>"
 
   @smoke @indexSettingSmoke
     Examples:
       | indexName | desc | appName | tag        | rule  | message |
-      | autotest  | test | iis     |            |       | 保存成功    |
-      | autotest  | test |         | index_test |       | 保存成功    |
-      | autotest  | test |         |            | iisdx | 保存成功    |
+      | autotest1 | test | iis     |            |       | 保存成功    |
+      | autotest2 | test |         | index_test |       | 保存成功    |
+      | autotest3 | test |         |            | iisdx | 保存成功    |
 
     Examples:
       | indexName | desc | appName | tag | rule | message                              |

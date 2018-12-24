@@ -16,7 +16,7 @@ Feature: 日志展现
 
     Examples:
       | splQuery                                  | name     | className                            |
-      | *                                         | ip       | iconfont icon-yishoucang pointer-btn |
+#      | *                                         | ip       | iconfont icon-yishoucang pointer-btn |
       | index=yott* ERROR AND tag:sample04061424* | tag      | iconfont icon-yishoucang pointer-btn |
       | index=yott* ERROR AND tag:sample04061424* | appname  | iconfont icon-yishoucang pointer-btn |
       | index=yott* ERROR AND tag:sample04061424* | logtype  | iconfont icon-yishoucang pointer-btn |

@@ -31,7 +31,6 @@ Feature: 离线任务新增
 
     Examples:
       | splQuery                                                                                                                                                                                                               | time           | name                         |
-      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | ThirtySeconds  | ThirtySecondsOfflineAutoTest |
       | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | WholeTime      | WholeTimeOfflineAutoTest     |
       | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | RecentSevenDay | transactionofflineAutoTest1  |
       | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | ThisMonth      | transactionofflineAutoTest2  |

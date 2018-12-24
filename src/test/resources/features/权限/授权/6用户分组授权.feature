@@ -1,5 +1,5 @@
 @authorization @all @smoke @roleSmoke
-Feature: 角色授权新建用户分组
+Feature: 角色授权用户分组
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -37,6 +37,7 @@ Feature: 角色授权新建用户分组
     And open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I will see the search result "{'column':'1','name':'<GroupName>'}"
     And the data name is "{'column':'1','name':'<GroupName>'}" then i click the "编辑" button
+    And I wait for "DisabledInput" will be visible
     And I click the "EnsureButton" button
     Then I will see the error message "<message>"
 
@@ -78,8 +79,9 @@ Feature: 角色授权新建用户分组
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     And open the "userGroups.ListPage" page for uri "/account/usergroups/"
-
-    And I will see the element "Title" name is "角色"
+    And the data name is "{'column':'1','name':'<GroupName>'}" then i click the "编辑" button
+    And I will see the element "Title" name is "*角色"
+    And I click the "ReturnList" button
     And the data name is "{'column':'1','name':'<GroupName>'}" then i click the "删除" button
 
     Examples:

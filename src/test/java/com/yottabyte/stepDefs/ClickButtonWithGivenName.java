@@ -386,7 +386,7 @@ public class ClickButtonWithGivenName {
     }
 
     /**
-     * 勾选或取消勾选checkbox
+     * 勾选或取消勾选checkbox（名称可直接点击）
      *
      * @param status   checked or unchecked
      * @param nameList

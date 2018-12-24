@@ -56,6 +56,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='更多']/following-sibling::div//label")
     private WebElement title;
 
+    @FindBy(xpath = "//input[@disabled]")
+    private WebElement disabledInput;
+
+    public WebElement getDisabledInput() {
+        return disabledInput;
+    }
+
     public WebElement getTitle() {
         return title;
     }

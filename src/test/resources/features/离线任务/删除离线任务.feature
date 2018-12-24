@@ -16,4 +16,3 @@ Feature: 离线任务删除
       | transactionofflineAutoTest1  |
       | WholeTimeOfflineAutoTest     |
       | realTimeOfflineAutoTest      |
-      | ThirtySecondsOfflineAutoTest |
