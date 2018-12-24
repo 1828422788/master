@@ -34,11 +34,11 @@ Feature: 日志来源新建（RZY-365）
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Appname" with value "*"
     And I click the "EnsureCreateButton" button
-    Then I will see the success message "<message>"
+    Then I wait for "SuccessMessage" will be visible
 
     Examples: 新建成功
-      | name              | message |
-      | AutoTestLogSource | 创建成功    |
+      | name              |
+      | AutoTestLogSource |
 
   @createEssentialData
   Scenario:

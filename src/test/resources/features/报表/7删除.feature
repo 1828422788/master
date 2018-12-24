@@ -15,16 +15,20 @@ Feature: 报表删除（RZY-131）
       | name      |
       | autotest  |
       | 自动化测试     |
-#      | 自动化AutoTest      |
-#      | ExcelAutoTest    |
-#      | 乱码测试&$¥#AutoTest |
       | autotest1 |
       | autotest2 |
       | autotest3 |
 
   @clean
     Examples:
-      | name             |
-      | 柱状饼状玫瑰图报表(PDF) |
-      | 面积图散点图报表(PDF)    |
-      | 曲线图类型报表(word)    |
+      | name                   |
+      | 柱状饼状玫瑰图报表(PDF)3        |
+      | 柱状饼状玫瑰图报表(PDF)5        |
+      | 柱状饼状玫瑰图报表(PDF)6        |
+      | 面积图散点图报表(PDF)          |
+      | 曲线图类型报表(word)          |
+      | 条形和弦桑基力图报表(URL)        |
+      | 条形和弦桑基力图报表(PDF)7       |
+      | 条形和弦桑基力图报表(PDF)4       |
+      | 条形和弦桑基区间多Y轴力图报表(PDF)   |
+      | 条形和弦桑基区间多Y轴力图报表(excel) |

@@ -1,9 +1,26 @@
+@users @all
 Feature: 用户新建（RZY-1164）
 
   Background:
     Given open the "users.ListPage" page for uri "/account/users/"
 
-  @users
+  Scenario Outline: 添加用户
+    And I click the "CreateUser" button
+    And I will see the "users.CreatePage" page
+    When I set the parameter "UserName" with value "<UserName>"
+    And I set the parameter "FullName" with value "<FullName>"
+    And I set the parameter "Email" with value "<Email>"
+    And I set the parameter "Telephone" with value "<Telephone>"
+    And I set the parameter "Password" with value "<Password>"
+    And I choose the "<UserGroups>" from the "UserGroups"
+    And I click the "CreateButton" button
+    Then I wait for "SuccessMessage" will be visible
+
+  @createUsers
+    Examples: 成功添加一个用户
+      | UserName | FullName         | Email                 | Telephone | Password   | UserGroups      |
+      | AutoTest | autoTestFullName | autoTest@yottabyte.cn |           | qqqqq11111 | AutoTestForUser |
+
   Scenario Outline: 添加用户
     And I click the "CreateUser" button
     And I will see the "users.CreatePage" page
@@ -16,14 +33,12 @@ Feature: 用户新建（RZY-1164）
     And I click the "CreateButton" button
     Then I will see the <Result>
 
-  @createUsers
-    Examples: 成功添加一个用户
+  @smoke @usersSmoke
+    Examples:
       | UserName               | FullName               | Email                               | Telephone | Password   | UserGroups      | Result                 |
-      | AutoTest               | autoTestFullName       | autoTest@yottabyte.cn               |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
       | AutoTestForEdit        | autoTestFullName       | autoTestForEdit@yottabyte.cn        |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
       | AutoTestForSavedSearch | AutoTestForSavedSearch | AutoTestForSavedSearch@yottabyte.cn |           | qqqqq11111 | AutoTestForUser | success message "创建成功" |
 
-  @all
     Examples: 添加用户失败
       | UserName | FullName         | Email                 | Telephone   | Password          | UserGroups      | Result                              |
       |          | autoTestFullName | autoTest@yottabyte.cn |             | qqqqq11111        | AutoTestForUser | error message "用户名 不能为空"            |

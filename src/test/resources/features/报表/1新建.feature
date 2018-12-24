@@ -41,8 +41,8 @@ Feature: 报表新建（RZY-116）
     Then I will see the success message "保存成功"
 
     Examples: 保存成功
-      | name          | describe                                                                         | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | chartLists | layout  |
-      | 曲线图类型报表(word) | x轴:appname，标签2，排序默认，y轴:count()，单位个，开启平滑，开启连接空数据，范围500-7000，分组:logotype，图例left，紫色 | owner       | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图        | Layout1 |
+      | name          | describe                                                                         | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | chartLists  | layout  |
+      | 曲线图类型报表(word) | x轴:appname，标签2，排序默认，y轴:count()，单位个，开启平滑，开启连接空数据，范围500-7000，分组:logotype，图例left，紫色 | owner       | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图AutoTest | Layout1 |
 
   @smoke @reportSmoke
   Scenario Outline: 面积图+散点图报表，11：11执行
@@ -60,7 +60,7 @@ Feature: 报表新建（RZY-116）
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
-    And I choose the "面积图" from the "ChartList"
+    And I choose the "面积图AutoTest" from the "ChartList"
     And I click the "Arrow" button
     And I click the "EditButton" button
     And I click the "ParameterSetting" button
@@ -77,7 +77,7 @@ Feature: 报表新建（RZY-116）
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
     And I wait for "1000" millsecond
-    And I choose the "散点图" from the "ChartList"
+    And I choose the "散点图AutoTest" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
     And I click the "EditButton" button
@@ -99,8 +99,6 @@ Feature: 报表新建（RZY-116）
     Examples: 保存成功
       | name          | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
       | 面积图散点图报表(PDF) |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第二种布局方式 | 11   | 11     | Layout2 |
-#      | ExcelAutoTest    | 测试excel  | owner       | default_Report | EXCEL      | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
-#      | 乱码测试&$¥#AutoTest | 测试url    | owner       | default_Report | URL        | sun.xiaojing@yottabyte.cn | 报表名称：<%report_name%>, 发送时间：<%report_time%> | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
 
   @smoke @reportSmoke
   Scenario Outline: 柱状图+饼状图+玫瑰图报表，11：12执行
@@ -118,7 +116,7 @@ Feature: 报表新建（RZY-116）
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
-    And I choose the "柱状图" from the "ChartList"
+    And I choose the "柱状图AutoTest" from the "ChartList"
     And I click the "Arrow" button
     And I click the "EditButton" button
     And I click the "ParameterSetting" button
@@ -132,9 +130,9 @@ Feature: 报表新建（RZY-116）
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
     And I wait for "1000" millsecond
-    And I choose the "饼状图" from the "ChartList"
+    And I choose the "饼状图AutoTest" from the "ChartList"
     And I wait for "1000" millsecond
-    And I choose the "玫瑰图" from the "ChartList"
+    And I choose the "玫瑰图AutoTest" from the "ChartList"
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
@@ -142,9 +140,83 @@ Feature: 报表新建（RZY-116）
 
   @smoke @reportSmoke
     Examples: 保存成功
-      | name           | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-      | 柱状饼状玫瑰图报表(PDF) |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第3种布局方式 | 11   | 12     | Layout3 |
+      | name            | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 柱状饼状玫瑰图报表(PDF)3 |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第3种布局方式 | 11   | 12     | Layout3 |
+      | 柱状饼状玫瑰图报表(PDF)5 |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第5种布局方式 | 11   | 12     | Layout5 |
+      | 柱状饼状玫瑰图报表(PDF)6 |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第6种布局方式 | 11   | 12     | Layout6 |
 
+  @smoke @reportSmoke
+  Scenario Outline: 条形图+和弦图+桑基图+力图报表，11：12执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
+    And I choose the "条形图AutoTest" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I choose the "和弦图AutoTest" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I choose the "桑基图AutoTest" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I choose the "力图AutoTest" from the "ChartList"
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name             | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 条形和弦桑基力图报表(PDF)4 |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 12     | Layout4 |
+      | 条形和弦桑基力图报表(PDF)7 |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 12     | Layout7 |
+      | 条形和弦桑基力图报表(URL)  |          | owner       | default_Report | URL        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 12     | Layout4 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 条形图+和弦图+桑基图+力图+区间图+多Y轴图报表，11：13执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
+    And I choose the "条形图AutoTest" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I choose the "和弦图AutoTest" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I choose the "桑基图AutoTest" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I choose the "力图AutoTest" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I choose the "区间图AutoTest" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I choose the "多Y轴图AutoTest" from the "ChartList"
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name                   | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 条形和弦桑基区间多Y轴力图报表(PDF)   |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | 11   | 13     | Layout8 |
+      | 条形和弦桑基区间多Y轴力图报表(excel) |          | owner       | default_Report | EXCEL      | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | 11   | 13     | Layout8 |
 
   Scenario Outline: 执行计划为定时（保存失败）
     Given I click the "CreateButton" button

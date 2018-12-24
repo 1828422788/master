@@ -13,11 +13,6 @@ Feature: 趋势图删除（RZY-1891）
 
     Examples:
       | name         |
-      | AutoTest15   |
-      | AutoTest16   |
-      | AutoTest17   |
-      | AutoTest18   |
-      | AutoTest19   |
       | AutoTest20   |
       | AutoTest21   |
       | AutoTest22   |
@@ -40,11 +35,16 @@ Feature: 趋势图删除（RZY-1891）
 
   @clean
     Examples:
-      | name |
-      | 曲线图  |
-      | 面积图  |
-      | 散点图  |
-      | 柱状图  |
-      | 饼状图  |
-      | 玫瑰图  |
-      | 条形图  |
+      | name         |
+      | 曲线图AutoTest  |
+      | 面积图AutoTest  |
+      | 散点图AutoTest  |
+      | 柱状图AutoTest  |
+      | 饼状图AutoTest  |
+      | 玫瑰图AutoTest  |
+      | 条形图AutoTest  |
+      | 和弦图AutoTest  |
+      | 桑基图AutoTest  |
+      | 力图AutoTest   |
+      | 多Y轴图AutoTest |
+      | 区间图AutoTest  |

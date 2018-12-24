@@ -9,18 +9,26 @@ Feature: 角色新建（RZY-517至521）
     And I will see the "roles.CreatePage" page
     And I set the parameter "RoleName" with value "<RoleName>"
     And I set the parameter "RoleDes" with value "<RoleDes>"
-    When I click the "CreateButton" button
-    Then I will see the <Result>
+    And I click the "CreateButton" button
+    Then I wait for "SuccessMessage" will be visible
 
   @createRole
     Examples:
-      | RoleName     | RoleDes | Result                 |
-      | AutoTestRole | 无资源分组   | success message "创建成功" |
+      | RoleName     | RoleDes |
+      | AutoTestRole | 无资源分组   |
+
+  Scenario Outline: 创建角色同时不创建资源分组
+    Given I click the "CreateRoleButton" button
+    And I will see the "roles.CreatePage" page
+    And I set the parameter "RoleName" with value "<RoleName>"
+    And I set the parameter "RoleDes" with value "<RoleDes>"
+    When I click the "CreateButton" button
+    Then I will see the error message "<Result>"
 
     Examples:
-      | RoleName     | RoleDes | Result                                     |
-      | AutoTestRole |         | error message "保存失败: 角色名称已经在\n错误码: FE_590" |
-      |              | RoleDes | error message "填写角色名称"                     |
+      | RoleName     | RoleDes | Result                     |
+      | AutoTestRole |         | 保存失败: 角色名称已经在\n错误码: FE_590 |
+      |              | RoleDes | 填写角色名称                     |
 
   Scenario Outline: 创建角色同时创建资源分组（RZY-513）
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -30,7 +38,7 @@ Feature: 角色新建（RZY-517至521）
     And I set the parameter "RoleDes" with value "<RoleDes>"
     And I check "<ResourceGroups>" from the "ResourceGroupCheckbox"
     When I click the "CreateButton" button
-    Then I will see the success message contains "创建成功"
+    Then I wait for "SuccessMessage" will be visible
 
   @createRole
     Examples:
