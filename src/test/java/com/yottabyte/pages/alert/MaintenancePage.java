@@ -39,6 +39,13 @@ public class MaintenancePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='单次']")
     private WebElement single;
 
+    @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
+    private WebElement disabledLi;
+
+    public WebElement getDisabledLi() {
+        return disabledLi;
+    }
+
     public WebElement getSingle() {
         return single;
     }

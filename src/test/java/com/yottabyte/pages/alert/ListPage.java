@@ -72,6 +72,17 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
     private WebElement dateEditor;
 
+    @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
+    private WebElement disabledLi;
+
+    public WebElement getDisabledLi() {
+        return disabledLi;
+    }
+
+    public WebElement getNoSearchResultMessage() {
+        return noSearchResultMessage;
+    }
+
     public WebElement getDateEditor() {
         return dateEditor;
     }

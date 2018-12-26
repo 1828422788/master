@@ -45,6 +45,22 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 判断某元素的操作选项都有哪些
+     *
+     * @param dataName 元素名称 字符串：第一列所要匹配的名称，json：{'column':'start 0','name':''}
+     * @param result   {'column':'按钮所在列数，1开始','name':'操作按钮名称 空格分开'}
+     */
+    @And("^the data name is \"([^\"]*)\" then i will see \"([^\"]*)\" button$")
+    public void checkButton(String dataName, String result) {
+        Map<String, Object> map = JsonStringPaser.json2Stirng(result);
+        String className = "el-table_1_column_" + map.get("column");
+        WebElement tr = this.getTr(dataName);
+        String actualText = tr.findElement(By.className(className)).getText();
+        String expectText = map.get("name").toString();
+        Assert.assertEquals(expectText, actualText);
+    }
+
+    /**
      * 点击对应行的按钮
      *
      * @param buttonName
@@ -403,4 +419,5 @@ public class ClickButtonWithGivenName {
             }
         }
     }
+
 }

@@ -159,6 +159,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'已存搜索 +')])[2]")
     private WebElement advanceSavedSearch;
 
+    @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
+    private WebElement disabledLi;
+
+    public WebElement getDisabledLi() {
+        return disabledLi;
+    }
+
     public WebElement getPreviewButton() {
         return super.getButton("预览");
     }
@@ -205,10 +212,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAlertGroups() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertGroupButton));
-        alertGroupButton.click();
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(alertGroupSelectors));
-        return alertGroupSelectors;
+        return super.getDropdownList("监控分组");
     }
 
     public WebElement getAlertUsers() {

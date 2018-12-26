@@ -74,7 +74,7 @@ Feature: 应用新建（RZY-1899）
     And I set the parameter "ColorValue" with value "<color>"
     And I click the "EnsureColourButton" button
     And I click the "CreateButton" button
-    Then I will see the success message "新建成功，请等待下载完成。"
+    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
 
     Examples:
       | name        | describe | sourceName | menuName | url         | menuName1 | url1                           | color   |
