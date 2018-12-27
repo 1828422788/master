@@ -1,4 +1,4 @@
-@authorization @all @smoke @roleSmoke
+#@authorization @all @smoke @roleSmoke
 Feature: 角色授权资源读取（最好查看下截图）
 
   Background:
@@ -28,16 +28,23 @@ Feature: 角色授权资源读取（最好查看下截图）
     Then I will see the success message "创建成功"
 
     Examples:
-      | tab      | checkName   | groupName                 |
-      | Agent 管理 | 新建 Agent 分组 | AgentGroupByAutoTest      |
-      | 监控       | 新建监控分组      | AlertGroupByAutoTest      |
-      | 仪表盘      | 新建仪表盘分组     | DashboardGroupByAutoTest  |
-      | 字典       | 新建字典分组      | DictionaryGroupByAutoTest |
-      | 知识       | 新建知识分组      | KnowledgeGroupByAutoTest  |
-      | 搜索宏      | 新建搜索宏分组     | MacroGroupByAutoTest      |
-      | 字段提取     | 新建字段提取分组    | ConfigGroupByAutoTest     |
+      | tab      | checkName   | groupName                  |
+      | Agent 管理 | 新建 Agent 分组 | AgentGroupByAutoTest       |
+      | 监控       | 新建监控分组      | AlertGroupByAutoTest       |
+      | 仪表盘      | 新建仪表盘分组     | DashboardGroupByAutoTest   |
+      | 字典       | 新建字典分组      | DictionaryGroupByAutoTest  |
+      | 知识       | 新建知识分组      | KnowledgeGroupByAutoTest   |
+      | 搜索宏      | 新建搜索宏分组     | MacroGroupByAutoTest       |
+      | 字段提取     | 新建字段提取分组    | ConfigGroupByAutoTest      |
+      | 报表       | 新建报表分组      | ReportGroupByAutoTest      |
+      | 定时任务     | 新建定时任务分组    | TimedTaskGroupByAutoTest   |
+      | 已存搜索     | 新建已存搜索分组    | SavedSearchGroupByAutoTest |
+      | 日志来源     | 新建日志来源分组    | SourceGroupByAutoTest      |
+      | 拓扑图      | 新建拓扑图分组     | TopologyGroupByAutoTest    |
+      | 趋势图      | 新建趋势图分组     | TrendGroupByAutoTest       |
 
   Scenario Outline: 授权读取
+    When I wait for loading invisible
     When I click the "{'TabButton':'<tab>'}" button
     And I check "读取" from the "{'GroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
@@ -59,6 +66,17 @@ Feature: 角色授权资源读取（最好查看下截图）
       | Agent 管理 | Agent 管理  |
       | 监控       | 监控        |
       | 仪表盘      | 列表 \| 仪表盘 |
+      | 字典       | 字典列表      |
+      | 知识       | 知识        |
+      | 搜索宏      | 搜索宏       |
+      | 字段提取     | 字段提取      |
+      | 报表       | 报表        |
+      | 定时任务     | 定时任务      |
+      | 已存搜索     | 已存搜索      |
+      | 日志来源     | 日志来源      |
+      | 拓扑图      | 拓扑图       |
+      | 趋势图      | 趋势图       |
+
 
   Scenario Outline: 授权读取+编辑
     When I click the "{'TabButton':'<tab>'}" button
@@ -83,6 +101,16 @@ Feature: 角色授权资源读取（最好查看下截图）
       | Agent 管理 |
       | 监控       |
       | 仪表盘      |
+      | 字典       |
+      | 知识       |
+      | 搜索宏      |
+      | 字段提取     |
+      | 报表       |
+      | 定时任务     |
+      | 已存搜索     |
+      | 日志来源     |
+      | 拓扑图      |
+      | 趋势图      |
 
   Scenario Outline: 授权读取+编辑+删除
     When I click the "{'TabButton':'<tab>'}" button
@@ -105,3 +133,13 @@ Feature: 角色授权资源读取（最好查看下截图）
       | Agent 管理 |
       | 监控       |
       | 仪表盘      |
+      | 字典       |
+      | 知识       |
+      | 搜索宏      |
+      | 字段提取     |
+      | 报表       |
+      | 定时任务     |
+      | 已存搜索     |
+      | 日志来源     |
+      | 拓扑图      |
+      | 趋势图      |

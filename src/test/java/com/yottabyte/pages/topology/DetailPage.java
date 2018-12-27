@@ -329,8 +329,15 @@ public class DetailPage extends PageTemplate {
         return apply;
     }
 
-    @FindBy(xpath = "(//div[@class='el-message__group'])[last()]")
+    @FindBy(xpath = "//div[@class='el-message__group']")
     private WebElement successMessage;
+
+    @FindBy(xpath = "(//div[@class='el-message__group'])[2]")
+    private WebElement message;
+
+    public WebElement getMessage() {
+        return message;
+    }
 
     public WebElement getSuccessMessage() {
         return successMessage;

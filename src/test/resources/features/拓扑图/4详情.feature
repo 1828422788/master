@@ -125,7 +125,6 @@ Feature: 拓扑图详情页
     Then I click the "EnsureSetColourButton" button
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
-    Then take a screenshot
 
   @all @smoke @topologySmoke
     Examples:
@@ -135,16 +134,16 @@ Feature: 拓扑图详情页
 
   Scenario Outline: 第二种布局方式（RZY-1147）
     Given I click the "SwitchButton" button
-    Then I set the parameter "NodeName" with value "<nodeName>"
-    Then I set the parameter "NodeGroup" with value "<nodeGroup>"
-    Then I click the "AddNodeButton" button
-    Then I click the "LeftRightButton" button
+    And I set the parameter "NodeName" with value "<nodeName>"
+    And I set the parameter "NodeGroup" with value "<nodeGroup>"
+    And I click the "AddNodeButton" button
+    And I click the "LeftRightButton" button
     Then I click the "LeftValueButton" button
     Then I set the parameter "TextArea" with value "<leftValue>"
     Then I click the "DateEditor" button
     And I click the "LastWeek" button
     And I click the "SearchButton" button
-    Then I will see the success message "搜索完成!"
+    Then I will see the message "搜索完成!"
     Then I choose the "<leftField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -159,7 +158,7 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "ThisWeek" button
     And I click the "SearchButton" button
-    Then I will see the success message "搜索完成!"
+    Then I will see the message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -169,8 +168,7 @@ Feature: 拓扑图详情页
     And I set the parameter "SetColourInput" with value "#16DDE4"
     Then I click the "EnsureSetColourButton" button
     Then I click the "Apply" button
-    Then I will see the success message "保存成功"
-    Then take a screenshot
+    Then I will see the message "保存成功"
 
   @all @smoke @topologySmoke
     Examples:

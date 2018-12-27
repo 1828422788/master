@@ -1,4 +1,4 @@
-@dashboard @smoke @dashboardSmoke @all
+#@dashboard @smoke @dashboardSmoke @all
 Feature: 仪表盘设为/取消默认（RZY-211）
 
   Background:
