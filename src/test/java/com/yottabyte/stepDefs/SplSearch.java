@@ -1,8 +1,10 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.GetLogger;
+import com.yottabyte.utils.GetPaging;
 import com.yottabyte.utils.TakeScreenShot;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.en.And;
@@ -15,6 +17,7 @@ import org.slf4j.Logger;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
@@ -65,6 +68,48 @@ public class SplSearch {
                     assertTrue(false);
                 }
             }
+        }
+    }
+
+    /**
+     * 判断spl搜索结果的行数和列数是否相符（需要在对应page中定义分页下的分页下拉列表(ul)，名称为pagingSelect）
+     *
+     * @param rows
+     * @param columns
+     */
+    @And("^I will see \"([^\"]*)\" rows and \"([^\"]*)\" columns in the table$")
+    public void checkRowsNum(String rows, String columns) {
+        if (!"".equals(rows) || !"".equals(columns)) {
+            WebElement table = webDriver.findElement(By.className("detail-table"));
+
+            // 判断列数是否相符
+            if (!"".equals(columns)) {
+                int columnNum = Integer.parseInt(columns);
+                List<WebElement> thList = table.findElements(By.tagName("th"));
+                assertEquals(columnNum, thList.size());
+            }
+            Paging paging = GetPaging.getPagingInfo();
+
+            // 判断行数是否相符
+            int totalPage = paging.getTotalPage();
+            String xpath = "//li[text()='" + totalPage + "']";
+            WebElement lastPage = webDriver.findElement(By.xpath(xpath));
+            lastPage.click();
+
+            WebElement pagingSelect = GetElementFromPage.getWebElementWithName("PagingSelect");
+            String text = "";
+            for (WebElement element : pagingSelect.findElements(By.tagName("li"))) {
+                if (element.getAttribute("class").contains("selected")) {
+                    text = element.getText();
+                    break;
+                }
+            }
+
+            int eachPageNumber = Integer.parseInt(text.substring(0, 1));
+            List<WebElement> trList = table.findElements(By.xpath(".//tbody/tr"));
+            int realLine = eachPageNumber * (totalPage - 1) + trList.size();
+            int expect = Integer.parseInt(rows);
+            assertEquals(expect, realLine);
         }
     }
 

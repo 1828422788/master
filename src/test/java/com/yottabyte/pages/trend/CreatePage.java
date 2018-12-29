@@ -71,13 +71,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(text(),'分组')]")
     private WebElement group;
 
+    @FindBy(xpath = "//div[contains(text(),'气泡')]")
+    private WebElement bubble;
+
     @FindBy(xpath = "//div[text()='图例']")
     private WebElement example;
 
     @FindBy(xpath = "//div[contains(text(),'展示')]")
     private WebElement exhibition;
 
-    @FindBy(xpath = "//div[@class='yw-search-setting-input yw-search-setting-input-text el-input']/input")
+    @FindBy(xpath = "(//div[@class='yw-search-setting-input yw-search-setting-input-text el-input']/input)[last()]")
     private WebElement unit;
 
     @FindBy(xpath = "//span[text()='平滑']/ancestor::div/following-sibling::label")
@@ -94,6 +97,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "el-radio-button")
     private List<WebElement> radioButtonList;
+
+    @FindBy(xpath = "//div[text()='无']")
+    private WebElement noneExample;
 
     @FindBy(xpath = "//div[text()='底部']")
     private WebElement bottomPosition;
@@ -260,6 +266,76 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='指示器']")
     private WebElement indicator;
 
+    @FindBy(xpath = "(//i[@class='el-input__icon el-icon-arrow-up'])[2]")
+    private WebElement pagination;
+
+    @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
+    private WebElement pagingSelect;
+
+    @FindBy(xpath = "//label[text()='报表']")
+    private WebElement report;
+
+    @FindBy(xpath = "//span[text()='堆叠']/ancestor::div/following-sibling::label")
+    private WebElement pile;
+
+    @FindBy(xpath = "//span[text()='气泡大小']/ancestor::div/following-sibling::div//i")
+    private WebElement bubbleSize;
+
+    @FindBy(xpath = "//span[text()='实际值']/ancestor::div/following-sibling::div//i")
+    private WebElement actualValue;
+
+    @FindBy(xpath = "(//span[text()='类型']/ancestor::div/following-sibling::div//i)[last()]")
+    private WebElement type;
+
+    @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
+    private List<WebElement> filedValueList;
+
+    public WebElement getFiledValue2() {
+        filedValueList.get(2).click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getFiledValue3() {
+        filedValueList.get(4).click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getType() {
+        type.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getActualValue() {
+        actualValue.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getBubbleSize() {
+        bubbleSize.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getPile() {
+        return pile;
+    }
+
+    public WebElement getReport() {
+        return report;
+    }
+
+    public WebElement getPagingSelect() {
+        pagination.click();
+        return pagingSelect;
+    }
+
+    public WebElement getBubble() {
+        return bubble;
+    }
+
+    public WebElement getEnsureButton() {
+        return super.getContainsTextButton("确定");
+    }
+
     public WebElement getGenerate() {
         return super.getButton("生成");
     }
@@ -415,6 +491,10 @@ public class CreatePage extends PageTemplate {
         return max;
     }
 
+    public WebElement getNoneExample() {
+        return noneExample;
+    }
+
     public WebElement getBottomPosition() {
         return bottomPosition;
     }
@@ -444,6 +524,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getGreen() {
         return liList.get(6);
+    }
+
+    public WebElement getRed() {
+        return liList.get(8);
     }
 
     public WebElement getPurple() {

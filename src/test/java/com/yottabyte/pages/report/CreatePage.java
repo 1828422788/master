@@ -117,6 +117,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='编辑'][not(@class)])[last()]")
     private WebElement editButton;
 
+    @FindBy(className = "yw-title")
+    private WebElement trendTitle;
+
+    public WebElement getTrendTitle() {
+        return trendTitle;
+    }
+
     public WebElement getSettingContent() {
         return settingContent;
     }
