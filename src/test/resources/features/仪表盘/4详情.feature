@@ -88,7 +88,7 @@ Feature: 仪表盘详情页
     And I will see the "DropDownLinkButton" result will be "<num>"
     And I click the "DeleteTag" button
     And I click the "EnsureDeleteTagButton" button
-    Then I will see the success message "标签页删除成功"
+#    Then I will see the success message "标签页删除成功"
 
     Examples:
       | tagName | num   |
@@ -144,7 +144,6 @@ Feature: 仪表盘详情页
     And I will see the success message "动态字段搜索完成"
     And I choose the "<choiceValue>" from the "DefaultDropdownList"
     And I click the "EnsureCreateFilter" button
-    Then take a screenshot
 
     Examples:
       | eventList | title | token     | field | inputType | dynamicField | search                        | choiceValue |
