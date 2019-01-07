@@ -120,6 +120,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-title")
     private WebElement trendTitle;
 
+    @FindBy(xpath = "(//label[contains(text(),'图表类型')]/following-sibling::span//i)[last()]")
+    private WebElement chartType;
+
+    public WebElement getChartType() {
+        return chartType;
+    }
+
     public WebElement getTrendTitle() {
         return trendTitle;
     }

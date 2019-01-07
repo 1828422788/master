@@ -8,5 +8,5 @@ Feature: 趋势图搜索
     When search "<search>" and I will see the column number "<num>" contains "<name>"
 
     Examples:
-      | search           | num | name |
-      | {'input':'auto'} | 1   | auto |
+      | search             | num | name   |
+      | {'input':'sample'} | 1   | sample |

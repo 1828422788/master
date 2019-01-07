@@ -91,6 +91,8 @@ public class SplSearch {
             Paging paging = GetPaging.getPagingInfo();
 
             // 判断行数是否相符
+            if ("".equals(rows))
+                return;
             int totalPage = paging.getTotalPage();
             String xpath = "//li[text()='" + totalPage + "']";
             WebElement lastPage = webDriver.findElement(By.xpath(xpath));

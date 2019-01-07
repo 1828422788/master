@@ -32,13 +32,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "line")
     private WebElement line;
 
-    @FindBy(className = "area")
+    @FindBy(xpath = "(//div[@class='img area'])[last()]")
     private WebElement area;
 
-    @FindBy(className = "scatter")
+    @FindBy(xpath = "(//div[@class='img scatter'])[last()]")
     private WebElement scatter;
 
-    @FindBy(className = "column")
+    @FindBy(xpath = "(//div[@class='img column'])[last()]")
     private WebElement column;
 
     @FindBy(className = "chart-type-popover")
@@ -47,7 +47,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-search-setting-select")
     private WebElement settingSelect;
 
-    @FindBy(xpath = "//input[@value='horizontal']")
+    @FindBy(xpath = "(//input[@value='horizontal']/following-sibling::span)[last()]")
     private WebElement horizontal;
 
     @FindBy(xpath = "//input[@value='left']")
@@ -68,25 +68,25 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='Y轴'])[last()]")
     private WebElement yaxis;
 
-    @FindBy(xpath = "//div[contains(text(),'分组')]")
+    @FindBy(xpath = "(//div[contains(text(),'分组')])[last()]")
     private WebElement group;
 
-    @FindBy(xpath = "//div[contains(text(),'气泡')]")
+    @FindBy(xpath = "(//div[contains(text(),'气泡')])[last()]")
     private WebElement bubble;
 
-    @FindBy(xpath = "//div[text()='图例']")
+    @FindBy(xpath = "(//div[text()='图例'])[last()]")
     private WebElement example;
 
-    @FindBy(xpath = "//div[contains(text(),'展示')]")
+    @FindBy(xpath = "(//div[contains(text(),'展示')])[last()]")
     private WebElement exhibition;
 
     @FindBy(xpath = "(//div[@class='yw-search-setting-input yw-search-setting-input-text el-input']/input)[last()]")
     private WebElement unit;
 
-    @FindBy(xpath = "//span[text()='平滑']/ancestor::div/following-sibling::label")
+    @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::label")
     private WebElement smooth;
 
-    @FindBy(xpath = "//span[text()='连接空数据']/ancestor::div/following-sibling::label")
+    @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::label")
     private WebElement connectEmptyData;
 
     @FindBy(xpath = "(//div[text()='min']/preceding-sibling::input)[last()]")
@@ -104,16 +104,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='底部']")
     private WebElement bottomPosition;
 
-    @FindBy(xpath = "//div[text()='右侧']")
+    @FindBy(xpath = "(//div[text()='右侧'])[last()]")
     private WebElement rightPosition;
 
-    @FindBy(xpath = "//div[text()='a...']")
+    @FindBy(xpath = "(//div[text()='a...'])[last()]")
     private WebElement firstPosition;
 
-    @FindBy(xpath = "//div[text()='...z']")
+    @FindBy(xpath = "(//div[text()='...z'])[last()]")
     private WebElement secondPosition;
 
-    @FindBy(xpath = "//div[text()='a..z']")
+    @FindBy(xpath = "(//div[text()='a..z'])[last()]")
     private WebElement thirdPosition;
 
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
@@ -128,16 +128,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(text(),'维度')]")
     private WebElement dimension;
 
-    @FindBy(xpath = "//div[contains(text(),'关系')]")
+    @FindBy(xpath = "(//div[contains(text(),'关系')])[last()]")
     private WebElement relation;
 
-    @FindBy(xpath = "//div[contains(text(),'复合')]")
+    @FindBy(xpath = "(//div[contains(text(),'复合')])[last()]")
     private WebElement compound;
 
-    @FindBy(xpath = "//div[contains(text(),'地图')]")
+    @FindBy(xpath = "(//div[contains(text(),'地图')][@class='popover-type-group-item'])[last()]")
     private WebElement map;
 
-    @FindBy(xpath = "//div[contains(text(),'其他')]")
+    @FindBy(xpath = "(//div[contains(text(),'其他')])[last()]")
     private WebElement other;
 
     @FindBy(className = "pie")
@@ -152,34 +152,40 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "sunburst")
     private WebElement sunburst;
 
-    @FindBy(xpath = "//div[contains(text(),'切分')]")
+    @FindBy(xpath = "(//div[contains(text(),'切分')])[last()]")
     private WebElement divide;
 
-    @FindBy(xpath = "//p[text()='+ 添加']")
+    @FindBy(xpath = "(//p[text()='+ 添加'])[last()]")
     private WebElement addField;
 
     @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
     private WebElement secondSettingSelect;
 
-    @FindBy(className = "chord")
+    @FindBy(xpath = "(//div[@class='img chord'])[last()]")
     private WebElement chord;
 
-    @FindBy(className = "sankey")
+    @FindBy(xpath = "(//div[@class='img sankey'])[last()]")
     private WebElement sankey;
 
-    @FindBy(className = "force")
+    @FindBy(xpath = "(//div[@class='img force'])[last()]")
     private WebElement force;
 
-    @FindBy(xpath = "//div[text()='目标']")
+    @FindBy(xpath = "(//div[text()='目标'])[last()]")
     private WebElement target;
 
-    @FindBy(xpath = "//div[text()='权重']")
+    @FindBy(xpath = "(//div[text()='权重'])[last()]")
     private WebElement weight;
 
-    @FindBy(className = "rangeline")
+    @FindBy(xpath = "(//div[text()='区域'])[last()]")
+    private WebElement region;
+
+    @FindBy(xpath = "(//div[text()='下钻'])[last()]")
+    private WebElement goingDown;
+
+    @FindBy(xpath = "(//div[@class='img rangeline'])[last()]")
     private WebElement rangeline;
 
-    @FindBy(className = "multiaxis")
+    @FindBy(xpath = "(//div[@class='img multiaxis'])[last()]")
     private WebElement multiaxis;
 
     @FindBy(xpath = "//span[text()='预测值']/ancestor::div/following-sibling::div")
@@ -191,40 +197,40 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='下限']/ancestor::div/following-sibling::div")
     private WebElement lowerLimit;
 
-    @FindBy(className = "heatmap")
+    @FindBy(xpath = "(//div[@class='img heatmap'])[last()]")
     private WebElement heatmap;
 
-    @FindBy(className = "attackmap")
+    @FindBy(xpath = "(//div[@class='img attackmap'])[last()]")
     private WebElement attackmap;
 
-    @FindBy(className = "regionmap")
+    @FindBy(xpath = "(//div[@class='img regionmap'])[last()]")
     private WebElement regionmap;
 
-    @FindBy(className = "geostatsmap")
+    @FindBy(xpath = "(//div[@class='img geostatsmap'])[last()]")
     private WebElement geostatsmap;
 
     @FindBy(className = "table")
     private WebElement table;
 
-    @FindBy(className = "single")
+    @FindBy(xpath = "(//div[@class='img single'])[last()]")
     private WebElement single;
 
-    @FindBy(className = "liquidfill")
+    @FindBy(xpath = "(//div[@class='img liquidfill'])[last()]")
     private WebElement liquidfill;
 
-    @FindBy(className = "wordcloud")
+    @FindBy(xpath = "(//div[@class='img wordcloud'])[last()]")
     private WebElement wordcloud;
 
-    @FindBy(className = "sequence")
+    @FindBy(xpath = "(//div[@class='img sequence'])[last()]")
     private WebElement sequence;
 
-    @FindBy(className = "radar")
+    @FindBy(xpath = "(//div[@class='img radar'])[last()]")
     private WebElement radar;
 
-    @FindBy(className = "funnel")
+    @FindBy(xpath = "(//div[@class='img funnel'])[last()]")
     private WebElement funnel;
 
-    @FindBy(className = "matrixheatmap")
+    @FindBy(xpath = "(//div[@class='img matrixheatmap'])[last()]")
     private WebElement matrixheatmap;
 
     @FindBy(xpath = "//div[text()='背景']")
@@ -236,7 +242,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='图标']")
     private WebElement icon;
 
-    @FindBy(xpath = "//div[text()='按字段']")
+    @FindBy(xpath = "(//div[text()='按字段'])[last()]")
     private WebElement accordingField;
 
     @FindBy(xpath = "//div[text()='按名称']")
@@ -256,9 +262,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='el-autocomplete yw-search-setting-select']//input")
     private WebElement iconName;
-
-    @FindBy(xpath = "//div[@class='range-input-group']//input")
-    private List<WebElement> inputList;
 
     @FindBy(className = "yw-search-setting-switch")
     private WebElement switchButton;
@@ -289,6 +292,166 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
     private List<WebElement> filedValueList;
+
+    @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
+    private WebElement fieldValueInput;
+
+    @FindBy(xpath = "(//span[text()='气泡大小']/ancestor::div/following-sibling::div//input)[last()]")
+    private WebElement bubbleSizeInput;
+
+    @FindBy(xpath = "(//div[text()='降序'])[last()]")
+    private WebElement descendingOrder;
+
+    @FindBy(xpath = "(//div[text()='降序'])[last()]")
+    private WebElement ascending;
+
+    @FindBy(xpath = "(//span[@style='background: rgb(156, 39, 176);'])[last()]/ancestor::li")
+    private WebElement purple;
+
+    @FindBy(xpath = "(//span[@style='background: rgb(229, 28, 35);'])[last()]/ancestor::li")
+    private WebElement red;
+
+    @FindBy(xpath = "(//span[@style='background: rgb(255, 152, 0);'])[last()]/ancestor::li")
+    private WebElement orange;
+
+    @FindBy(xpath = "(//span[@style='background: rgb(255, 235, 59);'])[last()]/ancestor::li")
+    private WebElement yellow;
+
+    @FindBy(xpath = "(//span[text()='实际值'])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement actualValueInput;
+
+    @FindBy(xpath = "(//span[text()='预测值'])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement predictValueInput;
+
+    @FindBy(xpath = "(//span[text()='上限'])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement topLimitInput;
+
+    @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement lowerLimitInput;
+
+    @FindBy(xpath = "//span[text()='经度']/ancestor::div/following-sibling::div//i")
+    private WebElement longitude;
+
+    @FindBy(xpath = "(//span[text()='经度'])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement longitudeInput;
+
+    @FindBy(xpath = "(//span[text()='纬度'])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement latitudeInput;
+
+    @FindBy(xpath = "//span[text()='纬度']/ancestor::div/following-sibling::div//i")
+    private WebElement latitude;
+
+    @FindBy(xpath = "(//span[text()='中国'])[last()]")
+    private WebElement china;
+
+    @FindBy(xpath = "//span[text()='内蒙古']")
+    private WebElement neimeng;
+
+    @FindBy(xpath = "//span[text()='省级下钻字段']/ancestor::div/following-sibling::div//i")
+    private WebElement province;
+
+    @FindBy(xpath = "//span[text()='市级下钻字段']/ancestor::div/following-sibling::div//i")
+    private WebElement city;
+
+    @FindBy(className = "el-radio-group")
+    private WebElement radioGroup;
+
+    @FindBy(className = "range-color-group-add")
+    private WebElement addColour;
+
+    @FindBy(xpath = "//input[@placeholder='min']")
+    private WebElement minRange;
+
+    @FindBy(xpath = "//input[@placeholder='max']")
+    private WebElement maxRange;
+
+    public WebElement getYellow() {
+        return yellow;
+    }
+
+    public WebElement getMinRange() {
+        return minRange;
+    }
+
+    public WebElement getMaxRange() {
+        return maxRange;
+    }
+
+    public WebElement getAddColour() {
+        return addColour;
+    }
+
+    public WebElement getLongitudeInput() {
+        return longitudeInput;
+    }
+
+    public WebElement getLatitudeInput() {
+        return latitudeInput;
+    }
+
+    public WebElement getRadioGroup() {
+        return radioGroup;
+    }
+
+    public WebElement getNeimeng() {
+        return neimeng;
+    }
+
+    public WebElement getProvince() {
+        province.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getCity() {
+        city.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getGoingDown() {
+        return goingDown;
+    }
+
+    public WebElement getChina() {
+        return china;
+    }
+
+    public WebElement getLongitude() {
+        longitude.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getLatitude() {
+        latitude.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getRegion() {
+        return region;
+    }
+
+    public WebElement getActualValueInput() {
+        return actualValueInput;
+    }
+
+    public WebElement getPredictValueInput() {
+        return predictValueInput;
+    }
+
+    public WebElement getTopLimitInput() {
+        return topLimitInput;
+    }
+
+    public WebElement getLowerLimitInput() {
+        return lowerLimitInput;
+    }
+
+    public WebElement getBubbleSizeInput() {
+        return bubbleSizeInput;
+    }
+
+    public WebElement getFieldValueInput() {
+        return fieldValueInput;
+    }
 
     public WebElement getFiledValue2() {
         filedValueList.get(2).click();
@@ -420,7 +583,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getHorizontal() {
-        return radioButtonList.get(0);
+        return horizontal;
     }
 
     public WebElement getLeft() {
@@ -440,15 +603,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAscendingOrder() {
-        return radioButtonList.get(5);
-    }
-
-    public WebElement getAscendingOrder2() {
-        return radioButtonList.get(12);
+        return ascending;
     }
 
     public WebElement getDescendingOrder() {
-        return radioButtonList.get(6);
+        return descendingOrder;
     }
 
     public WebElement getHeader() {
@@ -519,7 +678,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getOrange() {
-        return liList.get(2);
+        return orange;
     }
 
     public WebElement getGreen() {
@@ -527,11 +686,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRed() {
-        return liList.get(8);
+        return red;
     }
 
     public WebElement getPurple() {
-        return liList.get(liList.size() - 1);
+        return purple;
     }
 
     public WebElement getSettingSwitch() {
@@ -716,14 +875,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getIconName() {
         return iconName;
-    }
-
-    public WebElement getStartArea() {
-        return inputList.get(0);
-    }
-
-    public WebElement getEndArea() {
-        return inputList.get(1);
     }
 
     public WebElement getSwitchButton() {

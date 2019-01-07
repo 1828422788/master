@@ -10,5 +10,5 @@ Feature: 趋势图复制（RZY-1889）
     Then I will see the search result contains "{'column':'0','name':'<name>(1)'}"
 
     Examples:
-      | name      |
-      | AutoTest1 |
+      | name       |
+      | 曲线图sample2 |

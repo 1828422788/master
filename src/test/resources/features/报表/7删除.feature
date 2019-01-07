@@ -9,26 +9,33 @@ Feature: 报表删除（RZY-131）
     And I click the "DeleteEnsure" button
     And I will see the success message "删除成功"
     And I refresh the website
-    Then I will see the search result "{'column':'0','name':'自动化测试用例','contains':'n'}"
-
-    Examples:
-      | name      |
-      | autotest  |
-      | 自动化测试     |
-      | autotest1 |
-      | autotest2 |
-      | autotest3 |
+    Then I will see the search result "{'column':'0','name':'<name>','contains':'n'}"
 
   @clean
     Examples:
-      | name                   |
-      | 柱状饼状玫瑰图报表(PDF)3        |
-      | 柱状饼状玫瑰图报表(PDF)5        |
-      | 柱状饼状玫瑰图报表(PDF)6        |
-      | 面积图散点图报表(PDF)          |
-      | 曲线图类型报表(word)          |
-      | 条形和弦桑基力图报表(URL)        |
-      | 条形和弦桑基力图报表(PDF)7       |
-      | 条形和弦桑基力图报表(PDF)4       |
-      | 条形和弦桑基区间多Y轴力图报表(PDF)   |
-      | 条形和弦桑基区间多Y轴力图报表(excel) |
+      | name                                                                          |
+      | 曲线图sample1报表                                                                  |
+      | 面积图sample1报表                                                                  |
+      | 散点图sample1报表                                                                  |
+      | 柱状图sample1报表                                                                  |
+      | 多Y轴图sample1报表                                                                 |
+      | 和弦图sample1报表                                                                  |
+      | 桑基图sample1报表                                                                  |
+      | 力图sample1报表                                                                   |
+      | 饼状图sample1报表                                                                  |
+      | 区间图sample1报表                                                                  |
+      | 热力地图sample1报表                                                                 |
+      | 攻击地图sample1报表                                                                 |
+      | 区划地图sample1报表                                                                 |
+      | 单值sample1报表                                                                   |
+      | 水球图sample1报表                                                                  |
+      | 字符云图sample1报表                                                                 |
+      | 改为曲线图sample2(WORD)                                                            |
+      | 改为曲线图sample2(EXCEL)                                                           |
+      | 改为曲线图sample2(URL)                                                             |
+      | 改为面积图散点图sample2(PDF)                                                          |
+      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)3                                    |
+      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)5                                    |
+      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)6                                    |
+      | 改为力图sample1+区间图sample1+多Y轴图sample2+热力地图sample2+攻击地图sample1+区划地图sample2报表(PDF) |
+      | 改为单值sample2+水球图sample1                                                        |

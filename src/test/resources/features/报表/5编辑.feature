@@ -4,24 +4,18 @@ Feature: 报表编辑（RZY-129）
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-  Scenario Outline:
+  Scenario Outline: 修改趋势图布局设计
     When the data name is "<dataName>" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
-    And I set the parameter "Describe" with value "<describe>"
     And I choose the "<runningUser>" from the "RunningUser"
-    And I choose the "<reportGroup>" from the "ReportGroup"
-    And I choose the "<reportType>" from the "ReportType"
-    And I choose the "<email>" from the "Email"
     And I set the parameter "Subject" with value "<subject>"
-    And I set the parameter "Hour" with value "<hour>"
-    And I set the parameter "Minute" with value "<minute>"
     Then I click the "NextButton" button
-    Then I choose the "<chartLists>" from the "ChartList"
+    And I click the "Layout2" button
     Then I click the "<layout>" button
     Then I click the "Save" button
-    Then I will see the success message "<result>"
+    Then I will see the success message "保存成功"
 
     Examples: 保存成功
-      | dataName    | name  | describe | runningUser | reportGroup | reportType | email               | subject   | hour | minute | chartLists | layout  | result |
-      | sxjautotest | 自动化测试 | autotest | owner       |             | PDF        | 15194315230@163.com | hello sxj | 11   | 30     | AutoTest1  | Layout1 | 保存成功   |
+      | dataName        | name                 | runningUser | subject                       | layout  |
+      | 改为面积图散点图sample2 | 改为面积图散点图sample2(PDF) | AutoTest    | 报表名称：<%report_name%>, 第三种布局方式 | Layout3 |

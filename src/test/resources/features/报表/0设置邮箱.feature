@@ -10,7 +10,6 @@ Feature: 报表所需邮箱配置
     And I set the parameter "SendEmail" with value "<sendEmail>"
     And I set the parameter "EmailPassword" with value "<password>"
     And I let element "EmailPassword" lose focus
-    Then I will see the success message contains "保存成功"
 
     Examples:
       | port | address          | sendEmail           | password |

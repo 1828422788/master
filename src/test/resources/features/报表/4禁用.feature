@@ -5,10 +5,10 @@ Feature: 报表禁用/启用（RZY-137至138）
     Given open the "report.ListPage" page for uri "/reports/"
 
   Scenario Outline:
-    Then I disabled the data "<name>"
+    Then I disabled the data "改为面积图散点图sample2"
     Then I will see the success message "<result>"
 
     Examples:
-      | name    | result |
-      | autotest | 禁用成功   |
-      | autotest | 启用成功   |
+      | result |
+      | 禁用成功   |
+      | 启用成功   |

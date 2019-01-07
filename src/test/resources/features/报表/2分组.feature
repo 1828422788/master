@@ -5,12 +5,12 @@ Feature: 报表分组修改（RZY-130）
     Given open the "report.ListPage" page for uri "/reports/"
 
   Scenario Outline:
-    When the data name is "<name>" then i click the "分组" button
+    When the data name is "改为面积图散点图sample2" then i click the "分组" button
     And I <group>
     And I click the "Ensure" button
     And I will see the success message "保存成功"
 
     Examples:
-      | name        | group                                                                      |
-      | sxjautotest | cancel selection "default_Report" from the "ChangeGroup"                   |
-      | sxjautotest | choose the "default_Report,AutoTestWithAllResource" from the "ChangeGroup" |
+      | group                                                                      |
+      | cancel selection "default_Report" from the "ChangeGroup"                   |
+      | choose the "default_Report,AutoTestWithAllResource" from the "ChangeGroup" |
