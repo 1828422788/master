@@ -54,10 +54,9 @@ Feature: 报表新建（RZY-116）
     Then I will see the success message "保存成功"
 
     Examples: 保存成功
-      | name                | describe | reportGroup    | reportType | email                     | subject                       | hour | minute | chartLists | layout  |
-      | 改为曲线图sample2(WORD)  | AutoTest | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图sample0 | Layout1 |
-      | 改为曲线图sample2(EXCEL) | AutoTest | default_Report | EXCEL      | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图sample0 | Layout1 |
-      | 改为曲线图sample2(URL)   | AutoTest | default_Report | URL        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图sample0 | Layout1 |
+      | name               | describe | reportGroup    | reportType | email                     | subject                       | hour | minute | chartLists | layout  |
+      | 改为曲线图sample2(WORD) | AutoTest | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图sample0 | Layout1 |
+      | 改为曲线图sample2(URL)  | AutoTest | default_Report | URL        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图sample0 | Layout1 |
 
   @smoke @reportSmoke
   Scenario Outline: 改为面积图sample2+散点图sample2报表，11：11执行
@@ -453,7 +452,7 @@ Feature: 报表新建（RZY-116）
   Scenario: 改为单值sample2+水球图sample1
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
-    And I set the parameter "Name" with value "改为单值sample2+水球图sample1"
+    And I set the parameter "Name" with value "改为单值sample2+水球图sample1报表"
     And I set the parameter "Describe" with value "AutoTest"
     And I choose the "default_Report" from the "ReportGroup"
     And I choose the "PDF" from the "ReportType"
@@ -501,35 +500,162 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
+    And I click the "Layout4" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  Scenario: 改为字符云图sample1报表(EXCEL)
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "改为字符云图sample1报表(EXCEL)"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I choose the "default_Report" from the "ReportGroup"
+    And I choose the "EXCEL" from the "ReportType"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>, 第4种布局方式"
+    And I set the parameter "Crontab" with value "0 14 11 * * ?"
+    And I click the "NextButton" button
+    And I choose the "字符云图sample0" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Wordcloud" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
     And I wait for "1000" millsecond
     And I click the "Layout4" button
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
+  @smoke @reportSmoke
+  Scenario Outline: 改为雷达图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表，11：12执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
+    And I choose the "雷达图sample0" from the "ChartList"
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Radar" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I click the "SwitchButton" button
+    And I click the "Indicator" button
+    And I click the "AddField" button
+    And I set the parameter "FieldValueInput" with value "apache.status"
+    And I click the "Example" button
+    And I click the "SecondPosition" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
 
-#    And I choose the "字符云图sample0" from the "ChartList"
-#    And I wait for "1000" millsecond
-#    And I click the "Arrow" button
-#    And I click the "EditButton" button
-#    And I click the "ChartType" button
-#    And I will see the "trend.CreatePage" page
-#    And I click the "Other" button
-#    And I click the "Wordcloud" button
-#    Then I will see the "report.CreatePage" page
-#    And I click the "ParameterSetting" button
-#    And I will see the "trend.CreatePage" page
-#    And I set the parameter "FieldValueInput" with value "count()"
-#    And I click the "Divide" button
-#    And I set the parameter "FieldValueInput" with value "apache.clientip"
-#    And I click the "Exhibition" button
-#    And I click the "StartColour" button
-#    And I click the "Orange" button
-#    And I will see the "report.CreatePage" page
-#    And I display the element "SettingContent"
-#    And I click the "SaveTrend" button
-#    And I wait for "1000" millsecond
+    And I choose the "漏斗图sample0" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Funnel" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
 
+    And I choose the "矩阵热力图sample0" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Matrixheatmap" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I click the "Horizontal" button
+    And I click the "Yaxis" button
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I set the parameter "Segments" with value "10"
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
+
+    And I choose the "字符云图sample0" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Wordcloud" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+
+
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name                                               | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为雷达图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 12     | Layout4 |
 
 
   Scenario Outline: 执行计划为crontab

@@ -173,6 +173,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='目标'])[last()]")
     private WebElement target;
 
+    @FindBy(xpath = "(//div[text()='标记'])[last()]")
+    private WebElement mark;
+
+    @FindBy(xpath = "(//div[text()='来源'])[last()]")
+    private WebElement source;
+
     @FindBy(xpath = "(//div[text()='权重'])[last()]")
     private WebElement weight;
 
@@ -266,7 +272,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-search-setting-switch")
     private WebElement switchButton;
 
-    @FindBy(xpath = "//div[text()='指示器']")
+    @FindBy(xpath = "(//div[text()='指示器'])[last()]")
     private WebElement indicator;
 
     @FindBy(xpath = "(//i[@class='el-input__icon el-icon-arrow-up'])[2]")
@@ -364,6 +370,21 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='max']")
     private WebElement maxRange;
+
+    @FindBy(xpath = "(//span[text()='分段数'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
+    private WebElement segments;
+
+    public WebElement getSegments() {
+        return segments;
+    }
+
+    public WebElement getMark() {
+        return mark;
+    }
+
+    public WebElement getSource() {
+        return source;
+    }
 
     public WebElement getYellow() {
         return yellow;

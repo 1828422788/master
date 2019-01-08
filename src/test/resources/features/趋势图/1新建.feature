@@ -696,65 +696,166 @@ Feature: 趋势图新建
       | 水球图sample1  | tag:*display \| stats count() by apache.clientip \| limit 10 | Liquidfill |
       | 字符云图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Wordcloud  |
 
-#  Scenario Outline: 雷达图（RZY-2109）
-#    When I set the parameter "NameInput" with value "<name>"
-#    And I set the parameter "DescribeInput" with value "<describe>"
-#    And I choose the "<group>" from the "GroupDropdown"
-#    And I click the "NextButton" button
-#    And I set the parameter "SearchInput" with value "<spl>"
-#    And I click the "DateEditor" button
-#    And I click the "Today" button
-#    And I click the "SearchButton" button
-#    And I wait for "Header" will be visible
-#    And I click the "NextButton" button
-#    And I click the "ChartType" button
-#    And I click the "Other" button
-#    And I click the "Radar" button
-#    And I wait for loading invisible
-#    And I click the "Setting" button
-#    And I choose the "<number>" from the "SettingSelect"
-#    And I click the "Divide" button
-#    And I choose the "<divide>" from the "SettingSelect"
-#    And I click the "<switchButton>" button
-#    And I click the "Indicator" button
-#    And I choose the "<indicator>" from the "SettingSelect"
-#    And I click the "Generate" button
-#    And I click the "Save" button
-#    Then I will see the success message "创建成功"
-#
-#    Examples:
-#      | name       | describe | group         | spl                                               | number  | divide        | switchButton | indicator       |
-#      | AutoTest28 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | count() | apache.status | SwitchButton | apache.geo.city |
-#      | AutoTest29 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | count() | apache.status |              | apache.geo.city |
-#
-#  Scenario Outline: 漏斗图（RZY-2110）
-#    When I set the parameter "NameInput" with value "<name>"
-#    And I set the parameter "DescribeInput" with value "<describe>"
-#    And I choose the "<group>" from the "GroupDropdown"
-#    And I click the "NextButton" button
-#    And I set the parameter "SearchInput" with value "<spl>"
-#    And I click the "DateEditor" button
-#    And I click the "Today" button
-#    And I click the "SearchButton" button
-#    And I wait for "Header" will be visible
-#    And I click the "NextButton" button
-#    And I click the "ChartType" button
-#    And I click the "Other" button
-#    And I click the "Funnel" button
-#    And I wait for loading invisible
-#    And I click the "Setting" button
-#    And I choose the "<number>" from the "SettingSelect"
-#    And I click the "Divide" button
-#    And I choose the "<divide>" from the "SettingSelect"
-#    And I click the "Example" button
-#    And I click the "<position>" button
-#    And I click the "Exhibition" button
-#    And I click the "StartColour" button
-#    And I click the "<colour>" button
-#    And I click the "Generate" button
-#    And I click the "Save" button
-#    Then I will see the success message "创建成功"
-#
-#    Examples:
-#      | name       | describe | group         | spl                                               | number  | divide        | position       | colour |
-#      | AutoTest30 | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | count() | apache.status | BottomPosition | Green  |
+  Scenario Outline: 雷达图sample1、漏斗图sample1（RZY-2635、2658）
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "Other" button
+    And I click the "<type>" button
+    And I click the "Save" button
+    Then I will see the success message "创建成功"
+    And I click the "EnsureButton" button
+    And I click the "Report" button
+    And switch to another window
+    And I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>报表"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "11"
+    And I set the parameter "Minute" with value "01"
+    And I click the "NextButton" button
+    And I wait for "TrendTitle" will be visible
+    And I will see the element "TrendTitle" name is "<name>"
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name       | spl                                                                        | type   |
+      | 雷达图sample1 | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 | Radar  |
+      | 漏斗图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8                | Funnel |
+
+
+  Scenario Outline: 雷达图sample2（RZY-2646）
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "Other" button
+    And I click the "Radar" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I click the "Divide" button
+    And I click the "SwitchButton" button
+    And I click the "Example" button
+    And I click the "SecondPosition" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    And I click the "Generate" button
+    And I click the "Save" button
+    Then I will see the success message "创建成功"
+
+    Examples:
+      | name       | spl                                                                        |
+      | 雷达图sample2 | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 |
+
+  Scenario Outline: 循序图sample1（RZY-2631）
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "Other" button
+    And I click the "Sequence" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I choose the "timestamp" from the "SettingSelect"
+    And I click the "Source" button
+    And I choose the "sequence.from" from the "SettingSelect"
+    And I click the "Target" button
+    And I choose the "sequence.to" from the "SettingSelect"
+    And I click the "Divide" button
+    And I choose the "sequence.msgid" from the "SettingSelect"
+    And I click the "Mark" button
+    And I choose the "sequence.relatemsg" from the "SettingSelect"
+    And I click the "Generate" button
+    And I click the "Save" button
+    Then I will see the success message "创建成功"
+    And I click the "EnsureButton" button
+    And I click the "Report" button
+    And switch to another window
+    And I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>报表"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "11"
+    And I set the parameter "Minute" with value "02"
+    And I click the "NextButton" button
+    And I wait for "TrendTitle" will be visible
+    And I will see the element "TrendTitle" name is "<name>"
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name       | spl                                                                                         |
+      | 循序图sample1 | tag:seq_test \| table timestamp,sequence.from,sequence.to,sequence.relatemsg,sequence.msgid |
+
+  Scenario Outline: 矩阵热力图sample1（RZY-2661）
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "Other" button
+    And I click the "<type>" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I click the "Horizontal" button
+    And I click the "Generate" button
+    And I click the "Save" button
+    Then I will see the success message "创建成功"
+    And I click the "EnsureButton" button
+    And I click the "Report" button
+    And switch to another window
+    And I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>报表"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "11"
+    And I set the parameter "Minute" with value "01"
+    And I click the "NextButton" button
+    And I wait for "TrendTitle" will be visible
+    And I will see the element "TrendTitle" name is "<name>"
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name         | spl                                                         | type          |
+      | 矩阵热力图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8 | Matrixheatmap |
+
