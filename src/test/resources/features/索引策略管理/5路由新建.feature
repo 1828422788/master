@@ -23,7 +23,7 @@ Feature: 路由新建（RZY-1481）
       | autotest  | test |             |                    | iisdxautotest | 保存成功    |
 
     Examples:
-      | indexName | desc | appName | tag | rule | message                              |
-      |           |      |         |     |      | appname, tag 和 匹配规则 至少需要填写一项         |
-      |           |      | iis     |     |      | 保存失败: 没有参数, 参数：[index_id]\n错误码: FE_3 |
+      | indexName | desc | appName   | tag | rule | message                              |
+      |           |      |           |     |      | appname, tag 和 匹配规则 至少需要填写一项         |
+      |           |      | sunxjTest |     |      | 保存失败: 没有参数, 参数：[index_id]\n错误码: FE_3 |
 

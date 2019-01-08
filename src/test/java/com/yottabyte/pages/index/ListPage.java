@@ -16,6 +16,9 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    @FindBy(className = "el-message__group")
+    private WebElement successmessage;
+
     public WebElement getAddButton() {
         return super.getButton("新建");
     }
@@ -30,5 +33,9 @@ public class ListPage extends PageTemplate {
 
     public WebElement getIndexMatchRule() {
         return super.getButton("索引路由规则");
+    }
+
+    public WebElement getMessage() {
+        return successmessage;
     }
 }

@@ -7,7 +7,7 @@ Feature: 路由删除（RZY-1482）
   Scenario Outline:
     Given the data name is "{'column':'<num>','name':'<name>'}" then i click the "删除" button
     When I click the "EnsureButton" button
-    Then I will see the success message "删除成功"
+    Then I will see the message "删除成功"
 
     Examples:
       | num | name               |
