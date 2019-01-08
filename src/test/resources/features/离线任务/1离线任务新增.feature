@@ -56,30 +56,12 @@ Feature: 离线任务新增
       | splQuery                                  | time                | beginTime | name                    |
       | * \| transaction apache.status maxspan=1s | RecentlyRadioButton | 1000      | recentlyOfflineAutoTest |
 
-  Scenario Outline: 新建实时类型的离线任务
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "<time>" button
-    And I set the parameter "TimeInput" with value "<beginTime>"
-    And I click the "ApplyButton" button
-    And I click the "SearchButton" button
-    And I click the "OfflineTask" button
-    And I set the parameter "OfflineTaskName" with value "<name>"
-    And I click the "EnsureCreateOfflineTask" button
-    And open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
-
-    Examples:
-      | splQuery                                  | time           | beginTime | name                    |
-      | * \| transaction apache.status maxspan=1s | RealTimeButton | 1000      | realTimeOfflineAutoTest |
-
   @smoke
   Scenario Outline: 新建自定义时间类型的离线任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I trigger the button "CustomTime"
     And I click the "SearchButton" button
-    Then take a screenshot
     Then I click the "OfflineTask" button
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button
@@ -90,4 +72,3 @@ Feature: 离线任务新增
     Examples:
       | splQuery                                  | name     |
       | * \| transaction apache.status maxspan=1s | autotest |
-

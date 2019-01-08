@@ -10,5 +10,5 @@ Feature: 应用导出
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
-    Then I will see the success message "导出成功，请等待下载完成。"
+    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
 

@@ -10,11 +10,11 @@ Feature: 路由编辑（RZY-1484）
     When I choose the "<indexName>" from the "IndexName"
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "AppName" with value "<appName>"
-    And I set the parameter "Tag" with value "<tag>"
     And I set the parameter "Rule" with value "<rule>"
+    And I set the parameter "Tag" with value "<tag>"
     And I click the "SavedButton" button
     Then I will see the success message "<message>"
 
     Examples:
-      | indexName | desc | appName | tag | rule | message |
-      |           | test | iis     | *   | *    | 保存成功    |
+      | indexName | desc | appName     | tag | rule | message |
+      |           | test | iistestauto | *   | *    | 保存成功    |

@@ -17,10 +17,10 @@ Feature: 路由新建（RZY-1481）
 
   @smoke @indexSettingSmoke
     Examples:
-      | indexName | desc | appName | tag        | rule  | message |
-      | autotest1 | test | iis     |            |       | 保存成功    |
-      | autotest2 | test |         | index_test |       | 保存成功    |
-      | autotest3 | test |         |            | iisdx | 保存成功    |
+      | indexName | desc | appName     | tag                | rule          | message |
+      | autotest  | test | iisautotest |                    |               | 保存成功    |
+      | autotest  | test |             | index_testautotest |               | 保存成功    |
+      | autotest  | test |             |                    | iisdxautotest | 保存成功    |
 
     Examples:
       | indexName | desc | appName | tag | rule | message                              |

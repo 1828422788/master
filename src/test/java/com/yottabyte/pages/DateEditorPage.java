@@ -210,7 +210,7 @@ public class DateEditorPage extends PageTemplate {
         setValue.iSetTheParameterWithValue(startTimeInput, "00:00:00");
         setValue.iSetTheParameterWithValue(endTimeInput, "00:00:00");
         setValue.iSetTheParameterWithValue(startDateInput, "2016-08-01");
-        setValue.iSetTheParameterWithValue(endDateInput, "2018-08-03");
+        setValue.iSetTheParameterWithValue(endDateInput, "2019-08-03");
         applyCustomTime.click();
     }
 
