@@ -11,6 +11,6 @@ Feature: 路由删除（RZY-1482）
 
     Examples:
       | num | name               |
-      | 0   | iisautotest        |
+      | 0   | iistestauto        |
       | 1   | index_testautotest |
       | 2   | iisdxautotest      |
