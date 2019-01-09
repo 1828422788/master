@@ -2,6 +2,7 @@ package com.yottabyte.pages.dashboard;
 
 import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -51,6 +52,12 @@ public class ListPage extends PageTemplate {
 
     public WebElement getGroupInput() {
         dashBoardGroup.click();
+        WaitForElement.waitUntilLoadingDisappear();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return groupInput.get(groupInput.size() - 1);
     }
 

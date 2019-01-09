@@ -1,5 +1,5 @@
-#@authorization @all @smoke @roleSmoke
-Feature: 角色授权监控
+@authorization @all @smoke @roleSmoke
+Feature: 角色授权监控（有bug，未修复）
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"

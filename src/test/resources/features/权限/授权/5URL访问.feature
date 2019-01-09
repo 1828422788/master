@@ -24,7 +24,6 @@ Feature: 角色授权URL访问（RZY-558、RZY-559）
     And I click the "{'TabButton':'URL 访问'}" button
     When I click the "ChooseAllCheckBoxes" button
     And I click the "SaveButton" button
-#    Then I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "<usernameValue>"

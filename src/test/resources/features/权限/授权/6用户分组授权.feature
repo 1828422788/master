@@ -10,7 +10,7 @@ Feature: 角色授权用户分组
   Scenario Outline: 无任何授权（RZY-563）
     When I "unchecked" the label before "AutoTestGroup,AutoTestForUser"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
     Given I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "<username>"
@@ -27,7 +27,7 @@ Feature: 角色授权用户分组
   Scenario Outline: 授权用户分组的读取并验证无编辑权限（RZY-564）
     When I check "<CheckBoxes>" from the "{'GroupManagement':['<GroupName>']}"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -48,7 +48,7 @@ Feature: 角色授权用户分组
   Scenario Outline: 授权读取、编辑（RZY-565）
     When I check "<CheckBoxes>" from the "{'GroupManagement':['<GroupName>']}"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -71,7 +71,7 @@ Feature: 角色授权用户分组
   Scenario Outline: 授权分组管理的读取、编辑、删除权限（RZY-562、RZY-567）
     When I check "<CheckBoxes>" from the "{'GroupManagement':['<GroupName>']}"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -91,7 +91,7 @@ Feature: 角色授权用户分组
   Scenario: 授权新建用户分组以及新建用户权限（RZY-560、RZY-561）
     When I "checked" the checkbox which name is "新建用户分组,新建用户"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -106,7 +106,7 @@ Feature: 角色授权用户分组
   Scenario Outline: 授权组内读取权限
     When I check "读取" from the "{'IntraGroupManagement':['<name>']}"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"

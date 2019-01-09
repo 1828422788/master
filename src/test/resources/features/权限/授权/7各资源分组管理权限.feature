@@ -1,4 +1,4 @@
-#@authorization @all @smoke @roleSmoke
+@authorization @all @smoke @roleSmoke
 Feature: 角色授权资源读取（最好查看下截图）
 
   Background:
@@ -10,7 +10,7 @@ Feature: 角色授权资源读取（最好查看下截图）
     When I click the "{'TabButton':'<tab>'}" button
     When I "checked" the checkbox which name is "<checkName>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+#    And I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -26,6 +26,10 @@ Feature: 角色授权资源读取（最好查看下截图）
     And I choose the "AutoTestRole" from the "ResourceGroupOwner"
     And I click the "CreateButton" button
     Then I will see the success message "创建成功"
+    And open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
+    And the data name is "{'column':'0','name':'<groupName>'}" then i click the "删除" button
+    And I click the "MessageBoxOKButton" button
+    Then I will see the success message "删除成功"
 
     Examples:
       | tab      | checkName   | groupName                  |
@@ -48,7 +52,7 @@ Feature: 角色授权资源读取（最好查看下截图）
     When I click the "{'TabButton':'<tab>'}" button
     And I check "读取" from the "{'GroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+#    And I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -70,19 +74,16 @@ Feature: 角色授权资源读取（最好查看下截图）
       | 知识       | 知识        |
       | 搜索宏      | 搜索宏       |
       | 字段提取     | 字段提取      |
-      | 报表       | 报表        |
+      | 报表       | 报表列表      |
       | 定时任务     | 定时任务      |
-      | 已存搜索     | 已存搜索      |
       | 日志来源     | 日志来源      |
-      | 拓扑图      | 拓扑图       |
-      | 趋势图      | 趋势图       |
-
+      | 拓扑图      | 拓扑图列表     |
 
   Scenario Outline: 授权读取+编辑
     When I click the "{'TabButton':'<tab>'}" button
     When I check "读取,编辑" from the "{'GroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+#    And I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -90,33 +91,33 @@ Feature: 角色授权资源读取（最好查看下截图）
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     And open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
-    And the data name is "{'column':'1','name':'<tab>'}" then i will see "{'column':'5','name':'编辑 所属应用 跳转'}" button
+    And the data name is "{'column':'1','name':'<tab>'}" then i will see "{'column':'5','name':'<name>'}" button
     And the data name is "{'column':'1','name':'<tab>'}" then i click the "编辑" button
     And I will see the "resourceGroups.EditPage" page
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
     Examples:
-      | tab      |
-      | Agent 管理 |
-      | 监控       |
-      | 仪表盘      |
-      | 字典       |
-      | 知识       |
-      | 搜索宏      |
-      | 字段提取     |
-      | 报表       |
-      | 定时任务     |
-      | 已存搜索     |
-      | 日志来源     |
-      | 拓扑图      |
-      | 趋势图      |
+      | tab      | name       |
+      | Agent 管理 | 编辑 所属应用 跳转 |
+      | 监控       | 编辑 所属应用 跳转 |
+      | 仪表盘      | 编辑 所属应用 跳转 |
+      | 字典       | 编辑 所属应用 跳转 |
+      | 知识       | 编辑 所属应用 跳转 |
+      | 搜索宏      | 编辑 所属应用 跳转 |
+      | 字段提取     | 编辑 所属应用 跳转 |
+      | 报表       | 编辑 所属应用 跳转 |
+      | 定时任务     | 编辑 所属应用 跳转 |
+      | 已存搜索     | 编辑 所属应用    |
+      | 日志来源     | 编辑 所属应用 跳转 |
+      | 拓扑图      | 编辑 所属应用 跳转 |
+      | 趋势图      | 编辑 所属应用    |
 
   Scenario Outline: 授权读取+编辑+删除
     When I click the "{'TabButton':'<tab>'}" button
     When I check "读取,编辑,删除" from the "{'GroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+#    And I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -124,22 +125,22 @@ Feature: 角色授权资源读取（最好查看下截图）
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     And open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
-    And the data name is "{'column':'1','name':'<tab>'}" then i will see "{'column':'5','name':'编辑 所属应用 跳转 删除'}" button
+    And the data name is "{'column':'1','name':'<tab>'}" then i will see "{'column':'5','name':'<name>'}" button
     And the data name is "{'column':'1','name':'<tab>'}" then i click the "删除" button
     Then I will see the message "确认删除 [AutoTestRoleWithAllResource] ?"
 
     Examples:
-      | tab      |
-      | Agent 管理 |
-      | 监控       |
-      | 仪表盘      |
-      | 字典       |
-      | 知识       |
-      | 搜索宏      |
-      | 字段提取     |
-      | 报表       |
-      | 定时任务     |
-      | 已存搜索     |
-      | 日志来源     |
-      | 拓扑图      |
-      | 趋势图      |
+      | tab      | name          |
+      | Agent 管理 | 编辑 所属应用 跳转 删除 |
+      | 监控       | 编辑 所属应用 跳转 删除 |
+      | 仪表盘      | 编辑 所属应用 跳转 删除 |
+      | 字典       | 编辑 所属应用 跳转 删除 |
+      | 知识       | 编辑 所属应用 跳转 删除 |
+      | 搜索宏      | 编辑 所属应用 跳转 删除 |
+      | 字段提取     | 编辑 所属应用 跳转 删除 |
+      | 报表       | 编辑 所属应用 跳转 删除 |
+      | 定时任务     | 编辑 所属应用 跳转 删除 |
+      | 已存搜索     | 编辑 所属应用 删除    |
+      | 日志来源     | 编辑 所属应用 跳转 删除 |
+      | 拓扑图      | 编辑 所属应用 跳转 删除 |
+      | 趋势图      | 编辑 所属应用 删除    |
