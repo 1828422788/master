@@ -50,6 +50,13 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
+    private WebElement disabledLi;
+
+    public WebElement getDisabledLi() {
+        return disabledLi;
+    }
+
     protected WebElement getErrorMessage() {
         return message;
     }
@@ -110,7 +117,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     public WebElement getLastDropdownList() {
         List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
-        return list.get(list.size() - 1);
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        WebElement li = lastDropdownList.findElement(By.xpath(".//li"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
+        return lastDropdownList;
     }
 
     public WebElement getGroupDropdownList() {

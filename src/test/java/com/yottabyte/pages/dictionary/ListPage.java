@@ -22,6 +22,17 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
 
+    @FindBy(xpath = "//label[contains(text(),'字典分组')]/following-sibling::div//input[@class='el-input__inner']")
+    private WebElement groupInput;
+
+    public WebElement getGroupInput() {
+        return groupInput;
+    }
+
+    public WebElement getDisabledLi() {
+        return super.getDisabledLi();
+    }
+
     @Override
     public WebElement getSuccessMessage() {
         return successMessage;
@@ -45,5 +56,13 @@ public class ListPage extends PageTemplate {
 
     public WebElement getEnsureButton() {
         return super.getContainsTextButton("确定");
+    }
+
+    public WebElement getUpdate() {
+        return super.getContainsTextButton("更新");
+    }
+
+    public WebElement getErrorMessage() {
+        return super.getErrorMessage();
     }
 }

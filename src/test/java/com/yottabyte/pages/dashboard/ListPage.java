@@ -34,9 +34,6 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
 
-    @FindBy(className = "el-message-box__message")
-    private WebElement errorMessage;
-
     @FindBy(xpath = "//span[contains(text(),'确定')]")
     private List<WebElement> ensureButtonList;
 
@@ -45,6 +42,20 @@ public class ListPage extends PageTemplate {
 
     @FindBy(xpath = "//span[@class='link-label'][contains(text(),'返回列表')]")
     private WebElement returnList;
+
+    @FindBy(xpath = "//label[contains(text(),'分组')]/following-sibling::div//input[@class='el-input__inner']")
+    private WebElement groupButton;
+
+    @FindBy(xpath = "//div[@class='el-dialog__body']/div")
+    private WebElement message;
+
+    public WebElement getMessage() {
+        return message;
+    }
+
+    public WebElement getGroupButton() {
+        return groupButton;
+    }
 
     public WebElement getReturnList() {
         return returnList;
@@ -81,7 +92,7 @@ public class ListPage extends PageTemplate {
 
 
     public WebElement getErrorMessage() {
-        return errorMessage;
+        return super.getErrorMessage();
     }
 
 
@@ -103,6 +114,10 @@ public class ListPage extends PageTemplate {
 
     public WebElement getEnsureSetDefaultButton() {
         return ensureButtonList.get(3);
+    }
+
+    public WebElement getDisabledLi() {
+        return super.getDisabledLi();
     }
 
     @Override
