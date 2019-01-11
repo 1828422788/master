@@ -102,6 +102,14 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "search-item-title")
     private List<WebElement> resultTitleList;
 
+    public WebElement getDisabledLi() {
+        return super.getDisabledLi();
+    }
+
+    public WebElement getGroupInput() {
+        return groupInput;
+    }
+
     public WebElement getResultTitle1() {
         return resultTitleList.get(0);
     }
@@ -233,7 +241,7 @@ public class ListPage extends PageTemplate {
         return list;
     }
 
-    public WebElement getSearchButton(){
+    public WebElement getSearchButton() {
         return super.getButton("全文搜索");
     }
 }
