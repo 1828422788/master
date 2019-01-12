@@ -162,6 +162,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
     private WebElement disabledLi;
 
+    @FindBy(xpath = "(//li[text()='alertSavedSearch'])[last()]")
+    private WebElement alertSavedSearch;
+
+    public WebElement getAlertSavedSearch() {
+        return alertSavedSearch;
+    }
+
     public WebElement getDisabledLi() {
         return disabledLi;
     }
@@ -182,9 +189,8 @@ public class CreatePage extends PageTemplate {
         return super.getContainsTextButton("+添加");
     }
 
-    public WebElement getSavedSearchList() {
-        advanceSavedSearch.click();
-        return super.getLastDropdownList();
+    public WebElement getAdvanceSavedSearch() {
+        return advanceSavedSearch;
     }
 
     // 基本配置tab

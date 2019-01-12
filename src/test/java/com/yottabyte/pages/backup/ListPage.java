@@ -24,6 +24,9 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-table__body")
     private List<WebElement> tableBodyList;
 
+    @FindBy(className = "el-message__group")
+    private WebElement successMessage;
+
     public WebElement getEnsureButton() {
         return super.getContainsTextButton("确定");
     }
@@ -41,7 +44,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getSuccessMessage();
+        return successMessage;
     }
 
     public WebElement getErrorMessage() {

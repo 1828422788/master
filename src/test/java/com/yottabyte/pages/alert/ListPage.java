@@ -39,7 +39,7 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-message-box")
     private WebElement message;
 
-    @FindBy(xpath = "//span[contains(text(),'最新状态:')]")
+    @FindBy(xpath = "//span[contains(text(),'最新状态')]")
     private WebElement latestStatus;
 
     @FindBy(xpath = "//span[text()='今日待处理全部告警']")

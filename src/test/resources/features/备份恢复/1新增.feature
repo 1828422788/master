@@ -7,6 +7,8 @@ Feature: 备份恢复新增（RZY-1500）
   Scenario Outline: 新增appname成功
     Given I set the parameter "AppNameInput" with value "<appName>"
     When I click the "AddButton" button
+    Then I will see the success message "添加成功"
+    And I refresh the website
     Then I will see the search result without paging contains "{'column':'0','name':'<appName>'}"
 
   @smoke

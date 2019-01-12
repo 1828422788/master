@@ -1,9 +1,10 @@
-@all @smoke @trend @trendSmoke
+@all @smoke @trend
 Feature: 趋势图删除（RZY-1891）
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
 
+  @trendSmoke
   Scenario Outline:
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureButton" button
