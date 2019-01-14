@@ -1,14 +1,14 @@
-@authorization @all @smoke @roleSmoke
-Feature: 角色授权搜索宏
+#@authorization @all @smoke @roleSmoke
+Feature: 角色授权报表
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'搜索宏'}" button
+    Then I click the "{'TabButton':'报表'}" button
 
-  Scenario: 授权新建搜索宏（RZY-2585）
-    When I "checked" the checkbox which name is "新建宏"
+  Scenario: 授权新建报表（RZY-2585）
+    When I "checked" the checkbox which name is "新建报表"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     And I logout current user
@@ -17,12 +17,18 @@ Feature: 角色授权搜索宏
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    And open the "searchMacro.ListPage" page for uri "/macro/"
+    Given open the "report.ListPage" page for uri "/reports/"
     When I click the "CreateButton" button
-    Then I will see the "searchMacro.CreatePage" page
+    Then I will see the "report.CreatePage" page
     When I set the parameter "Name" with value "AutoTestUserCreate"
-    And I click the "SaveButton" button
+    And I set the parameter "Subject" with value "test"
+    And I set the parameter "Hour" with value "11"
+    And I set the parameter "Minute" with value "30"
+    And I click the "NextButton" button
+    And I choose the "曲线图sample0" from the "ChartList"
+    And I click the "Save" button
     Then I will see the success message "保存成功"
+
 
   Scenario Outline: 授权读取（RZY-2594）
     When I check "读取" from the "{'IntraGroupManagement':['<group>']}"

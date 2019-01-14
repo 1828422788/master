@@ -40,4 +40,12 @@ public class ListPage extends PageTemplate {
         return super.getContainsTextButton("确定");
     }
 
+    public WebElement getMessage() {
+        return super.getErrorMessage();
+    }
+
+    public WebElement getDisabledLi() {
+        return super.getDisabledLi();
+    }
+
 }

@@ -44,4 +44,12 @@ public class ListPage extends PageTemplate {
     public WebElement getErrorMessage() {
         return successMessage;
     }
+
+    public WebElement getMessage() {
+        return super.getErrorMessage();
+    }
+
+    public WebElement getDisabledLi() {
+        return super.getDisabledLi();
+    }
 }
