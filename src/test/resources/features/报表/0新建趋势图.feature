@@ -16,7 +16,7 @@ Feature: 报表所需趋势图新建
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
-    Then I will see "<rowNum>" rows and "<columnNum>" columns in the table
+#    Then I will see "<rowNum>" rows and "<columnNum>" columns in the table
     And I click the "NextButton" button
     And I wait for "Header" will be visible
     And I click the "Save" button
