@@ -68,6 +68,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='Y轴'])[last()]")
     private WebElement yaxis;
 
+    @FindBy(xpath = "(//div[text()='X轴'])[last()]")
+    private WebElement xaxis;
+
     @FindBy(xpath = "(//div[contains(text(),'分组')])[last()]")
     private WebElement group;
 
@@ -197,6 +200,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='预测值']/ancestor::div/following-sibling::div")
     private WebElement predict;
 
+    @FindBy(xpath = "//span[text()='实际值']/ancestor::div/following-sibling::div")
+    private WebElement actual;
+
     @FindBy(xpath = "//span[text()='上限']/ancestor::div/following-sibling::div")
     private WebElement topLimit;
 
@@ -319,6 +325,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[@style='background: rgb(255, 152, 0);'])[last()]/ancestor::li")
     private WebElement orange;
+
+    @FindBy(xpath = "(//span[@style='background: rgb(176, 231, 43);'])[last()]/ancestor::li")
+    private WebElement green;
 
     @FindBy(xpath = "(//span[@style='background: rgb(255, 235, 59);'])[last()]/ancestor::li")
     private WebElement yellow;
@@ -639,6 +648,10 @@ public class CreatePage extends PageTemplate {
         return yaxis;
     }
 
+    public WebElement getXaxis() {
+        return xaxis;
+    }
+
     public WebElement getGroup() {
         return group;
     }
@@ -703,7 +716,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getGreen() {
-        return liList.get(6);
+        return green;
     }
 
     public WebElement getRed() {
@@ -792,6 +805,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getPredict() {
         predict.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getActual() {
+        actual.click();
         return super.getLastDropdownList();
     }
 

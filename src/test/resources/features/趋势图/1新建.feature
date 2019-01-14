@@ -191,11 +191,11 @@ Feature: 趋势图新建
     And I wait for loading invisible
     And I click the "Setting" button
     And I choose the "apache.x_forward" from the "SettingSelect"
-    And I click the "Target" button
-    And I choose the "apache.resp_len" from the "SettingSelect"
     And I click the "Exhibition" button
     And I click the "<startColour>" button
     And I click the "<colour>" button
+    And I click the "Target" button
+    And I choose the "apache.resp_len" from the "SettingSelect"
     And I click the "Generate" button
     And I click the "Save" button
     Then I will see the success message "创建成功"
@@ -356,11 +356,6 @@ Feature: 趋势图新建
     And I click the "Map" button
     And I click the "Heatmap" button
     And I wait for loading invisible
-    And I click the "Setting" button
-    And I choose the "<field>" from the "SettingSelect"
-    And I click the "Divide" button
-    And I choose the "<divide>" from the "SettingSelect"
-    And I click the "Generate" button
     And I click the "Save" button
     Then I will see the success message "创建成功"
     And I click the "EnsureButton" button
@@ -382,8 +377,8 @@ Feature: 趋势图新建
     Then I will see the success message "保存成功"
 
     Examples:
-      | name        | describe   | group         | spl                                                    | field   | divide          |
-      | 热力地图sample1 | AutoCreate | default_Trend | tag:sample04061424 \| stats count() by apache.geo.city | count() | apache.geo.city |
+      | name        | describe   | group         | spl                                                    |
+      | 热力地图sample1 | AutoCreate | default_Trend | tag:sample04061424 \| stats count() by apache.geo.city |
 
   Scenario Outline: 攻击地图sample1（RZY-2542）
     When I set the parameter "NameInput" with value "<name>"

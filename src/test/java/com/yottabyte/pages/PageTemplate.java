@@ -118,6 +118,9 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     public WebElement getLastDropdownList() {
         List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
         WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
         WebElement li = lastDropdownList.findElement(By.xpath(".//li"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
         return lastDropdownList;
