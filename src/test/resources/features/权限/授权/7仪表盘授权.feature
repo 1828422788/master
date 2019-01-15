@@ -158,6 +158,9 @@ Feature: 角色授权仪表盘
     And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then the data name is "<name>" then i will see "{'column':'4','name':'设为默认 分组 重命名 删除'}" button
+    Given the data name is "<name>" then i click the "删除" button
+    Then I click the "EnsureDeleteButton" button
+    Then I will see the success message "仪表盘删除成功"
 
     Examples:
       | name               |

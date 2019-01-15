@@ -87,4 +87,8 @@ public class ListPage extends PageTemplate {
         return groupDropdownList;
     }
 
+    public WebElement getDisabledLi() {
+        return super.getDisabledLi();
+    }
+
 }

@@ -178,6 +178,9 @@ Feature: 角色授权搜索宏
     And I wait for "2000" millsecond
     And open the "searchMacro.ListPage" page for uri "/macro/"
     Then the data name is "<name>" then i will see "{'column':'5','name':'编辑 分组 删除'}" button
+    When the data name is "<name>" then i click the "删除" button
+    And I click the "EnsureDelete" button
+    Then I will see the success message "删除成功"
 
     Examples:
       | group                       | name               |

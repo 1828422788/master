@@ -111,8 +111,9 @@ Feature: 角色授权监控（有bug，未修复）
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
-    And the data name is "AutoTestUserCreate" then i click the "删除" button
-    And I will see the success message "确认删除 [ AutoTestUserCreate ] ?"
+    And the data name is "AutoTestUserCreate(1)" then i click the "删除" button
+    And I click the "EnsureDeleteButton" button
+    Then I will see the success message "删除成功"
 
   Scenario: 授权读取+分配+编辑（RZY-601）(有bug，第二个检查点未验证)
     When I check "读取,分配,编辑" from the "{'IntraGroupManagement':['AutoTestRoleWithAllResource']}"
@@ -153,7 +154,7 @@ Feature: 角色授权监控（有bug，未修复）
     Given open the "alert.ListPage" page for uri "/alerts/"
     Then the data name is "AutoTestUserCreate" then i will see "{'column':'5','name':'编辑 分组 删除 在搜索中打开'}" button
 
-  Scenario: 授权读取+分配+编辑+删除权限（RZY-595）(有bug，第二个检查点未验证)
+  Scenario Outline: 授权读取+分配+编辑+删除权限（RZY-595）(有bug，第二个检查点未验证)
     When I check "读取,分配,编辑,删除" from the "{'IntraGroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -164,4 +165,11 @@ Feature: 角色授权监控（有bug，未修复）
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
-    Then the data name is "AutoTestUserCreate" then i will see "{'column':'5','name':'编辑 分组 复制 删除 在搜索中打开'}" button
+    Then the data name is "<name>" then i will see "{'column':'5','name':'编辑 分组 复制 删除 在搜索中打开'}" button
+    When the data name is "<name>" then i click the "删除" button
+    And I click the "EnsureDeleteButton" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name               |
+      | AutoTestUserCreate |

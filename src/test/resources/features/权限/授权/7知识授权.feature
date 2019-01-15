@@ -185,6 +185,9 @@ Feature: 角色授权知识
     And I wait for "2000" millsecond
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     Then the data name is "<name>" then i will see "{'column':'6','name':'编辑 分组 删除'}" button
+    Given the data name is "<name>" then i click the "删除" button
+    When I click the "EnsureDeleteButton" button
+    And I will see the success message "删除成功"
 
     Examples:
       | group                       | name               |

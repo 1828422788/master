@@ -133,4 +133,12 @@ public class ListPage extends PageTemplate {
         WaitForElement.waitForElementWithExpectedCondition(LoginBeforeAllTests.getWebDriver(), ExpectedConditions.visibilityOf(number.get(0)));
         number.get(number.size() - 1).click();
     }
+
+    public WebElement getDisabledLi() {
+        return super.getDisabledLi();
+    }
+
+    public WebElement getMessage() {
+        return super.getErrorMessage();
+    }
 }
