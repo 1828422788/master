@@ -86,21 +86,21 @@ public class LoginBeforeAllTests {
             }
         });
         cookie = webDriver.manage().getCookieNamed("sessionid");
-        setAccount(username);
+//        setAccount(username);
     }
 
-    private static void setAccount(String username) {
-        StringBuffer sql = new StringBuffer("SELECT d.name, a.id FROM Account a ");
-        sql.append("LEFT JOIN Domain d ON d.id = a.domain_id WHERE a.name = '");
-        sql.append(username).append("'");
-
-        List<String> list = JdbcUtils.query(sql.toString());
-        if (list.size() != 0) {
-            Account account = new Account();
-            account.setAccountName(list.get(0));
-            account.setAccountId(list.get(1));
-        }
-    }
+//    private static void setAccount(String username) {
+//        StringBuffer sql = new StringBuffer("SELECT d.name, a.id FROM Account a ");
+//        sql.append("LEFT JOIN Domain d ON d.id = a.domain_id WHERE a.name = '");
+//        sql.append(username).append("'");
+//
+//        List<String> list = JdbcUtils.query(sql.toString());
+//        if (list.size() != 0) {
+//            Account account = new Account();
+//            account.setAccountName(list.get(0));
+//            account.setAccountId(list.get(1));
+//        }
+//    }
 
     public static WebDriver getWebDriver() {
         return webDriver;

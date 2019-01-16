@@ -45,6 +45,13 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-message-box__btns")
     private WebElement messageBoxButtons;
 
+    @FindBy(xpath = "(//div[@class='yw-nav-popover-items'])[10]")
+    private WebElement source;
+
+    public WebElement getSource() {
+        return source;
+    }
+
     public WebElement getEnsureButton() {
         return super.getContainsTextButton("确定");
     }

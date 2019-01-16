@@ -18,6 +18,35 @@ Feature: 角色授权URL访问（RZY-558、RZY-559）
       | username | password   | value                        |
       | AutoTest | qqqqq11111 | {'NonPrivileged':'您暂无设置权限。'} |
 
+  Scenario Outline: 赋予URL访问权限
+    Given the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "{'TabButton':'URL 访问'}" button
+    And I "checked" the checkbox which name is "<name>"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "<navigate>" button
+    Then I will see the element "<elementName>" name is "<functionName>"
+    And open the "PublicNavBarPage" page for uri "<uri>"
+    Then the page's title will be "<title>"
+
+    Examples:
+      | name | navigate | elementName | functionName     | uri                      | title  |
+      | 资源分组 | Setting  | Auth        | 资源分组             | /account/resourcegroups/ | 资源分组管理 |
+      | 角色权限 | Setting  | Auth        | 角色权限资源分组         | /account/roles/          | 角色列表   |
+      | 使用限额 | Status   | Running     | 使用限额             | /account/usage/          | 使用限额   |
+      | 用户分组 | Setting  | Auth        | 角色权限资源分组用户分组     | /account/usergroups/     | 用户分组   |
+      | 用户管理 | Setting  | Auth        | 角色权限资源分组用户分组用户管理 | /account/users/          | 用户管理   |
+      | 监控   | Setting  | Source      | 监控               | /alerts/                 | 监控     |
+#    |应用    |Application|
+
+
   Scenario Outline: 勾选所有URL访问权限（RZY-559）
     Given the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page

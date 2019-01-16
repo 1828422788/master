@@ -87,6 +87,55 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(xpath = "//a[text()='账号信息']")
     private WebElement accountInfo;
 
+    @FindBy(xpath = "//span[text()='资源']/ancestor::p/following-sibling::div")
+    private WebElement source;
+
+    @FindBy(xpath = "//span[text()='权限']/ancestor::p/following-sibling::div")
+    private WebElement auth;
+
+    @FindBy(xpath = "//span[text()='系统']/ancestor::p/following-sibling::div")
+    private WebElement system;
+
+    @FindBy(xpath = "//span[text()='数据']/ancestor::p/following-sibling::div")
+    private WebElement data;
+
+    @FindBy(xpath = "//span[@class='yw-nav-icon iconfont icon-xitongzhuangtai_icon']")
+    private WebElement status;
+
+    @FindBy(xpath = "//span[contains(text(),'运行')]/ancestor::p/following-sibling::div")
+    private WebElement running;
+
+    @FindBy(className = "icon-yingyong_icon_gaoliang")
+    private WebElement application;
+
+    public WebElement getApplication() {
+        return application;
+    }
+
+    public WebElement getRunning() {
+        return running;
+    }
+
+    public WebElement getStatus() {
+        return status;
+    }
+
+    public WebElement getAuth() {
+        return auth;
+    }
+
+    public WebElement getSystem() {
+        return system;
+    }
+
+    public WebElement getData() {
+        return data;
+    }
+
+    public WebElement getSource() {
+        return source;
+    }
+
     public WebElement getAccountInfo() {
         return accountInfo;
     }
@@ -200,9 +249,9 @@ public class PublicNavBarPage extends PageTemplate {
         return timedTaskPage;
     }
 
-    public WebElement getLocateSearchPage() {
-        return locateSearchPage;
-    }
+//    public WebElement getLocateSearchPage() {
+//        return locateSearchPage;
+//    }
 
     public WebElement getAlertsListPage() {
         return alertsListPage;
@@ -265,14 +314,14 @@ public class PublicNavBarPage extends PageTemplate {
         }
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        super.isLoaded();
-        try {
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(getLocateSearchPage()));
-        } catch (Exception e) {
-            GetLogger.getLogger().error("can not load % with error %", this.getClass().getSimpleName(), e);
-        }
-
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        super.isLoaded();
+//        try {
+//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(getLocateSearchPage()));
+//        } catch (Exception e) {
+//            GetLogger.getLogger().error("can not load % with error %", this.getClass().getSimpleName(), e);
+//        }
+//
+//    }
 }

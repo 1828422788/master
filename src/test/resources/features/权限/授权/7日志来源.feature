@@ -1,14 +1,14 @@
 @authorization @all @smoke @roleSmoke
-Feature: 角色授权知识
+Feature: 角色授权日志来源
 
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'知识'}" button
+    Then I click the "{'TabButton':'日志来源'}" button
 
-  Scenario Outline: 授权新建知识（RZY-638）
-    When I "checked" the checkbox which name is "新建知识"
+  Scenario Outline: 授权新建日志来源（RZY-728）
+    When I "checked" the checkbox which name is "新建日志来源"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     And I logout current user
@@ -17,24 +17,26 @@ Feature: 角色授权知识
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Given I click the "CreateKnowledge" button
-    When I set the parameter "EventCode" with value "<name>"
-    And I set the parameter "Describe" with value "AutoTest"
-    And I click the "Confirm" button
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    When I click the "CreateButton" button
+    And I will see the "sourceGroup.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Appname" with value "app"
+    And I click the "EnsureCreateButton" button
+    Then I will see the success message "创建成功"
 
     Examples:
       | name               |
       | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取（RZY-647）
+  Scenario Outline: 授权读取（RZY-737）
     When I check "<function>" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
     And the data name is "<name>" then i click the "分组" button
-    And I choose the "<group>" from the "GroupComboBox"
-    And I click the "Ensure" button
+    And I choose the "<group>" from the "GroupInput"
+    And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
@@ -42,14 +44,15 @@ Feature: 角色授权知识
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    Then I will see the column number "1" contains "<name>"
+    Then the data name is "<name>" then i will see "{'column':'3','name':'设为默认'}" button
 
     Examples:
       | function | group                       | name               |
       | 读取       | AutoTestRoleWithAllResource | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取+分配（RZY-648）
+  Scenario Outline: 授权读取+分配（RZY-738）
     When I check "<function>" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -59,14 +62,15 @@ Feature: 角色授权知识
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    Then I will see the column number "1" contains "<name>"
+    Then the data name is "<name>" then i will see "{'column':'3','name':'设为默认'}" button
 
     Examples:
       | function | group                       | name               |
       | 读取,分配    | AutoTestRoleWithAllResource | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取+编辑（RZY-649）
+  Scenario Outline: 授权读取+编辑（RZY-739）
     When I check "<function>" from the "{'IntraGroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -76,17 +80,18 @@ Feature: 角色授权知识
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'<operator>'}" button
-    When the data name is "<name>" then i click the "编辑" button
-    And I click the "GroupInput" button
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "{'column':'3','name':'编辑 分组 设为默认'}" button
+    Given the data name is "<name>" then i click the "分组" button
+    And I trigger the button "GroupInput"
     Then I will see the "DisabledLi" is "is-disabled"
 
     Examples:
-      | function | name               | operator |
-      | 读取,编辑    | AutoTestUserCreate | 编辑 分组    |
+      | function | name               |
+      | 读取,编辑    | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取+删除（RZY-650）
+  Scenario Outline: 授权读取+删除（RZY-740）
     When I check "读取,删除" from the "{'IntraGroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -96,16 +101,17 @@ Feature: 角色授权知识
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'删除'}" button
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "{'column':'3','name':'删除 设为默认'}" button
     When the data name is "<name>" then i click the "删除" button
-    Then I will see the error message "确认删除 [ <name> ] ?"
+    Then I will see the error message "此操作将删除 [<name>], 是否继续?"
 
     Examples:
       | name               |
       | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取+分配+编辑（RZY-651）
+  Scenario Outline: 授权读取+分配+编辑（RZY-741）
     When I check "读取,分配,编辑" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -115,25 +121,27 @@ Feature: 角色授权知识
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'编辑 分组'}" button
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "{'column':'3','name':'编辑 分组 设为默认'}" button
     When the data name is "<name>" then i click the "分组" button
-    And I cancel selection "<group>" from the "GroupComboBox"
-    And I click the "Ensure" button
+    And I cancel selection "<group>" from the "GroupInput"
+    And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
 
     Examples:
       | group                       | name               |
       | AutoTestRoleWithAllResource | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取+分配+删除（RZY-652）
+  Scenario Outline: 授权读取+分配+删除（RZY-742）
     When I check "读取,分配,删除" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I wait for loading invisible
     And the data name is "<name>" then i click the "分组" button
-    And I choose the "<group>" from the "GroupComboBox"
-    And I click the "Ensure" button
+    And I choose the "<group>" from the "GroupInput"
+    And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
@@ -141,16 +149,15 @@ Feature: 角色授权知识
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'删除'}" button
-    When the data name is "<name>" then i click the "删除" button
-    Then I will see the error message "确认删除 [ <name> ] ?"
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "{'column':'3','name':'删除 设为默认'}" button
 
     Examples:
       | group                       | name               |
       | AutoTestRoleWithAllResource | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取+编辑+删除（RZY-653）
+  Scenario Outline: 授权读取+编辑+删除（RZY-743）
     When I check "读取,编辑,删除" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -160,20 +167,18 @@ Feature: 角色授权知识
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'编辑 分组 删除'}" button
-    When the data name is "<name>" then i click the "编辑" button
-    And I click the "GroupInput" button
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "{'column':'3','name':'编辑 分组 删除 设为默认'}" button
+    When the data name is "<name>" then i click the "分组" button
+    And I trigger the button "GroupInput"
     Then I will see the "DisabledLi" is "is-disabled"
-    And open the "knowledge.ListPage" page for uri "/knowledge/"
-    When the data name is "<name>" then i click the "删除" button
-    Then I will see the error message "确认删除 [ <name> ] ?"
 
     Examples:
       | group                       | name               |
       | AutoTestRoleWithAllResource | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取+分配+编辑+删除（RZY-645）
+  Scenario Outline: 授权读取+分配+编辑+删除（RZY-735）
     When I check "读取,分配,编辑,删除" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -183,10 +188,11 @@ Feature: 角色授权知识
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'编辑 分组 删除'}" button
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "{'column':'3','name':'编辑 分组 删除 设为默认'}" button
     Given the data name is "<name>" then i click the "删除" button
-    When I click the "EnsureDeleteButton" button
+    When I click the "Ensure" button
     And I will see the success message "删除成功"
 
     Examples:

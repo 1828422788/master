@@ -32,8 +32,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -41,12 +41,12 @@ Feature: 趋势图新建
     Then I will see the success message "保存成功"
 
     Examples:
-      | name       | spl                                                                                                                                                                             | chart    | chartType | reportName    |
-      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                                                    |          | Line      | 曲线图sample1报表  |
-      | 面积图sample1 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20                                                        |          | Area      | 面积图sample1报表  |
-      | 散点图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                                                    |          | Scatter   | 散点图sample1报表  |
-      | 柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                                                    |          | Column    | 柱状图sample1报表  |
-      | 多Y轴sample1 | tag:*display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | Compound | Multiaxis | 多Y轴图sample1报表 |
+      | name       | spl                                                                                                                                                                             | chart    | chartType | reportName    | hour | minute |
+      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                                                    |          | Line      | 曲线图sample1报表  | 11   | 50     |
+      | 面积图sample1 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20                                                        |          | Area      | 面积图sample1报表  | 11   | 55     |
+      | 散点图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                                                    |          | Scatter   | 散点图sample1报表  | 12   | 00     |
+      | 柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                                                    |          | Column    | 柱状图sample1报表  | 12   | 05     |
+      | 多Y轴sample1 | tag:*display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | Compound | Multiaxis | 多Y轴图sample1报表 | 12   | 10     |
 
   Scenario Outline: 序列图（RZY-2479、2483、2500）
     When I set the parameter "NameInput" with value "<name>"
@@ -209,8 +209,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -218,10 +218,10 @@ Feature: 趋势图新建
     Then I will see the success message "保存成功"
 
     Examples:
-      | name       | spl                                                                                                                                                                                                            | chartType | chart  | reportName   | startColour | colour |
-      | 和弦图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Chord  | 和弦图sample1报表 |             |        |
-      | 桑基图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Sankey | 桑基图sample1报表 | StartColour | Purple |
-      | 力图sample1  | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Force  | 力图sample1报表  |             |        |
+      | name       | spl                                                                                                                                                                                                            | chartType | chart  | reportName   | startColour | colour | hour | minute |
+      | 和弦图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Chord  | 和弦图sample1报表 |             |        | 12   | 15     |
+      | 桑基图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Sankey | 桑基图sample1报表 | StartColour | Purple | 12   | 20     |
+      | 力图sample1  | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Force  | 力图sample1报表  |             |        | 12   | 25     |
 
   Scenario Outline: 饼状图sample1（RZY-2504）
     When I set the parameter "NameInput" with value "<name>"
@@ -250,8 +250,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "12"
+    And I set the parameter "Minute" with value "30"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -297,8 +297,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "12"
+    And I set the parameter "Minute" with value "35"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -368,8 +368,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "12"
+    And I set the parameter "Minute" with value "40"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -418,8 +418,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "12"
+    And I set the parameter "Minute" with value "45"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -500,8 +500,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "12"
+    And I set the parameter "Minute" with value "50"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -572,8 +572,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "12"
+    And I set the parameter "Minute" with value "55"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -678,8 +678,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -687,9 +687,9 @@ Feature: 趋势图新建
     Then I will see the success message "保存成功"
 
     Examples:
-      | name        | spl                                                          | type       |
-      | 水球图sample1  | tag:*display \| stats count() by apache.clientip \| limit 10 | Liquidfill |
-      | 字符云图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Wordcloud  |
+      | name        | spl                                                          | type       | hour | minute |
+      | 水球图sample1  | tag:*display \| stats count() by apache.clientip \| limit 10 | Liquidfill | 13   | 00     |
+      | 字符云图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Wordcloud  | 13   | 05     |
 
   Scenario Outline: 雷达图sample1、漏斗图sample1（RZY-2635、2658）
     When I set the parameter "NameInput" with value "<name>"
@@ -717,8 +717,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -726,9 +726,9 @@ Feature: 趋势图新建
     Then I will see the success message "保存成功"
 
     Examples:
-      | name       | spl                                                                        | type   |
-      | 雷达图sample1 | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 | Radar  |
-      | 漏斗图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8                | Funnel |
+      | name       | spl                                                                        | type   | hour | minute |
+      | 雷达图sample1 | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 | Radar  | 13   | 10     |
+      | 漏斗图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8                | Funnel | 13   | 15     |
 
 
   Scenario Outline: 雷达图sample2（RZY-2646）
@@ -800,8 +800,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "02"
+    And I set the parameter "Hour" with value "13"
+    And I set the parameter "Minute" with value "20"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -842,8 +842,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "01"
+    And I set the parameter "Hour" with value "13"
+    And I set the parameter "Minute" with value "25"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"

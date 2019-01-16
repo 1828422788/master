@@ -102,4 +102,8 @@ public class ListPage extends PageTemplate {
     public WebElement getCreateButton() {
         return createButton;
     }
+
+    public WebElement getDisabledLi() {
+        return super.getDisabledLi();
+    }
 }

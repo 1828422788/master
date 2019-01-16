@@ -55,8 +55,8 @@ Feature: 报表新建（RZY-116）
 
     Examples: 保存成功
       | name               | describe | reportGroup    | reportType | email                     | subject                       | hour | minute | chartLists | layout  |
-      | 改为曲线图sample2(WORD) | AutoTest | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图sample0 | Layout1 |
-      | 改为曲线图sample2(URL)  | AutoTest | default_Report | URL        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 10     | 曲线图sample0 | Layout1 |
+      | 改为曲线图sample2(WORD) | AutoTest | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 00     | 曲线图sample0 | Layout1 |
+      | 改为曲线图sample2(URL)  | AutoTest | default_Report | URL        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 05     | 曲线图sample0 | Layout1 |
 
   @smoke @reportSmoke
   Scenario Outline: 改为面积图sample2+散点图sample2报表，11：11执行
@@ -145,7 +145,7 @@ Feature: 报表新建（RZY-116）
   @smoke @reportSmoke
     Examples: 保存成功
       | name            | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-      | 改为面积图散点图sample2 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第二种布局方式 | 11   | 11     | Layout2 |
+      | 改为面积图散点图sample2 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第二种布局方式 | 11   | 10     | Layout2 |
 
   @smoke @reportSmoke
   Scenario Outline: 改为柱状图sample2+和弦图sample1+桑基图sample1报表，11：12执行
@@ -242,9 +242,9 @@ Feature: 报表新建（RZY-116）
   @smoke @reportSmoke
     Examples: 保存成功
       | name                                       | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)3 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第3种布局方式 | 11   | 12     | Layout3 |
-      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)5 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第5种布局方式 | 11   | 12     | Layout5 |
-      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)6 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第6种布局方式 | 11   | 12     | Layout6 |
+      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)3 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第3种布局方式 | 11   | 15     | Layout3 |
+      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)5 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第5种布局方式 | 11   | 20     | Layout5 |
+      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)6 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第6种布局方式 | 11   | 25     | Layout6 |
 
 #  @smoke @reportSmoke
 #  Scenario Outline: 条形图+和弦图+桑基图+力图报表，11：12执行
@@ -293,7 +293,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
-    And I set the parameter "Crontab" with value "0 13 11 * * ?"
+    And I set the parameter "Crontab" with value "0 30 11 * * ?"
     And I click the "NextButton" button
     And I choose the "力图sample0" from the "ChartList"
     And I click the "Arrow" button
@@ -460,7 +460,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>, 第4种布局方式"
-    And I set the parameter "Crontab" with value "0 14 11 * * ?"
+    And I set the parameter "Crontab" with value "0 35 11 * * ?"
     And I click the "NextButton" button
     And I choose the "单值sample0" from the "ChartList"
     And I click the "Arrow" button
@@ -516,7 +516,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>, 第4种布局方式"
-    And I set the parameter "Crontab" with value "0 14 11 * * ?"
+    And I set the parameter "Crontab" with value "0 40 11 * * ?"
     And I click the "NextButton" button
     And I choose the "字符云图sample0" from the "ChartList"
     And I wait for "1000" millsecond
@@ -655,8 +655,7 @@ Feature: 报表新建（RZY-116）
   @smoke @reportSmoke
     Examples: 保存成功
       | name                                               | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-      | 改为雷达图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 12     | Layout4 |
-
+      | 改为雷达图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 45     | Layout4 |
 
   Scenario Outline: 执行计划为crontab
     Given I click the "CreateButton" button
