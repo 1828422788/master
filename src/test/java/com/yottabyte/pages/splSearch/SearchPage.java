@@ -441,6 +441,20 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yw-searchbar__prepend el-dropdown']/following-sibling::sup")
     private WebElement sup;
 
+    @FindBy(xpath = "(//tbody)[last()]")
+    private WebElement table;
+
+    @FindBy(xpath = "//td[text()='AutoTestUserCreate']/preceding-sibling::td/i")
+    private WebElement star;
+
+    public WebElement getStar() {
+        return star;
+    }
+
+    public WebElement getTable() {
+        return table;
+    }
+
     public WebElement getSup() {
         return sup;
     }
@@ -1016,6 +1030,10 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
+        return successMessage;
+    }
+
+    public WebElement getMessage() {
         return successMessage;
     }
 }

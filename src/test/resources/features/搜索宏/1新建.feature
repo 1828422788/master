@@ -27,8 +27,6 @@ Feature: 搜索宏新建
     Examples: 新建失败
       | name | group         | definition | button | param | validateExpression | validateFalseInfo | message                |
       |      |               |            |        |       |                    |                   | error message "名称不能为空" |
-      | test | default_Macro |            |        |       |                    |                   | error message "定义不能为空" |
-
 
   @smoke @searchMacroSmoke
   Scenario Outline: 验证1-2个参数

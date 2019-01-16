@@ -5,6 +5,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.GetPaging;
 import com.yottabyte.utils.JsonStringPaser;
+import cucumber.api.java.cs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -57,6 +58,30 @@ public class ClickButtonWithGivenName {
         WebElement tr = this.getTr(dataName);
         String actualText = tr.findElement(By.className(className)).getText();
         String expectText = map.get("name").toString();
+        Assert.assertEquals(expectText, actualText);
+    }
+
+    /**
+     * 从page页获取table
+     *
+     * @param dataName
+     * @param result
+     */
+    @And("^I get the data \"([^\"]*)\" from page then I will see \"([^\"]*)\" button$")
+    public void getDataFromPageAndCheck(String dataName, String result) {
+        Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
+        String name = map.get("name").toString();
+        int column = Integer.parseInt(map.get("column").toString());
+
+        WebElement table = GetElementFromPage.getWebElementWithName("Table");
+        WebElement tr = this.getRowWithoutPaging(name, column, table);
+
+        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(result);
+        int resultColumn = Integer.parseInt(resultMap.get("column").toString());
+
+        List<WebElement> tdList = tr.findElements(By.tagName("td"));
+        String expectText = resultMap.get("name").toString();
+        String actualText = tdList.get(resultColumn).getText();
         Assert.assertEquals(expectText, actualText);
     }
 
@@ -139,7 +164,10 @@ public class ClickButtonWithGivenName {
 
     public WebElement getRowWithColumnNum(String name, int columnNum) {
         WebElement table = webDriver.findElement(By.className("el-table__body"));
+        return this.getRowWithColumnNum(name, columnNum, table);
+    }
 
+    public WebElement getRowWithColumnNum(String name, int columnNum, WebElement table) {
         int i = 0;
         while (i < this.getTotalPage()) {
             // 找到一行元素
@@ -163,6 +191,18 @@ public class ClickButtonWithGivenName {
 
         for (WebElement tr : trList) {
             if (tr.findElement(By.tagName("td")).getText().equals(name)) {
+                return tr;
+            }
+        }
+        return null;
+    }
+
+    private WebElement getRowWithoutPaging(String name, int column, WebElement table) {
+        // 找到一行元素
+        List<WebElement> trList = table.findElements(By.tagName("tr"));
+
+        for (WebElement tr : trList) {
+            if (tr.findElements(By.tagName("td")).get(column).getText().equals(name)) {
                 return tr;
             }
         }

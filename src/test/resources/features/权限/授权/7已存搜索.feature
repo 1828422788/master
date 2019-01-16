@@ -1,4 +1,4 @@
-#@authorization @all @smoke @roleSmoke
+@authorization @all @smoke @roleSmoke
 Feature: 角色授权已存搜索
 
   Background:
@@ -42,14 +42,16 @@ Feature: 角色授权已存搜索
     And I wait for "2000" millsecond
     Given open the "splSearch.SearchPage" page for uri "/search/"
     Given I click the "OpenSavedSearchButton" button
-    And "加载" the data "<name>" in columnNum "1"
-    Then I will see the input element "SearchInput" value will be "starttime="-2d/w" endtime="now" tag:*"
+    And I wait for loading invisible
+    Then I get the data "{'column':'1','name':'<name>'}" from page then I will see "{'column':'6','name':'加载'}" button
+    And I click the "Star" button
+    Then I will see the message "<message>"
 
     Examples:
-      | group                       | name               |
-      | AutoTestRoleWithAllResource | AutoTestUserCreate |
+      | group                       | name               | message             |
+      | AutoTestRoleWithAllResource | AutoTestUserCreate | 操作者没有权限\n错误码: FE_42 |
 
-  Scenario Outline: 授权读取+分配（RZY-702）
+  Scenario Outline: 授权读取+分配（RZY-720）
     When I check "读取,分配" from the "{'IntraGroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -61,15 +63,16 @@ Feature: 角色授权已存搜索
     And I wait for "2000" millsecond
     Given open the "splSearch.SearchPage" page for uri "/search/"
     Given I click the "OpenSavedSearchButton" button
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "{'column':'7','name':'加载'}" button
-    And "加载" the data "<name>" in columnNum "1"
-    Then I will see the input element "SearchInput" value will be "starttime="-2d/w" endtime="now" tag:*"
+    And I wait for loading invisible
+    Then I get the data "{'column':'1','name':'<name>'}" from page then I will see "{'column':'6','name':'加载'}" button
+    And I click the "Star" button
+    Then I will see the message "<message>"
 
     Examples:
-      | name               |
-      | AutoTestUserCreate |
+      | name               | message             |
+      | AutoTestUserCreate | 操作者没有权限\n错误码: FE_42 |
 
-  Scenario Outline: 授权读取+编辑（RZY-703）
+  Scenario: 授权读取+编辑（RZY-721）
     When I check "读取,编辑" from the "{'IntraGroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -79,17 +82,13 @@ Feature: 角色授权已存搜索
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'编辑 分组'}" button
-    When the data name is "<name>" then i click the "分组" button
-    And I trigger the button "Group"
-    Then I will see the "DisabledLi" is "is-disabled"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    Given I click the "OpenSavedSearchButton" button
+    And I wait for loading invisible
+    Then I will see the "Star" is "el-icon-star-off"
+    And I click the "Star" button
 
-    Examples:
-      | name               |
-      | AutoTestUserCreate |
-
-  Scenario Outline: 授权读取+删除（RZY-704）
+  Scenario Outline: 授权读取+删除（RZY-722）
     When I check "读取,删除" from the "{'IntraGroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -99,17 +98,18 @@ Feature: 角色授权已存搜索
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'删除'}" button
-    When the data name is "<name>(1)" then i click the "删除" button
-    And I click the "EnsureDelete" button
-    Then I will see the success message "删除成功"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    Given I click the "OpenSavedSearchButton" button
+    And I wait for loading invisible
+    Then I get the data "{'column':'1','name':'<name>'}" from page then I will see "{'column':'6','name':'加载删除'}" button
+    And I click the "Star" button
+    Then I will see the message "<message>"
 
     Examples:
-      | name               |
-      | AutoTestUserCreate |
+      | name               | message             |
+      | AutoTestUserCreate | 操作者没有权限\n错误码: FE_42 |
 
-  Scenario Outline: 授权读取+分配+编辑（RZY-705）
+  Scenario Outline: 授权读取+分配+编辑（RZY-723）
     When I check "读取,分配,编辑" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -119,42 +119,40 @@ Feature: 角色授权已存搜索
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'编辑 复制 分组'}" button
-    When the data name is "<name>" then i click the "分组" button
-    And I cancel selection "<group>" from the "Group"
-    And I click the "EnsureChangeGroup" button
-    Then I will see the success message "保存成功"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    Given I click the "OpenSavedSearchButton" button
+    And I wait for loading invisible
+    Then I get the data "{'column':'1','name':'<name>'}" from page then I will see "{'column':'6','name':'加载'}" button
+    Then I will see the "Star" is "el-icon-star-on"
+    And I click the "Star" button
 
     Examples:
       | group                       | name               |
       | AutoTestRoleWithAllResource | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取+分配+删除（RZY-706）
+  Scenario Outline: 授权读取+分配+删除（RZY-724）
     When I check "读取,分配,删除" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    And the data name is "<name>" then i click the "分组" button
-    And I choose the "<group>" from the "Group"
-    And I click the "EnsureChangeGroup" button
-    Then I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'复制 删除'}" button
-    When the data name is "<name>" then i click the "删除" button
-    Then I will see the message "此操作将删除 [<name>], 是否继续?"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    Given I click the "OpenSavedSearchButton" button
+    And I wait for loading invisible
+    Then I get the data "{'column':'1','name':'<name>'}" from page then I will see "{'column':'6','name':'加载删除'}" button
+    Then I will see the "Star" is "el-icon-star-off"
+    And I click the "Star" button
+    Then I will see the message "<message>"
 
     Examples:
-      | group                       | name               |
-      | AutoTestRoleWithAllResource | AutoTestUserCreate |
+      | group                       | name               | message             |
+      | AutoTestRoleWithAllResource | AutoTestUserCreate | 操作者没有权限\n错误码: FE_42 |
 
-  Scenario Outline: 授权读取+编辑+删除（RZY-707）
+  Scenario Outline: 授权读取+编辑+删除（RZY-725）
     When I check "读取,编辑,删除" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -164,20 +162,18 @@ Feature: 角色授权已存搜索
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'编辑 分组 删除'}" button
-    When the data name is "<name>" then i click the "编辑" button
-    And I trigger the button "Group"
-    Then I will see the "DisabledLi" is "is-disabled"
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "<name>" then i click the "删除" button
-    Then I will see the message "此操作将删除 [<name>], 是否继续?"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    Given I click the "OpenSavedSearchButton" button
+    And I wait for loading invisible
+    Then I get the data "{'column':'1','name':'<name>'}" from page then I will see "{'column':'6','name':'加载删除'}" button
+    Then I will see the "Star" is "el-icon-star-off"
+    And I click the "Star" button
 
     Examples:
       | group                       | name               |
       | AutoTestRoleWithAllResource | AutoTestUserCreate |
 
-  Scenario Outline: 授权读取+分配+编辑+删除（RZY-699）
+  Scenario Outline: 授权读取+分配+编辑+删除（RZY-717）
     When I check "读取,分配,编辑,删除" from the "{'IntraGroupManagement':['<group>']}"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
@@ -187,11 +183,14 @@ Feature: 角色授权已存搜索
     And I set the parameter "Password" with value "qqqqq11111"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then the data name is "<name>" then i will see "{'column':'6','name':'编辑 复制 分组 删除'}" button
-    When the data name is "<name>" then i click the "删除" button
-    And I click the "EnsureDelete" button
-    Then I will see the success message "删除成功"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    Given I click the "OpenSavedSearchButton" button
+    And I wait for loading invisible
+    Then I get the data "{'column':'1','name':'<name>'}" from page then I will see "{'column':'6','name':'加载删除'}" button
+    Then I will see the "Star" is "el-icon-star-on"
+    And I click the "Star" button
+    And "删除" the data "<name>" in columnNum "1"
+    Then I click the "DeleteSavedSearch" button
 
     Examples:
       | group                       | name               |
