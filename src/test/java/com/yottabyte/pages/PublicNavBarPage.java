@@ -108,6 +108,34 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(className = "icon-yingyong_icon_gaoliang")
     private WebElement application;
 
+    @FindBy(className = "yw-nav-app-list")
+    private WebElement app;
+
+    @FindBy(xpath = "//span[@class='yw-nav-icon iconfont icon-bangzhuwendang_gaoliang']")
+    private WebElement help;
+
+    @FindBy(xpath = "//span[contains(text(),'帮助')]/ancestor::p/following-sibling::div")
+    private WebElement helpDocs;
+
+    @FindBy(id = "yw-subnav")
+    private WebElement subnav;
+
+    public WebElement getSubnav() {
+        return subnav;
+    }
+
+    public WebElement getHelpDocs() {
+        return helpDocs;
+    }
+
+    public WebElement getHelp() {
+        return help;
+    }
+
+    public WebElement getApp() {
+        return app;
+    }
+
     public WebElement getApplication() {
         return application;
     }

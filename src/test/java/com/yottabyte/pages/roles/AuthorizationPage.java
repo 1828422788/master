@@ -43,8 +43,26 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
 
+    @FindBy(className = "el-input__inner")
+    private WebElement maxTime;
+
+    @FindBy(xpath = "(//div[@class='el-checkbox-group'])[last()]")
+    private WebElement checkboxGroup;
+
+    public WebElement getCheckboxGroup() {
+        return checkboxGroup;
+    }
+
+    public WebElement getMaxTime() {
+        return maxTime;
+    }
+
     public WebElement getSaveButton() {
         return saveButton;
+    }
+
+    public WebElement getRecall() {
+        return super.getButton("撤销修改");
     }
 
     public WebElement getTabButton(String tabName) {
