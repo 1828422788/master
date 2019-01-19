@@ -104,7 +104,7 @@ Feature: 角色授权功能
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
-  Scenario: 授予可转授功能权限（RZY-1211）
+  Scenario Outline: 授予可转授功能权限（RZY-1211）
     When I "checked" the checkbox which name is "可转授功能权限"
     And I click the "SaveButton" button
     And I logout current user
@@ -117,7 +117,156 @@ Feature: 角色授权功能
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'功能'}" button
-    And I will see the element "CheckboxGroup" name is "可使用结算管理\n可新建角色\n可解锁用户\n可更新最大搜索时长\n可转授功能权限"
+    And I will see the element "CheckboxGroup" name is "<name>"
+
+    Examples:
+      | name                                      |
+      | 可使用结算管理\n可新建角色\n可解锁用户\n可更新最大搜索时长\n可转授功能权限 |
+
+  Scenario: 授予可新建/更新告警插件权限（RZY-771）
+    When I "checked" the checkbox which name is "可新建/更新告警插件"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then I wait for "Upload" will be visible
+
+#  Scenario: 授权可搜索所有日志（RZY-768）
+#    When I "checked" the checkbox which name is "可新建/更新告警插件"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+
+#  Scenario: 授权可查看敏感内容（RZY-772）
+#    When I "checked" the checkbox which name is "可查看敏感内容"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+
+  Scenario: 授权可使用离线任务（RZY-762）
+    When I "checked" the checkbox which name is "可使用离线任务"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Data" name is "日志来源Agent 管理路由配置本地上传备份策略离线任务"
+    And open the "PublicNavBarPage" page for uri "/offlinetask/"
+    Then the page's title will be "离线任务"
+
+#  Scenario: 授权可更改他人密码（RZY-1213）
+
+  Scenario: 可使用资源包导入导出（RZY-764）
+    When I "checked" the checkbox which name is "可使用资源包导入、导出"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
+    Then I wait for "UploadButton" will be visible
+
+  Scenario: 可使用入库优先级并验证无大屏权限时是否有权访问（RZY-767）
+    When I "checked" the checkbox which name is "可使用入库优先级"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Data" name is "日志来源Agent 管理路由配置入库优先级本地上传备份策略离线任务"
+    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "PublicNavBarPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "404 Page Not Found"
+
+  Scenario Outline: 大屏功能权限（RZY-2609）
+    When I "checked" the checkbox which name is "Galaxee 功能权限"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Application" button
+    Then I will see the element "App" name is "<name>"
+    And open the "PublicNavBarPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "大屏管理"
+
+    Examples:
+      | name                      |
+      | 机器学习\n关联搜索\n应用表格\nGalaxee |
+
+#  Scenario: 可使用告警分析（RZY-1207）
+
+  Scenario: 可新建应用（RZY-2610）（有bug）
+    When I "checked" the checkbox which name is "可新建应用"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given delete file "/target/download-files/TempTestApp.tar"
+    And open the "app.ListPage" page for uri "/app/list/"
+    And I click the "CreateButton" button
+    Then I will see the "app.CreatePage" page
+    When I set the parameter "NameInput" with value "TempTestApp"
+    And I click the "AddMenuButton" button
+    And I set the parameter "MenuName" with value "知识"
+    And I set the parameter "Url" with value "/knowledge/"
+    And I click the "SaveMenuButton" button
+    And I choose the "知识" from the "DefaultPage"
+    And I click the "CreateButton" button
+    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+    Given open the "app.ListPage" page for uri "/app/list/"
+    And I click the "InstallButton" button
+    Then I will see the "app.InstallPage" page
+    When I upload a file with name "/target/download-files/TempTestApp.tar"
+    And I will see the element "VerifyText" name is "上传完成"
+    And I choose the "AutoTestRole" from the "Role"
+    And I choose the "test" from the "Resource"
+    And I click the "NextButton" button
+    And I will see the "GroupPreview" is "active"
+    And I click the "NextButton" button
+    And I will see the "ResourcePreview" is "active"
+    And I click the "NextButton" button
+    And I will see the element "ImportSuccess" name is "导入成功"
+    Given open the "app.ListPage" page for uri "/app/list/"
+    Then I will see the search result contains "{'column':'0','name':'TempTestApp'}"
+    Given delete file "/target/download-files/AutoTest.tar"
+    And open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AutoTestApp" then i click the "导出" button
+    And I will see the "app.CreatePage" page
+    And I wait for loading invisible
+    And I click the "ExportButton" button
+    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+
+  Scenario: 可修改用户详情（RZY-766）
 
 #  Scenario: 授权查看未分配资源
 #    When I "checked" the checkbox which name is "可查看未分配资源"
