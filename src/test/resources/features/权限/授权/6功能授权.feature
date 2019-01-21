@@ -202,7 +202,7 @@ Feature: 角色授权功能
     Then the page's title will be "404 Page Not Found"
 
   Scenario Outline: 大屏功能权限（RZY-2609）
-    When I "checked" the checkbox which name is "Galaxee 功能权限"
+    When I "checked" the checkbox which name is "可使用 Galaxee"
     And I click the "SaveButton" button
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
@@ -266,9 +266,102 @@ Feature: 角色授权功能
     And I click the "ExportButton" button
     Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
 
-  Scenario: 可修改用户详情（RZY-766）
+  Scenario: 可修改用户详情（缺少验证同组用户）（RZY-766）
+    When I "checked" the checkbox which name is "可修改用户详情"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "users.ListPage" page for uri "/account/users/"
+    When I click the detail which name is "{'column':'1','name':'AutoTest'}"
+    And I will see the "users.DetailPage" page
+    And I click the "EditButton" button
+    And I will see the "users.EditPage" page
+    And I set the parameter "Telephone" with value "1511111111"
+    And I click the "SaveButton" button
+    Then I will see the success message "更新成功"
 
-#  Scenario: 授权查看未分配资源
-#    When I "checked" the checkbox which name is "可查看未分配资源"
-#    And I click the "SaveButton" button
-#    Then I will see the success message "保存成功"
+  Scenario: 可导入导出树状日志来源（RZY-1212）
+    When I "checked" the checkbox which name is "可导入导出日志来源树状结构"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "System" name is "来源结构"
+    Given open the "sourceGroup.StructurePage" page for uri "/sources/sourcegroups/structure/"
+    And I click the "ImportButton" button
+    When I upload a file with name "/src/test/resources/testdata/sourceGroups/AutoUploadTest.yaml"
+    And I will see the element "VerifyText" name is "上传完成"
+    And I click the "NextButton" button
+    And I wait for "Preview" will be visible
+    And I click the "NextButton" button
+    And I wait for "ImportSuccessMsg" will be visible
+    And I click the "CompleteButton" button
+
+  Scenario: 可使用模式学习（RZY-1209）
+    When I "checked" the checkbox which name is "可使用模式学习"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    Then I will see the element "SearchTabBar" name is "模式"
+
+  Scenario: 可下载搜索结果（RZY-770）
+    When I "checked" the checkbox which name is "可下载搜索结果"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Data" name is "日志来源Agent 管理路由配置入库优先级本地上传备份策略下载管理离线任务"
+    And open the "PublicNavBarPage" page for uri "/download/"
+    Then the page's title will be "下载管理"
+
+  Scenario: 可查看统计菜单（RZY-774）
+    When I "checked" the checkbox which name is "可查看统计菜单"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    Then I will see the element "SearchTabBar" name is "统计"
+
+  Scenario: 授权查看未分配资源（RZY-775）
+    When I "checked" the checkbox which name is "可查看未分配资源"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    Then I will see the column number "1" contains "AutoTestUploadTest"
+
+  Scenario: 删除上传的日志来源以及取消勾选查看未分配资源
+    When I "unchecked" the checkbox which name is "可查看未分配资源"
+    And I click the "SaveButton" button
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I wait for loading invisible
+    Given the data name is "AutoTestUploadTest" then i click the "删除" button
+    Then I click the "Ensure" button
+    Then I will see the success message "删除成功"

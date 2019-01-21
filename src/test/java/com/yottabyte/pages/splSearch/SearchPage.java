@@ -447,6 +447,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//td[text()='AutoTestUserCreate']/preceding-sibling::td/i")
     private WebElement star;
 
+    @FindBy(xpath = "//div[@class='yw-search-tabbar-item']")
+    private WebElement searchTabBar;
+
+    public WebElement getSearchTabBar() {
+        return searchTabBar;
+    }
+
     public WebElement getStar() {
         return star;
     }

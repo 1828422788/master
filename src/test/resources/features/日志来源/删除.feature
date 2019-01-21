@@ -2,8 +2,7 @@
 Feature: 日志来源删除
 
   Background:
-    Given I insert into table "SourceGroup" with "{'name':'sxjautotest','domain_id':'1','owner_id':'1','group':'default_SourceGroup'}"
-    Then open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
 
   Scenario Outline:
     Given the data name is "<name>" then i click the "删除" button

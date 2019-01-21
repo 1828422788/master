@@ -264,13 +264,13 @@ public class ClickButtonWithGivenName {
         WebElement tr;
         if (!JsonStringPaser.isJson(name)) {
             tr = this.findName(name);
-            xpath = "//span[contains(text(),'" + name + "')]";
+            xpath = ".//span[contains(text(),'" + name + "')]";
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(name);
             String text = map.get("name").toString();
             int columnNum = Integer.parseInt(map.get("column").toString());
             tr = this.getRowWithColumnNum(text, columnNum);
-            xpath = "//span[contains(text(),'" + text + "')]";
+            xpath = ".//span[contains(text(),'" + text + "')]";
         }
         tr.findElement(By.xpath(xpath)).click();
     }
