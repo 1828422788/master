@@ -84,7 +84,6 @@ Feature: 角色授权应用
     Then the data name is "<name>" then i will see "{'column':'5','name':'打开 导出 编辑 查看 删除'}" button
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureButton" button
-
     And I will see the success message "删除成功"
 
     Examples:

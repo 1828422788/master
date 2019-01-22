@@ -165,6 +165,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//li[text()='alertSavedSearch'])[last()]")
     private WebElement alertSavedSearch;
 
+    @FindBy(xpath = "//h5[contains(text(),'添加告警方式')]/following-sibling::div//i")
+    private WebElement addType;
+
+    @FindBy(xpath = "//ul[@class='el-dropdown-menu add-config-dropdown-menu']/li")
+    private WebElement dropdownMenu;
+
+    public WebElement getAddType() {
+        addType.click();
+        return dropdownMenu;
+    }
+
     public WebElement getAlertSavedSearch() {
         return alertSavedSearch;
     }
