@@ -222,7 +222,7 @@ Feature: 角色授权功能
 
 #  Scenario: 可使用告警分析（RZY-1207）
 
-  Scenario: 可新建应用（RZY-2610）（有bug）
+  Scenario: 可新建应用（RZY-2610）
     When I "checked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
     And I logout current user
@@ -249,7 +249,7 @@ Feature: 角色授权功能
     When I upload a file with name "/target/download-files/TempTestApp.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "AutoTestRole" from the "Role"
-    And I choose the "test" from the "Resource"
+    And I choose the "AutoTestLogSource" from the "Resource"
     And I click the "NextButton" button
     And I will see the "GroupPreview" is "active"
     And I click the "NextButton" button
