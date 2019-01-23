@@ -15,5 +15,5 @@ Feature: 系统设置默认首页
 
     Examples:
       | homePage | name  | password  | title     |
-      | 搜索       | owner | all123456 | 搜索        |
-      | 仪表盘      | owner | all123456 | 列表 \| 仪表盘 |
+      | 搜索       | owner | all111111 | 搜索        |
+      | 仪表盘      | owner | all111111 | 列表 \| 仪表盘 |
