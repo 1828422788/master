@@ -43,6 +43,8 @@ Feature: 趋势图删除（RZY-1891）
       | 力图sample1    |
       | 饼状图sample0   |
       | 饼状图sample1   |
+      | 饼状图sample2   |
+      | 饼状图sample3   |
       | 区间图sample0   |
       | 区间图sample1   |
       | 多Y轴sample0   |
@@ -73,3 +75,7 @@ Feature: 趋势图删除（RZY-1891）
       | 循序图sample1   |
       | 矩阵热力图sample0 |
       | 矩阵热力图sample1 |
+      | 条形图sample0   |
+      | 条形图sample1   |
+      | 条形图sample2   |
+      | 条形图sample3   |

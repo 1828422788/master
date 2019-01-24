@@ -119,8 +119,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='a..z'])[last()]")
     private WebElement thirdPosition;
 
-    @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
+    @FindBy(xpath = "(//input[@class='el-input__inner'][not(@placeholder='请选择')])[last()]")
     private WebElement startColour;
+
+    @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
+    private WebElement label;
 
     @FindBy(className = "el-select-dropdown__item")
     private List<WebElement> liList;
@@ -382,6 +385,11 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='分段数'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
     private WebElement segments;
+
+    public WebElement getLabel() {
+        label.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getSegments() {
         return segments;

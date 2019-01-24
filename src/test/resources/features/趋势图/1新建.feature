@@ -223,7 +223,7 @@ Feature: 趋势图新建
       | 桑基图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Sankey | 桑基图sample1报表 | StartColour | Purple | 12   | 20     |
       | 力图sample1  | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Force  | 力图sample1报表  |             |        | 12   | 25     |
 
-  Scenario Outline: 饼状图sample1（RZY-2504）
+  Scenario Outline: 饼状图sample1、条形图sample1（RZY-2504、2677）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -250,8 +250,8 @@ Feature: 趋势图新建
     And I click the "Email" button
     And I display the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
-    And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "30"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
@@ -259,8 +259,9 @@ Feature: 趋势图新建
     Then I will see the success message "保存成功"
 
     Examples:
-      | name       | spl                                                                          | chartType | chart | reportName   |
-      | 饼状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie   | 饼状图sample1报表 |
+      | name       | spl                                                                          | chartType | chart | reportName   | hour | minute |
+      | 饼状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie   | 饼状图sample1报表 | 12   | 30     |
+      | 条形图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar   | 条形图sample1报表 | 12   | 32     |
 
   Scenario Outline: 区间图sample1（RZY-2516）
     When I set the parameter "NameInput" with value "<name>"
@@ -646,7 +647,7 @@ Feature: 趋势图新建
       | name      | spl                                                                                            |
       | 单值sample3 | tag:*display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") |
 
-  Scenario Outline: 水球图sample1、字符云图sample1（RZY-2563、RZY-2626）
+  Scenario Outline: 水球图sample1、字符云图sample1、饼状图sample2（RZY-2563、RZY-2626、RZY-2663）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -658,13 +659,13 @@ Feature: 趋势图新建
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I click the "ChartType" button
-    And I click the "Other" button
+    And I click the "<chartType>" button
     And I click the "<type>" button
     And I wait for loading invisible
     And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "StartColour" button
-    And I click the "Orange" button
+    And I click the "<colour>" button
     And I click the "Generate" button
     And I click the "Save" button
     Then I will see the success message "创建成功"
@@ -687,9 +688,112 @@ Feature: 趋势图新建
     Then I will see the success message "保存成功"
 
     Examples:
-      | name        | spl                                                          | type       | hour | minute |
-      | 水球图sample1  | tag:*display \| stats count() by apache.clientip \| limit 10 | Liquidfill | 13   | 00     |
-      | 字符云图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Wordcloud  | 13   | 05     |
+      | name        | spl                                                                          | chartType | type       | colour | hour | minute |
+      | 水球图sample1  | tag:*display \| stats count() by apache.clientip \| limit 10                 | Other     | Liquidfill | Orange | 13   | 00     |
+      | 字符云图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10                 | Other     | Wordcloud  | Orange | 13   | 05     |
+      | 饼状图sample2  | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie        | Yellow | 13   | 07     |
+
+  Scenario Outline: 饼状图sample3（RZY-2664）
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "<chartType>" button
+    And I click the "<type>" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "<colour>" button
+    And I click the "Generate" button
+    And I click the "Save" button
+    Then I will see the success message "创建成功"
+
+    Examples:
+      | name       | spl                                                                          | chartType | type | colour |
+      | 饼状图sample3 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie  | Yellow |
+
+  Scenario Outline: 条形图sample2（RZY-2678）
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "<chartType>" button
+    And I click the "<type>" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "<colour>" button
+    And I choose the "展示全部" from the "Label"
+    And I choose the "柱状外左侧" from the "Label"
+    And I click the "Generate" button
+    And I click the "Save" button
+    Then I will see the success message "创建成功"
+    And I click the "EnsureButton" button
+    And I click the "Report" button
+    And switch to another window
+    And I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>报表"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "13"
+    And I set the parameter "Minute" with value "12"
+    And I click the "NextButton" button
+    And I wait for "TrendTitle" will be visible
+    And I will see the element "TrendTitle" name is "<name>"
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name       | spl                                                                          | chartType | type | colour |
+      | 条形图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar  | Orange |
+
+  Scenario Outline: 条形图sample3（RZY-2679）
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "<chartType>" button
+    And I click the "<type>" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "<colour>" button
+    And I choose the "展示全部" from the "Label"
+    And I choose the "柱状内中央" from the "Label"
+    And I click the "Generate" button
+    And I click the "Save" button
+    Then I will see the success message "创建成功"
+
+    Examples:
+      | name       | spl                                                                          | chartType | type | colour |
+      | 条形图sample3 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar  | Yellow |
 
   Scenario Outline: 雷达图sample1、漏斗图sample1（RZY-2635、2658）
     When I set the parameter "NameInput" with value "<name>"
@@ -729,7 +833,6 @@ Feature: 趋势图新建
       | name       | spl                                                                        | type   | hour | minute |
       | 雷达图sample1 | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 | Radar  | 13   | 10     |
       | 漏斗图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8                | Funnel | 13   | 15     |
-
 
   Scenario Outline: 雷达图sample2（RZY-2646）
     When I set the parameter "NameInput" with value "<name>"
