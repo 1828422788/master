@@ -16,7 +16,7 @@ import static org.openqa.grid.common.SeleniumProtocol.Selenium;
 /**
  * @author sunxj
  */
-public class DisplayElement {
+public class AlterElementAttribute {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     @And("^I display the element \"([^\"]*)\"$")
@@ -30,12 +30,18 @@ public class DisplayElement {
     }
 
     @And("^I make the element \"([^\"]*)\" visible$")
-    public void iMakeTheElementVisible(String elementName) {
+    public void makeElementVisible(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         if (!element.isDisplayed()) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", element);
             ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(element);
             WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         }
+    }
+
+    @And("^I alter the element \"([^\"]*)\" class to \"([^\"]*)\"$")
+    public void alterElementClass(String elementName, String className) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('class','" + className + "')", element);
     }
 }

@@ -12,6 +12,7 @@ Feature: 字段提取规则列表
   Scenario Outline: 正则解析（RZY-1530）
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "<parseRule>" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "<sourceField>" from the "SourceField"
     And I set the parameter "Regex" with value "<regex>"
     And I click the "ParseButton" button
@@ -25,6 +26,7 @@ Feature: 字段提取规则列表
   Scenario Outline: KeyValue分解（RZY-1531至1533）
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "KeyValue分解" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "<sourceField>" from the "SourceField"
     And I set the parameter "FieldSeparator" with value "&"
     And I set the parameter "KVSeparator" with value "="
@@ -43,7 +45,7 @@ Feature: 字段提取规则列表
   Scenario Outline: 正则解析+KeyValue正则匹配（RZY-1535）
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "<parseRule>" from the "ParseRule"
-    And I wait for "2000" millsecond
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "<sourceField>" from the "SourceField"
     And I set the parameter "Regex" with value "<regex>"
     And I click the "ParseButton" button
@@ -52,7 +54,6 @@ Feature: 字段提取规则列表
     Then I will see the element "<key>" name is "<value>"
     And I click the "ContinueButton" button
     And I choose the "<parseRule1>" from the "ParseRule"
-    And I wait for "2000" millsecond
     And I choose the "<sourceField2>" from the "SourceFieldLabel2"
     And I set the parameter "KeyRegex" with value "<keyRegex>"
     And I set the parameter "ValueRegex" with value "<valueRegex>"
@@ -68,9 +69,8 @@ Feature: 字段提取规则列表
   Scenario Outline: 正则解析+数值型字段转换（RZY-1536至1538）
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "正则解析" from the "ParseRule"
-    And I wait for "2000" millsecond
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
-    And I wait for "2000" millsecond
     And I set the parameter "Regex" with value "<regex>"
     And I click the "ParseButton" button
     And I will see the success message "验证完成"
@@ -94,6 +94,7 @@ Feature: 字段提取规则列表
   Scenario Outline: 正则解析+URL解析/user agent解析/时间戳解析/CSV解析/syslog_pri解析/ip格式转换
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "正则解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "<regex>"
     And I click the "ParseButton" button
@@ -120,6 +121,7 @@ Feature: 字段提取规则列表
   Scenario Outline: json解析（RZY-1542至1543）
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I choose the "Json解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "<element>" with value "<path>"
     And I click the "ParseButton" button
@@ -134,6 +136,7 @@ Feature: 字段提取规则列表
   Scenario Outline: CSV解析（RZY-1544）
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I choose the "CSV解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Separate" with value "<separate>"
     And I set the parameter "FieldList" with value "<fieldList>"
@@ -148,9 +151,8 @@ Feature: 字段提取规则列表
   Scenario Outline: 正则解析+geo解析（RZY-1548至1549）
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
     And I choose the "正则解析" from the "ParseRule"
-    And I wait for "2000" millsecond
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
-    And I wait for "2000" millsecond
     And I set the parameter "Regex" with value "%{ApcClientIP} %{ApcIdent} %{ApcUser} %{ApcTimestamp} %{ApcRequest} %{ApcStatus} %{ApcRespLen} %{ApcReferer} %{ApcUa}"
     And I click the "ParseButton" button
     And I will see the success message "验证完成"
@@ -173,6 +175,7 @@ Feature: 字段提取规则列表
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
     And I set the parameter "Source" with value "/var/log/20180821/website"
     And I choose the "正则解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](.*)"
     And I click the "ParseButton" button
@@ -204,6 +207,7 @@ Feature: 字段提取规则列表
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
     And I set the parameter "Source" with value "/var/log/20180821/website"
     And I choose the "正则解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](.*)"
     And I click the "ParseButton" button
@@ -240,6 +244,7 @@ Feature: 字段提取规则列表
   Scenario Outline: 内容替换（RZY-1556至1557）
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I choose the "内容替换" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(\d+)[a-z]+"
     And I set the parameter "ReplaceContent" with value "<replaceContent>"
@@ -256,6 +261,7 @@ Feature: 字段提取规则列表
   Scenario Outline: 固定电话解析（RZY-1558、RZY-1561）
     When I set the parameter "LogSample" with value "<log>"
     And I choose the "<parseRule>" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "<field>" from the "SourceField"
     And I click the "<checkBox>" button
     And I click the "ParseButton" button
@@ -270,6 +276,7 @@ Feature: 字段提取规则列表
   Scenario Outline: 字段重命名（RZY-1590）
     When I set the parameter "LogSample" with value "<log>"
     And I choose the "Json解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I click the "ContinueButton" button
     And I choose the "字段重命名" from the "ParseRule"
@@ -286,6 +293,7 @@ Feature: 字段提取规则列表
   Scenario: XML解析（RZY-1546）
     When I set the parameter "LogSample" with value "<root><test><a>1</a><a>2</a></test><test>3</test></root>"
     And I choose the "XML解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I click the "ParseButton" button
     And I will see the success message "验证完成"

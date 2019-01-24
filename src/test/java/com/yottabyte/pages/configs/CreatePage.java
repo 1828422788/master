@@ -93,6 +93,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='hostname']/preceding-sibling::input")
     private WebElement hostName;
 
+    @FindBy(className = "yw-extract-sample")
+    private WebElement extractSample;
+
+    public WebElement getExtractSample() {
+        return extractSample;
+    }
+
     public WebElement getConfigDone() {
         return configDone;
     }
