@@ -41,5 +41,5 @@ Feature: 日志来源新建（RZY-365）
       | AutoTestLogSource |
 
   @createEssentialData
-  Scenario:
+  Scenario: 设为默认日志
     Given the data name is "AutoTestLogSource" then i click the "设为默认" button

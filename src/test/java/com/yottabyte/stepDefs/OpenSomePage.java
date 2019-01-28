@@ -10,8 +10,10 @@ import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.List;
 
 public class OpenSomePage {
@@ -25,8 +27,8 @@ public class OpenSomePage {
      * @param pageName
      */
     @Given("^open the \"([^\"]*)\" page for uri \"([^\"]*)\"$")
-    public void openThePageForURI(String pageName, URI uri) {
-        Cookie cookie = LoginBeforeAllTests.getCookie();
+    public void openThePageForURI(String pageName, String uri) {
+//        Cookie cookie = LoginBeforeAllTests.getCookie();
         webDriver.get(baseURL + uri);
         ConstructPageFactoryWithName c = new ConstructPageFactoryWithName();
         c.constructPageFactoryWithName(pageName);
@@ -56,7 +58,8 @@ public class OpenSomePage {
         List<String> list = JdbcUtils.query(sql);
         try {
             for (int i = 0; i < list.size(); i++) {
-                URI uri = new URI("/schedule/" + list.get(i));
+//                URI uri = new URI("/schedule/" + list.get(i));
+                String uri = "/schedule/" + list.get(i);
                 this.openThePageForURI("timedTask.DetailPage", uri);
                 DetailPage listPage = new DetailPage(webDriver);
                 LoginBeforeAllTests.setPageFactory(listPage);
@@ -69,7 +72,7 @@ public class OpenSomePage {
                     shot.screenShot();
                 }
             }
-        } catch (URISyntaxException | InterruptedException e) {
+        } catch ( InterruptedException e) {
             e.printStackTrace();
         }
     }

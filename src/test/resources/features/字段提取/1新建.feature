@@ -51,7 +51,7 @@ Feature: 字段提取规则配置页面优化
     Then the page's title will be "字段提取"
     And I will see the "configs.CreatePage" page
     Then I will see the input element "AppName" value will be "108"
-    Then I will see the input element "HostName" value will be "192.168.3.2"
+    Then I will see the input element "HostName" value will be "192.168.1.164"
     Then I will see the input element "Tag" value will be "1"
 
   @createEssentialData

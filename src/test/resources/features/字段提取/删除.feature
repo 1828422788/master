@@ -17,3 +17,8 @@ Feature: 字段提取删除
       | name        |
       | AutoTest    |
       | AutoTest(1) |
+
+  @clean
+    Examples:
+      | name             |
+      | AutoTestForTrend |
