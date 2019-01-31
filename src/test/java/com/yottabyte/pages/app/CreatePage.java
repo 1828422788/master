@@ -93,6 +93,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加子菜单']")
     private WebElement addSubmenu;
 
+    @FindBy(xpath = "//span[text()='全局']")
+    private WebElement overallSituation;
+
+    @FindBy(className = "el-button--text")
+    private WebElement sourceConfig;
+
+    public WebElement getSourceConfig() {
+        return sourceConfig;
+    }
+
+    public WebElement getOverallSituation() {
+        return overallSituation;
+    }
+
     public WebElement getFirstMenu() {
         return super.getButton("应用管理");
     }
@@ -150,7 +164,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getSuccessMessage();
+        return super.getErrorMessage();
     }
 
     public WebElement getErrorMessage() {

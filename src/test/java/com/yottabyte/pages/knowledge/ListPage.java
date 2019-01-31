@@ -102,6 +102,52 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "search-item-title")
     private List<WebElement> resultTitleList;
 
+    @FindBy(xpath = "//a[text()='AutoTest...pWithAllResources']")
+    private WebElement title;
+
+    @FindBy(className = "el-icon-arrow-down")
+    private WebElement arrowDown;
+
+    @FindBy(className = "yw-table-group__group-menu")
+    private WebElement groupMenu;
+
+    @FindBy(xpath = "//input[@placeholder='筛选分组']")
+    private WebElement searchGroup;
+
+    @FindBy(className = "filter-no-match")
+    private WebElement noMatch;
+
+    @FindBy(className = "search-count")
+    private WebElement searchCount;
+
+    public WebElement getSearchCount() {
+        return searchCount;
+    }
+
+    public WebElement getNoMatch() {
+        return noMatch;
+    }
+
+    public WebElement getSearchGroup() {
+        return searchGroup;
+    }
+
+    public WebElement getSetting() {
+        return super.getButton("设置");
+    }
+
+    public WebElement getGroupMenu() {
+        return groupMenu;
+    }
+
+    public WebElement getArrowDown() {
+        return arrowDown;
+    }
+
+    public WebElement getTitle() {
+        return title;
+    }
+
     public WebElement getDisabledLi() {
         return super.getDisabledLi();
     }

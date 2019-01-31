@@ -277,10 +277,6 @@ public class PublicNavBarPage extends PageTemplate {
         return timedTaskPage;
     }
 
-//    public WebElement getLocateSearchPage() {
-//        return locateSearchPage;
-//    }
-
     public WebElement getAlertsListPage() {
         return alertsListPage;
     }
@@ -341,15 +337,4 @@ public class PublicNavBarPage extends PageTemplate {
             LoginBeforeAllTests.login();
         }
     }
-
-//    @Override
-//    protected void isLoaded() throws Error {
-//        super.isLoaded();
-//        try {
-//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(getLocateSearchPage()));
-//        } catch (Exception e) {
-//            GetLogger.getLogger().error("can not load % with error %", this.getClass().getSimpleName(), e);
-//        }
-//
-//    }
 }

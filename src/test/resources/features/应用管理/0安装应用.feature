@@ -8,7 +8,7 @@ Feature: 应用安装（RZY-1988）
 
   @smoke @appSmoke
   Scenario Outline: 安装成功
-    When I upload a file with name "/target/download-files/AutoTestApp.tar"
+    When I upload a file with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "<role>" from the "Role"
     And I choose the "<resource>" from the "Resource"
@@ -22,12 +22,11 @@ Feature: 应用安装（RZY-1988）
     And I will see the "ResourcePreview" is "active"
     And I click the "NextButton" button
     And I will see the element "ImportSuccess" name is "导入成功"
-    And I click the "CompleteButton" button
-    Then I will see the search result contains "{'column':'0','name':'AutoTestApp'}"
 
     Examples:
-      | role  | resource          | renameInput          |
-      | admin | AutoTestLogSource | AutoTestSourceForApp |
+      | appName                     | role  | resource          | renameInput          |
+      | AutoTestApp                 | admin | AutoTestLogSource | AutoTestSourceForApp |
+      | AutoTestAppWithAllResources | admin | AutoTestLogSource | AutoTestSourceForApp |
 
   Scenario: 上传APP包失败（上传格式校验）
     When I upload a file with name "/src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py"

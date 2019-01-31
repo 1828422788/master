@@ -23,15 +23,19 @@ public class ListPage extends PageTemplate {
 
     @FindBy(className = "el-loading-mask")
     private WebElement loadingElement;
+
     // 搜索输入框
     @FindBy(xpath = "//input[@placeholder='请输入']")
     private WebElement searchInput;
+
     // 新建按钮
     @FindBy(xpath = "//button[@class='el-button slot-button el-button--default']//span[text()='新建']")
     WebElement createAlert;
+
     // 无搜索结果
     @FindBy(className = "el-table__empty-text")
     private WebElement noSearchResultMessage;
+
     // 搜索结果表格
     @FindBy(className = "el-table__body")
     private WebElement searchResult;
