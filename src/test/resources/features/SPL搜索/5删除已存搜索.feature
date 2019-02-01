@@ -1,9 +1,21 @@
+@spl @all
 Feature: 已存搜索删除（RZY-154）
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
-  @smoke @spl @all @splSmoke
+  @smoke @splSmoke
+  Scenario Outline:
+    Given I click the "OpenSavedSearchButton" button
+    Then "删除" the data "<name>" in columnNum "1"
+    Then I click the "DeleteSavedSearch" button
+    Then take a screenshot with name "154：已存搜索-删除"
+
+    Examples:
+      | name        |
+      | AutoTest重名1 |
+
+  @smoke @splSmoke
   Scenario Outline:
     Given I click the "OpenSavedSearchButton" button
     Then "删除" the data "<name>" in columnNum "1"
@@ -11,7 +23,6 @@ Feature: 已存搜索删除（RZY-154）
 
     Examples:
       | name        |
-      | AutoTest重名1 |
       | AutoTest重名1 |
       | AutoTest    |
 

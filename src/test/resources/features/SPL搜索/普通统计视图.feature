@@ -1,5 +1,5 @@
 @spl @all
-Feature: 普通统计视图（有截图）
+Feature: 普通统计视图
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -16,7 +16,7 @@ Feature: 普通统计视图（有截图）
     Then I will see the error message "请选择统计字段"
 
   @smoke @splSmoke
-  Scenario Outline: 事件计数（RZY-806至810）
+  Scenario Outline: 事件计数字段（RZY-2714至2717）
     Given I choose the "<presentType>" from the "PresentType"
     Then I choose the "<fieldValue>" from the "FieldValue"
     Then I click the "AddButton" button
@@ -32,43 +32,43 @@ Feature: 普通统计视图（有截图）
     Then I click the "AddButton" button
     Then I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    Then take a screenshot
+    Then take a screenshot with name "<screenName>"
 
     Examples: 曲线图下的各字段展示图表
-      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 |
-      |             | tag        |             |             |             |             |             |
-      |             | tag        | appname     |             |             |             |             |
-      |             | tag        | appname     | logtype     |             |             |             |
-      |             | tag        | appname     | logtype     | hostname    |             |             |
-      |             | tag        | appname     | logtype     | hostname    | ip          |             |
-      |             | tag        | appname     | logtype     | hostname    | ip          | source      |
+      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 | screenName                                                         |
+      |             | tag        |             |             |             |             |             | 2714：日志展现-事件计数统计-展现方式-曲线图字段-tag                                    |
+      |             | tag        | appname     |             |             |             |             | 2714：日志展现-事件计数统计-展现方式-曲线图字段-tag、appname                            |
+      |             | tag        | appname     | logtype     |             |             |             | 2714：日志展现-事件计数统计-展现方式-曲线图字段-tag、appname、logtype                    |
+      |             | tag        | appname     | logtype     | hostname    |             |             | 2714：日志展现-事件计数统计-展现方式-曲线图字段-tag、appname、logtype、hostname           |
+      |             | tag        | appname     | logtype     | hostname    | ip          |             | 2714：日志展现-事件计数统计-展现方式-曲线图字段-tag、appname、logtype、hostname、ip        |
+      |             | tag        | appname     | logtype     | hostname    | ip          | source      | 2714：日志展现-事件计数统计-展现方式-曲线图字段-tag、appname、logtype、hostname、ip、source |
 
     Examples: 面积图下的各字段展示图表
-      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 |
-      | 面积图         | tag        |             |             |             |             |             |
-      | 面积图         | tag        | appname     |             |             |             |             |
-      | 面积图         | tag        | appname     | logtype     |             |             |             |
-      | 面积图         | tag        | appname     | logtype     | hostname    |             |             |
-      | 面积图         | tag        | appname     | logtype     | hostname    | ip          |             |
-      | 面积图         | tag        | appname     | logtype     | hostname    | ip          | source      |
+      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 | screenName                                                         |
+      | 面积图         | tag        |             |             |             |             |             | 2715：日志展现-事件计数统计-展现方式-面积图字段-tag                                    |
+      | 面积图         | tag        | appname     |             |             |             |             | 2715：日志展现-事件计数统计-展现方式-面积图字段-tag、appname                            |
+      | 面积图         | tag        | appname     | logtype     |             |             |             | 2715：日志展现-事件计数统计-展现方式-面积图字段-tag、appname、logtype                    |
+      | 面积图         | tag        | appname     | logtype     | hostname    |             |             | 2715：日志展现-事件计数统计-展现方式-面积图字段-tag、appname、logtype、hostname           |
+      | 面积图         | tag        | appname     | logtype     | hostname    | ip          |             | 2715：日志展现-事件计数统计-展现方式-面积图字段-tag、appname、logtype、hostname、ip        |
+      | 面积图         | tag        | appname     | logtype     | hostname    | ip          | source      | 2715：日志展现-事件计数统计-展现方式-面积图字段-tag、appname、logtype、hostname、ip、source |
 
     Examples: 散点图下的各字段展示图表
-      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 |
-      | 散点图         | tag        |             |             |             |             |             |
-      | 散点图         | tag        | appname     |             |             |             |             |
-      | 散点图         | tag        | appname     | logtype     |             |             |             |
-      | 散点图         | tag        | appname     | logtype     | hostname    |             |             |
-      | 散点图         | tag        | appname     | logtype     | hostname    | ip          |             |
-      | 散点图         | tag        | appname     | logtype     | hostname    | ip          | source      |
+      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 | screenName                                                         |
+      | 散点图         | tag        |             |             |             |             |             | 2717：日志展现-事件计数统计-展现方式-散点图字段-tag                                    |
+      | 散点图         | tag        | appname     |             |             |             |             | 2717：日志展现-事件计数统计-展现方式-散点图字段-tag、appname                            |
+      | 散点图         | tag        | appname     | logtype     |             |             |             | 2717：日志展现-事件计数统计-展现方式-散点图字段-tag、appname、logtype                    |
+      | 散点图         | tag        | appname     | logtype     | hostname    |             |             | 2717：日志展现-事件计数统计-展现方式-散点图字段-tag、appname、logtype、hostname           |
+      | 散点图         | tag        | appname     | logtype     | hostname    | ip          |             | 2717：日志展现-事件计数统计-展现方式-散点图字段-tag、appname、logtype、hostname、ip        |
+      | 散点图         | tag        | appname     | logtype     | hostname    | ip          | source      | 2717：日志展现-事件计数统计-展现方式-散点图字段-tag、appname、logtype、hostname、ip、source |
 
     Examples: 柱状图下的各字段展示图表
-      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 |
-      | 柱状图         | tag        |             |             |             |             |             |
-      | 柱状图         | tag        | appname     |             |             |             |             |
-      | 柱状图         | tag        | appname     | logtype     |             |             |             |
-      | 柱状图         | tag        | appname     | logtype     | hostname    |             |             |
-      | 柱状图         | tag        | appname     | logtype     | hostname    | ip          |             |
-      | 柱状图         | tag        | appname     | logtype     | hostname    | ip          | source      |
+      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 | screenName                                                         |
+      | 柱状图         | tag        |             |             |             |             |             | 2716：日志展现-事件计数统计-展现方式-柱状图字段-tag                                    |
+      | 柱状图         | tag        | appname     |             |             |             |             | 2716：日志展现-事件计数统计-展现方式-柱状图字段-tag、appname                            |
+      | 柱状图         | tag        | appname     | logtype     |             |             |             | 2716：日志展现-事件计数统计-展现方式-柱状图字段-tag、appname、logtype                    |
+      | 柱状图         | tag        | appname     | logtype     | hostname    |             |             | 2716：日志展现-事件计数统计-展现方式-柱状图字段-tag、appname、logtype、hostname           |
+      | 柱状图         | tag        | appname     | logtype     | hostname    | ip          |             | 2716：日志展现-事件计数统计-展现方式-柱状图字段-tag、appname、logtype、hostname、ip        |
+      | 柱状图         | tag        | appname     | logtype     | hostname    | ip          | source      | 2716：日志展现-事件计数统计-展现方式-柱状图字段-tag、appname、logtype、hostname、ip、source |
 
   @smoke @splSmoke
   Scenario Outline: 事件计数(勾选独立数统计)（RZY-811）
@@ -88,43 +88,43 @@ Feature: 普通统计视图（有截图）
     Then I click the "AddButton" button
     Then I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    Then take a screenshot
+    Then take a screenshot with name "<screenName>"
 
     Examples: 曲线图下的各字段展示图表
-      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 |
-      |             | tag        |             |             |             |             |             |
-      |             | tag        | appname     |             |             |             |             |
-      |             | tag        | appname     | logtype     |             |             |             |
-      |             | tag        | appname     | logtype     | hostname    |             |             |
-      |             | tag        | appname     | logtype     | hostname    | ip          |             |
-      |             | tag        | appname     | logtype     | hostname    | ip          | source      |
+      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 | screenName                                                              |
+      |             | tag        |             |             |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-曲线图字段-tag                                    |
+      |             | tag        | appname     |             |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-曲线图字段-tag、appname                            |
+      |             | tag        | appname     | logtype     |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-曲线图字段-tag、appname、logtype                    |
+      |             | tag        | appname     | logtype     | hostname    |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-曲线图字段-tag、appname、logtype、hostname           |
+      |             | tag        | appname     | logtype     | hostname    | ip          |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-曲线图字段-tag、appname、logtype、hostname、ip        |
+      |             | tag        | appname     | logtype     | hostname    | ip          | source      | 811：日志展现-事件计数统计-展现方式-勾选独立数-曲线图字段-tag、appname、logtype、hostname、ip、source |
 
     Examples: 面积图下的各字段展示图表
-      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 |
-      | 面积图         | tag        |             |             |             |             |             |
-      | 面积图         | tag        | appname     |             |             |             |             |
-      | 面积图         | tag        | appname     | logtype     |             |             |             |
-      | 面积图         | tag        | appname     | logtype     | hostname    |             |             |
-      | 面积图         | tag        | appname     | logtype     | hostname    | ip          |             |
-      | 面积图         | tag        | appname     | logtype     | hostname    | ip          | source      |
+      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 | screenName                                                              |
+      | 面积图         | tag        |             |             |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-面积图字段-tag                                    |
+      | 面积图         | tag        | appname     |             |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-面积图字段-tag、appname                            |
+      | 面积图         | tag        | appname     | logtype     |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-面积图字段-tag、appname、logtype                    |
+      | 面积图         | tag        | appname     | logtype     | hostname    |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-面积图字段-tag、appname、logtype、hostname           |
+      | 面积图         | tag        | appname     | logtype     | hostname    | ip          |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-面积图字段-tag、appname、logtype、hostname、ip        |
+      | 面积图         | tag        | appname     | logtype     | hostname    | ip          | source      | 811：日志展现-事件计数统计-展现方式-勾选独立数-面积图字段-tag、appname、logtype、hostname、ip、source |
 
     Examples: 散点图下的各字段展示图表
-      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 |
-      | 散点图         | tag        |             |             |             |             |             |
-      | 散点图         | tag        | appname     |             |             |             |             |
-      | 散点图         | tag        | appname     | logtype     |             |             |             |
-      | 散点图         | tag        | appname     | logtype     | hostname    |             |             |
-      | 散点图         | tag        | appname     | logtype     | hostname    | ip          |             |
-      | 散点图         | tag        | appname     | logtype     | hostname    | ip          | source      |
+      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 | screenName                                                              |
+      | 散点图         | tag        |             |             |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-散点图字段-tag                                    |
+      | 散点图         | tag        | appname     |             |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-散点图字段-tag、appname                            |
+      | 散点图         | tag        | appname     | logtype     |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-散点图字段-tag、appname、logtype                    |
+      | 散点图         | tag        | appname     | logtype     | hostname    |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-散点图字段-tag、appname、logtype、hostname           |
+      | 散点图         | tag        | appname     | logtype     | hostname    | ip          |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-散点图字段-tag、appname、logtype、hostname、ip        |
+      | 散点图         | tag        | appname     | logtype     | hostname    | ip          | source      | 811：日志展现-事件计数统计-展现方式-勾选独立数-散点图字段-tag、appname、logtype、hostname、ip、source |
 
     Examples: 柱状图下的各字段展示图表
-      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 |
-      | 柱状图         | tag        |             |             |             |             |             |
-      | 柱状图         | tag        | appname     |             |             |             |             |
-      | 柱状图         | tag        | appname     | logtype     |             |             |             |
-      | 柱状图         | tag        | appname     | logtype     | hostname    |             |             |
-      | 柱状图         | tag        | appname     | logtype     | hostname    | ip          |             |
-      | 柱状图         | tag        | appname     | logtype     | hostname    | ip          | source      |
+      | presentType | fieldValue | fieldValue1 | fieldValue2 | fieldValue3 | fieldValue4 | fieldValue5 | screenName                                                              |
+      | 柱状图         | tag        |             |             |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-柱状图字段-tag                                    |
+      | 柱状图         | tag        | appname     |             |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-柱状图字段-tag、appname                            |
+      | 柱状图         | tag        | appname     | logtype     |             |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-柱状图字段-tag、appname、logtype                    |
+      | 柱状图         | tag        | appname     | logtype     | hostname    |             |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-柱状图字段-tag、appname、logtype、hostname           |
+      | 柱状图         | tag        | appname     | logtype     | hostname    | ip          |             | 811：日志展现-事件计数统计-展现方式-勾选独立数-柱状图字段-tag、appname、logtype、hostname、ip        |
+      | 柱状图         | tag        | appname     | logtype     | hostname    | ip          | source      | 811：日志展现-事件计数统计-展现方式-勾选独立数-柱状图字段-tag、appname、logtype、hostname、ip、source |
 
   @smoke @splSmoke
   Scenario Outline: 时间分段（RZY-812至813）
@@ -133,16 +133,21 @@ Feature: 普通统计视图（有截图）
     Then I choose the "<statisticType>" from the "StatisticType"
     And I set the parameter "StartTime" with value "<startTime>"
     Then I click the "EnsureButton" button
-    Then I click the "CurrentTime" button
-    Then I click the "GenerateTime" button
+    And I set the parameter "EndTime" with value "<endTime>"
+    Then I click the "EnsureButton" button
+    Then I click the "GenerateTime" button under some element
     Then I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    Then take a screenshot
+    Then take a screenshot with name "<screenName>"
 
     Examples:
-      | fieldValue | statisticType | startTime  |
-      | tag        |               | 2018-01-01 |
-      | tag        | 独立数           | 2018-01-01 |
+      | fieldValue           | statisticType | startTime           | endTime             | screenName         |
+      | apache.request_query |               | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 812：日志展现-时间分段-计数   |
+      | apache.request_query | 独立数           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 813：日志展现-时间分段-独立数  |
+      | apache.resp_len      | 总计            | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2721：日志展现-时间分段-总计  |
+      | apache.resp_len      | 平均值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2722：日志展现-时间分段-平均值 |
+      | apache.resp_len      | 最大值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2723：日志展现-时间分段-最大值 |
+      | apache.resp_len      | 最小值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2724：日志展现-时间分段-最小值 |
 
   Scenario Outline: 时间分段生成失败
     Given I click the "TimeSlice" button
@@ -180,7 +185,7 @@ Feature: 普通统计视图（有截图）
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    Then take a screenshot
+    Then take a screenshot with name "814：日志展现-数值分段统计"
 
     Examples:
       | fieldValue    | startValue | endValue |
@@ -207,15 +212,15 @@ Feature: 普通统计视图（有截图）
     Then I click the "Generate" button
     Then I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    Then take a screenshot
+    Then take a screenshot with name "<screenName>"
 
     Examples:
-      | timeSpan | time |
-      | 12       |      |
-      | 2000     | 秒    |
-      | 120      | 分钟   |
-      | 1        | 天    |
-      | 1        | 周    |
+      | timeSpan | time | screenName          |
+      | 1        |      | 815：日志展现-时间间隔1h     |
+      | 3600     | 秒    | 815：日志展现-时间间隔3600s  |
+      | 60       | 分钟   | 815：日志展现-时间间隔60min  |
+      | 1        | 天    | 2725：日志展现-时间间隔1d    |
+      | 1        | 周    | 2725：日志展现-时间间隔1week |
 
   Scenario Outline: 生成数值直方图失败
     Given I click the "DataHistogram" button
@@ -232,8 +237,10 @@ Feature: 普通统计视图（有截图）
       | json.duration | -1     | 请输入正整数      |
       | json.duration | 0.5    | 请输入正整数      |
 
+
   @smoke @splSmoke
   Scenario Outline: 生成数值直方图（RZY-816）
+    # todo
     Given I click the "DataHistogram" button
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "DataSpan" with value "<number>"

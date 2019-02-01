@@ -178,6 +178,20 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'保存')])[last()]")
     private WebElement saveButton;
 
+    @FindBy(xpath = "//input[@placeholder='选择起始日期']")
+    private WebElement startTime;
+
+    @FindBy(xpath = "//input[@placeholder='选择截止日期']")
+    private WebElement endTime;
+
+    public WebElement getEndTime() {
+        return endTime;
+    }
+
+    public WebElement getGenerateTime() {
+        return super.getButton("生成");
+    }
+
     public WebElement getSaveButton() {
         return saveButton;
     }
@@ -341,8 +355,7 @@ public class StatisticalPage extends PageTemplate {
     }
 
     public WebElement getStartTime() {
-        dateEditorList.get(0).click();
-        return dateInputList.get(dateInputList.size() - 1);
+        return startTime;
     }
 
     public WebElement getErrorMessage() {

@@ -146,7 +146,7 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getUnsavedFields() {
-        return fieldsTree.findElements(By.xpath("./li")).get(1).findElement(By.tagName("ul"));
+        return fieldsTree.findElements(By.xpath("./li")).get(2).findElement(By.tagName("ul"));
     }
 
     public WebElement getCloseAllFields() {

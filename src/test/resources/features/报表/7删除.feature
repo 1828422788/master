@@ -34,6 +34,9 @@ Feature: 报表删除（RZY-131）
       | 漏斗图sample1报表                                                                  |
       | 循序图sample1报表                                                                  |
       | 矩阵热力图sample1报表                                                                |
+      | 条形图sample1报表                                                                  |
+      | 条形图sample2报表                                                                  |
+      | 饼状图sample2报表                                                                  |
       | 改为曲线图sample2(WORD)                                                            |
       | 改为曲线图sample2(URL)                                                             |
       | 改为面积图散点图sample2(PDF)                                                          |

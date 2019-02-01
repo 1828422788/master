@@ -91,6 +91,13 @@ public class MonitorPage extends PageTemplate {
     @FindBy(className = "el-icon-circle-check")
     private WebElement Check;
 
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu group-menu'])[last()]")
+    private WebElement groupMenu;
+
+    public WebElement getGroupMenu() {
+        return groupMenu;
+    }
+
     public WebElement getReturnToAlertPage() {
         return super.getButton("返回监控首页");
     }
