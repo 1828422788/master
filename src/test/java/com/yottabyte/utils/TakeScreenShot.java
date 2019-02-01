@@ -31,9 +31,15 @@ public class TakeScreenShot {
     }
 
     public void screenShot(String name) {
-        String actualImgFilePath = System.getProperty("user.dir") + sp + "target" + sp +
-                "cucumber-html-reports" + sp + "embeddings" + sp + "actual_img" + sp +
-                "RZY-" + name + ".png";
+        String actualImgFilePath = "";
+        String systemName = System.getProperty("os.name");
+        if (systemName.toLowerCase().contains("linux")) {
+            actualImgFilePath = "/var/lib/jenkins/UITestImg/" + name + ".png";
+        } else if (systemName.contains("Mac")) {
+            actualImgFilePath = System.getProperty("user.dir") + sp + "target" + sp +
+                    "cucumber-html-reports" + sp + "embeddings" + sp + "actual_img" + sp +
+                    "RZY-" + name + ".png";
+        }
         this.generateImage(actualImgFilePath);
     }
 
