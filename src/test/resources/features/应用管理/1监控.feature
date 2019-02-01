@@ -26,5 +26,10 @@ Feature: 应用监控模块（RZY-2122）
 
   Scenario: 编辑监控
     When the data name is "AutoTestAppAlert" then i click the "编辑" button
-
-
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AutoTest...pWithAllResources"
+    And I will see the "alert.CreatePage" page
+    When I set the parameter "AlertName" with value "AutoTestAppAlertChangeName"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+    Then take a screenshot with name "2122：APP-编辑监控"

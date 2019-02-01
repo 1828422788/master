@@ -34,7 +34,7 @@ public class TakeScreenShot {
         String actualImgFilePath = "";
         String systemName = System.getProperty("os.name");
         if (systemName.toLowerCase().contains("linux")) {
-            actualImgFilePath = "/var/lib/jenkins/UITestImg/" + name + ".png";
+            actualImgFilePath = "/var/lib/jenkins/CaseScreenshots/RZY-" + name + ".png";
         } else if (systemName.contains("Mac")) {
             actualImgFilePath = System.getProperty("user.dir") + sp + "target" + sp +
                     "cucumber-html-reports" + sp + "embeddings" + sp + "actual_img" + sp +
