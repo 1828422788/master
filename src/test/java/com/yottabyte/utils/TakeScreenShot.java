@@ -24,10 +24,21 @@ public class TakeScreenShot {
     String dateString = formatter.format(new Date());
 
     public void screenShot() {
-        String ActualImgFilePath = System.getProperty("user.dir") + sp + "target" + sp +
+        String actualImgFilePath = System.getProperty("user.dir") + sp + "target" + sp +
                 "cucumber-html-reports" + sp + "embeddings" + sp + "actual_img" + sp +
                 "Actual-" + dateString + UUID.randomUUID() + ".png";
-        File screenShotFile = new File(ActualImgFilePath);
+        this.generateImage(actualImgFilePath);
+    }
+
+    public void screenShot(String name) {
+        String actualImgFilePath = System.getProperty("user.dir") + sp + "target" + sp +
+                "cucumber-html-reports" + sp + "embeddings" + sp + "actual_img" + sp +
+                "RZY-" + name + ".png";
+        this.generateImage(actualImgFilePath);
+    }
+
+    private void generateImage(String actualImgFilePath) {
+        File screenShotFile = new File(actualImgFilePath);
         Scenario scenario = SharedDriver.getScenario();
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         try {

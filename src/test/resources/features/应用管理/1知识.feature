@@ -25,23 +25,6 @@ Feature: 应用知识模块
       | groupName                                         |
       | AutoTestRoleWithAllResource\nAutoTestForKnowledge |
 
-  Scenario Outline: 验证全部资源下拉框是否正确
-    When I click the "ArrowDown" button
-    And I wait for "GroupMenu" will be visible
-    And I will see the element "GroupMenu" name is "<groupMenuName>"
-    And I click the "Setting" button
-    And the page's title will be "资源分组管理"
-    Then I will see the element "Title" name is "AutoTest...pWithAllResources"
-
-    Examples:
-      | groupMenuName                                               |
-      | 设置\n全部资源\nAutoTestForKnowledge\nAutoTestRoleWithAllResource |
-
-  Scenario: 验证资源筛选是否正确
-    When I click the "ArrowDown" button
-    And I set the parameter "SearchGroup" with value "default"
-    And I wait for "NoMatch" will be visible
-
   Scenario Outline: 全文搜索
     When I set the parameter "SearchInput" with value "<search>"
     And I click the "SearchButton" button

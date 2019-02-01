@@ -6,7 +6,6 @@ Feature: 应用打开
     When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
     And I will see the "app.AppPage" page
 
-
   Scenario Outline: 验证全部资源下拉框是否正确
     Given I click the "<rightArrow>" button
     And I click the "<menu>" button

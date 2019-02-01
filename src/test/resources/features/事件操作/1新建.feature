@@ -19,11 +19,12 @@ Feature: 事件操作新建（RZY-1387）
     And I click the "EnsureButton" button
     And I refresh the website
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    Then take a screenshot with name "1387：事件操作-新建get事件操作"
 
   @smoke @eventSmoke
     Examples:
       | name     | alias              | field | display | action | url                                                                                                                                            | openUrl | message |
-      | AutoTest | ${apache.clientip} |       | 两者      | 链接     | http://192.168.1.200/search/?query=${apache.clientip}&time_range=-30m,now&order=desc&size=20&page=1&sourcegroup=all&_t=1530688101882&title=tyf | 新窗口     | 保存成功    |
+      | AutoTest | ${apache.clientip} |       | 两者      | 链接     | http://192.168.1.134/search/?query=${apache.clientip}&time_range=-30m,now&order=desc&size=20&page=1&sourcegroup=all&_t=1530688101882&title=tyf | 新窗口     | 保存成功    |
 
   Scenario Outline: 保存失败
     When I click the "CreateButton" button

@@ -39,7 +39,6 @@ public class LoginBeforeAllTests {
     public void beforeScenario() {
         System.out.println("Login Before Test!");
         webDriver.manage().deleteAllCookies();
-//        webDriver.get(baseURL + "/auth/login/");
         webDriver.get(baseURL + loginURL);
         if (cookie == null) {
             login();
@@ -60,13 +59,12 @@ public class LoginBeforeAllTests {
     }
 
     public static void login() {
-        PageTemplate loginPage = null;
+        PageTemplate loginPage;
         System.out.println("看这里！！！" + loginURL + loginURL.contains("domainlogin"));
         if (loginURL.contains("domainlogin"))
             loginPage = new SaasLoginPage(webDriver);
         else
             loginPage = new LoginPage(webDriver);
-
 
         loginPage.getUsername().clear();
         String username = config.get("username");
@@ -74,7 +72,7 @@ public class LoginBeforeAllTests {
         loginPage.getPassword().clear();
         loginPage.getPassword().sendKeys(config.get("password"));
         loginPage.getLoginButton().click();
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver,ExpectedConditions.stalenessOf(webDriver.findElement(By.xpath("/html"))));
+
         WebDriverWait wait = new WebDriverWait(webDriver, 10, 1000);
         wait.until(new ExpectedCondition<Boolean>() {
             @Override
@@ -86,21 +84,7 @@ public class LoginBeforeAllTests {
             }
         });
         cookie = webDriver.manage().getCookieNamed("sessionid");
-//        setAccount(username);
     }
-
-//    private static void setAccount(String username) {
-//        StringBuffer sql = new StringBuffer("SELECT d.name, a.id FROM Account a ");
-//        sql.append("LEFT JOIN Domain d ON d.id = a.domain_id WHERE a.name = '");
-//        sql.append(username).append("'");
-//
-//        List<String> list = JdbcUtils.query(sql.toString());
-//        if (list.size() != 0) {
-//            Account account = new Account();
-//            account.setAccountName(list.get(0));
-//            account.setAccountId(list.get(1));
-//        }
-//    }
 
     public static WebDriver getWebDriver() {
         return webDriver;
@@ -130,20 +114,12 @@ public class LoginBeforeAllTests {
         if (!pageFactoryName.startsWith("com.yottabyte.pages.")) {
             pageFactoryName = "com.yottabyte.pages." + pageFactoryName;
         }
-        Constructor c = null;
+        Constructor c;
         try {
             c = Class.forName(pageFactoryName).getDeclaredConstructor(WebDriver.class);
             c.setAccessible(true);
             pageFactory = c.newInstance(webDriver);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

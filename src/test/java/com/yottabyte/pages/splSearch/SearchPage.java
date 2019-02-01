@@ -450,6 +450,20 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yw-search-tabbar-item']")
     private WebElement searchTabBar;
 
+    @FindBy(xpath = "(//li[text()='AutoTest'])[last()]")
+    private WebElement eventOperatorAutoTest;
+
+    @FindBy(xpath = "//span[contains(text(),'raw_message')][@class='yw-search-event-json-key-item']")
+    private WebElement rawMessage;
+
+    public WebElement getRawMessage() {
+        return rawMessage;
+    }
+
+    public WebElement getEventOperatorAutoTest() {
+        return eventOperatorAutoTest;
+    }
+
     public WebElement getSearchTabBar() {
         return searchTabBar;
     }
