@@ -21,7 +21,7 @@ Feature: 已存搜索新建（RZY-150）
     Examples: 保存成功
       | splQuery                                | name        | group               | message | screenName        |
       | starttime="-2d/w" endtime="now" tag:ty* | AutoTest    | default_SavedSearch | 创建成功    | 150：已存搜索-新建已存搜索   |
-      | starttime="-2d/w" endtime="now" tag:ty* | AutoTest重名1 | default_SavedSearch | 创建成功    | 150：已存搜索-新建重名已存搜索
+      | starttime="-2d/w" endtime="now" tag:ty* | AutoTest重名1 | default_SavedSearch | 创建成功    | 150：已存搜索-新建重名已存搜索 |
 
     Examples: 保存失败
       | splQuery                                | name | group               | message                    | screenName        |
