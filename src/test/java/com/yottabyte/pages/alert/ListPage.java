@@ -46,7 +46,7 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'最新状态')]")
     private WebElement latestStatus;
 
-    @FindBy(xpath = "//span[text()='今日待处理全部告警']")
+    @FindBy(xpath = "//span[contains(text(),'今日待处理全部告警')]")
     private WebElement pending;
 
     @FindBy(xpath = "//span[contains(text(),'今日已处理全部告警')]")

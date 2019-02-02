@@ -1,4 +1,4 @@
-@offlineTask @all @smoke
+#@offlineTask @all @smoke
 Feature: 离线任务的暂停、恢复、取消、加载以及删除
 
   Background:

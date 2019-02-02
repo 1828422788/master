@@ -79,6 +79,7 @@ Feature: 应用新建（RZY-1899）
       | name        | describe | sourceName | menuName | url         | menuName1 | url1                           | color   |
       | AutoTestApp | AutoTest | AutoTest   | 仪表盘      | /dashboard/ | URL校验     | http://192.168.1.134/topology/ | #F9C7EB |
 
+  @smoke @appSmoke
   Scenario Outline: 新建App，资源范围为全局
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"

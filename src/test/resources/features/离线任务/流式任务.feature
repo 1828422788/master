@@ -1,4 +1,4 @@
-@all @offlineTask @smoke
+#@all @offlineTask @smoke
 Feature: 流式任务
 
   Background:
