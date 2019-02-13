@@ -8,7 +8,7 @@ Feature: 字段提取分组
     When the data name is "AutoTest" then i click the "分组" button
     And I <group>
     And I click the "Ensure" button
-    And I will see the success message "保存成功"
+#    And I will see the success message "保存成功"
 
     Examples:
       | group                                                  |
