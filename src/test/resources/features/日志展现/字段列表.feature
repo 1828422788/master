@@ -55,13 +55,13 @@ Feature: 日志展现
     Then take a screenshot with name "<screenName>"
 
     Examples:
-      | fieldName | optional        | fieldValue | spl                                                                    | screenName                |
+      | fieldName | optional      | fieldValue | spl                                                                          | screenName               |
       | AppName   | TopTen          |            | index=yott* ERROR AND tag:sample04061424* \|top 10 'appname'           | 171：日志展现-字段列表快捷过滤-前10字段值  |
       | AppName   | RemoveDuplicate |            | index=yott* ERROR AND tag:sample04061424* \|stats dc('appname')        | 171：日志展现-字段列表快捷过滤-去重数     |
       | AppName   | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count('appname') | 171：日志展现-字段列表快捷过滤-总数时序图   |
       | AppName   | FileterField    | java       | index=yott* (ERROR AND tag:sample04061424*) AND 'appname':java         | 171：日志展现-字段列表快捷过滤-过滤选中字段值 |
       | AppName   | ShieldField     | java       | index=yott* (ERROR AND tag:sample04061424*) AND NOT 'appname':java     | 171：日志展现-字段列表快捷过滤-屏蔽选中字段值 |
-      | Timestamp | MaxValue        | all        | index=yott* ERROR AND tag:sample04061424* \|stats max('timestamp')     | 171：日志展现-字段列表快捷过滤-最大值     |
-      | Timestamp | MinValue        | all        | index=yott* ERROR AND tag:sample04061424* \|stats min('timestamp')     | 171：日志展现-字段列表快捷过滤-最小值     |
-      | Timestamp | AvgStats        | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('timestamp')     | 171：日志展现-字段列表快捷过滤-平均值统计图  |
-      | Timestamp | AvgSequential   | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('timestamp') | 171：日志展现-字段列表快捷过滤-平均值时序图  |
+      | Timestamp | MaxValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats max('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-最大值    |
+      | Timestamp | MinValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats min('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-最小值    |
+      | Timestamp | AvgStats      | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-平均值统计图 |
+      | Timestamp | AvgSequential | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('apache.resp_len') | 171：日志展现-字段列表快捷过滤-平均值时序图 |

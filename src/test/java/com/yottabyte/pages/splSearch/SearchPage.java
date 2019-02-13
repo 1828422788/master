@@ -68,7 +68,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='appname']")
     private WebElement appName;
 
-    @FindBy(xpath = "//span[text()='timestamp']")
+    @FindBy(xpath = "//span[text()='apache.resp_len']")
     private WebElement timestamp;
 
     @FindBy(xpath = "//span[text()='TOP10字段']")
@@ -86,20 +86,32 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='屏蔽选中字段值']")
     private List<WebElement> shieldField;
 
+    @FindBy(xpath = "(//span[text()='最大值'])[last()]")
+    private WebElement maxValue;
+
+    @FindBy(xpath = "(//span[text()='最小值'])[last()]")
+    private WebElement minValue;
+
+    @FindBy(xpath = "(//span[text()='平均值统计图'])[last()]")
+    private WebElement avgStats;
+
+    @FindBy(xpath = "(//span[text()='平均值时序图'])[last()]")
+    private WebElement avgSequential;
+
     public WebElement getMaxValue() {
-        return super.getButton("最大值");
+        return maxValue;
     }
 
     public WebElement getMinValue() {
-        return super.getButton("最小值");
+        return minValue;
     }
 
     public WebElement getAvgStats() {
-        return super.getButton("平均值统计图");
+        return avgStats;
     }
 
     public WebElement getAvgSequential() {
-        return super.getButton("平均值时序图");
+        return avgSequential;
     }
 
     public WebElement getTimestamp() {
