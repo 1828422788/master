@@ -26,7 +26,6 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | dataName    | name | describe | user | resource | taskGroup | period | result  |
       | sxjAutoTest |      |          |      |          |           |        | 名称 不能为空 |
 
-
   Scenario Outline: 成功编辑定时任务的结果处理方式（RZY-1205）
     Given the data name is "<dataName>" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
@@ -47,7 +46,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
-  @smoke @timedTaskSmoke
+#  @smoke @timedTaskSmoke
     Examples:
       | dataName    | connectName | userName | password     | host          | port | dbType | dbName         | tableName | firstDataMapping | secondDataMapping |
       | sxjAutoTest | sxjtest     | root     | rizhiyi&2014 | 192.168.1.134 | 3306 | mysql  | rizhiyi_system | tyf1128   | count            | percent           |

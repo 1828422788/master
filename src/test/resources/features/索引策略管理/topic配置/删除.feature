@@ -7,4 +7,5 @@ Feature: topic删除（RZY-2429）
   Scenario:
     When the data name is "AutoTest" then i click the "删除" button
     And I click the "EnsureDelete" button
-    Then I will see the success message "删除成功"
+    And I refresh the website
+    Then I will see the search result "{'column':'0','name':'AutoTest','contains':'no'}"

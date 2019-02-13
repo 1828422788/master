@@ -7,4 +7,5 @@ Feature: 索引信息删除（RZY-1476）
   Scenario:
     Given the data name is "autotest" then i click the "删除" button
     And I click the "EnsureButton" button
-    Then I will see the message "删除成功"
+    And I refresh the website
+    Then I will see the search result "{'column':'0','name':'autotest','contains':'no'}"
