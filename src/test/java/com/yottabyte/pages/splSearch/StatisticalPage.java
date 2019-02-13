@@ -97,10 +97,10 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//button[@class='el-button yw-search-primary-btn el-button--default']")
     private WebElement generate;
 
-    @FindBy(xpath = "//div[@class='el-input-group__prepend'][text()='从']/following-sibling::input")
+    @FindBy(xpath = "(//div[@class='el-input-group__prepend'][text()='从']/following-sibling::input)[last()]")
     private WebElement startDataValue;
 
-    @FindBy(xpath = "//div[@class='el-input-group__prepend'][text()='到']/following-sibling::input")
+    @FindBy(xpath = "(//div[@class='el-input-group__prepend'][text()='到']/following-sibling::input)[last()]")
     private WebElement endDataValue;
 
     @FindBy(xpath = "//div[@class='yw-search-stats-select with-select el-input el-input-group el-input-group--append']/input")
@@ -183,6 +183,17 @@ public class StatisticalPage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='选择截止日期']")
     private WebElement endTime;
+
+    @FindBy(xpath = "//span[text()='类型']")
+    private WebElement type;
+
+    public WebElement getAddNum() {
+        return super.getButton("添加数值分段");
+    }
+
+    public WebElement getType() {
+        return type;
+    }
 
     public WebElement getEndTime() {
         return endTime;

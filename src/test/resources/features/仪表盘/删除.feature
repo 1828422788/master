@@ -1,4 +1,4 @@
-@dashboard @all @smoke @dashboardSmoke
+@dashboard @all @smoke @dashboardSmoke @clean
 Feature: 仪表盘删除（RZY-214）
 
   Background:

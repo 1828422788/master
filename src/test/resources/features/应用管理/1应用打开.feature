@@ -19,12 +19,12 @@ Feature: 应用打开
 
     Examples:
       | rightArrow | menu        | groupMenuName                                                                                                     |
-      | RightArrow | Knowledge   | 设置\n全部资源\nAutoTestForKnowledge\nAutoTestRoleWithAllResource                                                       |
+      | RightArrow | Knowledge   | 设置\n全部资源\nAutoTestRoleWithAllResource                                                       |
       |            | Alert       | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
       |            | Report      | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
       |            | Topology    | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
       |            | TimedTask   | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
-      |            | Trend       | 设置\n全部资源\nAutoTestRoleWithAllResource\nAutoTestNew\nAutoTestForTrend                                              |
+      |            | Trend       | 设置\n全部资源\nAutoTestRoleWithAllResource\nAutoTestForTrend                                              |
       |            | SearchMacro | 设置\n全部资源\nAutoTestRoleWithAllResource\nAutoTestRoleWithMacro                                                      |
       |            | Config      | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
       |            | Source      | 设置\n全部资源\nAutoTestAppWithAllResources\nAutoTestRoleWithAuth&SourceGroup\nAutoTestRoleWithAllResource\nAutoTestApp |

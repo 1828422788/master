@@ -158,6 +158,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "sunburst")
     private WebElement sunburst;
 
+    @FindBy(className = "tracing")
+    private WebElement tracing;
+
     @FindBy(xpath = "(//div[contains(text(),'切分')])[last()]")
     private WebElement divide;
 
@@ -386,6 +389,83 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='分段数'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
     private WebElement segments;
 
+    @FindBy(className = "chart-setting-popover")
+    private WebElement settingPopover;
+
+    @FindBy(xpath = "(//span[text()='父ID'])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement parentId;
+
+    @FindBy(xpath = "(//span[text()='子ID'])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement childId;
+
+    @FindBy(xpath = "(//span[text()='持续时间'])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement keepTime;
+
+    @FindBy(xpath = "(//div[text()='时间'])[last()]")
+    private WebElement time;
+
+    @FindBy(xpath = "(//div[text()='信息'])[last()]")
+    private WebElement info;
+
+    @FindBy(xpath = "(//span[contains(text(),'透明度')])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement transparency;
+
+    @FindBy(xpath = "(//span[contains(text(),'最小半径')])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement minRadius;
+
+    @FindBy(xpath = "(//span[contains(text(),'最大半径')])[last()]/ancestor::div/following-sibling::div//input")
+    private WebElement maxRadius;
+
+    @FindBy(xpath = "(//div[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
+    private WebElement delete;
+
+    public WebElement getDelete() {
+        return delete;
+    }
+
+    public WebElement getTransparency() {
+        return transparency;
+    }
+
+    public WebElement getMinRadius() {
+        return minRadius;
+    }
+
+    public WebElement getMaxRadius() {
+        return maxRadius;
+    }
+
+    public WebElement getParentId() {
+        parentId.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getChildId() {
+        childId.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getKeepTime() {
+        keepTime.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getTime() {
+        return time;
+    }
+
+    public WebElement getInfo() {
+        return info;
+    }
+
+    public WebElement getTracing() {
+        return tracing;
+    }
+
+    public WebElement getSettingPopover() {
+        return settingPopover;
+    }
+
     public WebElement getLabel() {
         label.click();
         return super.getLastDropdownList();
@@ -583,6 +663,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getChartType() {
         return chartType;
+    }
+
+    public WebElement getChartTypePopover() {
+        return chartTypePopover;
     }
 
     public WebElement getSetting() {

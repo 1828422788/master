@@ -1,4 +1,4 @@
-@spl @all @smoke @splSmoke
+@logDisplay
 Feature: 日志展现
 
   Background:
