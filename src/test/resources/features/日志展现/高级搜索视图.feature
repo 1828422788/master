@@ -22,6 +22,7 @@ Feature: 高级搜索视图
 
     Examples:
       | spl                                                                                                                     | chartType | chart         | caseNum | name  |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \| limit 10                            | Relation  | Force         | 2784    | 力图    |
       | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                            |           | Line          | 2770    | 曲线图   |
       | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                              |           | Area          | 2771    | 面积图   |
       | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                              |           | Scatter       | 2769    | 散点图   |
@@ -32,7 +33,6 @@ Feature: 高级搜索视图
       | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city                         | Dimension | Sunburst      | 2782    | 旭日图   |
       | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path                                        | Relation  | Chord         | 834     | 和弦图   |
 #      | appname:* \| transaction json.aid,json.bid,json.cid,json.did,json.eid,json.fid with states a,b,c,d,e,f in json.module results by flow \| stats count() by fromstate,tostate              | Relation  | Sankey        | 2783    | 桑基图     |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10                             | Relation  | Force         | 2784    | 力图    |
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count     | Compound  | Multiaxis     | 2785    | 多Y轴图  |
       | tag:sample04061424_chart \| stats count() by apache.geo.city                                                            | Map       | Heatmap       | 1229    | 热力地图  |
       | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city                   | Map       | Regionmap     | 2790    | 区划地图  |

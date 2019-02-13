@@ -1,6 +1,7 @@
-@all @smoke @configs @configsSmoke
-Feature: 字段提取规则配置页面优化
+@all @smoke @configs
+Feature: 字段提取新建
 
+  @configsSmoke
   Scenario Outline: 创建规则并关联日志（RZY-1880）
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -24,19 +25,13 @@ Feature: 字段提取规则配置页面优化
     And I set the parameter "AppName" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/json_sdyd_41.log"
     And I click the "UploadButton" button
-    And open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the "OtherValue" result will be "value"
+
 
     Examples:
-      | appName | tag | splQuery          |
-      | 108     | 1   | appname:108 tag:1 |
+      | appName | tag |
+      | 108     | 1   |
 
+  @configsSmoke
   Scenario: 验证从搜索页跳转到字段提取（RZY-1881）
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "appname:108 tag:1"
@@ -79,3 +74,14 @@ Feature: 字段提取规则配置页面优化
     And I set the parameter "Tag" with value "seq_test"
     And I upload a file with name "/src/test/resources/testdata/log/autotest.csv"
     And I click the "UploadButton" button
+
+  @configsSmoke
+  Scenario: 验证搜索关联日志（RZY-1880）
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I set the parameter "SearchInput" with value "appname:108 tag:1"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    Then I will see the "OtherValue" result will be "value"
