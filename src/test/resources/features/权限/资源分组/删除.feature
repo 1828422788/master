@@ -13,5 +13,8 @@ Feature: 资源分组删除（RZY-533）
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
     Examples:
-      | name          |
-      | sunxjAutoTest |
+      | name                 |
+      | sunxjAutoTest        |
+      | AutoTestNew          |
+      | AutoTestForKnowledge |
+      | hunter_roles_m       |

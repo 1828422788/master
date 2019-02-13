@@ -5,7 +5,6 @@ Feature: 应用知识模块
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
     And I will see the "app.AppPage" page
-    And I click the "RightArrow" button
     And I click the "Knowledge" button
     Then I will see the "knowledge.ListPage" page
 
@@ -22,8 +21,8 @@ Feature: 应用知识模块
     And I will see the element "GroupComboBox" name is "<groupName>"
 
     Examples:
-      | groupName                                         |
-      | AutoTestRoleWithAllResource\nAutoTestForKnowledge |
+      | groupName                   |
+      | AutoTestRoleWithAllResource |
 
   Scenario Outline: 全文搜索
     When I set the parameter "SearchInput" with value "<search>"

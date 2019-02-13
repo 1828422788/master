@@ -20,7 +20,5 @@ Feature: 资源分组编辑（RZY-532）
 
   @all
     Examples:
-      | ResourceGroupName    | NewResourceGroupName | NewResourceGroupDes | Result                                      |
-      | AutoTestForKnowledge | AutoTestNew          | NewDes              | error message "保存失败: 资源组名称已存在\n错误码: FE_546" |
-      | AutoTestForKnowledge |                      | NewDes              | error message "填写资源分组名称"                    |
-
+      | ResourceGroupName    | NewResourceGroupName | NewResourceGroupDes | Result                   |
+      | AutoTestForKnowledge |                      | NewDes              | error message "填写资源分组名称" |

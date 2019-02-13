@@ -20,6 +20,7 @@ Feature: 资源分组新建
       | name             | type | des  | app | owner | result                 |
       | AutoTestForTrend | 趋势图  | test |     | admin | success message "创建成功" |
 
+  @fail
     Examples: 创建资源分组失败
       | name             | type | des | app | owner | result                                      |
       | AutoTestForTrend | 趋势图  |     |     | admin | error message "保存失败: 资源组名称已存在\n错误码: FE_546" |

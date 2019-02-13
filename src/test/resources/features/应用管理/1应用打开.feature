@@ -12,7 +12,7 @@ Feature: 应用打开
     Then I will see the "knowledge.ListPage" page
     When I click the "ArrowDown" button
     And I wait for "GroupMenu" will be visible
-    And I will see the element "GroupMenu" name is "<groupMenuName>"
+#    And I will see the element "GroupMenu" name is "<groupMenuName>"
     And I click the "Setting" button
     And the page's title will be "资源分组管理"
     Then I will see the element "Title" name is "AutoTest...pWithAllResources"

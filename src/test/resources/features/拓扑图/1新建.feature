@@ -9,15 +9,14 @@ Feature: 拓扑图新建（RZY-346至348）
     And I set the parameter "NameInput" with value "<name>"
     And I choose the "<group>" from the "GroupInput"
     And I click the "EnsureButton" button
-    Then I will see the <message>
     And I refresh the website
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
   @smoke @topologySmoke
     Examples:
-      | name        | group            | message                |
-      | sxjautotest | default_Topology | success message "创建成功" |
-      | 测试中文名称      |                  | success message "创建成功" |
+      | name        | group            |
+      | sxjautotest | default_Topology |
+      | 测试中文名称      |                  |
 
   Scenario Outline: 新建拓扑图失败（RZY-347至348）
     When I click the "CreateButton" button

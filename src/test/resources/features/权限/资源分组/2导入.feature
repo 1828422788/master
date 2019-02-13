@@ -42,7 +42,6 @@ Feature: 资源分组导入
       | InputFileName                                           | role  | groupNameInput |
       | /src/test/resources/testdata/resourceGroups/success.tar | admin | sunxjAutoTest  |
 
-  @all @resourceGroups
   Scenario Outline: 导入资源包的异常流程测试-导入的文件格式/内容不正确
     Given I click the "UploadButton" button
     When I upload a file with name "<InputFileName>"
@@ -54,7 +53,6 @@ Feature: 资源分组导入
       | /src/test/resources/testdata/resourceGroups/testcase.tar.gz | 仅支持 .tar 格式文件              |
       | /src/test/resources/testdata/resourceGroups/testcase.tar    | 未知错误，请检查文件格式及内容是否正确，然后重新上传 |
 
-  @all @resourceGroups
   Scenario Outline: 导入资源包的异常流程测试-为空测试
     Given I click the "UploadButton" button
     When I upload a file with name "<InputFileName>"
