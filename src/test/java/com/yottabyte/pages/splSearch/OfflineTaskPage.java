@@ -22,11 +22,15 @@ public class OfflineTaskPage extends PageTemplate {
     @FindBy(className = "el-table_1_column_1")
     private List<WebElement> tdList;
 
-    @FindBy(className = "el-table__empty-text")
+    @FindBy(xpath = "//td[@class='el-table_1_column_1']")
     private WebElement emptyElement;
 
     @FindBy(className = "el-button--primary")
     private WebElement ensureButton;
+
+    public WebElement getEmptyElement() {
+        return emptyElement;
+    }
 
     public WebElement getFirstData() {
         return tdList.get(1);

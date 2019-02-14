@@ -26,16 +26,18 @@ Feature: 离线任务新增
     Then I click the "OfflineTask" button
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button
+    And I will see the success message "提交成功，请到设置-离线任务页查看离线任务状态！"
     Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    And I wait for "EmptyElement" will be visible
+    Then the data name is "<name>" then i click the "取消" button
 
     Examples:
-      | splQuery                                                                                                                                                                                                               | time           | name                         |
-      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | WholeTime      | WholeTimeOfflineAutoTest     |
-      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | RecentSevenDay | transactionofflineAutoTest1  |
-      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | ThisMonth      | transactionofflineAutoTest2  |
-      | apache.status:>=405                                                                                                                                                                                                    | WholeTime      | offlineAutoTest1             |
-      | * \| stats count(apache.resp_len) as count_len, max(apache.resp_len) as max_len, min(apache.resp_len) as min_len, sum(apache.status) as sum_len, avg(apache.resp_len) as avg_len by apache.geo.city \| sort by max_len | WholeTime      | offlineAutoTest2             |
+      | splQuery                                                                                                                                                                                                               | time           | name                        |
+      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | WholeTime      | WholeTimeOfflineAutoTest    |
+      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | RecentSevenDay | transactionofflineAutoTest1 |
+      | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | ThisMonth      | transactionofflineAutoTest2 |
+      | apache.status:>=405                                                                                                                                                                                                    | WholeTime      | offlineAutoTest1            |
+      | * \| stats count(apache.resp_len) as count_len, max(apache.resp_len) as max_len, min(apache.resp_len) as min_len, sum(apache.status) as sum_len, avg(apache.resp_len) as avg_len by apache.geo.city \| sort by max_len | WholeTime      | offlineAutoTest2            |
 
   @smoke
   Scenario Outline: 新建最近类型的离线任务
@@ -49,8 +51,10 @@ Feature: 离线任务新增
     And I click the "OfflineTask" button
     And I set the parameter "OfflineTaskName" with value "<name>"
     And I click the "EnsureCreateOfflineTask" button
-    And open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    And I will see the success message "提交成功，请到设置-离线任务页查看离线任务状态！"
+    Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
+    And I wait for "EmptyElement" will be visible
+    Then the data name is "<name>" then i click the "取消" button
 
     Examples:
       | splQuery                                  | time                | beginTime | name                    |
@@ -65,8 +69,9 @@ Feature: 离线任务新增
     Then I click the "OfflineTask" button
     Then I set the parameter "OfflineTaskName" with value "<name>"
     Then I click the "EnsureCreateOfflineTask" button
+    And I will see the success message "提交成功，请到设置-离线任务页查看离线任务状态！"
     Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    And I wait for "EmptyElement" will be visible
     Then the data name is "<name>" then i click the "暂停" button
 
     Examples:
