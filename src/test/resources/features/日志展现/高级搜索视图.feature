@@ -21,26 +21,26 @@ Feature: 高级搜索视图
     Then take a screenshot with name "<caseNum>：日志展现-高级搜索视图-<name>sample"
 
     Examples:
-      | spl                                                                                                                     | chartType | chart         | caseNum | name  |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \| limit 10                            | Relation  | Force         | 2784    | 力图    |
-      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                            |           | Line          | 2770    | 曲线图   |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                              |           | Area          | 2771    | 面积图   |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                              |           | Scatter       | 2769    | 散点图   |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                              |           | Column        | 2768    | 柱状图   |
-      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10 | Dimension | Pie           | 833     | 饼状图   |
-      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10 | Dimension | Rose          | 2776    | 玫瑰图   |
-      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10 | Dimension | Bar           | 2778    | 条形图   |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city                         | Dimension | Sunburst      | 2782    | 旭日图   |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path                                        | Relation  | Chord         | 834     | 和弦图   |
-#      | appname:* \| transaction json.aid,json.bid,json.cid,json.did,json.eid,json.fid with states a,b,c,d,e,f in json.module results by flow \| stats count() by fromstate,tostate              | Relation  | Sankey        | 2783    | 桑基图     |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count     | Compound  | Multiaxis     | 2785    | 多Y轴图  |
-      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                            | Map       | Heatmap       | 1229    | 热力地图  |
-      | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city                   | Map       | Regionmap     | 2790    | 区划地图  |
-      | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt            | Map       | Geostatsmap   | 2795    | 统计地图  |
-      | tag:sample04061424_chart  \| stats count() as cnt \| eval icon=if(cnt>1000000,"thumbs-down","thumbs-up")                | Other     | Single        | 2303    | 单值    |
-      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                            | Other     | Wordcloud     | 2804    | 字符云图  |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                              | Other     | Matrixheatmap | 2810    | 矩阵热力图 |
-#      | tag:v99 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince | Map       | Geostatsmap   | 2797    | 统计地图-权重 |
+      | spl                                                                                                                                                                                              | chartType | chart         | caseNum | name    |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \| limit 10                                                                                                     | Relation  | Force         | 2784    | 力图      |
+      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                                                                     |           | Line          | 2770    | 曲线图     |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                                                                                                       |           | Area          | 2771    | 面积图     |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                                                                                                       |           | Scatter       | 2769    | 散点图     |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                                                                                                       |           | Column        | 2768    | 柱状图     |
+      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                                                                          | Dimension | Pie           | 833     | 饼状图     |
+      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                                                                          | Dimension | Rose          | 2776    | 玫瑰图     |
+      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                                                                          | Dimension | Bar           | 2778    | 条形图     |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city                                                                                                  | Dimension | Sunburst      | 2782    | 旭日图     |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path                                                                                                                 | Relation  | Chord         | 834     | 和弦图     |
+      | tag:sample04061424_chart AND NOT apache.clientip:221.226.97.92 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 10                                                     | Relation  | Sankey        | 2783    | 桑基图     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count                                                                              | Compound  | Multiaxis     | 2785    | 多Y轴图    |
+      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                                                                     | Map       | Heatmap       | 1229    | 热力地图    |
+      | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city                                                                                            | Map       | Regionmap     | 2790    | 区划地图    |
+      | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt                                                                                     | Map       | Geostatsmap   | 2795    | 统计地图    |
+      | tag:sample04061424_chart  \| stats count() as cnt \| eval icon=if(cnt>1000000,"thumbs-down","thumbs-up")                                                                                         | Other     | Single        | 2303    | 单值      |
+      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                                                                     | Other     | Wordcloud     | 2804    | 字符云图    |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                                                                                                       | Other     | Matrixheatmap | 2810    | 矩阵热力图   |
+      | tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince | Map       | Geostatsmap   | 2797    | 统计地图-权重 |
 
   Scenario Outline: 区间图sample
     When I set the parameter "SearchInput" with value "<spl>"
@@ -184,7 +184,7 @@ Feature: 高级搜索视图
     And I wait for "1000" millsecond
     Then take a screenshot with name "2805：日志展现-高级搜索视图-循序图sample"
 
-  Scenario: 调用链（RZY-2812）
+  Scenario: 调用链（RZY-2812、2814）
     When I set the parameter "SearchInput" with value "tag:gf_dapper* AND dapper.msg.traceId:"511f8756ce1d0b8a" dapper.msg.duration:>0  | table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -205,8 +205,21 @@ Feature: 高级搜索视图
     And I click the "Info" button
     And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
     And I click the "Generate" button
-    And I wait for "1000" millsecond
+    And I wait for loading invisible
     Then take a screenshot with name "2812：日志展现-高级搜索视图-调用链"
+    And I click the "Setting" button
+    And I click the "Time" button
+    And I choose the "collector_recv_timestamp" from the "SettingSelect"
+    And I click the "Generate" button
+    And I wait for loading invisible
+    Then take a screenshot with name "2814：日志展现-高级搜索视图-调用链1更改开始时间"
+    And I click the "Setting" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Green" button
+    And I click the "Generate" button
+    And I wait for loading invisible
+    Then take a screenshot with name "2814：日志展现-高级搜索视图-调用链1更改颜色"
 
   Scenario: 统计地图（RZY-2796）
     When I set the parameter "SearchInput" with value "tag:vendors_461 | geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt"
@@ -397,3 +410,4 @@ Feature: 高级搜索视图
     And I click the "Generate" button
     And I wait for "1000" millsecond
     Then take a screenshot with name "2792：日志展现-高级搜索视图-区划地图钻取sample"
+
