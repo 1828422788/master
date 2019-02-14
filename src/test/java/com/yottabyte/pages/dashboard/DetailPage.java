@@ -72,13 +72,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "dropdown-link-btn")
     private WebElement dropDownLinkButton;
 
-    @FindBy(className = "recover")
+    @FindBy(xpath = "//span[contains(text(),'恢复')][@class='action']")
     private WebElement recoverTag;
 
-    @FindBy(className = "moveout")
+    @FindBy(xpath = "//span[contains(text(),'移出')][@class='action']")
     private WebElement moveoutTag;
 
-    @FindBy(className = "delete")
+    @FindBy(xpath = "//span[contains(text(),'删除')][@class='action']")
     private WebElement deleteTag;
 
     @FindBy(className = "el-message__group")
