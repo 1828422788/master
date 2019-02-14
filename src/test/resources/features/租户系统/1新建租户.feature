@@ -6,7 +6,26 @@ Feature: 租户新建（RZY-1691）
     And I click the "CreateButton" button
     Then I will see the "tenant.CreatePage" page
 
-  Scenario Outline:
+  Scenario Outline:保存成功
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "DomainName" with value "<domainName>"
+    And I choose the "<supportFeature>" from the "SupportFeature"
+    And I set the parameter "DailyLimit" with value "<dailyLimit>"
+    And I set the parameter "UploadLimit" with value "<uploadLimit>"
+    And I set the parameter "ExcessLimit" with value "<excessLimit>"
+    And I choose the "<excessBehavior>" from the "ExcessBehavior"
+    And I set the parameter "ManagerName" with value "<managerName>"
+    And I set the parameter "ManagerEmail" with value "<managerEmail>"
+    And I set the parameter "ManagerPassword" with value "<managerPassword>"
+    And I set the parameter "InputAgain" with value "<inputAgain>"
+    And I click the "SaveButton" button
+
+  @smoke @tenantSmoke
+    Examples:
+      | name     | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | uploadLimit | excessLimit | excessBehavior | managerName | managerEmail       | managerPassword | inputAgain  | message                              |
+      | AutoTest | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 10          | 10          | 拒绝采集输入         | UIAutoTest  | tools@yottabyte.cn | sxj04030803     | sxj04030803 | success message "域名已存在\n错误码: FE_531" |
+
+  Scenario Outline:保存失败
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "DomainName" with value "<domainName>"
     And I choose the "<supportFeature>" from the "SupportFeature"
@@ -21,12 +40,7 @@ Feature: 租户新建（RZY-1691）
     And I click the "SaveButton" button
     Then I will see the <message>
 
-  @smoke @tenantSmoke
-    Examples: 保存成功
-      | name | domainName | supportFeature | dailyLimit | uploadLimit | excessLimit | excessBehavior | managerName | managerEmail | managerPassword | inputAgain | message |
-      | AutoTest | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 10          | 10          | 拒绝采集输入         | UIAutoTest  | tools@yottabyte.cn | sxj04030803     | sxj04030803 | success message "域名已存在\n错误码: FE_531" |
-
-    Examples: 保存失败
+    Examples:
       | name                                                                                                                              | domainName         | supportFeature | dailyLimit | uploadLimit | excessLimit | excessBehavior | managerName                                                                                                                        | managerEmail       | managerPassword | inputAgain | message                                           |
       |                                                                                                                                   |                    |                |            |             |             |                |                                                                                                                                    |                    |                 |            | error message "名称 不能为空"                           |
       | test                                                                                                                              |                    |                |            |             |             |                |                                                                                                                                    |                    |                 |            | error message "域名 不能为空"                           |

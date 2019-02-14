@@ -29,7 +29,7 @@ Feature: 离线任务新增
     And I will see the success message "提交成功，请到设置-离线任务页查看离线任务状态！"
     Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
     And I wait for "EmptyElement" will be visible
-    Then the data name is "<name>" then i click the "取消" button
+    Then the data name is "<name>" then i click the "暂停" button
 
     Examples:
       | splQuery                                                                                                                                                                                                               | time           | name                        |
@@ -54,7 +54,7 @@ Feature: 离线任务新增
     And I will see the success message "提交成功，请到设置-离线任务页查看离线任务状态！"
     Then open the "splSearch.OfflineTaskPage" page for uri "/offlinetask/"
     And I wait for "EmptyElement" will be visible
-    Then the data name is "<name>" then i click the "取消" button
+    Then the data name is "<name>" then i click the "暂停" button
 
     Examples:
       | splQuery                                  | time                | beginTime | name                    |
