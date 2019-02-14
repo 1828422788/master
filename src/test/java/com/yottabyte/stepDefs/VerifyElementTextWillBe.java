@@ -1,8 +1,9 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.utils.GetElementFromPage;
-import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.*;
@@ -36,5 +37,12 @@ public class VerifyElementTextWillBe {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String realValue = element.getAttribute("value");
         assertEquals(value, realValue);
+    }
+
+    @And("^I will see the input element \"([^\"]*)\" value will contains \"([^\"]*)\"$")
+    public void iWillSeeTheInputElementValueWillContains(String elementName, String value) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        String realValue = element.getAttribute("value");
+        Assert.assertTrue(realValue.contains(value));
     }
 }

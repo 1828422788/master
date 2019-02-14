@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.utils.GetElementFromPage;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
 import static org.junit.Assert.*;
@@ -12,9 +13,14 @@ import static org.junit.Assert.*;
 public class VerifyTitle {
 
     @Then("^the page's title will be \"([^\"]*)\"$")
-    public void theTitleWillBe(String titleName){
+    public void theTitleWillBe(String titleName) {
         String realResult = GetElementFromPage.getCurrentPageTitle();
-        assertEquals(titleName,realResult);
+        assertEquals(titleName, realResult);
     }
 
+    @And("^the page's title will contains \"([^\"]*)\"$")
+    public void thePageSTitleWillContains(String titleName) {
+        String realResult = GetElementFromPage.getCurrentPageTitle();
+        assertTrue(realResult.contains(titleName));
+    }
 }
