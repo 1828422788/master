@@ -28,7 +28,7 @@ Feature: 应用打开
       |            | SearchMacro | 设置\n全部资源\nAutoTestRoleWithAllResource\nAutoTestRoleWithMacro                                                      |
       |            | Config      | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
       |            | Source      | 设置\n全部资源\nAutoTestAppWithAllResources\nAutoTestRoleWithAuth&SourceGroup\nAutoTestRoleWithAllResource\nAutoTestApp |
-      | RightArrow | Agent       | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
+#      | RightArrow | Agent       | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
 #      |            | Event       | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
 #      | RightArrow | Indexsetting       | 设置\n全部资源\nAutoTestRoleWithAllResource                                                                             |
 #      |            | Search      | 设置\n全部资源\nAutoTestRoleWithAllResource |
@@ -56,4 +56,4 @@ Feature: 应用打开
       |            | SearchMacro |
       |            | Config      |
       |            | Source      |
-      | RightArrow | Agent       |
+#      | RightArrow | Agent       |
