@@ -22,12 +22,12 @@ Feature: 日志来源上传日志（RZY-366、RZY-367）
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the element "NoResult" name is "查询无结果。"
 
-  Scenario: 在搜索页面验证 日志来源是否正确（RZY-367步骤1、RZY-1655）
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I click the "ArrowDown" button
-    And I click the "AutoTestLogSource" button
-    And I click the "Sunxjautotest" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the element "AppnameValue" name is "AutoTestAppname"
-    Then I will see the element "TagValue" name is "AutoTestTag"
+#  Scenario: 在搜索页面验证 日志来源是否正确（RZY-367步骤1、RZY-1655）
+#    Given open the "splSearch.SearchPage" page for uri "/search/"
+#    And I click the "ArrowDown" button
+##    And I click the "AutoTestLogSource" button
+#    And I click the "Sunxjautotest" button
+#    And I click the "SearchButton" button
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    Then I will see the element "AppnameValue" name is "AutoTestAppname"
+#    Then I will see the element "TagValue" name is "AutoTestTag"

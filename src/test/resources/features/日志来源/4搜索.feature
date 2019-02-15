@@ -6,6 +6,7 @@ Feature: 日志来源搜索
 
   Scenario Outline: 按照分组和名称搜索
     Given I choose the "<group>" from the "GroupDropdownList"
+    And I wait for loading invisible
     And I will see the special column contains "<name>"
     And I choose the "全部资源" from the "GroupDropdownList"
     And I set the search input with "<name>"
@@ -13,7 +14,7 @@ Feature: 日志来源搜索
 
     Examples:
       | group               | name          |
-      | default_SourceGroup | sxjautotest |
+      | default_SourceGroup | sunxjautotest |
 
   Scenario Outline: 查看最近几天的日志来源
     When I set the parameter "RecentDays" with value "<recentDays>"
