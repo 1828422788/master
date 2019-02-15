@@ -718,7 +718,7 @@ Feature: 趋势图新建
 
     Examples:
       | name       | spl                                                                          | chartType | type | colour |
-      | 饼状图sample3 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie  | Yellow |
+      | 饼状图sample3 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie  | Orange |
 
   Scenario Outline: 条形图sample2（RZY-2678）
     When I set the parameter "NameInput" with value "<name>"

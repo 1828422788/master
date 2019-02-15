@@ -347,6 +347,25 @@ Feature: 高级搜索视图
     And I wait for "1000" millsecond
     Then take a screenshot with name "2774：日志展现-高级搜索视图-饼状图1"
 
+  Scenario: 饼状图2（RZY-2775）
+    When I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "Dimension" button
+    And I click the "Pie" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2774：日志展现-高级搜索视图-饼状图2"
+
   Scenario: 条形图1（RZY-2779）
     When I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "DateEditor" button
