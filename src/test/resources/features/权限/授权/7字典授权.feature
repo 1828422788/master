@@ -1,4 +1,4 @@
-@authorization @all @smoke @roleSmoke
+@authorization @all @smoke
 Feature: 角色授权字典
 
   Background:

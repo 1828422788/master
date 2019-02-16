@@ -1,4 +1,4 @@
-@authorization @all @smoke @roleSmoke
+@authorization @all @smoke
 Feature: 授权告警插件
 
   Background:

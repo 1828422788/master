@@ -1,4 +1,4 @@
-@authorization @all @smoke @roleSmoke
+@authorizationSmoke @all @smoke
 Feature: 角色授权仪表盘
 
   Background:

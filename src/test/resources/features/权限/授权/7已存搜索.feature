@@ -1,4 +1,4 @@
-@authorization @all @smoke @roleSmoke
+@authorization @all @smoke
 Feature: 角色授权已存搜索
 
   Background:
