@@ -468,6 +468,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'raw_message')][@class='yw-search-event-json-key-item']")
     private WebElement rawMessage;
 
+    @FindBy(xpath = "//li[text()='查看上下文sample']")
+    private WebElement contextSample;
+
+    public WebElement getContextSample() {
+        return contextSample;
+    }
+
     public WebElement getRawMessage() {
         return rawMessage;
     }

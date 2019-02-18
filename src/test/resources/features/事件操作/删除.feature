@@ -11,5 +11,6 @@ Feature: 事件操作删除（RZY-1391）
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
     Examples:
-      | name     |
-      | AutoTest |
+      | name        |
+      | AutoTest    |
+      | 查看上下文sample |

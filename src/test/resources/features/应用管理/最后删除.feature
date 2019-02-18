@@ -1,4 +1,4 @@
-@all @smoke @app @appSmoke
+@clean
 Feature: 应用删除
 
   Scenario Outline:

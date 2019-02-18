@@ -1,4 +1,4 @@
-@report @all
+#@report @all
 Feature: 报表删除（RZY-131）
 
   Background:
