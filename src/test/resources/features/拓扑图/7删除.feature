@@ -1,4 +1,5 @@
-@topology @all @smoke @topologySmoke
+#@topology @all @smoke @topologySmoke
+@clean
 Feature: 拓扑图删除（RZY-350）
 
   Background:
