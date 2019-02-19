@@ -41,12 +41,14 @@ Feature: 事件操作新建（RZY-1387）
     And I click the "RightIcon" button
     And I click the "EventOperate" button
     And I click the "ContextSample" button
+    And switch to another window
+    Then the page's title will be "上下文检索"
+    Then take a screenshot with name "2817：事件操作-查看上下文sample"
 
   @smoke @eventSmoke
     Examples:
       | name        | url                                                                                                                                                                            | message |
       | 查看上下文sample | /search/context/?time_field=timestamp&timestamp=${timestamp}&id_field=context_id&context_id=${context_id}&sort_field=timestamp,context_id&filter_field=source&source=${source} | 保存成功    |
-
 
   Scenario Outline: 保存失败
     When I click the "CreateButton" button

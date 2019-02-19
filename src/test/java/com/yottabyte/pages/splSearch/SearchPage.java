@@ -471,6 +471,34 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='查看上下文sample']")
     private WebElement contextSample;
 
+    @FindBy(xpath = "//span[text()='71.221.121.107']")
+    private WebElement clientip;
+
+    @FindBy(xpath = "//span[text()='sample04061424'][@class='yw-search-event-json-value-item']")
+    private WebElement tag;
+
+    @FindBy(xpath = "//li[text()='添加到搜索']")
+    private WebElement addToSearch;
+
+    @FindBy(xpath = "//li[text()='从搜索删除']")
+    private WebElement removeFromSearch;
+
+    public WebElement getTag() {
+        return tag;
+    }
+
+    public WebElement getAddToSearch() {
+        return addToSearch;
+    }
+
+    public WebElement getRemoveFromSearch() {
+        return removeFromSearch;
+    }
+
+    public WebElement getClientip() {
+        return clientip;
+    }
+
     public WebElement getContextSample() {
         return contextSample;
     }

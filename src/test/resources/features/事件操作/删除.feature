@@ -1,4 +1,3 @@
-@all @event @smoke @eventSmoke
 Feature: 事件操作删除（RZY-1391）
 
   Background:
@@ -10,7 +9,12 @@ Feature: 事件操作删除（RZY-1391）
     And I refresh the website
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
+  @all @event @smoke @eventSmoke
+    Examples:
+      | name     |
+      | AutoTest |
+
+  @clean
     Examples:
       | name        |
-      | AutoTest    |
       | 查看上下文sample |

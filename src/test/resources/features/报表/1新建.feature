@@ -431,7 +431,7 @@ Feature: 报表新建（RZY-116）
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
     And I will see the "trend.CreatePage" page
-    And I set the parameter "FieldValueInput" with value "cnt"
+    And I set the parameter "FieldValueInput" with value "count()"
     And I click the "Divide" button
     And I set the parameter "FieldValueInput" with value "apache.geo.province"
     And I click the "Region" button
