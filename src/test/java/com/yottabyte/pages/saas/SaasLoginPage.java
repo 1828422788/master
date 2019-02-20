@@ -51,7 +51,7 @@ public class SaasLoginPage extends PageTemplate {
         ClickSomeButton click = new ClickSomeButton();
         setKey.iSetTheParameterWithValue(getUsername(), userName);
         setKey.iSetTheParameterWithValue(getPassword(), password);
-        click.iClickTheButton(getLoginButton());
+        click.clickElement(getLoginButton());
         webDriver.navigate().refresh();
     }
 

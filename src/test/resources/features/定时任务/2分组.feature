@@ -11,6 +11,6 @@ Feature: 定时任务分组（RZY-411）
     Then I will see the success message "保存成功"
 
     Examples:
-      | name        | group                                                                       |
-      | sxjAutoTest | cancel selection "default_SavedSchedule" from the "Group"                   |
-      | sxjAutoTest | choose the "default_SavedSchedule,AutoTestWithAllResource" from the "Group" |
+      | name                       | group                                                                       |
+      | RZY-396：定时任务_sample_表格_近一天 | cancel selection "default_SavedSchedule" from the "Group"                   |
+      | RZY-396：定时任务_sample_表格_近一天 | choose the "default_SavedSchedule,AutoTestWithAllResource" from the "Group" |

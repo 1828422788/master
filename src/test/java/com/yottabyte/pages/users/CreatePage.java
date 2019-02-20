@@ -106,8 +106,8 @@ public class CreatePage extends PageTemplate{
         setKey.iSetTheParameterWithValue("Telephone",telephone);
         setKey.iSetTheParameterWithValue("Password",password);
         choose.iChooseTheFromThe(userGroup,"UserGroups");
-        click.iClickTheButton("CreateButton");
-        click.iClickTheButton("OKButton");
+        click.clickButton("CreateButton");
+        click.clickButton("OKButton");
 
     }
 

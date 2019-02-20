@@ -166,8 +166,8 @@ public class ListPage extends PageTemplate {
             setKey.iSetTheParameterWithValue("UserGroupName", userGroupName);
             choose.iChooseTheFromThe(ownerName, "UserGroupOwner");
             choose.iChooseTheFromThe(roleName, "UserGroupRole");
-            click.iClickTheButton("CreateButton");
-            click.iClickTheButton("OKButton");
+            click.clickButton("CreateButton");
+            click.clickButton("OKButton");
             page.iWillSeeNewPage("userGroups.ListPage");
         } else if (text.equals(userGroupName)) {
             System.out.println("There is a user groups");

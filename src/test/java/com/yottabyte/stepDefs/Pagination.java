@@ -26,7 +26,7 @@ public class Pagination {
         if (isExist(fatherElement)) {
             List<WebElement> pages = fatherElement.findElements(by);
             WebElement lastPage = fatherElement.findElement(By.xpath(".//ul[@class='el-pager']/li[last()]"));
-            click.iClickTheButton(lastPage);
+            click.clickElement(lastPage);
             for (int i=pages.size()-1;i>=0;i--) {
                 List<WebElement> tables = fatherElement.findElements(By.className("el-table__body"));
                 for (WebElement table : tables) {
@@ -41,7 +41,7 @@ public class Pagination {
                         return null;
                     }
                 }
-                click.iClickTheButton(fatherElement.findElement(By.className("btn-prev")));
+                click.clickElement(fatherElement.findElement(By.className("btn-prev")));
             }
         } else {
             WebElement table = fatherElement.findElement(By.className("el-table__body"));

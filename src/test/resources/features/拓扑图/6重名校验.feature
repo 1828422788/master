@@ -1,4 +1,4 @@
-@topology @all @topologySmoke @smoke
+#@topology @all @topologySmoke @smoke
 Feature: 拓扑图重名校验
 
   Background:

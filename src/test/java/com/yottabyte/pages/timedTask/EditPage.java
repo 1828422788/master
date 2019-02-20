@@ -88,6 +88,32 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//button[@class='el-time-panel__btn confirm']")
     private WebElement ensureButton;
 
+    @FindBy(xpath = "//span[text()='crontab']")
+    private WebElement crontab;
+
+    @FindBy(xpath = "//div[@class='crontab']//input")
+    private WebElement crontabInput;
+
+    @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div/textarea")
+    private WebElement textarea;
+
+    @FindBy(className = "unit")
+    private WebElement unit;
+
+    public WebElement getUnit() {
+        unit.click();
+        return getLastDropdownList();
+    }
+
+    public WebElement getTextarea() {
+        return textarea;
+    }
+
+    public WebElement getCrontabInput() {
+        crontab.click();
+        return crontabInput;
+    }
+
     public WebElement getEnsureButton() {
         return ensureButton;
     }

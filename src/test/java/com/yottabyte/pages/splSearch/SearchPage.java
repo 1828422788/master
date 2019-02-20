@@ -483,6 +483,28 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='从搜索删除']")
     private WebElement removeFromSearch;
 
+    @FindBy(xpath = "//span[text()='执行一次']/preceding-sibling::div[@class='el-select unit']")
+    private WebElement executeTime;
+
+    @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
+    private WebElement lastDropdown;
+
+    @FindBy(xpath = "//span[text()='crontab']")
+    private WebElement crontab;
+
+    @FindBy(xpath = "//div[@class='yw-search-form-crontab']//input")
+    private WebElement crontabInput;
+
+    public WebElement getCrontabInput() {
+        crontab.click();
+        return crontabInput;
+    }
+
+    public WebElement getExecuteTime() {
+        executeTime.click();
+        return lastDropdown;
+    }
+
     public WebElement getTag() {
         return tag;
     }
@@ -896,6 +918,10 @@ public class SearchPage extends PageTemplate {
         return ensure.get(1);
     }
 
+    public WebElement getEnsureCrontab() {
+        return ensure.get(1);
+    }
+
     public WebElement getEnsureCreateTask() {
         return ensure.get(1);
     }
@@ -908,10 +934,10 @@ public class SearchPage extends PageTemplate {
     private WebElement startTime;
 
     @FindBy(xpath = "//span[text()='明天开始']/preceding-sibling::div/input")
-    private WebElement startTomrrow;
+    private WebElement startTomorrow;
 
-    public WebElement getStartTomrrow() {
-        return startTomrrow;
+    public WebElement getStartTomorrow() {
+        return startTomorrow;
     }
 
     public WebElement getStartTime() {

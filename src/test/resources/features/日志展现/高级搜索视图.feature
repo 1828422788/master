@@ -41,6 +41,7 @@ Feature: 高级搜索视图
       | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                                                                     | Other     | Wordcloud     | 2804    | 字符云图    |
       | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                                                                                                       | Other     | Matrixheatmap | 2810    | 矩阵热力图   |
       | tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince | Map       | Geostatsmap   | 2797    | 统计地图-权重 |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10                                                                                                           | Other     | Funnel        | 2449    | 其他_漏斗图  |
 
   Scenario Outline: 区间图sample
     When I set the parameter "SearchInput" with value "<spl>"

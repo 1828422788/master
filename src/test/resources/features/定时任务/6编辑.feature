@@ -6,25 +6,26 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
 
   Scenario Outline: 编辑定时任务
     When the data name is "<dataName>" then i click the "编辑" button
-    Then I will see the "timedTask.EditPage" page
-    Then I set the parameter "Name" with value "<name>"
-    Then I set the parameter "Describe" with value "<describe>"
-    Then I choose the "<user>" from the "User"
-    Then I choose the "<resource>" from the "Resource"
-    Then I choose the "<taskGroup>" from the "TaskGroup"
-    Then I set the parameter "Period" with value "<period>"
-    Then I click the "SaveButton" button
+    And I will see the "timedTask.EditPage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<user>" from the "User"
+    And I choose the "<resource>" from the "Resource"
+    And I set the parameter "Textarea" with value "<textarea>"
+    And I choose the "<taskGroup>" from the "TaskGroup"
+    And I set the parameter "Period" with value "<period>"
+    And I choose the "<unit>" from the "Unit"
+    And I click the "SaveButton" button
     Then I will see the success message "<result>"
 
   @smoke @timedTaskSmoke
     Examples: 编辑成功
-      | dataName    | name        | describe | user  | resource | taskGroup | period | result |
-      | sxjAutoTest | sxjAutoTest | first    | owner | all_     |           | 10     | 保存成功   |
-      | sxjAutoTest | sxjAutoTest |          | owner | all_     |           | 10     | 保存成功   |
+      | dataName                 | name            | describe | user      | resource         | textarea                                                                                                | taskGroup      | period | unit | result |
+      | RZY-397：定时任务sample_昨天(1) | RZY-398：定时任务_更新 | 更改描述信息   | api_usr_m | api_log_source_m | tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt>1000000,"thumbs-down","thumbs-up") | hunter_roles_m | 3      | 小时   | 保存成功   |
 
     Examples: 编辑失败
-      | dataName    | name | describe | user | resource | taskGroup | period | result  |
-      | sxjAutoTest |      |          |      |          |           |        | 名称 不能为空 |
+      | dataName        | name | describe | user | resource | taskGroup | period | result  |
+      | RZY-398：定时任务_更新 |      |          |      |          |           |        | 名称 不能为空 |
 
   Scenario Outline: 成功编辑定时任务的结果处理方式（RZY-1205）
     Given the data name is "<dataName>" then i click the "编辑" button

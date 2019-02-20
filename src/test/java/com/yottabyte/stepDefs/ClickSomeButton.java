@@ -23,7 +23,7 @@ public class ClickSomeButton {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     @When("^I click the \"([^\"]*)\" button$")
-    public void iClickTheButton(String buttonName) {
+    public void clickButton(String buttonName) {
         if (buttonName != null && buttonName.trim().length() != 0) {
             String parameters = "";
             WebElement button;
@@ -38,13 +38,13 @@ public class ClickSomeButton {
                 button = GetElementFromPage.getWebElementWithName(buttonName);
             }
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
-            iClickTheButton(button);
+            clickElement(button);
         } else {
             System.out.println("skip this step!");
         }
     }
 
-    public void iClickTheButton(WebElement button) {
+    public void clickElement(WebElement button) {
         WaitForElement.waitForElementWithExpectedCondition(
                 LoginBeforeAllTests.getWebDriver(), ExpectedConditions.elementToBeClickable(button));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
@@ -122,8 +122,30 @@ public class ClickSomeButton {
     }
 
     @And("^I click the \"([^\"]*)\" button under some element$")
-    public void iClickTheButtonUnderSomeElement(String elementName) {
+    public void clickUnderneathButton(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", element);
+    }
+
+    /**
+     * 在搜索页中选择日志来源
+     *
+     * @param name
+     */
+    @And("^I choose the \"([^\"]*)\" as log resource$")
+    public void iChooseTheAsLogResource(String name) {
+        WebElement arrow = webDriver.findElement(By.className("el-icon--right"));
+        arrow.click();
+
+        String xpath = "(//span[text()='" + name + "']/ancestor::div)[2]";
+        WebElement resource = webDriver.findElement(By.xpath(xpath));
+        String attribute = resource.getAttribute("class");
+        // 没被选中则点击
+        if (!attribute.contains("is-multiple-current")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", resource);
+        }
+
+        WebElement ul = webDriver.findElement(By.className("yw-searchbar__prepend-menu"));
+        new AlterElementAttribute().hideElement(ul);
     }
 }

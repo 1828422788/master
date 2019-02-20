@@ -28,86 +28,38 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-tianjiatubiaoxuanting_icon")
     private WebElement addButton;
 
-    public WebElement getAddButton() {
-        return addButton;
-    }
-
     @FindBy(className = "icon-gengxinxuanting_icon")
     private WebElement refreshButton;
-
-    public WebElement getRefreshButton() {
-        return refreshButton;
-    }
 
     @FindBy(className = "el-switch__label--right")
     private WebElement switchButton;
 
-    public WebElement getSwitchButton() {
-        return switchButton;
-    }
-
     @FindBy(xpath = "//input[@placeholder='请输入节点名称']")
     private WebElement nodeName;
-
-    public WebElement getNodeName() {
-        return nodeName;
-    }
 
     @FindBy(xpath = "//input[@placeholder='请输入节点分组']")
     private WebElement nodeGroup;
 
-    public WebElement getNodeGroup() {
-        return nodeGroup;
-    }
-
     @FindBy(xpath = "//span[text()='添加节点']")
     private WebElement addNodeButton;
-
-    public WebElement getAddNodeButton() {
-        return addNodeButton;
-    }
 
     @FindBy(className = "el-message-box__message")
     private WebElement alert;
 
-    public WebElement getAlert() {
-        return alert;
-    }
-
     @FindBy(className = "leftright")
     private WebElement leftRightButton;
-
-    public WebElement getLeftRightButton() {
-        return leftRightButton;
-    }
 
     @FindBy(xpath = "//span[text()='左值']")
     private WebElement leftValueButton;
 
-    public WebElement getLeftValueButton() {
-        return leftValueButton;
-    }
-
     @FindBy(xpath = "//span[text()='右值']")
     private WebElement rightValueButton;
-
-    public WebElement getRightValueButton() {
-        return rightValueButton;
-    }
 
     @FindBy(xpath = "//span[text()='上值']")
     private WebElement topValueButton;
 
-    public WebElement getTopValueButton() {
-        return topValueButton;
-    }
-
     @FindBy(xpath = "//span[text()='下值']")
     private WebElement lowerValueButton;
-
-    public WebElement getLowerValueButton() {
-        return lowerValueButton;
-    }
 
     @FindBy(xpath = "//span[text()='左下值']")
     private WebElement lowerLeft;
@@ -127,13 +79,180 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-tianjiatubiaoxuanting_icon")
     private WebElement addInputButton;
 
+    @FindBy(xpath = "//textarea[@placeholder='请输入搜索内容']")
+    private WebElement textArea;
+
+    @FindBy(xpath = "//input[@placeholder='请输入搜索时间范围']")
+    private WebElement dateEditor;
+
+    @FindBy(xpath = "//span[text()='搜索']")
+    private WebElement searchButton;
+
+    @FindBy(xpath = "//label[contains(text(),'标题')]/following-sibling::div//input")
+    private WebElement title;
+
+    @FindBy(xpath = "//label[contains(text(),'标识')]/following-sibling::div//input")
+    private WebElement token;
+
+    @FindBy(xpath = "//label[contains(text(),'默认值')]/following-sibling::div//input")
+    private WebElement defaultValue;
+
+    @FindBy(xpath = "//label[contains(text(),'输入类型')]/following-sibling::div//button")
+    private WebElement inputType;
+
+    @FindBy(xpath = "//input[@placeholder='请选择展示字段']")
+    private WebElement filedInput;
+
+    @FindBy(className = "el-select-dropdown__list")
+    private List<WebElement> dropdownList;
+
+    @FindBy(xpath = "//span[text()='展示单位']/ancestor::div/following-sibling::div/input")
+    private WebElement unit;
+
+    @FindBy(xpath = "//span[text()='应用']")
+    private WebElement apply;
+
+    @FindBy(xpath = "//div[@class='el-message__group']")
+    private WebElement successMessage;
+
+    @FindBy(xpath = "(//div[@class='el-message__group'])[2]")
+    private WebElement message;
+
+    @FindBy(xpath = "//p[text()='+ 添加']")
+    private WebElement addColourButton;
+
+    @FindBy(xpath = "//div[@class='color-value from el-input']/input")
+    private WebElement fromInput;
+
+    @FindBy(xpath = "//div[@class='color-value to el-input']/input")
+    private WebElement toInput;
+
+    @FindBy(className = "el-color-picker__color-inner")
+    private WebElement setColourButton;
+
+    @FindBy(className = "el-color-dropdown__value")
+    private WebElement setColourInput;
+
+    @FindBy(className = "el-color-dropdown__btn")
+    private WebElement ensureSetColourButton;
+
+    @FindBy(xpath = "//span[text()='单值']")
+    private WebElement singleValueButton;
+
+    @FindBy(className = "topbottom")
+    private WebElement topBottom;
+
+    @FindBy(className = "topleftright")
+    private WebElement topLeftRight;
+
+    @FindBy(className = "leftrightbottom")
+    private WebElement leftRightBottom;
+
+    @FindBy(className = "lefttopbottom")
+    private WebElement lefttopbottom;
+
+    @FindBy(className = "topbottomright")
+    private WebElement topbottomright;
+
+    @FindBy(className = "all")
+    private WebElement all;
+
+    @FindBy(className = "yw-modal-btn-primary")
+    private List<WebElement> ensureInputButton;
+
+    @FindBy(xpath = "//label[contains(text(),'动态字段')]/following-sibling::div//input")
+    private WebElement dynamicFields;
+
+    @FindBy(xpath = "//label[contains(text(),'搜索内容')]/following-sibling::div//textarea")
+    private WebElement searchInput;
+
+    @FindBy(xpath = "//div[@class='el-form-item dynamic-search-btn']//span")
+    private WebElement searchInputButton;
+
+    @FindBy(xpath = "//label[contains(text(),'时间范围')]/following-sibling::div//input")
+    private WebElement timeRange;
+
+    @FindBy(xpath = "//span[text()='添加']")
+    private WebElement add;
+
+    @FindBy(xpath = "(//label[contains(text(),'可选值')]/following-sibling::div//input[@class='el-input__inner'])[last()]")
+    private WebElement optional;
+
+    public WebElement getAdd() {
+        return add;
+    }
+
+    public WebElement getPrefix() {
+        return super.getInputElement("标识前缀");
+    }
+
+    public WebElement getPostfix() {
+        return super.getInputElement("标识后缀");
+    }
+
+    public WebElement getDefaultValueDropdown() {
+        return super.getDropdownList("默认值");
+    }
+
+    public WebElement getNodeGroup() {
+        return nodeGroup;
+    }
+
+    public WebElement getRefreshButton() {
+        return refreshButton;
+    }
+
+    public WebElement getAddButton() {
+        return addButton;
+    }
+
     // 添加输入项
     public WebElement getAddInputButton() {
         return addInputButton;
     }
 
+    public WebElement getTextArea() {
+        return textArea;
+    }
+
+    public WebElement getLowerValueButton() {
+        return lowerValueButton;
+    }
+
+    public WebElement getTopValueButton() {
+        return topValueButton;
+    }
+
+    public WebElement getLeftValueButton() {
+        return leftValueButton;
+    }
+
+    public WebElement getLeftRightButton() {
+        return leftRightButton;
+    }
+
+    public WebElement getAlert() {
+        return alert;
+    }
+
+    public WebElement getAddNodeButton() {
+        return addNodeButton;
+    }
+
+    public WebElement getNodeName() {
+        return nodeName;
+    }
+
+    public WebElement getSwitchButton() {
+        return switchButton;
+    }
+
     public WebElement getNightMode() {
         return nightMode;
+    }
+
+    public WebElement getRightValueButton() {
+        return rightValueButton;
     }
 
     public WebElement getRightTop() {
@@ -152,15 +271,17 @@ public class DetailPage extends PageTemplate {
         return lowerRight;
     }
 
-    @FindBy(xpath = "//textarea[@placeholder='请输入搜索内容']")
-    private WebElement textArea;
-
-    public WebElement getTextArea() {
-        return textArea;
+    public WebElement getApply() {
+        return apply;
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入搜索时间范围']")
-    private WebElement dateEditor;
+    public WebElement getDefaultValue() {
+        return defaultValue;
+    }
+
+    public WebElement getToken() {
+        return token;
+    }
 
     public WebElement getDateEditor() {
         return dateEditor;
@@ -266,33 +387,14 @@ public class DetailPage extends PageTemplate {
         LoginBeforeAllTests.setPageFactory(this);
     }
 
-    @FindBy(xpath = "//span[text()='搜索']")
-    private WebElement searchButton;
+    public WebElement getUnit() {
+        return unit;
+    }
 
     public WebElement getSearchButton() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(searchButton));
         return searchButton;
     }
-
-    @FindBy(xpath = "//label[contains(text(),'标题')]/following-sibling::div//input")
-    private WebElement title;
-
-    public WebElement getToken() {
-        return token;
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'标识')]/following-sibling::div//input")
-    private WebElement token;
-
-    @FindBy(xpath = "//label[contains(text(),'默认值')]/following-sibling::div//input")
-    private WebElement defaultValue;
-
-    public WebElement getDefaultValue() {
-        return defaultValue;
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'输入类型')]/following-sibling::div//button")
-    private WebElement inputType;
 
     public WebElement getInputType() {
         inputType.click();
@@ -303,37 +405,23 @@ public class DetailPage extends PageTemplate {
         return title;
     }
 
-    @FindBy(xpath = "//input[@placeholder='请选择展示字段']")
-    private WebElement filedInput;
-
-    @FindBy(className = "el-select-dropdown__list")
-    private List<WebElement> dropdownList;
-
     public WebElement getFiledInput() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(filedInput));
         filedInput.click();
         return dropdownList.get(dropdownList.size() - 1);
     }
 
-    @FindBy(xpath = "//span[text()='展示单位']/ancestor::div/following-sibling::div/input")
-    private WebElement unit;
-
-    public WebElement getUnit() {
-        return unit;
+    public WebElement getToInput() {
+        return toInput;
     }
 
-    @FindBy(xpath = "//span[text()='应用']")
-    private WebElement apply;
-
-    public WebElement getApply() {
-        return apply;
+    public WebElement getFromInput() {
+        return fromInput;
     }
 
-    @FindBy(xpath = "//div[@class='el-message__group']")
-    private WebElement successMessage;
-
-    @FindBy(xpath = "(//div[@class='el-message__group'])[2]")
-    private WebElement message;
+    public WebElement getAddColourButton() {
+        return addColourButton;
+    }
 
     public WebElement getMessage() {
         return message;
@@ -343,133 +431,53 @@ public class DetailPage extends PageTemplate {
         return successMessage;
     }
 
-    @FindBy(xpath = "//p[text()='+ 添加']")
-    private WebElement addColourButton;
-
-    public WebElement getAddColourButton() {
-        return addColourButton;
-    }
-
-    @FindBy(xpath = "//div[@class='color-value from el-input']/input")
-    private WebElement fromInput;
-
-    public WebElement getFromInput() {
-        return fromInput;
-    }
-
-    @FindBy(xpath = "//div[@class='color-value to el-input']/input")
-    private WebElement toInput;
-
-    public WebElement getToInput() {
-        return toInput;
-    }
-
-    @FindBy(className = "el-color-picker__color-inner")
-    private WebElement setColourButton;
-
-    public WebElement getSetColourButton() {
-        return setColourButton;
-    }
-
-    @FindBy(className = "el-color-dropdown__value")
-    private WebElement setColourInput;
-
-    public WebElement getSetColourInput() {
-        return setColourInput;
-    }
-
-    @FindBy(className = "el-color-dropdown__btn")
-    private WebElement ensureSetColourButton;
-
     public WebElement getEnsureSetColourButton() {
         return ensureSetColourButton;
     }
 
-    @FindBy(xpath = "//span[text()='单值']")
-    private WebElement singleValueButton;
+    public WebElement getTopBottom() {
+        return topBottom;
+    }
 
     public WebElement getSingleValueButton() {
         return singleValueButton;
     }
 
-    @FindBy(className = "topbottom")
-    private WebElement topBottom;
-
-    // 第三种布局方式
-    public WebElement getTopBottom() {
-        return topBottom;
-    }
-
-    @FindBy(className = "topleftright")
-    private WebElement topLeftRight;
-
-    // 第四种布局方式
     public WebElement getTopLeftRight() {
         return topLeftRight;
     }
 
-    @FindBy(className = "leftrightbottom")
-    private WebElement leftRightBottom;
-
-    // 第五种布局方式
     public WebElement getLeftRightBottom() {
         return leftRightBottom;
     }
 
-    @FindBy(className = "lefttopbottom")
-    private WebElement lefttopbottom;
-
-    // 第六种布局方式
     public WebElement getLefttopbottom() {
         return lefttopbottom;
     }
 
-    @FindBy(className = "topbottomright")
-    private WebElement topbottomright;
-
-    // 第七种布局方式
     public WebElement getTopbottomright() {
         return topbottomright;
     }
 
-    @FindBy(className = "all")
-    private WebElement all;
-
-    // 第八种布局方式
     public WebElement getAll() {
         return all;
     }
-
-    @FindBy(className = "yw-modal-btn-primary")
-    private List<WebElement> ensureInputButton;
-
-    public WebElement getEnsureInputButton() {
-        return ensureInputButton.get(0);
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'动态字段')]/following-sibling::div//input")
-    private WebElement dynamicFields;
 
     public WebElement getDynamicFields() {
         return dynamicFields;
     }
 
-    @FindBy(xpath = "//label[contains(text(),'搜索内容')]/following-sibling::div//textarea")
-    private WebElement searchInput;
+    public WebElement getEnsureInputButton() {
+        return ensureInputButton.get(0);
+    }
 
     public WebElement getSearchInput() {
         return searchInput;
     }
 
-    @FindBy(xpath = "//div[@class='el-form-item dynamic-search-btn']//span")
-    private WebElement searchInputButton;
-
     public WebElement getSearchInputButton() {
         return searchInputButton;
     }
-
-    @FindBy(xpath = "//label[contains(text(),'时间范围')]/following-sibling::div//input")
-    private WebElement timeRange;
 
     public WebElement getTimeRange() {
         return timeRange;
@@ -481,21 +489,15 @@ public class DetailPage extends PageTemplate {
         return dropdownList.get(dropdownList.size() - 1);
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        FluentWait wait = new FluentWait(webDriver)
-                .withTimeout(10000, TimeUnit.MILLISECONDS)
-                .pollingEvery(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS)
-                .ignoring(NoSuchElementException.class);
-        try {
-            wait.until(new ExpectedCondition<Boolean>() {
-                public Boolean apply(WebDriver driver) {
-                    System.out.println("Waiting " + this.getClass().getName() + " Dom loading complete");
-                    return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-                }
-            });
-        } catch (Exception e) {
-            throw new Error("Can not locate " + this.getClass().getName() + "page");
-        }
+    public WebElement getOptional() {
+        return optional;
+    }
+
+    public WebElement getSeparate() {
+        return super.getInputElement("分隔符");
+    }
+
+    public WebElement getIdentityPrefix() {
+        return super.getInputElement("标识值前缀");
     }
 }

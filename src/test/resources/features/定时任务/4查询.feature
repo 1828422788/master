@@ -9,13 +9,13 @@ Feature: 定时任务查询
     Then I will see the special column contains "<name>"
 
     Examples:
-      | group                 | name        |
-      | default_SavedSchedule | sxjAutoTest |
+      | group                 | name                       |
+      | default_SavedSchedule | RZY-396：定时任务_sample_表格_近一天 |
 
   Scenario Outline: 根据搜索内容进行查询
     Given I set the parameter "SearchInput" with value "<inputName>"
     Then I will see the list of "" contains "" or I see the "Names" contains "<inputName>"
 
     Examples:
-      | inputName |
-      | sxj       |
+      | inputName                  |
+      | RZY-396：定时任务_sample_表格_近一天 |

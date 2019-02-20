@@ -14,9 +14,10 @@ Feature: 拓扑图新建（RZY-346至348）
 
   @smoke @topologySmoke
     Examples:
-      | name        | group            |
-      | sxjautotest | default_Topology |
-      | 测试中文名称      |                  |
+      | name            | group            |
+      | 测试标识符           | default_Topology |
+      | auto_topology样例 | default_Topology |
+      | sxjautotest     | default_Topology |
 
   Scenario Outline: 新建拓扑图失败（RZY-347至348）
     When I click the "CreateButton" button

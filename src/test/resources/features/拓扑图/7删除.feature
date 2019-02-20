@@ -1,5 +1,3 @@
-#@topology @all @smoke @topologySmoke
-@clean
 Feature: 拓扑图删除（RZY-350）
 
   Background:
@@ -9,8 +7,12 @@ Feature: 拓扑图删除（RZY-350）
     Given the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
 
+  @topology @all @smoke @topologySmoke
     Examples:
       | name     |
       | autotest |
-      | 测试中文名称   |
-      | 测试中文名称   |
+
+  @clean
+    Examples:
+      | name            |
+      | auto_topology样例 |

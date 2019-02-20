@@ -78,7 +78,7 @@ public class CreatePage extends PageTemplate {
         setKey.iSetTheParameterWithValue("RoleName",roleName);
         setKey.iSetTheParameterWithValue("RoleDes",roleDes);
         checkBox.iCheckFromThe(roleResourceGroup,"ResourceGroupCheckbox");
-        click.iClickTheButton("CreateButton");
-        click.iClickTheButton("OKButton");
+        click.clickButton("CreateButton");
+        click.clickButton("OKButton");
     }
 }

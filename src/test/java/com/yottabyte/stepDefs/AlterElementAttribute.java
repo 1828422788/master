@@ -13,15 +13,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.openqa.grid.common.SeleniumProtocol.Selenium;
 
-/**
- * @author sunxj
- */
 public class AlterElementAttribute {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
+    /**
+     * 隐藏元素
+     *
+     * @param elementName
+     */
     @And("^I display the element \"([^\"]*)\"$")
-    public void iDisplayTheElement(String elementName) {
+    public void hideElement(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        hideElement(element);
+    }
+
+    public void hideElement(WebElement element) {
         if (element.isDisplayed()) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", element);
             ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(element);
@@ -29,6 +35,11 @@ public class AlterElementAttribute {
         }
     }
 
+    /**
+     * 显示元素
+     *
+     * @param elementName
+     */
     @And("^I make the element \"([^\"]*)\" visible$")
     public void makeElementVisible(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);

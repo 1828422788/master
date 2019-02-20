@@ -1,10 +1,10 @@
 @appTable
-Feature: 应用表格新建（RZY-2665）
+Feature: 应用表格新建（RZY-2150）
 
   Background:
     Given open the "appTable.ListPage" page for uri "/app/application_table/"
 
-  Scenario:
+  Scenario: 新建应用表格总流程
     Given I click the "Create" button
     And I will see the "appTable.CreatePage" page
     And I set the parameter "Name" with value "test0214"
