@@ -30,12 +30,16 @@ Feature: 定时任务删除（RZY-412）
 
   @clean
     Examples:
-      | name                       |
-      | RZY-396：定时任务_sample_表格_近一天 |
-      | RZY-397：定时任务sample_昨天      |
-      | RZY-403：执行计划-定时_3小时        |
-      | RZY-404：执行计划-定时1天          |
-      | RZY-2695：执行计划-crontab_57分钟 |
-      | RZY-398：定时任务_更新            |
-      | RZY-1488：保存为各种类型的定时任务-序列   |
-      | chs_task_funnel            |
+      | name                              |
+      | RZY-396：定时任务_sample_表格_近一天        |
+      | RZY-397：定时任务sample_昨天             |
+      | RZY-403：执行计划-定时_3小时               |
+      | RZY-404：执行计划-定时1天                 |
+      | RZY-2695：执行计划-crontab_57分钟        |
+      | RZY-398：定时任务_更新                   |
+      | RZY-1488：保存为各种类型的定时任务-序列          |
+      | chs_task_funnel                   |
+      | RZY-2696：执行计划-定时_7小时              |
+      | RZY-2699：执行计划-crontab_每个月第15天开始   |
+      | RZY-2700_执行计划-crontab_每天9点整到9点零5分 |
+      | RZY-2702_执行计划-crontab_周一到周五       |

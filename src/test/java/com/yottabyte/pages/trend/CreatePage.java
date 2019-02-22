@@ -320,7 +320,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='降序'])[last()]")
     private WebElement descendingOrder;
 
-    @FindBy(xpath = "(//div[text()='降序'])[last()]")
+    @FindBy(xpath = "(//div[text()='升序'])[last()]")
     private WebElement ascending;
 
     @FindBy(xpath = "(//span[@style='background: rgb(156, 39, 176);'])[last()]/ancestor::li")

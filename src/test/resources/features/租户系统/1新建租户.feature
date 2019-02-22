@@ -23,7 +23,7 @@ Feature: 租户新建（RZY-1691）
   @smoke @tenantSmoke
     Examples:
       | name     | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | uploadLimit | excessLimit | excessBehavior | managerName | managerEmail       | managerPassword | inputAgain  | message                              |
-      | AutoTest | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 10          | 10          | 拒绝采集输入         | UIAutoTest  | tools@yottabyte.cn | sxj04030803     | sxj04030803 | success message "域名已存在\n错误码: FE_531" |
+      | AutoTest | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 10          | 10          | 拒绝采集输入         | UIAutoTest  | tools@yottabyte.cn | all123456     | all123456 | success message "域名已存在\n错误码: FE_531" |
 
   Scenario Outline:保存失败
     When I set the parameter "Name" with value "<name>"

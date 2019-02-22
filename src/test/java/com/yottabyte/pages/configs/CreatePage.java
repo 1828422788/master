@@ -42,7 +42,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='来源字段']")
     private WebElement sourceFieldLabel;
 
-    @FindBy(xpath = "//label[text()='来源字段']/following-sibling::div//i")
+    @FindBy(xpath = "(//label[text()='来源字段']/following-sibling::div//i)[last()]")
     private WebElement sourceField;
 
     @FindBy(xpath = "(//label[contains(text(),'来源字段')]/following-sibling::div//input[@class='el-input__inner'])[2]")
@@ -95,6 +95,24 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "yw-extract-sample")
     private WebElement extractSample;
+
+    @FindBy(id = "yw-extract-side-result")
+    private WebElement result;
+
+    @FindBy(className = "my-check-failed")
+    private WebElement failedMessage;
+
+    public WebElement getErrorMessage() {
+        return failedMessage;
+    }
+
+    public WebElement getMaxMatchLength() {
+        return getInputElement("最大匹配长度");
+    }
+
+    public WebElement getTimestampPrefix() {
+        return getInputElement("时间戳前缀");
+    }
 
     public WebElement getExtractSample() {
         return extractSample;
@@ -193,6 +211,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getValueRegex() {
         return getInputElement("value正则");
+    }
+
+    public WebElement getGroupRegex() {
+        return getInputElement("group正则");
     }
 
     public WebElement getKVSeparator() {
@@ -359,5 +381,9 @@ public class CreatePage extends PageTemplate {
     public WebElement getInputElement(String text) {
         String xpath = "//label[contains(text(),'" + text + "')]/following-sibling::input";
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getResult() {
+        return result;
     }
 }

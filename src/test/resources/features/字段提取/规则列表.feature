@@ -290,11 +290,63 @@ Feature: 字段提取规则列表
       | log                   | result           |
       | {"a":{"b":{"c":"d"}}} | {'Value1':'"d"'} |
 
-  Scenario: XML解析（RZY-1546）
+  Scenario Outline: XML解析（RZY-1546）
     When I set the parameter "LogSample" with value "<root><test><a>1</a><a>2</a></test><test>3</test></root>"
     And I choose the "XML解析" from the "ParseRule"
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I click the "ParseButton" button
     And I will see the success message "验证完成"
-    Then I will see the element value in json "{'Value1':'"3"','Value2':'"1"','Value3':'"2"'}"
+    Then I will see the element "Result" name is "<result>"
+
+    Examples:
+      | result                                                                                                                                        |
+      | Object\ntest:Array[1]\n0:"3"\ntest[]:Object\na:Array[2]\n0:"1"\n1:"2"\nraw_message:"<root><test><a>1</a><a>2</a></test><test>3</test></root>" |
+
+  Scenario Outline: RZY-2798：group_regex
+    When I set the parameter "LogSample" with value "<log>"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "KeyValue正则匹配" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I set the parameter "KeyRegex" with value "\w+"
+    And I set the parameter "ValueRegex" with value "\w+"
+    And I set the parameter "KVSeparator" with value "\s*=\s*"
+    And I set the parameter "GroupRegex" with value "\[[^\]]*=(\w+)[^\]]*\]\s*"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    And I will see the element "Result" name is "<result>"
+
+    Examples:
+      | log                                                                                                                                                                                                                                                                                                                                                                                         | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+      | [AB Server:type=Cell]\nChildCount = 4\nMessageLimit = 12288\nOid = CA_ABS\nCellName = CA_ABS\nClientIp = 9.1.6.247\nParentOid = CA_ABS\nOutOfService = false\nChildCountLimit = 5000\nOverLoad = false\nMinuteCountLimit = 2000\n[AB Server:type=InvokeProcessor]\nAverageTaskTime = 7\nAverageTasksPerSecond = 0\nCompletedTasks = 22321\nComputeAverageInterval = 10000\nRunningTasks = 0 | Object\nCell:Object\nCellName:"CA_ABS"\nChildCount:"4"\nChildCountLimit:"5000"\nClientIp:"9"\nMessageLimit:"12288"\nMinuteCountLimit:"2000"\nOid:"CA_ABS"\nOutOfService:"false"\nOverLoad:"false"\nParentOid:"CA_ABS"\nInvokeProcessor:Object\nAverageTaskTime:"7"\nAverageTasksPerSecond:"0"\nCompletedTasks:"22321"\nComputeAverageInterval:"10000"\nRunningTasks:"0"\nraw_message:"[AB Server:type=Cell] ChildCount = 4 MessageLimit = 12288 Oid = CA_ABS CellName = CA_ABS ClientIp = 9.1.6.247 ParentOid = CA_ABS OutOfService = false ChildCountLimit = 5000 OverLoad = false MinuteCountLimit = 2000 [AB Server:type=InvokeProcessor] AverageTaskTime = 7 AverageTasksPerSecond = 0 CompletedTasks = 22321 ComputeAverageInterval = 10000 RunningTasks = 0" |
+
+  Scenario Outline: RZY-2823、2824
+    When I set the parameter "LogSample" with value "<log>"
+    And I choose the "时间戳识别" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I set the parameter "TimeFormat" with value "dd/MMM/yyyy:HH:mm:ss Z"
+    And I set the parameter "TimestampPrefix" with value "\["
+    And I set the parameter "MaxMatchLength" with value "<length>"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Result':'<result>'}"
+
+    Examples:
+      | log                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | length | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+      | 192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0" |        | Object\ntimestamp:"2015/01/24 17:03:49.0"\nraw_message:"192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0"" |
+      | 192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0" | 45     | Object\ntimestamp:"2015/01/24 17:03:49.0"\nraw_message:"192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0"" |
+
+  Scenario: RZY-2824：最大匹配长度（步骤1）
+    When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
+    And I choose the "时间戳识别" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I set the parameter "TimeFormat" with value "dd/MMM/yyyy:HH:mm:ss Z"
+    And I set the parameter "TimestampPrefix" with value "\["
+    And I set the parameter "MaxMatchLength" with value "44"
+    And I click the "ParseButton" button
+    Then I will see the error message contains "解析失败"
+
+

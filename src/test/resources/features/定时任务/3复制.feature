@@ -9,5 +9,10 @@ Feature: 定时任务复制（RZY-398）
     Then I will see the success message "复制成功"
 
     Examples:
-      | name                  |
-      | RZY-397：定时任务sample_昨天 |
+      | name                       |
+      | RZY-397：定时任务sample_昨天      |
+      | RZY-396：定时任务_sample_表格_近一天 |
+      | RZY-396：定时任务_sample_表格_近一天 |
+      | RZY-396：定时任务_sample_表格_近一天 |
+      | RZY-396：定时任务_sample_表格_近一天 |
+      | RZY-396：定时任务_sample_表格_近一天 |

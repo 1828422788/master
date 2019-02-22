@@ -27,6 +27,34 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | dataName        | name | describe | user | resource | taskGroup | period | result  |
       | RZY-398：定时任务_更新 |      |          |      |          |           |        | 名称 不能为空 |
 
+  Scenario Outline: RZY-2696、2698 修改执行计划
+    When the data name is "<name>" then i click the "编辑" button
+    And I will see the "timedTask.EditPage" page
+    And I set the parameter "Name" with value "<newName>"
+    And I set the parameter "Period" with value "<period>"
+    And I choose the "<unit>" from the "Unit"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name                          | newName              | period | unit |
+      | RZY-396：定时任务_sample_表格_近一天(1) | RZY-2696：执行计划-定时_7小时 | 7      | 小时   |
+      | RZY-396：定时任务_sample_表格_近一天(2) | RZY-2698：执行计划-定时_2天  | 2      | 天    |
+
+  Scenario Outline: RZY-2699、2700、2702 修改crontab
+    When the data name is "<name>" then i click the "编辑" button
+    And I will see the "timedTask.EditPage" page
+    And I set the parameter "Name" with value "<newName>"
+    And I set the parameter "CrontabInput" with value "<crontab>"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name                          | newName                           | crontab              |
+      | RZY-396：定时任务_sample_表格_近一天(3) | RZY-2699：执行计划-crontab_每个月第15天开始   | 0 5 9 15/3 * ?       |
+      | RZY-396：定时任务_sample_表格_近一天(4) | RZY-2700_执行计划-crontab_每天9点整至9点30分 | 0 0-30/10 9 * * ?        |
+      | RZY-396：定时任务_sample_表格_近一天(5) | RZY-2702_执行计划-crontab_周一到周五       | 0 0/15 9 ? * MON-FRI |
+
   Scenario Outline: 成功编辑定时任务的结果处理方式（RZY-1205）
     Given the data name is "<dataName>" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page

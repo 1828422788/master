@@ -495,6 +495,27 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yw-search-form-crontab']//input")
     private WebElement crontabInput;
 
+    @FindBy(xpath = "//span[text()='other.date']/ancestor::td/following-sibling::td")
+    private WebElement otherDate;
+
+    @FindBy(xpath = "//span[text()='other.time']/ancestor::td/following-sibling::td")
+    private WebElement otherTime;
+
+    @FindBy(xpath = "//span[text()='timestamp']/ancestor::td/following-sibling::td")
+    private WebElement resultTimestamp;
+
+    public WebElement getOtherDate() {
+        return otherDate;
+    }
+
+    public WebElement getOtherTime() {
+        return otherTime;
+    }
+
+    public WebElement getResultTimestamp() {
+        return resultTimestamp;
+    }
+
     public WebElement getCrontabInput() {
         crontab.click();
         return crontabInput;
