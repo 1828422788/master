@@ -19,6 +19,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(name = "file")
     private WebElement file;
 
+    @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
+    private WebElement ensure;
+
+    @FindBy(xpath = "el-message__group")
+    private WebElement successMessage;
+
+    public WebElement getEnsure() {
+        return ensure;
+    }
+
     public WebElement getFile() {
         return file;
     }
@@ -45,5 +55,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTag() {
         return super.getInputElement("tag");
+    }
+
+    public WebElement getSuccessMessage() {
+        return successMessage;
     }
 }

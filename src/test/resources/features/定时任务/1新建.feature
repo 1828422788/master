@@ -114,7 +114,7 @@ Feature: 定时任务新增
     Examples:
       | spl                                                                                    | time      | chartType | chart  | taskName             | describe                 |
       | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10 | Today     | Other     | Funnel | chs_task_funnel      | RZY-2450：task_漏斗图_sample |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len                           | Yesterday |           | Line   | RZY-397：定时任务sampe_昨天 | testing 定时任务样例           |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len                           | Yesterday |           | Line   | RZY-397：定时任务sample_昨天 | testing 定时任务样例           |
 
   @smoke @timedTaskSmoke
   Scenario Outline: 生成图表类型的定时任务（RZY-1488、RZY-2296、RZY-2297、RZY-2298、RZY-2300）
@@ -141,9 +141,9 @@ Feature: 定时任务新增
 
     Examples:
       | splQuery                                                                                                                       | groupType  | type       | name                     | describe | groups                | period |
+      | (tag:heka) \|bucket timestamp timeranges=((2018-07-26:10:39:50, 2018-07-27:10:40:02)) as tr \| stats dc('appname') as ct by tr | Order      | Line       | RZY-1488：保存为各种类型的定时任务-序列 | owner    | default_SavedSchedule | 10     |
       | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Wordcloud  | wordcloudAutoTest        | owner    | default_SavedSchedule | 15     |
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Force      | forceAutoTest            | owner    | default_SavedSchedule | 15     |
-      | (tag:heka) \|bucket timestamp timeranges=((2018-07-26:10:39:50, 2018-07-27:10:40:02)) as tr \| stats dc('appname') as ct by tr | Order      | Line       | RZY-1488：保存为各种类型的定时任务-序列 | owner    | default_SavedSchedule | 10     |
       | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Single     | singleAutoTest           | owner    | default_SavedSchedule | 15     |
       | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Liquidfill | liquidfillAutoTest       | owner    | default_SavedSchedule | 15     |
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Area       | areaAutoTest             | owner    | default_SavedSchedule | 15     |

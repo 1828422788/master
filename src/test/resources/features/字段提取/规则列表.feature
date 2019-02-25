@@ -349,4 +349,37 @@ Feature: 字段提取规则列表
     And I click the "ParseButton" button
     Then I will see the error message contains "解析失败"
 
+  Scenario Outline: RZY-2802：手机号解析
+    When I set the parameter "LogSample" with value "18840824121"
+    And I choose the "手机号码解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I "<check>" the checkbox which name is "<label>"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Result':'<result>'}"
 
+    Examples:
+      | check   | label   | result                                                                                                                                                          |
+      |         |         | Object\ngeo:Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.91459\nlongitude:121.61862\nphone:"18840824121"\nprovince:"辽宁"\nraw_message:"18840824121" |
+      | checked | 解析到顶层字段 | Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.91459\nlongitude:121.61862\nprovince:"辽宁"\nraw_message:"18840824121"                                  |
+
+  Scenario Outline: RZY-2865：支持通配符
+    When I set the parameter "LogSample" with value "<log>"
+    And I choose the "Json解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Result':'<result>'}"
+    And I click the "ContinueButton" button
+    And I choose the "字段重命名" from the "ParseRule"
+    And I set the parameter "SourceFieldInput" with value "a.*.c"
+    And I set the parameter "TargetField" with value "a.*.h"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Result':'<result1>'}"
+
+    Examples:
+      | log                                       | result                                                                                                   | result1                                                                                                  |
+      | {"a":{"b":\n{"c":"d"}\n,"e":{"c":"g"}}\n} | Object\na:Object\nb:Object\nc:"d"\ne:Object\nc:"g"\nraw_message:"{"a":{"b": {"c":"d"} ,"e":{"c":"g"}} }" | Object\na:Object\nb:Object\nh:"d"\ne:Object\nh:"g"\nraw_message:"{"a":{"b": {"c":"d"} ,"e":{"c":"g"}} }" |

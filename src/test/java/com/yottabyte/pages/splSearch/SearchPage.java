@@ -504,6 +504,20 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='timestamp']/ancestor::td/following-sibling::td")
     private WebElement resultTimestamp;
 
+    @FindBy(xpath = "//span[text()='test.a.b.h']/ancestor::td/following-sibling::td")
+    private WebElement otherAbh;
+
+    @FindBy(xpath = "//span[text()='test.a.e.h']/ancestor::td/following-sibling::td")
+    private WebElement otherAeh;
+
+    public WebElement getOtherAbh() {
+        return otherAbh;
+    }
+
+    public WebElement getOtherAeh() {
+        return otherAeh;
+    }
+
     public WebElement getOtherDate() {
         return otherDate;
     }

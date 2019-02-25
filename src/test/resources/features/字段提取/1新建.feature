@@ -59,6 +59,7 @@ Feature: 字段提取新建
     Then I choose the "default_ParserRule" from the "Group"
     When I set the parameter "LogSample" with value "1511255129000, fred, bob, query1, 111"
     And I choose the "CSV解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I drag the scroll bar to the top
     And I set the parameter "Separate" with value ","
@@ -149,3 +150,43 @@ Feature: 字段提取新建
     And I will see the element "OtherDate" name is "20180821"
     And I will see the element "OtherTime" name is "17:03:49"
     And I will see the element "ResultTimestamp" name is "2019/02/21 17:03:49.0"
+
+  @configsSmoke
+  Scenario Outline: RZY-2866：搜索页结果验证
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I click the "CreateButton" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "Name" with value "RZY-2866"
+    And I set the parameter "Logtype" with value "test"
+    Then I choose the "default_ParserRule" from the "Group"
+    When I set the parameter "LogSample" with value "<log>"
+    And I choose the "Json解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I click the "ContinueButton" button
+    And I choose the "字段重命名" from the "ParseRule"
+    And I set the parameter "SourceFieldInput" with value "a.*.c"
+    And I set the parameter "TargetField" with value "a.*.h"
+    And I click the "NextButton" button
+    And I click the "SwitchButton" button
+    And I set the parameter "AppName" with value "rename"
+    And I set the parameter "Tag" with value "rename"
+    And I click the "NextButton" button
+    And open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    And I set the parameter "Tag" with value "rename"
+    And I set the parameter "AppName" with value "rename"
+    And I upload a file with name "/src/test/resources/testdata/log/rename.log"
+    And I click the "UploadButton" button
+    When open the "splSearch.SearchPage" page for uri "/search/"
+    And I set the parameter "SearchInput" with value "appname:rename"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    And I will see the element "OtherAbh" name is "d"
+    And I will see the element "OtherAeh" name is "g"
+
+    Examples:
+      | log                                       |
+      | {"a":{"b":\n{"c":"d"}\n,"e":{"c":"g"}}\n} |

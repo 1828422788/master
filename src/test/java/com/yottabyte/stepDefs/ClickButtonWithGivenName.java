@@ -122,10 +122,14 @@ public class ClickButtonWithGivenName {
      * @return 行元素
      */
     public WebElement findName(String name) {
+        String url = webDriver.getCurrentUrl();
         List<WebElement> tableList = webDriver.findElements(By.className("el-table__body"));
-        if (tableList.size() == 1) {
+
+        if (tableList.size() == 1 || url.contains("agent")) {
             // 表体
             WebElement table = tableList.get(0);
+            if (url.contains("agent"))
+                return this.getRowWithoutPaging(name, table);
             return this.getRow(name, table);
         } else {
             return this.getSourcesGroupName(tableList, name);
