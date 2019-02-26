@@ -1,10 +1,15 @@
 Feature: 监控删除
 
+  @alertSmoke
   Scenario Outline:
     Given open the "alert.ListPage" page for uri "/alerts/"
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureDeleteButton" button
     Then I will see the success message "删除成功"
+
+    Examples:
+      | name                         |
+      | RZY-436：SPL统计监控（不展示监控趋势图）(1) |
 
   @clean
     Examples:
