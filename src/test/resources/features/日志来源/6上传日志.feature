@@ -1,4 +1,4 @@
-@resourceGroups @all @smoke @resourceGroupsSmoke
+@logSource
 Feature: 日志来源上传日志（RZY-366、RZY-367）
 
   Scenario: 上传日志

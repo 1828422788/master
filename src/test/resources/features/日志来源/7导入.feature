@@ -1,4 +1,4 @@
-@resourceGroups @all @smoke @resourceGroupsSmoke
+@logSource
 Feature: 日志来源导入来源结构（RZY-374、RZY-2214）
 
   Background:

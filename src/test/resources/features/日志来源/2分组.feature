@@ -1,4 +1,4 @@
-@resourceGroups @all @smoke @resourceGroupsSmoke
+@logSource
 Feature: 日志来源分组
 
   Background:

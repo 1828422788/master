@@ -1,4 +1,4 @@
-@resourceGroups @all @smoke @resourceGroupsSmoke
+@logSource
 Feature: 日志来源支持多选（RZY-2064）
 
   Scenario: 搜索页面URL参数支持多个日志来源（RZY-2064）

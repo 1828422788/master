@@ -1,4 +1,3 @@
-@resourceGroup @all
 Feature: 日志来源编辑（RZY-1563至1569）
 
   Background:
@@ -14,7 +13,7 @@ Feature: 日志来源编辑（RZY-1563至1569）
     Then I click the "EnsureCreateButton" button
     Then I will see the success message "<message>"
 
-  @smoke @resourceGroupsSmoke
+  @smoke @logSource
     Examples: 编辑成功
       | oldName     | name          | describe | appname         | tag         | message |
       | sxjautotest | sunxjautotest | change   | AutoTestAppname | AutoTestTag | 更新成功    |

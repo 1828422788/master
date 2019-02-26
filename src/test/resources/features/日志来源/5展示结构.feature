@@ -1,4 +1,4 @@
-@resourceGroups @all @smoke @resourceGroupsSmoke
+@logSource
 Feature: 日志来源展示结构（RZY-375、RZY-378）
 
   Scenario Outline: 层级结构-展示（RZY-375）
