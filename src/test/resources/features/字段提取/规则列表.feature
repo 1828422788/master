@@ -383,3 +383,54 @@ Feature: 字段提取规则列表
     Examples:
       | log                                       | result                                                                                                   | result1                                                                                                  |
       | {"a":{"b":\n{"c":"d"}\n,"e":{"c":"g"}}\n} | Object\na:Object\nb:Object\nc:"d"\ne:Object\nc:"g"\nraw_message:"{"a":{"b": {"c":"d"} ,"e":{"c":"g"}} }" | Object\na:Object\nb:Object\nh:"d"\ne:Object\nh:"g"\nraw_message:"{"a":{"b": {"c":"d"} ,"e":{"c":"g"}} }" |
+
+  Scenario Outline: RZY-2819：配置自定义字典解析规则
+    When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
+    And I choose the "Json解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I click the "ParseButton" button
+    And I click the "ContinueButton" button
+    And I choose the "自定义字典" from the "ParseRule"
+    And I choose the "raw_message" from the "SourceField"
+    And I choose the "win_sys_sourcename.csv" from the "Dictionary"
+    And I choose the "sourcename" from the "BaseField"
+    And I choose the "level,source" from the "ExtendField"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Result':'<result>'}"
+
+    Examples:
+      | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+      | Object\nCategory:""\nComputerName:"WIN-999OGBVAHMI"\nEventCode:7036\nEventIdentifier:1073748860\nEventType:3\nLogfile:"System"\nMessage:"Application Experience 服务处于 正在运行 状态。"\nRecordNumber:108343\nSourceName:"Service Control Manager"\nTimeGenerated:"2015-01-04T20:45:09+08:00"\nUser:""\nraw_message:"{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}" |
+
+  Scenario Outline: RZY-2825：hex转换
+    When I set the parameter "LogSample" with value "e5a4a7e9bb91e5b1b1"
+    And I choose the "Hex转换" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I set the parameter "Code" with value "utf-8"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Result':'<result>'}"
+
+    Examples:
+      | result                    |
+      | Object\nraw_message:"大黑山" |
+
+  Scenario Outline: RZY-2862、2863：（非）严格解析
+    When I set the parameter "LogSample" with value "aaa 111"
+    And I choose the "结构体解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I set the parameter "Struct" with value "<struct>"
+    And I "checked" the checkbox which name is "<checkbox>"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Result':'<result>'}"
+
+    Examples:
+      | struct         | checkbox | result                                             |
+      | name:3,val:4:i | 是否严格解析   | Object\nname:"aaa"\nval:111\nraw_message:"aaa 111" |
+      | name:3,val:3:i |          | Object\nname:"aaa"\nval:11\nraw_message:"aaa 111"  |
+

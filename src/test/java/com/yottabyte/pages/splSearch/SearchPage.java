@@ -495,10 +495,10 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yw-search-form-crontab']//input")
     private WebElement crontabInput;
 
-    @FindBy(xpath = "//span[text()='other.date']/ancestor::td/following-sibling::td")
+    @FindBy(xpath = "//span[text()='test.date']/ancestor::td/following-sibling::td")
     private WebElement otherDate;
 
-    @FindBy(xpath = "//span[text()='other.time']/ancestor::td/following-sibling::td")
+    @FindBy(xpath = "//span[text()='test.time']/ancestor::td/following-sibling::td")
     private WebElement otherTime;
 
     @FindBy(xpath = "//span[text()='timestamp']/ancestor::td/following-sibling::td")
@@ -509,6 +509,27 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='test.a.e.h']/ancestor::td/following-sibling::td")
     private WebElement otherAeh;
+
+    @FindBy(xpath = "//span[text()='test.name']/ancestor::td/following-sibling::td")
+    private WebElement testName;
+
+    @FindBy(xpath = "//span[text()='test.val']/ancestor::td/following-sibling::td")
+    private WebElement testValue;
+
+    @FindBy(xpath = "//span[text()='other.key']/ancestor::td/following-sibling::td/span")
+    private WebElement otherKey;
+
+    public WebElement getOtherKey() {
+        return otherKey;
+    }
+
+    public WebElement getTestName() {
+        return testName;
+    }
+
+    public WebElement getTestValue() {
+        return testValue;
+    }
 
     public WebElement getOtherAbh() {
         return otherAbh;

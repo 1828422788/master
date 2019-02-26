@@ -27,7 +27,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//h3[text()='规则配置完成！']")
     private WebElement configDone;
 
-    @FindBy(xpath = "//label[text()='正则表达式']/following-sibling::div/textarea")
+    @FindBy(xpath = "(//label[text()='正则表达式'])[last()]/following-sibling::div/textarea")
     private WebElement regex;
 
     @FindBy(xpath = "(//label[text()='正则表达式']/following-sibling::div/textarea)[2]")
@@ -66,7 +66,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='source']/preceding-sibling::input")
     private WebElement source;
 
-    @FindBy(xpath = "//label[text()='替换内容']/following-sibling::div/textarea")
+    @FindBy(xpath = "(//label[text()='替换内容'])[last()]/following-sibling::div/textarea")
     private WebElement replaceContent;
 
     @FindBy(className = "json-formatter-boolean")
@@ -101,6 +101,58 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "my-check-failed")
     private WebElement failedMessage;
+
+    @FindBy(className = "ace_content")
+    private WebElement ruleContent;
+
+    @FindBy(className = "icon-qiehuanweiJHSONbianji")
+    private WebElement changeToJson;
+
+    @FindBy(xpath = "(//label[contains(text(),'匹配前缀')])[last()]/following-sibling::input")
+    private WebElement prefix;
+
+    @FindBy(xpath = "//label[contains(text(),'结构体定义')]/following-sibling::div/textarea")
+    private WebElement struct;
+
+    public WebElement getRedirect() {
+        return super.getDropdownList("重定向规则");
+    }
+
+    public WebElement getStruct() {
+        return struct;
+    }
+
+    public WebElement getPrefix() {
+        return prefix;
+    }
+
+    public WebElement getPostfix() {
+        return getInputElement("匹配后缀");
+    }
+
+    public WebElement getChangeToJson() {
+        return changeToJson;
+    }
+
+    public WebElement getRuleContent() {
+        return ruleContent;
+    }
+
+    public WebElement getCode() {
+        return getInputElement("编码");
+    }
+
+    public WebElement getDictionary() {
+        return super.getDropdownList("字典");
+    }
+
+    public WebElement getBaseField() {
+        return super.getDropdownList("基准字段");
+    }
+
+    public WebElement getExtendField() {
+        return super.getDropdownList("扩展字段");
+    }
 
     public WebElement getErrorMessage() {
         return failedMessage;
