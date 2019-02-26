@@ -14,9 +14,14 @@ Feature: 字段提取删除
 
   @clean
     Examples:
-      | name             |
-      | AutoTestForTrend |
-      | RZY-2861         |
+      | name              |
+      | AutoTestForTrend  |
+      | RZY-2866搜索页结果验证   |
+      | RZY-2861新建字段提取    |
+      | redirect主规则       |
+      | RZY2864在搜索页验证严格解析 |
+      | redirect副规则       |
+      | 脱敏                |
 
   Scenario: 删除agent配置
     Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
