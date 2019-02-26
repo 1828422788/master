@@ -1,4 +1,4 @@
-@alert @all @smoke @alertSmoke
+#@alert @all @smoke @alertSmoke
 Feature: 监控新建基线对比（RZY-437）
 
   Background:

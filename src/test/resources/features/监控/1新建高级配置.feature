@@ -30,7 +30,7 @@ Feature: 监控新建事件数并填写高级设置
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
     Examples: 创建监控成功
       | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent  | ExAlertSources | Result                 |
       | AutoTest30 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | logtype:"apache" | 所有日志           | success message "保存成功" |
@@ -66,7 +66,7 @@ Feature: 监控新建事件数并填写高级设置
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
     Examples: 创建监控成功
       | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | Result                 |
       | AutoTest31 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 1                | 天内               | success message "保存成功" |
@@ -108,7 +108,7 @@ Feature: 监控新建事件数并填写高级设置
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
     Examples: 创建监控成功
       | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | CancelSuppressInput | CancelSuppressUnits | Result                 |
       | AutoTest34 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              | 50                  | 分钟后                 | success message "保存成功" |
@@ -119,7 +119,7 @@ Feature: 监控新建事件数并填写高级设置
       | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              | a                   | 分钟后                 | error message "告警抑制的最大时间（取消抑制）非法" |
 
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 创建一个事件数监控-高级配置-启用效果插图（RZY-444）
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page

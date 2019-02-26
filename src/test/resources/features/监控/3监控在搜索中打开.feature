@@ -5,7 +5,7 @@ Feature: 监控在搜索中打开
     Given open the "alert.ListPage" page for uri "/alerts/"
 
   Scenario:
-    When the data name is "AutoTest" then i click the "在搜索中打开" button
+    When the data name is "RZY-436：SPL统计监控（不展示监控趋势图）" then i click the "在搜索中打开" button
     And switch to another window
     And I wait for "SplSearchInput" will be visible
     And I wait for "2000" millsecond

@@ -1,7 +1,7 @@
 @alert @all
 Feature: 监控新建事件数并填写高级设置（RZY-440、RZY-1866）
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 新建所需已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     When I set the parameter "SearchInput" with value "<splQuery>"
@@ -40,7 +40,7 @@ Feature: 监控新建事件数并填写高级设置（RZY-440、RZY-1866）
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
     Examples: 创建监控成功
       | AlertName  | AlertDes | AlertGroup    | AlertSource | SearchContent | AlertPlanTime | AlertTrigger | AlertLevelInput | key        | value | Result                 |
       | AutoTest35 | alertDes | default_Alert | 所有日志        | *             | 5             | 5            | 3               | ssue_alert | false | success message "保存成功" |

@@ -1,4 +1,4 @@
-@alert @all @smoke @alertSmoke
+#@alert @all @smoke @alertSmoke
 Feature: 监控新建字段统计（RZY-434）
 
   Background:

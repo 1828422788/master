@@ -11,5 +11,5 @@ Feature: 监控复制
     Then I will see the search result contains "{'column':'0','name':'<name>(1)'}"
 
     Examples:
-      | name     |
-      | AutoTest |
+      | name                      |
+      | RZY-436：SPL统计监控（不展示监控趋势图） |

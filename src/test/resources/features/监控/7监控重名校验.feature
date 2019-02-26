@@ -1,4 +1,4 @@
-@alert @all @alertSmoke
+#@alert @all @alertSmoke
 Feature: 监控重名校验
 
   Background:

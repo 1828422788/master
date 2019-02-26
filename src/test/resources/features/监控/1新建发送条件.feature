@@ -4,7 +4,7 @@ Feature: 监控新建事件数并填写发送条件（RZY-450、RZY-451）
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 创建一个发送条件的监控（RZY-450）
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page

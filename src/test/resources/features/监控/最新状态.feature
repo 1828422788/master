@@ -4,7 +4,7 @@ Feature: 监控最新状态
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 按分组和状态搜索（RZY-462、RZY-464）
     Given I click the "LatestStatus" button
     And I will see the "alert.MonitorPage" page
@@ -17,7 +17,7 @@ Feature: 监控最新状态
       | {'StatusDropdown':'已处理'}          | 6   | 已处理           |
       | {'StatusDropdown':'已忽略'}          | 6   | 已忽略           |
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 按告警时间搜索（RZY-465）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -34,7 +34,7 @@ Feature: 监控最新状态
       | TwoDays    | 5   | 2d         |
       | SevenDays  | 5   | 7d         |
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 按等级搜索（RZY-463）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -142,7 +142,7 @@ Feature: 监控最新状态
       | syslogAddress    | result                        |
       | 192.168.1.82:514 | rsyslog plugin run success!!! |
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario Outline: 在监控中点击今日待处理、已处理以及高级告警
     Given I click the "<status>" button
     And I will see the "alert.MonitorPage" page
@@ -154,7 +154,7 @@ Feature: 监控最新状态
       | Handled   | search result "{'column':'6','name':'已处理'}" |
       | HighAlert | alert grade is "red"                        |
 
-  @smoke @alertSmoke
+#  @smoke @alertSmoke
   Scenario: 返回到监控页（RZY-482）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page

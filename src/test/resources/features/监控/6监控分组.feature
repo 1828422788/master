@@ -12,4 +12,4 @@ Feature: 监控分组
 
     Examples:
       | name     |
-      | AutoTest |
+      | RZY-436：SPL统计监控（不展示监控趋势图） |
