@@ -1,4 +1,4 @@
-@authorization @all @smoke @roleSmoke
+#@authorization @all @smoke @roleSmoke
 Feature: 角色授权资源读取（最好查看下截图）
 
   Background:

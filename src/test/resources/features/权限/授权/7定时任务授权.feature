@@ -1,4 +1,4 @@
-@authorization @all @smoke @roleSmoke
+#@authorization @all @smoke @roleSmoke
 Feature: 角色授权定时任务
 
   Background:
