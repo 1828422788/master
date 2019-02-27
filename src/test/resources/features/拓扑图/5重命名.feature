@@ -12,10 +12,10 @@ Feature: 拓扑图重命名（RZY-352）
 
   @smoke @topologySmoke
     Examples: 重命名成功
-      | name        | newName  | message                |
-      | sxjautotest | autotest | success message "保存成功" |
+      | name        | newName | message                |
+      | sxjautotest | 八种布局方式  | success message "保存成功" |
 
     Examples: 重命名失败
-      | name     | newName | message                  |
-      | autotest |         | error message "请输入拓扑图名称" |
+      | name   | newName | message                  |
+      | 八种布局方式 |         | error message "请输入拓扑图名称" |
 
