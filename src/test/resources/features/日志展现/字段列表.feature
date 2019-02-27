@@ -61,7 +61,7 @@ Feature: 日志展现
       | AppName   | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count('appname') | 171：日志展现-字段列表快捷过滤-总数时序图   |
       | AppName   | FileterField    | java       | index=yott* (ERROR AND tag:sample04061424*) AND 'appname':java         | 171：日志展现-字段列表快捷过滤-过滤选中字段值 |
       | AppName   | ShieldField     | java       | index=yott* (ERROR AND tag:sample04061424*) AND NOT 'appname':java     | 171：日志展现-字段列表快捷过滤-屏蔽选中字段值 |
-      | Timestamp | MaxValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats max('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-最大值    |
-      | Timestamp | MinValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats min('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-最小值    |
-      | Timestamp | AvgStats      | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-平均值统计图 |
-      | Timestamp | AvgSequential | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('apache.resp_len') | 171：日志展现-字段列表快捷过滤-平均值时序图 |
+#      | Timestamp | MaxValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats max('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-最大值    |
+#      | Timestamp | MinValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats min('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-最小值    |
+#      | Timestamp | AvgStats      | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-平均值统计图 |
+#      | Timestamp | AvgSequential | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('apache.resp_len') | 171：日志展现-字段列表快捷过滤-平均值时序图 |

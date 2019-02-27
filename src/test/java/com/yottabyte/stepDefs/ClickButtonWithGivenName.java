@@ -1,5 +1,6 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.config.ConfigManager;
 import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
@@ -279,6 +280,32 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 读取配置文件获取名称并点击详情
+     *
+     * @param json
+     */
+    @And("^I click the detail with properties \"([^\"]*)\"$")
+    public void iClickTheDetailWithProperties(String json) {
+        String xpath;
+        WebElement tr;
+        ConfigManager config = new ConfigManager();
+        // 非json格式
+        if (!JsonStringPaser.isJson(json)) {
+            String name = config.get(json);
+            tr = this.findName(name);
+            xpath = ".//span[contains(text(),'" + name + "')]";
+        } else {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(json);
+            int columnNum = Integer.parseInt(map.get("column").toString());
+            String text = map.get("name").toString();
+            String name = config.get(text);
+            tr = this.getRowWithColumnNum(name, columnNum);
+            xpath = ".//span[contains(text(),'" + name + "')]";
+        }
+        tr.findElement(By.xpath(xpath)).click();
+    }
+
+    /**
      * 日志展现中用到
      *
      * @param dataName
@@ -462,5 +489,4 @@ public class ClickButtonWithGivenName {
             }
         }
     }
-
 }

@@ -339,7 +339,6 @@ Feature: 高级搜索视图
     Then I will see the "trend.CreatePage" page
     And I click the "Dimension" button
     And I click the "Pie" button
-    And I wait for loading invisible
     And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "StartColour" button
@@ -353,19 +352,19 @@ Feature: 高级搜索视图
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-    And I click the "ChartType" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
     And I click the "Dimension" button
     And I click the "Pie" button
-    And I wait for loading invisible
     And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "StartColour" button
     And I click the "Orange" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "2774：日志展现-高级搜索视图-饼状图2"
+    Then take a screenshot with name "2775：日志展现-高级搜索视图-饼状图2"
 
   Scenario: 条形图1（RZY-2779）
     When I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
