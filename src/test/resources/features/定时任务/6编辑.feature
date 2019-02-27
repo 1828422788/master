@@ -27,6 +27,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | dataName        | name | describe | user | resource | taskGroup | period | result  |
       | RZY-398：定时任务_更新 |      |          |      |          |           |        | 名称 不能为空 |
 
+  @smoke @timedTaskSmoke
   Scenario Outline: RZY-2696、2698 修改执行计划
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
@@ -41,6 +42,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | RZY-396：定时任务_sample_表格_近一天(1) | RZY-2696：执行计划-定时_7小时 | 7      | 小时   |
       | RZY-396：定时任务_sample_表格_近一天(2) | RZY-2698：执行计划-定时_2天  | 2      | 天    |
 
+  @smoke @timedTaskSmoke
   Scenario Outline: RZY-2699、2700、2702 修改crontab
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
