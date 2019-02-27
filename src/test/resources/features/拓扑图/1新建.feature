@@ -9,8 +9,6 @@ Feature: 拓扑图新建（RZY-346至348）
     And I set the parameter "NameInput" with value "<name>"
     And I choose the "<group>" from the "GroupInput"
     And I click the "EnsureButton" button
-    And I refresh the website
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
   @smoke @topologySmoke
     Examples:

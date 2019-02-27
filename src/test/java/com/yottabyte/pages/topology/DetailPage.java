@@ -178,6 +178,14 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//label[contains(text(),'可选值')]/following-sibling::div//input[@class='el-input__inner'])[last()]")
     private WebElement optional;
 
+    public WebElement getSetColourButton() {
+        return setColourButton;
+    }
+
+    public WebElement getSetColourInput() {
+        return setColourInput;
+    }
+
     public WebElement getAdd() {
         return add;
     }

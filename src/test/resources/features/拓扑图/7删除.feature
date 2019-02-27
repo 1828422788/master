@@ -16,3 +16,4 @@ Feature: 拓扑图删除（RZY-350）
     Examples:
       | name            |
       | auto_topology样例 |
+      | 测试标识符           |
