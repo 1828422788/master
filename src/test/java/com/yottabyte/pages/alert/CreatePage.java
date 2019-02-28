@@ -171,6 +171,28 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//ul[@class='el-dropdown-menu add-config-dropdown-menu']/li")
     private WebElement dropdownMenu;
 
+    @FindBy(xpath = "//h5[contains(text(),'添加告警方式')]/following-sibling::div//button")
+    private WebElement iconRight;
+
+    @FindBy(className = "add-config-dropdown-menu")
+    private WebElement configDropdown;
+
+    @FindBy(xpath = "(//span[text()='转发url地址'])[last()]/following-sibling::div/input")
+    private WebElement url;
+
+    public WebElement getIconRight() {
+        return iconRight;
+    }
+
+    public WebElement getUrl() {
+        return url;
+    }
+
+    public WebElement getConfigDropdown() {
+        iconRight.click();
+        return configDropdown;
+    }
+
     public WebElement getAddType() {
         addType.click();
         return dropdownMenu;

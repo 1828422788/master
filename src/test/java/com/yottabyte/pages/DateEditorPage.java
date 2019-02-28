@@ -81,7 +81,7 @@ public class DateEditorPage extends PageTemplate {
     @FindBy(xpath = "//button[text()='最近2天']")
     private WebElement twoDays;
 
-    @FindBy(xpath = "//button[text()='2天']")
+    @FindBy(xpath = "(//button[text()='2天'])[last()]")
     private WebElement recentTwoDays;
 
     @FindBy(xpath = "//button[text()='最近7天']")

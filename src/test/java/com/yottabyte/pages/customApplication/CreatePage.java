@@ -2,6 +2,7 @@ package com.yottabyte.pages.customApplication;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ElementExist;
+import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,71 +17,109 @@ public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
     }
-    @FindBys({
-            @FindBy(className = "yw-system-app-basic"),
-            @FindBy(className = "yw-system-input")
-    })
-    private List<WebElement> inputs;
 
-    @FindBy(className = "el-switch")
-    private WebElement autoSearchSwitch;
-
-    @FindBy(className = "el-icon-circle-close")
-    private WebElement closeStepFrame;
-
-    @FindBy(xpath = "//button[@class='el-button el-button--primary']/span[text()='保存']")
-    private WebElement saveButton;
-
-    @FindBy (className = "el-message-box__content")
-    private WebElement messageInfo;
-
-    @FindBy (className = "el-message-box__btns")
-    private WebElement messageBoxButtons;
-
-    public WebElement getApplicationName() {
-        return inputs.get(0);
+    @Override
+    public WebElement getInputElement(String text) {
+        String xpath = "(//label[text()='" + text + "'])[last()]/following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement getApplicationDes() {
-        return inputs.get(1);
+    @Override
+    public WebElement getContainsTextButton(String text) {
+        String xpath = "(//span[contains(text(),'" + text + "')])[last()]";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
-    public WebElement getAutoSearchSwitch() {
-        return autoSearchSwitch;
+    @FindBy(className = "el-switch__label--right")
+    private WebElement autoSearch;
+
+    @FindBy(xpath = "(//div[@class='el-date-editor yw-system-table-time-picker el-input el-date-editor--datetimerange'])[last()]")
+    private WebElement dateEditor;
+
+    @FindBy(xpath = "(//input[@placeholder='步骤id'])[last()]")
+    private WebElement stepId;
+
+    public WebElement getStepId() {
+        return stepId;
     }
 
-    public WebElement getCloseStepFrame() {
-        return closeStepFrame;
+    public WebElement getParam() {
+        return getInputElement("的参数");
     }
 
-    public WebElement getMessageInfo() {
-        return messageInfo;
+    public WebElement getPassParam() {
+        return getInputElement("的值传递给");
     }
 
-    public WebElement getMessageBoxOKButton() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,
-                ExpectedConditions.elementToBeClickable(messageBoxButtons.findElement(By.xpath("//span[contains(text(),'确定')]"))));
-        return messageBoxButtons.findElement(By.xpath("//span[contains(text(),'确定')]"));
+    public WebElement getRecentTwoDays() {
+        return GetTime.getTime(webDriver, "RecentTwoDays");
     }
 
-    public WebElement getSaveButton() {
-        if (ElementExist.isElementExist(webDriver,By.className("msgbox-fade-leave-active"))) {
-            WaitForElement.waitForElementWithExpectedCondition(webDriver,
-                    ExpectedConditions.invisibilityOf(webDriver.findElement(By.className("msgbox-fade-leave-active"))));
-        }
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,
-                ExpectedConditions.elementToBeClickable(saveButton));
-        return saveButton;
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    public WebElement getAutoSearch() {
+        return autoSearch;
+    }
+
+    public WebElement getName() {
+        return getInputElement("名称");
+    }
+
+    public WebElement getDescribe() {
+        return getInputElement("描述");
+    }
+
+    public WebElement getStepName() {
+        return getInputElement("步骤名称");
+    }
+
+    public WebElement getKeyword() {
+        return getInputElement("关键字");
+    }
+
+    public WebElement getFilter() {
+        return getInputElement("过滤字段");
+    }
+
+    public WebElement getFieldName() {
+        return getInputElement("字段名");
+    }
+
+    public WebElement getAlias() {
+        return getInputElement("别名");
+    }
+
+    public WebElement getAddDisplayField() {
+        return getContainsTextButton("添加展示字段");
+    }
+
+    public WebElement getAddReceiveField() {
+        return getContainsTextButton("添加接收字段");
+    }
+
+    public WebElement getAddCollectField() {
+        return getContainsTextButton("添加汇总字段");
+    }
+
+    public WebElement getField() {
+        return getInputElement("字段");
+    }
+
+    public WebElement getCollectField() {
+        return getInputElement("作为汇总字段");
+    }
+
+    public WebElement getAddStep() {
+        return super.getButton("添加步骤");
+    }
+
+    public WebElement getSave() {
+        return super.getButton("保存");
     }
 
     public WebElement getSuccessMessage() {
-        System.out.println("start wait ");
-        if (ElementExist.isElementExist(webDriver,By.className("el-message-box"))) {
-            System.out.println(messageInfo.getText());
-            WaitForElement.waitForElementWithExpectedCondition(webDriver,ExpectedConditions.visibilityOfElementLocated(By.className("el-message-box")));
-        }else {
-            System.out.println("is not exist!");
-        }
-        return webDriver.findElement(By.className("el-message-box__content"));
+        return super.getErrorMessage();
     }
 }
