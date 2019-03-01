@@ -20,16 +20,16 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy (className = "el-input__inner")
+    @FindBy(className = "el-input__inner")
     private List<WebElement> inputs;
 
-    @FindBy (className = "el-checkbox__input")
+    @FindBy(className = "el-checkbox__input")
     private WebElement resourceGroupCheckbox;
 
-    @FindBy (className = "checkbox-group")
+    @FindBy(className = "checkbox-group")
     private WebElement checkBoxs;
 
-    @FindBy (className = "el-button--primary")
+    @FindBy(className = "el-button--primary")
     private WebElement createButton;
 
 //    @FindBy(className = "el-message-box__message")
@@ -50,12 +50,12 @@ public class CreatePage extends PageTemplate {
     public List<WebElement> getResourceGroupCheckbox() {
         resourceGroupCheckbox.click();
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(checkBoxs);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return checkBoxs.findElements(By.tagName("label"));
     }
 
     public WebElement getCreateButton() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,ExpectedConditions.elementToBeClickable(createButton));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(createButton));
         return createButton;
     }
 
@@ -64,20 +64,20 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getSuccessMessage();
+        return super.getErrorMessage();
     }
 
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
     }
 
-    public void createARole(String roleName, String roleDes, List<String> roleResourceGroup){
+    public void createARole(String roleName, String roleDes, List<String> roleResourceGroup) {
         SetKeyWithValue setKey = new SetKeyWithValue();
         ClickSomeButton click = new ClickSomeButton();
         ICheckValuesFromCheckBox checkBox = new ICheckValuesFromCheckBox();
-        setKey.iSetTheParameterWithValue("RoleName",roleName);
-        setKey.iSetTheParameterWithValue("RoleDes",roleDes);
-        checkBox.iCheckFromThe(roleResourceGroup,"ResourceGroupCheckbox");
+        setKey.iSetTheParameterWithValue("RoleName", roleName);
+        setKey.iSetTheParameterWithValue("RoleDes", roleDes);
+        checkBox.iCheckFromThe(roleResourceGroup, "ResourceGroupCheckbox");
         click.clickButton("CreateButton");
         click.clickButton("OKButton");
     }

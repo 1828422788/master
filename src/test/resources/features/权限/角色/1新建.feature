@@ -36,13 +36,11 @@ Feature: 角色新建（RZY-517至521）
     And I will see the "roles.CreatePage" page
     And I set the parameter "RoleName" with value "<RoleName>"
     And I set the parameter "RoleDes" with value "<RoleDes>"
-    And I check "<ResourceGroups>" from the "ResourceGroupCheckbox"
+    And I "checked" the checkbox which name is "同时创建对应的专属资源组"
     When I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 
   @createRole
     Examples:
-      | RoleName                         | RoleDes       | ResourceGroups |
-      | AutoTestRoleWithAllResource      | 创建所有资源分组      | all            |
-      | AutoTestRoleWithAuth&SourceGroup | 资源分组：仪表盘,日志来源 | 仪表盘,日志来源       |
-      | AutoTestRoleWithMacro            | 资源分组：搜索宏      | 搜索宏            |
+      | RoleName                    | RoleDes  |
+      | AutoTestRoleWithAllResource | 创建所有资源分组 |

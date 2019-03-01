@@ -9,8 +9,6 @@ Feature: 角色清理
     And I click the "MessageBoxOKButton" button
 
     Examples:
-      | name                             |
-      | AutoTestRole                     |
-      | AutoTestRoleWithAllResource      |
-      | AutoTestRoleWithAuth&SourceGroup |
-      | AutoTestRoleWithMacro            |
+      | name                        |
+      | AutoTestRole                |
+      | AutoTestRoleWithAllResource |

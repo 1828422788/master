@@ -10,11 +10,7 @@ Feature: 角色复制
     And I set the parameter "RoleName" with value "<newName>"
     When I click the "CreateButton" button
     Then I will see the success message "创建成功"
-    And I click the "OKButton" button
-    And I refresh the website
-    Then I will see the search result contains "{'column':'0','name':'<newName>'}"
-
 
     Examples:
-      | name                  | newName      |
-      | AutoTestRoleWithMacro | AutoTestCopy |
+      | name         | newName      |
+      | AutoTestRole | AutoTestCopy |
