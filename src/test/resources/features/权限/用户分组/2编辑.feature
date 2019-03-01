@@ -22,7 +22,7 @@ Feature: 用户分组修改（RZY-1179）
     Examples:
       | UserGroupName   | NewUserGroupName | NewUserGroupDes | Result                              |
       | AutoTestForEdit |                  | NewDes          | error message "分组名 不能为空"            |
-      | AutoTestForEdit | AutoTestForUser  | NewDes          | error message "用户组已存在\n错误码: FE_536" |
+      | AutoTestForEdit | AutoTestGroup    | NewDes          | error message "用户组已存在\n错误码: FE_536" |
 
   @all
   Scenario Outline: 编辑更多失败
@@ -48,8 +48,8 @@ Feature: 用户分组修改（RZY-1179）
     Then I will see the data "{'column':'1','name':'<name>'}" values "{'column':'4','name':'<finalGroups>'}"
 
     Examples:
-      | name            | NewRoleName                      | Result                 | finalGroups                             |
-      | AutoTestForEdit | AutoTestRoleWithAuth&SourceGroup | success message "更新成功" | admin, AutoTestRoleWithAuth&SourceGroup |
+      | name            | NewRoleName  | Result                 | finalGroups         |
+      | AutoTestForEdit | AutoTestRole | success message "更新成功" | admin, AutoTestRole |
 
   @all @smoke @userGroupsSmoke
   Scenario: 添加成员

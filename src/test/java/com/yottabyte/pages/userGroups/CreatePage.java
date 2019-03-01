@@ -12,25 +12,25 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class CreatePage extends PageTemplate{
+public class CreatePage extends PageTemplate {
 
     public CreatePage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy (xpath = "//input[@placeholder='请输入分组名']")
+    @FindBy(xpath = "//input[@placeholder='请输入分组名']")
     private WebElement userGroupName;
 
-    @FindBy (xpath = "//input[@placeholder='请输入描述']")
+    @FindBy(xpath = "//input[@placeholder='请输入描述']")
     private WebElement userGroupDes;
 
-    @FindBy (className = "yw-select-owner")
+    @FindBy(className = "yw-select-owner")
     private WebElement ownerButton;
 
-    @FindBy (className = "yw-select-info")
+    @FindBy(className = "yw-select-info")
     private WebElement roleButton;
 
-    @FindBy (className = "el-select-dropdown")
+    @FindBy(className = "el-select-dropdown")
     private List<WebElement> selectors;
 
     @FindBy(className = "btn-submit")
@@ -50,25 +50,25 @@ public class CreatePage extends PageTemplate{
         return userGroupDes;
     }
 
-    public List<WebElement> getUserGroupOwner(){
-        return getSelectorElements(ownerButton);
+    public WebElement getUserGroupOwner() {
+        return super.getDropdownList("拥有者");
     }
 
-    public List<WebElement> getUserGroupRole(){
-        return getSelectorElements(roleButton);
+    public WebElement getUserGroupRole() {
+        return super.getDropdownList("角色");
     }
 
     public WebElement getCreateButton() {
         ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(createButton);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return createButton;
     }
 
-    public WebElement getSuccessMessage(){
+    public WebElement getSuccessMessage() {
         return message;
     }
 
-    public WebElement getErrorMessage(){
+    public WebElement getErrorMessage() {
         return message;
     }
 
@@ -76,10 +76,10 @@ public class CreatePage extends PageTemplate{
         return OKButton;
     }
 
-    private List<WebElement> getSelectorElements(WebElement e){
+    private List<WebElement> getSelectorElements(WebElement e) {
         e.click();
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors.get(1));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         List<WebElement> list = selectors.get(1).findElements(By.tagName("li"));
         return list;
     }

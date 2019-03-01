@@ -58,8 +58,8 @@ Feature: 用户编辑（RZY-1554）
 
   @all
     Examples:
-      | UserName            | NewPassword | RepeatPassword | Result                 |
-      | SuccessEditAutoTest | qqqqq11111  | qqqqq11111     | success message "更新成功" |
+      | UserName            | NewPassword | RepeatPassword | Result                                           |
+      | SuccessEditAutoTest | qqqqq11111  | qqqqq11111     | success message "新设置的密码与最近使用过的密码重复\n错误码: FE_593" |
 
   @all
     Examples:

@@ -11,8 +11,8 @@ Feature: 用户分组（RZY-1167）
     Then I will see the error message "用户分组 不能为空"
 
     Examples:
-      | name     | oldGroup        |
-      | AutoTest | AutoTestForUser |
+      | name     | oldGroup      |
+      | AutoTest | AutoTestGroup |
 
   @smoke @usersSmoke
   Scenario Outline: 用户分组成功
@@ -25,6 +25,6 @@ Feature: 用户分组（RZY-1167）
     Then I will see the data "{'column':'1','name':'<name>'}" values "{'column':'4','name':'<finalGroups>'}"
 
     Examples:
-      | name                   | newGroups     | finalGroups                    |
-      | AutoTest               | AutoTestGroup | AutoTestGroup, AutoTestForUser |
-      | AutoTestForSavedSearch | AutoTestGroup | AutoTestGroup, AutoTestForUser |
+      | name                   | newGroups | finalGroups             |
+      | AutoTest               | AutoTest  | AutoTestGroup, AutoTest |
+      | AutoTestForSavedSearch | AutoTest  | AutoTestGroup, AutoTest |

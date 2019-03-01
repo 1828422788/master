@@ -1,4 +1,4 @@
-#@users @smoke @all @usersSmoke
+@users @smoke @all @usersSmoke
 Feature: 用户个人设置 需先赋予权限
 
   Background:

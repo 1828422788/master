@@ -1,4 +1,4 @@
-#@all @userGroups @smoke @userGroupsSmoke
+@smoke @usersSmoke
 Feature: 用户分组申请加入（RZY-1181）
 
   Background:

@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class CreatePage extends PageTemplate{
+public class CreatePage extends PageTemplate {
 
     public CreatePage(WebDriver driver) {
         super(driver);
@@ -70,17 +70,18 @@ public class CreatePage extends PageTemplate{
         return password;
     }
 
-    public List<WebElement> getUserGroups() {
-        userGroupButton.click();
-        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors.get(0));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
-        List<WebElement> list = selectors.get(0).findElements(By.tagName("li"));
-        return list;
+    public WebElement getUserGroups() {
+        return super.getDropdownList("指定用户分组");
+//        userGroupButton.click();
+//        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors.get(0));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+//        List<WebElement> list = selectors.get(0).findElements(By.tagName("li"));
+//        return list;
     }
 
     public WebElement getCreateButton() {
         ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(createButton);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return createButton;
     }
 
@@ -88,11 +89,11 @@ public class CreatePage extends PageTemplate{
         return OKButton;
     }
 
-    public WebElement getSuccessMessage(){
-        return super.getSuccessMessage();
+    public WebElement getSuccessMessage() {
+        return super.getErrorMessage();
     }
 
-    public WebElement getErrorMessage(){
+    public WebElement getErrorMessage() {
         return message;
     }
 
@@ -100,12 +101,12 @@ public class CreatePage extends PageTemplate{
         SetKeyWithValue setKey = new SetKeyWithValue();
         ClickSomeButton click = new ClickSomeButton();
         IChooseValueFromSelectList choose = new IChooseValueFromSelectList();
-        setKey.iSetTheParameterWithValue("UserName",userName);
-        setKey.iSetTheParameterWithValue("FullName",fullName);
-        setKey.iSetTheParameterWithValue("Email",email);
-        setKey.iSetTheParameterWithValue("Telephone",telephone);
-        setKey.iSetTheParameterWithValue("Password",password);
-        choose.iChooseTheFromThe(userGroup,"UserGroups");
+        setKey.iSetTheParameterWithValue("UserName", userName);
+        setKey.iSetTheParameterWithValue("FullName", fullName);
+        setKey.iSetTheParameterWithValue("Email", email);
+        setKey.iSetTheParameterWithValue("Telephone", telephone);
+        setKey.iSetTheParameterWithValue("Password", password);
+        choose.iChooseTheFromThe(userGroup, "UserGroups");
         click.clickButton("CreateButton");
         click.clickButton("OKButton");
 

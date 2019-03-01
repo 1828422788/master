@@ -1,3 +1,4 @@
+@users @smoke @all @usersSmoke
 Feature: 用户分享已存搜索
 
   Background:
@@ -14,7 +15,6 @@ Feature: 用户分享已存搜索
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I click the "SaveAsReport" button
     And I click the "SavedSearch" button
     And I wait for loading invisible
     And I set the parameter "OfflineTaskName" with value "<savedSearch>"

@@ -1009,11 +1009,12 @@ public class SearchPage extends PageTemplate {
     }
 
     // 分组
-    public List<WebElement> getGroupComboBox() {
-        group.click();
-        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(dropdownList.get(dropdownList.size() - 1));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        return this.dropdownList.get(dropdownList.size() - 1).findElements(By.tagName("li"));
+    public WebElement getGroupComboBox() {
+//        group.click();
+//        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(dropdownList.get(dropdownList.size() - 1));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+//        return this.dropdownList.get(dropdownList.size() - 1).findElements(By.tagName("li"));
+        return super.getDropdownList("分组");
     }
 
     public WebElement getDescribe() {
