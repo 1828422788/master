@@ -23,6 +23,7 @@ Feature: 字段提取删除
       | redirect副规则       |
       | 脱敏                |
 
+  @clean
   Scenario: 删除agent配置
     Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
     And I click the detail with properties "{'name':'rizhiyi_server_host','column':'1'}"
