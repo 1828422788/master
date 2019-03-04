@@ -1,8 +1,11 @@
 @authorization @all @smoke
 Feature: 角色授权URL访问
 
-  Background:
-    Given open the "roles.ListPage" page for uri "/account/roles/"
+  Scenario:
+    Given open the "users.ListPage" page for uri "/account/users/"
+    When the data name is "{'column':'1','name':'AutoTest'}" then i click the "分组" button
+    And I cancel selection "AutoTest" from the "UserGroups"
+    And I click the "ConfirmButton" button
 
   Scenario Outline: 无任何URL访问权限时（RZY-558）
     Given I logout current user
@@ -19,6 +22,7 @@ Feature: 角色授权URL访问
       | AutoTest | qqqqq11111 | {'NonPrivileged':'您暂无设置权限。'} |
 
   Scenario Outline: 赋予URL访问权限（RZY-2629至2674）
+    Given open the "roles.ListPage" page for uri "/account/roles/"
     Given the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'URL 访问'}" button
@@ -71,6 +75,7 @@ Feature: 角色授权URL访问
       | 搜索用量     | Status      | Running     | 使用限额 域标识 搜索用量                     | /usage/                         | 搜索用量      |
 
   Scenario: 撤销修改（RZY-2675）
+    Given open the "roles.ListPage" page for uri "/account/roles/"
     Given the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'URL 访问'}" button
@@ -80,11 +85,11 @@ Feature: 角色授权URL访问
     Then I will see the "ChooseAllCheckBoxes" is "is-checked"
 
   Scenario Outline: 勾选所有URL访问权限（RZY-559）
+    Given open the "roles.ListPage" page for uri "/account/roles/"
     Given the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'URL 访问'}" button
-    When I click the "ChooseAllCheckBoxes" button
-    And I click the "ChooseAllCheckBoxes" button
+    And I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"

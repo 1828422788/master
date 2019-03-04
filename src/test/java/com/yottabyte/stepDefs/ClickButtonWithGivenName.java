@@ -480,7 +480,7 @@ public class ClickButtonWithGivenName {
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\"$")
     public void clickCheckboxWithGivenName(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "//span[@class='el-checkbox__label'][text()='" + name + "']";
+            String xpath = "(//span[@class='el-checkbox__label'][text()='" + name + "'])[last()]";
             WebElement label = webDriver.findElement(By.xpath(xpath));
             WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
             String attribute = span.getAttribute("class");
