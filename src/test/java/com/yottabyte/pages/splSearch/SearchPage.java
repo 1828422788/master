@@ -98,6 +98,20 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='平均值时序图'])[last()]")
     private WebElement avgSequential;
 
+    @FindBy(xpath = "//span[text()='全部字段']/following-sibling::i")
+    private WebElement closeAllField;
+
+    @FindBy(className = "el-loading-spinner")
+    private WebElement loadingSpinner;
+
+    public WebElement getLoadingSpinner() {
+        return loadingSpinner;
+    }
+
+    public WebElement getCloseAllField() {
+        return closeAllField;
+    }
+
     public WebElement getMaxValue() {
         return maxValue;
     }
@@ -518,6 +532,13 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='other.key']/ancestor::td/following-sibling::td/span")
     private WebElement otherKey;
+
+    @FindBy(xpath = "//span[text()='apache.request_query']")
+    private WebElement requestQuery;
+
+    public WebElement getRequestQuery() {
+        return requestQuery;
+    }
 
     public WebElement getOtherKey() {
         return otherKey;

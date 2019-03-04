@@ -164,7 +164,6 @@ Feature: 拓扑图详情页
     Then I will see the success message "动态字段搜索完成!"
     Then I choose the "69" from the "DynamicDefault"
     Then I click the "SearchInputButton" button
-    Then take a screenshot
 
   @all @smoke @topologySmoke
     Examples:
@@ -329,7 +328,6 @@ Feature: 拓扑图详情页
     Then I click the "EnsureSetColourButton" button
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
-    Then take a screenshot
 
   @all @smoke @topologySmoke
     Examples:
@@ -392,7 +390,6 @@ Feature: 拓扑图详情页
     Then I click the "EnsureSetColourButton" button
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
-    Then take a screenshot
 
   @all @smoke @topologySmoke
     Examples:
@@ -456,7 +453,6 @@ Feature: 拓扑图详情页
     Then I click the "EnsureSetColourButton" button
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
-    Then take a screenshot
 
   @all @smoke @topologySmoke
     Examples:
@@ -520,7 +516,6 @@ Feature: 拓扑图详情页
     Then I click the "EnsureSetColourButton" button
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
-    Then take a screenshot
 
   @all @smoke @topologySmoke
     Examples:
@@ -584,7 +579,6 @@ Feature: 拓扑图详情页
     Then I click the "EnsureSetColourButton" button
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
-    Then take a screenshot
 
   @all @smoke @topologySmoke
     Examples:
@@ -663,7 +657,6 @@ Feature: 拓扑图详情页
     Then I click the "EnsureSetColourButton" button
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
-    Then take a screenshot
 
   @all @smoke @topologySmoke
     Examples:

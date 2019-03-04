@@ -1,4 +1,4 @@
-#@authorization @all @smoke @roleSmoke
+@authorization @all @smoke
 Feature: 角色授权资源读取（最好查看下截图）
 
   Background:
@@ -10,7 +10,6 @@ Feature: 角色授权资源读取（最好查看下截图）
     When I click the "{'TabButton':'<tab>'}" button
     When I "checked" the checkbox which name is "<checkName>"
     And I click the "SaveButton" button
-#    And I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -52,7 +51,6 @@ Feature: 角色授权资源读取（最好查看下截图）
     When I click the "{'TabButton':'<tab>'}" button
     And I check "读取" from the "{'GroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
-#    And I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -83,7 +81,6 @@ Feature: 角色授权资源读取（最好查看下截图）
     When I click the "{'TabButton':'<tab>'}" button
     When I check "读取,编辑" from the "{'GroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
-#    And I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -117,7 +114,6 @@ Feature: 角色授权资源读取（最好查看下截图）
     When I click the "{'TabButton':'<tab>'}" button
     When I check "读取,编辑,删除" from the "{'GroupManagement':['AutoTestRoleWithAllResource']}"
     And I click the "SaveButton" button
-#    And I will see the success message "保存成功"
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"

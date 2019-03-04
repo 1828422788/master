@@ -311,16 +311,18 @@ public class ClickButtonWithGivenName {
      * @param dataName
      * @param className
      */
-    @Then("^the data name is \"([^\"]*)\" then i click the button which className is \"([^\"]*)\"$")
+    @Then("^make element \"([^\"]*)\" change to \"([^\"]*)\"$")
     public void clickButtonWithClassName(String dataName, String className) {
         WebElement element = webDriver.findElement(By.className("el-table__body"));
         List<WebElement> trList = element.findElements(By.tagName("tr"));
-        String xpath = ".//i[@class='" + className + "']";
+        String xpath = ".//i";
 
         for (WebElement tr : trList) {
             List<WebElement> tdList = tr.findElements(By.tagName("td"));
             if (tdList.get(2).getText().equals(dataName)) {
-                tr.findElement(By.xpath(xpath)).click();
+                WebElement star = tdList.get(1).findElement(By.xpath(xpath));
+                if (!star.getAttribute("class").contains(className))
+                    star.click();
                 return;
             }
         }

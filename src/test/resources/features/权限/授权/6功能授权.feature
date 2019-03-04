@@ -16,7 +16,7 @@ Feature: 角色授权功能
     When I set the parameter "UserName" with value "TempUser"
     And I set the parameter "Email" with value "142745@qq.com"
     And I set the parameter "Password" with value "all123456"
-    And I choose the "AutoTestForUser" from the "UserGroups"
+    And I choose the "AutoTestGroup" from the "UserGroups"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
     And I logout current user
@@ -34,7 +34,6 @@ Feature: 角色授权功能
     And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I will see the "PublicNavBarPage" page
-    And I click the "Setting" button
 
   Scenario: 授予可使用结算管理权限（RZY-769）
     When I "checked" the checkbox which name is "可使用结算管理"
@@ -97,9 +96,6 @@ Feature: 角色授权功能
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'配置'}" button
-    And I set the parameter "MaxTime" with value "1d"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
     And I set the parameter "MaxTime" with value "1d"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
@@ -214,7 +210,7 @@ Feature: 角色授权功能
     And I click the "Application" button
     Then I will see the element "App" name is "<name>"
     And open the "PublicNavBarPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "大屏管理"
+    Then the page's title will be "Galaxee"
 
     Examples:
       | name                      |
@@ -222,67 +218,23 @@ Feature: 角色授权功能
 
 #  Scenario: 可使用告警分析（RZY-1207）
 
-  Scenario: 可新建应用（RZY-2610）
-    When I "checked" the checkbox which name is "可新建应用"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given delete file "/target/download-files/TempTestApp.tar"
-    And open the "app.ListPage" page for uri "/app/list/"
-    And I click the "CreateButton" button
-    Then I will see the "app.CreatePage" page
-    When I set the parameter "NameInput" with value "TempTestApp"
-    And I click the "AddMenuButton" button
-    And I set the parameter "MenuName" with value "知识"
-    And I set the parameter "Url" with value "/knowledge/"
-    And I click the "SaveMenuButton" button
-    And I choose the "知识" from the "DefaultPage"
-    And I click the "CreateButton" button
-    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
-    Given open the "app.ListPage" page for uri "/app/list/"
-    And I click the "InstallButton" button
-    Then I will see the "app.InstallPage" page
-    When I upload a file with name "/target/download-files/TempTestApp.tar"
-    And I will see the element "VerifyText" name is "上传完成"
-    And I choose the "AutoTestRole" from the "Role"
-    And I choose the "AutoTestLogSource" from the "Resource"
-    And I click the "NextButton" button
-    And I will see the "GroupPreview" is "active"
-    And I click the "NextButton" button
-    And I will see the "ResourcePreview" is "active"
-    And I click the "NextButton" button
-    And I will see the element "ImportSuccess" name is "导入成功"
-    Given open the "app.ListPage" page for uri "/app/list/"
-    Then I will see the search result contains "{'column':'0','name':'TempTestApp'}"
-    Given delete file "/target/download-files/AutoTest.tar"
-    And open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AutoTestApp" then i click the "导出" button
-    And I will see the "app.CreatePage" page
-    And I wait for loading invisible
-    And I click the "ExportButton" button
-    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
-
-  Scenario: 可修改用户详情（缺少验证同组用户）（RZY-766）
-    When I "checked" the checkbox which name is "可修改用户详情"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "users.ListPage" page for uri "/account/users/"
-    When I click the detail which name is "{'column':'1','name':'AutoTest'}"
-    And I will see the "users.DetailPage" page
-    And I click the "EditButton" button
-    And I will see the "users.EditPage" page
-    And I set the parameter "Telephone" with value "1511111111"
-    And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
+#  Scenario: 可修改用户详情（缺少验证同组用户）（RZY-766）
+#    When I "checked" the checkbox which name is "可修改用户详情"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "users.ListPage" page for uri "/account/users/"
+#    When I click the detail which name is "{'column':'1','name':'AutoTest'}"
+#    And I will see the "users.DetailPage" page
+#    And I click the "EditButton" button
+#    And I will see the "users.EditPage" page
+#    And I set the parameter "Telephone" with value "1511111111"
+#    And I click the "SaveButton" button
+#    Then I will see the success message "更新成功"
 
   Scenario: 可导入导出树状日志来源（RZY-1212）
     When I "checked" the checkbox which name is "可导入导出日志来源树状结构"
@@ -343,6 +295,7 @@ Feature: 角色授权功能
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
     Then I will see the element "SearchTabBar" name is "统计"
 
   Scenario: 授权查看未分配资源（RZY-775）
@@ -357,6 +310,50 @@ Feature: 角色授权功能
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
     Then I will see the column number "1" contains "AutoTestUploadTest"
 
+  Scenario: 可新建应用（RZY-2610）
+    When I "checked" the checkbox which name is "可新建应用"
+    And I click the "SaveButton" button
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given delete file "/target/download-files/TempTestApp.tar"
+    And open the "app.ListPage" page for uri "/app/list/"
+    And I click the "CreateButton" button
+    Then I will see the "app.CreatePage" page
+    When I set the parameter "NameInput" with value "TempTestApp"
+    And I click the "AddMenuButton" button
+    And I set the parameter "MenuName" with value "知识"
+    And I set the parameter "Url" with value "/knowledge/"
+    And I click the "SaveMenuButton" button
+    And I choose the "知识" from the "DefaultPage"
+    And I click the "CreateButton" button
+    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+    Given open the "app.ListPage" page for uri "/app/list/"
+    And I click the "InstallButton" button
+    Then I will see the "app.InstallPage" page
+    When I upload a file with name "/target/download-files/TempTestApp.tar"
+    And I will see the element "VerifyText" name is "上传完成"
+    And I choose the "AutoTestRole" from the "Role"
+    And I choose the "AutoTestUploadTest" from the "Resource"
+    And I click the "NextButton" button
+    And I will see the "GroupPreview" is "active"
+    And I click the "NextButton" button
+    And I will see the "ResourcePreview" is "active"
+    And I click the "NextButton" button
+    And I will see the element "ImportSuccess" name is "导入成功"
+    Given open the "app.ListPage" page for uri "/app/list/"
+    Then I will see the search result contains "{'column':'0','name':'TempTestApp'}"
+    Given delete file "/target/download-files/AutoTest.tar"
+    And open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "TempTestApp" then i click the "导出" button
+    And I will see the "app.CreatePage" page
+    And I wait for loading invisible
+    And I click the "ExportButton" button
+    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+
   Scenario: 删除上传的日志来源以及取消勾选查看未分配资源
     When I "unchecked" the checkbox which name is "可查看未分配资源"
     And I click the "SaveButton" button
@@ -364,4 +361,20 @@ Feature: 角色授权功能
     And I wait for loading invisible
     Given the data name is "AutoTestUploadTest" then i click the "删除" button
     Then I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+  Scenario: 删除app及其资源分组
+    When I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    And I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "qqqqq11111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And open the "app.ListPage" page for uri "/app/list/"
+    And the data name is "TempTestApp" then i click the "删除" button
+    And I click the "EnsureButton" button
+    Then I will see the success message "删除成功"
+    Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
+    When the data name is "TempTestApp" then i click the "删除" button
+    And I click the "MessageBoxOKButton" button
     Then I will see the success message "删除成功"
