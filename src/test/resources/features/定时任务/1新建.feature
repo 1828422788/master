@@ -112,8 +112,8 @@ Feature: 定时任务新增
     Then I will see the success message "保存成功"
 
     Examples:
-      | spl                                                                                    | time      | chartType | chart  | taskName             | describe                 |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10 | Today     | Other     | Funnel | chs_task_funnel      | RZY-2450：task_漏斗图_sample |
+      | spl                                                                                    | time      | chartType | chart  | taskName              | describe                 |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10 | Today     | Other     | Funnel | chs_task_funnel       | RZY-2450：task_漏斗图_sample |
       | tag:sample04061424_chart \| stats count() by apache.resp_len                           | Yesterday |           | Line   | RZY-397：定时任务sample_昨天 | testing 定时任务样例           |
 
   @smoke @timedTaskSmoke
@@ -267,6 +267,37 @@ Feature: 定时任务新增
     Examples:
       | splQuery                                                                                                                                                                                                                                     | groupType | type      | xaxis | acturalData | predictData | topLimit | lowerLimit | name              | describe | users | groups                | period |
       | * \| bucket timestamp span=3h as ts\| stats count(appname) as count_ by ts \| movingavg count_,5 as ma \| rollingstd count_,5 as rs\| eval lower=ma-3*rs\| eval upper=ma+3*rs \| eval outlier=if(count_>upper\|\|count_<lower, count_, null) | Compound  | rangeline | ts    | count_      | count_      | upper    | lower      | rangelineAutoTest |          | owner | default_SavedSchedule | 15     |
+
+  Scenario: RZY-2956:task_其它_调用链_sample
+    When I set the parameter "SearchInput" with value "tag:gf_dapper* AND dapper.msg.traceId:"511f8756ce1d0b8a" dapper.msg.duration:>0  | table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Tracing" button
+    And I click the "Setting" button
+    And I choose the "dapper.class" from the "SettingSelect"
+    And I choose the "dapper.msg.parentId" from the "ParentId"
+    And I choose the "dapper.msg.id" from the "ChildId"
+    And I click the "Time" button
+    And I choose the "dapper.msg.timestamp" from the "SettingSelect"
+    And I choose the "dapper.msg.duration" from the "KeepTime"
+    And I click the "Info" button
+    And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
+    And I click the "Generate" button
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button under some element
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2956:task_其它_调用链_sample"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 生成定时任务失败
     Given I set the parameter "SearchInput" with value "<splQuery>"
