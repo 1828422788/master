@@ -78,4 +78,6 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2915:task_维度-条形图1             |
       | RZY-2916:task_维度-条形图2             |
       | RZY-2934:task_地图-行政区划地图_钻取_sample |
+      | RZY-2935:task_地图-行政区划地图1_中国       |
+      | RZY-2950:task_其它_雷达图_sample       |
 

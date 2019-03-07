@@ -58,6 +58,45 @@ Feature: 报表新建（RZY-116）
       | 改为曲线图sample2(WORD) | AutoTest | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 00     | 曲线图sample0 | Layout1 |
       | 改为曲线图sample2(URL)  | AutoTest | default_Report | URL        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 05     | 曲线图sample0 | Layout1 |
 
+  Scenario: RZY-2665:改为饼状图sample3
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "RZY-2665:改为饼状图sample3"
+    And I set the parameter "Describe" with value "AutoCreate"
+    And I choose the "default_Report" from the "ReportGroup"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>, 第一种布局方式"
+    And I set the parameter "Hour" with value "11"
+    And I set the parameter "Minute" with value "03"
+    And I click the "NextButton" button
+    And I choose the "饼状图sample0" from the "ChartList"
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Dimension" button
+    And I click the "Pie" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I click the "AddField" button
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I click the "Layout1" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
   @smoke @reportSmoke
   Scenario Outline: 改为面积图sample2+散点图sample2报表，11：11执行
     Given I click the "CreateButton" button

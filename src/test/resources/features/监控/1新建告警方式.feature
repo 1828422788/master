@@ -25,6 +25,7 @@ Feature: 监控新建事件数并填写告警方式
       | 446：邮件监控      | emailType    | {'title':'auto test alert.','email':['autotest@yottabyte.cn'],'condition':[''],'content':''}                                                                                                                                                                                                | success message "保存成功" |
       | 449：ping主机    | pingHostType | {'address':'192.168.1.82','condition':['高','中','低']}                                                                                                                                                                                                                                        | success message "保存成功" |
 
+  @alert @all @smoke @alertSmoke
   Scenario: RZY-448：告警转发
     Given open the "alert.ListPage" page for uri "/alerts/"
     When I click the "CreateAlert" button

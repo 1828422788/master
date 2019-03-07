@@ -1,13 +1,9 @@
 package com.yottabyte.stepDefs;
 
-import com.yottabyte.utils.CreateWithSQL;
-import com.yottabyte.utils.DeleteWithSQL;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-
-import java.util.List;
 
 public class ThereIsCondition {
 
