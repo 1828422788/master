@@ -80,4 +80,7 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2934:task_地图-行政区划地图_钻取_sample |
       | RZY-2935:task_地图-行政区划地图1_中国       |
       | RZY-2950:task_其它_雷达图_sample       |
-
+      | RZY-2944:task_其它_水球图_sample       |
+      | RZY-2940:task_其它_单值_图标            |
+      | RZY-2941:task_其它_单值_背景            |
+      | RZY-2942:task_其它_单值-按趋势           |

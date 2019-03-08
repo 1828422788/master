@@ -380,10 +380,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "range-color-group-add")
     private WebElement addColour;
 
-    @FindBy(xpath = "//input[@placeholder='min']")
+    @FindBy(xpath = "(//input[@placeholder='min'])[last()]")
     private WebElement minRange;
 
-    @FindBy(xpath = "//input[@placeholder='max']")
+    @FindBy(xpath = "(//input[@placeholder='max'])[last()]")
     private WebElement maxRange;
 
     @FindBy(xpath = "(//span[text()='分段数'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
@@ -418,6 +418,20 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
     private WebElement delete;
+
+    @FindBy(xpath = "//div[contains(text(),'添加颜色区间')]")
+    private WebElement addRange;
+
+    @FindBy(className = "el-switch__label--right")
+    private WebElement switchLabel;
+
+    public WebElement getSwitchLabel() {
+        return switchLabel;
+    }
+
+    public WebElement getAddRange() {
+        return addRange;
+    }
 
     public WebElement getDelete() {
         return delete;

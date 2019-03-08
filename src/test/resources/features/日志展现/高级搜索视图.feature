@@ -53,9 +53,11 @@ Feature: 高级搜索视图（截图并保存为定时任务）
 
   @third
     Examples:
-      | spl                                                                                                                                                                                              | chartType | chart       | caseNum | name    | taskName                 |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city                                                                                                  | Dimension | Sunburst    | 2782    | 旭日图1    | RZY-2918:task_维度_旭日图1    |
-      | tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince | Map       | Geostatsmap | 2797    | 统计地图_权重 | RZY-2938:task_地图-统计地图_权重 |
+      | spl                                                                                                                                                                                              | chartType | chart       | caseNum | name        | taskName                 |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city                                                                                                  | Dimension | Sunburst    | 2782    | 旭日图1        | RZY-2918:task_维度_旭日图1    |
+      | tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince | Map       | Geostatsmap | 2797    | 统计地图_权重     | RZY-2938:task_地图-统计地图_权重 |
+      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                                                                          | Dimension | Rose        | 2777    | 维度_玫瑰图1     | RZY-2913:task_维度_玫瑰图1    |
+      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                                                                     | Map       | Heatmap     | 1229    | 热力地图_sample | RZY-2930:task_地图-热力地图    |
 
   @second
   Scenario Outline: 区间图sample
@@ -85,7 +87,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2925:task_复合_区间图_sample"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -118,7 +120,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2902:task_序列-曲线图"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -145,7 +147,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2904:task_序列-面积图"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -174,7 +176,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2908:task_序列-柱状图"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -216,7 +218,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2906:task_序列-散点图"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -255,7 +257,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2948:task_其它_循序图_sample"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -322,7 +324,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2937:task_地图-统计地图_透明"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -357,7 +359,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2931:task_地图-攻击地图_sample"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -385,7 +387,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2917:task_维度_旭日图_sample"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -435,7 +437,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2928:task_复合_多Y轴图"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -468,7 +470,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2910:task_维度-饼状图1"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -497,7 +499,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2911:task_维度-饼状图2"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -529,7 +531,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2915:task_维度-条形图1"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -561,7 +563,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2916:task_维度-条形图2"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -591,7 +593,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2934:task_地图-行政区划地图_钻取_sample"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -619,7 +621,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2935:task_地图-行政区划地图1_中国"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
@@ -646,6 +648,175 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "TaskName" with value "RZY-2944:task_其它_水球图_sample"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario: RZY-2799:其它_单值_图标
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,"thumbs-down","thumbs-up")"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Single" button
+    And I click the "Setting" button
+    And I click the "Icon" button
+    And I click the "AccordingField" button
+    And I choose the "icon" from the "SettingSelect"
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2799:其它_单值_图标（按字段icon）"
+    And I click the "Setting" button
+    And I choose the "cnt" from the "SettingSelect"
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2799:其它_单值_图标（按字段cnt）"
+    And I click the "Setting" button
+    And I click the "AccordingName" button
+    And I set the parameter "IconName" with value "font-awesome-flag"
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2799:其它_单值_图标（按名称font-awesome-flag）"
+    And I click the "Setting" button
+    And I set the parameter "IconName" with value "font-awesome"
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2799:其它_单值_图标（按名称font-awesome）"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2940:task_其它_单值_图标"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario: RZY-2799:其它_单值_背景
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,"thumbs-down","thumbs-up")"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Single" button
+    And I click the "Setting" button
+    And I click the "Exhibition" button
+    And I click the "Background" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2800:其它_单值_背景"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2941:task_其它_单值_背景"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario: 其它_单值_按趋势
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,"thumbs-down","thumbs-up")"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Single" button
+    And I click the "Setting" button
+    And I click the "Exhibition" button
+    And I click the "AccordingTrend" button
+    And I choose the "一天前" from the "SettingSelect"
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "1369:其它_单值-按趋势"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2942:task_其它_单值-按趋势"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario: 其它_单值设置-按区间
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,"thumbs-down","thumbs-up")"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Single" button
+    And I click the "Setting" button
+    And I click the "Exhibition" button
+    And I click the "AccordingArea" button
+    And I set the parameter "MinRange" with value "0"
+    And I set the parameter "MaxRange" with value "100"
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "100"
+    And I set the parameter "MaxRange" with value "1000"
+    And I click the "StartColour" button
+    And I click the "Red" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "1370:其它_单值设置-按区间"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2943:task_其它_单值设置-按区间"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario: 其它_雷达图1
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart|stats count() by apache.status,apache.geo.city"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Radar" button
+    And I click the "Setting" button
+    And I click the "Divide" button
+    And I choose the "apache.geo.city" from the "SettingSelect"
+    And I click the "SwitchLabel" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Green" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2808:其它_雷达图1"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2951:task_其它_雷达图1"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"

@@ -54,7 +54,7 @@ Feature: 定时任务新增
     Examples:
       | spl                                                                                                      | time      | taskName            | period | unit | startTime |
       | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403：执行计划-定时_3小时 | 3      | 小时   | 5         |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len                                             | Yesterday | RZY-404：执行计划-定时1天   | 1      | 天    | 5         |
+      | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404：执行计划-定时1天   | 1      | 天    | 5         |
 
   @first
   Scenario Outline: RZY-2695：执行计划-crontab_57分钟
