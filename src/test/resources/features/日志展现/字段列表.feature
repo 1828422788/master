@@ -1,9 +1,9 @@
-@logDisplay
 Feature: 日志展现
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
+  @logDisplay
   Scenario Outline: 内置字段不可移除（取消内置字段的星号）（RZY-207）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -23,6 +23,7 @@ Feature: 日志展现
       | index=yott* ERROR AND tag:sample04061424* | logtype  | icon-shoucang | 207：日志展现-内置字段不可移除-logtype字段不可移除  |
       | index=yott* ERROR AND tag:sample04061424* | hostname | icon-shoucang | 207：日志展现-内置字段不可移除-hostname字段不可移除 |
 
+  @logDisplay
   Scenario Outline: 选中字段（标记星号）（RZY-207）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -41,6 +42,7 @@ Feature: 日志展现
       | index=yott* ERROR AND tag:sample04061424* | java.message | icon-yishoucang | SavedFields   | ajava.message | 207：日志展现-选中Java字段 |
       | index=yott* ERROR AND tag:sample04061424* | java.message | icon-shoucang   | UnsavedFields | amessage      | 207：日志展现-取消Java字段 |
 
+  @logDisplay
   Scenario Outline: 字段列表快捷过滤（RZY-171）
     Given I set the parameter "SearchInput" with value "index=yott* ERROR AND tag:sample04061424* "
     And I click the "DateEditor" button
@@ -66,6 +68,7 @@ Feature: 日志展现
 #      | Timestamp | AvgStats      | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-平均值统计图 |
 #      | Timestamp | AvgSequential | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('apache.resp_len') | 171：日志展现-字段列表快捷过滤-平均值时序图 |
 
+  @second
   Scenario: RZY-2900：过滤字段apache.request_query
     Given I set the parameter "SearchInput" with value "tag:"sample04061424" AND apache.request_query:gw_address*610*"
     And I click the "DateEditor" button

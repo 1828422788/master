@@ -1,4 +1,3 @@
-@all @tenant
 Feature: 租户新建（RZY-1691）
 
   Background:
@@ -20,12 +19,11 @@ Feature: 租户新建（RZY-1691）
     And I click the "SaveButton" button
     Then I wait for "SuccessMessage" will be visible
 
-  @smoke @tenantSmoke
+  @first
     Examples:
-      | name         | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | excessLimit | excessBehavior | managerName  | managerEmail             | managerPassword | inputAgain | message                              |
-      | no_scheduler | nothing    | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | no_scheduler | noscheduler@yottabyte.cn | all123456       | all123456  | success message "域名已存在\n错误码: FE_531" |
-      | atest        | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | atest        | atest@yottabyte.cn       | all123456       | all123456  | success message "域名已存在\n错误码: FE_531" |
-
+      | name         | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | excessLimit | excessBehavior | managerName  | managerEmail             | managerPassword | inputAgain |
+      | no_scheduler | nothing    | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | no_scheduler | noscheduler@yottabyte.cn | all123456       | all123456  |
+      | atest        | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | atest        | atest@yottabyte.cn       | all123456       | all123456  |
 
   Scenario Outline:保存失败
     When I set the parameter "Name" with value "<name>"

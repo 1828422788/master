@@ -131,7 +131,7 @@ Feature: 字段提取新建
       | log                                       |
       | {"a":{"b":\n{"c":"d"}\n,"e":{"c":"g"}}\n} |
 
-  @configsSmoke
+  @second
   Scenario: RZY-2818：新建字典规则（RZY-2819使用）
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
@@ -141,6 +141,7 @@ Feature: 字段提取新建
     And I click the "UploadFile" button
 
     #todo undone
+  @second
   Scenario: RZY-2827：新建脱敏配置规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -173,7 +174,7 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "replacer"
     And I click the "NextButton" button
 
-  @configsSmoke
+  @second
   Scenario: RZY-2864：在搜索页验证严格解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -193,7 +194,7 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "codec"
     And I click the "NextButton" button
 
-  @configsSmoke
+  @second
   Scenario: RZY-2867：副规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -213,8 +214,8 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "redirect_fu"
     And I click the "NextButton" button
 
-  @configsSmoke
-  Scenario: RZY-2867：主规则
+  @second
+  Scenario: RZY-2868：主规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
@@ -279,9 +280,13 @@ Feature: 字段提取新建
     And I will see the element "<key2>" name is "<value2>"
 
     Examples:
-      | spl                                       | key        | value    | key1      | value1   | key2            | value2                |
-      | appname:108 tag:1                         | OtherValue | value    |           |          |                 |                       |
-      | appname:date AND tag:date                 | OtherDate  | 20180821 | OtherTime | 17:03:49 | ResultTimestamp | 2019/02/21 17:03:49.0 |
-      | appname:rename                            | OtherAbh   | d        | OtherAeh  | g        |                 |                       |
-      | appname:codec                             | TestName   | aaa      | TestValue | 111      |                 |                       |
-      | appname:redirect_zhu AND tag:redirect_zhu | OtherKey   | value    |           |          |                 |                       |
+      | spl                       | key        | value    | key1      | value1   | key2            | value2                |
+      | appname:108 tag:1         | OtherValue | value    |           |          |                 |                       |
+      | appname:date AND tag:date | OtherDate  | 20180821 | OtherTime | 17:03:49 | ResultTimestamp | 2019/02/21 17:03:49.0 |
+      | appname:rename            | OtherAbh   | d        | OtherAeh  | g        |                 |                       |
+
+  @second
+    Examples:
+      | spl                                       | key      | value | key1      | value1 | key2 | value2 |
+      | appname:codec                             | TestName | aaa   | TestValue | 111    |      |        |
+      | appname:redirect_zhu AND tag:redirect_zhu | OtherKey | value |           |        |      |        |

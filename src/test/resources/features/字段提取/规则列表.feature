@@ -171,6 +171,7 @@ Feature: 字段提取规则列表
       | {'Value1':'"192.168.1.139"','Value2':'"GET"','Value3':'"http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0"','Value4':'"alltest.rizhiyi.com"','Value5':'"/api/v0/search/fields/"','Value6':'"field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields"','Number1':'363','Number2':'200','Value7':'"24/Jan/2015:17:03:49 +0800"','Value8':'"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0"','Value9':'"1.1"'} | geo解析     | clientip    | Checkbox   | {'Value1':'"192.168.1.139"','Value2':'"private"','Value3':'"private"','Value4':'"private"','Value5':'"private"','Value6':'"GET"','Value7':'"http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0"','Value8':'"alltest.rizhiyi.com"','Value9':'"/api/v0/search/fields/"','Value10':'"field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields"','Number1':'363','Number2':'200','Value11':'"24/Jan/2015:17:03:49 +0800"','Value12':'"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0"','Value13':'"1.1"'} |
       | {'Value1':'"192.168.1.139"','Value2':'"GET"','Value3':'"http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0"','Value4':'"alltest.rizhiyi.com"','Value5':'"/api/v0/search/fields/"','Value6':'"field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields"','Number1':'363','Number2':'200','Value7':'"24/Jan/2015:17:03:49 +0800"','Value8':'"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0"','Value9':'"1.1"'} | geo解析     | clientip    |            | {'Value1':'"private"','Value2':'"private"','Value3':'"192.168.1.139"','Value4':'"private"','Value5':'"private"','Value6':'"GET"','Value7':'"http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0"','Value8':'"alltest.rizhiyi.com"','Value9':'"/api/v0/search/fields/"','Value10':'"field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields"','Number1':'363','Number2':'200','Value11':'"24/Jan/2015:17:03:49 +0800"','Value12':'"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0"','Value13':'"1.1"'} |
 
+  @second
   Scenario Outline: 格式化处理（RZY-1550）
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
     And I set the parameter "Source" with value "/var/log/20180821/website"
@@ -290,6 +291,7 @@ Feature: 字段提取规则列表
       | log                   | result           |
       | {"a":{"b":{"c":"d"}}} | {'Value1':'"d"'} |
 
+  @second
   Scenario Outline: XML解析（RZY-1546）
     When I set the parameter "LogSample" with value "<root><test><a>1</a><a>2</a></test><test>3</test></root>"
     And I choose the "XML解析" from the "ParseRule"
@@ -303,6 +305,7 @@ Feature: 字段提取规则列表
       | result                                                                                                                                        |
       | Object\ntest:Array[1]\n0:"3"\ntest[]:Object\na:Array[2]\n0:"1"\n1:"2"\nraw_message:"<root><test><a>1</a><a>2</a></test><test>3</test></root>" |
 
+  @second
   Scenario Outline: RZY-2798：group_regex
     When I set the parameter "LogSample" with value "<log>"
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
@@ -321,6 +324,7 @@ Feature: 字段提取规则列表
       | log                                                                                                                                                                                                                                                                                                                                                                                         | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
       | [AB Server:type=Cell]\nChildCount = 4\nMessageLimit = 12288\nOid = CA_ABS\nCellName = CA_ABS\nClientIp = 9.1.6.247\nParentOid = CA_ABS\nOutOfService = false\nChildCountLimit = 5000\nOverLoad = false\nMinuteCountLimit = 2000\n[AB Server:type=InvokeProcessor]\nAverageTaskTime = 7\nAverageTasksPerSecond = 0\nCompletedTasks = 22321\nComputeAverageInterval = 10000\nRunningTasks = 0 | Object\nCell:Object\nCellName:"CA_ABS"\nChildCount:"4"\nChildCountLimit:"5000"\nClientIp:"9"\nMessageLimit:"12288"\nMinuteCountLimit:"2000"\nOid:"CA_ABS"\nOutOfService:"false"\nOverLoad:"false"\nParentOid:"CA_ABS"\nInvokeProcessor:Object\nAverageTaskTime:"7"\nAverageTasksPerSecond:"0"\nCompletedTasks:"22321"\nComputeAverageInterval:"10000"\nRunningTasks:"0"\nraw_message:"[AB Server:type=Cell] ChildCount = 4 MessageLimit = 12288 Oid = CA_ABS CellName = CA_ABS ClientIp = 9.1.6.247 ParentOid = CA_ABS OutOfService = false ChildCountLimit = 5000 OverLoad = false MinuteCountLimit = 2000 [AB Server:type=InvokeProcessor] AverageTaskTime = 7 AverageTasksPerSecond = 0 CompletedTasks = 22321 ComputeAverageInterval = 10000 RunningTasks = 0" |
 
+  @second
   Scenario Outline: RZY-2823、2824
     When I set the parameter "LogSample" with value "<log>"
     And I choose the "时间戳识别" from the "ParseRule"
@@ -349,7 +353,8 @@ Feature: 字段提取规则列表
     And I click the "ParseButton" button
     Then I will see the error message contains "解析失败"
 
-  Scenario Outline: RZY-2802：手机号解析
+  @second
+  Scenario Outline: RZY-2802、2803
     When I set the parameter "LogSample" with value "18840824121"
     And I choose the "手机号码解析" from the "ParseRule"
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
@@ -364,7 +369,8 @@ Feature: 字段提取规则列表
       |         |         | Object\ngeo:Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.91459\nlongitude:121.61862\nphone:"18840824121"\nprovince:"辽宁"\nraw_message:"18840824121" |
       | checked | 解析到顶层字段 | Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.91459\nlongitude:121.61862\nprovince:"辽宁"\nraw_message:"18840824121"                                  |
 
-  Scenario Outline: RZY-2865：支持通配符
+  @second
+  Scenario Outline: RZY-2865、2866
     When I set the parameter "LogSample" with value "<log>"
     And I choose the "Json解析" from the "ParseRule"
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
@@ -384,6 +390,7 @@ Feature: 字段提取规则列表
       | log                                       | result                                                                                                   | result1                                                                                                  |
       | {"a":{"b":\n{"c":"d"}\n,"e":{"c":"g"}}\n} | Object\na:Object\nb:Object\nc:"d"\ne:Object\nc:"g"\nraw_message:"{"a":{"b": {"c":"d"} ,"e":{"c":"g"}} }" | Object\na:Object\nb:Object\nh:"d"\ne:Object\nh:"g"\nraw_message:"{"a":{"b": {"c":"d"} ,"e":{"c":"g"}} }" |
 
+  @second
   Scenario Outline: RZY-2819：配置自定义字典解析规则
     When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
     And I choose the "Json解析" from the "ParseRule"
@@ -404,6 +411,7 @@ Feature: 字段提取规则列表
       | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
       | Object\nCategory:""\nComputerName:"WIN-999OGBVAHMI"\nEventCode:7036\nEventIdentifier:1073748860\nEventType:3\nLogfile:"System"\nMessage:"Application Experience 服务处于 正在运行 状态。"\nRecordNumber:108343\nSourceName:"Service Control Manager"\nTimeGenerated:"2015-01-04T20:45:09+08:00"\nUser:""\nraw_message:"{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}" |
 
+  @second
   Scenario Outline: RZY-2825：hex转换
     When I set the parameter "LogSample" with value "e5a4a7e9bb91e5b1b1"
     And I choose the "Hex转换" from the "ParseRule"
@@ -418,6 +426,7 @@ Feature: 字段提取规则列表
       | result                    |
       | Object\nraw_message:"大黑山" |
 
+  @second
   Scenario Outline: RZY-2862、2863：（非）严格解析
     When I set the parameter "LogSample" with value "aaa 111"
     And I choose the "结构体解析" from the "ParseRule"

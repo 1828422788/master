@@ -1,4 +1,4 @@
-@appTable
+@second
 Feature: 应用表格新建（RZY-2150）
 
   Background:

@@ -1,4 +1,3 @@
-@all @event @smoke @eventSmoke
 Feature: 事件操作
 
   Background:
@@ -18,9 +17,14 @@ Feature: 事件操作
     Then I will see the input element "SearchInput" value will be "<spl>"
     Then take a screenshot with name "<num>：事件操作-<name>"
 
+  @first
     Examples:
-      | searchSpl                                      | field    | buttonName       | num  | name         | spl                                                                                           |
-      | tag:sample04061424                             | Clientip | AddToSearch      | 2852 | 添加到搜索sample  | tag:sample04061424 AND 'apache.clientip':71.221.121.107                                       |
-      | tag:sample04061424                             | Clientip | RemoveFromSearch | 2853 | 从搜索中删除sample | tag:sample04061424 AND NOT 'apache.clientip':71.221.121.107                                   |
-      | tag:sample04061424 OR tag:sample04061424_chart | Tag      | AddToSearch      | 2854 | 添加到搜索1       | ((tag:sample04061424) OR (tag:sample04061424_chart)) AND 'tag':sample04061424                 |
-      | tag:sample04061424 OR tag:sample04061424_chart | Clientip | RemoveFromSearch | 2855 | 从搜索中删除1      | ((tag:sample04061424) OR (tag:sample04061424_chart)) AND NOT 'apache.clientip':71.221.121.107 |
+      | searchSpl          | field    | buttonName       | num  | name         | spl                                                         |
+      | tag:sample04061424 | Clientip | AddToSearch      | 2852 | 添加到搜索sample  | tag:sample04061424 AND 'apache.clientip':71.221.121.107     |
+      | tag:sample04061424 | Clientip | RemoveFromSearch | 2853 | 从搜索中删除sample | tag:sample04061424 AND NOT 'apache.clientip':71.221.121.107 |
+
+  @second
+    Examples:
+      | searchSpl                                      | field    | buttonName       | num  | name    | spl                                                                                           |
+      | tag:sample04061424 OR tag:sample04061424_chart | Tag      | AddToSearch      | 2854 | 添加到搜索1  | ((tag:sample04061424) OR (tag:sample04061424_chart)) AND 'tag':sample04061424                 |
+      | tag:sample04061424 OR tag:sample04061424_chart | Clientip | RemoveFromSearch | 2855 | 从搜索中删除1 | ((tag:sample04061424) OR (tag:sample04061424_chart)) AND NOT 'apache.clientip':71.221.121.107 |

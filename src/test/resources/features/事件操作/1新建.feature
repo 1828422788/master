@@ -1,4 +1,3 @@
-@all @event
 Feature: 事件操作新建（RZY-1387）
 
   Background:
@@ -26,6 +25,7 @@ Feature: 事件操作新建（RZY-1387）
       | name     | alias              | field | display | action | url                                                                                                                                            | openUrl | message | screenName          |
       | AutoTest | ${apache.clientip} |       | 两者      | 链接     | http://192.168.1.134/search/?query=${apache.clientip}&time_range=-30m,now&order=desc&size=20&page=1&sourcegroup=all&_t=1530688101882&title=tyf | 新窗口     | 保存成功    | 1387：事件操作-新建get事件操作 |
 
+  @second
   Scenario Outline: 保存成功
     When I click the "CreateButton" button
     Then I will see the "event.CreatePage" page
@@ -45,7 +45,6 @@ Feature: 事件操作新建（RZY-1387）
     Then the page's title will be "上下文检索"
     Then take a screenshot with name "2817：事件操作-查看上下文sample"
 
-  @smoke @eventSmoke
     Examples:
       | name        | url                                                                                                                                                                            | message |
       | 查看上下文sample | /search/context/?time_field=timestamp&timestamp=${timestamp}&id_field=context_id&context_id=${context_id}&sort_field=timestamp,context_id&filter_field=source&source=${source} | 保存成功    |
