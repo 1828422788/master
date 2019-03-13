@@ -298,6 +298,15 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Generate" button
     And I wait for loading invisible
     Then take a screenshot with name "2814：日志展现-高级搜索视图-调用链1更改颜色"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2957:task_其它_调用链1"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
 
   @third
   Scenario: 统计地图（RZY-2796）
@@ -815,6 +824,35 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "RZY-2951:task_其它_雷达图1"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario: 其它_矩阵热力图1
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart|stats count() by apache.status,apache.geo.city"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Matrixheatmap" button
+    And I click the "Setting" button
+    And I choose the "apache.geo.city" from the "SettingSelect"
+    And I click the "Yaxis" button
+    And I set the parameter "Segments" with value "5"
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2811:其它_矩阵热力图1"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2955:task_其它_矩阵热力图1"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"

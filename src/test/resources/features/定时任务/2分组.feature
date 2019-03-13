@@ -12,5 +12,5 @@ Feature: 定时任务分组（RZY-411）
 
     Examples:
       | name                       | group                                                                       |
-      | RZY-396：定时任务_sample_表格_近一天 | cancel selection "default_SavedSchedule" from the "Group"                   |
-      | RZY-396：定时任务_sample_表格_近一天 | choose the "default_SavedSchedule,AutoTestWithAllResource" from the "Group" |
+      | RZY-396:定时任务_sample_表格_近一天 | cancel selection "default_SavedSchedule" from the "Group"                   |
+      | RZY-396:定时任务_sample_表格_近一天 | choose the "default_SavedSchedule,AutoTestWithAllResource" from the "Group" |

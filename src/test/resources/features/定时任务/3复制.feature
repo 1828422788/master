@@ -10,13 +10,13 @@ Feature: 定时任务复制（RZY-398）
 
     Examples:
       | name                       |
-      | RZY-397：定时任务sample_昨天      |
-      | RZY-397：定时任务sample_昨天      |
-      | RZY-397：定时任务sample_昨天      |
-      | RZY-397：定时任务sample_昨天      |
-      | RZY-397：定时任务sample_昨天      |
-      | RZY-396：定时任务_sample_表格_近一天 |
-      | RZY-396：定时任务_sample_表格_近一天 |
-      | RZY-396：定时任务_sample_表格_近一天 |
-      | RZY-396：定时任务_sample_表格_近一天 |
-      | RZY-396：定时任务_sample_表格_近一天 |
+      | RZY-397:定时任务sample_昨天      |
+      | RZY-397:定时任务sample_昨天      |
+      | RZY-397:定时任务sample_昨天      |
+      | RZY-397:定时任务sample_昨天      |
+      | RZY-397:定时任务sample_昨天      |
+      | RZY-396:定时任务_sample_表格_近一天 |
+      | RZY-396:定时任务_sample_表格_近一天 |
+      | RZY-396:定时任务_sample_表格_近一天 |
+      | RZY-396:定时任务_sample_表格_近一天 |
+      | RZY-396:定时任务_sample_表格_近一天 |

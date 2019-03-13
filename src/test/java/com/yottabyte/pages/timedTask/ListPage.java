@@ -1,12 +1,9 @@
 package com.yottabyte.pages.timedTask;
 
-import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -65,6 +62,36 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-table__body-wrapper")
     private WebElement table;
 
+    @FindBy(xpath = "(//i[@class='el-input__icon el-icon-arrow-up'])[last()]")
+    private WebElement selectName;
+
+    @FindBy(xpath = "//*[@placeholder='请选择时间范围']")
+    private WebElement dateEditor;
+
+    @FindBy(className = "date-picker")
+    private WebElement datePicker;
+
+    public WebElement getSave() {
+        return super.getContainsTextButton("保存");
+    }
+
+    public WebElement getDatePicker() {
+        return datePicker;
+    }
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    public WebElement getSelectName() {
+        selectName.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getCreateComplement() {
+        return super.getButton("创建补采任务");
+    }
+
     public WebElement getTable() {
         return table;
     }
@@ -86,11 +113,6 @@ public class ListPage extends PageTemplate {
         return switchButton;
     }
 
-    public WebElement getDelete() {
-        this.clickLastPage();
-        return delete.get(delete.size() - 1);
-    }
-
     public WebElement getTableBody() {
         return tableBody;
     }
@@ -109,29 +131,6 @@ public class ListPage extends PageTemplate {
 
     public WebElement getSuccessMessage() {
         return successMessage;
-    }
-
-    public WebElement getChangeGroup() {
-        this.clickLastPage();
-        return changeGroup.get(changeGroup.size() - 2);
-    }
-
-    // 最后一条记录的编辑按钮
-    public WebElement getEdit() {
-        this.clickLastPage();
-        return edit.get(edit.size() - 1);
-    }
-
-    // 最后一条记录的复制按钮
-    public WebElement getCopy() {
-        this.clickLastPage();
-        return copy.get(copy.size() - 1);
-    }
-
-    //点击最后一页
-    public void clickLastPage() {
-        WaitForElement.waitForElementWithExpectedCondition(LoginBeforeAllTests.getWebDriver(), ExpectedConditions.visibilityOf(number.get(0)));
-        number.get(number.size() - 1).click();
     }
 
     public WebElement getDisabledLi() {

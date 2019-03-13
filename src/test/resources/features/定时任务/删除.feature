@@ -1,46 +1,23 @@
+@clean
 Feature: 定时任务删除（RZY-412）
 
-  Background:
+  Scenario Outline: 定时任务删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-
-  Scenario Outline:
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureDelete" button
-    Then I will see the success message "删除成功"
 
-  @timedTask @all @smoke @timedTaskSmoke
-    Examples:
-      | name               |
-      | rangelineAutoTest  |
-      | wordcloudAutoTest  |
-      | singleAutoTest     |
-      | liquidfillAutoTest |
-      | areaAutoTest       |
-      | columnAutoTest     |
-      | scatterAutoTest    |
-      | pieAutoTest        |
-      | roseAutoTest       |
-      | barAutoTest        |
-      | multiaxisAutoTest  |
-      | chordAutoTest      |
-      | sankeyAutoTest     |
-      | forceSunAutoTest   |
-      | forceAutoTest      |
-      | sequenceAutoTest   |
-
-  @clean
     Examples:
       | name                              |
-      | RZY-396：定时任务_sample_表格_近一天        |
-      | RZY-397：定时任务sample_昨天             |
-      | RZY-403：执行计划-定时_3小时               |
-      | RZY-404：执行计划-定时1天                 |
-      | RZY-2695：执行计划-crontab_57分钟        |
-      | RZY-398：定时任务_更新                   |
-      | RZY-1488：保存为各种类型的定时任务-序列          |
+      | RZY-396:定时任务_sample_表格_近一天        |
+      | RZY-397:定时任务sample_昨天             |
+      | RZY-403:执行计划-定时_3小时               |
+      | RZY-404:执行计划-定时1天                 |
+      | RZY-2695:执行计划-crontab_57分钟        |
+      | RZY-398:定时任务_更新                   |
+      | RZY-1488:保存为各种类型的定时任务-序列          |
       | chs_task_funnel                   |
-      | RZY-2696：执行计划-定时_7小时              |
-      | RZY-2699：执行计划-crontab_每个月第15天开始   |
+      | RZY-2696:执行计划-定时_7小时              |
+      | RZY-2699:执行计划-crontab_每个月第15天开始   |
       | RZY-2700_执行计划-crontab_每天9点整到9点零5分 |
       | RZY-2702_执行计划-crontab_周一到周五       |
       | RZY-2901:task_序列-曲线图_sample       |
@@ -84,3 +61,18 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2940:task_其它_单值_图标            |
       | RZY-2941:task_其它_单值_背景            |
       | RZY-2942:task_其它_单值-按趋势           |
+      | RZY-2955:task_其它_矩阵热力图1           |
+      | RZY-2951:task_其它_雷达图1             |
+      | RZY-2943:task_其它_单值设置-按区间         |
+
+  Scenario Outline: 补采任务删除
+    Given open the "timedTask.ListPage" page for uri "/schedule/complement/"
+    When the data name is "<name>" then i click the "删除" button
+
+    Examples:
+      | name                            |
+      | RZY-404:执行计划-定时1天               |
+      | RZY-2698:执行计划-定时_2天             |
+      | RZY-2699:执行计划-crontab_每个月第15天开始 |
+      | RZY-396:定时任务_sample_表格_近一天      |
+      | RZY-2696:执行计划-定时_7小时            |

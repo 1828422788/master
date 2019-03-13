@@ -89,13 +89,6 @@ public class CheckButtonAttribute {
             expectButtonName.add(finalName);
         }
 
-        // 通过则删掉以下注释
-//        for (int i = 0; i < buttonNameList.size(); i++) {
-//            String buttonName = buttonNameList.get(i);
-//            String expectText = expectButtonName.get(i);
-//            validateElementName(expectText, buttonName);
-//        }
-
         for (String buttonName : buttonNameList) {
             String expectText = expectButtonName.get(buttonNameList.indexOf(buttonName));
             validateElementName(expectText, buttonName);

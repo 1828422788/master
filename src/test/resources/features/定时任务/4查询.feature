@@ -10,7 +10,7 @@ Feature: 定时任务查询
 
     Examples:
       | group                 | name                       |
-      | default_SavedSchedule | RZY-396：定时任务_sample_表格_近一天 |
+      | default_SavedSchedule | RZY-396:定时任务_sample_表格_近一天 |
 
   Scenario Outline: 根据搜索内容进行查询
     Given I set the parameter "SearchInput" with value "<inputName>"
@@ -18,4 +18,4 @@ Feature: 定时任务查询
 
     Examples:
       | inputName                  |
-      | RZY-396：定时任务_sample_表格_近一天 |
+      | RZY-396:定时任务_sample_表格_近一天 |

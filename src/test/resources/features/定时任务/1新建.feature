@@ -5,7 +5,7 @@ Feature: 定时任务新增
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
   @first
-  Scenario Outline: RZY-396：定时任务_sample_表格_近一天
+  Scenario Outline: RZY-396:定时任务_sample_表格_近一天
     Given I set the parameter "SearchInput" with value "<spl>"
     And I choose the "所有日志" as log resource
     And I click the "DateEditor" button
@@ -27,9 +27,9 @@ Feature: 定时任务新增
 
     Examples:
       | spl                                                                                                      | time  | taskName                   | period | startTime |
-      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today | RZY-396：定时任务_sample_表格_近一天 | 17     | 5         |
+      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today | RZY-396:定时任务_sample_表格_近一天 | 17     | 5         |
 
-  @smoke @timedTaskSmoke
+  @third
   Scenario Outline: RZY-403、404
     Given I set the parameter "SearchInput" with value "<spl>"
     And I choose the "所有日志" as log resource
@@ -53,11 +53,11 @@ Feature: 定时任务新增
 
     Examples:
       | spl                                                                                                      | time      | taskName            | period | unit | startTime |
-      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403：执行计划-定时_3小时 | 3      | 小时   | 5         |
-      | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404：执行计划-定时1天   | 1      | 天    | 5         |
+      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403:执行计划-定时_3小时 | 3      | 小时   | 5         |
+      | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404:执行计划-定时1天   | 1      | 天    | 5         |
 
   @first
-  Scenario Outline: RZY-2695：执行计划-crontab_57分钟
+  Scenario Outline: RZY-2695:执行计划-crontab_57分钟
     Given I set the parameter "SearchInput" with value "<spl>"
     And I choose the "所有日志" as log resource
     And I click the "DateEditor" button
@@ -76,13 +76,13 @@ Feature: 定时任务新增
   @smoke @timedTaskSmoke
     Examples:
       | spl                                                          | time      | taskName                   | crontab        | message |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Yesterday | RZY-2695：执行计划-crontab_57分钟 | 0 */57 * * * ? | 保存成功    |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Yesterday | RZY-2695:执行计划-crontab_57分钟 | 0 */57 * * * ? | 保存成功    |
 
     Examples:
       | spl                                                          | time  | taskName | crontab | message                       |
       | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     |         | crontab模式下, 执行计划不能为零或空        |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | test    | 无效参数, 参数：[crontab]\n错误码: FE_7 |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | 测试      | 无效参数, 参数：[crontab]\n错误码: FE_7 |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | test    | 无效参数, 参数:[crontab]\n错误码: FE_7 |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | 测试      | 无效参数, 参数:[crontab]\n错误码: FE_7 |
 
   @second
   Scenario Outline: RZY-2450、397
@@ -115,12 +115,12 @@ Feature: 定时任务新增
   @smoke @timedTaskSmoke
     Examples:
       | spl                                                                                    | time  | chartType | chart  | taskName        | describe                 |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10 | Today | Other     | Funnel | chs_task_funnel | RZY-2450：task_漏斗图_sample |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10 | Today | Other     | Funnel | chs_task_funnel | RZY-2450:task_漏斗图_sample |
 
   @first
     Examples:
       | spl                                                          | time      | chartType | chart | taskName              | describe       |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Yesterday |           | Line  | RZY-397：定时任务sample_昨天 | testing 定时任务样例 |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Yesterday |           | Line  | RZY-397:定时任务sample_昨天 | testing 定时任务样例 |
 
   @smoke @timedTaskSmoke
   Scenario Outline: 生成图表类型的定时任务（RZY-1488、RZY-2296、RZY-2297、RZY-2298、RZY-2300）
@@ -147,7 +147,7 @@ Feature: 定时任务新增
 
     Examples:
       | splQuery                                                                                                                       | groupType  | type       | name                     | describe | groups                | period |
-      | (tag:heka) \|bucket timestamp timeranges=((2018-07-26:10:39:50, 2018-07-27:10:40:02)) as tr \| stats dc('appname') as ct by tr | Order      | Line       | RZY-1488：保存为各种类型的定时任务-序列 | owner    | default_SavedSchedule | 10     |
+      | (tag:heka) \|bucket timestamp timeranges=((2018-07-26:10:39:50, 2018-07-27:10:40:02)) as tr \| stats dc('appname') as ct by tr | Order      | Line       | RZY-1488:保存为各种类型的定时任务-序列 | owner    | default_SavedSchedule | 10     |
       | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Wordcloud  | wordcloudAutoTest        | owner    | default_SavedSchedule | 15     |
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Force      | forceAutoTest            | owner    | default_SavedSchedule | 15     |
       | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Single     | singleAutoTest           | owner    | default_SavedSchedule | 15     |

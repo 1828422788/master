@@ -22,14 +22,14 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
   @second
     Examples: 编辑成功
       | dataName                 | name            | describe | user      | resource         | textarea                                                                                                | taskGroup      | period | unit | result |
-      | RZY-397：定时任务sample_昨天(1) | RZY-398：定时任务_更新 | 更改描述信息   | api_usr_m | api_log_source_m | tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt>1000000,"thumbs-down","thumbs-up") | hunter_roles_m | 3      | 小时   | 保存成功   |
+      | RZY-397:定时任务sample_昨天(1) | RZY-398:定时任务_更新 | 更改描述信息   | api_usr_m | api_log_source_m | tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt>1000000,"thumbs-down","thumbs-up") | hunter_roles_m | 3      | 小时   | 保存成功   |
 
     Examples: 编辑失败
       | dataName        | name | describe | user | resource | taskGroup | period | result  |
-      | RZY-398：定时任务_更新 |      |          |      |          |           |        | 名称 不能为空 |
+      | RZY-398:定时任务_更新 |      |          |      |          |           |        | 名称 不能为空 |
 
   @third
-  Scenario Outline: RZY-399：定时任务_api_usr_m
+  Scenario Outline: RZY-399:定时任务_api_usr_m
     When the data name is "<dataName>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I set the parameter "Name" with value "<name>"
@@ -40,7 +40,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
 
     Examples:
       | dataName                 | name                   | describe   | user      | result |
-      | RZY-397：定时任务sample_昨天(2) | RZY-399：运行用户_api_usr_m | AutoCreate | api_usr_m | 保存成功   |
+      | RZY-397:定时任务sample_昨天(2) | RZY-399:运行用户_api_usr_m | AutoCreate | api_usr_m | 保存成功   |
 
   @third
   Scenario Outline: RZY-400:日志来源_api_log_source_m
@@ -54,7 +54,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
 
     Examples:
       | dataName                 | name                          | describe   | resource         | result |
-      | RZY-397：定时任务sample_昨天(3) | RZY-400:日志来源_api_log_source_m | AutoCreate | api_log_source_m | 保存成功   |
+      | RZY-397:定时任务sample_昨天(3) | RZY-400:日志来源_api_log_source_m | AutoCreate | api_log_source_m | 保存成功   |
 
   @third
   Scenario Outline: RZY-401:搜索内容
@@ -68,7 +68,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
 
     Examples:
       | dataName                 | name         | describe   | result |
-      | RZY-397：定时任务sample_昨天(4) | RZY-401:搜索内容 | AutoCreate | 保存成功   |
+      | RZY-397:定时任务sample_昨天(4) | RZY-401:搜索内容 | AutoCreate | 保存成功   |
 
   @third
   Scenario Outline: RZY-402:任务分组hunter_roles_m
@@ -83,7 +83,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
 
     Examples:
       | dataName                 | name                       | describe   | taskGroup      | result |
-      | RZY-397：定时任务sample_昨天(5) | RZY-402:任务分组hunter_roles_m | AutoCreate | hunter_roles_m | 保存成功   |
+      | RZY-397:定时任务sample_昨天(5) | RZY-402:任务分组hunter_roles_m | AutoCreate | hunter_roles_m | 保存成功   |
 
   @second
   Scenario Outline: RZY-2696、2698 修改执行计划
@@ -97,8 +97,8 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
 
     Examples:
       | name                          | newName              | period | unit |
-      | RZY-396：定时任务_sample_表格_近一天(1) | RZY-2696：执行计划-定时_7小时 | 7      | 小时   |
-      | RZY-396：定时任务_sample_表格_近一天(2) | RZY-2698：执行计划-定时_2天  | 2      | 天    |
+      | RZY-396:定时任务_sample_表格_近一天(1) | RZY-2696:执行计划-定时_7小时 | 7      | 小时   |
+      | RZY-396:定时任务_sample_表格_近一天(2) | RZY-2698:执行计划-定时_2天  | 2      | 天    |
 
   @second
   Scenario Outline: RZY-2699、2700、2702 修改crontab
@@ -111,9 +111,9 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
 
     Examples:
       | name                          | newName                           | crontab              |
-      | RZY-396：定时任务_sample_表格_近一天(3) | RZY-2699：执行计划-crontab_每个月第15天开始   | 0 5 9 15/3 * ?       |
-      | RZY-396：定时任务_sample_表格_近一天(4) | RZY-2700_执行计划-crontab_每天9点整至9点30分 | 0 0-30/10 9 * * ?    |
-      | RZY-396：定时任务_sample_表格_近一天(5) | RZY-2702_执行计划-crontab_周一到周五       | 0 0/15 9 ? * MON-FRI |
+      | RZY-396:定时任务_sample_表格_近一天(3) | RZY-2699:执行计划-crontab_每个月第15天开始   | 0 5 9 15/3 * ?       |
+      | RZY-396:定时任务_sample_表格_近一天(4) | RZY-2700_执行计划-crontab_每天9点整至9点30分 | 0 0-30/10 9 * * ?    |
+      | RZY-396:定时任务_sample_表格_近一天(5) | RZY-2702_执行计划-crontab_周一到周五       | 0 0/15 9 ? * MON-FRI |
 
   Scenario Outline: 成功编辑定时任务的结果处理方式（RZY-1205）
     Given the data name is "<dataName>" then i click the "编辑" button
