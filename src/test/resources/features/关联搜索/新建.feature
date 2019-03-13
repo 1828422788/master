@@ -140,3 +140,11 @@ Feature: 关联搜索新建
     And I set the parameter "Field" with value "tag"
     And I set the parameter "CollectField" with value "tagwhat"
     And I click the "Save" button
+
+  Scenario: RZY-805:使用关联搜索
+    Given open the "customApplication.ListPage" page for uri "/app/relate_search/application/"
+    When the data name is "shenzhen_anylysis" then i click the "进入" button without paging
+    And I will see the "customApplication.CreatePage" page
+    And I click the "Search" button
+    And I wait element "Message" change text to "搜索 step3 完成"
+    Then I will see the element "Key" value is "message.PRE_ENTRY_ID:000000001203094955,return.EPORT_ID:"000000001203094955",workflow.ENTRY_ID:"531620160167359680",workflow.ENTRY_ID:"531620160167365048",workflow.ENTRY_ID:"531620160167365049""

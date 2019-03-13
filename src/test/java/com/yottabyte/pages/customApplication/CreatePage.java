@@ -39,6 +39,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//input[@placeholder='步骤id'])[last()]")
     private WebElement stepId;
 
+    @FindBy(className = "el-message__group")
+    private WebElement message;
+
+    @FindBy(className = "s-f-one-key")
+    private List<WebElement> key;
+
+    public List<WebElement> getKey() {
+        return key;
+    }
+
+    public WebElement getMessage() {
+        return message;
+    }
+
     public WebElement getStepId() {
         return stepId;
     }
@@ -121,5 +135,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSuccessMessage() {
         return super.getErrorMessage();
+    }
+
+    public WebElement getSearch() {
+        return super.getButton("开始搜索");
     }
 }

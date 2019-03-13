@@ -6,6 +6,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.GetPaging;
 import com.yottabyte.utils.JsonStringPaser;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -135,6 +136,13 @@ public class ClickButtonWithGivenName {
         } else {
             return this.getSourcesGroupName(tableList, name);
         }
+    }
+
+    public WebElement findNameWithoutPaging(String name) {
+        String url = webDriver.getCurrentUrl();
+        List<WebElement> tableList = webDriver.findElements(By.className("el-table__body"));
+        WebElement table = tableList.get(0);
+        return this.getRowWithoutPaging(name, table);
     }
 
     private WebElement findName(String name, WebElement table) {
@@ -412,6 +420,20 @@ public class ClickButtonWithGivenName {
         return tr;
     }
 
+    private WebElement getTrWithoutPaging(String dataName) {
+        WebElement tr;
+        if (!JsonStringPaser.isJson(dataName)) {
+            tr = this.findNameWithoutPaging(dataName);
+        } else {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
+            String name = map.get("name").toString();
+            int columnNum = Integer.parseInt(map.get("column").toString());
+            WebElement table = webDriver.findElement(By.className("el-table__body"));
+            tr = this.getRowWithoutPaging(name, columnNum, table);
+        }
+        return tr;
+    }
+
     /**
      * 判断某一列为某一值时另一列的值是否符合预期
      *
@@ -490,5 +512,11 @@ public class ClickButtonWithGivenName {
                 label.findElement(By.xpath(".//ancestor::label")).click();
             }
         }
+    }
+
+    @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging$")
+    public void theDataNameIsThenIClickTheButtonWithoutPaging(String name, String buttonName) {
+        WebElement tr = this.getTrWithoutPaging(name);
+        this.click(buttonName, tr);
     }
 }

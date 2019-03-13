@@ -113,4 +113,15 @@ public class CheckButtonAttribute {
         String actualText = element.getText();
         Assert.assertEquals(expect, actualText);
     }
+
+    @Then("^I will see the element \"([^\"]*)\" value is \"([^割]*)\"$")
+    public void iWillSeeTheElementValueIs(String element, List<String> nameList) {
+        Object o = GetElementFromPage.getWebElementWithName(element);
+        if (o instanceof List) {
+            List<WebElement> list = (List<WebElement>) o;
+            for (int i = 0; i < list.size(); i++) {
+                Assert.assertEquals(nameList.get(i), list.get(i).getText());
+            }
+        }
+    }
 }

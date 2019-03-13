@@ -22,6 +22,9 @@ Feature: 字段提取删除
       | RZY2864在搜索页验证严格解析 |
       | redirect副规则       |
       | 脱敏                |
+      | return            |
+      | message           |
+      | workflow          |
 
   @clean
   Scenario: 删除agent配置
