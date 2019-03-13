@@ -1,11 +1,15 @@
 Feature: 租户新建（RZY-1691）
 
   Background:
-    Given open the "tenant.ListPage" page for uri "/domain/tenant/"
+    Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
+
+  Scenario Outline: 保存成功
+    When I set the parameter "Username" with properties "saas_username"
+    And I set the parameter "Password" with properties "saas_password"
+    And I click the "LoginButton" button
+    And I will see the "tenant.ListPage" page
     And I click the "CreateButton" button
     Then I will see the "tenant.CreatePage" page
-
-  Scenario Outline:保存成功
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "DomainName" with value "<domainName>"
     And I choose the "<supportFeature>" from the "SupportFeature"
@@ -23,9 +27,33 @@ Feature: 租户新建（RZY-1691）
     Examples:
       | name         | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | excessLimit | excessBehavior | managerName  | managerEmail             | managerPassword | inputAgain |
       | no_scheduler | nothing    | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | no_scheduler | noscheduler@yottabyte.cn | all123456       | all123456  |
-      | atest        | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | atest        | atest@yottabyte.cn       | all123456       | all123456  |
+
+  @first
+  Scenario Outline:
+    And I will see the "tenant.ListPage" page
+    And I click the "CreateButton" button
+    Then I will see the "tenant.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "DomainName" with value "<domainName>"
+    And I choose the "<supportFeature>" from the "SupportFeature"
+    And I set the parameter "DailyLimit" with value "<dailyLimit>"
+    And I set the parameter "ExcessLimit" with value "<excessLimit>"
+    And I choose the "<excessBehavior>" from the "ExcessBehavior"
+    And I set the parameter "ManagerName" with value "<managerName>"
+    And I set the parameter "ManagerEmail" with value "<managerEmail>"
+    And I set the parameter "ManagerPassword" with value "<managerPassword>"
+    And I set the parameter "InputAgain" with value "<inputAgain>"
+    And I click the "SaveButton" button
+    Then I wait for "SuccessMessage" will be visible
+
+    Examples:
+      | name  | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | excessLimit | excessBehavior | managerName | managerEmail       | managerPassword | inputAgain |
+      | atest | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | atest       | atest@yottabyte.cn | all123456       | all123456  |
 
   Scenario Outline:保存失败
+    And I will see the "tenant.ListPage" page
+    And I click the "CreateButton" button
+    Then I will see the "tenant.CreatePage" page
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "DomainName" with value "<domainName>"
     And I choose the "<supportFeature>" from the "SupportFeature"

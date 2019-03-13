@@ -1,8 +1,8 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.config.ConfigManager;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
@@ -39,12 +39,19 @@ public class SetKeyWithValue {
             element.click();
             //element.sendKeys(Keys.CONTROL + "a");
             element.sendKeys(Keys.END);
-            element.sendKeys(Keys.SHIFT,Keys.HOME);
+            element.sendKeys(Keys.SHIFT, Keys.HOME);
             element.sendKeys(Keys.BACK_SPACE);
             if (element.getText().equalsIgnoreCase("")) {
                 flag = false;
             }
         }
         element.sendKeys(value);
+    }
+
+    @And("^I set the parameter \"([^\"]*)\" with properties \"([^\"]*)\"$")
+    public void iSetTheParameterWithProperties(String element, String properties) {
+        ConfigManager config = new ConfigManager();
+        String property = config.get(properties);
+        this.iSetTheParameterWithValue(element, property);
     }
 }
