@@ -187,6 +187,13 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='类型']")
     private WebElement type;
 
+    @FindBy(xpath = "//span[contains(text(),'75%')]/i")
+    private WebElement closePercent;
+
+    public WebElement getClosePercent() {
+        return closePercent;
+    }
+
     public WebElement getAddNum() {
         return super.getButton("添加数值分段");
     }

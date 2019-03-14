@@ -18,4 +18,4 @@ Feature: 报表编辑（RZY-129）
 
     Examples: 保存成功
       | dataName        | name                 | runningUser | subject                       | layout  |
-      | 改为面积图散点图sample2 | 改为面积图散点图sample2(PDF) | AutoTest    | 报表名称：<%report_name%>, 第三种布局方式 | Layout3 |
+      | 改为散点图雷达图sample2 | 改为散点图雷达图sample2(PDF) | AutoTest    | 报表名称：<%report_name%>, 第三种布局方式 | Layout3 |

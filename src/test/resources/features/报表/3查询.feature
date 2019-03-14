@@ -11,7 +11,7 @@ Feature: 报表查询（RZY-136）
 
     Examples:
       | group          | name                 |
-      | default_Report | 改为面积图散点图sample2 |
+      | default_Report | 改为散点图雷达图sample2 |
 
   Scenario Outline: 根据输入内容查询
     Given I set the parameter "SearchInput" with value "<searchInput>"

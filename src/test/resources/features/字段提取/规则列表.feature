@@ -1,4 +1,3 @@
-@all @smoke @configs @configsSmoke
 Feature: 字段提取规则列表
 
   Background:
@@ -9,6 +8,7 @@ Feature: 字段提取规则列表
     And I set the parameter "Logtype" with value "test"
     Then I choose the "default_ParserRule" from the "Group"
 
+  @first
   Scenario Outline: 正则解析（RZY-1530）
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "<parseRule>" from the "ParseRule"
@@ -23,6 +23,7 @@ Feature: 字段提取规则列表
       | logSample                                                                   | parseRule | sourceField | regex                                                                       | key                         | value                                                                             |
       | 2014-05-14 23:24:47 15752 [Note] InnoDB: 128 rollback segment(s) are active | 正则解析      | raw_message | (?<timestamp>\\S+ \\S+) (?<pid>\\S+) \\[(?<loglevel>\\S+)\\] (?<message>.*) | Value1,Value2,Value3,Value4 | "Note","InnoDB: 128 rollback segment(s) are active","15752","2014-05-14 23:24:47" |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: KeyValue分解（RZY-1531至1533）
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "KeyValue分解" from the "ParseRule"
@@ -42,6 +43,7 @@ Feature: 字段提取规则列表
       | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message |         | order   | Value1,Value2,Value3,Value4,Value5,Value6,Value8        | "tag","1","*","50","all","%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97","fields"        |
       | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message | order   |         | Value1                                                  | "desc"                                                                          |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: 正则解析+KeyValue正则匹配（RZY-1535）
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "<parseRule>" from the "ParseRule"
@@ -66,6 +68,7 @@ Feature: 字段提取规则列表
       | logSample                                                                                                                                                                                                                                                                                                                                                                                                                                     | parseRule | sourceField | regex                                                                                                                                                                                                                        | key                                               | value                                                                                                                                                                                                                                                                                                                                                                                                         | parseRule1   | sourceField2 | keyRegex | valueRegex | kvSeparator | key1                                                                                                                   | value1                                                                                                                                                                                                                               |
       | <190>May 18 11:20:10 2016 HLJ_S12508_1_FW %%10FILTER/6/ZONE_DP_FLT_EXECUTION_TCP_LOG(l): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009; | 正则解析      | raw_message | <%{NOTSPACE:id}>(?<timestamp>%{NOTSPACE}\s+%{NOTSPACE}\s+%{NOTSPACE}\s+%{NOTSPACE}\s+)%{NOTSPACE:host} \%\%(?<vendor>[^/]*)/(?<severity>[^/]*)/(?<MNEMONIC>[^:]*): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; (?<message>.*) | Value1, Value2,Value3,Value4,Value5,Value6,Value7 | "ZONE_DP_FLT_EXECUTION_TCP_LOG(l)","HLJ_S12508_1_FW","190","srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009;","6","May 18 11:20:10 2016 ","10FILTER" | KeyValue正则匹配 | message      | [^=;]+   | [^=;]+     | \(\d+\)=    | Value1,Value2,Value3,Value4,Value5,Value6,Value7,Value8,Value9,Value10,Value11,Value12,Value13,Value14,Value15,Value16 | "ZONE_DP_FLT_EXECUTION_TCP_LOG(l)","HLJ_S12508_1_FW","190","05182016112009","10.166.5.70","1521","servertrust","05182016112009","denied","TCP(6)","90","10.167.77.99","49362","serveruntrust","6","May 18 11:20:10 2016 ","10FILTER" |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: 正则解析+数值型字段转换（RZY-1536至1538）
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "正则解析" from the "ParseRule"
@@ -91,6 +94,7 @@ Feature: 字段提取规则列表
       | <190>May 18 11:20:10 2016 HLJ_S12508_1_FW %%10FILTER/6/ZONE_DP_FLT_EXECUTION_TCP_LOG(l): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009; | <%{NOTSPACE:id}>(?<timestamp>%{NOTSPACE}\s+%{NOTSPACE}\s+%{NOTSPACE}\s+%{NOTSPACE}\s+)%{NOTSPACE:host} \%\%(?<vendor>[^/]*)/(?<severity>[^/]*)/(?<MNEMONIC>[^:]*): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; (?<message>.*) | Value1, Value2,Value3,Value4,Value5,Value6,Value7 | "ZONE_DP_FLT_EXECUTION_TCP_LOG(l)","HLJ_S12508_1_FW","190","srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009;","6","May 18 11:20:10 2016 ","10FILTER" | 10      | Number1 | 190    |
       | <190>May 18 11:20:10 2016 HLJ_S12508_1_FW %%10FILTER/6/ZONE_DP_FLT_EXECUTION_TCP_LOG(l): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009; | <%{NOTSPACE:id}>(?<timestamp>%{NOTSPACE}\s+%{NOTSPACE}\s+%{NOTSPACE}\s+%{NOTSPACE}\s+)%{NOTSPACE:host} \%\%(?<vendor>[^/]*)/(?<severity>[^/]*)/(?<MNEMONIC>[^:]*): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; (?<message>.*) | Value1, Value2,Value3,Value4,Value5,Value6,Value7 | "ZONE_DP_FLT_EXECUTION_TCP_LOG(l)","HLJ_S12508_1_FW","190","srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009;","6","May 18 11:20:10 2016 ","10FILTER" | 16      | Number1 | 400    |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: 正则解析+URL解析/user agent解析/时间戳解析/CSV解析/syslog_pri解析/ip格式转换
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "正则解析" from the "ParseRule"
@@ -118,6 +122,7 @@ Feature: 字段提取规则列表
       | <30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting.                                                                                                                                                                                                                                                                                                                                                                                                                                               | <(?<pri>\d+)>.*                                                                                                       | {'Value1':'"30"'}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | syslog_pri解析 | pri           |              |                        | {'Value1':'"daemon"','Value2':'"30"','Value3':'"info"'}                                                                                                                                                                                                                                                              |
       | 3651919938                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | (?<ip>.*)                                                                                                             | {'Value1':'"3651919938"'}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | ip格式转换       | ip            |              |                        | {'Value1':'"217.171.224.66"'}                                                                                                                                                                                                                                                                                        |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: json解析（RZY-1542至1543）
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I choose the "Json解析" from the "ParseRule"
@@ -133,6 +138,7 @@ Feature: 字段提取规则列表
       |           |      | {'Value1':'"Portland, New York,Los Angeles "','Value2':'"United States"','Value3':'"324 Chrome St"','Number1':'23','Boolean1':'true','Value4':'"John Smith "'} |
       | PathInput | Age  | {'Number1':'23'}                                                                                                                                               |
 
+  @first
   Scenario Outline: CSV解析（RZY-1544）
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I choose the "CSV解析" from the "ParseRule"
@@ -148,6 +154,7 @@ Feature: 字段提取规则列表
       | separate | fieldList | key                         | value                                      |
       | ,        | 1,2,3,4,5 | Value1,Value2,Value3,Value4 | "192.168.1.200","xmxm","rzy","13800000000" |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: 正则解析+geo解析（RZY-1548至1549）
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
     And I choose the "正则解析" from the "ParseRule"
@@ -204,6 +211,7 @@ Feature: 字段提取规则列表
       | key           | value                      | key1                 | value1                                | key2                        | value2                                                   |
       | Value1,Value2 | "192.168.1.139","17:03:49" | Value1,Value2,Value3 | "192.168.1.139","20180821","17:03:49" | Value1,Value2,Value3,Value4 | "192.168.1.139","20180821","17:03:49","2018082117:03:49" |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: 删除字段（RZY-1551）
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
     And I set the parameter "Source" with value "/var/log/20180821/website"
@@ -242,6 +250,7 @@ Feature: 字段提取规则列表
       | key           | value                      | key1                 | value1                                | key2                        | value2                                                   | key3                 | value3                                        |
       | Value1,Value2 | "192.168.1.139","17:03:49" | Value1,Value2,Value3 | "192.168.1.139","20180821","17:03:49" | Value1,Value2,Value3,Value4 | "192.168.1.139","20180821","17:03:49","2018082117:03:49" | Value1,Value2,Value3 | "192.168.1.139","17:03:49","2018082117:03:49" |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: 内容替换（RZY-1556至1557）
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I choose the "内容替换" from the "ParseRule"
@@ -259,6 +268,7 @@ Feature: 字段提取规则列表
       | $1             |              | {'Value1':'"123456qwe"'} |
       | $1             | Checkbox     | {'Value1':'"123456"'}    |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: 固定电话解析（RZY-1558、RZY-1561）
     When I set the parameter "LogSample" with value "<log>"
     And I choose the "<parseRule>" from the "ParseRule"
@@ -274,6 +284,7 @@ Feature: 字段提取规则列表
       | 03188433218 | 固定电话解析    | raw_message |          | {'Value1':'"衡水市"','Value2':'"中国"','Number1':'37.7351','Number2':'115.66599','Value3':'"河北"','Value4':'"03188433218"'} |
       | 03188433218 | 固定电话解析    | raw_message | Checkbox | {'Value1':'"衡水市"','Value2':'"中国"','Number1':'37.7351','Number2':'115.66599','Value3':'"河北"','Value4':'"03188433218"'} |
 
+  @all @smoke @configs @configsSmoke
   Scenario Outline: 字段重命名（RZY-1590）
     When I set the parameter "LogSample" with value "<log>"
     And I choose the "Json解析" from the "ParseRule"
@@ -342,6 +353,7 @@ Feature: 字段提取规则列表
       | 192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0" |        | Object\ntimestamp:"2015/01/24 17:03:49.0"\nraw_message:"192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0"" |
       | 192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0" | 45     | Object\ntimestamp:"2015/01/24 17:03:49.0"\nraw_message:"192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0"" |
 
+  @all @smoke @configs @configsSmoke
   Scenario: RZY-2824：最大匹配长度（步骤1）
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
     And I choose the "时间戳识别" from the "ParseRule"

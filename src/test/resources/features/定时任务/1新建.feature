@@ -56,7 +56,6 @@ Feature: 定时任务新增
       | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403:执行计划-定时_3小时 | 3      | 小时   | 5         |
       | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404:执行计划-定时1天   | 1      | 天    | 5         |
 
-  @first
   Scenario Outline: RZY-2695:执行计划-crontab_57分钟
     Given I set the parameter "SearchInput" with value "<spl>"
     And I choose the "所有日志" as log resource
@@ -73,7 +72,7 @@ Feature: 定时任务新增
     And I click the "EnsureCrontab" button
     Then I will see the success message "<message>"
 
-  @smoke @timedTaskSmoke
+  @first
     Examples:
       | spl                                                          | time      | taskName                   | crontab        | message |
       | tag:sample04061424_chart \| stats count() by apache.resp_len | Yesterday | RZY-2695:执行计划-crontab_57分钟 | 0 */57 * * * ? | 保存成功    |
@@ -84,7 +83,6 @@ Feature: 定时任务新增
       | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | test    | 无效参数, 参数:[crontab]\n错误码: FE_7 |
       | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | 测试      | 无效参数, 参数:[crontab]\n错误码: FE_7 |
 
-  @second
   Scenario Outline: RZY-2450、397
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -112,7 +110,7 @@ Feature: 定时任务新增
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
-  @smoke @timedTaskSmoke
+  @second
     Examples:
       | spl                                                                                    | time  | chartType | chart  | taskName        | describe                 |
       | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10 | Today | Other     | Funnel | chs_task_funnel | RZY-2450:task_漏斗图_sample |

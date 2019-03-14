@@ -1,11 +1,11 @@
-@all @report @smoke @reportSmoke
+@first
 Feature: 报表禁用/启用（RZY-137至138）
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
   Scenario Outline:
-    Then I disabled the data "改为面积图散点图sample2"
+    Then I disabled the data "改为散点图雷达图sample2"
     Then I will see the success message "<result>"
 
     Examples:

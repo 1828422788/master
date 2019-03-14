@@ -1,7 +1,7 @@
 @all @smoke @configs
 Feature: 字段提取新建
 
-  @configsSmoke
+  @first
   Scenario Outline: 创建规则并关联日志（RZY-1880）
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button

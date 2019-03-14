@@ -281,7 +281,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-autocomplete yw-search-setting-select']//input")
     private WebElement iconName;
 
-    @FindBy(className = "yw-search-setting-switch")
+    @FindBy(xpath = "(//*[@class='el-switch yw-search-setting-switch'])[last()]")
     private WebElement switchButton;
 
     @FindBy(xpath = "(//div[text()='指示器'])[last()]")

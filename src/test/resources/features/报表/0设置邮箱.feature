@@ -1,4 +1,4 @@
-@smoke @reportSmoke @report @all
+@first
 Feature: 报表所需邮箱配置
 
   Background:

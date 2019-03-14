@@ -1,4 +1,3 @@
-@logDisplay
 Feature: 普通统计视图
 
   Background:
@@ -20,13 +19,19 @@ Feature: 普通统计视图
     And I wait for loading invisible
     Then take a screenshot with name "<caseNum>：日志展现-普通统计视图-<chart>sample"
 
+  @first
+    Examples:
+      | chart | value1  | value2          | caseNum |
+      | 曲线图   | logtype | apache.clientip | 807     |
+
+  @logDisplay
     Examples:
       | chart | value1                | value2              | caseNum |
-      | 曲线图   | logtype               | apache.clientip     | 807     |
       | 面积图   | apache.geo.city       | tag                 | 808     |
       | 散点图   | apache.referer_domain | apache.resp_len     | 809     |
       | 柱状图   | apache.x_forward      | apache.geo.latitude | 810     |
 
+  @logDisplay
   Scenario Outline: 时间分段（RZY-812、813、2721、2722、2723、2724）
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
@@ -56,6 +61,7 @@ Feature: 普通统计视图
       | apache.resp_len      | 最大值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2723：日志展现-时间分段-最大值 |
       | apache.resp_len      | 最小值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2724：日志展现-时间分段-最小值 |
 
+  @logDisplay
   Scenario: 数值分段（RZY-814）
     When I set the parameter "SearchInput" with value "tag:sample04061424*"
     And I click the "DateEditor" button
@@ -78,6 +84,7 @@ Feature: 普通统计视图
     Then I wait for "Loading" will be invisible
     Then take a screenshot with name "814：日志展现-普通统计视图-数值分段"
 
+  @logDisplay
   Scenario Outline: 时间直方图（RZY-815）
     When I set the parameter "SearchInput" with value "tag:sample04061424*"
     And I click the "DateEditor" button
@@ -102,6 +109,7 @@ Feature: 普通统计视图
       | 1        | 天    | 2725：日志展现-时间间隔1d    |
       | 1        | 周    | 2725：日志展现-时间间隔1week |
 
+  @logDisplay
   Scenario Outline: 生成数值直方图（RZY-816）
     When I set the parameter "SearchInput" with value "tag:sample04061424*"
     And I click the "DateEditor" button
@@ -120,3 +128,21 @@ Feature: 普通统计视图
     Examples:
       | fieldValue    | number |
       | json.duration | 200    |
+
+  @first
+  Scenario: RZY-819:[字段] [百分比]_sample
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "TotalPercent" button
+    And I choose the "apache.resp_len" from the "FieldValue"
+    And I click the "ClosePercent" button
+    And I click the "AddPercent" button
+    And I set the parameter "PercentInput" with value "80"
+    Then I click the "Generate" button
+    Then I wait for "Loading" will be invisible
+    Then take a screenshot with name "819：日志展现-普通统计视图-百分比_sample"

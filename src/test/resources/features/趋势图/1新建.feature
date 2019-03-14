@@ -5,7 +5,6 @@ Feature: 趋势图新建
     And I click the "CreateButton" button
     Then I will see the "trend.CreatePage" page
 
-  @all @smoke @trendSmoke @trend
   Scenario Outline: 序列图sample1（RZY-2477、2005、2491、2499、2522）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -40,12 +39,17 @@ Feature: 趋势图新建
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
+  @first
+    Examples:
+      | name       | spl                                                                          | chart | chartType | reportName   | hour | minute |
+      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |       | Line      | 曲线图sample1报表 | 11   | 50     |
+      | 柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |       | Column    | 柱状图sample1报表 | 12   | 05     |
+
+  @all @smoke @trendSmoke @trend
     Examples:
       | name       | spl                                                                                                                      | chart | chartType | reportName   | hour | minute |
-      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             |       | Line      | 曲线图sample1报表 | 11   | 50     |
       | 面积图sample1 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 |       | Area      | 面积图sample1报表 | 11   | 55     |
       | 散点图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             |       | Scatter   | 散点图sample1报表 | 12   | 00     |
-      | 柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             |       | Column    | 柱状图sample1报表 | 12   | 05     |
 
   @second
     Examples:
@@ -356,7 +360,7 @@ Feature: 趋势图新建
 #      | name | describe | group         | spl                                               | chart    | field   | divideField1  | divideField2    |
 #      | 旭日图  | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | Sunburst | count() | apache.status | apache.geo.city |
 #
-  @all @smoke @trendSmoke @trend
+  @first
   Scenario Outline: 热力地图sample1（RZY-2539）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "<describe>"
@@ -719,7 +723,7 @@ Feature: 趋势图新建
       | name        | spl                                                          | chartType | type      | colour | hour | minute |
       | 字符云图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Other     | Wordcloud | Orange | 13   | 05     |
 
-  @all @smoke @trendSmoke @trend
+  @first
     Examples:
       | name       | spl                                                                          | chartType | type | colour | hour | minute |
       | 饼状图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie  | Yellow | 13   | 07     |

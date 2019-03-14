@@ -4,8 +4,7 @@ Feature: 报表新建（RZY-116）
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-  @smoke @reportSmoke
-  Scenario Outline: 改为曲线图sample2
+  Scenario Outline: RZY-1602:改为曲线图sample2
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -53,11 +52,17 @@ Feature: 报表新建（RZY-116）
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
+  @first
     Examples: 保存成功
       | name               | describe | reportGroup    | reportType | email                     | subject                       | hour | minute | chartLists | layout  |
       | 改为曲线图sample2(WORD) | AutoTest | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 00     | 曲线图sample0 | Layout1 |
-      | 改为曲线图sample2(URL)  | AutoTest | default_Report | URL        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 05     | 曲线图sample0 | Layout1 |
 
+  @smoke @reportSmoke
+    Examples:
+      | name              | describe | reportGroup    | reportType | email                     | subject                       | hour | minute | chartLists | layout  |
+      | 改为曲线图sample2(URL) | AutoTest | default_Report | URL        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 05     | 曲线图sample0 | Layout1 |
+
+  @smoke @reportSmoke
   Scenario: RZY-2665:改为饼状图sample3
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
@@ -97,8 +102,8 @@ Feature: 报表新建（RZY-116）
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  @smoke @reportSmoke
-  Scenario Outline: 改为面积图sample2+散点图sample2报表，11：11执行
+  @first
+  Scenario Outline: 改为散点图雷达图sample2
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -113,39 +118,7 @@ Feature: 报表新建（RZY-116）
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
-    And I choose the "面积图sample0" from the "ChartList"
-    And I click the "Arrow" button
-    And I click the "EditButton" button
-    And I click the "ChartType" button
-    And I will see the "trend.CreatePage" page
-    And I click the "Area" button
-    Then I will see the "report.CreatePage" page
-    And I click the "ParameterSetting" button
-    And I will see the "trend.CreatePage" page
-    And I set the parameter "FieldValueInput" with value "apache.status"
-    And I click the "Vertical" button
-    And I click the "AscendingOrder" button
-    And I click the "Yaxis" button
-    And I set the parameter "FieldValueInput" with value "cnt"
-    And I set the parameter "Unit" with value "克"
-    And I click the "Smooth" button
-    And I click the "ConnectEmptyData" button
-    And I set the parameter "Min" with value "0"
-    And I click the "Group" button
-    And I click the "AddField" button
-    And I set the parameter "FieldValueInput" with value "ts"
-    And I click the "Pile" button
-    And I click the "Example" button
-    And I click the "NoneExample" button
-    And I click the "Exhibition" button
-    And I click the "StartColour" button
-    And I click the "Purple" button
-    And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
-    And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
     And I choose the "散点图sample0" from the "ChartList"
-    And I wait for "1000" millsecond
     And I click the "Arrow" button
     And I click the "EditButton" button
     And I click the "ChartType" button
@@ -176,18 +149,44 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
+    And I choose the "雷达图sample0" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Radar" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I click the "SwitchButton" button
+    And I click the "Indicator" button
+    And I click the "AddField" button
+    And I set the parameter "FieldValueInput" with value "apache.status"
+    And I click the "Example" button
+    And I click the "SecondPosition" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  @smoke @reportSmoke
     Examples: 保存成功
       | name            | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-      | 改为面积图散点图sample2 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第二种布局方式 | 11   | 10     | Layout2 |
+      | 改为散点图雷达图sample2 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第二种布局方式 | 11   | 10     | Layout2 |
 
   @smoke @reportSmoke
-  Scenario Outline: 改为柱状图sample2+和弦图sample1+桑基图sample1报表，11：12执行
+  Scenario Outline: 改为柱状图sample2+和弦图sample1+桑基图sample1报表
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -584,7 +583,7 @@ Feature: 报表新建（RZY-116）
     Then I will see the success message "保存成功"
 
   @smoke @reportSmoke
-  Scenario Outline: 改为雷达图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表，11：12执行
+  Scenario Outline: 改为面积图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表，11：12执行
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -598,29 +597,35 @@ Feature: 报表新建（RZY-116）
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
+
     And I click the "NextButton" button
-    And I choose the "雷达图sample0" from the "ChartList"
+    And I choose the "面积图sample0" from the "ChartList"
     And I click the "Arrow" button
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
-    And I click the "Other" button
-    And I click the "Radar" button
+    And I click the "Area" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
     And I will see the "trend.CreatePage" page
-    And I set the parameter "FieldValueInput" with value "count()"
-    And I click the "Divide" button
-    And I set the parameter "FieldValueInput" with value "apache.clientip"
-    And I click the "SwitchButton" button
-    And I click the "Indicator" button
-    And I click the "AddField" button
     And I set the parameter "FieldValueInput" with value "apache.status"
+    And I click the "Vertical" button
+    And I click the "AscendingOrder" button
+    And I click the "Yaxis" button
+    And I set the parameter "FieldValueInput" with value "cnt"
+    And I set the parameter "Unit" with value "克"
+    And I click the "Smooth" button
+    And I click the "ConnectEmptyData" button
+    And I set the parameter "Min" with value "0"
+    And I click the "Group" button
+    And I click the "AddField" button
+    And I set the parameter "FieldValueInput" with value "ts"
+    And I click the "Pile" button
     And I click the "Example" button
-    And I click the "SecondPosition" button
+    And I click the "NoneExample" button
     And I click the "Exhibition" button
     And I click the "StartColour" button
-    And I click the "Orange" button
+    And I click the "Purple" button
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
@@ -632,6 +637,7 @@ Feature: 报表新建（RZY-116）
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
+    And I click the "Other" button
     And I click the "Funnel" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
@@ -694,7 +700,7 @@ Feature: 报表新建（RZY-116）
   @smoke @reportSmoke
     Examples: 保存成功
       | name                                               | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-      | 改为雷达图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 45     | Layout4 |
+      | 改为面积图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 45     | Layout4 |
 
   Scenario Outline: 执行计划为crontab
     Given I click the "CreateButton" button
