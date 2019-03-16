@@ -131,7 +131,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-search-setting-switch")
     private WebElement settingSwitch;
 
-    @FindBy(xpath = "//div[contains(text(),'维度')]")
+    @FindBy(xpath = "(//div[contains(text(),'维度')])[last()]")
     private WebElement dimension;
 
     @FindBy(xpath = "(//div[contains(text(),'关系')])[last()]")
@@ -139,6 +139,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[contains(text(),'复合')])[last()]")
     private WebElement compound;
+
+    @FindBy(xpath = "(//div[contains(text(),'序列')])[last()]")
+    private WebElement order;
 
     @FindBy(xpath = "(//div[contains(text(),'地图')][@class='popover-type-group-item'])[last()]")
     private WebElement map;
@@ -149,13 +152,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "pie")
     private WebElement pie;
 
-    @FindBy(className = "rose")
+    @FindBy(xpath = "(//div[@class='img rose'])[last()]")
     private WebElement rose;
 
-    @FindBy(className = "bar")
+    @FindBy(xpath = "(//div[@class='img bar'])[last()]")
     private WebElement bar;
 
-    @FindBy(className = "sunburst")
+    @FindBy(xpath = "(//div[@class='img sunburst'])[last()]")
     private WebElement sunburst;
 
     @FindBy(className = "tracing")
@@ -424,6 +427,25 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "el-switch__label--right")
     private WebElement switchLabel;
+
+    @FindBy(xpath = "(//span[text()='标签展示'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement showLabel;
+
+    @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
+    private WebElement scrollbar;
+
+    public WebElement getScrollbar() {
+        return scrollbar;
+    }
+
+    public WebElement getShowLabel() {
+        showLabel.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOrder() {
+        return order;
+    }
 
     public WebElement getSwitchLabel() {
         return switchLabel;

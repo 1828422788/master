@@ -42,8 +42,8 @@ Feature: 趋势图新建
   @first
     Examples:
       | name       | spl                                                                          | chart | chartType | reportName   | hour | minute |
-      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |       | Line      | 曲线图sample1报表 | 11   | 50     |
-      | 柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 |       | Column    | 柱状图sample1报表 | 12   | 05     |
+      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     |
+      | 柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Column    | 柱状图sample1报表 | 12   | 05     |
 
   @all @smoke @trendSmoke @trend
     Examples:
@@ -328,43 +328,10 @@ Feature: 趋势图新建
       | name       | spl                                                                                                                        | chartType | chart     | reportName   |
       | 区间图sample1 | tag:*display \| bucket timestamp span=1h as ts \| stats count('apache.status') as 'count' by ts \| esma count timefield=ts | Compound  | Rangeline | 区间图sample1报表 |
 
-
-
-
-#  Scenario Outline: 维度图（RZY-2099、RZY-2006至2008）
-#    When I set the parameter "NameInput" with value "<name>"
-#    And I set the parameter "DescribeInput" with value "<describe>"
-#    And I choose the "<group>" from the "GroupDropdown"
-#    And I click the "NextButton" button
-#    And I set the parameter "SearchInput" with value "<spl>"
-#    And I click the "DateEditor" button
-#    And I click the "Today" button
-#    And I click the "SearchButton" button
-#    And I wait for "Header" will be visible
-#    And I click the "NextButton" button
-#    And I click the "ChartType" button
-#    And I click the "Dimension" button
-#    And I click the "<chart>" button
-#    And I wait for loading invisible
-#    And I click the "Setting" button
-#    And I choose the "<field>" from the "SettingSelect"
-#    And I click the "Divide" button
-#    And I choose the "<divideField1>" from the "SettingSelect"
-#    And I click the "AddField" button
-#    And I choose the "<divideField2>" from the "SecondSettingSelect"
-#    And I click the "Generate" button
-#    And I click the "Save" button
-#    Then I will see the success message "创建成功"
-#
-#    Examples:
-#      | name | describe | group         | spl                                               | chart    | field   | divideField1  | divideField2    |
-#      | 旭日图  | test     | default_Trend | *\|stats count() by apache.status,apache.geo.city | Sunburst | count() | apache.status | apache.geo.city |
-#
-  @first
-  Scenario Outline: 热力地图sample1（RZY-2539）
+  Scenario Outline: 热力地图、旭日图sample1（RZY-2539、2851）
     When I set the parameter "NameInput" with value "<name>"
-    And I set the parameter "DescribeInput" with value "<describe>"
-    And I choose the "<group>" from the "GroupDropdown"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
     And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -373,8 +340,8 @@ Feature: 趋势图新建
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I click the "ChartType" button
-    And I click the "Map" button
-    And I click the "Heatmap" button
+    And I click the "<chart>" button
+    And I click the "<type>" button
     And I wait for loading invisible
     And I click the "Save" button
     Then I will see the success message "创建成功"
@@ -382,7 +349,7 @@ Feature: 趋势图新建
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
-    And I set the parameter "Name" with value "热力地图sample1报表"
+    And I set the parameter "Name" with value "<name>报表"
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
@@ -396,9 +363,15 @@ Feature: 趋势图新建
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
+  @first
     Examples:
-      | name        | describe   | group         | spl                                                    |
-      | 热力地图sample1 | AutoCreate | default_Trend | tag:sample04061424 \| stats count() by apache.geo.city |
+      | name        | spl                                                    | chart | type    |
+      | 热力地图sample1 | tag:sample04061424 \| stats count() by apache.geo.city | Map   | Heatmap |
+
+  @second
+    Examples:
+      | name       | spl                                                                          | chart     | type     |
+      | 旭日图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Sunburst |
 
   @second
   Scenario Outline: 攻击地图sample1（RZY-2542）
@@ -803,7 +776,6 @@ Feature: 趋势图新建
       | name       | spl                                                                          | chartType | type | colour |
       | 条形图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar  | Orange |
 
-  @all @smoke @trendSmoke @trend
   Scenario Outline: 条形图sample3（RZY-2679）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -829,9 +801,15 @@ Feature: 趋势图新建
     And I click the "Save" button
     Then I will see the success message "创建成功"
 
+  @all @smoke @trendSmoke @trend
     Examples:
       | name       | spl                                                                          | chartType | type | colour |
       | 条形图sample3 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar  | Yellow |
+
+  @second
+    Examples:
+      | name       | spl                                                                          | chartType | type     | colour |
+      | 旭日图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Sunburst | Orange |
 
   @second
   Scenario Outline: 雷达图sample1、漏斗图sample1（RZY-2635、2658）
@@ -998,4 +976,3 @@ Feature: 趋势图新建
     Examples:
       | name         | spl                                                         | type          |
       | 矩阵热力图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8 | Matrixheatmap |
-

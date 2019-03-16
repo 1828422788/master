@@ -25,8 +25,8 @@ Feature: 租户新建（RZY-1691）
 
   @first
     Examples:
-      | name         | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | excessLimit | excessBehavior | managerName  | managerEmail             | managerPassword | inputAgain |
-      | no_scheduler | nothing    | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | no_scheduler | noscheduler@yottabyte.cn | all123456       | all123456  |
+      | name         | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | excessLimit | excessBehavior | managerName | managerEmail             | managerPassword | inputAgain |
+      | no_scheduler | noschedule | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | notester    | noscheduler@yottabyte.cn | all123456       | all123456  |
 
   @first
   Scenario Outline:
@@ -48,7 +48,7 @@ Feature: 租户新建（RZY-1691）
 
     Examples:
       | name  | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | excessLimit | excessBehavior | managerName | managerEmail       | managerPassword | inputAgain |
-      | atest | auto_test  | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | atest       | atest@yottabyte.cn | all123456       | all123456  |
+      | atest | autotest   | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | atest       | atest@yottabyte.cn | all123456       | all123456  |
 
   Scenario Outline:保存失败
     And I will see the "tenant.ListPage" page

@@ -284,43 +284,8 @@ Feature: 报表新建（RZY-116）
       | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)5 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第5种布局方式 | 11   | 20     | Layout5 |
       | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)6 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第6种布局方式 | 11   | 25     | Layout6 |
 
-#  @smoke @reportSmoke
-#  Scenario Outline: 条形图+和弦图+桑基图+力图报表，11：12执行
-#    Given I click the "CreateButton" button
-#    Then I will see the "report.CreatePage" page
-#    And I set the parameter "Name" with value "<name>"
-#    And I set the parameter "Describe" with value "<describe>"
-#    And I choose the "<runningUser>" from the "RunningUser"
-#    And I choose the "<reportGroup>" from the "ReportGroup"
-#    And I choose the "<reportType>" from the "ReportType"
-#    And I set the parameter "EmailInput" with value "<email>"
-#    And I click the "Email" button
-#    And I display the element "Scrollbar"
-#    And I set the parameter "Subject" with value "<subject>"
-#    And I set the parameter "Hour" with value "<hour>"
-#    And I set the parameter "Minute" with value "<minute>"
-#    And I click the "NextButton" button
-#    And I choose the "条形图AutoTest" from the "ChartList"
-#    And I wait for "1000" millsecond
-#    And I choose the "和弦图AutoTest" from the "ChartList"
-#    And I wait for "1000" millsecond
-#    And I choose the "桑基图AutoTest" from the "ChartList"
-#    And I wait for "1000" millsecond
-#    And I choose the "力图AutoTest" from the "ChartList"
-#    And I click the "<layout>" button
-#    And I wait for "TopoTitle" will be visible
-#    And I click the "Save" button
-#    Then I will see the success message "保存成功"
-#
-#  @smoke @reportSmoke
-#    Examples: 保存成功
-#      | name             | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-#      | 条形和弦桑基力图报表(PDF)4 |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 12     | Layout4 |
-#      | 条形和弦桑基力图报表(PDF)7 |          | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 12     | Layout7 |
-#      | 条形和弦桑基力图报表(URL)  |          | owner       | default_Report | URL        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 12     | Layout4 |
-
   @smoke @reportSmoke
-  Scenario Outline: 改为力图sample1+区间图sample1+多Y轴图sample2+热力地图sample2+攻击地图sample1+区划地图sample2报表，crontab11：13执行
+  Scenario Outline: 改为力图sample1+区间图sample1+多Y轴图sample2+热力地图sample2+攻击地图sample1+区划地图sample2报表，crontab11：30执行
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -690,8 +655,6 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-
-
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
@@ -723,6 +686,205 @@ Feature: 报表新建（RZY-116）
     Examples: 保存失败
       | name          | describe | runningUser | reportGroup    | reportType | email | subject | crontab     | chartLists | layout  | result                        |
       | sunxjautotest |          | owner       | default_Report | PDF        |       | test    | 0 ? * * * ? | AutoTest1  | Layout1 | 无效参数, 参数：[crontab]\n错误码: FE_7 |
+
+  @second
+  Scenario: 改为热力地图sample1+攻击地图sample1+区划地图sample2报表
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "改为热力地图sample1+攻击地图sample1+区划地图sample2报表"
+    And I set the parameter "Describe" with value "第6种布局方式"
+    And I choose the "default_Report" from the "ReportGroup"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I set the parameter "EmailInput" with value "sun.xiaojing@yottabyte.cn"
+    And I click the "Email1" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "15"
+    And I set the parameter "Minute" with value "30"
+    And I click the "NextButton" button
+    And I choose the "热力地图sample0" from the "ChartList"
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Map" button
+    And I click the "Heatmap" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I set the parameter "FieldValueInput" with value "apache.geo.city"
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
+    And I choose the "攻击地图sample0" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Attackmap" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I set the parameter "LongitudeInput" with value "client_lat"
+    And I set the parameter "LatitudeInput" with value "client_lon"
+    And I click the "target" button
+    And I set the parameter "FieldValueInput" with value "gw_address"
+    And I set the parameter "LongitudeInput" with value "gw_lat"
+    And I set the parameter "LatitudeInput" with value "gw_lon"
+    And I click the "Weight" button
+    And I set the parameter "FieldValueInput" with value "cnt"
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
+    And I choose the "区划地图sample0" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Regionmap" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I set the parameter "FieldValueInput" with value "apache.geo.province"
+    And I click the "Region" button
+    And I click the "China" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I click the "Layout6" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @second
+  Scenario: 改为玫瑰图sample3+条形图sample3+旭日图sample2报表
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "改为玫瑰图sample3+条形图sample3+旭日图sample2报表"
+    And I set the parameter "Describe" with value "第7种布局方式"
+    And I choose the "default_Report" from the "ReportGroup"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "15"
+    And I set the parameter "Minute" with value "35"
+    And I click the "NextButton" button
+    And I choose the "玫瑰图sample0" from the "ChartList"
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Dimension" button
+    And I click the "Rose" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I click the "AddField" button
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
+    And I choose the "条形图sample0" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Bar" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I click the "AddField" button
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Yellow" button
+    And I wait for "Scrollbar" will be invisible
+    And I choose the "展示全部" from the "ShowLabel"
+    And I choose the "柱状内中央" from the "Label"
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I wait for "1000" millsecond
+    And I choose the "旭日图sample0" from the "ChartList"
+    And I wait for "1000" millsecond
+    And I click the "Arrow" button
+    And I click the "EditButton" button
+    And I click the "ChartType" button
+    And I will see the "trend.CreatePage" page
+    And I click the "Sunburst" button
+    Then I will see the "report.CreatePage" page
+    And I click the "ParameterSetting" button
+    And I will see the "trend.CreatePage" page
+    And I set the parameter "FieldValueInput" with value "count()"
+    And I click the "Divide" button
+    And I click the "AddField" button
+    And I set the parameter "FieldValueInput" with value "apache.clientip"
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    And I will see the "report.CreatePage" page
+    And I display the element "SettingContent"
+    And I click the "SaveTrend" button
+    And I click the "Layout7" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @second
+  Scenario: RZY-1599:选择超过10个
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "test"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "1"
+    And I set the parameter "Minute" with value "3"
+    And I click the "NextButton" button
+    And I click the "Chart" button
+    And I click the "FirstLi" button
+    And I wait for "Badge1" will be visible
+    And I click the "FirstLi" button
+    And I wait for "Badge2" will be visible
+    And I click the "FirstLi" button
+    And I wait for "Badge3" will be visible
+    And I click the "FirstLi" button
+    And I wait for "Badge4" will be visible
+    And I click the "FirstLi" button
+    And I wait for "Badge5" will be visible
+    And I click the "FirstLi" button
+    And I wait for "Badge6" will be visible
+    And I click the "FirstLi" button
+    And I wait for "Badge7" will be visible
+    And I click the "FirstLi" button
+    And I wait for "Badge8" will be visible
+    And I click the "FirstLi" button
+    And I wait for "Badge9" will be visible
+    And I click the "FirstLi" button
+    And I wait for "Badge10" will be visible
+    And I click the "FirstLi" button
+    Then I will see the success message "每个用户最多保存十个趋势图"
 
   Scenario Outline: 执行计划为定时（保存失败）
     Given I click the "CreateButton" button
@@ -785,5 +947,3 @@ Feature: 报表新建（RZY-116）
     Examples:
       | name          | describe | runningUser | reportGroup    | reportType | email | subject | crontab | result                 |
       | sunxjautotest |          | owner       | default_Report | PDF        |       | test    |         | crontab模式下, 执行计划不能为零或空 |
-
-

@@ -2,7 +2,6 @@ package com.yottabyte.pages.report;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -123,6 +122,83 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[contains(text(),'图表类型')]/following-sibling::span//i)[last()]")
     private WebElement chartType;
 
+    @FindBy(xpath = "//li[@class='el-dropdown-menu__item']")
+    private WebElement firstLi;
+
+    @FindBy(xpath = "(//span[text()='1'])[2]")
+    private WebElement badge1;
+
+    @FindBy(xpath = "(//span[text()='2'])[2]")
+    private WebElement badge2;
+
+    @FindBy(xpath = "//span[text()='3']")
+    private WebElement badge3;
+
+    @FindBy(xpath = "(//span[text()='4'])[last()]")
+    private WebElement badge4;
+
+    @FindBy(xpath = "(//span[text()='5'])[last()]")
+    private WebElement badge5;
+
+    @FindBy(xpath = "(//span[text()='6'])[last()]")
+    private WebElement badge6;
+
+    @FindBy(xpath = "(//span[text()='7'])[last()]")
+    private WebElement badge7;
+
+    @FindBy(xpath = "(//span[text()='8'])[last()]")
+    private WebElement badge8;
+
+    @FindBy(xpath = "(//span[text()='9'])[last()]")
+    private WebElement badge9;
+
+    @FindBy(xpath = "(//span[text()='10'])[last()]")
+    private WebElement badge10;
+
+    public WebElement getFirstLi() {
+        return firstLi;
+    }
+
+    public WebElement getBadge1() {
+        return badge1;
+    }
+
+    public WebElement getBadge2() {
+        return badge2;
+    }
+
+    public WebElement getBadge3() {
+        return badge3;
+    }
+
+    public WebElement getBadge4() {
+        return badge4;
+    }
+
+    public WebElement getBadge5() {
+        return badge5;
+    }
+
+    public WebElement getBadge6() {
+        return badge6;
+    }
+
+    public WebElement getBadge7() {
+        return badge7;
+    }
+
+    public WebElement getBadge8() {
+        return badge8;
+    }
+
+    public WebElement getBadge9() {
+        return badge9;
+    }
+
+    public WebElement getBadge10() {
+        return badge10;
+    }
+
     public WebElement getChartType() {
         return chartType;
     }
@@ -198,6 +274,10 @@ public class CreatePage extends PageTemplate {
         return super.getButton("wang.yueming@yottabyte.cn");
     }
 
+    public WebElement getEmail1() {
+        return super.getButton("sun.xiaojing@yottabyte.cn");
+    }
+
     public WebElement getSubject() {
         return subject;
     }
@@ -219,6 +299,10 @@ public class CreatePage extends PageTemplate {
         chartList.click();
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
         return chartDropdownList;
+    }
+
+    public WebElement getChart() {
+        return chartList;
     }
 
     public WebElement getLayout1() {
