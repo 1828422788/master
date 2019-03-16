@@ -38,7 +38,8 @@ public class SearchPage extends PageTemplate {
         return countButton;
     }
 
-    @FindBy(xpath = "//div[@class='yw-searchbar__inner el-textarea']/textarea")
+//    @FindBy(xpath = "//div[@class='yw-searchbar__inner el-textarea']/textarea")
+    @FindBy(className = "CodeMirror")
     private WebElement searchInput;
 
     @FindBy(className = "yw-searchbar__append")

@@ -1,13 +1,15 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.config.ConfigManager;
+import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 
 public class SetKeyWithValue {
+    private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+
     /**
      * 为指定变量elementName赋值 elementName需要与page中的getElement方法名一致，可以省略get
      *
@@ -18,9 +20,16 @@ public class SetKeyWithValue {
     public void iSetTheParameterWithValue(String elementName, String value) {
         if (elementName != null && elementName.trim().length() != 0) {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-            iSetTheParameterWithValue(element, value);
+            if (element.getAttribute("class").contains("CodeMirror")) {
+                WebElement element1 = webDriver.findElement(By.className("CodeMirror"));
+                JavascriptExecutor js = (JavascriptExecutor) webDriver;
+                js.executeScript("arguments[0].CodeMirror.setValue(\"" + value + "\");", element1);
+            } else {
+                iSetTheParameterWithValue(element, value);
+            }
         }
     }
+
 
     public void clearElementValue(WebElement element) {
         element.sendKeys(Keys.END);
