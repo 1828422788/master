@@ -39,7 +39,7 @@ Feature: 趋势图新建
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  @first
+  @first @trendSmoke
     Examples:
       | name       | spl                                                                          | chart | chartType | reportName   | hour | minute |
       | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     |
@@ -51,7 +51,7 @@ Feature: 趋势图新建
       | 面积图sample1 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 |       | Area      | 面积图sample1报表 | 11   | 55     |
       | 散点图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             |       | Scatter   | 散点图sample1报表 | 12   | 00     |
 
-  @second
+  @second @trendSmoke
     Examples:
       | name       | spl                                                                                                                                                                             | chart    | chartType | reportName    | hour | minute |
       | 多Y轴sample1 | tag:*display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | Compound | Multiaxis | 多Y轴图sample1报表 | 12   | 10     |
@@ -97,7 +97,7 @@ Feature: 趋势图新建
       | 面积图sample2 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 | Area   | Vertical   | AscendingOrder  | 克    | Smooth | ConnectEmptyData | 0   |     | Pile | NoneExample    | Purple |
       | 柱状图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             | Column | Horizontal | DescendingOrder | 克    |        |                  | 1   |     | Pile | SecondPosition | Purple |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 多Y轴图sample2（RZY-2523）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -234,7 +234,7 @@ Feature: 趋势图新建
       | 和弦图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Chord | 和弦图sample1报表 |             |        | 12   | 15     |
       | 力图sample1  | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Force | 力图sample1报表  |             |        | 12   | 25     |
 
-  @second
+  @second @trendSmoke
     Examples:
       | name       | spl                                                                                                                                                                                                            | chartType | chart  | reportName   | startColour | colour | hour | minute |
       | 桑基图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Sankey | 桑基图sample1报表 | StartColour | Purple | 12   | 20     |
@@ -280,7 +280,7 @@ Feature: 趋势图新建
       | 饼状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie   | 饼状图sample1报表 | 12   | 30     |
       | 条形图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar   | 条形图sample1报表 | 12   | 32     |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 区间图sample1（RZY-2516）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -363,17 +363,17 @@ Feature: 趋势图新建
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  @first
+  @first @trendSmoke
     Examples:
       | name        | spl                                                    | chart | type    |
       | 热力地图sample1 | tag:sample04061424 \| stats count() by apache.geo.city | Map   | Heatmap |
 
-  @second
+  @second @trendSmoke
     Examples:
       | name       | spl                                                                          | chart     | type     |
       | 旭日图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Sunburst |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 攻击地图sample1（RZY-2542）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -424,7 +424,7 @@ Feature: 趋势图新建
       | name        | spl                                                                                                                                                                                                                                                                                           |
       | 攻击地图sample1 | tag:sample04061424 \| parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 攻击地图sample2（RZY-2543）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -460,7 +460,7 @@ Feature: 趋势图新建
       | name        | spl                                                                                                                                                                                                                                                                                           |
       | 攻击地图sample2 | tag:sample04061424 \| parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 区划地图sample1（RZY-2546）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -508,7 +508,7 @@ Feature: 趋势图新建
       | name        | spl                                                                                           |
       | 区划地图sample1 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 区划地图sample2（RZY-2547）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -537,7 +537,7 @@ Feature: 趋势图新建
       | name        | spl                                                                                           |
       | 区划地图sample2 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
 
-  @first
+  @first @trendSmoke
   Scenario Outline: 单值sample1（RZY-2550）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -582,7 +582,7 @@ Feature: 趋势图新建
       | name      | spl                                                                                            | colourFilling |
       | 单值sample1 | tag:*display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | Background    |
 
-  @first
+  @first @trendSmoke
   Scenario Outline: 单值sample2（RZY-2551）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -613,7 +613,7 @@ Feature: 趋势图新建
       | name      | spl                                                                                            | time | exhibition |
       | 单值sample2 | tag:*display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | 一天前  | Percent    |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 单值sample3（RZY-2552）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -686,17 +686,17 @@ Feature: 趋势图新建
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  @second
+  @second @trendSmoke
     Examples:
       | name       | spl                                                          | chartType | type       | colour | hour | minute |
       | 水球图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Other     | Liquidfill | Orange | 13   | 00     |
 
-  @third
+  @third @trendSmoke
     Examples:
       | name        | spl                                                          | chartType | type      | colour | hour | minute |
       | 字符云图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Other     | Wordcloud | Orange | 13   | 05     |
 
-  @first
+  @first @trendSmoke
     Examples:
       | name       | spl                                                                          | chartType | type | colour | hour | minute |
       | 饼状图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie  | Yellow | 13   | 07     |
@@ -806,12 +806,12 @@ Feature: 趋势图新建
       | name       | spl                                                                          | chartType | type | colour |
       | 条形图sample3 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar  | Yellow |
 
-  @second
+  @second @trendSmoke
     Examples:
       | name       | spl                                                                          | chartType | type     | colour |
       | 旭日图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Sunburst | Orange |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 雷达图sample1、漏斗图sample1（RZY-2635、2658）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -851,7 +851,7 @@ Feature: 趋势图新建
       | 雷达图sample1 | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 | Radar  | 13   | 10     |
       | 漏斗图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8                | Funnel | 13   | 15     |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 雷达图sample2（RZY-2646）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -883,7 +883,7 @@ Feature: 趋势图新建
       | name       | spl                                                                        |
       | 雷达图sample2 | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 循序图sample1（RZY-2631）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -934,7 +934,7 @@ Feature: 趋势图新建
       | name       | spl                                                                                         |
       | 循序图sample1 | tag:seq_test \| table timestamp,sequence.from,sequence.to,sequence.relatemsg,sequence.msgid |
 
-  @second
+  @second @trendSmoke
   Scenario Outline: 矩阵热力图sample1（RZY-2661）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"

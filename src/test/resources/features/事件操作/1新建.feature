@@ -25,7 +25,7 @@ Feature: 事件操作新建（RZY-1387）
       | name     | alias              | field | display | action | url                                                                                                                                            | openUrl | message | screenName          |
       | AutoTest | ${apache.clientip} |       | 两者      | 链接     | http://192.168.1.134/search/?query=${apache.clientip}&time_range=-30m,now&order=desc&size=20&page=1&sourcegroup=all&_t=1530688101882&title=tyf | 新窗口     | 保存成功    | 1387：事件操作-新建get事件操作 |
 
-  @second
+  @second @eventSmoke
   Scenario Outline: 保存成功
     When I click the "CreateButton" button
     Then I will see the "event.CreatePage" page

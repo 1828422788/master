@@ -1,4 +1,4 @@
-@first
+@first @reportSmoke
 Feature: 报表分组修改（RZY-130）
 
   Background:

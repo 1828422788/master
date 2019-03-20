@@ -19,7 +19,7 @@ Feature: 普通统计视图
     And I wait for loading invisible
     Then take a screenshot with name "<caseNum>：日志展现-普通统计视图-<chart>sample"
 
-  @first
+  @first @logDisplay
     Examples:
       | chart | value1  | value2          | caseNum |
       | 曲线图   | logtype | apache.clientip | 807     |
@@ -129,7 +129,7 @@ Feature: 普通统计视图
       | fieldValue    | number |
       | json.duration | 200    |
 
-  @first
+  @first @logDisplay
   Scenario: RZY-819:[字段] [百分比]_sample
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button

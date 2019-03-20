@@ -4,7 +4,7 @@ Feature: 拓扑图详情页
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"
 
-  @second
+  @second @topologySmoke
   Scenario: RZY-2821：新建拓扑图sample
     When I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
@@ -18,7 +18,7 @@ Feature: 拓扑图详情页
     And I set the parameter "NodeGroup" with value "g2"
     Then I click the "AddNodeButton" button
 
-  @second
+  @second @topologySmoke
   Scenario: RZY-2515：标识前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
@@ -46,7 +46,7 @@ Feature: 拓扑图详情页
     And I click the "Apply" button
     Then I wait for "SuccessMessage" will be visible
 
-  @second
+  @second @topologySmoke
   Scenario: RZY-2517：标识分隔符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
@@ -75,7 +75,7 @@ Feature: 拓扑图详情页
     And I choose the "count()" from the "FiledInput"
     And I click the "Apply" button
 
-  @second
+  @second @topologySmoke
   Scenario: RZY-2519：标识值前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
@@ -105,7 +105,7 @@ Feature: 拓扑图详情页
     And I choose the "dc(cnt)" from the "FiledInput"
     And I click the "Apply" button
 
-  @all
+  @all @topologySmoke
   Scenario: 夜间模式截图（RZY-1230）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page

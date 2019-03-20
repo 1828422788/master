@@ -1,4 +1,4 @@
-@first
+@first @reportSmoke
 Feature: 报表禁用/启用（RZY-137至138）
 
   Background:

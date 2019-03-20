@@ -1,3 +1,4 @@
+@eventSmoke
 Feature: 事件操作
 
   Background:

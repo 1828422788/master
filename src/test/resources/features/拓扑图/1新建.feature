@@ -15,7 +15,7 @@ Feature: 拓扑图新建（RZY-346至348）
       | name        | group            |
       | sxjautotest | default_Topology |
 
-  @second
+  @second @topologySmoke
     Examples:
       | name            | group            |
       | 测试标识符           | default_Topology |

@@ -52,7 +52,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  @first
+  @first @reportSmoke
     Examples: 保存成功
       | name               | describe | reportGroup    | reportType | email                     | subject                       | hour | minute | chartLists | layout  |
       | 改为曲线图sample2(WORD) | AutoTest | default_Report | WORD       | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第一种布局方式 | 11   | 00     | 曲线图sample0 | Layout1 |
@@ -102,7 +102,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  @first
+  @first @reportSmoke
   Scenario Outline: 改为散点图雷达图sample2
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
@@ -452,6 +452,7 @@ Feature: 报表新建（RZY-116）
       | name                                                                          | reportGroup    | reportType | email                     | subject                       | layout  |
       | 改为力图sample1+区间图sample1+多Y轴图sample2+热力地图sample2+攻击地图sample1+区划地图sample2报表(PDF) | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | Layout8 |
 
+  @reportSmoke
   Scenario: 改为单值sample2+水球图sample1
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
@@ -508,6 +509,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
+  @reportSmoke
   Scenario: 改为字符云图sample1报表(EXCEL)
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
@@ -687,7 +689,7 @@ Feature: 报表新建（RZY-116）
       | name          | describe | runningUser | reportGroup    | reportType | email | subject | crontab     | chartLists | layout  | result                        |
       | sunxjautotest |          | owner       | default_Report | PDF        |       | test    | 0 ? * * * ? | AutoTest1  | Layout1 | 无效参数, 参数：[crontab]\n错误码: FE_7 |
 
-  @second
+  @second @reportSmoke
   Scenario: 改为热力地图sample1+攻击地图sample1+区划地图sample2报表
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
@@ -767,7 +769,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  @second
+  @second @reportSmoke
   Scenario: 改为玫瑰图sample3+条形图sample3+旭日图sample2报表
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
@@ -852,7 +854,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  @second
+  @second @reportSmoke
   Scenario: RZY-1599:选择超过10个
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page

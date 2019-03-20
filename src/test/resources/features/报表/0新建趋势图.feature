@@ -21,7 +21,7 @@ Feature: 报表所需趋势图新建
     And I click the "Save" button
     Then I will see the success message "创建成功"
 
-  @second
+  @second @reportSmoke
     Examples:
       | name         | spl                                                                                                                                                                                                                                                                                           | rowNum | columnNum |
       | 饼状图sample0   | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                                                                                                                                                                  | 10     | 3         |
@@ -50,7 +50,7 @@ Feature: 报表所需趋势图新建
       | 力图sample0  | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | 20     | 5         |
       | 区间图sample0 | tag:*display \| bucket timestamp span=1h as ts \| stats count('apache.status') as 'count' by ts \| esma count timefield=ts                                                                                     |        | 5         |
 
-  @first
+  @first @reportSmoke
     Examples:
       | name       | spl                                                                          | rowNum | columnNum |
       | 曲线图sample0 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | 10     | 3         |

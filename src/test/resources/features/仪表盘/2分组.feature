@@ -16,7 +16,7 @@ Feature: 仪表盘分组（RZY-212、RZY-217至RZY-221）
       | UIautotest  | choose the "AutoTestRoleWithAllResource, AutoTestRoleWithAuth&SourceGroup" from the "GroupInput" |
       | sxjautotest | choose the "AutoTestRoleWithAllResource, AutoTestRoleWithAuth&SourceGroup" from the "GroupInput" |
 
-  @first
+  @first @dashboardSmoke
     Examples:
       | name          | group                                                          |
       | FirstAutoTest | choose the "AutoTestRoleWithAllResource" from the "GroupInput" |

@@ -17,7 +17,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
       | UIautotest  | AutoTestRoleWithAllResource | success message "仪表盘新建成功" |
       | sxjautotest |                             | success message "仪表盘新建成功" |
 
-  @first
+  @first @dashboardSmoke
     Examples:
       | name          | group | result                    |
       | FirstAutoTest |       | success message "仪表盘新建成功" |

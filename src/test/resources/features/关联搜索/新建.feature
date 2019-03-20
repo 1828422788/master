@@ -1,4 +1,4 @@
-@second
+@second @appSmoke
 Feature: 关联搜索新建
 
   Scenario Outline: RZY-802：新建message字段提取规则

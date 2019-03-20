@@ -68,7 +68,7 @@ Feature: 日志展现
 #      | Timestamp | AvgStats      | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-平均值统计图 |
 #      | Timestamp | AvgSequential | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('apache.resp_len') | 171：日志展现-字段列表快捷过滤-平均值时序图 |
 
-  @second
+  @second @logDisplay
   Scenario: RZY-2900：过滤字段apache.request_query
     Given I set the parameter "SearchInput" with value "tag:"sample04061424" AND apache.request_query:gw_address*610*"
     And I click the "DateEditor" button
