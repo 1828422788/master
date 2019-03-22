@@ -19,7 +19,7 @@ Feature: 报表所需趋势图新建
     And I click the "NextButton" button
     And I wait for "Header" will be visible
     And I click the "Save" button
-    Then I will see the success message "创建成功"
+#    Then I will see the success message "创建成功"
 
   @second @reportSmoke
     Examples:
