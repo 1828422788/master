@@ -1,4 +1,3 @@
-@clean
 Feature: 关联搜索删除
 
   Background:

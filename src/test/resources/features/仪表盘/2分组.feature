@@ -11,12 +11,12 @@ Feature: 仪表盘分组（RZY-212、RZY-217至RZY-221）
 
   @dashboard @all @smoke @dashboardSmoke
     Examples:
-      | name        | group                                                                                            |
-      | UIautotest  | cancel selection "AutoTestRoleWithAllResource" from the "GroupInput"                             |
-      | UIautotest  | choose the "AutoTestRoleWithAllResource, AutoTestRoleWithAuth&SourceGroup" from the "GroupInput" |
-      | sxjautotest | choose the "AutoTestRoleWithAllResource, AutoTestRoleWithAuth&SourceGroup" from the "GroupInput" |
+      | name        | group                                                           |
+      | UIautotest  | cancel selection "default_DashBoardGroup" from the "GroupInput" |
+      | UIautotest  | choose the "default_DashBoardGroup" from the "GroupInput"       |
+      | sxjautotest | choose the "default_DashBoardGroup" from the "GroupInput"       |
 
   @first @dashboardSmoke
     Examples:
-      | name          | group                                                          |
-      | FirstAutoTest | choose the "AutoTestRoleWithAllResource" from the "GroupInput" |
+      | name          | group                                                     |
+      | FirstAutoTest | choose the "default_DashBoardGroup" from the "GroupInput" |
