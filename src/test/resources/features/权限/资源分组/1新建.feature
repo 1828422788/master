@@ -52,3 +52,17 @@ Feature: 资源分组新建
     Examples: 创建资源分组成功
       | name                 | type | des | app | owner | resourceMember | result                 |
       | AutoTestForKnowledge | 知识   | UI  |     | admin | 孙小晶            | success message "创建成功" |
+
+  Scenario Outline:
+    Given I click the "CreateResourceGroup" button
+    Then I will see the "resourceGroups.CreatePage" page
+    When I set the parameter "ResourceGroupName" with value "<name>"
+    And I choose the "<type>" from the "ResourceGroupType"
+    And I set the parameter "ResourceGroupDes" with value "<des>"
+    And I choose the "<owner>" from the "ResourceGroupOwner"
+    And I click the "CreateButton" button
+
+  @createEssentialData
+    Examples:
+      | name     | type | des  | owner        |
+      | AutoTest | 知识   | test | AutoTestRole |

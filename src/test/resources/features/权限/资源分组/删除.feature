@@ -1,4 +1,3 @@
-@smoke @all @resourceGroups @resourceGroupsSmoke
 Feature: 资源分组删除（RZY-533）
 
   Background:
@@ -12,9 +11,15 @@ Feature: 资源分组删除（RZY-533）
     And I refresh the website
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
+  @smoke @all @resourceGroups @resourceGroupsSmoke
     Examples:
       | name                 |
       | sunxjAutoTest        |
       | AutoTestNew          |
       | AutoTestForKnowledge |
       | hunter_roles_m       |
+
+  @clean
+    Examples:
+      | name     |
+      | AutoTest |
