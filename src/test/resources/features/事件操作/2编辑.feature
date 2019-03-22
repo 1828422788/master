@@ -42,7 +42,8 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "RightIcon" button
     And I click the "EventOperate" button
     And I click the "EventOperatorAutoTest" button
-    And I will see the input element "SearchInput" value will contains "hostname:192.168.1."
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I will see the element "SearchInputValue" name contains "hostname:192.168."
     Then take a screenshot with name "1378：事件操作-动作类型-搜索"
 
     Examples:

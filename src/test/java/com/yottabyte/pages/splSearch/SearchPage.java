@@ -105,6 +105,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "el-loading-spinner")
     private WebElement loadingSpinner;
 
+    @FindBy(className = "cm-operator")
+    private WebElement searchInputValue;
+
+    public WebElement getSearchInputValue() {
+        return searchInputValue;
+    }
+
     public WebElement getLoadingSpinner() {
         return loadingSpinner;
     }

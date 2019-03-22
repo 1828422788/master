@@ -94,6 +94,22 @@ public class CheckButtonAttribute {
         }
     }
 
+    @Then("^I will see the element \"([^\"]*)\" name contains \"([^割]*)\"$")
+    public void checkElementContainsName(List<String> buttonNameList, List<String> expectButtonName) {
+        if (buttonNameList.size() == 1 && expectButtonName.size() != 1) {
+            String finalName = expectButtonName.get(0) + expectButtonName.get(1);
+            expectButtonName.clear();
+            expectButtonName.add(finalName);
+        }
+
+        for (String buttonName : buttonNameList) {
+            String expectText = expectButtonName.get(buttonNameList.indexOf(buttonName));
+            WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
+            String actualText = element.getText();
+            Assert.assertTrue(actualText.contains(expectText));
+        }
+    }
+
     /**
      * 验证元素名称是否正确（传入json格式的参数，目的是避免检验值中出现逗号给分割成另一个参数）
      *
