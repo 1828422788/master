@@ -10,7 +10,6 @@ Feature: 备份恢复新增（RZY-1500）
     And I refresh the website
     Then I will see the search result without paging contains "{'column':'0','name':'<appName>'}"
 
-  @smoke
     Examples: 添加成功
       | appName |
       | iis     |
@@ -21,6 +20,6 @@ Feature: 备份恢复新增（RZY-1500）
     Then I will see the error message "<message>"
 
     Examples: 添加失败
-      | appName | message               |
-      |         | appname 不能为空          |
-      | 字       | appname只能由数字,字母和下划线组成 |
+      | appName | message                 |
+      |         | appname 不能为空            |
+      | 字       | appname只能由数字,字母和下划线和*组成 |
