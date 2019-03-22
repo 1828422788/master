@@ -11,8 +11,8 @@ Feature: 知识搜索（RZY-884）
 
   @smoke @all
     Examples:
-      | GroupList               |
-      | AutoTestWithAllResource |
+      | GroupList |
+      | AutoTest  |
 
   Scenario Outline: 全文搜索
     When I set the parameter "SearchInput" with value "<search>"

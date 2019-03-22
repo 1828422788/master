@@ -12,5 +12,5 @@ Feature: 知识分组（RZY-880）
 
   @all @smoke
     Examples:
-      | name   | Type                    | Result                 |
-      | sunxj1 | AutoTestWithAllResource | success message "保存成功" |
+      | name   | Type     | Result                 |
+      | sunxj1 | AutoTest | success message "保存成功" |

@@ -31,7 +31,7 @@ Feature: 资源分组新建
   Scenario Outline: 新建资源分组并添加资源成员（RZY-1183）
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I click the "CreateKnowledge" button
-    When I set the parameter "EventCode" with value "孙小晶"
+    When I set the parameter "EventCode" with value "<resourceMember>"
     And I set the parameter "Describe" with value "AutoTest"
     And I click the "Confirm" button
     And open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
@@ -50,8 +50,8 @@ Feature: 资源分组新建
 
   @smoke @resourceGroupsSmoke
     Examples: 创建资源分组成功
-      | name                 | type | des | app | owner | resourceMember | result                 |
-      | AutoTestForKnowledge | 知识   | UI  |     | admin | 孙小晶            | success message "创建成功" |
+      | name                 | type | des | app | owner | resourceMember    | result                 |
+      | AutoTestForKnowledge | 知识   | UI  |     | admin | AutoTestKnowledge | success message "创建成功" |
 
   Scenario Outline:
     Given I click the "CreateResourceGroup" button

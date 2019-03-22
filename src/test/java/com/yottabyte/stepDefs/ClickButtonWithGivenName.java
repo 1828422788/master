@@ -117,6 +117,32 @@ public class ClickButtonWithGivenName {
     }
 
 
+    @Given("^I close \"([^\"]*)\" without paging$")
+    public void close(String dataName) {
+        this.clickSwitch(dataName, "close");
+    }
+
+    @Given("^I open \"([^\"]*)\" without paging$")
+    public void open(String dataName) {
+        this.clickSwitch(dataName, "open");
+    }
+
+    /**
+     * 切换状态 无分页
+     *
+     * @param dataName
+     * @param action   open/close
+     */
+    private void clickSwitch(String dataName, String action) {
+        String xpath = "//span[contains(text(),'" + dataName + "')]/preceding-sibling::label";
+        WebElement tr = this.findNameWithoutPaging(dataName);
+        WebElement switchButton = tr.findElement(By.xpath(xpath + "/div[@class='el-switch__label el-switch__label--left']"));
+        String status = switchButton.getAttribute("style");
+
+        if ("open".equals(action) && status.contains("display") || "close".equals(action) && !status.contains("display"))
+            tr.findElement(By.xpath(xpath)).click();
+    }
+
     /**
      * 寻找name所在行
      *

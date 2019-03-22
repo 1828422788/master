@@ -20,5 +20,5 @@ Feature: 知识删除（RZY-881）
 
   @clean
     Examples:
-      | Name |
-      | 孙小晶  |
+      | Name              |
+      | AutoTestKnowledge |

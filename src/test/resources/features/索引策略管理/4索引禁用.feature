@@ -5,9 +5,6 @@ Feature: 索引信息禁用（RZY-1475）
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
 
   Scenario:
-    Given I disabled the data "autotest"
+    Given I close "autotest" without paging
     Then I will see the message "禁用成功"
-    And I disabled the data "autotest"
-
-
-
+    Given I open "autotest" without paging

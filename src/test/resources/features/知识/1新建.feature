@@ -18,7 +18,6 @@ Feature: 知识新建（RZY-868）
 #    And I wait for loading invisible
     Then I will see the <Result>
 
-  @smoke
     Examples: 保存成功
       | EventCodeValue | NameValue | Type              | TagType | Describe  | Solution   | Result                                                  |
       | sxjautotest    | sunxj1    | default_Knowledge | 404     | sunxjTest | do nothing | search result contains "{'column':'0','name':'sunxj1'}" |

@@ -60,7 +60,7 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement errorMessage;
 
-    @FindBy(className = "yw-table-group__dropdown")
+    @FindBy(xpath = "//span[text()='全部资源']/ancestor::div[@class='yw-table-group__dropdown el-dropdown']")
     private WebElement sourceGroup;
 
     @FindBy(className = "el-dropdown-menu__item")
@@ -248,9 +248,9 @@ public class ListPage extends PageTemplate {
 
     // 获取资源分组下拉菜单
     public List<WebElement> getGroupList() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
         sourceGroup.click();
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOfAllElements(groupList));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOfAllElements(groupList));
         return groupList;
     }
 

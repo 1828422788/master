@@ -47,7 +47,7 @@ public class MatchRuleCreatePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getSuccessMessage();
+        return super.getErrorMessage();
     }
 
     public WebElement getSavedButton() {
