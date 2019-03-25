@@ -11,7 +11,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
     Then I click the "EnsureCreateButton" button
     Then I will see the <result>
 
-  @all @smoke @dashboardSmoke
+  @dashboardSmoke
     Examples: 新建成功
       | name        | group                  | result                    |
       | UIautotest  | default_DashBoardGroup | success message "仪表盘新建成功" |
@@ -22,8 +22,6 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
       | name          | group | result                    |
       | FirstAutoTest |       | success message "仪表盘新建成功" |
 
-
-  @all
     Examples: 新建失败
       | name               | group | result                                               |
       |                    |       | success message "仪表盘名称不能为空"                          |

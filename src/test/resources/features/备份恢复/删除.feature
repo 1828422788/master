@@ -1,4 +1,4 @@
-@backup @all @smoke
+@backup @backupSmoke
 Feature: 备份恢复删除（RZY-1501）
 
   Background:

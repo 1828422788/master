@@ -1,9 +1,10 @@
-@backup @all
+@backup
 Feature: 备份恢复新增（RZY-1500）
 
   Background:
     Given open the "backup.ListPage" page for uri "/backup/"
 
+  @backupSmoke
   Scenario Outline: 新增appname成功
     Given I set the parameter "AppNameInput" with value "<appName>"
     When I click the "AddButton" button

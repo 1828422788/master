@@ -1,4 +1,4 @@
-@all @event @smoke @eventSmoke
+@event @eventSmoke
 Feature: 事件操作搜索
 
   Background:

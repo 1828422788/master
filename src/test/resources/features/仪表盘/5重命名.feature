@@ -1,4 +1,4 @@
-@dashboard @smoke @dashboardSmoke @all
+@dashboard @dashboardSmoke
 Feature: 仪表盘重命名（RZY-213）
 
   Background:

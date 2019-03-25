@@ -1,3 +1,4 @@
+@event
 Feature: 事件操作新建（RZY-1387）
 
   Background:

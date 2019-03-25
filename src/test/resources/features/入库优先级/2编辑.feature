@@ -1,4 +1,4 @@
-@all @indexSetting @smoke @indexSettingSmoke
+@indexSetting @indexSettingSmoke
 Feature: 入库优先级编辑（RZY-1487）
 
   Background:

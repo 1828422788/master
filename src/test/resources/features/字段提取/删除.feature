@@ -10,7 +10,7 @@ Feature: 字段提取删除
     Examples:
       | name        |
       | AutoTest    |
-      | AutoTest(1) |
+      | AutoTest(副本) |
 
   @clean
     Examples:

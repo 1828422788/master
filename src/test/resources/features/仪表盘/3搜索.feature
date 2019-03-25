@@ -1,4 +1,4 @@
-@dashboard @all @smoke @dashboardSmoke
+@dashboard @dashboardSmoke
 Feature: 仪表盘搜索（RZY-216）
 
   Background:

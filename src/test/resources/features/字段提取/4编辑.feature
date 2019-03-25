@@ -5,7 +5,7 @@ Feature: 字段提取编辑
     Given open the "configs.ListPage" page for uri "/configs/"
 
   Scenario:
-    When the data name is "AutoTest(1)" then i click the "编辑" button
+    When the data name is "AutoTest(副本)" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
 #    And I wait for "1500" millsecond
 #    And I wait for "BasicInfo" will be visible

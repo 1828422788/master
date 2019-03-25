@@ -1,4 +1,4 @@
-@all @smoke @configs
+@configs
 Feature: 字段提取新建
 
   @first @configsSmoke
@@ -140,8 +140,7 @@ Feature: 字段提取新建
     And I wait for "FileName" will be visible
     And I click the "UploadFile" button
 
-    #todo undone
-  @second
+  @second @configsSmoke
   Scenario: RZY-2827：新建脱敏配置规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -285,7 +284,7 @@ Feature: 字段提取新建
       | appname:date AND tag:date | OtherDate  | 20180821 | OtherTime | 17:03:49 | ResultTimestamp | 2019/02/21 17:03:49.0 |
       | appname:rename            | OtherAbh   | d        | OtherAeh  | g        |                 |                       |
 
-  @second @configsSmoke
+  @second
     Examples:
       | spl                                       | key      | value | key1      | value1 | key2 | value2 |
       | appname:codec                             | TestName | aaa   | TestValue | 111    |      |        |

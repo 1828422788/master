@@ -11,5 +11,5 @@ Feature: 已存搜索加载（RZY-153）
     Then take a screenshot with name "153：已存搜索-加载已存搜索"
 
     Examples:
-      | name     | spl                                         |
+      | name     | spl                                     |
       | AutoTest | starttime="-2d/w" endtime="now" tag:ty* |
