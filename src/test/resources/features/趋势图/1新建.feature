@@ -976,3 +976,34 @@ Feature: 趋势图新建
     Examples:
       | name         | spl                                                         | type          |
       | 矩阵热力图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8 | Matrixheatmap |
+
+  @second @trendSmoke
+  Scenario Outline: RZY-2962:pivot_调用链sample1
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "tag:gf_dapper* AND dapper.msg.traceId:"511f8756ce1d0b8a" dapper.msg.duration:>0  | table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "Other" button
+    And I click the "Tracing" button
+    And I click the "Setting" button
+    And I choose the "dapper.class" from the "SettingSelect"
+    And I choose the "dapper.msg.parentId" from the "ParentId"
+    And I choose the "dapper.msg.id" from the "ChildId"
+    And I click the "Time" button
+    And I choose the "dapper.msg.timestamp" from the "SettingSelect"
+    And I choose the "dapper.msg.duration" from the "KeepTime"
+    And I click the "Info" button
+    And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
+    And I click the "Generate" button
+    And I click the "Save" button
+    Then I will see the success message "创建成功"
+    Examples:
+      | name      |
+      | 调用链sample |

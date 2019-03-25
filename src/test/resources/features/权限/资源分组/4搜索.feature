@@ -4,10 +4,14 @@ Feature: 资源分组搜索（RZY-534）
   Background:
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
 
-  Scenario Outline:
-    Given search "<searchInfo>" and I will see the column number "<num>" contains "<name>"
+  Scenario: 按照分组搜索
+    Given I choose the "仪表盘" from the "SearchDropdown"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'1','name':'仪表盘'}"
 
-    Examples:
-      | searchInfo       | num | name |
-      | {'group':'仪表盘'}  | 2   | 仪表盘  |
-      | {'input':'auto'} | 1   | auto |
+  Scenario: 根据搜索框搜索
+    And I wait for loading invisible
+    Given I set the search input with "Auto"
+    And I click the "Search" button under some element
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'0','name':'Auto'}"

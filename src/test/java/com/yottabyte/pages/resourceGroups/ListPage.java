@@ -122,6 +122,24 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-message-box__btns']/button[last()]")
     private WebElement ensureExportResource;
 
+    @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
+    private WebElement search;
+
+    @FindBy(xpath = "(//button[@class='el-button el-button--default'])[2]")
+    private WebElement groupSearch;
+
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[2]")
+    private WebElement searchDropdown;
+
+    public WebElement getSearchDropdown() {
+        groupSearch.click();
+        return searchDropdown;
+    }
+
+    public WebElement getSearch() {
+        return search;
+    }
+
     public WebElement getEnsureExportResource() {
         return ensureExportResource;
     }
