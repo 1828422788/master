@@ -1,4 +1,4 @@
-@offlineTask @all @smoke
+@offline @offlineTaskSmoke
 Feature: 下载列表搜索（RZY-178）
 
   Background:

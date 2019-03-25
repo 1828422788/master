@@ -12,4 +12,4 @@ Feature: 已存搜索加载（RZY-153）
 
     Examples:
       | name     | spl                                         |
-      | AutoTest | starttime=\"-2d/w\" endtime=\"now\" tag:ty* |
+      | AutoTest | starttime="-2d/w" endtime="now" tag:ty* |

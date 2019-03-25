@@ -1,4 +1,4 @@
-@offlineTask @all
+@offlineTask
 Feature: 下载任务新建（RZY-192至RZY-205）
 
   Background:
@@ -19,7 +19,7 @@ Feature: 下载任务新建（RZY-192至RZY-205）
     Then I click the "CreateDownloadTask" button
     Then I will see the success message "<message>"
 
-  @smoke
+  @offlineTaskSmoke
     Examples: 新建成功
       | splQuery                                                                                                                                              | downloadButton | name      | maxLineNum | unit | type | encode | message                |
       | * \| stats extend_stat(apache.resp_len), count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) | Download       | autotest  | 1          |      | CSV  |        | 提交成功，请到设置-下载管理页查看下载状态！ |

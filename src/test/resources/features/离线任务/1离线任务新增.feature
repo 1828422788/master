@@ -1,4 +1,4 @@
-@offlineTask @all
+@offlineTask
 Feature: 离线任务新增
 
   Background:
@@ -17,7 +17,7 @@ Feature: 离线任务新增
       | splQuery                                  | message |
       | * \| transaction apache.status maxspan=1s | 请填写名称！  |
 
-  @smoke
+  @offlineTaskSmoke
   Scenario Outline: 新建离线任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -39,7 +39,7 @@ Feature: 离线任务新增
       | apache.status:>=405                                                                                                                                                                                                    | WholeTime      | offlineAutoTest1            |
       | * \| stats count(apache.resp_len) as count_len, max(apache.resp_len) as max_len, min(apache.resp_len) as min_len, sum(apache.status) as sum_len, avg(apache.resp_len) as avg_len by apache.geo.city \| sort by max_len | WholeTime      | offlineAutoTest2            |
 
-  @smoke
+  @offlineTaskSmoke
   Scenario Outline: 新建最近类型的离线任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -60,7 +60,7 @@ Feature: 离线任务新增
       | splQuery                                  | time                | beginTime | name                    |
       | * \| transaction apache.status maxspan=1s | RecentlyRadioButton | 1000      | recentlyOfflineAutoTest |
 
-  @smoke
+  @offlineTaskSmoke
   Scenario Outline: 新建自定义时间类型的离线任务
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button

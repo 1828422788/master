@@ -1,4 +1,4 @@
-@offlineTask @all @smoke
+@offlineTask @offlineTaskSmoke
 Feature: 下载列表查看并下载
 
   Background:
@@ -12,7 +12,6 @@ Feature: 下载列表查看并下载
       | name           |
       | autotest.csv   |
       | autotest.json  |
-#      | autotest1.json |
       | autotest2.json |
       | autotest2.txt  |
 
