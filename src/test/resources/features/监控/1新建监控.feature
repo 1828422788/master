@@ -17,7 +17,7 @@ Feature: 监控新建
     And I click the "AddThresholdButton" button
     And I set the parameter "MiddleLevelInput" with value "5"
     And I click the "AddThresholdButton" button
-    And I set the parameter "MiddleLevelInput" with value "10"
+    And I set the parameter "HighLevelInput" with value "10"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
