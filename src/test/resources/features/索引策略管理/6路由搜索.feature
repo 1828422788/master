@@ -1,4 +1,4 @@
-@indexSetting @all @indexSettingSmoke @smoke
+@indexSetting @indexSettingSmoke
 Feature: 路由搜索
 
   Background:

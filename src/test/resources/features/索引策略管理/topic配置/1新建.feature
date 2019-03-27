@@ -1,4 +1,4 @@
-@indexSetting @all
+@indexSetting
 Feature: topic新建（RZY-2430）
 
   Background:
@@ -11,15 +11,15 @@ Feature: topic新建（RZY-2430）
     And I click the "EnsureButton" button
     Then I will see the <message>
 
-  @indexSettingSmoke
+  @second @indexSettingSmoke
     Examples:
-      | name     | describe | message                |
-      | AutoTest | 自动化测试    | success message "保存成功" |
+      | name      | describe | message                |
+      | topictest | 自动化测试    | success message "保存成功" |
 
     Examples:
       | name                      | describe | message                                             |
       |                           |          | error message "名称不能为空"                              |
-      | AutoTest                  |          | error message "保存失败: 重复的topic配置\n错误码: FE_158"       |
+      | topictest                 |          | error message "保存失败: 重复的topic配置\n错误码: FE_158"       |
       | _AutoTest                 |          | error message "保存失败: TopicInfo名称不符合规则\n错误码: FE_554" |
       | raw_message               |          | error message "保存失败: TopicInfo名称不符合规则\n错误码: FE_554" |
       | log_river                 |          | error message "保存失败: TopicInfo名称不符合规则\n错误码: FE_554" |

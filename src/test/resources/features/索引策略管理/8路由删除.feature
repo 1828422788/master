@@ -1,4 +1,3 @@
-@indexSetting @all @smoke @indexSettingSmoke
 Feature: 路由删除（RZY-1482）
 
   Background:
@@ -10,8 +9,16 @@ Feature: 路由删除（RZY-1482）
     And I refresh the website
     Then I will see the search result "{'column':'<num>','name':'<name>','contains':'no'}"
 
+  @indexSetting @indexSettingSmoke
     Examples:
       | num | name               |
       | 0   | iistestauto        |
       | 1   | index_testautotest |
       | 2   | iisdxautotest      |
+
+  @clean
+    Examples:
+      | num | name               |
+      | 3   | AutoTest           |
+      | 3   | AutoTestForsxc     |
+      | 3   | AutoTestForsxcSize |

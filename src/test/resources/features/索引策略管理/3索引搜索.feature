@@ -1,13 +1,12 @@
-@indexSetting @all @smoke @indexSettingSmoke
+@indexSetting @indexSettingSmoke
 Feature: 索引信息搜索
 
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
 
   Scenario Outline:
-    Given I set the search input with "<name>"
-    Given I will see the search result without paging contains "{'column':'0','name':'<name>'}"
+    Given search "<searchName>" and I will see the column number "1" contains "<name>"
 
     Examples:
-      | name     |
-      | autotest |
+      | searchName           | name     |
+      | {'input':'autotest'} | autotest |

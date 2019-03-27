@@ -1,4 +1,4 @@
-@indexSetting @all
+@indexSetting
 Feature: 路由新建（RZY-1481）
 
   Background:
@@ -15,7 +15,7 @@ Feature: 路由新建（RZY-1481）
     And I click the "CreateButton" button
     Then I will see the success message "<message>"
 
-  @smoke @indexSettingSmoke
+  @indexSettingSmoke
     Examples:
       | indexName | desc | appName     | tag                | rule          | message |
       | autotest  | test | iisautotest |                    |               | 保存成功    |

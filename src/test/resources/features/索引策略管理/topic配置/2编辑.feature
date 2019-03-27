@@ -1,4 +1,4 @@
-@indexSetting @all
+@indexSetting
 Feature: topic编辑（RZY-2428）
 
   Background:
@@ -10,11 +10,10 @@ Feature: topic编辑（RZY-2428）
     And I click the "EnsureButton" button
     Then I will see the <message>
 
-  @indexSettingSmoke
+  @second @indexSettingSmoke
     Examples:
-      | describe | message                |
-      | UI Test  | success message "保存成功" |
-      |          | success message "保存成功" |
+      | describe      | message                |
+      | 描述test描述，点击保存 | success message "保存成功" |
 
     Examples: RZY-2427
       | describe                                                                                                                                                                                                                                                        | message                     |
