@@ -12,7 +12,6 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
-    And I set the parameter "ColdTime" with value "<coldTime>"
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
@@ -32,16 +31,16 @@ Feature: 索引信息新建
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "index=indexerror * AND 'logtype':other"
+    And I set the parameter "SearchInput" with value "index=indexerror * AND 'logtype':apache"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "SearchResult" of "index=indexerror * AND 'logtype':other" will between "10"
+    Then I will see the "SearchResult" of "index=indexerror * AND 'logtype':apache" will between "10"
 
     Examples: 新建成功
-      | name       | desc     | savedTime | divideTime | coldTime | savedSize | savedSizeDropDown | message                |
-      | indexerror | AutoTest | 2         | 1          | 1        | 100       | MB                | success message "保存成功" |
+      | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | message                |
+      | indexerror | AutoTest | 2         | 1          | 100       | MB                | success message "保存成功" |
 
   @second @indexSettingSmoke
   Scenario Outline: RZY-1478:保存时间
