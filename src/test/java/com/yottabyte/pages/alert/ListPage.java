@@ -79,6 +79,34 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
     private WebElement disabledLi;
 
+    @FindBy(xpath = "//span[text()='维护期']")
+    private WebElement maintenance;
+
+    @FindBy(className = "title")
+    private List<WebElement> titleList;
+
+    @FindBy(className = "border-round")
+    private WebElement border;
+
+    @FindBy(className = "view")
+    private WebElement view;
+
+    public WebElement getView() {
+        return view;
+    }
+
+    public WebElement getBorder() {
+        return border;
+    }
+
+    public List<WebElement> getTitleList() {
+        return titleList;
+    }
+
+    public WebElement getMaintenance() {
+        return maintenance;
+    }
+
     public WebElement getDisabledLi() {
         return disabledLi;
     }

@@ -129,6 +129,12 @@ public class CheckButtonAttribute {
         Assert.assertEquals(expect, actualText);
     }
 
+    /**
+     * 验证多个元素名称是否正确
+     *
+     * @param element  为list
+     * @param nameList
+     */
     @Then("^I will see the element \"([^\"]*)\" value is \"([^割]*)\"$")
     public void iWillSeeTheElementValueIs(String element, List<String> nameList) {
         Object o = GetElementFromPage.getWebElementWithName(element);
