@@ -180,6 +180,27 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='转发url地址'])[last()]/following-sibling::div/input")
     private WebElement url;
 
+    @FindBy(xpath = "//label[contains(text(),'设备切分')]/following-sibling::div/label")
+    private WebElement divide;
+
+    @FindBy(xpath = "//input[@placeholder='请输入切分字段']")
+    private WebElement divideInput;
+
+    @FindBy(xpath = "(//*[@class='el-icon-circle-cross'])[last()]")
+    private WebElement close;
+
+    public WebElement getClose() {
+        return close;
+    }
+
+    public WebElement getDivideInput() {
+        return divideInput;
+    }
+
+    public WebElement getDivide() {
+        return divide;
+    }
+
     public WebElement getIconRight() {
         return iconRight;
     }
