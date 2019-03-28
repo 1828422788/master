@@ -18,7 +18,12 @@ Feature: 路由删除（RZY-1482）
 
   @clean
     Examples:
-      | num | name               |
-      | 3   | AutoTest           |
-      | 3   | AutoTestForsxc     |
-      | 3   | AutoTestForsxcSize |
+      | num | name                 |
+      | 3   | AutoCreateForSxcTest |
+      | 3   | AutoUpCase           |
+      | 3   | AutoRule             |
+      | 3   | AutoTag              |
+      | 3   | AutoAppName          |
+      | 3   | AutoTestForsxcSize   |
+      | 3   | AutoTestForsxc       |
+      | 3   | AutoTest             |

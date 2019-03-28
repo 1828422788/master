@@ -38,6 +38,10 @@ public class MatchRuleCreatePage extends PageTemplate {
         return super.getDropdownList("索引名");
     }
 
+    public WebElement getTopicName() {
+        return super.getDropdownList("Topic名");
+    }
+
     public WebElement getDesc() {
         return super.getInputElement("描述");
     }
