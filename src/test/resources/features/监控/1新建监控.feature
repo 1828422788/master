@@ -109,3 +109,20 @@ Feature: 监控新建
     And I choose the "过去七天" from the "BaseLineTimeSelectors"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
+
+  Scenario: RZY-2465:事件数监控-监控记录是否正确展示
+    When I set the parameter "AlertName" with value "RZY-2465:事件数监控-监控记录是否正确展示"
+    And I set the parameter "AlertDes" with value "AutoCreate"
+    And I choose the "default_Alert" from the "AlertGroups"
+    And I choose the "atest" from the "AlertUsers"
+    And I choose the "所有日志" from the "AlertSources"
+    And I set the parameter "SearchContent" with value "appname:* AND (failed OR err OR error OR errors OR warn OR warning OR failure OR wrong OR bad OR critical OR emerg OR emergency OR alert OR crit OR err OR segmentation OR fault)"
+    And I set the parameter "AlertPlanTimeInput" with value "2"
+    And I set the parameter "AlertTriggerInput" with value "5"
+    And I set the parameter "AlertLevelInput" with value "3"
+    And I click the "AddThresholdButton" button
+    And I set the parameter "MiddleLevelInput" with value "5"
+    And I click the "AddThresholdButton" button
+    And I set the parameter "HighLevelInput" with value "10"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
