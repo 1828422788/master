@@ -19,6 +19,20 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-message__group")
     private WebElement successmessage;
 
+    @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
+    private WebElement searchInput;
+
+    @FindBy(className = "el-icon-search")
+    private WebElement search;
+
+    public WebElement getSearch() {
+        return search;
+    }
+
+    public WebElement getSearchInput() {
+        return searchInput;
+    }
+
     public WebElement getAddButton() {
         return super.getButton("新建");
     }

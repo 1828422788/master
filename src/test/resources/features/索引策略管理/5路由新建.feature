@@ -29,7 +29,7 @@ Feature: 路由新建（RZY-1481）
       |         |     |      | appname, tag 和 匹配规则 至少需要填写一项 |
       | iis     |     |      | 保存失败: 已存在索引路由规则\n错误码: FE_139 |
 
-  @second
+  @second @indexSettingSmoke
   Scenario: RZY-2437:新建路由配置-路由规则_sample
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page

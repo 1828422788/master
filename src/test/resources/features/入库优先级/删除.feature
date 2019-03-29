@@ -1,4 +1,4 @@
-@indexSetting @indexSettingSmoke
+#@indexSetting @indexSettingSmoke
 Feature: 入库优先级删除（RZY-1486）
 
   Background:

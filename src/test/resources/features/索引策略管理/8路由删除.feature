@@ -5,16 +5,7 @@ Feature: 路由删除（RZY-1482）
 
   Scenario Outline:
     Given the data name is "{'column':'<num>','name':'<name>'}" then i click the "删除" button
-    When I click the "EnsureButton" button
-    And I refresh the website
-    Then I will see the search result "{'column':'<num>','name':'<name>','contains':'no'}"
-
-  @indexSetting @indexSettingSmoke
-    Examples:
-      | num | name               |
-      | 0   | iistestauto        |
-      | 1   | index_testautotest |
-      | 2   | iisdxautotest      |
+    Then I click the "EnsureButton" button
 
   @clean
     Examples:
@@ -26,4 +17,4 @@ Feature: 路由删除（RZY-1482）
       | 3   | AutoAppName          |
       | 3   | AutoTestForsxcSize   |
       | 3   | AutoTestForsxc       |
-      | 3   | AutoTest             |
+      | 4   | indexerror           |

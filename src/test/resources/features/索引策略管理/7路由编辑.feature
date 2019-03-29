@@ -17,18 +17,10 @@ Feature: 路由编辑
     And I set the parameter "Tag" with value "heka"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "SearchResult" of "<spl>" will between "10"
 
     Examples:
-      | index      | appName | tag  | spl                |
-      |            | iis1    | heka | index=iisidx *     |
-      | indexerror | iis1    | heka | index=indexerror * |
+      | index | appName | tag  |
+      | error | iis1    | heka |
 
   Scenario: RZY-2442、2443
     When the data name is "{'column':'3','name':'AutoCreateForSxcTest'}" then i click the "编辑" button
@@ -42,3 +34,14 @@ Feature: 路由编辑
     And I set the parameter "Tag" with value "sunxctest"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
+
+  Scenario Outline: 验证RZY-1484搜索结果
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "SearchResult" of "<spl>" will between "10"
+
+    Examples:
+      | spl           |
+      | index=error * |

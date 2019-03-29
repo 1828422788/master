@@ -1,4 +1,4 @@
-@indexSetting @indexSettingSmoke
+#@indexSetting @indexSettingSmoke
 Feature: 索引信息禁用（RZY-1475）
 
   Background:
@@ -6,7 +6,6 @@ Feature: 索引信息禁用（RZY-1475）
 
   Scenario:
     Given I disabled the data "autotest"
-    Then I will see the message "禁用成功"
     And I disabled the data "autotest"
 
 

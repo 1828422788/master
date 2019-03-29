@@ -30,17 +30,35 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "test"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "index=indexerror * AND 'logtype':apache"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "SearchResult" of "index=indexerror * AND 'logtype':apache" will between "10"
 
     Examples: 新建成功
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | message                |
       | indexerror | AutoTest | 2         | 1          | 100       | MB                | success message "保存成功" |
+
+  @second @indexSettingSmoke
+  Scenario: RZY-1474:新建
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    When I set the parameter "Name" with value "error"
+    And I set the parameter "Desc" with value "AutoTest"
+    And I set the parameter "SavedTime" with value "2"
+    And I set the parameter "DivideTime" with value "1"
+    And I set the parameter "SavedSize" with value "100"
+    And I choose the "MB" from the "SavedSizeDropDown"
+    And I click the "CreateButton" button
+    Then I will see the success message "保存成功"
+
+  @second @indexSettingSmoke
+  Scenario Outline: 验证1474搜索结果
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "SearchResult" of "<spl>" will between "10"
+
+    Examples:
+      | spl                                     |
+      | index=indexerror * AND 'logtype':apache |
 
   @second @indexSettingSmoke
   Scenario Outline: RZY-1478:保存时间
@@ -96,7 +114,7 @@ Feature: 索引信息新建
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<name>"
     And I set the parameter "Tag" with value "<name>"
-    And I upload a file with name "/src/test/resources/testdata/log/11.26-11.30MESSAGE_LOG.txt"
+    And I upload a file with name "/src/test/resources/testdata/log/h3c.txt"
     And I click the "UploadButton" button
 
     Examples: 新建成功

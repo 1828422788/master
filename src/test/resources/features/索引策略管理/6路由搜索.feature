@@ -5,8 +5,11 @@ Feature: 路由搜索
     Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
 
   Scenario Outline:
-    Given search "<searchName>" and I will see the column number "5" contains "<name>"
+    When I set the parameter "SearchInput" with value "<searchName>"
+    And I click the "Search" button
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'0','name':'<searchName>'}"
 
     Examples:
-      | searchName           | name     |
-      | {'input':'autotest'} | autotest |
+      | searchName |
+      | test       |

@@ -93,28 +93,44 @@ public class RegularSearch {
             return;
 
         Paging paging = GetPaging.getPagingInfo();
-        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
-        int columnNum = Integer.parseInt(resultMap.get("column").toString());
-
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
                 paging.getNextPage().click();
                 this.waitUntilLoadingDisappear();
                 trList = this.getTrList();
             }
+            validateResult(trList, searchResult);
+        }
+    }
 
-            for (WebElement tr : trList) {
-                List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
-                if (tdList.size() >= columnNum) {
-                    String actualText = tdList.get(columnNum).getText();
-                    String expectText = resultMap.get("name").toString();
-                    if (actualText.equals(""))
-                        return;
-                    if (resultMap.containsKey("contains"))
-                        Assert.assertFalse(actualText.contains(expectText));
-                    else
-                        Assert.assertTrue(actualText.toLowerCase().contains(expectText.toLowerCase()));
-                }
+    /**
+     * 验证搜索列表，无分页
+     * contains可省，只要有contains则为不包含某一字段
+     *
+     * @param searchResult 格式：{'column':'列数-1','name':'关键字名称','contains':'no'}
+     */
+    @Then("^I will see the search result without paging \"([^\"]*)\"$")
+    public void validateResultWithoutPaging(String searchResult) {
+        List<WebElement> trList = this.getTrList();
+        if (trList == null)
+            return;
+        validateResult(trList, searchResult);
+    }
+
+    private void validateResult(List<WebElement> trList, String searchResult) {
+        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
+        int columnNum = Integer.parseInt(resultMap.get("column").toString());
+        for (WebElement tr : trList) {
+            List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
+            if (tdList.size() >= columnNum) {
+                String actualText = tdList.get(columnNum).getText();
+                String expectText = resultMap.get("name").toString();
+                if (actualText.equals(""))
+                    return;
+                if (resultMap.containsKey("contains"))
+                    Assert.assertFalse(actualText.contains(expectText));
+                else
+                    Assert.assertTrue(actualText.toLowerCase().contains(expectText.toLowerCase()));
             }
         }
     }
@@ -157,6 +173,39 @@ public class RegularSearch {
             }
         }
         Assert.assertTrue(flag);
+    }
+
+    /**
+     * 验证搜索列表包含某一字段，无分页
+     *
+     * @param searchResult
+     */
+    @And("^I will see the search result without paging contains \"([^\"]*)\"$")
+    public void iWillSeeTheSearchResultWithoutPagingContains(String searchResult) {
+        List<WebElement> trList = this.getTrList();
+        if (trList == null)
+            return;
+        Assert.assertTrue(validateContainsResult(searchResult, trList));
+    }
+
+
+    private boolean validateContainsResult(String searchResult, List<WebElement> trList) {
+        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
+        int columnNum = Integer.parseInt(resultMap.get("column").toString());
+
+        boolean flag = false;
+        for (WebElement tr : trList) {
+            List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
+            if (tdList.size() >= columnNum) {
+                String actualText = tdList.get(columnNum).getText();
+                String expectText = resultMap.get("name").toString();
+                if (actualText.contains(expectText)) {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        return flag;
     }
 
     @Then("^I will see the result time in \"([^\"]*)\"$")
@@ -305,29 +354,5 @@ public class RegularSearch {
         String xpath = ".//td[" + valuesMap.get("column") + "]";
         String actualName = tr.findElement(By.xpath(xpath)).getText();
         Assert.assertEquals(valuesMap.get("name"), actualName);
-    }
-
-    @And("^I will see the search result without paging contains \"([^\"]*)\"$")
-    public void iWillSeeTheSearchResultWithoutPagingContains(String searchResult) {
-        List<WebElement> trList = this.getTrList();
-        if (trList == null)
-            return;
-
-        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
-        int columnNum = Integer.parseInt(resultMap.get("column").toString());
-
-        boolean flag = false;
-        for (WebElement tr : trList) {
-            List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
-            if (tdList.size() >= columnNum) {
-                String actualText = tdList.get(columnNum).getText();
-                String expectText = resultMap.get("name").toString();
-                if (actualText.contains(expectText)) {
-                    flag = true;
-                    break;
-                }
-            }
-        }
-        Assert.assertTrue(flag);
     }
 }

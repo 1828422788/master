@@ -16,7 +16,7 @@ Feature: 入库优先级新建（RZY-1485）
     And I refresh the website
     Then I will see the search result contains "{'column':'0','name':'<appName>'}"
 
-  @indexSettingSmoke
+#  @indexSettingSmoke
     Examples: 保存成功
       | appName              | tag             | priority | message                |
       | AutoTestWithNothing  |                 |          | success message "保存成功" |

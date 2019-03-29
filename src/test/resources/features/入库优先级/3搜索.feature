@@ -1,4 +1,4 @@
-@indexSetting @indexSettingSmoke
+#@indexSetting @indexSettingSmoke
 Feature: 入库优先级搜索
 
   Background:

@@ -39,6 +39,19 @@ public class ClickButtonWithGivenName {
         this.click(buttonName, tr);
     }
 
+
+    /**
+     * 寻找对应的操作按钮并点击，无分页
+     *
+     * @param name       字符串：第一列所要匹配的名称，json：{'column':'start 0','name':''}
+     * @param buttonName 按钮名称
+     */
+    @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging$")
+    public void theDataNameIsThenIClickTheButtonWithoutPaging(String name, String buttonName) {
+        WebElement tr = this.getTrWithoutPaging(name);
+        this.click(buttonName, tr);
+    }
+
     @Given("^the data name \"([^\"]*)\" in table \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String tableName, String buttonName) {
         WebElement table = GetElementFromPage.getWebElementWithName(tableName);
@@ -538,11 +551,5 @@ public class ClickButtonWithGivenName {
                 label.findElement(By.xpath(".//ancestor::label")).click();
             }
         }
-    }
-
-    @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging$")
-    public void theDataNameIsThenIClickTheButtonWithoutPaging(String name, String buttonName) {
-        WebElement tr = this.getTrWithoutPaging(name);
-        this.click(buttonName, tr);
     }
 }
