@@ -18,10 +18,10 @@ Feature: 入库优先级新建（RZY-1485）
 
 #  @indexSettingSmoke
     Examples: 保存成功
-      | appName              | tag             | priority | message                |
-      | AutoTestWithNothing  |                 |          | success message "保存成功" |
-      | AutoTestWithTag      | top_info_s      |          | success message "保存成功" |
-      | AutoTestHighPriority | top_info_s,heka | 高        | success message "保存成功" |
+      | appName                | tag             | priority | message                |
+      | top_info_s_proc_status |                 | 高        | success message "保存成功" |
+      | AutoTestWithTag        | top_info_s      |          | success message "保存成功" |
+      | AutoTestHighPriority   | top_info_s,heka | 高        | success message "保存成功" |
 
     Examples: 保存失败
       | appName  | tag | priority | message                                       |

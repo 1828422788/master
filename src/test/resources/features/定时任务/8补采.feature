@@ -1,4 +1,4 @@
-@third @timedTaskSmoke
+#@third @timedTaskSmoke
 Feature: 定时任务补采
 
   Background:
