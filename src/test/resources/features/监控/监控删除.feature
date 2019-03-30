@@ -20,6 +20,8 @@ Feature: 监控删除
       | RZY-2469:新建监控类型-连续统计监控     |
       | RZY-2470:新建监控类型-SPL统计监控    |
       | RZY-2471:新建监控类型-基线对比监控     |
+      | RZY-436:SPL统计监控步骤2         |
+      | RZY-436：SPL统计监控步骤1         |
 
 #  @all @smoke @alert @alertSmoke
   Scenario:

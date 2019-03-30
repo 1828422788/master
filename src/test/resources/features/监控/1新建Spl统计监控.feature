@@ -29,5 +29,5 @@ Feature: 监控新建Spl统计（RZY-436）
     Then I will see the <Result>
 
     Examples: 创建字段统计监控成功
-      | AlertName                 | AlertGroup    | SearchContent                                | AlertPlanTime | AlertTrigger | FieldInput | AlertLevelInput | MiddleLevelInput | HighLevelInput | Result                 |
-      | RZY-436：SPL统计监控（不展示监控趋势图） | default_Alert | * \| stats count() as cnt by apache.clientip | 2             | 5            | cnt        | 100             | 200              | 250            | success message "保存成功" |
+      | AlertName          | AlertGroup    | SearchContent                                | AlertPlanTime | AlertTrigger | FieldInput | AlertLevelInput | MiddleLevelInput | HighLevelInput | Result                 |
+      | RZY-436：SPL统计监控步骤1 | default_Alert | * \| stats count() as cnt by apache.clientip | 2             | 5            | cnt        | 100             | 200              | 250            | success message "保存成功" |
