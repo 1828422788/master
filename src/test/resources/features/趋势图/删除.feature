@@ -13,8 +13,8 @@ Feature: 趋势图删除（RZY-1891）
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
     Examples:
-      | name          |
-      | 曲线图sample2(1) |
+      | name             |
+      | 矩阵热力图sample1(副本) |
 
   @clean
   Scenario Outline: 趋势图删除
@@ -23,59 +23,65 @@ Feature: 趋势图删除（RZY-1891）
 
     Examples:
       | name         |
-      | 曲线图sample0   |
-      | 曲线图sample1   |
-      | 曲线图sample2   |
-      | 面积图sample0   |
-      | 面积图sample1   |
-      | 面积图sample2   |
-      | 散点图sample0   |
-      | 散点图sample1   |
-      | 散点图sample2   |
-      | 柱状图sample0   |
-      | 柱状图sample1   |
-      | 柱状图sample2   |
-      | 和弦图sample0   |
-      | 和弦图sample1   |
-      | 桑基图sample0   |
-      | 桑基图sample1   |
-      | 力图sample0    |
-      | 力图sample1    |
-      | 饼状图sample0   |
-      | 饼状图sample1   |
-      | 饼状图sample2   |
-      | 饼状图sample3   |
-      | 区间图sample0   |
-      | 区间图sample1   |
-      | 多Y轴sample0   |
-      | 多Y轴sample1   |
-      | 多Y轴sample2   |
-      | 热力地图sample0  |
-      | 热力地图sample1  |
-      | 攻击地图sample0  |
-      | 攻击地图sample1  |
-      | 攻击地图sample2  |
-      | 区划地图sample0  |
-      | 区划地图sample1  |
-      | 区划地图sample2  |
-      | 单值sample0    |
-      | 单值sample1    |
-      | 单值sample2    |
-      | 单值sample3    |
-      | 水球图sample0   |
-      | 水球图sample1   |
-      | 字符云图sample0  |
-      | 字符云图sample1  |
       | 雷达图sample0   |
-      | 雷达图sample1   |
-      | 雷达图sample2   |
-      | 漏斗图sample0   |
-      | 漏斗图sample1   |
-      | 循序图sample0   |
-      | 循序图sample1   |
-      | 矩阵热力图sample0 |
-      | 矩阵热力图sample1 |
+      | 散点图sample0   |
+      | 曲线图sample0   |
+      | 区间图sample0   |
+      | 力图sample0    |
+      | 桑基图sample0   |
+      | 和弦图sample0   |
+      | 柱状图sample0   |
+      | 面积图sample0   |
+      | 调用链sample0   |
+      | 旭日图sample0   |
       | 条形图sample0   |
-      | 条形图sample1   |
-      | 条形图sample2   |
+      | 玫瑰图sample0   |
+      | 矩阵热力图sample0 |
+      | 漏斗图sample0   |
+      | 循序图sample0   |
+      | 字符云图sample0  |
+      | 水球图sample0   |
+      | 单值sample0    |
+      | 区划地图sample0  |
+      | 攻击地图sample0  |
+      | 热力地图sample0  |
+      | 多Y轴sample0   |
+      | 饼状图sample0   |
+      | 调用链sample    |
+      | 矩阵热力图sample1 |
+      | 循序图sample1   |
+      | 雷达图sample2   |
+      | 漏斗图sample1   |
+      | 雷达图sample1   |
+      | 旭日图sample2   |
       | 条形图sample3   |
+      | 条形图sample2   |
+      | 饼状图sample3   |
+      | 饼状图sample2   |
+      | 字符云图sample1  |
+      | 水球图sample1   |
+      | 单值sample3    |
+      | 单值sample2    |
+      | 单值sample1    |
+      | 区划地图sample2  |
+      | 区划地图sample1  |
+      | 攻击地图sample2  |
+      | 攻击地图sample1  |
+      | 旭日图sample1   |
+      | 热力地图sample1  |
+      | 区间图sample1   |
+      | 条形图sample1   |
+      | 饼状图sample1   |
+      | 桑基图sample1   |
+      | 力图sample1    |
+      | 和弦图sample1   |
+      | 散点图sample2   |
+      | 多Y轴图sample2  |
+      | 柱状图sample2   |
+      | 面积图sample2   |
+      | 曲线图sample2   |
+      | 多Y轴图sample1  |
+      | 散点图sample1   |
+      | 面积图sample1   |
+      | 柱状图sample1   |
+      | 曲线图sample1   |

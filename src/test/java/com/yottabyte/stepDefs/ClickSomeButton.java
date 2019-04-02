@@ -123,8 +123,10 @@ public class ClickSomeButton {
 
     @And("^I click the \"([^\"]*)\" button under some element$")
     public void clickUnderneathButton(String elementName) {
-        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", element);
+        if (elementName != null && elementName.trim().length() != 0) {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", element);
+        }
     }
 
     /**

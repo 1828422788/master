@@ -110,15 +110,11 @@ Feature: 定时任务新增
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
-  @second @timedTaskSmoke
-    Examples:
-      | spl                                                                                    | time  | chartType | chart  | taskName        | describe                 |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10 | Today | Other     | Funnel | chs_task_funnel | RZY-2450:task_漏斗图_sample |
-
   @first @timedTaskSmoke
     Examples:
-      | spl                                                          | time      | chartType | chart | taskName              | describe       |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Yesterday |           | Line  | RZY-397:定时任务sample_昨天 | testing 定时任务样例 |
+      | spl                                                                                    | time      | chartType | chart  | taskName              | describe                 |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len                           | Yesterday |           | Line   | RZY-397:定时任务sample_昨天 | testing 定时任务样例           |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10 | Today     | Other     | Funnel | chs_task_funnel       | RZY-2450:task_漏斗图_sample |
 
   @smoke @timedTaskSmoke
   Scenario Outline: 生成图表类型的定时任务（RZY-1488、RZY-2296、RZY-2297、RZY-2298、RZY-2300）

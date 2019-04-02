@@ -29,6 +29,11 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
+  @first
+    Examples:
+      | spl                                                                                                          | chartType | chart       | caseNum | name       | taskName                     |
+      | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt | Map       | Geostatsmap | 2795    | 统计地图sample | RZY-2936:task_地图-统计地图_sample |
+
   @second
     Examples:
       | spl                                                                                                                                          | chartType | chart         | caseNum | name          | taskName                       |
@@ -45,8 +50,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
       | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count                          | Compound  | Multiaxis     | 2785    | 多Y轴图sample    | RZY-2927:task_复合_多Y轴图_sample   |
       | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                 | Map       | Heatmap       | 1229    | 热力地图sample    | RZY-2929:task_地图-热力地图_sample   |
       | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city                                        | Map       | Regionmap     | 2790    | 区划地图sample    | RZY-2933:task_地图-行政区划地图_sample |
-      | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt                                 | Map       | Geostatsmap   | 2795    | 统计地图sample    | RZY-2936:task_地图-统计地图_sample   |
-      | tag:sample04061424_chart  \| stats count() as cnt \| eval icon=if(cnt>1000000,\"thumbs-down\",\"thumbs-up\")                                     | Other     | Single        | 2303    | 单值sample      | RZY-2939:task_其它_单值_sample     |
+      | tag:sample04061424_chart  \| stats count() as cnt \| eval icon=if(cnt>1000000,\"thumbs-down\",\"thumbs-up\")                                 | Other     | Single        | 2303    | 单值sample      | RZY-2939:task_其它_单值_sample     |
       | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                 | Other     | Wordcloud     | 2804    | 字符云图sample    | RZY-2946:task_其它_字符云图_sample   |
       | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                                                   | Other     | Radar         | 2807    | 其它_雷达图_sample | RZY-2950:task_其它_雷达图_sample    |
       | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10                                                       | Other     | Funnel        | 2449    | 其他_漏斗图sample  | RZY-2952:task_其它_漏斗图sample     |

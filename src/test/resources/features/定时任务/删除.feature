@@ -4,7 +4,7 @@ Feature: 定时任务删除（RZY-412）
   Scenario Outline: 定时任务删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "<name>" then i click the "删除" button
-    And I click the "EnsureDelete" button
+    And I click the "EnsureDelete" button under some element
 
     Examples:
       | name                              |
@@ -64,10 +64,21 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2955:task_其它_矩阵热力图1           |
       | RZY-2951:task_其它_雷达图1             |
       | RZY-2943:task_其它_单值设置-按区间         |
+      | RZY-2957:task_其它_调用链1             |
+      | RZY-2925:task_复合_区间图_sample       |
+      | RZY-2930:task_地图-热力地图             |
+      | RZY-2913:task_维度_玫瑰图1             |
+      | RZY-2698:执行计划-定时_2天               |
+      | RZY-402:任务分组hunter_roles_m        |
+      | RZY-401:搜索内容                      |
+      | RZY-400:日志来源_api_log_source_m     |
+      | RZY-399:运行用户_api_usr_m            |
+
 
   Scenario Outline: 补采任务删除
     Given open the "timedTask.ListPage" page for uri "/schedule/complement/"
     When the data name is "<name>" then i click the "删除" button
+    And I click the "EnsureDelete" button
 
     Examples:
       | name                            |

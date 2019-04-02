@@ -6,6 +6,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.GetPaging;
 import com.yottabyte.utils.JsonStringPaser;
+import com.yottabyte.utils.WaitForElement;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -13,6 +14,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -110,9 +112,9 @@ public class ClickButtonWithGivenName {
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         // 包含删除的按钮会有两个，因此需通过class属性去判断
         if (button.get(0).getAttribute("class").equals("")) {
-            button.get(0).click();
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
         } else {
-            button.get(1).click();
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(1));
         }
     }
 
@@ -202,6 +204,7 @@ public class ClickButtonWithGivenName {
             List<WebElement> trList = table.findElements(By.tagName("tr"));
             if (i != 0 && i <= this.getTotalPage() - 1)
                 this.getNextPage().click();
+            WaitForElement.waitUntilLoadingDisappear();
 
             for (WebElement tr : trList) {
                 if (tr.findElement(By.tagName("td")).getText().equals(name)) {

@@ -62,6 +62,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    @FindBy(xpath = "//i[@class='iconfont icon-chenggong1']/following-sibling::span")
+    private WebElement successMessage;
+
     @FindBy(tagName = "th")
     private WebElement header;
 
@@ -690,7 +693,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return message;
+        return successMessage;
     }
 
     public WebElement getSearchInput() {

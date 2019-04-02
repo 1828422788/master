@@ -19,9 +19,10 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "<chart>" button
     And I click the "<chartType>" button
+    And I display the element "ChartTypePopover"
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -37,7 +38,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
   @first @trendSmoke
     Examples:
@@ -48,8 +48,8 @@ Feature: 趋势图新建
   @all @smoke @trendSmoke @trend
     Examples:
       | name       | spl                                                                                                                      | chart | chartType | reportName   | hour | minute |
-      | 面积图sample1 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 |       | Area      | 面积图sample1报表 | 11   | 55     |
-      | 散点图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             |       | Scatter   | 散点图sample1报表 | 12   | 00     |
+      | 面积图sample1 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 | Order | Area      | 面积图sample1报表 | 11   | 55     |
+      | 散点图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             | Order | Scatter   | 散点图sample1报表 | 12   | 00     |
 
   @second @trendSmoke
     Examples:
@@ -69,15 +69,15 @@ Feature: 趋势图新建
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I click the "ChartType" button
+    And I click the "Order" button
     And I click the "<chart>" button
-    And I wait for loading invisible
-    And I click the "Setting" button
-    And I click the "<tag>" button
-    And I click the "<order>" button
-    And I click the "Yaxis" button
+    And I click the "Setting" button under some element
+    And I click the "<tag>" button under some element
+    And I click the "<order>" button under some element
+    And I click the "Yaxis" button under some element
     And I set the parameter "Unit" with value "<unit>"
-    And I click the "<smooth>" button
-    And I click the "<connectEmptyData>" button
+    And I click the "<smooth>" button under some element
+    And I click the "<connectEmptyData>" button under some element
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
     And I click the "Group" button
@@ -88,8 +88,9 @@ Feature: 趋势图新建
     And I click the "StartColour" button
     And I click the "<colour>" button
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
     Examples:
       | name       | spl                                                                                                                      | chart  | tag        | order           | unit | smooth | connectEmptyData | min | max | pile | position       | colour |
@@ -113,10 +114,10 @@ Feature: 趋势图新建
     And I click the "<chartType>" button
     And I click the "<chart>" button
     And I wait for loading invisible
-    And I click the "Setting" button
-    And I click the "<tag>" button
-    And I click the "<order>" button
-    And I click the "Yaxis" button
+    And I click the "Setting" button under some element
+    And I click the "<tag>" button under some element
+    And I click the "<order>" button under some element
+    And I click the "Yaxis" button under some element
     And I choose the "max(apache.resp_len)" from the "SettingSelect"
     And I choose the "面积图" from the "Type"
     And I click the "Smooth" button
@@ -138,8 +139,9 @@ Feature: 趋势图新建
     And I click the "StartColour" button
     And I click the "Red" button
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
     Examples:
       | name       | spl                                                                                                                                                                             | chartType | chart     | tag        | order          |
@@ -158,12 +160,12 @@ Feature: 趋势图新建
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I click the "ChartType" button
+    And I click the "Order" button
     And I click the "<chart>" button
-    And I wait for loading invisible
-    And I click the "Setting" button
-    And I click the "<tag>" button
-    And I click the "<order>" button
-    And I click the "Yaxis" button
+    And I click the "Setting" button under some element
+    And I click the "<tag>" button under some element
+    And I click the "<order>" button under some element
+    And I click the "Yaxis" button under some element
     And I set the parameter "Unit" with value "<unit>"
     And I click the "<smooth>" button
     And I click the "<connectEmptyData>" button
@@ -178,8 +180,9 @@ Feature: 趋势图新建
     And I click the "StartColour" button
     And I click the "<colour>" button
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
     Examples:
       | name       | spl                                                                          | chart   | tag        | order           | unit | smooth | connectEmptyData | min | max | position      | colour |
@@ -208,9 +211,9 @@ Feature: 趋势图新建
     And I click the "Target" button
     And I choose the "apache.resp_len" from the "SettingSelect"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -226,7 +229,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
   @all @smoke @trendSmoke @trend
     Examples:
@@ -254,10 +256,10 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "<chartType>" button
     And I click the "<chart>" button
+    And I display the element "ChartTypePopover"
     And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -273,7 +275,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name       | spl                                                                          | chartType | chart | reportName   | hour | minute |
@@ -304,9 +305,9 @@ Feature: 趋势图新建
     And I choose the "upper95" from the "TopLimit"
     And I choose the "lower95" from the "LowerLimit"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -322,7 +323,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name       | spl                                                                                                                        | chartType | chart     | reportName   |
@@ -342,10 +342,10 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "<chart>" button
     And I click the "<type>" button
+    And I display the element "ChartTypePopover"
     And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -361,7 +361,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
   @first @trendSmoke
     Examples:
@@ -400,9 +399,9 @@ Feature: 趋势图新建
     And I click the "Weight" button
     And I choose the "cnt" from the "SettingSelect"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -418,7 +417,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name        | spl                                                                                                                                                                                                                                                                                           |
@@ -453,8 +451,9 @@ Feature: 趋势图新建
     And I click the "Region" button
     And I click the "China" button
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
     Examples:
       | name        | spl                                                                                                                                                                                                                                                                                           |
@@ -478,15 +477,15 @@ Feature: 趋势图新建
     And I wait for loading invisible
     And I click the "Setting" button
     And I click the "Region" button
-    And I drag the scroll bar to the element "Neimeng"
-    And I click the "Neimeng" button
+#    And I drag the scroll bar to the element "Neimeng"
+#    And I click the "Neimeng" button
     And I click the "GoingDown" button
     And I choose the "apache.geo.province" from the "Province"
     And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -502,7 +501,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name        | spl                                                                                           |
@@ -530,8 +528,9 @@ Feature: 趋势图新建
     And I click the "Region" button
     And I click the "China" button
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
     Examples:
       | name        | spl                                                                                           |
@@ -558,9 +557,9 @@ Feature: 趋势图新建
     And I click the "Orange" button
     And I click the "<colourFilling>" button
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -576,7 +575,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name      | spl                                                                                            | colourFilling |
@@ -606,8 +604,9 @@ Feature: 趋势图新建
     And I click the "AccordingField" button
     And I choose the "icon" from the "SettingSelect"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
     Examples:
       | name      | spl                                                                                            | time | exhibition |
@@ -639,8 +638,9 @@ Feature: 趋势图新建
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "search"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
     Examples:
       | name      | spl                                                                                            |
@@ -666,9 +666,9 @@ Feature: 趋势图新建
     And I click the "StartColour" button
     And I click the "<colour>" button
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -684,7 +684,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
   @second @trendSmoke
     Examples:
@@ -722,8 +721,9 @@ Feature: 趋势图新建
     And I click the "StartColour" button
     And I click the "<colour>" button
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
     Examples:
       | name       | spl                                                                          | chartType | type | colour |
@@ -752,9 +752,9 @@ Feature: 趋势图新建
     And I choose the "展示全部" from the "Label"
     And I choose the "柱状外左侧" from the "Label"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -770,7 +770,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name       | spl                                                                          | chartType | type | colour |
@@ -798,8 +797,9 @@ Feature: 趋势图新建
     And I choose the "展示全部" from the "Label"
     And I choose the "柱状内中央" from the "Label"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
   @all @smoke @trendSmoke @trend
     Examples:
@@ -826,9 +826,10 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "Other" button
     And I click the "<type>" button
+    And I display the element "ChartTypePopover"
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -844,7 +845,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name       | spl                                                                        | type   | hour | minute |
@@ -876,8 +876,9 @@ Feature: 趋势图新建
     And I click the "StartColour" button
     And I click the "Orange" button
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
 
     Examples:
       | name       | spl                                                                        |
@@ -910,9 +911,9 @@ Feature: 趋势图新建
     And I click the "Mark" button
     And I choose the "sequence.relatemsg" from the "SettingSelect"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -928,7 +929,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name       | spl                                                                                         |
@@ -949,13 +949,12 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "Other" button
     And I click the "<type>" button
+    And I click the "Setting" button under some element
+    And I click the "Horizontal" button under some element
+    And I click the "Generate" button under some element
     And I wait for loading invisible
-    And I click the "Setting" button
-    And I click the "Horizontal" button
-    And I click the "Generate" button
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
-    And I click the "EnsureButton" button
     And I click the "Report" button
     And switch to another window
     And I will see the "report.CreatePage" page
@@ -971,7 +970,6 @@ Feature: 趋势图新建
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name         | spl                                                         | type          |
@@ -1002,8 +1000,10 @@ Feature: 趋势图新建
     And I click the "Info" button
     And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
     And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "<name>"
     And I click the "Save" button
-    Then I will see the success message "创建成功"
+
     Examples:
       | name      |
       | 调用链sample |

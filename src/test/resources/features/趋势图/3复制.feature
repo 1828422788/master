@@ -7,8 +7,8 @@ Feature: 趋势图复制（RZY-1889）
   Scenario Outline:
     When the data name is "<name>" then i click the "复制" button
     And I refresh the website
-    Then I will see the search result contains "{'column':'0','name':'<name>(1)'}"
+    Then I will see the search result contains "{'column':'0','name':'<name>(副本)'}"
 
     Examples:
-      | name       |
-      | 曲线图sample2 |
+      | name         |
+      | 矩阵热力图sample1 |
