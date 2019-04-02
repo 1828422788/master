@@ -1,4 +1,4 @@
-#@alert @all @smoke @alertSmoke
+@smoke @alertSmoke @second
 Feature: 监控新建连续统计（RZY-435）
 
   Background:
@@ -8,31 +8,27 @@ Feature: 监控新建连续统计（RZY-435）
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "<AlertName>"
-    And I set the parameter "AlertDes" with value "alertDes"
-    And I choose the "<AlertGroup>" from the "AlertGroups"
-    And I choose the "<AlertUser>" from the "AlertUsers"
-    And I choose the "<AlertSource>" from the "AlertSources"
-    And I set the parameter "SearchContent" with value "<SearchContent>"
+    And I set the parameter "AlertDes" with value "AutoCreate"
+    And I choose the "default_Alert" from the "AlertGroups"
+    And I choose the "所有日志" from the "AlertSources"
+    And I set the parameter "SearchContent" with value "appname:apache"
     And I switch the "AlertEnable" button to "disable"
     And I choose the "连续统计监控" from the "AlertTypes"
     And I click the "AlertPlanTimeButton" button
-    And I set the parameter "AlertPlanTimeInput" with value "<AlertPlanTime>"
-    And I choose the "<TimeUnits>" from the "AlertPlanTimeUnits"
-    And I set the parameter "AlertTriggerFieldsInput" with value "<AlertTriggerFields>"
-    And I set the parameter "AlertTriggerInput" with value "<AlertTrigger>"
-    And I choose the "<AlertTriggerTimeUnits>" from the "AlertTriggerHourOrMinute"
+    And I set the parameter "AlertPlanTimeInput" with value "2"
+    And I set the parameter "AlertTriggerFieldsInput" with value "apache.status"
+    And I set the parameter "AlertTriggerInput" with value "200"
+    And I choose the "小时内" from the "AlertTriggerHourOrMinute"
     And I choose the "<ConditionTypes>" from the "ConditionTypes"
     And I set the parameter "AlertTriggerRightInput" with value "<BaseValue>"
-    And I choose the ">" from the "Conditions"
-    And I set the parameter "AlertLevelInput" with value "<AlertLevelInput>"
-    And I choose the "<AlertLevel>" from the "AlertLevelUnit"
+    And I set the parameter "AlertLevelInput" with value "2"
     And I click the "SaveButton" button
-    Then I will see the <Result>
+    Then I will see the success message "保存成功"
 
     Examples: 创建字段统计监控成功
-      | AlertName  | AlertGroup    | AlertUser | AlertSource | SearchContent  | AlertPlanTime | TimeUnits | AlertTriggerFields | AlertTrigger | AlertTriggerTimeUnits | ConditionTypes | BaseValue | AlertLevelInput | AlertLevel | Result                 |
-      | AutoTest25 | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | =              | 200       | 2               | 低          | success message "保存成功" |
-      | AutoTest26 | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | >              | 200       | 2               | 低          | success message "保存成功" |
-      | AutoTest27 | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | <              | 404       | 2               | 低          | success message "保存成功" |
-      | AutoTest28 | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | >=             | 404       | 2               | 低          | success message "保存成功" |
-      | AutoTest29 | default_Alert | owner     | 所有日志        | appname:apache | 2             | 分钟        | apache.status      | 200          | 小时内                   | <=             | 404       | 2               | 低          | success message "保存成功" |
+      | AlertName         | ConditionTypes | BaseValue |
+      | RZY-435:连续统计监控步骤1 | =              | 200       |
+      | RZY-435:连续统计监控步骤2 | >              | 200       |
+      | RZY-435:连续统计监控步骤3 | <              | 404       |
+      | RZY-435:连续统计监控步骤4 | >=             | 404       |
+      | RZY-435:连续统计监控步骤5 | <=             | 404       |

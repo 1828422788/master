@@ -15,9 +15,10 @@ Feature: 拓扑图搜索（RZY-354至355）
 
   Scenario Outline: 根据输入内容搜索（RZY-354）
     Given I set the search input with "<name>"
+    And I click the "Search" button
+    And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<name>'}"
 
     Examples:
       | name     |
       | autotest |
-

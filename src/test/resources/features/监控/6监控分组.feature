@@ -6,10 +6,10 @@ Feature: 监控分组
 
   Scenario Outline:
     Given the data name is "<name>" then i click the "分组" button
-    When choose from "{'ChangeGroup':'AutoTestForAlert'}"
+    When I cancel selection "default_Alert" from the "ChangeGroup"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
 
     Examples:
-      | name     |
-      | RZY-436：SPL统计监控（不展示监控趋势图） |
+      | name                   |
+      | RZY-436：SPL统计监控步骤1(副本) |

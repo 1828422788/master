@@ -58,10 +58,10 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='处理及时率']")
     private WebElement workLoads;
 
-    @FindBy(className = "el-icon-arrow-down")
+    @FindBy(xpath = "//span[text()='全部资源']/preceding-sibling::i")
     private WebElement dropdownButton;
 
-    @FindBy(className = "el-dropdown-menu")
+    @FindBy(xpath = "//input[@placeholder='筛选分组']/ancestor::ul")
     private WebElement dropdownMenu;
 
     @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
@@ -70,7 +70,7 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'确定')])[last()]")
     private WebElement ensureDeleteButton;
 
-    @FindBy(xpath = "//textarea[@placeholder='请输入搜索内容']")
+    @FindBy(xpath = "//span[@style='padding-right: 0.1px;']")
     private WebElement splSearchInput;
 
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
@@ -90,6 +90,13 @@ public class ListPage extends PageTemplate {
 
     @FindBy(className = "view")
     private WebElement view;
+
+    @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
+    private WebElement search;
+
+    public WebElement getSearch() {
+        return search;
+    }
 
     public WebElement getView() {
         return view;

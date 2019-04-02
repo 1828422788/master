@@ -42,6 +42,34 @@ public class MaintenancePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
     private WebElement disabledLi;
 
+    @FindBy(xpath = "//label[@class='required start-time']/following-sibling::div//input[@placeholder='时']")
+    private WebElement startHour;
+
+    @FindBy(xpath = "//label[@class='required start-time']/following-sibling::div//input[@placeholder='分']")
+    private WebElement startMinute;
+
+    @FindBy(xpath = "//label[@class='required end-time']/following-sibling::div//input[@placeholder='时']")
+    private WebElement endHour;
+
+    @FindBy(xpath = "//label[@class='required end-time']/following-sibling::div//input[@placeholder='分']")
+    private WebElement endMinute;
+
+    public WebElement getStartHour() {
+        return startHour;
+    }
+
+    public WebElement getStartMinute() {
+        return startMinute;
+    }
+
+    public WebElement getEndHour() {
+        return endHour;
+    }
+
+    public WebElement getEndMinute() {
+        return endMinute;
+    }
+
     public WebElement getDisabledLi() {
         return disabledLi;
     }
@@ -108,6 +136,6 @@ public class MaintenancePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getSuccessMessage();
+        return super.getErrorMessage();
     }
 }

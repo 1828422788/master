@@ -75,11 +75,18 @@ public class ListPage extends PageTemplate {
         return ensure;
     }
 
-    @FindBy(className = "yw-table-group__group-menu")
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
     private WebElement groupDropdownList;
 
-    @FindBy(className = "el-icon-arrow-down")
+    @FindBy(xpath = "//span[text()='全部资源']/preceding-sibling::i")
     private WebElement searchGroupButton;
+
+    @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
+    private WebElement search;
+
+    public WebElement getSearch() {
+        return search;
+    }
 
     public WebElement getGroupDropdownList() {
         searchGroupButton.click();

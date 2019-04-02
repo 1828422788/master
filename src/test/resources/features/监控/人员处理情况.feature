@@ -1,4 +1,4 @@
-@alert @all @alertSmoke
+@alert @alertSmoke
 Feature: 监控人员处理情况
 
   Background:
@@ -14,6 +14,7 @@ Feature: 监控人员处理情况
       | name  |
       | owner |
 
+  @second
   Scenario: 返回监控首页（RZY-494）
     When I click the "ReturnButton" button
     Then the page's title will be "监控"

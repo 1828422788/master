@@ -8,9 +8,8 @@ Feature: 拓扑图分组（RZY-353）
     Given the data name is "sxjautotest" then i click the "分组" button
     Then I <group>
     And I click the "EnsureButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the error message "请至少选择一个分组"
 
     Examples:
-      | group                                                                           |
-      | cancel selection "default_Topology" from the "GroupInput"                       |
-      | choose the "AutoTestRoleWithAllResource,default_Topology" from the "GroupInput" |
+      | group                                                     |
+      | cancel selection "default_Topology" from the "GroupInput" |
