@@ -23,6 +23,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
     private WebElement ensureButton;
 
+    @FindBy(className = "el-switch")
+    private WebElement switchButton;
+
+    public WebElement getSwitchButton() {
+        return switchButton;
+    }
+
     public WebElement getEnsure() {
         return super.getContainsTextButton("确定");
     }

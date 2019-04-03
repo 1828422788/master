@@ -338,7 +338,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[@style='background: rgb(255, 152, 0);'])[last()]/ancestor::li")
     private WebElement orange;
 
-    @FindBy(xpath = "(//span[@style='background: rgb(176, 231, 43);'])[last()]/ancestor::li")
+    @FindBy(xpath = "(//span[@style='background: rgb(83, 196, 27);'])[last()]/ancestor::li")
     private WebElement green;
 
     @FindBy(xpath = "(//span[@style='background: rgb(255, 235, 59);'])[last()]/ancestor::li")

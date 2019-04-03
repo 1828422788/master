@@ -1,4 +1,4 @@
-@logDisplay @sxjtemp
+@logDisplay
 Feature: 高级搜索视图（截图并保存为定时任务）
 
   Background:
@@ -858,6 +858,73 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "RZY-2955:task_其它_矩阵热力图1"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario: 其它_循序图1
+    When I set the parameter "SearchInput" with value "appname:seq_test2 | table timestamp,sequence.from, sequence.to,sequence.relatemsg,sequence.msgid"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Sequence" button
+    And I click the "Setting" button
+    And I choose the "timestamp" from the "SettingSelect"
+    And I click the "Source" button
+    And I choose the "from" from the "SettingSelect"
+    And I click the "Target" button
+    And I choose the "to" from the "SettingSelect"
+    And I click the "Divide" button
+    And I choose the "msgid" from the "SettingSelect"
+    And I click the "Mark" button
+    And I choose the "relatemsg" from the "SettingSelect"
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2806:其它_循序图1"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2949:task_其它_循序图1"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  Scenario: 其它_漏斗图1
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.city,apache.clientip"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Funnel" button
+    And I click the "Setting" button
+    And I click the "Divide" button
+    And I choose the "apache.clientip" from the "SettingSelect"
+    And I click the "Example" button
+    And I click the "SecondPosition" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Green" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "2809:其它_漏斗图1"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2953:task_其它_漏斗图1"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"

@@ -146,3 +146,104 @@ Feature: 普通统计视图
     Then I click the "Generate" button
     Then I wait for "Loading" will be invisible
     Then take a screenshot with name "819：日志展现-普通统计视图-百分比_sample"
+
+  @third @logDisplay
+  Scenario: RZY-817:[展现方式]_字段值分类_sample
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "ClassifyFieldValue" button
+    And I choose the "apache.clientip" from the "FieldValue"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "817:[展现方式]_字段值分类_饼状图top5"
+    And I choose the "10" from the "TopElement"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "817:[展现方式]_字段值分类_饼状图top10"
+    And I choose the "20" from the "TopElement"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "817:[展现方式]_字段值分类_饼状图top20"
+    And I choose the "50" from the "TopElement"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "817:[展现方式]_字段值分类_饼状图top50"
+    And I choose the "条形图" from the "PresentType"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "817:[展现方式]_字段值分类_条形图top50"
+    And I choose the "20" from the "TopElement"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "817:[展现方式]_字段值分类_条形图top20"
+    And I choose the "10" from the "TopElement"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "817:[展现方式]_字段值分类_条形图top10"
+    And I choose the "5" from the "TopElement"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "817:[展现方式]_字段值分类_条形图top5"
+
+  @third @logDisplay
+  Scenario: RZY-818:展现方式_字段数值_sample
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "FieldNumber" button
+    And I choose the "apache.status" from the "YAxis"
+    And I choose the "apache.clientip" from the "GroupField"
+    And I set the parameter "TimeBucket" with value "1"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "818:展现方式_字段数值_sample"
+
+#  @third @logDisplay
+#  Scenario: RZY-822:[字段] [TOP] [统计图]_sample
+#    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+#    And I click the "DateEditor" button
+#    And I click the "Today" button
+#    And I click the "SearchButton" button
+#    And I wait element "SearchStatus" change text to "搜索完成!"
+#    And I click the "CountButton" button
+#    And I will see the "splSearch.StatisticalPage" page
+#    And I click the "MultilevelStatistics" button
+#    And I choose the "apache.status" from the "FieldValue"
+#    And I click the "Generate" button
+#    And I click the "StatisticsGram" button
+#    And I set the parameter "TimeBucket" with value "1"
+#    And I choose the "小时" from the "TimeBucketDropdownButton"
+
+  @third @logDisplay
+  Scenario: RZY-825:地理分布_sample
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "GeographicalDistribution" button
+    And I choose the "apache.geo.country" from the "FieldValue"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take a screenshot with name "825:地理分布_sample"

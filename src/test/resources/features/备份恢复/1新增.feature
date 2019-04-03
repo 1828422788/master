@@ -1,4 +1,4 @@
-@backup
+@backup @third
 Feature: 备份恢复新增（RZY-1500）
 
   Background:
@@ -24,3 +24,4 @@ Feature: 备份恢复新增（RZY-1500）
       | appName | message                 |
       |         | appname 不能为空            |
       | 字       | appname只能由数字,字母和下划线和*组成 |
+      | *       | appname不能只包含*           |
