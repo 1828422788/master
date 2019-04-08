@@ -8,8 +8,7 @@ Feature: 字段提取删除
 
   @configsSmoke
     Examples:
-      | name        |
-      | AutoTest    |
+      | name         |
       | AutoTest(副本) |
 
   @clean
@@ -25,6 +24,11 @@ Feature: 字段提取删除
       | return            |
       | message           |
       | workflow          |
+
+  @cleanFirst @clean
+    Examples:
+      | name     |
+      | AutoTest |
 
   @clean
   Scenario: 删除agent配置

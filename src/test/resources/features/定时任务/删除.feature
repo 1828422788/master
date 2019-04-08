@@ -8,14 +8,10 @@ Feature: 定时任务删除（RZY-412）
 
     Examples:
       | name                              |
-      | RZY-396:定时任务_sample_表格_近一天        |
-      | RZY-397:定时任务sample_昨天             |
       | RZY-403:执行计划-定时_3小时               |
       | RZY-404:执行计划-定时1天                 |
-      | RZY-2695:执行计划-crontab_57分钟        |
       | RZY-398:定时任务_更新                   |
       | RZY-1488:保存为各种类型的定时任务-序列          |
-      | chs_task_funnel                   |
       | RZY-2696:执行计划-定时_7小时              |
       | RZY-2699:执行计划-crontab_每个月第15天开始   |
       | RZY-2700_执行计划-crontab_每天9点整到9点零5分 |
@@ -34,7 +30,6 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2927:task_复合_多Y轴图_sample      |
       | RZY-2929:task_地图-热力地图_sample      |
       | RZY-2933:task_地图-行政区划地图_sample    |
-      | RZY-2936:task_地图-统计地图_sample      |
       | RZY-2939:task_其它_单值_sample        |
       | RZY-2946:task_其它_字符云图_sample      |
       | RZY-2954:task_其它_矩阵热力图_sample     |
@@ -74,6 +69,14 @@ Feature: 定时任务删除（RZY-412）
       | RZY-400:日志来源_api_log_source_m     |
       | RZY-399:运行用户_api_usr_m            |
 
+  @cleanFirst
+    Examples:
+      | name                         |
+      | chs_task_funnel              |
+      | RZY-397:定时任务sample_昨天        |
+      | RZY-2695:执行计划-crontab_57分钟   |
+      | RZY-396:定时任务_sample_表格_近一天   |
+      | RZY-2936:task_地图-统计地图_sample |
 
   Scenario Outline: 补采任务删除
     Given open the "timedTask.ListPage" page for uri "/schedule/complement/"

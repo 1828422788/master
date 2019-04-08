@@ -15,6 +15,7 @@ Feature: 事件操作
     And I click the "<buttonName>" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "SearchButton" will be visible
 #    Then I will see the input element "SearchInput" value will be "<spl>"
     Then take a screenshot with name "<num>：事件操作-<name>"
 

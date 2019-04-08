@@ -23,9 +23,6 @@ Feature: 趋势图删除（RZY-1891）
 
     Examples:
       | name         |
-      | 雷达图sample0   |
-      | 散点图sample0   |
-      | 曲线图sample0   |
       | 区间图sample0   |
       | 力图sample0    |
       | 桑基图sample0   |
@@ -57,18 +54,14 @@ Feature: 趋势图删除（RZY-1891）
       | 条形图sample3   |
       | 条形图sample2   |
       | 饼状图sample3   |
-      | 饼状图sample2   |
       | 字符云图sample1  |
       | 水球图sample1   |
       | 单值sample3    |
-      | 单值sample2    |
-      | 单值sample1    |
       | 区划地图sample2  |
       | 区划地图sample1  |
       | 攻击地图sample2  |
       | 攻击地图sample1  |
       | 旭日图sample1   |
-      | 热力地图sample1  |
       | 区间图sample1   |
       | 条形图sample1   |
       | 饼状图sample1   |
@@ -83,5 +76,16 @@ Feature: 趋势图删除（RZY-1891）
       | 多Y轴图sample1  |
       | 散点图sample1   |
       | 面积图sample1   |
-      | 柱状图sample1   |
-      | 曲线图sample1   |
+
+  @cleanFirst
+    Examples:
+      | name        |
+      | 饼状图sample2  |
+      | 单值sample2   |
+      | 单值sample1   |
+      | 热力地图sample1 |
+      | 柱状图sample1  |
+      | 曲线图sample1  |
+      | 雷达图sample0  |
+      | 散点图sample0  |
+      | 曲线图sample0  |
