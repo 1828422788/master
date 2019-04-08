@@ -154,7 +154,7 @@ Feature: 监控最新状态
       | Handled   | search result "{'column':'6','name':'已处理'}" |
       | HighAlert | alert grade is "red"                        |
 
-#  @smoke @alertSmoke
+  @alertSmoke @third
   Scenario: 返回到监控页（RZY-482）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
