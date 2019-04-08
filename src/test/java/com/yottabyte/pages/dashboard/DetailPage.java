@@ -108,6 +108,27 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='control']/following-sibling::span")
     private WebElement labelName;
 
+    @FindBy(className = "yw-tab-header-content")
+    private WebElement header;
+
+    @FindBy(className = "circular")
+    private WebElement circular;
+
+    @FindBy(xpath = "//a[contains(text(),'UIautotest')]")
+    private WebElement uiautotest;
+
+    public WebElement getUiautotest() {
+        return uiautotest;
+    }
+
+    public WebElement getCircular() {
+        return circular;
+    }
+
+    public WebElement getHeader() {
+        return header;
+    }
+
     public WebElement getOpenEdit() {
         return openEdit;
     }
@@ -174,7 +195,6 @@ public class DetailPage extends PageTemplate {
         return super.getInputElement("默认值");
     }
 
-
     public WebElement getEventList() {
         return eventList.get(eventList.size() - 1);
     }
@@ -208,10 +228,11 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getDropdownList() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(ensureList.get(0)));
-        isLoaded();
-        switchButton.click();
         return dropdownList;
+    }
+
+    public WebElement getSwitchButton() {
+        return switchButton;
     }
 
     public WebElement getTab() {

@@ -47,16 +47,15 @@ Feature: 仪表盘详情页
       | UIautotest    |
 
   @dashboardSmoke
-  Scenario Outline: 跳转到其他仪表盘（RZY-240）
-    When I set the parameter "TagName" with value "<tagName>"
+  Scenario: 跳转到其他仪表盘（RZY-240）
+    When I set the parameter "TagName" with value "first"
     And I click the "EnsureCreateTagButton" button
-    When I choose the "<dashboardName>" from the "DropdownList"
+    And I wait for "Header" will be visible
+    And I click the "SwitchButton" button
+    And I wait for "Circular" will be invisible
+    And I click the "Uiautotest" button
     And I wait for loading invisible
     Then the page's title will be "UIautotest | 仪表盘"
-
-    Examples:
-      | tagName | dashboardName |
-      | first   | UIautotest    |
 
   @dashboardSmoke
   Scenario Outline: 回收站操作（RZY-241至RZY-244）
@@ -87,7 +86,6 @@ Feature: 仪表盘详情页
     And I will see the "DropDownLinkButton" result will be "<num>"
     And I click the "DeleteTag" button
     And I click the "EnsureDeleteTagButton" button
-#    Then I will see the success message "标签页删除成功"
 
     Examples:
       | tagName | num   |
@@ -140,7 +138,7 @@ Feature: 仪表盘详情页
     And I click the "TimeRange" button
     And I click the "ThisMonth" button
     And I click the "SearchInputButton" button
-    And I will see the success message "动态字段搜索完成"
+    And I will see the success message "动态字段搜索完成!"
     And I choose the "<choiceValue>" from the "DefaultDropdownList"
     And I click the "EnsureCreateFilter" button
 

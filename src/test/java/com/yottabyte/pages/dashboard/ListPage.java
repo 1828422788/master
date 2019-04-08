@@ -49,6 +49,21 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-dialog__body']/div")
     private WebElement message;
 
+    @FindBy(xpath = "//span[text()='全部资源']/preceding-sibling::i")
+    private WebElement groupDropdown;
+
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
+    private WebElement groupDropdownList;
+
+    public WebElement getGroupDropdown() {
+        return groupDropdown;
+    }
+
+    public WebElement getGroupDropdownList() {
+//        groupDropdown.click();
+        return groupDropdownList;
+    }
+
     public WebElement getMessage() {
         return message;
     }

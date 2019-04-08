@@ -11,10 +11,8 @@ Feature: 仪表盘分组（RZY-212、RZY-217至RZY-221）
     Then I will see the success message "仪表盘更改分组成功"
 
     Examples:
-      | name        | group                                                           |
-      | UIautotest  | cancel selection "default_DashBoardGroup" from the "GroupInput" |
-      | UIautotest  | choose the "default_DashBoardGroup" from the "GroupInput"       |
-      | sxjautotest | choose the "default_DashBoardGroup" from the "GroupInput"       |
+      | name        | group                                                     |
+      | sxjautotest | choose the "default_DashBoardGroup" from the "GroupInput" |
 
   @first
     Examples:

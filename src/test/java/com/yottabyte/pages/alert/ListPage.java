@@ -94,6 +94,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
     private WebElement search;
 
+    @FindBy(xpath = "(//span[@class='status-number hover-number'])[last()]")
+    private WebElement alertNum;
+
+    public WebElement getAlertNum() {
+        return alertNum;
+    }
+
     public WebElement getSearch() {
         return search;
     }

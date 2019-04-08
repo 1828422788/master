@@ -82,9 +82,9 @@ Feature: 监控维护期
     When choose from "{'DropdownMenu':'default_Alert'}"
     Then I will see the search result "{'column':'0','name':'正在维护'}"
 
-#  @smoke @alertSmoke
+  @third @alertSmoke
   Scenario: 删除维护期
-    When the data name is "AutoTest" then i click the "删除" button
+    When the data name is "RZY-2998:监控-维护期-执行计划-定时-每天9:00" then i click the "删除" button
     And I click the "EnsureDelete" button
     Then I will see the success message "删除成功"
 
