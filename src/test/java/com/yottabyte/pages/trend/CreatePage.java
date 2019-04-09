@@ -437,6 +437,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
 
+    @FindBy(xpath = "(//span[text()='斥力因子'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
+    private WebElement repulsion;
+
+    public WebElement getRepulsion() {
+        return repulsion;
+    }
+
     public WebElement getScrollbar() {
         return scrollbar;
     }

@@ -145,5 +145,3 @@ Feature: 仪表盘详情页
     Examples:
       | eventList | title | token     | field | inputType | dynamicField | search                        | choiceValue |
       | 添加过滤项     | test  | testtoken |       | 动态菜单      | appname      | * \| stats count() by appname | java        |
-
-

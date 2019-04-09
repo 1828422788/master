@@ -1007,3 +1007,84 @@ Feature: 趋势图新建
     Examples:
       | name      |
       | 调用链sample |
+
+  @second @trendSmoke
+  Scenario Outline: RZY-3080:pivot_chart指令sample0
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "| makeresults count = 10 | eval app = "test" | eval tag = "t" | append [[ | makeresults count = 10 | eval app = "rcl" | eval tag = "r" ]] | chart rendertype = "sunburst" count() over tag by app"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I wait for loading invisible
+    And take a screenshot with name "3080:pivot_chart指令sample0"
+    And I click the "Save" button
+    And I click the "Report" button
+    And switch to another window
+    And I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>报表"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "10"
+    And I set the parameter "Minute" with value "00"
+    And I click the "NextButton" button
+    And I wait for "TrendTitle" will be visible
+    And I will see the element "TrendTitle" name is "<name>"
+    And I click the "Save" button
+
+    Examples:
+      | name                 |
+      | pivot_chart指令sample0 |
+
+  @second @trendSmoke
+  Scenario Outline: RZY-3085:pivot_力图sample2
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method | rename apache.clientip as apache.x_forward_group| rename apache.method as apache.resp_len_group| limit 20"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "Relation" button
+    And I click the "Force" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I choose the "apache.x_forward" from the "SettingSelect"
+    And I click the "Target" button
+    And I choose the "apache.resp_len" from the "SettingSelect"
+    And I click the "Exhibition" button
+    And I set the parameter "Repulsion" with value "500"
+    And I click the "Generate" button
+    And I wait for loading invisible
+    And take a screenshot with name "3085:pivot_力图sample2"
+    And I click the "Save" button
+    And I click the "Report" button
+    And switch to another window
+    And I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>报表"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "10"
+    And I set the parameter "Minute" with value "05"
+    And I click the "NextButton" button
+    And I wait for "TrendTitle" will be visible
+    And I will see the element "TrendTitle" name is "<name>"
+    And I click the "Save" button
+
+    Examples:
+      | name            |
+      | pivot_力图sample2 |
