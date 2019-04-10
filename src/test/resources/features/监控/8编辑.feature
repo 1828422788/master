@@ -1,5 +1,5 @@
 @alert @alertSmoke @second
-Feature: 编辑一个告警
+Feature: 监控编辑
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"

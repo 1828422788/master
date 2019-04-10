@@ -652,6 +652,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Other" button
     And I click the "Liquidfill" button
     And I click the "Setting" button under some element
+    And I wait for loading invisible
     And I choose the "res" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
@@ -899,6 +900,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
+  @third
   Scenario: 其它_漏斗图1
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.city,apache.clientip"
     And I click the "DateEditor" button

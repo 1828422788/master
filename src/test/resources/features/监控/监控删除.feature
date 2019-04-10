@@ -6,18 +6,29 @@ Feature: 监控删除
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureDeleteButton" button
 
+  @cleanSecond
     Examples:
       | name                                       |
       | RZY-436:SPL统计监控步骤2                         |
-      | RZY-2971:监控-设备切分-执行结果验证-填写ip或timestamp     |
-      | RZY-3015:监控-设备切分-执行结果验证-填写tag              |
       | RZY-3016:监控-设备切分-执行结果验证-填写appname          |
+      | RZY-3015:监控-设备切分-执行结果验证-填写tag              |
+      | RZY-2971:监控-设备切分-执行结果验证-填写ip或timestamp     |
       | RZY-3035:监控-设备切分-执行结果验证-字段统计型监控-填写hostname |
       | RZY-435:连续统计监控步骤5                          |
       | RZY-435:连续统计监控步骤4                          |
       | RZY-435:连续统计监控步骤3                          |
       | RZY-435:连续统计监控步骤2                          |
       | RZY-435:连续统计监控步骤1                          |
+      | RZY-434:字段统计监控步骤5                          |
+      | RZY-434:字段统计监控步骤4                          |
+      | RZY-434:字段统计监控步骤3                          |
+      | RZY-434:字段统计监控步骤2                          |
+      | RZY-434:字段统计监控步骤1                          |
+      | RZY-437:基线对比监控步骤4                          |
+      | RZY-437:基线对比监控步骤3                          |
+      | RZY-437:基线对比监控步骤2                          |
+      | RZY-437:基线对比监控步骤1                          |
+      | RZY-436：SPL统计监控步骤1                         |
 
   @cleanFirst
     Examples:
@@ -31,22 +42,13 @@ Feature: 监控删除
       | linux日志关键字告警              |
 
     Examples:
-      | name               |
-      | RZY-434:字段统计监控步骤5  |
-      | RZY-434:字段统计监控步骤4  |
-      | RZY-434:字段统计监控步骤3  |
-      | RZY-434:字段统计监控步骤2  |
-      | RZY-434:字段统计监控步骤1  |
-      | RZY-437:基线对比监控步骤4  |
-      | RZY-437:基线对比监控步骤3  |
-      | RZY-437:基线对比监控步骤2  |
-      | RZY-437:基线对比监控步骤1  |
-      | RZY-448：告警转发       |
-      | RZY-449：ping主机     |
-      | RZY-446：邮件监控       |
-      | RZY-445：rsyslog监控  |
-      | RZY-436：SPL统计监控步骤1 |
+      | name              |
+      | RZY-448：告警转发      |
+      | RZY-449：ping主机    |
+      | RZY-446：邮件监控      |
+      | RZY-445：rsyslog监控 |
 
+  @cleanSecond
   Scenario: 删除维护期
     Given open the "alert.MaintenancePage" page for uri "/alerts/maintenance/"
     When the data name is "RZY-2998:监控-维护期-执行计划-定时-每天9:00" then i click the "删除" button

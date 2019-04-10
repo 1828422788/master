@@ -1,3 +1,4 @@
+@clean @cleanSecond
 Feature: 路由删除（RZY-1482）
 
   Background:
@@ -7,7 +8,6 @@ Feature: 路由删除（RZY-1482）
     Given the data name is "{'column':'<num>','name':'<name>'}" then i click the "删除" button
     Then I click the "EnsureButton" button
 
-  @clean
     Examples:
       | num | name                 |
       | 3   | AutoCreateForSxcTest |

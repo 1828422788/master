@@ -8,12 +8,11 @@ Feature: 拓扑图详情页
   Scenario: RZY-2821：新建拓扑图sample
     When I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
-    And I click the "SwitchButton" button
     And I set the parameter "NodeName" with value "node1"
     And I set the parameter "NodeGroup" with value "测试组"
     And I click the "AddNodeButton" button
     And I refresh the website
-    And I click the "SwitchButton" button
+    And I click the "Edit" button
     And I set the parameter "NodeName" with value "node2"
     And I set the parameter "NodeGroup" with value "g2"
     Then I click the "AddNodeButton" button
@@ -22,7 +21,6 @@ Feature: 拓扑图详情页
   Scenario: RZY-2515：标识前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I click the "SwitchButton" button
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识前后缀"
     And I set the parameter "Token" with value "first"
@@ -50,7 +48,7 @@ Feature: 拓扑图详情页
   Scenario: RZY-2517：标识分隔符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I click the "SwitchButton" button
+    And I click the "Edit" button
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识分隔符"
     And I set the parameter "Token" with value "second"
@@ -79,7 +77,7 @@ Feature: 拓扑图详情页
   Scenario: RZY-2519：标识值前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I click the "SwitchButton" button
+    And I click the "Edit" button
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识值前后缀"
     And I set the parameter "Token" with value "third"

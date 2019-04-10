@@ -76,7 +76,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-yejianxuanting_icon")
     private WebElement nightMode;
 
-    @FindBy(className = "icon-tianjiatubiaoxuanting_icon")
+    @FindBy(className = "icon-tianjia")
     private WebElement addInputButton;
 
     @FindBy(xpath = "//textarea[@placeholder='请输入搜索内容']")
@@ -100,7 +100,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'输入类型')]/following-sibling::div//button")
     private WebElement inputType;
 
-    @FindBy(xpath = "//input[@placeholder='请选择展示字段']")
+    @FindBy(xpath = "(//input[@placeholder='请选择展示字段'])[last()]")
     private WebElement filedInput;
 
     @FindBy(className = "el-select-dropdown__list")
@@ -177,6 +177,13 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "(//label[contains(text(),'可选值')]/following-sibling::div//input[@class='el-input__inner'])[last()]")
     private WebElement optional;
+
+    @FindBy(className = "icon-bianji1")
+    private WebElement edit;
+
+    public WebElement getEdit() {
+        return edit;
+    }
 
     public WebElement getSetColourButton() {
         return setColourButton;

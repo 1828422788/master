@@ -17,10 +17,6 @@ Feature: 应用编辑
     And I click the "SaveButton" button
     Then I will see the success message "<message>"
 
-    Examples: 编辑失败
-      | name        | menuName | url         | chooseMenuName | message |
-      | AutoTestApp | 知识       | /knowledge/ |                | 请设置默认首页 |
-
   @smoke @appSmoke
     Examples: 编辑成功
       | name        | menuName | url         | chooseMenuName | message |

@@ -11,19 +11,22 @@ Feature: 字段提取删除
       | name         |
       | AutoTest(副本) |
 
-  @clean
+    Examples:
+      | name             |
+      | return           |
+      | message          |
+      | workflow         |
+      | AutoTestForTrend |
+      | RZY-2866搜索页结果验证  |
+      | RZY-2861新建字段提取   |
+
+  @clean @cleanSecond
     Examples:
       | name              |
-      | AutoTestForTrend  |
-      | RZY-2866搜索页结果验证   |
-      | RZY-2861新建字段提取    |
       | redirect主规则       |
-      | RZY2864在搜索页验证严格解析 |
       | redirect副规则       |
+      | RZY2864在搜索页验证严格解析 |
       | 脱敏                |
-      | return            |
-      | message           |
-      | workflow          |
 
   @cleanFirst @clean
     Examples:

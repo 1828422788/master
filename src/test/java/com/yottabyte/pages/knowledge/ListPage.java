@@ -133,7 +133,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getSetting() {
-        return super.getButton("设置");
+        return super.getContainsTextButton("设置");
     }
 
     public WebElement getGroupMenu() {

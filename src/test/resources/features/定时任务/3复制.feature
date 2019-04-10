@@ -1,4 +1,4 @@
-@timedTask @all @smoke @timedTaskSmoke
+@timedTask @timedTaskSmoke
 Feature: 定时任务复制（RZY-398）
 
   Background:
@@ -8,15 +8,20 @@ Feature: 定时任务复制（RZY-398）
     When the data name is "<name>" then i click the "复制" button
     Then I will see the success message "复制成功"
 
+  @second
     Examples:
       | name                       |
       | RZY-397:定时任务sample_昨天      |
-      | RZY-397:定时任务sample_昨天      |
-      | RZY-397:定时任务sample_昨天      |
-      | RZY-397:定时任务sample_昨天      |
-      | RZY-397:定时任务sample_昨天      |
       | RZY-396:定时任务_sample_表格_近一天 |
       | RZY-396:定时任务_sample_表格_近一天 |
       | RZY-396:定时任务_sample_表格_近一天 |
       | RZY-396:定时任务_sample_表格_近一天 |
       | RZY-396:定时任务_sample_表格_近一天 |
+
+  @third
+    Examples:
+      | name                  |
+      | RZY-397:定时任务sample_昨天 |
+      | RZY-397:定时任务sample_昨天 |
+      | RZY-397:定时任务sample_昨天 |
+      | RZY-397:定时任务sample_昨天 |

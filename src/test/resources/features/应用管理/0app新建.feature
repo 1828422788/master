@@ -55,7 +55,7 @@ Feature: 应用新建（RZY-1899）
     And I set the parameter "DescribeInput" with value "<describe>"
     And I click the "ChoiceButton" button
     And I click the "ChooseFromSystemButton" button
-    And I set the parameter "SearchSource" with value "<sourceName>"
+#    And I set the parameter "SearchSource" with value "<sourceName>"
     And I click the "TmpCheckBox" button
     And I click the "CloseDialog" button
     And I wait for "ResourceConfig" will be invisible
@@ -85,7 +85,7 @@ Feature: 应用新建（RZY-1899）
     When I set the parameter "NameInput" with value "<name>"
     And I click the "ChoiceButton" button
     And I click the "ChooseFromSystemButton" button
-    And I set the parameter "SearchSource" with value "AutoTest"
+#    And I set the parameter "SearchSource" with value "AutoTest"
     And I click the "TmpCheckBox" button
     And I click the "CloseDialog" button
     And I wait for "ResourceConfig" will be invisible

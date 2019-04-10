@@ -1,5 +1,5 @@
 @splSmoke
-Feature: 输入SPL语句，检查搜索完成后的事件数
+Feature: 搜索页面输入SPL语句，检查搜索完成后的事件数
 
   Background:
     Given I logout current user

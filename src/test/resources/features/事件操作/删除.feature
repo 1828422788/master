@@ -15,7 +15,7 @@ Feature: 事件操作删除（RZY-1391）
       | name     |
       | AutoTest |
 
-  @clean
+  @clean @cleanSecond
     Examples:
       | name        |
       | 查看上下文sample |

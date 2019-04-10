@@ -14,7 +14,7 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "Title" name is "AutoTest...pWithAllResources"
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "AutoTestAppAlert"
-    And I choose the "AutoTestRoleWithAllResource" from the "AlertGroups"
+#    And I choose the "AutoTestRoleWithAllResource" from the "AlertGroups"
     And I choose the "所有日志" from the "AlertSources"
     And I set the parameter "SearchContent" with value "*"
     And I switch the "AlertEnable" button to "disable"

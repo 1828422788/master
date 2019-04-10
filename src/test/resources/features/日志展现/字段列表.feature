@@ -70,7 +70,7 @@ Feature: 日志展现
 
   @second @logDisplay
   Scenario: RZY-2900：过滤字段apache.request_query
-    Given I set the parameter "SearchInput" with value "tag:"sample04061424" AND apache.request_query:gw_address*610*"
+    Given I set the parameter "SearchInput" with value "tag:\"sample04061424\" AND apache.request_query:gw_address*610*"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

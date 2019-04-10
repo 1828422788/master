@@ -24,9 +24,9 @@ Feature: 应用安装（RZY-1988）
     And I will see the element "ImportSuccess" name is "导入成功"
 
     Examples:
-      | appName                     | role  | resource          | renameInput          |
-      | AutoTestApp                 | admin | AutoTestLogSource | AutoTestSourceForApp |
-      | AutoTestAppWithAllResources | admin | AutoTestLogSource | AutoTestSourceForApp |
+      | appName                     | role  | resource | renameInput          |
+      | AutoTestApp                 | admin | all_     | AutoTestSourceForApp |
+      | AutoTestAppWithAllResources | admin | all_     | AutoTestSourceForApp |
 
   Scenario: 上传APP包失败（上传格式校验）
     When I upload a file with name "/src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py"

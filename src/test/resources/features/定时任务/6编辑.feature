@@ -4,6 +4,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
   Background:
     Given open the "timedTask.ListPage" page for uri "/schedule/"
 
+  @second @timedTaskSmoke
   Scenario Outline: 编辑定时任务
     When the data name is "<dataName>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
@@ -19,14 +20,9 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
     And I click the "SaveButton" button
     Then I will see the success message "<result>"
 
-  @second @timedTaskSmoke
     Examples: 编辑成功
       | dataName                  | name            | describe | user      | resource         | textarea                                                                                                | taskGroup      | period | unit | result |
       | RZY-397:定时任务sample_昨天(副本) | RZY-398:定时任务_更新 | 更改描述信息   | api_usr_m | api_log_source_m | tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt>1000000,"thumbs-down","thumbs-up") | hunter_roles_m | 3      | 小时   | 保存成功   |
-
-    Examples: 编辑失败
-      | dataName        | name | describe | user | resource | taskGroup | period | result  |
-      | RZY-398:定时任务_更新 |      |          |      |          |           |        | 名称 不能为空 |
 
   @third @timedTaskSmoke
   Scenario Outline: RZY-399:定时任务_api_usr_m
