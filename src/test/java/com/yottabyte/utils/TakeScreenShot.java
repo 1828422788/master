@@ -34,11 +34,11 @@ public class TakeScreenShot {
         String actualImgFilePath = "";
         String systemName = System.getProperty("os.name");
         if (systemName.toLowerCase().contains("linux")) {
-            actualImgFilePath = "/var/lib/jenkins/caseScreenshots/RZY-" + name + ".png";
+            actualImgFilePath = "/var/lib/jenkins/caseScreenshots/" + name + ".png";
         } else if (systemName.contains("Mac")) {
             actualImgFilePath = System.getProperty("user.dir") + sp + "target" + sp +
                     "cucumber-html-reports" + sp + "embeddings" + sp + "actual_img" + sp +
-                    "RZY-" + name + ".png";
+                    name + ".png";
         }
         this.generateImage(actualImgFilePath);
     }
