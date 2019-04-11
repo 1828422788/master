@@ -9,7 +9,7 @@ Feature: 定时任务详情页截图
     And I will see the "timedTask.DetailPage" page
     When I click the button "LookUpButton" if exist
     And I wait for "1000" millsecond
-    And take a screenshot with name "timedtask/力图"
+    And take a screenshot with name "timedtask/<name>"
 
     Examples:
       | name                          |
