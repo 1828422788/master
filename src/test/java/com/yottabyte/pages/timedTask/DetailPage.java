@@ -19,13 +19,20 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "number")
     private List<WebElement> numberList;
 
+    @FindBy(xpath = "(//span[contains(text(),'查看')][not(@class)])[last()]")
+    private WebElement lookUpButton;
+
     public WebElement getShow() {
         return show.get(0);
+    }
+
+    public WebElement getNoData() {
+        return super.getButton("无可展示数据～");
     }
 
     public WebElement getLookUpButton() {
         WebElement number = numberList.get(numberList.size() - 1);
         number.click();
-        return super.getContainsTextButton("查看");
+        return lookUpButton;
     }
 }

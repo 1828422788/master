@@ -8,8 +8,17 @@ Feature: 定时任务详情页截图
     Given I click the detail which name is "<name>"
     And I will see the "timedTask.DetailPage" page
     When I click the button "LookUpButton" if exist
-    And I wait for "1000" millsecond
+    And I wait for "NoData" will be invisible
     And take a screenshot with name "timedtask/<name>"
+
+  @firstScreenshot
+    Examples:
+      | name                         |
+      | chs_task_funnel              |
+      | RZY-397:定时任务sample_昨天        |
+      | RZY-2695:执行计划-crontab_57分钟   |
+      | RZY-396:定时任务_sample_表格_近一天   |
+      | RZY-2936:task_地图-统计地图_sample |
 
     Examples:
       | name                          |
@@ -39,15 +48,6 @@ Feature: 定时任务详情页截图
       | RZY-401:搜索内容                  |
       | RZY-400:日志来源_api_log_source_m |
       | RZY-399:运行用户_api_usr_m        |
-
-  @firstScreenshot
-    Examples:
-      | name                         |
-      | chs_task_funnel              |
-      | RZY-397:定时任务sample_昨天        |
-      | RZY-2695:执行计划-crontab_57分钟   |
-      | RZY-396:定时任务_sample_表格_近一天   |
-      | RZY-2936:task_地图-统计地图_sample |
 
   @secondScreenshot
     Examples:
