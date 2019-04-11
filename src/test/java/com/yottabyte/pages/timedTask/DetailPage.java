@@ -16,11 +16,16 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "el-button--text")
     private List<WebElement> show;
 
+    @FindBy(className = "number")
+    private List<WebElement> numberList;
+
     public WebElement getShow() {
         return show.get(0);
     }
 
     public WebElement getLookUpButton() {
+        WebElement number = numberList.get(numberList.size() - 1);
+        number.click();
         return super.getContainsTextButton("查看");
     }
 }

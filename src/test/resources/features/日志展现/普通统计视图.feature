@@ -17,7 +17,7 @@ Feature: 普通统计视图
     And I choose the "<value2>" from the "FieldValue"
     And I click the "AddButton" button
     And I wait for loading invisible
-    Then take a screenshot with name "<caseNum>：日志展现-普通统计视图-<chart>sample"
+    Then take a screenshot with name "RZY-<caseNum>：日志展现-普通统计视图-<chart>sample"
 
   @first @logDisplay
     Examples:
@@ -50,7 +50,7 @@ Feature: 普通统计视图
     Then I click the "GenerateTime" button under some element
     Then I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    Then take a screenshot with name "<screenName>"
+    Then take a screenshot with name "RZY-<screenName>"
 
     Examples:
       | fieldValue           | statisticType | startTime           | endTime             | screenName         |
@@ -82,7 +82,7 @@ Feature: 普通统计视图
     And I set the parameter "EndDataValue" with value "1000"
     And I click the "Generate" button
     Then I wait for "Loading" will be invisible
-    Then take a screenshot with name "814：日志展现-普通统计视图-数值分段"
+    Then take a screenshot with name "RZY-814：日志展现-普通统计视图-数值分段"
 
   @logDisplay
   Scenario Outline: 时间直方图（RZY-815）
@@ -99,7 +99,7 @@ Feature: 普通统计视图
     Then I click the "Generate" button
     Then I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    Then take a screenshot with name "<screenName>"
+    Then take a screenshot with name "RZY-<screenName>"
 
     Examples:
       | timeSpan | time | screenName          |
@@ -123,7 +123,7 @@ Feature: 普通统计视图
     And I set the parameter "DataSpan" with value "<number>"
     Then I click the "Generate" button
     Then I wait for "Loading" will be invisible
-    Then take a screenshot with name "816：日志展现-普通统计视图-数值直方图"
+    Then take a screenshot with name "RZY-816：日志展现-普通统计视图-数值直方图"
 
     Examples:
       | fieldValue    | number |
@@ -145,7 +145,7 @@ Feature: 普通统计视图
     And I set the parameter "PercentInput" with value "80"
     Then I click the "Generate" button
     Then I wait for "Loading" will be invisible
-    Then take a screenshot with name "819：日志展现-普通统计视图-百分比_sample"
+    Then take a screenshot with name "RZY-819：日志展现-普通统计视图-百分比_sample"
 
   @third @logDisplay
   Scenario: RZY-817:[展现方式]_字段值分类_sample
@@ -161,42 +161,42 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "817:[展现方式]_字段值分类_饼状图top5"
+    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_饼状图top5"
     And I choose the "10" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "817:[展现方式]_字段值分类_饼状图top10"
+    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_饼状图top10"
     And I choose the "20" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "817:[展现方式]_字段值分类_饼状图top20"
+    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_饼状图top20"
     And I choose the "50" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "817:[展现方式]_字段值分类_饼状图top50"
+    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_饼状图top50"
     And I choose the "条形图" from the "PresentType"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "817:[展现方式]_字段值分类_条形图top50"
+    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_条形图top50"
     And I choose the "20" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "817:[展现方式]_字段值分类_条形图top20"
+    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_条形图top20"
     And I choose the "10" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "817:[展现方式]_字段值分类_条形图top10"
+    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_条形图top10"
     And I choose the "5" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "817:[展现方式]_字段值分类_条形图top5"
+    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_条形图top5"
 
   @third @logDisplay
   Scenario: RZY-818:展现方式_字段数值_sample
@@ -214,7 +214,7 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "818:展现方式_字段数值_sample"
+    Then take a screenshot with name "RZY-818:展现方式_字段数值_sample"
 
 #  @third @logDisplay
 #  Scenario: RZY-822:[字段] [TOP] [统计图]_sample
@@ -246,4 +246,4 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "825:地理分布_sample"
+    Then take a screenshot with name "RZY-825:地理分布_sample"

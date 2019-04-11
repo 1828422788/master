@@ -13,7 +13,7 @@ Feature: 日志展现
     Then I click the "AllFields" button
     And make element "<name>" change to "<className>"
     Then I will see the error message "此字段不可从选定字段中移除"
-    Then take a screenshot with name "<screenName>"
+    Then take a screenshot with name "RZY-<screenName>"
 
     Examples:
       | splQuery                                  | name     | className     | screenName                       |
@@ -35,7 +35,7 @@ Feature: 日志展现
     And I click the "CloseAllFields" button
     And I click the "JavaField" button
     And I will see the tree "<element>" contains "<data>"
-    Then take a screenshot with name "<screenName>"
+    Then take a screenshot with name "RZY-<screenName>"
 
     Examples:
       | splQuery                                  | name         | className       | element       | data          | screenName        |
@@ -54,7 +54,7 @@ Feature: 日志展现
     And I click the "<optional>" button
     And I wait for "1000" millsecond
     Then I will see the input element "SearchInput" value will be "<spl>"
-    Then take a screenshot with name "<screenName>"
+    Then take a screenshot with name "RZY-<screenName>"
 
     Examples:
       | fieldName | optional        | fieldValue | spl                                                                    | screenName                |
@@ -84,4 +84,4 @@ Feature: 日志展现
     And I click the "FileterField" button
     And I wait element "SearchStatus" change text to "正在搜索..."
     And I wait element "SearchStatus" change text to "搜索完成!"
-    Then take a screenshot with name "2900：过滤字段apache.request_query"
+    Then take a screenshot with name "RZY-2900：过滤字段apache.request_query"

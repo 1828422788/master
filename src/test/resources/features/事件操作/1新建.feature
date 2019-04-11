@@ -19,7 +19,7 @@ Feature: 事件操作新建（RZY-1387）
     And I click the "EnsureButton" button
     And I refresh the website
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
-    Then take a screenshot with name "<screenName>"
+    Then take a screenshot with name "RZY-<screenName>"
 
   @smoke @eventSmoke
     Examples:
@@ -44,7 +44,7 @@ Feature: 事件操作新建（RZY-1387）
     And I click the "ContextSample" button
     And switch to another window
     Then the page's title will be "上下文检索"
-    Then take a screenshot with name "2817：事件操作-查看上下文sample"
+    Then take a screenshot with name "RZY-2817：事件操作-查看上下文sample"
 
     Examples:
       | name        | url                                                                                                                                                                            | message |

@@ -21,7 +21,7 @@ Feature: 趋势图新建
     And I click the "<chartType>" button
     And I display the element "ChartTypePopover"
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -89,7 +89,7 @@ Feature: 趋势图新建
     And I click the "<colour>" button
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -140,7 +140,7 @@ Feature: 趋势图新建
     And I click the "Red" button
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -181,7 +181,7 @@ Feature: 趋势图新建
     And I click the "<colour>" button
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -212,7 +212,7 @@ Feature: 趋势图新建
     And I choose the "apache.resp_len" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -258,7 +258,7 @@ Feature: 趋势图新建
     And I click the "<chart>" button
     And I display the element "ChartTypePopover"
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -306,7 +306,7 @@ Feature: 趋势图新建
     And I choose the "lower95" from the "LowerLimit"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -344,7 +344,7 @@ Feature: 趋势图新建
     And I click the "<type>" button
     And I display the element "ChartTypePopover"
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -400,7 +400,7 @@ Feature: 趋势图新建
     And I choose the "cnt" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -452,7 +452,7 @@ Feature: 趋势图新建
     And I click the "China" button
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -484,7 +484,7 @@ Feature: 趋势图新建
     And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -529,7 +529,7 @@ Feature: 趋势图新建
     And I click the "China" button
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -558,7 +558,7 @@ Feature: 趋势图新建
     And I click the "<colourFilling>" button
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -605,7 +605,7 @@ Feature: 趋势图新建
     And I choose the "icon" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -639,7 +639,7 @@ Feature: 趋势图新建
     And I set the parameter "IconName" with value "search"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -667,7 +667,7 @@ Feature: 趋势图新建
     And I click the "<colour>" button
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -722,7 +722,7 @@ Feature: 趋势图新建
     And I click the "<colour>" button
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -753,7 +753,7 @@ Feature: 趋势图新建
     And I choose the "柱状外左侧" from the "Label"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -798,7 +798,7 @@ Feature: 趋势图新建
     And I choose the "柱状内中央" from the "Label"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
   @all @smoke @trendSmoke @trend
@@ -828,7 +828,7 @@ Feature: 趋势图新建
     And I click the "<type>" button
     And I display the element "ChartTypePopover"
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -877,7 +877,7 @@ Feature: 趋势图新建
     And I click the "Orange" button
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -912,7 +912,7 @@ Feature: 趋势图新建
     And I choose the "sequence.relatemsg" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -953,7 +953,7 @@ Feature: 趋势图新建
     And I click the "Horizontal" button under some element
     And I click the "Generate" button under some element
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -1001,7 +1001,7 @@ Feature: 趋势图新建
     And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "<name>"
+    And take a screenshot with name "RZY-<name>"
     And I click the "Save" button
 
     Examples:
@@ -1021,7 +1021,7 @@ Feature: 趋势图新建
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I wait for loading invisible
-    And take a screenshot with name "3080:pivot_chart指令sample0"
+    And take a screenshot with name "RZY-3080:pivot_chart指令sample0"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -1067,7 +1067,7 @@ Feature: 趋势图新建
     And I set the parameter "Repulsion" with value "500"
     And I click the "Generate" button
     And I wait for loading invisible
-    And take a screenshot with name "3085:pivot_力图sample2"
+    And take a screenshot with name "RZY-3085:pivot_力图sample2"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window

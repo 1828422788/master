@@ -9,7 +9,6 @@ Feature: 已存搜索删除（RZY-154）
     Given I click the "OpenSavedSearchButton" button
     Then "删除" the data "<name>" in columnNum "1"
     Then I click the "DeleteSavedSearch" button
-    Then take a screenshot with name "154：已存搜索-删除"
 
     Examples:
       | name        |
