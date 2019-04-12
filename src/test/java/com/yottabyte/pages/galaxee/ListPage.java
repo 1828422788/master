@@ -16,7 +16,19 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "big-v-create-button")
     private WebElement create;
 
+    @FindBy(xpath = "//div[contains(text(),'galaxeeTest')]/preceding-sibling::div//i[@class='iconfont icon-shanchuxuanting_icon']")
+    private WebElement deleteGalaxeeTest;
+
+
+    public WebElement getDeleteGalaxeeTest() {
+        return deleteGalaxeeTest;
+    }
+
     public WebElement getCreate() {
         return create;
+    }
+
+    public WebElement getEnsure() {
+        return super.getContainsTextButton("确定");
     }
 }

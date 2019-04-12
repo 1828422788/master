@@ -40,11 +40,36 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='Y轴']/following-sibling::div//i")
     private WebElement yaxis;
 
-    @FindBy(className = "searching-tip")
-    private WebElement searchTip;
+    @FindBy(className = "download")
+    private WebElement download;
+
+    @FindBy(className = "delete")
+    private WebElement delete;
+
+    @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
+    private WebElement ensureDelete;
+
+    @FindBy(className = "el-upload--text")
+    private WebElement upload;
+
+    public WebElement getUpload() {
+        return upload;
+    }
+
+    public WebElement getEnsureDelete() {
+        return ensureDelete;
+    }
+
+    public WebElement getDelete() {
+        return delete;
+    }
+
+    public WebElement getDownload() {
+        return download;
+    }
 
     public WebElement getSearchTip() {
-        return searchTip;
+        return super.getContainsTextButton("搜索中");
     }
 
     public WebElement getSuccessMessage() {

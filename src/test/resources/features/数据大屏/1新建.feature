@@ -9,7 +9,7 @@ Feature: 数据大屏新建
     Then I will see the "galaxee.CreatePage" page
     And I click the "Bank" button
     And I click the "Create" button
-    And I set the parameter "Name" with value "test"
+    And I set the parameter "Name" with value "galaxeeTest"
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Line" button
@@ -26,7 +26,7 @@ Feature: 数据大屏新建
     Then I will see the "galaxee.CreatePage" page
     And I click the "Test" button
     And I click the "Create" button
-    And I set the parameter "Name" with value "test2"
+    And I set the parameter "Name" with value "galaxeeTest2"
     And I click the "Ensure" button
     And I click the "Save" button
     Then I will see the success message "保存成功"
