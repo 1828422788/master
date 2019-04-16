@@ -24,6 +24,12 @@ Feature: 应用知识模块
       | groupName                   |
       | AutoTestRoleWithAllResource |
 
+  Scenario: 知识编辑
+    When the data name is "AutoTestAppKnowledge" then i click the "编辑" button
+    And I will see the element "Title" name is "AutoTest...pWithAllResources"
+    And I set the parameter "Describe" with value "知识应用"
+    Then I click the "Confirm" button
+
   Scenario Outline: 全文搜索
     When I set the parameter "SearchInput" with value "<search>"
     And I click the "SearchButton" button
@@ -31,7 +37,7 @@ Feature: 应用知识模块
 
     Examples:
       | search   | value       |
-      | autotest | 全文搜索共 1 个结果 |
+      | 知识应用 | 全文搜索共 1 个结果 |
 
   Scenario Outline: 删除知识
     Given the data name is "<Name>" then i click the "删除" button

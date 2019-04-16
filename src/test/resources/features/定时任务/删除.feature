@@ -1,6 +1,7 @@
 @clean
 Feature: 定时任务删除（RZY-412）
 
+  @cleanTimedTask
   Scenario Outline: 定时任务删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "<name>" then i click the "删除" button

@@ -107,5 +107,5 @@ Feature: 角色授权URL访问
     Then I will see the element "HelpDocs" name is "帮助文档联系日志易"
 
     Examples:
-      | usernameValue | passwordValue | value                                                                                                     |
-      | AutoTest      | qqqqq11111    | {'Data':'日志来源Agent 管理路由配置本地上传备份策略','Source':'搜索仪表盘监控定时任务报表知识库搜索宏字段提取事件操作拓扑图趋势图','Auth':'角色权限资源分组用户分组用户管理' |
+      | usernameValue | passwordValue | value                                                                                                       |
+      | AutoTest      | qqqqq11111    | {'Data':'日志来源Agent 管理路由配置本地上传备份策略','Source':'已存搜索仪表盘监控定时任务报表知识库搜索宏字段提取事件操作拓扑图趋势图','Auth':'角色权限资源分组用户分组用户管理' |

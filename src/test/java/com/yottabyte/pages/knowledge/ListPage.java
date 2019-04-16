@@ -210,9 +210,6 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getDescribe() {
-        if (ElementExist.isElementExist(webDriver, loadingElement)) {
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
-        }
         return describe;
     }
 

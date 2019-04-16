@@ -24,9 +24,24 @@ Feature: 应用安装（RZY-1988）
     And I will see the element "ImportSuccess" name is "导入成功"
 
     Examples:
-      | appName                     | role  | resource | renameInput          |
-      | AutoTestApp                 | admin | all_     | AutoTestSourceForApp |
-      | AutoTestAppWithAllResources | admin | all_     | AutoTestSourceForApp |
+      | appName     | role  | resource | renameInput          |
+      | AutoTestApp | admin | all_     | AutoTestSourceForApp |
+
+  @smoke @appSmoke
+  Scenario Outline: 安装所有资源成功
+    When I upload a file with name "/target/download-files/<appName>.tar"
+    And I will see the element "VerifyText" name is "上传完成"
+    And I choose the "<role>" from the "Role"
+    And I choose the "<resource>" from the "Resource"
+    And I click the "NextButton" button
+    And I click the "NextButton" button
+    And I will see the "ResourcePreview" is "active"
+    And I click the "NextButton" button
+    And I will see the element "ImportSuccess" name is "导入成功"
+
+    Examples:
+      | appName                     | role  | resource |
+      | AutoTestAppWithAllResources | admin | all_     |
 
   Scenario: 上传APP包失败（上传格式校验）
     When I upload a file with name "/src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py"

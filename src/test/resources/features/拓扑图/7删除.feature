@@ -1,4 +1,4 @@
-@clean
+@clean @cleanTopology
 Feature: 拓扑图删除（RZY-350）
 
   Background:

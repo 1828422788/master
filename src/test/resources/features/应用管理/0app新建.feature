@@ -85,8 +85,8 @@ Feature: 应用新建（RZY-1899）
     When I set the parameter "NameInput" with value "<name>"
     And I click the "ChoiceButton" button
     And I click the "ChooseFromSystemButton" button
-#    And I set the parameter "SearchSource" with value "AutoTest"
-    And I click the "TmpCheckBox" button
+    And I set the parameter "SearchSource" with value "AutoTestRoleWithAllResource"
+    And I click the "AllCheck" button
     And I click the "CloseDialog" button
     And I wait for "ResourceConfig" will be invisible
     And I click the "AddMenuButton" button
