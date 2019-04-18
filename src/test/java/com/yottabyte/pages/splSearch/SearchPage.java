@@ -40,7 +40,7 @@ public class SearchPage extends PageTemplate {
         return countButton;
     }
 
-//    @FindBy(xpath = "//div[@class='yw-searchbar__inner el-textarea']/textarea")
+    //    @FindBy(xpath = "//div[@class='yw-searchbar__inner el-textarea']/textarea")
     @FindBy(className = "CodeMirror")
     private WebElement searchInput;
 
@@ -239,6 +239,9 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(xpath = "//li[text()='定时任务']")
     private WebElement timedTask;
+
+    @FindBy(xpath = "//li[text()='趋势图']")
+    private WebElement trend;
 
     @FindBy(xpath = "//div[@class='yw-search-form-group']/label[text()='名称']/following-sibling::input")
     private WebElement taskName;
@@ -545,6 +548,10 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='apache.request_query']")
     private WebElement requestQuery;
+
+    public WebElement getTrend() {
+        return trend;
+    }
 
     public WebElement getRequestQuery() {
         return requestQuery;
@@ -1013,6 +1020,10 @@ public class SearchPage extends PageTemplate {
         return ensure.get(1);
     }
 
+    public WebElement getEnsureCreateTrend() {
+        return ensure.get(0);
+    }
+
     public WebElement getPeriod() {
         return period;
     }
@@ -1041,10 +1052,6 @@ public class SearchPage extends PageTemplate {
 
     // 分组
     public WebElement getGroupComboBox() {
-//        group.click();
-//        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(dropdownList.get(dropdownList.size() - 1));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-//        return this.dropdownList.get(dropdownList.size() - 1).findElements(By.tagName("li"));
         return super.getDropdownList("分组");
     }
 
@@ -1152,7 +1159,7 @@ public class SearchPage extends PageTemplate {
         return searchTable;
     }
 
-    public WebElement getSearchInput() throws InterruptedException {
+    public WebElement getSearchInput() {
         ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(searchInput);
         WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return searchInput;

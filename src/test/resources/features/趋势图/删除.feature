@@ -1,4 +1,4 @@
-@all @smoke @trend
+@all @smoke @trend @cleanTrend
 Feature: 趋势图删除（RZY-1891）
 
   Background:

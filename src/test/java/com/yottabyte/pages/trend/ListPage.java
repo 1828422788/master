@@ -19,6 +19,13 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
 
+    @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
+    private WebElement search;
+
+    public WebElement getSearch() {
+        return search;
+    }
+
     public WebElement getCreateButton() {
         return super.getButton("新建");
     }
@@ -51,5 +58,9 @@ public class ListPage extends PageTemplate {
 
     public WebElement getDisabledLi() {
         return super.getDisabledLi();
+    }
+
+    public WebElement getSearchInput() {
+        return super.getSearchInput();
     }
 }

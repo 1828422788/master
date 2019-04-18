@@ -1,4 +1,4 @@
-@all @smoke @configs
+@configs @cleanConfigs
 Feature: 字段提取删除
 
   Scenario Outline:

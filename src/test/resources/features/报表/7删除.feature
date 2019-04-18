@@ -1,4 +1,4 @@
-@clean
+@clean @cleanReport
 Feature: 报表删除（RZY-131）
 
   Background:

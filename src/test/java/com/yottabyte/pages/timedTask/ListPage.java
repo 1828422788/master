@@ -71,6 +71,10 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "date-picker")
     private WebElement datePicker;
 
+    public WebElement getSearchIcon() {
+        return super.getSearchIcon();
+    }
+
     public WebElement getSave() {
         return super.getContainsTextButton("保存");
     }

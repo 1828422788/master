@@ -6,8 +6,6 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -17,8 +15,6 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.assertTrue;
 
 /**
  * 页面元素模板，每一个页面都需要继承该模板
@@ -52,6 +48,20 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
     private WebElement disabledLi;
+
+    @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
+    private WebElement searchInput;
+
+    @FindBy(xpath = "//i[@class='el-input__icon el-icon-search is-clickable']")
+    private WebElement searchIcon;
+
+    public WebElement getSearchIcon() {
+        return searchIcon;
+    }
+
+    public WebElement getSearchInput() {
+        return searchInput;
+    }
 
     public WebElement getDisabledLi() {
         return disabledLi;

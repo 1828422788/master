@@ -128,7 +128,8 @@ public class RegularSearch {
                 if (actualText.equals(""))
                     return;
                 if (resultMap.containsKey("contains"))
-                    Assert.assertFalse(actualText.contains(expectText));
+                    Assert.assertNotEquals(expectText,actualText);
+//                    Assert.assertFalse(actualText.equals(expectText));
                 else
                     Assert.assertTrue(actualText.toLowerCase().contains(expectText.toLowerCase()));
             }

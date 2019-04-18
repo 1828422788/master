@@ -26,11 +26,26 @@ Feature: 应用监控模块（RZY-2122）
       | name    |
       | AutoApp |
 
+  Scenario: 存为趋势图
+    Given I set the parameter "SearchInput" with value "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count(apache.clientip) as c_ip by ts"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "SaveAsOther" button
+    And I click the "Trend" button
+    And I set the parameter "TaskName" with value "AutoCreateApp"
+    And I click the "EnsureCreateTrend" button
+    Then I will see the success message "创建成功"
+
   Scenario Outline: 删除已存搜索
     Given I click the "OpenSavedSearchButton" button
     And I wait for loading invisible
     Then "删除" the data "<name>" in columnNum "1"
     Then I click the "DeleteSavedSearch" button
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "AutoCreateApp" then i click the "删除" button
+    And I click the "EnsureButton" button
 
     Examples:
       | name    |
