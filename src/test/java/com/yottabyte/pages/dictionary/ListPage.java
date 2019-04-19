@@ -25,6 +25,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'字典分组')]/following-sibling::div//input[@class='el-input__inner']")
     private WebElement groupInput;
 
+    @FindBy(className = "el-table__empty-text")
+    private WebElement emptyText;
+
+    public WebElement getEmptyText() {
+        return emptyText;
+    }
+
     public WebElement getGroupInput() {
         return groupInput;
     }

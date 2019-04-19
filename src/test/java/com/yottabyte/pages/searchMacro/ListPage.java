@@ -48,4 +48,16 @@ public class ListPage extends PageTemplate {
         return super.getDisabledLi();
     }
 
+    public WebElement getGroupList() {
+        return super.getGroupDropdownList();
+    }
+
+    public WebElement getSearchInput() {
+        return super.getSearchInput();
+    }
+
+    public WebElement getSearch() {
+        return super.getSearchIcon();
+    }
+
 }

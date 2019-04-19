@@ -55,4 +55,19 @@ public class ListPage extends PageTemplate {
         return super.getButton("新建");
     }
 
+    public WebElement getDictionary() {
+        return super.getButton("字典管理");
+    }
+
+    public WebElement getGroupList() {
+        return super.getGroupDropdownList();
+    }
+
+    public WebElement getSearchInput() {
+        return super.getSearchInput();
+    }
+
+    public WebElement getSearch() {
+        return super.getSearchIcon();
+    }
 }
