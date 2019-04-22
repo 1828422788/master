@@ -1,5 +1,5 @@
 @app @appSmoke
-Feature: 应用资源分组（RZY-2144）
+Feature: 应用资源分组（RZY-2145）
 
   Scenario: 新建资源分组
     Given open the "app.ListPage" page for uri "/app/list/"

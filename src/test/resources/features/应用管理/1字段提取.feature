@@ -17,6 +17,7 @@ Feature: 应用字段提取（RZY-2129）
     And I set the parameter "Logtype" with value "test"
     Then I choose the "AutoTestRoleWithAllResource" from the "Group"
     And I choose the "XML解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I click the "NextButton" button
     And I click the "SwitchButton" button

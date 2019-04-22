@@ -35,8 +35,9 @@ Feature: 应用监控模块（RZY-2122）
 
   Scenario Outline: 复制监控
     When the data name is "<name>" then i click the "复制" button
+    And I wait for loading invisible
     And I refresh the website
-    And I will see the search result contains "{'column':'0','name':'<name>(1)'}"
+    And I will see the search result contains "{'column':'0','name':'<name>(副本)'}"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTest...pWithAllResources"
 
@@ -47,6 +48,7 @@ Feature: 应用监控模块（RZY-2122）
   Scenario: 在搜索中打开
     When the data name is "AutoTestAppAlertChangeName" then i click the "在搜索中打开" button
     And switch to another window
+    And I wait for loading invisible
     And the page's title will be "搜索"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTest...pWithAllResources"
@@ -71,16 +73,16 @@ Feature: 应用监控模块（RZY-2122）
 
     Examples:
       | message |
-      | 启用成功    |
       | 禁用成功    |
+      | 启用成功    |
 
-  Scenario: 删除
-    When the data name is "AutoTestAppAlertChangeName" then i click the "删除" button
+  Scenario Outline: 删除
+    When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureDeleteButton" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTest...pWithAllResources"
 
-  Scenario: 删除复制监控
-    When the data name is "AutoTestAppAlertChangeName(1)" then i click the "删除" button
-    And I click the "EnsureDeleteButton" button
-
+    Examples:
+      | name                           |
+      | AutoTestAppAlertChangeName     |
+      | AutoTestAppAlertChangeName(副本) |

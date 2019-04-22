@@ -1,5 +1,5 @@
 @app @appSmoke
-Feature: 应用用户分组
+Feature: 应用用户分组（RZY-2146）
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"

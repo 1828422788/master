@@ -1,5 +1,5 @@
 @all @smoke @app @appSmoke
-Feature: 应用知识模块
+Feature: 应用知识模块（RZY-2128）
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
