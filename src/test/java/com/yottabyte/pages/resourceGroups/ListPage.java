@@ -125,11 +125,15 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
     private WebElement search;
 
-    @FindBy(xpath = "(//button[@class='el-button el-button--default'])[2]")
+    @FindBy(xpath = "(//button[@class='el-button el-button--default'])[last()]")
     private WebElement groupSearch;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[2]")
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
     private WebElement searchDropdown;
+
+    public WebElement getApp() {
+        return super.getDropdownList("应用");
+    }
 
     public WebElement getSearchDropdown() {
         groupSearch.click();

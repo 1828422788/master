@@ -5,6 +5,7 @@ Feature: 资源分组搜索（RZY-534）
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
 
   Scenario: 按照分组搜索
+    When I wait for loading invisible
     Given I choose the "仪表盘" from the "SearchDropdown"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'仪表盘'}"

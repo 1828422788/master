@@ -59,6 +59,10 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//input[@disabled]")
     private WebElement disabledInput;
 
+    public WebElement getSearchIcon() {
+        return super.getSearchIcon();
+    }
+
     public WebElement getDisabledInput() {
         return disabledInput;
     }
