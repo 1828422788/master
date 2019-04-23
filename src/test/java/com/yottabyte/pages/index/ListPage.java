@@ -49,6 +49,10 @@ public class ListPage extends PageTemplate {
         return super.getButton("索引路由规则");
     }
 
+    public WebElement getTopic() {
+        return super.getButton("Topic 配置");
+    }
+
     public WebElement getMessage() {
         return successmessage;
     }

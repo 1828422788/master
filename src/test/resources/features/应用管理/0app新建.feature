@@ -94,6 +94,10 @@ Feature: 应用新建（RZY-1899）
     And I set the parameter "Url" with value "/alerts/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "使用限额"
+    And I set the parameter "Url" with value "/account/usage/"
+    And I click the "SaveMenuButton" button
+    And I click the "AddMenuButton" button under some element
     And I set the parameter "MenuName" with value "报表"
     And I set the parameter "Url" with value "/reports/"
     And I click the "SaveMenuButton" button

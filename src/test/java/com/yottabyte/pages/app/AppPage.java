@@ -118,6 +118,10 @@ public class AppPage extends PageTemplate {
         return this.getElementWithLinkName("用户管理");
     }
 
+    public WebElement getLimit() {
+        return this.getElementWithLinkName("使用限额");
+    }
+
     public WebElement getRightArrow() {
         return rightArrow;
     }
