@@ -53,6 +53,10 @@ public class ListPage extends PageTemplate {
         return super.getButton("Topic 配置");
     }
 
+    public WebElement getIndex() {
+        return super.getButton("索引配置");
+    }
+
     public WebElement getMessage() {
         return successmessage;
     }
