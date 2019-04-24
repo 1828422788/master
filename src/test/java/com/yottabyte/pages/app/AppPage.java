@@ -19,8 +19,29 @@ public class AppPage extends PageTemplate {
     @FindBy(className = "el-icon-arrow-right")
     private WebElement rightArrow;
 
-    @FindBy(xpath = "//a[text()='AutoTest...pWithAllResources']")
+    @FindBy(xpath = "(//*[@class='yw-subnav-item active'])[last()]")
     private WebElement title;
+
+    @FindBy(className = "el-table__empty-text")
+    private WebElement emptyText;
+
+    @FindBy(className = "el-icon-arrow-down")
+    private WebElement arrowDown;
+
+    @FindBy(xpath = "//li[contains(text(),'default')]")
+    private WebElement liText;
+
+    public WebElement getLiText() {
+        return liText;
+    }
+
+    public WebElement getArrowDown() {
+        return arrowDown;
+    }
+
+    public WebElement getEmptyText() {
+        return emptyText;
+    }
 
     public WebElement getTitle() {
         return title;

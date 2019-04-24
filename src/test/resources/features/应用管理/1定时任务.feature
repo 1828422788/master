@@ -17,7 +17,6 @@ Feature: 应用定时任务(RZY-2123)
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "<taskName>"
-    And I set the parameter "Describe" with value "testing 定时任务样例"
     And I choose the "AutoTestRoleWithAllResource" from the "GroupComboBox"
     And I set the parameter "Period" with value "<period>"
     And I click the "StartTime" button

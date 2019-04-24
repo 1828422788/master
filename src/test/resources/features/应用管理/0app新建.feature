@@ -30,7 +30,6 @@ Feature: 应用新建（RZY-1899）
       | name                             | menuName | url   | message          |
       | 我有三十个字不管你信不信反正我有三十个字不管你信不信反正我信了呢 | test     | /app/ | APP名称过长，请小于60个字符 |
 
-
   Scenario Outline: 新建失败（菜单栏校验）
     When I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "<menuName>"
@@ -49,24 +48,12 @@ Feature: 应用新建（RZY-1899）
     Then I will see the error message "文件类型不符"
 
   @smoke @appSmoke
-  Scenario Outline: 新建（资源范围为本app）
+  Scenario Outline: 新建单个资源app
     Given delete file "/target/download-files/<name>.tar"
     And I set the parameter "NameInput" with value "<name>"
-    And I set the parameter "DescribeInput" with value "<describe>"
-    And I click the "ChoiceButton" button
-    And I click the "ChooseFromSystemButton" button
-#    And I set the parameter "SearchSource" with value "<sourceName>"
-    And I click the "TmpCheckBox" button
-    And I click the "CloseDialog" button
-    And I wait for "ResourceConfig" will be invisible
     And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
-    And I click the "SaveMenuButton" button
-    And I wait for "1000" millsecond
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "<menuName1>"
-    And I set the parameter "Url" with value "<url1>"
     And I click the "SaveMenuButton" button
     And I choose the "<menuName>" from the "DefaultPage"
     And I click the "ColorPicker" button
@@ -76,8 +63,18 @@ Feature: 应用新建（RZY-1899）
     Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
 
     Examples:
-      | name        | describe | sourceName | menuName | url         | menuName1 | url1                           | color   |
-      | AutoTestApp | AutoTest | AutoTest   | 仪表盘      | /dashboard/ | URL校验     | http://192.168.1.134/topology/ | #F9C7EB |
+      | name             | menuName | url                    | color   |
+      | ReportApp        | 报表       | /reports/              | #84460B |
+      | DashboardApp     | 仪表盘      | /dashboard/            | #C6B8FF |
+      | AlertApp         | 监控       | /alerts/               | #B8FFEE |
+      | ScheduleApp      | 定时任务     | /schedule/             | #FFE1BD |
+      | TrendApp         | 趋势图      | /trend/                | #E4FFE6 |
+      | SavedsearchesApp | 已存搜索     | /savedsearches/        | #FFE6E4 |
+      | KnowledgeApp     | 知识       | /knowledge/            | #FF6C5C |
+      | MacroApp         | 搜索宏      | /macro/                | #5CFFA0 |
+      | SourceApp        | 日志来源     | /sources/sourcegroups/ | #FFFFFF |
+      | TopologyApp      | 拓扑图      | /topology/             | #06030B |
+      | ConfigsApp       | 字段提取     | /configs/              | #0542F9 |
 
   @smoke @appSmoke
   Scenario Outline: 新建App，资源范围为全局

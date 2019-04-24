@@ -9,4 +9,4 @@ Feature: 应用搜索
 
     Examples:
       | appName     |
-      | AutoTestApp |
+#      | AutoTestApp |

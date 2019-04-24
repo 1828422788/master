@@ -7,25 +7,30 @@ Feature: 应用安装（RZY-1988）
     Then I will see the "app.InstallPage" page
 
   @smoke @appSmoke
-  Scenario Outline: 安装成功
+  Scenario Outline: 安装单个资源成功
     When I upload a file with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
-    And I choose the "<role>" from the "Role"
-    And I choose the "<resource>" from the "Resource"
+    And I choose the "admin" from the "Role"
+    And I choose the "all_" from the "Resource"
     And I click the "NextButton" button
-    And I click the "RepeatResource" button
-    And I click the "EditButton" button
-    And I set the parameter "RenameInput" with value "<renameInput>"
-    And I click the "Confirm" button
-    And I wait for "EditText" will be visible
     And I click the "NextButton" button
     And I will see the "ResourcePreview" is "active"
     And I click the "NextButton" button
     And I will see the element "ImportSuccess" name is "导入成功"
 
     Examples:
-      | appName     | role  | resource | renameInput          |
-      | AutoTestApp | admin | all_     | AutoTestSourceForApp |
+      | appName          |
+      | ReportApp        |
+      | DashboardApp     |
+      | AlertApp         |
+      | ScheduleApp      |
+      | TrendApp         |
+      | SavedsearchesApp |
+      | KnowledgeApp     |
+      | MacroApp         |
+      | SourceApp        |
+      | TopologyApp      |
+      | ConfigsApp       |
 
   @smoke @appSmoke
   Scenario Outline: 安装所有资源成功

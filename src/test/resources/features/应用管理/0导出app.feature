@@ -2,13 +2,28 @@
 Feature: 应用导出
 
   Background:
-    Given delete file "/target/download-files/AutoTest.tar"
-    And open the "app.ListPage" page for uri "/app/list/"
+    Given open the "app.ListPage" page for uri "/app/list/"
 
-  Scenario:
-    When the data name is "AutoTestApp" then i click the "导出" button
+  Scenario Outline:
+    Given delete file "/target/download-files/<name>.tar"
+    When the data name is "<name>" then i click the "导出" button
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
     Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+
+    Examples:
+      | name             |
+      | ReportApp        |
+      | DashboardApp     |
+      | AlertApp         |
+      | ScheduleApp      |
+      | TrendApp         |
+      | SavedsearchesApp |
+      | KnowledgeApp     |
+      | MacroApp         |
+      | SourceApp        |
+      | TopologyApp      |
+      | ConfigsApp       |
+
 

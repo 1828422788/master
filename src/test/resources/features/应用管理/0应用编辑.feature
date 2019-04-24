@@ -4,37 +4,49 @@ Feature: 应用编辑
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
 
-  Scenario Outline:
+  Scenario Outline: 修改单个资源app的资源范围
     When the data name is "<name>" then i click the "编辑" button
     And I wait for loading invisible
     Then I will see the "app.CreatePage" page
-    When I click the "AddMenuButton" button
-    And I set the parameter "MenuName" with value "<menuName>"
-    And I set the parameter "Url" with value "<url>"
-    And I click the "SaveMenuButton" button
-    And I choose the "<chooseMenuName>" from the "DefaultPage"
-    And I click the "CurrentApp" button
+    And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    Then I will see the success message "<message>"
+    Then I will see the success message "保存成功"
 
   @smoke @appSmoke
     Examples: 编辑成功
-      | name        | menuName | url         | chooseMenuName | message |
-      | AutoTestApp | Auto仪表盘  | /dashboard/ | Auto仪表盘        | 保存成功    |
+      | name             |
+      | ReportApp        |
+      | DashboardApp     |
+      | AlertApp         |
+      | ScheduleApp      |
+      | TrendApp         |
+      | SavedsearchesApp |
+      | KnowledgeApp     |
+      | MacroApp         |
+      | SourceApp        |
+      | TopologyApp      |
+      | ConfigsApp       |
 
-  Scenario Outline: 编辑失败（菜单同名校验）
-    When the data name is "AutoTestApp" then i click the "编辑" button
+  Scenario Outline: 验证单个资源的app全局范围生效
+    When the data name is "<name>" then i click the "打开" button
     And I wait for loading invisible
-    Then I will see the "app.CreatePage" page
-    When I click the "AddMenuButton" button
-    And I set the parameter "MenuName" with value "<menuName>"
-    And I set the parameter "Url" with value "<url>"
-    And I click the "SaveMenuButton" button
-    Then I will see the error message "菜单栏中已存在同名的菜单，请修改名称"
+    Then I will see the "app.AppPage" page
+    And I click the "ArrowDown" button
+    Then I will see the element "LiText" value is "<group>"
 
     Examples:
-      | menuName | url         |
-      | 仪表盘      | /dashboard/ |
+      | name             | group                  |
+      | ReportApp        | default_Report         |
+      | DashboardApp     | default_DashBoardGroup |
+      | AlertApp         | default_Alert          |
+      | ScheduleApp      | default_SavedSchedule  |
+      | TrendApp         | default_Trend          |
+      | SavedsearchesApp | default_SavedSearch    |
+      | KnowledgeApp     | default_Knowledge      |
+      | MacroApp         | default_Macro          |
+      | SourceApp        | default_SourceGroup    |
+      | TopologyApp      | default_Topology       |
+      | ConfigsApp       | default_ParserRule     |
 
   @smoke @appSmoke
   Scenario: 更改资源范围
