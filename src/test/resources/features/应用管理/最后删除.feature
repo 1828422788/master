@@ -6,13 +6,21 @@ Feature: 应用删除
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureButton" button
     And I will see the success message "删除成功"
-    And I refresh the website
-    Then I will see the data "AutoTest" is not available on the list
 
     Examples:
       | name                        |
-      | AutoTestApp                 |
       | AutoTestAppWithAllResources |
+      | ReportApp                   |
+      | DashboardApp                |
+      | AlertApp                    |
+      | ScheduleApp                 |
+      | TrendApp                    |
+      | SavedsearchesApp            |
+      | KnowledgeApp                |
+      | MacroApp                    |
+      | SourceApp                   |
+      | TopologyApp                 |
+      | ConfigsApp                  |
 
   Scenario Outline: 删除对应的资源分组
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
@@ -23,7 +31,4 @@ Feature: 应用删除
     Examples:
       | name                        |
       | AutoTestSourceForApp        |
-      | AutoTestApp                 |
       | AutoTestAppWithAllResources |
-
-
