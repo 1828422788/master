@@ -4,10 +4,14 @@ Feature: 应用编辑
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
 
-  Scenario Outline: 修改单个资源app的资源范围
+  Scenario Outline: 修改单个资源app的资源范围，增加监控菜单
     When the data name is "<name>" then i click the "编辑" button
     And I wait for loading invisible
     Then I will see the "app.CreatePage" page
+    And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "搜索宏测试"
+    And I set the parameter "Url" with value "/macro/"
+    And I click the "SaveMenuButton" button
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"

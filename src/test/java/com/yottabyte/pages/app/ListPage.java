@@ -16,6 +16,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='请输入']")
     private WebElement getSearchInput;
 
+    @FindBy(className = "el-table__empty-text")
+    private WebElement emptyText;
+
+    public WebElement getEmptyText() {
+        return emptyText;
+    }
+
     public WebElement getCreateButton() {
         return super.getButton("新建");
     }

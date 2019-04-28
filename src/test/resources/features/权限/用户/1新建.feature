@@ -18,8 +18,9 @@ Feature: 用户新建（RZY-1164）
 
   @createUsers
     Examples: 成功添加一个用户
-      | UserName | FullName         | Email                     | Telephone | Password   | UserGroups    |
-      | AutoTest | autoTestFullName | autoFullName@yottabyte.cn |           | qqqqq11111 | AutoTestGroup |
+      | UserName            | FullName                | Email                     | Telephone | Password   | UserGroups    |
+      | AutoTest            | autoTestFullName        | autoFullName@yottabyte.cn |           | qqqqq11111 | AutoTestGroup |
+      | AutoTestAllResource | AutoTestWithAllResource | allResource@yottabyte.cn  |           | qqqqq11111 | AutoTest      |
 
   Scenario Outline: 添加用户
     And I click the "CreateUser" button

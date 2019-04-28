@@ -83,3 +83,44 @@ Feature: 应用资源分组（RZY-2145）
     When the data name is "AutoAppResource" then i click the "删除" button
     And I click the "MessageBoxOKButton" button
     Then I will see the success message "删除成功"
+
+  Scenario: RZY-2119:新建搜索宏测试
+    Given open the "searchMacro.ListPage" page for uri "/macro/"
+    When I click the "CreateButton" button
+    Then I will see the "searchMacro.CreatePage" page
+    When I set the parameter "Name" with value "AutoAppTestMacro"
+    And I choose the "default_Macro" from the "Group"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario: RZY-2119:资源分组添加多个所属应用
+    Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
+    When the data name is "default_Macro" then i click the "所属应用" button
+    And I choose the "ReportApp,DashboardApp,AlertApp,ScheduleApp,TrendApp,SavedsearchesApp,KnowledgeApp,MacroApp,SourceApp,TopologyApp,ConfigsApp" from the "App"
+    Then I click the "EnsureButton" button
+
+  Scenario Outline: RZY-2119:验证资源分组是否生效
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I click the "SearchMacroTest" button
+    Then I will see the search result contains "{'column':'0','name':'AutoAppTestMacro'}"
+
+    Examples:
+      | name             |
+      | ReportApp        |
+      | DashboardApp     |
+      | AlertApp         |
+      | ScheduleApp      |
+      | TrendApp         |
+      | SavedsearchesApp |
+      | KnowledgeApp     |
+      | MacroApp         |
+      | SourceApp        |
+      | TopologyApp      |
+      | ConfigsApp       |
+
+  Scenario: 删除搜索宏
+    Given open the "searchMacro.ListPage" page for uri "/macro/"
+    When the data name is "AutoAppTestMacro" then i click the "删除" button
+    And I click the "EnsureDelete" button

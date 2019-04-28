@@ -16,9 +16,9 @@ Feature: 用户分组创建（RZY-545）
     Then I wait for "SuccessMessage" will be visible
 
     Examples:
-      | UserGroupName | UserGroupDes | Owner        | Role         |
-      | AutoTestGroup | des1         | AutoTestRole | AutoTestRole |
-      | AutoTest      |              | admin        | admin        |
+      | UserGroupName | UserGroupDes | Owner                       | Role                        |
+      | AutoTestGroup | des1         | AutoTestRole                | AutoTestRole                |
+      | AutoTest      |              | AutoTestRoleWithAllResource | AutoTestRoleWithAllResource |
 
   Scenario Outline: 用户分组创建成功
     And I click the "CreateUserGroup" button

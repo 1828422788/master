@@ -142,19 +142,6 @@ Feature: 定时任务新增
     Examples:
       | splQuery                                                                                                                       | groupType | type | name                     | describe | groups                | period |
       | (tag:heka) \|bucket timestamp timeranges=((2018-07-26:10:39:50, 2018-07-27:10:40:02)) as tr \| stats dc('appname') as ct by tr | Order     | Line | RZY-1488:保存为各种类型的定时任务-序列 | owner    | default_SavedSchedule | 10     |
-#      | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Wordcloud  | wordcloudAutoTest        | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Force      | forceAutoTest            | owner    | default_SavedSchedule | 15     |
-#      | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Single     | singleAutoTest           | owner    | default_SavedSchedule | 15     |
-#      | tag:"sample04061424" \| eval status = apache.status \| stats count() as cnt by status \| eval newField = cnt + status          | Other      | Liquidfill | liquidfillAutoTest       | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Area       | areaAutoTest             | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Column     | columnAutoTest           | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Order      | Scatter    | scatterAutoTest          | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Dimension  | Pie        | pieAutoTest              | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Dimension  | Rose       | roseAutoTest             | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Dimension  | Bar        | barAutoTest              | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Compound   | Multiaxis  | multiaxisAutoTest        | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Chord      | chordAutoTest            | owner    | default_SavedSchedule | 15     |
-#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count            | Connection | Sankey     | sankeyAutoTest           | owner    | default_SavedSchedule | 15     |
 
   @smoke @timedTaskSmoke
   Scenario Outline: 生成循序图的定时任务（RZY-2300步骤5）

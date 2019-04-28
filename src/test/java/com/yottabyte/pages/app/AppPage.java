@@ -147,6 +147,10 @@ public class AppPage extends PageTemplate {
         return rightArrow;
     }
 
+    public WebElement getSearchMacroTest() {
+        return this.getElementWithLinkName("搜索宏测试");
+    }
+
     private WebElement getElementWithLinkName(String name) {
         String xpath = "(//a[text()='" + name + "'])[last()]";
         return webDriver.findElement(By.xpath(xpath));
