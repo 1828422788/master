@@ -21,6 +21,7 @@ Feature: 应用删除
       | SourceApp                   |
       | TopologyApp                 |
       | ConfigsApp                  |
+      | AutoTestAuth                |
 
   Scenario Outline: 删除对应的资源分组
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"

@@ -1,4 +1,4 @@
-@app @appSmoke
+@app @appSmoke @temp
 Feature: 应用字段提取（RZY-2129）
 
   Background:
