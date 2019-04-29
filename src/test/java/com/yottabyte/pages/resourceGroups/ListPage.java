@@ -131,6 +131,10 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
     private WebElement searchDropdown;
 
+    public WebElement getUploadAndDownloadButton() {
+        return uploadAndDownloadButton;
+    }
+
     public WebElement getApp() {
         return super.getDropdownList("应用");
     }
