@@ -33,3 +33,16 @@ Feature: 应用删除
       | name                        |
       | AutoTestSourceForApp        |
       | AutoTestAppWithAllResources |
+      | TopologyApp                 |
+      | SavedsearchesApp            |
+      | AutoTestAuth                |
+      | ScheduleApp                 |
+      | SourceApp                   |
+      | AppRole                     |
+      | ReportApp                   |
+      | TrendApp                    |
+      | MacroApp                    |
+      | DashboardApp                |
+      | ConfigsApp                  |
+      | KnowledgeApp                |
+      | AlertApp                    |
