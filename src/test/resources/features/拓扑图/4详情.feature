@@ -107,14 +107,14 @@ Feature: 拓扑图详情页
   Scenario: 夜间模式截图（RZY-1230）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-    Given I click the "SwitchButton" button
+#    Given I click the "SwitchButton" button
     Then I click the "NightMode" button
 
   @all @smoke @topologySmoke
   Scenario Outline: 添加文本、下拉输入项成功（RZY-1239、RZY-1240）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-    Given I click the "SwitchButton" button
+#    Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -129,7 +129,7 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加动态菜单输入项失败
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-    Given I click the "SwitchButton" button
+#    Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -149,7 +149,7 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加动态菜单输入项成功（RZY-1243）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-    Given I click the "SwitchButton" button
+#    Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -171,7 +171,7 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加输入项失败
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-    Given I click the "SwitchButton" button
+#    Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -185,22 +185,22 @@ Feature: 拓扑图详情页
       | title           |       | 请填写token |
       | apache.resp_len | tag1  | 当前标识已存在! |
 
-  Scenario Outline: 禁用、启用编辑（RZY-356至357）
-    And I click the detail which name is "sxjautotest"
-    Then I will see the "topology.DetailPage" page
-    Then I will see the "<button>" is "<attribute>"
-    Then I click the "SwitchButton" button
-    And I will see the "<button>" is clickable
-
-  @all @smoke @topologySmoke
-    Examples:
-      | button                  | attribute |
-      | addButton,refreshButton | disabled  |
+#  Scenario Outline: 禁用、启用编辑（RZY-356至357）
+#    And I click the detail which name is "sxjautotest"
+#    Then I will see the "topology.DetailPage" page
+#    Then I will see the "<button>" is "<attribute>"
+#    Then I click the "SwitchButton" button
+#    And I will see the "<button>" is clickable
+#
+#  @all @smoke @topologySmoke
+#    Examples:
+#      | button                  | attribute |
+#      | addButton,refreshButton | disabled  |
 
   Scenario Outline: 节点配置失败提示
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-    Given I click the "SwitchButton" button
+#    Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
     Then I click the "AddNodeButton" button
@@ -215,7 +215,7 @@ Feature: 拓扑图详情页
   Scenario Outline: 第一种布局方式（RZY-1146）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-    Given I click the "SwitchButton" button
+#    Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
     Then I click the "AddNodeButton" button

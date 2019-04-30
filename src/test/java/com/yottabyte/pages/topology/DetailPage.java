@@ -1,21 +1,17 @@
 package com.yottabyte.pages.topology;
 
-import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.DateEditorPage;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author sunxj
@@ -31,7 +27,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-gengxinxuanting_icon")
     private WebElement refreshButton;
 
-    @FindBy(className = "el-switch__label--right")
+    @FindBy(className = "icon-bianji1")
     private WebElement switchButton;
 
     @FindBy(xpath = "//input[@placeholder='请输入节点名称']")
@@ -73,7 +69,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='右上值']")
     private WebElement rightTop;
 
-    @FindBy(className = "icon-yejianxuanting_icon")
+    @FindBy(className = "icon-yejian")
     private WebElement nightMode;
 
     @FindBy(className = "icon-tianjia")
