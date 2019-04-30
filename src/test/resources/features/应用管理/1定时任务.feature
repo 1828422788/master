@@ -1,4 +1,4 @@
-@app @appSmoke @temp
+@app @appSmoke
 Feature: 应用定时任务(RZY-2123)
 
   Background:

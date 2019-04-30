@@ -62,8 +62,8 @@ Feature: 应用资源分组（RZY-2145）
     Then I will see the "resourceGroups.ListPage" page
     And I wait for loading invisible
     Given I set the search input with "AutoApp"
-    And I click the "Search" button under some element
-    And I wait for loading invisible
+#    And I click the "Search" button under some element
+#    And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'AutoApp'}"
 
   Scenario: 修改资源分组所属应用
