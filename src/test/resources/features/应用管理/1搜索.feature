@@ -1,5 +1,5 @@
 @all @smoke @app @appSmoke
-Feature: 应用监控模块（RZY-2122）
+Feature: 应用已存搜索（RZY-2125）
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
