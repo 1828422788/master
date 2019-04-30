@@ -1,4 +1,4 @@
-@clean
+@clean @appClean
 Feature: 应用删除
 
   Scenario Outline:
