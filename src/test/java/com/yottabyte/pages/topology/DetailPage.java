@@ -96,7 +96,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'输入类型')]/following-sibling::div//button")
     private WebElement inputType;
 
-    @FindBy(xpath = "//input[@placeholder='请选择展示字段']/preceding-sibling::i")
+    @FindBy(xpath = "(//input[@placeholder='请选择展示字段']/preceding-sibling::i)[last()]")
     private WebElement filedInput;
 
     @FindBy(className = "el-select-dropdown__list")
