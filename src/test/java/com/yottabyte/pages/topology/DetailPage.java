@@ -96,7 +96,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'输入类型')]/following-sibling::div//button")
     private WebElement inputType;
 
-    @FindBy(xpath = "(//input[@placeholder='请选择展示字段'])[last()]")
+    @FindBy(xpath = "//input[@placeholder='请选择展示字段']/preceding-sibling::i")
     private WebElement filedInput;
 
     @FindBy(className = "el-select-dropdown__list")
@@ -123,13 +123,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='color-value to el-input']/input")
     private WebElement toInput;
 
-    @FindBy(className = "el-color-picker__color-inner")
+    @FindBy(xpath = "(//*[@class='el-color-picker__color-inner'])[last()]")
     private WebElement setColourButton;
 
-    @FindBy(className = "el-color-dropdown__value")
+    @FindBy(xpath = "(//*[@class='el-color-dropdown__value'])[last()]")
     private WebElement setColourInput;
 
-    @FindBy(className = "el-color-dropdown__btn")
+    @FindBy(xpath = "(//*[@class='el-color-dropdown__btn'])[last()]")
     private WebElement ensureSetColourButton;
 
     @FindBy(xpath = "//span[text()='单值']")
@@ -176,6 +176,21 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "icon-bianji1")
     private WebElement edit;
+
+    @FindBy(className = "el-switch__label--right")
+    private WebElement openChart;
+
+    @FindBy(xpath = "//input[@placeholder='请选择插图类型']/preceding-sibling::i")
+    private WebElement chartType;
+
+    public WebElement getChartType() {
+        chartType.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOpenChart() {
+        return openChart;
+    }
 
     public WebElement getEdit() {
         return edit;
@@ -419,7 +434,7 @@ public class DetailPage extends PageTemplate {
     public WebElement getFiledInput() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(filedInput));
         filedInput.click();
-        return dropdownList.get(dropdownList.size() - 1);
+        return super.getLastDropdownList();
     }
 
     public WebElement getToInput() {

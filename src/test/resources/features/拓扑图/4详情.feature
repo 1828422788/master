@@ -107,14 +107,12 @@ Feature: 拓扑图详情页
   Scenario: 夜间模式截图（RZY-1230）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-#    Given I click the "SwitchButton" button
     Then I click the "NightMode" button
 
   @all @smoke @topologySmoke
   Scenario Outline: 添加文本、下拉输入项成功（RZY-1239、RZY-1240）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-#    Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -129,7 +127,6 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加动态菜单输入项失败
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-#    Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -149,7 +146,6 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加动态菜单输入项成功（RZY-1243）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-#    Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -171,7 +167,6 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加输入项失败
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-#    Given I click the "SwitchButton" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -200,7 +195,6 @@ Feature: 拓扑图详情页
   Scenario Outline: 节点配置失败提示
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-#    Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
     Then I click the "AddNodeButton" button
@@ -215,7 +209,6 @@ Feature: 拓扑图详情页
   Scenario Outline: 第一种布局方式（RZY-1146）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-#    Given I click the "SwitchButton" button
     Then I set the parameter "NodeName" with value "<nodeName>"
     Then I set the parameter "NodeGroup" with value "<nodeGroup>"
     Then I click the "AddNodeButton" button
@@ -341,19 +334,13 @@ Feature: 拓扑图详情页
     Then I click the "AddNodeButton" button
     Then I click the "TopLeftRight" button
     Then I click the "TopValueButton" button
-    Then I set the parameter "TextArea" with value "<leftValue>"
+    Then I set the parameter "TextArea" with value "tag:"sample04061424_display" | timechart sep="-sep分格-" format="$VAL-分格2-$AGG" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype="area" count() min(apache.resp_len) by apache.status"
     Then I click the "DateEditor" button
     And I click the "LastMonth" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
-    Then I choose the "<leftField>" from the "FiledInput"
-    Then I set the parameter "Unit" with value "个"
-    Then I click the "AddColourButton" button
-    And I set the parameter "FromInput" with value "-960"
-    And I set the parameter "ToInput" with value "140000"
-    Then I click the "SetColourButton" button
-    And I set the parameter "SetColourInput" with value "#16DDE4"
-    Then I click the "EnsureSetColourButton" button
+    And I click the "OpenChart" button
+    And I choose the "曲线图" from the "ChartType"
+    Then I choose the "404-分格2-count()" from the "FiledInput"
     Then I click the "Apply" button
 
     Then I click the "LowerLeft" button
@@ -361,7 +348,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "TenMinutes" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -377,7 +363,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "HalfHour" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -391,8 +376,8 @@ Feature: 拓扑图详情页
 
   @all @smoke @topologySmoke
     Examples:
-      | nodeName    | nodeGroup     | leftValue          | leftField | rightValue         | rightField |
-      | sxjautotest | autotestgroup | * \| stats count() | count()   | * \| stats count() | count()    |
+      | nodeName    | nodeGroup     | rightValue         | rightField |
+      | sxjautotest | autotestgroup | * \| stats count() | count()    |
 
   Scenario Outline: 第五种布局方式（RZY-1153）
     And I click the detail which name is "sxjautotest"
@@ -408,7 +393,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "OneHour" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<leftField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -424,7 +408,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "OneDay" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -440,7 +423,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "TwoDays" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -471,7 +453,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "SevenDays" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<leftField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -487,7 +468,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "WholeTime" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -503,7 +483,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I trigger the button "MinuteAgo"
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
