@@ -217,7 +217,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<field>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -248,7 +247,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "LastWeek" button
     And I click the "SearchButton" button
-#    Then I will see the message "搜索完成!"
     Then I choose the "<leftField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -263,7 +261,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "ThisWeek" button
     And I click the "SearchButton" button
-#    Then I will see the message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -293,7 +290,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "LastWeek" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<leftField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -308,7 +304,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "ThisMonth" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -340,7 +335,7 @@ Feature: 拓扑图详情页
     And I click the "SearchButton" button
     And I click the "OpenChart" button
     And I choose the "曲线图" from the "ChartType"
-    Then I choose the "404-分格2-count()" from the "FiledInput"
+    Then I choose the "404-分格2-count()" from the "FiledValue"
     Then I click the "Apply" button
 
     Then I click the "LowerLeft" button
@@ -513,7 +508,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I trigger the button "HourAgo"
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<leftField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -529,7 +523,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I trigger the button "DayAgo"
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -545,7 +538,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I trigger the button "SecondAgo"
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -576,7 +568,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "SevenDays" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<leftField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button
@@ -592,7 +583,6 @@ Feature: 拓扑图详情页
     Then I click the "DateEditor" button
     And I click the "WholeTime" button
     And I click the "SearchButton" button
-#    Then I will see the success message "搜索完成!"
     Then I choose the "<rightField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
     Then I click the "AddColourButton" button

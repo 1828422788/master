@@ -99,6 +99,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//input[@placeholder='请选择展示字段']/preceding-sibling::i)[last()]")
     private WebElement filedInput;
 
+    @FindBy(xpath = "//input[@placeholder='请选择展示字段']/preceding-sibling::i")
+    private WebElement filedValue;
+
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
@@ -182,6 +185,11 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='请选择插图类型']/preceding-sibling::i")
     private WebElement chartType;
+
+    public WebElement getFiledValue() {
+        filedValue.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getChartType() {
         chartType.click();
