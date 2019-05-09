@@ -1,4 +1,4 @@
-@alert @all
+#@alert @all
 Feature: 监控新建事件数并填写发送条件（RZY-450、RZY-451）
 
   Background:

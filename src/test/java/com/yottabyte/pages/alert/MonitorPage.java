@@ -94,6 +94,56 @@ public class MonitorPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-dropdown-menu group-menu'])[last()]")
     private WebElement groupMenu;
 
+    @FindBy(className = "link-knowledge-icon")
+    private WebElement linkKnowledge;
+
+    @FindBy(xpath = "(//i[@class='el-icon-arrow-down el-icon--right'])[last()]")
+    private WebElement arrowDown;
+
+    @FindBy(className = "dropdown_knowledges_list")
+    private WebElement knowledgeList;
+
+    @FindBy(xpath = "//span[contains(text(),'KnowledgeForAlert')]")
+    private WebElement knowledgeForAlert;
+
+    @FindBy(xpath = "//span[contains(text(),'AlertKnowledge')]")
+    private WebElement alertKnowledge;
+
+    @FindBy(xpath = "//span[text()='already done']/ancestor::div[@class='handled-text']//following-sibling::span[@class='el-tag el-tag--primary']")
+    private List<WebElement> knowledgeLists;
+
+    public List<WebElement> getKnowledgeLists() {
+        return knowledgeLists;
+    }
+
+    public WebElement getAlertKnowledge() {
+        return alertKnowledge;
+    }
+
+    public WebElement getKnowledgeForAlert() {
+        return knowledgeForAlert;
+    }
+
+    public WebElement getSaveKnowledge() {
+        return super.getContainsTextButton("保存");
+    }
+
+    public WebElement getKnowledgeList() {
+        return knowledgeList;
+    }
+
+    public WebElement getCreateKnowledge() {
+        return super.getContainsTextButton("新建");
+    }
+
+    public WebElement getArrowDown() {
+        return arrowDown;
+    }
+
+    public WebElement getLinkKnowledge() {
+        return linkKnowledge;
+    }
+
     public WebElement getGroupMenu() {
         return groupMenu;
     }

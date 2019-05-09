@@ -1,4 +1,4 @@
-@alert @all
+#@alert @all
 Feature: 监控新建事件数及页面的各个检查项（RZY-431、RZY-879）
 
   Background:

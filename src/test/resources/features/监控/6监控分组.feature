@@ -1,4 +1,4 @@
-@alert @alertSmoke @third
+#@alert @alertSmoke @third
 Feature: 监控分组
 
   Background:

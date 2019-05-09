@@ -107,8 +107,11 @@ public class ClickSomeButton {
         List<WebElement> trList = TableInfo.getTrList();
         if (trList == null)
             return;
-
-        List<WebElement> tdList = trList.get(0).findElements(By.xpath(".//td"));
+        List<WebElement> tdList;
+        if (trList.get(0).getAttribute("class").contains("divided-row"))
+            tdList = trList.get(1).findElements(By.xpath(".//td"));
+        else
+            tdList = trList.get(0).findElements(By.xpath(".//td"));
         if (tdList.size() != 1) {
             tdList.get(0).findElement(By.className("el-checkbox")).click();
         }

@@ -1,4 +1,4 @@
-@smoke @alertSmoke @second
+#@smoke @alertSmoke @second
 Feature: 监控新建连续统计（RZY-435）
 
   Background:

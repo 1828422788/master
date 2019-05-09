@@ -1,4 +1,4 @@
-@alert @alertSmoke @first
+#@alert @alertSmoke @first
 Feature: 监控新建
 
   Background:

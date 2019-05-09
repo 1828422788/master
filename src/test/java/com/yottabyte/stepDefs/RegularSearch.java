@@ -308,7 +308,7 @@ public class RegularSearch {
             return;
 
         Paging paging = GetPaging.getPagingInfo();
-        String expectedClassName = "circle el-tooltip " + colour + "-circle";
+        String expectedClassName = "circle " + colour + "-circle";
 
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
@@ -320,7 +320,7 @@ public class RegularSearch {
             for (WebElement tr : trList) {
                 List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
                 if (tdList.size() >= 2) {
-                    WebElement td = tdList.get(1).findElement(By.xpath("(.//div/div)[last()]"));
+                    WebElement td = tdList.get(1).findElement(By.xpath("(.//div/div/span)[last()]"));
                     String actualClassName = td.getAttribute("class");
                     Assert.assertEquals(expectedClassName, actualClassName);
                 }

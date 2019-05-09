@@ -1,4 +1,4 @@
-@alert @all @smoke @alertSmoke @second
+#@alert @all @smoke @alertSmoke @second
 Feature: 监控新建Spl统计（RZY-436）
 
   Background:
