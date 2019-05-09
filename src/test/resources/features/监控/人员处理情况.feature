@@ -8,11 +8,13 @@ Feature: 监控人员处理情况
     Then I will see the "alert.WorkLoadPage" page
 
   Scenario Outline: 按名称搜索
-    When search "{'input':'<name>'}" and I will see the column number "1" contains "<name>"
+    When I set the parameter "SearchInput" with value "<name>"
+    And I click the "SearchButton" button
+    Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
       | name  |
-      | owner |
+      | atest |
 
   @second
   Scenario: 返回监控首页（RZY-494）
