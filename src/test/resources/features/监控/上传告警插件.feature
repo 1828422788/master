@@ -1,4 +1,4 @@
-@alert @all
+@alert @all @alertSmoke
 Feature: 监控上传告警插件
 
   Background:
