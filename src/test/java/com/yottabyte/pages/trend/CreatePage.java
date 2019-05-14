@@ -440,6 +440,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='斥力因子'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
     private WebElement repulsion;
 
+    @FindBy(className = "yw-trend")
+    private WebElement canvas;
+
+    public WebElement getCanvas() {
+        return canvas;
+    }
+
     public WebElement getRepulsion() {
         return repulsion;
     }
