@@ -40,7 +40,7 @@ public class WaitElementChangeTextTo {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
     }
 
-    private void waitForElementWithExpectedCondition(WebDriver driver, ExpectedCondition expectedCondition) {
+    public void waitForElementWithExpectedCondition(WebDriver driver, ExpectedCondition expectedCondition) {
         FluentWait wait = new FluentWait(driver)
                 .withTimeout(80 * 1000, TimeUnit.MILLISECONDS)
                 .pollingEvery(10 * 1000, TimeUnit.MILLISECONDS)

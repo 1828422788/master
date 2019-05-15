@@ -61,6 +61,9 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[2]")
     private WebElement ensureButton;
 
+    @FindBy(xpath = "//span[text()='SuccessEditAutoTest'][@class='runner-banned-name']/following-sibling::span")
+    private WebElement userStatus;
+
     public WebElement getEnsureButton() {
         return ensureButton;
     }
@@ -91,21 +94,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getUserStatus() {
-        ExpectedCondition expectedCondition = ExpectedConditions.refreshed(new ExpectedCondition<Object>() {
-            @Nullable
-            @Override
-            public Object apply(@Nullable WebDriver webDriver) {
-                return webDriver.findElements(By.xpath("//div[@class='runner-cell']/*[not(@style='display: none;')]")).get(0).findElements(By.tagName("span")).get(1);
-            }
-        });
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-//        List<WebElement> list = searchResultRows.get(0).findElements(By.tagName("span"));
-//        if (list.size() >= 1){
-//            return list.get(1);
-//        }else {
-//            throw new NoSuchElementException("未找到用户状态");
-//        }
-        return webDriver.findElements(By.xpath("//div[@class='runner-cell']/*[not(@style='display: none;')]")).get(0).findElements(By.tagName("span")).get(1);
+        return userStatus;
     }
 
     public WebElement getSearchResultTable() {

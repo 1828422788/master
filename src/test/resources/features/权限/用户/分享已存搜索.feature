@@ -3,9 +3,10 @@ Feature: 用户分享已存搜索
 
   Background:
     Given I logout current user
+    And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
     And I click the "LoginButton" button
     And I wait for loading invisible
 

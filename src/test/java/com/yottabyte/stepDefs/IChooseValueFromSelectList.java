@@ -127,6 +127,15 @@ public class IChooseValueFromSelectList {
         iCancelSelectionFromThe(values, parentElement);
     }
 
+    @And("^I cancel selection \"([^\"]*)\" from the \"([^\"]*)\" with property$")
+    public void cancelSelectionWithProperty(String propertyName, String selectListName) {
+        WebElement parentElement = GetElementFromPage.getWebElementWithName(selectListName);
+        ConfigManager configManager = new ConfigManager();
+        List<String> list = new ArrayList<>();
+        list.add(configManager.get(propertyName));
+        iCancelSelectionFromThe(list, parentElement);
+    }
+
     public void iCancelSelectionFromThe(List<String> values, WebElement parentElement) {
         if (!parentElement.getTagName().equals("ul")) {
             parentElement = parentElement.findElement(By.tagName("ul"));
