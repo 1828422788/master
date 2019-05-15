@@ -5,6 +5,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.WaitForElement;
 import com.yottabyte.webDriver.SharedDriver;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -15,6 +16,14 @@ import java.util.List;
 
 public class IChooseValueFromSelectList {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+
+    @And("^I choose the \"([^\"]*)\" from the \"([^\"]*)\" with property$")
+    public void iChooseTheFromTheWithProperty(String propertyName, String selectListName) {
+        ConfigManager manager = new ConfigManager();
+        List<String> list = new ArrayList<>();
+        list.add(manager.get(propertyName));
+        this.iChooseTheFromThe(list, selectListName);
+    }
 
     @And("^I choose the \"([^\"]*)\" from the \"([^\"]*)\"$")
     public void iChooseTheFromThe(List<String> values, String selectListName) {
@@ -190,5 +199,4 @@ public class IChooseValueFromSelectList {
 
         System.out.println("done");
     }
-
 }

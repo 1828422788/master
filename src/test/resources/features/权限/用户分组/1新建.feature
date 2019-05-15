@@ -8,17 +8,17 @@ Feature: 用户分组创建（RZY-545）
   Scenario Outline: 所需用户分组
     And I click the "CreateUserGroup" button
     Then I will see the "userGroups.CreatePage" page
-    When I set the parameter "UserGroupName" with value "<UserGroupName>"
+    When I set the parameter "UserGroupName" with properties "<groupProperty>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
-    And I choose the "<Owner>" from the "UserGroupOwner"
-    And I choose the "<Role>" from the "UserGroupRole"
+    And I choose the "<roleProperty>" from the "UserGroupOwner" with property
+    And I choose the "<roleProperty>" from the "UserGroupRole" with property
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 
     Examples:
-      | UserGroupName | UserGroupDes | Owner                       | Role                        |
-      | AutoTestGroup | des1         | AutoTestRole                | AutoTestRole                |
-      | AutoTest      |              | AutoTestRoleWithAllResource | AutoTestRoleWithAllResource |
+      | groupProperty      | UserGroupDes | roleProperty      |
+      | group              | des1         | role              |
+      | groupWithResources |              | roleWithResources |
 
   Scenario Outline: 用户分组创建成功
     And I click the "CreateUserGroup" button

@@ -7,7 +7,6 @@ import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.GetPaging;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.WaitForElement;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -39,6 +38,26 @@ public class ClickButtonWithGivenName {
     public void clickButtonWithGivenName(String dataName, String buttonName) {
         WebElement tr = this.getTr(dataName);
         this.click(buttonName, tr);
+    }
+
+    /**
+     * 根据配置名称点击对应按钮
+     *
+     * @param propertyName 若为字符串：第一列所要匹配的名称，若为json：{'column':'start 0','name':''}
+     * @param buttonName   按钮名称
+     */
+    @Given("^the data properties is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
+    public void clickButtonWithPropertyName(String propertyName, String buttonName) {
+        ConfigManager config = new ConfigManager();
+        if (!JsonStringPaser.isJson(propertyName)) {
+            this.clickButtonWithGivenName(config.get(propertyName), buttonName);
+        } else {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(propertyName);
+            int columnNum = Integer.parseInt(map.get("column").toString());
+            String name = map.get("name").toString();
+            WebElement tr = this.getRowWithColumnNum(config.get(name), columnNum);
+            this.click(buttonName, tr);
+        }
     }
 
 

@@ -172,4 +172,8 @@ public class ListPage extends PageTemplate {
         WebElement table = searchResultTable;
         return table.findElements(By.className("el-table_1_column_3")).get(row - 1);
     }
+
+    public WebElement getSearchIcon() {
+        return super.getSearchIcon();
+    }
 }

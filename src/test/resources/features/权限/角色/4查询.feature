@@ -1,4 +1,4 @@
-@all @smoke @role @roleSmoke
+@role @roleSmoke
 Feature: 角色查询（RZY-523）
 
   Background:
@@ -6,6 +6,8 @@ Feature: 角色查询（RZY-523）
 
   Scenario Outline:
     When I set the search input with "<name>"
+    And I click the "SearchIcon" button
+    And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<name>'}"
 
     Examples:

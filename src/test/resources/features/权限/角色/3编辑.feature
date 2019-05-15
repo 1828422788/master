@@ -12,13 +12,12 @@ Feature: 角色编辑（RZY-522）
     And I click the "UpdateButton" button
     Then I will see the <Result>
 
-  @all @smoke @roleSmoke
+  @roleSmoke
     Examples: 编辑成功
       | OldName      | RoleName     | RoleDes | Result                 |
       | AutoTestCopy | AutoTest     |         | success message "保存成功" |
       | AutoTest     | AutoTestCopy | 无       | success message "保存成功" |
 
-  @all
     Examples: 编辑失败
       | OldName      | RoleName                    | RoleDes | Result                                     |
       | AutoTestCopy |                             |         | error message "填写角色名称"                     |
