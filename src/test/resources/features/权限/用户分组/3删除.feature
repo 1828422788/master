@@ -5,9 +5,7 @@ Feature: 用户分组删除（RZY-1180）
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
 
   Scenario Outline:
-    Given I set the parameter "SearchInput" with value "<name>"
-    And I wait table element "SearchResultTable-1.2" change text to "<name>"
-    And I click the table "TableDeleteButton-1" button
+    Given the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "MessageBoxOKButton" button
     Then I will see the success message "删除成功"
     And I refresh the website

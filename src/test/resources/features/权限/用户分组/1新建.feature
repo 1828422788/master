@@ -41,3 +41,17 @@ Feature: 用户分组创建（RZY-545）
       | AutoTest      | des          |       | AutoTestRole | error message "拥有者 不能为空"            |
       | AutoTest      |              | admin |              | error message "角色 不能为空"             |
       | AutoTest      | des          | admin | admin        | error message "用户组已存在\n错误码: FE_536" |
+
+
+  Scenario Outline: 用户分组创建成功
+    And I click the "CreateUserGroup" button
+    Then I will see the "userGroups.CreatePage" page
+    When I set the parameter "UserGroupName" with properties "group"
+    And I choose the "role" from the "UserGroupOwner" with property
+    And I choose the "role" from the "UserGroupRole" with property
+    And I click the "CreateButton" button
+    Then I will see the error message "<message>"
+
+    Examples:
+      | message             |
+      | 用户组已存在\n错误码: FE_536 |

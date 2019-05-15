@@ -1,4 +1,4 @@
-@clean
+@clean @userGroups
 Feature: 用户分组清理
 
   Background:

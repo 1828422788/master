@@ -5,9 +5,7 @@ Feature: 用户分组修改（RZY-1179）
 
   @userGroups @all
   Scenario Outline: 编辑常规
-    Given I set the parameter "SearchInput" with value "<UserGroupName>"
-    And I wait table element "SearchResultTable-1.2" change text to "<UserGroupName>"
-    And I click the table "TableEditButton-1" button
+    Given the data name is "{'column':'1','name':'<UserGroupName>'}" then i click the "编辑" button
     And I will see the "userGroups.EditPage" page
     When I set the parameter "UserGroupName" with value "<NewUserGroupName>"
     And I set the parameter "UserGroupDes" with value "<NewUserGroupDes>"
@@ -51,12 +49,12 @@ Feature: 用户分组修改（RZY-1179）
       | name            | NewRoleName  | Result                 | finalGroups         |
       | AutoTestForEdit | AutoTestRole | success message "更新成功" | admin, AutoTestRole |
 
-  @all @smoke @userGroupsSmoke
-  Scenario: 添加成员
-    Given the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
-    And I will see the "userGroups.EditPage" page
-    And I click the "AddMember" button
-    And I click the "CheckBox" button
-    And I click the "EnsureButton" button
-    And I click the "SaveMember" button
-    Then I will see the success message "更新成功"
+#  @all @smoke @userGroupsSmoke
+#  Scenario: 添加成员
+#    Given the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
+#    And I will see the "userGroups.EditPage" page
+#    And I click the "AddMember" button
+#    And I click the "CheckBox" button
+#    And I click the "EnsureButton" button
+#    And I click the "SaveMember" button
+#    Then I will see the success message "更新成功"
