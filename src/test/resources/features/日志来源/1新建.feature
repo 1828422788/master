@@ -31,15 +31,15 @@ Feature: 日志来源新建（RZY-365）
   Scenario Outline: 创建日志来源以备其他资源使用
     When I click the "CreateButton" button
     And I will see the "sourceGroup.CreatePage" page
-    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Name" with properties "<name>"
     And I set the parameter "Appname" with value "*"
     And I click the "EnsureCreateButton" button
     Then I wait for "SuccessMessage" will be visible
 
     Examples: 新建成功
-      | name              |
-      | AutoTestLogSource |
+      | name   |
+      | source |
 
   @createEssentialData
   Scenario: 设为默认日志
-    Given the data name is "AutoTestLogSource" then i click the "设为默认" button
+    Given the data properties is "source" then i click the "设为默认" button
