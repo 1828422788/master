@@ -143,6 +143,14 @@ public class AppPage extends PageTemplate {
         return this.getElementWithLinkName("使用限额");
     }
 
+    public WebElement getPayment() {
+        return this.getElementWithLinkName("结算管理");
+    }
+
+    public WebElement getGalaxee() {
+        return this.getElementWithLinkName("数据大屏");
+    }
+
     public WebElement getRightArrow() {
         return rightArrow;
     }

@@ -36,6 +36,9 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='统计']")
     private WebElement countButton;
 
+    @FindBy(xpath = "//div[text()='模式']")
+    private WebElement mode;
+
     public WebElement getCountButton() {
         return countButton;
     }
@@ -109,6 +112,10 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(className = "cm-operator")
     private WebElement searchInputValue;
+
+    public WebElement getMode() {
+        return mode;
+    }
 
     public WebElement getSearchInputValue() {
         return searchInputValue;
@@ -1224,5 +1231,9 @@ public class SearchPage extends PageTemplate {
 
     public WebElement getMessage() {
         return successMessage;
+    }
+
+    public WebElement getDownloadButton() {
+        return super.getButton("下载");
     }
 }

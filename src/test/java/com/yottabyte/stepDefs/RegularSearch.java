@@ -51,36 +51,6 @@ public class RegularSearch {
     }
 
     /**
-     * 验证数据已从列表页删除（第一列无该名称则通过）
-     *
-     * @param dataName
-     */
-    @Then("^I will see the data \"([^\"]*)\" is not available on the list$")
-    public void iWillSeeTheDataIsNotAvailableOnTheList(String dataName) {
-        List<WebElement> trList = this.getTrList();
-        if (trList == null)
-            return;
-
-        Paging paging = GetPaging.getPagingInfo();
-
-        for (int i = 0; i < paging.getTotalPage(); i++) {
-            if (i != 0) {
-                paging.getNextPage().click();
-                this.waitUntilLoadingDisappear();
-                trList = this.getTrList();
-            }
-
-            for (WebElement tr : trList) {
-                List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
-                if (tdList.size() >= 1) {
-                    String actualText = tdList.get(0).getText();
-                    Assert.assertFalse(dataName.equals(actualText));
-                }
-            }
-        }
-    }
-
-    /**
      * 验证搜索列表
      * contains可省，只要有contains则为不包含某一字段
      *

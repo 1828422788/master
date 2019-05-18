@@ -291,6 +291,10 @@ Feature: 应用新建（RZY-1899）
     And I set the parameter "Url" with value "/account/usergroups/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "结算管理"
+    And I set the parameter "Url" with value "/payments/"
+    And I click the "SaveMenuButton" button
+    And I click the "AddMenuButton" button under some element
     And I set the parameter "MenuName" with value "用户管理"
     And I set the parameter "Url" with value "/account/users/"
     And I click the "SaveMenuButton" button

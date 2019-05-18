@@ -1,12 +1,17 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
@@ -143,6 +148,31 @@ public class CheckButtonAttribute {
             for (int i = 0; i < list.size(); i++) {
                 Assert.assertEquals(nameList.get(i), list.get(i).getText());
             }
+        }
+    }
+
+    @And("^I will see the \"([^\"]*)\" doesn't exist$")
+    public void elementNotExist(String name) {
+
+        if (name.startsWith("get")) {
+            name = name.split("get")[1];
+        }
+        if (Character.isLowerCase(name.charAt(0))) {
+            System.out.println("\n Wanning: name is " + name + " , might be UpperCase in the first! \n");
+            name = "get" + name.substring(0, 1).toUpperCase() + name.substring(1);
+        } else {
+            name = "get" + name;
+        }
+        try {
+            Object page = LoginBeforeAllTests.getPageFactory();
+            Method method = page.getClass().getDeclaredMethod(name);
+            Type type = method.getAnnotatedReturnType().getType();
+            Object object = page.getClass().getDeclaredMethod(name).invoke(page);
+            WebElement element = (WebElement) object;
+            element.click();
+            Assert.assertTrue(false);
+        } catch (Exception e) {
+            Assert.assertTrue(true);
         }
     }
 }

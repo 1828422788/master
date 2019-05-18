@@ -46,6 +46,9 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'最新状态')]")
     private WebElement latestStatus;
 
+    @FindBy(xpath = "//span[contains(text(),'告警插件')]")
+    private WebElement alertPlugin;
+
     @FindBy(xpath = "//span[contains(text(),'今日待处理全部告警')]")
     private WebElement pending;
 
@@ -96,6 +99,10 @@ public class ListPage extends PageTemplate {
 
     @FindBy(xpath = "(//span[@class='status-number hover-number'])[last()]")
     private WebElement alertNum;
+
+    public WebElement getAlertPlugin() {
+        return alertPlugin;
+    }
 
     public WebElement getAlertNum() {
         return alertNum;
