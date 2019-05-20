@@ -41,7 +41,7 @@ Feature: 应用删除
       | SourceApp                   |
       | AppRole                     |
       | ReportApp                   |
-      | TrendApp                    |
+      | TrendApp
       | MacroApp                    |
       | DashboardApp                |
       | ConfigsApp                  |

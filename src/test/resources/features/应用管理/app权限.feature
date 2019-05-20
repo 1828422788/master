@@ -585,6 +585,50 @@ Feature: 应用分配角色选择
     And I click the "Role" button
     Then I will see the search result "{'column':'0','name':'AutoTestRole'}"
 
+  Scenario Outline: RZY-2178:未勾选可查看未分配资源
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When I click the "CreateButton" button
+    Then I set the parameter "DashBoardName" with value "<name>"
+    And I click the "EnsureCreateButton" button
+    And I logout current user
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AutoTestAuth" then i click the "打开" button
+    Then I will see the "app.AppPage" page
+    And I click the "Dashboard" button
+    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
+
+    Examples:
+      | name      |
+      | AppCreate |
+
+  Scenario: RZY-2178:勾选可查看未分配资源
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data properties is "role" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "{'TabButton':'功能'}" button
+    And I "checked" the checkbox which name is "可查看未分配资源"
+    And I click the "SaveButton" button
+    And I logout current user
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AutoTestAuth" then i click the "打开" button
+    Then I will see the "app.AppPage" page
+    And I click the "Dashboard" button
+    Then I will see the search result "{'column':'0','name':'AppCreate'}"
+
   Scenario: RZY-2176:可编辑所有角色权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data properties is "role" then i click the "授权" button
@@ -596,6 +640,9 @@ Feature: 应用分配角色选择
     When the data name is "{'column':'1','name':'AutoAppTest2166'}" then i click the "删除" button
     And I click the "EnsureButton" button
     And I will see the success message "删除成功"
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given the data name is "AppCreate" then i click the "删除" button
+    Then I click the "EnsureDeleteButton" button
     And I logout current user
     And I logout current user
     And I wait for title change text to "登录"
