@@ -40,7 +40,7 @@ Feature: 趋势图新建
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
 
-  @first @trendSmoke @testTrend
+  @first @trendSmoke
     Examples:
       | name       | spl                                                                          | chart | chartType | reportName   | hour | minute |
       | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     |
@@ -1011,6 +1011,7 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "Other" button
     And I click the "Tracing" button
+    And I wait for loading invisible
     And I click the "Setting" button
     And I choose the "dapper.class" from the "SettingSelect"
     And I choose the "dapper.msg.parentId" from the "ParentId"

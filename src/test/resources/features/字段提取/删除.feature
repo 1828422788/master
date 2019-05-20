@@ -12,13 +12,18 @@ Feature: 字段提取删除
       | AutoTest(副本) |
 
     Examples:
+      | name            |
+      | return          |
+      | message         |
+      | workflow        |
+      | RZY-2866搜索页结果验证 |
+      | RZY-2861新建字段提取  |
+
+  @cleanTrend
+    Examples:
       | name             |
-      | return           |
-      | message          |
-      | workflow         |
+      | dapper           |
       | AutoTestForTrend |
-      | RZY-2866搜索页结果验证  |
-      | RZY-2861新建字段提取   |
 
   @clean @cleanSecond
     Examples:
