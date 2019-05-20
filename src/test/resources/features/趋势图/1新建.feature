@@ -40,7 +40,7 @@ Feature: 趋势图新建
     And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
 
-  @first @trendSmoke
+  @first @trendSmoke @testTrend
     Examples:
       | name       | spl                                                                          | chart | chartType | reportName   | hour | minute |
       | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     |

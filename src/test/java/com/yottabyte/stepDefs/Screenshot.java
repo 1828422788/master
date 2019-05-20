@@ -57,7 +57,7 @@ public class Screenshot {
         String filePath = null;
         if (system.toLowerCase().contains("linux")) {
 //            filePath = "/var/lib/jenkins/caseScreenshots/";
-            filePath = "${workspace}/";
+            filePath = "";
         } else if (system.contains("Mac")) {
             filePath = "target/cucumber-html-reports/embeddings/actual_img/";
         }
