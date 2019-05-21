@@ -351,8 +351,8 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//div[contains(text(),'切分')]")
     private WebElement cut;
 
-    @FindBy(xpath = "//span[contains(text(),'生成')]")
-    private WebElement generate;
+//    @FindBy(xpath = "//span[contains(text(),'生成')]")
+//    private WebElement generate;
 
     @FindBy(xpath = "//div[contains(text(),'权重')]")
     private WebElement weight;
@@ -891,7 +891,7 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getGenerate() {
-        return generate;
+        return super.getContainsTextButton("生成");
     }
 
     public WebElement getSource() {

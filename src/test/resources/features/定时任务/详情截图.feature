@@ -1,4 +1,4 @@
-@screenshot
+@scheduleScreenshot @screenshot
 Feature: 定时任务详情页截图
 
   Background:
@@ -9,45 +9,46 @@ Feature: 定时任务详情页截图
     And I will see the "timedTask.DetailPage" page
     When I click the button "LookUpButton" if exist
     And I wait for "NoData" will be invisible
-    And take a screenshot with name "timedtask/<name>"
+    And I wait for "1000" millsecond
+    And take part of "Chart" with name "timedtask/<screenName>"
 
   @firstScreenshot
     Examples:
-      | name                         |
-      | chs_task_funnel              |
-      | RZY-397:定时任务sample_昨天        |
-      | RZY-2695:执行计划-crontab_57分钟   |
-      | RZY-396:定时任务_sample_表格_近一天   |
-      | RZY-2936:task_地图-统计地图_sample |
+      | name                         | screenName      |
+      | chs_task_funnel              | chs_task_funnel |
+      | RZY-397:定时任务sample_昨天        | 397             |
+      | RZY-2695:执行计划-crontab_57分钟   | 2695            |
+      | RZY-396:定时任务_sample_表格_近一天   | 396             |
+      | RZY-2936:task_地图-统计地图_sample | 2936            |
 
     Examples:
-      | name                          |
-      | RZY-403:执行计划-定时_3小时           |
-      | RZY-404:执行计划-定时1天             |
-      | RZY-1488:保存为各种类型的定时任务-序列      |
-      | RZY-2918:task_维度_旭日图1         |
-      | RZY-2938:task_地图-统计地图_权重      |
-      | RZY-2902:task_序列-曲线图          |
-      | RZY-2904:task_序列-面积图          |
-      | RZY-2908:task_序列-柱状图          |
-      | RZY-2906:task_序列-散点图          |
-      | RZY-2928:task_复合_多Y轴图         |
-      | RZY-2910:task_维度-饼状图1         |
-      | RZY-2911:task_维度-饼状图2         |
-      | RZY-2915:task_维度-条形图1         |
-      | RZY-2916:task_维度-条形图2         |
-      | RZY-2940:task_其它_单值_图标        |
-      | RZY-2941:task_其它_单值_背景        |
-      | RZY-2942:task_其它_单值-按趋势       |
-      | RZY-2955:task_其它_矩阵热力图1       |
-      | RZY-2951:task_其它_雷达图1         |
-      | RZY-2943:task_其它_单值设置-按区间     |
-      | RZY-2930:task_地图-热力地图         |
-      | RZY-2913:task_维度_玫瑰图1         |
-      | RZY-402:任务分组hunter_roles_m    |
-      | RZY-401:搜索内容                  |
-      | RZY-400:日志来源_api_log_source_m |
-      | RZY-399:运行用户_api_usr_m        |
+      | name                          | screenName |
+      | RZY-403:执行计划-定时_3小时           | 403        |
+      | RZY-404:执行计划-定时1天             | 404        |
+      | RZY-1488:保存为各种类型的定时任务-序列      | 1488       |
+      | RZY-2918:task_维度_旭日图1         | 2918       |
+      | RZY-2938:task_地图-统计地图_权重      | 2938       |
+      | RZY-2902:task_序列-曲线图          | 2902       |
+      | RZY-2904:task_序列-面积图          | 2904       |
+      | RZY-2908:task_序列-柱状图          | 2908       |
+      | RZY-2906:task_序列-散点图          | 2906       |
+      | RZY-2928:task_复合_多Y轴图         | 2928       |
+      | RZY-2910:task_维度-饼状图1         | 2910       |
+      | RZY-2911:task_维度-饼状图2         | 2911       |
+      | RZY-2915:task_维度-条形图1         | 2915       |
+      | RZY-2916:task_维度-条形图2         | 2916       |
+      | RZY-2940:task_其它_单值_图标        | 2940       |
+      | RZY-2941:task_其它_单值_背景        | 2941       |
+      | RZY-2942:task_其它_单值-按趋势       | 2942       |
+      | RZY-2955:task_其它_矩阵热力图1       | 2955       |
+      | RZY-2951:task_其它_雷达图1         | 2951       |
+      | RZY-2943:task_其它_单值设置-按区间     | 2943       |
+      | RZY-2930:task_地图-热力地图         | 2930       |
+      | RZY-2913:task_维度_玫瑰图1         | 2913       |
+      | RZY-402:任务分组hunter_roles_m    | 402        |
+      | RZY-401:搜索内容                  | 401        |
+      | RZY-400:日志来源_api_log_source_m | 400        |
+      | RZY-399:运行用户_api_usr_m        | 399        |
 
   @secondScreenshot
     Examples:

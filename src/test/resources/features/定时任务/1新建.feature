@@ -53,8 +53,8 @@ Feature: 定时任务新增
 
     Examples:
       | spl                                                                                                      | time      | taskName            | period | unit | startTime |
-      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403:执行计划-定时_3小时 | 3      | 小时   | 5         |
-      | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404:执行计划-定时1天   | 1      | 天    | 5         |
+      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403:执行计划-定时_3小时 | 3      | 小时   | 1         |
+      | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404:执行计划-定时1天   | 1      | 天    | 2         |
 
   Scenario Outline: RZY-2695:执行计划-crontab_57分钟
     Given I set the parameter "SearchInput" with value "<spl>"
@@ -80,8 +80,8 @@ Feature: 定时任务新增
     Examples:
       | spl                                                          | time  | taskName | crontab | message                       |
       | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     |         | crontab模式下, 执行计划不能为零或空        |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | test    | 无效参数, 参数:[crontab]\n错误码: FE_7 |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | 测试      | 无效参数, 参数:[crontab]\n错误码: FE_7 |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | test    | 无效参数, 参数：[crontab]\n错误码: FE_7 |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | 测试      | 无效参数, 参数：[crontab]\n错误码: FE_7 |
 
   Scenario Outline: RZY-2450、397
     When I set the parameter "SearchInput" with value "<spl>"
@@ -153,6 +153,7 @@ Feature: 定时任务新增
     And I click the "Type" button
     And I click the "<groupType>" button
     And I click the "<type>" button
+    And I wait for loading invisible
     And I click the "Setting" button
     And I choose the "<timeSequence>" from the "SelectData"
     And I click the "Source" button
@@ -169,7 +170,6 @@ Feature: 定时任务新增
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "<name>"
     And I set the parameter "Describe" with value "<describe>"
-    And I choose the "<users>" from the "UserComboBox"
     And I choose the "<groups>" from the "GroupComboBox"
     And I set the parameter "Period" with value "<period>"
     And I click the "StartTime" button
@@ -180,8 +180,8 @@ Feature: 定时任务新增
     Then I will see the success message "保存成功"
 
     Examples:
-      | splQuery                                      | groupType | type     | timeSequence | source          | target   | cut             | mark            | name             | describe | users | groups                | period |
-      | *\| stats count() by hostname,apache.clientip | Other     | Sequence | hostname     | apache.clientip | hostname | apache.clientip | apache.clientip | sequenceAutoTest |          | owner | default_SavedSchedule | 15     |
+      | splQuery | groupType | type | timeSequence | source | target | cut | mark | name | describe | groups | period |
+#      | *\| stats count() by hostname,apache.clientip | Other     | Sequence | hostname     | apache.clientip | hostname | apache.clientip | apache.clientip | sequenceAutoTest |          | default_SavedSchedule | 15     |
 
   @smoke @timedTaskSmoke
   Scenario Outline: 生成力图的定时任务（RZY-2297步骤3）
@@ -205,7 +205,6 @@ Feature: 定时任务新增
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "<name>"
     And I set the parameter "Describe" with value "<describe>"
-    And I choose the "<users>" from the "UserComboBox"
     And I choose the "<groups>" from the "GroupComboBox"
     And I set the parameter "Period" with value "<period>"
     And I click the "StartTime" button
@@ -216,8 +215,8 @@ Feature: 定时任务新增
     Then I will see the success message "保存成功"
 
     Examples:
-      | splQuery                                                                                                            | groupType  | type  | source  | target  | weight   | name             | describe | users | groups                | period |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count | Connection | Force | appname | appname | ip_count | forceSunAutoTest |          | owner | default_SavedSchedule | 15     |
+      | splQuery | groupType | type | target | weight | name | describe | groups | period |
+#      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count | Connection | Force | appname | ip_count | forceSunAutoTest |          | default_SavedSchedule | 15     |
 
   @smoke @timedTaskSmoke
   Scenario Outline: 生成区间图的定时任务（RZY-2298步骤1）
@@ -229,6 +228,7 @@ Feature: 定时任务新增
     And I click the "Type" button
     And I click the "<groupType>" button
     And I click the "<type>" button
+    And I wait for loading invisible
     And I click the "Setting" button
     Then I choose the "<xaxis>" from the "SelectData"
     And I click the "Yaxis" button
@@ -241,7 +241,6 @@ Feature: 定时任务新增
     Then I click the "TimedTask" button
     Then I set the parameter "TaskName" with value "<name>"
     Then I set the parameter "Describe" with value "<describe>"
-    Then I choose the "<users>" from the "UserComboBox"
     Then I choose the "<groups>" from the "GroupComboBox"
     Then I set the parameter "Period" with value "<period>"
     And I click the "StartTime" button
@@ -252,8 +251,8 @@ Feature: 定时任务新增
     Then I will see the success message "保存成功"
 
     Examples:
-      | splQuery                                                                                                                                                                                                                                     | groupType | type      | xaxis | acturalData | predictData | topLimit | lowerLimit | name              | describe | users | groups                | period |
-      | * \| bucket timestamp span=3h as ts\| stats count(appname) as count_ by ts \| movingavg count_,5 as ma \| rollingstd count_,5 as rs\| eval lower=ma-3*rs\| eval upper=ma+3*rs \| eval outlier=if(count_>upper\|\|count_<lower, count_, null) | Compound  | rangeline | ts    | count_      | count_      | upper    | lower      | rangelineAutoTest |          | owner | default_SavedSchedule | 15     |
+      | splQuery | groupType | type | xaxis | acturalData | predictData | topLimit | lowerLimit | name | describe | groups | period |
+#      | * \| bucket timestamp span=3h as ts\| stats count(appname) as count_ by ts \| movingavg count_,5 as ma \| rollingstd count_,5 as rs\| eval lower=ma-3*rs\| eval upper=ma+3*rs \| eval outlier=if(count_>upper\|\|count_<lower, count_, null) | Compound  | rangeline | ts    | count_      | count_      | upper    | lower      | rangelineAutoTest |          | default_SavedSchedule | 15     |
 
   @second @timedTaskSmoke
   Scenario: RZY-2956:task_其它_调用链_sample
@@ -297,18 +296,17 @@ Feature: 定时任务新增
     Then I click the "TimedTask" button
     Then I set the parameter "TaskName" with value "<name>"
     Then I set the parameter "Describe" with value "<describe>"
-    Then I choose the "<users>" from the "UserComboBox"
     Then I choose the "<groups>" from the "GroupComboBox"
     Then I set the parameter "Period" with value "<period>"
     Then I click the "EnsureCreateTask" button
     Then I will see the success message "<message>"
 
     Examples: 保存失败
-      | splQuery                                                                                                                          | name    | describe | users | groups                | period | message           |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts |         |          |       |                       |        | 请填写名称！            |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest |       |                       |        | 请选择分组             |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule |        | 定时模式下, 时间间隔不能为零或空 |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule | 0      | 定时模式下, 时间间隔不能为零或空 |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule | 1.5    | 定时模式下, 时间间隔应该为正整数 |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | owner | default_SavedSchedule | 测试     | 定时模式下, 时间间隔应该为正整数 |
-      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | stest   | autotest | owner | default_SavedSchedule | 1      | 请输入开始时间           |
+      | splQuery                                                                                                                          | name    | describe | groups                | period | message           |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts |         |          |                       |        | 请填写名称！            |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest |                       |        | 请选择分组             |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | default_SavedSchedule |        | 定时模式下, 时间间隔不能为零或空 |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | default_SavedSchedule | 0      | 定时模式下, 时间间隔不能为零或空 |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | default_SavedSchedule | 1.5    | 定时模式下, 时间间隔应该为正整数 |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | sxjtest | autotest | default_SavedSchedule | 测试     | 定时模式下, 时间间隔应该为正整数 |
+      | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts | stest   | autotest | default_SavedSchedule | 1      | 请输入开始时间           |

@@ -27,6 +27,7 @@ Feature: 趋势图所需字段提取新建
     And I upload a file with name "/src/test/resources/testdata/log/autotest.csv"
     And I click the "UploadButton" button
 
+  @createEssentialData
   Scenario: RZY-2813:parser_调用链dapper
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button

@@ -22,6 +22,20 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'查看')][not(@class)])[last()]")
     private WebElement lookUpButton;
 
+    @FindBy(className = "chart")
+    private WebElement chart;
+
+    @FindBy(className = "yw-content")
+    private WebElement content;
+
+    public WebElement getContent() {
+        return content;
+    }
+
+    public WebElement getChart() {
+        return chart;
+    }
+
     public WebElement getShow() {
         return show.get(0);
     }
