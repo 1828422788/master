@@ -71,7 +71,6 @@ Feature: 监控最新状态
     And I click the "<mark>" button
     And I will see the success message "<message>"
     And I wait for "SuccessMessage" will be invisible
-    Given search from "<switchDropdown>" then I will see the result contains "{'column':'7','name':'<handlingSuggestion>'}"
 
     Examples:
       | dropdownMenu             | handlingSuggestion | mark | message | switchDropdown           |
