@@ -1,4 +1,4 @@
-@all @app
+@all @app @appSmoke
 Feature: 应用分配角色选择
 
   Scenario: 授予角色对应权限

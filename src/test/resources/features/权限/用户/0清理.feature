@@ -1,4 +1,4 @@
-@clean
+@clean @cleanUser
 Feature: 用户清理
 
   Background:
@@ -10,5 +10,6 @@ Feature: 用户清理
 
     Examples:
       | name                   |
+      | AutoTestAllResource    |
       | AutoTest               |
       | AutoTestForSavedSearch |

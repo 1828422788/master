@@ -1,4 +1,4 @@
-@clean @role
+@clean @role @cleanRole
 Feature: 角色清理
 
   Background:
