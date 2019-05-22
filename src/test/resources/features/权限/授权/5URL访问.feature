@@ -8,6 +8,12 @@ Feature: 角色授权URL访问
     And I click the "ConfirmButton" button
 
   Scenario Outline: 无任何URL访问权限时（RZY-558）
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    Given the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "{'TabButton':'URL 访问'}" button
+    And I "unchecked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
     Given I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "<username>"

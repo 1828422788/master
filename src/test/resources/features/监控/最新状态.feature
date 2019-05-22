@@ -58,10 +58,6 @@ Feature: 监控最新状态
       | dropdown     | operator |
       | MarkDropdown | Deal     |
       | MarkDropdown | Ignore   |
-#      | OperatorDropdown | PingHost     |
-#      | OperatorDropdown | RsyslogAlert |
-#      | OperatorDropdown | EmailAlert   |
-#      | OperatorDropdown | ForwardAlert |
 
   @alertSmoke
   Scenario Outline: 处理意见（RZY-469）
@@ -70,11 +66,12 @@ Feature: 监控最新状态
     When choose from "<dropdownMenu>"
     And I set the parameter "HandlingSuggestion" with value "<handlingSuggestion>"
     And I click the first checkbox in table
+    And I click the button "Yes" if exist
     And I click the "MarkDropdown" button
     And I click the "<mark>" button
     And I will see the success message "<message>"
     And I wait for "SuccessMessage" will be invisible
-#    Given search from "<switchDropdown>" then I will see the result contains "{'column':'7','name':'<handlingSuggestion>'}"
+    Given search from "<switchDropdown>" then I will see the result contains "{'column':'7','name':'<handlingSuggestion>'}"
 
     Examples:
       | dropdownMenu             | handlingSuggestion | mark | message | switchDropdown           |

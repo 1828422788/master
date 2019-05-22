@@ -286,5 +286,7 @@ public class MonitorPage extends PageTemplate {
         return GetTime.getTime(webDriver, "SevenDays");
     }
 
-
+    public WebElement getYes() {
+        return super.getButton("是");
+    }
 }

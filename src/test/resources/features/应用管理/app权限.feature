@@ -1,5 +1,5 @@
 @all @app @appSmoke
-Feature: 应用分配角色选择
+Feature: 应用权限
 
   Scenario: 在AutoTest用户上安装app
     Given I will see the "PublicNavBarPage" page
