@@ -102,8 +102,9 @@ Feature: 报表新建（RZY-116）
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
+
   @first @reportSmoke
-  Scenario Outline: 改为散点图雷达图sample2
+  Scenario Outline: 改为散点图sample2
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -149,7 +150,31 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+    Examples: 保存成功
+      | name         | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为散点图sample2 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第二种布局方式 | 11   | 10     | Layout2 |
+
+  @first @reportSmoke
+  Scenario Outline: 改为雷达图sample2
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
     And I choose the "雷达图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -182,11 +207,12 @@ Feature: 报表新建（RZY-116）
     Then I will see the success message "保存成功"
 
     Examples: 保存成功
-      | name            | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-      | 改为散点图雷达图sample2 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第二种布局方式 | 11   | 10     | Layout2 |
+      | name         | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为雷达图sample2 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第二种布局方式 | 11   | 10     | Layout2 |
+
 
   @smoke @reportSmoke
-  Scenario Outline: 改为柱状图sample2+和弦图sample1+桑基图sample1报表
+  Scenario Outline: 改为柱状图sample2
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -229,7 +255,33 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name         | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为柱状图sample2 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第3种布局方式 | 11   | 15     | Layout3 |
+
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为和弦图sample1报表
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
     And I choose the "和弦图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -249,7 +301,32 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name           | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为和弦图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第3种布局方式 | 11   | 20     | Layout3 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为桑基图sample1报表
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
     And I choose the "桑基图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -279,13 +356,11 @@ Feature: 报表新建（RZY-116）
 
   @smoke @reportSmoke
     Examples: 保存成功
-      | name                                       | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)3 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第3种布局方式 | 11   | 15     | Layout3 |
-      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)5 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第5种布局方式 | 11   | 20     | Layout5 |
-      | 改为柱状图sample2+和弦图sample1+桑基图sample1报表(PDF)6 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第6种布局方式 | 11   | 25     | Layout6 |
+      | name           | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为桑基图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第3种布局方式 | 11   | 25     | Layout3 |
 
   @smoke @reportSmoke
-  Scenario Outline: 改为力图sample1+区间图sample1+多Y轴图sample2+热力地图sample2+攻击地图sample1+区划地图sample2报表，crontab11：30执行
+  Scenario Outline: 改为力图sample1报表，crontab11：30执行
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -316,7 +391,30 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name          | reportGroup    | reportType | email                     | subject                       | layout  |
+      | 改为力图sample1报表 | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | Layout8 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为区间图sample1报表，crontab11：30执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Crontab" with value "0 30 11 * * ?"
+    And I click the "NextButton" button
     And I choose the "区间图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -337,7 +435,31 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name           | reportGroup    | reportType | email                     | subject                       | layout  |
+      | 改为区间图sample1报表 | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | Layout8 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为多Y轴图sample2报表，crontab11：30执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Crontab" with value "0 30 11 * * ?"
+    And I click the "NextButton" button
+
     And I choose the "多Y轴sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -380,7 +502,30 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name            | reportGroup    | reportType | email                     | subject                       | layout  |
+      | 改为多Y轴图sample2报表 | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | Layout8 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为热力地图sample2报表，crontab11：30执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Crontab" with value "0 30 11 * * ?"
+    And I click the "NextButton" button
     And I choose the "热力地图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -398,7 +543,30 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name            | reportGroup    | reportType | email                     | subject                       | layout  |
+      | 改为热力地图sample2报表 | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | Layout8 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为攻击地图sample1报表，crontab11：30执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Crontab" with value "0 30 11 * * ?"
+    And I click the "NextButton" button
     And I choose the "攻击地图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -423,7 +591,31 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name            | reportGroup    | reportType | email                     | subject                       | layout  |
+      | 改为攻击地图sample1报表 | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | Layout8 |
+
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为区划地图sample2报表，crontab11：30执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Crontab" with value "0 30 11 * * ?"
+    And I click the "NextButton" button
     And I choose the "区划地图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -449,14 +641,15 @@ Feature: 报表新建（RZY-116）
 
   @smoke @reportSmoke
     Examples: 保存成功
-      | name                                                                          | reportGroup    | reportType | email                     | subject                       | layout  |
-      | 改为力图sample1+区间图sample1+多Y轴图sample2+热力地图sample2+攻击地图sample1+区划地图sample2报表(PDF) | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | Layout8 |
+      | name            | reportGroup    | reportType | email                     | subject                       | layout  |
+      | 改为区划地图sample2报表 | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第8种布局方式 | Layout8 |
+
 
   @reportSmoke
-  Scenario: 改为单值sample2+水球图sample1
+  Scenario: 改为单值sample2
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
-    And I set the parameter "Name" with value "改为单值sample2+水球图sample1报表"
+    And I set the parameter "Name" with value "改为单值sample2"
     And I set the parameter "Describe" with value "AutoTest"
     And I choose the "default_Report" from the "ReportGroup"
     And I choose the "PDF" from the "ReportType"
@@ -486,7 +679,25 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "Layout4" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @reportSmoke
+  Scenario: 改为水球图sample1
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "改为水球图sample1报表"
+    And I set the parameter "Describe" with value "AutoTest"
+    And I choose the "default_Report" from the "ReportGroup"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>, 第4种布局方式"
+    And I set the parameter "Crontab" with value "0 35 11 * * ?"
+    And I click the "NextButton" button
     And I choose the "水球图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -550,7 +761,7 @@ Feature: 报表新建（RZY-116）
     Then I will see the success message "保存成功"
 
   @smoke @reportSmoke
-  Scenario Outline: 改为面积图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表，11：12执行
+  Scenario Outline: 改为面积图sample2报表，11：12执行
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
@@ -564,7 +775,6 @@ Feature: 报表新建（RZY-116）
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
-
     And I click the "NextButton" button
     And I choose the "面积图sample0" from the "ChartList"
     And I click the "Arrow" button
@@ -596,8 +806,32 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
 
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name           | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为面积图sample2报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 45     | Layout4 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为漏斗图sample1报表，11：12执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
     And I choose the "漏斗图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -615,8 +849,33 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
 
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name           | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为漏斗图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 45     | Layout4 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为矩阵热力图sample1报表，11：12执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+
+    And I click the "NextButton" button
     And I choose the "矩阵热力图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -635,8 +894,32 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "<layout>" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
 
+  @smoke @reportSmoke
+    Examples: 保存成功
+      | name             | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为矩阵热力图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 45     | Layout4 |
+
+  @smoke @reportSmoke
+  Scenario Outline: 改为字符云图sample1报表，11：12执行
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Describe" with value "<describe>"
+    And I choose the "<runningUser>" from the "RunningUser"
+    And I choose the "<reportGroup>" from the "ReportGroup"
+    And I choose the "<reportType>" from the "ReportType"
+    And I set the parameter "EmailInput" with value "<email>"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "<subject>"
+    And I set the parameter "Hour" with value "<hour>"
+    And I set the parameter "Minute" with value "<minute>"
+    And I click the "NextButton" button
     And I choose the "字符云图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -664,8 +947,8 @@ Feature: 报表新建（RZY-116）
 
   @smoke @reportSmoke
     Examples: 保存成功
-      | name                                               | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
-      | 改为面积图sample2+漏斗图sample1+矩阵热力图sample1+字符云图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 45     | Layout4 |
+      | name            | describe | runningUser | reportGroup    | reportType | email                     | subject                       | hour | minute | layout  |
+      | 改为字符云图sample1报表 | AutoTest | owner       | default_Report | PDF        | wang.yueming@yottabyte.cn | 报表名称：<%report_name%>, 第4种布局方式 | 11   | 45     | Layout4 |
 
   Scenario Outline: 执行计划为crontab
     Given I click the "CreateButton" button
@@ -690,10 +973,10 @@ Feature: 报表新建（RZY-116）
       | sunxjautotest |          | owner       | default_Report | PDF        |       | test    | 0 ? * * * ? | AutoTest1  | Layout1 | 无效参数, 参数：[crontab]\n错误码: FE_7 |
 
   @second @reportSmoke
-  Scenario: 改为热力地图sample1+攻击地图sample1+区划地图sample2报表
+  Scenario: 改为热力地图sample1报表
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
-    And I set the parameter "Name" with value "改为热力地图sample1+攻击地图sample1+区划地图sample2报表"
+    And I set the parameter "Name" with value "改为热力地图sample1报表"
     And I set the parameter "Describe" with value "第6种布局方式"
     And I choose the "default_Report" from the "ReportGroup"
     And I choose the "PDF" from the "ReportType"
@@ -722,7 +1005,28 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "Layout6" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @second @reportSmoke
+  Scenario: 改为攻击地图sample1报表
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "改为攻击地图sample1报表"
+    And I set the parameter "Describe" with value "第6种布局方式"
+    And I choose the "default_Report" from the "ReportGroup"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I set the parameter "EmailInput" with value "sun.xiaojing@yottabyte.cn"
+    And I click the "Email1" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "15"
+    And I set the parameter "Minute" with value "30"
+    And I click the "NextButton" button
     And I choose the "攻击地图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -745,7 +1049,28 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "Layout6" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @second @reportSmoke
+  Scenario: 改为区划地图sample2报表
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "改为区划地图sample2报表"
+    And I set the parameter "Describe" with value "第6种布局方式"
+    And I choose the "default_Report" from the "ReportGroup"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I set the parameter "EmailInput" with value "sun.xiaojing@yottabyte.cn"
+    And I click the "Email1" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "15"
+    And I set the parameter "Minute" with value "30"
+    And I click the "NextButton" button
     And I choose the "区划地图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -769,11 +1094,12 @@ Feature: 报表新建（RZY-116）
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
+
   @second @reportSmoke
-  Scenario: 改为玫瑰图sample3+条形图sample3+旭日图sample2报表
+  Scenario: 改为玫瑰图sample3报表
     Given I click the "CreateButton" button
     Then I will see the "report.CreatePage" page
-    And I set the parameter "Name" with value "改为玫瑰图sample3+条形图sample3+旭日图sample2报表"
+    And I set the parameter "Name" with value "改为玫瑰图sample3报表"
     And I set the parameter "Describe" with value "第7种布局方式"
     And I choose the "default_Report" from the "ReportGroup"
     And I choose the "PDF" from the "ReportType"
@@ -804,7 +1130,26 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "Layout7" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @second @reportSmoke
+  Scenario: 改为条形图sample3报表
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "改为条形图sample3报表"
+    And I set the parameter "Describe" with value "第7种布局方式"
+    And I choose the "default_Report" from the "ReportGroup"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "15"
+    And I set the parameter "Minute" with value "35"
+    And I click the "NextButton" button
     And I choose the "条形图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
@@ -828,7 +1173,26 @@ Feature: 报表新建（RZY-116）
     And I will see the "report.CreatePage" page
     And I display the element "SettingContent"
     And I click the "SaveTrend" button
-    And I wait for "1000" millsecond
+    And I click the "Layout7" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  @second @reportSmoke
+  Scenario: 改为旭日图sample2报表
+    Given I click the "CreateButton" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "改为旭日图sample2报表"
+    And I set the parameter "Describe" with value "第7种布局方式"
+    And I choose the "default_Report" from the "ReportGroup"
+    And I choose the "PDF" from the "ReportType"
+    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+    And I click the "Email" button
+    And I display the element "Scrollbar"
+    And I set the parameter "Subject" with value "报表名称：<%report_name%>"
+    And I set the parameter "Hour" with value "15"
+    And I set the parameter "Minute" with value "35"
+    And I click the "NextButton" button
     And I choose the "旭日图sample0" from the "ChartList"
     And I wait for "1000" millsecond
     And I click the "Arrow" button
