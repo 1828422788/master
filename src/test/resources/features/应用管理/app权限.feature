@@ -1,4 +1,4 @@
-@all @app @appSmoke
+#@all @app @appSmoke
 Feature: 应用权限
 
   Scenario: 在AutoTest用户上安装app
