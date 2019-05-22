@@ -15,6 +15,8 @@ Feature: 应用分配角色选择
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "全选"
+    Then I click the "{'TabButton':'URL 访问'}" button
+    And I "checked" the checkbox which name is "全选"
     Then I click the "SaveButton" button
 
   Scenario Outline: 在AutoTest账户中新建app

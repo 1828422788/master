@@ -194,6 +194,7 @@ Feature: 应用新建（RZY-1899）
       | name                        |
       | AutoTestAppWithAllResources |
 
+  @smoke @appSmoke
   Scenario Outline: 新建App
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"
