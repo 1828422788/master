@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 /**
  * @author sunxj
+ * 操作浏览器
  */
 public class OperateBrowser {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
@@ -38,5 +39,13 @@ public class OperateBrowser {
     @And("^I back to before$")
     public void iBackToBefore() {
         webDriver.navigate().back();
+    }
+
+    /**
+     * chrome浏览器弹框
+     */
+    @And("^I accept alert window$")
+    public void acceptAlertWindow() {
+        webDriver.switchTo().alert().accept();
     }
 }
