@@ -66,7 +66,7 @@ Feature: 监控最新状态
     When choose from "<dropdownMenu>"
     And I set the parameter "HandlingSuggestion" with value "<handlingSuggestion>"
     And I click the first checkbox in table
-    And I click the button "Yes" if exist
+    And I click the button "No" if exist
     And I click the "MarkDropdown" button
     And I click the "<mark>" button
     And I will see the success message "<message>"

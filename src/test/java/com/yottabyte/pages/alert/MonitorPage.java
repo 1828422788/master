@@ -289,4 +289,8 @@ public class MonitorPage extends PageTemplate {
     public WebElement getYes() {
         return super.getButton("是");
     }
+
+    public WebElement getNo() {
+        return super.getButton("否");
+    }
 }

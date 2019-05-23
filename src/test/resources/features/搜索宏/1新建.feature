@@ -46,8 +46,8 @@ Feature: 搜索宏新建
 
     Examples:
       | splQuery                            | splQuery1                                                                                                                                 |
-      | `UIAutoTest("23.166.125.53")`       | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip=="23.166.125.53"                          |
-      | `UIAutoTest("23.166.125.53","1.1")` | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip=="23.166.125.53" && apache.version=="1.1" |
+      | `UIAutoTest(\"23.166.125.53\")`       | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                          |
+      | `UIAutoTest(\"23.166.125.53\",\"1.1\")` | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\" && apache.version==\"1.1\" |
 
   @smoke @searchMacroSmoke
   Scenario Outline: 验证（eval）
