@@ -79,7 +79,7 @@ Feature: 监控最新状态
       | dropdownMenu             | handlingSuggestion | mark | message | switchDropdown           |
       | {'StatusDropdown':'待处理'} | AutoTestHandling   | Deal | 处理成功    | {'StatusDropdown':'已处理'} |
 
-  @alertSmoke @third @testAlert
+  @alertSmoke @third
   Scenario Outline: 处理低级告警
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -95,7 +95,7 @@ Feature: 监控最新状态
       | Deal   |
       | Ignore |
 
-  @alertSmoke @third @testAlert
+  @alertSmoke @third
   Scenario Outline: 处理意见关联知识（RZY-3004）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -124,7 +124,7 @@ Feature: 监控最新状态
       | name              |
       | KnowledgeForAlert |
 
-  @alertSmoke @third @testAlert
+  @alertSmoke @third
   Scenario: 修改处理意见并校验空格（RZY-469）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
