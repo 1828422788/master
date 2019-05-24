@@ -22,7 +22,7 @@ Feature: 应用知识模块（RZY-2128）
 
     Examples:
       | groupName                   |
-      | AutoTestRoleWithAllResource |
+      | AutoTestRoleWithAllResource\nAutoTest |
 
   Scenario: 知识编辑
     When the data name is "AutoTestAppKnowledge" then i click the "编辑" button
