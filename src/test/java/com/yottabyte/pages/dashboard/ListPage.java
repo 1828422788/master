@@ -149,6 +149,10 @@ public class ListPage extends PageTemplate {
         return super.getDisabledLi();
     }
 
+    public WebElement getSearchIcon() {
+        return super.getSearchIcon();
+    }
+
     @Override
     protected void isLoaded() throws Error {
         FluentWait wait = new FluentWait(webDriver)

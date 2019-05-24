@@ -5,11 +5,14 @@ Feature: 仪表盘搜索（RZY-216）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
 
   Scenario Outline: 按照名称搜索
-    Given search "<searchData>" and I will see the column number "<columnNum>" contains "<name>"
+    Given I set the parameter "SearchInput" with value "<name>"
+    And I click the "SearchIcon" button
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'0','name':'<name>'}"
 
     Examples:
-      | searchData           | columnNum | name     |
-      | {'input':'autotest'} | 1         | autotest |
+      | name     |
+      | autotest |
 
   Scenario: 按照分组搜索
     Given I click the "GroupDropdown" button
