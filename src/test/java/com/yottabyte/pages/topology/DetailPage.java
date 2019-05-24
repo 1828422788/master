@@ -274,6 +274,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getNodeName() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(nodeName));
         return nodeName;
     }
 
