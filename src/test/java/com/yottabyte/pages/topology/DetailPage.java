@@ -186,6 +186,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='请选择插图类型']/preceding-sibling::i")
     private WebElement chartType;
 
+    @FindBy(xpath = "//canvas[@style='position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; width: 1126px; height: 289px; cursor: auto;']")
+    private WebElement canvas;
+
+    public WebElement getCanvas() {
+        return canvas;
+    }
+
     public WebElement getFiledValue() {
         filedValue.click();
         return super.getLastDropdownList();
@@ -274,7 +281,6 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getNodeName() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(nodeName));
         return nodeName;
     }
 

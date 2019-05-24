@@ -62,21 +62,21 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "date"
     And I click the "NextButton" button
 
-  @configsSmoke
-  Scenario: RZY-2861：agent添加路径
-    Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
-    And I click the detail with properties "{'name':'rizhiyi_server_host','column':'1'}"
-    And switch to another window
-    And I click the "Add" button
-    And I set the parameter "Document" with value "/var/log/20180821"
-    And I set the parameter "WhiteList" with value ".*\.log"
-    And I click the "Next" button
-    And I click the "File" button
-    And I click the "Next" button
-    And I set the parameter "Appname" with value "date"
-    And I set the parameter "Tag" with value "date"
-    And I click the "Next" button
-    And I click the "Next" button
+#  @configsSmoke
+#  Scenario: RZY-2861：agent添加路径
+#    Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
+#    And I click the detail with properties "{'name':'rizhiyi_server_host','column':'1'}"
+#    And switch to another window
+#    And I click the "Add" button
+#    And I set the parameter "Document" with value "/var/log/20180821"
+#    And I set the parameter "WhiteList" with value ".*\.log"
+#    And I click the "Next" button
+#    And I click the "File" button
+#    And I click the "Next" button
+#    And I set the parameter "Appname" with value "date"
+#    And I set the parameter "Tag" with value "date"
+#    And I click the "Next" button
+#    And I click the "Next" button
 
   @configsSmoke
   Scenario Outline: RZY-2866：搜索页结果验证
@@ -219,24 +219,24 @@ Feature: 字段提取新建
       | codec        | codec        | 结构体解析.log        |
       | redirect_zhu | redirect_zhu | json_sdyd_41.log |
 
-  @configsSmoke
-  Scenario: 验证从搜索页跳转到字段提取（RZY-1881）
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I set the parameter "SearchInput" with value "appname:108 tag:1"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    And I click the "EventOperate" button
-    And I click the "ConfigField" button
-    And switch to another window
-    Then the page's title will be "字段提取"
-    And I will see the "configs.CreatePage" page
-    And I wait for "2000" millsecond
-    Then I will see the input element "AppName" value will be "108"
-    Then I will see the input element "HostName" value will be "192.168.1.164"
-    Then I will see the input element "Tag" value will be "1"
+#  @configsSmoke
+#  Scenario: 验证从搜索页跳转到字段提取（RZY-1881）
+#    When open the "splSearch.SearchPage" page for uri "/search/"
+#    And I set the parameter "SearchInput" with value "appname:108 tag:1"
+#    And I click the "DateEditor" button
+#    And I click the "Today" button
+#    And I click the "SearchButton" button
+#    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I click the "RightIcon" button
+#    And I click the "EventOperate" button
+#    And I click the "ConfigField" button
+#    And switch to another window
+#    Then the page's title will be "字段提取"
+#    And I will see the "configs.CreatePage" page
+#    And I wait for "2000" millsecond
+#    Then I will see the input element "AppName" value will be "108"
+#    Then I will see the input element "HostName" value will be "192.168.1.164"
+#    Then I will see the input element "Tag" value will be "1"
 
   @configsSmoke
   Scenario Outline: 搜索页验证
@@ -254,7 +254,7 @@ Feature: 字段提取新建
     Examples:
       | spl                       | key        | value    | key1      | value1   | key2            | value2                |
       | appname:108 tag:1         | OtherValue | value    |           |          |                 |                       |
-      | appname:date AND tag:date | OtherDate  | 20180821 | OtherTime | 17:03:49 | ResultTimestamp | 2019/02/21 17:03:49.0 |
+#      | appname:date AND tag:date | OtherDate  | 20180821 | OtherTime | 17:03:49 | ResultTimestamp | 2019/02/21 17:03:49.0 |
       | appname:rename            | OtherAbh   | d        | OtherAeh  | g        |                 |                       |
 
   @second

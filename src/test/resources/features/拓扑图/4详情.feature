@@ -8,6 +8,7 @@ Feature: 拓扑图详情页
   Scenario: RZY-2821：新建拓扑图sample
     When I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
+    And I wait for "2000" millsecond
     And I set the parameter "NodeName" with value "node1"
     And I set the parameter "NodeGroup" with value "测试组"
     And I click the "AddNodeButton" button
