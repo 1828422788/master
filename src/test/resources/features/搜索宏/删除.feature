@@ -1,4 +1,4 @@
-@all @searchMacro @smoke @searchMacroSmoke
+@cleanSearchMacro
 Feature: 搜索宏删除
 
   Background:

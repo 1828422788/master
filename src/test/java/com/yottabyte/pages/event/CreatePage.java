@@ -25,6 +25,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    @FindBy(xpath = "//*[@class='yw-btn']//span")
+    private WebElement saveButton;
+
     public WebElement getName() {
         return super.getInputElement("名称");
     }
@@ -54,7 +57,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSaveButton() {
-        return super.getContainsTextButton("保存");
+        return saveButton;
     }
 
     public WebElement getDisplayMethod() {

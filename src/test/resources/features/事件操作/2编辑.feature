@@ -23,7 +23,6 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "EventOperate" button
     And I click the "EventOperatorAutoTest" button
     And the page's title will contains "_百度搜索"
-    Then take a screenshot with name "RZY-1377：事件操作-动作类型-链接"
 
     Examples:
       | alias | field   | action | inputName | url                                   | openUrl |
@@ -43,7 +42,6 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "EventOperate" button
     And I click the "EventOperatorAutoTest" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then take a screenshot with name "RZY-1378：事件操作-动作类型-搜索"
 
     Examples:
       | field   | action | inputName | url                  |
@@ -62,7 +60,6 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "RightIcon" button
     And I click the "RawMessage" button
     And I click the "EventOperatorAutoTest" button
-    Then take a screenshot with name "RZY-<screenshotName>"
 
     Examples:
       | displayMethod | screenshotName          |
