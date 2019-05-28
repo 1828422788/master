@@ -3,13 +3,11 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.List;
@@ -145,6 +143,9 @@ public class CheckButtonAttribute {
         Object o = GetElementFromPage.getWebElementWithName(element);
         if (o instanceof List) {
             List<WebElement> list = (List<WebElement>) o;
+            if (list.size() == 0) {
+                Assert.assertTrue(false);
+            }
             for (int i = 0; i < list.size(); i++) {
                 Assert.assertEquals(nameList.get(i), list.get(i).getText());
             }

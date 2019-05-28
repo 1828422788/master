@@ -57,7 +57,7 @@ Feature: 应用字段提取（RZY-2129）
   Scenario: 按分组搜索字段提取
     When I choose the "AutoTestRoleWithAllResource" from the "GroupList"
     And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'AutoTestApp'}"
+    Then I will see the search result contains "{'column':'0','name':'AutoTestApp'}"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTest...pWithAllResources"
 

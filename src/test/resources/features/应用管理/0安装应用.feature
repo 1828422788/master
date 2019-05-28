@@ -7,7 +7,7 @@ Feature: 应用安装（RZY-1988）
     Then I will see the "app.InstallPage" page
 
   @smoke @appSmoke
-  Scenario Outline: 安装单个资源成功
+  Scenario Outline: 安装资源成功
     When I upload a file with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "admin" from the "Role"

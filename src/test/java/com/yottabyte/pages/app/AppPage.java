@@ -29,9 +29,9 @@ public class AppPage extends PageTemplate {
     private WebElement arrowDown;
 
     @FindBy(xpath = "//li[contains(text(),'default')]")
-    private WebElement liText;
+    private List<WebElement> liText;
 
-    public WebElement getLiText() {
+    public List<WebElement> getLiText() {
         return liText;
     }
 
