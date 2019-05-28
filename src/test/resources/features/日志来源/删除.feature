@@ -16,6 +16,8 @@ Feature: 日志来源删除
       | AutoTestUploadTest      |
       | AutoTestUploadSubSource |
       | AutoTestUploadFather    |
+      | AutoTestEditSubSource   |
+      | AutoTestEditFather      |
 
   @clean
     Examples:

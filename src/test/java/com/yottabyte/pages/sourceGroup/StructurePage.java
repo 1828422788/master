@@ -73,6 +73,9 @@ public class StructurePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-form-item__content']/span")
     private WebElement content;
 
+    @FindBy(xpath = "//*[@class='form-group']/following-sibling::div[@class='yw-btn']/button")
+    private WebElement saveButton;
+
     public WebElement getContent() {
         return content;
     }
@@ -182,7 +185,7 @@ public class StructurePage extends PageTemplate {
     }
 
     public WebElement getSaveButton() {
-        return super.getContainsTextButton("保存");
+        return saveButton;
     }
 
     public WebElement getSuccessMessage() {

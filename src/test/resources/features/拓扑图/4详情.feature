@@ -4,7 +4,7 @@ Feature: 拓扑图详情页
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"
 
-  @second @topologySmoke
+#  @second @topologySmoke
   Scenario: RZY-2821：新建拓扑图sample
     When I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
@@ -18,7 +18,7 @@ Feature: 拓扑图详情页
     And I set the parameter "NodeGroup" with value "g2"
     Then I click the "AddNodeButton" button
 
-  @second @topologySmoke
+#  @second @topologySmoke
   Scenario: RZY-2515：标识前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
@@ -45,7 +45,7 @@ Feature: 拓扑图详情页
     And I click the "Apply" button
     Then I wait for "SuccessMessage" will be visible
 
-  @second @topologySmoke
+#  @second @topologySmoke
   Scenario: RZY-2517：标识分隔符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
@@ -74,7 +74,7 @@ Feature: 拓扑图详情页
     And I choose the "count()" from the "FiledInput"
     And I click the "Apply" button
 
-  @second @topologySmoke
+#  @second @topologySmoke
   Scenario: RZY-2519：标识值前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
@@ -104,13 +104,13 @@ Feature: 拓扑图详情页
     And I choose the "dc(cnt)" from the "FiledInput"
     And I click the "Apply" button
 
-  @all @topologySmoke
+#  @all @topologySmoke
   Scenario: 夜间模式截图（RZY-1230）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
     Then I click the "NightMode" button
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
   Scenario Outline: 添加文本、下拉输入项成功（RZY-1239、RZY-1240）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
@@ -160,7 +160,7 @@ Feature: 拓扑图详情页
     Then I choose the "69" from the "DynamicDefault"
     Then I click the "SearchInputButton" button
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
     Examples:
       | title  | token | inputType | dynamicFields   | searchInput                                   |
       | 测试动态字段 | tag4  | 动态菜单      | apache.resp_len | tag:"sample04061424" \| top 1 apache.resp_len |
@@ -229,7 +229,7 @@ Feature: 拓扑图详情页
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
     Examples:
       | nodeName | nodeGroup | value            | field   |
       | autotest | testGroup | *\|stats count() | count() |
@@ -273,7 +273,7 @@ Feature: 拓扑图详情页
     Then I click the "Apply" button
     Then I will see the message "保存成功"
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
     Examples:
       | nodeName    | nodeGroup     | leftValue                                                                                                                                                                                                                      | leftField | rightValue                                                               | rightField               |
       | sxjautotest | autotestgroup | tag:sample04061424 \| eval is_resplen_empty=empty(apache.resp_len) \| eval res_str=if(is_resplen_empty,"repslen_empty","resplen_non_null") \| table apache.resp_len, is_resplen_empty, res_str \| where is_resplen_empty==true | res_str   | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
@@ -316,7 +316,7 @@ Feature: 拓扑图详情页
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
     Examples:
       | nodeName    | nodeGroup     | leftValue          | leftField | rightValue                                                               | rightField               |
       | sxjautotest | autotestgroup | * \| stats count() | count()   | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
@@ -373,7 +373,7 @@ Feature: 拓扑图详情页
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
     Examples:
       | nodeName    | nodeGroup     | rightValue         | rightField |
       | sxjautotest | autotestgroup | * \| stats count() | count()    |
@@ -433,7 +433,7 @@ Feature: 拓扑图详情页
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
     Examples:
       | nodeName    | nodeGroup     | leftValue          | leftField | rightValue                                                               | rightField               |
       | sxjautotest | autotestgroup | * \| stats count() | count()   | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
@@ -493,7 +493,7 @@ Feature: 拓扑图详情页
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
     Examples:
       | nodeName    | nodeGroup     | leftValue                                                                                                       | leftField | rightValue         | rightField |
       | sxjautotest | autotestgroup | tag:"sample04061424" \| eval x_format = format("%s, %s => %s", logtype, tag, apache.clientip) \| table x_format | x_format  | * \| stats count() | count()    |
@@ -553,7 +553,7 @@ Feature: 拓扑图详情页
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
     Examples:
       | nodeName    | nodeGroup     | leftValue          | leftField | rightValue                                                               | rightField               |
       | sxjautotest | autotestgroup | * \| stats count() | count()   | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |
@@ -628,7 +628,7 @@ Feature: 拓扑图详情页
     Then I click the "Apply" button
     Then I will see the success message "保存成功"
 
-  @all @smoke @topologySmoke
+#  @all @smoke @topologySmoke
     Examples:
       | nodeName    | nodeGroup     | leftValue          | leftField | rightValue                                                               | rightField               |
       | sxjautotest | autotestgroup | * \| stats count() | count()   | (* AND ip:192.168.1.134) \|stats pct('json.Load.load15', 25,50,75,95,99) | _pct.json.Load.load15.25 |

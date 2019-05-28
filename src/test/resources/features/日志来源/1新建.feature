@@ -4,7 +4,7 @@ Feature: 日志来源新建（RZY-365）
   Background:
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
 
-  Scenario Outline:
+  Scenario Outline: 新建日志来源
     When I click the "CreateButton" button
     And I will see the "sourceGroup.CreatePage" page
     And I set the parameter "Name" with value "<name>"

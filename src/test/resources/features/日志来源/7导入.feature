@@ -31,16 +31,16 @@ Feature: 日志来源导入来源结构（RZY-374、RZY-2214）
   Scenario: 导入重复资源并修改名称（RZY-374步骤4、7）
     When I upload a file with name "/src/test/resources/testdata/sourceGroups/AutoUploadTestHierarchy.yaml"
     And I will see the element "VerifyText" name is "上传完成"
-    And I click the "AutoTestUploadSubSource" button
-    And I click the "EditButton" button
-    And I set the parameter "EditInput" with value "AutoTestEditSubSource"
-    And I click the "SaveEditButton" button
-    And I wait for "AutoTestEditSource" will be visible
     And I click the "AutoTestUploadFather" button
     And I click the "EditButton" button
     And I set the parameter "EditInput" with value "AutoTestEditFather"
     And I click the "SaveEditButton" button
     And I wait for "AutoTestEditFather" will be visible
+    And I click the "AutoTestUploadSubSource" button
+    And I click the "EditButton" button
+    And I set the parameter "EditInput" with value "AutoTestEditSubSource"
+    And I click the "SaveEditButton" button
+    And I wait for "AutoTestEditSource" will be visible
     And I click the "NextButton" button
     And I wait for "Preview" will be visible
     And I click the "NextButton" button
