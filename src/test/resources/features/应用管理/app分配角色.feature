@@ -76,7 +76,6 @@ Feature: 应用分配角色选择
     Given open the "app.ListPage" page for uri "/app/list/"
     And I will see the element "EmptyText" value is "暂无数据"
     Given I logout current user
-    Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with properties "userWithResources"
