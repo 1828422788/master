@@ -19,7 +19,7 @@ Feature: 日志来源删除
       | AutoTestEditSubSource   |
       | AutoTestEditFather      |
 
-  @clean
+  @cleanLogSource
     Examples:
       | name              |
       | AutoTestLogSource |
