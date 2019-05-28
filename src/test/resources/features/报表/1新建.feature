@@ -573,6 +573,7 @@ Feature: 报表新建（RZY-116）
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
+    And I click the "Map" button
     And I click the "Attackmap" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
@@ -622,6 +623,7 @@ Feature: 报表新建（RZY-116）
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
+    And I click the "Map" button
     And I click the "Regionmap" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
@@ -704,6 +706,7 @@ Feature: 报表新建（RZY-116）
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
+    And I click the "Other" button
     And I click the "Liquidfill" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
@@ -874,7 +877,6 @@ Feature: 报表新建（RZY-116）
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
-
     And I click the "NextButton" button
     And I choose the "矩阵热力图sample0" from the "ChartList"
     And I wait for "1000" millsecond
@@ -882,6 +884,7 @@ Feature: 报表新建（RZY-116）
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
+    And I click the "Other" button
     And I click the "Matrixheatmap" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
@@ -1033,6 +1036,7 @@ Feature: 报表新建（RZY-116）
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
+    And I click the "Map" button
     And I click the "Attackmap" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
@@ -1077,6 +1081,7 @@ Feature: 报表新建（RZY-116）
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
+    And I click the "Map" button
     And I click the "Regionmap" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
@@ -1156,6 +1161,7 @@ Feature: 报表新建（RZY-116）
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
+    And I click the "Dimension" button
     And I click the "Bar" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button
@@ -1199,6 +1205,7 @@ Feature: 报表新建（RZY-116）
     And I click the "EditButton" button
     And I click the "ChartType" button
     And I will see the "trend.CreatePage" page
+    And I click the "Dimension" button
     And I click the "Sunburst" button
     Then I will see the "report.CreatePage" page
     And I click the "ParameterSetting" button

@@ -18,11 +18,12 @@ public class ListPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//i[@class='el-input__icon el-icon-search']/following-sibling::input")
-    private WebElement searchInput;
-
     public WebElement getSearchInput() {
-        return searchInput;
+        return super.getSearchInput();
+    }
+
+    public WebElement getSearch() {
+        return super.getSearchIcon();
     }
 
     @FindBy(xpath = "//span[text()='新建']")
@@ -78,10 +79,10 @@ public class ListPage extends PageTemplate {
         return report;
     }
 
-    @FindBy(className = "el-icon-arrow-down")
+    @FindBy(xpath = "//span[text()='全部资源']/preceding-sibling::i")
     private WebElement groupList;
 
-    @FindBy(className = "el-dropdown-menu")
+    @FindBy(xpath = "(//*[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
     private WebElement dropdownMenu;
 
     public WebElement getGroupList() {

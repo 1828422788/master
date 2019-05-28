@@ -10,14 +10,16 @@ Feature: 报表查询（RZY-136）
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
-      | group          | name                 |
-      | default_Report | 改为散点图雷达图sample2 |
+      | group          | name           |
+      | default_Report | 改为条形图sample3报表 |
 
   Scenario Outline: 根据输入内容查询
     Given I set the parameter "SearchInput" with value "<searchInput>"
+    And I click the "Search" button
+    And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'<searchInput>'}"
 
     Examples:
       | searchInput |
-      | sample      |
+      | 单值          |
 
