@@ -10,6 +10,8 @@ Feature: 日志来源搜索
     And I will see the special column contains "<name>"
     And I choose the "全部资源" from the "GroupDropdownList"
     And I set the search input with "<name>"
+    And I click the "Search" button
+    And I wait for loading invisible
     Then I will see the column number "1" contains "<name>"
 
     Examples:

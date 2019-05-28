@@ -106,4 +106,8 @@ public class ListPage extends PageTemplate {
     public WebElement getDisabledLi() {
         return super.getDisabledLi();
     }
+
+    public WebElement getSearch() {
+        return super.getSearchIcon();
+    }
 }
