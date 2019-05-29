@@ -1,11 +1,11 @@
 Feature: 用户分组修改（RZY-1179）
 
   Background:
-    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
 
   @userGroups @all
   Scenario Outline: 编辑常规
-    Given the data name is "{'column':'1','name':'<UserGroupName>'}" then i click the "编辑" button
+    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
+    And the data name is "{'column':'1','name':'<UserGroupName>'}" then i click the "编辑" button
     And I will see the "userGroups.EditPage" page
     When I set the parameter "UserGroupName" with value "<NewUserGroupName>"
     And I set the parameter "UserGroupDes" with value "<NewUserGroupDes>"
@@ -24,7 +24,8 @@ Feature: 用户分组修改（RZY-1179）
 
   @all
   Scenario Outline: 编辑更多失败
-    Given the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
+    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
+    And the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     And I will see the "userGroups.EditPage" page
     When I cancel selection "<RoleName>" from the "UserGroupRole"
     And I choose the "<NewRoleName>" from the "UserGroupRole"
@@ -35,9 +36,26 @@ Feature: 用户分组修改（RZY-1179）
       | name            | RoleName | NewRoleName | Result                  |
       | AutoTestForEdit | admin    |             | error message "角色 不能为空" |
 
+  @userGroupsSmoke
+  Scenario: 创建一个新角色
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I click the "CreateRoleButton" button
+    And I will see the "roles.CreatePage" page
+    And I set the parameter "RoleName" with properties "TempRole"
+    And I set the parameter "RoleDes" with value "<RoleDes>"
+    And I click the "CreateButton" button
+    Then I wait for "SuccessMessage" will be visible
+
   @all @smoke @userGroupsSmoke
   Scenario Outline: 编辑更多成功
-    Given the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I click the "CreateRoleButton" button
+    And I will see the "roles.CreatePage" page
+    And I set the parameter "RoleName" with value "<NewRoleName>"
+    And I set the parameter "RoleDes" with value "test"
+    And I click the "CreateButton" button
+    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
+    And the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     And I will see the "userGroups.EditPage" page
     And I choose the "<NewRoleName>" from the "UserGroupRole"
     And I click the "SaveButton" button
@@ -46,15 +64,5 @@ Feature: 用户分组修改（RZY-1179）
     Then I will see the data "{'column':'1','name':'<name>'}" values "{'column':'4','name':'<finalGroups>'}"
 
     Examples:
-      | name            | NewRoleName  | Result                 | finalGroups         |
-      | AutoTestForEdit | AutoTestRole | success message "更新成功" | admin, AutoTestRole |
-
-#  @all @smoke @userGroupsSmoke
-#  Scenario: 添加成员
-#    Given the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
-#    And I will see the "userGroups.EditPage" page
-#    And I click the "AddMember" button
-#    And I click the "CheckBox" button
-#    And I click the "EnsureButton" button
-#    And I click the "SaveMember" button
-#    Then I will see the success message "更新成功"
+      | name            | NewRoleName | Result                 | finalGroups     |
+      | AutoTestForEdit | TempRole    | success message "更新成功" | admin, TempRole |
