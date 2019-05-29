@@ -1,4 +1,4 @@
-#@dashboard @dashboardSmoke
+@cleanDashboard
 Feature: 仪表盘删除（RZY-214）
 
   Background:
@@ -14,7 +14,7 @@ Feature: 仪表盘删除（RZY-214）
       | autotestRename |
       | UIautotest     |
 
-  @first
+  @cleanFirst
     Examples:
       | name          |
       | FirstAutoTest |

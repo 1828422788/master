@@ -13,4 +13,5 @@ Feature: 角色删除（RZY-524）
 
     Examples:
       | name         |
+      | RoleTest     |
       | AutoTestCopy |

@@ -53,3 +53,16 @@ Feature: 角色新建（RZY-517至521）
     Examples:
       | Result |
       | 填写角色名称 |
+
+  @roleSmoke
+  Scenario Outline: 创建角色同时不创建资源分组
+    Given I click the "CreateRoleButton" button
+    And I will see the "roles.CreatePage" page
+    And I set the parameter "RoleName" with value "<RoleName>"
+    And I set the parameter "RoleDes" with value "<RoleDes>"
+    And I click the "CreateButton" button
+    Then I wait for "SuccessMessage" will be visible
+
+    Examples:
+      | RoleName | RoleDes |
+      | RoleTest | 无资源分组   |

@@ -5,7 +5,7 @@ Feature: 角色复制
     Given open the "roles.ListPage" page for uri "/account/roles/"
 
   Scenario Outline: 复制角色成功
-    Given the data properties is "<property>" then i click the "复制" button
+    Given the data name is "<property>" then i click the "复制" button
     And I will see the "roles.CreatePage" page
     And I set the parameter "RoleName" with value "<newName>"
     When I click the "CreateButton" button
@@ -13,4 +13,4 @@ Feature: 角色复制
 
     Examples:
       | property | newName      |
-      | role     | AutoTestCopy |
+      | RoleTest | AutoTestCopy |
