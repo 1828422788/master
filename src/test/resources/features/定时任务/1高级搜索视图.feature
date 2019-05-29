@@ -1,4 +1,4 @@
-@logDisplay @timedTaskSmoke
+@timedTaskSmoke
 Feature: 高级搜索视图（截图并保存为定时任务）
 
   Background:
