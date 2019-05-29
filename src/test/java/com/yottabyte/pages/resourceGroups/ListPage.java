@@ -125,10 +125,10 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
     private WebElement search;
 
-    @FindBy(xpath = "(//button[@class='el-button el-button--default'])[last()]")
+    @FindBy(xpath = "//span[text()='全部分组类型']/preceding-sibling::i")
     private WebElement groupSearch;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
+    @FindBy(xpath = "//li[contains(text(),'全部分组类型')]/ancestor::ul")
     private WebElement searchDropdown;
 
     public WebElement getUploadAndDownloadButton() {
@@ -455,5 +455,9 @@ public class ListPage extends PageTemplate {
     private WebElement getTableRowButtons(int row) {
         WebElement table = getSearchResultTable();
         return table.findElements(By.className("el-table_1_column_4")).get(row - 1);
+    }
+
+    public WebElement getSource() {
+        return super.getDropdownList("日志来源");
     }
 }

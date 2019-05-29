@@ -9,6 +9,7 @@ Feature: 资源分组导入
     Given I click the "UploadButton" button
     When I upload a file with name "<InputFileName>"
     And I choose the "<role>" from the "Role"
+    And I choose the "source" from the "Source" with property
     And I click the "NextButton" button
     And I wait for "1000" millsecond
     And I click the "NextButton" button
@@ -26,6 +27,7 @@ Feature: 资源分组导入
     Given I click the "UploadButton" button
     When I upload a file with name "<InputFileName>"
     And I choose the "<role>" from the "Role"
+    And I choose the "source" from the "Source" with property
     And I click the "NextButton" button
     And I click the "SourceGroup" button
     And I click the "Edit" button

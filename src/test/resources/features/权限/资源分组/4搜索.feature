@@ -13,6 +13,5 @@ Feature: 资源分组搜索（RZY-534）
   Scenario: 根据搜索框搜索
     And I wait for loading invisible
     Given I set the search input with "Auto"
-    And I click the "Search" button under some element
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'Auto'}"

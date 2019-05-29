@@ -7,8 +7,9 @@ Feature: 资源分组导出
     And I wait for loading invisible
 
   Scenario Outline: 按照分组导出资源
-    When I choose the "<type>" from the "GroupDropdownList"
+    When I choose the "<type>" from the "SearchDropdown"
     And I click the "DownloadButton" button
+    And I wait for loading invisible
     And I click the "AllCheck" button
     And I click the "EnsureDownloadButton" button
     And I set the parameter "ResourceTarName" with value "resource_group"
@@ -31,6 +32,7 @@ Feature: 资源分组导出
 
   Scenario: 导出全部资源（RZY-857）
     And I click the "DownloadButton" button
+    And I wait for loading invisible
     And I click the "AllCheck" button in each page
     And I click the "EnsureDownloadButton" button
     And I set the parameter "ResourceTarName" with value "resource_group"
