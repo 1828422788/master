@@ -33,14 +33,20 @@ Feature: 仪表盘详情页
       | first   | AddButton,MoveButton,RefreshButton,SaveAsReportButton,NightModeButton,FullScreenButton | AddButton,MoveButton,RefreshButton |
 
   @dashboardSmoke
-  Scenario Outline: 移出标签页（RZY-230）
+  Scenario:
     When I click the "OpenEdit" button
-    And I click the "MoveButton" button
+    And I click the "AddTag" button
+    When I set the parameter "TagName" with value "second"
+    And I click the "EnsureCreateTagButton" button
+
+  @dashboardSmoke
+  Scenario Outline: 移出标签页（RZY-230）
+    When I click the "MoveButton" button
     And I check "<dashboardName>" from the "CheckBox"
     And I click the "EnsureMoveTagButton" button
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the data "<dashboardName>" values "{'column':'2','name':'first'}"
-    Then I will see the data "sxjautotest" values "{'column':'2','name':''}"
+    Then I will see the data "sxjautotest" values "{'column':'2','name':'second'}"
 
     Examples:
       | dashboardName |
@@ -48,9 +54,6 @@ Feature: 仪表盘详情页
 
   @dashboardSmoke
   Scenario: 跳转到其他仪表盘（RZY-240）
-    When I set the parameter "TagName" with value "first"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "Header" will be visible
     And I click the "SwitchButton" button
     And I wait for "Circular" will be invisible
     And I click the "Uiautotest" button
@@ -75,8 +78,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | num   | dashboardName |
-      | first   | [ 1 ] | UIautotest    |
-
+      | second   | [ 1 ] | UIautotest    |
 
   @dashboardSmoke
   Scenario Outline: 标签页删除
@@ -89,7 +91,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | num   |
-      | first   | [ 1 ] |
+      | second   | [ 1 ] |
 
   @dashboardSmoke
   Scenario Outline: 添加下拉菜单类型的过滤项（RZY-253）

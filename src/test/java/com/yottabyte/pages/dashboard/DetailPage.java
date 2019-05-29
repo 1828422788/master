@@ -117,6 +117,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[contains(text(),'UIautotest')]")
     private WebElement uiautotest;
 
+    @FindBy(className = "icon-tianjiatubiao_icon")
+    private WebElement addTag;
+
+    public WebElement getAddTag() {
+        return addTag;
+    }
+
     public WebElement getUiautotest() {
         return uiautotest;
     }
