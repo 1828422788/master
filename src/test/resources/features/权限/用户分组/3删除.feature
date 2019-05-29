@@ -15,5 +15,5 @@ Feature: 用户分组删除（RZY-1180）
 
   Scenario: 删除角色
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    Given the data name is "TempRole" then i click the "删除" button
+    And the data name is "TempRole" then i click the "删除" button
     And I click the "MessageBoxOKButton" button
