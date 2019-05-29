@@ -1,4 +1,4 @@
-@users @smoke @all @usersSmoke
+#@users @smoke @all @usersSmoke
 Feature: 用户分享已存搜索
 
   Background:

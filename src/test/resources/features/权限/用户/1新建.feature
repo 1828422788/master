@@ -29,15 +29,15 @@ Feature: 用户新建（RZY-1164）
     And I set the parameter "Email" with value "<Email>"
     And I set the parameter "Telephone" with value "<Telephone>"
     And I set the parameter "Password" with value "<Password>"
-    And I choose the "<UserGroups>" from the "UserGroups" with property
+    And I choose the "<UserGroups>" from the "UserGroups"
     And I click the "CreateButton" button
     Then I will see the <Result>
 
   @smoke @usersSmoke
     Examples:
       | UserName               | FullName               | Email                               | Telephone | Password   | UserGroups | Result                 |
-      | AutoTestForEdit        | autoTestFullName       | autoTestForEdit@yottabyte.cn        |           | qqqqq11111 | group      | success message "创建成功" |
-      | AutoTestForSavedSearch | AutoTestForSavedSearch | AutoTestForSavedSearch@yottabyte.cn |           | qqqqq11111 | group      | success message "创建成功" |
+      | AutoTestForEdit        | autoTestFullName       | autoTestForEdit@yottabyte.cn        |           | qqqqq11111 | admin      | success message "创建成功" |
+      | AutoTestForSavedSearch | AutoTestForSavedSearch | AutoTestForSavedSearch@yottabyte.cn |           | qqqqq11111 | admin      | success message "创建成功" |
 
     Examples: 添加用户失败
       | UserName | FullName         | Email                     | Telephone   | Password          | UserGroups | Result                              |

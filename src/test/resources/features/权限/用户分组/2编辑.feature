@@ -36,16 +36,6 @@ Feature: 用户分组修改（RZY-1179）
       | name            | RoleName | NewRoleName | Result                  |
       | AutoTestForEdit | admin    |             | error message "角色 不能为空" |
 
-  @userGroupsSmoke
-  Scenario: 创建一个新角色
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I click the "CreateRoleButton" button
-    And I will see the "roles.CreatePage" page
-    And I set the parameter "RoleName" with properties "TempRole"
-    And I set the parameter "RoleDes" with value "<RoleDes>"
-    And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
-
   @all @smoke @userGroupsSmoke
   Scenario Outline: 编辑更多成功
     Given open the "roles.ListPage" page for uri "/account/roles/"
