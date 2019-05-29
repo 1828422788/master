@@ -33,6 +33,7 @@ Feature: 资源分组新建
     When I set the parameter "EventCode" with value "<resourceMember>"
     And I set the parameter "Describe" with value "AutoTest"
     And I click the "Confirm" button
+    And I wait for loading invisible
     And open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
     And I click the "CreateResourceGroup" button
     Then I will see the "resourceGroups.CreatePage" page
