@@ -483,7 +483,6 @@ Feature: 普通统计视图
     And I wait for "Loading" will be invisible
     Then I wait for "1000" millsecond
 
-  @logDisplay
   Scenario Outline: 事件计数统计sample（RZY-807至810）
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
