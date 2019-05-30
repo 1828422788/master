@@ -44,6 +44,7 @@ Feature: 仪表盘详情页
     When I click the "MoveButton" button
     And I check "<dashboardName>" from the "CheckBox"
     And I click the "EnsureMoveTagButton" button
+    And I wait for loading invisible
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the data "<dashboardName>" values "{'column':'2','name':'first'}"
     Then I will see the data "sxjautotest" values "{'column':'2','name':'second'}"
