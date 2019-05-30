@@ -46,8 +46,8 @@ Feature: 仪表盘详情页
     And I click the "EnsureMoveTagButton" button
     And I refresh the website
     And open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I will see the data "<dashboardName>" values "{'column':'2','name':'first'}"
-    Then I will see the data "sxjautotest" values "{'column':'2','name':'second'}"
+    Then I will see the data "<dashboardName>" values "{'column':'2','name':'second'}"
+    Then I will see the data "sxjautotest" values "{'column':'2','name':'first'}"
 
     Examples:
       | dashboardName |
@@ -64,7 +64,7 @@ Feature: 仪表盘详情页
   @dashboardSmoke
   Scenario Outline: 回收站操作（RZY-241至RZY-244）
     When I click the "CloseTag" button
-    And I wait for loading invisible
+#    And I wait for loading invisible
     Then I will see the "DropDownLinkButton" result will be "<num>"
     When I click the "RecoverTag" button
     Then I will see the element "Tab" name is "<tagName>"
