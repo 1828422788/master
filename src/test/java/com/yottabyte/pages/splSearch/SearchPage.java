@@ -68,7 +68,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "yw-fields-tree")
     private WebElement fieldsTree;
 
-    @FindBy(xpath = "//div[@class='tree-item folder-item root-item']/span[text()='java']")
+    @FindBy(xpath = "//span[text()='java']")
     private WebElement javaField;
 
     @FindBy(xpath = "//span[text()='appname']")

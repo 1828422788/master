@@ -1,9 +1,13 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.*;
@@ -34,9 +38,16 @@ public class VerifyElementTextWillBe {
      */
     @Then("^I will see the input element \"([^\"]*)\" value will be \"([^割]*)\"$")
     public void verifyInputValue(String elementName, String value) {
+        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        String realValue = element.getAttribute("value");
-        assertEquals(value, realValue);
+
+        if (element.getAttribute("class").contains("CodeMirror")) {
+            WebElement webElement = webDriver.findElement(By.xpath("//span[@role='presentation']"));
+            assertEquals(value, webElement.getText());
+        } else {
+            String realValue = element.getAttribute("value");
+            assertEquals(value, realValue);
+        }
     }
 
     @And("^I will see the input element \"([^\"]*)\" value will contains \"([^\"]*)\"$")

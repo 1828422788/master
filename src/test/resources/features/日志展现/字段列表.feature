@@ -13,15 +13,14 @@ Feature: 日志展现
     Then I click the "AllFields" button
     And make element "<name>" change to "<className>"
     Then I will see the error message "此字段不可从选定字段中移除"
-    Then take a screenshot with name "RZY-<screenName>"
 
     Examples:
-      | splQuery                                  | name     | className     | screenName                       |
-#      | *                                         | ip       | icon-shoucang ||
-      | index=yott* ERROR AND tag:sample04061424* | tag      | icon-shoucang | 207：日志展现-内置字段不可移除-tag字段不可移除      |
-      | index=yott* ERROR AND tag:sample04061424* | appname  | icon-shoucang | 207：日志展现-内置字段不可移除-appname字段不可移除  |
-      | index=yott* ERROR AND tag:sample04061424* | logtype  | icon-shoucang | 207：日志展现-内置字段不可移除-logtype字段不可移除  |
-      | index=yott* ERROR AND tag:sample04061424* | hostname | icon-shoucang | 207：日志展现-内置字段不可移除-hostname字段不可移除 |
+      | splQuery                                  | name     | className     |
+#      | *                                         | ip       | icon-shoucang |
+      | index=yott* ERROR AND tag:sample04061424* | tag      | icon-shoucang |
+      | index=yott* ERROR AND tag:sample04061424* | appname  | icon-shoucang |
+      | index=yott* ERROR AND tag:sample04061424* | logtype  | icon-shoucang |
+      | index=yott* ERROR AND tag:sample04061424* | hostname | icon-shoucang |
 
   @logDisplay
   Scenario Outline: 选中字段（标记星号）（RZY-207）
@@ -33,14 +32,13 @@ Feature: 日志展现
     And I click the "AllFields" button
     And make element "<name>" change to "<className>"
     And I click the "CloseAllFields" button
-    And I click the "JavaField" button
+    And I click the "<java>" button
     And I will see the tree "<element>" contains "<data>"
-    Then take a screenshot with name "RZY-<screenName>"
 
     Examples:
-      | splQuery                                  | name         | className       | element       | data          | screenName        |
-      | index=yott* ERROR AND tag:sample04061424* | java.message | icon-yishoucang | SavedFields   | ajava.message | 207：日志展现-选中Java字段 |
-      | index=yott* ERROR AND tag:sample04061424* | java.message | icon-shoucang   | UnsavedFields | amessage      | 207：日志展现-取消Java字段 |
+      | splQuery                                  | name         | className       | java      | element       | data          |
+      | index=yott* ERROR AND tag:sample04061424* | java.message | icon-yishoucang |           | SavedFields   | ajava.message |
+      | index=yott* ERROR AND tag:sample04061424* | java.message | icon-shoucang   | JavaField | UnsavedFields | amessage      |
 
   @logDisplay
   Scenario Outline: 字段列表快捷过滤（RZY-171）
@@ -54,19 +52,18 @@ Feature: 日志展现
     And I click the "<optional>" button
     And I wait for "1000" millsecond
     Then I will see the input element "SearchInput" value will be "<spl>"
-    Then take a screenshot with name "RZY-<screenName>"
 
     Examples:
-      | fieldName | optional        | fieldValue | spl                                                                    | screenName                |
-      | AppName   | TopTen          |            | index=yott* ERROR AND tag:sample04061424* \|top 10 'appname'           | 171：日志展现-字段列表快捷过滤-前10字段值  |
-      | AppName   | RemoveDuplicate |            | index=yott* ERROR AND tag:sample04061424* \|stats dc('appname')        | 171：日志展现-字段列表快捷过滤-去重数     |
-      | AppName   | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count('appname') | 171：日志展现-字段列表快捷过滤-总数时序图   |
-      | AppName   | FileterField    | java       | index=yott* (ERROR AND tag:sample04061424*) AND 'appname':java         | 171：日志展现-字段列表快捷过滤-过滤选中字段值 |
-      | AppName   | ShieldField     | java       | index=yott* (ERROR AND tag:sample04061424*) AND NOT 'appname':java     | 171：日志展现-字段列表快捷过滤-屏蔽选中字段值 |
-#      | Timestamp | MaxValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats max('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-最大值    |
-#      | Timestamp | MinValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats min('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-最小值    |
-#      | Timestamp | AvgStats      | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('apache.resp_len')     | 171：日志展现-字段列表快捷过滤-平均值统计图 |
-#      | Timestamp | AvgSequential | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('apache.resp_len') | 171：日志展现-字段列表快捷过滤-平均值时序图 |
+      | fieldName | optional        | fieldValue | spl                                                                    |
+      | AppName   | TopTen          |            | index=yott* ERROR AND tag:sample04061424* \|top 10 'appname'           |
+      | AppName   | RemoveDuplicate |            | index=yott* ERROR AND tag:sample04061424* \|stats dc('appname')        |
+      | AppName   | TotalSequence   |            | index=yott* ERROR AND tag:sample04061424* \|timechart count('appname') |
+      | AppName   | FileterField    | java       | index=yott* (ERROR AND tag:sample04061424*) AND 'appname':java         |
+      | AppName   | ShieldField     | java       | index=yott* (ERROR AND tag:sample04061424*) AND NOT 'appname':java     | 
+#      | Timestamp | MaxValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats max('apache.resp_len')     |
+#      | Timestamp | MinValue      | all        | index=yott* ERROR AND tag:sample04061424* \|stats min('apache.resp_len')     |
+#      | Timestamp | AvgStats      | all        | index=yott* ERROR AND tag:sample04061424* \|stats avg('apache.resp_len')     |
+#      | Timestamp | AvgSequential | all        | index=yott* ERROR AND tag:sample04061424* \|timechart avg('apache.resp_len') |
 
   @second @logDisplay
   Scenario: RZY-2900：过滤字段apache.request_query
@@ -84,4 +81,3 @@ Feature: 日志展现
     And I click the "FileterField" button
     And I wait element "SearchStatus" change text to "正在搜索..."
     And I wait element "SearchStatus" change text to "搜索完成!"
-    Then take a screenshot with name "RZY-2900：过滤字段apache.request_query"
