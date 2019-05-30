@@ -17,7 +17,7 @@ Feature: 普通统计视图
     And I choose the "<value2>" from the "FieldValue"
     And I click the "AddButton" button
     And I wait for loading invisible
-    Then take a screenshot with name "RZY-<caseNum>：日志展现-普通统计视图-<chart>sample"
+    And take part of "Chart" with name "event/<caseNum>"
 
   @first @logDisplay
     Examples:
@@ -50,16 +50,16 @@ Feature: 普通统计视图
     Then I click the "GenerateTime" button under some element
     Then I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-<screenName>"
+    And take part of "Chart" with name "event/<caseNum>"
 
     Examples:
-      | fieldValue           | statisticType | startTime           | endTime             | screenName         |
-      | apache.request_query |               | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 812：日志展现-时间分段-计数   |
-      | apache.request_query | 独立数           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 813：日志展现-时间分段-独立数  |
-      | apache.resp_len      | 总计            | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2721：日志展现-时间分段-总计  |
-      | apache.resp_len      | 平均值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2722：日志展现-时间分段-平均值 |
-      | apache.resp_len      | 最大值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2723：日志展现-时间分段-最大值 |
-      | apache.resp_len      | 最小值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2724：日志展现-时间分段-最小值 |
+      | fieldValue           | statisticType | startTime           | endTime             | caseNum |
+      | apache.request_query |               | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 812     |
+      | apache.request_query | 独立数           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 813     |
+      | apache.resp_len      | 总计            | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2721    |
+      | apache.resp_len      | 平均值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2722    |
+      | apache.resp_len      | 最大值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2723    |
+      | apache.resp_len      | 最小值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2724    |
 
   @logDisplay
   Scenario: 数值分段（RZY-814）
@@ -82,7 +82,7 @@ Feature: 普通统计视图
     And I set the parameter "EndDataValue" with value "1000"
     And I click the "Generate" button
     Then I wait for "Loading" will be invisible
-    Then take a screenshot with name "RZY-814：日志展现-普通统计视图-数值分段"
+    And take part of "Chart" with name "event/814"
 
   @logDisplay
   Scenario Outline: 时间直方图（RZY-815）
@@ -99,15 +99,15 @@ Feature: 普通统计视图
     Then I click the "Generate" button
     Then I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-<screenName>"
+    And take part of "Chart" with name "event/<screenName>"
 
     Examples:
-      | timeSpan | time | screenName          |
-      | 1        |      | 815：日志展现-时间间隔1h     |
-      | 3600     | 秒    | 815：日志展现-时间间隔3600s  |
-      | 60       | 分钟   | 815：日志展现-时间间隔60min  |
-      | 1        | 天    | 2725：日志展现-时间间隔1d    |
-      | 1        | 周    | 2725：日志展现-时间间隔1week |
+      | timeSpan | time | screenName |
+      | 1        |      | 8151h      |
+      | 3600     | 秒    | 8153600s   |
+      | 60       | 分钟   | 81560m     |
+      | 1        | 天    | 27251d     |
+      | 1        | 周    | 27251w     |
 
   @logDisplay
   Scenario Outline: 生成数值直方图（RZY-816）
@@ -123,7 +123,7 @@ Feature: 普通统计视图
     And I set the parameter "DataSpan" with value "<number>"
     Then I click the "Generate" button
     Then I wait for "Loading" will be invisible
-    Then take a screenshot with name "RZY-816：日志展现-普通统计视图-数值直方图"
+    And take part of "Chart" with name "event/816"
 
     Examples:
       | fieldValue    | number |
@@ -145,7 +145,7 @@ Feature: 普通统计视图
     And I set the parameter "PercentInput" with value "80"
     Then I click the "Generate" button
     Then I wait for "Loading" will be invisible
-    Then take a screenshot with name "RZY-819：日志展现-普通统计视图-百分比_sample"
+    And take part of "Chart" with name "event/819"
 
   @third @logDisplay
   Scenario: RZY-817:[展现方式]_字段值分类_sample
@@ -161,42 +161,42 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_饼状图top5"
+    And take part of "Chart" with name "event/817top5"
     And I choose the "10" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_饼状图top10"
+    And take part of "Chart" with name "event/817top10"
     And I choose the "20" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_饼状图top20"
+    And take part of "Chart" with name "event/817top20"
     And I choose the "50" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_饼状图top50"
+    And take part of "Chart" with name "event/817top50"
     And I choose the "条形图" from the "PresentType"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_条形图top50"
+    And take part of "Chart" with name "event/817条top50"
     And I choose the "20" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_条形图top20"
+    And take part of "Chart" with name "event/817条top20"
     And I choose the "10" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_条形图top10"
+    And take part of "Chart" with name "event/817条top10"
     And I choose the "5" from the "TopElement"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-817:[展现方式]_字段值分类_条形图top5"
+    And take part of "Chart" with name "event/817条top5"
 
   @third @logDisplay
   Scenario: RZY-818:展现方式_字段数值_sample
@@ -214,7 +214,7 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-818:展现方式_字段数值_sample"
+    And take part of "Chart" with name "event/818"
 
 #  @third @logDisplay
 #  Scenario: RZY-822:[字段] [TOP] [统计图]_sample
@@ -246,4 +246,4 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    Then take a screenshot with name "RZY-825:地理分布_sample"
+    And take part of "Chart" with name "event/825"

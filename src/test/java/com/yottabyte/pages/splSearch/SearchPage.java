@@ -113,6 +113,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "cm-operator")
     private WebElement searchInputValue;
 
+    @FindBy(className = "yw-search-stats")
+    private WebElement chart;
+
+    public WebElement getChart() {
+        return chart;
+    }
+
     public WebElement getMode() {
         return mode;
     }
