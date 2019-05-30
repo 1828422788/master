@@ -36,8 +36,8 @@ Feature: 离线任务新增
       | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | WholeTime      | WholeTimeOfflineAutoTest    |
       | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | RecentSevenDay | transactionofflineAutoTest1 |
       | * \| transaction apache.status maxspan=1s                                                                                                                                                                              | ThisMonth      | transactionofflineAutoTest2 |
-      | apache.status:>=405                                                                                                                                                                                                    | WholeTime      | offlineAutoTest1            |
-      | * \| stats count(apache.resp_len) as count_len, max(apache.resp_len) as max_len, min(apache.resp_len) as min_len, sum(apache.status) as sum_len, avg(apache.resp_len) as avg_len by apache.geo.city \| sort by max_len | WholeTime      | offlineAutoTest2            |
+#      | apache.status:>=405                                                                                                                                                                                                    | WholeTime      | offlineAutoTest1            |
+#      | * \| stats count(apache.resp_len) as count_len, max(apache.resp_len) as max_len, min(apache.resp_len) as min_len, sum(apache.status) as sum_len, avg(apache.resp_len) as avg_len by apache.geo.city \| sort by max_len | WholeTime      | offlineAutoTest2            |
 
   @offlineTaskSmoke
   Scenario Outline: 新建最近类型的离线任务

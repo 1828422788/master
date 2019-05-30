@@ -1,4 +1,4 @@
-@offlineTask @all @smoke
+@offlineTaskSmoke
 Feature: 离线任务删除
 
   Background:
@@ -13,8 +13,6 @@ Feature: 离线任务删除
       | name                        |
       | autotest                    |
       | recentlyOfflineAutoTest     |
-      | offlineAutoTest2            |
-      | offlineAutoTest1            |
       | transactionofflineAutoTest2 |
       | transactionofflineAutoTest1 |
       | WholeTimeOfflineAutoTest    |

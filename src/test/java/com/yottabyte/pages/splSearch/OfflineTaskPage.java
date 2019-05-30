@@ -48,6 +48,10 @@ public class OfflineTaskPage extends PageTemplate {
         return ensureButton;
     }
 
+    public WebElement getSearch() {
+        return super.getSearchIcon();
+    }
+
     @Override
     protected void isLoaded() throws Error {
         WebDriverWait wait = new WebDriverWait(webDriver, 10, 1000);
