@@ -1,4 +1,4 @@
-@offlineTaskSmoke
+#@offlineTaskSmoke
 Feature: 离线任务删除
 
   Background:
