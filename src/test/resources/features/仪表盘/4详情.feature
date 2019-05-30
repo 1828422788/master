@@ -33,7 +33,7 @@ Feature: 仪表盘详情页
       | first   | AddButton,MoveButton,RefreshButton,SaveAsReportButton,NightModeButton,FullScreenButton | AddButton,MoveButton,RefreshButton |
 
   @dashboardSmoke
-  Scenario:
+  Scenario: 新建tag
     When I click the "OpenEdit" button
     And I click the "AddTag" button
     When I set the parameter "TagName" with value "second"
@@ -46,8 +46,8 @@ Feature: 仪表盘详情页
     And I click the "EnsureMoveTagButton" button
     And I refresh the website
     And open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I will see the data "<dashboardName>" values "{'column':'2','name':'second'}"
-    Then I will see the data "sxjautotest" values "{'column':'2','name':'first'}"
+    Then I will see the data "<dashboardName>" values "{'column':'2','name':'first'}"
+    Then I will see the data "sxjautotest" values "{'column':'2','name':'second'}"
 
     Examples:
       | dashboardName |
@@ -73,6 +73,7 @@ Feature: 仪表盘详情页
     And I check "<dashboardName>" from the "CheckBox"
     And I click the "EnsureMoveTagButton" button
     And open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<dashboardName>"
     And I will see the "dashboard.DetailPage" page
     And I will see the "DropDownLinkButton" result will be "<num>"

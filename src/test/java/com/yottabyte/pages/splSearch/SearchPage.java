@@ -113,7 +113,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "cm-operator")
     private WebElement searchInputValue;
 
-    @FindBy(className = "yw-search-stats")
+    @FindBy(xpath = "//*[@class='yw-search-stats-categories']/ancestor::div[@class='yw-search-stats clearfix']")
     private WebElement chart;
 
     public WebElement getChart() {
