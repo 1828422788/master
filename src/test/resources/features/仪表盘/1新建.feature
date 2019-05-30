@@ -9,7 +9,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
     Then I set the parameter "DashBoardName" with value "<name>"
     Then I choose the "<group>" from the "DashBoardGroup"
     Then I click the "EnsureCreateButton" button
-    Then I will see the <result>
+#    Then I will see the <result>
 
   @dashboardSmoke
     Examples: 新建成功
