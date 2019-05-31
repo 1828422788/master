@@ -190,6 +190,13 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'75%')]/i")
     private WebElement closePercent;
 
+    @FindBy(className = "yw-search-stats-charts-object")
+    private WebElement chart;
+
+    public WebElement getChart() {
+        return chart;
+    }
+
     public WebElement getClosePercent() {
         return closePercent;
     }
