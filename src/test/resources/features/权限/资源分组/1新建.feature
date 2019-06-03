@@ -52,16 +52,16 @@ Feature: 资源分组新建
       | name                 | type | des | owner | resourceMember    | result                 |
       | AutoTestForKnowledge | 知识   | UI  | admin | AutoTestKnowledge | success message "创建成功" |
 
-  Scenario Outline:
-    Given I click the "CreateResourceGroup" button
-    Then I will see the "resourceGroups.CreatePage" page
-    When I set the parameter "ResourceGroupName" with value "<name>"
-    And I choose the "<type>" from the "ResourceGroupType"
-    And I set the parameter "ResourceGroupDes" with value "<des>"
-    And I choose the "<owner>" from the "ResourceGroupOwner"
-    And I click the "CreateButton" button
-
-  @createEssentialData
-    Examples:
-      | name     | type | des  | owner        |
-      | AutoTest | 知识   | test | AutoTestRole |
+#  Scenario Outline:
+#    Given I click the "CreateResourceGroup" button
+#    Then I will see the "resourceGroups.CreatePage" page
+#    When I set the parameter "ResourceGroupName" with value "<name>"
+#    And I choose the "<type>" from the "ResourceGroupType"
+#    And I set the parameter "ResourceGroupDes" with value "<des>"
+#    And I choose the "<owner>" from the "ResourceGroupOwner"
+#    And I click the "CreateButton" button
+#
+#  @createEssentialData
+#    Examples:
+#      | name     | type | des  | owner        |
+#      | AutoTest | 知识   | test | AutoTestRole |

@@ -120,6 +120,45 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-tianjiatubiao_icon")
     private WebElement addTag;
 
+    @FindBy(xpath = "//span[text()='单选']")
+    private WebElement radio;
+
+    @FindBy(xpath = "(//label[contains(text(),'可选值')]/following-sibling::div//input[@class='el-input__inner'])[last()]")
+    private WebElement choiceValue;
+
+    @FindBy(xpath = "//*[@placeholder='请输入趋势图名称']")
+    private WebElement trendName;
+
+    @FindBy(xpath = "//span[contains(text(),'仪表盘所用趋势图')]")
+    private WebElement dashboardTrend;
+
+    @FindBy(className = "icon-gengduopeizhi")
+    private WebElement chartSetting;
+
+    @FindBy(className = "yw-table-head")
+    private List<WebElement> tableList;
+
+    public List<WebElement> getTableList() {
+        return tableList;
+    }
+
+    public WebElement getChartSetting() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver,ExpectedConditions.elementToBeClickable(chartSetting));
+        return chartSetting;
+    }
+
+    public WebElement getDashboardTrend() {
+        return dashboardTrend;
+    }
+
+    public WebElement getTrendName() {
+        return trendName;
+    }
+
+    public WebElement getRadio() {
+        return radio;
+    }
+
     public WebElement getAddTag() {
         return addTag;
     }
@@ -187,7 +226,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getChoiceValue() {
-        return super.getInputElement("可选值");
+        return choiceValue;
     }
 
     public WebElement getFilterToken() {
@@ -308,6 +347,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getEnsureCreateInput() {
         return ensureList.get(9);
+    }
+
+    public WebElement getEnsureAddTrend() {
+        return ensureList.get(2);
     }
 
     @Override

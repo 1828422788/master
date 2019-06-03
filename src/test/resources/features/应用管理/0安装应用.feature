@@ -11,7 +11,7 @@ Feature: 应用安装（RZY-1988）
     When I upload a file with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "admin" from the "Role"
-    And I choose the "all_" from the "Resource"
+    And I choose the "source" from the "Resource" with property
     And I click the "NextButton" button
     And I click the "NextButton" button
     And I will see the "ResourcePreview" is "active"

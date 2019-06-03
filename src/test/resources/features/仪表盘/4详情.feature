@@ -80,7 +80,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | num   | dashboardName |
-      | second   | [ 1 ] | UIautotest    |
+      | second  | [ 1 ] | UIautotest    |
 
   @dashboardSmoke
   Scenario Outline: 标签页删除
@@ -93,27 +93,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | num   |
-      | second   | [ 1 ] |
-
-  @dashboardSmoke
-  Scenario Outline: 添加下拉菜单类型的过滤项（RZY-253）
-    When I set the parameter "TagName" with value "<tagName>"
-    And I click the "EnsureCreateTagButton" button
-    And I click the "AddEventButton" button
-    And I choose the "<eventList>" from the "EventList"
-    And I set the parameter "FilterTitle" with value "<title>"
-    And I set the parameter "FilterToken" with value "<token>"
-    And I set the parameter "FilterField" with value "<field>"
-    And I choose the "<inputType>" from the "InputType"
-    And I set the parameter "ChoiceValue" with value "<choiceValue>"
-    And I click the "AddChoiceValueButton" button
-    And I choose the "<choiceValue>" from the "DefaultDropdownList"
-    And I click the "EnsureCreateFilter" button
-    Then take a screenshot
-
-    Examples:
-      | tagName | eventList | title | token | field | inputType | choiceValue   |
-      | first   | 添加过滤项     | test  | token |       | 下拉菜单      | default_value |
+      | second  | [ 1 ] |
 
   Scenario Outline: 添加过滤项以及输入项失败
     Given I click the "AddEventButton" button

@@ -2,12 +2,15 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -77,5 +80,21 @@ public class CompareResult {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private List list;
+
+    public void setList(List list) {
+        this.list = list;
+    }
+
+    @And("^I set value with element \"([^\"]*)\"$")
+    public void iSetValueWithElement(String elementName) {
+        List<WebElement> elements = GetElementFromPage.getWebElementWithName(elementName);
+        List<String> list = new ArrayList<>();
+        for (WebElement element : elements) {
+            list.add(element.getText());
+        }
+        setList(list);
     }
 }

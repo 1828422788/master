@@ -11,5 +11,5 @@ Feature: 仪表盘重命名（RZY-213）
     Then I will see the <message>
 
     Examples: 重命名成功
-      | name        | newName        | message                    |
-      | sxjautotest | autotestRename | success message "仪表盘重命名成功" |
+      | name        | newName | message                    |
+      | sxjautotest | UI自动化创建 | success message "仪表盘重命名成功" |
