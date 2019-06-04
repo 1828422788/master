@@ -48,6 +48,44 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[@class='name']/following-sibling::div//input")
     private WebElement recentDays;
 
+    @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
+    private WebElement searchInput;
+
+    @FindBy(xpath = "(//label[@class='el-checkbox'])[4]")
+    private WebElement firstCheckbox;
+
+    @FindBy(xpath = "//label[contains(text(),'提权用户')]/following-sibling::div//input[@class='el-input__inner']")
+    private WebElement user;
+
+    @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
+    private WebElement select;
+
+    public WebElement getSaveButton() {
+        return super.getContainsTextButton("保存");
+    }
+
+    public WebElement getValidTime() {
+        return super.getInputElement("有效时长");
+    }
+
+    public WebElement getUser() {
+        user.click();
+        return select;
+    }
+
+    public WebElement getAuth() {
+        return super.getButton("授权");
+    }
+
+    public WebElement getFirstCheckbox() {
+        return firstCheckbox;
+    }
+
+    @Override
+    public WebElement getSearchInput() {
+        return searchInput;
+    }
+
     public WebElement getRecentDays() {
         return recentDays;
     }
@@ -109,5 +147,9 @@ public class ListPage extends PageTemplate {
 
     public WebElement getSearch() {
         return super.getSearchIcon();
+    }
+
+    public WebElement getAuthorize() {
+        return super.getButton("临时授权");
     }
 }

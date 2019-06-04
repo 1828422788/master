@@ -406,7 +406,6 @@ public class ClickButtonWithGivenName {
     public void clickCheckBox(String name) {
         String xpath = ".//ancestor::td/preceding-sibling::td//label";
         WebElement tr = this.getRowWithColumnNum(name, 1);
-        // 找到禁用按钮并点击
         tr.findElement(By.xpath(xpath)).click();
     }
 

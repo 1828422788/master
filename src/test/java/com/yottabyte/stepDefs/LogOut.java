@@ -16,5 +16,6 @@ public class LogOut {
         owner.click();
         WebElement logout = webDriver.findElement(By.xpath("//a[text()='退出登录']"));
         logout.click();
+        webDriver.manage().deleteAllCookies();
     }
 }

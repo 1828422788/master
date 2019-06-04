@@ -48,6 +48,8 @@ Feature: 应用用户管理（RZY-2147）
 
   Scenario Outline: 用户禁用
     When the data name is "{'column':'1','name':'<name>'}" then i click the "禁用" button
+    And I refresh the website
+    And I will see the search result contains "{'column':'1','name':'AutoApp\n已禁用'}"
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"

@@ -25,26 +25,31 @@ Feature: 仪表盘配置
       | eventList | title  | token  | field   | inputType | choiceValue |
       | 添加过滤项     | filter | filter | appname | 下拉菜单      | java        |
 
-  Scenario: RZY-1668:单引号包裹
+  Scenario Outline: RZY-1668、1669添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "UI自动化创建"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I choose the "添加输入项" from the "EventList"
-    And I set the parameter "FilterTitle" with value "input"
-    And I set the parameter "FilterToken" with value "input"
-    And I set the parameter "FilterDefaultValue" with value "appname"
+    And I set the parameter "FilterTitle" with value "<filter>"
+    And I set the parameter "FilterToken" with value "<filter>"
+    And I set the parameter "FilterDefaultValue" with value "<defaultValue>"
     Then I click the "EnsureCreateInput" button
 
-  Scenario: 创建仪表盘所用趋势图
+    Examples:
+      | filter           | defaultValue |
+      | input            | appname      |
+      | double_quotation | aa           |
+
+  Scenario Outline: 创建仪表盘所用趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "NameInput" with value "仪表盘所用趋势图"
+    When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
     And I click the "NextButton" button
-    And I set the parameter "SearchInput" with value "*|stats count() by 'appname',logtype"
+    And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -53,7 +58,12 @@ Feature: 仪表盘配置
     And I wait for "Header" will be visible
     And I click the "Save" button
 
-  Scenario: 验证RZY-1668
+    Examples:
+      | name         | spl                                                                                 |
+      | 仪表盘所用趋势图     | *\|stats count() by 'appname',logtype                                               |
+      | 仪表盘1669所用趋势图 | (appname:"aa") \|bucket timestamp span=6h as ts \|stats count('tag') as 'tag' by ts |
+
+  Scenario: 验证RZY-1668:单引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "UI自动化创建"
     Then I will see the "dashboard.DetailPage" page
@@ -65,3 +75,27 @@ Feature: 仪表盘配置
     And I wait for "ChartSetting" will be visible
     And I set value with element "TableList"
     And I click the "ChartSetting" button
+    And I choose the "通用配置" from the "Configs"
+    And I set the parameter "Spl" with value "* | stats count() by ${input|s},logtype"
+    And I click the "SettingEnsure" button
+    Then I compare with list "TableList"
+    And I click the "DeleteChart" button
+    And I click the "EnsureDeleteChart" button
+
+  Scenario: 验证RZY-1669:双引号包裹
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "UI自动化创建"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I choose the "添加图表" from the "EventList"
+    And I set the parameter "TrendName" with value "仪表盘"
+    And I click the "DashboardTrend1669" button
+    And I click the "EnsureAddTrend" button
+    And I wait for "ChartSetting" will be visible
+    And I set value with element "TableList"
+    And I click the "ChartSetting" button
+    And I choose the "通用配置" from the "Configs"
+    And I set the parameter "Spl" with value ""
+    And I set the parameter "Spl" with value "(appname:${double_quotation|d})  |bucket timestamp span=6h as ts |stats count('tag') as 'tag' by ts"
+    And I click the "SettingEnsure" button
+    Then I compare with list "TableList"

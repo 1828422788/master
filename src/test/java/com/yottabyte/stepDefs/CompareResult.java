@@ -2,7 +2,6 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -82,10 +81,14 @@ public class CompareResult {
         }
     }
 
-    private List list;
+    private List<String> list;
 
-    public void setList(List list) {
+    public void setList(List<String> list) {
         this.list = list;
+    }
+
+    public List getList() {
+        return list;
     }
 
     @And("^I set value with element \"([^\"]*)\"$")
@@ -96,5 +99,13 @@ public class CompareResult {
             list.add(element.getText());
         }
         setList(list);
+    }
+
+    @And("^I compare with list \"([^\"]*)\"$")
+    public void iCompareWithList(String elementName) {
+        List<WebElement> elements = GetElementFromPage.getWebElementWithName(elementName);
+        for (int i = 0; i < elements.size(); i++) {
+            Assert.assertEquals(list.get(i), elements.get(i).getText());
+        }
     }
 }

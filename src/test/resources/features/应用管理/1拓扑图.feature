@@ -39,12 +39,6 @@ Feature: 应用拓扑图（RZY-2142）
       | name    |
       | AutoApp |
 
-  Scenario: 修改拓扑图分组
-    When the data name is "AutoApp" then i click the "分组" button
-    Then I cancel selection "AutoTestRoleWithAllResource" from the "GroupInput"
-    And I click the "EnsureButton" button
-    Then I will see the error message "请至少选择一个分组"
-
   Scenario: 删除拓扑图
     When the data name is "AutoApp" then i click the "删除" button
     And I click the "Ensure" button

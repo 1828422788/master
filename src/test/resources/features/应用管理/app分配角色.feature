@@ -1,6 +1,18 @@
 @all @app @appSmoke
 Feature: 应用分配角色选择
 
+  Scenario: 授权AutoTest用户日志来源权限
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I set the parameter "SearchInput" with properties "source"
+    And I click the "Search" button
+    And I wait for loading invisible
+    And I click the "Authorize" button
+    And I click the "FirstCheckbox" button
+    And I click the "Auth" button
+    And I choose the "user" from the "User" with property
+    And I set the parameter "ValidTime" with value "120"
+    And I click the "SaveButton" button
+
   Scenario: 授予角色对应权限
     Given open the "role.ListPage" page for uri "/account/roles/"
     When the data properties is "role" then i click the "授权" button

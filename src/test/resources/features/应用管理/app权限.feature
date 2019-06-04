@@ -36,6 +36,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "unchecked" the checkbox which name is "全选"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with properties "user"
@@ -125,13 +126,14 @@ Feature: 应用权限
     And I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
 
-  Scenario Outline: RZY-2168、2159、2170
+  Scenario Outline: RZY-2168
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data properties is "role" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "<function>"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with properties "user"
@@ -147,16 +149,63 @@ Feature: 应用权限
     Examples:
       | function | tab            | title |
       | 可使用入库优先级 | Ingestpriority | 入库优先级 |
-      | 可使用离线任务  | OfflineTask    | 离线任务  |
-      | 可使用结算管理  | Payment        | 结算管理  |
 
-  Scenario Outline: RZY-2165、2173
+  Scenario Outline: RZY-2159
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data properties is "role" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "<function>"
     And I click the "SaveButton" button
+    And I refresh the website
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AutoTestAuth" then i click the "打开" button
+    Then I will see the "app.AppPage" page
+    And I click the "<tab>" button
+    Then the page's title will be "<title>"
+
+    Examples:
+      | function | tab         | title |
+      | 可使用离线任务  | OfflineTask | 离线任务  |
+
+  Scenario Outline: RZY-2170
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data properties is "role" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "{'TabButton':'功能'}" button
+    And I "checked" the checkbox which name is "<function>"
+    And I click the "SaveButton" button
+    And I refresh the website
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AutoTestAuth" then i click the "打开" button
+    Then I will see the "app.AppPage" page
+    And I click the "<tab>" button
+    Then the page's title will be "<title>"
+
+    Examples:
+      | function | tab     | title |
+      | 可使用结算管理  | Payment | 结算管理  |
+
+  Scenario Outline: RZY-2165
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data properties is "role" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "{'TabButton':'功能'}" button
+    And I "checked" the checkbox which name is "<function>"
+    And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with properties "user"
@@ -173,7 +222,31 @@ Feature: 应用权限
     Examples:
       | function    | tab           | page                    | button                  |
       | 可使用资源包导入、导出 | ResourceGroup | resourceGroups.ListPage | UploadAndDownloadButton |
-      | 可新建角色       | Role          | roles.ListPage          | CreateRoleButton        |
+
+  Scenario Outline: RZY-2173
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data properties is "role" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "{'TabButton':'功能'}" button
+    And I "checked" the checkbox which name is "<function>"
+    And I click the "SaveButton" button
+    And I refresh the website
+    And I logout current user
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AutoTestAuth" then i click the "打开" button
+    Then I will see the "app.AppPage" page
+    And I click the "<tab>" button
+    Then I will see the "<page>" page
+    And I wait for "<button>" will be visible
+
+    Examples:
+      | function | tab  | page           | button           |
+      | 可新建角色    | Role | roles.ListPage | CreateRoleButton |
 
   Scenario: RZY-2162:不勾选时验证无最大搜索时长
     Given I logout current user
@@ -197,8 +270,9 @@ Feature: 应用权限
     And the data properties is "role" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'功能'}" button
-    And I "checked" the checkbox which name is "可更新最大搜索时长"
+    And I "checked" the checkbox which name is "可转授功能权限,可更新最大搜索时长,编辑所有角色权限"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -212,10 +286,17 @@ Feature: 应用权限
     And I click the "Role" button
     When the data properties is "role" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I click the "{'TabButton':'功能'}" button
+    And I click the "{'TabButton':'配置'}" button
     Then I set the parameter "MaxLength" with value "max"
 
   Scenario: RZY-2175:不勾选转授功能权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data properties is "role" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "{'TabButton':'功能'}" button
+    And I "unchecked" the checkbox which name is "可转授功能权限"
+    And I click the "SaveButton" button
+    And I refresh the website
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -241,6 +322,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "可转授功能权限"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -283,6 +365,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "可新建/更新告警插件"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -317,6 +400,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -350,6 +434,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "可修改用户详情"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -387,6 +472,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "可使用模式学习"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -427,6 +513,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "可下载搜索结果"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -471,6 +558,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "可查看统计菜单"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -510,6 +598,7 @@ Feature: 应用权限
     And I will see the "roles.AuthorizationPage" page
     And I "checked" the checkbox which name is "新建用户"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -548,6 +637,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "可解锁用户"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -569,6 +659,7 @@ Feature: 应用权限
     When I click the "CreateButton" button
     Then I set the parameter "DashBoardName" with value "<name>"
     And I click the "EnsureCreateButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -593,6 +684,7 @@ Feature: 应用权限
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "可查看未分配资源"
     And I click the "SaveButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -620,6 +712,7 @@ Feature: 应用权限
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Given the data name is "AppCreate" then i click the "删除" button
     Then I click the "EnsureDeleteButton" button
+    And I refresh the website
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"

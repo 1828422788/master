@@ -5,6 +5,7 @@ import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -132,18 +133,61 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'仪表盘所用趋势图')]")
     private WebElement dashboardTrend;
 
+    @FindBy(xpath = "//span[contains(text(),'仪表盘1669所用趋势图')]")
+    private WebElement dashboardTrend1669;
+
+    public WebElement getDashboardTrend1669() {
+        return dashboardTrend1669;
+    }
+
     @FindBy(className = "icon-gengduopeizhi")
     private WebElement chartSetting;
 
-    @FindBy(className = "yw-table-head")
+    @FindAll({
+            @FindBy(className = "yw-table-head"), @FindBy(className = "table-body-td")})
     private List<WebElement> tableList;
+
+    @FindBy(xpath = "//span[text()='通用配置']/ancestor::ul")
+    private WebElement configs;
+
+    @FindBy(className = "el-textarea__inner")
+    private WebElement spl;
+
+    @FindBy(xpath = "(//*[@class='el-dialog__body']/following-sibling::div//button/span[contains(text(),'确定')])[last()]")
+    private WebElement settingEnsure;
+
+    @FindBy(xpath = "//*[@class='img iconfont icon-shanchuxuanting_icon el-tooltip']")
+    private WebElement deleteChart;
+
+    @FindBy(xpath = "//div[text()='是否删除图表?']/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
+    private WebElement ensureDeleteChart;
+
+    public WebElement getEnsureDeleteChart() {
+        return ensureDeleteChart;
+    }
+
+    public WebElement getDeleteChart() {
+        return deleteChart;
+    }
+
+    public WebElement getSettingEnsure() {
+        return settingEnsure;
+    }
+
+    public WebElement getSpl() {
+        return spl;
+    }
+
+    public WebElement getConfigs() {
+        return configs;
+    }
 
     public List<WebElement> getTableList() {
         return tableList;
     }
 
     public WebElement getChartSetting() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,ExpectedConditions.elementToBeClickable(chartSetting));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(chartSetting));
         return chartSetting;
     }
 

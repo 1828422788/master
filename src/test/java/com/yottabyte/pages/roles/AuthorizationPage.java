@@ -46,7 +46,8 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "el-input__inner")
     private WebElement maxTime;
 
-    @FindBy(xpath = "(//div[@class='el-checkbox-group'])[last()]")
+//    @FindBy(xpath = "(//div[@class='el-checkbox-group'])[last()]")
+    @FindBy(className = "url-checkbox")
     private WebElement checkboxGroup;
 
     @FindBy(xpath = "//label[contains(text(),'最大搜索时长')]/following-sibling::div//input")
