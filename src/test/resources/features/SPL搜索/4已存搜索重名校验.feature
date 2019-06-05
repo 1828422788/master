@@ -1,4 +1,4 @@
-@spl @all @test @splSmoke @smoke
+@spl @all @splSmoke @smoke
 Feature: 已存搜索重名校验
 
   Background:
