@@ -1,4 +1,4 @@
-@topology @all @smoke @topologySmoke
+#@topology @all @smoke @topologySmoke
 Feature: 拓扑图分组（RZY-353）
 
   Background:
