@@ -8,9 +8,9 @@ Feature: 仪表盘删除（RZY-214）
     Then I will see the success message "仪表盘删除成功"
 
     Examples:
-      | name           |
-      | autotestRename |
-      | UIautotest     |
+      | name       |
+      | UI自动化创建    |
+      | UIautotest |
 
   @cleanFirst
     Examples:

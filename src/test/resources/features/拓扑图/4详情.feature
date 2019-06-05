@@ -332,7 +332,7 @@ Feature: 拓扑图详情页
     Then I click the "TopValueButton" button
     Then I set the parameter "TextArea" with value "tag:"sample04061424_display" | timechart sep="-sep分格-" format="$VAL-分格2-$AGG" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype="area" count() min(apache.resp_len) by apache.status"
     Then I click the "DateEditor" button
-    And I click the "LastMonth" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I click the "OpenChart" button
     And I choose the "曲线图" from the "ChartType"

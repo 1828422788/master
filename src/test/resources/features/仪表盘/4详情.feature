@@ -95,22 +95,10 @@ Feature: 仪表盘详情页
       | tagName | num   |
       | second  | [ 1 ] |
 
-  Scenario Outline: 添加过滤项以及输入项失败
-    Given I click the "AddEventButton" button
-    And I choose the "<eventList>" from the "EventList"
-    And I set the parameter "<titleName>" with value "<title>"
-    And I click the "<ensure>" button
-    Then I will see the success message "<message>"
-
-    Examples:
-      | eventList | titleName   | title | ensure             | message     |
-      | 添加过滤项     | FilterTitle |       | EnsureCreateFilter | 请输入过滤项标题    |
-      | 添加输入项     | InputTitle  |       | EnsureCreateInput  | 请输入输入项标题    |
-      | 添加过滤项     | FilterTitle | test  | EnsureCreateFilter | 请输入过滤项标识    |
-      | 添加输入项     | InputTitle  | test  | EnsureCreateInput  | 请输入输入项token |
-
   @dashboardSmoke
   Scenario Outline: 添加动态菜单类型的过滤项（RZY-258）
+    When I set the parameter "TagName" with value "second"
+    And I click the "EnsureCreateTagButton" button
     Given I click the "AddEventButton" button
     And I choose the "<eventList>" from the "EventList"
     And I set the parameter "FilterTitle" with value "<title>"
@@ -129,3 +117,17 @@ Feature: 仪表盘详情页
     Examples:
       | eventList | title | token     | field | inputType | dynamicField | search                        | choiceValue |
       | 添加过滤项     | test  | testtoken |       | 动态菜单      | appname      | * \| stats count() by appname | java        |
+
+  Scenario Outline: 添加过滤项以及输入项失败
+    Given I click the "AddEventButton" button
+    And I choose the "<eventList>" from the "EventList"
+    And I set the parameter "<titleName>" with value "<title>"
+    And I click the "<ensure>" button
+    Then I will see the success message "<message>"
+
+    Examples:
+      | eventList | titleName   | title | ensure             | message     |
+      | 添加过滤项     | FilterTitle |       | EnsureCreateFilter | 请输入过滤项标题    |
+      | 添加输入项     | InputTitle  |       | EnsureCreateInput  | 请输入输入项标题    |
+      | 添加过滤项     | FilterTitle | test  | EnsureCreateFilter | 请输入过滤项标识    |
+      | 添加输入项     | InputTitle  | test  | EnsureCreateInput  | 请输入输入项token |
