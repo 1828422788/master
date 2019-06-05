@@ -12,8 +12,9 @@ Feature: 事件操作删除（RZY-1391）
 
   @eventSmoke
     Examples:
-      | name     |
-      | AutoTest |
+      | name        |
+      | AutoTest    |
+      | 查看上下文sample |
 
   @clean @cleanSecond
     Examples:

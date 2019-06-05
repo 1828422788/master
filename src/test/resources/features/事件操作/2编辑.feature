@@ -62,9 +62,9 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "EventOperatorAutoTest" button
 
     Examples:
-      | displayMethod | screenshotName          |
-      | JSON          | 1379：事件操作-动作类型-展示方式JSON |
-      | XML           | 1380：事件操作-动作类型-展示方式XML  |
+      | displayMethod | 
+      | JSON          | 
+      | XML           | 
 
 
 
