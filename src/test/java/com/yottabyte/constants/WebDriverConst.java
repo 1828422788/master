@@ -3,7 +3,7 @@ package com.yottabyte.constants;
 public class WebDriverConst {
 
     // 等待元素的超时时间
-    public static final int WAIT_FOR_ELEMENT_TIMEOUT = 120 * 1000;
+    public static final int WAIT_FOR_ELEMENT_TIMEOUT = 200 * 1000;
 
     // 等待元素轮训查看的时间间隔
     public static final int WAIT_FOR_ELEMENT_POLLING_DURING = 100;

@@ -24,7 +24,5 @@ Feature: 已存搜索新建（RZY-150）
 
     Examples: 保存失败
       | splQuery                                    | name | group               | message                    |
-      | starttime=\"-2d/w\" endtime=\"now\" tag:ty* |      |                     | 请选择分组                      |
-      | starttime=\"-2d/w\" endtime=\"now\" tag:ty* | test |                     | 请选择分组                      |
+      | starttime=\"-2d/w\" endtime=\"now\" tag:ty* |      |                     | 没有参数, 参数：[name]\n错误码: FE_3 |
       | starttime=\"-2d/w\" endtime=\"now\" tag:ty* |      | default_SavedSearch | 没有参数, 参数：[name]\n错误码: FE_3 |
-

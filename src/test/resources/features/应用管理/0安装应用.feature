@@ -16,6 +16,7 @@ Feature: 应用安装（RZY-1988）
     And I click the "NextButton" button
     And I will see the "ResourcePreview" is "active"
     And I click the "NextButton" button
+    And I wait for loading invisible
     And I will see the element "ImportSuccess" name is "导入成功"
 
     Examples:
