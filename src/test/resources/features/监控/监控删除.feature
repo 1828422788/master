@@ -48,6 +48,15 @@ Feature: 监控删除
       | RZY-446：邮件监控      |
       | RZY-445：rsyslog监控 |
 
+  @alertSmoke
+    Examples:
+      | name              |
+      | RZY-434:字段统计监控步骤5 |
+      | RZY-434:字段统计监控步骤4 |
+      | RZY-434:字段统计监控步骤3 |
+      | RZY-434:字段统计监控步骤2 |
+      | RZY-434:字段统计监控步骤1 |
+
   @cleanSecond
   Scenario: 删除维护期
     Given open the "alert.MaintenancePage" page for uri "/alerts/maintenance/"

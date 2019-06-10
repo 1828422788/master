@@ -41,7 +41,8 @@ Feature: 监控新建字段统计（RZY-434）
     And I set the parameter "SearchContent" with value "*"
     And I switch the "AlertEnable" button to "disable"
     And I choose the "字段统计监控" from the "AlertTypes"
-    And I set the parameter "AlertPlanTimeInput" with value "<PlanTime>"
+    And I click the "AlertPlanCrontabButton" button
+    And I set the parameter "AlertPlanCrontabInput" with value "0 * * * * ?"
     And I set the parameter "AlertTriggerFieldsInput" with value "<AlertTriggerFields>"
     And I set the parameter "AlertTriggerInput" with value "<AlertTrigger>"
     And I choose the "小时内" from the "AlertTriggerHourOrMinute"
@@ -54,8 +55,8 @@ Feature: 监控新建字段统计（RZY-434）
     Then I will see the success message "保存成功"
 
     Examples:
-      | name              | PlanTime | AlertTriggerFields | AlertTrigger | AlertLevelInput | MiddleLevelInput | HighLevelInput |
-      | RZY-434:字段统计监控步骤2 | 2        | apache.resp_len    | 50           | 1000            | 2700             | 3000           |
-      | RZY-434:字段统计监控步骤3 | 5        | apache.resp_len    | 50           | 3000            | 4000             | 5000           |
-      | RZY-434:字段统计监控步骤4 | 5        | apache.resp_len    | 50           | 1               | 20               | 30             |
-      | RZY-434:字段统计监控步骤5 | 5        | apache.status      | 5            | 199             | 404              | 500            |
+      | name              | AlertTriggerFields | AlertTrigger | AlertLevelInput | MiddleLevelInput | HighLevelInput |
+      | RZY-434:字段统计监控步骤2 | apache.resp_len    | 50           | 1000            | 2700             | 3000           |
+      | RZY-434:字段统计监控步骤3 | apache.resp_len    | 50           | 3000            | 4000             | 5000           |
+      | RZY-434:字段统计监控步骤4 | apache.resp_len    | 50           | 1               | 20               | 30             |
+      | RZY-434:字段统计监控步骤5 | apache.status      | 5            | 199             | 404              | 500            |
