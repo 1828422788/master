@@ -64,7 +64,7 @@ Feature: 监控删除
     And I click the "EnsureDelete" button
     Then I will see the success message "删除成功"
 
-  @clean
+  @clean @alertSmoke
   Scenario Outline: 删除关联知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     When the data name is "<name>" then i click the "删除" button
