@@ -72,5 +72,14 @@ Feature: 监控删除
 
     Examples:
       | name              |
-      | AlertKnowledge    |
       | KnowledgeForAlert |
+
+  @clean
+  Scenario Outline: 删除关联知识
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    When the data name is "<name>" then i click the "删除" button
+    Then I click the "EnsureDeleteButton" button
+
+    Examples:
+      | name           |
+      | AlertKnowledge |

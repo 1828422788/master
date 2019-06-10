@@ -10,6 +10,7 @@ Feature: 监控人员处理情况
   Scenario Outline: 按名称搜索
     When I set the parameter "SearchInput" with value "<name>"
     And I click the "SearchButton" button
+    And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
