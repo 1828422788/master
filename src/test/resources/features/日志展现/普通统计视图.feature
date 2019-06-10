@@ -2,6 +2,7 @@ Feature: 普通统计视图
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: 事件计数统计sample（RZY-807至810）
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
