@@ -43,7 +43,7 @@ Feature: 趋势图新建
   @first @trendSmoke
     Examples:
       | name       | spl                                                                          | chart | chartType | reportName   | hour | minute |
-      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     |
+#      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     |
       | 柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Column    | 柱状图sample1报表 | 12   | 05     |
 
   @all @smoke @trendSmoke @trend

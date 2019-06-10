@@ -241,6 +241,7 @@ Feature: 字段提取新建
   @configsSmoke
   Scenario Outline: 搜索页验证
     When open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
