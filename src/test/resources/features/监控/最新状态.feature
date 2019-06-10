@@ -88,12 +88,12 @@ Feature: 监控最新状态
     And I click the first checkbox in table
     And I click the "MarkDropdown" button
     And I click the "<mark>" button
-    Then I will see the success message "处理成功"
+    Then I will see the success message "<message>"
 
     Examples:
-      | mark   |
-      | Deal   |
-      | Ignore |
+      | mark   | message |
+      | Deal   | 处理成功    |
+      | Ignore | 忽略成功    |
 
   @alertSmoke @third
   Scenario Outline: 处理意见关联知识（RZY-3004）
@@ -119,6 +119,8 @@ Feature: 监控最新状态
     And I click the "MarkDropdown" button
     And I click the "Deal" button
     And I will see the success message "处理成功"
+    And I refresh the website
+    And I accept alert window
 
     Examples:
       | name              |
