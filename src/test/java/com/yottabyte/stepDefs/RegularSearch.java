@@ -213,7 +213,7 @@ public class RegularSearch {
     }
 
     private List<WebElement> getTrList() {
-        List<WebElement> trList = webDriver.findElements(By.xpath("//table[@class='el-table__body']//tr"));
+        List<WebElement> trList = webDriver.findElements(By.xpath("//table[@class='el-table__body']//tr[not(@class='el-table__row divided-row')]"));
         // 列表下无数据则返回空
         if (trList.size() == 0 || trList.size() == 1 && "el-table__row no-data".equals(trList.get(0).getAttribute("class")))
             return null;

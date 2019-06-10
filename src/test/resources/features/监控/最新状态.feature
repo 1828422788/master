@@ -80,22 +80,6 @@ Feature: 监控最新状态
       | {'StatusDropdown':'待处理'} | AutoTestHandling   | Deal | 处理成功    | {'StatusDropdown':'已处理'} |
 
   @alertSmoke @third
-  Scenario Outline: 处理低级告警
-    Given I click the "LatestStatus" button
-    Then I will see the "alert.MonitorPage" page
-    When choose from "{'StatusDropdown':'待处理'}"
-    When choose from "{'GradeDropdown':'低'}"
-    And I click the first checkbox in table
-    And I click the "MarkDropdown" button
-    And I click the "<mark>" button
-    Then I will see the success message "<message>"
-
-    Examples:
-      | mark   | message |
-      | Deal   | 处理成功    |
-      | Ignore | 忽略成功    |
-
-  @alertSmoke @third
   Scenario Outline: 处理意见关联知识（RZY-3004）
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
@@ -154,41 +138,41 @@ Feature: 监控最新状态
       | dropdownMenu             | handlingSuggestion |
       | {'StatusDropdown':'已处理'} | already done       |
 
-  @alertSmoke @third
-  Scenario Outline: 修改处理意见、关联知识并验证是否保存成功
-    Given I click the "LatestStatus" button
-    Then I will see the "alert.MonitorPage" page
-    When choose from "{'StatusDropdown':'已处理'}"
-    And I click the "Handled" button
-    And I click the "EditButton" button
-    And I click the "LinkKnowledge" button
-    And I click the "ArrowDown" button
-    And I click the "CreateKnowledge" button
-    And switch to another window
-    Then I will see the "knowledge.ListPage" page
-    When I set the parameter "EventCode" with value "<name>"
-    And I set the parameter "Describe" with value "AutoTest"
-    And I click the "Confirm" button
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
-    Given open the "alert.MonitorPage" page for uri "/alerts/monitors/"
-    When choose from "{'StatusDropdown':'已处理'}"
-    And I click the "Handled" button
-    And I click the "EditButton" button
-    And I click the "LinkKnowledge" button
-    And I click the "ArrowDown" button
-    And I click the "KnowledgeForAlert" button
-    And I click the "AlertKnowledge" button
-    Then I display the element "KnowledgeList"
-    And I click the "SaveKnowledge" button
-    And I click the "Check" button
-    And I will see the success message "保存成功"
-    And I refresh the website
-    When choose from "{'StatusDropdown':'已处理'}"
-    Then I will see the element "KnowledgeLists" value is "KnowledgeForAl...,AlertKnowledge"
-
-    Examples:
-      | name           |
-      | AlertKnowledge |
+#  @alertSmoke @third
+#  Scenario Outline: 修改处理意见、关联知识并验证是否保存成功
+#    Given I click the "LatestStatus" button
+#    Then I will see the "alert.MonitorPage" page
+#    When choose from "{'StatusDropdown':'已处理'}"
+#    And I click the "Handled" button
+#    And I click the "EditButton" button
+#    And I click the "LinkKnowledge" button
+#    And I click the "ArrowDown" button
+#    And I click the "CreateKnowledge" button
+#    And switch to another window
+#    Then I will see the "knowledge.ListPage" page
+#    When I set the parameter "EventCode" with value "<name>"
+#    And I set the parameter "Describe" with value "AutoTest"
+#    And I click the "Confirm" button
+#    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+#    Given open the "alert.MonitorPage" page for uri "/alerts/monitors/"
+#    When choose from "{'StatusDropdown':'已处理'}"
+#    And I click the "Handled" button
+#    And I click the "EditButton" button
+#    And I click the "LinkKnowledge" button
+#    And I click the "ArrowDown" button
+#    And I click the "KnowledgeForAlert" button
+#    And I click the "AlertKnowledge" button
+#    Then I display the element "KnowledgeList"
+#    And I click the "SaveKnowledge" button
+#    And I click the "Check" button
+#    And I will see the success message "保存成功"
+#    And I refresh the website
+#    When choose from "{'StatusDropdown':'已处理'}"
+#    Then I will see the element "KnowledgeLists" value is "KnowledgeForAl...,AlertKnowledge"
+#
+#    Examples:
+#      | name           |
+#      | AlertKnowledge |
 
   @alertSmoke @third
   Scenario Outline: 按分组和状态搜索，并验证搜索结果和搜索内容是否一致（RZY-462、RZY-464）
@@ -252,3 +236,19 @@ Feature: 监控最新状态
     Then I will see the "alert.MonitorPage" page
     When I click the "ReturnToAlertPage" button
     Then the page's title will be "监控"
+
+  @alertSmoke @third
+  Scenario Outline: 处理低级告警
+    Given I click the "LatestStatus" button
+    Then I will see the "alert.MonitorPage" page
+    When choose from "{'StatusDropdown':'待处理'}"
+    When choose from "{'GradeDropdown':'低'}"
+    And I click the first checkbox in table
+    And I click the "MarkDropdown" button
+    And I click the "<mark>" button
+    Then I will see the success message "<message>"
+
+    Examples:
+      | mark   | message |
+      | Deal   | 处理成功    |
+      | Ignore | 忽略成功    |
