@@ -2,6 +2,7 @@ Feature: 日志展现
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
 
   @logDisplay
   Scenario Outline: 内置字段不可移除（取消内置字段的星号）（RZY-207）
