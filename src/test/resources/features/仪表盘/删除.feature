@@ -1,5 +1,5 @@
 @cleanDashboard
-Feature: 仪表盘删除（RZY-214）
+Feature: 仪表盘删除
 
   Scenario Outline:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

@@ -16,6 +16,7 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -35,6 +36,7 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -54,6 +56,7 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

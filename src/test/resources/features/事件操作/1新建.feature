@@ -34,6 +34,7 @@ Feature: 事件操作新建（RZY-1387）
     And I click the "CreateButton" button
     Then I will see the success message "<message>"
     And open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -43,7 +44,6 @@ Feature: 事件操作新建（RZY-1387）
     And I click the "ContextSample" button
     And switch to another window
     Then the page's title will be "上下文检索"
-    Then take a screenshot with name "RZY-2817：事件操作-查看上下文sample"
 
     Examples:
       | name        | url                                                                                                                                                                            | message |
