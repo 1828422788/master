@@ -12,6 +12,13 @@ public class WorkLoadPage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='输入姓名']")
     private WebElement searchInput;
 
+    @FindBy(xpath = "//i[@class='el-input__icon el-icon-search is-clickable']")
+    private WebElement searchButton;
+
+    public WebElement getSearchButton() {
+        return searchButton;
+    }
+
     @Override
     public WebElement getSearchInput() {
         return searchInput;
