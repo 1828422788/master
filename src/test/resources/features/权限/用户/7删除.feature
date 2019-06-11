@@ -12,7 +12,7 @@ Feature: 用户删除
     Examples:
       | name                   |
       | SuccessEditAutoTest    |
-      | AutoTestForSavedSearch |
+#      | AutoTestForSavedSearch |
 
   Scenario: 删除用户分组
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"

@@ -53,7 +53,7 @@ Feature: 用户编辑（RZY-1554）
 
     Examples:
       | UserName            | NewUserName | Email                            | message             |
-      | SuccessEditAutoTest | user        | AutoTestForUserEdit@yottabyte.cn | 用户名已存在\n错误码: FE_532 |
+      | SuccessEditAutoTest | username    | AutoTestForUserEdit@yottabyte.cn | 用户名已存在\n错误码: FE_532 |
 
   Scenario Outline: 编辑用户验证邮箱
     When I click the detail which name is "{'column':'1','name':'<UserName>'}"

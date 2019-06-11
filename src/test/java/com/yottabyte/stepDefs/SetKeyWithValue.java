@@ -63,4 +63,11 @@ public class SetKeyWithValue {
         String property = config.get(properties);
         this.iSetTheParameterWithValue(element, property);
     }
+
+    @And("^I set the parameter \"([^割]*)\" to json editor$")
+    public void iSetTheParameterToJsonEditor(String value) {
+        WebElement element = webDriver.findElement(By.id("jsoneditor"));
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].innerHTML='" + value + "'", element);
+//        ((JavascriptExecutor) webDriver).executeScript("arguments[0].contentWindow.document.body.innerHTML", element);
+    }
 }

@@ -37,7 +37,7 @@ Feature: 用户新建（RZY-1164）
     Examples:
       | UserName               | FullName               | Email                               | Telephone | Password   | UserGroups | Result                 |
       | AutoTestForEdit        | autoTestFullName       | autoTestForEdit@yottabyte.cn        |           | qqqqq11111 | admin      | success message "创建成功" |
-      | AutoTestForSavedSearch | AutoTestForSavedSearch | AutoTestForSavedSearch@yottabyte.cn |           | qqqqq11111 | admin      | success message "创建成功" |
+#      | AutoTestForSavedSearch | AutoTestForSavedSearch | AutoTestForSavedSearch@yottabyte.cn |           | qqqqq11111 | admin      | success message "创建成功" |
 
     Examples: 添加用户失败
       | UserName | FullName         | Email                     | Telephone   | Password          | UserGroups | Result                              |

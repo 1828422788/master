@@ -162,6 +162,85 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='是否删除图表?']/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
     private WebElement ensureDeleteChart;
 
+    @FindBy(className = "icon-leixing_icon")
+    private WebElement type;
+
+    @FindBy(xpath = "(//*[@class='option-img single'])[last()]")
+    private WebElement single;
+
+    @FindBy(xpath = "//*[@class='img iconfont icon-shezhi_icon']")
+    private WebElement setting;
+
+    @FindBy(xpath = "//div[@class='settings-content']//i")
+    private WebElement fieldValue;
+
+    @FindBy(className = "widget-chart-settings-content")
+    private WebElement content;
+
+    @FindBy(className = "icon-gengduopeizhi")
+    private WebElement config;
+
+    @FindBy(tagName = "textarea")
+    private WebElement textarea;
+
+    @FindBy(xpath = "//span[text()='高级编辑']")
+    private WebElement edit;
+
+    @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
+    private WebElement ensureEdit;
+
+    @FindBy(className = "trend-title")
+    private WebElement trendTitle;
+
+    public WebElement getTrendTitle() {
+        return trendTitle;
+    }
+
+    public WebElement getCheck() {
+        return super.getContainsTextButton("校验");
+    }
+
+    public WebElement getEnsureEdit() {
+        return ensureEdit;
+    }
+
+    public WebElement getEdit() {
+        return edit;
+    }
+
+    public WebElement getTextarea() {
+        return textarea;
+    }
+
+    public WebElement getConfig() {
+        return config;
+    }
+
+    public WebElement getContent() {
+        return content;
+    }
+
+    public WebElement getGenerate() {
+        return super.getContainsTextButton("生成");
+    }
+
+    public WebElement getFieldValue() {
+        fieldValue.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getSetting() {
+        return setting;
+    }
+
+    public WebElement getSingle() {
+        return single;
+    }
+
+    public WebElement getType() {
+        return type;
+    }
+
     public WebElement getEnsureDeleteChart() {
         return ensureDeleteChart;
     }

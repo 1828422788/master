@@ -133,3 +133,20 @@ Feature: 仪表盘配置
     And I click the "NextButton" button
     And I click the "Save" button
     Then I will see the success message "保存成功"
+
+#  Scenario: RZY-1278:title字段
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I click the detail which name is "UI自动化创建"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "Type" button
+#    And I click the "Single" button
+#    And I click the "Setting" button
+#    And I choose the "ts" from the "FieldValue"
+#    And I click the "Generate" button
+#    And I display the element "Content"
+#    And I click the "Config" button
+#    And I click the "Edit" button
+#    And I set the parameter "{\"title\": \"趋势图1\",\"description\": \"AutoCreate\",\"row\": 1,\"column\": 1,\"sizex\": 12,\"sizey\": 4,\"search\": {\"query\": \"(appname:${double_quotation|d})  |bucket timestamp span=6h as ts |stats count(\'tag\') as \'tag\' by ts\",\"startTime\": \"now/d\",\"endTime\": \"now\"},\"chart\": {\"chartType\": \"table\"}}" to json editor
+#    And I click the "Check" button
+#    And I click the "EnsureEdit" button
+#    Then I will see the element "TrendTitle" name is "趋势图"
