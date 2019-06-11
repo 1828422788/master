@@ -10,8 +10,9 @@ Feature: 用户删除
     Then I will see the search result "{'column':'1','name':'<name>','contains':'no'}"
 
     Examples:
-      | name                |
-      | SuccessEditAutoTest |
+      | name                   |
+      | SuccessEditAutoTest    |
+      | AutoTestForSavedSearch |
 
   Scenario: 删除用户分组
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"

@@ -12,4 +12,3 @@ Feature: 用户清理
       | name                   |
       | AutoTestAllResource    |
       | AutoTest               |
-      | AutoTestForSavedSearch |
