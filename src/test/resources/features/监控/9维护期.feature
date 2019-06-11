@@ -20,10 +20,10 @@ Feature: 监控维护期
       | reason                         | group         |
       | RZY-2998:监控-维护期-执行计划-定时-每天9:00 | default_Alert |
 
-#  @smoke @alertSmoke
+  @smoke @alertSmoke
   Scenario Outline: 编辑维护期（修改影响涉及范围并检查）
     Given the data name is "<name>" then i click the "编辑" button
-    And I choose the "<group>" from the "Group"
+    And I click the "Single" button
     And I click the "StartTime" button
     And I click the "RightNow" button
     And I click the "EndTime" button
@@ -34,8 +34,8 @@ Feature: 监控维护期
     Then I will see the success message "保存成功"
 
     Examples:
-      | name     | group         |
-      | AutoTest | default_Alert |
+      | name                           |
+      | RZY-2998:监控-维护期-执行计划-定时-每天9:00 |
 
   Scenario Outline: 新建维护期失败（为空校验）
     Given I click the "Create" button
