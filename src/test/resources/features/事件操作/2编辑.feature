@@ -3,10 +3,10 @@ Feature: 事件操作编辑（RZY-1390）
 
   Background:
     Given open the "event.ListPage" page for uri "/event/action/"
-    And the data name is "AutoTest" then i click the "编辑" button
-    Then I will see the "event.CreatePage" page
 
   Scenario Outline: 链接类型（RZY-1377）
+    And the data name is "AutoTest" then i click the "编辑" button
+    Then I will see the "event.CreatePage" page
     When I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Field" with value "<field>"
     And I choose the "<action>" from the "Action"
@@ -30,6 +30,8 @@ Feature: 事件操作编辑（RZY-1390）
       |       | logtype |        | Url       | https://www.baidu.com/s?wd=${logtype} | 当前窗口    |
 
   Scenario Outline: 搜索类型（RZY-1378）
+    And the data name is "AutoTest" then i click the "编辑" button
+    Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "<field>"
     And I choose the "<action>" from the "Action"
     And I set the parameter "<inputName>" with value "<url>"
@@ -52,7 +54,9 @@ Feature: 事件操作编辑（RZY-1390）
       | logtype | 搜索     | Spl       | hostname:${hostname} |
 
   Scenario Outline: 美化格式（RZY-1379，RZY-1388）
-    When I set the parameter "Field" with value "raw_message"
+    And the data name is "AutoTest" then i click the "编辑" button
+    Then I will see the "event.CreatePage" page
+    When I set the parameter "Field" with value "<name>"
     And I choose the "美化格式" from the "Action"
     And I choose the "<displayMethod>" from the "DisplayMethod"
     And I click the "SaveButton" button
@@ -68,9 +72,26 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "EventOperatorAutoTest" button
 
     Examples:
-      | displayMethod |
-      | JSON          |
-      | XML           | 
+      | name                             | displayMethod |
+      | raw_message                      | JSON          |
+      | raw_message,tag,hostname,logtype | XML           |
 
-
+  Scenario: RZY-1376:显示于-两者
+    When the data name is "查看上下文sample" then i click the "编辑" button
+    Then I will see the "event.CreatePage" page
+    When I set the parameter "Field" with value "raw_message"
+    And I choose the "两者" from the "Display"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+    And open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Given I set the parameter "SearchInput" with value "appname:xiaomi"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I click the "RightIcon" button
+    And I click the "EventOperate" button
+    Then I wait for "ContextSample" will be visible
+    And I click the "RawMessage" button
+    Then I wait for "ContextSample" will be visible
 
