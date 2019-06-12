@@ -48,4 +48,17 @@ public class OperateBrowser {
     public void acceptAlertWindow() {
         webDriver.switchTo().alert().accept();
     }
+
+    @And("^switch to window \"([^\"]*)\"$")
+    public void switchToWindow(String titleName) {
+        String handle = webDriver.getWindowHandle();
+        for (String handles : webDriver.getWindowHandles()) {
+            if (handles.equals(handle))
+                continue;
+
+            webDriver.switchTo().window(handles);
+            if (webDriver.getTitle().contains(titleName))
+                break;
+        }
+    }
 }
