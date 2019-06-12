@@ -13,13 +13,13 @@ Feature: 监控最新状态
     Then I will see the result time in "{'column':'<num>','recently':'<searchTime>'}"
 
     Examples:
-      | time       | num | searchTime |
+      | time      | num | searchTime |
 #      | TenMinutes | 5   | 10m        |
-      | HalfHour   | 5   | 30m        |
-      | OneHour    | 5   | 1h         |
-      | OneDay     | 5   | 1d         |
-      | TwoDays    | 5   | 2d         |
-      | SevenDays  | 5   | 7d         |
+      | HalfHour  | 5   | 30m        |
+      | OneHour   | 5   | 1h         |
+      | OneDay    | 5   | 1d         |
+      | TwoDays   | 5   | 2d         |
+      | SevenDays | 5   | 7d         |
 
   @alertSmoke @third
   Scenario Outline: 按等级搜索（RZY-463）
@@ -178,7 +178,10 @@ Feature: 监控最新状态
   Scenario Outline: 按分组和状态搜索，并验证搜索结果和搜索内容是否一致（RZY-462、RZY-464）
     Given I click the "LatestStatus" button
     And I will see the "alert.MonitorPage" page
-    Then search from "<dropdownMenu>" then I will see the result "{'column':'<num>','name':'<name>'}"
+    And choose from "<dropdownMenu>"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'<num>','name':'<name>'}"
+#    Then search from "<dropdownMenu>" then I will see the result "{'column':'<num>','name':'<name>'}"
 
     Examples:
       | dropdownMenu                      | num | name          |
