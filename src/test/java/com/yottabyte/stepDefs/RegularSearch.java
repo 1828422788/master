@@ -98,7 +98,7 @@ public class RegularSearch {
                 if (actualText.equals(""))
                     return;
                 if (resultMap.containsKey("contains"))
-                    Assert.assertNotEquals(expectText,actualText);
+                    Assert.assertNotEquals(expectText, actualText);
 //                    Assert.assertFalse(actualText.equals(expectText));
                 else
                     Assert.assertTrue(actualText.toLowerCase().contains(expectText.toLowerCase()));
@@ -244,6 +244,9 @@ public class RegularSearch {
     private void compareTime(String actual, long expect) {
         long actualDate = ParsingString.getLongDate(actual);
         long currentDate = new Date().getTime();
+        System.out.println("!!!!!!!!!actualDate!!!!!!!!!!" + actualDate);
+        System.out.println("!!!!!!!!!currentDate!!!!!!!!!!" + currentDate);
+        System.out.println("!!!!!!!!!expect!!!!!!!!!!" + expect);
         Assert.assertTrue(actualDate >= expect && actualDate <= currentDate);
     }
 

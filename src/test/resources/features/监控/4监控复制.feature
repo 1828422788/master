@@ -1,4 +1,4 @@
-#@alert @alertSmoke @second
+@alert @alertSmoke @second
 Feature: 监控复制
 
   Background:
@@ -11,9 +11,5 @@ Feature: 监控复制
     Then I will see the search result contains "{'column':'0','name':'<name>(副本)'}"
 
     Examples:
-      | name                   |
-      | RZY-2468:新建监控类型-字段统计监控 |
-      | RZY-2478:新建监控类型-事件数监控  |
-      | RZY-2478:新建监控类型-事件数监控  |
-      | RZY-2478:新建监控类型-事件数监控  |
-      | RZY-436：SPL统计监控步骤1     |
+      | name              |
+      | RZY-434:字段统计监控步骤5 |

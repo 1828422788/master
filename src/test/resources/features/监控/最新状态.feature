@@ -14,7 +14,7 @@ Feature: 监控最新状态
 
     Examples:
       | time       | num | searchTime |
-      | TenMinutes | 5   | 10m        |
+#      | TenMinutes | 5   | 10m        |
       | HalfHour   | 5   | 30m        |
       | OneHour    | 5   | 1h         |
       | OneDay     | 5   | 1d         |

@@ -1,4 +1,4 @@
-#@alert @alertSmoke @third
+@alert @alertSmoke @third
 Feature: 监控分组
 
   Background:
@@ -11,5 +11,5 @@ Feature: 监控分组
     Then I will see the success message "保存成功"
 
     Examples:
-      | name                   |
-      | RZY-436：SPL统计监控步骤1(副本) |
+      | name                  |
+      | RZY-434:字段统计监控步骤5(副本) |
