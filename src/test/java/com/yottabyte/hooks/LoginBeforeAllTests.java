@@ -1,11 +1,9 @@
 package com.yottabyte.hooks;
 
 import com.yottabyte.config.ConfigManager;
-import com.yottabyte.entity.Account;
 import com.yottabyte.pages.LoginPage;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.pages.saas.SaasLoginPage;
-import com.yottabyte.utils.JdbcUtils;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.Before;
 import org.openqa.selenium.Cookie;
@@ -14,11 +12,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 public class LoginBeforeAllTests {
     private static WebDriver webDriver;
