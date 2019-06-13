@@ -21,6 +21,7 @@ Feature: 用户分组（RZY-1167）
     And I choose the "admin" from the "UserGroupOwner"
     And I choose the "admin" from the "UserGroupRole"
     And I click the "CreateButton" button
+    Then I wait for "SuccessMessage" will be visible
     Given open the "users.ListPage" page for uri "/account/users/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "分组" button
     And I choose the "TempGroup" from the "UserGroups"
