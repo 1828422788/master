@@ -26,6 +26,7 @@ Feature: 监控最新状态
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When choose from "<dropdownMenu>"
+    And I wait for loading invisible
     Then I will see the alert grade is "<gradeColour>"
 
     Examples:
