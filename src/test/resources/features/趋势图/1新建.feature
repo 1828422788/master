@@ -25,7 +25,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<reportName>"
     And I set the parameter "Describe" with value "AutoTest"
@@ -43,7 +43,7 @@ Feature: 趋势图新建
   @first @trendSmoke
     Examples:
       | name       | spl                                                                          | chart | chartType | reportName   | hour | minute |
-#      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     |
+      | 曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     |
       | 柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Column    | 柱状图sample1报表 | 12   | 05     |
 
   @all @smoke @trendSmoke @trend
@@ -220,7 +220,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<reportName>"
     And I set the parameter "Describe" with value "AutoTest"
@@ -267,7 +267,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<reportName>"
     And I set the parameter "Describe" with value "AutoTest"
@@ -316,7 +316,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<reportName>"
     And I set the parameter "Describe" with value "AutoTest"
@@ -355,7 +355,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>报表"
     And I set the parameter "Describe" with value "AutoTest"
@@ -412,7 +412,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "攻击地图sample1报表"
     And I set the parameter "Describe" with value "AutoTest"
@@ -496,7 +496,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "区划地图sample1报表"
     And I set the parameter "Describe" with value "AutoTest"
@@ -572,7 +572,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "单值sample1报表"
     And I set the parameter "Describe" with value "AutoTest"
@@ -684,7 +684,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>报表"
     And I set the parameter "Describe" with value "AutoTest"
@@ -772,7 +772,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>报表"
     And I set the parameter "Describe" with value "AutoTest"
@@ -849,7 +849,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>报表"
     And I set the parameter "Describe" with value "AutoTest"
@@ -1095,7 +1095,7 @@ Feature: 趋势图新建
     And take part of "Canvas" with name "trend/<name>"
     And I click the "Save" button
     And I click the "Report" button
-    And switch to another window
+    And switch to window "报表"
     And I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>报表"
     And I set the parameter "Describe" with value "AutoTest"
