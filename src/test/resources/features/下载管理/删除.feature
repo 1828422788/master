@@ -1,5 +1,5 @@
 @offlineTask @offlineTaskSmoke
-Feature: 下载删除（RZY-175）
+Feature: 下载任务删除（RZY-175）
 
   Background:
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/"
