@@ -34,6 +34,7 @@ Feature: 资源分组导入
     And I set the parameter "GroupNameInput" with value "<groupNameInput>"
     And I click the "ConfirmButton" button
     And I wait for "1000" millsecond
+    And I click the "<groupNameInput>" button
     And I click the "NextButton" button
     And I wait for "1000" millsecond
     And I click the "NextButton" button

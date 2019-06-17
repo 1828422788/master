@@ -131,6 +131,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'全部分组类型')]/ancestor::ul")
     private WebElement searchDropdown;
 
+    @FindBy(xpath = "//span[contains(text(),'sunxjAutoTest')]/ancestor::td/preceding-sibling::td//label")
+    private WebElement sunxjAutoTest;
+
+    public WebElement getSunxjAutoTest() {
+        return sunxjAutoTest;
+    }
+
     public WebElement getUploadAndDownloadButton() {
         return uploadAndDownloadButton;
     }
