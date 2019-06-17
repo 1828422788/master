@@ -1,4 +1,4 @@
-@clean @cleanSecond
+@clean @cleanSecond @cleanIndex
 Feature: topic删除（RZY-2429）
 
   Background:

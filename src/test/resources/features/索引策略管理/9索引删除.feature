@@ -1,4 +1,4 @@
-@clean @cleanSecond
+@clean @cleanSecond @cleanIndex
 Feature: 索引信息删除（RZY-1476）
 
   Background:

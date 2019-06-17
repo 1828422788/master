@@ -1,4 +1,4 @@
-@clean @cleanSecond
+@clean @cleanSecond @cleanIndex
 Feature: 路由删除（RZY-1482）
 
   Background:
