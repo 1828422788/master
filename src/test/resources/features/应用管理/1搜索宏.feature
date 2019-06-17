@@ -30,12 +30,12 @@ Feature: 应用搜索宏（RZY-2126）
   Scenario: 按分组搜索搜索宏
     When I choose the "AutoTestRoleWithAllResource" from the "GroupList"
     And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'AutoApp'}"
+    Then I will see the search result contains "{'column':'0','name':'AutoApp'}"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTest...pWithAllResources"
 
   Scenario: 按名称搜索搜索宏
-    When I set the parameter "SearchInput" with value "Auto"
+    When I set the parameter "SearchInput" with value "AutoApp"
     And I click the "Search" button
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'AutoApp'}"
