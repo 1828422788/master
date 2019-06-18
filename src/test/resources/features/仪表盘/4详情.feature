@@ -87,7 +87,7 @@ Feature: 仪表盘详情页
   Scenario Outline: 标签页删除
     When I set the parameter "TagName" with value "<tagName>"
     And I click the "EnsureCreateTagButton" button
-    And  I wait for loading invisible
+    And I wait for "Main" will be visible
     When I click the "CloseTag" button
     And I will see the "DropDownLinkButton" result will be "<num>"
     And I click the "DeleteTag" button
