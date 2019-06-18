@@ -6,14 +6,15 @@ Feature: 定时任务查询
 
   Scenario Outline: 根据定时任务分组进行查询
     Given I choose the "<group>" from the "GroupList"
-    Then I will see the search result "{'column':'0','name':'<name>'}"
+    Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
       | group                 | name                       |
-      | default_SavedSchedule | RZY-396:定时任务_sample_表格_近一天 |
+      | default_SavedSchedule | RZY-397:定时任务sample_昨天(副本) |
 
   Scenario Outline: 根据搜索内容进行查询
     Given I set the parameter "SearchInput" with value "<inputName>"
+    And I click the "SearchIcon" button
     Then I will see the list of "" contains "" or I see the "Names" contains "<inputName>"
 
     Examples:
