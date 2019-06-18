@@ -13,3 +13,4 @@ Feature: 监控复制
     Examples:
       | name              |
       | RZY-434:字段统计监控步骤5 |
+      | RZY-434:字段统计监控步骤1 |
