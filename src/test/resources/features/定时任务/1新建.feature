@@ -266,6 +266,7 @@ Feature: 定时任务新增
     Then I will see the "trend.CreatePage" page
     And I click the "Other" button
     And I click the "Tracing" button
+    And I wait for loading invisible
     And I click the "Setting" button
     And I choose the "dapper.class" from the "SettingSelect"
     And I choose the "dapper.msg.parentId" from the "ParentId"
@@ -282,7 +283,7 @@ Feature: 定时任务新增
     And I set the parameter "TaskName" with value "RZY-2956:task_其它_调用链_sample"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0/600 * * * ?"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
