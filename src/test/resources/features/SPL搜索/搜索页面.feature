@@ -9,6 +9,7 @@ Feature: 搜索页面输入SPL语句，检查搜索完成后的事件数
     And I click the "LoginButton" button
     And I wait for "1000" millsecond
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   @second
   Scenario Outline:RZY-2959、2960:搜索其他域索引数据
