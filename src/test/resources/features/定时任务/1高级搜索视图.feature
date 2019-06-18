@@ -268,7 +268,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
 
   @second
   Scenario: 调用链（RZY-2812、2814）
-    When I set the parameter "SearchInput" with value "tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:>0  | table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp"
+    When I set the parameter "SearchInput" with value "tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:>0 | table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -919,7 +919,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "SecondPosition" button
     And I click the "Exhibition" button
     And I click the "StartColour" button
-    And I click the "Green" button
+    And I click the "LightGreen" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
     Then take a screenshot with name "RZY-2809:其它_漏斗图1"

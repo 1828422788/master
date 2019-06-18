@@ -341,6 +341,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[@style='background: rgb(37, 155, 36);'])[last()]/ancestor::li")
     private WebElement green;
 
+    @FindBy(xpath = "(//span[@style='background: rgb(83, 196, 27);'])[last()]/ancestor::li")
+    private WebElement lightGreen;
+
     @FindBy(xpath = "(//span[@style='background: rgb(255, 235, 59);'])[last()]/ancestor::li")
     private WebElement yellow;
 
@@ -458,6 +461,10 @@ public class CreatePage extends PageTemplate {
     public WebElement getShowLabel() {
         showLabel.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getLightGreen() {
+        return lightGreen;
     }
 
     public WebElement getOrder() {
