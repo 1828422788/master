@@ -192,6 +192,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "trend-title")
     private WebElement trendTitle;
 
+    @FindBy(xpath = "//span[text()='second'][@class='main']")
+    private WebElement main;
+
+    public WebElement getMain() {
+        return main;
+    }
+
     public WebElement getTrendTitle() {
         return trendTitle;
     }

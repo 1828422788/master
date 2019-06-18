@@ -38,6 +38,7 @@ Feature: 仪表盘详情页
     And I click the "AddTag" button
     When I set the parameter "TagName" with value "second"
     And I click the "EnsureCreateTagButton" button
+    And I wait for "Main" will be visible
 
   @dashboardSmoke
   Scenario Outline: 移出标签页（RZY-230）
@@ -46,8 +47,8 @@ Feature: 仪表盘详情页
     And I click the "EnsureMoveTagButton" button
     And I refresh the website
     And open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I will see the data "<dashboardName>" values "{'column':'2','name':'first'}"
-    Then I will see the data "sxjautotest" values "{'column':'2','name':'second'}"
+    Then I will see the data "<dashboardName>" values "{'column':'2','name':'second'}"
+    Then I will see the data "sxjautotest" values "{'column':'2','name':'first'}"
 
     Examples:
       | dashboardName |
@@ -80,7 +81,7 @@ Feature: 仪表盘详情页
 
     Examples:
       | tagName | num   | dashboardName |
-      | second  | [ 1 ] | UIautotest    |
+      | first   | [ 1 ] | UIautotest    |
 
   @dashboardSmoke
   Scenario Outline: 标签页删除
