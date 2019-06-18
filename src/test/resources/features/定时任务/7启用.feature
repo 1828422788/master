@@ -6,7 +6,7 @@ Feature: 定时任务启用（RZY-414、RZY-415）
 
   Scenario Outline:
     Then I disabled the data "<name>"
-    Then I will see the success message "<message>"
+#    Then I will see the success message "<message>"
 
     Examples:
       | name                              |
