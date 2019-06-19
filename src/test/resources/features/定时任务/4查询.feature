@@ -15,6 +15,7 @@ Feature: 定时任务查询
   Scenario Outline: 根据搜索内容进行查询
     Given I set the parameter "SearchInput" with value "<inputName>"
     And I click the "SearchIcon" button
+    And I wait for loading invisible
     Then I will see the list of "" contains "" or I see the "Names" contains "<inputName>"
 
     Examples:

@@ -3,6 +3,7 @@ Feature: 定时任务新增
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
 
   @first @timedTaskSmoke
   Scenario Outline: RZY-396:定时任务_sample_表格_近一天

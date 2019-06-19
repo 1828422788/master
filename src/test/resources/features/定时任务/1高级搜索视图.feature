@@ -3,6 +3,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: sample
     When I set the parameter "SearchInput" with value "<spl>"
