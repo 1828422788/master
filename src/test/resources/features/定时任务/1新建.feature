@@ -30,60 +30,6 @@ Feature: 定时任务新增
       | spl                                                                                                      | time  | taskName                   | period | startTime |
       | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today | RZY-396:定时任务_sample_表格_近一天 | 17     | 5         |
 
-  @third @timedTaskSmoke
-  Scenario Outline: RZY-403、404
-    Given I set the parameter "SearchInput" with value "<spl>"
-    And I choose the "所有日志" as log resource
-    And I click the "DateEditor" button
-    And I click the "<time>" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "<taskName>"
-    And I set the parameter "Describe" with value "testing 定时任务样例"
-    And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "Period" with value "<period>"
-    And I choose the "<unit>" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the time input "StartTomorrow" to "<startTime>" minutes later
-    And I click the "EnsureButton" button
-    And I display the element "TimePanel"
-    And I click the "Ensure" button
-    Then I will see the success message "保存成功"
-
-    Examples:
-      | spl                                                                                                      | time      | taskName            | period | unit | startTime |
-      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403:执行计划-定时_3小时 | 3      | 小时   | 1         |
-      | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404:执行计划-定时1天   | 1      | 天    | 2         |
-
-  Scenario Outline: RZY-2695:执行计划-crontab_57分钟
-    Given I set the parameter "SearchInput" with value "<spl>"
-    And I choose the "所有日志" as log resource
-    And I click the "DateEditor" button
-    And I click the "<time>" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "<taskName>"
-    And I set the parameter "Describe" with value "testing 定时任务样例"
-    And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "<crontab>"
-    And I click the "EnsureCrontab" button
-    Then I will see the success message "<message>"
-
-  @first @timedTaskSmoke
-    Examples:
-      | spl                                                          | time      | taskName                   | crontab        | message |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Yesterday | RZY-2695:执行计划-crontab_57分钟 | 0 */57 * * * ? | 保存成功    |
-
-    Examples:
-      | spl                                                          | time  | taskName | crontab | message                       |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     |         | crontab模式下, 执行计划不能为零或空        |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | test    | 无效参数, 参数：[crontab]\n错误码: FE_7 |
-      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | 测试      | 无效参数, 参数：[crontab]\n错误码: FE_7 |
-
   Scenario Outline: RZY-2450、397
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -116,6 +62,33 @@ Feature: 定时任务新增
       | spl                                                                                    | time      | chartType | chart  | taskName              | describe                 |
       | tag:sample04061424_chart \| stats count() by apache.resp_len                           | Yesterday |           | Line   | RZY-397:定时任务sample_昨天 | testing 定时任务样例           |
       | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10 | Today     | Other     | Funnel | chs_task_funnel       | RZY-2450:task_漏斗图_sample |
+
+  Scenario Outline: RZY-2695:执行计划-crontab_57分钟
+    Given I set the parameter "SearchInput" with value "<spl>"
+    And I choose the "所有日志" as log resource
+    And I click the "DateEditor" button
+    And I click the "<time>" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "<taskName>"
+    And I set the parameter "Describe" with value "testing 定时任务样例"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "<crontab>"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "<message>"
+
+  @first @timedTaskSmoke
+    Examples:
+      | spl                                                          | time      | taskName                   | crontab        | message |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Yesterday | RZY-2695:执行计划-crontab_57分钟 | 0 */57 * * * ? | 保存成功    |
+
+    Examples:
+      | spl                                                          | time  | taskName | crontab | message                       |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     |         | crontab模式下, 执行计划不能为零或空        |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | test    | 无效参数, 参数：[crontab]\n错误码: FE_7 |
+      | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | 测试      | 无效参数, 参数：[crontab]\n错误码: FE_7 |
 
   @smoke @timedTaskSmoke
   Scenario Outline: 生成图表类型的定时任务（RZY-1488、RZY-2296、RZY-2297、RZY-2298、RZY-2300）
@@ -287,6 +260,33 @@ Feature: 定时任务新增
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
+
+  @third @timedTaskSmoke
+  Scenario Outline: RZY-403、404
+    Given I set the parameter "SearchInput" with value "<spl>"
+    And I choose the "所有日志" as log resource
+    And I click the "DateEditor" button
+    And I click the "<time>" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "<taskName>"
+    And I set the parameter "Describe" with value "testing 定时任务样例"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "Period" with value "<period>"
+    And I choose the "<unit>" from the "ExecuteTime"
+    And I click the "StartTime" button
+    And I set the time input "StartTomorrow" to "<startTime>" minutes later
+    And I click the "EnsureButton" button
+    And I display the element "TimePanel"
+    And I click the "Ensure" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | spl                                                                                                      | time      | taskName            | period | unit | startTime |
+      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403:执行计划-定时_3小时 | 3      | 小时   | 1         |
+      | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404:执行计划-定时1天   | 1      | 天    | 2         |
 
   Scenario Outline: 生成定时任务失败
     Given I set the parameter "SearchInput" with value "<splQuery>"

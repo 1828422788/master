@@ -101,137 +101,6 @@ Feature: 高级搜索视图（截图并保存为定时任务）
       | spl                                                                                                                                                                                                                                          | chartType | chart     | caseNum | name |
       | * \| bucket timestamp span=3h as ts\| stats count(appname) as count_ by ts \| movingavg count_,5 as ma \| rollingstd count_,5 as rs\| eval lower=ma-3*rs\| eval upper=ma+3*rs \| eval outlier=if(count_>upper\|\|count_<lower, count_, null) | Compound  | Rangeline | 835     | 区间图  |
 
-  @third
-  Scenario: 曲线图（RZY-832）
-    When I set the parameter "SearchInput" with value "tag:sample04061424* | stats count(apache.clientip) as ip_count by appname | sort by ip_count"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "splSearch.StatisticalPage" page
-    And I click the "Type" button
-    Then I will see the "trend.CreatePage" page
-    And I click the "Line" button
-    And I click the "Setting" button
-    And I click the "Yaxis" button
-    And I set the parameter "Unit" with value "个"
-    And I click the "Smooth" button
-    And I click the "ConnectEmptyData" button
-    And I click the "Generate" button
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-832：日志展现-高级搜索视图-曲线图"
-    And I will see the "splSearch.SearchPage" page
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "RZY-2902:task_序列-曲线图"
-    And I set the parameter "Describe" with value "UIAutoCreate"
-    And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
-    And I click the "EnsureCrontab" button
-    Then I will see the success message "保存成功"
-
-  @third
-  Scenario: 面积图（RZY-2767）
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "splSearch.StatisticalPage" page
-    And I click the "Type" button
-    Then I will see the "trend.CreatePage" page
-    And I click the "Area" button
-    And I click the "Setting" button
-    And I click the "Group" button
-    And I click the "Pile" button
-    And I click the "Generate" button
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2767：日志展现-高级搜索视图-面积图"
-    And I will see the "splSearch.SearchPage" page
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "RZY-2904:task_序列-面积图"
-    And I set the parameter "Describe" with value "UIAutoCreate"
-    And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
-    And I click the "EnsureCrontab" button
-    Then I will see the success message "保存成功"
-
-  @third
-  Scenario: 柱状图（RZY-2773）
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "splSearch.StatisticalPage" page
-    And I click the "Type" button
-    Then I will see the "trend.CreatePage" page
-    And I click the "Column" button
-    And I click the "Setting" button
-    And I click the "Group" button
-    And I click the "Pile" button
-    And I click the "AddField" button
-    And I choose the "apache.clientip" from the "SecondSettingSelect"
-    And I click the "Generate" button
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2773：日志展现-高级搜索视图-柱状图"
-    And I will see the "splSearch.SearchPage" page
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "RZY-2908:task_序列-柱状图"
-    And I set the parameter "Describe" with value "UIAutoCreate"
-    And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
-    And I click the "EnsureCrontab" button
-    Then I will see the success message "保存成功"
-
-  @third
-  Scenario Outline: 散点图（RZY-2772）
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "splSearch.StatisticalPage" page
-    And I click the "Type" button
-    Then I will see the "trend.CreatePage" page
-    And I click the "<chart>" button
-    And I wait for loading invisible
-    And I click the "Setting" button
-    And I click the "<tag>" button
-    And I click the "<order>" button
-    And I click the "Yaxis" button
-    And I set the parameter "Unit" with value "<unit>"
-    And I click the "<smooth>" button
-    And I click the "<connectEmptyData>" button
-    And I set the parameter "Min" with value "<min>"
-    And I set the parameter "Max" with value "<max>"
-    And I click the "Bubble" button
-    And I click the "AccordingField" button
-    And I choose the "count()" from the "BubbleSize"
-    And I click the "Example" button
-    And I click the "<position>" button
-    And I click the "Exhibition" button
-    And I click the "StartColour" button
-    And I click the "<colour>" button
-    And I click the "Generate" button
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2772：日志展现-高级搜索视图-散点图"
-    And I will see the "splSearch.SearchPage" page
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "RZY-2906:task_序列-散点图"
-    And I set the parameter "Describe" with value "UIAutoCreate"
-    And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
-    And I click the "EnsureCrontab" button
-    Then I will see the success message "保存成功"
-
-    Examples:
-      | spl                                                                          | chart   | tag        | order           | unit | smooth | connectEmptyData | min | max | position      | colour |
-      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Scatter | Horizontal | DescendingOrder | g    |        |                  | 1   | 11  | FirstPosition | Purple |
-
   @second
   Scenario: 循序图（RZY-2805）
     When I set the parameter "SearchInput" with value "*| stats count() by hostname,apache.clientip |limit 10"
@@ -268,55 +137,8 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     Then I will see the success message "保存成功"
 
   @second
-  Scenario: 调用链（RZY-2812、2814）
-    When I set the parameter "SearchInput" with value "tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:>0 | table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "splSearch.StatisticalPage" page
-    And I click the "Type" button
-    Then I will see the "trend.CreatePage" page
-    And I click the "Other" button
-    And I click the "Tracing" button
-    And I click the "Setting" button
-    And I choose the "dapper.class" from the "SettingSelect"
-    And I choose the "dapper.msg.parentId" from the "ParentId"
-    And I choose the "dapper.msg.id" from the "ChildId"
-    And I click the "Time" button
-    And I choose the "dapper.msg.timestamp" from the "SettingSelect"
-    And I choose the "dapper.msg.duration" from the "KeepTime"
-    And I click the "Info" button
-    And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
-    And I click the "Generate" button
-    And I wait for loading invisible
-    Then take a screenshot with name "RZY-2812：日志展现-高级搜索视图-调用链"
-    And I click the "Setting" button
-    And I click the "Time" button
-    And I choose the "collector_recv_timestamp" from the "SettingSelect"
-    And I click the "Generate" button
-    And I wait for loading invisible
-    Then take a screenshot with name "RZY-2814：日志展现-高级搜索视图-调用链1更改开始时间"
-    And I click the "Setting" button
-    And I click the "Exhibition" button
-    And I click the "StartColour" button
-    And I click the "Green" button
-    And I click the "Generate" button
-    And I wait for loading invisible
-    Then take a screenshot with name "RZY-2814：日志展现-高级搜索视图-调用链1更改颜色"
-    And I will see the "splSearch.SearchPage" page
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "RZY-2957:task_其它_调用链1"
-    And I set the parameter "Describe" with value "UIAutoCreate"
-    And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
-    And I click the "EnsureCrontab" button
-    Then I will see the success message "保存成功"
-
-  @third
-  Scenario: 统计地图（RZY-2796）
-    When I set the parameter "SearchInput" with value "tag:vendors_461 | geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt"
+  Scenario: 行政区划地图钻取sample（RZY-2792）
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -325,18 +147,75 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Type" button
     Then I will see the "trend.CreatePage" page
     And I click the "Map" button
-    And I click the "Geostatsmap" button
+    And I click the "Regionmap" button
+    And I wait for loading invisible
     And I click the "Setting" button
-    And I set the parameter "Transparency" with value "0.5"
-    And I set the parameter "MinRadius" with value "10"
-    And I set the parameter "MaxRadius" with value "50"
+    And I click the "GoingDown" button
+    And I choose the "apache.geo.province" from the "Province"
+    And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2796：日志展现-高级搜索视图-统计地图"
+    Then take a screenshot with name "RZY-2792：日志展现-高级搜索视图-区划地图钻取sample"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "RZY-2937:task_地图-统计地图_透明"
+    And I set the parameter "TaskName" with value "RZY-2934:task_地图-行政区划地图_钻取_sample"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @second
+  Scenario: 地图-行政区划地图1_中国
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.province"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Map" button
+    And I click the "Regionmap" button
+    And I click the "Setting" button under some element
+    And I click the "Region" button
+    And I click the "China" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "RZY-2793:地图-行政区划地图1_中国"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2935:task_地图-行政区划地图1_中国"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @second
+  Scenario: 其它_水球图_sample
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats pct_ranks(apache.resp_len,25) as p | eval res = p.25/100"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Liquidfill" button
+    And I click the "Setting" button under some element
+    And I wait for loading invisible
+    And I choose the "res" from the "SettingSelect"
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "RZY-2801:其它_水球图_sample"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2944:task_其它_水球图_sample"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
@@ -400,6 +279,53 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "RZY-2917:task_维度_旭日图_sample"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @second
+  Scenario: 调用链（RZY-2812、2814）
+    When I set the parameter "SearchInput" with value "tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:>0 | table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Other" button
+    And I click the "Tracing" button
+    And I click the "Setting" button
+    And I choose the "dapper.class" from the "SettingSelect"
+    And I choose the "dapper.msg.parentId" from the "ParentId"
+    And I choose the "dapper.msg.id" from the "ChildId"
+    And I click the "Time" button
+    And I choose the "dapper.msg.timestamp" from the "SettingSelect"
+    And I choose the "dapper.msg.duration" from the "KeepTime"
+    And I click the "Info" button
+    And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
+    And I click the "Generate" button
+    And I wait for loading invisible
+    Then take a screenshot with name "RZY-2812：日志展现-高级搜索视图-调用链"
+    And I click the "Setting" button
+    And I click the "Time" button
+    And I choose the "collector_recv_timestamp" from the "SettingSelect"
+    And I click the "Generate" button
+    And I wait for loading invisible
+    Then take a screenshot with name "RZY-2814：日志展现-高级搜索视图-调用链1更改开始时间"
+    And I click the "Setting" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Green" button
+    And I click the "Generate" button
+    And I wait for loading invisible
+    Then take a screenshot with name "RZY-2814：日志展现-高级搜索视图-调用链1更改颜色"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2957:task_其它_调用链1"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
@@ -582,9 +508,9 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @second
-  Scenario: 行政区划地图钻取sample（RZY-2792）
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
+  @third
+  Scenario: 统计地图（RZY-2796）
+    When I set the parameter "SearchInput" with value "tag:vendors_461 | geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -593,75 +519,18 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Type" button
     Then I will see the "trend.CreatePage" page
     And I click the "Map" button
-    And I click the "Regionmap" button
-    And I wait for loading invisible
+    And I click the "Geostatsmap" button
     And I click the "Setting" button
-    And I click the "GoingDown" button
-    And I choose the "apache.geo.province" from the "Province"
-    And I choose the "apache.geo.city" from the "City"
+    And I set the parameter "Transparency" with value "0.5"
+    And I set the parameter "MinRadius" with value "10"
+    And I set the parameter "MaxRadius" with value "50"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2792：日志展现-高级搜索视图-区划地图钻取sample"
+    Then take a screenshot with name "RZY-2796：日志展现-高级搜索视图-统计地图"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "RZY-2934:task_地图-行政区划地图_钻取_sample"
-    And I set the parameter "Describe" with value "UIAutoCreate"
-    And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
-    And I click the "EnsureCrontab" button
-    Then I will see the success message "保存成功"
-
-  @second
-  Scenario: 地图-行政区划地图1_中国
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.province"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "splSearch.StatisticalPage" page
-    And I click the "Type" button
-    Then I will see the "trend.CreatePage" page
-    And I click the "Map" button
-    And I click the "Regionmap" button
-    And I click the "Setting" button under some element
-    And I click the "Region" button
-    And I click the "China" button
-    And I click the "Generate" button
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2793:地图-行政区划地图1_中国"
-    And I will see the "splSearch.SearchPage" page
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "RZY-2935:task_地图-行政区划地图1_中国"
-    And I set the parameter "Describe" with value "UIAutoCreate"
-    And I choose the "default_SavedSchedule" from the "GroupComboBox"
-    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
-    And I click the "EnsureCrontab" button
-    Then I will see the success message "保存成功"
-
-  @second
-  Scenario: 其它_水球图_sample
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats pct_ranks(apache.resp_len,25) as p | eval res = p.25/100"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "splSearch.StatisticalPage" page
-    And I click the "Type" button
-    Then I will see the "trend.CreatePage" page
-    And I click the "Other" button
-    And I click the "Liquidfill" button
-    And I click the "Setting" button under some element
-    And I wait for loading invisible
-    And I choose the "res" from the "SettingSelect"
-    And I click the "Generate" button
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2801:其它_水球图_sample"
-    And I will see the "splSearch.SearchPage" page
-    And I click the "SaveAsOther" button
-    And I click the "TimedTask" button
-    And I set the parameter "TaskName" with value "RZY-2944:task_其它_水球图_sample"
+    And I set the parameter "TaskName" with value "RZY-2937:task_地图-统计地图_透明"
     And I set the parameter "Describe" with value "UIAutoCreate"
     And I choose the "default_SavedSchedule" from the "GroupComboBox"
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
@@ -933,3 +802,135 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
+
+
+  @third
+  Scenario: 曲线图（RZY-832）
+    When I set the parameter "SearchInput" with value "tag:sample04061424* | stats count(apache.clientip) as ip_count by appname | sort by ip_count"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Line" button
+    And I click the "Setting" button
+    And I click the "Yaxis" button
+    And I set the parameter "Unit" with value "个"
+    And I click the "Smooth" button
+    And I click the "ConnectEmptyData" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "RZY-832：日志展现-高级搜索视图-曲线图"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2902:task_序列-曲线图"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario: 面积图（RZY-2767）
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Area" button
+    And I click the "Setting" button
+    And I click the "Group" button
+    And I click the "Pile" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "RZY-2767：日志展现-高级搜索视图-面积图"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2904:task_序列-面积图"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario: 柱状图（RZY-2773）
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Column" button
+    And I click the "Setting" button
+    And I click the "Group" button
+    And I click the "Pile" button
+    And I click the "AddField" button
+    And I choose the "apache.clientip" from the "SecondSettingSelect"
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "RZY-2773：日志展现-高级搜索视图-柱状图"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2908:task_序列-柱状图"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+  @third
+  Scenario Outline: 散点图（RZY-2772）
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "<chart>" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I click the "<tag>" button
+    And I click the "<order>" button
+    And I click the "Yaxis" button
+    And I set the parameter "Unit" with value "<unit>"
+    And I click the "<smooth>" button
+    And I click the "<connectEmptyData>" button
+    And I set the parameter "Min" with value "<min>"
+    And I set the parameter "Max" with value "<max>"
+    And I click the "Bubble" button
+    And I click the "AccordingField" button
+    And I choose the "count()" from the "BubbleSize"
+    And I click the "Example" button
+    And I click the "<position>" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "<colour>" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "RZY-2772：日志展现-高级搜索视图-散点图"
+    And I will see the "splSearch.SearchPage" page
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I set the parameter "TaskName" with value "RZY-2906:task_序列-散点图"
+    And I set the parameter "Describe" with value "UIAutoCreate"
+    And I choose the "default_SavedSchedule" from the "GroupComboBox"
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | spl                                                                          | chart   | tag        | order           | unit | smooth | connectEmptyData | min | max | position      | colour |
+      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Scatter | Horizontal | DescendingOrder | g    |        |                  | 1   | 11  | FirstPosition | Purple |
