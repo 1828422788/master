@@ -224,7 +224,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
 
   @second
   Scenario: 攻击地图（RZY-2302）
-    When I set the parameter "SearchInput" with value "logtype:apache | parse field=apache.request_query \"^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)\" | stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address | eval gw_lat=39.5427 | eval gw_lon=116.2317"
+    When I set the parameter "SearchInput" with value "logtype:apache | parse field=apache.request_query \"^gw_address=(?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" | stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address | eval gw_lat=39.5427 | eval gw_lon=116.2317"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

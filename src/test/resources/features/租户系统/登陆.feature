@@ -2,8 +2,7 @@
 Feature: 租户登陆（RZY-1695）
 
   Background:
-    Given I logout current user
-    And open the "saas.SaasLoginPage" page for uri "/auth/domainlogin/"
+    Given open the "saas.SaasLoginPage" page for uri "/auth/domainlogin/"
 
   Scenario Outline:
     When I set the parameter "Username" with value "<name>"
