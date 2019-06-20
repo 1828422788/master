@@ -18,6 +18,18 @@ Feature: 租户管理（RZY-1713）
     Given open the "alert.PluginPage" page for uri "/plugins/"
     Then I will see the search result "{'column':'0','name':'hengshuiyinhang_socket','contains':'no'}"
 
+  Scenario: RZY-1690:取消机器学习支持特性
+    Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
+#    When I set the parameter "Username" with properties "saas_username"
+#    And I set the parameter "Password" with properties "saas_password"
+#    And I click the "LoginButton" button
+    And I will see the "tenant.ListPage" page
+    When the data name is "{'column':'1','name':'no_scheduler (noschedule)'}" then i click the label "管理"
+    And I will see the "tenant.CreatePage" page
+    And I choose the "MachineLearning" from the "SupportFeature"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
   Scenario: RZY-1690:验证租户无机器学习权限
     Given I logout current user
     And I wait for title change text to "登录"
@@ -32,9 +44,9 @@ Feature: 租户管理（RZY-1713）
 
   Scenario: RZY-1690:增加机器学习支持特性
     Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
-    When I set the parameter "Username" with properties "saas_username"
-    And I set the parameter "Password" with properties "saas_password"
-    And I click the "LoginButton" button
+#    When I set the parameter "Username" with properties "saas_username"
+#    And I set the parameter "Password" with properties "saas_password"
+#    And I click the "LoginButton" button
     And I will see the "tenant.ListPage" page
     When the data name is "{'column':'1','name':'no_scheduler (noschedule)'}" then i click the label "管理"
     And I will see the "tenant.CreatePage" page

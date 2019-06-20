@@ -1,6 +1,7 @@
 package com.yottabyte.pages.tenant;
 
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,7 +33,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSupportFeature() {
-        return super.getDropdownList("支持特性");
+        return getDropdownList("支持特性");
     }
 
     public WebElement getDailyLimit() {
@@ -77,5 +78,12 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getInputAgain() {
         return inputAgain;
+    }
+
+    public WebElement getDropdownList(String text) {
+        String xpath = "//label[contains(text(),'" + text + "')]/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return getLastDropdownList();
     }
 }
