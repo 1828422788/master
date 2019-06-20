@@ -1,8 +1,10 @@
+@tenant
 Feature: 租户新建（RZY-1691）
 
   Background:
     Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
 
+  @tenantSmoke
   Scenario Outline: 保存成功
     When I set the parameter "Username" with properties "saas_username"
     And I set the parameter "Password" with properties "saas_password"
@@ -23,12 +25,11 @@ Feature: 租户新建（RZY-1691）
     And I click the "SaveButton" button
     Then I wait for "SuccessMessage" will be visible
 
-  @saas
     Examples:
-      | name         | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | excessLimit | excessBehavior | managerName | managerEmail             | managerPassword | inputAgain |
+      | name         | domainName | supportFeature                                                                                                                                                                                                        | dailyLimit | excessLimit | excessBehavior | managerName | managerEmail             | managerPassword | inputAgain |
       | no_scheduler | noschedule | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 3           | 拒绝采集输入         | notester    | noscheduler@yottabyte.cn | all123456       | all123456  |
 
-  @saas
+  @tenantSmoke
   Scenario Outline:
     And I will see the "tenant.ListPage" page
     And I click the "CreateButton" button
