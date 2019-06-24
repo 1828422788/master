@@ -9,35 +9,37 @@ Feature: 报表删除（RZY-131）
     Then I click the "DeleteEnsure" button
 
     Examples:
-      | name                   |
-      | 改为字符云图sample1报表        |
-      | 改为矩阵热力图sample1报表       |
-      | 改为漏斗图sample1报表         |
-      | 改为面积图sample2报表         |
-      | 改为字符云图sample1报表(EXCEL) |
-      | 改为水球图sample1报表         |
-      | 改为单值sample2            |
-      | 改为区划地图sample2报表        |
-      | 改为攻击地图sample1报表        |
-      | 改为热力地图sample2报表        |
-      | 改为多Y轴图sample2报表        |
-      | 改为区间图sample1报表         |
-      | 改为力图sample1报表          |
-      | 改为桑基图sample1报表         |
-      | 改为和弦图sample1报表         |
-      | 改为柱状图sample2           |
-      | RZY-2665:改为饼状图sample3  |
-      | 改为曲线图sample2(URL)      |
-      | 条形图sample2报表           |
-      | 字符云图sample1报表          |
-      | 区划地图sample1报表          |
-      | 攻击地图sample1报表          |
-      | 条形图sample1报表           |
-      | 饼状图sample1报表           |
-      | 力图sample1报表            |
-      | 和弦图sample1报表           |
-      | 散点图sample1报表           |
-      | 面积图sample1报表           |
+      | name                                    |
+      | 改为字符云图sample1报表                         |
+      | 改为矩阵热力图sample1报表                        |
+      | 改为漏斗图sample1报表                          |
+      | 改为面积图sample2报表                          |
+      | 改为字符云图sample1报表(EXCEL)                  |
+      | 改为水球图sample1报表                          |
+      | 改为单值sample2                             |
+      | 改为区划地图sample2报表                         |
+      | 改为攻击地图sample1报表                         |
+      | 改为热力地图sample2报表                         |
+      | 改为多Y轴图sample2报表                         |
+      | 改为区间图sample1报表                          |
+      | 改为力图sample1报表                           |
+      | 改为桑基图sample1报表                          |
+      | 改为和弦图sample1报表                          |
+      | 改为柱状图sample2                            |
+      | RZY-2665:改为饼状图sample3                   |
+      | 改为曲线图sample2(URL)                       |
+      | 条形图sample2报表                            |
+      | 字符云图sample1报表                           |
+      | 区划地图sample1报表                           |
+      | 攻击地图sample1报表                           |
+      | 条形图sample1报表                            |
+      | 饼状图sample1报表                            |
+      | 力图sample1报表                             |
+      | 和弦图sample1报表                            |
+      | 散点图sample1报表                            |
+      | 面积图sample1报表                            |
+      | RZY-3117:pivot_timechart_line_sample0报表 |
+      | RZY-3118:pivot_timechart_line_sample1报表 |
 
   @clean @cleanReport @cleanFirst
     Examples:

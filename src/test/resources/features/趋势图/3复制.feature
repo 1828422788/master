@@ -10,5 +10,5 @@ Feature: 趋势图复制（RZY-1889）
     Then I will see the search result contains "{'column':'0','name':'<name>(副本)'}"
 
     Examples:
-      | name         |
-      | 矩阵热力图sample1 |
+      | name                  |
+      | RZY-2661:矩阵热力图sample1 |
