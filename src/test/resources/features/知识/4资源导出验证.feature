@@ -59,7 +59,7 @@ Feature: 知识验证再次导入（RZY-2408）
 
     Examples:
       | name                                                                              |
-      | 附件:\ntestAlertPlu...\nAutoUpload.y...\nautotest.csv\ntestAlertPlu...\nsuccess.tar |
+      | 附件:\nAutoUpload.y...\nautotest.csv\ntestAlertPlu...\ntestAlertPlu...\nsuccess.tar |
 
   Scenario: 删除资源分组
     Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
