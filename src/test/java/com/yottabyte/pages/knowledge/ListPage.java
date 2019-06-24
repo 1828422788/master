@@ -120,6 +120,13 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "search-count")
     private WebElement searchCount;
 
+    @FindBy(className = "detail-item-pic")
+    private WebElement attachment;
+
+    public WebElement getAttachment() {
+        return attachment;
+    }
+
     public WebElement getSearchCount() {
         return searchCount;
     }

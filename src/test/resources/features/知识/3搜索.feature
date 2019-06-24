@@ -1,15 +1,14 @@
+@knowledge @knowledgeSmoke
 Feature: 知识搜索（RZY-884）
 
   Background:
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
 
-  @knowledge
   Scenario Outline: 按分组搜索
     When I choose the "<GroupList>" from the "GroupList"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'sunxj1'}"
 
-  @smoke @all
     Examples:
       | GroupList |
       | AutoTest  |

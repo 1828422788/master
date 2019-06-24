@@ -1,4 +1,4 @@
-@smoke @all
+@knowledge @knowledgeSmoke
 Feature: 知识删除（RZY-881）
 
   Background:
@@ -11,14 +11,12 @@ Feature: 知识删除（RZY-881）
     And I refresh the website
     Then I will see the search result "{'column':'0','name':'<Name>','contains':'no'}"
 
-  @knowledge
     Examples:
-      | Name        |
-      | sxjautotest |
-      | autotest    |
-      | sunxj1      |
-
-  @clean
-    Examples:
-      | Name              |
-      | AutoTestKnowledge |
+      | Name                |
+      | autotest            |
+      | 名称1, 名称2            |
+      | 测试多个code            |
+      | AutoTestCreateByURL |
+      | oldautotest         |
+      | sxjautotest         |
+      | sunxj1              |
