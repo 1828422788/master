@@ -27,21 +27,14 @@ Feature: 字段提取删除
 
   @clean @cleanSecond
     Examples:
-      | name              |
-      | redirect主规则       |
-      | redirect副规则       |
-      | RZY2864在搜索页验证严格解析 |
-      | 脱敏                |
+      | name               |
+      | RZY2870创建dissect解析 |
+      | redirect主规则        |
+      | redirect副规则        |
+      | RZY2864在搜索页验证严格解析  |
+      | 脱敏                 |
 
   @cleanFirst @clean
     Examples:
       | name     |
       | AutoTest |
-
-  @clean
-  Scenario: 删除agent配置
-    Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
-    And I click the detail with properties "{'name':'rizhiyi_server_host','column':'1'}"
-    And switch to another window
-    And the data name is "date" then i click the "删除" button
-    Then I click the "Ensure" button

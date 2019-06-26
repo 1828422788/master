@@ -114,6 +114,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'结构体定义')]/following-sibling::div/textarea")
     private WebElement struct;
 
+    @FindBy(xpath = "//i[@class='iconfont icon-beizhu_icon el-tooltip item']/preceding-sibling::input")
+    private WebElement ruleName;
+
+    public WebElement getRuleName() {
+        return ruleName;
+    }
+
     public WebElement getRedirect() {
         return super.getDropdownList("重定向规则");
     }

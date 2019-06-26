@@ -62,22 +62,6 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "date"
     And I click the "NextButton" button
 
-#  @configsSmoke
-#  Scenario: RZY-2861：agent添加路径
-#    Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
-#    And I click the detail with properties "{'name':'rizhiyi_server_host','column':'1'}"
-#    And switch to another window
-#    And I click the "Add" button
-#    And I set the parameter "Document" with value "/var/log/20180821"
-#    And I set the parameter "WhiteList" with value ".*\.log"
-#    And I click the "Next" button
-#    And I click the "File" button
-#    And I click the "Next" button
-#    And I set the parameter "Appname" with value "date"
-#    And I set the parameter "Tag" with value "date"
-#    And I click the "Next" button
-#    And I click the "Next" button
-
   @configsSmoke
   Scenario Outline: RZY-2866：搜索页结果验证
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -203,6 +187,32 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "redirect_zhu"
     And I click the "NextButton" button
 
+  @second @configsSmoke
+  Scenario Outline: RZY-2870:创建dissect解析
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I click the "CreateButton" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "Name" with value "RZY2870创建dissect解析"
+    And I set the parameter "Logtype" with value "other"
+    Then I choose the "default_ParserRule" from the "Group"
+    When I set the parameter "LogSample" with value "http://rizhiyi.com/index.do?id=123"
+    And I choose the "自定义规则" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I set the parameter "RuleName" with value "dissect"
+    And I set the parameter "{"enable_escape": true,"format": "http://%{domain}/%{url}?%{arg}=%{@arg:i}","source": "raw_message","strict_mode": false}" to json editor
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Result':'<result>'}"
+    And I click the "NextButton" button under some element
+    And I click the "SwitchButton" button
+    And I set the parameter "AppName" with value "dissect"
+    And I set the parameter "Tag" with value "dissect"
+    And I click the "NextButton" button
+
+    Examples:
+      | result                                                                                                 |
+      | Object\ndomain:"rizhiyi.com"\nid:123\nurl:"index.do"\nraw_message:"http://rizhiyi.com/index.do?id=123" |
+
   @configsSmoke
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -211,35 +221,25 @@ Feature: 字段提取新建
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
 
+  @first
+    Examples:
+      | appName | tag | log              |
+      | 108     | 1   | json_sdyd_41.log |
+
+    Examples:
+      | appName | tag    | log           |
+      | date    | date   | timestamp.log |
+      | rename  | rename | rename.log    |
+
+  @second
     Examples:
       | appName      | tag          | log              |
-      | 108          | 1            | json_sdyd_41.log |
-      | date         | date         | timestamp.log    |
-      | rename       | rename       | rename.log       |
       | codec        | codec        | 结构体解析.log        |
       | redirect_zhu | redirect_zhu | json_sdyd_41.log |
-
-#  @configsSmoke
-#  Scenario: 验证从搜索页跳转到字段提取（RZY-1881）
-#    When open the "splSearch.SearchPage" page for uri "/search/"
-#    And I set the parameter "SearchInput" with value "appname:108 tag:1"
-#    And I click the "DateEditor" button
-#    And I click the "Today" button
-#    And I click the "SearchButton" button
-#    And I wait for element "SearchStatus" change text to "搜索完成!"
-#    And I click the "RightIcon" button
-#    And I click the "EventOperate" button
-#    And I click the "ConfigField" button
-#    And switch to another window
-#    Then the page's title will be "字段提取"
-#    And I will see the "configs.CreatePage" page
-#    And I wait for "2000" millsecond
-#    Then I will see the input element "AppName" value will be "108"
-#    Then I will see the input element "HostName" value will be "192.168.1.164"
-#    Then I will see the input element "Tag" value will be "1"
+      | dissect      | dissect      | dissect.log      |
 
   @configsSmoke
-  Scenario Outline: 搜索页验证
+  Scenario Outline: RZY-2871:搜索页验证
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "<spl>"
@@ -248,18 +248,16 @@ Feature: 字段提取新建
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
-    And I will see the element "<key>" name is "<value>"
-    And I will see the element "<key1>" name is "<value1>"
-    And I will see the element "<key2>" name is "<value2>"
+    Then I will see the spl search result "<result>"
 
     Examples:
-      | spl                       | key        | value    | key1      | value1   | key2            | value2                |
-      | appname:108 tag:1         | OtherValue | value    |           |          |                 |                       |
-#      | appname:date AND tag:date | OtherDate  | 20180821 | OtherTime | 17:03:49 | ResultTimestamp | 2019/02/21 17:03:49.0 |
-      | appname:rename            | OtherAbh   | d        | OtherAeh  | g        |                 |                       |
+      | spl               | result                              |
+      | appname:108 tag:1 | {"test.key":"value"}                |
+      | appname:rename    | {"test.a.b.h":"d","test.a.e.h":"g"} |
 
   @second
     Examples:
-      | spl                                       | key      | value | key1      | value1 | key2 | value2 |
-      | appname:codec                             | TestName | aaa   | TestValue | 111    |      |        |
-      | appname:redirect_zhu AND tag:redirect_zhu | OtherKey | value |           |        |      |        |
+      | spl                                       | result                                                                 |
+      | appname:codec                             | {"test.name":"aaa","test.val":"111"}                                   |
+      | appname:redirect_zhu AND tag:redirect_zhu | {"other.key":"value"}                                                  |
+      | appname:dissect                           | {"other.id":"123","other.domain":"rizhiyi.com","other.url":"index.do"} |

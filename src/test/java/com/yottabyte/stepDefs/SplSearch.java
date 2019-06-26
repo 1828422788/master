@@ -1,14 +1,13 @@
 package com.yottabyte.stepDefs;
 
+import com.gargoylesoftware.htmlunit.javascript.host.Iterator;
 import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.utils.GetElementFromPage;
-import com.yottabyte.utils.GetLogger;
-import com.yottabyte.utils.GetPaging;
-import com.yottabyte.utils.TakeScreenShot;
+import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -325,6 +324,17 @@ public class SplSearch {
                 }
             }
             i++;
+        }
+    }
+
+    @Then("^I will see the spl search result \"([^割]*)\"$")
+    public void iWillSeeTheSplSerchResult(String json) {
+        Map<String, Object> map = JsonStringPaser.json2Stirng(json);
+
+        for (String key : map.keySet()) {
+            WebElement tr = webDriver.findElement(By.xpath("//span[text()='" + key + "']"));
+            String actualValue = tr.findElement(By.xpath("./ancestor::td/following-sibling::td/span")).getText();
+            Assert.assertEquals(map.get(key), actualValue);
         }
     }
 }

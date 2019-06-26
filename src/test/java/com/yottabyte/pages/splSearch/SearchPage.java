@@ -457,9 +457,6 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
     private WebElement xValue;
 
-    @FindBy(xpath = "//span[text()='test.key']/ancestor::td/following-sibling::td/span")
-    private WebElement otherValue;
-
     @FindBy(className = "icon-fanyeqishangjiantou")
     private WebElement eventOperate;
 
@@ -538,18 +535,6 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='timestamp']/ancestor::td/following-sibling::td")
     private WebElement resultTimestamp;
 
-    @FindBy(xpath = "//span[text()='test.a.b.h']/ancestor::td/following-sibling::td")
-    private WebElement otherAbh;
-
-    @FindBy(xpath = "//span[text()='test.a.e.h']/ancestor::td/following-sibling::td")
-    private WebElement otherAeh;
-
-    @FindBy(xpath = "//span[text()='test.name']/ancestor::td/following-sibling::td")
-    private WebElement testName;
-
-    @FindBy(xpath = "//span[text()='test.val']/ancestor::td/following-sibling::td")
-    private WebElement testValue;
-
     @FindBy(xpath = "//span[text()='other.key']/ancestor::td/following-sibling::td/span")
     private WebElement otherKey;
 
@@ -566,22 +551,6 @@ public class SearchPage extends PageTemplate {
 
     public WebElement getOtherKey() {
         return otherKey;
-    }
-
-    public WebElement getTestName() {
-        return testName;
-    }
-
-    public WebElement getTestValue() {
-        return testValue;
-    }
-
-    public WebElement getOtherAbh() {
-        return otherAbh;
-    }
-
-    public WebElement getOtherAeh() {
-        return otherAeh;
     }
 
     public WebElement getOtherDate() {
@@ -692,10 +661,6 @@ public class SearchPage extends PageTemplate {
 
     public WebElement getEventOperate() {
         return eventOperate;
-    }
-
-    public WebElement getOtherValue() {
-        return otherValue;
     }
 
     public WebElement getXValue() {

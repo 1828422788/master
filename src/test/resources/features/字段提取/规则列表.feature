@@ -455,3 +455,17 @@ Feature: 字段提取规则列表
       | name:3,val:4:i | 是否严格解析   | Object\nname:"aaa"\nval:111\nraw_message:"aaa 111" |
       | name:3,val:3:i |          | Object\nname:"aaa"\nval:11\nraw_message:"aaa 111"  |
 
+  @second
+  Scenario Outline: RZY-2826:高级模式下start_offset的使用
+    When I set the parameter "LogSample" with value "00000000: 696d 706f 7274 2073 7973 0a69 6d70 6f72"
+    And I choose the "Hex转换" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I click the "ChangeToJson" button under some element
+    And I set the parameter "{"source": "raw_message","codec_type": "GBK","start_offset":10,"column_bytes":16}" to json editor
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    Then I will see the element value in json "{'Result':'<result>'}"
+
+    Examples:
+      | result                                 |
+      | Object\nraw_message:"import sys impor" |
