@@ -66,7 +66,7 @@ public class SetKeyWithValue {
 
     @And("^I set the parameter \"([^割]*)\" to json editor$")
     public void iSetTheParameterToJsonEditor(String value) {
-        WebElement element = webDriver.findElement(By.className("ace_text-input"));
+        WebElement element = webDriver.findElement(By.xpath("(//*[@class='ace_text-input'])[last()]"));
         element.sendKeys(Keys.COMMAND, "a");
         element.sendKeys(Keys.DELETE);
         element.sendKeys(value);

@@ -28,6 +28,10 @@ Feature: 字段提取删除
   @clean @cleanSecond
     Examples:
       | name               |
+      | RZY2883unicode解析   |
+      | RZY2877base64解析    |
+      | RZY2875script解析    |
+      | RZY2872正则片段解析      |
       | RZY2870创建dissect解析 |
       | redirect主规则        |
       | redirect副规则        |

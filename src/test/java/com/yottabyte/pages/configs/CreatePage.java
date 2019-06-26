@@ -117,6 +117,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//i[@class='iconfont icon-beizhu_icon el-tooltip item']/preceding-sibling::input")
     private WebElement ruleName;
 
+    @FindBy(className = "el-message__group")
+    private WebElement successMessage;
+
     public WebElement getRuleName() {
         return ruleName;
     }
@@ -327,7 +330,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getSuccessMessage();
+        return successMessage;
     }
 
     public WebElement getNumber1() {
