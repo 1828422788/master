@@ -213,7 +213,7 @@ Feature: 字段提取新建
       | result                                                                                                 |
       | Object\ndomain:"rizhiyi.com"\nid:123\nurl:"index.do"\nraw_message:"http://rizhiyi.com/index.do?id=123" |
 
-  @second
+  @second @configsSmoke
   Scenario Outline: RZY-2872:建立正则片段解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -243,7 +243,7 @@ Feature: 字段提取新建
       | result                                                                                                                                                                   | result1                                                                                                                                                                                           |
       | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-502103: User priv level changed: Uname: enable_15 From: 1 To: 15" | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-111010: User \'enable_15\', running \'CLI\' from IP 192.168.1.11, executed \'debug http\'" |
 
-  @second
+  @second @configsSmoke
   Scenario Outline: RZY-2875:创建script解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -275,7 +275,7 @@ Feature: 字段提取新建
       | result                                                                                                                                              | result1                                                                                                                                                                                      |
       | Object\nfields:Array[2]\n0:"time"\n1:"count"\nvalues:Array[2]\n0:1516189\n1:5664\nraw_message:"{"fields":["time","count"],"values":[1516189,5664]}" | Object\nfields:Array[2]\n0:"time"\n1:"count"\nresult:Object\ncount:5664\ntime:1516189\nvalues:Array[2]\n0:1516189\n1:5664\nraw_message:"{"fields":["time","count"],"values":[1516189,5664]}" |
 
-  @second
+  @second @configsSmoke
   Scenario Outline: RZY-2877:建立base64解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -308,7 +308,7 @@ Feature: 字段提取新建
       | result                                                          | result1                                                     |
       | Object\ncode:"aGVsbG8gYmFzZTY0"\nraw_message:"aGVsbG8gYmFzZTY0" | Object\ncode:"hello base64"\nraw_message:"aGVsbG8gYmFzZTY0" |
 
-  @second
+  @second @configsSmoke
   Scenario Outline: RZY-2883:创建unicode解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -398,7 +398,7 @@ Feature: 字段提取新建
       | appname:codec                             | {"test.name":"aaa","test.val":"111"}                                   |
       | appname:redirect_zhu AND tag:redirect_zhu | {"other.key":"value"}                                                  |
       | appname:dissect                           | {"other.id":"123","other.domain":"rizhiyi.com","other.url":"index.do"} |
-      | appname:regex AND tag:1                   | {"other.user":"enable_15"}                                             |
+      | appname:regex AND tag:1                   | {"other.user":"en able_15"}                                             |
       | appname:regex AND tag:2                   | {"other.user":"enable_15"}                                             |
       | appname:script                            | {"other.result.count":"5664","other.result.time":"1516189"}            |
       | appname:base64                            | {"other.code":"hello base64"}                                          |
