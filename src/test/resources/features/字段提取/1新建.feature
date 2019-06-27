@@ -1,7 +1,7 @@
 @configs
 Feature: 字段提取新建
 
-  @first @configsSmoke
+#  @first @configsSmoke
   Scenario Outline: 创建规则并关联日志（RZY-1880）
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -26,7 +26,7 @@ Feature: 字段提取新建
       | appName | tag |
       | 108     | 1   |
 
-  @configsSmoke
+#  @configsSmoke
   Scenario: RZY-2861：新建字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -62,7 +62,7 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "date"
     And I click the "NextButton" button
 
-  @configsSmoke
+#  @configsSmoke
   Scenario Outline: RZY-2866：搜索页结果验证
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -88,7 +88,7 @@ Feature: 字段提取新建
       | log                                       |
       | {"a":{"b":\n{"c":"d"}\n,"e":{"c":"g"}}\n} |
 
-  @second @configsSmoke
+#  @second @configsSmoke
   Scenario: RZY-2818：新建字典规则（RZY-2819使用）
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
@@ -97,7 +97,7 @@ Feature: 字段提取新建
     And I wait for "FileName" will be visible
     And I click the "UploadFile" button
 
-  @second @configsSmoke
+#  @second @configsSmoke
   Scenario: RZY-2827：新建脱敏配置规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -130,7 +130,7 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "replacer"
     And I click the "NextButton" button
 
-  @second @configsSmoke
+#  @second @configsSmoke
   Scenario: RZY-2864：在搜索页验证严格解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -150,7 +150,7 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "codec"
     And I click the "NextButton" button
 
-  @second @configsSmoke
+#  @second @configsSmoke
   Scenario: RZY-2867：副规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -170,7 +170,7 @@ Feature: 字段提取新建
     And I set the parameter "Tag" with value "redirect_fu"
     And I click the "NextButton" button
 
-  @second @configsSmoke
+#  @second @configsSmoke
   Scenario: RZY-2868：主规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
