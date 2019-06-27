@@ -398,7 +398,7 @@ Feature: 字段提取新建
       | appname:codec                             | {"test.name":"aaa","test.val":"111"}                                   |
       | appname:redirect_zhu AND tag:redirect_zhu | {"other.key":"value"}                                                  |
       | appname:dissect                           | {"other.id":"123","other.domain":"rizhiyi.com","other.url":"index.do"} |
-      | appname:regex AND tag:1                   | {"other.user":"en able_15"}                                            |
+      | appname:regex AND tag:1                   | {"other.user":"enable_15"}                                            |
       | appname:regex AND tag:2                   | {"other.user":"enable_15"}                                             |
       | appname:script                            | {"other.result.count":"5664","other.result.time":"1516189"}            |
       | appname:base64                            | {"other.code":"hello base64"}                                          |
