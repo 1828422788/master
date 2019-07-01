@@ -33,12 +33,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='正则表达式']/following-sibling::div/textarea)[2]")
     private WebElement regex2;
 
-    @FindBy(className = "json-formatter-string")
-    private List<WebElement> valueList;
-
-    @FindBy(className = "json-formatter-number")
-    private List<WebElement> numberList;
-
     @FindBy(xpath = "//label[text()='来源字段']")
     private WebElement sourceFieldLabel;
 
@@ -331,86 +325,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSuccessMessage() {
         return successMessage;
-    }
-
-    public WebElement getNumber1() {
-        return numberList.get(0);
-    }
-
-    public WebElement getNumber2() {
-        return numberList.get(1);
-    }
-
-    public WebElement getValue1() {
-        return valueList.get(0);
-    }
-
-    public WebElement getValue2() {
-        return valueList.get(1);
-    }
-
-    public WebElement getValue3() {
-        return valueList.get(2);
-    }
-
-    public WebElement getValue4() {
-        return valueList.get(3);
-    }
-
-    public WebElement getValue5() {
-        return valueList.get(4);
-    }
-
-    public WebElement getValue6() {
-        return valueList.get(5);
-    }
-
-    public WebElement getValue7() {
-        return valueList.get(6);
-    }
-
-    public WebElement getValue8() {
-        return valueList.get(7);
-    }
-
-    public WebElement getValue9() {
-        return valueList.get(8);
-    }
-
-    public WebElement getValue10() {
-        return valueList.get(9);
-    }
-
-    public WebElement getValue11() {
-        return valueList.get(10);
-    }
-
-    public WebElement getValue12() {
-        return valueList.get(11);
-    }
-
-    public WebElement getValue13() {
-        return valueList.get(12);
-    }
-
-    public WebElement getValue14() {
-        return valueList.get(13);
-    }
-
-    public WebElement getValue15() {
-        return valueList.get(14);
-    }
-
-    public WebElement getValue16() {
-        return valueList.get(15);
-    }
-
-    public WebElement getValue17() {
-        return valueList.get(16);
-    }
-
-    public WebElement getValue18() {
-        return valueList.get(17);
     }
 
     public WebElement getCheckbox() {
