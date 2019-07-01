@@ -195,6 +195,52 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='second'][@class='main']")
     private WebElement main;
 
+    @FindBy(xpath = "//div[@x-placement]")
+    private WebElement remarkInfo;
+
+    @FindBy(xpath = "//*[@class='img iconfont icon-beizhu_icon']")
+    private WebElement remark;
+
+    @FindBy(className = "el-pagination__total")
+    private WebElement totalPage;
+
+    @FindBy(xpath = "(//*[text()='{'])")
+    private WebElement input;
+
+    @FindBy(xpath = "//li[contains(text(),'清空JSON')]")
+    private WebElement cleanJson;
+
+    @FindBy(id = "jsoneditor")
+    private WebElement jsonEditor;
+
+    public WebElement getJsonEditor() {
+        return jsonEditor;
+    }
+
+    public WebElement getCleanJson() {
+        return cleanJson;
+    }
+
+    public WebElement getOperate() {
+        return super.getButton("操作");
+    }
+
+    public WebElement getInput() {
+        return input;
+    }
+
+    public WebElement getTotalPage() {
+        return totalPage;
+    }
+
+    public WebElement getRemark() {
+        return remark;
+    }
+
+    public WebElement getRemarkInfo() {
+        return remarkInfo;
+    }
+
     public WebElement getMain() {
         return main;
     }

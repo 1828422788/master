@@ -119,7 +119,7 @@ Feature: 仪表盘配置
     And I click the detail which name is "UI自动化创建"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SaveAsReportButton" button
-    And switch to another window
+    And switch to window "报表"
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "仪表盘创建报表"
     And I set the parameter "Describe" with value "AutoTest"
@@ -146,7 +146,22 @@ Feature: 仪表盘配置
 #    And I display the element "Content"
 #    And I click the "Config" button
 #    And I click the "Edit" button
-#    And I set the parameter "{\"title\": \"趋势图1\",\"description\": \"AutoCreate\",\"row\": 1,\"column\": 1,\"sizex\": 12,\"sizey\": 4,\"search\": {\"query\": \"(appname:${double_quotation|d})  |bucket timestamp span=6h as ts |stats count(\'tag\') as \'tag\' by ts\",\"startTime\": \"now/d\",\"endTime\": \"now\"},\"chart\": {\"chartType\": \"table\"}}" to json editor
+#    And I set the parameter "{"title": "趋势图1","description": "AutoCreate","row": 1,"column": 1,"sizex": 12,"sizey": 4,"search": {"query": "(appname:${double_quotation|d})  |bucket timestamp span=6h as ts |stats count('tag') as 'tag' by ts","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
 #    And I click the "Check" button
 #    And I click the "EnsureEdit" button
-#    Then I will see the element "TrendTitle" name is "趋势图"
+#    Then I will see the element "TrendTitle" name is "趋势图1"
+#
+#  Scenario: RZY-1279:description字段
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I click the detail which name is "UI自动化创建"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "Config" button
+#    And I click the "Edit" button
+#    And I alter the element "JsonEditor" class to " ace_editor ace-github ace_focus"
+#    And I click the "Input" button under some element
+#    And I set the parameter "{"title": "趋势图1","description": "测试描述","row": 1,"column": 1,"sizex": 12,"sizey": 4,"search": {"query": "(appname:${double_quotation|d})  |bucket timestamp span=6h as ts |stats count('tag') as 'tag' by ts","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+#    And I click the "Check" button
+#    And I click the "EnsureEdit" button
+#    And I click the "TotalPage" button
+#    And I click the "Remark" button
+#    Then I will see the element "RemarkInfo" name is "测试描述"
