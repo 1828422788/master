@@ -98,39 +98,6 @@ Feature: 字段提取新建
     And I click the "UploadFile" button
 
   @second @configsSmoke
-  Scenario: RZY-2827：新建脱敏配置规则
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
-    Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "脱敏"
-    And I set the parameter "Logtype" with value "replace"
-    Then I choose the "default_ParserRule" from the "Group"
-    When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
-    And I choose the "正则解析" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
-    And I choose the "raw_message" from the "SourceField"
-    And I set the parameter "Regex" with value "(?<phone>.*)"
-    And I click the "ParseButton" button
-    And I click the "ContinueButton" button
-    And I choose the "脱敏配置" from the "ParseRule"
-    And I choose the "phone" from the "SourceField"
-    And I set the parameter "Regex" with value "(\d{3})(\d{4})(\d{4})"
-    And I set the parameter "ReplaceContent" with value "$1****$3"
-    And I set the parameter "Prefix" with value "\w+"
-    And I set the parameter "Postfix" with value "\S+"
-    And I click the "ContinueButton" button
-    And I choose the "脱敏配置" from the "ParseRule"
-    And I choose the "phone" from the "SourceField"
-    And I set the parameter "Regex" with value "(\d{3})(\d{4})(\d{4})"
-    And I set the parameter "ReplaceContent" with value "$1****$3"
-    And I set the parameter "Prefix" with value "\s+"
-    And I click the "NextButton" button under some element
-    And I click the "SwitchButton" button
-    And I set the parameter "AppName" with value "replacer"
-    And I set the parameter "Tag" with value "replacer"
-    And I click the "NextButton" button
-
-  @second @configsSmoke
   Scenario: RZY-2864：在搜索页验证严格解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
@@ -341,6 +308,59 @@ Feature: 字段提取新建
       | result                                                                                                                                                                                                    | result1                                                                                                                                           |
       | Object\nrr:"PartyBasicInfoService_\\\u5ba2\\\u6237\\\u57fa\\\u672c\\\u4fe1\\\u606f\\\u670d\\\u52a1"\nraw_message:"PartyBasicInfoService_\\\u5ba2\\\u6237\\\u57fa\\\u672c\\\u4fe1\\\u606f\\\u670d\\\u52a1" | Object\nrr:"PartyBasicInfoService_客户基本信息服务"\nraw_message:"PartyBasicInfoService_\\\u5ba2\\\u6237\\\u57fa\\\u672c\\\u4fe1\\\u606f\\\u670d\\\u52a1" |
 
+  @second @configsSmoke
+  Scenario: RZY-2829:设置用户权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data properties is "roleWithResources" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "{'TabButton':'功能'}" button
+    And I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "可查看敏感内容"
+    And I click the "{'TabButton':'URL 访问'}" button
+    And I "checked" the checkbox which name is "全选"
+    And I click the "{'TabButton':'字段提取'}" button
+    And I "checked" the checkbox which name is "新建字段提取"
+    Then I click the "SaveButton" button
+
+  @second @configsSmoke
+  Scenario: RZY-2827：新建脱敏配置规则
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "userWithResources"
+    And I set the parameter "Password" with properties "userWithResourcesPwd"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I click the "CreateButton" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "Name" with value "脱敏"
+    And I set the parameter "Logtype" with value "replace"
+    When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
+    And I choose the "正则解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I set the parameter "Regex" with value "(?<phone>.*)"
+    And I click the "ParseButton" button
+    And I click the "ContinueButton" button
+    And I choose the "脱敏配置" from the "ParseRule"
+    And I choose the "phone" from the "SourceField"
+    And I set the parameter "Regex" with value "(\d{3})(\d{4})(\d{4})"
+    And I set the parameter "ReplaceContent" with value "$1****$3"
+    And I set the parameter "Prefix" with value "\w+"
+    And I set the parameter "Postfix" with value "\S+"
+    And I click the "ContinueButton" button
+    And I choose the "脱敏配置" from the "ParseRule"
+    And I choose the "phone" from the "SourceField"
+    And I set the parameter "Regex" with value "(\d{3})(\d{4})(\d{4})"
+    And I set the parameter "ReplaceContent" with value "$1****$3"
+    And I set the parameter "Prefix" with value "\s+"
+    And I click the "NextButton" button under some element
+    And I click the "SwitchButton" button
+    And I set the parameter "AppName" with value "replacer"
+    And I set the parameter "Tag" with value "replacer"
+    And I click the "NextButton" button
+
   @configsSmoke
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -370,6 +390,7 @@ Feature: 字段提取新建
       | script       | script       | script.log       |
       | base64       | base64       | base64.log       |
       | unicode      | unicode      | unicode.log      |
+      | replacer     | replacer     | replacer.log     |
 
   @configsSmoke
   Scenario Outline: RZY-2871:搜索页验证
@@ -398,8 +419,27 @@ Feature: 字段提取新建
       | appname:codec                             | {"test.name":"aaa","test.val":"111"}                                   |
       | appname:redirect_zhu AND tag:redirect_zhu | {"other.key":"value"}                                                  |
       | appname:dissect                           | {"other.id":"123","other.domain":"rizhiyi.com","other.url":"index.do"} |
-      | appname:regex AND tag:1                   | {"other.user":"enable_15"}                                            |
+      | appname:regex AND tag:1                   | {"other.user":"enable_15"}                                             |
       | appname:regex AND tag:2                   | {"other.user":"enable_15"}                                             |
       | appname:script                            | {"other.result.count":"5664","other.result.time":"1516189"}            |
       | appname:base64                            | {"other.code":"hello base64"}                                          |
       | appname:unicode                           | {"other.rr":"PartyBasicInfoService_客户基本信息服务"}                          |
+
+  @second @configsSmoke
+  Scenario: RZY-2830:在搜索页验证是否脱敏
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "userWithResources"
+    And I set the parameter "Password" with properties "userWithResourcesPwd"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    When open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I set the parameter "SearchInput" with value "tag:replacer"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    Then I will see the spl search result "{"raw_message":"qweqwe159****8361qwe 159****8361"}"

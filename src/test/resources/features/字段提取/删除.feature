@@ -28,6 +28,7 @@ Feature: 字段提取删除
   @clean @cleanSecond
     Examples:
       | name               |
+      | 脱敏                 |
       | RZY2883unicode解析   |
       | RZY2877base64解析    |
       | RZY2875script解析    |
@@ -36,7 +37,6 @@ Feature: 字段提取删除
       | redirect主规则        |
       | redirect副规则        |
       | RZY2864在搜索页验证严格解析  |
-      | 脱敏                 |
 
   @cleanFirst @clean
     Examples:
