@@ -1,4 +1,4 @@
-@splSmoke
+#@splSmoke
 Feature: 搜索页面输入SPL语句，检查搜索完成后的事件数
 
   Background:
