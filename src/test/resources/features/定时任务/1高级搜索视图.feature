@@ -19,7 +19,8 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I wait for loading invisible
     And I display the element "ChartTypePopover"
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-<caseNum>：日志展现-高级搜索视图-<name>"
+#    Then take a screenshot with name "RZY-<caseNum>：日志展现-高级搜索视图-<name>"
+    Then take part of "Chart" with name "timedtask/<caseNum>"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -86,7 +87,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "lower" from the "LowerLimit"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-<caseNum>：日志展现-高级搜索视图-<name>sample"
+    Then take part of "Chart" with name "timedtask/835"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -125,7 +126,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "apache.clientip" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2805：日志展现-高级搜索视图-循序图sample"
+    Then take part of "Chart" with name "timedtask/2805"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -155,7 +156,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2792：日志展现-高级搜索视图-区划地图钻取sample"
+    Then take part of "Chart" with name "timedtask/2792"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -183,7 +184,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "China" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2793:地图-行政区划地图1_中国"
+    Then take part of "Chart" with name "timedtask/2793"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -211,7 +212,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "res" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2801:其它_水球图_sample"
+    Then take part of "Chart" with name "timedtask/2801"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -246,7 +247,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "cnt" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2302：日志展现-高级搜索视图-攻击地图"
+    Then take part of "Chart" with name "timedtask/2302"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -274,7 +275,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Delete" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2781：维度_旭日图_sample"
+    Then take part of "Chart" with name "timedtask/2781"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -308,20 +309,20 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    Then take a screenshot with name "RZY-2812：日志展现-高级搜索视图-调用链"
+    Then take part of "Chart" with name "timedtask/2812"
     And I click the "Setting" button
     And I click the "Time" button
     And I choose the "collector_recv_timestamp" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    Then take a screenshot with name "RZY-2814：日志展现-高级搜索视图-调用链1更改开始时间"
+    Then take part of "Chart" with name "timedtask/2814改时间"
     And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "StartColour" button
     And I click the "Green" button
     And I click the "Generate" button
     And I wait for loading invisible
-    Then take a screenshot with name "RZY-2814：日志展现-高级搜索视图-调用链1更改颜色"
+    Then take part of "Chart" with name "timedtask/2814改颜色"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -371,7 +372,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Red" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2786：日志展现-高级搜索视图-多Y轴图1"
+    Then take part of "Chart" with name "timedtask/2786"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -404,7 +405,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Yellow" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2774：日志展现-高级搜索视图-饼状图1"
+    Then take part of "Chart" with name "timedtask/2774"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -433,7 +434,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Orange" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2775：日志展现-高级搜索视图-饼状图2"
+    Then take part of "Chart" with name "timedtask/2775"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -465,7 +466,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "柱状外左侧" from the "Label"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2779：日志展现-高级搜索视图-条形图1"
+    Then take part of "Chart" with name "timedtask/2779"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -497,7 +498,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "柱状内中央" from the "Label"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2780：日志展现-高级搜索视图-条形图2"
+    Then take part of "Chart" with name "timedtask/2780"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -526,7 +527,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "MaxRadius" with value "50"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2796：日志展现-高级搜索视图-统计地图"
+    Then take part of "Chart" with name "timedtask/2796"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -555,23 +556,23 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "icon" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2799:其它_单值_图标（按字段icon）"
+    Then take part of "Chart" with name "timedtask/2799其它单值图标按字段icon"
     And I click the "Setting" button
     And I choose the "cnt" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2799:其它_单值_图标（按字段cnt）"
+    Then take part of "Chart" with name "timedtask/2799其它单值图标按字段cnt"
     And I click the "Setting" button
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "font-awesome-flag"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2799:其它_单值_图标（按名称font-awesome-flag）"
+    Then take part of "Chart" with name "timedtask/2799其它单值图标按名称fontawesomeflag"
     And I click the "Setting" button
     And I set the parameter "IconName" with value "font-awesome"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2799:其它_单值_图标（按名称font-awesome）"
+    Then take part of "Chart" with name "timedtask/2799其它单值图标按名称fontawesome"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -599,7 +600,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Background" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2800:其它_单值_背景"
+    Then take part of "Chart" with name "timedtask/2800"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -628,7 +629,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "一天前" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-1369:其它_单值-按趋势"
+    Then take part of "Chart" with name "timedtask/1369"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -663,7 +664,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Red" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-1370:其它_单值设置-按区间"
+    Then take part of "Chart" with name "timedtask/1370"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -695,7 +696,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Green" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2808:其它_雷达图1"
+    Then take part of "Chart" with name "timedtask/2808"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -724,7 +725,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "Segments" with value "5"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2811:其它_矩阵热力图1"
+    Then take part of "Chart" with name "timedtask/2811"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -759,7 +760,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "relatemsg" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2806:其它_循序图1"
+    Then take part of "Chart" with name "timedtask/2806"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -792,7 +793,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "LightGreen" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2809:其它_漏斗图1"
+    Then take part of "Chart" with name "timedtask/2809"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -822,7 +823,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "ConnectEmptyData" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-832：日志展现-高级搜索视图-曲线图"
+    Then take part of "Chart" with name "timedtask/832"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -849,7 +850,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Pile" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2767：日志展现-高级搜索视图-面积图"
+    Then take part of "Chart" with name "timedtask/2767"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -878,7 +879,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "apache.clientip" from the "SecondSettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2773：日志展现-高级搜索视图-柱状图"
+    Then take part of "Chart" with name "timedtask/2773"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -920,7 +921,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "<colour>" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take a screenshot with name "RZY-2772：日志展现-高级搜索视图-散点图"
+    Then take part of "Chart" with name "timedtask/2772"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -934,3 +935,22 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     Examples:
       | spl                                                                          | chart   | tag        | order           | unit | smooth | connectEmptyData | min | max | position      | colour |
       | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Scatter | Horizontal | DescendingOrder | g    |        |                  | 1   | 11  | FirstPosition | Purple |
+
+  Scenario: RZY-2794:地图-行政区划地图2_江苏省
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.city"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "splSearch.StatisticalPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Map" button
+    And I click the "Regionmap" button
+    And I wait for loading invisible
+    And I click the "Setting" button
+    And I click the "Region" button
+    And I click the "Jiangsu" button
+    And I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then take part of "Chart" with name "timedtask/2794"

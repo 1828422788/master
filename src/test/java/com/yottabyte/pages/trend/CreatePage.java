@@ -374,7 +374,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='中国'])[last()]")
     private WebElement china;
 
-    @FindBy(xpath = "//span[text()='内蒙古']")
+    @FindBy(xpath = "(//span[text()='江苏'])[last()]")
+    private WebElement jiangsu;
+
+    @FindBy(xpath = "(//span[text()='内蒙古'])[last()]")
     private WebElement neimeng;
 
     @FindBy(xpath = "//span[text()='省级下钻字段']/ancestor::div/following-sibling::div//i")
@@ -445,6 +448,17 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "yw-trend")
     private WebElement canvas;
+
+    @FindBy(className = "yw-search-stats-charts-object")
+    private WebElement chart;
+
+    public WebElement getChart() {
+        return chart;
+    }
+
+    public WebElement getJiangsu() {
+        return jiangsu;
+    }
 
     public WebElement getCanvas() {
         return canvas;
