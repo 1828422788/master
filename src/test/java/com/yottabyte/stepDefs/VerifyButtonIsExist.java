@@ -9,9 +9,18 @@ import org.openqa.selenium.WebElement;
  * @author sunxj
  */
 public class VerifyButtonIsExist {
+
+    /**
+     * 判断元素是否存在
+     *
+     * @param buttonName
+     */
     @Then("^I will see the \"([^\"]*)\" is not exist$")
-    public void iWillSeeTheIsNotExist(String buttonName) {
-        WebElement webElement = GetElementFromPage.getWebElementWithName(buttonName);
-        Assert.assertTrue(webElement == null);
+    public void elementNotExist(String buttonName) {
+        try {
+            GetElementFromPage.getWebElementWithName(buttonName);
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
     }
 }

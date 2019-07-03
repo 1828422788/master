@@ -573,4 +573,19 @@ public class ClickButtonWithGivenName {
             }
         }
     }
+
+    /**
+     * 关闭或开启禁用开关
+     *
+     * @param name
+     * @param status open/close
+     */
+    @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the switch$")
+    public void operateSwitch(String name, String status) {
+        WebElement tr = this.findName(name);
+        WebElement label = tr.findElement(By.xpath(".//label"));
+        String labelAttribute = tr.findElement(By.xpath(".//div[@class='el-switch__label el-switch__label--right']")).getAttribute("style");
+        if (status.equals("close") && labelAttribute.contains("display: none;") || status.equals("open") && !labelAttribute.contains("display: none;"))
+            label.click();
+    }
 }

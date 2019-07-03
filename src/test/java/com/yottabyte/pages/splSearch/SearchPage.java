@@ -113,6 +113,13 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "cm-operator")
     private WebElement searchInputValue;
 
+    @FindBy(xpath = "//li[text()='查看上下文']")
+    private WebElement context;
+
+    public WebElement getContext() {
+        return context;
+    }
+
     public WebElement getMode() {
         return mode;
     }
