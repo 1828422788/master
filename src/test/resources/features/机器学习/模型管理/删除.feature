@@ -1,5 +1,5 @@
 @machineLearningSmoke
-Feature: 机器学习模型管理搜索
+Feature: 机器学习模型管理删除
 
   Background:
     Given open the "machineLearning.ModelManagerPage" page for uri "/app/machine_learning/model_manager/"
