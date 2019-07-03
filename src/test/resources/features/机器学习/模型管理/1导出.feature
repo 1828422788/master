@@ -24,7 +24,7 @@ Feature: 机器学习模型管理导出
   @smoke @machineLearningSmoke
     Examples:
       | modelName | message                         |
-      | AutoTest  | success message "导出成功，请等待下载完成。" |
+      | 机器学习模型    | success message "导出成功，请等待下载完成。" |
 
     Examples:
       | modelName | message                 |

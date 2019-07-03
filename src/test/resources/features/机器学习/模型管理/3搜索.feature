@@ -1,3 +1,4 @@
+@machineLearningSmoke
 Feature: 机器学习模型管理搜索
 
   Background:

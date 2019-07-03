@@ -45,6 +45,13 @@ public class ModelManagerPage extends PageTemplate {
     @FindBy(xpath = "//i[@class='el-input__icon el-icon-search']/following-sibling::input")
     private WebElement searchInput;
 
+    @FindBy(className = "el-tooltip")
+    private WebElement focus;
+
+    public WebElement getFocus() {
+        return focus;
+    }
+
     public WebElement getSearchInput() {
         return searchInput;
     }
