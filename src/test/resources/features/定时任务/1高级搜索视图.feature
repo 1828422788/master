@@ -954,3 +954,23 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Generate" button
     And I wait for "1000" millsecond
     Then take part of "Chart" with name "timedtask/2794"
+
+  Scenario Outline: RZY-3092、3247、3094、3248、3096、3249、3098
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "trend.CreatePage" page
+    And I wait for "1000" millsecond
+    Then take part of "Chart" with name "timedtask/<num>"
+
+    Examples:
+      | spl                                                                                                                                                                                                                  | num  |
+      | tag:\"sample04061424_display\" \| timechart cont=true span=30m rendertype=\"line\" count() min(apache.resp_len) by apache.status                                                                                     | 3092 |
+      | tag:\"sample04061424_display\"\| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=0 endindex=8 limit=5 rendertype=\"line\" count() min(apache.resp_len) by apache.status    | 3247 |
+      | tag:\"sample04061424_display\" \| timechart cont=true span=30m rendertype=\"area\" count() min(apache.resp_len) by apache.status                                                                                     | 3094 |
+      | tag:\"sample04061424_display\"\| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=0 endindex=8 limit=5 rendertype=\"area\" count() min(apache.resp_len) by apache.status    | 3248 |
+      | tag:\"sample04061424_display\" \| timechart cont=true span=30m rendertype=\"scatter\" count() min(apache.resp_len) by apache.status                                                                                  | 3096 |
+      | tag:\"sample04061424_display\"\| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=0 endindex=8 limit=5 rendertype=\"scatter\" count() min(apache.resp_len) by apache.status | 3249 |
+      | tag:\"sample04061424_display\" \| timechart cont=true span=30m rendertype=\"column\" count() min(apache.resp_len) by apache.status                                                                                   | 3098 |
