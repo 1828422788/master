@@ -1,6 +1,7 @@
 @trendSmoke @trend @second
 Feature: 趋势图所需字段提取新建
 
+  @createEssentialData
   Scenario: RZY-2631前提：创建一个针对sequence的字段提取规则并上传日志
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
