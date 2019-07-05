@@ -25,15 +25,18 @@ Feature: 索引信息新建
     And I set the parameter "AppName" with value "test"
     And I click the "CreateButton" button
     Then I will see the <message>
+
+    Examples: 新建成功
+      | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | message                |
+      | indexerror | AutoTest | 2         | 1          | 100       | MB                | success message "保存成功" |
+
+  Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "test"
     And I set the parameter "Tag" with value "test"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
-
-    Examples: 新建成功
-      | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | message                |
-      | indexerror | AutoTest | 2         | 1          | 100       | MB                | success message "保存成功" |
+    And I wait for element "VerifyText" change text to "上传完成"
 
   @second @indexSettingSmoke
   Scenario: RZY-1474:新建

@@ -72,11 +72,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getUserGroups() {
         return super.getDropdownList("指定用户分组");
-//        userGroupButton.click();
-//        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(selectors.get(0));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
-//        List<WebElement> list = selectors.get(0).findElements(By.tagName("li"));
-//        return list;
     }
 
     public WebElement getCreateButton() {

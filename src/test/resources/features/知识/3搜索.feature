@@ -19,5 +19,5 @@ Feature: 知识搜索（RZY-884）
     Then I will see the element value in json "<value>"
 
     Examples:
-      | search   | value                                                                               |
-      | autotest | {'ResultTitle1':'sunxj1','ResultTitle2':'sxjautotest','ResultTitle3':'sxjautotest'} |
+      | search | value                                                                               |
+      | sunxj1 | {'ResultTitle1':'sunxj1','ResultTitle2':'sxjautotest','ResultTitle3':'sxjautotest'} |
