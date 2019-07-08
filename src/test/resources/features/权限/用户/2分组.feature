@@ -25,7 +25,7 @@ Feature: 用户分组（RZY-1167）
     Given open the "users.ListPage" page for uri "/account/users/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "分组" button
     And I choose the "TempGroup" from the "UserGroups"
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I click the "ConfirmButton" button
     And I will see the success message "保存成功"
     And I refresh the website
