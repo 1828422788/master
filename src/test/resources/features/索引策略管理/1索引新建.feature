@@ -30,6 +30,7 @@ Feature: 索引信息新建
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown | message                |
       | indexerror | AutoTest | 2         | 1          | 100       | MB                | success message "保存成功" |
 
+  @second @indexSettingSmoke
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "test"

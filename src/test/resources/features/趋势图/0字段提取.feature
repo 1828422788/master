@@ -1,4 +1,3 @@
-@trendSmoke @trend @second
 Feature: 趋势图所需字段提取新建
 
   @createEssentialData
