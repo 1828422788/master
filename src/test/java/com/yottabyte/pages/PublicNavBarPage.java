@@ -120,6 +120,13 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(id = "yw-subnav")
     private WebElement subnav;
 
+    @FindBy(xpath = "//i[@class='iconfont icon-owner_icon']/following-sibling::span")
+    private WebElement loginUser;
+
+    public WebElement getLoginUser() {
+        return loginUser;
+    }
+
     public WebElement getSubnav() {
         return subnav;
     }
