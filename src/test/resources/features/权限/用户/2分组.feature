@@ -28,6 +28,7 @@ Feature: 用户分组（RZY-1167）
     And I wait for "2000" millsecond
     And I click the "ConfirmButton" button
     And I will see the success message "保存成功"
+    And I wait for "2000" millsecond
     And I refresh the website
     And I wait for loading invisible
     Then I will see the data "{'column':'1','name':'<name>'}" values "{'column':'4','name':'<finalGroups>'}"
