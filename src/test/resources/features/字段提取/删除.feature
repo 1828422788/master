@@ -1,4 +1,3 @@
-@configs @cleanConfigs
 Feature: 字段提取删除
 
   Scenario Outline:
@@ -6,11 +5,12 @@ Feature: 字段提取删除
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureButton" button
 
-  @configsSmoke
+  @configs @cleanConfigs @configsSmoke
     Examples:
       | name         |
       | AutoTest(副本) |
 
+  @configs @cleanConfigs
     Examples:
       | name            |
       | return          |
@@ -25,7 +25,7 @@ Feature: 字段提取删除
       | dapper           |
       | AutoTestForTrend |
 
-  @clean @cleanSecond
+  @clean @cleanSecond @configs @cleanConfigs
     Examples:
       | name               |
       | 脱敏                 |
@@ -38,7 +38,7 @@ Feature: 字段提取删除
       | redirect副规则        |
       | RZY2864在搜索页验证严格解析  |
 
-  @cleanFirst @clean
+  @cleanFirst @clean @configs @cleanConfigs
     Examples:
       | name     |
       | AutoTest |
