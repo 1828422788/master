@@ -5,12 +5,15 @@ Feature: 定时任务查询
     Given open the "timedTask.ListPage" page for uri "/schedule/"
 
   Scenario Outline: 根据定时任务分组进行查询
-    Given I choose the "<group>" from the "GroupList"
+    Given I click the "GroupDropdown" button
+    And I wait for "GroupDropdownList" will be visible
+    And I choose the "default_SavedSchedule" from the "GroupDropdownList"
+    And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
     Examples:
-      | group                 | name                       |
-      | default_SavedSchedule | RZY-397:定时任务sample_昨天(副本) |
+      | name                      |
+      | RZY-397:定时任务sample_昨天(副本) |
 
   Scenario Outline: 根据搜索内容进行查询
     Given I set the parameter "SearchInput" with value "<inputName>"

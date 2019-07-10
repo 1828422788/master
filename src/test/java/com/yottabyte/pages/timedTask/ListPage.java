@@ -71,6 +71,21 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "date-picker")
     private WebElement datePicker;
 
+    @FindBy(xpath = "//span[text()='全部资源']/preceding-sibling::i")
+    private WebElement groupDropdown;
+
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
+    private WebElement groupDropdownList;
+
+    public WebElement getGroupDropdown() {
+        return groupDropdown;
+    }
+
+    @Override
+    public WebElement getGroupDropdownList() {
+        return groupDropdownList;
+    }
+
     public WebElement getSearchIcon() {
         return super.getSearchIcon();
     }
@@ -106,11 +121,6 @@ public class ListPage extends PageTemplate {
 
     public List<WebElement> getNames() {
         return names;
-    }
-
-    public List<WebElement> getGroupList() {
-        selectLists.get(0).click();
-        return selectOptions;
     }
 
     public WebElement getSwitchButton() {
