@@ -152,4 +152,8 @@ public class ListPage extends PageTemplate {
     public WebElement getAuthorize() {
         return super.getButton("临时授权");
     }
+
+    public WebElement getMessage() {
+        return errorMessage;
+    }
 }

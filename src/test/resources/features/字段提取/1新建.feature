@@ -324,6 +324,8 @@ Feature: 字段提取新建
 
   @second @configsSmoke
   Scenario: RZY-2827：新建脱敏配置规则
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"

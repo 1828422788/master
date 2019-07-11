@@ -449,7 +449,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-trend")
     private WebElement canvas;
 
-    @FindBy(className = "yw-search-stats-charts-object")
+    //    @FindBy(className = "yw-search-stats-charts-object")
+    @FindBy(xpath = "//div[@class='yw-search-stats clearfix']")
     private WebElement chart;
 
     public WebElement getChart() {

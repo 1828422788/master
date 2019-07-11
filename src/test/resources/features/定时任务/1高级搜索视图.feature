@@ -19,8 +19,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I wait for loading invisible
     And I display the element "ChartTypePopover"
     And I wait for "1000" millsecond
-#    Then take a screenshot with name "RZY-<caseNum>：日志展现-高级搜索视图-<name>"
-    Then take part of "Chart" with name "timedtask/<caseNum>"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/<caseNum>"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -33,38 +32,38 @@ Feature: 高级搜索视图（截图并保存为定时任务）
 
   @first
     Examples:
-      | spl                                                                                                          | chartType | chart       | caseNum | name       | taskName                     |
-      | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt | Map       | Geostatsmap | 2795    | 统计地图sample | RZY-2936:task_地图-统计地图_sample |
+      | spl                                                                                                          | chartType | chart       | caseNum | taskName                     |
+      | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt | Map       | Geostatsmap | 2795    | RZY-2936:task_地图-统计地图_sample |
 
   @second
     Examples:
-      | spl                                                                                                                                          | chartType | chart         | caseNum | name          | taskName                       |
-      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                 |           | Line          | 2770    | 曲线图sample     | RZY-2901:task_序列-曲线图_sample    |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                                                   |           | Area          | 2771    | 面积图sample     | RZY-2903:task_序列-面积图_sample    |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                                                   |           | Scatter       | 2769    | 散点图sample     | RZY-2905:task_序列-散点图_sample    |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                                                   |           | Column        | 2768    | 柱状图sample     | RZY-2907:task_序列-柱状图_sample    |
-      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                      | Dimension | Pie           | 833     | 饼状图sample     | RZY-2909:task_维度_饼状图_sample    |
-      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                      | Dimension | Rose          | 2776    | 玫瑰图sample     | RZY-2912:task_维度_玫瑰图_sample    |
-      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                      | Dimension | Bar           | 2778    | 条形图sample     | RZY-2914:task_维度_条形图_sample    |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path                                                             | Relation  | Chord         | 834     | 和弦图sample     | RZY-2919:task_关系_和弦图_sample    |
-      | tag:sample04061424_chart AND NOT apache.clientip:221.226.97.92 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 10 | Relation  | Sankey        | 2783    | 桑基图sample     | RZY-2921:task_关系_桑基图_sample    |
-      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \| limit 10                                                 | Relation  | Force         | 2784    | 力图sample      | RZY-2923:task_关系_力图_sample     |
-      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count                          | Compound  | Multiaxis     | 2785    | 多Y轴图sample    | RZY-2927:task_复合_多Y轴图_sample   |
-      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                 | Map       | Heatmap       | 1229    | 热力地图sample    | RZY-2929:task_地图-热力地图_sample   |
-      | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city                                        | Map       | Regionmap     | 2790    | 区划地图sample    | RZY-2933:task_地图-行政区划地图_sample |
-      | tag:sample04061424_chart  \| stats count() as cnt \| eval icon=if(cnt>1000000,\"thumbs-down\",\"thumbs-up\")                                 | Other     | Single        | 2303    | 单值sample      | RZY-2939:task_其它_单值_sample     |
-      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                 | Other     | Wordcloud     | 2804    | 字符云图sample    | RZY-2946:task_其它_字符云图_sample   |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                                                   | Other     | Radar         | 2807    | 其它_雷达图_sample | RZY-2950:task_其它_雷达图_sample    |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10                                                       | Other     | Funnel        | 2449    | 其他_漏斗图sample  | RZY-2952:task_其它_漏斗图sample     |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                                                   | Other     | Matrixheatmap | 2810    | 矩阵热力图sample   | RZY-2954:task_其它_矩阵热力图_sample  |
+      | spl                                                                                                                                          | chartType | chart         | caseNum | taskName                       |
+      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                 |           | Line          | 2770    | RZY-2901:task_序列-曲线图_sample    |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                                                   |           | Area          | 2771    | RZY-2903:task_序列-面积图_sample    |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                                                   |           | Scatter       | 2769    | RZY-2905:task_序列-散点图_sample    |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.method                                                                   |           | Column        | 2768    | RZY-2907:task_序列-柱状图_sample    |
+      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                      | Dimension | Pie           | 833     | RZY-2909:task_维度_饼状图_sample    |
+      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                      | Dimension | Rose          | 2776    | RZY-2912:task_维度_玫瑰图_sample    |
+      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                      | Dimension | Bar           | 2778    | RZY-2914:task_维度_条形图_sample    |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path                                                             | Relation  | Chord         | 834     | RZY-2919:task_关系_和弦图_sample    |
+      | tag:sample04061424_chart AND NOT apache.clientip:221.226.97.92 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 10 | Relation  | Sankey        | 2783    | RZY-2921:task_关系_桑基图_sample    |
+      | tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \| limit 10                                                 | Relation  | Force         | 2784    | RZY-2923:task_关系_力图_sample     |
+      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count                          | Compound  | Multiaxis     | 2785    | RZY-2927:task_复合_多Y轴图_sample   |
+      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                 | Map       | Heatmap       | 1229    | RZY-2929:task_地图-热力地图_sample   |
+      | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city                                        | Map       | Regionmap     | 2790    | RZY-2933:task_地图-行政区划地图_sample |
+      | tag:sample04061424_chart  \| stats count() as cnt \| eval icon=if(cnt>1000000,\"thumbs-down\",\"thumbs-up\")                                 | Other     | Single        | 2303    | RZY-2939:task_其它_单值_sample     |
+      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                 | Other     | Wordcloud     | 2804    | RZY-2946:task_其它_字符云图_sample   |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                                                   | Other     | Radar         | 2807    | RZY-2950:task_其它_雷达图_sample    |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10                                                       | Other     | Funnel        | 2449    | RZY-2952:task_其它_漏斗图sample     |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                                                   | Other     | Matrixheatmap | 2810    | RZY-2954:task_其它_矩阵热力图_sample  |
 
   @third
     Examples:
-      | spl                                                                                                                                                                                              | chartType | chart       | caseNum | name        | taskName                 |
-      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city                                                                                                  | Dimension | Sunburst    | 2782    | 旭日图1        | RZY-2918:task_维度_旭日图1    |
-      | tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince | Map       | Geostatsmap | 2797    | 统计地图_权重     | RZY-2938:task_地图-统计地图_权重 |
-      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                                                                          | Dimension | Rose        | 2777    | 维度_玫瑰图1     | RZY-2913:task_维度_玫瑰图1    |
-      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                                                                     | Map       | Heatmap     | 1229    | 热力地图_sample | RZY-2930:task_地图-热力地图    |
+      | spl                                                                                                                                                                                              | chartType | chart       | caseNum | taskName                 |
+      | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city                                                                                                  | Dimension | Sunburst    | 2782    | RZY-2918:task_维度_旭日图1    |
+      | tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince | Map       | Geostatsmap | 2797    | RZY-2938:task_地图-统计地图_权重 |
+      | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                                                                          | Dimension | Rose        | 2777    | RZY-2913:task_维度_玫瑰图1    |
+      | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                                                                     | Map       | Heatmap     | 1229    | RZY-2930:task_地图-热力地图    |
 
   @second
   Scenario Outline: 区间图sample
@@ -87,7 +86,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "lower" from the "LowerLimit"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/835"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/835"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -126,7 +125,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "apache.clientip" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2805"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2805"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -156,7 +155,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2792"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2792"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -184,7 +183,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "China" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2793"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2903"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -212,7 +211,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "res" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2801"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2801"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -247,7 +246,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "cnt" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2302"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2302"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -275,7 +274,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Delete" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2781"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2781"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -309,20 +308,20 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    Then take part of "Chart" with name "timedtask/2812"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2812"
     And I click the "Setting" button
     And I click the "Time" button
     And I choose the "collector_recv_timestamp" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    Then take part of "Chart" with name "timedtask/2814改时间"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2814改时间"
     And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "StartColour" button
     And I click the "Green" button
     And I click the "Generate" button
     And I wait for loading invisible
-    Then take part of "Chart" with name "timedtask/2814改颜色"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2814改颜色"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -372,7 +371,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Red" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2786"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2786"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -405,7 +404,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Yellow" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2774"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2774"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -434,7 +433,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Orange" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2775"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2775"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -466,7 +465,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "柱状外左侧" from the "Label"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2779"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2779"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -498,7 +497,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "柱状内中央" from the "Label"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2780"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2780"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -527,7 +526,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "MaxRadius" with value "50"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2796"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2796"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -556,23 +555,23 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "icon" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2799其它单值图标按字段icon"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2799其它单值图标按字段icon"
     And I click the "Setting" button
     And I choose the "cnt" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2799其它单值图标按字段cnt"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2799其它单值图标按字段cnt"
     And I click the "Setting" button
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "font-awesome-flag"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2799其它单值图标按名称fontawesomeflag"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2799其它单值图标按名称fontawesomeflag"
     And I click the "Setting" button
     And I set the parameter "IconName" with value "font-awesome"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2799其它单值图标按名称fontawesome"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2799其它单值图标按名称fontawesome"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -600,7 +599,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Background" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2800"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2800"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -629,7 +628,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "一天前" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/1369"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/1369"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -664,7 +663,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Red" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/1370"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/1370"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -696,7 +695,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Green" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2808"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2808"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -725,7 +724,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "Segments" with value "5"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2811"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2811"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -760,7 +759,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "relatemsg" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2806"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2806"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -793,7 +792,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "LightGreen" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2809"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2809"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -823,7 +822,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "ConnectEmptyData" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/832"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/832"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -850,7 +849,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Pile" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2767"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2767"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -879,7 +878,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "apache.clientip" from the "SecondSettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2773"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2773"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -921,7 +920,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "<colour>" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2772"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2772"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -953,7 +952,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Jiangsu" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/2794"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2794"
 
   Scenario Outline: RZY-3092、3247、3094、3248、3096、3249、3098
     When I set the parameter "SearchInput" with value "<spl>"
@@ -963,7 +962,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I wait element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "timedtask/<num>"
+    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/<num>"
 
     Examples:
       | spl                                                                                                                                                                                                                  | num  |
