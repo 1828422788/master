@@ -19,7 +19,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I wait for loading invisible
     And I display the element "ChartTypePopover"
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/<caseNum>"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/<caseNum>"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -86,7 +86,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "lower" from the "LowerLimit"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/835"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/835"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -125,7 +125,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "apache.clientip" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2805"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2805"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -155,7 +155,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "apache.geo.city" from the "City"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2792"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2792"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -183,7 +183,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "China" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2903"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2903"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -211,7 +211,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "res" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2801"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2801"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -246,7 +246,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "cnt" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2302"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2302"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -274,7 +274,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Delete" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2781"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2781"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -308,20 +308,20 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "dapper.msg.binaryAnnotations[].value" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2812"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2812"
     And I click the "Setting" button
     And I click the "Time" button
     And I choose the "collector_recv_timestamp" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for loading invisible
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2814改时间"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2814改时间"
     And I click the "Setting" button
     And I click the "Exhibition" button
     And I click the "StartColour" button
     And I click the "Green" button
     And I click the "Generate" button
     And I wait for loading invisible
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2814改颜色"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2814改颜色"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -371,7 +371,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Red" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2786"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2786"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -404,7 +404,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Yellow" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2774"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2774"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -433,7 +433,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Orange" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2775"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2775"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -465,7 +465,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "柱状外左侧" from the "Label"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2779"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2779"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -497,7 +497,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "柱状内中央" from the "Label"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2780"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2780"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -526,7 +526,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "MaxRadius" with value "50"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2796"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2796"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -555,23 +555,23 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "icon" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2799其它单值图标按字段icon"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2799其它单值图标按字段icon"
     And I click the "Setting" button
     And I choose the "cnt" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2799其它单值图标按字段cnt"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2799其它单值图标按字段cnt"
     And I click the "Setting" button
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "font-awesome-flag"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2799其它单值图标按名称fontawesomeflag"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2799其它单值图标按名称fontawesomeflag"
     And I click the "Setting" button
     And I set the parameter "IconName" with value "font-awesome"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2799其它单值图标按名称fontawesome"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2799其它单值图标按名称fontawesome"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -599,7 +599,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Background" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2800"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2800"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -628,7 +628,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "一天前" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/1369"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/1369"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -663,7 +663,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Red" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/1370"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/1370"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -695,7 +695,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Green" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2808"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2808"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -724,7 +724,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I set the parameter "Segments" with value "5"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2811"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2811"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -759,7 +759,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "relatemsg" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2806"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2806"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -792,7 +792,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "LightGreen" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2809"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2809"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -822,7 +822,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "ConnectEmptyData" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/832"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/832"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -849,7 +849,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Pile" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2767"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2767"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -878,7 +878,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I choose the "apache.clientip" from the "SecondSettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2773"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2773"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -920,7 +920,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "<colour>" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2772"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2772"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -952,7 +952,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Jiangsu" button
     And I click the "Generate" button
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/2794"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2794"
 
   Scenario Outline: RZY-3092、3247、3094、3248、3096、3249、3098
     When I set the parameter "SearchInput" with value "<spl>"
@@ -962,7 +962,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I wait element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
     And I wait for "1000" millsecond
-    Then take part of "Chart" with name "../../UI_test_screenshot/timedtask/<num>"
+    Then take part of "Chart" with name "../UI_test_screenshot/timedtask/<num>"
 
     Examples:
       | spl                                                                                                                                                                                                                  | num  |
