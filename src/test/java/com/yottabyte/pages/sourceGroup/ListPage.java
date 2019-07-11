@@ -60,6 +60,28 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement select;
 
+    @FindBy(xpath = "//button[@class='el-button yw-modal-btn yw-modal-btn-normal el-button--default']//span[contains(text(),'回收')]")
+    private WebElement retrieve;
+
+    @FindBy(className = "el-table__empty-text")
+    private WebElement emptyText;
+
+    @FindBy(className = "el-icon-arrow-up")
+    private WebElement arrowUp;
+
+    public WebElement getResource() {
+        arrowUp.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getEmptyText() {
+        return emptyText;
+    }
+
+    public WebElement getRetrieve() {
+        return retrieve;
+    }
+
     public WebElement getSaveButton() {
         return super.getContainsTextButton("保存");
     }
@@ -151,6 +173,10 @@ public class ListPage extends PageTemplate {
 
     public WebElement getAuthorize() {
         return super.getButton("临时授权");
+    }
+
+    public WebElement getManageAuthorize() {
+        return super.getButton("授权管理");
     }
 
     public WebElement getMessage() {

@@ -304,9 +304,15 @@ public class ClickButtonWithGivenName {
      * @return
      */
     private WebElement getSourcesGroupName(List<WebElement> tableList, String name) {
-        WebElement nameTable = tableList.get(1);
-        WebElement operatorTable = tableList.get(2);
-
+        WebElement nameTable;
+        WebElement operatorTable;
+        if (tableList.size() == 2) {
+            nameTable = tableList.get(0);
+            operatorTable = tableList.get(1);
+        } else {
+            nameTable = tableList.get(1);
+            operatorTable = tableList.get(2);
+        }
         List<WebElement> nameList = nameTable.findElements(By.tagName("tr"));
 
         int i = 0;
