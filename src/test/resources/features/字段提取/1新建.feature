@@ -362,6 +362,7 @@ Feature: 字段提取新建
     And I set the parameter "AppName" with value "replacer"
     And I set the parameter "Tag" with value "replacer"
     And I click the "NextButton" button
+    Then I wait for "ConfigDone" will be visible
 
   @configsSmoke
   Scenario Outline: 上传日志
