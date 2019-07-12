@@ -21,6 +21,7 @@ Feature: 日志来源临时授权
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "可查看未分配资源"
     And I click the "{'TabButton':'URL 访问'}" button
     And I "checked" the checkbox which name is "全选"
     And I click the "{'TabButton':'日志来源'}" button
@@ -48,7 +49,7 @@ Feature: 日志来源临时授权
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
-    And I set the parameter "SearchInput" with value "sxjautotest"
+    And I set the parameter "SearchInput" with value "sunxjautotest"
     And I click the "Search" button
     And I wait for loading invisible
     And I click the "Authorize" button

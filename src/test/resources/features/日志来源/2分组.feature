@@ -11,7 +11,6 @@ Feature: 日志来源分组
     Then I will see the success message "保存成功"
 
     Examples:
-      | name        | group                                                        |
-      | sxjautotest | cancel selection "default_SourceGroup" from the "GroupInput" |
-      | sxjautotest | choose the "default_SourceGroup" from the "GroupInput"       |
+      | name     | group                                                  |
+      | temptest | choose the "default_SourceGroup" from the "GroupInput" |
 
