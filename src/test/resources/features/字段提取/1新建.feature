@@ -468,3 +468,18 @@ Feature: 字段提取新建
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
     Then I will see the spl search result "{"raw_message":"qweqwe159****8361qwe 159****8361"}"
+
+  @second @configsSmoke
+  Scenario: 删除脱敏规则
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "userWithResources"
+    And I set the parameter "Password" with properties "userWithResourcesPwd"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "脱敏" then i click the "删除" button
+    And I click the "EnsureButton" button

@@ -69,6 +69,13 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-icon-arrow-up")
     private WebElement arrowUp;
 
+    @FindBy(xpath = "//input[@placeholder='提权人用户名']")
+    private WebElement name;
+
+    public WebElement getName() {
+        return name;
+    }
+
     public WebElement getResource() {
         arrowUp.click();
         return super.getLastDropdownList();

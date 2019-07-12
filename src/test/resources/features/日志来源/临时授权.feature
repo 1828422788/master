@@ -65,12 +65,22 @@ Feature: 日志来源临时授权
       | user              | userPwd              |
       | userWithResources | userWithResourcesPwd |
 
-  Scenario: 搜索临时授权管理
+  Scenario: RZY-1227:按照日志来源搜索临时授权管理
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
     And I click the "ManageAuthorize" button
     And I choose the "tempautotest" from the "Resource"
+    And I wait for "1000" millsecond
+    Then I will see the search result "{'column':'1','name':'tempautotest'}"
 
-  Scenario: 回收临时权限
+  Scenario: RZY-1228:按提权人搜索
+    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+    And I click the "ManageAuthorize" button
+    And I set the parameter "Name" with value "AutoTestAllResource"
+    And I click the "Search" button
+    And I wait for "1000" millsecond
+    Then I will see the search result "{'column':'0','name':'AutoTestAllResource'}"
+
+  Scenario: RZY-1224:授权管理-回收
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
     And I click the "ManageAuthorize" button
     When the data name is "AutoTest" then i click the "回收" button
