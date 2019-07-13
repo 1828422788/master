@@ -13,6 +13,7 @@ Feature: 日志来源删除
       | name                    |
       | sunxjautotest           |
       | temptest                |
+      | tempautotest            |
       | AutoTestUploadTest      |
       | AutoTestUploadSubSource |
       | AutoTestUploadFather    |
