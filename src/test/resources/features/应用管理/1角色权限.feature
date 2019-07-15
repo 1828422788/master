@@ -24,7 +24,7 @@ Feature: 应用角色权限（RZY-2144）
     And I will see the "roles.CreatePage" page
     And I set the parameter "RoleName" with value "AutoApp"
     And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
   Scenario: 角色复制
     When the data name is "AutoApp" then i click the "复制" button
