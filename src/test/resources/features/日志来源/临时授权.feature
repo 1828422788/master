@@ -22,6 +22,7 @@ Feature: 日志来源临时授权
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "可查看未分配资源"
+    And I "unchecked" the checkbox which name is "可下载搜索结果"
     And I click the "{'TabButton':'URL 访问'}" button
     And I "checked" the checkbox which name is "全选"
     And I click the "{'TabButton':'日志来源'}" button
@@ -36,6 +37,26 @@ Feature: 日志来源临时授权
       | role                        |
       | AutoTestRole                |
       | AutoTestRoleWithAllResource |
+
+  Scenario: 验证角色无可下载搜索结果权限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
+    And I click the "LoginButton" button
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "*"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "DownloadButton" doesn't exist
 
   Scenario Outline: 进行二次授权
     Given I will see the "PublicNavBarPage" page
@@ -58,6 +79,7 @@ Feature: 日志来源临时授权
     And I choose the "userWithResources" from the "User" with property
     And I set the parameter "ValidTime" with value "120"
     And I "checked" the checkbox which name is "允许二次授权"
+    And I "checked" the checkbox which name is "可下载搜索结果"
     And I click the "SaveButton" button
     Then I will see the message "添加临时授权成功！"
 
@@ -80,6 +102,26 @@ Feature: 日志来源临时授权
     And I click the "Search" button
     And I wait for "1000" millsecond
     Then I will see the search result "{'column':'0','name':'AutoTestAllResource'}"
+
+  Scenario: 验证有下载搜索结果权限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
+    And I click the "LoginButton" button
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "*"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I click the "DownloadButton" button
 
   Scenario: RZY-1224:授权管理-回收
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
@@ -104,3 +146,23 @@ Feature: 日志来源临时授权
     Examples:
       | name | pwd     |
       | user | userPwd |
+
+  Scenario: 验证回收后无下载搜索结果权限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
+    And I click the "LoginButton" button
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "*"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "DownloadButton" doesn't exist
