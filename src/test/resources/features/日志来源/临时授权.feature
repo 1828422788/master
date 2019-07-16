@@ -12,6 +12,7 @@ Feature: 日志来源临时授权
     And I choose the "user" from the "User" with property
     And I set the parameter "ValidTime" with value "120"
     And I "checked" the checkbox which name is "允许二次授权"
+    And I "checked" the checkbox which name is "可下载搜索结果"
     And I click the "SaveButton" button
     Then I will see the message "添加临时授权成功！"
 
@@ -79,7 +80,6 @@ Feature: 日志来源临时授权
     And I choose the "userWithResources" from the "User" with property
     And I set the parameter "ValidTime" with value "120"
     And I "checked" the checkbox which name is "允许二次授权"
-    And I "checked" the checkbox which name is "可下载搜索结果"
     And I click the "SaveButton" button
     Then I will see the message "添加临时授权成功！"
 
