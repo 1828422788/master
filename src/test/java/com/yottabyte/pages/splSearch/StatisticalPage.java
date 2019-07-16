@@ -64,7 +64,7 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='地理分布']")
     private WebElement geographicalDistribution;
 
-    @FindBy(xpath = "//p[text()='字段值']/following-sibling::div")
+    @FindBy(xpath = "(//p[text()='字段值'])[last()]/following-sibling::div")
     private WebElement fieldValue;
 
     @FindBy(xpath = "//p[text()='展现方式']/following-sibling::div")
@@ -94,7 +94,7 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//button[text()='确定'][@class='el-picker-panel__btn']")
     private List<WebElement> ensureButtonList;
 
-    @FindBy(xpath = "//button[@class='el-button yw-search-primary-btn el-button--default']")
+    @FindBy(xpath = "(//button[@class='el-button yw-search-primary-btn el-button--default']/span[text()='生成'])[last()]")
     private WebElement generate;
 
     @FindBy(xpath = "(//div[@class='el-input-group__prepend'][text()='从']/following-sibling::input)[last()]")
@@ -121,9 +121,6 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yw-search-stats-select with-select el-input el-input-group el-input-group--append']/input")
     private WebElement timeBucket;
 
-    @FindBy(xpath = "//div[@class='yw-search-stats-select with-select el-input el-input-group el-input-group--append']//i")
-    private WebElement timeBucketDropdownButton;
-
     @FindBy(xpath = "//span[text()='Top']")
     private WebElement topRadio;
 
@@ -139,13 +136,13 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//p[text()='目标值']/following-sibling::div/input")
     private WebElement goalValue;
 
-    @FindBy(xpath = "//span[text()='统计图']")
+    @FindBy(xpath = "(//span[text()='统计图'])[last()]")
     private WebElement statisticsGram;
 
-    @FindBy(xpath = "//span[text()='下一步']")
+    @FindBy(xpath = "(//span[text()='下一步'])[last()]")
     private WebElement nextStep;
 
-    @FindBy(xpath = "//p[text()='时间桶']/following-sibling::div/button")
+    @FindBy(xpath = "(//p[text()='时间桶'])[last()]/following-sibling::div/button")
     private WebElement generateWithGram;
 
     @FindBy(xpath = "//p[text()='展现方式']/following-sibling::div/button")
@@ -165,9 +162,6 @@ public class StatisticalPage extends PageTemplate {
 
     @FindBy(xpath = "//th[1]//label")
     private WebElement checkAll;
-
-    @FindBy(xpath = "(//p[text()='统计类型']/following-sibling::div//button/span[text()='生成'])[last()]")
-    private WebElement lastGenerateButton;
 
     @FindBy(xpath = "(//label[@class='el-checkbox'])[last()]")
     private WebElement lastCheckBox;
@@ -192,6 +186,37 @@ public class StatisticalPage extends PageTemplate {
 
     @FindBy(className = "yw-search-stats-charts-object")
     private WebElement chart;
+
+    @FindBy(className = "yw-single-chart-container")
+    private WebElement chartContainer;
+
+    @FindBy(xpath = "//div[@class='cell'][text()='200']/ancestor::td/preceding-sibling::td//label")
+    private WebElement field;
+
+    @FindBy(xpath = "//p[text()='时间桶']/following-sibling::div/input")
+    private WebElement timeInput;
+
+    @FindBy(xpath = "(//p[text()='时间桶'])[last()]/following-sibling::div//i")
+    private WebElement timeDropdown;
+
+    @FindBy(xpath = "//th[@class='el-table_1_column_4 el-table-column--selection is-leaf']//label")
+    private WebElement wholeField;
+
+    public WebElement getWholeField() {
+        return wholeField;
+    }
+
+    public WebElement getTimeInput() {
+        return timeInput;
+    }
+
+    public WebElement getField() {
+        return field;
+    }
+
+    public WebElement getChartContainer() {
+        return chartContainer;
+    }
 
     public WebElement getChart() {
         return chart;
@@ -255,10 +280,6 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getLastCheckBox() {
         return lastCheckBox;
-    }
-
-    public WebElement getLastGenerateButton() {
-        return lastGenerateButton;
     }
 
     public WebElement getLastFieldValue() {
@@ -326,7 +347,7 @@ public class StatisticalPage extends PageTemplate {
     }
 
     public WebElement getTimeBucketDropdownButton() {
-        timeBucketDropdownButton.click();
+        timeDropdown.click();
         return this.getLastDropdownList();
     }
 

@@ -18,7 +18,7 @@ Feature: 普通统计视图
     And I choose the "<value2>" from the "FieldValue"
     And I click the "AddButton" button
     And I wait for loading invisible
-    And take part of "Chart" with name "event/<caseNum>"
+    Then take part of "Chart" with name "event/<caseNum>"
 
   @first @logDisplay
     Examples:
@@ -47,11 +47,11 @@ Feature: 普通统计视图
     And I set the parameter "StartTime" with value "<startTime>"
     Then I click the "EnsureButton" button
     And I set the parameter "EndTime" with value "<endTime>"
-    Then I click the "EnsureButton" button
-    Then I click the "GenerateTime" button under some element
-    Then I wait for "Loading" will be invisible
+    And I click the "EnsureButton" button
+    And I click the "GenerateTime" button under some element
+    And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    And take part of "Chart" with name "event/<caseNum>"
+    Then take part of "Chart" with name "event/<caseNum>"
 
     Examples:
       | fieldValue           | statisticType | startTime           | endTime             | caseNum |
@@ -82,8 +82,8 @@ Feature: 普通统计视图
     And I set the parameter "StartDataValue" with value "500"
     And I set the parameter "EndDataValue" with value "1000"
     And I click the "Generate" button
-    Then I wait for "Loading" will be invisible
-    And take part of "Chart" with name "event/814"
+    And I wait for "Loading" will be invisible
+    Then take part of "Chart" with name "event/814"
 
   @logDisplay
   Scenario Outline: 时间直方图（RZY-815）
@@ -97,10 +97,10 @@ Feature: 普通统计视图
     Given I click the "TimeHistogram" button
     Then I set the parameter "TimeSpan" with value "<timeSpan>"
     And I choose the "<time>" from the "Time"
-    Then I click the "Generate" button
-    Then I wait for "Loading" will be invisible
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    And take part of "Chart" with name "event/<screenName>"
+    Then take part of "Chart" with name "event/<screenName>"
 
     Examples:
       | timeSpan | time | screenName |
@@ -122,9 +122,9 @@ Feature: 普通统计视图
     Given I click the "DataHistogram" button
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "DataSpan" with value "<number>"
-    Then I click the "Generate" button
-    Then I wait for "Loading" will be invisible
-    And take part of "Chart" with name "event/816"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    Then take part of "Chart" with name "event/816"
 
     Examples:
       | fieldValue    | number |
@@ -144,9 +144,9 @@ Feature: 普通统计视图
     And I click the "ClosePercent" button
     And I click the "AddPercent" button
     And I set the parameter "PercentInput" with value "80"
-    Then I click the "Generate" button
-    Then I wait for "Loading" will be invisible
-    And take part of "Chart" with name "event/819"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    Then take part of "Chart" with name "event/819"
 
   @third @logDisplay
   Scenario: RZY-817:[展现方式]_字段值分类_sample
@@ -197,7 +197,7 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    And take part of "Chart" with name "event/817条top5"
+    Then take part of "Chart" with name "event/817条top5"
 
   @third @logDisplay
   Scenario: RZY-818:展现方式_字段数值_sample
@@ -215,23 +215,7 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    And take part of "Chart" with name "event/818"
-
-#  @third @logDisplay
-#  Scenario: RZY-822:[字段] [TOP] [统计图]_sample
-#    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-#    And I click the "DateEditor" button
-#    And I click the "Today" button
-#    And I click the "SearchButton" button
-#    And I wait element "SearchStatus" change text to "搜索完成!"
-#    And I click the "CountButton" button
-#    And I will see the "splSearch.StatisticalPage" page
-#    And I click the "MultilevelStatistics" button
-#    And I choose the "apache.status" from the "FieldValue"
-#    And I click the "Generate" button
-#    And I click the "StatisticsGram" button
-#    And I set the parameter "TimeBucket" with value "1"
-#    And I choose the "小时" from the "TimeBucketDropdownButton"
+    Then take part of "Chart" with name "event/818"
 
   @third @logDisplay
   Scenario: RZY-825:地理分布_sample
@@ -247,4 +231,101 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I wait for "500" millsecond
-    And take part of "Chart" with name "event/825"
+    Then take part of "Chart" with name "event/825"
+
+  @second @logDisplay
+  Scenario: RZY-3137:统计_数值分段_实数
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "DataSlice" button
+    And I choose the "apache.geo.latitude" from the "FieldValue"
+    And I set the parameter "StartDataValue" with value "0"
+    And I set the parameter "EndDataValue" with value "22.5"
+    And I click the "AddNum" button
+    And I set the parameter "StartDataValue" with value "22.5"
+    And I set the parameter "EndDataValue" with value "32.05"
+    And I click the "AddNum" button
+    And I set the parameter "StartDataValue" with value "32.05"
+    And I set the parameter "EndDataValue" with value "39.9"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take part of "Chart" with name "event/3137"
+
+  @second @logDisplay
+  Scenario: RZY-3136:字段_等级数值_实数
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "PercentDegree" button
+    And I choose the "apache.resp_len" from the "FieldValue"
+    And I set the parameter "GoalValue" with value "1262.5"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take part of "ChartContainer" with name "event/3136"
+
+  @third @logDisplay
+  Scenario: RZY-822:[字段] [TOP] [统计图]_sample
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "MultilevelStatistics" button
+    And I choose the "apache.status" from the "FieldValue"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I click the "Field" button
+    And I click the "NextStep" button
+    And I choose the "apache.clientip" from the "FieldValue"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I click the "StatisticsGram" button
+    And I set the parameter "TimeInput" with value "1"
+    And I choose the "小时" from the "TimeBucketDropdownButton"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take part of "Chart" with name "event/822step1"
+
+  @third @logDisplay
+  Scenario: RZY-822:[字段] [TOP] [统计图]_sample step2
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "MultilevelStatistics" button
+    And I choose the "apache.status" from the "FieldValue"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I click the "Field" button
+    And I click the "NextStep" button
+    And I choose the "apache.clientip" from the "FieldValue"
+    And I click the "Generate" button
+    And I click the "WholeField" button
+    And I click the "NextStep" button
+    And I choose the "apache.resp_len" from the "FieldValue"
+    And I click the "Generate" button
+    And I click the "StatisticsGram" button
+    And I set the parameter "TimeInput" with value "1"
+    And I choose the "小时" from the "TimeBucketDropdownButton"
+    And I click the "Generate" button
+    And I wait for "Loading" will be invisible
+    And I wait for "500" millsecond
+    Then take part of "Chart" with name "event/822step2"
+
