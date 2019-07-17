@@ -19,7 +19,7 @@ Feature: 字段提取删除
       | RZY-2866搜索页结果验证 |
       | RZY-2861新建字段提取  |
 
-  @cleanTrend @cleanEssentialData
+  @cleanEssentialData
     Examples:
       | name             |
       | dapper           |
