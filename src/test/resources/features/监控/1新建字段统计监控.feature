@@ -12,7 +12,7 @@ Feature: 监控新建字段统计（RZY-434）
     And I choose the "<AlertGroup>" from the "AlertGroups"
     And I choose the "<AlertSource>" from the "AlertSources"
     And I set the parameter "SearchContent" with value "<SearchContent>"
-    And I switch the "AlertEnable" button to "disable"
+#    And I switch the "AlertEnable" button to "disable"
     And I choose the "字段统计监控" from the "AlertTypes"
     And I click the "AlertPlanCrontabButton" button
     And I set the parameter "AlertPlanCrontabInput" with value "<AlertPlanCrontab>"
@@ -39,7 +39,7 @@ Feature: 监控新建字段统计（RZY-434）
     And I choose the "default_Alert" from the "AlertGroups"
     And I choose the "所有日志" from the "AlertSources"
     And I set the parameter "SearchContent" with value "*"
-    And I switch the "AlertEnable" button to "disable"
+#    And I switch the "AlertEnable" button to "disable"
     And I choose the "字段统计监控" from the "AlertTypes"
     And I click the "AlertPlanCrontabButton" button
     And I set the parameter "AlertPlanCrontabInput" with value "0 * * * * ?"
