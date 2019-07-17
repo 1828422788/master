@@ -1,6 +1,29 @@
 @logSource
 Feature: 日志来源临时授权
 
+  Scenario Outline: 修改角色权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "<role>" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I click the "{'TabButton':'功能'}" button
+    And I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "可查看未分配资源"
+    And I "unchecked" the checkbox which name is "可下载搜索结果"
+    And I click the "{'TabButton':'URL 访问'}" button
+    And I "checked" the checkbox which name is "全选"
+    And I click the "{'TabButton':'日志来源'}" button
+    And I "checked" the checkbox which name is "新建日志来源分组"
+    And I click the "{'TabButton':'用户分组'}" button
+    And I "checked" the checkbox which name is "新建用户分组"
+    And I check "读取,编辑,删除" from the "{'GroupManagement':['AutoTest']}"
+    And I check "读取,分配,编辑" from the "{'IntraGroupManagement':['AutoTest']}"
+    Then I click the "SaveButton" button
+
+    Examples:
+      | role                        |
+      | AutoTestRole                |
+      | AutoTestRoleWithAllResource |
+
   Scenario: 验证角色无可下载搜索结果权限
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -35,29 +58,6 @@ Feature: 日志来源临时授权
     And I "checked" the checkbox which name is "可下载搜索结果"
     And I click the "SaveButton" button
     Then I will see the message "添加临时授权成功！"
-
-  Scenario Outline: 修改角色权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "<role>" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I click the "{'TabButton':'功能'}" button
-    And I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "可查看未分配资源"
-    And I "unchecked" the checkbox which name is "可下载搜索结果"
-    And I click the "{'TabButton':'URL 访问'}" button
-    And I "checked" the checkbox which name is "全选"
-    And I click the "{'TabButton':'日志来源'}" button
-    And I "checked" the checkbox which name is "新建日志来源分组"
-    And I click the "{'TabButton':'用户分组'}" button
-    And I "checked" the checkbox which name is "新建用户分组"
-    And I check "读取,编辑,删除" from the "{'GroupManagement':['AutoTest']}"
-    And I check "读取,分配,编辑" from the "{'IntraGroupManagement':['AutoTest']}"
-    Then I click the "SaveButton" button
-
-    Examples:
-      | role                        |
-      | AutoTestRole                |
-      | AutoTestRoleWithAllResource |
 
   Scenario Outline: 进行二次授权
     Given I will see the "PublicNavBarPage" page
