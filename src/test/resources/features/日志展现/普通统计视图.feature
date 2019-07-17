@@ -297,6 +297,7 @@ Feature: 普通统计视图
     And I choose the "小时" from the "TimeBucketDropdownButton"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
+    And I drag the scroll bar to the element "Chart"
     And I wait for "500" millsecond
     Then take part of "Chart" with name "event/822step1"
 
@@ -326,6 +327,7 @@ Feature: 普通统计视图
     And I choose the "小时" from the "TimeBucketDropdownButton"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
+    And I drag the scroll bar to the element "Chart"
     And I wait for "500" millsecond
     Then take part of "Chart" with name "event/822step2"
 
