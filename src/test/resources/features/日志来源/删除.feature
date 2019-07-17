@@ -11,14 +11,14 @@ Feature: 日志来源删除
   @logSource
     Examples:
       | name                    |
-      | sunxjautotest           |
-      | temptest                |
-      | tempautotest            |
-      | AutoTestUploadTest      |
-      | AutoTestUploadSubSource |
-      | AutoTestUploadFather    |
       | AutoTestEditSubSource   |
       | AutoTestEditFather      |
+      | AutoTestUploadSubSource |
+      | AutoTestUploadFather    |
+      | AutoTestUploadTest      |
+      | temptest                |
+      | tempautotest            |
+      | sunxjautotest           |
 
   @cleanLogSource @cleanEssentialData
     Examples:

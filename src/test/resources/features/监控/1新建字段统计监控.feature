@@ -27,7 +27,7 @@ Feature: 监控新建字段统计（RZY-434）
     And I click the "SaveButton" button
     Then I will see the <Result>
 
-    Examples: 创建字段统计监控成功
+    Examples:
       | AlertName         | AlertGroup    | AlertPlanCrontab | AlertSource | SearchContent | AlertTriggerFields | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | MiddleLevelInput | HighLevelInput | Result                 |
       | RZY-434:字段统计监控步骤1 | default_Alert | 0 * * * * ?      | 所有日志        | *             | apache.resp_len    | 50           | 小时内                   | 0               | 2700             | 3000           | success message "保存成功" |
 
