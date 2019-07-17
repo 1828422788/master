@@ -1,6 +1,26 @@
 @logSource
 Feature: 日志来源临时授权
 
+  Scenario: 验证角色无可下载搜索结果权限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "user"
+    And I set the parameter "Password" with properties "userPwd"
+    And I click the "LoginButton" button
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "*"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    Then I will see the "DownloadButton" doesn't exist
+
   Scenario: 允许二次授权日志来源
     Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
     And I set the parameter "SearchInput" with value "autotest"
@@ -38,26 +58,6 @@ Feature: 日志来源临时授权
       | role                        |
       | AutoTestRole                |
       | AutoTestRoleWithAllResource |
-
-  Scenario: 验证角色无可下载搜索结果权限
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with properties "user"
-    And I set the parameter "Password" with properties "userPwd"
-    And I click the "LoginButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "*"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "DownloadButton" doesn't exist
 
   Scenario Outline: 进行二次授权
     Given I will see the "PublicNavBarPage" page
