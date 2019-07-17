@@ -15,5 +15,5 @@ public class WebDriverConst {
     public static final int WAIT_FOR_ELEMENT_LOADED_ASYNC_TIMEOUT = 180 * 1000;
 
     // 等待页面加载完毕
-    public static final int WAIT_FOR_DOM_READY_TIMEOUT = 60 * 1000;
+    public static final int WAIT_FOR_DOM_READY_TIMEOUT = 120 * 1000;
 }
