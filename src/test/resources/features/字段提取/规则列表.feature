@@ -92,7 +92,7 @@ Feature: 字段提取规则列表
       | <190>May 18 11:20:10 2016 HLJ_S12508_1_FW %%10FILTER/6/ZONE_DP_FLT_EXECUTION_TCP_LOG(l): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009; | <%{NOTSPACE:id}>(?<timestamp>%{NOTSPACE}\s+%{NOTSPACE}\s+%{NOTSPACE}\s+%{NOTSPACE}\s+)%{NOTSPACE:host} \%\%(?<vendor>[^/]*)/(?<severity>[^/]*)/(?<MNEMONIC>[^:]*): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; (?<message>.*) | Object\nMNEMONIC:"ZONE_DP_FLT_EXECUTION_TCP_LOG(l)"\nhost:"HLJ_S12508_1_FW"\nid:"190"\nmessage:"srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009;"\nseverity:"6"\ntimestamp:"May 18 11:20:10 2016 "\nvendor:"10FILTER"\nraw_message:"<190>May 18 11:20:10 2016 HLJ_S12508_1_FW %%10FILTER/6/ZONE_DP_FLT_EXECUTION_TCP_LOG(l): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009;" | Object\nMNEMONIC:"ZONE_DP_FLT_EXECUTION_TCP_LOG(l)"\nhost:"HLJ_S12508_1_FW"\nid:400\nmessage:"srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009;"\nseverity:"6"\ntimestamp:"May 18 11:20:10 2016 "\nvendor:"10FILTER"\nraw_message:"<190>May 18 11:20:10 2016 HLJ_S12508_1_FW %%10FILTER/6/ZONE_DP_FLT_EXECUTION_TCP_LOG(l): -DEV_TYPE=SECPATH-PN=210231A0H6010C000002; srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009;" | id          | 16      |
 
   @second
-  Scenario Outline: 1539、1540、1541、1544、1547、1555
+  Scenario Outline: 1539、1540、1541、1545、1547、1555
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "正则解析" from the "ParseRule"
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
@@ -243,8 +243,8 @@ Feature: 字段提取规则列表
 
     Examples:
       | log         | parseRule | field       | checkBox | result                                                                                                                                                 |
-      | 03188433218 | 固定电话解析    | raw_message |          | Object\ngeo:Object\ncity:"衡水市"\ncountry:"中国"\nlatitude:37.7351\nlongitude:115.66599\nprovince:"河北"\ntelephone:"03188433218"\nraw_message:"03188433218" |
-      | 03188433218 | 固定电话解析    | raw_message | Checkbox | Object\ncity:"衡水市"\ncountry:"中国"\nlatitude:37.7351\nlongitude:115.66599\nprovince:"河北"\nraw_message:"03188433218"                                      |
+      | 03188433218 | 固定电话解析    | raw_message |          | Object\ngeo:Object\ncity:"衡水市"\ncountry:"中国"\nlatitude:37.72831\nlongitude:115.69151\nprovince:"河北"\ntelephone:"03188433218"\nraw_message:"03188433218" |
+      | 03188433218 | 固定电话解析    | raw_message | Checkbox | Object\ncity:"衡水市"\ncountry:"中国"\nlatitude:37.72831\nlongitude:115.69151\nprovince:"河北"\nraw_message:"03188433218"                                      |
 
   @second
   Scenario Outline: 字段重命名（RZY-1590）
@@ -343,8 +343,8 @@ Feature: 字段提取规则列表
 
     Examples:
       | check   | label   | result                                                                                                                                                          |
-      |         |         | Object\ngeo:Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.91459\nlongitude:121.61862\nphone:"18840824121"\nprovince:"辽宁"\nraw_message:"18840824121" |
-      | checked | 解析到顶层字段 | Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.91459\nlongitude:121.61862\nprovince:"辽宁"\nraw_message:"18840824121"                                  |
+      |         |         | Object\ngeo:Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.94381\nlongitude:121.57652\nphone:"18840824121"\nprovince:"辽宁"\nraw_message:"18840824121" |
+      | checked | 解析到顶层字段 | Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.94381\nlongitude:121.57652\nprovince:"辽宁"\nraw_message:"18840824121"                                  |
 
   @second @configsSmoke
   Scenario Outline: RZY-2865、2866

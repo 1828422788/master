@@ -28,7 +28,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2550"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -76,7 +76,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2551"
     And I click the "Save" button
 
     Examples:
@@ -100,7 +100,7 @@ Feature: 趋势图新建
     And I display the element "ChartTypePopover"
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/<num>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -120,20 +120,20 @@ Feature: 趋势图新建
 
   @first @trendSmoke
     Examples:
-      | name                | spl                                                                          | chart | chartType | reportName   | hour | minute |
-      | RZY-2477:曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     |
-      | RZY-2005:柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Column    | 柱状图sample1报表 | 12   | 05     |
+      | name                | spl                                                                          | chart | chartType | reportName   | hour | minute | num  |
+      | RZY-2477:曲线图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Line      | 曲线图sample1报表 | 11   | 50     | 2477 |
+      | RZY-2005:柱状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Order | Column    | 柱状图sample1报表 | 12   | 05     | 2005 |
 
   @all @smoke @trendSmoke @trend
     Examples:
-      | name                | spl                                                                                                                      | chart | chartType | reportName   | hour | minute |
-      | RZY-2491:面积图sample1 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 | Order | Area      | 面积图sample1报表 | 11   | 55     |
-      | RZY-2499:散点图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             | Order | Scatter   | 散点图sample1报表 | 12   | 00     |
+      | name                | spl                                                                                                                      | chart | chartType | reportName   | hour | minute | num  |
+      | RZY-2491:面积图sample1 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 | Order | Area      | 面积图sample1报表 | 11   | 55     | 2491 |
+      | RZY-2499:散点图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             | Order | Scatter   | 散点图sample1报表 | 12   | 00     | 2499 |
 
   @second @trendSmoke
     Examples:
-      | name                | spl                                                                                                                                                                             | chart    | chartType | reportName    | hour | minute |
-      | RZY-2522:多Y轴sample1 | tag:*display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | Compound | Multiaxis | 多Y轴图sample1报表 | 12   | 10     |
+      | name                | spl                                                                                                                                                                             | chart    | chartType | reportName    | hour | minute | num  |
+      | RZY-2522:多Y轴sample1 | tag:*display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | Compound | Multiaxis | 多Y轴图sample1报表 | 12   | 10     | 2522 |
 
   Scenario Outline: 热力地图、旭日图sample1（RZY-2539、2851）
     When I set the parameter "NameInput" with value "<name>"
@@ -152,7 +152,7 @@ Feature: 趋势图新建
     And I display the element "ChartTypePopover"
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/<num>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -172,13 +172,13 @@ Feature: 趋势图新建
 
   @second @trendSmoke
     Examples:
-      | name                | spl                                                                          | chart     | type     |
-      | RZY-2851:旭日图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Sunburst |
+      | name                | spl                                                                          | chart     | type     | num  |
+      | RZY-2851:旭日图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Sunburst | 2851 |
 
   @first @trendSmoke
     Examples:
-      | name                 | spl                                                    | chart | type    |
-      | RZY-2539:热力地图sample1 | tag:sample04061424 \| stats count() by apache.geo.city | Map   | Heatmap |
+      | name                 | spl                                                    | chart | type    | num  |
+      | RZY-2539:热力地图sample1 | tag:sample04061424 \| stats count() by apache.geo.city | Map   | Heatmap | 2539 |
 
   Scenario Outline: 水球图sample1、字符云图sample1、饼状图sample2（RZY-2563、RZY-2626、RZY-2663）
     When I set the parameter "NameInput" with value "<name>"
@@ -202,7 +202,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/<num>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -222,18 +222,18 @@ Feature: 趋势图新建
 
   @first @trendSmoke
     Examples:
-      | name                | spl                                                                          | chartType | type | colour | hour | minute |
-      | RZY-2663:饼状图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie  | Yellow | 13   | 07     |
+      | name                | spl                                                                          | chartType | type | colour | hour | minute | num  |
+      | RZY-2663:饼状图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie  | Yellow | 13   | 07     | 2663 |
 
   @third @trendSmoke
     Examples:
-      | name                 | spl                                                          | chartType | type      | colour | hour | minute |
-      | RZY-2626:字符云图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Other     | Wordcloud | Orange | 13   | 05     |
+      | name                 | spl                                                          | chartType | type      | colour | hour | minute | num  |
+      | RZY-2626:字符云图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Other     | Wordcloud | Orange | 13   | 05     | 2626 |
 
   @second @trendSmoke
     Examples:
-      | name                | spl                                                          | chartType | type       | colour | hour | minute |
-      | RZY-2563:水球图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Other     | Liquidfill | Orange | 13   | 00     |
+      | name                | spl                                                          | chartType | type       | colour | hour | minute | num  |
+      | RZY-2563:水球图sample1 | tag:*display \| stats count() by apache.clientip \| limit 10 | Other     | Liquidfill | Orange | 13   | 00     | 2563 |
 
   @second @trendSmoke
   Scenario Outline: 雷达图sample1、漏斗图sample1（RZY-2635、2658）
@@ -253,7 +253,7 @@ Feature: 趋势图新建
     And I display the element "ChartTypePopover"
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/<num>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -272,9 +272,9 @@ Feature: 趋势图新建
     And I click the "Save" button
 
     Examples:
-      | name                | spl                                                                        | type   | hour | minute |
-      | RZY-2635:雷达图sample1 | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 | Radar  | 13   | 10     |
-      | RZY-2658:漏斗图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8                | Funnel | 13   | 15     |
+      | name                | spl                                                                        | type   | hour | minute | num  |
+      | RZY-2635:雷达图sample1 | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 | Radar  | 13   | 10     | 2635 |
+      | RZY-2658:漏斗图sample1 | tag:*display \| stats count() by apache.clientip \| limit 8                | Funnel | 13   | 15     | 2658 |
 
   @second @trendSmoke
   Scenario Outline: 雷达图sample2（RZY-2646）
@@ -303,7 +303,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2646"
     And I click the "Save" button
 
     Examples:
@@ -339,7 +339,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2631"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -389,7 +389,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2552"
     And I click the "Save" button
 
     Examples:
@@ -416,7 +416,7 @@ Feature: 趋势图新建
     And I click the "Generate" button under some element
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2661"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -466,7 +466,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2962"
     And I click the "Save" button
 
     Examples:
@@ -487,7 +487,7 @@ Feature: 趋势图新建
     And I click the "NextButton" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/3080"
     And I click the "Save" button
     And I click the "Report" button
     And switch to another window
@@ -534,7 +534,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/3085"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -585,7 +585,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2542"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -638,7 +638,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2543"
     And I click the "Save" button
 
     Examples:
@@ -669,7 +669,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2546"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -715,7 +715,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2547"
     And I click the "Save" button
 
     Examples:
@@ -765,7 +765,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2523"
     And I click the "Save" button
 
     Examples:
@@ -798,7 +798,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2516"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -844,18 +844,18 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/<num>"
     And I click the "Save" button
 
   @second @trendSmoke
     Examples:
-      | name                | spl                                                                          | chartType | type     | colour |
-      | RZY-2856:旭日图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Sunburst | Orange |
+      | name                | spl                                                                          | chartType | type     | colour | num  |
+      | RZY-2856:旭日图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Sunburst | Orange | 2856 |
 
   @all @smoke @trendSmoke @trend
     Examples:
-      | name                | spl                                                                          | chartType | type | colour |
-      | RZY-2679:条形图sample3 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar  | Yellow |
+      | name                | spl                                                                          | chartType | type | colour | num  |
+      | RZY-2679:条形图sample3 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar  | Yellow | 2679 |
 
   Scenario Outline: 和弦桑基力图sample1（RZY-2506、2508、2512）
     When I set the parameter "NameInput" with value "<name>"
@@ -882,7 +882,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/<num>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -902,14 +902,14 @@ Feature: 趋势图新建
 
   @second @trendSmoke
     Examples:
-      | name                | spl                                                                                                                                                                                                            | chartType | chart  | reportName   | startColour | colour | hour | minute |
-      | RZY-2512:桑基图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Sankey | 桑基图sample1报表 | StartColour | Purple | 12   | 20     |
+      | name                | spl                                                                                                                                                                                                            | chartType | chart  | reportName   | startColour | colour | hour | minute | num  |
+      | RZY-2512:桑基图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Sankey | 桑基图sample1报表 | StartColour | Purple | 12   | 20     | 2512 |
 
   @all @smoke @trendSmoke @trend
     Examples:
-      | name                | spl                                                                                                                                                                                                            | chartType | chart | reportName   | startColour | colour | hour | minute |
-      | RZY-2506:和弦图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Chord | 和弦图sample1报表 |             |        | 12   | 15     |
-      | RZY-2508:力图sample1  | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Force | 力图sample1报表  |             |        | 12   | 25     |
+      | name                | spl                                                                                                                                                                                                            | chartType | chart | reportName   | startColour | colour | hour | minute | num  |
+      | RZY-2506:和弦图sample1 | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Chord | 和弦图sample1报表 |             |        | 12   | 15     | 2506 |
+      | RZY-2508:力图sample1  | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | Relation  | Force | 力图sample1报表  |             |        | 12   | 25     | 2508 |
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: 序列图（RZY-2479、2483、2500）
@@ -945,14 +945,14 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/<num>"
     And I click the "Save" button
 
     Examples:
-      | name                | spl                                                                                                                      | chart  | tag        | order           | unit | smooth | connectEmptyData | min | max | pile | position       | colour |
-      | RZY-2479:曲线图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             | Line   | Right      | DescendingOrder | 吨    | Smooth | ConnectEmptyData |     | 10  |      | SecondPosition | Green  |
-      | RZY-2483:面积图sample2 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 | Area   | Vertical   | AscendingOrder  | 克    | Smooth | ConnectEmptyData | 0   |     | Pile | NoneExample    | Purple |
-      | RZY-2500:柱状图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             | Column | Horizontal | DescendingOrder | 克    |        |                  | 1   |     | Pile | SecondPosition | Purple |
+      | name                | spl                                                                                                                      | chart  | tag        | order           | unit | smooth | connectEmptyData | min | max | pile | position       | colour | num  |
+      | RZY-2479:曲线图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             | Line   | Right      | DescendingOrder | 吨    | Smooth | ConnectEmptyData |     | 10  |      | SecondPosition | Green  | 2479 |
+      | RZY-2483:面积图sample2 | tag:*display \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 | Area   | Vertical   | AscendingOrder  | 克    | Smooth | ConnectEmptyData | 0   |     | Pile | NoneExample    | Purple | 2483 |
+      | RZY-2500:柱状图sample2 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                             | Column | Horizontal | DescendingOrder | 克    |        |                  | 1   |     | Pile | SecondPosition | Purple | 2500 |
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: 散点图sample2（RZY-2492）
@@ -989,7 +989,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2492"
     And I click the "Save" button
 
     Examples:
@@ -1014,7 +1014,7 @@ Feature: 趋势图新建
     And I display the element "ChartTypePopover"
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/<num>"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -1033,9 +1033,9 @@ Feature: 趋势图新建
     And I click the "Save" button
 
     Examples:
-      | name                | spl                                                                          | chartType | chart | reportName   | hour | minute |
-      | RZY-2504:饼状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie   | 饼状图sample1报表 | 12   | 30     |
-      | RZY-2677:条形图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar   | 条形图sample1报表 | 12   | 32     |
+      | name                | spl                                                                          | chartType | chart | reportName   | hour | minute | num  |
+      | RZY-2504:饼状图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Pie   | 饼状图sample1报表 | 12   | 30     | 2504 |
+      | RZY-2677:条形图sample1 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar   | 条形图sample1报表 | 12   | 32     | 2677 |
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: 饼状图sample3（RZY-2664）
@@ -1060,7 +1060,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2664"
     And I click the "Save" button
 
     Examples:
@@ -1092,7 +1092,7 @@ Feature: 趋势图新建
     And I click the "Generate" button
     And I wait for loading invisible
     And I wait for "1000" millsecond
-    And take part of "Canvas" with name "trend/<name>"
+    And take part of "Canvas" with name "trend/2678"
     And I click the "Save" button
     And I click the "Report" button
     And switch to window "报表"
@@ -1208,3 +1208,24 @@ Feature: 趋势图新建
       | tag:"sample04061424_display" \| timechart sep="-sep分格-" format="$VAL-分格2-$AGG" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype="area"  count() min(apache.resp_len) by apache.status    | RZY-3130:pivot_timechart_area_sample1    | Smooth | ConnectEmptyData | RightPosition | SecondPosition | 3130       | 06     |
       | tag:"sample04061424_display" \| timechart sep="-sep分格-" format="$VAL-分格2-$AGG" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype="scatter"  count() min(apache.resp_len) by apache.status | RZY-3132:pivot_timechart_scatter_sample1 |        |                  | NoneExample   |                | 3132       | 07     |
       | tag:"sample04061424_display" \| timechart sep="-sep分格-" format="$VAL-分格2-$AGG" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype="column" count() min(apache.resp_len) by apache.status   | RZY-3135:pivot_timechart_column_sample1  |        |                  | RightPosition | FirstPosition  | 3135       | 08     |
+
+  @trendSmoke
+  Scenario: RZY-2098:pivot_统计地图
+    When I set the parameter "NameInput" with value "RZY-2098:pivot_统计地图"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "tag:vendors_461 | geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I click the "ChartType" button
+    And I click the "Map" button
+    And I click the "Geostatsmap" button
+    And I wait for loading invisible
+    And I display the element "ChartTypePopover"
+    And I wait for "1000" millsecond
+    And take part of "Canvas" with name "trend/2098"
+    And I click the "Save" button
