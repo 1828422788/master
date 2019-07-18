@@ -246,7 +246,7 @@ Feature: 拓扑图详情页
     Then I click the "LeftValueButton" button
     Then I set the parameter "TextArea" with value "<leftValue>"
     Then I click the "DateEditor" button
-    And I click the "LastWeek" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     Then I choose the "<leftField>" from the "FiledInput"
     Then I set the parameter "Unit" with value "个"
