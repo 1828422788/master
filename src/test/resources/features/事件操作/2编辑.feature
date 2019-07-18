@@ -39,14 +39,14 @@ Feature: 事件操作编辑（RZY-1390）
     Then I will see the success message "保存成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Given I set the parameter "SearchInput" with value "appname:xiaomi"
+    Given I set the parameter "SearchInput" with value "hostname:192.168.1.26"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I click the "RightIcon" button
     And I click the "EventOperate" button
     And I click the "EventOperatorAutoTest" button
-#    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the input element "SearchInput" value will be "hostname:192.168.1.26"
 
     Examples:
@@ -63,7 +63,7 @@ Feature: 事件操作编辑（RZY-1390）
     Then I will see the success message "保存成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Given I set the parameter "SearchInput" with value "appname:xiaomi"
+    Given I set the parameter "SearchInput" with value "hostname:192.168.1.26"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -85,7 +85,7 @@ Feature: 事件操作编辑（RZY-1390）
     Then I will see the success message "保存成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Given I set the parameter "SearchInput" with value "appname:xiaomi"
+    Given I set the parameter "SearchInput" with value "hostname:192.168.1.26"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
