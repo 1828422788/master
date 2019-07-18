@@ -737,7 +737,7 @@ Feature: 高级搜索视图（截图并保存为定时任务）
 
   @third
   Scenario: 其它_循序图1
-    When I set the parameter "SearchInput" with value "appname:seq_test2 | table timestamp,sequence.from, sequence.to,sequence.relatemsg,sequence.msgid"
+    When I set the parameter "SearchInput" with value "appname:seq_test | table timestamp,sequence.from, sequence.to,sequence.relatemsg,sequence.msgid"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -750,13 +750,13 @@ Feature: 高级搜索视图（截图并保存为定时任务）
     And I click the "Setting" button
     And I choose the "timestamp" from the "SettingSelect"
     And I click the "Source" button
-    And I choose the "from" from the "SettingSelect"
+    And I choose the "sequence.from" from the "SettingSelect"
     And I click the "Target" button
-    And I choose the "to" from the "SettingSelect"
+    And I choose the "sequence.to" from the "SettingSelect"
     And I click the "Divide" button
-    And I choose the "msgid" from the "SettingSelect"
+    And I choose the "sequence.msgid" from the "SettingSelect"
     And I click the "Mark" button
-    And I choose the "relatemsg" from the "SettingSelect"
+    And I choose the "sequence.relatemsg" from the "SettingSelect"
     And I click the "Generate" button
     And I wait for "1000" millsecond
     Then take part of "Chart" with name "../UI_test_screenshot/timedtask/2806"

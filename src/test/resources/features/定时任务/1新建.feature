@@ -285,8 +285,8 @@ Feature: 定时任务新增
 
     Examples:
       | spl                                                                                                      | time      | taskName            | period | unit | startTime |
-      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403:执行计划-定时_3小时 | 3      | 小时   | 1         |
-      | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404:执行计划-定时1天   | 1      | 天    | 2         |
+      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today     | RZY-403:执行计划-定时_3小时 | 3      | 小时   | 5         |
+      | tag:sample04061424_chart\|stats count() by apache.resp_len                                               | Yesterday | RZY-404:执行计划-定时1天   | 1      | 天    | 5         |
 
   Scenario Outline: 生成定时任务失败
     Given I set the parameter "SearchInput" with value "<splQuery>"
