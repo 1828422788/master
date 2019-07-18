@@ -12,6 +12,7 @@ Feature: 机器学习模型管理导出
     Then I will see the error message "请先选择模型！"
 
   Scenario Outline: 选择所有模型导出
+    Given delete file "/target/download-files/<modelName>.tar"
     When I click the "ImportAndExportButton" button
     And I click the "ExportButton" button
     And I click the "CheckAllButton" button
@@ -25,7 +26,3 @@ Feature: 机器学习模型管理导出
     Examples:
       | modelName | message                         |
       | 机器学习模型    | success message "导出成功，请等待下载完成。" |
-
-    Examples:
-      | modelName | message                 |
-      |           | error message "无模型包名称！" |
