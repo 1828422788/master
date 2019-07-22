@@ -16,9 +16,10 @@ Feature: 应用监控模块（RZY-2122）
     When I set the parameter "AlertName" with value "AutoTestAppAlert"
     And I choose the "AutoTestRoleWithAllResource" from the "AlertGroups"
     And I choose the "所有日志" from the "AlertSources"
+    And I switch the "AlertEnable" button to "disable"
     And I set the parameter "SearchContent" with value "*"
-    And I set the parameter "AlertTriggerInput" with value "1"
-    And I set the parameter "AlertLevelInput" with value "1"
+    And I set the parameter "AlertTriggerInput" with value "10000000"
+    And I set the parameter "AlertLevelInput" with value "1000000000"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
