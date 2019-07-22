@@ -2,11 +2,12 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * @author sunxj
@@ -35,5 +36,19 @@ public class ScrollBar {
     public void iDragTheScrollBarToTheElement(String elementName) {
         WebElement webElement = GetElementFromPage.getWebElementWithName(elementName);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(false);", webElement);
+    }
+
+    @And("^I drag the element \"([^\"]*)\" to the \"([^\"]*)\"$")
+    public void dragElement(String source, String target) {
+        WebElement element = webDriver.findElement(By.className("yw-drag-icon"));
+        WebElement sourceElement = GetElementFromPage.getWebElementWithName(source);
+        WebElement targetElement = GetElementFromPage.getWebElementWithName(target);
+        Actions actions = (new Actions(webDriver));
+
+        sourceElement.click();
+        actions.dragAndDrop(element, targetElement).perform();
+        actions.release();
+
+        System.out.println();
     }
 }

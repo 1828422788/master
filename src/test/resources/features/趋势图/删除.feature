@@ -9,6 +9,8 @@ Feature: 趋势图删除（RZY-1891）
     Examples:
       | name                                     |
       | RZY-2661:矩阵热力图sample1(副本)                |
+      | RZY-3171:多值sample0                       |
+      | RZY-2098:pivot_统计地图                      |
       | RZY-3135:pivot_timechart_column_sample1  |
       | RZY-3132:pivot_timechart_scatter_sample1 |
       | RZY-3130:pivot_timechart_area_sample1    |
@@ -152,3 +154,8 @@ Feature: 趋势图删除（RZY-1891）
       | RZY-2005:柱状图sample1 |
       | RZY-2477:曲线图sample1 |
       | RZY-2550:单值sample1  |
+
+  Scenario: 字段提取删除
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "趋势图3171用" then i click the "删除" button
+    And I click the "EnsureButton" button

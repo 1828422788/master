@@ -453,6 +453,41 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yw-search-stats clearfix']")
     private WebElement chart;
 
+    @FindBy(className = "drag-text")
+    private WebElement dragText;
+
+    @FindBy(id = "xField")
+    private WebElement xField;
+
+    @FindBy(id = "yFields")
+    private WebElement yField;
+
+    @FindBy(className = "yw-chart-config")
+    private WebElement container;
+
+    @FindBy(id = "yw-search-fields-header")
+    private WebElement tableHeader;
+
+    public WebElement getTableHeader() {
+        return tableHeader;
+    }
+
+    public WebElement getContainer() {
+        return container;
+    }
+
+    public WebElement getXField() {
+        return xField;
+    }
+
+    public WebElement getYField() {
+        return yField;
+    }
+
+    public WebElement getDragText() {
+        return dragText;
+    }
+
     public WebElement getChart() {
         return chart;
     }

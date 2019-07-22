@@ -1,12 +1,10 @@
 Feature: 趋势图新建
 
-  Background:
+  @first @trendSmoke
+  Scenario Outline: 单值sample1（RZY-2550）
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     Then I will see the "trend.CreatePage" page
-
-  @first @trendSmoke
-  Scenario Outline: 单值sample1（RZY-2550）
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -52,6 +50,9 @@ Feature: 趋势图新建
 
   @first @trendSmoke
   Scenario Outline: 单值sample2（RZY-2551）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -84,6 +85,9 @@ Feature: 趋势图新建
       | RZY-2551:单值sample2 | tag:*display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | 一天前  | Percent    |
 
   Scenario Outline: 序列图sample1（RZY-2477、2005、2491、2499、2522）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -136,6 +140,9 @@ Feature: 趋势图新建
       | RZY-2522:多Y轴sample1 | tag:*display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | Compound | Multiaxis | 多Y轴图sample1报表 | 12   | 10     | 2522 |
 
   Scenario Outline: 热力地图、旭日图sample1（RZY-2539、2851）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -181,6 +188,9 @@ Feature: 趋势图新建
       | RZY-2539:热力地图sample1 | tag:sample04061424 \| stats count() by apache.geo.city | Map   | Heatmap | 2539 |
 
   Scenario Outline: 水球图sample1、字符云图sample1、饼状图sample2（RZY-2563、RZY-2626、RZY-2663）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -237,6 +247,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 雷达图sample1、漏斗图sample1（RZY-2635、2658）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -278,6 +291,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 雷达图sample2（RZY-2646）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -312,6 +328,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 循序图sample1（RZY-2631）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -363,6 +382,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 单值sample3（RZY-2552）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -398,6 +420,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 矩阵热力图sample1（RZY-2661）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -440,6 +465,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: RZY-2962:pivot_调用链sample1
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -475,6 +503,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: RZY-3080:pivot_chart指令sample0
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -511,6 +542,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: RZY-3085:pivot_力图sample2
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -558,6 +592,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 攻击地图sample1（RZY-2542）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -609,6 +646,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 攻击地图sample2（RZY-2543）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -647,6 +687,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 区划地图sample1（RZY-2546）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -693,6 +736,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 区划地图sample2（RZY-2547）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -724,6 +770,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 多Y轴图sample2（RZY-2523）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -774,6 +823,9 @@ Feature: 趋势图新建
 
   @second @trendSmoke
   Scenario Outline: 区间图sample1（RZY-2516）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -821,6 +873,9 @@ Feature: 趋势图新建
       | RZY-2516:区间图sample1 | tag:*display \| bucket timestamp span=1h as ts \| stats count('apache.status') as 'count' by ts \| esma count timefield=ts | Compound  | Rangeline | 区间图sample1报表 |
 
   Scenario Outline: 条形图、旭日图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -858,6 +913,9 @@ Feature: 趋势图新建
       | RZY-2679:条形图sample3 | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | Dimension | Bar  | Yellow | 2679 |
 
   Scenario Outline: 和弦桑基力图sample1（RZY-2506、2508、2512）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -913,6 +971,9 @@ Feature: 趋势图新建
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: 序列图（RZY-2479、2483、2500）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -956,6 +1017,9 @@ Feature: 趋势图新建
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: 散点图sample2（RZY-2492）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -998,6 +1062,9 @@ Feature: 趋势图新建
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: 饼状图sample1、条形图sample1（RZY-2504、2677）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -1039,6 +1106,9 @@ Feature: 趋势图新建
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: 饼状图sample3（RZY-2664）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -1069,6 +1139,9 @@ Feature: 趋势图新建
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: 条形图sample2（RZY-2678）
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -1116,6 +1189,9 @@ Feature: 趋势图新建
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: RZY-3117、3129、3131、3133
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -1155,6 +1231,9 @@ Feature: 趋势图新建
 
   @all @smoke @trendSmoke @trend
   Scenario Outline: RZY-3118、3130、3132、3135
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -1211,6 +1290,9 @@ Feature: 趋势图新建
 
   @trendSmoke
   Scenario: RZY-2098:pivot_统计地图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "RZY-2098:pivot_统计地图"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "default_Trend" from the "GroupDropdown"
@@ -1229,3 +1311,82 @@ Feature: 趋势图新建
     And I wait for "1000" millsecond
     And take part of "Canvas" with name "trend/2098"
     And I click the "Save" button
+
+  @trendSmoke
+  Scenario Outline: 3171所需趋势图
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I click the "CreateButton" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "Name" with value "趋势图3171用"
+    And I set the parameter "Logtype" with value "test"
+    When I set the parameter "LogSample" with value "<logSample>"
+    And I choose the "正则解析" from the "ParseRule"
+    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I choose the "raw_message" from the "SourceField"
+    And I set the parameter "Regex" with value "<regex>"
+    And I click the "ParseButton" button
+    And I will see the success message "验证完成"
+    And I click the "ContinueButton" button
+    And I choose the "<parseRule>" from the "ParseRule"
+    And I choose the "<sourceField>" from the "SourceFieldLabel2"
+    And I set the parameter "<inputElement>" with value "<timeFormat>"
+    And I click the "NextButton" button under some element
+    And I click the "SwitchButton" button
+    And I set the parameter "AppName" with value "multivalue"
+    And I set the parameter "Tag" with value "multivalue"
+    Then I click the "NextButton" button
+
+    Examples:
+      | logSample                                                                                                                                                                                                                                                                  | regex                  | parseRule | sourceField | inputElement | timeFormat |
+      | <134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0  \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \| | .*?:\s+(?<portinfo>.*) | CSV解析     | portinfo    | Separate     | \s*\\\|\s* |
+
+  @trendSmoke
+  Scenario: 上传日志
+    Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    And I set the parameter "AppName" with value "multivalue"
+    And I set the parameter "Tag" with value "multivalue"
+    And I upload a file with name "/src/test/resources/testdata/log/multivalue.txt"
+    Then I click the "UploadButton" button
+
+  @trendSmoke
+  Scenario Outline: RZY-3171、3192
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    Then I will see the "trend.CreatePage" page
+    When I set the parameter "NameInput" with value "<name>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "default_Trend" from the "GroupDropdown"
+    And I click the "NextButton" button
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I wait for "1000" millsecond
+    And take part of "Container" with name "trend/<num>"
+    And I click the "Save" button
+
+    Examples:
+      | name                     | spl                                                                           | num  |
+      | RZY-3171:多值sample0       | tag:multivalue \| table logtype,test.portinfo                                 | 3171 |
+      | RZY-3192:pivot_多值mvrange | tag:"sample04061424" \| eval base=mvrange(1,6,2) \| table base, apache.status | 3192 |
+
+#  Scenario: RZY-3100:pivot_透视表timechart_sample0
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    And I click the "CreateButton" button
+#    Then I will see the "trend.CreatePage" page
+#    When I set the parameter "NameInput" with value "RZY-3100:透视表timechart_sample0"
+#    And I set the parameter "DescribeInput" with value "AutoCreate"
+#    And I choose the "default_Trend" from the "GroupDropdown"
+#    And I click the "NextButton" button
+#    And I set the parameter "SearchInput" with value "*"
+#    And I click the "DateEditor" button
+#    And I click the "Today" button
+#    And I click the "SearchButton" button
+#    And I wait for "TableHeader" will be visible
+#    And I "checked" the checkbox which name is "timestamp"
+#    And I click the "NextButton" button
+#    And I drag the element "DragText" to the "XField"
+
+
