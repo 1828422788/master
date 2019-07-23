@@ -453,7 +453,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='yw-search-stats clearfix']")
     private WebElement chart;
 
-    @FindBy(className = "drag-text")
+    @FindBy(id = "timestamp")
     private WebElement dragText;
 
     @FindBy(id = "xField")

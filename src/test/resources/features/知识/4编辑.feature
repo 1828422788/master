@@ -37,8 +37,8 @@ Feature: 知识编辑（RZY-879）
   Scenario Outline: 编辑知识上传附件
     Given the data name is "autotest" then i click the "编辑" button
     And I upload a file with name "/src/test/resources/testdata/<path>"
-    And I click the "Confirm" button
     Then I wait for element "VerifyText" change text to "上传完成"
+    And I click the "Confirm" button
 
     Examples:
       | path                              |

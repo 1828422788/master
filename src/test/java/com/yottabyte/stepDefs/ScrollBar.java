@@ -16,14 +16,14 @@ public class ScrollBar {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     @And("^I drag the scroll bar to the top$")
-    public void dragTheScrollBarToTheElement() throws InterruptedException {
+    public void dragToTop() throws InterruptedException {
         ((JavascriptExecutor) webDriver).executeScript("scrollTo(0,1)");
         Thread.sleep(2000);
     }
 
 
     @And("^I drag the scroll bar to the end$")
-    public void iDragTheScrollBarToTheEnd() {
+    public void dragToEnd() {
         ((JavascriptExecutor) webDriver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
         try {
             Thread.sleep(2000);
@@ -33,7 +33,7 @@ public class ScrollBar {
     }
 
     @And("^I drag the scroll bar to the element \"([^\"]*)\"$")
-    public void iDragTheScrollBarToTheElement(String elementName) {
+    public void dragToElement(String elementName) {
         WebElement webElement = GetElementFromPage.getWebElementWithName(elementName);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(false);", webElement);
     }
