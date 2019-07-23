@@ -123,6 +123,13 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "detail-item-pic")
     private WebElement attachment;
 
+    @FindBy(xpath = "(//span[@class='verify-text'])[last()]")
+    private WebElement verifyText;
+
+    public WebElement getVerifyText() {
+        return verifyText;
+    }
+
     public WebElement getAttachment() {
         return attachment;
     }

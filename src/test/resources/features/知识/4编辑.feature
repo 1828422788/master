@@ -38,6 +38,7 @@ Feature: 知识编辑（RZY-879）
     Given the data name is "autotest" then i click the "编辑" button
     And I upload a file with name "/src/test/resources/testdata/<path>"
     And I click the "Confirm" button
+    Then I wait for element "VerifyText" change text to "上传完成"
 
     Examples:
       | path                              |
@@ -53,6 +54,6 @@ Feature: 知识编辑（RZY-879）
     Then I will see the element "Attachment" name is "<name>"
 
     Examples:
-      | name                                                                             |
+      | name                                                                              |
       | 附件:\nAutoUpload.y...\nautotest.csv\ntestAlertPlu...\ntestAlertPlu...\nsuccess.tar |
 
