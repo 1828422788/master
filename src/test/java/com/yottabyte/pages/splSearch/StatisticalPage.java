@@ -166,8 +166,8 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//label[@class='el-checkbox'])[last()]")
     private WebElement lastCheckBox;
 
-    @FindBy(className = "icon-bianji")
-    private List<WebElement> editColourButtonList;
+    @FindBy(xpath = "(//span[@class='col-edit-btn img iconfont icon-bianji'])[last()]")
+    private WebElement edit;
 
     @FindBy(xpath = "(//span[contains(text(),'保存')])[last()]")
     private WebElement saveButton;
@@ -201,6 +201,10 @@ public class StatisticalPage extends PageTemplate {
 
     @FindBy(xpath = "//th[@class='el-table_1_column_4 el-table-column--selection is-leaf']//label")
     private WebElement wholeField;
+
+    public WebElement getEdit() {
+        return edit;
+    }
 
     public WebElement getWholeField() {
         return wholeField;
@@ -260,22 +264,6 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getColourDropdown() {
         return super.getDropdownList("颜色");
-    }
-
-    public WebElement getFirstEditColourButton() {
-        return editColourButtonList.get(0);
-    }
-
-    public WebElement getSecondEditColourButton() {
-        WebElement element = editColourButtonList.get(1);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(webDriver.findElement(By.className("preset-color"))));
-        return element;
-    }
-
-    public WebElement getThirdEditColourButton() {
-        WebElement element = editColourButtonList.get(2);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(saveButton));
-        return element;
     }
 
     public WebElement getLastCheckBox() {

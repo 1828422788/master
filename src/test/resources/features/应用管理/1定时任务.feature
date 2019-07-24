@@ -65,18 +65,16 @@ Feature: 应用定时任务(RZY-2123)
       | name          |
       | AutoCreateApp |
 
-  Scenario Outline: 根据定时任务分组进行查询
+  Scenario: 根据定时任务分组进行查询
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
-    Given I choose the "<group>" from the "GroupList"
+    Given I click the "GroupDropdown" button
+    And I wait for "GroupDropdownList" will be visible
+    And I choose the "AutoTestRoleWithAllResource" from the "GroupDropdownList"
     And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'<name>'}"
+    Then I will see the search result "{'column':'0','name':'AutoCreateApp(副本)'}"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTest...pWithAllResources"
-
-    Examples:
-      | group                       | name              |
-      | AutoTestRoleWithAllResource | AutoCreateApp(副本) |
 
   Scenario Outline: 根据定时任务名称进行查询
     When I click the "TimedTask" button
