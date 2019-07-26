@@ -1,3 +1,4 @@
+@logDisplay
 Feature: 日志展现表格颜色设置
 
   Background:

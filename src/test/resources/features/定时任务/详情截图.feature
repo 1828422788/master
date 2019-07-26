@@ -5,11 +5,13 @@ Feature: 定时任务详情页截图
     Given open the "timedTask.ListPage" page for uri "/schedule/"
 
   Scenario Outline:
+    And I set the parameter "SearchInput" with value "<name>"
+    And I click the "SearchIcon" button
+    And I wait for loading invisible
     Given I click the detail which name is "<name>"
     And I will see the "timedTask.DetailPage" page
     When I click the button "LookUpButton" if exist
-    And I wait for "NoData" will be invisible
-    And I wait for "1000" millsecond
+    And I wait for "1800" millsecond
     And take part of "Chart" with name "timedtask/<screenName>"
 
   @firstScreenshot
