@@ -12,7 +12,7 @@ public class WebDriverConst {
     public static final int WAIT_FOR_ELEMENT_TIMEOUT_WHEN_PAGE_LOADING = 5 * 1000;
 
     // 等待异步加载的元素的超时时间
-    public static final int WAIT_FOR_ELEMENT_LOADED_ASYNC_TIMEOUT = 180 * 1000;
+    public static final int WAIT_FOR_ELEMENT_LOADED_ASYNC_TIMEOUT = 200 * 1000;
 
     // 等待页面加载完毕
     public static final int WAIT_FOR_DOM_READY_TIMEOUT = 200 * 1000;
