@@ -1,4 +1,4 @@
-Feature: 普通统计视图
+Feature: 日志展现普通统计视图
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -331,3 +331,11 @@ Feature: 普通统计视图
     And I wait for "500" millsecond
     Then take part of "Chart" with name "event/822step2"
 
+  Scenario: RZY-831:特殊的可视化效果
+    When I set the parameter "SearchInput" with value "* | stats sparkline(sum(raw_message_length),30m), count(apache.clientip) as ip_count by appname | sort by ip_count | limit 5"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I will see the "splSearch.StatisticalPage" page
+    Then take part of "TableChart" with name "event/831"

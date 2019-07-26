@@ -202,6 +202,100 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//th[@class='el-table_1_column_4 el-table-column--selection is-leaf']//label")
     private WebElement wholeField;
 
+    @FindBy(className = "preset-btn")
+    private WebElement presetButton;
+
+    @FindBy(xpath = "(//img[@src='/static/img/dashboard/table_color/9.png'])[last()]")
+    private WebElement orange;
+
+    @FindBy(xpath = "(//img[@src='/static/img/dashboard/table_color/2.png'])[last()]")
+    private WebElement red;
+
+    @FindBy(className = "yw-search-stats")
+    private WebElement tableChart;
+
+    @FindBy(xpath = "(//label[@class='ranges-from-to-text']/following-sibling::div//input[@class='el-input__inner'][not(@disabled)])[last()]")
+    private WebElement maxInput;
+
+    @FindBy(xpath = "(//label[@class='ranges-from-to-text']//input[@class='el-input__inner'][not(@disabled)])[last()]")
+    private WebElement minInput;
+
+    @FindBy(xpath = "(//a[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
+    private WebElement delete;
+
+    @FindBy(xpath = "(//span[@class='el-color-picker__color-inner'])[last()]")
+    private WebElement colorPicker;
+
+    @FindBy(xpath = "(//input[@class='el-color-dropdown__value'])[last()]")
+    private WebElement colorInput;
+
+    @FindBy(xpath = "(//button[@class='el-color-dropdown__btn'])[last()]")
+    private WebElement saveColor;
+
+    @FindBy(xpath = "(//span[contains(text(),'值')]/following-sibling::div/input)[last()]")
+    private WebElement colorValue;
+
+    @FindBy(className = "icon-bianji")
+    private WebElement firstEdit;
+
+    public WebElement getFirstEdit() {
+        return firstEdit;
+    }
+
+    public WebElement getColorValue() {
+        return colorValue;
+    }
+
+    public WebElement getAddColor() {
+        return super.getButton("添加值颜色");
+    }
+
+    public WebElement getCustomize() {
+        return super.getButton("自定义");
+    }
+
+    public WebElement getSaveColor() {
+        return saveColor;
+    }
+
+    public WebElement getColorInput() {
+        return colorInput;
+    }
+
+    public WebElement getColorPicker() {
+        return colorPicker;
+    }
+
+    public WebElement getDelete() {
+        return delete;
+    }
+
+    public WebElement getMaxInput() {
+        return maxInput;
+    }
+
+    public WebElement getMinInput() {
+        return minInput;
+    }
+
+    public WebElement getAddRangeColour() {
+        return super.getButton("添加范围颜色");
+    }
+
+    public WebElement getRed() {
+        presetButton.click();
+        return red;
+    }
+
+    public WebElement getTableChart() {
+        return tableChart;
+    }
+
+    public WebElement getOrange() {
+        presetButton.click();
+        return orange;
+    }
+
     public WebElement getEdit() {
         return edit;
     }
