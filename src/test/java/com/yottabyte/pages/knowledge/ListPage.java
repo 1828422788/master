@@ -126,6 +126,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//span[@class='verify-text'])[last()]")
     private WebElement verifyText;
 
+    @FindBy(className = "detail-item-alert-operations")
+    private WebElement detailAlert;
+
+    public WebElement getDetailAlert() {
+        return detailAlert;
+    }
+
     public WebElement getVerifyText() {
         return verifyText;
     }

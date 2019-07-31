@@ -244,9 +244,6 @@ public class RegularSearch {
     private void compareTime(String actual, long expect) {
         long actualDate = ParsingString.getLongDate(actual);
         long currentDate = new Date().getTime();
-        System.out.println("!!!!!!!!!actualDate!!!!!!!!!!" + actualDate);
-        System.out.println("!!!!!!!!!currentDate!!!!!!!!!!" + currentDate);
-        System.out.println("!!!!!!!!!expect!!!!!!!!!!" + expect);
         Assert.assertTrue(actualDate >= expect && actualDate <= currentDate);
     }
 
@@ -297,6 +294,36 @@ public class RegularSearch {
                     String actualClassName = td.getAttribute("class");
                     Assert.assertEquals(expectedClassName, actualClassName);
                 }
+            }
+        }
+    }
+
+
+    /**
+     * 验证详情页中告警等级
+     *
+     * @param colour
+     */
+    @Then("^I will see the detail alert grade is \"([^\"]*)\"$")
+    public void checkDetailGradeColour(String colour) {
+        List<WebElement> trList = this.getTrList();
+        if (trList == null)
+            return;
+
+        Paging paging = GetPaging.getPagingInfo();
+        String expectedClassName = "circle " + colour + "-circle";
+
+        for (int i = 0; i < paging.getTotalPage(); i++) {
+            if (i != 0) {
+                paging.getNextPage().click();
+                this.waitUntilLoadingDisappear();
+                trList = this.getTrList();
+            }
+
+            for (WebElement tr : trList) {
+                WebElement element = tr.findElement(By.xpath(".//td//div[last()]//div[last()]"));
+                String actualClassName = element.getAttribute("class");
+                Assert.assertEquals(expectedClassName, actualClassName);
             }
         }
     }

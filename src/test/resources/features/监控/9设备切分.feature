@@ -1,22 +1,26 @@
-#@alert @alertSmoke @second
+@alert @alertSmoke @second
 Feature: 监控设备切分
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
 
-  Scenario: RZY-3035:监控-设备切分-执行结果验证-字段统计型监控-填写hostname
-    When the data name is "RZY-2468:新建监控类型-字段统计监控(副本)" then i click the "编辑" button
+  Scenario Outline: 验证切分字段
+    When the data name is "RZY-434:字段统计监控步骤1(副本)" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "RZY-3035:监控-设备切分-执行结果验证-字段统计型监控-填写hostname"
     And I click the "Divide" button
-    And I set the parameter "DivideInput" with value "hostname"
-    And I set the parameter "AlertTriggerInput" with value "240"
-    And I choose the "总计" from the "ConditionTypes"
-    And I set the parameter "AlertLevelInput" with value "0"
-    And I click the "Close" button
-    And I click the "Close" button
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    And I set the parameter "DivideInput" with value "<divideInput>"
+    And I click the "AlertNoteTypeTab" button
+    And I choose the "邮件告警" from the "AlertDropdown"
+    And I click the "Preview" button
+    And I wait for "DialogBody" will be visible
+    And I will see the element "DialogBody" name contains "切分字段: <divideInput>"
+
+    Examples:
+      | divideInput |
+      | tag         |
+      | ip          |
+      | hostname    |
+      | appname     |
 
   Scenario Outline: RZY-3016、3015
     When the data name is "<name>(副本)" then i click the "编辑" button

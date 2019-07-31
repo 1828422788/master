@@ -189,6 +189,28 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//*[@class='el-icon-circle-cross'])[last()]")
     private WebElement close;
 
+    @FindBy(className = "el-dialog__body")
+    private WebElement dialogBody;
+
+    @FindBy(xpath = "//button[@class='el-button add-config-dropdown-button el-button--default']//i")
+    private WebElement addAlert;
+
+    @FindBy(className = "add-config-dropdown-menu")
+    private WebElement alertDropdown;
+
+    public WebElement getAlertDropdown() {
+        addAlert.click();
+        return alertDropdown;
+    }
+
+    public WebElement getDialogBody() {
+        return dialogBody;
+    }
+
+    public WebElement getPreview() {
+        return super.getButton("预览");
+    }
+
     public WebElement getClose() {
         return close;
     }

@@ -14,7 +14,6 @@ Feature: 监控最新状态
 
     Examples:
       | time      | num | searchTime |
-#      | TenMinutes | 5   | 10m        |
       | HalfHour  | 5   | 30m        |
       | OneHour   | 5   | 1h         |
       | OneDay    | 5   | 1d         |
@@ -111,6 +110,12 @@ Feature: 监控最新状态
       | name              |
       | KnowledgeForAlert |
 
+  @alertSmoke
+  Scenario: 验证知识详情页是否包含告警信息
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    And I click the detail which name is "KnowledgeForAlert"
+    Then I will see the element "DetailAlert" name contains "关联的告警历史"
+
   @alertSmoke @third
   Scenario: 修改处理意见并校验空格（RZY-469）
     Given I click the "LatestStatus" button
@@ -139,41 +144,22 @@ Feature: 监控最新状态
       | dropdownMenu             | handlingSuggestion |
       | {'StatusDropdown':'已处理'} | already done       |
 
-#  @alertSmoke @third
-#  Scenario Outline: 修改处理意见、关联知识并验证是否保存成功
-#    Given I click the "LatestStatus" button
-#    Then I will see the "alert.MonitorPage" page
-#    When choose from "{'StatusDropdown':'已处理'}"
-#    And I click the "Handled" button
-#    And I click the "EditButton" button
-#    And I click the "LinkKnowledge" button
-#    And I click the "ArrowDown" button
-#    And I click the "CreateKnowledge" button
-#    And switch to another window
-#    Then I will see the "knowledge.ListPage" page
-#    When I set the parameter "EventCode" with value "<name>"
-#    And I set the parameter "Describe" with value "AutoTest"
-#    And I click the "Confirm" button
-#    Then I will see the search result contains "{'column':'0','name':'<name>'}"
-#    Given open the "alert.MonitorPage" page for uri "/alerts/monitors/"
-#    When choose from "{'StatusDropdown':'已处理'}"
-#    And I click the "Handled" button
-#    And I click the "EditButton" button
-#    And I click the "LinkKnowledge" button
-#    And I click the "ArrowDown" button
-#    And I click the "KnowledgeForAlert" button
-#    And I click the "AlertKnowledge" button
-#    Then I display the element "KnowledgeList"
-#    And I click the "SaveKnowledge" button
-#    And I click the "Check" button
-#    And I will see the success message "保存成功"
-#    And I refresh the website
-#    When choose from "{'StatusDropdown':'已处理'}"
-#    Then I will see the element "KnowledgeLists" value is "KnowledgeForAl...,AlertKnowledge"
-#
-#    Examples:
-#      | name           |
-#      | AlertKnowledge |
+  @alertSmoke
+  Scenario: RZY-3007:监控-最新状态页面-告警记录-处理意见-知识库-删除
+    Given I click the "LatestStatus" button
+    Then I will see the "alert.MonitorPage" page
+    When choose from "{'StatusDropdown':'已处理'}"
+    And I click the "Handled" button
+    And I click the "EditButton" button
+    And I click the "DeleteKnowledge" button
+    And I click the "Check" button
+    And I will see the success message "保存成功"
+
+  @alertSmoke
+  Scenario: 验证知识中监控详情是否删除
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    And I click the detail which name is "KnowledgeForAlert"
+    Then I will see the "DetailAlert" doesn't exist
 
   @alertSmoke @third
   Scenario Outline: 按分组和状态搜索，并验证搜索结果和搜索内容是否一致（RZY-462、RZY-464）
