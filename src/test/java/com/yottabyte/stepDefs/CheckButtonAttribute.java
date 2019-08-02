@@ -3,6 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -175,5 +176,12 @@ public class CheckButtonAttribute {
         } catch (Exception e) {
             Assert.assertTrue(true);
         }
+    }
+
+    @Then("^I will see the element \"([^\"]*)\" contains \"([^割]*)\"$")
+    public void iWillSeeTheElementContains(String elementName, String expectText) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        String actualText = element.getText();
+        Assert.assertTrue(actualText.contains(expectText));
     }
 }

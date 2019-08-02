@@ -60,7 +60,7 @@ public class CreatePage extends PageTemplate {
     private WebElement searchContent;
 
     // 已存搜索按钮
-    @FindBy(className = "saved-search-dropdown")
+    @FindBy(xpath = "//i[@class='iconfont icon-beizhu_icon graph-tips']/following-sibling::div/span")
     private WebElement savedSearchButton;
 
     // 启用/禁用按钮
@@ -150,10 +150,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-collapse")
     private WebElement alertNoteFrame;
 
-    @FindBy(xpath = "//input[@placeholder='key']")
+    @FindBy(xpath = "(//input[@placeholder='key'])[last()]")
     private WebElement key;
 
-    @FindBy(xpath = "//input[@placeholder='value']")
+    @FindBy(xpath = "(//input[@placeholder='value'])[last()]")
     private WebElement value;
 
     @FindBy(xpath = "(//span[contains(text(),'已存搜索 +')])[2]")
@@ -197,6 +197,28 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "add-config-dropdown-menu")
     private WebElement alertDropdown;
+
+    @FindBy(xpath = "//div[@class='el-form-item extend-sourcegroup-row']//i")
+    private WebElement extendSourceGroup;
+
+    @FindBy(xpath = "//span[@class='post-text']/preceding-sibling::div//input")
+    private WebElement sendFirstAlert;
+
+    @FindBy(xpath = "//span[text()='在']")
+    private WebElement control;
+
+    public WebElement getControl() {
+        return control;
+    }
+
+    public WebElement getSendFirstAlert() {
+        return sendFirstAlert;
+    }
+
+    public WebElement getExtendSourceGroup() {
+        extendSourceGroup.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getAlertDropdown() {
         addAlert.click();
@@ -720,6 +742,10 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getErrorMessage() {
+        return super.getErrorMessage();
+    }
+
+    public WebElement getMessage() {
         return super.getErrorMessage();
     }
 

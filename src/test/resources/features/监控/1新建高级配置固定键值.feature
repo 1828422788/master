@@ -1,51 +1,65 @@
-@alert @all
-Feature: 监控新建事件数并填写高级设置（RZY-440、RZY-1866）
+@alertSmoke @third
+Feature: 监控高级配置固定键值
 
-#  @smoke @alertSmoke
-  Scenario Outline: 新建所需已存搜索
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    When I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I click the "SavedSearch" button
-    And I wait for loading invisible
-    And I set the parameter "OfflineTaskName" with value "<name>"
-    And I choose the "<group>" from the "GroupComboBox"
-    And I click the "EnsureCreateSavedSearch" button
-    Then I will see the success message "<message>"
-
-    Examples: 保存成功
-      | splQuery | name             | group               | message |
-      | *        | alertSavedSearch | default_SavedSearch | 创建成功    |
-
-  Scenario Outline: 高级配置中已存搜索+固定键值（RZY-440、RZY-1866）
+  Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
-    Given I click the "CreateAlert" button
+
+  Scenario Outline: RZY-2988:新建监控-高级配置-固定键值-保存
+    When the data name is "监控高级配置测试" then i click the "编辑" button
+    And I wait for loading invisible
     And I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "<AlertName>"
-    And I set the parameter "AlertDes" with value "<AlertDes>"
-    And I choose the "<AlertGroup>" from the "AlertGroups"
-    And I choose the "<AlertSource>" from the "AlertSources"
-    And I set the parameter "SearchContent" with value "<SearchContent>"
-    And I set the parameter "AlertPlanTimeInput" with value "<AlertPlanTime>"
-    And I set the parameter "AlertTriggerInput" with value "<AlertTrigger>"
-    And I set the parameter "AlertLevelInput" with value "<AlertLevelInput>"
     And I click the "AdvancedConfigTab" button
-    And I click the "AdvanceSavedSearch" button
-    And I click the "AlertSavedSearch" button
     And I click the "AddKeyValueButton" button
     And I set the parameter "Key" with value "<key>"
     And I set the parameter "Value" with value "<value>"
     And I click the "SaveButton" button
-    Then I will see the <Result>
+    Then I will see the message "<message>"
 
-#  @smoke @alertSmoke
-    Examples: 创建监控成功
-      | AlertName  | AlertDes | AlertGroup    | AlertSource | SearchContent | AlertPlanTime | AlertTrigger | AlertLevelInput | key        | value | Result                 |
-      | AutoTest35 | alertDes | default_Alert | 所有日志        | *             | 5             | 5            | 3               | ssue_alert | false | success message "保存成功" |
+    Examples:
+      | key | value | message              |
+      | key | value | 保存成功                 |
+      |     |       | 请填写完整的键值对            |
+      | #   | #     | 固定键值只能填写中文、英文、数字和下划线 |
+      | key | value | 固定键值的键重复，请修改         |
 
-    Examples: 为空校验
-      | AlertName  | AlertDes | AlertGroup    | AlertSource | SearchContent | AlertPlanTime | AlertTrigger | AlertLevelInput | key | value | Result                    |
-      | AutoTest35 | alertDes | default_Alert | 所有日志        | *             | 5             | 5            | 3               |     |       | error message "请填写完整的键值对" |
-      | AutoTest35 | alertDes | default_Alert | 所有日志        | *             | 5             | 5            | 3               | key |       | error message "请填写完整的键值对" |
+  Scenario: 验证监控复制键值是否复制
+    When the data name is "监控高级配置测试" then i click the "复制" button
+    Then I will see the success message "复制成功"
+    And I refresh the website
+    When the data name is "监控高级配置测试(副本)" then i click the "编辑" button
+    And I wait for loading invisible
+    And I will see the "alert.CreatePage" page
+    And I click the "AdvancedConfigTab" button
+    Then I click the "Key" button
+
+  Scenario Outline: RZY-2990:检查各种告警推送是否带出键值
+    When the data name is "监控高级配置测试" then i click the "编辑" button
+    And I wait for loading invisible
+    And I will see the "alert.CreatePage" page
+    And I click the "AlertNoteTypeTab" button
+    And I choose the "<alert>" from the "AlertDropdown"
+    And I click the "Preview" button
+    And I wait for "DialogBody" will be visible
+    Then I will see the element "DialogBody" contains "<config>"
+
+    Examples:
+      | alert | config                            |
+      | 邮件告警  | 扩展配置: key,value                   |
+      | 告警转发  | "extend_conf": { "key": "value" } |
+
+  Scenario: RZY-1866:新建监控-高级配置-固定键值-删除
+    When the data name is "监控高级配置测试" then i click the "编辑" button
+    And I wait for loading invisible
+    And I will see the "alert.CreatePage" page
+    And I click the "AdvancedConfigTab" button
+    And I click the "Close" button
+    And I click the "SaveButton" button
+    Then I will see the message "保存成功"
+
+  Scenario: 验证固定键值是否删除成功
+    When the data name is "监控高级配置测试" then i click the "编辑" button
+    And I wait for loading invisible
+    And I will see the "alert.CreatePage" page
+    And I click the "AdvancedConfigTab" button
+    Then I will see the "Key" doesn't exist
+

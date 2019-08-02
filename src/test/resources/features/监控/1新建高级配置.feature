@@ -1,152 +1,74 @@
 @alert @all
-Feature: 监控新建事件数并填写高级设置
+Feature: 监控高级配置
 
-  Background:
+#   有bug，待修复后添加验证
+  @alertSmoke @third
+  Scenario Outline: RZY-2974、444、2983、2987、3025
     Given open the "alert.ListPage" page for uri "/alerts/"
-
-  Scenario Outline: 创建一个事件数监控-高级配置-扩展搜索
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "<AlertName>"
-    And I set the parameter "AlertDes" with value "<AlertDes>"
-    And I choose the "<AlertGroup>" from the "AlertGroups"
-    And I choose the "<AlertUser>" from the "AlertUsers"
-    And I choose the "<AlertSource>" from the "AlertSources"
-    And I set the parameter "SearchContent" with value "<SearchContent>"
-    And I switch the "AlertEnable" button to "disable"
-    And I choose the "事件数监控" from the "AlertTypes"
-    And I click the "AlertPlanTimeButton" button
-    And I set the parameter "AlertPlanTimeInput" with value "<AlertPlanTime>"
-    And I choose the "<TimeUnits>" from the "AlertPlanTimeUnits"
-    And I set the parameter "AlertTriggerInput" with value "<AlertTrigger>"
-    And I choose the "<AlertTriggerTimeUnits>" from the "AlertTriggerHourOrMinute"
-    And I choose the "计数" from the "ConditionTypes"
-    And I choose the ">" from the "Conditions"
-    And I set the parameter "AlertLevelInput" with value "<AlertLevelInput>"
-    And I choose the "<AlertLevel>" from the "AlertLevelUnit"
+    When I set the parameter "AlertName" with value "监控高级配置测试"
+    And I set the parameter "AlertDes" with value "AutoCreate"
+    And I choose the "default_Alert" from the "AlertGroups"
+    And I choose the "所有日志" from the "AlertSources"
+    And I set the parameter "SearchContent" with value "*"
+    And I choose the "字段统计监控" from the "AlertTypes"
+    And I click the "AlertPlanCrontabButton" button
+    And I set the parameter "AlertPlanCrontabInput" with value "0 * * * * ?"
+    And I set the parameter "AlertTriggerFieldsInput" with value "apache.resp_len"
+    And I set the parameter "AlertTriggerInput" with value "50"
+    And I choose the "小时内" from the "AlertTriggerHourOrMinute"
+    And I set the parameter "AlertLevelInput" with value "0"
     And I click the "AdvancedConfigTab" button
     And I set the parameter "ExSearchContent" with value "<ExSearchContent>"
-    And I choose the "<ExAlertSources>" from the "ExAlertSources"
-    And I click the "SaveButton" button
-    Then I will see the <Result>
+    And I choose the "所有日志" from the "ExtendSourceGroup"
+    And I click the "<chart>" button
+    And I click the "AlertNoteTypeTab" button
+    And I choose the "邮件告警" from the "AlertDropdown"
+    And I click the "Preview" button
 
-#  @smoke @alertSmoke
-    Examples: 创建监控成功
-      | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent  | ExAlertSources | Result                 |
-      | AutoTest30 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | logtype:"apache" | 所有日志           | success message "保存成功" |
+    Examples:
+      | ExSearchContent                                                                                                                                                                            | chart       |
+      | hostname:{{alert.result.hits.0.hostname}}                                                                                                                                                  |             |
+      | hostname:{{alert.result.hits.0.hostname}} AND [[ appname:top_info_disk_io_stats \| table hostname, ip ]]                                                                                   |             |
+      | * \| timechart count() by hostname                                                                                                                                                         | GraphEnable |
+      | * \| timechart sep="1h" count() as cnt max(context_id) as max_ min(context_id) as min_ by context_id bins=2                                                                                | GraphEnable |
+      | *\|timechart span=1h rendertype="line" count()                                                                                                                                             | GraphEnable |
+      | \| makeresults count=10 \| eval app="test" \| eval tag="t" \| append [[ \| makeresults count=10 \| eval app="rcl" \| eval tag="r"]] \| chart rendertype="sunburst" count() over tag by app | GraphEnable |
 
-    Examples: 创建监控失败
-      | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent  | ExAlertSources | Result                      |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | logtype:"apache" |                | error message "请填写扩展搜索日志来源" |
+  @alertSmoke @third
+  Scenario: 新建已存搜索
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "* | timechart count() by hostname"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I click the "SavedSearch" button
+    And I wait for loading invisible
+    And I set the parameter "OfflineTaskName" with value "监控所需已存搜索"
+    And I click the "EnsureCreateSavedSearch" button
+    Then I will see the success message "创建成功"
 
-  Scenario Outline: 创建一个事件数监控-高级配置-抑制告警-固定时间（RZY-441）
+  @alertSmoke @third
+  Scenario: RZY-440:新建监控-高级配置-已存搜索-加载
+    Given open the "alert.ListPage" page for uri "/alerts/"
     Given I click the "CreateAlert" button
     And I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "<AlertName>"
-    And I set the parameter "AlertDes" with value "<AlertDes>"
-    And I choose the "<AlertGroup>" from the "AlertGroups"
-    And I choose the "<AlertUser>" from the "AlertUsers"
-    And I choose the "<AlertSource>" from the "AlertSources"
-    And I set the parameter "SearchContent" with value "<SearchContent>"
-    And I switch the "AlertEnable" button to "disable"
-    And I choose the "事件数监控" from the "AlertTypes"
-    And I click the "AlertPlanTimeButton" button
-    And I set the parameter "AlertPlanTimeInput" with value "<AlertPlanTime>"
-    And I choose the "<TimeUnits>" from the "AlertPlanTimeUnits"
-    And I set the parameter "AlertTriggerInput" with value "<AlertTrigger>"
-    And I choose the "<AlertTriggerTimeUnits>" from the "AlertTriggerHourOrMinute"
-    And I choose the "计数" from the "ConditionTypes"
-    And I choose the ">" from the "Conditions"
-    And I set the parameter "AlertLevelInput" with value "<AlertLevelInput>"
-    And I choose the "<AlertLevel>" from the "AlertLevelUnit"
+    When I set the parameter "AlertName" with value "监控高级配置测试"
+    And I set the parameter "AlertDes" with value "AutoCreate"
+    And I choose the "default_Alert" from the "AlertGroups"
+    And I choose the "所有日志" from the "AlertSources"
+    And I set the parameter "SearchContent" with value "*"
+    And I choose the "字段统计监控" from the "AlertTypes"
+    And I click the "AlertPlanCrontabButton" button
+    And I set the parameter "AlertPlanCrontabInput" with value "0 * * * * ?"
+    And I set the parameter "AlertTriggerFieldsInput" with value "apache.resp_len"
+    And I set the parameter "AlertTriggerInput" with value "50"
+    And I choose the "小时内" from the "AlertTriggerHourOrMinute"
+    And I set the parameter "AlertLevelInput" with value "0"
     And I click the "AdvancedConfigTab" button
-    And I click the "SuppressButton" button
-    And I set the parameter "FixedPeriodInput" with value "<FixedPeriodInput>"
-    And I choose the "<FixedPeriodUnits>" from the "FixedPeriodUnits"
+    And I choose the "所有日志" from the "ExtendSourceGroup"
+    And I choose the "监控所需已存搜索" from the "SavedSearch"
     And I click the "SaveButton" button
-    Then I will see the <Result>
-
-#  @smoke @alertSmoke
-    Examples: 创建监控成功
-      | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | Result                 |
-      | AutoTest31 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 1                | 天内               | success message "保存成功" |
-      | AutoTest32 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 20               | 分钟内              | success message "保存成功" |
-      | AutoTest33 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 1                | 小时内              | success message "保存成功" |
-
-    Examples: 创建监控失败
-      | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | Result                            |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          |                  | 小时内              | error message "告警抑制的初始值（第一次告警）非法" |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | a                | 小时内              | error message "告警抑制的初始值（第一次告警）非法" |
-
-  Scenario Outline: 创建一个事件数监控-高级配置-抑制告警-倍增时间（RZY-442）
-    Given I click the "CreateAlert" button
-    And I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "<AlertName>"
-    And I set the parameter "AlertDes" with value "<AlertDes>"
-    And I choose the "<AlertGroup>" from the "AlertGroups"
-    And I choose the "<AlertUser>" from the "AlertUsers"
-    And I choose the "<AlertSource>" from the "AlertSources"
-    And I set the parameter "SearchContent" with value "<SearchContent>"
-    And I switch the "AlertEnable" button to "disable"
-    And I choose the "事件数监控" from the "AlertTypes"
-    And I click the "AlertPlanTimeButton" button
-    And I set the parameter "AlertPlanTimeInput" with value "<AlertPlanTime>"
-    And I choose the "<TimeUnits>" from the "AlertPlanTimeUnits"
-    And I set the parameter "AlertTriggerInput" with value "<AlertTrigger>"
-    And I choose the "<AlertTriggerTimeUnits>" from the "AlertTriggerHourOrMinute"
-    And I choose the "计数" from the "ConditionTypes"
-    And I choose the ">" from the "Conditions"
-    And I set the parameter "AlertLevelInput" with value "<AlertLevelInput>"
-    And I choose the "<AlertLevel>" from the "AlertLevelUnit"
-    And I click the "AdvancedConfigTab" button
-    And I click the "SuppressButton" button
-    And I set the parameter "FixedPeriodInput" with value "<FixedPeriodInput>"
-    And I choose the "<FixedPeriodUnits>" from the "FixedPeriodUnits"
-    And I click the "CheckBox" button
-    And I set the parameter "CancelSuppressInput" with value "<CancelSuppressInput>"
-    And I choose the "<CancelSuppressUnits>" from the "CancelSuppressUnits"
-    And I click the "SaveButton" button
-    Then I will see the <Result>
-
-#  @smoke @alertSmoke
-    Examples: 创建监控成功
-      | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | CancelSuppressInput | CancelSuppressUnits | Result                 |
-      | AutoTest34 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              | 50                  | 分钟后                 | success message "保存成功" |
-
-    Examples: 创建监控失败
-      | AlertName | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | FixedPeriodInput | FixedPeriodUnits | CancelSuppressInput | CancelSuppressUnits | Result                            |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              |                     | 分钟后                 | error message "告警抑制的最大时间（取消抑制）非法" |
-      | AutoTest  | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | 10               | 分钟内              | a                   | 分钟后                 | error message "告警抑制的最大时间（取消抑制）非法" |
-
-
-#  @smoke @alertSmoke
-  Scenario Outline: 创建一个事件数监控-高级配置-启用效果插图（RZY-444）
-    Given I click the "CreateAlert" button
-    And I will see the "alert.CreatePage" page
-    When I set the parameter "AlertName" with value "<AlertName>"
-    And I set the parameter "AlertDes" with value "<AlertDes>"
-    And I choose the "<AlertGroup>" from the "AlertGroups"
-    And I choose the "<AlertUser>" from the "AlertUsers"
-    And I choose the "<AlertSource>" from the "AlertSources"
-    And I set the parameter "SearchContent" with value "<SearchContent>"
-    And I switch the "AlertEnable" button to "disable"
-    And I choose the "事件数监控" from the "AlertTypes"
-    And I click the "AlertPlanTimeButton" button
-    And I set the parameter "AlertPlanTimeInput" with value "<AlertPlanTime>"
-    And I choose the "<TimeUnits>" from the "AlertPlanTimeUnits"
-    And I set the parameter "AlertTriggerInput" with value "<AlertTrigger>"
-    And I choose the "<AlertTriggerTimeUnits>" from the "AlertTriggerHourOrMinute"
-    And I choose the "计数" from the "ConditionTypes"
-    And I choose the ">" from the "Conditions"
-    And I set the parameter "AlertLevelInput" with value "<AlertLevelInput>"
-    And I choose the "<AlertLevel>" from the "AlertLevelUnit"
-    And I click the "AdvancedConfigTab" button
-    And I set the parameter "ExSearchContent" with value "<ExSearchContent>"
-    And I choose the "<ExAlertSources>" from the "ExAlertSources"
-    And I click the "GraphEnable" button
-    And I click the "SaveButton" button
-    Then I will see the <Result>
-
-    Examples: 创建监控成功
-      | AlertName  | AlertDes | AlertGroup    | AlertUser | AlertSource | SearchContent | AlertPlanTime | TimeUnits | AlertTrigger | AlertTriggerTimeUnits | AlertLevelInput | AlertLevel | ExSearchContent                    | ExAlertSources | Result                 |
-      | AutoTest35 | alertDes | default_Alert | owner     | 所有日志        | *             | 5             | 分钟        | 5            | 分钟内                   | 3               | 低          | * \| timechart count() by hostname | 所有日志           | success message "保存成功" |
+    Then I will see the success message "保存成功"
