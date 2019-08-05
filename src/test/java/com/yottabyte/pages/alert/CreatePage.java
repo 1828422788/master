@@ -5,7 +5,9 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.stepDefs.IChooseValueFromSelectList;
 import com.yottabyte.stepDefs.SetKeyWithValue;
+import com.yottabyte.stepDefs.WaitForSomeSecond;
 import com.yottabyte.utils.CheckSelectedFromDropdownList;
+import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetLogger;
 import com.yottabyte.utils.WaitForElement;
 import com.yottabyte.webDriver.SharedDriver;
@@ -207,6 +209,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='在']")
     private WebElement control;
 
+    @FindBy(className = "el-select-dropdown__item")
+    private WebElement dropdownItem;
+
     public WebElement getControl() {
         return control;
     }
@@ -316,7 +321,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAlertGroups() {
-        return super.getDropdownList("监控分组");
+        String xpath = "//label[contains(text(),'监控分组')]/following-sibling::div//input[@class='el-input__inner']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        try {
+            new WaitForSomeSecond().iWaitForSecond("1000");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return super.getLastDropdownList();
     }
 
     public WebElement getAlertUsers() {
