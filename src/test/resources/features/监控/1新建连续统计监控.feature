@@ -3,6 +3,7 @@ Feature: 监控新建连续统计（RZY-435）
 
   Background:
     Given open the "alert.ListPage" page for uri "/alerts/"
+    And I wait for "CreateAlert" will be visible
 
   Scenario Outline: 创建一个新的告警-连续统计监控-定时执行
     Given I click the "CreateAlert" button
@@ -31,5 +32,4 @@ Feature: 监控新建连续统计（RZY-435）
       | RZY-435:连续统计监控步骤1 | =              | 200       | 中     |
       | RZY-435:连续统计监控步骤2 | >              | 200       | 中     |
       | RZY-435:连续统计监控步骤3 | <              | 404       |      |
-#      | RZY-435:连续统计监控步骤4 | >=             | 404       |
       | RZY-435:连续统计监控步骤5 | <=             | 404       | 高     |

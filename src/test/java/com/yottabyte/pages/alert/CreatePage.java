@@ -212,6 +212,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-select-dropdown__item")
     private WebElement dropdownItem;
 
+    @FindBy(xpath = "//label[contains(text(),'监控分组')]/following-sibling::div//input[@class='el-input__inner']")
+    private WebElement alertGroups;
+
     public WebElement getControl() {
         return control;
     }
@@ -321,15 +324,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAlertGroups() {
-        String xpath = "//label[contains(text(),'监控分组')]/following-sibling::div//input[@class='el-input__inner']";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        try {
-            new WaitForSomeSecond().iWaitForSecond("1000");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return super.getLastDropdownList();
+        alertGroups.click();
+        WebElement lastDropdownList = super.getLastDropdownList();
+        WebElement li = lastDropdownList.findElement(By.xpath(".//li"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
+        return lastDropdownList;
     }
 
     public WebElement getAlertUsers() {
