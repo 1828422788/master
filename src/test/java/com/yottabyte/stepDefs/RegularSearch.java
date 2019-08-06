@@ -206,6 +206,8 @@ public class RegularSearch {
                 List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
                 if (tdList.size() >= columnNum) {
                     String actualTime = tdList.get(columnNum).getText();
+                    System.out.println("！！！！！实际时间：" + actualTime);
+                    System.out.println("！！！！！预期时间：" + expectTime);
                     compareTime(actualTime, expectTime);
                 }
             }

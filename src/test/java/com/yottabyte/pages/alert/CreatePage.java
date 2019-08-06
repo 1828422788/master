@@ -326,8 +326,7 @@ public class CreatePage extends PageTemplate {
     public WebElement getAlertGroups() {
         alertGroups.click();
         WebElement lastDropdownList = super.getLastDropdownList();
-        WebElement li = lastDropdownList.findElement(By.xpath(".//li"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(lastDropdownList.findElement(By.xpath(".//li"))));
         return lastDropdownList;
     }
 

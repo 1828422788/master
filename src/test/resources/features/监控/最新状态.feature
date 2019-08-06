@@ -116,6 +116,23 @@ Feature: 监控最新状态
     And I click the detail which name is "KnowledgeForAlert"
     Then I will see the element "DetailAlert" name contains "关联的告警历史"
 
+  @alertSmoke
+  Scenario: RZY-3007:监控-最新状态页面-告警记录-处理意见-知识库-删除
+    Given I click the "LatestStatus" button
+    Then I will see the "alert.MonitorPage" page
+    When choose from "{'StatusDropdown':'已处理'}"
+    And I click the "Handled" button
+    And I click the "EditButton" button
+    And I click the "DeleteKnowledge" button
+    And I click the "Check" button
+    And I will see the success message "保存成功"
+
+  @alertSmoke
+  Scenario: 验证知识中监控详情是否删除
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    And I click the detail which name is "KnowledgeForAlert"
+    Then I will see the "DetailAlert" doesn't exist
+
   @alertSmoke @third
   Scenario: 修改处理意见并校验空格（RZY-469）
     Given I click the "LatestStatus" button
@@ -143,23 +160,6 @@ Feature: 监控最新状态
     Examples:
       | dropdownMenu             | handlingSuggestion |
       | {'StatusDropdown':'已处理'} | already done       |
-
-  @alertSmoke
-  Scenario: RZY-3007:监控-最新状态页面-告警记录-处理意见-知识库-删除
-    Given I click the "LatestStatus" button
-    Then I will see the "alert.MonitorPage" page
-    When choose from "{'StatusDropdown':'已处理'}"
-    And I click the "Handled" button
-    And I click the "EditButton" button
-    And I click the "DeleteKnowledge" button
-    And I click the "Check" button
-    And I will see the success message "保存成功"
-
-  @alertSmoke
-  Scenario: 验证知识中监控详情是否删除
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    And I click the detail which name is "KnowledgeForAlert"
-    Then I will see the "DetailAlert" doesn't exist
 
   @alertSmoke @third
   Scenario Outline: 按分组和状态搜索，并验证搜索结果和搜索内容是否一致（RZY-462、RZY-464）
