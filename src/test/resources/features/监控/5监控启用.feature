@@ -1,4 +1,4 @@
-#@all @smoke @alert @alertSmoke
+@all @smoke @alert @alertSmoke
 Feature: 监控启用/禁用
 
   Background:
@@ -10,5 +10,5 @@ Feature: 监控启用/禁用
 
     Examples:
       | message |
-      | 启用成功    |
       | 禁用成功    |
+      | 启用成功    |
