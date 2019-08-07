@@ -121,7 +121,7 @@ Feature: 监控最新状态
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When choose from "{'StatusDropdown':'已处理'}"
-    And I click the "Expand" button
+    And I click the button "Expand" if exist
     And I click the "AssociateKnowledge" button
     And I click the "EditButton" button
     And I click the "DeleteKnowledge" button
