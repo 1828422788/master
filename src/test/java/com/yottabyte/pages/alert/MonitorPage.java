@@ -115,6 +115,13 @@ public class MonitorPage extends PageTemplate {
     @FindBy(className = "el-tag__close")
     private WebElement deleteKnowledge;
 
+    @FindBy(xpath = "//span[@title='KnowledgeForAlert']/ancestor::span/preceding-sibling::div//span")
+    private WebElement associateKnowledge;
+
+    public WebElement getAssociateKnowledge() {
+        return associateKnowledge;
+    }
+
     public WebElement getDeleteKnowledge() {
         return deleteKnowledge;
     }

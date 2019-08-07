@@ -47,7 +47,7 @@ Feature: 监控最新状态
       | Deal   | 有未填写处理意见 |
       | Ignore | 有未填写处理意见 |
 
-  Scenario Outline: 标记/操作失败（后四个需要新建告警插件，待办）
+  Scenario Outline: 标记/操作失败
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When I click the "<dropdown>" button
@@ -121,7 +121,8 @@ Feature: 监控最新状态
     Given I click the "LatestStatus" button
     Then I will see the "alert.MonitorPage" page
     When choose from "{'StatusDropdown':'已处理'}"
-    And I click the "Handled" button
+    And I click the "Expand" button
+    And I click the "AssociateKnowledge" button
     And I click the "EditButton" button
     And I click the "DeleteKnowledge" button
     And I click the "Check" button
