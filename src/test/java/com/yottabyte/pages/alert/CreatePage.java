@@ -5,6 +5,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.stepDefs.IChooseValueFromSelectList;
 import com.yottabyte.stepDefs.SetKeyWithValue;
+import com.yottabyte.stepDefs.WaitForElementVisible;
 import com.yottabyte.stepDefs.WaitForSomeSecond;
 import com.yottabyte.utils.CheckSelectedFromDropdownList;
 import com.yottabyte.utils.ElementExist;
@@ -215,6 +216,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'监控分组')]/following-sibling::div//input[@class='el-input__inner']")
     private WebElement alertGroups;
 
+    @FindBy(xpath = "(//p[@class='el-select-dropdown__empty'])[last()]")
+    private WebElement emptyDropdown;
+
+    public WebElement getEmptyDropdown() {
+        return emptyDropdown;
+    }
+
     public WebElement getControl() {
         return control;
     }
@@ -326,7 +334,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getAlertGroups() {
         alertGroups.click();
         WebElement lastDropdownList = super.getLastDropdownList();
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(lastDropdownList.findElement(By.xpath(".//li"))));
+        new WaitForElementVisible().waitUntilInvisible("(//p[@class='el-select-dropdown__empty'])[last()]");
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(emptyDropdown));
         return lastDropdownList;
     }
 

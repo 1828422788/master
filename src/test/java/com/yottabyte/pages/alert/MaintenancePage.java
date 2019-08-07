@@ -54,6 +54,14 @@ public class MaintenancePage extends PageTemplate {
     @FindBy(xpath = "//label[@class='required end-time']/following-sibling::div//input[@placeholder='分']")
     private WebElement endMinute;
 
+    @FindBy(className = "el-icon-search")
+    private WebElement searchIcon;
+
+    @Override
+    public WebElement getSearchIcon() {
+        return searchIcon;
+    }
+
     public WebElement getStartHour() {
         return startHour;
     }

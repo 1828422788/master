@@ -7,6 +7,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -21,8 +22,7 @@ public class WaitForElementVisible {
     @When("^I wait for \"([^\"]*)\" will be visible")
     public void iWaitForWillBeVisible(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(element);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        this.elementInvisible(element);
     }
 
     @And("^I wait for \"([^\"]*)\" will be invisible")
@@ -35,5 +35,20 @@ public class WaitForElementVisible {
     @Then("^I wait for loading invisible$")
     public void iWaitForLoadingInvisible() {
         WaitForElement.waitUntilLoadingDisappear();
+    }
+
+    public void waitUntilInvisible(String xpath) {
+        WebElement element;
+        try {
+            element = webDriver.findElement(By.xpath(xpath));
+        } catch (Exception e) {
+            return;
+        }
+        this.elementInvisible(element);
+    }
+
+    private void elementInvisible(WebElement element) {
+        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(element);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
     }
 }

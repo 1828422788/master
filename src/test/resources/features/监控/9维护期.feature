@@ -67,14 +67,16 @@ Feature: 监控维护期
       | reason | group         | message                 |
       | test   | default_Alert | 保存失败: 默认系统错误\n错误码: FE_1 |
 
-#  @smoke @alertSmoke
+  @smoke @alertSmoke
   Scenario Outline: 搜索维护期
     Given I set the parameter "SearchReason" with value "<reason>"
+    And I click the "SearchIcon" button
+    And I wait for "1000" millsecond
     Then I will see the search result "{'column':'0','name':'<reason>'}"
 
     Examples:
-      | reason   |
-      | AutoTest |
+      | reason |
+      | 2998   |
 
 #  @smoke @alertSmoke
   Scenario: 查看监控是否正在维护
@@ -88,7 +90,7 @@ Feature: 监控维护期
     And I click the "EnsureDelete" button
     Then I will see the success message "删除成功"
 
-#  @smoke @alertSmoke
+  @smoke @alertSmoke
   Scenario: 返回监控首页
     When I click the "ReturnToAlertPage" button
     Then the page's title will be "监控"

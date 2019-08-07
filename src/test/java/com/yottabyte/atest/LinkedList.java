@@ -25,9 +25,11 @@ public class LinkedList {
         this.top = new Node(obj, this.top);
     }
 
-//    public Object pop() {
-//        if()
-//    }
+    public Object pop() {
+        Object obj = top.data;
+        top = top.next;
+        return obj;
+    }
 
     public Object peek() {
         if (this.isEmpty()) {
@@ -38,7 +40,7 @@ public class LinkedList {
     }
 
     public boolean isEmpty() {
-        return top.next == null;
+        return top == null;
     }
 
     public static void main(String[] args) {
@@ -47,6 +49,7 @@ public class LinkedList {
         for (String str : s.split(" ")) {
             linkedList.push(str);
         }
-        System.out.println(linkedList.peek());
+        while (!linkedList.isEmpty())
+            System.out.println(linkedList.pop());
     }
 }
