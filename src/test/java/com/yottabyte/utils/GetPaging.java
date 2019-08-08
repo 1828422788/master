@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class GetPaging {
     private static WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+    private static Paging paging = new Paging();
 
     private static void setPagingInfo(Paging paging) {
         // 分页标签
@@ -27,7 +28,6 @@ public class GetPaging {
     }
 
     public static Paging getPagingInfo() {
-        Paging paging = new Paging();
         setPagingInfo(paging);
         return paging;
     }

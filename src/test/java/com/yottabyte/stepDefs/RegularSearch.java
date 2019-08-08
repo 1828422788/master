@@ -358,4 +358,20 @@ public class RegularSearch {
         String actualName = tr.findElement(By.xpath(xpath)).getText();
         Assert.assertEquals(valuesMap.get("name"), actualName);
     }
+
+    /**
+     * 验证数据的启用禁用状态(有分页)
+     *
+     * @param dataName
+     * @param status
+     */
+    @Then("^I will see the data \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void checkDataStatus(String dataName, String status) {
+        ClickButtonWithGivenName clickButton = new ClickButtonWithGivenName();
+        WebElement tr = clickButton.findName(dataName);
+        String xpath = ".//label/div[@class='el-switch__label el-switch__label--left']";
+        WebElement switchButton = tr.findElement(By.xpath(xpath));
+        String style = switchButton.getAttribute("style");
+        Assert.assertTrue("enable".equals(status) && !style.contains("display: none;") || "disable".equals(status) && style.contains("display: none;"));
+    }
 }

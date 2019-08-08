@@ -13,6 +13,7 @@ public class LinkedList {
             next = null;
         }
 
+
         Node(Object data, Node next) {
             this.data = data;
             this.next = next;
@@ -41,6 +42,15 @@ public class LinkedList {
 
     public boolean isEmpty() {
         return top == null;
+    }
+
+    public void delete(int index) {
+        if (index == 0) {
+            top = top.next;
+        } else {
+
+        }
+
     }
 
     public static void main(String[] args) {

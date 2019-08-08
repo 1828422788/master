@@ -5,10 +5,11 @@ Feature: 监控启用/禁用
     Given open the "alert.ListPage" page for uri "/alerts/"
 
   Scenario Outline:
-    When I disabled the data "RZY-435:连续统计监控步骤5"
-    Then I will see the success message "<message>"
+    When I disabled the data "<name>"
+    And I refresh the website
+    Then I will see the data "<name>" is "<status>"
 
     Examples:
-      | message |
-      | 禁用成功    |
-      | 启用成功    |
+      | name                  | status  |
+      | RZY-434:字段统计监控步骤1(副本) | disable |
+      | RZY-434:字段统计监控步骤1(副本) | enable  |
