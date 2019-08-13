@@ -594,4 +594,17 @@ public class ClickButtonWithGivenName {
         if (status.equals("close") && labelAttribute.contains("display: none;") || status.equals("open") && !labelAttribute.contains("display: none;"))
             label.click();
     }
+
+    /**
+     * 数据大屏列表页点击操作
+     *
+     * @param dataName
+     * @param className
+     */
+    @When("^the galaxee name is \"([^\"]*)\" then I click the \"([^\"]*)\" button$")
+    public void theGalaxeeNameIsThenIClickTheButton(String dataName, String className) {
+        String xpath = "//div[@title='" + dataName + "']/preceding-sibling::div//*[@class='" + className + "']";
+        WebElement button = webDriver.findElement(By.xpath(xpath));
+        button.click();
+    }
 }

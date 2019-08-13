@@ -55,4 +55,10 @@ public class AlterElementAttribute {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('class','" + className + "')", element);
     }
+
+    @And("^I alter the element \"([^\"]*)\" style to \"([^\"]*)\"$")
+    public void alterElementStyle(String elementName, String styleName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('style','" + styleName + "')", element);
+    }
 }

@@ -47,9 +47,10 @@ public class SetKeyWithValue {
             }
             element.click();
             //element.sendKeys(Keys.CONTROL + "a");
-            element.sendKeys(Keys.END);
-            element.sendKeys(Keys.SHIFT, Keys.HOME);
-            element.sendKeys(Keys.BACK_SPACE);
+//            element.sendKeys(Keys.END);
+//            element.sendKeys(Keys.SHIFT, Keys.HOME);
+//            element.sendKeys(Keys.BACK_SPACE);
+            element.clear();
             if (element.getText().equalsIgnoreCase("")) {
                 flag = false;
             }
