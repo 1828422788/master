@@ -22,9 +22,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='screenshot'])[2]")
     private WebElement bank;
 
-    @FindBy(xpath = "(//div[@class='screenshot'])[4]")
-    private WebElement test;
-
     @FindBy(xpath = "//li[contains(text(),'图表')]")
     private WebElement chart;
 
@@ -91,23 +88,53 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//button[@class='el-color-dropdown__btn'])[last()]")
     private WebElement ensureColor;
 
-    @FindBy(xpath = "//label[contains(text(),'X轴')]//following-sibling::div//i")
-    private WebElement xaxis;
-
-    @FindBy(xpath = "//label[contains(text(),'Y轴')]//following-sibling::div//i")
-    private WebElement yaxis;
-
     @FindBy(xpath = "//label[contains(text(),'平滑')]/following-sibling::label")
     private WebElement smooth;
 
+    @FindBy(xpath = "(//label[contains(text(),'平滑')]/following-sibling::label)[2]")
+    private WebElement secondSmooth;
+
     @FindBy(xpath = "//label[contains(text(),'区域')]/following-sibling::label")
     private WebElement area;
+
+    @FindBy(xpath = "(//label[contains(text(),'区域')]/following-sibling::label)[2]")
+    private WebElement secondArea;
 
     @FindBy(className = "icon-zuojiantou1")
     private WebElement leftArrow;
 
     @FindBy(className = "left")
     private WebElement leftPart;
+
+    @FindBy(className = "line2Y")
+    private WebElement line2y;
+
+    @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'类型')]//following-sibling::div//i)[2]")
+    private WebElement secondSeriesType;
+
+    @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'粗细')]/following-sibling::div//input)[2]")
+    private WebElement secondSeriesBold;
+
+    public WebElement getSecondSmooth() {
+        return secondSmooth;
+    }
+
+    public WebElement getSecondArea() {
+        return secondArea;
+    }
+
+    public WebElement getSecondSeriesBold() {
+        return secondSeriesBold;
+    }
+
+    public WebElement getSecondSeriesType() {
+        secondSeriesType.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getLine2y() {
+        return line2y;
+    }
 
     public WebElement getLeftPart() {
         return leftPart;
@@ -326,13 +353,19 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getXaxis() {
-        xaxis.click();
-        return super.getLastDropdownList();
+        return this.dropdownList("", "X轴");
     }
 
     public WebElement getYaxis() {
-        yaxis.click();
-        return super.getLastDropdownList();
+        return this.dropdownList("", "Y轴");
+    }
+
+    public WebElement getFirstYaxis() {
+        return this.dropdownList("", "Y轴1");
+    }
+
+    public WebElement getSecondYaxis() {
+        return this.dropdownList("", "Y轴2");
     }
 
     public WebElement getSearch() {
@@ -353,10 +386,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getBank() {
         return bank;
-    }
-
-    public WebElement getTest() {
-        return test;
     }
 
     public WebElement getName() {
