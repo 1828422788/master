@@ -33,7 +33,6 @@ public class DateEditorPage extends PageTemplate {
     private WebElement dateMenuFastChoose;
 
     @FindBy(xpath = "//button[text()='最近7天']")
-
     private WebElement recentSevenDay;
 
     @FindBy(xpath = "//button[text()='今天']")

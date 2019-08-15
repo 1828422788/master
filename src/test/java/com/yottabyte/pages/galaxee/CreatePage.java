@@ -1,6 +1,7 @@
 package com.yottabyte.pages.galaxee;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.GetTime;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,6 +28,15 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "line")
     private WebElement line;
+
+    @FindBy(className = "line2Y")
+    private WebElement line2y;
+
+    @FindBy(className = "bar")
+    private WebElement bar;
+
+    @FindBy(className = "range")
+    private WebElement range;
 
     @FindBy(xpath = "//div[text()='数据']")
     private WebElement data;
@@ -106,14 +116,41 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "left")
     private WebElement leftPart;
 
-    @FindBy(className = "line2Y")
-    private WebElement line2y;
-
     @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'类型')]//following-sibling::div//i)[2]")
     private WebElement secondSeriesType;
 
     @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'粗细')]/following-sibling::div//input)[2]")
     private WebElement secondSeriesBold;
+
+    @FindBy(xpath = "//label[text()='堆叠']/following-sibling::label[@class='el-switch setting-switch']")
+    private WebElement pile;
+
+    @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
+    private WebElement dateEditor;
+
+    public WebElement getRecentSevenDay() {
+        return GetTime.getTime(webDriver, "RecentSevenDay");
+    }
+
+    public WebElement getTwoDays() {
+        return GetTime.getTime(webDriver, "TwoDays");
+    }
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    public WebElement getRange() {
+        return range;
+    }
+
+    public WebElement getPile() {
+        return pile;
+    }
+
+    public WebElement getBar() {
+        return bar;
+    }
 
     public WebElement getSecondSmooth() {
         return secondSmooth;
@@ -366,6 +403,26 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSecondYaxis() {
         return this.dropdownList("", "Y轴2");
+    }
+
+    public WebElement getXaxisField() {
+        return this.dropdownList("", "横坐标字段");
+    }
+
+    public WebElement getActualField() {
+        return this.dropdownList("", "实际值字段");
+    }
+
+    public WebElement getForecastField() {
+        return this.dropdownList("", "预测值字段");
+    }
+
+    public WebElement getUpperField() {
+        return this.dropdownList("", "上限字段");
+    }
+
+    public WebElement getLowerField() {
+        return this.dropdownList("", "下限字段");
     }
 
     public WebElement getSearch() {
