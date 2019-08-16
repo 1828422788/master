@@ -38,6 +38,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "range")
     private WebElement range;
 
+    @FindBy(className = "rose")
+    private WebElement rose;
+
     @FindBy(xpath = "//div[text()='数据']")
     private WebElement data;
 
@@ -77,21 +80,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "left-fixed_right-auto")
     private WebElement preview;
 
-    @FindBy(xpath = "//div[contains(text(),'x轴')]")
-    private WebElement xaxisHeader;
-
-    @FindBy(xpath = "//div[contains(text(),'y轴')]")
-    private WebElement yaxisHeader;
-
-    @FindBy(xpath = "//div[contains(text(),'图例')]")
-    private WebElement example;
-
-    @FindBy(xpath = "//div[contains(text(),'布局')]")
-    private WebElement layout;
-
-    @FindBy(xpath = "//div[contains(text(),'数据系列')]")
-    private WebElement dataSeries;
-
     @FindBy(xpath = "(//input[@class='el-color-dropdown__value'])[last()]")
     private WebElement colorInput;
 
@@ -127,6 +115,26 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
     private WebElement dateEditor;
+
+    public WebElement getTag() {
+        return this.header("标签");
+    }
+
+    public WebElement getRadius() {
+        return this.header("半径");
+    }
+
+    public WebElement getDivideField() {
+        return this.dropdownList("", "切分字段");
+    }
+
+    public WebElement getDataField() {
+        return this.dropdownList("", "数值字段");
+    }
+
+    public WebElement getRose() {
+        return rose;
+    }
 
     public WebElement getRecentSevenDay() {
         return GetTime.getTime(webDriver, "RecentSevenDay");
@@ -201,6 +209,18 @@ public class CreatePage extends PageTemplate {
         return this.input("数据系列", "粗细");
     }
 
+    public WebElement getInnerRadius() {
+        return this.input("半径", "内半径(%)");
+    }
+
+    public WebElement getOuterRadius() {
+        return this.input("半径", "外半径(%)");
+    }
+
+    public WebElement getTagBold() {
+        return this.dropdownList("标签", "字体粗细");
+    }
+
     public WebElement getDataSeriesType() {
         return this.dropdownList("数据系列", "类型");
     }
@@ -214,23 +234,31 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getExample() {
-        return example;
+        return this.header("图例");
     }
 
     public WebElement getLayout() {
-        return layout;
+        return this.header("布局");
     }
 
     public WebElement getDataSeries() {
-        return dataSeries;
+        return this.header("数据系列");
     }
 
     public WebElement getYaxisWordColor() {
         return this.colorPicker("y轴", "文本");
     }
 
+    public WebElement getTagWordColor() {
+        return this.colorPicker("标签", "");
+    }
+
     public WebElement getYaxisWordSize() {
         return this.input("y轴", "字号");
+    }
+
+    public WebElement getTagWordSize() {
+        return this.input("标签", "字号");
     }
 
     public WebElement getExampleWordSize() {
@@ -314,11 +342,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getXaxisHeader() {
-        return xaxisHeader;
+        return this.header("x轴");
     }
 
     public WebElement getYaxisHeader() {
-        return yaxisHeader;
+        return this.header("y轴");
     }
 
     public WebElement getPreview() {
@@ -490,6 +518,11 @@ public class CreatePage extends PageTemplate {
 
     private WebElement switchButton(String title) {
         String xpath = "//div[text()='" + title + "']/following-sibling::div//label[@class='el-switch setting-switch']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    private WebElement header(String name) {
+        String xpath = "//div[contains(text(),'" + name + "')]";
         return webDriver.findElement(By.xpath(xpath));
     }
 }
