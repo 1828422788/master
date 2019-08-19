@@ -62,8 +62,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "delete")
     private WebElement delete;
 
+    @FindBy(className = "scatter")
+    private WebElement scatter;
+
     @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
     private WebElement ensureDelete;
+
+    @FindBy(className = "percent")
+    private WebElement percent;
 
     @FindBy(className = "el-upload--text")
     private WebElement upload;
@@ -133,6 +139,33 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[@class='chart-color-block'])[6]")
     private WebElement green;
+
+    @FindBy(xpath = "//div[text()='单环颜色']/following-sibling::div//label/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    private WebElement monocycleColor;
+
+    public WebElement getMonocycleColor() {
+        return monocycleColor;
+    }
+
+    public WebElement getMonocycle() {
+        return this.header("单环颜色");
+    }
+
+    public WebElement getTitleColor() {
+        return this.colorPicker("标题", "");
+    }
+
+    public WebElement getTitle() {
+        return this.header("标题");
+    }
+
+    public WebElement getPercent() {
+        return percent;
+    }
+
+    public WebElement getScatter() {
+        return scatter;
+    }
 
     public WebElement getPie() {
         return pie;
@@ -298,6 +331,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDataSeries() {
         return this.header("数据系列");
+    }
+
+    public WebElement getTitleSize() {
+        return this.input("标题", "字号");
     }
 
     public WebElement getYaxisWordColor() {
