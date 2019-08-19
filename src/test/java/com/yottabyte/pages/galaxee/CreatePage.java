@@ -41,6 +41,15 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "rose")
     private WebElement rose;
 
+    @FindBy(className = "barHorizontal")
+    private WebElement barHorizontal;
+
+    @FindBy(className = "sunburst")
+    private WebElement sunburst;
+
+    @FindBy(className = "pie")
+    private WebElement pie;
+
     @FindBy(xpath = "//div[text()='数据']")
     private WebElement data;
 
@@ -115,6 +124,48 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
     private WebElement dateEditor;
+
+    @FindBy(xpath = "(//div//label[contains(text(),'切分字段')]//following-sibling::div//i)[last()]")
+    private WebElement lastDivideField;
+
+    @FindBy(className = "chart-color-selector")
+    private WebElement colorSelector;
+
+    @FindBy(xpath = "(//span[@class='chart-color-block'])[6]")
+    private WebElement green;
+
+    public WebElement getPie() {
+        return pie;
+    }
+
+    public WebElement getChartWordSize() {
+        return this.input("图表颜色标签", "标签字号");
+    }
+
+    public WebElement getGreen() {
+        return green;
+    }
+
+    public WebElement getColorSelector() {
+        return colorSelector;
+    }
+
+    public WebElement getChartTag() {
+        return this.header("图表颜色标签");
+    }
+
+    public WebElement getSunburst() {
+        return sunburst;
+    }
+
+    public WebElement getLastDivideField() {
+        lastDivideField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getBarHorizontal() {
+        return barHorizontal;
+    }
 
     public WebElement getTag() {
         return this.header("标签");
@@ -195,6 +246,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAddGroup() {
         return super.getButton("添加分组");
+    }
+
+    public WebElement getAdd() {
+        return super.getButton("+添加");
     }
 
     public WebElement getSmooth() {

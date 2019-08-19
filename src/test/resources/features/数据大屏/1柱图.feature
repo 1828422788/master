@@ -23,6 +23,7 @@ Feature: 数据大屏柱图
     And I wait for "SearchTip" will be invisible
     And I choose the "apache.method" from the "Xaxis"
     And I choose the "count()" from the "Yaxis"
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

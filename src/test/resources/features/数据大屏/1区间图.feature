@@ -27,6 +27,7 @@ Feature: 数据大屏区间图
     And I choose the "_predict_c" from the "ForecastField"
     And I choose the "upper95" from the "UpperField"
     And I choose the "lower95" from the "LowerField"
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
