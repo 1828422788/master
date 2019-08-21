@@ -55,7 +55,12 @@ Feature: 数据大屏环形占比图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "num" from the "DataField"
-    And I wait for "Save" will be visible
+    And I alter the element "RightArrow" style to "display: inline;"
+    And I click the "RightArrow" button
+    And I alter the element "LeftArrow" style to "display: inline;"
+    And I click the "LeftArrow" button
+    And I wait for "1000" millsecond
+    And take part of "Preview" with name "galaxee/<name>"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

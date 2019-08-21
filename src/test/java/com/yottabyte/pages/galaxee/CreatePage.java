@@ -26,6 +26,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'图表')]")
     private WebElement chart;
 
+    @FindBy(xpath = "//li[contains(text(),'地图')]")
+    private WebElement map;
+
     @FindBy(className = "line")
     private WebElement line;
 
@@ -83,9 +86,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='图表尺寸位置']")
     private WebElement position;
 
-    @FindBy(xpath = "//div[@class='panel-size-input el-input']/input")
-    private List<WebElement> inputList;
-
     @FindBy(xpath = "//div[text()='图表尺寸位置']/i")
     private WebElement chartPosition;
 
@@ -142,6 +142,178 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='单环颜色']/following-sibling::div//label/following-sibling::div//span[@class='el-color-picker__color-inner']")
     private WebElement monocycleColor;
+
+    @FindBy(className = "arcBar")
+    private WebElement arcBar;
+
+    @FindBy(xpath = "(//label[text()='图表尺寸']/following-sibling::div//input)[1]")
+    private WebElement width;
+
+    @FindBy(xpath = "(//label[text()='图表尺寸']/following-sibling::div//input)[2]")
+    private WebElement height;
+
+    @FindBy(xpath = "(//label[text()='图表位置']/following-sibling::div//input)[1]")
+    private WebElement chartXaxis;
+
+    @FindBy(xpath = "(//label[text()='图表位置']/following-sibling::div//input)[2]")
+    private WebElement chartYaxis;
+
+    @FindBy(xpath = "(//div[text()='极坐标系']/following-sibling::div//label[contains(text(),'中心纬度,经度')]/following-sibling::div//input)[2]")
+    private WebElement polarYaxis;
+
+    @FindBy(className = "china")
+    private WebElement chinaMap;
+
+    @FindBy(xpath = "//label[contains(text(),'区域颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    private WebElement areaColor;
+
+    @FindBy(xpath = "//label[contains(text(),'边界颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    private WebElement boundaryColor;
+
+    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    private WebElement wordColor;
+
+    @FindBy(xpath = "//label[text()='正常']/following-sibling::div//input")
+    private List<WebElement> mapInputList;
+
+    @FindBy(xpath = "(//div[contains(text(),'地图')])[2]")
+    private WebElement mapHeader;
+
+    public WebElement getNormalFromInput() {
+        return mapInputList.get(0);
+    }
+
+    public WebElement getNormalToInput() {
+        return mapInputList.get(1);
+    }
+
+    public WebElement getUnusualFromInput() {
+        return mapInputList.get(2);
+    }
+
+    public WebElement getUnusualToInput() {
+        return mapInputList.get(3);
+    }
+
+    public WebElement getSeriousFromInput() {
+        return mapInputList.get(4);
+    }
+
+    public WebElement getSeriousToInput() {
+        return mapInputList.get(5);
+    }
+
+    public WebElement getMapWordBold() {
+        return this.dropdownList("地图", "字体粗细");
+    }
+
+    public WebElement getScale() {
+        return this.input("地图", "缩放");
+    }
+
+    public WebElement getMapWordSize() {
+        return this.input("地图", "字体大小");
+    }
+
+    public WebElement getWordColor() {
+        return wordColor;
+    }
+
+    public WebElement getMarkType() {
+        return this.dropdownList("地图", "标注类型");
+    }
+
+    public WebElement getAreaColor() {
+        return areaColor;
+    }
+
+    public WebElement getBoundaryColor() {
+        return boundaryColor;
+    }
+
+    public WebElement getMapArea() {
+        return this.dropdownList("地图", "区域");
+    }
+
+    public WebElement getMapHeader() {
+        return mapHeader;
+    }
+
+    public WebElement getNameField() {
+        return this.dropdownList("", "名称字段");
+    }
+
+    public WebElement getMap() {
+        return map;
+    }
+
+    public WebElement getChinaMap() {
+        return chinaMap;
+    }
+
+    public WebElement getPolarRadius() {
+        return this.input("极坐标系", "半径");
+    }
+
+    public WebElement getPolarYaxis() {
+        return polarYaxis;
+    }
+
+    public WebElement getPolarXaxis() {
+        return this.input("极坐标系", "中心纬度,经度");
+    }
+
+    public WebElement getPolarCoordinates() {
+        return this.header("极坐标系");
+    }
+
+    public WebElement getAngleAxisBold() {
+        return this.dropdownList("角度轴", "字体粗细");
+    }
+
+    public WebElement getAngleAxisColor() {
+        return this.colorPicker("角度轴", "");
+    }
+
+    public WebElement getAngleAxisSize() {
+        return this.input("角度轴", "字号");
+    }
+
+    public WebElement getAngleAxisHeader() {
+        return this.header("角度轴");
+    }
+
+    public WebElement getRadiusAxisAngle() {
+        return this.dropdownList("半径轴", "角度");
+    }
+
+    public WebElement getRadiusAxisBold() {
+        return this.dropdownList("半径轴", "字体粗细");
+    }
+
+    public WebElement getRadiusAxisColor() {
+        return this.colorPicker("半径轴", "");
+    }
+
+    public WebElement getRadiusAxisSize() {
+        return this.input("半径轴", "字号");
+    }
+
+    public WebElement getRadialAxis() {
+        return this.dropdownList("", "径向轴");
+    }
+
+    public WebElement getAngleAxis() {
+        return this.dropdownList("", "角度轴");
+    }
+
+    public WebElement getRadiusAxis() {
+        return this.header("半径轴");
+    }
+
+    public WebElement getArcBar() {
+        return arcBar;
+    }
 
     public WebElement getMonocycleColor() {
         return monocycleColor;
@@ -454,19 +626,19 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getWidth() {
-        return inputList.get(0);
+        return width;
     }
 
     public WebElement getHeight() {
-        return inputList.get(1);
+        return height;
     }
 
     public WebElement getChartXaxis() {
-        return inputList.get(2);
+        return chartXaxis;
     }
 
     public WebElement getChartYaxis() {
-        return inputList.get(3);
+        return chartYaxis;
     }
 
     public WebElement getStyle() {
