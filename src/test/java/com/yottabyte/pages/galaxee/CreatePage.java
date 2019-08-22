@@ -59,6 +59,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'搜索')][not(@class)])[last()]")
     private WebElement search;
 
+    @FindBy(xpath = "(//span[contains(text(),'更新')][not(@class)])[last()]")
+    private WebElement update;
+
     @FindBy(className = "download")
     private WebElement download;
 
@@ -173,11 +176,78 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
     private WebElement wordColor;
 
+    @FindBy(xpath = "//label[contains(text(),'标注颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    private WebElement markColor;
+
+    @FindBy(xpath = "//label[contains(text(),'事件颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    private WebElement eventColor;
+
     @FindBy(xpath = "//label[text()='正常']/following-sibling::div//input")
     private List<WebElement> mapInputList;
 
     @FindBy(xpath = "(//div[contains(text(),'地图')])[2]")
     private WebElement mapHeader;
+
+    @FindBy(className = "world")
+    private WebElement world;
+
+    @FindBy(className = "heatmap")
+    private WebElement heatmap;
+
+    @FindBy(className = "attackmap")
+    private WebElement attackmap;
+
+    public WebElement getScaling() {
+        return this.input("地图","缩放");
+    }
+
+    public WebElement getEventColor() {
+        return eventColor;
+    }
+
+    public WebElement getSourceLatitude() {
+        return this.dropdownList("", "源纬度");
+    }
+
+    public WebElement getSourceLongtitude() {
+        return this.dropdownList("", "源经度");
+    }
+
+    public WebElement getTargetLatitude() {
+        return this.dropdownList("", "目标纬度");
+    }
+
+    public WebElement getTargetLongtitude() {
+        return this.dropdownList("", "目标经度");
+    }
+
+    public WebElement getTime() {
+        return this.dropdownList("", "时间");
+    }
+
+    public WebElement getMeasureValue() {
+        return this.dropdownList("", "量度值");
+    }
+
+    public WebElement getAttackmap() {
+        return attackmap;
+    }
+
+    public WebElement getHeatmap() {
+        return heatmap;
+    }
+
+    public WebElement getMarkColor() {
+        return markColor;
+    }
+
+    public WebElement getUpdate() {
+        return update;
+    }
+
+    public WebElement getWorld() {
+        return world;
+    }
 
     public WebElement getNormalFromInput() {
         return mapInputList.get(0);
