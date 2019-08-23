@@ -197,8 +197,26 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "attackmap")
     private WebElement attackmap;
 
+    @FindBy(className = "globelabel")
+    private WebElement globelabel;
+
+    @FindBy(className = "attack3d")
+    private WebElement attack3d;
+
+    public WebElement getAttack3d() {
+        return attack3d;
+    }
+
+    public WebElement getGlobelabelMapHeader() {
+        return this.header("地图");
+    }
+
+    public WebElement getGlobelabel() {
+        return globelabel;
+    }
+
     public WebElement getScaling() {
-        return this.input("地图","缩放");
+        return this.input("地图", "缩放");
     }
 
     public WebElement getEventColor() {
@@ -209,7 +227,7 @@ public class CreatePage extends PageTemplate {
         return this.dropdownList("", "源纬度");
     }
 
-    public WebElement getSourceLongtitude() {
+    public WebElement getSourceLongitude() {
         return this.dropdownList("", "源经度");
     }
 
@@ -217,7 +235,7 @@ public class CreatePage extends PageTemplate {
         return this.dropdownList("", "目标纬度");
     }
 
-    public WebElement getTargetLongtitude() {
+    public WebElement getTargetLongitude() {
         return this.dropdownList("", "目标经度");
     }
 
@@ -311,6 +329,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getNameField() {
         return this.dropdownList("", "名称字段");
+    }
+
+    public WebElement getMapName() {
+        return this.dropdownList("", "名称");
     }
 
     public WebElement getMap() {

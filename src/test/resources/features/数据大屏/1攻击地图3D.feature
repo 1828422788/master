@@ -1,16 +1,16 @@
-Feature: 数据大屏攻击地图
+Feature: 数据大屏攻击地图3D
 
   Background:
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
-  Scenario: 新建默认类型的攻击地图
+  Scenario: 新建默认类型的攻击地图3D
     And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
-    And I set the parameter "Name" with value "攻击地图"
+    And I set the parameter "Name" with value "攻击地图3D"
     And I click the "Ensure" button
     And I click the "Map" button
-    And I click the "Attackmap" button
+    And I click the "Attack3d" button
     And I click the "ChartPosition" button
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "0"
@@ -29,17 +29,13 @@ Feature: 数据大屏攻击地图
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  Scenario Outline: 修改攻击地图配置
+  Scenario Outline: 修改攻击地图3D配置
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
     And I click the "Map" button
-    And I click the "Attackmap" button
-    And I click the "MapHeader" button
-    And I click the "BoundaryColor" button
-    And I set the parameter "ColorInput" with value "#00EEFF"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+    And I click the "Attack3d" button
+    And I click the "GlobelabelMapHeader" button
     And I click the "AreaColor" button
     And I set the parameter "ColorInput" with value "#AA5353"
     And I click the "EnsureColor" button
@@ -48,7 +44,6 @@ Feature: 数据大屏攻击地图
     And I set the parameter "ColorInput" with value "#F2321D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
-    And I set the parameter "Scaling" with value "2.5"
     And I click the "ChartPosition" button
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "0"
@@ -74,4 +69,4 @@ Feature: 数据大屏攻击地图
 
     Examples:
       | name |
-      | 攻击地图 |
+      | 攻击地图3D |
