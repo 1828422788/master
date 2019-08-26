@@ -29,6 +29,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'地图')]")
     private WebElement map;
 
+    @FindBy(xpath = "//li[contains(text(),'指标')]")
+    private WebElement index;
+
     @FindBy(className = "line")
     private WebElement line;
 
@@ -202,6 +205,61 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "attack3d")
     private WebElement attack3d;
+
+    @FindBy(className = "flipNumber")
+    private WebElement flipNumber;
+
+    @FindBy(className = "status")
+    private WebElement status;
+
+    public WebElement getStatus() {
+        return status;
+    }
+
+    public WebElement getFlipScaling() {
+        return this.dropdownList("翻牌器","缩略显示");
+    }
+
+    public WebElement getFlipBackgroundStyle() {
+        return this.dropdownList("翻牌器", "背景样式");
+    }
+
+    public WebElement getPrefix() {
+        return this.input("翻牌器", "前缀");
+    }
+
+    public WebElement getSuffix() {
+        return this.input("翻牌器", "后缀");
+    }
+
+
+    public WebElement getFlipWordBold() {
+        return this.dropdownList("翻牌器", "字体粗细");
+    }
+
+    public WebElement getFlipWordSize() {
+        return this.input("翻牌器", "字体大小");
+    }
+
+    public WebElement getFlipWord() {
+        return this.dropdownList("翻牌器", "字体");
+    }
+
+    public WebElement getFlip() {
+        return this.header("翻牌器");
+    }
+
+    public WebElement getType() {
+        return this.dropdownList("", "类别");
+    }
+
+    public WebElement getFlipNumber() {
+        return flipNumber;
+    }
+
+    public WebElement getIndex() {
+        return index;
+    }
 
     public WebElement getAttack3d() {
         return attack3d;
@@ -878,7 +936,7 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement header(String name) {
-        String xpath = "//div[contains(text(),'" + name + "')]";
+        String xpath = "//div[text()='" + name + "']";
         return webDriver.findElement(By.xpath(xpath));
     }
 }

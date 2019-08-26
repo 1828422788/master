@@ -162,7 +162,7 @@ Feature: 数据大屏双轴折线图
     And I alter the element "LeftArrow" style to "display: inline;"
     And I click the "LeftArrow" button
     And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/双轴折线图"
+    And take part of "Preview" with name "galaxee/<name>"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
