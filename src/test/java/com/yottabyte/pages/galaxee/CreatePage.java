@@ -2,10 +2,12 @@ package com.yottabyte.pages.galaxee;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.GetTime;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -31,6 +33,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//li[contains(text(),'指标')]")
     private WebElement index;
+
+    @FindBy(xpath = "//li[contains(text(),'文字')]")
+    private WebElement word;
 
     @FindBy(className = "line")
     private WebElement line;
@@ -212,12 +217,155 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "status")
     private WebElement status;
 
+    @FindBy(className = "title")
+    private WebElement title;
+
+    @FindBy(className = "el-color-picker__color-inner")
+    private WebElement colorInner;
+
+    @FindBy(className = "table")
+    private WebElement table;
+
+    @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
+    private WebElement tableHeaderBgColor;
+
+    @FindBy(xpath = "//div[text()='列配置']/following-sibling::div//label[contains(text(),'列宽')]/following-sibling::div//input")
+    private List<WebElement> columnsWidth;
+
+    @FindBy(xpath = "//div[text()='标号']")
+    private WebElement orderNum;
+
+    @FindBy(xpath = "//div[text()='count()']")
+    private WebElement count;
+
+    @FindBy(xpath = "//div[@class='panel-style-setting table-color-setting-modal']//div[@class='el-tab-pane'][not(@style='display: none;')]//label[contains(text(),'颜色')]/following-sibling::div//i")
+    private WebElement countColor;
+
+    @FindBy(className = "el-icon-down")
+    private List<WebElement> colorSettingList;
+
+    @FindBy(xpath = "(//div[@class='divergent-list'])[2]//img")
+    private WebElement color1;
+
+    @FindBy(xpath = "//div[@class='panel-style-setting table-color-setting-modal']//div[@class='el-tab-pane'][not(@style='display: none;')]//label[contains(text(),'风格')]/following-sibling::div//i")
+    private WebElement numberStyle;
+
+    public WebElement getNumberStyle() {
+        numberStyle.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getColor1() {
+        return color1;
+    }
+
+    public WebElement getCountColorSetting() {
+        return colorSettingList.get(1);
+    }
+
+    public WebElement getCountColor() {
+        countColor.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getCount() {
+        return count;
+    }
+
+    public WebElement getOrderNum() {
+        return orderNum;
+    }
+
+    public WebElement getNumberWidth() {
+        return columnsWidth.get(0);
+    }
+
+    public WebElement getFieldWidth1() {
+        return columnsWidth.get(1);
+    }
+
+    public WebElement getColumnConfig() {
+        return this.header("列配置");
+    }
+
+    public WebElement getRowNumber() {
+        return this.input("单元格","显示行数");
+    }
+
+    public WebElement getCellFrameBold() {
+        return this.input("单元格","边框粗细");
+    }
+
+    public WebElement getCellBold() {
+        return this.dropdownList("单元格","字体粗细");
+    }
+
+    public WebElement getTableCell() {
+        return this.header("单元格");
+    }
+
+    public WebElement getCellWordSize() {
+        return this.input("单元格","字号");
+    }
+
+    public WebElement getTableHeaderBgColor() {
+        return tableHeaderBgColor;
+    }
+
+    public WebElement getTableHeaderBold() {
+        return this.dropdownList("表头","字体粗细");
+    }
+
+    public WebElement getTableHeaderWordSize() {
+        return this.input("表头","字号");
+    }
+
+    public WebElement getTableHeader() {
+        return this.header("表头");
+    }
+
+    public WebElement getDataItem() {
+        return this.dropdownList("", "数据项");
+    }
+
+    public WebElement getTable() {
+        return table;
+    }
+
+    public WebElement getTitleWordBold() {
+        return this.dropdownList("", "字体粗细");
+    }
+
+    public WebElement getColorInner() {
+        return colorInner;
+    }
+
+    public WebElement getWordSize() {
+        return this.input("", "字体大小");
+    }
+
+    public WebElement getTitleAngle() {
+        return this.input("", "角度");
+    }
+
+    public WebElement getTitleImg() {
+        return title;
+    }
+
+    public WebElement getContent() {
+        return this.input("", "内容");
+    }
+
+    public WebElement getWord() {
+        return word;
+    }
+
     public WebElement getStatus() {
         return status;
     }
 
     public WebElement getFlipScaling() {
-        return this.dropdownList("翻牌器","缩略显示");
+        return this.dropdownList("翻牌器", "缩略显示");
     }
 
     public WebElement getFlipBackgroundStyle() {
@@ -231,7 +379,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getSuffix() {
         return this.input("翻牌器", "后缀");
     }
-
 
     public WebElement getFlipWordBold() {
         return this.dropdownList("翻牌器", "字体粗细");
@@ -914,14 +1061,19 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement input(String title, String name) {
-        String xpath = "//div[text()='" + title + "']/following-sibling::div//label[contains(text(),'" + name + "')]/following-sibling::div//input";
+        String xpath;
+        if ("".equals(title)) {
+            xpath = "//label[contains(text(),'" + name + "')]/following-sibling::div//input";
+        } else {
+            xpath = "//div[text()='" + title + "']/following-sibling::div//label[contains(text(),'" + name + "')]/following-sibling::div//input";
+        }
         return webDriver.findElement(By.xpath(xpath));
     }
 
     private WebElement dropdownList(String title, String name) {
         String xpath;
         if ("".equals(title)) {
-            xpath = "//div/following-sibling::div//label[contains(text(),'" + name + "')]//following-sibling::div//i";
+            xpath = "//label[contains(text(),'" + name + "')]//following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']";
         } else {
             xpath = "//div[text()='" + title + "']/following-sibling::div//label[contains(text(),'" + name + "')]//following-sibling::div//i";
         }
@@ -936,7 +1088,7 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement header(String name) {
-        String xpath = "//div[text()='" + name + "']";
+        String xpath = "//div[text()='" + name + "'][@class='el-collapse-item__header']";
         return webDriver.findElement(By.xpath(xpath));
     }
 }
