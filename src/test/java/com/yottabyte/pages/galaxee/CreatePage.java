@@ -250,6 +250,68 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='panel-style-setting table-color-setting-modal']//div[@class='el-tab-pane'][not(@style='display: none;')]//label[contains(text(),'风格')]/following-sibling::div//i")
     private WebElement numberStyle;
 
+    @FindBy(className = "liquidfill")
+    private WebElement liquidfill;
+
+    @FindBy(xpath = "//label[contains(text(),'水波动画')]/following-sibling::label")
+    private WebElement waterWaveSwitchLabel;
+
+    @FindBy(xpath = "//label[contains(text(),'显示')]/following-sibling::label")
+    private WebElement outerFrameSwitch;
+
+    @FindBy(xpath = "//label[contains(text(),'水波内颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
+    private WebElement tagColorInWaterWave;
+
+    @FindBy(xpath = "//label[contains(text(),'水波外颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
+    private WebElement tagColorOutWaterWave;
+
+    @FindBy(xpath = "(//label[contains(text(),'颜色')]/following-sibling::div//div[@class='el-color-picker__trigger'])[last()]")
+    private WebElement waterWaveColor;
+
+    public WebElement getWaterWaveColor() {
+        return waterWaveColor;
+    }
+
+    public WebElement getWaterWaveColorHeader() {
+        return this.header("水波颜色");
+    }
+
+    public WebElement getTagColorInWaterWave() {
+        return tagColorInWaterWave;
+    }
+
+    public WebElement getTagColorOutWaterWave() {
+        return tagColorOutWaterWave;
+    }
+
+    public WebElement getOuterFrameSwitch() {
+        return outerFrameSwitch;
+    }
+
+    public WebElement getOuterFrame() {
+        return this.header("外边框");
+    }
+
+    public WebElement getLiquidShape() {
+        return this.dropdownList("形状","形状");
+    }
+
+    public WebElement getLiquidShapeHeader() {
+        return this.header("形状");
+    }
+
+    public WebElement getWaterWaveSwitchLabel() {
+        return waterWaveSwitchLabel;
+    }
+
+    public WebElement getWaterWavePainting() {
+        return this.header("水波动画");
+    }
+
+    public WebElement getLiquidfill() {
+        return liquidfill;
+    }
+
     public WebElement getNumberStyle() {
         numberStyle.click();
         return super.getLastDropdownList();
