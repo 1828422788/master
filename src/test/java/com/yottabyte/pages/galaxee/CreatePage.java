@@ -37,6 +37,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'文字')]")
     private WebElement word;
 
+    @FindBy(xpath = "//li[contains(text(),'其他')]")
+    private WebElement other;
+
     @FindBy(className = "line")
     private WebElement line;
 
@@ -268,6 +271,97 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[contains(text(),'颜色')]/following-sibling::div//div[@class='el-color-picker__trigger'])[last()]")
     private WebElement waterWaveColor;
 
+    @FindBy(className = "chord")
+    private WebElement chord;
+
+    @FindBy(xpath = "//span[contains(@style,'background: rgb(233, 30, 99);')]")
+    private WebElement red;
+
+    @FindBy(className = "force")
+    private WebElement force;
+
+    @FindBy(className = "sankey")
+    private WebElement sankey;
+
+    @FindBy(className = "fullscreen")
+    private WebElement fullscreen;
+
+    @FindBy(className = "picture")
+    private WebElement picture;
+
+    @FindBy(className = "frame")
+    private WebElement frame;
+
+    @FindBy(className = "clocktime")
+    private WebElement clocktime;
+
+    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
+    private WebElement timeWordColor;
+
+    public WebElement getTimeWordColor() {
+        return timeWordColor;
+    }
+
+    public WebElement getSinglePicture() {
+        return this.header("单张图片");
+    }
+
+    public WebElement getPellucidity() {
+        return this.input("全局样式","透明度");
+    }
+
+    public WebElement getOverallStyle() {
+        return this.header("全局样式");
+    }
+
+    public WebElement getTimeMachine() {
+        return this.header("时间器");
+    }
+
+    public WebElement getPicture() {
+        return picture;
+    }
+
+    public WebElement getFrame() {
+        return frame;
+    }
+
+    public WebElement getClocktime() {
+        return clocktime;
+    }
+
+    public WebElement getOther() {
+        return other;
+    }
+
+    public WebElement getFullscreen() {
+        return fullscreen;
+    }
+
+    public WebElement getSankey() {
+        return sankey;
+    }
+
+    public WebElement getRepulsionFactor() {
+        return this.input("斥力因子倍数","斥力因子倍数");
+    }
+
+    public WebElement getRepulsionFactorHeader() {
+        return this.header("斥力因子倍数");
+    }
+
+    public WebElement getForce() {
+        return force;
+    }
+
+    public WebElement getRed() {
+        return red;
+    }
+
+    public WebElement getChord() {
+        return chord;
+    }
+
     public WebElement getWaterWaveColor() {
         return waterWaveColor;
     }
@@ -293,7 +387,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getLiquidShape() {
-        return this.dropdownList("形状","形状");
+        return this.dropdownList("形状", "形状");
     }
 
     public WebElement getLiquidShapeHeader() {
@@ -351,15 +445,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRowNumber() {
-        return this.input("单元格","显示行数");
+        return this.input("单元格", "显示行数");
     }
 
     public WebElement getCellFrameBold() {
-        return this.input("单元格","边框粗细");
+        return this.input("单元格", "边框粗细");
     }
 
     public WebElement getCellBold() {
-        return this.dropdownList("单元格","字体粗细");
+        return this.dropdownList("单元格", "字体粗细");
     }
 
     public WebElement getTableCell() {
@@ -367,7 +461,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCellWordSize() {
-        return this.input("单元格","字号");
+        return this.input("单元格", "字号");
     }
 
     public WebElement getTableHeaderBgColor() {
@@ -375,11 +469,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getTableHeaderBold() {
-        return this.dropdownList("表头","字体粗细");
+        return this.dropdownList("表头", "字体粗细");
     }
 
     public WebElement getTableHeaderWordSize() {
-        return this.input("表头","字号");
+        return this.input("表头", "字号");
     }
 
     public WebElement getTableHeader() {
@@ -504,6 +598,18 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTargetLongitude() {
         return this.dropdownList("", "目标经度");
+    }
+
+    public WebElement getSourceField() {
+        return this.dropdownList("", "来源字段");
+    }
+
+    public WebElement getWeightField() {
+        return this.dropdownList("", "权重字段");
+    }
+
+    public WebElement getTargetField() {
+        return this.dropdownList("", "目标字段");
     }
 
     public WebElement getTime() {
