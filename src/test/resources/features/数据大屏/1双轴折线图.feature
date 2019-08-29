@@ -1,4 +1,4 @@
-@first
+@galaxee
 Feature: 数据大屏双轴折线图
 
   Background:

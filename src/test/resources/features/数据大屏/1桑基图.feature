@@ -1,4 +1,4 @@
-@first
+@galaxee
 Feature: 数据大屏桑基图
 
   Background:

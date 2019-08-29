@@ -1,3 +1,4 @@
+@galaxee
 Feature: 数据大屏散点图
 
   Background:

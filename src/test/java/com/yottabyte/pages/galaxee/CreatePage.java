@@ -298,6 +298,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
     private WebElement timeWordColor;
 
+    @FindBy(xpath = "//div[contains(text(),'galaxeeTest')]")
+    private WebElement galaxeeTest;
+
+    public WebElement getGalaxeeTest() {
+        return galaxeeTest;
+    }
+
     public WebElement getTimeWordColor() {
         return timeWordColor;
     }

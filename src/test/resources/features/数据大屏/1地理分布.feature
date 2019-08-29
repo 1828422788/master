@@ -1,3 +1,4 @@
+@galaxee
 Feature: 数据大屏地理分布
 
   Background:

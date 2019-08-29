@@ -1,3 +1,4 @@
+@galaxee
 Feature: 数据大屏热力地图
 
   Background:

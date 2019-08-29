@@ -1,3 +1,4 @@
+@galaxee
 Feature: 数据大屏环形占比图
 
   Background:

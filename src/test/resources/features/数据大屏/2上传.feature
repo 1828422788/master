@@ -1,4 +1,4 @@
-@third
+@galaxee
 Feature: 数据大屏上传
 
   Background:

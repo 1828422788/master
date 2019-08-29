@@ -1,3 +1,4 @@
+@galaxee
 Feature: 数据大屏数值翻牌器
 
   Background:

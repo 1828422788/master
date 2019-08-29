@@ -1,3 +1,4 @@
+@galaxee
 Feature: 数据大屏世界地图
 
   Background:

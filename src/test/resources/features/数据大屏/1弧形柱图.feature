@@ -1,3 +1,4 @@
+@galaxee
 Feature: 数据大屏弧形柱图
 
   Background:

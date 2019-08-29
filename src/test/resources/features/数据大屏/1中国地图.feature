@@ -1,3 +1,4 @@
+@galaxee
 Feature: 数据大屏中国地图
 
   Background:

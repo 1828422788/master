@@ -1,3 +1,4 @@
+@galaxee
 Feature: 数据大屏攻击地图
 
   Background:
