@@ -32,16 +32,17 @@ Feature: 数据大屏其他组件
     And I set the parameter "ChartYaxis" with value "94"
     And I click the "Other" button
     And I click the "Clocktime" button
-    And I click the "TimeMachine" button
-    And I click the "TimeWordColor" button
-    And I set the parameter "ColorInput" with value "#292514"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+    And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "300"
     And I set the parameter "Height" with value "41"
     And I set the parameter "ChartXaxis" with value "58"
     And I set the parameter "ChartYaxis" with value "114"
+    And I click the "TimeMachine" button
+    And I click the "TimeWordColor" button
+    And I set the parameter "ColorInput" with value "#292514"
+    And I click the "EnsureColor" button
+    And I wait for "EnsureColor" will be invisible
     And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"

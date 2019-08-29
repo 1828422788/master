@@ -26,6 +26,7 @@ Feature: 数据大屏攻击地图
     And I choose the "gw_lon" from the "TargetLongitude"
     And I choose the "ts" from the "Time"
     And I choose the "cnt" from the "MeasureValue"
+    And I click the "Update" button
     And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -64,6 +65,7 @@ Feature: 数据大屏攻击地图
     And I choose the "gw_lon" from the "TargetLongitude"
     And I choose the "ts" from the "Time"
     And I choose the "cnt" from the "MeasureValue"
+    And I click the "Update" button
     And I alter the element "RightArrow" style to "display: inline;"
     And I click the "RightArrow" button
     And I alter the element "LeftArrow" style to "display: inline;"

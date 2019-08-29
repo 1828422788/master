@@ -14,6 +14,8 @@ Feature: 数据大屏表格
     And I click the "Table" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I set the parameter "Width" with value "1000"
+    And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
@@ -33,8 +35,10 @@ Feature: 数据大屏表格
     And I click the "Table" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I set the parameter "Width" with value "1000"
+    And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "200"
+    And I set the parameter "ChartYaxis" with value "500"
     And I click the "TableHeader" button
     And I set the parameter "TableHeaderWordSize" with value "20"
     And I click the "TableHeaderBgColor" button

@@ -18,9 +18,7 @@ Feature: 数据大屏世界地图
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
     And I click the "Update" button
-    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

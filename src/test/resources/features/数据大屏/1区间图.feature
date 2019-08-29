@@ -14,7 +14,7 @@ Feature: 数据大屏区间图
     And I click the "Range" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "300"
+    And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
@@ -72,9 +72,9 @@ Feature: 数据大屏区间图
     And I set the parameter "LayoutRight" with value "20"
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
-    And I set the parameter "height" with value "300"
+    And I set the parameter "height" with value "500"
     And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "300"
+    And I set the parameter "ChartYaxis" with value "500"
     And I click the "Data" button
     And I click the "DateEditor" button
     And I click the "TwoDays" button
