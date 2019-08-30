@@ -12,6 +12,7 @@ Feature: 数据大屏热力地图
     And I click the "Ensure" button
     And I click the "Map" button
     And I click the "Heatmap" button
+    And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "0"

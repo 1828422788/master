@@ -12,6 +12,7 @@ Feature: 数据大屏数值翻牌器
     And I click the "Ensure" button
     And I click the "Index" button
     And I click the "FlipNumber" button
+    And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"

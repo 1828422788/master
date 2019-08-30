@@ -12,6 +12,7 @@ Feature: 数据大屏状态图
     And I click the "Ensure" button
     And I click the "Index" button
     And I click the "Status" button
+    And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "750"
     And I set the parameter "Height" with value "500"
