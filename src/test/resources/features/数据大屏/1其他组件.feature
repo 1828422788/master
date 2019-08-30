@@ -2,12 +2,13 @@
 Feature: 数据大屏其他组件
 
   Background:
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建
-    And I click the "Create" button
+    When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Create" button
+    When I click the "Create" button
     And I set the parameter "Name" with value "其他组件"
     And I click the "Ensure" button
     And I click the "Other" button

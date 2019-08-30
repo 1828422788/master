@@ -2,10 +2,11 @@
 Feature: 数据大屏表格
 
   Background:
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建默认类型的表格
-    And I click the "Create" button
+    When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
     And I set the parameter "Name" with value "表格"

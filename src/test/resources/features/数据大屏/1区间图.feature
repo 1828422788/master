@@ -2,7 +2,8 @@
 Feature: 数据大屏区间图
 
   Background:
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建默认区间图
     And I click the "Create" button
