@@ -1,13 +1,11 @@
 @galaxee @test
 Feature: 数据大屏玫瑰图
 
-  Background:
+  Scenario: 新建玫瑰图，默认配置
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
 #    Given I wait for title change text to "列表 | 仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-
-  Scenario: 新建玫瑰图，默认配置
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
@@ -36,6 +34,10 @@ Feature: 数据大屏玫瑰图
     Then I will see the success message "保存成功"
 
   Scenario Outline: 修改配置
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+#    Given I wait for title change text to "列表 | 仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
