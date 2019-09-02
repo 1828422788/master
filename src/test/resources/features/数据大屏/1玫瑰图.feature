@@ -13,6 +13,7 @@ Feature: 数据大屏玫瑰图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Rose" button
+    And I click the "Style" button
     And I wait for "Rose" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
