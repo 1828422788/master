@@ -2,8 +2,9 @@
 Feature: 数据大屏玫瑰图
 
   Background:
-#    Given I will see the "PublicNavBarPage" page
-    Given I wait for title change text to "列表 | 仪表盘"
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "LocateSearchPage" will be visible
+#    Given I wait for title change text to "列表 | 仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建玫瑰图，默认配置
