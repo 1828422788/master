@@ -2,7 +2,7 @@
 Feature: 数据大屏中国地图
 
   Background:
-    Given I wait for title change text to "仪表盘"
+    Given I wait for title change text to "列表 | 仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建默认类型的中国地图
