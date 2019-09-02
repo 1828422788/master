@@ -13,7 +13,7 @@ Feature: 数据大屏玫瑰图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Rose" button
-    And I wait for "3000" millsecond
+    And I wait for "Rose" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
