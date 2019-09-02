@@ -13,6 +13,7 @@ Feature: 数据大屏玫瑰图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Rose" button
+    And I wait for "2000" millsecond
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
