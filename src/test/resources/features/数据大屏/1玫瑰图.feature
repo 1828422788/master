@@ -4,7 +4,6 @@ Feature: 数据大屏玫瑰图
   Scenario: 新建玫瑰图，默认配置
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
-#    Given I wait for title change text to "列表 | 仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -26,7 +25,7 @@ Feature: 数据大屏玫瑰图
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "500"
+    And I set the parameter "Height" with value "400"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
     And I wait for "Save" will be visible
@@ -36,7 +35,6 @@ Feature: 数据大屏玫瑰图
   Scenario Outline: 修改配置
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
-#    Given I wait for title change text to "列表 | 仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
@@ -56,9 +54,9 @@ Feature: 数据大屏玫瑰图
     And I set the parameter "OuterRadius" with value "80%"
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "500"
+    And I set the parameter "Height" with value "400"
     And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "500"
+    And I set the parameter "ChartYaxis" with value "400"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
     And I click the "DateEditor" button
