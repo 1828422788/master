@@ -13,19 +13,20 @@ Feature: 数据大屏玫瑰图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Rose" button
-    And I wait for "2000" millsecond
-    And I wait for "ChartPosition" will be visible
-    And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "500"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "0"
+    And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "ip_count" from the "DataField"
     And I choose the "apache.clientip" from the "DivideField"
+    And I click the "Style" button
+    And I wait for "ChartPosition" will be visible
+    And I click the "ChartPosition" button
+    And I set the parameter "Width" with value "1000"
+    And I set the parameter "Height" with value "500"
+    And I set the parameter "ChartXaxis" with value "0"
+    And I set the parameter "ChartYaxis" with value "0"
     And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
