@@ -1,11 +1,10 @@
 @galaxee
 Feature: 数据大屏中国地图
 
-  Background:
-    Given I wait for title change text to "列表 | 仪表盘"
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-
   Scenario: 新建默认类型的中国地图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
@@ -34,6 +33,9 @@ Feature: 数据大屏中国地图
     Then I will see the success message "保存成功"
 
   Scenario Outline: 甘肃省地图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
@@ -78,6 +80,9 @@ Feature: 数据大屏中国地图
       | 中国地图 |
 
   Scenario Outline: 四川省地图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page

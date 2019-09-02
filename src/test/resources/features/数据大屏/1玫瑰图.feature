@@ -1,4 +1,4 @@
-@galaxee @test
+@galaxee
 Feature: 数据大屏玫瑰图
 
   Scenario: 新建玫瑰图，默认配置
