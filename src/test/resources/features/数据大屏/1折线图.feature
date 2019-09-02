@@ -11,6 +11,7 @@ Feature: 数据大屏折线图
     And I click the "Create" button
     And I set the parameter "Name" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "Chart" will be visible
     And I click the "Chart" button
     And I click the "Line" button
     And I click the "Data" button
@@ -39,6 +40,7 @@ Feature: 数据大屏折线图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Line" button
+    And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
@@ -107,6 +109,7 @@ Feature: 数据大屏折线图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Line" button
+    And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button

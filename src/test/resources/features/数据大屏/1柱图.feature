@@ -35,6 +35,7 @@ Feature: 数据大屏柱图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Bar" button
+    And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
@@ -92,6 +93,7 @@ Feature: 数据大屏柱图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Bar" button
+    And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button

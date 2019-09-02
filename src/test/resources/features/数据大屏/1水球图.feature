@@ -31,6 +31,7 @@ Feature: 数据大屏水球图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Liquidfill" button
+    And I wait for "WaterWavePainting" will be visible
     And I click the "WaterWavePainting" button
     And I switch the "WaterWaveSwitchLabel" button to "disable"
     And I click the "LiquidShapeHeader" button

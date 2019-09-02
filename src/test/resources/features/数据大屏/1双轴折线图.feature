@@ -13,6 +13,7 @@ Feature: 数据大屏双轴折线图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Line2y" button
+    And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
@@ -37,6 +38,7 @@ Feature: 数据大屏双轴折线图
     And I click the "Chart" button
     And I wait for "Line2y" will be visible
     And I click the "Line2y" button
+    And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
@@ -103,6 +105,7 @@ Feature: 数据大屏双轴折线图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Line2y" button
+    And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button

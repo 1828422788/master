@@ -37,6 +37,7 @@ Feature: 数据大屏地理分布
     Then I will see the "galaxee.CreatePage" page
     And I click the "Map" button
     And I click the "Globelabel" button
+    And I wait for "GlobelabelMapHeader" will be visible
     And I click the "GlobelabelMapHeader" button
     And I click the "AreaColor" button
     And I set the parameter "ColorInput" with value "#AA5353"

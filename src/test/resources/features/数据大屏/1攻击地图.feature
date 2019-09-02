@@ -39,6 +39,7 @@ Feature: 数据大屏攻击地图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Map" button
     And I click the "Attackmap" button
+    And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I click the "BoundaryColor" button
     And I set the parameter "ColorInput" with value "#00EEFF"

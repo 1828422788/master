@@ -6,7 +6,7 @@ Feature: 数据大屏状态图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建默认类型的状态图
-    When I click the "Create" button
+    When  I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
     And I set the parameter "Name" with value "状态图"

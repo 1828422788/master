@@ -36,6 +36,7 @@ Feature: 数据大屏力图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Force" button
+    And I wait for "ChartTag" will be visible
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
     And I click the "Red" button

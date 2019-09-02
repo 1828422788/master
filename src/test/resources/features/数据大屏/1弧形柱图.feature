@@ -35,6 +35,7 @@ Feature: 数据大屏弧形柱图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "ArcBar" button
+    And I wait for "RadiusAxis" will be visible
     And I click the "RadiusAxis" button
     And I set the parameter "RadiusAxisSize" with value "20"
     And I click the "RadiusAxisColor" button
@@ -88,6 +89,7 @@ Feature: 数据大屏弧形柱图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "ArcBar" button
+    And I wait for "RadiusAxis" will be visible
     And I click the "RadiusAxis" button
     And I set the parameter "RadiusAxisSize" with value "20"
     And I click the "RadiusAxisColor" button

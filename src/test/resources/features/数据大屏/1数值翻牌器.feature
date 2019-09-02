@@ -32,6 +32,7 @@ Feature: 数据大屏数值翻牌器
     Then I will see the "galaxee.CreatePage" page
     And I click the "Index" button
     And I click the "FlipNumber" button
+    And I wait for "Flip" will be visible
     And I click the "Flip" button
     And I choose the "DINPro-Bold" from the "FlipWord"
     And I set the parameter "FlipWordSize" with value "62"
@@ -59,6 +60,7 @@ Feature: 数据大屏数值翻牌器
     Then I will see the "galaxee.CreatePage" page
     And I click the "Index" button
     And I click the "FlipNumber" button
+    And I wait for "Flip" will be visible
     And I click the "Flip" button
     And I choose the "DINPro-Bold" from the "FlipWord"
     And I set the parameter "FlipWordSize" with value "62"

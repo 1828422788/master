@@ -52,6 +52,7 @@ Feature: 数据大屏其他组件
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
+    And I wait for "TableHeaderBgColor" will be visible
     And I click the "TableHeaderBgColor" button
     And I set the parameter "ColorInput" with value "#37064F"
     And I click the "EnsureColor" button

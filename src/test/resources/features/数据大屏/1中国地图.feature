@@ -39,6 +39,7 @@ Feature: 数据大屏中国地图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Map" button
     And I click the "ChinaMap" button
+    And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I choose the "甘肃" from the "MapArea"
     And I click the "AreaColor" button
@@ -82,6 +83,7 @@ Feature: 数据大屏中国地图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Map" button
     And I click the "ChinaMap" button
+    And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I choose the "四川" from the "MapArea"
     And I click the "AreaColor" button

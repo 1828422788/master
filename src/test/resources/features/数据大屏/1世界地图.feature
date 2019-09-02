@@ -30,6 +30,7 @@ Feature: 数据大屏世界地图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Map" button
     And I click the "World" button
+    And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I click the "AreaColor" button
     And I set the parameter "ColorInput" with value "#9FF50B"

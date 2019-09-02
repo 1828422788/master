@@ -36,6 +36,7 @@ Feature: 数据大屏条形图
     And I click the "Chart" button
     And I wait for "BarHorizontal" will be visible
     And I click the "BarHorizontal" button
+    And I wait for "Tag" will be visible
     And I click the "Tag" button
     And I set the parameter "TagWordSize" with value "20"
     And I click the "TagWordColor" button
@@ -72,6 +73,7 @@ Feature: 数据大屏条形图
     And I click the "Chart" button
     And I wait for "BarHorizontal" will be visible
     And I click the "BarHorizontal" button
+    And I wait for "Tag" will be visible
     And I click the "Tag" button
     And I set the parameter "TagWordSize" with value "20"
     And I click the "TagWordColor" button

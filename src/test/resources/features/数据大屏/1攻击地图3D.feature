@@ -39,6 +39,7 @@ Feature: 数据大屏攻击地图3D
     Then I will see the "galaxee.CreatePage" page
     And I click the "Map" button
     And I click the "Attack3d" button
+    And I wait for "GlobelabelMapHeader" will be visible
     And I click the "GlobelabelMapHeader" button
     And I click the "AreaColor" button
     And I set the parameter "ColorInput" with value "#AA5353"
