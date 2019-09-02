@@ -1,4 +1,4 @@
-@galaxee
+@galaxee @test
 Feature: 数据大屏玫瑰图
 
   Background:
