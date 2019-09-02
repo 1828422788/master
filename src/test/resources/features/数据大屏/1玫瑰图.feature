@@ -3,7 +3,7 @@ Feature: 数据大屏玫瑰图
 
   Background:
     Given I will see the "PublicNavBarPage" page
-    And I wait for "LocateSearchPage" will be visible
+    And I wait for "Dashboard" will be visible
 #    Given I wait for title change text to "列表 | 仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
