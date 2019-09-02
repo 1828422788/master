@@ -13,6 +13,7 @@ Feature: 数据大屏玫瑰图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Rose" button
+    And I display the element "LastUlList"
     And I wait for "Rose" will be invisible
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button

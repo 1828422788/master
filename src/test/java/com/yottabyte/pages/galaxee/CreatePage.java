@@ -301,6 +301,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[contains(text(),'galaxeeTest')]")
     private WebElement galaxeeTest;
 
+    @FindBy(xpath = "(//ul[@class='dropdown'])[last()]")
+    private WebElement lastUlList;
+
+    public WebElement getLastUlList() {
+        return lastUlList;
+    }
+
     public WebElement getGalaxeeTest() {
         return galaxeeTest;
     }
