@@ -1,3 +1,4 @@
+@configsSmoke
 Feature: 字典管理上传文件
 
   Background:
