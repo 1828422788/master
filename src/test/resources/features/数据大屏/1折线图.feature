@@ -15,7 +15,7 @@ Feature: 数据大屏折线图
     And I click the "Chart" button
     And I click the "Line" button
     And I click the "Style" button
-    And I wait for "Lint" will be invisible
+    And I wait for "Line" will be invisible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
@@ -45,7 +45,7 @@ Feature: 数据大屏折线图
     And I click the "Chart" button
     And I click the "Line" button
     And I click the "Style" button
-    And I wait for "Lint" will be invisible
+    And I wait for "Line" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
@@ -118,7 +118,7 @@ Feature: 数据大屏折线图
     And I click the "Chart" button
     And I click the "Line" button
     And I click the "Style" button
-    And I wait for "Lint" will be invisible
+    And I wait for "Line" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"

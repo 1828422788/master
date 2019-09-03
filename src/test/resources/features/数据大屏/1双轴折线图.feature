@@ -2,7 +2,8 @@
 Feature: 数据大屏双轴折线图
 
   Scenario: 新建双轴折线图，默认配置
-    Given I wait for title change text to "仪表盘"
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -32,7 +33,8 @@ Feature: 数据大屏双轴折线图
     Then I will see the success message "保存成功"
 
   Scenario Outline: 修改配置
-    Given I wait for title change text to "仪表盘"
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
@@ -104,7 +106,8 @@ Feature: 数据大屏双轴折线图
       | 双轴折线图 |
 
   Scenario Outline: 增加分组
-    Given I wait for title change text to "仪表盘"
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"

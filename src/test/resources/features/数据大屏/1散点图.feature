@@ -101,7 +101,6 @@ Feature: 数据大屏散点图
     And I click the "Style" button
     And I wait for "Scatter" will be invisible
     And I click the "XaxisHeader" button
-    And I click the "XaxisHeader" button
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
     And I set the parameter "ColorInput" with value "#85F4FB"

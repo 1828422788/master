@@ -2,7 +2,8 @@
 Feature: 数据大屏旭日图
 
   Background:
-    Given I wait for title change text to "仪表盘"
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建旭日图，默认配置

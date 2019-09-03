@@ -94,6 +94,7 @@ Feature: 数据大屏弧形柱图
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
+    And I wait for "ArcBar" will be visible
     And I click the "ArcBar" button
     And I click the "Style" button
     And I wait for "ArcBar" will be invisible
