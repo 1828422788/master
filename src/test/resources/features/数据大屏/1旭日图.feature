@@ -13,6 +13,8 @@ Feature: 数据大屏旭日图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Sunburst" button
+    And I click the "Style" button
+    And I wait for "Sunburst" will be invisible
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
@@ -35,6 +37,8 @@ Feature: 数据大屏旭日图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Sunburst" button
+    And I click the "Style" button
+    And I wait for "Sunburst" will be invisible
     And I wait for "ChartTag" will be visible
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
@@ -64,6 +68,8 @@ Feature: 数据大屏旭日图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Sunburst" button
+    And I click the "Style" button
+    And I wait for "Sunburst" will be invisible
     And I wait for "ChartTag" will be visible
     And I click the "ChartTag" button
     And I click the "ColorSelector" button

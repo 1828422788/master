@@ -2,10 +2,10 @@
 Feature: 数据大屏折线图
 
   Background:
-    Given I wait for title change text to "仪表盘"
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario Outline: RZY-1931:编辑大屏流程
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
@@ -14,6 +14,8 @@ Feature: 数据大屏折线图
     And I wait for "Chart" will be visible
     And I click the "Chart" button
     And I click the "Line" button
+    And I click the "Style" button
+    And I wait for "Lint" will be invisible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
@@ -35,11 +37,15 @@ Feature: 数据大屏折线图
       | 折线图  |
 
   Scenario Outline: 折线图设置
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Line" button
+    And I click the "Style" button
+    And I wait for "Lint" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
@@ -104,11 +110,15 @@ Feature: 数据大屏折线图
       | 折线图  |
 
   Scenario Outline: 折线图设置增加分组
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Line" button
+    And I click the "Style" button
+    And I wait for "Lint" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"

@@ -1,11 +1,9 @@
 @galaxee
 Feature: 数据大屏区间图
 
-  Background:
+  Scenario: 新建默认区间图
     Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-
-  Scenario: 新建默认区间图
     And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
@@ -13,6 +11,8 @@ Feature: 数据大屏区间图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Range" button
+    And I click the "Style" button
+    And I wait for "Range" will be invisible
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
@@ -34,11 +34,15 @@ Feature: 数据大屏区间图
     Then I will see the success message "保存成功"
 
   Scenario Outline: 修改配置
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Range" button
+    And I click the "Style" button
+    And I wait for "Range" will be invisible
     And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
     And I set the parameter "XaxisWordSize" with value "20"

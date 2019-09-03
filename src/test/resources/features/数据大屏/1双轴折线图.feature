@@ -1,11 +1,9 @@
 @galaxee
 Feature: 数据大屏双轴折线图
 
-  Background:
+  Scenario: 新建双轴折线图，默认配置
     Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-
-  Scenario: 新建双轴折线图，默认配置
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
@@ -13,6 +11,8 @@ Feature: 数据大屏双轴折线图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Line2y" button
+    And I click the "Style" button
+    And I wait for "Line2y" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
@@ -32,12 +32,16 @@ Feature: 数据大屏双轴折线图
     Then I will see the success message "保存成功"
 
   Scenario Outline: 修改配置
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I wait for "Line2y" will be visible
     And I click the "Line2y" button
+    And I click the "Style" button
+    And I wait for "Line2y" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
@@ -100,11 +104,15 @@ Feature: 数据大屏双轴折线图
       | 双轴折线图 |
 
   Scenario Outline: 增加分组
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Line2y" button
+    And I click the "Style" button
+    And I wait for "Line2y" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"

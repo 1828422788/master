@@ -1,11 +1,9 @@
 @galaxee
 Feature: 数据大屏地理分布
 
-  Background:
+  Scenario: 新建默认类型的地理分布
     Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-
-  Scenario: 新建默认类型的地理分布
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
@@ -21,7 +19,6 @@ Feature: 数据大屏地理分布
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
     And I choose the "client_lat" from the "SourceLatitude"
     And I choose the "client_lon" from the "SourceLongitude"
     And I choose the "apache.clientip" from the "MapName"
@@ -32,6 +29,8 @@ Feature: 数据大屏地理分布
     Then I will see the success message "保存成功"
 
   Scenario Outline: 修改配置
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
@@ -54,7 +53,6 @@ Feature: 数据大屏地理分布
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
     And I choose the "client_lat" from the "SourceLatitude"
     And I choose the "client_lon" from the "SourceLongitude"
     And I choose the "apache.clientip" from the "MapName"

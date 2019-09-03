@@ -69,7 +69,6 @@ Feature: 数据大屏中国地图
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
     And I choose the "apache.geo.city" from the "NameField"
     And I choose the "count()" from the "DataField"
     And I click the "Save" button
@@ -116,7 +115,6 @@ Feature: 数据大屏中国地图
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
     And I choose the "apache.geo.city" from the "NameField"
     And I choose the "count()" from the "DataField"
     And I alter the element "RightArrow" style to "display: inline;"

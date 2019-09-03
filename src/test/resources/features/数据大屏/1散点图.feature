@@ -13,6 +13,8 @@ Feature: 数据大屏散点图
     And I click the "Ensure" button
     And I click the "Chart" button
     And I click the "Scatter" button
+    And I click the "Style" button
+    And I wait for "Scatter" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
@@ -36,6 +38,8 @@ Feature: 数据大屏散点图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Scatter" button
+    And I click the "Style" button
+    And I wait for "Scatter" will be invisible
     And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
     And I set the parameter "XaxisWordSize" with value "20"
@@ -94,6 +98,8 @@ Feature: 数据大屏散点图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Scatter" button
+    And I click the "Style" button
+    And I wait for "Scatter" will be invisible
     And I click the "XaxisHeader" button
     And I click the "XaxisHeader" button
     And I set the parameter "XaxisWordSize" with value "20"

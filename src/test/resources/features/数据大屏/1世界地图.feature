@@ -1,11 +1,9 @@
 @galaxee
 Feature: 数据大屏世界地图
 
-  Background:
+  Scenario: 新建默认类型的世界地图
     Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-
-  Scenario: 新建默认类型的世界地图
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
@@ -25,6 +23,8 @@ Feature: 数据大屏世界地图
     Then I will see the success message "保存成功"
 
   Scenario Outline: 修改世界地图配置
+    Given I wait for title change text to "仪表盘"
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page

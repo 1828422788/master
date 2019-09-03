@@ -41,6 +41,7 @@ Feature: 数据大屏玫瑰图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
     And I click the "Rose" button
+    And I click the "Style" button
     And I wait for "Rose" will be invisible
     And I click the "Tag" button
     And I set the parameter "TagWordSize" with value "20"
