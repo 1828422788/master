@@ -42,3 +42,12 @@ Feature: 字段提取删除
     Examples:
       | name     |
       | AutoTest |
+
+  Scenario Outline: 删除字典管理
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    When the data name is "<name>" then i click the "删除" button
+    And I click the "EnsureButton" button
+
+    Examples:
+      | name                   |
+      | win_sys_sourcename.csv |
