@@ -36,6 +36,7 @@ Feature: 数据大屏饼图
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
     And I click the "Chart" button
+    And I wait for "Pie" will be visible
     And I click the "Pie" button
     And I click the "Style" button
     And I wait for "Pie" will be invisible

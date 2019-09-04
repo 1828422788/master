@@ -52,7 +52,6 @@ Feature: 数据大屏世界地图
     And I set the parameter "ChartYaxis" with value "500"
     And I click the "Data" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
     And I click the "Update" button
     And I alter the element "RightArrow" style to "display: inline;"
     And I click the "RightArrow" button
