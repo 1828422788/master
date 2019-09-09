@@ -1,4 +1,4 @@
-@all @configs
+@setting @settingSmoke
 Feature: 系统设置所有时间定义（RZY-1818）
 
   Background:

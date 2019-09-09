@@ -1,4 +1,4 @@
-@configs @configsSmoke
+@setting @settingSmoke
 Feature: 系统设置仪表盘自动登录
 
   Background:

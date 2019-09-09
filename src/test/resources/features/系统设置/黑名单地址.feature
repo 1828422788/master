@@ -1,4 +1,4 @@
-@all @configs @smoke @configsSmoke
+@setting @settingSmoke
 Feature: 系统设置黑名单地址
 
   Background:

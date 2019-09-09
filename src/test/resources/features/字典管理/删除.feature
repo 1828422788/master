@@ -1,4 +1,4 @@
-@clean @cleanSecond
+@clean @cleanSecond @cleanConfigs
 Feature: 字典管理删除
 
   Background:
