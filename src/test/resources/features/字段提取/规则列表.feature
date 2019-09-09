@@ -16,7 +16,8 @@ Feature: 字段提取规则列表
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "%{ApcClientIP} %{ApcIdent} %{ApcUser} %{ApcTimestamp} %{ApcRequest} %{ApcStatus} %{ApcRespLen} %{ApcReferer} %{ApcUa}"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -34,7 +35,8 @@ Feature: 字段提取规则列表
     And I set the parameter "KeepKey" with value "<keepKey>"
     And I set the parameter "DumpKey" with value "<dumpKey>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -51,7 +53,8 @@ Feature: 字段提取规则列表
     And I choose the "<sourceField>" from the "SourceField"
     And I set the parameter "Regex" with value "<regex>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "<parseRule1>" from the "ParseRule"
@@ -60,7 +63,8 @@ Feature: 字段提取规则列表
     And I set the parameter "ValueRegex" with value "<valueRegex>"
     And I set the parameter "KVSeparator" with value "<kvSeparator>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
 
     Examples:
@@ -75,14 +79,16 @@ Feature: 字段提取规则列表
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "<regex>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "数值型字段转换" from the "ParseRule"
     And I choose the "<field>" from the "SourceFieldLabel2"
     And I choose the "<decimal>" from the "Decimal"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
 
     Examples:
@@ -99,14 +105,16 @@ Feature: 字段提取规则列表
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "<regex>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "<parseRule>" from the "ParseRule"
     And I choose the "<sourceField>" from the "SourceFieldLabel2"
     And I set the parameter "<inputElement>" with value "<timeFormat>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     And I wait for "2000" millsecond
     Then I will see the element value in json "{'Result':'<result1>'}"
 
@@ -127,7 +135,8 @@ Feature: 字段提取规则列表
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "<element>" with value "<path>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -144,7 +153,8 @@ Feature: 字段提取规则列表
     And I set the parameter "Separate" with value "<separate>"
     And I set the parameter "FieldList" with value "<fieldList>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -159,14 +169,16 @@ Feature: 字段提取规则列表
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "%{ApcClientIP} %{ApcIdent} %{ApcUser} %{ApcTimestamp} %{ApcRequest} %{ApcStatus} %{ApcRespLen} %{ApcReferer} %{ApcUa}"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "<parseRule>" from the "ParseRule"
     And I choose the "<sourceField>" from the "SourceFieldLabel2"
     And I click the "<parseField>" button
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
 
     Examples:
@@ -183,14 +195,16 @@ Feature: 字段提取规则列表
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "正则解析" from the "ParseRule"
     And I choose the "@source" from the "SourceFieldLabel2"
     And I set the parameter "Regex2" with value "/var/log/(?<date>\d{8})/website"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "ContinueButton" button
     And I choose the "格式化处理" from the "ParseRule"
@@ -198,13 +212,15 @@ Feature: 字段提取规则列表
     And I set the parameter "FormatRule" with value "$1 $2"
     And I set the parameter "TargetField" with value "timestamp"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result2>'}"
     And I click the "ContinueButton" button
     And I choose the "删除字段" from the "ParseRule"
     And I choose the "date" from the "SourceFieldLabel4"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     And I wait for "2000" millsecond
     Then I will see the element value in json "{'Result':'<result3>'}"
 
@@ -222,7 +238,8 @@ Feature: 字段提取规则列表
     And I set the parameter "ReplaceContent" with value "<replaceContent>"
     And I click the "<replaceFirst>" button
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -238,7 +255,8 @@ Feature: 字段提取规则列表
     And I choose the "<field>" from the "SourceField"
     And I click the "<checkBox>" button
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -253,14 +271,16 @@ Feature: 字段提取规则列表
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "字段重命名" from the "ParseRule"
     And I set the parameter "SourceFieldInput" with value "a.b.c"
     And I set the parameter "TargetField" with value "c"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
 
     Examples:
@@ -274,7 +294,8 @@ Feature: 字段提取规则列表
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -293,7 +314,8 @@ Feature: 字段提取规则列表
     And I set the parameter "KVSeparator" with value "\s*=\s*"
     And I set the parameter "GroupRegex" with value "\[[^\]]*=(\w+)[^\]]*\]\s*"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -310,7 +332,8 @@ Feature: 字段提取规则列表
     And I set the parameter "TimestampPrefix" with value "\["
     And I set the parameter "MaxMatchLength" with value "<length>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -338,7 +361,8 @@ Feature: 字段提取规则列表
     And I choose the "raw_message" from the "SourceField"
     And I "<check>" the checkbox which name is "<label>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -353,14 +377,16 @@ Feature: 字段提取规则列表
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "字段重命名" from the "ParseRule"
     And I set the parameter "SourceFieldInput" with value "a.*.c"
     And I set the parameter "TargetField" with value "a.*.h"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
 
     Examples:
@@ -381,7 +407,8 @@ Feature: 字段提取规则列表
     And I choose the "sourcename" from the "BaseField"
     And I choose the "level,source" from the "ExtendField"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -396,7 +423,8 @@ Feature: 字段提取规则列表
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Code" with value "utf-8"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -412,7 +440,8 @@ Feature: 字段提取规则列表
     And I set the parameter "Struct" with value "<struct>"
     And I "checked" the checkbox which name is "<checkbox>"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
@@ -428,7 +457,8 @@ Feature: 字段提取规则列表
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","codec_type": "GBK","start_offset":10,"column_bytes":16}" to json editor
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:

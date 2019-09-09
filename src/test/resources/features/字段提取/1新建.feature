@@ -168,7 +168,8 @@ Feature: 字段提取新建
     And I set the parameter "RuleName" with value "dissect"
     And I set the parameter "{"enable_escape": true,"format": "http://%{domain}/%{url}?%{arg}=%{@arg:i}","source": "raw_message","strict_mode": false}" to json editor
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -194,11 +195,13 @@ Feature: 字段提取新建
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","multiline": false,"extract": [[{"regex": "[Uu]ser\\s[\"|']([^'\"]*)[\"|']","fields": {"user": "$1"},"name": "user_for_cisco"}, {"regex": "\\sUname:\\s(.*?)\\s","fields": {"user": "$1"},"name": "uname_for_cisco"}]],"add_fields": []}" to json editor
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I set the parameter "LogSample" with value "2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-111010: User 'enable_15', running 'CLI' from IP 192.168.1.11, executed 'debug http'"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -223,14 +226,16 @@ Feature: 字段提取新建
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "自定义规则" from the "ParseRule"
     And I set the parameter "RuleName" with value "script"
     And I set the parameter "{"script":"source[\"result\"] = todict(mvzip(source[\"fields\"],source[\"values\"]))"}" to json editor
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -256,14 +261,16 @@ Feature: 字段提取新建
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<code>.*)"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     And I wait for "2000" millsecond
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "Base64解析" from the "ParseRule"
     And I choose the "code" from the "SourceField"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -289,14 +296,16 @@ Feature: 字段提取新建
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<rr>.*)"
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "自定义规则" from the "ParseRule"
     And I set the parameter "RuleName" with value "codec"
     And I set the parameter "{"source": "rr","codec_type": "unicode_decode"}" to json editor
     And I click the "ParseButton" button
-    And I will see the success message "验证完成"
+    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button

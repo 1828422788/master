@@ -1,5 +1,6 @@
 package com.yottabyte.stepDefs;
 
+import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.WaitForElement;
@@ -27,9 +28,13 @@ public class WaitForElementVisible {
 
     @And("^I wait for \"([^\"]*)\" will be invisible")
     public void iWaitForWillBeInvisible(String elementName) {
-        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(element);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        try {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(element);
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        } catch (ElementNotFoundException exception) {
+            return;
+        }
     }
 
     @Then("^I wait for loading invisible$")
