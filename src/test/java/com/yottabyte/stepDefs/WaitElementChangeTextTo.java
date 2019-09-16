@@ -1,5 +1,6 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.WaitForElement;
 import cucumber.api.java.en.And;
@@ -42,8 +43,8 @@ public class WaitElementChangeTextTo {
 
     public void waitForElementWithExpectedCondition(WebDriver driver, ExpectedCondition expectedCondition) {
         FluentWait wait = new FluentWait(driver)
-                .withTimeout(80 * 1000, TimeUnit.MILLISECONDS)
-                .pollingEvery(10 * 1000, TimeUnit.MILLISECONDS)
+                .withTimeout(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.MILLISECONDS)
+                .pollingEvery(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS)
                 .ignoring(NoSuchElementException.class)
                 .ignoring(TimeoutException.class)
                 .ignoring(StaleElementReferenceException.class);
