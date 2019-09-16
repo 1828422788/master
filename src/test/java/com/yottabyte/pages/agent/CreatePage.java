@@ -25,6 +25,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "el-message__group")
     private WebElement successMessage;
 
+    @FindBy(className = "adddata-outcome__summary")
+    private WebElement summary;
+
+    public WebElement getSummary() {
+        return summary;
+    }
+
     public WebElement getEnsure() {
         return ensure;
     }
@@ -46,7 +53,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getWhiteList() {
-        return super.getInputElement("路径白名单");
+        return super.getInputElement("文件路径白名单");
+    }
+
+    public WebElement getLastModifyTime() {
+        return super.getInputElement("最后修改时间");
     }
 
     public WebElement getAppname() {

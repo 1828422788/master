@@ -20,7 +20,6 @@ Feature: 字段提取删除
       | RZY2862严格解析                 |
       | RZY2889apache解析优化           |
       | RZY2872正则片段解析               |
-      | RZY1550格式化处理                |
       | RZY2823时间戳前缀                |
       | RZY1536数值型字段转换              |
       | RZY2803解析到顶层字段              |
@@ -60,4 +59,18 @@ Feature: 字段提取删除
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "脱敏" then i click the "删除" button
+    And I click the "EnsureButton" button
+
+  Scenario: 删除owner下的字段提取
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "owner"
+    And I set the parameter "Password" with value "all111111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "RZY1550格式化处理" then i click the "删除" button
     And I click the "EnsureButton" button

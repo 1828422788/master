@@ -51,7 +51,7 @@ Feature: 字段提取CSV解析
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "portinfo[]","split_string": "\\s","add_fields": [],"names": ["1","2","3","4","5","6"],"split_option":null}" to json editor
     And I click the "ParseButton" button
-    And I wait for "SuccessMessage" will be visible
+#    And I wait for "SuccessMessage" will be visible
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
     And I click the "NextButton" button under some element

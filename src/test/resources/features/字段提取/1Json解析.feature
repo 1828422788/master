@@ -1,4 +1,4 @@
-@configsSmoke
+#@configsSmoke
 Feature: 字段提取Json解析
 
   Scenario: 修改manager中logriver配置log_parser.json_parse_extract_limit为5000
