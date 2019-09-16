@@ -22,7 +22,7 @@ Feature: 字段提取KeyValue正则匹配
     And I set the parameter "ValueRegex" with value "<valueRegex>"
     And I set the parameter "KVSeparator" with value "<kvSeparator>"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button

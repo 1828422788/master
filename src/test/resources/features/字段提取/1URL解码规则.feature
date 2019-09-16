@@ -21,7 +21,7 @@ Feature: 字段提取URL解码规则
     And I choose the "<sourceField>" from the "SourceFieldLabel2"
     And I set the parameter "<inputElement>" with value "<timeFormat>"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
+    And I wait for "CheckSuccess2" will be visible
     And I wait for "2000" millsecond
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element

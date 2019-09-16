@@ -43,7 +43,7 @@ Feature: 字段提取CSV解析
     And I choose the "<sourceField>" from the "SourceFieldLabel2"
     And I set the parameter "<inputElement>" with value "<timeFormat>"
     And I click the "ParseButton" button
-    And I wait for "SuccessMessage" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "ContinueButton" button
     And I choose the "CSV解析" from the "ParseRule"
@@ -51,8 +51,7 @@ Feature: 字段提取CSV解析
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "portinfo[]","split_string": "\\s","add_fields": [],"names": ["1","2","3","4","5","6"],"split_option":null}" to json editor
     And I click the "ParseButton" button
-#    And I wait for "SuccessMessage" will be visible
-    And I wait for "CheckSuccess" will be visible
+    And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button

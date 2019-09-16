@@ -120,6 +120,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "verify-text")
     private WebElement verifyText;
 
+    @FindBy(xpath = "(//span[@class='my-check my-check-success'])[2]")
+    private WebElement checkSuccess2;
+
+    @FindBy(xpath = "(//span[@class='my-check my-check-success'])[3]")
+    private WebElement checkSuccess3;
+
+    public WebElement getCheckSuccess3() {
+        return checkSuccess3;
+    }
+
+    public WebElement getCheckSuccess2() {
+        return checkSuccess2;
+    }
+
     public WebElement getVerifyText() {
         return verifyText;
     }
