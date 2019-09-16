@@ -17,3 +17,5 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
     Examples:
       | name          | group |
       | FirstAutoTest |       |
+
+#  Scenario: 新建失败校验

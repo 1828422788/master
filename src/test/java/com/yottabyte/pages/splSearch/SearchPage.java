@@ -1144,6 +1144,10 @@ public class SearchPage extends PageTemplate {
         return searchInput;
     }
 
+    public void getPastYears() {
+        new DateEditorPage(webDriver).getCustomTime("00:00:00", "00:00:00", "2015-01-23", "2015-01-25");
+    }
+
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
     private WebElement dateEditor;
 

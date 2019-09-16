@@ -195,10 +195,10 @@ public class DateEditorPage extends PageTemplate {
     public void getCustomTime(String startTime, String endTime, String startDate, String endDate) {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(customTime));
         customTime.click();
-        startTimeInput.sendKeys(startTime);
-        endTimeInput.sendKeys(endTime);
         startDateInput.sendKeys(startDate);
         endDateInput.sendKeys(endDate);
+        startTimeInput.sendKeys(startTime);
+        endTimeInput.sendKeys(endTime);
         applyCustomTime.click();
     }
 

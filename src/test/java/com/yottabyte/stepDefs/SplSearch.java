@@ -1,6 +1,5 @@
 package com.yottabyte.stepDefs;
 
-import com.gargoylesoftware.htmlunit.javascript.host.Iterator;
 import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
@@ -332,9 +331,22 @@ public class SplSearch {
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
 
         for (String key : map.keySet()) {
-            WebElement tr = webDriver.findElement(By.xpath("//span[text()='" + key + "']"));
-            String actualValue = tr.findElement(By.xpath("./ancestor::td/following-sibling::td/span")).getText();
+            WebElement tr = webDriver.findElement(By.xpath("(//span[text()='" + key + "'])[last()]"));
+            String actualValue = tr.findElement(By.xpath("./ancestor::td/following-sibling::td")).getText();
             Assert.assertEquals(map.get(key), actualValue);
+        }
+    }
+
+    @And("^I will see the spl search result data \"([^\"]*)\" doesn't exist$")
+    public void ifDataExist(List<String> list) {
+        for (String key : list) {
+            WebElement element;
+            try {
+                element = webDriver.findElement(By.xpath("(//span[text()='" + key + "'])[last()]"));
+            } catch (Exception e) {
+                continue;
+            }
+            new CheckButtonAttribute().ifExist(element);
         }
     }
 }

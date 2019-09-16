@@ -167,10 +167,16 @@ public class CheckButtonAttribute {
         }
         try {
             Object page = LoginBeforeAllTests.getPageFactory();
-            Method method = page.getClass().getDeclaredMethod(name);
-            Type type = method.getAnnotatedReturnType().getType();
             Object object = page.getClass().getDeclaredMethod(name).invoke(page);
             WebElement element = (WebElement) object;
+            this.ifExist(element);
+        } catch (Exception e) {
+            Assert.assertTrue(true);
+        }
+    }
+
+    public void ifExist(WebElement element) {
+        try {
             element.click();
             Assert.assertTrue(false);
         } catch (Exception e) {

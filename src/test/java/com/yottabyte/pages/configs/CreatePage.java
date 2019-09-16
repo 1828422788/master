@@ -100,7 +100,7 @@ public class CreatePage extends PageTemplate {
     private WebElement ruleContent;
 
     @FindBy(className = "icon-qiehuanweiJHSONbianji")
-    private WebElement changeToJson;
+    private List<WebElement> changeToJson;
 
     @FindBy(xpath = "(//label[contains(text(),'匹配前缀')])[last()]/following-sibling::input")
     private WebElement prefix;
@@ -113,6 +113,20 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
+
+    @FindBy(xpath = "(//span[@class='my-check my-check-success'])[last()]")
+    private WebElement checkSuccess;
+
+    @FindBy(className = "verify-text")
+    private WebElement verifyText;
+
+    public WebElement getVerifyText() {
+        return verifyText;
+    }
+
+    public WebElement getCheckSuccess() {
+        return checkSuccess;
+    }
 
     public WebElement getRuleName() {
         return ruleName;
@@ -135,7 +149,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getChangeToJson() {
-        return changeToJson;
+        return changeToJson.get(changeToJson.size() - 1);
     }
 
     public WebElement getRuleContent() {

@@ -137,10 +137,15 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getGroupDropdownList() {
-        WebElement searchGroupButton = webDriver.findElement(By.className("el-icon-arrow-down"));
+        WebElement searchGroupButton = webDriver.findElement(By.xpath("//span[text()='全部资源']/preceding-sibling::i"));
         searchGroupButton.click();
-        WebElement groupDropdownList = webDriver.findElement(By.className("yw-table-group__group-menu"));
+        WebElement groupDropdownList = webDriver.findElement(By.xpath("//li[contains(text(),'全部资源')]"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(groupDropdownList));
-        return groupDropdownList;
+        return this.lastGroupDropdownList();
+    }
+
+    public WebElement lastGroupDropdownList() {
+        WebElement element = webDriver.findElement(By.xpath("(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]"));
+        return element;
     }
 }

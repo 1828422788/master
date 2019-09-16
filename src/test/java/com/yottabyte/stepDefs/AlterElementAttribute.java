@@ -5,6 +5,7 @@ import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.WaitForElement;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,7 +54,9 @@ public class AlterElementAttribute {
     @And("^I alter the element \"([^\"]*)\" class to \"([^\"]*)\"$")
     public void alterElementClass(String elementName, String className) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('class','" + className + "')", element);
+        while (!element.getAttribute("class").equals(className)) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('class','" + className + "')", element);
+        }
     }
 
     @And("^I alter the element \"([^\"]*)\" style to \"([^\"]*)\"$")
