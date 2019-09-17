@@ -67,8 +67,8 @@ Feature: 字段提取重定向解析
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "RZY2868redirect主规则" then i click the "详情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the element "SmallTr" value contains "<result>"
+    Then I will see the config element "重定向规则" value is "重定向规则<result>"
 
     Examples:
-      | result                                                                         |
-      | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,重定向规则\n82\n82\n0\n0\n0 |
+      | result            |
+      | \n82\n82\n0\n0\n0 |

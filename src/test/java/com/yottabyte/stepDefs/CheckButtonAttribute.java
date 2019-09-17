@@ -3,14 +3,13 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.lang.reflect.Method;
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +17,7 @@ import java.util.Map;
  * @author sunxj
  */
 public class CheckButtonAttribute {
+    WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     /**
      * 检查元素是否有某属性
@@ -209,5 +209,12 @@ public class CheckButtonAttribute {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String actualText = element.getText();
         Assert.assertTrue(actualText.contains(expectText));
+    }
+
+    @Then("^I will see the config element \"([^\"]*)\" value is \"([^\"]*)\"$")
+    public void iWillSeeTheConfigElementValueIs(String name, String expectText) {
+        String xpath = "//span[text()='" + name + "']/ancestor::tr";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        Assert.assertTrue("实际值：" + element.getText() + "\n期望值：" + expectText, element.getText().contains(expectText));
     }
 }

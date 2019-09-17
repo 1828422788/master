@@ -100,9 +100,19 @@ Feature: 字段提取IP格式转换
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "<name>" then i click the "详情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the element "SmallTr" value contains "<result>"
+    Then I will see the config element "内容替换" value is "内容替换<result>"
 
     Examples:
-      | name         | result                                                                        |
-      | RZY1556内容替换  | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,内容替换\n1\n1\n0\n0\n0                       |
-      | RZY1559tag替换 | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,Json解析\n1\n1\n0\n0\n0,内容替换\n1\n1\n0\n0\n0 |
+      | name        | result          |
+      | RZY1556内容替换 | \n1\n1\n0\n0\n0 |
+
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "<name>" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the config element "Json解析" value is "Json解析<result>"
+    Then I will see the config element "内容替换" value is "内容替换<result>"
+
+    Examples:
+      | name         | result          |
+      | RZY1559tag替换 | \n1\n1\n0\n0\n0 |

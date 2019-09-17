@@ -94,9 +94,19 @@ Feature: 字段提取KeyValue正则匹配
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "<name>" then i click the "详情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the element "SmallTr" value contains "<result>"
+    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配<result>"
+    Then I will see the config element "正则解析" value is "正则解析<result>"
 
     Examples:
-      | name                | result                                                                              |
-      | RZY1535KeyValue正则匹配 | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,KeyValue正则匹配\n1\n1\n0\n0\n0,正则解析\n1\n1\n0\n0\n0 |
-      | RZY2798group_regex  | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,KeyValue正则匹配\n1\n1\n0\n0\n0                     |
+      | name                | result          |
+      | RZY1535KeyValue正则匹配 | \n1\n1\n0\n0\n0 |
+
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "<name>" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配<result>"
+
+    Examples:
+      | name               | result          |
+      | RZY2798group_regex | \n1\n1\n0\n0\n0 |

@@ -73,8 +73,8 @@ Feature: 字段提取Hex转换
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "RZY2826高级模式下start_offset的使用" then i click the "详情" button
-    Then I will see the element "SmallTr" value contains "<result>"
+    Then I will see the config element "Hex转换" value is "Hex转换<result>"
 
     Examples:
-      | result                                                   |
-      | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,Hex转换\n1\n1\n0\n0\n0 |
+      | result          |
+      | \n1\n1\n0\n0\n0 |

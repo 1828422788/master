@@ -89,8 +89,9 @@ Feature: 字段提取GEO解析
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "RZY1548添加GEO解析" then i click the "详情" button
-    Then I will see the element "SmallTr" value contains "<result>"
+    Then I will see the config element "geo解析" value is "geo解析<result>"
+    Then I will see the config element "正则解析" value is "正则解析<result>"
 
     Examples:
-      | result                                                                       |
-      | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,geo解析\n1\n1\n0\n0\n0,正则解析\n1\n1\n0\n0\n0 |
+      | result          |
+      | \n1\n1\n0\n0\n0 |

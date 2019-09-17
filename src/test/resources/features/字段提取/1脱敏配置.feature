@@ -93,10 +93,11 @@ Feature: 字段提取脱敏配置
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "脱敏" then i click the "详情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the element "SmallTr" value contains "<result>"
+    Then I will see the config element "脱敏配置" value is "脱敏配置<result>"
+    Then I will see the config element "正则解析" value is "正则解析<result>"
 
     Examples:
-      | result                                                                                          |
-      | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,脱敏配置\n1\n1\n0\n0\n0,脱敏配置\n1\n1\n0\n0\n0,正则解析\n1\n1\n0\n0\n0 |
+      | result          |
+      | \n1\n1\n0\n0\n0 |
 
 
