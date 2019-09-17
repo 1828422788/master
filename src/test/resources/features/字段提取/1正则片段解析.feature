@@ -18,7 +18,7 @@ Feature: 字段提取正则片段解析
     Then I will see the element value in json "{'Result':'<result>'}"
     And I set the parameter "LogSample" with value "2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-111010: User 'enable_15', running 'CLI' from IP 192.168.1.11, executed 'debug http'"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess2" will be visible
+    And I wait for "SuccessMessage" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -56,3 +56,13 @@ Feature: 字段提取正则片段解析
       | spl                     | result                     |
       | appname:regex AND tag:1 | {"other.user":"enable_15"} |
       | appname:regex AND tag:2 | {"other.user":"enable_15"} |
+
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "RZY2872正则片段解析" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the element "SmallTr" value contains "<result>"
+
+    Examples:
+      | result                                                  |
+      | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,正则解析\n1\n1\n0\n0\n0 |

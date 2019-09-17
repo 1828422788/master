@@ -69,3 +69,13 @@ Feature: 字段提取自定义字典
     Examples:
       | tag                  | result                                                                                                                                                                                                                                                                                                                                                                                   |
       | auto_test_dictionary | {'json.Category':'','json.ComputerName':'WIN-999OGBVAHMI','json.EventCode':'7036','json.EventIdentifier':'1073748860','json.EventType':'3','json.Logfile':'System','json.Message':'Application Experience 服务处于 正在运行 状态。','json.RecordNumber':'108343','json.SourceName':'Service Control Manager','json.TimeGenerated':'2015-01-04T20:45:09+08:00','json.level':'2','json.source':'sys'} |
+
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "RZY2819配置自定义字典解析规则" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the element "SmallTr" value contains "<result>"
+
+    Examples:
+      | result                                                                         |
+      | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,自定义字典\n1\n1\n0\n0\n0,Json解析\n1\n1\n0\n0\n0 |

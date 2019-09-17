@@ -1,5 +1,5 @@
 @configsSmoke
-Feature: 字段提取正则片段解析
+Feature: 字段提取自定义配置高级算子
 
   Scenario Outline: RZY-2870:创建dissect解析
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -151,3 +151,16 @@ Feature: 字段提取正则片段解析
       | appname:script  | {"other.result.count":"5664","other.result.time":"1516189"}            |
       | appname:base64  | {"other.code":"hello base64"}                                          |
       | appname:unicode | {"other.rr":"PartyBasicInfoService_客户基本信息服务"}                          |
+
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "<name>" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the element "SmallTr" value contains "<result>"
+
+    Examples:
+      | name               | result                                                    |
+      | RZY2870创建dissect解析 | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,自定义规则\n1\n1\n0\n0\n0 |
+      | RZY2875script解析    | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,自定义规则\n1\n1\n0\n0\n0,Json解析\n1\n1\n0\n0\n0 |
+      | RZY2877base64解析    | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,Base64解析\n1\n1\n0\n0\n0,正则解析\n1\n1\n0\n0\n0 |
+      | RZY2883unicode解析   | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,自定义规则\n1\n1\n0\n0\n0,正则解析\n1\n1\n0\n0\n0 |

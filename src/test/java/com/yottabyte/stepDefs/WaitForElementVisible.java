@@ -14,6 +14,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 /**
  * Created by A on 2017/4/14.
  */
@@ -22,8 +24,16 @@ public class WaitForElementVisible {
 
     @When("^I wait for \"([^\"]*)\" will be visible")
     public void iWaitForWillBeVisible(String elementName) {
-        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        this.elementInvisible(element);
+        Object o = GetElementFromPage.getWebElementWithName(elementName);
+        if (o instanceof List) {
+            List<WebElement> list = (List) o;
+            for (WebElement ele : list) {
+                this.elementInvisible(ele);
+            }
+        } else {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            this.elementInvisible(element);
+        }
     }
 
     @And("^I wait for \"([^\"]*)\" will be invisible")

@@ -109,3 +109,12 @@ Feature: 字段提取时间戳识别
       | tag                 | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
       | auto_test_timestamp | {'apache.clientip':'192.168.1.139','apache.method':'GET','apache.referer':'http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0','apache.referer_domain':'alltest.rizhiyi.com','apache.request_path':'/api/v0/search/fields/','apache.request_query':'field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields','apache.resp_len':'363','apache.status':'200','apache.timestamp':'24/Jan/2015:17:03:49 +0800','apache.ua':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0','apache.version':'1.1'} |
 
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "RZY2823时间戳前缀" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the element "SmallTr" value contains "<result>"
+
+    Examples:
+      | result                                                                       |
+      | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,时间戳识别\n1\n1\n0\n0\n0,正则解析\n1\n1\n0\n0\n0 |

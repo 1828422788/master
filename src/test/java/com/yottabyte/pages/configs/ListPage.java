@@ -29,6 +29,13 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='运行统计']/following-sibling::label//div[@class='el-switch__label el-switch__label--left']")
     private WebElement leftLabel;
 
+    @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//tr")
+    private List<WebElement> smallTr;
+
+    public List<WebElement> getSmallTr() {
+        return smallTr;
+    }
+
     public WebElement getLeftLabel() {
         return leftLabel;
     }

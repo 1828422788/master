@@ -85,3 +85,12 @@ Feature: 字段提取数值型字段转换
       | tag             | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
       | auto_test_toNum | {'other.MNEMONIC':'ZONE_DP_FLT_EXECUTION_TCP_LOG(l)','other.host':'HLJ_S12508_1_FW','other.id':'190','other.message':'srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009;','other.severity':'6','other.timestamp':'May 18 11:20:10 2016','other.vendor':'10FILTER'} |
 
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "RZY1536数值型字段转换" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the element "SmallTr" value contains "<result>"
+
+    Examples:
+      | result                                                                            |
+      | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,正则解析\n1\n1\n0\n0\n0,数值型字段转换\n1\n1\n0\n0\n0 |

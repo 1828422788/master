@@ -153,6 +153,26 @@ public class CheckButtonAttribute {
         }
     }
 
+    /**
+     * 验证多个元素名称是否正确(包含)
+     *
+     * @param element  为list
+     * @param nameList
+     */
+    @Then("^I will see the element \"([^\"]*)\" value contains \"([^割]*)\"$")
+    public void iWillSeeTheElementValueContains(String element, List<String> nameList) {
+        Object o = GetElementFromPage.getWebElementWithName(element);
+        if (o instanceof List) {
+            List<WebElement> list = (List<WebElement>) o;
+            if (list.size() == 0) {
+                Assert.assertTrue(false);
+            }
+            for (int i = 0; i < list.size(); i++) {
+                Assert.assertTrue("实际值：" + list.get(i).getText() + "\n期望值：" + nameList.get(i), list.get(i).getText().contains(nameList.get(i)));
+            }
+        }
+    }
+
     @And("^I will see the \"([^\"]*)\" doesn't exist$")
     public void elementNotExist(String name) {
 

@@ -78,6 +78,17 @@ Feature: 字段提取KeyValue分解
     Then I will see the spl search result "<result>"
 
     Examples:
-      | tag                | field                                                                                                           | result                                                                                                                                                                                                                                                                         |
+      | tag                | field                                                                                                           | result                                                                                                                                                                                                                                              |
       | auto_test_dump_key | other.order                                                                                                     | {'appname':'auto_test_dump_key','other.field':'tag','other.page':'1','other.query':'*','other.size':'50','other.sourcegroup':'all','other.sourcegroupCn':'%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97','other.time_range':'-2d,now','other.type':'fields'} |
-      | auto_test_keep_key | other.field,other.page,other.query,other.size,other.sourcegroup,other.sourcegroupCn,other.time_range,other.type | {'other.order':'desc'}                                                                                                                                                                                                                                                         |
+      | auto_test_keep_key | other.field,other.page,other.query,other.size,other.sourcegroup,other.sourcegroupCn,other.time_range,other.type | {'other.order':'desc'}                                                                                                                                                                                                                              |
+
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "<name>" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the element "SmallTr" value contains "<result>"
+
+    Examples:
+      | name         | result                                                        |
+      | RZY1532丢弃key | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,KeyValue分解\n1\n1\n0\n0\n0 |
+      | RZY1533保留key | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,KeyValue分解\n1\n1\n0\n0\n0 |

@@ -89,3 +89,11 @@ Feature: 字段提取CSV解析
       | tag           | result                                                                                                                                                                                                                                                                |
       | auto_test_csv | {'other.portinfo[].1':'T1/1T1/2F2/1F2/2F2/3F2/4F2/5F2/6F2/7F2/8','other.portinfo[].2':'downdownupupdowndowndowndowndowndown','other.portinfo[].3':'0000000000','other.portinfo[].4':'0000000000','other.portinfo[].5':'0000000000','other.portinfo[].6':'0000000000'} |
 
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "RZY3417多值字段" then i click the "详情" button
+    Then I will see the element "SmallTr" value contains "<result>"
+
+    Examples:
+      | result                                                                                            |
+      | 规则名称 总处理量 处理成功 处理失败 处理未命中 处理异常 平均耗时,正则解析\n1\n1\n0\n0\n0,CSV解析\n1\n1\n0\n0\n0,CSV解析\n1\n1\n0\n0\n0 |
