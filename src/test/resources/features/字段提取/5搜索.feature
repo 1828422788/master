@@ -9,3 +9,6 @@ Feature: 字段提取搜索
     And I click the "Search" button
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'主规则'}"
+
+  Scenario: 验证运行统计是否自动关闭
+    Then I will see the "LeftLabel" is display

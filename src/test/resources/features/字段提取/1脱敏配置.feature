@@ -1,20 +1,6 @@
 @configsSmoke
 Feature: 字段提取脱敏配置
 
-  @second @configsSmoke
-  Scenario: RZY-2829:设置用户权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data properties is "roleWithResources" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I click the "{'TabButton':'功能'}" button
-    And I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "可查看敏感内容"
-    And I click the "{'TabButton':'URL 访问'}" button
-    And I "checked" the checkbox which name is "全选"
-    And I click the "{'TabButton':'字段提取'}" button
-    And I "checked" the checkbox which name is "新建字段提取"
-    Then I click the "SaveButton" button
-
   Scenario Outline: RZY-2827：新建脱敏配置规则
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible

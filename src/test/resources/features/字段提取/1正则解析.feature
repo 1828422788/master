@@ -1,11 +1,6 @@
 @configsSmoke
 Feature: 字段提取正则解析
 
-  Scenario: 修改logriver配置项log_parser.switch_delete_timestamp为false
-    Given curl update url "module=logriver&key=log_parser.switch_delete_timestamp&value=false"
-    And curl restart url "modulename=logriver"
-    And curl restart url "modulename=logparserserver"
-
   Scenario Outline: RZY-1530:正则解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button

@@ -26,6 +26,13 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-switch")
     private WebElement switchButton;
 
+    @FindBy(xpath = "//span[text()='运行统计']/following-sibling::label//div[@class='el-switch__label el-switch__label--left']")
+    private WebElement leftLabel;
+
+    public WebElement getLeftLabel() {
+        return leftLabel;
+    }
+
     public WebElement getSwitchButton() {
         return switchButton;
     }
