@@ -46,8 +46,7 @@ Feature: 字段提取正则片段解析
     And I set the parameter "RuleName" with value "script"
     And I set the parameter "{"script":"source[\"result\"] = todict(mvzip(source[\"fields\"],source[\"values\"]))"}" to json editor
     And I click the "ParseButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I wait for "CheckSuccess" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -72,14 +71,13 @@ Feature: 字段提取正则片段解析
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<code>.*)"
     And I click the "ParseButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I wait for "2000" millsecond
+    And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "Base64解析" from the "ParseRule"
     And I choose the "code" from the "SourceField"
     And I click the "ParseButton" button
-    And I wait for "SuccessMessage" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -104,14 +102,14 @@ Feature: 字段提取正则片段解析
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<rr>.*)"
     And I click the "ParseButton" button
-    And I wait for "SuccessMessage" will be visible
+    And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "自定义规则" from the "ParseRule"
     And I set the parameter "RuleName" with value "codec"
     And I set the parameter "{"source": "rr","codec_type": "unicode_decode"}" to json editor
     And I click the "ParseButton" button
-    And I wait for "SuccessMessage" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button

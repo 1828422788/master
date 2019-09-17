@@ -28,6 +28,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "adddata-outcome__summary")
     private WebElement summary;
 
+    @FindBy(xpath = "//p[text()='您确定要删除该配置项吗？']/ancestor::div[@class='el-message-box']//button[@class='el-button el-button--default el-button--primary ']")
+    private WebElement deleteConfig;
+
+    public WebElement getDeleteConfig() {
+        return deleteConfig;
+    }
+
     public WebElement getSummary() {
         return summary;
     }

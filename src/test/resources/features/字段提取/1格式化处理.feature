@@ -16,15 +16,13 @@ Feature: 字段提取格式化处理
     And I set the parameter "Regex" with value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)"
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "正则解析" from the "ParseRule"
     And I choose the "@source" from the "SourceFieldLabel2"
     And I set the parameter "Regex2" with value "/var/log/(?<date>\d{8})/website"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-#    And I will see the success message "验证完成"
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "ContinueButton" button
     And I choose the "格式化处理" from the "ParseRule"
@@ -32,15 +30,13 @@ Feature: 字段提取格式化处理
     And I set the parameter "FormatRule" with value "$1 $2"
     And I set the parameter "TargetField" with value "timestamp"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-#    And I will see the success message "验证完成"
+    And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
     And I click the "ContinueButton" button
     And I choose the "删除字段" from the "ParseRule"
     And I choose the "date" from the "SourceFieldLabel4"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-#    And I will see the success message "验证完成"
+    And I wait for "CheckSuccess4" will be visible
     And I wait for "2000" millsecond
     Then I will see the element value in json "{'Result':'<result3>'}"
 
@@ -72,15 +68,13 @@ Feature: 字段提取格式化处理
     And I set the parameter "Regex" with value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)"
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
-#    And I will see the success message "验证完成"
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "ContinueButton" button
     And I choose the "正则解析" from the "ParseRule"
     And I choose the "@source" from the "SourceFieldLabel2"
     And I set the parameter "Regex2" with value "/var/log/(?<date>\d{8})/website"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-#    And I will see the success message "验证完成"
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "ContinueButton" button
     And I choose the "格式化处理" from the "ParseRule"
@@ -88,8 +82,7 @@ Feature: 字段提取格式化处理
     And I set the parameter "FormatRule" with value "$1 $2"
     And I set the parameter "TargetField" with value "timestamp"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-#    And I will see the success message "验证完成"
+    And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
     And I click the "ContinueButton" button
     And I choose the "时间戳识别" from the "ParseRule"

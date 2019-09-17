@@ -126,6 +126,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[@class='my-check my-check-success'])[3]")
     private WebElement checkSuccess3;
 
+    @FindBy(xpath = "(//span[@class='my-check my-check-success'])[4]")
+    private WebElement checkSuccess4;
+
+    public WebElement getCheckSuccess4() {
+        return checkSuccess4;
+    }
+
     public WebElement getCheckSuccess3() {
         return checkSuccess3;
     }

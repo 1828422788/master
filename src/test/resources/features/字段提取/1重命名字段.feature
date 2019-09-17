@@ -20,7 +20,7 @@ Feature: 字段提取重命名字段
     And I set the parameter "SourceFieldInput" with value "a.b.c"
     And I set the parameter "TargetField" with value "c"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
 
     Examples:
@@ -46,7 +46,7 @@ Feature: 字段提取重命名字段
     And I set the parameter "SourceFieldInput" with value "a.*.c"
     And I set the parameter "TargetField" with value "a.*.h"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button

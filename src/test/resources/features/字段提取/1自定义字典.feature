@@ -32,7 +32,7 @@ Feature: 字段提取自定义字典
     And I choose the "level,source" from the "ExtendField"
     And I click the "ParseButton" button
     And I wait for "SuccessMessage" will be visible
-    And I wait for "CheckSuccess" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button

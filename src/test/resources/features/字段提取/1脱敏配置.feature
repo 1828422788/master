@@ -43,7 +43,7 @@ Feature: 字段提取脱敏配置
     And I set the parameter "ReplaceContent" with value "$1****$3"
     And I set the parameter "Prefix" with value "\s+"
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
