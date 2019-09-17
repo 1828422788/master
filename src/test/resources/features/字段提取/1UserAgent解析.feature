@@ -63,7 +63,7 @@ Feature: 字段提取UserAgent解析
     When the data name is "RZY1540配置UserAgent解析" then i click the "详情" button
     And I wait for "SmallTr" will be visible
     Then I will see the config element "正则解析" value is "正则解析<result>"
-    Then I will see the config element "agent解析" value is "agent解析<result>"
+    Then I will see the config element "user agent解析" value is "user agent解析<result>"
 
     Examples:
       | result          |
