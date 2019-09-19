@@ -31,6 +31,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//p[text()='您确定要删除该配置项吗？']/ancestor::div[@class='el-message-box']//button[@class='el-button el-button--default el-button--primary ']")
     private WebElement deleteConfig;
 
+    @FindBy(xpath = "//li[contains(text(),'清理输出源缓存')]")
+    private WebElement cleanOutput;
+
+    @FindBy(xpath = "//p[text()='清理输出源缓存将导致数据重发，是否继续？']/ancestor::div[@class='el-message-box__content']/following-sibling::div//span[contains(text(),'确定')]")
+    private WebElement ensureCleanOutput;
+
+    public WebElement getEnsureCleanOutput() {
+        return ensureCleanOutput;
+    }
+
+    public WebElement getCleanOutput() {
+        return cleanOutput;
+    }
+
     public WebElement getDeleteConfig() {
         return deleteConfig;
     }
@@ -77,5 +91,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSuccessMessage() {
         return successMessage;
+    }
+
+    public WebElement getCleanCache() {
+        return super.getButton("清理缓存");
     }
 }

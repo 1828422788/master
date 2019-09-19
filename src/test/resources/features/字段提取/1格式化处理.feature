@@ -125,6 +125,22 @@ Feature: 字段提取格式化处理
     And I click the "Next" button
     Then I will see the element "Summary" value is "添加成功"
 
+  Scenario: 清理agent缓存
+    When I wait for loading complete
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "owner"
+    And I set the parameter "Password" with value "all111111"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
+    When I click the detail with properties "{'column':'1','name':'rizhiyi_server_host'}"
+    And switch to window "Agent 具体配置"
+    And I click the "CleanCache" button
+    And I click the "CleanOutput" button
+    And I click the "EnsureCleanOutput" button
+
   Scenario: 搜索页验证
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
