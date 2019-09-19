@@ -152,45 +152,45 @@ Feature: 字段提取自定义配置高级算子
       | appname:base64  | {"other.code":"hello base64"}                                          |
       | appname:unicode | {"other.rr":"PartyBasicInfoService_客户基本信息服务"}                          |
 
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "自定义规则" value is "自定义规则<result>"
-
-    Examples:
-      | name               | result          |
-      | RZY2870创建dissect解析 | \n1\n1\n0\n0\n0 |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "自定义规则" value is "自定义规则<result>"
-    Then I will see the config element "Json解析" value is "Json解析<result>"
-
-    Examples:
-      | name            | result          |
-      | RZY2875script解析 | \n1\n1\n0\n0\n0 |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "Base64解析" value is "Base64解析<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
-
-    Examples:
-      | name            | result          |
-      | RZY2877base64解析 | \n1\n1\n0\n0\n0 |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "自定义规则" value is "自定义规则<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
-
-    Examples:
-      | name             | result          |
-      | RZY2883unicode解析 | \n1\n1\n0\n0\n0 |
+#  Scenario Outline: 验证详情
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "<name>" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+#    Then I will see the config element "自定义规则" value is "自定义规则<result>"
+#
+#    Examples:
+#      | name               | result          |
+#      | RZY2870创建dissect解析 | \n1\n1\n0\n0\n0 |
+#
+#  Scenario Outline: 验证详情
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "<name>" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+#    Then I will see the config element "自定义规则" value is "自定义规则<result>"
+#    Then I will see the config element "Json解析" value is "Json解析<result>"
+#
+#    Examples:
+#      | name            | result          |
+#      | RZY2875script解析 | \n1\n1\n0\n0\n0 |
+#
+#  Scenario Outline: 验证详情
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "<name>" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+#    Then I will see the config element "Base64解析" value is "Base64解析<result>"
+#    Then I will see the config element "正则解析" value is "正则解析<result>"
+#
+#    Examples:
+#      | name            | result          |
+#      | RZY2877base64解析 | \n1\n1\n0\n0\n0 |
+#
+#  Scenario Outline: 验证详情
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "<name>" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+#    Then I will see the config element "自定义规则" value is "自定义规则<result>"
+#    Then I will see the config element "正则解析" value is "正则解析<result>"
+#
+#    Examples:
+#      | name             | result          |
+#      | RZY2883unicode解析 | \n1\n1\n0\n0\n0 |

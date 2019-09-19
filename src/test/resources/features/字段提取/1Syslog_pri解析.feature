@@ -59,13 +59,13 @@ Feature: 字段提取Syslog_pri解析
       | tag              | result                                                               |
       | auto_test_syslog | {'other.facility':'daemon','other.pri':'30','other.severity':'info'} |
 
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "RZY1547syslog_pri解析" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "正则解析" value is "正则解析<result>"
-    Then I will see the config element "syslog_pri解析" value is "syslog_pri解析<result>"
-
-    Examples:
-      | result          |
-      | \n1\n1\n0\n0\n0 |
+#  Scenario Outline: 验证详情
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "RZY1547syslog_pri解析" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+#    Then I will see the config element "正则解析" value is "正则解析<result>"
+#    Then I will see the config element "syslog_pri解析" value is "syslog_pri解析<result>"
+#
+#    Examples:
+#      | result          |
+#      | \n1\n1\n0\n0\n0 |

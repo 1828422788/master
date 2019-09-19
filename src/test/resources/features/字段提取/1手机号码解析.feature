@@ -54,13 +54,13 @@ Feature: 字段提取手机号码解析
       | auto_test_n   | {'other.geo.city':'鞍山市','other.geo.country':'中国','other.geo.isp':'中国移动','other.geo.latitude':'41.115009','other.geo.longitude':'122.976822','other.geo.phone':'15998008888','other.geo.province':'辽宁'} |
       | auto_test_tel | {'other.city':'鞍山市','other.country':'中国','other.isp':'中国移动','other.latitude':'41.115009','other.longitude':'122.976822','other.province':'辽宁'}                                                         |
 
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "手机号码解析" value is "手机号码解析<result>"
-
-    Examples:
-      | name           | result          |
-      | RZY2802手机号码解析  | \n1\n1\n0\n0\n0 |
-      | RZY2803解析到顶层字段 | \n1\n1\n0\n0\n0 |
+#  Scenario Outline: 验证详情
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "<name>" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+#    Then I will see the config element "手机号码解析" value is "手机号码解析<result>"
+#
+#    Examples:
+#      | name           | result          |
+#      | RZY2802手机号码解析  | \n1\n1\n0\n0\n0 |
+#      | RZY2803解析到顶层字段 | \n1\n1\n0\n0\n0 |

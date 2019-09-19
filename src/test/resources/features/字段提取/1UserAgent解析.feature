@@ -58,13 +58,13 @@ Feature: 字段提取UserAgent解析
       | tag             | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
       | auto_test_agent | {'apache.clientip':'192.168.1.139','apache.method':'GET','apache.referer':'http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0','apache.referer_domain':'alltest.rizhiyi.com','apache.request_path':'/api/v0/search/fields/','apache.request_query':'field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields','apache.resp_len':'363','apache.status':'200','apache.timestamp':'24/Jan/2015:17:03:49 +0800','apache.ua.browser':'Firefox','apache.ua.browser_v':'Firefox 35.0','apache.ua.os':'Mac OS X','apache.ua.os_v':'Mac OS X 10.10','apache.version':'1.1'} |
 
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "RZY1540配置UserAgent解析" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "正则解析" value is "正则解析<result>"
-    Then I will see the config element "user agent解析" value is "user agent解析<result>"
-
-    Examples:
-      | result          |
-      | \n1\n1\n0\n0\n0 |
+#  Scenario Outline: 验证详情
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "RZY1540配置UserAgent解析" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+#    Then I will see the config element "正则解析" value is "正则解析<result>"
+#    Then I will see the config element "user agent解析" value is "user agent解析<result>"
+#
+#    Examples:
+#      | result          |
+#      | \n1\n1\n0\n0\n0 |

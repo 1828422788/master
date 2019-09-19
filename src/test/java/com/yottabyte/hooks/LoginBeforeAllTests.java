@@ -36,11 +36,12 @@ public class LoginBeforeAllTests {
     public void beforeScenario() {
         System.out.println("Login Before Test!");
         webDriver.manage().deleteAllCookies();
-        webDriver.get(baseURL + loginURL);
+        String url = baseURL+loginURL;
+        webDriver.get(url);
         if (cookie == null) {
             login();
         } else {
-            webDriver.get(baseURL);
+            webDriver.get(url);
             Date exDate = cookie.getExpiry();
             if (exDate.before(new Date())) {
                 Calendar calendar = new GregorianCalendar();
@@ -50,7 +51,7 @@ public class LoginBeforeAllTests {
                 cookie = new Cookie(cookie.getName(), cookie.getValue(), cookie.getDomain(), cookie.getPath(), exDate);
             }
             webDriver.manage().addCookie(cookie);
-            webDriver.get(baseURL);
+            webDriver.get(url);
         }
         setPageFactory("PublicNavBarPage");
     }

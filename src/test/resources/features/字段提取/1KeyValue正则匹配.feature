@@ -101,12 +101,12 @@ Feature: 字段提取KeyValue正则匹配
       | name                | result          |
       | RZY1535KeyValue正则匹配 | \n1\n1\n0\n0\n0 |
 
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配<result>"
-
-    Examples:
-      | name               | result          |
-      | RZY2798group_regex | \n1\n1\n0\n0\n0 |
+#  Scenario Outline: 验证详情
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "<name>" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+#    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配<result>"
+#
+#    Examples:
+#      | name               | result          |
+#      | RZY2798group_regex | \n1\n1\n0\n0\n0 |
