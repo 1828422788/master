@@ -208,7 +208,7 @@ public class CheckButtonAttribute {
     public void iWillSeeTheElementContains(String elementName, String expectText) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String actualText = element.getText();
-        Assert.assertTrue(actualText.contains(expectText));
+        Assert.assertTrue("实际值：" + actualText + "\n期望值：" + expectText, actualText.contains(expectText));
     }
 
     @Then("^I will see the config element \"([^\"]*)\" value is \"([^\"]*)\"$")

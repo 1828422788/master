@@ -3,6 +3,7 @@ package com.yottabyte.hooks;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.pages.LoginPage;
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.manager.ManagerLoginPage;
 import com.yottabyte.pages.saas.SaasLoginPage;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.Before;
@@ -56,30 +57,42 @@ public class LoginBeforeAllTests {
 
     public static void login() {
         PageTemplate loginPage;
-        System.out.println("看这里！！！" + loginURL + loginURL.contains("domainlogin"));
-        if (loginURL.contains("domainlogin"))
+        String username;
+        String password;
+        String cookieName;
+        if (loginURL.contains("domainlogin")) {
             loginPage = new SaasLoginPage(webDriver);
-        else
+            username = config.get("saas_username");
+            password = config.get("saas_password");
+            cookieName = "sessionid";
+        } else if (loginURL.contains("8180")) {
+            loginPage = new ManagerLoginPage(webDriver);
+            username = config.get("manager_name");
+            password = config.get("manager_password");
+            cookieName = "rizhiyimanagersessionID";
+        } else {
             loginPage = new LoginPage(webDriver);
-
+            username = config.get("username");
+            password = config.get("password");
+            cookieName = "sessionid";
+        }
         loginPage.getUsername().clear();
-        String username = config.get("username");
         loginPage.getUsername().sendKeys(username);
         loginPage.getPassword().clear();
-        loginPage.getPassword().sendKeys(config.get("password"));
+        loginPage.getPassword().sendKeys(password);
         loginPage.getLoginButton().click();
 
         WebDriverWait wait = new WebDriverWait(webDriver, 10, 1000);
         wait.until(new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
-                while (driver.manage().getCookieNamed("sessionid") == null) {
+                while (driver.manage().getCookieNamed(cookieName) == null) {
                     return false;
                 }
                 return true;
             }
         });
-        cookie = webDriver.manage().getCookieNamed("sessionid");
+        cookie = webDriver.manage().getCookieNamed(cookieName);
     }
 
     public static WebDriver getWebDriver() {

@@ -2,6 +2,7 @@
 Feature: 字段提取脱敏配置
 
   Scenario Outline: RZY-2827：新建脱敏配置规则
+    Given I wait for loading complete
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     Given I logout current user
@@ -70,6 +71,7 @@ Feature: 字段提取脱敏配置
 
   @second @configsSmoke
   Scenario: RZY-2830:在搜索页验证是否脱敏
+    Given I wait for loading complete
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     Given I logout current user
