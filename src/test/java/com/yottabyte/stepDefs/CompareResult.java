@@ -122,6 +122,21 @@ public class CompareResult {
      * @param result
      */
     public void compareCommand(String result) {
+        String[] texts = this.compare(result);
+        Assert.assertEquals("/opt/rizhiyi/tools/kafka/bin/kafka-topics.sh --list --zookeeper " + texts[0] + ":2181", texts[1]);
+    }
+
+    public void compareTopicCommand(String result) {
+        String[] texts = this.compare(result);
+        Assert.assertEquals("/opt/rizhiyi/tools/kafka/bin/kafka-topics.sh --alter --zookeeper " + texts[0] + ":2181 --partitions 10 --topic UI_auto_test", texts[1]);
+    }
+
+    public void compareLookupTopicCommand(String result) {
+        String[] texts = this.compare(result);
+        Assert.assertEquals("/opt/rizhiyi/tools/kafka/bin/kafka-console-consumer.sh --zookeeper " + texts[0] + ":2181 --max-messages 10 --topic UI_auto_test", texts[1]);
+    }
+
+    private String[] compare(String result) {
         String[] elementNames = result.split(",");
         WebElement baseElement = GetElementFromPage.getWebElementWithName(elementNames[0]);
         String baseText = baseElement.getAttribute("value");
@@ -129,6 +144,6 @@ public class CompareResult {
         WebElement compareElement = GetElementFromPage.getWebElementWithName(elementNames[1]);
         String compareText = compareElement.getAttribute("value");
 
-        Assert.assertEquals("/opt/rizhiyi/tools/kafka/bin/kafka-topics.sh --list --zookeeper " + baseText + ":2181", compareText);
+        return new String[]{baseText, compareText};
     }
 }

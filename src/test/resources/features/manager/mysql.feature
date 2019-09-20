@@ -9,4 +9,5 @@ Feature: manager mysql工具
     When I click the "MysqlTool" button under some element
     And I set the parameter "SqlInput" with value "show databases"
     And I click the "Run" button
+    And I wait for "CmdStatus" will be visible
     Then I will see the element "Detail" contains "rizhiyi_manager"
