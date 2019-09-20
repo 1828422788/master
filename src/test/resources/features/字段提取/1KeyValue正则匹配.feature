@@ -90,16 +90,16 @@ Feature: 字段提取KeyValue正则匹配
       | auto_test_KV       | {'other.MNEMONIC':'ZONE_DP_FLT_EXECUTION_TCP_LOG(l)','other.host':'HLJ_S12508_1_FW','other.id':'190','other.message.beginTime_e(1013)':'05182016112009','other.message.destIPAddr(1019)':'10.166.5.70','other.message.destPortNum(1020)':'1521','other.message.destZoneName(1035)':'servertrust','other.message.endTime_e(1014)':'05182016112009','other.message.policyActType(1071)':'denied','other.message.protType(1001)':'TCP(6)','other.message.rule_ID(1070)':'90','other.message.srcIPAddr(1017)':'10.167.77.99','other.message.srcPortNum(1018)':'49362','other.message.srcZoneName(1034)':'serveruntrust','other.severity':'6','other.timestamp':'May 18 11:20:10 2016','other.vendor':'10FILTER'} |
       | auto_test_KV_group | {'test.Cell.CellName':'CA_ABS','test.Cell.ChildCount':'4','test.Cell.ChildCountLimit':'5000','test.Cell.ClientIp':'9','test.Cell.MessageLimit':'12288','test.Cell.MinuteCountLimit':'2000','test.Cell.Oid':'CA_ABS','test.Cell.OutOfService':'false','test.Cell.OverLoad':'false','test.Cell.ParentOid':'CA_ABS','test.InvokeProcessor.AverageTaskTime':'7','test.InvokeProcessor.AverageTasksPerSecond':'0','test.InvokeProcessor.CompletedTasks':'22321','test.InvokeProcessor.ComputeAverageInterval':'10000','test.InvokeProcessor.RunningTasks':'0'}                                                                                                                                                    |
 
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
-
-    Examples:
-      | name                | result          |
-      | RZY1535KeyValue正则匹配 | \n1\n1\n0\n0\n0 |
+#  Scenario Outline: 验证详情
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "<name>" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+#    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配<result>"
+#    Then I will see the config element "正则解析" value is "正则解析<result>"
+#
+#    Examples:
+#      | name                | result          |
+#      | RZY1535KeyValue正则匹配 | \n1\n1\n0\n0\n0 |
 
 #  Scenario Outline: 验证详情
 #    Given open the "configs.ListPage" page for uri "/configs/"
