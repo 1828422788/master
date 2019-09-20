@@ -21,6 +21,20 @@ Feature: 字段提取前提条件
     And I "checked" the checkbox which name is "新建字段提取"
     Then I click the "SaveButton" button
 
+  Scenario Outline: 上传字典管理文件
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    When I click the "UploadButton" button
+    And I choose the "default_Dictionary" from the "Group"
+    And I upload a file with name "/src/test/resources/testdata/dictionary/<name>"
+    And I wait for "FileName" will be visible
+    And I click the "UploadFile" button
+    And I refresh the website
+    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+
+    Examples:
+      | name         |
+      | AutoTest.csv |
+
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
