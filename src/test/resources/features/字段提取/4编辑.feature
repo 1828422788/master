@@ -7,8 +7,7 @@ Feature: 字段提取编辑
   Scenario:
     When the data name is "RZY2868redirect主规则(副本)" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
-    And I drag the scroll bar to the top
+    And I display the element "ExtractSample"
     When I set the parameter "Name" with value "主规则副本"
     And I click the "NextButton" button
     And I click the "SwitchButton" button

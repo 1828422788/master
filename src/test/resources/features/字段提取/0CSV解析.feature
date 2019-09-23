@@ -29,6 +29,7 @@ Feature: 字段提取CSV解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "Name" with value "RZY3417多值字段"
     And I set the parameter "Logtype" with value "other"
+    Then I choose the "default_ParserRule" from the "Group"
     When I set the parameter "LogSample" with value "<logSample>"
     And I choose the "正则解析" from the "ParseRule"
     And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"

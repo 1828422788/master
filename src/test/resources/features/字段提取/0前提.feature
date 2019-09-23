@@ -35,6 +35,21 @@ Feature: 字段提取前提条件
       | name         |
       | AutoTest.csv |
 
+  Scenario: 取消分组
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "RZY3417多值字段" then i click the "分组" button
+    And I cancel selection "default_ParserRule" from the "Group"
+    And I click the "Ensure" button
+
+  Scenario: 验证分组搜索
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When I choose the "未分组" from the "GroupList"
+    And I wait for loading invisible
+    Then I will see the search result contains "{'column':'0','name':'RZY3417多值字段'}"
+    When I choose the "default_ParserRule" from the "GroupList"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'0','name':'RZY3417多值字段','contains':'no'}"
+
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button

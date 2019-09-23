@@ -72,13 +72,13 @@ public class OperateBrowser {
     public void waitForLoadingComplete() {
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
         Object readyState = js.executeScript("return document.readyState");
-        System.out.println("complete");
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, 1000);
         webDriverWait.until(new ExpectedCondition<Boolean>() {
 
             @Nullable
             @Override
             public Boolean apply(@Nullable WebDriver webDriver) {
+                System.out.println(readyState);
                 return ifReady(readyState);
             }
         });

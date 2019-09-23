@@ -83,7 +83,7 @@ public class DetailPage extends PageTemplate {
     private WebElement deleteTag;
 
     @FindBy(className = "el-message__group")
-    private List<WebElement> successMessage;
+    private WebElement successMessage;
 
     @FindBy(className = "icon-tianjiatubiaoxuanting_icon")
     private WebElement addEventButton;
@@ -426,7 +426,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return successMessage.get(successMessage.size() - 1);
+        return successMessage;
     }
 
     public WebElement getDeleteTag() {
