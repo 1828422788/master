@@ -6,16 +6,6 @@ Feature: 仪表盘详情页
     And I click the detail which name is "sxjautotest"
     Then I will see the "dashboard.DetailPage" page
 
-  Scenario Outline: 新建标签页失败
-    When I set the parameter "TagName" with value "<tagName>"
-    And I click the "EnsureCreateTagButton" button
-    Then I will see the success message "<message>"
-
-    Examples:
-      | tagName | message                     |
-      |         | 标签页名称不能为空                   |
-      | t e s t | 名称格式有误, 仅支持汉字，数字，字母，中划线及下划线 |
-
   @dashboardSmoke
   Scenario Outline: 打开/关闭编辑、全屏操作、夜间模式（RZY-228、RZY-229、RZY-237、RZY-238）
     When I set the parameter "TagName" with value "<tagName>"
@@ -41,61 +31,12 @@ Feature: 仪表盘详情页
     And I wait for "Main" will be visible
 
   @dashboardSmoke
-  Scenario Outline: 移出标签页（RZY-230）
-    When I click the "MoveButton" button
-    And I check "<dashboardName>" from the "CheckBox"
-    And I click the "EnsureMoveTagButton" button
-    And I refresh the website
-    And open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I will see the data "<dashboardName>" values "{'column':'2','name':'second'}"
-    Then I will see the data "sxjautotest" values "{'column':'2','name':'first'}"
-
-    Examples:
-      | dashboardName |
-      | UIautotest    |
-
-  @dashboardSmoke
   Scenario: 跳转到其他仪表盘（RZY-240）
     And I click the "SwitchButton" button
     And I wait for "Circular" will be invisible
     And I click the "Uiautotest" button
     And I wait for loading invisible
     Then the page's title will be "UIautotest | 仪表盘"
-
-  @dashboardSmoke
-  Scenario Outline: 回收站操作（RZY-241至RZY-244）
-    When I click the "CloseTag" button
-#    And I wait for loading invisible
-    Then I will see the "DropDownLinkButton" result will be "<num>"
-    When I click the "RecoverTag" button
-    Then I will see the element "Tab" name is "<tagName>"
-    When I click the "CloseTag" button
-    And I click the "MoveoutTag" button
-    And I check "<dashboardName>" from the "CheckBox"
-    And I click the "EnsureMoveTagButton" button
-    And open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "<dashboardName>"
-    And I will see the "dashboard.DetailPage" page
-    And I will see the "DropDownLinkButton" result will be "<num>"
-
-    Examples:
-      | tagName | num   | dashboardName |
-      | first   | [ 1 ] | UIautotest    |
-
-  @dashboardSmoke
-  Scenario Outline: 标签页删除
-    When I set the parameter "TagName" with value "<tagName>"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "Main" will be visible
-    When I click the "CloseTag" button
-    And I will see the "DropDownLinkButton" result will be "<num>"
-    And I click the "DeleteTag" button
-    And I click the "EnsureDeleteTagButton" button
-
-    Examples:
-      | tagName | num   |
-      | second  | [ 1 ] |
 
   @dashboardSmoke
   Scenario Outline: 添加动态菜单类型的过滤项（RZY-258）

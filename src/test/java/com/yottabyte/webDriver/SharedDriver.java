@@ -167,7 +167,6 @@ public class SharedDriver extends EventFiringWebDriver {
             String downloadFilepath = config.get("ftp_base_path") + sp + "target" + sp + "download-files";
             ChromeOptions options = new ChromeOptions();
             if ("Mac OS X".equalsIgnoreCase(System.getProperty("os.name"))) {
-                System.out.println("测试远程mac " + System.getProperty("os.name"));
                 options.setBinary(config.get("macbinary"));
             }
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -204,6 +203,7 @@ public class SharedDriver extends EventFiringWebDriver {
             ChromeOptions options = new ChromeOptions();
             if ("Mac OS X".equalsIgnoreCase(System.getProperty("os.name"))) {
                 ConfigManager config = new ConfigManager();
+                System.out.println("测试远程mac " + System.getProperty("os.name"));
                 options.setBinary(config.get("macbinary"));
             }
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
