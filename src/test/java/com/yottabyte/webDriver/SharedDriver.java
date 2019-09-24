@@ -168,9 +168,10 @@ public class SharedDriver extends EventFiringWebDriver {
             String downloadFilepath = config.get("ftp_base_path") + sp + "target" + sp + "download-files";
             ChromeOptions options = new ChromeOptions();
             System.out.println("测试系统：" + System.getProperty("os.name"));
-            if ("Mac OS X".equalsIgnoreCase(System.getProperty("os.name"))) {
-                options.setBinary(config.get("macbinary"));
-            }
+//            if ("Mac OS X".equalsIgnoreCase(System.getProperty("os.name"))) {
+            options.setBinary(config.get("macbinary"));
+            System.out.println("测试位置：" + config.get("macbinary"));
+//            }
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
             // 设置为禁止弹出下载窗口
             chromePrefs.put("profile.default_content_settings.popups", 0);
