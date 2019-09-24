@@ -101,7 +101,7 @@ public class UploadFile {
             String courseFile = "";
             try {
                 File directory = new File("");
-                if ("Mac OS X".contains(userAgent)) {
+                if (userAgent.contains("Mac OS X")) {
                     courseFile = directory.getCanonicalPath();
                 } else {
                     courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
