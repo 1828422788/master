@@ -70,6 +70,7 @@ public class SharedDriver extends EventFiringWebDriver {
         DesiredCapabilities browser = null;
         try {
             if ("chrome".equalsIgnoreCase(config.get("browser"))) {
+                System.out.println("测试浏览器类型："+config.get("browser"));
                 browser = ChromeDes();
             } else {
                 judgingBrowserType(config, browser);
