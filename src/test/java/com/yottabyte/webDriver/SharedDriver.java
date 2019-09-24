@@ -70,7 +70,7 @@ public class SharedDriver extends EventFiringWebDriver {
         DesiredCapabilities browser = null;
         try {
             if ("chrome".equalsIgnoreCase(config.get("browser"))) {
-                System.out.println("测试浏览器类型："+config.get("browser"));
+                System.out.println("测试浏览器类型：" + config.get("browser"));
                 browser = ChromeDes();
             } else {
                 judgingBrowserType(config, browser);
@@ -167,6 +167,7 @@ public class SharedDriver extends EventFiringWebDriver {
         try {
             String downloadFilepath = config.get("ftp_base_path") + sp + "target" + sp + "download-files";
             ChromeOptions options = new ChromeOptions();
+            System.out.println("测试系统：" + System.getProperty("os.name"));
             if ("Mac OS X".equalsIgnoreCase(System.getProperty("os.name"))) {
                 options.setBinary(config.get("macbinary"));
             }
