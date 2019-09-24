@@ -10,6 +10,7 @@ import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -93,12 +94,16 @@ public class UploadFile {
 
     private void uploadFile(WebElement uploadInput, String fileNameWithPath) {
         String type = SharedDriver.WebDriverType;
+        JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        String userAgent = (String) js.executeScript("return navigator.userAgent");
         if (fileNameWithPath != null && fileNameWithPath.trim().length() != 0) {
             String s = File.separator;
             String courseFile = "";
             try {
                 File directory = new File("");
-                if ("Remote".equalsIgnoreCase(type)) {
+                if ("Mac OS X".contains(userAgent)) {
+                    courseFile = directory.getCanonicalPath();
+                } else {
                     courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
                     uploadFileToSeleniumServer(fileNameWithPath);
                     File tmpFile = new File(fileNameWithPath);
@@ -106,8 +111,6 @@ public class UploadFile {
                     String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
                     courseFile = courseFile + "/" + path;
                     fileNameWithPath = fileName;
-                } else {
-                    courseFile = directory.getCanonicalPath();
                 }
                 fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
 
