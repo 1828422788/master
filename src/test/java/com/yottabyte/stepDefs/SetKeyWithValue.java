@@ -73,7 +73,7 @@ public class SetKeyWithValue {
 //        else
 //            element.sendKeys(Keys.COMMAND, "a");
 //        element.sendKeys(Keys.DELETE);
-//        element.sendKeys(value);
         element.clear();
+        element.sendKeys(value);
     }
 }
