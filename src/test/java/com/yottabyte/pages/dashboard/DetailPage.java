@@ -118,6 +118,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[contains(text(),'UIautotest')]")
     private WebElement uiautotest;
 
+    @FindBy(xpath = "//a[contains(text(),'测试标签页移出')]")
+    private WebElement testMoveTag;
+
     @FindBy(className = "icon-tianjiatubiao_icon")
     private WebElement addTag;
 
@@ -212,6 +215,20 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(id = "jsoneditor")
     private WebElement jsonEditor;
+
+    @FindBy(className = "el-icon-loading")
+    private WebElement iconLoading;
+
+    @FindBy(xpath = "//span[contains(text(),'选择趋势图进行添加')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button[@class='el-button yw-modal-btn yw-modal-btn-primary el-button--primary']")
+    private WebElement ensureAddTrend;
+
+    public WebElement getIconLoading() {
+        return iconLoading;
+    }
+
+    public WebElement getTestMoveTag() {
+        return testMoveTag;
+    }
 
     public WebElement getJsonEditor() {
         return jsonEditor;
@@ -526,7 +543,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getEnsureAddTrend() {
-        return ensureList.get(2);
+        return ensureAddTrend;
     }
 
     @Override

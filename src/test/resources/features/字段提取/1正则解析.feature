@@ -68,12 +68,12 @@ Feature: 字段提取正则解析
       | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
       | {'appname':'auto_test_apache','tag':'auto_test_apache','logtype':'apache','apache.referer':'http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0','apache.referer_domain':'alltest.rizhiyi.com','apache.request_path':'/api/v0/search/fields/','apache.request_query':'field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields','apache.resp_len':'363'} |
 
-#  Scenario Outline: 验证详情
-#    Given open the "configs.ListPage" page for uri "/configs/"
-#    When the data name is "RZY2889apache解析优化" then i click the "详情" button
-#    And I wait for "SmallTr" will be visible
-#    Then I will see the config element "正则解析" value is "正则解析<result>"
-#
-#    Examples:
-#      | result          |
-#      | \n1\n1\n0\n0\n0 |
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "RZY2889apache解析优化" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the config element "正则解析" value is "正则解析<result>"
+
+    Examples:
+      | result          |
+      | \n1\n1\n0\n0\n0 |

@@ -106,13 +106,13 @@ Feature: 字段提取IP格式转换
       | name        | result          |
       | RZY1556内容替换 | \n1\n1\n0\n0\n0 |
 
-#  Scenario Outline: 验证详情
-#    Given open the "configs.ListPage" page for uri "/configs/"
-#    When the data name is "<name>" then i click the "详情" button
-#    And I wait for "SmallTr" will be visible
-#    Then I will see the config element "Json解析" value is "Json解析<result>"
-#    Then I will see the config element "内容替换" value is "内容替换<result>"
-#
-#    Examples:
-#      | name         | result          |
-#      | RZY1559tag替换 | \n1\n1\n0\n0\n0 |
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "<name>" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the config element "Json解析" value is "Json解析<result>"
+    Then I will see the config element "内容替换" value is "内容替换<result>"
+
+    Examples:
+      | name         | result          |
+      | RZY1559tag替换 | \n1\n1\n0\n0\n0 |

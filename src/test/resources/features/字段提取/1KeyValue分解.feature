@@ -82,13 +82,13 @@ Feature: 字段提取KeyValue分解
       | auto_test_dump_key | other.order                                                                                                     | {'appname':'auto_test_dump_key','other.field':'tag','other.page':'1','other.query':'*','other.size':'50','other.sourcegroup':'all','other.sourcegroupCn':'%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97','other.time_range':'-2d,now','other.type':'fields'} |
       | auto_test_keep_key | other.field,other.page,other.query,other.size,other.sourcegroup,other.sourcegroupCn,other.time_range,other.type | {'other.order':'desc'}                                                                                                                                                                                                                              |
 
-#  Scenario Outline: 验证详情
-#    Given open the "configs.ListPage" page for uri "/configs/"
-#    When the data name is "<name>" then i click the "详情" button
-#    And I wait for "SmallTr" will be visible
-#    Then I will see the config element "KeyValue分解" value is "KeyValue分解<result>"
-#
-#    Examples:
-#      | name         | result          |
-#      | RZY1532丢弃key | \n1\n1\n0\n0\n0 |
-#      | RZY1533保留key | \n1\n1\n0\n0\n0 |
+  Scenario Outline: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "<name>" then i click the "详情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the config element "KeyValue分解" value is "KeyValue分解<result>"
+
+    Examples:
+      | name         | result          |
+      | RZY1532丢弃key | \n1\n1\n0\n0\n0 |
+      | RZY1533保留key | \n1\n1\n0\n0\n0 |
