@@ -101,7 +101,7 @@ public class UploadFile {
             String courseFile = "";
             try {
                 File directory = new File("");
-                if ("Remote".equalsIgnoreCase(type)) {
+                if ("Remote".equalsIgnoreCase(type) && !userAgent.contains("Mac OS X")) {
                     courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
                     uploadFileToSeleniumServer(fileNameWithPath);
                     File tmpFile = new File(fileNameWithPath);
@@ -111,6 +111,7 @@ public class UploadFile {
                     fileNameWithPath = fileName;
                 } else {
                     courseFile = directory.getCanonicalPath();
+                    System.out.println("路径：" + courseFile);
                 }
                 fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
 
@@ -121,7 +122,7 @@ public class UploadFile {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-              }
+            }
         } else {
             System.out.println("skip this step !");
         }
