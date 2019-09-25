@@ -121,8 +121,7 @@ public class UploadFile {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-
-            }
+              }
         } else {
             System.out.println("skip this step !");
         }
