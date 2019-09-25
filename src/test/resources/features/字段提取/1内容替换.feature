@@ -1,5 +1,5 @@
 @configsSmoke
-Feature: 字段提取IP格式转换
+Feature: 字段提取内容替换
 
   Scenario Outline: RZY-1557:不勾选 只替换第一个
     Given open the "configs.ListPage" page for uri "/configs/"

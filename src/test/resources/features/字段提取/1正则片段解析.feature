@@ -67,4 +67,4 @@ Feature: 字段提取正则片段解析
 
     Examples:
       | result          |
-      | \n1\n1\n0\n0\n0 |
+      | \n2\n2\n0\n0\n0 |

@@ -10,5 +10,5 @@ Feature: 字段提取复制
     Then I will see the search result contains "{'column':'0','name':'<name>(副本)'}"
 
     Examples:
-      | name               |
-      | RZY2868redirect主规则 |
+      | name        |
+      | RZY3417多值字段 |
