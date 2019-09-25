@@ -87,6 +87,7 @@ Feature: 字段提取数值型字段转换
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading complete
     When the data name is "RZY1536数值型字段转换" then i click the "详情" button
     And I wait for "SmallTr" will be visible
     Then I will see the config element "数值型字段转换" value is "数值型字段转换<result>"

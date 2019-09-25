@@ -84,6 +84,7 @@ Feature: 字段提取KeyValue分解
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading complete
     When the data name is "<name>" then i click the "详情" button
     And I wait for "SmallTr" will be visible
     Then I will see the config element "KeyValue分解" value is "KeyValue分解<result>"

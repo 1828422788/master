@@ -72,6 +72,7 @@ Feature: 字段提取Hex转换
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading complete
     When the data name is "RZY2826高级模式下start_offset的使用" then i click the "详情" button
     Then I will see the config element "Hex转换" value is "Hex转换<result>"
 

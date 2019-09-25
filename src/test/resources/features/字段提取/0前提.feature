@@ -41,11 +41,14 @@ Feature: 字段提取前提条件
     And I cancel selection "default_ParserRule" from the "Group"
     And I click the "Ensure" button
 
-  Scenario: 验证分组搜索
+  Scenario: 验证未分组中是否存在数据
     Given open the "configs.ListPage" page for uri "/configs/"
     When I choose the "未分组" from the "GroupList"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'RZY3417多值字段'}"
+
+  Scenario: 验证分组中是否存在数据
+    Given open the "configs.ListPage" page for uri "/configs/"
     When I choose the "default_ParserRule" from the "GroupList"
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'RZY3417多值字段','contains':'no'}"

@@ -28,7 +28,6 @@ Feature: 系统设置所有时间定义（RZY-1818）
       | starttime="-15h/h" endtime="now"                    |
       | now/d                                               |
 
-  @smoke @configsSmoke
   Scenario Outline: 保存成功
     When I set the parameter "WholeTime" with value "<wholeTime>"
     And I let element "WholeTime" lose focus

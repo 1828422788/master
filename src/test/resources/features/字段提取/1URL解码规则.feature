@@ -63,6 +63,7 @@ Feature: 字段提取URL解码规则
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading complete
     When the data name is "RZY1539添加URL解析" then i click the "详情" button
     And I wait for "SmallTr" will be visible
     Then I will see the config element "URL解析" value is "URL解析<result>"

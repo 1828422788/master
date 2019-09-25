@@ -58,6 +58,16 @@ Feature: 字段提取脱敏配置
       | Object\nphone:"qweqwe15998418361qwe 15998418361"\nraw_message:"qweqwe15998418361qwe 15998418361" | Object\nphone:"qweqwe159****8361qwe 15998418361"\nraw_message:"qweqwe15998418361qwe 15998418361"\nraw_message_r:"qweqwe159****8361qwe 15998418361" | Object\nphone:"qweqwe159****8361qwe 159****8361"\nraw_message:"qweqwe15998418361qwe 15998418361"\nraw_message_r:"qweqwe159****8361qwe 159****8361" |
 
   Scenario Outline: 上传日志
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with properties "userWithResources"
+    And I set the parameter "Password" with properties "userWithResourcesPwd"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<appName>"
@@ -93,6 +103,7 @@ Feature: 字段提取脱敏配置
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading complete
     When the data name is "脱敏" then i click the "详情" button
     And I wait for "SmallTr" will be visible
     Then I will see the config element "脱敏配置" value is "脱敏配置<result>"
