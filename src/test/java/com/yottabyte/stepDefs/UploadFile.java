@@ -109,6 +109,9 @@ public class UploadFile {
                     String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
                     courseFile = courseFile + "/" + path;
                     fileNameWithPath = fileName;
+                } else if ("Remote".equalsIgnoreCase(type) && userAgent.contains("Mac OS X")) {
+                    // 远程端为本地时。仅供测试 需删
+                    courseFile = "/Users/sunxj/IdeaProjects/rzy_auto_test_UI";
                 } else {
                     courseFile = directory.getCanonicalPath();
                     System.out.println("路径：" + courseFile);
