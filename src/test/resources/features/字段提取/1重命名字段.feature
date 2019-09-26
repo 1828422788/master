@@ -92,6 +92,7 @@ Feature: 字段提取重命名字段
     Then I will see the config element "Json解析" value is "Json解析<result>"
     Then I will see the config element "字段重命名" value is "字段重命名<result>"
 
+
     Examples:
       | result          |
       | \n1\n1\n0\n0\n0 |
