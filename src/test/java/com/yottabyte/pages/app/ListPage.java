@@ -24,11 +24,11 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getCreateButton() {
-        return super.getButton("新建");
+        return super.getButton("新 建");
     }
 
     public WebElement getInstallButton() {
-        return super.getButton("安装");
+        return super.getButton("安 装");
     }
 
     public WebElement getEnsureButton() {
