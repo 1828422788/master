@@ -1,5 +1,6 @@
 package com.yottabyte.utils;
 
+import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import org.openqa.selenium.*;
@@ -49,7 +50,21 @@ public class WaitForElement {
     public static void waitUntilLoadingDisappear() {
         if (ElementExist.isElementExist(webDriver, By.className("el-loading-mask"))) {
             WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+            WaitForElement.waitElementInvisible(loadingMask);
+//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+        }
+    }
+
+    public static void waitElementInvisible(WebElement element) {
+        FluentWait<WebDriver> wait = new FluentWait<>(webDriver);
+        wait.pollingEvery(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS);
+        wait.withTimeout(WebDriverConst.WAIT_FOR_DOM_READY_TIMEOUT, TimeUnit.MILLISECONDS);
+        wait.ignoring(TimeoutException.class);
+        try {
+            wait.until(ExpectedConditions.invisibilityOf(element));
+        } catch (ElementNotFoundException | NoSuchElementException e) {
+            e.printStackTrace();
+            return;
         }
     }
 }

@@ -825,38 +825,38 @@ public class CreatePage extends PageTemplate {
         getSaveButton().click();
     }
 
-    public static void main(String args[]) throws InterruptedException {
-
-        SharedDriver driver = new SharedDriver();
-        ConfigManager c = new ConfigManager();
-        GetLogger.getLogger().debug("test");
-        GetLogger.getLogger().info("test");
-        GetLogger.getLogger().warn("test");
-        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
-        login.beforeScenario();
-        Thread.sleep(10000);
-        driver.get("http://alltest.rizhiyi.com/alerts/new/");
-        ListPage p = new ListPage(driver);
-        Thread.sleep(2000);
-//        p.getCreateAlert().click();
+//    public static void main(String args[]) throws InterruptedException {
+//
+//        SharedDriver driver = new SharedDriver();
+//        ConfigManager c = new ConfigManager();
+//        GetLogger.getLogger().debug("test");
+//        GetLogger.getLogger().info("test");
+//        GetLogger.getLogger().warn("test");
+//        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
+//        login.beforeScenario();
 //        Thread.sleep(10000);
-//        new CreatePage(driver).tabs.get(2).click();
-//        new CreatePage(driver).rsyslogType("192.168.1.82:514",
-//                new ArrayList<String>(Arrays.asList("UDP")),
-//                new ArrayList<String>(Arrays.asList("INFO")),"local0",
-//                new ArrayList<String>(Arrays.asList("")),"{{ alert.name }}|{{ alert.strategy.trigger.start_time|date:\"Y-m-d H:i:s\" }}|{{ alert.strategy.trigger.end_time|date:\"Y-m-d H:i:s\" }}|{{ alert.search.query }}");
-        List list = new ArrayList<>();
-        List list1 = new ArrayList<>();
-        List list2 = new ArrayList<>();
-        list.add("default_Alert");
-        list1.add("所有日志");
-        list2.add("1");
-        list2.add("3");
-        list2.add("10");
-
-        new CreatePage(driver).createAlert("autotest", list, list1, list2);
-        driver.quit();
-    }
+//        driver.get("http://alltest.rizhiyi.com/alerts/new/");
+//        ListPage p = new ListPage(driver);
+//        Thread.sleep(2000);
+////        p.getCreateAlert().click();
+////        Thread.sleep(10000);
+////        new CreatePage(driver).tabs.get(2).click();
+////        new CreatePage(driver).rsyslogType("192.168.1.82:514",
+////                new ArrayList<String>(Arrays.asList("UDP")),
+////                new ArrayList<String>(Arrays.asList("INFO")),"local0",
+////                new ArrayList<String>(Arrays.asList("")),"{{ alert.name }}|{{ alert.strategy.trigger.start_time|date:\"Y-m-d H:i:s\" }}|{{ alert.strategy.trigger.end_time|date:\"Y-m-d H:i:s\" }}|{{ alert.search.query }}");
+//        List list = new ArrayList<>();
+//        List list1 = new ArrayList<>();
+//        List list2 = new ArrayList<>();
+//        list.add("default_Alert");
+//        list1.add("所有日志");
+//        list2.add("1");
+//        list2.add("3");
+//        list2.add("10");
+//
+//        new CreatePage(driver).createAlert("autotest", list, list1, list2);
+//        driver.quit();
+//    }
 
 
 }

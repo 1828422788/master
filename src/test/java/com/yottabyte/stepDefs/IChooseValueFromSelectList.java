@@ -192,20 +192,20 @@ public class IChooseValueFromSelectList {
         }
     }
 
-    public static void main(String args[]) throws InterruptedException {
-        SharedDriver driver = new SharedDriver();
-        ConfigManager c = new ConfigManager();
-        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
-        login.beforeScenario();
-        Thread.sleep(10000);
-        driver.get("http://alltest.rizhiyi.com/account/usergroups/1/");
-        driver.findElements(By.className("el-input__inner")).get(2).click();
-        WebElement e = driver.findElement(By.className("el-select-dropdown__list"));
-        List list = new ArrayList<>();
-        list.add("admin");
-        list.add("sunxc");
-        new IChooseValueFromSelectList().iCancelAllSelectionExcept(e, list);
-
-        System.out.println("done");
-    }
+//    public static void main(String args[]) throws InterruptedException {
+//        SharedDriver driver = new SharedDriver();
+//        ConfigManager c = new ConfigManager();
+//        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
+//        login.beforeScenario();
+//        Thread.sleep(10000);
+//        driver.get("http://alltest.rizhiyi.com/account/usergroups/1/");
+//        driver.findElements(By.className("el-input__inner")).get(2).click();
+//        WebElement e = driver.findElement(By.className("el-select-dropdown__list"));
+//        List list = new ArrayList<>();
+//        list.add("admin");
+//        list.add("sunxc");
+//        new IChooseValueFromSelectList().iCancelAllSelectionExcept(e, list);
+//
+//        System.out.println("done");
+//    }
 }

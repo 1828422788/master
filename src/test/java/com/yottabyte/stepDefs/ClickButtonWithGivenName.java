@@ -27,6 +27,7 @@ import java.util.Map;
 public class ClickButtonWithGivenName {
 
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+    GetPaging pagingInfo = new GetPaging();
 
     /**
      * 寻找对应的操作按钮并点击
@@ -510,7 +511,7 @@ public class ClickButtonWithGivenName {
     public void verifyData(String baseValue, String compareValue) {
         Map<String, Object> baseValueMap = JsonStringPaser.json2Stirng(baseValue);
         Map<String, Object> compareValueMap = JsonStringPaser.json2Stirng(compareValue);
-        Paging paging = GetPaging.getPagingInfo();
+        Paging paging = pagingInfo.getPagingInfo();
 
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
@@ -531,7 +532,7 @@ public class ClickButtonWithGivenName {
 
     @And("^I click the \"([^\"]*)\" button in each page$")
     public void iClickTheButtonInEachPage(String buttonName) {
-        Paging paging = GetPaging.getPagingInfo();
+        Paging paging = pagingInfo.getPagingInfo();
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0)
                 paging.getNextPage().click();

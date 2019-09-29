@@ -297,24 +297,24 @@ public class ListPage extends PageTemplate {
         }
     }
 
-    public static void main(String args[]) throws InterruptedException {
-        SharedDriver driver = new SharedDriver();
-        ConfigManager c = new ConfigManager();
-        List list = new ArrayList<>();
-        List list1 = new ArrayList<>();
-        List list2 = new ArrayList<>();
-        list.add("default_Alert");
-        list1.add("所有日志");
-        list2.add("1");
-        list2.add("3");
-        list2.add("10");
-        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
-        login.beforeScenario();
-        Thread.sleep(5000);
-        driver.get("http://" + config.get("rizhiyi_server_host") + "/alerts");
-//        ListPage p = new ListPage(driver);
-//        p.deleteAlert("AutoTest");
-//        p.thereIsAnAlert("AutoTest", list, list1, list2);
-    }
+//    public static void main(String args[]) throws InterruptedException {
+//        SharedDriver driver = new SharedDriver();
+//        ConfigManager c = new ConfigManager();
+//        List list = new ArrayList<>();
+//        List list1 = new ArrayList<>();
+//        List list2 = new ArrayList<>();
+//        list.add("default_Alert");
+//        list1.add("所有日志");
+//        list2.add("1");
+//        list2.add("3");
+//        list2.add("10");
+//        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
+//        login.beforeScenario();
+//        Thread.sleep(5000);
+//        driver.get("http://" + config.get("rizhiyi_server_host") + "/alerts");
+////        ListPage p = new ListPage(driver);
+////        p.deleteAlert("AutoTest");
+////        p.thereIsAnAlert("AutoTest", list, list1, list2);
+//    }
 
 }

@@ -24,6 +24,7 @@ public class SplSearch {
     private Logger logger = GetLogger.getLogger();
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
     private TakeScreenShot shot = SharedDriver.getScreenShot();
+    private GetPaging pagingInfo = new GetPaging();
 
     @And("^I will see \"([^\"]*)\" rows and \"([^\"]*)\" columns of \"([^割]*)\" in the table$")
     public void checkRowsNum(String rows, String columns, String spl) {
@@ -86,7 +87,7 @@ public class SplSearch {
                 List<WebElement> thList = table.findElements(By.tagName("th"));
                 assertEquals(columnNum, thList.size());
             }
-            Paging paging = GetPaging.getPagingInfo();
+            Paging paging = pagingInfo.getPagingInfo();
 
             // 判断行数是否相符
             if ("".equals(rows))

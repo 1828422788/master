@@ -8,6 +8,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,6 +20,9 @@ import java.util.*;
  */
 public class RegularSearch {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+    private Map<String, Object> resultMap;
+    private int columnNum;
+    private GetPaging pagingInfo = new GetPaging();
 
     /**
      * 验证每一行数据均为某一值
@@ -45,7 +49,12 @@ public class RegularSearch {
     }
 
     private void waitUntilLoadingDisappear() {
-        WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
+        WebElement loadingMask;
+        try {
+            loadingMask = webDriver.findElement(By.className("ant-spin-spinning"));
+        } catch (NoSuchElementException e) {
+            return;
+        }
         if (ElementExist.isElementExist(webDriver, loadingMask))
             WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
     }
@@ -62,7 +71,7 @@ public class RegularSearch {
         if (trList == null)
             return;
 
-        Paging paging = GetPaging.getPagingInfo();
+        Paging paging = pagingInfo.getPagingInfo();
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
                 paging.getNextPage().click();
@@ -114,12 +123,12 @@ public class RegularSearch {
     @Then("^I will see the search result contains \"([^\"]*)\"$")
     public void validateSearchResultContainsValue(String searchResult) {
         List<WebElement> trList = this.getTrList();
-        if (trList == null)
+        if (trList.size() == 0) {
             return;
-
-        Paging paging = GetPaging.getPagingInfo();
-        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
-        int columnNum = Integer.parseInt(resultMap.get("column").toString());
+        }
+        Paging paging = pagingInfo.getPagingInfo();
+        resultMap = JsonStringPaser.json2Stirng(searchResult);
+        columnNum = Integer.parseInt(resultMap.get("column").toString());
 
         boolean flag = false;
 
@@ -131,19 +140,12 @@ public class RegularSearch {
                 trList = this.getTrList();
             }
 
-            for (WebElement tr : trList) {
-                List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
-                if (tdList.size() >= columnNum) {
-                    String actualText = tdList.get(columnNum).getText();
-                    String expectText = resultMap.get("name").toString();
-                    if (actualText.contains(expectText)) {
-                        flag = true;
-                        break outer;
-                    }
-                }
+            if (this.validateTdList(trList)) {
+                flag = true;
+                break outer;
             }
         }
-        Assert.assertTrue(flag);
+        Assert.assertTrue("列表下不包含该字段！", flag);
     }
 
     /**
@@ -161,22 +163,23 @@ public class RegularSearch {
 
 
     private boolean validateContainsResult(String searchResult, List<WebElement> trList) {
-        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
-        int columnNum = Integer.parseInt(resultMap.get("column").toString());
+        resultMap = JsonStringPaser.json2Stirng(searchResult);
+        columnNum = Integer.parseInt(resultMap.get("column").toString());
+        return this.validateTdList(trList);
+    }
 
-        boolean flag = false;
+    private boolean validateTdList(List<WebElement> trList) {
         for (WebElement tr : trList) {
             List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
             if (tdList.size() >= columnNum) {
                 String actualText = tdList.get(columnNum).getText();
                 String expectText = resultMap.get("name").toString();
                 if (actualText.contains(expectText)) {
-                    flag = true;
-                    break;
+                    return true;
                 }
             }
         }
-        return flag;
+        return false;
     }
 
     @Then("^I will see the result time in \"([^\"]*)\"$")
@@ -192,7 +195,7 @@ public class RegularSearch {
         int columnNum = Integer.parseInt(resultMap.get("column").toString());
 
         // 获取分页相关信息
-        Paging paging = GetPaging.getPagingInfo();
+        Paging paging = pagingInfo.getPagingInfo();
 
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
@@ -215,10 +218,7 @@ public class RegularSearch {
     }
 
     private List<WebElement> getTrList() {
-        List<WebElement> trList = webDriver.findElements(By.xpath("//table[@class='el-table__body']//tr[not(@class='el-table__row divided-row')]"));
-        // 列表下无数据则返回空
-        if (trList.size() == 0 || trList.size() == 1 && "el-table__row no-data".equals(trList.get(0).getAttribute("class")))
-            return null;
+        List<WebElement> trList = webDriver.findElements(By.xpath("//tbody[@class='ant-table-tbody']/tr"));
         return trList;
     }
 
@@ -279,7 +279,7 @@ public class RegularSearch {
         if (trList == null)
             return;
 
-        Paging paging = GetPaging.getPagingInfo();
+        Paging paging = pagingInfo.getPagingInfo();
         String expectedClassName = "circle " + colour + "-circle";
 
         for (int i = 0; i < paging.getTotalPage(); i++) {
@@ -312,7 +312,7 @@ public class RegularSearch {
         if (trList == null)
             return;
 
-        Paging paging = GetPaging.getPagingInfo();
+        Paging paging = pagingInfo.getPagingInfo();
         String expectedClassName = "circle " + colour + "-circle";
 
         for (int i = 0; i < paging.getTotalPage(); i++) {

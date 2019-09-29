@@ -21,7 +21,7 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-loading-mask")
     private WebElement loadingElement;
 
-    @FindBy(xpath = "//*[text()='新建']")
+    @FindBy(xpath = "//*[text()='新建']/ancestor::button")
     private WebElement createKnowledge;
 
     @FindBy(xpath = "//*[text()='编辑']")
@@ -90,7 +90,7 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-message__group")
     private WebElement deleteMsg;
 
-    @FindBy(xpath = "//label[contains(text(),'分组')]/following-sibling::div//input[@class='el-input__inner']")
+    @FindBy(xpath = "//label[contains(text(),'资源标签')]/following-sibling::div//input[@class='el-input__inner']")
     private WebElement groupInput;
 
     @FindBy(xpath = "//label[contains(text(),'标签')]/following-sibling::div//input")
@@ -248,7 +248,6 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getCreateKnowledge() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
         return createKnowledge;
     }
 

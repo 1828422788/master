@@ -19,12 +19,13 @@ public class GetElementFromPage {
 
     /**
      * 根据名称获取页面中的元素
-     * @param name 元素名称 如果是json格式，value必须是列表
+     *
+     * @param name  元素名称 如果是json格式，value必须是列表
      * @param paras 获取元素的参数
      * @param <T>
      * @return
      */
-    public static <T>T getWebElementWithName(String name, Object... paras) {
+    public static <T> T getWebElementWithName(String name, Object... paras) {
         if (JsonStringPaser.isJson(name)) {
             Map<String, Object> map = JsonStringPaser.json2Stirng(name);
             Object[] parameters = new Object[0];
@@ -33,8 +34,8 @@ public class GetElementFromPage {
                 parameters = ((JSONArray) entry.getValue()).toArray();
             }
             invokeMethod(name, parameters);
-        }else {
-            if (paras != null) {
+        } else {
+            if (paras != null && paras.length != 0) {
                 invokeMethod(name, paras);
             } else {
                 if (name.startsWith("get")) {
@@ -60,7 +61,7 @@ public class GetElementFromPage {
         return (T) object;
     }
 
-    public static <T>T getWebElementWithoutGet(String name, Object... paras) {
+    public static <T> T getWebElementWithoutGet(String name, Object... paras) {
         Class c[] = null;
         Object object = null;
         c = getClasses(c, paras);

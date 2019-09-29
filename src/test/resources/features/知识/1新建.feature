@@ -14,11 +14,11 @@ Feature: 知识新建（RZY-868）
     And I set the parameter "Describe" with value "<Describe>"
     And I set the parameter "Solution" with value "<Solution>"
     And I click the "Confirm" button
-    Then I will see the <Result>
+    Then I will see the search result contains "{'column':'0','name':'<NameValue>'}"
 
     Examples: 保存成功
-      | EventCodeValue | NameValue | Type              | TagType | Describe  | Solution   | Result                                                  |
-      | sxjautotest    | sunxj1    | default_Knowledge | 404     | sunxjTest | do nothing | search result contains "{'column':'0','name':'sunxj1'}" |
+      | EventCodeValue | NameValue | Type              | TagType | Describe  | Solution   |
+      | sxjautotest    | sunxj1    | default_Knowledge | 404     | sunxjTest | do nothing |
 
   Scenario Outline: 新建知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"

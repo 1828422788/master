@@ -7,7 +7,6 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import net.lightbody.bmp.BrowserMobProxyServer;
-import org.apache.http.HttpRequest;
 import org.apache.logging.log4j.core.config.ConfigurationSource;
 import org.apache.logging.log4j.core.config.Configurator;
 import org.openqa.selenium.OutputType;

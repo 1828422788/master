@@ -150,19 +150,19 @@ public class AuthorizationPage extends PageTemplate {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        SharedDriver driver = new SharedDriver();
-        ConfigManager c = new ConfigManager();
-        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
-        login.beforeScenario();
-        Thread.sleep(3000);
-        driver.get("http://192.168.1.134/account/roles/assign/1/");
-        LoginBeforeAllTests.setPageFactory("roles.AuthorizationPage");
-        ICheckValuesFromCheckBox checkBox = new ICheckValuesFromCheckBox();
-        List<String> list = new ArrayList<>();
-        list.add("读取");
-        list.add("编辑");
-        checkBox.iCheckFromThe(list, "{'GroupManagement':['AutoTest']}");
-    }
+//    public static void main(String[] args) throws InterruptedException {
+//        SharedDriver driver = new SharedDriver();
+//        ConfigManager c = new ConfigManager();
+//        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
+//        login.beforeScenario();
+//        Thread.sleep(3000);
+//        driver.get("http://192.168.1.134/account/roles/assign/1/");
+//        LoginBeforeAllTests.setPageFactory("roles.AuthorizationPage");
+//        ICheckValuesFromCheckBox checkBox = new ICheckValuesFromCheckBox();
+//        List<String> list = new ArrayList<>();
+//        list.add("读取");
+//        list.add("编辑");
+//        checkBox.iCheckFromThe(list, "{'GroupManagement':['AutoTest']}");
+//    }
 
 }

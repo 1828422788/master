@@ -5,8 +5,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.List;
+import org.openqa.selenium.support.FindBy;
 
 /**
  * @author sunxj
@@ -15,20 +14,31 @@ public class GetPaging {
     private static WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
     private static Paging paging = new Paging();
 
-    private static void setPagingInfo(Paging paging) {
-        // 分页标签
-        List<WebElement> pagingLabel = webDriver.findElements(By.className("number"));
-        // 总页数
-        int totalPage = Integer.parseInt(pagingLabel.get(pagingLabel.size() - 1).getText());
-        // 下一页按钮
-        WebElement nextPage = webDriver.findElement(By.className("btn-next"));
+    private WebElement totalNumberElement;
+
+    private WebElement numbersPerPageElement;
+
+    public GetPaging() {
+        totalNumberElement = webDriver.findElement(By.xpath("//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span"));
+        numbersPerPageElement = webDriver.findElement(By.className("ant-select-selection-selected-value"));
+    }
+
+    public Paging getPagingInfo() {
+        setPagingInfo(paging);
+        return paging;
+    }
+
+    private void setPagingInfo(Paging paging) {
+        int totalPage = getTotalPage();
+        WebElement nextPage = webDriver.findElement(By.className(" ant-pagination-next"));
 
         paging.setTotalPage(totalPage);
         paging.setNextPage(nextPage);
     }
 
-    public static Paging getPagingInfo() {
-        setPagingInfo(paging);
-        return paging;
+    private int getTotalPage() {
+        int totalNumber = Integer.parseInt(totalNumberElement.getText());
+        int numbersPerPage = StringUtils.findNumberInString(numbersPerPageElement.getText());
+        return (int) Math.ceil((double) totalNumber / numbersPerPage);
     }
 }
