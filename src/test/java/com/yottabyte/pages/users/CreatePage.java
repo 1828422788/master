@@ -71,7 +71,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getUserGroups() {
-        return super.getDropdownList("指定用户分组");
+        return super.getDropdownList("用户分组");
     }
 
     public WebElement getCreateButton() {

@@ -13,10 +13,10 @@ public class ListPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//button[@class='el-button el-button--primary']/span[text()='上传'][not(@class)]")
+    @FindBy(xpath = "//span[text()='上 传']//ancestor::button[@class='ant-btn ant-btn-primary']")
     private WebElement uploadFile;
 
-    @FindBy(className = "el-upload-list__item-name")
+    @FindBy(className = "ant-upload-list-item-name")
     private WebElement fileName;
 
     @FindBy(className = "el-message__group")
@@ -54,11 +54,11 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getUploadButton() {
-        return super.getButton("上传");
+        return super.getButton("上 传");
     }
 
     public WebElement getGroup() {
-        return super.getDropdownList("字典分组");
+        return super.getDropdownList("字典标签");
     }
 
     public WebElement getEnsureButton() {

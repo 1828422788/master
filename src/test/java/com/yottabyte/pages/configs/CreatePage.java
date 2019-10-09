@@ -18,8 +18,11 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//h3[text()='日志样例']/following-sibling::div/textarea")
+    @FindBy(xpath = "//textarea[@placeholder='请输入raw_message']")
     private WebElement logSample;
+
+    @FindBy(xpath = "//span[text()='添加解析规则']")
+    private WebElement addRule;
 
     @FindBy(xpath = "//h3[text()='基本信息']")
     private WebElement basicInfo;
@@ -27,26 +30,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//h3[text()='规则配置完成！']")
     private WebElement configDone;
 
-    @FindBy(xpath = "(//label[text()='正则表达式'])[last()]/following-sibling::div/textarea")
+    @FindBy(xpath = "(//div[text()='正则表达式'])[last()]/following-sibling::div/textarea")
     private WebElement regex;
 
     @FindBy(xpath = "(//label[text()='正则表达式']/following-sibling::div/textarea)[2]")
     private WebElement regex2;
 
-    @FindBy(xpath = "//label[text()='来源字段']")
+    @FindBy(xpath = "//div[text()='来源字段']")
     private WebElement sourceFieldLabel;
 
     @FindBy(xpath = "(//label[text()='来源字段']/following-sibling::div//i)[last()]")
     private WebElement sourceField;
-
-    @FindBy(xpath = "(//label[contains(text(),'来源字段')]/following-sibling::div//input[@class='el-input__inner'])[2]")
-    private WebElement sourceFieldLabel2;
-
-    @FindBy(xpath = "(//label[contains(text(),'来源字段')]/following-sibling::div//input[@class='el-input__inner'])[3]")
-    private WebElement sourceFieldLabel3;
-
-    @FindBy(xpath = "(//label[contains(text(),'来源字段')]/following-sibling::div//input[@class='el-input__inner'])[4]")
-    private WebElement sourceFieldLabel4;
 
     @FindBy(className = "el-icon-plus")
     private WebElement plusButton;
@@ -99,8 +93,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ace_content")
     private WebElement ruleContent;
 
-    @FindBy(className = "icon-qiehuanweiJHSONbianji")
-    private List<WebElement> changeToJson;
+    @FindBy(className = "anticon-swap")
+    private WebElement changeToJson;
 
     @FindBy(xpath = "(//label[contains(text(),'匹配前缀')])[last()]/following-sibling::input")
     private WebElement prefix;
@@ -128,6 +122,10 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[@class='my-check my-check-success'])[4]")
     private WebElement checkSuccess4;
+
+    public WebElement getAddRule() {
+        return addRule;
+    }
 
     public WebElement getCheckSuccess4() {
         return checkSuccess4;
@@ -170,7 +168,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getChangeToJson() {
-        return changeToJson.get(changeToJson.size() - 1);
+        return changeToJson;
     }
 
     public WebElement getRuleContent() {
@@ -262,11 +260,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getParseButton() {
-        return super.getButton("解析");
+        return super.getButton("解 析");
     }
 
     public WebElement getParseRule() {
-        return super.getDropdownList("添加解析规则");
+        return super.getDropdownList("规则类型");
+    }
+
+    public WebElement getSourceField() {
+        return super.getDropdownList("来源字段");
     }
 
     public WebElement getContinueButton() {
@@ -279,17 +281,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTargetField() {
         return getInputElement("目标字段");
-    }
-
-    public WebElement getSourceFieldLabel2() {
-        sourceFieldLabel2.click();
-        return getLastDropdownList();
-    }
-
-    public WebElement getSourceField() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(sourceFieldLabel));
-        sourceField.click();
-        return super.getLastDropdownList();
     }
 
     public WebElement getFieldSeparator() {
@@ -370,16 +361,6 @@ public class CreatePage extends PageTemplate {
         return source;
     }
 
-    public WebElement getSourceFieldLabel3() {
-        sourceFieldLabel3.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getSourceFieldLabel4() {
-        sourceFieldLabel4.click();
-        return super.getLastDropdownList();
-    }
-
     public WebElement getRegex2() {
         return regex2;
     }
@@ -390,11 +371,15 @@ public class CreatePage extends PageTemplate {
 
     @Override
     public WebElement getInputElement(String text) {
-        String xpath = "//label[contains(text(),'" + text + "')]/following-sibling::input";
+        String xpath = "//div[text()='" + text + "']//following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getResult() {
         return result;
+    }
+
+    public WebElement getEnsureAddParseRule() {
+        return super.getButton("确定");
     }
 }

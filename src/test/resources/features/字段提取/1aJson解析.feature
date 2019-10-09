@@ -5,12 +5,12 @@ Feature: 字段提取Json、xml解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "AutoTest"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
+    And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -23,13 +23,13 @@ Feature: 字段提取Json、xml解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "AutoTest"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
+    And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :200}" to json editor
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -42,13 +42,13 @@ Feature: 字段提取Json、xml解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "AutoTest"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
+    And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :0}" to json editor
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -61,13 +61,13 @@ Feature: 字段提取Json、xml解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "AutoTest"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
+    And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :-1}" to json editor
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -80,12 +80,12 @@ Feature: 字段提取Json、xml解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "AutoTest"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
+    And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -99,13 +99,13 @@ Feature: 字段提取Json、xml解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "AutoTest"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
+    And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :200}" to json editor
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -119,13 +119,13 @@ Feature: 字段提取Json、xml解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "AutoTest"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
+    And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :0}" to json editor
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -139,13 +139,13 @@ Feature: 字段提取Json、xml解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "AutoTest"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
+    And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :-1}" to json editor
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -159,13 +159,13 @@ Feature: 字段提取Json、xml解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "AutoTest"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
+    And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "PathInput" with value "dimensions"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"

@@ -128,14 +128,14 @@ public class ClickButtonWithGivenName {
      * @param tr
      */
     private void click(String buttonName, WebElement tr) {
-        String xpath = ".//span[contains(text(),'" + buttonName + "')]";
+        String xpath = ".//a[contains(text(),'" + buttonName + "')]";
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         // 包含删除的按钮会有两个，因此需通过class属性去判断
-        if (button.get(0).getAttribute("class").equals("")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
-        } else {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(1));
-        }
+//        if (button.get(0).getAttribute("class").equals("")) {
+//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
+//        } else {
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
+//        }
     }
 
     /**
@@ -145,9 +145,8 @@ public class ClickButtonWithGivenName {
      */
     @Then("^I disabled the data \"([^\"]*)\"$")
     public void disableData(String dataName) {
-        String xpath = "//span[contains(text(),'" + dataName + "')]/preceding-sibling::label";
-        WebElement tr = this.findName(dataName);
-        // 找到禁用按钮并点击
+        String xpath = ".//button[@class='ant-switch-small ant-switch']";
+        WebElement tr = this.getTr(dataName);
         tr.findElement(By.xpath(xpath)).click();
     }
 
@@ -186,7 +185,7 @@ public class ClickButtonWithGivenName {
      */
     public WebElement findName(String name) {
         String url = webDriver.getCurrentUrl();
-        List<WebElement> tableList = webDriver.findElements(By.className("el-table__body"));
+        List<WebElement> tableList = webDriver.findElements(By.className("ant-table-tbody"));
 
         if (tableList.size() == 1 || url.contains("agent")) {
             // 表体
@@ -200,8 +199,7 @@ public class ClickButtonWithGivenName {
     }
 
     public WebElement findNameWithoutPaging(String name) {
-        String url = webDriver.getCurrentUrl();
-        List<WebElement> tableList = webDriver.findElements(By.className("el-table__body"));
+        List<WebElement> tableList = webDriver.findElements(By.className("ant-table-tbody"));
         WebElement table = tableList.get(0);
         return this.getRowWithoutPaging(name, table);
     }
@@ -218,37 +216,24 @@ public class ClickButtonWithGivenName {
      * @return
      */
     private WebElement getRow(String name, WebElement table) {
-        int i = 0;
-        while (i < this.getTotalPage()) {
-            // 找到一行元素
-            List<WebElement> trList = table.findElements(By.tagName("tr"));
-            if (i != 0 && i <= this.getTotalPage() - 1)
-                this.getNextPage().click();
-            WaitForElement.waitUntilLoadingDisappear();
-
-            for (WebElement tr : trList) {
-                if (tr.findElement(By.tagName("td")).getText().equals(name)) {
-                    return tr;
-                }
-            }
-            i++;
-        }
-        return null;
+        return this.getRowWithColumnNum(name, 0, table);
     }
 
     public WebElement getRowWithColumnNum(String name, int columnNum) {
-        WebElement table = webDriver.findElement(By.className("el-table__body"));
+        WebElement table = webDriver.findElement(By.className("ant-table-tbody"));
         return this.getRowWithColumnNum(name, columnNum, table);
     }
 
     public WebElement getRowWithColumnNum(String name, int columnNum, WebElement table) {
+        int totalPage = pagingInfo.getPagingInfo().getTotalPage();
+        WebElement nextPage = pagingInfo.getPagingInfo().getNextPage();
         int i = 0;
-        while (i < this.getTotalPage()) {
+        while (i < totalPage) {
             // 找到一行元素
             List<WebElement> trList = table.findElements(By.tagName("tr"));
-            if (i != 0 && i <= this.getTotalPage() - 1)
-                this.getNextPage().click();
-
+            if (i != 0 && i <= totalPage - 1)
+                nextPage.click();
+            WaitForElement.waitUntilLoadingDisappear();
             for (WebElement tr : trList) {
                 if (tr.findElements(By.tagName("td")).get(columnNum).getText().equals(name)) {
                     return tr;
@@ -260,15 +245,7 @@ public class ClickButtonWithGivenName {
     }
 
     private WebElement getRowWithoutPaging(String name, WebElement table) {
-        // 找到一行元素
-        List<WebElement> trList = table.findElements(By.tagName("tr"));
-
-        for (WebElement tr : trList) {
-            if (tr.findElement(By.tagName("td")).getText().equals(name)) {
-                return tr;
-            }
-        }
-        return null;
+        return this.getRowWithoutPaging(name, 0, table);
     }
 
     private WebElement getRowWithoutPaging(String name, int column, WebElement table) {
@@ -281,20 +258,6 @@ public class ClickButtonWithGivenName {
             }
         }
         return null;
-    }
-
-    private int getTotalPage() {
-        // 分页标签
-        List<WebElement> paging = webDriver.findElements(By.className("number"));
-        // 总页数
-        int totalPage = Integer.parseInt(paging.get(paging.size() - 1).getText());
-        return totalPage;
-    }
-
-    private WebElement getNextPage() {
-        // 下一页按钮
-        WebElement nextPage = webDriver.findElement(By.className("btn-next"));
-        return nextPage;
     }
 
     /**
@@ -315,12 +278,14 @@ public class ClickButtonWithGivenName {
             operatorTable = tableList.get(2);
         }
         List<WebElement> nameList = nameTable.findElements(By.tagName("tr"));
+        int totalPage = pagingInfo.getPagingInfo().getTotalPage();
+        WebElement nextPage = pagingInfo.getPagingInfo().getNextPage();
 
         int i = 0;
-        while (i < this.getTotalPage()) {
+        while (i < totalPage) {
             // 找到一行元素
-            if (i != 0 && i <= this.getTotalPage() - 1)
-                this.getNextPage().click();
+            if (i != 0 && i <= totalPage - 1)
+                nextPage.click();
 
             for (int index = 0; index < nameList.size(); index++) {
                 String sourceName = nameList.get(index).findElement(By.tagName("td")).getText();
@@ -423,13 +388,15 @@ public class ClickButtonWithGivenName {
     }
 
     private WebElement findLikelyName(String name) {
+        int totalPage = pagingInfo.getPagingInfo().getTotalPage();
+        WebElement nextPage = pagingInfo.getPagingInfo().getNextPage();
         WebElement tableList = webDriver.findElement(By.className("el-table__body"));
         int i = 0;
-        while (i < this.getTotalPage()) {
+        while (i < totalPage) {
             // 找到一行元素
             List<WebElement> trList = tableList.findElements(By.tagName("tr"));
-            if (i != 0 && i <= this.getTotalPage() - 1)
-                this.getNextPage().click();
+            if (i != 0 && i <= totalPage - 1)
+                nextPage.click();
 
             for (WebElement tr : trList) {
                 if (tr.findElement(By.tagName("td")).getText().contains(name)) {

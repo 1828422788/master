@@ -5,7 +5,7 @@ Feature: 字段提取禁用/启用
     Given open the "configs.ListPage" page for uri "/configs/"
 
   Scenario: 禁用成功
-    When I disabled the data "RZY3417多值字段"
+    When I disabled the data "{'column':'1','name':'RZY34f17多值字段'}"
     And I refresh the website
     Then I will see the element "RZY3417多值字段" is disabled
 

@@ -47,9 +47,6 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "CodeMirror")
     private WebElement searchInput;
 
-    @FindBy(className = "yw-searchbar__append")
-    private WebElement searchButton;
-
     @FindBy(xpath = "//span[text()='已存搜索']")
     private WebElement openSavedSearchButton;
 
@@ -224,7 +221,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(className = "el-collapse-item__wrap")
     private WebElement searchHistoryWindow;
 
-    @FindBy(className = "status-text")
+    @FindBy(className = "_3YQ9T5DTgCrQ0NSzwkV6a5")
     private WebElement searchStatus;
 
     @FindBy(xpath = "//div[@class='yw-search-tabbar']//div[text()='统计']")
@@ -458,7 +455,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//td[@data-col-name]/span")
     private List<WebElement> columnList;
 
-    @FindBy(className = "el-icon-caret-right")
+    @FindBy(className = "_2dbwZ_u3soDYQC50Ls5yOo")
     private WebElement rightIcon;
 
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
@@ -547,6 +544,9 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='apache.request_query']")
     private WebElement requestQuery;
+
+    @FindBy(className = "_34z8Og_bzWmsjaI0u5wBOf")
+    private WebElement firstArea;
 
     public WebElement getTrend() {
         return trend;
@@ -675,6 +675,7 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getRightIcon() {
+        firstArea.click();
         return rightIcon;
     }
 
@@ -1156,9 +1157,7 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getSearchButton() {
-        expectedCondition = ExpectedConditions.elementToBeClickable(searchButton);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        return searchButton;
+        return super.getButton("搜索");
     }
 
     public WebElement getSearchStatus() {

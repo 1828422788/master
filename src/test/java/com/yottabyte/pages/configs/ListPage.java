@@ -66,7 +66,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getCreateButton() {
-        return super.getButton("新建");
+        return super.getButton("新 建");
     }
 
     public WebElement getDictionary() {

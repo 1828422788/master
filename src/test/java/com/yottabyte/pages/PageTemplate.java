@@ -109,7 +109,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getDropdownList(String text) {
-        String xpath = "//label[contains(text(),'" + text + "')]/following-sibling::div//input[@class='el-input__inner']";
+        String xpath = "//div[contains(text(),'" + text + "')]/following-sibling::div//div[@class='ant-select-selection__rendered']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
         return getLastDropdownList();
@@ -126,7 +126,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getLastDropdownList() {
-        List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
+        List<WebElement> list = webDriver.findElements(By.className("ant-select-dropdown-menu-root"));
         WebElement lastDropdownList = list.get(list.size() - 1);
         if (lastDropdownList.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);

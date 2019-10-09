@@ -24,7 +24,6 @@ public class SplSearch {
     private Logger logger = GetLogger.getLogger();
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
     private TakeScreenShot shot = SharedDriver.getScreenShot();
-    private GetPaging pagingInfo = new GetPaging();
 
     @And("^I will see \"([^\"]*)\" rows and \"([^\"]*)\" columns of \"([^割]*)\" in the table$")
     public void checkRowsNum(String rows, String columns, String spl) {
@@ -87,6 +86,7 @@ public class SplSearch {
                 List<WebElement> thList = table.findElements(By.tagName("th"));
                 assertEquals(columnNum, thList.size());
             }
+            GetPaging pagingInfo = new GetPaging();
             Paging paging = pagingInfo.getPagingInfo();
 
             // 判断行数是否相符
@@ -332,8 +332,8 @@ public class SplSearch {
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
 
         for (String key : map.keySet()) {
-            WebElement tr = webDriver.findElement(By.xpath("(//span[text()='" + key + "'])[last()]"));
-            String actualValue = tr.findElement(By.xpath("./ancestor::td/following-sibling::td")).getText();
+            WebElement tr = webDriver.findElement(By.xpath("(//span[text()='" + key + "'])[last()]/following-sibling::span"));
+            String actualValue = tr.getText();
             Assert.assertEquals(map.get(key), actualValue);
         }
     }

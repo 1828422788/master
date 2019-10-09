@@ -30,7 +30,7 @@ public class UploadFile {
      */
     @And("^I upload a file with name \"([^\"]*)\"$")
     public void iUploadAFileWithName(String fileNameWithPath) {
-        WebElement uploadInput = webDriver.findElement(By.name("file"));
+        WebElement uploadInput = webDriver.findElement(By.xpath("//input[@type='file']"));
         if (fileNameWithPath.contains("target"))
             uploadFileWithDifferentPath(uploadInput, fileNameWithPath);
         else
@@ -109,17 +109,23 @@ public class UploadFile {
                     String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
                     courseFile = courseFile + "/" + path;
                     fileNameWithPath = fileName;
-                } else if ("Remote".equalsIgnoreCase(type) && userAgent.contains("Mac OS X")) {
-                    // 远程端为本地时。仅供测试 需删
-                    courseFile = "/Users/sunxj/IdeaProjects/rzy_auto_test_UI";
-                } else {
+                }
+//                else if ("Remote".equalsIgnoreCase(type) && userAgent.contains("Mac OS X")) {
+//                    // 远程端为本地时。仅供测试 需删
+//                    courseFile = "/Users/sunxj/IdeaProjects/rzy_auto_test_UI";
+//                }
+                else {
                     courseFile = directory.getCanonicalPath();
                     System.out.println("路径：" + courseFile);
                 }
                 fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
 
                 if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
-                    uploadInput.sendKeys(courseFile + fileNameWithPath);
+                    try {
+                        uploadInput.sendKeys(courseFile + fileNameWithPath);
+                    } catch (Exception e) {
+                        return;
+                    }
                 } else {
                     uploadInput.sendKeys(courseFile + s + fileNameWithPath);
                 }

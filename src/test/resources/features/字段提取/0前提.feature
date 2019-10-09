@@ -37,7 +37,7 @@ Feature: 字段提取前提条件
 
   Scenario: 取消分组
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "RZY3417多值字段" then i click the "分组" button
+    When the data name is "RZY3417多值字段" then i click the "标签" button
     And I cancel selection "default_ParserRule" from the "Group"
     And I click the "Ensure" button
 

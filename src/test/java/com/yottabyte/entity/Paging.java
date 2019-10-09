@@ -1,5 +1,6 @@
 package com.yottabyte.entity;
 
+import com.yottabyte.utils.GetPaging;
 import org.openqa.selenium.WebElement;
 
 /**
