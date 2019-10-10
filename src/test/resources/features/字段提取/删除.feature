@@ -3,7 +3,7 @@ Feature: 字段提取删除
 
   Scenario Outline:
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "EnsureButton" button
 
     Examples:
