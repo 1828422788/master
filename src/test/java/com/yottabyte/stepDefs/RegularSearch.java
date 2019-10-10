@@ -45,7 +45,7 @@ public class RegularSearch {
     @Given("^search from \"([^\"]*)\" then I will see the result contains \"([^\"]*)\"$")
     public void verifyResultContains(String dropdownMenu, String searchResult) {
         this.chooseFromDropdown(dropdownMenu);
-        this.validateSearchResultContainsValue(searchResult);
+//        this.validateSearchResultContainsValue(searchResult);
     }
 
     private void waitUntilLoadingDisappear() {
@@ -113,39 +113,6 @@ public class RegularSearch {
                     Assert.assertTrue(actualText.toLowerCase().contains(expectText.toLowerCase()));
             }
         }
-    }
-
-    /**
-     * 验证搜索列表包含某一字段
-     *
-     * @param searchResult 格式：{'column':'列数-1','name':'关键字名称'}
-     */
-    @Then("^I will see the search result contains \"([^\"]*)\"$")
-    public void validateSearchResultContainsValue(String searchResult) {
-        List<WebElement> trList = this.getTrList();
-        if (trList.size() == 0) {
-            return;
-        }
-        Paging paging = pagingInfo.getPagingInfo();
-        resultMap = JsonStringPaser.json2Stirng(searchResult);
-        columnNum = Integer.parseInt(resultMap.get("column").toString());
-
-        boolean flag = false;
-
-        outer:
-        for (int i = 0; i < paging.getTotalPage(); i++) {
-            if (i != 0) {
-                paging.getNextPage().click();
-                this.waitUntilLoadingDisappear();
-                trList = this.getTrList();
-            }
-
-            if (this.validateTdList(trList)) {
-                flag = true;
-                break outer;
-            }
-        }
-        Assert.assertTrue("列表下不包含该字段！", flag);
     }
 
     /**
@@ -342,7 +309,7 @@ public class RegularSearch {
         Map<String, Object> valuesMap = JsonStringPaser.json2Stirng(values);
         if (valuesMap.get("name") == null)
             return;
-        ClickButtonWithGivenName clickButton = new ClickButtonWithGivenName();
+        ListPageUtils clickButton = new ListPageUtils();
         WebElement tr;
 
         if (!JsonStringPaser.isJson(benchmarkName)) {
@@ -357,21 +324,5 @@ public class RegularSearch {
         String xpath = ".//td[" + valuesMap.get("column") + "]";
         String actualName = tr.findElement(By.xpath(xpath)).getText();
         Assert.assertEquals(valuesMap.get("name"), actualName);
-    }
-
-    /**
-     * 验证数据的启用禁用状态(有分页)
-     *
-     * @param dataName
-     * @param status
-     */
-    @Then("^I will see the data \"([^\"]*)\" is \"([^\"]*)\"$")
-    public void checkDataStatus(String dataName, String status) {
-        ClickButtonWithGivenName clickButton = new ClickButtonWithGivenName();
-        WebElement tr = clickButton.findName(dataName);
-        String xpath = ".//label/div[@class='el-switch__label el-switch__label--left']";
-        WebElement switchButton = tr.findElement(By.xpath(xpath));
-        String style = switchButton.getAttribute("style");
-        Assert.assertTrue("enable".equals(status) && !style.contains("display: none;") || "disable".equals(status) && style.contains("display: none;"));
     }
 }

@@ -3,10 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.utils.GetElementFromPage;
-import com.yottabyte.utils.GetPaging;
-import com.yottabyte.utils.JsonStringPaser;
-import com.yottabyte.utils.WaitForElement;
+import com.yottabyte.utils.*;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -21,13 +18,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 点击对应名称下的操作按钮
- * 找到名称相匹配的元素后不会继续查找
+ * 列表页中对表格的操作
  */
 public class ClickButtonWithGivenName {
 
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
     Paging pagingInfo = new GetPaging().getPagingInfo();
+    ListPageUtils listPageUtils = new ListPageUtils();
 
     /**
      * 寻找对应的操作按钮并点击
@@ -37,7 +34,7 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String buttonName) {
-        WebElement tr = this.getTr(dataName);
+        WebElement tr = listPageUtils.getTr(dataName);
         this.click(buttonName, tr);
     }
 
@@ -56,11 +53,10 @@ public class ClickButtonWithGivenName {
             Map<String, Object> map = JsonStringPaser.json2Stirng(propertyName);
             int columnNum = Integer.parseInt(map.get("column").toString());
             String name = map.get("name").toString();
-            WebElement tr = this.getRowWithColumnNum(config.get(name), columnNum);
+            WebElement tr = listPageUtils.getRowWithColumnNum(config.get(name), columnNum);
             this.click(buttonName, tr);
         }
     }
-
 
     /**
      * 寻找对应的操作按钮并点击，无分页
@@ -69,20 +65,20 @@ public class ClickButtonWithGivenName {
      * @param buttonName 按钮名称
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging$")
-    public void theDataNameIsThenIClickTheButtonWithoutPaging(String name, String buttonName) {
-        WebElement tr = this.getTrWithoutPaging(name);
+    public void clickButtonWithoutPaging(String name, String buttonName) {
+        WebElement tr = listPageUtils.getTrWithoutPaging(name);
         this.click(buttonName, tr);
     }
 
     @Given("^the data name \"([^\"]*)\" in table \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String tableName, String buttonName) {
         WebElement table = GetElementFromPage.getWebElementWithName(tableName);
-        WebElement tr = this.findName(dataName, table);
+        WebElement tr = listPageUtils.findName(dataName, table);
         this.click(buttonName, tr);
     }
 
     /**
-     * 判断某元素的操作选项都有哪些
+     * 判断列表页行的操作选项都有哪些
      *
      * @param dataName 元素名称 字符串：第一列所要匹配的名称，json：{'column':'start 0','name':''}
      * @param result   {'column':'按钮所在列数，1开始','name':'操作按钮名称 空格分开'}
@@ -91,7 +87,7 @@ public class ClickButtonWithGivenName {
     public void checkButton(String dataName, String result) {
         Map<String, Object> map = JsonStringPaser.json2Stirng(result);
         String className = "el-table_1_column_" + map.get("column");
-        WebElement tr = this.getTr(dataName);
+        WebElement tr = listPageUtils.getTr(dataName);
         String actualText = tr.findElement(By.className(className)).getText();
         String expectText = map.get("name").toString();
         Assert.assertEquals(expectText, actualText);
@@ -110,7 +106,7 @@ public class ClickButtonWithGivenName {
         int column = Integer.parseInt(map.get("column").toString());
 
         WebElement table = GetElementFromPage.getWebElementWithName("Table");
-        WebElement tr = this.getRowWithoutPaging(name, column, table);
+        WebElement tr = listPageUtils.getRowWithoutPaging(name, column, table);
 
         Map<String, Object> resultMap = JsonStringPaser.json2Stirng(result);
         int resultColumn = Integer.parseInt(resultMap.get("column").toString());
@@ -156,7 +152,7 @@ public class ClickButtonWithGivenName {
      */
     private void clickSwitch(String dataName, String action) {
         String xpath = "//span[contains(text(),'" + dataName + "')]/preceding-sibling::label";
-        WebElement tr = this.findNameWithoutPaging(dataName);
+        WebElement tr = listPageUtils.findNameWithoutPaging(dataName);
         WebElement switchButton = tr.findElement(By.xpath(xpath + "/div[@class='el-switch__label el-switch__label--left']"));
         String status = switchButton.getAttribute("style");
 
@@ -164,126 +160,6 @@ public class ClickButtonWithGivenName {
             tr.findElement(By.xpath(xpath)).click();
     }
 
-    /**
-     * 寻找name所在行
-     *
-     * @param name
-     * @return 行元素
-     */
-    public WebElement findName(String name) {
-        String url = webDriver.getCurrentUrl();
-        List<WebElement> tableList = webDriver.findElements(By.className("ant-table-tbody"));
-
-        if (tableList.size() == 1 || url.contains("agent")) {
-            // 表体
-            WebElement table = tableList.get(0);
-            if (url.contains("agent"))
-                return this.getRowWithoutPaging(name, table);
-            return this.getRow(name, table);
-        } else {
-            return this.getSourcesGroupName(tableList, name);
-        }
-    }
-
-    public WebElement findNameWithoutPaging(String name) {
-        List<WebElement> tableList = webDriver.findElements(By.className("ant-table-tbody"));
-        WebElement table = tableList.get(0);
-        return this.getRowWithoutPaging(name, table);
-    }
-
-    private WebElement findName(String name, WebElement table) {
-        return this.getRowWithoutPaging(name, table);
-    }
-
-    /**
-     * 获取名称所在行
-     *
-     * @param name
-     * @param table
-     * @return
-     */
-    private WebElement getRow(String name, WebElement table) {
-        return this.getRowWithColumnNum(name, 0, table);
-    }
-
-    public WebElement getRowWithColumnNum(String name, int columnNum) {
-        WebElement table = webDriver.findElement(By.className("ant-table-tbody"));
-        return this.getRowWithColumnNum(name, columnNum, table);
-    }
-
-    public WebElement getRowWithColumnNum(String name, int columnNum, WebElement table) {
-        int totalPage = pagingInfo.getTotalPage();
-        WebElement nextPage = pagingInfo.getNextPage();
-        int i = 0;
-        while (i < totalPage) {
-            if (i != 0 && i <= totalPage - 1) {
-                nextPage.click();
-                WaitForElement.waitUntilLoadingDisappear();
-            }
-            List<WebElement> trList = table.findElements(By.tagName("tr"));
-            for (WebElement tr : trList) {
-                if (tr.findElements(By.tagName("td")).get(columnNum).getText().equals(name)) {
-                    return tr;
-                }
-            }
-            i++;
-        }
-        return null;
-    }
-
-    private WebElement getRowWithoutPaging(String name, WebElement table) {
-        return this.getRowWithoutPaging(name, 0, table);
-    }
-
-    private WebElement getRowWithoutPaging(String name, int column, WebElement table) {
-        // 找到一行元素
-        List<WebElement> trList = table.findElements(By.tagName("tr"));
-
-        for (WebElement tr : trList) {
-            if (tr.findElements(By.tagName("td")).get(column).getText().equals(name)) {
-                return tr;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * 以下情况仅针对日志来源表格进行特殊处理
-     *
-     * @param tableList
-     * @param name
-     * @return
-     */
-    private WebElement getSourcesGroupName(List<WebElement> tableList, String name) {
-        WebElement nameTable;
-        WebElement operatorTable;
-        if (tableList.size() == 2) {
-            nameTable = tableList.get(0);
-            operatorTable = tableList.get(1);
-        } else {
-            nameTable = tableList.get(1);
-            operatorTable = tableList.get(2);
-        }
-        List<WebElement> nameList = nameTable.findElements(By.tagName("tr"));
-        int totalPage = pagingInfo.getTotalPage();
-        WebElement nextPage = pagingInfo.getNextPage();
-
-        int i = 0;
-        while (i < totalPage) {
-            // 找到一行元素
-            if (i != 0 && i <= totalPage - 1)
-                nextPage.click();
-
-            for (int index = 0; index < nameList.size(); index++) {
-                String sourceName = nameList.get(index).findElement(By.tagName("td")).getText();
-                if (sourceName.equals(name)) {
-                    return operatorTable.findElements(By.tagName("tr")).get(index);
-                }
-            }
-            i++;
-        }
-        return null;
-    }
 
     /**
      * 点击详情页
@@ -295,13 +171,13 @@ public class ClickButtonWithGivenName {
         String xpath;
         WebElement tr;
         if (!JsonStringPaser.isJson(name)) {
-            tr = this.findName(name);
+            tr = listPageUtils.findName(name);
             xpath = ".//span[contains(text(),'" + name + "')]";
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(name);
             String text = map.get("name").toString();
             int columnNum = Integer.parseInt(map.get("column").toString());
-            tr = this.getRowWithColumnNum(text, columnNum);
+            tr = listPageUtils.getRowWithColumnNum(text, columnNum);
             xpath = ".//span[contains(text(),'" + text + "')]";
         }
         tr.findElement(By.xpath(xpath)).click();
@@ -320,14 +196,14 @@ public class ClickButtonWithGivenName {
         // 非json格式
         if (!JsonStringPaser.isJson(json)) {
             String name = config.get(json);
-            tr = this.findName(name);
+            tr = listPageUtils.findName(name);
             xpath = ".//span[contains(text(),'" + name + "')]";
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(json);
             int columnNum = Integer.parseInt(map.get("column").toString());
             String text = map.get("name").toString();
             String name = config.get(text);
-            tr = this.getRowWithColumnNum(name, columnNum);
+            tr = listPageUtils.getRowWithColumnNum(name, columnNum);
             xpath = ".//span[contains(text(),'" + name + "')]";
         }
         tr.findElement(By.xpath(xpath)).click();
@@ -354,18 +230,6 @@ public class ClickButtonWithGivenName {
                 return;
             }
         }
-    }
-
-    /**
-     * 弹出框的多选操作
-     *
-     * @param name
-     */
-    @And("^I click the \"([^\"]*)\" checkbox$")
-    public void clickCheckBox(String name) {
-        String xpath = ".//ancestor::td/preceding-sibling::td//label";
-        WebElement tr = this.getRowWithColumnNum(name, 1);
-        tr.findElement(By.xpath(xpath)).click();
     }
 
     @When("^the data name contains \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
@@ -398,7 +262,7 @@ public class ClickButtonWithGivenName {
     @Given("^I click the report detail which name is \"([^\"]*)\"$")
     public void clickReportDetail(String name) {
         String xpath = "//span[contains(text(),'" + name + "')][@class]";
-        WebElement tr = this.findName(name);
+        WebElement tr = listPageUtils.findName(name);
         tr.findElement(By.xpath(xpath)).click();
     }
 
@@ -410,7 +274,7 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then i click the label \"([^\"]*)\"$")
     public void clickLabelWithGivenName(String dataName, String labelName) {
-        WebElement tr = this.getTr(dataName);
+        WebElement tr = listPageUtils.getTr(dataName);
         this.clickLabel(labelName, tr);
     }
 
@@ -418,33 +282,6 @@ public class ClickButtonWithGivenName {
         String xpath = ".//label[contains(text(),'" + labelName + "')]";
         WebElement button = tr.findElement(By.xpath(xpath));
         button.click();
-    }
-
-    private WebElement getTr(String dataName) {
-        WebElement tr;
-        if (!JsonStringPaser.isJson(dataName)) {
-            tr = this.findName(dataName);
-        } else {
-            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
-            String name = map.get("name").toString();
-            int columnNum = Integer.parseInt(map.get("column").toString());
-            tr = this.getRowWithColumnNum(name, columnNum);
-        }
-        return tr;
-    }
-
-    private WebElement getTrWithoutPaging(String dataName) {
-        WebElement tr;
-        if (!JsonStringPaser.isJson(dataName)) {
-            tr = this.findNameWithoutPaging(dataName);
-        } else {
-            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
-            String name = map.get("name").toString();
-            int columnNum = Integer.parseInt(map.get("column").toString());
-            WebElement table = webDriver.findElement(By.className("el-table__body"));
-            tr = this.getRowWithoutPaging(name, columnNum, table);
-        }
-        return tr;
     }
 
     /**
@@ -506,7 +343,7 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the switch$")
     public void operateSwitch(String name, String status) {
-        WebElement tr = this.getTr(name);
+        WebElement tr = listPageUtils.getTr(name);
         WebElement label = tr.findElement(By.xpath(".//button"));
         String labelAttribute = label.getAttribute("aria-checked");
         if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
@@ -514,9 +351,15 @@ public class ClickButtonWithGivenName {
         }
     }
 
+    /**
+     * 查看禁用/启用按钮是否为禁用/启用状态
+     *
+     * @param name
+     * @param status close/open
+     */
     @Then("^I will see the element \"([^\"]*)\" is \"([^\"]*)\"$")
     public void verifySwitchStatus(String name, String status) {
-        WebElement tr = this.getTr(name);
+        WebElement tr = listPageUtils.getTr(name);
         WebElement label = tr.findElement(By.xpath(".//button"));
         String labelAttribute = label.getAttribute("aria-checked");
         Assert.assertTrue(status.equals("close") && labelAttribute.contains("false") || status.equals("open") && labelAttribute.contains("true"));

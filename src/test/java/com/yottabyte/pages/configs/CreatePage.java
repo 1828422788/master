@@ -27,7 +27,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//h3[text()='基本信息']")
     private WebElement basicInfo;
 
-    @FindBy(xpath = "//h3[text()='规则配置完成！']")
+    @FindBy(xpath = "//div[text()='规则配置完成！']")
     private WebElement configDone;
 
     @FindBy(xpath = "(//div[text()='正则表达式'])[last()]/following-sibling::div/textarea")
@@ -71,12 +71,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "el-switch")
     private WebElement switchButton;
-
-    @FindBy(xpath = "//div[text()='appname']/preceding-sibling::input")
-    private WebElement appName;
-
-    @FindBy(xpath = "//div[text()='tag']/preceding-sibling::input")
-    private WebElement tag;
 
     @FindBy(xpath = "//div[text()='hostname']/preceding-sibling::input")
     private WebElement hostName;
@@ -220,11 +214,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAppName() {
-        return appName;
+        return this.findInputByPlaceholder("请输入appname");
     }
 
     public WebElement getTag() {
-        return tag;
+        return this.findInputByPlaceholder("请输入tag");
     }
 
     public WebElement getSwitchButton() {
@@ -248,11 +242,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getName() {
-        return getInputElement("规则名称");
+        return this.findInputByPlaceholder("请输入规则名称");
     }
 
     public WebElement getLogtype() {
-        return getInputElement("Logtype");
+        return this.findInputByPlaceholder("请输入Logtype");
     }
 
     public WebElement getGroup() {
@@ -381,5 +375,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getEnsureAddParseRule() {
         return super.getButton("确定");
+    }
+
+    private WebElement findInputByPlaceholder(String placeholder) {
+        return webDriver.findElement(By.xpath("//input[@placeholder='" + placeholder + "']"));
     }
 }
