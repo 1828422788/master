@@ -17,7 +17,10 @@ public class ListPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "el-message__group")
+    @FindBy(className = "ant-modal-content")
+    private WebElement content;
+
+    @FindBy(xpath = "//p")
     private WebElement successMessage;
 
     @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
@@ -31,6 +34,10 @@ public class ListPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//tr")
     private List<WebElement> smallTr;
+
+    public WebElement getContent() {
+        return content;
+    }
 
     public List<WebElement> getSmallTr() {
         return smallTr;

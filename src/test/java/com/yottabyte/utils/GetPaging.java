@@ -30,7 +30,7 @@ public class GetPaging {
 
     private void setPagingInfo(Paging paging) {
         int totalPage = getTotalPage();
-        WebElement nextPage = webDriver.findElement(By.className(" ant-pagination-next"));
+        WebElement nextPage = webDriver.findElement(By.className("ant-pagination-next"));
 
         paging.setTotalPage(totalPage);
         paging.setNextPage(nextPage);

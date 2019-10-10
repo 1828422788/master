@@ -27,7 +27,7 @@ import java.util.Map;
 public class ClickButtonWithGivenName {
 
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-    GetPaging pagingInfo = new GetPaging();
+    Paging pagingInfo = new GetPaging().getPagingInfo();
 
     /**
      * 寻找对应的操作按钮并点击
@@ -138,19 +138,6 @@ public class ClickButtonWithGivenName {
 //        }
     }
 
-    /**
-     * 禁用
-     *
-     * @param dataName
-     */
-    @Then("^I disabled the data \"([^\"]*)\"$")
-    public void disableData(String dataName) {
-        String xpath = ".//button[@class='ant-switch-small ant-switch']";
-        WebElement tr = this.getTr(dataName);
-        tr.findElement(By.xpath(xpath)).click();
-    }
-
-
     @Given("^I close \"([^\"]*)\" without paging$")
     public void close(String dataName) {
         this.clickSwitch(dataName, "close");
@@ -225,15 +212,15 @@ public class ClickButtonWithGivenName {
     }
 
     public WebElement getRowWithColumnNum(String name, int columnNum, WebElement table) {
-        int totalPage = pagingInfo.getPagingInfo().getTotalPage();
-        WebElement nextPage = pagingInfo.getPagingInfo().getNextPage();
+        int totalPage = pagingInfo.getTotalPage();
+        WebElement nextPage = pagingInfo.getNextPage();
         int i = 0;
         while (i < totalPage) {
-            // 找到一行元素
-            List<WebElement> trList = table.findElements(By.tagName("tr"));
-            if (i != 0 && i <= totalPage - 1)
+            if (i != 0 && i <= totalPage - 1) {
                 nextPage.click();
-            WaitForElement.waitUntilLoadingDisappear();
+                WaitForElement.waitUntilLoadingDisappear();
+            }
+            List<WebElement> trList = table.findElements(By.tagName("tr"));
             for (WebElement tr : trList) {
                 if (tr.findElements(By.tagName("td")).get(columnNum).getText().equals(name)) {
                     return tr;
@@ -278,8 +265,8 @@ public class ClickButtonWithGivenName {
             operatorTable = tableList.get(2);
         }
         List<WebElement> nameList = nameTable.findElements(By.tagName("tr"));
-        int totalPage = pagingInfo.getPagingInfo().getTotalPage();
-        WebElement nextPage = pagingInfo.getPagingInfo().getNextPage();
+        int totalPage = pagingInfo.getTotalPage();
+        WebElement nextPage = pagingInfo.getNextPage();
 
         int i = 0;
         while (i < totalPage) {
@@ -388,8 +375,8 @@ public class ClickButtonWithGivenName {
     }
 
     private WebElement findLikelyName(String name) {
-        int totalPage = pagingInfo.getPagingInfo().getTotalPage();
-        WebElement nextPage = pagingInfo.getPagingInfo().getNextPage();
+        int totalPage = pagingInfo.getTotalPage();
+        WebElement nextPage = pagingInfo.getNextPage();
         WebElement tableList = webDriver.findElement(By.className("el-table__body"));
         int i = 0;
         while (i < totalPage) {
@@ -413,14 +400,6 @@ public class ClickButtonWithGivenName {
         String xpath = "//span[contains(text(),'" + name + "')][@class]";
         WebElement tr = this.findName(name);
         tr.findElement(By.xpath(xpath)).click();
-    }
-
-    @Then("^I will see the element \"([^\"]*)\" is disabled$")
-    public void disabledElement(String elementName) {
-        String xpath = "//span[contains(text(),'" + elementName + "')]/preceding-sibling::label/div[@class='el-switch__label el-switch__label--left']";
-        WebElement tr = this.findName(elementName);
-        WebElement button = tr.findElement(By.xpath(xpath));
-        CheckButtonAttribute.checkIsDisplay(button);
     }
 
     /**
@@ -478,11 +457,10 @@ public class ClickButtonWithGivenName {
     public void verifyData(String baseValue, String compareValue) {
         Map<String, Object> baseValueMap = JsonStringPaser.json2Stirng(baseValue);
         Map<String, Object> compareValueMap = JsonStringPaser.json2Stirng(compareValue);
-        Paging paging = pagingInfo.getPagingInfo();
 
-        for (int i = 0; i < paging.getTotalPage(); i++) {
+        for (int i = 0; i < pagingInfo.getTotalPage(); i++) {
             if (i != 0) {
-                paging.getNextPage().click();
+                pagingInfo.getNextPage().click();
             }
             String xpath = "//td[@class='el-table_1_column_" + baseValueMap.get("column") + "']";
             List<WebElement> dataList = webDriver.findElements(By.xpath(xpath));
@@ -499,68 +477,12 @@ public class ClickButtonWithGivenName {
 
     @And("^I click the \"([^\"]*)\" button in each page$")
     public void iClickTheButtonInEachPage(String buttonName) {
-        Paging paging = pagingInfo.getPagingInfo();
-        for (int i = 0; i < paging.getTotalPage(); i++) {
+        for (int i = 0; i < pagingInfo.getTotalPage(); i++) {
             if (i != 0)
-                paging.getNextPage().click();
+                pagingInfo.getNextPage().click();
             WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
             element.click();
         }
-    }
-
-
-    /**
-     * 勾选或取消勾选名称前面的checkbox
-     *
-     * @param status   checked or unchecked
-     * @param nameList
-     * @author sxj
-     */
-    @And("^I \"([^\"]*)\" the label before \"([^\"]*)\"$")
-    public void clickCheckLabel(String status, List<String> nameList) {
-        for (String name : nameList) {
-            String xpath = "//div[contains(text(),'" + name + "')]/ancestor::td/preceding-sibling::td//label";
-            WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//span"));
-            String attribute = span.getAttribute("class");
-            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-                label.click();
-            }
-        }
-    }
-
-    /**
-     * 勾选或取消勾选checkbox（名称可直接点击）
-     *
-     * @param status   checked or unchecked
-     * @param nameList
-     */
-    @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\"$")
-    public void clickCheckboxWithGivenName(String status, List<String> nameList) {
-        for (String name : nameList) {
-            String xpath = "(//span[@class='el-checkbox__label'][text()='" + name + "'])[last()]";
-            WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
-            String attribute = span.getAttribute("class");
-            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-                label.findElement(By.xpath(".//ancestor::label")).click();
-            }
-        }
-    }
-
-    /**
-     * 关闭或开启禁用开关
-     *
-     * @param name
-     * @param status open/close
-     */
-    @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the switch$")
-    public void operateSwitch(String name, String status) {
-        WebElement tr = this.findName(name);
-        WebElement label = tr.findElement(By.xpath(".//label"));
-        String labelAttribute = tr.findElement(By.xpath(".//div[@class='el-switch__label el-switch__label--right']")).getAttribute("style");
-        if (status.equals("close") && labelAttribute.contains("display: none;") || status.equals("open") && !labelAttribute.contains("display: none;"))
-            label.click();
     }
 
     /**
@@ -574,5 +496,29 @@ public class ClickButtonWithGivenName {
         String xpath = "//div[@title='" + dataName + "']/preceding-sibling::div//*[@class='" + className + "']";
         WebElement button = webDriver.findElement(By.xpath(xpath));
         button.click();
+    }
+
+    /**
+     * 关闭或开启禁用开关
+     *
+     * @param name
+     * @param status open/close
+     */
+    @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the switch$")
+    public void operateSwitch(String name, String status) {
+        WebElement tr = this.getTr(name);
+        WebElement label = tr.findElement(By.xpath(".//button"));
+        String labelAttribute = label.getAttribute("aria-checked");
+        if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
+            label.click();
+        }
+    }
+
+    @Then("^I will see the element \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void verifySwitchStatus(String name, String status) {
+        WebElement tr = this.getTr(name);
+        WebElement label = tr.findElement(By.xpath(".//button"));
+        String labelAttribute = label.getAttribute("aria-checked");
+        Assert.assertTrue(status.equals("close") && labelAttribute.contains("false") || status.equals("open") && labelAttribute.contains("true"));
     }
 }

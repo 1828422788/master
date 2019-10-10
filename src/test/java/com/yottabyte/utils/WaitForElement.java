@@ -48,8 +48,8 @@ public class WaitForElement {
     }
 
     public static void waitUntilLoadingDisappear() {
-        if (ElementExist.isElementExist(webDriver, By.className("el-loading-mask"))) {
-            WebElement loadingMask = webDriver.findElement(By.className("el-loading-mask"));
+        if (ElementExist.isElementExist(webDriver, By.className("ant-spin-dot-spin"))) {
+            WebElement loadingMask = webDriver.findElement(By.className("ant-spin-dot-spin"));
             WaitForElement.waitElementInvisible(loadingMask);
 //            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
         }
