@@ -51,9 +51,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-checkbox")
     private WebElement checkbox;
 
-    @FindBy(xpath = "//div[text()='source']/preceding-sibling::input")
-    private WebElement source;
-
     @FindBy(xpath = "(//label[text()='替换内容'])[last()]/following-sibling::div/textarea")
     private WebElement replaceContent;
 
@@ -352,7 +349,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSource() {
-        return source;
+        return this.findInputByPlaceholder("请输入source");
     }
 
     public WebElement getRegex2() {

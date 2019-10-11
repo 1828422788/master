@@ -49,10 +49,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
     private WebElement disabledLi;
 
-    @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
+    @FindBy(className = "ant-input")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//i[@class='el-input__icon el-icon-search is-clickable']")
+    @FindBy(className = "ant-input-search-icon")
     private WebElement searchIcon;
 
     public WebElement getSearchIcon() {

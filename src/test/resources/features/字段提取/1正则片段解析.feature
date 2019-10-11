@@ -5,12 +5,10 @@ Feature: 字段提取正则片段解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "RZY2872正则片段解析"
-    And I set the parameter "Logtype" with value "other"
     Then I choose the "default_ParserRule" from the "Group"
     When I set the parameter "LogSample" with value "2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-502103: User priv level changed: Uname: enable_15 From: 1 To: 15"
+    And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","multiline": false,"extract": [[{"regex": "[Uu]ser\\s[\"|']([^'\"]*)[\"|']","fields": {"user": "$1"},"name": "user_for_cisco"}, {"regex": "\\sUname:\\s(.*?)\\s","fields": {"user": "$1"},"name": "uname_for_cisco"}]],"add_fields": []}" to json editor
     And I click the "ParseButton" button
@@ -23,6 +21,8 @@ Feature: 字段提取正则片段解析
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
+    When I set the parameter "Name" with value "RZY2872正则片段解析"
+    And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "regex"
     And I set the parameter "Tag" with value "*"
     And I click the "NextButton" button

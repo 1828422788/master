@@ -5,7 +5,7 @@ Feature: 仪表盘分组（RZY-212、RZY-217至RZY-221）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
 
   Scenario Outline:
-    Given the data name is "<name>" then i click the "分组" button
+    Given the data name is "<name>" then i click the "标签" button
     Then I <group>
     And I click the "EnsureChangeGroupButton" button
     Then I will see the success message "仪表盘更改分组成功"

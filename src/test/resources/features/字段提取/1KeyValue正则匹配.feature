@@ -5,27 +5,30 @@ Feature: 字段提取KeyValue正则匹配
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "RZY1535KeyValue正则匹配"
-    And I set the parameter "Logtype" with value "other"
     When I set the parameter "LogSample" with value "<logSample>"
+    And I click the "AddRule" button
     And I choose the "<parseRule>" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "<sourceField>" from the "SourceField"
     And I set the parameter "Regex" with value "<regex>"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
-    And I click the "ContinueButton" button
+    And I click the "AddRule" button
     And I choose the "<parseRule1>" from the "ParseRule"
     And I choose the "<sourceField2>" from the "SourceFieldLabel2"
     And I set the parameter "KeyRegex" with value "<keyRegex>"
     And I set the parameter "ValueRegex" with value "<valueRegex>"
     And I set the parameter "KVSeparator" with value "<kvSeparator>"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
-    And I click the "SwitchButton" button
+    When I set the parameter "Name" with value "RZY1535KeyValue正则匹配"
+    And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "auto_test_KV"
     And I set the parameter "Tag" with value "auto_test_KV"
     And I click the "NextButton" button
@@ -39,21 +42,23 @@ Feature: 字段提取KeyValue正则匹配
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "RZY2798group_regex"
-    And I set the parameter "Logtype" with value "test"
     When I set the parameter "LogSample" with value "<log>"
     And I choose the "KeyValue正则匹配" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I click the "AddRule" button
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "KeyRegex" with value "\w+"
     And I set the parameter "ValueRegex" with value "\w+"
     And I set the parameter "KVSeparator" with value "\s*=\s*"
     And I set the parameter "GroupRegex" with value "\[[^\]]*=(\w+)[^\]]*\]\s*"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
+    When I set the parameter "Name" with value "RZY2798group_regex"
+    And I set the parameter "Logtype" with value "test"
     And I set the parameter "AppName" with value "auto_test_KV_group"
     And I set the parameter "Tag" with value "auto_test_KV_group"
     And I click the "NextButton" button
