@@ -148,4 +148,12 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         WebElement element = webDriver.findElement(By.xpath("(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]"));
         return element;
     }
+
+    public WebElement findInputByPlaceholder(String placeholder) {
+        return webDriver.findElement(By.xpath("//input[@placeholder='" + placeholder + "']"));
+    }
+
+    public WebElement getTagInput(String text) {
+        return webDriver.findElement(By.xpath("//div[text()='" + text + "']/following-sibling::div//input"));
+    }
 }

@@ -349,7 +349,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSource() {
-        return this.findInputByPlaceholder("请输入source");
+        return findInputByPlaceholder("请输入source");
     }
 
     public WebElement getRegex2() {
@@ -372,9 +372,5 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getEnsureAddParseRule() {
         return super.getButton("确定");
-    }
-
-    private WebElement findInputByPlaceholder(String placeholder) {
-        return webDriver.findElement(By.xpath("//input[@placeholder='" + placeholder + "']"));
     }
 }

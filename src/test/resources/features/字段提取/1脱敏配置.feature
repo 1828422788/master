@@ -18,16 +18,16 @@ Feature: 字段提取脱敏配置
     When I set the parameter "Name" with value "脱敏"
     And I set the parameter "Logtype" with value "replace"
     When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
+    And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<phone>.*)"
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<regexResult>'}"
-    And I click the "ContinueButton" button
+    And I click the "EnsureAddParseRule" button
+    And I click the "AddRule" button
     And I choose the "脱敏配置" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "phone" from the "SourceField"
     And I set the parameter "Regex" with value "(\d{3})(\d{4})(\d{4})"
     And I set the parameter "ReplaceContent" with value "$1****$3"
@@ -36,9 +36,9 @@ Feature: 字段提取脱敏配置
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
-    And I click the "ContinueButton" button
+    And I click the "EnsureAddParseRule" button
+    And I click the "AddRule" button
     And I choose the "脱敏配置" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "phone" from the "SourceField"
     And I set the parameter "Regex" with value "(\d{3})(\d{4})(\d{4})"
     And I set the parameter "ReplaceContent" with value "$1****$3"

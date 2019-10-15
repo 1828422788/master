@@ -32,6 +32,16 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-dialog el-dialog--small']//tr")
     private List<WebElement> smallTr;
 
+    @FindBy(xpath = "//div[text()='标签']/following-sibling::div//input")
+    private WebElement tagInput;
+
+    @FindBy(xpath = "//ul[@role='listbox']")
+    private WebElement ul;
+
+    public WebElement getTagInput() {
+        return tagInput;
+    }
+
     public WebElement getContent() {
         return content;
     }
@@ -49,11 +59,11 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getEnsure() {
-        return super.getContainsTextButton("确定");
+        return super.getButton("确定");
     }
 
     public WebElement getGroup() {
-        return super.getDropdownList("分组");
+        return ul;
     }
 
     public WebElement getEnsureButton() {

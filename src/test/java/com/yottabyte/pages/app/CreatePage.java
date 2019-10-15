@@ -3,6 +3,7 @@ package com.yottabyte.pages.app;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -146,12 +147,14 @@ public class CreatePage extends PageTemplate {
     public WebElement getDefaultPage() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(dialogWrapper));
         dropdownArrow.click();
-        return super.getLastDropdownList();
+        return getLastDropdownList();
+    }
+
+    public WebElement getLastDropdownList() {
+        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
     }
 
     public WebElement getCreateButton() {
-        if (ElementExist.isElementExist(webDriver, panel))
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(panel));
         return super.getButton("创建");
     }
 

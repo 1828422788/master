@@ -11,7 +11,11 @@ Feature: 应用安装（RZY-1988）
     When I upload a file with name "/target/download-files/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "admin" from the "Role"
-    And I choose the "source" from the "Resource" with property
+    And I click the "AddDataset" button
+    And I set the parameter "SearchInput" with value "AutoTestApp"
+    And I click the "SearchIcon" button
+    And I click the "ResultDataset" button
+    And I click the "Ensure" button
     And I click the "NextButton" button
     And I click the "NextButton" button
     And I will see the "ResourcePreview" is "active"

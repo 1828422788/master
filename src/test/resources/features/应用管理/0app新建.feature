@@ -16,20 +16,6 @@ Feature: 应用新建（RZY-1899）
       |      | 请输入名称   |
       | test | 请设置默认首页 |
 
-#  Scenario Outline: 新建失败（名称长度校验）
-#    When I set the parameter "NameInput" with value "<name>"
-#    And I click the "AddMenuButton" button
-#    And I set the parameter "MenuName" with value "<menuName>"
-#    And I set the parameter "Url" with value "<url>"
-#    And I click the "SaveMenuButton" button
-#    And I choose the "<menuName>" from the "DefaultPage"
-#    And I click the "CreateButton" button
-#    Then I will see the error message "<message>"
-#
-#    Examples:
-#      | name                             | menuName | url   | message          |
-#      | 我有三十个字不管你信不信反正我有三十个字不管你信不信反正我信了呢 | test     | /app/ | APP名称过长，请小于60个字符 |
-
   Scenario Outline: 新建失败（菜单栏校验）
     When I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "<menuName>"
@@ -80,12 +66,12 @@ Feature: 应用新建（RZY-1899）
   Scenario Outline: 新建App，资源范围为全局
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"
-    And I click the "ChoiceButton" button
-    And I click the "ChooseFromSystemButton" button
-    And I set the parameter "SearchSource" with value "AutoTestRoleWithAllResource"
-    And I click the "AllCheck" button
-    And I click the "CloseDialog" button
-    And I wait for "ResourceConfig" will be invisible
+#    And I click the "ChoiceButton" button
+#    And I click the "ChooseFromSystemButton" button
+#    And I set the parameter "SearchSource" with value "AutoTestRoleWithAllResource"
+#    And I click the "AllCheck" button
+#    And I click the "CloseDialog" button
+#    And I wait for "ResourceConfig" will be invisible
     And I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "监控"
     And I set the parameter "Url" with value "/alerts/"

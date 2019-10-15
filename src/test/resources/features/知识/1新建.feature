@@ -7,8 +7,6 @@ Feature: 知识新建（RZY-868）
     And I click the "CreateKnowledge" button
     When I set the parameter "EventCode" with value "<EventCodeValue>"
     And I set the parameter "KnowledgeName" with value "<NameValue>"
-    And I choose the "<Type>" from the "GroupComboBox"
-    And I click the "TagInput" button
     And I set the parameter "TagInput" with value "<TagType>"
     And I choose the "<TagType>" from the "TagComboBox"
     And I set the parameter "Describe" with value "<Describe>"
@@ -17,8 +15,8 @@ Feature: 知识新建（RZY-868）
     Then I will see the search result contains "{'column':'0','name':'<NameValue>'}"
 
     Examples: 保存成功
-      | EventCodeValue | NameValue | Type              | TagType | Describe  | Solution   |
-      | sxjautotest    | sunxj1    | default_Knowledge | 404     | sunxjTest | do nothing |
+      | EventCodeValue | NameValue | TagType | Describe  | Solution   |
+      | sxjautotest    | sunxj1    | 404     | sunxjTest | do nothing |
 
   Scenario Outline: 新建知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
@@ -51,7 +49,6 @@ Feature: 知识新建（RZY-868）
     And I click the "Confirm" button
     And I will see the search result contains "{'column':'0','name':'<name>'}"
     And I will see the search result contains "{'column':'1','name':'<code>'}"
-    Then I will see the search result contains "{'column':'2','name':'404, 500'}"
 
     Examples:
       | code             | name                | tag      |

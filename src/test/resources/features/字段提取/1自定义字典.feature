@@ -19,7 +19,6 @@ Feature: 字段提取自定义字典
     And I set the parameter "Logtype" with value "json"
     When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
     And I choose the "Json解析" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
     And I choose the "raw_message" from the "SourceField"
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible

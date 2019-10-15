@@ -36,11 +36,8 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'事件描述')]/following-sibling::div//textarea")
     private WebElement describe;
 
-    @FindBy(xpath = "//div[@class='el-dialog el-dialog--tiny']//span[@class='modal-footer']//span[contains(text(),'确定')]")
-    private WebElement ensure;
-
     public WebElement getEnsure() {
-        return ensure;
+        return super.getButton("确定");
     }
 
     @FindBy(xpath = "//label[contains(text(),'解决方案')]/following-sibling::div//textarea")
@@ -92,9 +89,6 @@ public class ListPage extends PageTemplate {
 
     @FindBy(xpath = "//label[contains(text(),'资源标签')]/following-sibling::div//input[@class='el-input__inner']")
     private WebElement groupInput;
-
-    @FindBy(xpath = "//label[contains(text(),'标签')]/following-sibling::div//input")
-    private WebElement tagInput;
 
     @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
     private WebElement ensureDeleteButton;
@@ -194,7 +188,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getTagInput() {
-        return tagInput;
+        return super.getTagInput("标签");
     }
 
     public WebElement getSuccessMessage() {
