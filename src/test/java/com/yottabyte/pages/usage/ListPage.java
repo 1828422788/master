@@ -15,4 +15,6 @@ public class ListPage extends PageTemplate {
     public WebElement getShowButton() {
         return super.getButton("查看");
     }
+
+
 }

@@ -1,6 +1,5 @@
 package com.yottabyte.utils;
 
-import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +12,9 @@ import java.util.Map;
  * @author sunxj
  */
 public class ListPageUtils {
-    Paging pagingInfo = new GetPaging().getPagingInfo();
+    Paging pagingInfo = new Paging();
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+    List<WebElement> tableList = pagingInfo.tableList;
 
     /**
      * 寻找name所在行
@@ -24,7 +24,6 @@ public class ListPageUtils {
      */
     public WebElement findName(String name) {
         String url = webDriver.getCurrentUrl();
-        List<WebElement> tableList = webDriver.findElements(By.className("ant-table-tbody"));
 
         if (tableList.size() == 1 || url.contains("agent")) {
             // 表体
@@ -38,7 +37,6 @@ public class ListPageUtils {
     }
 
     public WebElement findNameWithoutPaging(String name) {
-        List<WebElement> tableList = webDriver.findElements(By.className("ant-table-tbody"));
         WebElement table = tableList.get(0);
         return this.getRowWithoutPaging(name, table);
     }
@@ -68,10 +66,15 @@ public class ListPageUtils {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
             String name = map.get("name").toString();
             int columnNum = Integer.parseInt(map.get("column").toString());
-            WebElement table = webDriver.findElement(By.className("el-table__body"));
+            WebElement table = tableList.get(0);
             tr = this.getRowWithoutPaging(name, columnNum, table);
         }
         return tr;
+    }
+
+    public List<WebElement> getTrList() {
+        WebElement table = tableList.get(0);
+        return table.findElements(By.xpath(".//tr"));
     }
 
     /**
@@ -86,7 +89,7 @@ public class ListPageUtils {
     }
 
     public WebElement getRowWithColumnNum(String name, int columnNum) {
-        WebElement table = webDriver.findElement(By.className("ant-table-tbody"));
+        WebElement table = tableList.get(0);
         return this.getRowWithColumnNum(name, columnNum, table);
     }
 

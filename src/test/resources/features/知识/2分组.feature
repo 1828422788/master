@@ -7,6 +7,7 @@ Feature: 知识分组（RZY-880）
   Scenario Outline:
     Given the data name is "<name>" then i click the "标签" button
     And I set the parameter "TagInput" with value "<Type>"
+    And I choose the "<Type>" from the "TagGroup"
     And I click the "Ensure" button
     Then I will see the <Result>
 

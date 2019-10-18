@@ -1,7 +1,6 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.config.ConfigManager;
-import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
 import cucumber.api.java.en.And;
@@ -23,7 +22,7 @@ import java.util.Map;
 public class ClickButtonWithGivenName {
 
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-    Paging pagingInfo = new GetPaging().getPagingInfo();
+    Paging pagingInfo = new Paging();
     ListPageUtils listPageUtils = new ListPageUtils();
 
     /**
@@ -124,7 +123,12 @@ public class ClickButtonWithGivenName {
      * @param tr
      */
     private void click(String buttonName, WebElement tr) {
-        String xpath = ".//a[contains(text(),'" + buttonName + "')]";
+        String xpath;
+        if (pagingInfo.checkUrl()) {
+            xpath = ".//span[contains(text(),'" + buttonName + "')]";
+        } else {
+            xpath = ".//a[contains(text(),'" + buttonName + "')]";
+        }
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         // 包含删除的按钮会有两个，因此需通过class属性去判断
 //        if (button.get(0).getAttribute("class").equals("")) {

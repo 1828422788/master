@@ -180,7 +180,7 @@ public class ListPage extends PageTemplate {
 //            page.iWillSeeNewPage("users.CreatePage");
 //            CreatePage createPage = new CreatePage(webDriver);
 //            createPage.createAUser(userName,fullName,email,telephone,password,userGroup);
-//            page.iWillSeeNewPage("users.ListPage");
+//            page.iWillSeeNewPage("users.CreatePage");
 //        }else if (text.equals(userName)){
 //            System.out.println("There is a user");
 //            getSearchInput().sendKeys(Keys.END);

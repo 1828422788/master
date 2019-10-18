@@ -47,14 +47,29 @@ public class GetElementFromPage {
                 } else {
                     name = "get" + name;
                 }
+                Object page = LoginBeforeAllTests.getPageFactory();
+                Method method = null;
                 try {
-                    Object page = LoginBeforeAllTests.getPageFactory();
-                    Method method = page.getClass().getDeclaredMethod(name);
+                    page = LoginBeforeAllTests.getPageFactory();
+                    method = page.getClass().getDeclaredMethod(name);
                     type = method.getAnnotatedReturnType().getType();
                     object = page.getClass().getDeclaredMethod(name).invoke(page);
-                } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                } catch (NoSuchMethodException e) {
+                    method = null;
+                } catch (IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
                 }
+                if (method == null) {
+                    try {
+                        method = page.getClass().getSuperclass().getDeclaredMethod(name);
+//                        type = method.getAnnotatedReturnType().getType();
+//                        Object superInstance = page.getClass().getSuperclass().newInstance();
+                        object = method.invoke(page);
+                    } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+
             }
         }
 

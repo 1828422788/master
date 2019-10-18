@@ -16,15 +16,14 @@ public class EditPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy (className = "el-input__inner")
+    @FindBy(className = "el-input__inner")
     private List<WebElement> inputs;
 
-    @FindBy (xpath = "//span[text()='更新']/parent::button")
+    @FindBy(xpath = "//span[contains(text(),'更新')]/parent::button")
     private WebElement updateButton;
 
-    @FindBy (className = "el-message-box__content")
+    @FindBy(className = "el-message-box__content")
     private WebElement messageInfo;
-
 
     public WebElement getRoleName() {
         return inputs.get(0);
@@ -38,9 +37,9 @@ public class EditPage extends PageTemplate {
         return updateButton;
     }
 
-    public WebElement getSuccessMessage(){
-        ExpectedCondition expectedCondition = ExpectedConditions.textToBePresentInElement(messageInfo,"成功");
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+    public WebElement getSuccessMessage() {
+        ExpectedCondition expectedCondition = ExpectedConditions.textToBePresentInElement(messageInfo, "成功");
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return messageInfo;
     }
 

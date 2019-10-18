@@ -836,7 +836,7 @@ public class CreatePage extends PageTemplate {
 //        login.beforeScenario();
 //        Thread.sleep(10000);
 //        driver.get("http://alltest.rizhiyi.com/alerts/new/");
-//        ListPage p = new ListPage(driver);
+//        CreatePage p = new CreatePage(driver);
 //        Thread.sleep(2000);
 ////        p.getCreateAlert().click();
 ////        Thread.sleep(10000);

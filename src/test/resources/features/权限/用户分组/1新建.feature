@@ -6,7 +6,7 @@ Feature: 用户分组创建（RZY-545）
 
   @createUserGroups
   Scenario Outline: 所需用户分组
-    And I click the "CreateUserGroup" button
+    And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page
     When I set the parameter "UserGroupName" with properties "<groupProperty>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
@@ -43,7 +43,7 @@ Feature: 用户分组创建（RZY-545）
       | AutoTest      | des          | admin | admin        | error message "用户组已存在\n错误码: FE_536" |
 
 
-  Scenario Outline: 用户分组创建成功
+  Scenario Outline: 重名用户分组校验
     And I click the "CreateUserGroup" button
     Then I will see the "userGroups.CreatePage" page
     When I set the parameter "UserGroupName" with properties "group"

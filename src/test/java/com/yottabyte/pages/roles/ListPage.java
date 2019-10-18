@@ -48,6 +48,9 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='yw-nav-popover-items'])[10]")
     private WebElement source;
 
+    @FindBy(className = "el-icon-search")
+    private WebElement searchIcon;
+
     public WebElement getSource() {
         return source;
     }
@@ -138,7 +141,7 @@ public class ListPage extends PageTemplate {
             CreatePage createPage = new CreatePage(webDriver);
             page.iWillSeeNewPage("roles.CreatePage");
             createPage.createARole(roleName, roleDes, resourceGroups);
-            page.iWillSeeNewPage("roles.ListPage");
+            page.iWillSeeNewPage("roles.CreatePage");
         }
     }
 
@@ -174,6 +177,6 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getSearchIcon() {
-        return super.getSearchIcon();
+        return searchIcon;
     }
 }

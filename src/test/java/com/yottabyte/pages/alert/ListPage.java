@@ -312,7 +312,7 @@ public class ListPage extends PageTemplate {
 //        login.beforeScenario();
 //        Thread.sleep(5000);
 //        driver.get("http://" + config.get("rizhiyi_server_host") + "/alerts");
-////        ListPage p = new ListPage(driver);
+////        CreatePage p = new CreatePage(driver);
 ////        p.deleteAlert("AutoTest");
 ////        p.thereIsAnAlert("AutoTest", list, list1, list2);
 //    }

@@ -377,7 +377,7 @@ public class ListPage extends PageTemplate {
             clickSomeButton.clickButton("CreateButton");
             WebElement element = GetElementFromPage.getWebElementWithName("OKButton");
             element.click();
-            page.iWillSeeNewPage("resourceGroups.ListPage");
+            page.iWillSeeNewPage("resourceGroups.CreatePage");
         } else if (text.equals(resourceGroupsName)) {
             System.out.println("There is a resource groups");
         }

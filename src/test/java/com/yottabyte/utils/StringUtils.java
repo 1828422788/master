@@ -14,6 +14,9 @@ public class StringUtils {
      * @return
      */
     public static int findNumberInString(String str) {
+        if ("".equals(str)) {
+            return 10;
+        }
         List<Integer> list = StringUtils.findNumbersInString(str);
         return list.get(0);
     }

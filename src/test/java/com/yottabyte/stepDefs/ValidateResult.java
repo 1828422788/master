@@ -1,6 +1,5 @@
 package com.yottabyte.stepDefs;
 
-import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
 import cucumber.api.java.en.And;
@@ -18,11 +17,11 @@ import java.util.*;
 /**
  * @author sunxj
  */
-public class RegularSearch {
+public class ValidateResult {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
     private Map<String, Object> resultMap;
     private int columnNum;
-    private GetPaging pagingInfo = new GetPaging();
+    private Paging pagingInfo = new Paging();
 
     /**
      * 验证每一行数据均为某一值
@@ -67,11 +66,12 @@ public class RegularSearch {
      */
     @Then("^I will see the search result \"([^\"]*)\"$")
     public void validateSearchResult(String searchResult) {
-        List<WebElement> trList = this.getTrList();
+        ListPageUtils listPageUtils = new ListPageUtils();
+        List<WebElement> trList = listPageUtils.getTrList();
         if (trList == null)
             return;
 
-        Paging paging = pagingInfo.getPagingInfo();
+        Paging paging = new Paging();
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
                 paging.getNextPage().click();
@@ -162,7 +162,7 @@ public class RegularSearch {
         int columnNum = Integer.parseInt(resultMap.get("column").toString());
 
         // 获取分页相关信息
-        Paging paging = pagingInfo.getPagingInfo();
+        Paging paging = new Paging();
 
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
@@ -246,7 +246,7 @@ public class RegularSearch {
         if (trList == null)
             return;
 
-        Paging paging = pagingInfo.getPagingInfo();
+        Paging paging = new Paging();
         String expectedClassName = "circle " + colour + "-circle";
 
         for (int i = 0; i < paging.getTotalPage(); i++) {
@@ -279,7 +279,7 @@ public class RegularSearch {
         if (trList == null)
             return;
 
-        Paging paging = pagingInfo.getPagingInfo();
+        Paging paging = new Paging();
         String expectedClassName = "circle " + colour + "-circle";
 
         for (int i = 0; i < paging.getTotalPage(); i++) {

@@ -4,7 +4,8 @@ Feature: 知识新建（RZY-868）
   @knowledgeSmoke
   Scenario Outline: 新建知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    And I click the "CreateKnowledge" button
+    And I click the "Create" button
+    Then I will see the "knowledge.CreatePage" page
     When I set the parameter "EventCode" with value "<EventCodeValue>"
     And I set the parameter "KnowledgeName" with value "<NameValue>"
     And I set the parameter "TagInput" with value "<TagType>"

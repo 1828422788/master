@@ -1,6 +1,5 @@
 package com.yottabyte.stepDefs;
 
-import com.yottabyte.entity.Paging;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
@@ -86,8 +85,7 @@ public class SplSearch {
                 List<WebElement> thList = table.findElements(By.tagName("th"));
                 assertEquals(columnNum, thList.size());
             }
-            GetPaging pagingInfo = new GetPaging();
-            Paging paging = pagingInfo.getPagingInfo();
+            Paging paging = new Paging();
 
             // 判断行数是否相符
             if ("".equals(rows))
