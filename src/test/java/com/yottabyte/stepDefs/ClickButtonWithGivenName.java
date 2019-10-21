@@ -2,7 +2,10 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.utils.*;
+import com.yottabyte.utils.GetElementFromPage;
+import com.yottabyte.utils.JsonStringPaser;
+import com.yottabyte.utils.ListPageUtils;
+import com.yottabyte.utils.Paging;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -367,5 +370,15 @@ public class ClickButtonWithGivenName {
         WebElement label = tr.findElement(By.xpath(".//button"));
         String labelAttribute = label.getAttribute("aria-checked");
         Assert.assertTrue(status.equals("close") && labelAttribute.contains("false") || status.equals("open") && labelAttribute.contains("true"));
+    }
+
+    @And("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in tiny table$")
+    public void checkboxInTinyTable(String status, String name) {
+        WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
+        WebElement checkbox = tr.findElement(By.xpath(".//label[@class='el-checkbox']"));
+        String currentStatus = checkbox.findElement(By.xpath("./span")).getAttribute("class");
+        if (currentStatus.contains("is-checked") && "uncheck".equals(status) || !currentStatus.contains("is-checked") && "check".equals(status)) {
+            checkbox.click();
+        }
     }
 }

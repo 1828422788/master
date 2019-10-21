@@ -9,7 +9,7 @@ Feature: 字段提取手机号码解析
     And I click the "AddRule" button
     And I choose the "手机号码解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
-    And I "<check>" the checkbox which name is "<label>"
+    And I click the "<check>" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -25,9 +25,9 @@ Feature: 字段提取手机号码解析
     Then I wait for "ConfigDone" will be visible
 
     Examples:
-      | name           | check   | label   | result                                                                                                                                                          | appName       |
-      | RZY2802手机号码解析  |         |         | Object\ngeo:Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.94381\nlongitude:121.57652\nphone:"18840824121"\nprovince:"辽宁"\nraw_message:"18840824121" | auto_test_n   |
-      | RZY2803解析到顶层字段 | checked | 解析到顶层字段 | Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.94381\nlongitude:121.57652\nprovince:"辽宁"\nraw_message:"18840824121"                                  | auto_test_tel |
+      | name           | check    | result                                                                                                                                                          | appName       |
+      | RZY2802手机号码解析  |          | Object\ngeo:Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.94381\nlongitude:121.57652\nphone:"18840824121"\nprovince:"辽宁"\nraw_message:"18840824121" | auto_test_n   |
+      | RZY2803解析到顶层字段 | Checkbox | Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.91459\nlongitude:121.61862\nprovince:"辽宁"\nraw_message:"18840824121"                                  | auto_test_tel |
 
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -54,7 +54,7 @@ Feature: 字段提取手机号码解析
     Examples:
       | tag           | result                                                                                                                                                                                                 |
       | auto_test_n   | {'other.geo.city':'鞍山市','other.geo.country':'中国','other.geo.isp':'中国移动','other.geo.latitude':'41.115009','other.geo.longitude':'122.976822','other.geo.phone':'15998008888','other.geo.province':'辽宁'} |
-      | auto_test_tel | {'other.city':'鞍山市','other.country':'中国','other.isp':'中国移动','other.latitude':'41.115009','other.longitude':'122.976822','other.province':'辽宁'}                                                         |
+      | auto_test_tel | {'other.city':'鞍山市','other.country':'中国','other.isp':'中国移动','other.latitude':'41.110626','other.longitude':'122.995632','other.province':'辽宁'}                                                         |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"

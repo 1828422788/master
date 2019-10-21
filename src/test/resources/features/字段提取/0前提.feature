@@ -10,7 +10,7 @@ Feature: 字段提取前提条件
 
   Scenario: RZY-2829:设置用户权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data properties is "roleWithResources" then i click the "授权" button
+    And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'功能'}" button
     And I "checked" the checkbox which name is "全选"

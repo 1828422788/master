@@ -42,6 +42,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@class='el-message-box__btns']//span[contains(text(),'确定')]")
     private WebElement OKButton;
 
+    @FindBy(className = "el-input__icon")
+    private WebElement dropdownIcon;
+
+    @FindBy(className = "el-scrollbar__view")
+    private WebElement dropdownList;
+
     public WebElement getUserGroupName() {
         return userGroupName;
     }
@@ -55,7 +61,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getUserGroupRole() {
-        return super.getDropdownList("角色");
+        dropdownIcon.click();
+        return dropdownList;
     }
 
     public WebElement getCreateButton() {

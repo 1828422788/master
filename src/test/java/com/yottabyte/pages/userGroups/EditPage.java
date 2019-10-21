@@ -50,6 +50,12 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'添加成员')]/ancestor::button")
     private WebElement addMemberButtonStatus;
 
+    @FindBy(className = "el-input__icon")
+    private WebElement dropdownIcon;
+
+    @FindBy(className = "el-scrollbar__view")
+    private WebElement dropdownList;
+
     public WebElement getAddMemberButtonStatus() {
         return addMemberButtonStatus;
     }
@@ -87,7 +93,8 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getUserGroupRole() {
-        return super.getDropdownList("角色");
+        dropdownIcon.click();
+        return dropdownList;
     }
 
     public WebElement getAdvancedSaveButton() {

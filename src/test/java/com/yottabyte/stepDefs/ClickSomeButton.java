@@ -128,7 +128,7 @@ public class ClickSomeButton {
     public void clickUnderneathButton(String elementName) {
         if (elementName != null && elementName.trim().length() != 0) {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", element);
+            ClickEvent.clickUnderneathButton(element);
         }
     }
 

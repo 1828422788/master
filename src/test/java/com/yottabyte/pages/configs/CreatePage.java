@@ -48,10 +48,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-extract-big-input")
     private WebElement pathInput;
 
-    @FindBy(className = "el-checkbox")
+    @FindBy(className = "ant-checkbox-wrapper")
     private WebElement checkbox;
 
-    @FindBy(xpath = "(//label[text()='替换内容'])[last()]/following-sibling::div/textarea")
+    @FindBy(xpath = "//textarea[@placeholder='请输入替换内容']")
     private WebElement replaceContent;
 
     @FindBy(className = "json-formatter-boolean")
@@ -66,7 +66,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='请输入键']/ancestor::div/following-sibling::div/input")
     private WebElement value;
 
-    @FindBy(className = "el-switch")
+    @FindBy(className = "ant-switch")
     private WebElement switchButton;
 
     @FindBy(xpath = "//div[text()='hostname']/preceding-sibling::input")
@@ -99,20 +99,34 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
 
-    @FindBy(xpath = "(//span[@class='my-check my-check-success'])[last()]")
+    @FindBy(xpath = "//span[text()='解析成功']")
     private WebElement checkSuccess;
 
     @FindBy(className = "verify-text")
     private WebElement verifyText;
 
-    @FindBy(xpath = "(//span[@class='my-check my-check-success'])[2]")
+    @FindBy(xpath = "(//span[text()='解析成功'])[2]")
     private WebElement checkSuccess2;
 
-    @FindBy(xpath = "(//span[@class='my-check my-check-success'])[3]")
+    @FindBy(xpath = "(//span[text()='解析成功'])[3]")
     private WebElement checkSuccess3;
 
-    @FindBy(xpath = "(//span[@class='my-check my-check-success'])[4]")
+    @FindBy(xpath = "(//span[text()='解析成功'])[4]")
     private WebElement checkSuccess4;
+
+    @FindBy(xpath = "//span[text()='int']/ancestor::label")
+    private WebElement intRadio;
+
+    @FindBy(xpath = "//span[text()='float']/ancestor::label")
+    private WebElement floatRadio;
+
+    public WebElement getIntRadio() {
+        return intRadio;
+    }
+
+    public WebElement getFloatRadio() {
+        return floatRadio;
+    }
 
     public WebElement getAddRule() {
         return addRule;

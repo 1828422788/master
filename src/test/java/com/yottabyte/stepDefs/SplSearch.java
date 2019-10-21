@@ -341,7 +341,7 @@ public class SplSearch {
         for (String key : list) {
             WebElement element;
             try {
-                element = webDriver.findElement(By.xpath("(//span[text()='" + key + "'])[last()]"));
+                element = webDriver.findElement(By.xpath("(//span[text()='" + key + "'])[last()]/following-sibling::span"));
             } catch (Exception e) {
                 continue;
             }

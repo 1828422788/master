@@ -15,8 +15,8 @@ Feature: 字段提取CSV解析
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
-#    And I wait for "CheckSuccess" will be visible
-#    Then I will see the element value in json "{'Result':'<result>'}"
+    And I wait for "CheckSuccess" will be visible
+    Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
       | separate | fieldList | result                                                                                                          |
@@ -27,10 +27,7 @@ Feature: 字段提取CSV解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-#    When I set the parameter "Name" with value "RZY3417多值字段"
-#    And I set the parameter "Logtype" with value "other"
-#    Then I choose the "default_ParserRule" from the "Group"
-    When I set the parameter "LogSample" with value "<logSample>"
+    When I set the parameter "LogSample" with value "<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 | T1/2 down 0 0 0 0 | F2/1 up 0 0 0 0 | F2/2 up 0 0 0 0 | F2/3 down 0 0 0 0 | F2/4 down 0 0 0 0 | F2/5 down 0 0 0 0 | F2/6 down 0 0 0 0 | F2/7 down 0 0 0 0 | F2/8 down 0 0 0 0 |"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
@@ -38,8 +35,8 @@ Feature: 字段提取CSV解析
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
-#    And I wait for "CheckSuccess" will be visible
-#    Then I will see the element value in json "{'Result':'<result>'}"
+    And I wait for "CheckSuccess" will be visible
+    Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
     And I choose the "<parseRule>" from the "ParseRule"
     And I choose the "<sourceField>" from the "SourceField"
@@ -47,26 +44,27 @@ Feature: 字段提取CSV解析
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
-#    And I wait for "CheckSuccess2" will be visible
-#    Then I will see the element value in json "{'Result':'<result1>'}"
-
-#    And I click the "AddRule" button
-#    And I choose the "CSV解析" from the "ParseRule"
-#    And I click the "ChangeToJson" button under some element
-#    And I set the parameter "{"source": "portinfo[]","split_string": "\\s","add_fields": [],"names": ["1","2","3","4","5","6"],"split_option":null}" to json editor
-#    And I click the "ParseButton" button
-#    And I wait for "CheckSuccess3" will be visible
-#    Then I will see the element value in json "{'Result':'<result2>'}"
-#    And I click the "NextButton" button under some element
-#    And I click the "SwitchButton" button
-#    And I set the parameter "AppName" with value "auto_test_csv"
-#    And I set the parameter "Tag" with value "auto_test_csv"
-#    And I click the "NextButton" button
-#    Then I wait for "ConfigDone" will be visible
+    And I wait for "CheckSuccess2" will be visible
+    Then I will see the element value in json "{'Result':'<result1>'}"
+    And I click the "AddRule" button
+    And I choose the "CSV解析" from the "ParseRule"
+    And I click the "ChangeToJson" button under some element
+    And I set the parameter "{"source": "portinfo[]","split_string": "\\s","add_fields": [],"names": ["1","2","3","4","5","6"],"split_option":null}" to json editor
+    And I click the "ParseButton" button
+    And I wait for "CheckSuccess3" will be visible
+    Then I will see the element value in json "{'Result':'<result2>'}"
+    And I click the "NextButton" button under some element
+    And I click the "SwitchButton" button
+    When I set the parameter "Name" with value "RZY3417多值字段"
+    And I set the parameter "Logtype" with value "other"
+    And I set the parameter "AppName" with value "auto_test_csv"
+    And I set the parameter "Tag" with value "auto_test_csv"
+    And I click the "NextButton" button
+    Then I wait for "ConfigDone" will be visible
 
     Examples:
-      | logSample                                                                                                                                                                                                                                                                  | regex                  | parseRule | sourceField | inputElement | timeFormat | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | result1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | result2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-      | <134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0  \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \| | .*?:\s+(?<portinfo>.*) | CSV解析     | portinfo    | Separate     | \s*\\\|\s* | Object\nportinfo:"T1/1 down 0 0 0 0 \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \|"\nraw_message:"<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \|" | Object\nportinfo:Array[10]\n0:"T1/1 down 0 0 0 0"\n1:"T1/2 down 0 0 0 0"\n2:"F2/1 up 0 0 0 0"\n3:"F2/2 up 0 0 0 0"\n4:"F2/3 down 0 0 0 0"\n5:"F2/4 down 0 0 0 0"\n6:"F2/5 down 0 0 0 0"\n7:"F2/6 down 0 0 0 0"\n8:"F2/7 down 0 0 0 0"\n9:"F2/8 down 0 0 0 0"\nraw_message:"<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \|" | Object\nportinfo[]:Object\n1:Array[10]\n0:"T1/1"\n1:"T1/2"\n2:"F2/1"\n3:"F2/2"\n4:"F2/3"\n5:"F2/4"\n6:"F2/5"\n7:"F2/6"\n8:"F2/7"\n9:"F2/8"\n2:Array[10]\n0:"down"\n1:"down"\n2:"up"\n3:"up"\n4:"down"\n5:"down"\n6:"down"\n7:"down"\n8:"down"\n9:"down"\n3:Array[10]\n0:"0"\n1:"0"\n2:"0"\n3:"0"\n4:"0"\n5:"0"\n6:"0"\n7:"0"\n8:"0"\n9:"0"\n4:Array[10]\n0:"0"\n1:"0"\n2:"0"\n3:"0"\n4:"0"\n5:"0"\n6:"0"\n7:"0"\n8:"0"\n9:"0"\n5:Array[10]\n0:"0"\n1:"0"\n2:"0"\n3:"0"\n4:"0"\n5:"0"\n6:"0"\n7:"0"\n8:"0"\n9:"0"\n6:Array[10]\n0:"0"\n1:"0"\n2:"0"\n3:"0"\n4:"0"\n5:"0"\n6:"0"\n7:"0"\n8:"0"\n9:"0"\nraw_message:"<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \|" |
+      | regex                  | parseRule | sourceField | inputElement | timeFormat | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | result1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | result2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+      | .*?:\s+(?<portinfo>.*) | CSV解析     | portinfo    | Separate     | \s*\\\|\s* | Object\nportinfo:"T1/1 down 0 0 0 0 \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \|"\nraw_message:"<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \|" | Object\nportinfo:Array[10]\n0:"T1/1 down 0 0 0 0"\n1:"T1/2 down 0 0 0 0"\n2:"F2/1 up 0 0 0 0"\n3:"F2/2 up 0 0 0 0"\n4:"F2/3 down 0 0 0 0"\n5:"F2/4 down 0 0 0 0"\n6:"F2/5 down 0 0 0 0"\n7:"F2/6 down 0 0 0 0"\n8:"F2/7 down 0 0 0 0"\n9:"F2/8 down 0 0 0 0"\nraw_message:"<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \|" | Object\nportinfo[]:Object\n1:Array[10]\n0:"T1/1"\n1:"T1/2"\n2:"F2/1"\n3:"F2/2"\n4:"F2/3"\n5:"F2/4"\n6:"F2/5"\n7:"F2/6"\n8:"F2/7"\n9:"F2/8"\n2:Array[10]\n0:"down"\n1:"down"\n2:"up"\n3:"up"\n4:"down"\n5:"down"\n6:"down"\n7:"down"\n8:"down"\n9:"down"\n3:Array[10]\n0:"0"\n1:"0"\n2:"0"\n3:"0"\n4:"0"\n5:"0"\n6:"0"\n7:"0"\n8:"0"\n9:"0"\n4:Array[10]\n0:"0"\n1:"0"\n2:"0"\n3:"0"\n4:"0"\n5:"0"\n6:"0"\n7:"0"\n8:"0"\n9:"0"\n5:Array[10]\n0:"0"\n1:"0"\n2:"0"\n3:"0"\n4:"0"\n5:"0"\n6:"0"\n7:"0"\n8:"0"\n9:"0"\n6:Array[10]\n0:"0"\n1:"0"\n2:"0"\n3:"0"\n4:"0"\n5:"0"\n6:"0"\n7:"0"\n8:"0"\n9:"0"\nraw_message:"<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 \| T1/2 down 0 0 0 0 \| F2/1 up 0 0 0 0 \| F2/2 up 0 0 0 0 \| F2/3 down 0 0 0 0 \| F2/4 down 0 0 0 0 \| F2/5 down 0 0 0 0 \| F2/6 down 0 0 0 0 \| F2/7 down 0 0 0 0 \| F2/8 down 0 0 0 0 \|" |
 
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

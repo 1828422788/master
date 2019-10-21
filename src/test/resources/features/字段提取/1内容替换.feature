@@ -10,15 +10,17 @@ Feature: 字段提取内容替换
     And I choose the "内容替换" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(\d+)[a-z]+"
-    And I set the parameter "ReplaceContent" with value "<replaceContent>"
-    And I click the "<replaceFirst>" button
+    And I set the parameter "ReplaceContent" with value "$1"
+    And I click the "Checkbox" button
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
-      | replaceContent | replaceFirst | result                       |
-      | $1             | Checkbox     | Object\nraw_message:"123456" |
+      | result                       |
+      | Object\nraw_message:"123456" |
 
   Scenario Outline: RZY-1556:内容替换
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -30,6 +32,8 @@ Feature: 字段提取内容替换
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(\d+)[a-z]+"
     And I set the parameter "ReplaceContent" with value "<replaceContent>"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -58,6 +62,9 @@ Feature: 字段提取内容替换
     And I choose the "@tag" from the "SourceField"
     And I set the parameter "Regex" with value "(.*)"
     And I set the parameter "ReplaceContent" with value "$1,newinfo"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
+    And I click the "ParseButton" button
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
     When I set the parameter "Name" with value "RZY1559tag替换"

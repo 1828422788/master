@@ -3,6 +3,7 @@ package com.yottabyte.pages;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
@@ -109,9 +110,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getDropdownList(String text) {
-        String xpath = "//div[contains(text(),'" + text + "')]/following-sibling::div//div[@class='ant-select-selection__rendered']";
+        String xpath = "//div[contains(text(),'" + text + "')]/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
 

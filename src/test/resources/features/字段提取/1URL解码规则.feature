@@ -17,9 +17,9 @@ Feature: 字段提取URL解码规则
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
-    And I click the "ContinueButton" button
+    And I click the "AddRule" button
     And I choose the "<parseRule>" from the "ParseRule"
-    And I choose the "<sourceField>" from the "SourceFieldLabel2"
+    And I choose the "<sourceField>" from the "SourceField"
     And I set the parameter "<inputElement>" with value "<timeFormat>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -63,7 +63,7 @@ Feature: 字段提取URL解码规则
 
     Examples:
       | tag           | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-      | auto_test_url | {'apache.clientip':'192.168.1.139','apache.method':'GET','apache.referer':'http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0','apache.referer_domain':'alltest.rizhiyi.com','apache.request_path':'/api/v0/search/fields/','apache.request_query':'field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=所有日志&time_range=-2d,now&type=fields','apache.resp_len':'363','apache.status':'200','apache.timestamp':'24/Jan/2015:17:03:49 +0800','apache.ua':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0','apache.version':'1.1'} |
+      | auto_test_url | {'apache.clientip':'192.168.1.139 ','apache.method':'GET ','apache.referer':'http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0','apache.referer_domain':'alltest.rizhiyi.com','apache.request_path':'/api/v0/search/fields/','apache.request_query':'field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=所有日志&time_range=-2d,now&type=fields','apache.resp_len':'363','apache.status':'200','apache.timestamp':'24/Jan/2015:17:03:49 +0800','apache.ua':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0','apache.version':'1.1'} |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"

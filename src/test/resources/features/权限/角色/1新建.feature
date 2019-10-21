@@ -7,26 +7,26 @@ Feature: 角色新建（RZY-517至521）
   Scenario Outline: 创建基本角色
     Given I click the "CreateRoleButton" button
     And I will see the "roles.CreatePage" page
-    And I set the parameter "RoleName" with properties "<RoleName>"
+    And I set the parameter "RoleName" with value "<RoleName>"
     And I set the parameter "RoleDes" with value "<RoleDes>"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 
   @createRole
     Examples:
-      | RoleName | RoleDes |
-      | role     | 无资源分组   |
+      | RoleName     | RoleDes |
+      | AutoTestRole | 无资源分组   |
 
   Scenario Outline: 角色同名校验
     Given I click the "CreateRoleButton" button
     And I will see the "roles.CreatePage" page
-    And I set the parameter "RoleName" with properties "<RoleName>"
+    And I set the parameter "RoleName" with value "<RoleName>"
     When I click the "CreateButton" button
     Then I will see the error message "<Result>"
 
     Examples:
       | RoleName | Result                     |
-      | role     | 保存失败: 角色名称已经在\n错误码: FE_590 |
+      | AutoTestRole     | 保存失败: 角色名称已经在\n错误码: FE_590 |
 
   Scenario Outline: 角色名称非空校验
     Given I click the "CreateRoleButton" button

@@ -12,8 +12,6 @@ Feature: 字段提取KeyValue分解
     And I choose the "<sourceField>" from the "SourceField"
     And I set the parameter "FieldSeparator" with value "&"
     And I set the parameter "KVSeparator" with value "="
-    And I set the parameter "KeepKey" with value "<keepKey>"
-    And I set the parameter "DumpKey" with value "<dumpKey>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -21,8 +19,8 @@ Feature: 字段提取KeyValue分解
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
-      | logSample                                                                                                                                              | sourceField | keepKey | dumpKey | result                                                                                                                                                                                                                                                                                                                                                |
-      | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message |         |         | Object\nfield:"tag"\norder:"desc"\npage:"1"\nquery:"*"\nsize:"50"\nsourcegroup:"all"\nsourcegroupCn:"%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97"\ntime_range:"-2d,now"\ntype:"fields"\nraw_message:"field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields" |
+      | logSample                                                                                                                                              | sourceField | result                                                                                                                                                                                                                                                                                                                                                |
+      | field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields | raw_message | Object\nfield:"tag"\norder:"desc"\npage:"1"\nquery:"*"\nsize:"50"\nsourcegroup:"all"\nsourcegroupCn:"%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97"\ntime_range:"-2d,now"\ntype:"fields"\nraw_message:"field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields" |
 
   @second
   Scenario Outline: RZY-1532、1533
@@ -81,7 +79,7 @@ Feature: 字段提取KeyValue分解
 
     Examples:
       | tag                | field                                                                                                           | result                                                                                                                                                                                                                                              |
-      | auto_test_dump_key | other.order                                                                                                     | {'appname':'auto_test_dump_key','other.field':'tag','other.page':'1','other.query':'*','other.size':'50','other.sourcegroup':'all','other.sourcegroupCn':'%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97','other.time_range':'-2d,now','other.type':'fields'} |
+      | auto_test_dump_key | other.order                                                                                                     | {'other.field':'tag','other.page':'1','other.query':'*','other.size':'50','other.sourcegroup':'all','other.sourcegroupCn':'%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97','other.time_range':'-2d,now','other.type':'fields'} |
       | auto_test_keep_key | other.field,other.page,other.query,other.size,other.sourcegroup,other.sourcegroupCn,other.time_range,other.type | {'other.order':'desc'}                                                                                                                                                                                                                              |
 
   Scenario Outline: 验证详情

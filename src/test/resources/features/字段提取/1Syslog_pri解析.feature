@@ -6,21 +6,23 @@ Feature: 字段提取Syslog_pri解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "<logSample>"
+    When I set the parameter "LogSample" with value "<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting."
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
-    And I set the parameter "Regex" with value "<regex>"
+    And I set the parameter "Regex" with value "<(?<pri>\d+)>.*"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
-    And I click the "ContinueButton" button
     And I click the "AddRule" button
-    And I choose the "<parseRule>" from the "ParseRule"
-    And I choose the "<sourceField>" from the "SourceFieldLabel2"
+    And I choose the "syslog_pri解析" from the "ParseRule"
+    And I choose the "pri" from the "SourceField"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
-    And I wait for "2000" millsecond
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -32,8 +34,8 @@ Feature: 字段提取Syslog_pri解析
     Then I wait for "ConfigDone" will be visible
 
     Examples:
-      | logSample                                                              | regex           | parseRule    | sourceField | result                                                                                                 | result1                                                                                                                                    |
-      | <30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting. | <(?<pri>\d+)>.* | syslog_pri解析 | pri         | Object\npri:"30"\nraw_message:"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting." | Object\nfacility:"daemon"\npri:"30"\nseverity:"info"\nraw_message:"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting." |
+      | result                                                                                                 | result1                                                                                                                                    |
+      | Object\npri:"30"\nraw_message:"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting." | Object\nfacility:"daemon"\npri:"30"\nseverity:"info"\nraw_message:"<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting." |
 
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

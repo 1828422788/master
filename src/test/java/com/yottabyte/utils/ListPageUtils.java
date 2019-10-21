@@ -41,6 +41,11 @@ public class ListPageUtils {
         return this.getRowWithoutPaging(name, table);
     }
 
+    public WebElement findNameWithoutTotalNumber(String name, int columnNum) {
+        WebElement table = tableList.get(0);
+        return this.getRowWithoutTotalPage(name, columnNum);
+    }
+
     public WebElement findName(String name, WebElement table) {
         return this.getRowWithoutPaging(name, table);
     }
@@ -54,6 +59,19 @@ public class ListPageUtils {
             String name = map.get("name").toString();
             int columnNum = Integer.parseInt(map.get("column").toString());
             tr = this.getRowWithColumnNum(name, columnNum);
+        }
+        return tr;
+    }
+
+    public WebElement getTinyTr(String dataName) {
+        WebElement tr;
+        if (!JsonStringPaser.isJson(dataName)) {
+            tr = this.findNameWithoutTotalNumber(dataName, 0);
+        } else {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
+            String name = map.get("name").toString();
+            int columnNum = Integer.parseInt(map.get("column").toString());
+            tr = this.findNameWithoutTotalNumber(name, columnNum);
         }
         return tr;
     }
@@ -124,6 +142,24 @@ public class ListPageUtils {
         for (WebElement tr : trList) {
             if (tr.findElements(By.tagName("td")).get(column).getText().equals(name)) {
                 return tr;
+            }
+        }
+        return null;
+    }
+
+    public WebElement getRowWithoutTotalPage(String name, int columnNum) {
+        while (true) {
+            WebElement nextPage = webDriver.findElement(By.className("btn-next"));
+            List<WebElement> trList = webDriver.findElements(By.tagName("tr"));
+            for (WebElement tr : trList) {
+                if (tr.getText().contains(name)) {
+                    return tr;
+                }
+            }
+            if (nextPage.getAttribute("class").contains("disabled")) {
+                break;
+            } else {
+                nextPage.click();
             }
         }
         return null;

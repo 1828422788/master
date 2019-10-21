@@ -17,3 +17,8 @@ Feature: 角色删除（RZY-524）
       | AutoTestEdit |
       | RoleTest     |
 
+  @clean
+    Examples:
+      | name         |
+      | AutoTestRole |
+

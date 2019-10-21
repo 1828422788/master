@@ -6,25 +6,23 @@ Feature: 字段提取IP格式转换
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "<logSample>"
+    When I set the parameter "LogSample" with value "3651919938"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
-    And I set the parameter "Regex" with value "<regex>"
+    And I set the parameter "Regex" with value "(?<ip>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "<parseRule>" from the "ParseRule"
-    And I choose the "<sourceField>" from the "SourceFieldLabel2"
-    And I set the parameter "<inputElement>" with value "<timeFormat>"
+    And I choose the "ip格式转换" from the "ParseRule"
+    And I choose the "ip" from the "SourceField"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
-    And I wait for "2000" millsecond
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -36,8 +34,8 @@ Feature: 字段提取IP格式转换
     Then I wait for "ConfigDone" will be visible
 
     Examples:
-      | logSample  | regex     | parseRule | sourceField | inputElement | timeFormat | result                                            | result1                                               |
-      | 3651919938 | (?<ip>.*) | ip格式转换    | ip          |              |            | Object\nip:"3651919938"\nraw_message:"3651919938" | Object\nip:"217.171.224.66"\nraw_message:"3651919938" |
+       | result                                            | result1                                               |
+       | Object\nip:"3651919938"\nraw_message:"3651919938" | Object\nip:"217.171.224.66"\nraw_message:"3651919938" |
 
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

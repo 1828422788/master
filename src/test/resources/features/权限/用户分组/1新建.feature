@@ -8,39 +8,34 @@ Feature: 用户分组创建（RZY-545）
   Scenario Outline: 所需用户分组
     And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page
-    When I set the parameter "UserGroupName" with properties "<groupProperty>"
+    When I set the parameter "UserGroupName" with value "<groupProperty>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
-    And I choose the "<roleProperty>" from the "UserGroupOwner" with property
-    And I choose the "<roleProperty>" from the "UserGroupRole" with property
+    And I choose the "<roleProperty>" from the "UserGroupRole"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 
     Examples:
-      | groupProperty      | UserGroupDes | roleProperty      |
-      | group              | des1         | role              |
-      | groupWithResources |              | roleWithResources |
+      | groupProperty | UserGroupDes | roleProperty |
+      | AutoTestGroup | des1         | AutoTestRole |
 
   Scenario Outline: 用户分组创建成功
-    And I click the "CreateUserGroup" button
+    And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page
     When I set the parameter "UserGroupName" with value "<UserGroupName>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
-    And I choose the "<Owner>" from the "UserGroupOwner"
     And I choose the "<Role>" from the "UserGroupRole"
     And I click the "CreateButton" button
     Then I will see the <Result>
 
   @smoke @userGroupsSmoke
     Examples:
-      | UserGroupName     | UserGroupDes | Owner | Role  | Result                 |
-      | AutoTestForDelete | des1         | admin | admin | success message "创建成功" |
+      | UserGroupName     | UserGroupDes | Role  | Result                 |
+      | AutoTestForDelete | des1         | admin | success message "创建成功" |
 
     Examples: 创建失败及为空校验
-      | UserGroupName | UserGroupDes | Owner | Role         | Result                              |
-      |               | des          | admin | AutoTestRole | error message "分组名 不能为空"            |
-      | AutoTest      | des          |       | AutoTestRole | error message "拥有者 不能为空"            |
-      | AutoTest      |              | admin |              | error message "角色 不能为空"             |
-      | AutoTest      | des          | admin | admin        | error message "用户组已存在\n错误码: FE_536" |
+      | UserGroupName     | UserGroupDes | Role         | Result                              |
+      |                   | des          | AutoTestRole | error message "分组名 不能为空"            |
+      | AutoTestForDelete | des          | admin        | error message "用户组已存在\n错误码: FE_536" |
 
 
   Scenario Outline: 重名用户分组校验
