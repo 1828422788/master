@@ -5,17 +5,17 @@ Feature: 字段提取重定向解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "RZY2867redirect副规则"
-    And I set the parameter "Logtype" with value "other"
-    Then I choose the "default_ParserRule" from the "Group"
-    And I choose the "Json解析" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
+    And I click the "AddRule" button
+    And I choose the "JSON解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
     And I click the "AddField" button
     And I set the parameter "Key" with value "key"
     And I set the parameter "Value" with value "value"
-    And I click the "NextButton" button
+    And I click the "EnsureAddParseRule" button
+    And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
+    When I set the parameter "Name" with value "RZY2867redirect副规则"
+    And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "redirect_fu"
     And I set the parameter "Tag" with value "redirect_fu"
     And I click the "NextButton" button
@@ -25,14 +25,14 @@ Feature: 字段提取重定向解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
+    And I click the "AddRule" button
+    And I choose the "RZY2867redirect副规则" from the "Redirect"
+    And I choose the "json" from the "Redirect"
+    And I click the "EnsureAddParseRule" button
+    And I click the "NextButton" button under some element
+    And I click the "SwitchButton" button
     When I set the parameter "Name" with value "RZY2868redirect主规则"
     And I set the parameter "Logtype" with value "other"
-    Then I choose the "default_ParserRule" from the "Group"
-    And I choose the "重定向规则" from the "ParseRule"
-    And I alter the element "ExtractSample" class to "yw-extract-sample yw-extract-sample-container"
-    And I choose the "RZY2867redirect副规则" from the "Redirect"
-    And I click the "NextButton" button
-    And I click the "SwitchButton" button
     And I set the parameter "AppName" with value "redirect_zhu"
     And I set the parameter "Tag" with value "redirect_zhu"
     And I click the "NextButton" button

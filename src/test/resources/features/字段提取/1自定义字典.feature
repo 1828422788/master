@@ -15,26 +15,30 @@ Feature: 字段提取自定义字典
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "RZY2819配置自定义字典解析规则"
-    And I set the parameter "Logtype" with value "json"
     When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
-    And I choose the "Json解析" from the "ParseRule"
+    And I click the "AddRule" button
+    And I choose the "JSON解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
-    And I click the "ContinueButton" button
+    And I click the "AddRule" button
     And I choose the "自定义字典" from the "ParseRule"
     And I choose the "SourceName" from the "SourceField"
     And I choose the "win_sys_sourcename.csv" from the "Dictionary"
     And I choose the "sourcename" from the "BaseField"
     And I choose the "level,source" from the "ExtendField"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
-    And I wait for "SuccessMessage" will be visible
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
+    When I set the parameter "Name" with value "RZY2819配置自定义字典解析规则"
+    And I set the parameter "Logtype" with value "json"
     And I set the parameter "AppName" with value "auto_test_dictionary"
     And I set the parameter "Tag" with value "auto_test_dictionary"
     And I click the "NextButton" button

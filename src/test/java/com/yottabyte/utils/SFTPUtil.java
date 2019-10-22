@@ -304,14 +304,14 @@ public class SFTPUtil {
 
     //上传文件测试
     public static void main(String[] args) throws Exception {
-        SFTPUtil sftp = new SFTPUtil("ftp", "YottaByte&2018", "192.168.1.164", 22);
+        SFTPUtil sftp = new SFTPUtil("ftp", "123456", "192.168.1.143", 22);
         sftp.login();
-//        String fileName = "src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py";
-//        File file = new File(fileName);
-//        InputStream is = new FileInputStream(file);
-//        String s = File.separator;
+        String fileName = "src/test/resources/testdata/log/website.log";
+        File file = new File(fileName);
+        InputStream is = new FileInputStream(file);
+        String s = File.separator;
 //        PdfToImages c = new PdfToImages();
-//        is = sftp.readFile("./", "1122.pdf");
+        is = sftp.readFile("./", "1122.pdf");
 //
 ////        sftp.upload("/", "alertPlugins/a", "hengshuiyinhang_socket.py", is);
 ////        String result = sftp.execCommand("/usr/bin/python /home/sendlog/200/log_gen.py -d192.168.1.200 -p5140 -l/home/sendlog/all_format_log/baimi -c/home/sendlog/200/200.conf -r2");

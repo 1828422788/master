@@ -29,7 +29,9 @@ Feature: 字段提取结构体解析
     And I choose the "结构体解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Struct" with value "<struct>"
-    And I "checked" the checkbox which name is "<checkbox>"
+    And I click the "Checkbox" button
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -43,8 +45,8 @@ Feature: 字段提取结构体解析
     Then I wait for "ConfigDone" will be visible
 
     Examples:
-      | struct         | checkbox | result                                             |
-      | name:3,val:4:i | 是否严格解析   | Object\nname:"aaa"\nval:111\nraw_message:"aaa 111" |
+      | struct         | result                                             |
+      | name:3,val:4:i | Object\nname:"aaa"\nval:111\nraw_message:"aaa 111" |
 
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

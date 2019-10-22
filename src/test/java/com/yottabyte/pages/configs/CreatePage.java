@@ -33,9 +33,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='正则表达式'])[last()]/following-sibling::div/textarea")
     private WebElement regex;
 
-    @FindBy(xpath = "(//label[text()='正则表达式']/following-sibling::div/textarea)[2]")
-    private WebElement regex2;
-
     @FindBy(xpath = "//div[text()='来源字段']")
     private WebElement sourceFieldLabel;
 
@@ -57,13 +54,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "json-formatter-boolean")
     private List<WebElement> booleanList;
 
-    @FindBy(xpath = "//a[text()='+ 解析成功时添加字段']")
+    @FindBy(xpath = "//span[text()='+ 解析成功时添加字段']")
     private WebElement addField;
 
-    @FindBy(xpath = "//input[@placeholder='请输入键']")
+    @FindBy(xpath = "//div[text()='添加字段']/following-sibling::div/input")
     private WebElement key;
 
-    @FindBy(xpath = "//input[@placeholder='请输入键']/ancestor::div/following-sibling::div/input")
+    @FindBy(xpath = "(//div[text()='添加字段']/following-sibling::div/input)[2]")
     private WebElement value;
 
     @FindBy(className = "ant-switch")
@@ -90,11 +87,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[contains(text(),'匹配前缀')])[last()]/following-sibling::input")
     private WebElement prefix;
 
-    @FindBy(xpath = "//label[contains(text(),'结构体定义')]/following-sibling::div/textarea")
+    @FindBy(xpath = "//textarea[@placeholder='请输入结构体定义']")
     private WebElement struct;
-
-    @FindBy(xpath = "//i[@class='iconfont icon-beizhu_icon el-tooltip item']/preceding-sibling::input")
-    private WebElement ruleName;
 
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
@@ -119,6 +113,14 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='float']/ancestor::label")
     private WebElement floatRadio;
+
+    public WebElement getTimeZone() {
+        return super.getDropdownList("时区");
+    }
+
+    public WebElement getLanguage() {
+        return super.getDropdownList("语言");
+    }
 
     public WebElement getIntRadio() {
         return intRadio;
@@ -153,7 +155,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRuleName() {
-        return ruleName;
+        return getInputElement("规则名称");
     }
 
     public WebElement getRedirect() {
@@ -364,10 +366,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSource() {
         return findInputByPlaceholder("请输入source");
-    }
-
-    public WebElement getRegex2() {
-        return regex2;
     }
 
     public WebElement getReplaceContent() {

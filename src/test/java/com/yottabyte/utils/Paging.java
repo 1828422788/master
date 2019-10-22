@@ -20,7 +20,7 @@ public class Paging {
     public Paging() {
         if (!checkUrl()) {
             totalNumberElement = webDriver.findElement(By.xpath("//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span"));
-            numbersPerPageElement = webDriver.findElement(By.className("ant-select-selection-selected-value"));
+            numbersPerPageElement = webDriver.findElement(By.xpath("(//div[@class='ant-select-selection-selected-value'])[last()]"));
             nextPage = webDriver.findElement(By.className("ant-pagination-next"));
             tableList = webDriver.findElements(By.className("ant-table-tbody"));
         } else {

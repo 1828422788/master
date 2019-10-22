@@ -1,6 +1,7 @@
 package com.yottabyte.pages.agent;
 
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,10 +14,7 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//a[text()='下一步']")
-    private WebElement next;
-
-    @FindBy(name = "file")
+    @FindBy(className = "ant-radio-wrapper")
     private WebElement file;
 
     @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
@@ -31,14 +29,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//p[text()='您确定要删除该配置项吗？']/ancestor::div[@class='el-message-box']//button[@class='el-button el-button--default el-button--primary ']")
     private WebElement deleteConfig;
 
-    @FindBy(xpath = "//li[contains(text(),'清理输出源缓存')]")
+    @FindBy(xpath = "//span[contains(text(),'清理输出源缓存')]")
     private WebElement cleanOutput;
 
-    @FindBy(xpath = "//p[text()='清理输出源缓存将导致数据重发，是否继续？']/ancestor::div[@class='el-message-box__content']/following-sibling::div//span[contains(text(),'确定')]")
-    private WebElement ensureCleanOutput;
-
     public WebElement getEnsureCleanOutput() {
-        return ensureCleanOutput;
+        return super.getButton("确定");
     }
 
     public WebElement getCleanOutput() {
@@ -62,31 +57,31 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getNext() {
-        return next;
+        return super.getButton("下一步");
     }
 
     public WebElement getAdd() {
-        return super.getContainsTextButton("添加");
+        return super.getButton("添加");
     }
 
     public WebElement getDocument() {
-        return super.getInputElement("文件或目录");
+        return getInputElement("文件或目录");
     }
 
     public WebElement getWhiteList() {
-        return super.getInputElement("文件路径白名单");
+        return getInputElement("文件路径白名单");
     }
 
     public WebElement getLastModifyTime() {
-        return super.getInputElement("最后修改时间");
+        return getInputElement("最后修改时间");
     }
 
     public WebElement getAppname() {
-        return super.getInputElement("appname");
+        return getInputElement("appname");
     }
 
     public WebElement getTag() {
-        return super.getInputElement("tag");
+        return getInputElement("tag");
     }
 
     public WebElement getSuccessMessage() {
@@ -95,5 +90,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getCleanCache() {
         return super.getButton("清理缓存");
+    }
+
+    public WebElement getInputElement(String text) {
+        return webDriver.findElement(By.xpath("//label[text()='" + text + "']/ancestor::div/following-sibling::div//input"));
     }
 }
