@@ -8,24 +8,23 @@ Feature: 字段提取脱敏配置
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with properties "userWithResources"
-    And I set the parameter "Password" with properties "userWithResourcesPwd"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "Name" with value "脱敏"
-    And I set the parameter "Logtype" with value "replace"
     When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "Regex" with value "(?<phone>.*)"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<regexResult>'}"
-    And I click the "EnsureAddParseRule" button
     And I click the "AddRule" button
     And I choose the "脱敏配置" from the "ParseRule"
     And I choose the "phone" from the "SourceField"
@@ -33,21 +32,26 @@ Feature: 字段提取脱敏配置
     And I set the parameter "ReplaceContent" with value "$1****$3"
     And I set the parameter "Prefix" with value "\w+"
     And I set the parameter "Postfix" with value "\S+"
-    And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
-    Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
+    And I click the "ParseButton" button
+    And I wait for "CheckSuccess2" will be visible
+    Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
     And I choose the "脱敏配置" from the "ParseRule"
     And I choose the "phone" from the "SourceField"
     And I set the parameter "Regex" with value "(\d{3})(\d{4})(\d{4})"
     And I set the parameter "ReplaceContent" with value "$1****$3"
     And I set the parameter "Prefix" with value "\s+"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess2" will be visible
+    And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
+    When I set the parameter "Name" with value "脱敏"
+    And I set the parameter "Logtype" with value "replace"
     And I set the parameter "AppName" with value "replacer"
     And I set the parameter "Tag" with value "replacer"
     And I click the "NextButton" button
@@ -64,8 +68,8 @@ Feature: 字段提取脱敏配置
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with properties "userWithResources"
-    And I set the parameter "Password" with properties "userWithResourcesPwd"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -87,8 +91,8 @@ Feature: 字段提取脱敏配置
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with properties "userWithResources"
-    And I set the parameter "Password" with properties "userWithResourcesPwd"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"

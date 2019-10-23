@@ -71,7 +71,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getUserGroups() {
-        return super.getDropdownList("用户分组");
+        return getDropdownList("用户分组");
+    }
+
+    public WebElement getRole() {
+        return getDropdownList("角色");
     }
 
     public WebElement getCreateButton() {
@@ -92,20 +96,13 @@ public class CreatePage extends PageTemplate {
         return message;
     }
 
-    public void createAUser(String userName, String fullName, String email, String telephone, String password, List<String> userGroup) {
-        SetKeyWithValue setKey = new SetKeyWithValue();
-        ClickSomeButton click = new ClickSomeButton();
-        IChooseValueFromSelectList choose = new IChooseValueFromSelectList();
-        setKey.iSetTheParameterWithValue("UserName", userName);
-        setKey.iSetTheParameterWithValue("FullName", fullName);
-        setKey.iSetTheParameterWithValue("Email", email);
-        setKey.iSetTheParameterWithValue("Telephone", telephone);
-        setKey.iSetTheParameterWithValue("Password", password);
-        choose.iChooseTheFromThe(userGroup, "UserGroups");
-        click.clickButton("CreateButton");
-        click.clickButton("OKButton");
-
+    public WebElement getDropdownList(String name) {
+        String xpath = "//label[text()='" + name + "']/following-sibling::div//i";
+        webDriver.findElement(By.xpath(xpath)).click();
+        return this.getLastDropdownList();
     }
 
-
+    public WebElement getLastDropdownList() {
+        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
+    }
 }

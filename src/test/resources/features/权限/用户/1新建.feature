@@ -5,21 +5,17 @@ Feature: 用户新建（RZY-1164）
     Given open the "users.ListPage" page for uri "/account/users/"
 
   @createUsers
-  Scenario Outline: 添加用户
+  Scenario: 添加基本用户
     And I click the "CreateUser" button
     And I will see the "users.CreatePage" page
-    When I set the parameter "UserName" with properties "<UserName>"
-    And I set the parameter "FullName" with value "<FullName>"
-    And I set the parameter "Email" with properties "<Email>"
-    And I set the parameter "Password" with properties "<Password>"
-    And I choose the "<UserGroups>" from the "UserGroups" with property
+    When I set the parameter "UserName" with value "AutoTest"
+    And I set the parameter "FullName" with value "AutoTestFullName"
+    And I set the parameter "Email" with value "autoFullName@yottabyte.cn"
+    And I set the parameter "Password" with value "all123456"
+    And I choose the "AutoTestGroup" from the "UserGroups"
+    And I choose the "AutoTestRole" from the "Role"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
-
-    Examples: 成功添加一个用户
-      | UserName          | FullName                | Email            | Password             | UserGroups         |
-      | user              | autoTestFullName        | userEmail        | userPwd              | group              |
-      | userWithResources | AutoTestWithAllResource | allResourceEmail | userWithResourcesPwd | groupWithResources |
 
   Scenario Outline: 添加普通用户
     And I click the "CreateUser" button
@@ -35,8 +31,8 @@ Feature: 用户新建（RZY-1164）
 
   @smoke @usersSmoke
     Examples:
-      | UserName               | FullName               | Email                               | Telephone | Password   | UserGroups | Result                 |
-      | AutoTestForEdit        | autoTestFullName       | autoTestForEdit@yottabyte.cn        |           | qqqqq11111 | admin      | success message "创建成功" |
+      | UserName        | FullName         | Email                        | Telephone | Password   | UserGroups | Result                 |
+      | AutoTestForEdit | autoTestFullName | autoTestForEdit@yottabyte.cn |           | qqqqq11111 | admin      | success message "创建成功" |
 #      | AutoTestForSavedSearch | AutoTestForSavedSearch | AutoTestForSavedSearch@yottabyte.cn |           | qqqqq11111 | admin      | success message "创建成功" |
 
     Examples: 添加用户失败

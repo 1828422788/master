@@ -39,11 +39,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='来源字段']/following-sibling::div//i)[last()]")
     private WebElement sourceField;
 
-    @FindBy(className = "el-icon-plus")
+    @FindBy(xpath = "//div[text()='路径']/following-sibling::i")
     private WebElement plusButton;
-
-    @FindBy(className = "yw-extract-big-input")
-    private WebElement pathInput;
 
     @FindBy(className = "ant-checkbox-wrapper")
     private WebElement checkbox;
@@ -75,7 +72,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "yw-extract-side-result")
     private WebElement result;
 
-    @FindBy(className = "my-check-failed")
+    @FindBy(xpath = "//span[text()='解析失败']")
     private WebElement failedMessage;
 
     @FindBy(className = "ace_content")
@@ -83,9 +80,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "anticon-swap")
     private WebElement changeToJson;
-
-    @FindBy(xpath = "(//label[contains(text(),'匹配前缀')])[last()]/following-sibling::input")
-    private WebElement prefix;
 
     @FindBy(xpath = "//textarea[@placeholder='请输入结构体定义']")
     private WebElement struct;
@@ -167,7 +161,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPrefix() {
-        return prefix;
+        return getInputElement("匹配前缀");
     }
 
     public WebElement getPostfix() {
@@ -349,7 +343,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getPathInput() {
         plusButton.click();
-        return pathInput;
+        return this.getInputElement("路径");
     }
 
     public WebElement getBoolean1() {
