@@ -332,19 +332,6 @@ public class ClickButtonWithGivenName {
     }
 
     /**
-     * 数据大屏列表页点击操作
-     *
-     * @param dataName
-     * @param className
-     */
-    @When("^the galaxee name is \"([^\"]*)\" then I click the \"([^\"]*)\" button$")
-    public void theGalaxeeNameIsThenIClickTheButton(String dataName, String className) {
-        String xpath = "//div[@title='" + dataName + "']/preceding-sibling::div//*[@class='" + className + "']";
-        WebElement button = webDriver.findElement(By.xpath(xpath));
-        button.click();
-    }
-
-    /**
      * 关闭或开启禁用开关
      *
      * @param name
