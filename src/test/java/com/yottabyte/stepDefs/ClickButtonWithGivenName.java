@@ -129,8 +129,10 @@ public class ClickButtonWithGivenName {
         String xpath;
         if (pagingInfo.checkUrl()) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
+        } else if ("详 情".equals(buttonName)) {
+            xpath = ".//span[contains(text(),'" + buttonName + "')]";
         } else {
-            xpath = ".//a[contains(text(),'" + buttonName + "')]";
+            xpath = ".//a[text()='" + buttonName + "']";
         }
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         // 包含删除的按钮会有两个，因此需通过class属性去判断

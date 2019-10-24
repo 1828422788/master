@@ -69,17 +69,17 @@ Feature: 字段提取正则片段解析
     Then I will see the spl search result "<result>"
 
     Examples:
-      | spl                     | result                     |
-      | appname:regex AND tag:1 | {"other.user":"enable_15"} |
-      | appname:regex AND tag:2 | {"other.user":"enable_15"} |
+      | spl                     | result                                |
+      | appname:regex AND tag:1 | {"other.user":"other.user：enable_15"} |
+      | appname:regex AND tag:2 | {"other.user":"other.user：enable_15"} |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "RZY2872正则片段解析" then i click the "详情" button
+    When the data name is "{'column':'1','name':'RZY2872正则片段解析'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "正则解析" value is "正则解析<result>"
+    Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:
-      | result          |
-      | \n2\n2\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |

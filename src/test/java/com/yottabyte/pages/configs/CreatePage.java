@@ -366,12 +366,6 @@ public class CreatePage extends PageTemplate {
         return replaceContent;
     }
 
-    @Override
-    public WebElement getInputElement(String text) {
-        String xpath = "//div[text()='" + text + "']//following-sibling::div//input";
-        return webDriver.findElement(By.xpath(xpath));
-    }
-
     public WebElement getResult() {
         return result;
     }

@@ -20,10 +20,10 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "ant-modal-content")
     private WebElement content;
 
-    @FindBy(xpath = "//p")
+    @FindBy(className = "ant-message-success")
     private WebElement successMessage;
 
-    @FindBy(className = "el-switch")
+    @FindBy(xpath = "//button[@role='switch']")
     private WebElement switchButton;
 
     @FindBy(xpath = "//span[text()='运行统计']/following-sibling::label//div[@class='el-switch__label el-switch__label--right']")
@@ -64,6 +64,10 @@ public class ListPage extends PageTemplate {
 
     public WebElement getGroup() {
         return ul;
+    }
+
+    public WebElement getTagGroup() {
+        return super.getDropdownList("标签");
     }
 
     public WebElement getEnsureButton() {

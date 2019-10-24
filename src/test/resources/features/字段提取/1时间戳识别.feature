@@ -115,17 +115,17 @@ Feature: 字段提取时间戳识别
     Then I will see the spl search result "<result>"
 
     Examples:
-      | tag                 | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-      | auto_test_timestamp | {'apache.clientip':'192.168.1.139','apache.method':'GET','apache.referer':'http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0','apache.referer_domain':'alltest.rizhiyi.com','apache.request_path':'/api/v0/search/fields/','apache.request_query':'field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields','apache.resp_len':'363','apache.status':'200','apache.timestamp':'24/Jan/2015:17:03:49 +0800','apache.ua':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0','apache.version':'1.1'} |
+      | tag                 | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+      | auto_test_timestamp | {'apache.clientip':'apache.clientip：192.168.1.139','apache.method':'apache.method：GET','apache.referer':'apache.referer：http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0','apache.referer_domain':'apache.referer_domain：alltest.rizhiyi.com','apache.request_path':'apache.request_path：/api/v0/search/fields/','apache.request_query':'apache.request_query：field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields','apache.resp_len':'apache.resp_len：363','apache.status':'apache.status：200','apache.timestamp':'apache.timestamp：24/Jan/2015:17:03:49 +0800','apache.ua':'apache.ua：Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0','apache.version':'apache.version：1.1'} |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "RZY2823时间戳前缀" then i click the "详情" button
+    When the data name is "{'column':'1','name':'RZY2823时间戳前缀'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "时间戳识别" value is "时间戳识别<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
+    Then I will see the config element "时间戳识别" value is "时间戳识别 <result>"
+    Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:
-      | result          |
-      | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |

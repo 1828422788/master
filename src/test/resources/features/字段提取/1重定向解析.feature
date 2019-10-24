@@ -60,5 +60,5 @@ Feature: 字段提取重定向解析
     Then I will see the spl search result "<result>"
 
     Examples:
-      | tag                                   | result                |
-      | redirect_zhu AND appname:redirect_zhu | {"other.key":"value"} |
+      | tag                                   | result                          |
+      | redirect_zhu AND appname:redirect_zhu | {"other.key":"other.key：value"} |

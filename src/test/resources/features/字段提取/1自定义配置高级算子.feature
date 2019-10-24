@@ -159,52 +159,48 @@ Feature: 字段提取自定义配置高级算子
     Then I will see the spl search result "<result>"
 
     Examples:
-      | spl             | result                                                                 |
-      | appname:dissect | {"other.id":"123","other.domain":"rizhiyi.com","other.url":"index.do"} |
-      | appname:script  | {"other.result.count":"5664","other.result.time":"1516189"}            |
-      | appname:base64  | {"other.code":"hello base64"}                                          |
-      | appname:unicode | {"other.rr":"PartyBasicInfoService_客户基本信息服务"}                          |
+      | spl             | result                                                                                                 |
+      | appname:dissect | {"other.id":"other.id：123","other.domain":"other.domain：rizhiyi.com","other.url":"other.url：index.do"} |
+      | appname:script  | {"other.result.count":"other.result.count：5664","other.result.time":"other.result.time：1516189"}       |
+      | appname:base64  | {"other.code":"other.code：hello base64"}                                                               |
+      | appname:unicode | {"other.rr":"other.rr：PartyBasicInfoService_客户基本信息服务"}                                                 |
+
+  Scenario: 验证详情
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "{'column':'1','name':'RZY2870创建dissect解析'}" then i click the "详 情" button
+    And I wait for "SmallTr" will be visible
+    Then I will see the config element "自定义规则" value is "自定义规则 1 1 0 0 0"
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
+    When the data name is "{'column':'1','name':'RZY2875script解析'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "自定义规则" value is "自定义规则<result>"
+    Then I will see the config element "自定义规则" value is "自定义规则 <result>"
+    Then I will see the config element "Json解析" value is "Json解析 <result>"
 
     Examples:
-      | name               | result          |
-      | RZY2870创建dissect解析 | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
+    When the data name is "{'column':'1','name':'RZY2877base64解析'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "自定义规则" value is "自定义规则<result>"
-    Then I will see the config element "Json解析" value is "Json解析<result>"
+    Then I will see the config element "Base64解析" value is "Base64解析 <result>"
+    Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:
-      | name            | result          |
-      | RZY2875script解析 | \n1\n1\n0\n0\n0 |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "Base64解析" value is "Base64解析<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
-
-    Examples:
-      | name            | result          |
-      | RZY2877base64解析 | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "<name>" then i click the "详情" button
+    When the data name is "{'column':'1','name':'RZY2883unicode解析'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "自定义规则" value is "自定义规则<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
+    Then I will see the config element "自定义规则" value is "自定义规则 <result>"
+    Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:
-      | name             | result          |
-      | RZY2883unicode解析 | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |

@@ -175,4 +175,4 @@ Feature: 字段提取格式化处理
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
-    Then I will see the spl search result "{"other.date":"20180821",'other.time':'17:03:49','other.timestamp':'20180821 17:03:49'}"
+    Then I will see the spl search result "{"other.date":"other.date：20180821",'other.time':'other.time：17:03:49','other.timestamp':'other.timestamp：20180821 17:03:49'}"

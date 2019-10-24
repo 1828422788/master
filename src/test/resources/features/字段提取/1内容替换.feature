@@ -97,29 +97,29 @@ Feature: 字段提取内容替换
     Then I will see the spl search result "<result>"
 
     Examples:
-      | tag                      | result                                |
-      | auto_test_replaceContent | {'raw_message':'123456qwe'}           |
-      | auto_test_replaceTag     | {'tag':'auto_test_replaceTagnewinfo'} |
+      | tag                      | result                                    |
+      | auto_test_replaceContent | {'raw_message':'raw_message：123456qwe'}   |
+      | auto_test_replaceTag     | {'tag':'tag：auto_test_replaceTagnewinfo'} |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "<name>" then i click the "详情" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "内容替换" value is "内容替换<result>"
+    Then I will see the config element "内容替换" value is "内容替换 <result>"
 
     Examples:
-      | name        | result          |
-      | RZY1556内容替换 | \n1\n1\n0\n0\n0 |
+      | name        | result    |
+      | RZY1556内容替换 | 1 1 0 0 0 |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "<name>" then i click the "详情" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "Json解析" value is "Json解析<result>"
-    Then I will see the config element "内容替换" value is "内容替换<result>"
+    Then I will see the config element "Json解析" value is "Json解析 <result>"
+    Then I will see the config element "内容替换" value is "内容替换 <result>"
 
     Examples:
-      | name         | result          |
-      | RZY1559tag替换 | \n1\n1\n0\n0\n0 |
+      | name         | result    |
+      | RZY1559tag替换 | 1 1 0 0 0 |

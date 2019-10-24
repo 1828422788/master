@@ -213,7 +213,7 @@ public class CheckButtonAttribute {
 
     @Then("^I will see the config element \"([^\"]*)\" value is \"([^\"]*)\"$")
     public void iWillSeeTheConfigElementValueIs(String name, String expectText) {
-        String xpath = "//span[text()='" + name + "']/ancestor::tr";
+        String xpath = "//a[text()='" + name + "']/ancestor::tr";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         Assert.assertTrue("实际值：" + element.getText() + "\n期望值：" + expectText, element.getText().contains(expectText));
     }

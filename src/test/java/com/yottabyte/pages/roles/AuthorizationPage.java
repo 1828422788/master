@@ -56,6 +56,10 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "function-checkbox")
     private WebElement functionCheckbox;
 
+    public WebElement getLoading() {
+        return loading;
+    }
+
     public WebElement getFunctionCheckbox() {
         return functionCheckbox;
     }

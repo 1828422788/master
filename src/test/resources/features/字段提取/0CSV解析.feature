@@ -50,6 +50,8 @@ Feature: 字段提取CSV解析
     And I choose the "CSV解析" from the "ParseRule"
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "portinfo[]","split_string": "\\s","add_fields": [],"names": ["1","2","3","4","5","6"],"split_option":null}" to json editor
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
@@ -88,15 +90,16 @@ Feature: 字段提取CSV解析
     Then I will see the spl search result "<result>"
 
     Examples:
-      | tag           | result                                                                                                                                                                                                                                                                |
-      | auto_test_csv | {'other.portinfo[].1':'T1/1T1/2F2/1F2/2F2/3F2/4F2/5F2/6F2/7F2/8','other.portinfo[].2':'downdownupupdowndowndowndowndowndown','other.portinfo[].3':'0000000000','other.portinfo[].4':'0000000000','other.portinfo[].5':'0000000000','other.portinfo[].6':'0000000000'} |
+      | tag           | result                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+      | auto_test_csv | {'other.portinfo[].1':'other.portinfo[].1：T1/1 T1/2 F2/1 F2/2 F2/3 F2/4 F2/5 F2/6 F2/7 F2/8','other.portinfo[].2':'other.portinfo[].2：down down up up down down down down down down','other.portinfo[].3':'other.portinfo[].3：0 0 0 0 0 0 0 0 0 0','other.portinfo[].4':'other.portinfo[].4：0 0 0 0 0 0 0 0 0 0','other.portinfo[].5':'other.portinfo[].5：0 0 0 0 0 0 0 0 0 0','other.portinfo[].6':'other.portinfo[].6：0 0 0 0 0 0 0 0 0 0'} |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "RZY3417多值字段" then i click the "详情" button
-    Then I will see the config element "正则解析" value is "正则解析<result>"
-    Then I will see the config element "CSV解析" value is "CSV解析<result>"
+    When the data name is "{'column':'1','name':'RZY3417多值字段'}" then i click the "详 情" button
+    And I wait for loading invisible
+    Then I will see the config element "正则解析" value is "正则解析 <result>"
+    Then I will see the config element "CSV解析" value is "CSV解析 <result>"
 
     Examples:
-      | result          |
-      | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |

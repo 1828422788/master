@@ -4,13 +4,13 @@ Feature: 字段提取删除
   Scenario Outline:
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
 
     Examples:
       | name                        |
-      | 主规则副本                       |
-      | RZY2868redirect主规则          |
-      | RZY2867redirect副规则          |
+#      | 主规则副本                       |
+#      | RZY2868redirect主规则          |
+#      | RZY2867redirect副规则          |
       | RZY2865支持通配符                |
       | RZY2883unicode解析            |
       | RZY2877base64解析             |
@@ -42,7 +42,7 @@ Feature: 字段提取删除
   Scenario Outline: 删除字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "<name>" then i click the "删除" button
-    And I click the "EnsureButton" button
+    And I click the "EnsureDelete" button
 
     Examples:
       | name                   |
@@ -69,7 +69,7 @@ Feature: 字段提取删除
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "owner"
-    And I set the parameter "Password" with value "all111111"
+    And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -83,7 +83,7 @@ Feature: 字段提取删除
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "owner"
-    And I set the parameter "Password" with value "all111111"
+    And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "agent.CreatePage" page for uri "/sources/input/agent/"

@@ -326,11 +326,11 @@ public class SplSearch {
     }
 
     @Then("^I will see the spl search result \"([^割]*)\"$")
-    public void iWillSeeTheSplSerchResult(String json) {
+    public void iWillSeeTheSplSearchResult(String json) {
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
 
         for (String key : map.keySet()) {
-            WebElement tr = webDriver.findElement(By.xpath("(//span[text()='" + key + "'])[last()]/following-sibling::span"));
+            WebElement tr = webDriver.findElement(By.xpath("((//span[text()='" + key + "'])[last()]/ancestor::div)[last()]"));
             String actualValue = tr.getText();
             Assert.assertEquals(map.get(key), actualValue);
         }

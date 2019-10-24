@@ -49,8 +49,12 @@ public class WaitForElement {
 
     public static void waitUntilLoadingDisappear() {
         if (ElementExist.isElementExist(webDriver, By.className("ant-spin-dot-spin"))) {
-            WebElement loadingMask = webDriver.findElement(By.className("ant-spin-dot-spin"));
-            WaitForElement.waitElementInvisible(loadingMask);
+            try {
+                WebElement loadingMask = webDriver.findElement(By.className("ant-spin-dot-spin"));
+                WaitForElement.waitElementInvisible(loadingMask);
+            } catch (Exception e) {
+
+            }
 //            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
         }
     }
@@ -63,7 +67,7 @@ public class WaitForElement {
         try {
             wait.until(ExpectedConditions.invisibilityOf(element));
         } catch (ElementNotFoundException | NoSuchElementException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             return;
         }
     }

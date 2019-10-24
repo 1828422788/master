@@ -14,12 +14,9 @@ public class ElementExist {
         try {
             driver.findElement(by);
             status = true;
-        }catch (NoSuchElementException e){
-            status = false;
-            System.out.println("'" + by + "' doesn't exist!\n");
-        }catch (TimeoutException e){
-            System.out.println("'" + by + "' doesn't exist for time out! \n");
-//            throw e;
+        }catch (Exception e){
+//            status = false;
+//            System.out.println("'" + by + "' doesn't exist!\n");
         }
         return status;
     }

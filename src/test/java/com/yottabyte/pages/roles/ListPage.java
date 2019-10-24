@@ -51,6 +51,10 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-icon-search")
     private WebElement searchIcon;
 
+    public WebElement getLoadingElement() {
+        return loadingElement;
+    }
+
     public WebElement getSource() {
         return source;
     }

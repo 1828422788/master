@@ -32,7 +32,7 @@ public class IChooseValueFromSelectList {
         }
         Object o = GetElementFromPage.getWebElementWithName(selectListName);
         if (o != null) {
-            if (GetElementFromPage.type.getTypeName().contains("List")) {
+            if (o instanceof List) {
                 List fatherSelectList = (List) o;
                 iChooseTheFromThe(values, fatherSelectList);
             } else {

@@ -95,9 +95,9 @@ Feature: 字段提取GEO解析
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
     When the data name is "RZY1548添加GEO解析" then i click the "详情" button
-    Then I will see the config element "geo解析" value is "geo解析<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
+    Then I will see the config element "geo解析" value is "geo解析 <result>"
+    Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:
-      | result          |
-      | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |

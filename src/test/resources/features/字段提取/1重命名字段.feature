@@ -62,7 +62,7 @@ Feature: 字段提取重命名字段
     Then I wait for "ConfigDone" will be visible
 
     Examples:
-      | log                                 | result                                                                                                   | result1                                                                                                  |
+      | log                                 | result                                                                                                | result1                                                                                               |
       | {"a":{"b":{"c":"d"},"e":{"c":"g"}}} | Object\na:Object\nb:Object\nc:"d"\ne:Object\nc:"g"\nraw_message:"{"a":{"b":{"c":"d"},"e":{"c":"g"}}}" | Object\na:Object\nb:Object\nh:"d"\ne:Object\nh:"g"\nraw_message:"{"a":{"b":{"c":"d"},"e":{"c":"g"}}}" |
 
   Scenario Outline: 上传日志
@@ -87,17 +87,17 @@ Feature: 字段提取重命名字段
     Then I will see the spl search result "<result>"
 
     Examples:
-      | tag              | result                                |
-      | auto_test_rename | {'other.a.b.h':'d','other.a.e.h':'g'} |
+      | tag              | result                                                        |
+      | auto_test_rename | {'other.a.b.h':'other.a.b.h：d','other.a.e.h':'other.a.e.h：g'} |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "RZY2865支持通配符" then i click the "详情" button
+    When the data name is "{'column':'1','name':'RZY2865支持通配符'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "Json解析" value is "Json解析<result>"
-    Then I will see the config element "字段重命名" value is "字段重命名<result>"
+    Then I will see the config element "Json解析" value is "Json解析 <result>"
+    Then I will see the config element "字段重命名" value is "字段重命名 <result>"
 
     Examples:
-      | result          |
-      | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |

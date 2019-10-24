@@ -70,16 +70,16 @@ Feature: 字段提取结构体解析
     Then I will see the spl search result "<result>"
 
     Examples:
-      | tag             | result                                 |
-      | auto_test_codec | {"other.name":"aaa","other.val":"111"} |
+      | tag             | result                                                      |
+      | auto_test_codec | {"other.name":"other.name：aaa","other.val":"other.val：111"} |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "RZY2862严格解析" then i click the "详情" button
+    When the data name is "{'column':'1','name':'RZY2862严格解析'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "结构体解析" value is "结构体解析<result>"
+    Then I will see the config element "结构体解析" value is "结构体解析 <result>"
 
     Examples:
-      | result          |
-      | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |

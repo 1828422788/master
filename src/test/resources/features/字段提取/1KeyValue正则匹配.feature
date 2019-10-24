@@ -43,8 +43,8 @@ Feature: 字段提取KeyValue正则匹配
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "[AB Server:type=Cell] ChildCount = 4 MessageLimit = 12288 Oid = CA_ABS CellName = CA_ABS ClientIp = 9.1.6.247 ParentOid = CA_ABS OutOfService = false ChildCountLimit = 5000 OverLoad = false MinuteCountLimit = 2000 [AB Server:type=InvokeProcessor] AverageTaskTime = 7 AverageTasksPerSecond = 0 CompletedTasks = 22321 ComputeAverageInterval = 10000 RunningTasks = 0"
-    And I choose the "KeyValue正则匹配" from the "ParseRule"
     And I click the "AddRule" button
+    And I choose the "KeyValue正则匹配" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "KeyRegex" with value "\w+"
     And I set the parameter "ValueRegex" with value "\w+"
@@ -97,22 +97,22 @@ Feature: 字段提取KeyValue正则匹配
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "<name>" then i click the "详情" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
+    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配 <result>"
+    Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:
-      | name                | result          |
-      | RZY1535KeyValue正则匹配 | \n1\n1\n0\n0\n0 |
+      | name                | result    |
+      | RZY1535KeyValue正则匹配 | 1 1 0 0 0 |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "<name>" then i click the "详情" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配<result>"
+    Then I will see the config element "KeyValue正则匹配" value is "KeyValue正则匹配 <result>"
 
     Examples:
-      | name               | result          |
-      | RZY2798group_regex | \n1\n1\n0\n0\n0 |
+      | name               | result    |
+      | RZY2798group_regex | 1 1 0 0 0 |

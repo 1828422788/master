@@ -34,8 +34,8 @@ Feature: 字段提取IP格式转换
     Then I wait for "ConfigDone" will be visible
 
     Examples:
-       | result                                            | result1                                               |
-       | Object\nip:"3651919938"\nraw_message:"3651919938" | Object\nip:"217.171.224.66"\nraw_message:"3651919938" |
+      | result                                            | result1                                               |
+      | Object\nip:"3651919938"\nraw_message:"3651919938" | Object\nip:"217.171.224.66"\nraw_message:"3651919938" |
 
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -59,17 +59,17 @@ Feature: 字段提取IP格式转换
     Then I will see the spl search result "<result>"
 
     Examples:
-      | tag          | result                        |
-      | auto_test_ip | {'other.ip':'217.171.224.66'} |
+      | tag          | result                                 |
+      | auto_test_ip | {'other.ip':'other.ip：217.171.224.66'} |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "RZY1555IP格式转换" then i click the "详情" button
+    When the data name is "{'column':'1','name':'RZY1555IP格式转换'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "ip格式转换" value is "ip格式转换<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
+    Then I will see the config element "ip格式转换" value is "ip格式转换 <result>"
+    Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:
-      | result          |
-      | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |

@@ -105,7 +105,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     public WebElement getInputElement(String text) {
-        String xpath = "//label[contains(text(),'" + text + "')]/following-sibling::div//input[@class='el-input__inner']";
+        String xpath = "//div[text()='" + text + "']//following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
     }
 

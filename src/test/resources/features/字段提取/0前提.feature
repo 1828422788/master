@@ -13,21 +13,20 @@ Feature: 字段提取前提条件
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "可查看敏感内容"
-#    And I click the "{'TabButton':'URL 访问'}" button
-#    And I "checked" the checkbox which name is "全选"
-#    And I click the "{'TabButton':'字段提取'}" button
-#    And I "checked" the checkbox which name is "新建字段提取"
     Then I click the "SaveButton" button
 
   Scenario Outline: 上传字典管理文件
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
-    And I choose the "default_Dictionary" from the "Group"
+    And I set the parameter "GroupInput" with value "字典标签"
+    And I choose the "字典标签" from the "Group"
     And I upload a file with name "/src/test/resources/testdata/dictionary/<name>"
     And I wait for "FileName" will be visible
-    And I click the "UploadFile" button
+    And I click the "EnsureUpload" button
+    Then I will see the success message "创建字典成功"
     And I refresh the website
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
 
@@ -47,21 +46,16 @@ Feature: 字段提取前提条件
 
   Scenario: 取消分组
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "RZY3417多值字段" then i click the "标签" button
-    And I cancel selection "default_ParserRule" from the "Group"
+    When the data name is "{'column':'1','name':'RZY3417多值字段'}" then i click the "标签" button
+    And I cancel selection "自动化测试标签" from the "TagGroup"
     And I click the "Ensure" button
+    Then I will see the success message "修改成功"
 
-  Scenario: 验证未分组中是否存在数据
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When I choose the "未分组" from the "GroupList"
-    And I wait for loading invisible
-    Then I will see the search result contains "{'column':'0','name':'RZY3417多值字段'}"
-
-  Scenario: 验证分组中是否存在数据
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When I choose the "default_ParserRule" from the "GroupList"
-    And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'RZY3417多值字段','contains':'no'}"
+#  Scenario: 验证分组中是否存在数据
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When I choose the "default_ParserRule" from the "GroupList"
+#    And I wait for loading invisible
+#    Then I will see the search result "{'column':'0','name':'RZY3417多值字段','contains':'no'}"
 
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"

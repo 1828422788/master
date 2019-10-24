@@ -52,18 +52,18 @@ Feature: 字段提取手机号码解析
     Then I will see the spl search result "<result>"
 
     Examples:
-      | tag           | result                                                                                                                                                                                                 |
-      | auto_test_n   | {'other.geo.city':'鞍山市','other.geo.country':'中国','other.geo.isp':'中国移动','other.geo.latitude':'41.115009','other.geo.longitude':'122.976822','other.geo.phone':'15998008888','other.geo.province':'辽宁'} |
-      | auto_test_tel | {'other.city':'鞍山市','other.country':'中国','other.isp':'中国移动','other.latitude':'41.110626','other.longitude':'122.995632','other.province':'辽宁'}                                                         |
+      | tag           | result                                                                                                                                                                                                                                                                                                                          |
+      | auto_test_n   | {'other.geo.city':'other.geo.city：鞍山市','other.geo.country':'other.geo.country：中国','other.geo.isp':'other.geo.isp：中国移动','other.geo.latitude':'other.geo.latitude：41.115009','other.geo.longitude':'other.geo.longitude：122.976822','other.geo.phone':'other.geo.phone：15998008888','other.geo.province':'other.geo.province：辽宁'} |
+      | auto_test_tel | {'other.city':'other.city：鞍山市','other.country':'other.country：中国','other.isp':'other.isp：中国移动','other.latitude':'other.latitude：41.110626','other.longitude':'other.longitude：122.995632','other.province':'other.province：辽宁'}                                                                                                 |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "<name>" then i click the "详情" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "手机号码解析" value is "手机号码解析<result>"
+    Then I will see the config element "手机号码解析" value is "手机号码解析 <result>"
 
     Examples:
-      | name           | result          |
-      | RZY2802手机号码解析  | \n1\n1\n0\n0\n0 |
-      | RZY2803解析到顶层字段 | \n1\n1\n0\n0\n0 |
+      | name           | result    |
+      | RZY2802手机号码解析  | 1 1 0 0 0 |
+      | RZY2803解析到顶层字段 | 1 1 0 0 0 |

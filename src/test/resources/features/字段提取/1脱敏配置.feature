@@ -103,18 +103,18 @@ Feature: 字段提取脱敏配置
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
-    Then I will see the spl search result "{"raw_message":"qweqwe159****8361qwe 159****8361"}"
+    Then I will see the spl search result "{"raw_message":"raw_message：qweqwe159****8361qwe 159****8361"}"
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "脱敏" then i click the "详情" button
+    When the data name is "{'column':'1','name':'脱敏'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "脱敏配置" value is "脱敏配置<result>"
-    Then I will see the config element "正则解析" value is "正则解析<result>"
+    Then I will see the config element "脱敏配置" value is "脱敏配置 <result>"
+    Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:
-      | result          |
-      | \n1\n1\n0\n0\n0 |
+      | result    |
+      | 1 1 0 0 0 |
 
 
