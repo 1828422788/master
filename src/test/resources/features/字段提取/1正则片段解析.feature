@@ -82,4 +82,4 @@ Feature: 字段提取正则片段解析
 
     Examples:
       | result    |
-      | 1 1 0 0 0 |
+      | 2 2 0 0 0 |

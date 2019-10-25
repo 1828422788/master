@@ -169,13 +169,13 @@ Feature: 字段提取自定义配置高级算子
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'RZY2870创建dissect解析'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "自定义规则" value is "自定义规则 1 1 0 0 0"
+    Then I will see the config element "自定义解析" value is "自定义解析 1 1 0 0 0"
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'RZY2875script解析'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "自定义规则" value is "自定义规则 <result>"
+    Then I will see the config element "自定义解析" value is "自定义解析 <result>"
     Then I will see the config element "Json解析" value is "Json解析 <result>"
 
     Examples:
@@ -198,7 +198,7 @@ Feature: 字段提取自定义配置高级算子
     And I wait for loading complete
     When the data name is "{'column':'1','name':'RZY2883unicode解析'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "自定义规则" value is "自定义规则 <result>"
+    Then I will see the config element "自定义解析" value is "自定义解析 <result>"
     Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:

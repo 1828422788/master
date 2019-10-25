@@ -127,6 +127,7 @@ public class UploadFile {
                         return;
                     }
                 } else {
+                    System.out.println("courseFile!!!!! : " + courseFile + s + fileNameWithPath);
                     uploadInput.sendKeys(courseFile + s + fileNameWithPath);
                 }
             } catch (IOException e) {

@@ -26,6 +26,7 @@ Feature: 字段提取重定向解析
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
+    And I choose the "重定向规则" from the "ParseRule"
     And I choose the "RZY2867redirect副规则" from the "Redirect"
     And I choose the "json" from the "Redirect"
     And I click the "EnsureAddParseRule" button

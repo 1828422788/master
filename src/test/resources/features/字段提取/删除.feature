@@ -8,9 +8,9 @@ Feature: 字段提取删除
 
     Examples:
       | name                        |
-#      | 主规则副本                       |
-#      | RZY2868redirect主规则          |
-#      | RZY2867redirect副规则          |
+      | 主规则副本                       |
+      | RZY2868redirect主规则          |
+      | RZY2867redirect副规则          |
       | RZY2865支持通配符                |
       | RZY2883unicode解析            |
       | RZY2877base64解析             |

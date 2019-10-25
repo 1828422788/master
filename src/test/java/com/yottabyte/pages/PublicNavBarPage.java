@@ -93,7 +93,7 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='权限']/ancestor::p/following-sibling::div")
     private WebElement auth;
 
-    @FindBy(xpath = "//span[text()='系统']/ancestor::p/following-sibling::div")
+    @FindBy(id="yw-nav-system")
     private WebElement system;
 
     @FindBy(xpath = "//span[text()='数据']/ancestor::p/following-sibling::div")
@@ -111,9 +111,6 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(className = "yw-nav-app-list")
     private WebElement app;
 
-    @FindBy(xpath = "//span[@class='yw-nav-icon iconfont icon-bangzhuwendang_gaoliang']")
-    private WebElement help;
-
     @FindBy(xpath = "//span[contains(text(),'帮助')]/ancestor::p/following-sibling::div")
     private WebElement helpDocs;
 
@@ -122,6 +119,16 @@ public class PublicNavBarPage extends PageTemplate {
 
     @FindBy(xpath = "//i[@class='iconfont icon-owner_icon']/following-sibling::span")
     private WebElement loginUser;
+
+    @FindBy(xpath = "//div[@class='el-popover yw-nav-popover' and not(contains(@style,'display'))]")
+    private WebElement menu;
+
+    @FindBy(id = "yw-nav-help")
+    private WebElement help;
+
+    public WebElement getMenu() {
+        return menu;
+    }
 
     public WebElement getLoginUser() {
         return loginUser;

@@ -95,7 +95,7 @@ Feature: 字段提取重命名字段
     And I wait for loading complete
     When the data name is "{'column':'1','name':'RZY2865支持通配符'}" then i click the "详 情" button
     And I wait for "SmallTr" will be visible
-    Then I will see the config element "Json解析" value is "Json解析 <result>"
+    Then I will see the config element "JSON解析" value is "JSON解析 <result>"
     Then I will see the config element "字段重命名" value is "字段重命名 <result>"
 
     Examples:

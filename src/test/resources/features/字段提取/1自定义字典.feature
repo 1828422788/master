@@ -5,10 +5,12 @@ Feature: 字段提取自定义字典
   Scenario: RZY-2818：新建字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
-    And I choose the "default_Dictionary" from the "Group"
+    And I set the parameter "GroupInput" with value "字典分组AutoTest"
+    And I choose the "字典分组AutoTest" from the "Group"
     And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
     And I wait for "FileName" will be visible
-    And I click the "UploadFile" button
+    And I click the "EnsureUpload" button
+    Then I will see the success message "创建字典成功"
 
   @second @configsSmoke
   Scenario Outline: RZY-2819：配置自定义字典解析规则
