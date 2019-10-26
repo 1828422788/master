@@ -18,6 +18,7 @@ Feature: 字段提取前提条件
     And I "unchecked" the checkbox which name is "可查看敏感内容"
     Then I click the "SaveButton" button
 
+  @test
   Scenario Outline: 上传字典管理文件
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
