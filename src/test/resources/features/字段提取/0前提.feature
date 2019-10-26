@@ -25,7 +25,7 @@ Feature: 字段提取前提条件
     And I set the parameter "GroupInput" with value "字典标签"
     And I choose the "字典标签" from the "Group"
     And I upload a file with name "/src/test/resources/testdata/dictionary/<name>"
-#    And I wait for "FileName" will be visible
+    And I wait for "FileName" will be visible
     And I click the "EnsureUpload" button
     Then I will see the success message "创建字典成功"
     And I refresh the website
