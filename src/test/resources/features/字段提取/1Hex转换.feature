@@ -70,7 +70,7 @@ Feature: 字段提取Hex转换
 
     Examples:
       | tag           | result                             |
-      | auto_test_hex | {'raw_message':'import sys impor'} |
+      | auto_test_hex | {'raw_message':'raw_message：import sys impor'} |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
