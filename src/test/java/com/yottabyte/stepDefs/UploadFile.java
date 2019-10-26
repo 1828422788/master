@@ -128,8 +128,8 @@ public class UploadFile {
                     }
                 } else {
                     System.out.println("courseFile!!!!! : " + courseFile + s + fileNameWithPath);
-                    WebElement uploadInputElement = webDriver.findElement(By.xpath("//input[@type='file']"));
-                    uploadInputElement.sendKeys(courseFile + s + fileNameWithPath);
+//                    uploadInput.sendKeys(courseFile + s + fileNameWithPath);
+                    uploadInput.sendKeys("C://ftp//testdata/dictionary//AutoTest.csv");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
