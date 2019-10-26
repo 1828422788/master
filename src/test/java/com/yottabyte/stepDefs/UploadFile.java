@@ -128,8 +128,12 @@ public class UploadFile {
                     }
                 } else {
                     System.out.println("courseFile!!!!! : " + courseFile + s + fileNameWithPath);
-//                    uploadInput.sendKeys(courseFile + s + fileNameWithPath);
-                    uploadInput.sendKeys("C://ftp//testdata/dictionary//AutoTest.csv");
+                    try {
+
+                        uploadInput.sendKeys(courseFile + s + fileNameWithPath);
+                    } catch (Exception e) {
+                        return;
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
