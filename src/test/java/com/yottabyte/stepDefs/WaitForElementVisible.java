@@ -42,7 +42,8 @@ public class WaitForElementVisible {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
 //            ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(element);
 //            WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(element));
+            WaitForElement.waitElementInvisible(element);
+//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(element));
         } catch (ElementNotFoundException exception) {
             return;
         }

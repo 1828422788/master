@@ -1,5 +1,5 @@
 @authorization @all @smoke
-Feature: 角色授权功能
+Feature: 角色授权功能（校验URL）
 
 #  Background:
 #    Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -32,6 +32,116 @@ Feature: 角色授权功能
     And I wait for "2000" millsecond
     And I will see the "PublicNavBarPage" page
     And I click the "Setting" button
+    Then I will see the element "Menu" name is "<settingMenu>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<systemMenu>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<helpMenu>"
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "<alerts>"
+    And open the "LoginPage" page for uri "/plugins/"
+    Then the page's title will be "<plugins>"
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "<payments>"
+    And open the "LoginPage" page for uri "/ingestpriority/"
+    Then the page's title will be "<ingestpriority>"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "<queryscopes>"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "<search>"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "<agent>"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "<accountUsage>"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "<dictionary>"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "<macro>"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "<usage>"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "<reports>"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "<trend>"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "<schedule>"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "<backup>"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "<sourcesInput>"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "<roles>"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "<users>"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "<knowledge>"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "<dashboard>"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "<usergroups>"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "<galaxee>"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "<machine_learning>"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "<lynxee>"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "<topology>"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+
+    Examples:
+      | settingMenu | systemMenu       | helpMenu  | 403                   |
+      | 您暂无设置权限。    | 运行 (系统版本: 3.0.0) | 帮助\n联系日志易 | 403 Permission Denied |
+
+  Scenario Outline: 授权可查看告警插件
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可查看告警插件"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Setting" button
     Then I will see the element "NonPrivileged" name is "您暂无设置权限。"
     And I click the "System" button
     Then I will see the element "Menu" name is "运行 (系统版本: 3.0.0)"
@@ -39,12 +149,15 @@ Feature: 角色授权功能
     Then I will see the element "Menu" name is "<name>"
     And open the "LoginPage" page for uri "/alerts/"
     Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/plugins/"
-    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I will see the "Upload" doesn't exist
     And open the "LoginPage" page for uri "/payments/"
     Then the page's title will be "403 Permission Denied"
-#    And open the "LoginPage" page for uri "/ingestpriority/"
-#    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/ingestpriority/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/search/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/sources/input/agent/"
@@ -109,8 +222,8 @@ Feature: 角色授权功能
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/docs/"
     Then the page's title will be "403 Permission Denied"
-#    And open the "LoginPage" page for uri "/savedsearches/"
-#    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/resource/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/dataset/"
@@ -122,131 +235,1532 @@ Feature: 角色授权功能
       | name      |
       | 帮助\n联系日志易 |
 
-  Scenario: 授予可解锁用户权限（RZY-765）
-    When I "checked" the checkbox which name is "可解锁用户"
-    And I click the "SaveButton" button
-    Given open the "users.ListPage" page for uri "/account/users/"
-    And I click the "CreateUser" button
-    And I will see the "users.CreatePage" page
-    When I set the parameter "UserName" with value "TempUser"
-    And I set the parameter "Email" with value "142745@qq.com"
-    And I set the parameter "Password" with value "all123456"
-    And I choose the "AutoTestGroup" from the "UserGroups"
-    And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    And I run a method "Login" for "10" times with parameters "{'name':'TempUser','password':'123'}"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "users.ListPage" page for uri "/account/users/"
-    When the data name is "{'column':'1','name':'TempUser'}" then i click the "解锁" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "TempUser"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I will see the "PublicNavBarPage" page
-
-  Scenario: 授予可使用结算管理权限（RZY-769）
-    When I "checked" the checkbox which name is "可使用结算管理"
-    And I click the "SaveButton" button
-    Given open the "users.ListPage" page for uri "/account/users/"
-    When the data name is "{'column':'1','name':'TempUser'}" then i click the "删除" button
-    And I click the "EnsureButton" button
-    And I will see the success message "删除成功"
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Status" button
-    Then I will see the element "Running" name is "使用限额 域标识 结算管理 搜索用量"
-    And open the "PublicNavBarPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-
-  Scenario: 授予编辑所有角色权限（RZY-1214）
-    When I "checked" the checkbox which name is "编辑所有角色权限"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    Then I will see the search result contains "{'column':'0','name':'admin'}"
-
-  Scenario: 授予新建角色（RZY-1210）
-    When I "checked" the checkbox which name is "可新建角色"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    Then the data name is "AutoTestRoleWithAllResource" then i will see "{'column':'3','name':'编辑 授权 复制 删除'}" button
-    Given I click the "CreateRoleButton" button
-    And I will see the "roles.CreatePage" page
-    And I set the parameter "RoleName" with value "TempRole"
-    And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
-
-  Scenario: 授予可更新最大搜索时长（RZY-1208）
-    When I "checked" the checkbox which name is "可更新最大搜索时长"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
+  Scenario: 授权可新建/更新告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'配置'}" button
-    And I set the parameter "MaxTime" with value "1d"
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可新建/更新告警插件"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
-  Scenario Outline: 授予可转授功能权限（RZY-1211）
-    When I "checked" the checkbox which name is "可转授功能权限"
-    And I click the "SaveButton" button
-    And I logout current user
+  Scenario Outline: 验证是否可新建/更新告警插件
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
+    And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "NonPrivileged" name is "您暂无设置权限。"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "运行 (系统版本: 3.0.0)"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/ingestpriority/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+
+    Examples:
+      | name      |
+      | 帮助\n联系日志易 |
+
+  Scenario: 授权可使用结算管理
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I click the "{'TabButton':'功能'}" button
-    And I will see the element "CheckboxGroup" name is "<name>"
-
-    Examples:
-      | name                                      |
-      | 可使用结算管理\n可新建角色\n可解锁用户\n可更新最大搜索时长\n可转授功能权限 |
-
-  Scenario: 授予可新建/更新告警插件权限（RZY-771）
-    When I "checked" the checkbox which name is "可新建/更新告警插件"
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用结算管理"
     And I click the "SaveButton" button
-    And I logout current user
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可使用结算管理
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
+    And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "NonPrivileged" name is "您暂无设置权限。"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
     And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
     Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/ingestpriority/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
 
-#  Scenario: 授权可搜索所有日志（RZY-768）
+    Examples:
+      | running                | name      |
+      | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
+
+  Scenario: 授权可使用入库优先级
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用入库优先级"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可使用入库优先级
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+
+    Examples:
+      | setting   | running                | name      |
+      | 数据\n入库优先级 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
+
+  Scenario: 授权可使用已存搜索
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用已存搜索"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可使用已存搜索
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And I will see the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "已存搜索"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+
+    Examples:
+      | setting   | running                | name      |
+      | 数据\n入库优先级 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
+
+  Scenario: 授权可使用搜索权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用搜索权限"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可使用搜索权限
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Then open the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "搜索权限"
+    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "已存搜索"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
+    Then the page's title will be "403 Permission Denied"
+
+    Examples:
+      | setting                       | running                | name      |
+      | 资源\n已存搜索\n数据\n入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
+
+  Scenario: 授权可使用数据路由
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用数据路由"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可使用数据路由
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Then open the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "搜索权限"
+    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "已存搜索"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
+    Then the page's title will be "路由配置"
+
+    Examples:
+      | setting                           | running                | name      |
+      | 资源\n已存搜索\n数据\n路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
+
+  Scenario: 授权可使用Agent管理
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用 Agent 管理"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可使用Agent管理
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Then open the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "搜索权限"
+    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "Agent 管理"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "已存搜索"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
+    Then the page's title will be "路由配置"
+
+    Examples:
+      | setting                                   | running                | name      |
+      | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
+
+  Scenario: 授权可查看域使用额度
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可查看域使用额度"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可查看域使用额度
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Then open the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "搜索权限"
+    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "Agent 管理"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "使用限额"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "已存搜索"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
+    Then the page's title will be "路由配置"
+
+    Examples:
+      | setting                                   | running                     | name      |
+      | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
+
+  Scenario: 授权可使用字典管理
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用字典管理"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可使用字典管理
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Then open the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    Then I will see the "News" doesn't exist
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "搜索权限"
+    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "Agent 管理"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "使用限额"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "字典列表"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "已存搜索"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
+    Then the page's title will be "路由配置"
+
+    Examples:
+      | setting                                   | running                     | name      |
+      | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
+
+  Scenario: 授权可接受消息提醒
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可接受消息提醒"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可接受消息提醒
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Then open the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    Then I wait for "News" will be visible
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "搜索权限"
+    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "Agent 管理"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "使用限额"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "字典列表"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "已存搜索"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
+    Then the page's title will be "路由配置"
+
+    Examples:
+      | setting                                   | running                     | name      |
+      | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
+
+  Scenario: 授权可使用搜索宏
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用搜索宏"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可使用搜索宏
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Then open the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    Then I wait for "News" will be visible
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "搜索权限"
+    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "Agent 管理"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "使用限额"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "字典列表"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "搜索宏"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "已存搜索"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
+    Then the page's title will be "路由配置"
+
+    Examples:
+      | setting                                      | running                     | name      |
+      | 资源\n已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
+
+
+  Scenario: 授权可使用搜索宏
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "可使用搜索宏"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证是否可使用搜索宏
+    Given I wait for loading complete
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Then open the "PublicNavBarPage" page
+    And I click the "Setting" button
+    Then I will see the element "Menu" name is "<setting>"
+    And I click the "System" button
+    Then I will see the element "Menu" name is "<running>"
+    And I click the "Help" button
+    Then I will see the element "Menu" name is "<name>"
+    Then I wait for "News" will be visible
+    And open the "LoginPage" page for uri "/alerts/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "alert.PluginPage" page for uri "/plugins/"
+    Then the page's title will be "告警插件"
+    Then I wait for "Upload" will be visible
+    And open the "LoginPage" page for uri "/payments/"
+    Then the page's title will be "结算管理"
+    And open the "LoginPage" page for uri "/queryscopes/"
+    Then the page's title will be "搜索权限"
+    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+    Then the page's title will be "入库优先级"
+    And open the "LoginPage" page for uri "/search/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/agent/"
+    Then the page's title will be "Agent 管理"
+    And open the "LoginPage" page for uri "/account/usage/"
+    Then the page's title will be "使用限额"
+    And open the "LoginPage" page for uri "/dictionary/"
+    Then the page's title will be "字典列表"
+    And open the "LoginPage" page for uri "/macro/"
+    Then the page's title will be "搜索宏"
+    And open the "LoginPage" page for uri "/macro/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/usage/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/reports/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/trend/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/schedule/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/backup/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/sources/input/os/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/roles/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/users/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/knowledge/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dashboard/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/account/usergroups/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/galaxee/manager/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/app/lynxee/overview/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/topology/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/configs/new/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/tokens/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/docs/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/savedsearches/"
+    Then the page's title will be "已存搜索"
+    And open the "LoginPage" page for uri "/resource/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/dataset/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/apikey/"
+    Then the page's title will be "403 Permission Denied"
+    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
+    Then the page's title will be "路由配置"
+
+    Examples:
+      | setting                                      | running                     | name      |
+      | 资源\n已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
+#
+#  Scenario: 授予可解锁用户权限（RZY-765）
+#    When I "checked" the checkbox which name is "可解锁用户"
+#    And I click the "SaveButton" button
+#    Given open the "users.ListPage" page for uri "/account/users/"
+#    And I click the "CreateUser" button
+#    And I will see the "users.CreatePage" page
+#    When I set the parameter "UserName" with value "TempUser"
+#    And I set the parameter "Email" with value "142745@qq.com"
+#    And I set the parameter "Password" with value "all123456"
+#    And I choose the "AutoTestGroup" from the "UserGroups"
+#    And I click the "CreateButton" button
+#    Then I wait for "SuccessMessage" will be visible
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    And I run a method "Login" for "10" times with parameters "{'name':'TempUser','password':'123'}"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "users.ListPage" page for uri "/account/users/"
+#    When the data name is "{'column':'1','name':'TempUser'}" then i click the "解锁" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "TempUser"
+#    And I set the parameter "Password" with value "all123456"
+#    And I click the "LoginButton" button
+#    And I will see the "PublicNavBarPage" page
+#
+#  Scenario: 授予可使用结算管理权限（RZY-769）
+#    When I "checked" the checkbox which name is "可使用结算管理"
+#    And I click the "SaveButton" button
+#    Given open the "users.ListPage" page for uri "/account/users/"
+#    When the data name is "{'column':'1','name':'TempUser'}" then i click the "删除" button
+#    And I click the "EnsureButton" button
+#    And I will see the success message "删除成功"
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    And I will see the "PublicNavBarPage" page
+#    And I click the "Status" button
+#    Then I will see the element "Running" name is "使用限额 域标识 结算管理 搜索用量"
+#    And open the "PublicNavBarPage" page for uri "/payments/"
+#    Then the page's title will be "结算管理"
+#
+#  Scenario: 授予编辑所有角色权限（RZY-1214）
+#    When I "checked" the checkbox which name is "编辑所有角色权限"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    Then I will see the search result contains "{'column':'0','name':'admin'}"
+#
+#  Scenario: 授予新建角色（RZY-1210）
+#    When I "checked" the checkbox which name is "可新建角色"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    Then the data name is "AutoTestRoleWithAllResource" then i will see "{'column':'3','name':'编辑 授权 复制 删除'}" button
+#    Given I click the "CreateRoleButton" button
+#    And I will see the "roles.CreatePage" page
+#    And I set the parameter "RoleName" with value "TempRole"
+#    And I click the "CreateButton" button
+#    Then I wait for "SuccessMessage" will be visible
+#
+#  Scenario: 授予可更新最大搜索时长（RZY-1208）
+#    When I "checked" the checkbox which name is "可更新最大搜索时长"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "AutoTestRole" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    Then I click the "{'TabButton':'配置'}" button
+#    And I set the parameter "MaxTime" with value "1d"
+#    And I click the "SaveButton" button
+#    Then I will see the success message "保存成功"
+#
+#  Scenario Outline: 授予可转授功能权限（RZY-1211）
+#    When I "checked" the checkbox which name is "可转授功能权限"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "AutoTestRole" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    And I click the "{'TabButton':'功能'}" button
+#    And I will see the element "CheckboxGroup" name is "<name>"
+#
+#    Examples:
+#      | name                                      |
+#      | 可使用结算管理\n可新建角色\n可解锁用户\n可更新最大搜索时长\n可转授功能权限 |
+#
+#  Scenario: 授予可新建/更新告警插件权限（RZY-771）
 #    When I "checked" the checkbox which name is "可新建/更新告警插件"
 #    And I click the "SaveButton" button
 #    And I logout current user
@@ -255,9 +1769,31 @@ Feature: 角色授权功能
 #    And I set the parameter "Password" with value "qqqqq11111"
 #    And I click the "LoginButton" button
 #    And I wait for "2000" millsecond
-
-#  Scenario: 授权可查看敏感内容（RZY-772）
-#    When I "checked" the checkbox which name is "可查看敏感内容"
+#    And open the "alert.PluginPage" page for uri "/plugins/"
+#    Then I wait for "Upload" will be visible
+#
+##  Scenario: 授权可搜索所有日志（RZY-768）
+##    When I "checked" the checkbox which name is "可新建/更新告警插件"
+##    And I click the "SaveButton" button
+##    And I logout current user
+##    And open the "LoginPage" page for uri "/auth/login/"
+##    When I set the parameter "Username" with value "AutoTest"
+##    And I set the parameter "Password" with value "qqqqq11111"
+##    And I click the "LoginButton" button
+##    And I wait for "2000" millsecond
+#
+##  Scenario: 授权可查看敏感内容（RZY-772）
+##    When I "checked" the checkbox which name is "可查看敏感内容"
+##    And I click the "SaveButton" button
+##    And I logout current user
+##    And open the "LoginPage" page for uri "/auth/login/"
+##    When I set the parameter "Username" with value "AutoTest"
+##    And I set the parameter "Password" with value "qqqqq11111"
+##    And I click the "LoginButton" button
+##    And I wait for "2000" millsecond
+#
+#  Scenario: 授权可使用离线任务（RZY-762）
+#    When I "checked" the checkbox which name is "可使用离线任务"
 #    And I click the "SaveButton" button
 #    And I logout current user
 #    And open the "LoginPage" page for uri "/auth/login/"
@@ -265,76 +1801,16 @@ Feature: 角色授权功能
 #    And I set the parameter "Password" with value "qqqqq11111"
 #    And I click the "LoginButton" button
 #    And I wait for "2000" millsecond
-
-  Scenario: 授权可使用离线任务（RZY-762）
-    When I "checked" the checkbox which name is "可使用离线任务"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Data" name is "日志来源Agent 管理路由配置本地上传备份策略离线任务"
-    And open the "PublicNavBarPage" page for uri "/offlinetask/"
-    Then the page's title will be "离线任务"
-
-#  Scenario: 授权可更改他人密码（RZY-1213）
-
-  Scenario: 可使用资源包导入导出（RZY-764）
-    When I "checked" the checkbox which name is "可使用资源包导入、导出"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
-    Then I wait for "UploadButton" will be visible
-
-  Scenario: 可使用入库优先级并验证无大屏权限时是否有权访问（RZY-767）
-    When I "checked" the checkbox which name is "可使用入库优先级"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Data" name is "日志来源Agent 管理路由配置入库优先级本地上传备份策略离线任务"
-    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "PublicNavBarPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "404 Page Not Found"
-
-  Scenario Outline: 大屏功能权限（RZY-2609）
-    When I "checked" the checkbox which name is "可使用 Galaxee"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Application" button
-    Then I will see the element "App" name is "<name>"
-    And open the "PublicNavBarPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "Galaxee"
-
-    Examples:
-      | name                      |
-      | 机器学习\n关联搜索\n应用表格\nGalaxee |
-
-#  Scenario: 可使用告警分析（RZY-1207）
-
-#  Scenario: 可修改用户详情（缺少验证同组用户）（RZY-766）
-#    When I "checked" the checkbox which name is "可修改用户详情"
+#    And I will see the "PublicNavBarPage" page
+#    And I click the "Setting" button
+#    Then I will see the element "Data" name is "日志来源Agent 管理路由配置本地上传备份策略离线任务"
+#    And open the "PublicNavBarPage" page for uri "/offlinetask/"
+#    Then the page's title will be "离线任务"
+#
+##  Scenario: 授权可更改他人密码（RZY-1213）
+#
+#  Scenario: 可使用资源包导入导出（RZY-764）
+#    When I "checked" the checkbox which name is "可使用资源包导入、导出"
 #    And I click the "SaveButton" button
 #    And I logout current user
 #    And open the "LoginPage" page for uri "/auth/login/"
@@ -342,154 +1818,204 @@ Feature: 角色授权功能
 #    And I set the parameter "Password" with value "qqqqq11111"
 #    And I click the "LoginButton" button
 #    And I wait for "2000" millsecond
-#    Given open the "users.ListPage" page for uri "/account/users/"
-#    When I click the detail which name is "{'column':'1','name':'AutoTest'}"
-#    And I will see the "users.DetailPage" page
-#    And I click the "EditButton" button
-#    And I will see the "users.EditPage" page
-#    And I set the parameter "Telephone" with value "1511111111"
+#    Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
+#    Then I wait for "UploadButton" will be visible
+#
+#  Scenario: 可使用入库优先级并验证无大屏权限时是否有权访问（RZY-767）
+#    When I "checked" the checkbox which name is "可使用入库优先级"
 #    And I click the "SaveButton" button
-#    Then I will see the success message "更新成功"
-
-  Scenario: 可导入导出树状日志来源（RZY-1212）
-    When I "checked" the checkbox which name is "可导入导出日志来源树状结构"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "System" name is "来源结构"
-    Given open the "sourceGroup.StructurePage" page for uri "/sources/sourcegroups/structure/"
-    And I click the "ImportButton" button
-    When I upload a file with name "/src/test/resources/testdata/sourceGroups/AutoUploadTest.yaml"
-    And I will see the element "VerifyText" name is "上传完成"
-    And I click the "NextButton" button
-    And I wait for "Preview" will be visible
-    And I click the "NextButton" button
-    And I wait for "ImportSuccessMsg" will be visible
-    And I click the "CompleteButton" button
-
-  Scenario: 可使用模式学习（RZY-1209）
-    When I "checked" the checkbox which name is "可使用模式学习"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    Then I will see the element "SearchTabBar" name is "模式"
-
-  Scenario: 可下载搜索结果（RZY-770）
-    When I "checked" the checkbox which name is "可下载搜索结果"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Data" name is "日志来源Agent 管理路由配置入库优先级本地上传备份策略下载管理离线任务"
-    And open the "PublicNavBarPage" page for uri "/download/"
-    Then the page's title will be "下载管理"
-
-  Scenario: 可查看统计菜单（RZY-774）
-    When I "checked" the checkbox which name is "可查看统计菜单"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    Then I will see the element "SearchTabBar" name is "统计"
-
-  Scenario: 授权查看未分配资源（RZY-775）
-    When I "checked" the checkbox which name is "可查看未分配资源"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
-    Then I will see the column number "1" contains "AutoTestUploadTest"
-
-  Scenario: 可新建应用（RZY-2610）
-    When I "checked" the checkbox which name is "可新建应用"
-    And I click the "SaveButton" button
-    And I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given delete file "/target/download-files/TempTestApp.tar"
-    And open the "app.ListPage" page for uri "/app/list/"
-    And I click the "CreateButton" button
-    Then I will see the "app.CreatePage" page
-    When I set the parameter "NameInput" with value "TempTestApp"
-    And I click the "AddMenuButton" button
-    And I set the parameter "MenuName" with value "知识"
-    And I set the parameter "Url" with value "/knowledge/"
-    And I click the "SaveMenuButton" button
-    And I choose the "知识" from the "DefaultPage"
-    And I click the "CreateButton" button
-    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
-    Given open the "app.ListPage" page for uri "/app/list/"
-    And I click the "InstallButton" button
-    Then I will see the "app.InstallPage" page
-    When I upload a file with name "/target/download-files/TempTestApp.tar"
-    And I will see the element "VerifyText" name is "上传完成"
-    And I choose the "AutoTestRole" from the "Role"
-    And I choose the "AutoTestUploadTest" from the "Resource"
-    And I click the "NextButton" button
-    And I will see the "GroupPreview" is "active"
-    And I click the "NextButton" button
-    And I will see the "ResourcePreview" is "active"
-    And I click the "NextButton" button
-    And I will see the element "ImportSuccess" name is "导入成功"
-    Given open the "app.ListPage" page for uri "/app/list/"
-    Then I will see the search result contains "{'column':'0','name':'TempTestApp'}"
-    Given delete file "/target/download-files/AutoTest.tar"
-    And open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TempTestApp" then i click the "导出" button
-    And I will see the "app.CreatePage" page
-    And I wait for loading invisible
-    And I click the "ExportButton" button
-    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
-
-  Scenario: 删除上传的日志来源以及取消勾选查看未分配资源
-    When I "unchecked" the checkbox which name is "可查看未分配资源"
-    And I click the "SaveButton" button
-    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
-    And I wait for loading invisible
-    Given the data name is "AutoTestUploadTest" then i click the "删除" button
-    Then I click the "Ensure" button
-    Then I will see the success message "删除成功"
-
-  Scenario: 删除app及其资源分组
-    When I logout current user
-    And open the "LoginPage" page for uri "/auth/login/"
-    And I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "qqqqq11111"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And open the "app.ListPage" page for uri "/app/list/"
-    And the data name is "TempTestApp" then i click the "删除" button
-    And I click the "EnsureButton" button
-    Then I will see the success message "删除成功"
-    Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
-    When the data name is "TempTestApp" then i click the "删除" button
-    And I click the "MessageBoxOKButton" button
-    Then I will see the success message "删除成功"
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    And I will see the "PublicNavBarPage" page
+#    And I click the "Setting" button
+#    Then I will see the element "Data" name is "日志来源Agent 管理路由配置入库优先级本地上传备份策略离线任务"
+#    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
+#    Then the page's title will be "入库优先级"
+#    And open the "PublicNavBarPage" page for uri "/app/galaxee/manager/"
+#    Then the page's title will be "404 Page Not Found"
+#
+#  Scenario Outline: 大屏功能权限（RZY-2609）
+#    When I "checked" the checkbox which name is "可使用 Galaxee"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    And I will see the "PublicNavBarPage" page
+#    And I click the "Application" button
+#    Then I will see the element "App" name is "<name>"
+#    And open the "PublicNavBarPage" page for uri "/app/galaxee/manager/"
+#    Then the page's title will be "Galaxee"
+#
+#    Examples:
+#      | name                      |
+#      | 机器学习\n关联搜索\n应用表格\nGalaxee |
+#
+##  Scenario: 可使用告警分析（RZY-1207）
+#
+##  Scenario: 可修改用户详情（缺少验证同组用户）（RZY-766）
+##    When I "checked" the checkbox which name is "可修改用户详情"
+##    And I click the "SaveButton" button
+##    And I logout current user
+##    And open the "LoginPage" page for uri "/auth/login/"
+##    When I set the parameter "Username" with value "AutoTest"
+##    And I set the parameter "Password" with value "qqqqq11111"
+##    And I click the "LoginButton" button
+##    And I wait for "2000" millsecond
+##    Given open the "users.ListPage" page for uri "/account/users/"
+##    When I click the detail which name is "{'column':'1','name':'AutoTest'}"
+##    And I will see the "users.DetailPage" page
+##    And I click the "EditButton" button
+##    And I will see the "users.EditPage" page
+##    And I set the parameter "Telephone" with value "1511111111"
+##    And I click the "SaveButton" button
+##    Then I will see the success message "更新成功"
+#
+#  Scenario: 可导入导出树状日志来源（RZY-1212）
+#    When I "checked" the checkbox which name is "可导入导出日志来源树状结构"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    And I will see the "PublicNavBarPage" page
+#    And I click the "Setting" button
+#    Then I will see the element "System" name is "来源结构"
+#    Given open the "sourceGroup.StructurePage" page for uri "/sources/sourcegroups/structure/"
+#    And I click the "ImportButton" button
+#    When I upload a file with name "/src/test/resources/testdata/sourceGroups/AutoUploadTest.yaml"
+#    And I will see the element "VerifyText" name is "上传完成"
+#    And I click the "NextButton" button
+#    And I wait for "Preview" will be visible
+#    And I click the "NextButton" button
+#    And I wait for "ImportSuccessMsg" will be visible
+#    And I click the "CompleteButton" button
+#
+#  Scenario: 可使用模式学习（RZY-1209）
+#    When I "checked" the checkbox which name is "可使用模式学习"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "splSearch.SearchPage" page for uri "/search/"
+#    Then I will see the element "SearchTabBar" name is "模式"
+#
+#  Scenario: 可下载搜索结果（RZY-770）
+#    When I "checked" the checkbox which name is "可下载搜索结果"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    And I will see the "PublicNavBarPage" page
+#    And I click the "Setting" button
+#    Then I will see the element "Data" name is "日志来源Agent 管理路由配置入库优先级本地上传备份策略下载管理离线任务"
+#    And open the "PublicNavBarPage" page for uri "/download/"
+#    Then the page's title will be "下载管理"
+#
+#  Scenario: 可查看统计菜单（RZY-774）
+#    When I "checked" the checkbox which name is "可查看统计菜单"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "splSearch.SearchPage" page for uri "/search/"
+#    And I wait element "SearchStatus" change text to "搜索完成!"
+#    Then I will see the element "SearchTabBar" name is "统计"
+#
+#  Scenario: 授权查看未分配资源（RZY-775）
+#    When I "checked" the checkbox which name is "可查看未分配资源"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+#    Then I will see the column number "1" contains "AutoTestUploadTest"
+#
+#  Scenario: 可新建应用（RZY-2610）
+#    When I "checked" the checkbox which name is "可新建应用"
+#    And I click the "SaveButton" button
+#    And I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given delete file "/target/download-files/TempTestApp.tar"
+#    And open the "app.ListPage" page for uri "/app/list/"
+#    And I click the "CreateButton" button
+#    Then I will see the "app.CreatePage" page
+#    When I set the parameter "NameInput" with value "TempTestApp"
+#    And I click the "AddMenuButton" button
+#    And I set the parameter "MenuName" with value "知识"
+#    And I set the parameter "Url" with value "/knowledge/"
+#    And I click the "SaveMenuButton" button
+#    And I choose the "知识" from the "DefaultPage"
+#    And I click the "CreateButton" button
+#    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+#    Given open the "app.ListPage" page for uri "/app/list/"
+#    And I click the "InstallButton" button
+#    Then I will see the "app.InstallPage" page
+#    When I upload a file with name "/target/download-files/TempTestApp.tar"
+#    And I will see the element "VerifyText" name is "上传完成"
+#    And I choose the "AutoTestRole" from the "Role"
+#    And I choose the "AutoTestUploadTest" from the "Resource"
+#    And I click the "NextButton" button
+#    And I will see the "GroupPreview" is "active"
+#    And I click the "NextButton" button
+#    And I will see the "ResourcePreview" is "active"
+#    And I click the "NextButton" button
+#    And I will see the element "ImportSuccess" name is "导入成功"
+#    Given open the "app.ListPage" page for uri "/app/list/"
+#    Then I will see the search result contains "{'column':'0','name':'TempTestApp'}"
+#    Given delete file "/target/download-files/AutoTest.tar"
+#    And open the "app.ListPage" page for uri "/app/list/"
+#    When the data name is "TempTestApp" then i click the "导出" button
+#    And I will see the "app.CreatePage" page
+#    And I wait for loading invisible
+#    And I click the "ExportButton" button
+#    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+#
+#  Scenario: 删除上传的日志来源以及取消勾选查看未分配资源
+#    When I "unchecked" the checkbox which name is "可查看未分配资源"
+#    And I click the "SaveButton" button
+#    Given open the "sourceGroup.ListPage" page for uri "/sources/sourcegroups/"
+#    And I wait for loading invisible
+#    Given the data name is "AutoTestUploadTest" then i click the "删除" button
+#    Then I click the "Ensure" button
+#    Then I will see the success message "删除成功"
+#
+#  Scenario: 删除app及其资源分组
+#    When I logout current user
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    And I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "qqqqq11111"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    And open the "app.ListPage" page for uri "/app/list/"
+#    And the data name is "TempTestApp" then i click the "删除" button
+#    And I click the "EnsureButton" button
+#    Then I will see the success message "删除成功"
+#    Given open the "resourceGroups.ListPage" page for uri "/account/resourcegroups/"
+#    When the data name is "TempTestApp" then i click the "删除" button
+#    And I click the "MessageBoxOKButton" button
+#    Then I will see the success message "删除成功"

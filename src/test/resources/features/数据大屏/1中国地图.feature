@@ -20,6 +20,7 @@ Feature: 数据大屏中国地图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
     And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
     And I choose the "apache.geo.province" from the "NameField"
     And I choose the "count()" from the "DataField"
     And I set the parameter "NormalToInput" with value "100"

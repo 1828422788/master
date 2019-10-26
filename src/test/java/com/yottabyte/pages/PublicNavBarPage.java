@@ -126,6 +126,13 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(id = "yw-nav-help")
     private WebElement help;
 
+    @FindBy(className = "el-badge")
+    private WebElement news;
+
+    public WebElement getNews() {
+        return news;
+    }
+
     public WebElement getMenu() {
         return menu;
     }

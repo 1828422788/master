@@ -295,6 +295,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "clocktime")
     private WebElement clocktime;
 
+    @FindBy(xpath = "//div[@class='searching-tip']/span")
+    private WebElement searchTip;
+
     @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
     private WebElement timeWordColor;
 
@@ -321,7 +324,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPellucidity() {
-        return this.input("全局样式","透明度");
+        return this.input("全局样式", "透明度");
     }
 
     public WebElement getOverallStyle() {
@@ -357,7 +360,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRepulsionFactor() {
-        return this.input("斥力因子倍数","斥力因子倍数");
+        return this.input("斥力因子倍数", "斥力因子倍数");
     }
 
     public WebElement getRepulsionFactorHeader() {
@@ -1149,7 +1152,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSearchTip() {
-        return super.getContainsTextButton("搜索中");
+        return searchTip;
     }
 
     public WebElement getSuccessMessage() {
@@ -1261,7 +1264,11 @@ public class CreatePage extends PageTemplate {
         }
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
-        return super.getLastDropdownList();
+        return getLastDropdownList();
+    }
+
+    public WebElement getLastDropdownList() {
+        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
     }
 
     private WebElement switchButton(String title) {
