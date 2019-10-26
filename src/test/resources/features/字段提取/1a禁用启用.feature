@@ -18,6 +18,6 @@ Feature: 字段提取禁用/启用
 
   Scenario: RZY-1874:运行统计的关闭与开启
     When I click the "SwitchButton" button
-    And I refresh the website
-    And I wait for loading complete
-    And I will see the "SwitchButton" is "ant-switch-disabled"
+
+  Scenario: 验证运行统计按钮状态
+    Then I will see the "SwitchButton" is "ant-switch-disabled"
