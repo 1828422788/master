@@ -19,7 +19,7 @@ Feature: 字典管理
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'AutoTest.csv'}"
 
-  @cleanConfigs
+  @configsSmoke
   Scenario Outline: 删除字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "<name>" then i click the "删除" button

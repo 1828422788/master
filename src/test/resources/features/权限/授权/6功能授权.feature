@@ -8,7 +8,17 @@ Feature: 角色授权功能（校验URL）
 #    Then I click the "{'TabButton':'功能'}" button
 #    And I wait for "Loading" will be invisible
 
-  Scenario: 取消所有功能权限
+  Scenario: 选择所有功能权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "AutoTestRole" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario Outline: 验证无任何权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -18,9 +28,6 @@ Feature: 角色授权功能（校验URL）
     And I "unchecked" the checkbox which name is "全选"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证AutoTest无任何功能权限
-    Given I wait for loading complete
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     Given I logout current user
@@ -104,149 +111,35 @@ Feature: 角色授权功能（校验URL）
     And open the "LoginPage" page for uri "/topology/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<configs>"
     And open the "LoginPage" page for uri "/configs/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<tokens>"
     And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<docs>"
     And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<savedsearches>"
     And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<resource>"
     And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<dataset>"
     And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<apikey>"
 
     Examples:
-      | settingMenu | systemMenu       | helpMenu  | 403                   |
-      | 您暂无设置权限。    | 运行 (系统版本: 3.0.0) | 帮助\n联系日志易 | 403 Permission Denied |
+      | alerts                | plugins               | payments              | ingestpriority        | queryscopes           | search                | agent                 | accountUsage          | dictionary            | macro                 | usage                 | reports               | trend                 | schedule              | backup                | sourcesInput          | roles                 | users                 | knowledge             | dashboard             | usergroups            | galaxee               | machine_learning      | lynxee                | topology              | configs               | tokens                | docs                  | savedsearches         | resource              | dataset               | apikey                | settingMenu | systemMenu       | helpMenu
+      | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 您暂无设置权限。    | 运行 (系统版本: 3.0.0) | 帮助\n联系日志易 |
 
-  Scenario Outline: 授权可查看告警插件
+  Scenario Outline: 验证其他权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可查看告警插件"
+    When I "checked" the checkbox which name is "<function>"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "NonPrivileged" name is "您暂无设置权限。"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "运行 (系统版本: 3.0.0)"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I will see the "Upload" doesn't exist
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/ingestpriority/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-
-    Examples:
-      | name      |
-      | 帮助\n联系日志易 |
-
-  Scenario: 授权可新建/更新告警插件
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可新建/更新告警插件"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可新建/更新告警插件
-    Given I wait for loading complete
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     Given I logout current user
@@ -258,1037 +151,132 @@ Feature: 角色授权功能（校验URL）
     And I wait for "2000" millsecond
     And I will see the "PublicNavBarPage" page
     And I click the "Setting" button
-    Then I will see the element "NonPrivileged" name is "您暂无设置权限。"
+    Then I will see the element "Menu" name is "<settingMenu>"
     And I click the "System" button
-    Then I will see the element "Menu" name is "运行 (系统版本: 3.0.0)"
+    Then I will see the element "Menu" name is "<systemMenu>"
     And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
+    Then I will see the element "Menu" name is "<helpMenu>"
     And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
+    Then the page's title will be "<alerts>"
+    And open the "LoginPage" page for uri "/plugins/"
+    Then the page's title will be "<plugins>"
+    Then I will see the element "Subnav" name is "<subnav>"
     And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<payments>"
     And open the "LoginPage" page for uri "/ingestpriority/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<ingestpriority>"
     And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<queryscopes>"
     And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<search>"
     And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<agent>"
     And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<accountUsage>"
     And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<dictionary>"
     And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<macro>"
     And open the "LoginPage" page for uri "/macro/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<usage>"
     And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<reports>"
     And open the "LoginPage" page for uri "/reports/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<trend>"
     And open the "LoginPage" page for uri "/trend/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<schedule>"
     And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<backup>"
     And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<sourcesInput>"
     And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<roles>"
     And open the "LoginPage" page for uri "/account/roles/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<users>"
     And open the "LoginPage" page for uri "/account/users/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<knowledge>"
     And open the "LoginPage" page for uri "/knowledge/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<dashboard>"
     And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<usergroups>"
     And open the "LoginPage" page for uri "/account/usergroups/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<galaxee>"
     And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<machine_learning>"
     And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<lynxee>"
     And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<topology>"
     And open the "LoginPage" page for uri "/topology/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<configs>"
     And open the "LoginPage" page for uri "/configs/new/"
     Then the page's title will be "403 Permission Denied"
     And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<tokens>"
     And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<docs>"
     And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<savedsearches>"
     And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<resource>"
     And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<dataset>"
     And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-
-    Examples:
-      | name      |
-      | 帮助\n联系日志易 |
-
-  Scenario: 授权可使用结算管理
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可使用结算管理"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可使用结算管理
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "NonPrivileged" name is "您暂无设置权限。"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/ingestpriority/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-
-    Examples:
-      | running                | name      |
-      | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
-
-  Scenario: 授权可使用入库优先级
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可使用入库优先级"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可使用入库优先级
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-
-    Examples:
-      | setting   | running                | name      |
-      | 数据\n入库优先级 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
-
-  Scenario: 授权可使用已存搜索
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可使用已存搜索"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可使用已存搜索
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    And I will see the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "已存搜索"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-
-    Examples:
-      | setting   | running                | name      |
-      | 数据\n入库优先级 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
-
-  Scenario: 授权可使用搜索权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可使用搜索权限"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可使用搜索权限
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Then open the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "搜索权限"
-    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "已存搜索"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
+    Then the page's title will be "<apikey>"
     And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
-    Then the page's title will be "403 Permission Denied"
-
-    Examples:
-      | setting                       | running                | name      |
-      | 资源\n已存搜索\n数据\n入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
-
-  Scenario: 授权可使用数据路由
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可使用数据路由"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可使用数据路由
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Then open the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "搜索权限"
-    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
+    Then the page's title will be "<index>"
     And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "已存搜索"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
-    Then the page's title will be "路由配置"
+    Then the page's title will be "<search>"
 
     Examples:
-      | setting                           | running                | name      |
-      | 资源\n已存搜索\n数据\n路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
+      | function     | alerts                | plugins | subnav             | payments              | ingestpriority        | queryscopes           | search                | agent                 | accountUsage          | dictionary            | macro                 | usage                 | reports               | trend                 | schedule              | backup                | sourcesInput          | roles                 | users                 | knowledge             | dashboard             | usergroups            | galaxee               | machine_learning      | lynxee                | topology              | configs               | tokens                | docs                  | savedsearches         | resource              | dataset               | apikey                | index                 | search                | settingMenu                                                                                     | systemMenu                             | helpMenu
+      | 可查看告警插件      | 403 Permission Denied | 告警插件    |                    | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 您暂无设置权限。                                                                                        | 运行 (系统版本: 3.0.0)                       | 帮助\n联系日志易     |
+      | 可使用结算管理      | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 您暂无设置权限。                                                                                        | 运行 (系统版本: 3.0.0)\n结算管理                 | 帮助\n联系日志易     |
+      | 可使用入库优先级     | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 入库优先级                 | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 数据\n入库优先级                                                                                       | 运行 (系统版本: 3.0.0)\n结算管理                 | 帮助\n联系日志易     |
+      | 可使用已存搜索      | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 入库优先级                 | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 资源\n已存搜索\n数据\n入库优先级                                                                             | 运行 (系统版本: 3.0.0)\n结算管理                 | 帮助\n联系日志易     |
+      | 可使用搜索权限      | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 资源\n已存搜索\n数据\n入库优先级\n权限\n搜索权限                                                                   | 运行 (系统版本: 3.0.0)\n结算管理                 | 帮助\n联系日志易     |
+      | 可使用数据路由      | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n已存搜索\n数据\n路由配置入库优先级\n权限\n搜索权限                                                               | 运行 (系统版本: 3.0.0)\n结算管理                 | 帮助\n联系日志易     |
+      | 可使用 Agent 管理 | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限                                                       | 运行 (系统版本: 3.0.0)\n结算管理                 | 帮助\n联系日志易     |
+      | 可查看域使用额度     | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限                                                       | 运行 (系统版本: 3.0.0)\n使用限额结算管理             | 帮助\n联系日志易     |
+      | 可使用字典管理      | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限                                                       | 运行 (系统版本: 3.0.0)\n使用限额结算管理             | 帮助\n联系日志易     |
+      | 可使用搜索宏       | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限                                                    | 运行 (系统版本: 3.0.0)\n使用限额结算管理             | 帮助\n联系日志易     |
+      | 可查看用户搜索用量    | 403 Permission Denied | 告警插件    |                    | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限                                                    | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可使用报表        | 403 Permission Denied | 告警插件    | 报表                 | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n报表已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限                                                  | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可使用趋势图       | 403 Permission Denied | 告警插件    | 报表趋势图              | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n报表趋势图已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限                                               | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可使用定时任务      | 403 Permission Denied | 告警插件    | 定时任务报表趋势图          | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n定时任务报表趋势图已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限                                           | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可使用备份        | 403 Permission Denied | 告警插件    | 定时任务报表趋势图          | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n定时任务报表趋势图已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级备份策略\n权限\n搜索权限                                       | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可使用本地上传      | 403 Permission Denied | 告警插件    | 定时任务报表趋势图          | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n定时任务报表趋势图已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n搜索权限                                   | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可查看角色页       | 403 Permission Denied | 告警插件    | 定时任务报表趋势图          | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n定时任务报表趋势图已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限搜索权限                               | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可查看用户页       | 403 Permission Denied | 告警插件    | 定时任务报表趋势图          | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n定时任务报表趋势图已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户管理搜索权限                           | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可使用知识库       | 403 Permission Denied | 告警插件    | 定时任务报表趋势图知识        | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n定时任务报表趋势图知识库已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户管理搜索权限                        | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可使用仪表盘       | 403 Permission Denied | 告警插件    | 仪表盘定时任务报表趋势图知识     | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n仪表盘定时任务报表趋势图知识库已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户管理搜索权限                     | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可查看用户分组      | 403 Permission Denied | 告警插件    | 仪表盘定时任务报表趋势图知识     | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n仪表盘定时任务报表趋势图知识库已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户分组用户管理搜索权限                 | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可使用拓扑图       | 403 Permission Denied | 告警插件    | 仪表盘定时任务报表趋势图知识     | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n仪表盘定时任务报表趋势图知识库已存搜索搜索宏拓扑图\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户分组用户管理搜索权限              | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可使用字段提取      | 403 Permission Denied | 告警插件    | 仪表盘定时任务报表趋势图知识     | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n仪表盘定时任务报表趋势图知识库已存搜索搜索宏字段提取拓扑图\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户分组用户管理搜索权限          | 运行 (系统版本: 3.0.0)\n使用限额结算管理搜索用量         | 帮助\n联系日志易     |
+      | 可查看域标识       | 403 Permission Denied | 告警插件    | 仪表盘定时任务报表趋势图知识     | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 域标识                   | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n仪表盘定时任务报表趋势图知识库已存搜索搜索宏字段提取拓扑图\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户分组用户管理搜索权限          | 运行 (系统版本: 3.0.0)\n使用限额域标识结算管理搜索用量      | 帮助\n联系日志易     |
+      | 可使用监控        | 监控                    | 告警插件    | 仪表盘监控定时任务报表趋势图知识   | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 域标识                   | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n仪表盘监控定时任务报表趋势图知识库已存搜索搜索宏字段提取拓扑图\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户分组用户管理搜索权限        | 运行 (系统版本: 3.0.0)\n使用限额域标识结算管理搜索用量      | 帮助\n联系日志易     |
+      | 可查看帮助文档      | 监控                    | 告警插件    | 仪表盘监控定时任务报表趋势图知识   | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 域标识                   | 帮助文档                  | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n仪表盘监控定时任务报表趋势图知识库已存搜索搜索宏字段提取拓扑图\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户分组用户管理搜索权限        | 运行 (系统版本: 3.0.0)\n使用限额域标识结算管理搜索用量      | 帮助\n帮助文档联系日志易 |
+      | 可查看资源列表      | 监控                    | 告警插件    | 仪表盘监控定时任务报表趋势图知识   | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 域标识                   | 帮助文档                  | 已存搜索                  | 资源列表                  | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n仪表盘监控定时任务报表趋势图知识库已存搜索搜索宏字段提取拓扑图\n数据\nAgent 管理路由配置入库优先级本地上传备份策略\n权限\n角色权限用户分组用户管理资源列表搜索权限    | 运行 (系统版本: 3.0.0)\n使用限额域标识结算管理搜索用量      | 帮助\n帮助文档联系日志易 |
+      | 可使用数据集       | 监控                    | 告警插件    | 仪表盘监控定时任务报表趋势图知识   | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 域标识                   | 帮助文档                  | 已存搜索                  | 资源列表                  | 数据集                   | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n仪表盘监控定时任务报表趋势图知识库已存搜索搜索宏字段提取拓扑图\n数据\nAgent 管理路由配置入库优先级本地上传备份策略数据集\n权限\n角色权限用户分组用户管理资源列表搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额域标识结算管理搜索用量      | 帮助\n帮助文档联系日志易 |
+      | 可使用ApiKey认证  | 监控                    | 告警插件    | 仪表盘监控定时任务报表趋势图知识   | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 域标识                   | 帮助文档                  | 已存搜索                  | 资源列表                  | 数据集                   | Apikey Management     | 路由配置                  | 403 Permission Denied | 资源\n仪表盘监控定时任务报表趋势图知识库已存搜索搜索宏字段提取拓扑图\n数据\nAgent 管理路由配置入库优先级本地上传备份策略数据集\n权限\n角色权限用户分组用户管理资源列表搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额域标识结算管理搜索用量API密钥 | 帮助\n帮助文档联系日志易 |
+      | 可使用搜索页       | 监控                    | 告警插件    | 仪表盘搜索监控定时任务报表趋势图知识 | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 报表                    | 趋势图                   | 定时任务                  | 数据备份                  | 本地上传                  | 角色列表                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 域标识                   | 帮助文档                  | 已存搜索                  | 资源列表                  | 数据集                   | Apikey Management     | 路由配置                  | 搜索                    | 资源\n仪表盘监控定时任务报表趋势图知识库已存搜索搜索宏字段提取拓扑图\n数据\nAgent 管理路由配置入库优先级本地上传备份策略数据集\n权限\n角色权限用户分组用户管理资源列表搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额域标识结算管理搜索用量API密钥 | 帮助\n帮助文档联系日志易 |
 
-  Scenario: 授权可使用Agent管理
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可使用 Agent 管理"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可使用Agent管理
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Then open the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "搜索权限"
-    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "Agent 管理"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "已存搜索"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
-    Then the page's title will be "路由配置"
-
-    Examples:
-      | setting                                   | running                | name      |
-      | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n结算管理 | 帮助\n联系日志易 |
-
-  Scenario: 授权可查看域使用额度
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可查看域使用额度"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可查看域使用额度
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Then open the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "搜索权限"
-    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "Agent 管理"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "使用限额"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "已存搜索"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
-    Then the page's title will be "路由配置"
-
-    Examples:
-      | setting                                   | running                     | name      |
-      | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
-
-  Scenario: 授权可使用字典管理
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可使用字典管理"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可使用字典管理
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Then open the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    Then I will see the "News" doesn't exist
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "搜索权限"
-    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "Agent 管理"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "使用限额"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "字典列表"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "已存搜索"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
-    Then the page's title will be "路由配置"
-
-    Examples:
-      | setting                                   | running                     | name      |
-      | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
 
   Scenario: 授权可接受消息提醒
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -1300,7 +288,7 @@ Feature: 角色授权功能（校验URL）
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
-  Scenario Outline: 验证是否可接受消息提醒
+  Scenario: 验证是否可接受消息提醒
     Given I wait for loading complete
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -1312,341 +300,8 @@ Feature: 角色授权功能（校验URL）
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Then open the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
     Then I wait for "News" will be visible
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "搜索权限"
-    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "Agent 管理"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "使用限额"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "字典列表"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "已存搜索"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
-    Then the page's title will be "路由配置"
 
-    Examples:
-      | setting                                   | running                     | name      |
-      | 资源\n已存搜索\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
-
-  Scenario: 授权可使用搜索宏
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可使用搜索宏"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可使用搜索宏
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Then open the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    Then I wait for "News" will be visible
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "搜索权限"
-    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "Agent 管理"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "使用限额"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "字典列表"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "搜索宏"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "已存搜索"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
-    Then the page's title will be "路由配置"
-
-    Examples:
-      | setting                                      | running                     | name      |
-      | 资源\n已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
-
-
-  Scenario: 授权可使用搜索宏
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "可使用搜索宏"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 验证是否可使用搜索宏
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Then open the "PublicNavBarPage" page
-    And I click the "Setting" button
-    Then I will see the element "Menu" name is "<setting>"
-    And I click the "System" button
-    Then I will see the element "Menu" name is "<running>"
-    And I click the "Help" button
-    Then I will see the element "Menu" name is "<name>"
-    Then I wait for "News" will be visible
-    And open the "LoginPage" page for uri "/alerts/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "alert.PluginPage" page for uri "/plugins/"
-    Then the page's title will be "告警插件"
-    Then I wait for "Upload" will be visible
-    And open the "LoginPage" page for uri "/payments/"
-    Then the page's title will be "结算管理"
-    And open the "LoginPage" page for uri "/queryscopes/"
-    Then the page's title will be "搜索权限"
-    And open the "PublicNavBarPage" page for uri "/ingestpriority/"
-    Then the page's title will be "入库优先级"
-    And open the "LoginPage" page for uri "/search/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/agent/"
-    Then the page's title will be "Agent 管理"
-    And open the "LoginPage" page for uri "/account/usage/"
-    Then the page's title will be "使用限额"
-    And open the "LoginPage" page for uri "/dictionary/"
-    Then the page's title will be "字典列表"
-    And open the "LoginPage" page for uri "/macro/"
-    Then the page's title will be "搜索宏"
-    And open the "LoginPage" page for uri "/macro/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/usage/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/reports/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/trend/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/schedule/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/backup/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/sources/input/os/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/roles/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/users/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/knowledge/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dashboard/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/account/usergroups/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/galaxee/manager/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/machine_learning/showcase/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/app/lynxee/overview/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/topology/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/configs/new/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/tokens/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/docs/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/savedsearches/"
-    Then the page's title will be "已存搜索"
-    And open the "LoginPage" page for uri "/resource/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/dataset/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/apikey/"
-    Then the page's title will be "403 Permission Denied"
-    And open the "LoginPage" page for uri "/indexsettings/indexmatchrule/"
-    Then the page's title will be "路由配置"
-
-    Examples:
-      | setting                                      | running                     | name      |
-      | 资源\n已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.0.0)\n使用限额 结算管理 | 帮助\n联系日志易 |
 #
 #  Scenario: 授予可解锁用户权限（RZY-765）
 #    When I "checked" the checkbox which name is "可解锁用户"

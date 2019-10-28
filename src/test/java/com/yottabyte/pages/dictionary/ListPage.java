@@ -62,7 +62,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getEnsureButton() {
-        return super.getContainsTextButton("确定");
+        return super.getButton("确定");
     }
 
     public WebElement getUpdate() {

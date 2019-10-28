@@ -18,6 +18,5 @@ Feature: 字段提取禁用/启用
 
   Scenario: RZY-1874:运行统计的关闭与开启
     When I click the "SwitchButton" button
-
-  Scenario: 验证运行统计按钮状态
+    And I wait for "1000" millsecond
     Then I will see the "SwitchButton" is "ant-switch-disabled"
