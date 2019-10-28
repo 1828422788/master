@@ -4,19 +4,6 @@ Feature: 用户新建（RZY-1164）
   Background:
     Given open the "users.ListPage" page for uri "/account/users/"
 
-  @createUsers
-  Scenario: 添加基本用户
-    And I click the "CreateUser" button
-    And I will see the "users.CreatePage" page
-    When I set the parameter "UserName" with value "AutoTest"
-    And I set the parameter "FullName" with value "AutoTestFullName"
-    And I set the parameter "Email" with value "autoFullName@yottabyte.cn"
-    And I set the parameter "Password" with value "all123456"
-    And I choose the "AutoTestGroup" from the "UserGroups"
-    And I choose the "AutoTestRole" from the "Role"
-    And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
-
   Scenario Outline: 添加普通用户
     And I click the "CreateUser" button
     And I will see the "users.CreatePage" page

@@ -4,20 +4,6 @@ Feature: 用户分组创建（RZY-545）
   Background:
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
 
-  @createUserGroups
-  Scenario Outline: 所需用户分组
-    And I click the "Create" button
-    Then I will see the "userGroups.CreatePage" page
-    When I set the parameter "UserGroupName" with value "<groupProperty>"
-    When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
-    And I choose the "<roleProperty>" from the "UserGroupRole"
-    And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
-
-    Examples:
-      | groupProperty | UserGroupDes | roleProperty |
-      | AutoTestGroup | des1         | AutoTestRole |
-
   Scenario Outline: 用户分组创建成功
     And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page

@@ -4,19 +4,6 @@ Feature: 角色新建（RZY-517至521）
   Background:
     Given open the "roles.ListPage" page for uri "/account/roles/"
 
-  Scenario Outline: 创建基本角色
-    Given I click the "CreateRoleButton" button
-    And I will see the "roles.CreatePage" page
-    And I set the parameter "RoleName" with value "<RoleName>"
-    And I set the parameter "RoleDes" with value "<RoleDes>"
-    And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
-
-  @createRole
-    Examples:
-      | RoleName     | RoleDes |
-      | AutoTestRole | 无资源分组   |
-
   Scenario Outline: 角色同名校验
     Given I click the "CreateRoleButton" button
     And I will see the "roles.CreatePage" page
