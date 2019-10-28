@@ -22,7 +22,7 @@ Feature: 定时任务新增
     And I click the "StartTime" button
     And I set the time input "StartTomorrow" to "<startTime>" minutes later
     And I click the "EnsureButton" button
-    And I display the element "TimePanel"
+    And I hide the element "TimePanel"
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
@@ -42,7 +42,7 @@ Feature: 定时任务新增
     And I click the "<chartType>" button
     And I click the "<chart>" button
     And I wait for loading invisible
-    And I display the element "ChartTypePopover"
+    And I hide the element "ChartTypePopover"
     And I will see the "splSearch.SearchPage" page
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -53,7 +53,7 @@ Feature: 定时任务新增
     And I click the "StartTime" button
     And I set the time input "StartTomorrow" to "5" minutes later
     And I click the "EnsureButton" button
-    And I display the element "TimePanel"
+    And I hide the element "TimePanel"
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
@@ -109,7 +109,7 @@ Feature: 定时任务新增
     And I click the "StartTime" button
     And I set the time input "StartTomorrow" to "2" minutes later
     And I click the "EnsureButton" button
-    And I display the element "TimePanel"
+    And I hide the element "TimePanel"
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
@@ -149,7 +149,7 @@ Feature: 定时任务新增
     And I click the "StartTime" button
     And I set the time input "StartTomorrow" to "2" minutes later
     And I click the "EnsureButton" button
-    And I display the element "TimePanel"
+    And I hide the element "TimePanel"
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
@@ -184,7 +184,7 @@ Feature: 定时任务新增
     And I click the "StartTime" button
     And I set the time input "StartTomorrow" to "2" minutes later
     And I click the "EnsureButton" button
-    And I display the element "TimePanel"
+    And I hide the element "TimePanel"
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
@@ -220,7 +220,7 @@ Feature: 定时任务新增
     And I click the "StartTime" button
     And I set the time input "StartTomorrow" to "2" minutes later
     Then I click the "EnsureButton" button
-    And I display the element "TimePanel"
+    And I hide the element "TimePanel"
     Then I click the "Ensure" button
     Then I will see the success message "保存成功"
 
@@ -279,7 +279,7 @@ Feature: 定时任务新增
     And I click the "StartTime" button
     And I set the time input "StartTomorrow" to "<startTime>" minutes later
     And I click the "EnsureButton" button
-    And I display the element "TimePanel"
+    And I hide the element "TimePanel"
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 

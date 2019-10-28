@@ -35,7 +35,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "55"
@@ -46,7 +46,7 @@ Feature: 趋势图新建
 
     Examples:
       | name               | spl                                                                                            | colourFilling |
-      | RZY-2550:单值sample1 | tag:*display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | Background    |
+      | RZY-2550:单值sample1 | tag:*hide \| stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | Background    |
 
   @first @trendSmoke
   Scenario Outline: 单值sample2（RZY-2551）
@@ -101,7 +101,7 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "<chart>" button
     And I click the "<chartType>" button
-    And I display the element "ChartTypePopover"
+    And I hide the element "ChartTypePopover"
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And take part of "Canvas" with name "trend/<num>"
@@ -113,7 +113,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -156,7 +156,7 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "<chart>" button
     And I click the "<type>" button
-    And I display the element "ChartTypePopover"
+    And I hide the element "ChartTypePopover"
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And take part of "Canvas" with name "trend/<num>"
@@ -168,7 +168,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "40"
@@ -221,7 +221,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -263,7 +263,7 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "Other" button
     And I click the "<type>" button
-    And I display the element "ChartTypePopover"
+    And I hide the element "ChartTypePopover"
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And take part of "Canvas" with name "trend/<num>"
@@ -275,7 +275,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -367,7 +367,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "13"
     And I set the parameter "Minute" with value "20"
@@ -450,7 +450,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "13"
     And I set the parameter "Minute" with value "25"
@@ -527,7 +527,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "10"
     And I set the parameter "Minute" with value "00"
@@ -577,7 +577,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "10"
     And I set the parameter "Minute" with value "05"
@@ -631,7 +631,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "45"
@@ -721,7 +721,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "50"
@@ -859,7 +859,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "35"
@@ -949,7 +949,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -1078,7 +1078,7 @@ Feature: 趋势图新建
     And I click the "ChartType" button
     And I click the "<chartType>" button
     And I click the "<chart>" button
-    And I display the element "ChartTypePopover"
+    And I hide the element "ChartTypePopover"
     And I wait for loading invisible
     And I wait for "1000" millsecond
     And take part of "Canvas" with name "trend/<num>"
@@ -1090,7 +1090,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -1174,7 +1174,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "13"
     And I set the parameter "Minute" with value "12"
@@ -1213,7 +1213,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "9"
     And I set the parameter "Minute" with value "<minute>"
@@ -1272,7 +1272,7 @@ Feature: 趋势图新建
     And I set the parameter "Describe" with value "AutoTest"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "9"
     And I set the parameter "Minute" with value "<minute>"
@@ -1307,7 +1307,7 @@ Feature: 趋势图新建
     And I click the "Map" button
     And I click the "Geostatsmap" button
     And I wait for loading invisible
-    And I display the element "ChartTypePopover"
+    And I hide the element "ChartTypePopover"
     And I wait for "1000" millsecond
     And take part of "Canvas" with name "trend/2098"
     And I click the "Save" button

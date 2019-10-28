@@ -15,7 +15,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -49,7 +49,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Purple" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -71,7 +71,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -100,7 +100,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Orange" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -120,7 +120,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -152,7 +152,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Green" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -179,7 +179,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>, 第一种布局方式"
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "03"
@@ -202,7 +202,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Orange" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "Layout1" button
     And I wait for "TopoTitle" will be visible
@@ -220,7 +220,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -251,7 +251,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Purple" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -275,7 +275,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -297,7 +297,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Weight" button
     And I set the parameter "FieldValueInput" with value "count()"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -320,7 +320,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -345,7 +345,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Purple" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -367,7 +367,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Crontab" with value "0 30 11 * * ?"
     And I click the "NextButton" button
@@ -387,7 +387,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Weight" button
     And I set the parameter "FieldValueInput" with value "count()"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -409,7 +409,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Crontab" with value "0 30 11 * * ?"
     And I click the "NextButton" button
@@ -431,7 +431,7 @@ Feature: 报表新建（RZY-116）
     And I set the parameter "TopLimitInput" with value "upper95"
     And I set the parameter "LowerLimitInput" with value "lower95"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -453,7 +453,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Crontab" with value "0 30 11 * * ?"
     And I click the "NextButton" button
@@ -498,7 +498,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Red" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -520,7 +520,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Crontab" with value "0 30 11 * * ?"
     And I click the "NextButton" button
@@ -539,7 +539,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Divide" button
     And I set the parameter "FieldValueInput" with value "apache.geo.city"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -561,7 +561,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Crontab" with value "0 30 11 * * ?"
     And I click the "NextButton" button
@@ -588,7 +588,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Region" button
     And I click the "China" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -611,7 +611,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Crontab" with value "0 30 11 * * ?"
     And I click the "NextButton" button
@@ -632,7 +632,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Region" button
     And I click the "China" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -655,7 +655,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>, 第4种布局方式"
     And I set the parameter "Crontab" with value "0 35 11 * * ?"
     And I click the "NextButton" button
@@ -677,7 +677,7 @@ Feature: 报表新建（RZY-116）
     And I click the "AccordingField" button
     And I set the parameter "FieldValueInput" with value "icon"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "Layout4" button
     And I wait for "TopoTitle" will be visible
@@ -694,7 +694,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>, 第4种布局方式"
     And I set the parameter "Crontab" with value "0 35 11 * * ?"
     And I click the "NextButton" button
@@ -714,7 +714,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Orange" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "Layout4" button
     And I wait for "TopoTitle" will be visible
@@ -731,7 +731,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "EXCEL" from the "ReportType"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>, 第4种布局方式"
     And I set the parameter "Crontab" with value "0 40 11 * * ?"
     And I click the "NextButton" button
@@ -753,7 +753,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Orange" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I wait for "1000" millsecond
     And I click the "Layout4" button
@@ -772,7 +772,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -805,7 +805,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Purple" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -828,7 +828,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -848,7 +848,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Divide" button
     And I set the parameter "FieldValueInput" with value "apache.clientip"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -871,7 +871,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -893,7 +893,7 @@ Feature: 报表新建（RZY-116）
     And I set the parameter "FieldValueInput" with value "count()"
     And I set the parameter "Segments" with value "10"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -916,7 +916,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "<reportType>" from the "ReportType"
     And I set the parameter "EmailInput" with value "<email>"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<subject>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
@@ -939,7 +939,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Orange" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "<layout>" button
     And I wait for "TopoTitle" will be visible
@@ -985,7 +985,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Email" button
     And I set the parameter "EmailInput" with value "sun.xiaojing@yottabyte.cn"
     And I click the "Email1" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "30"
@@ -1004,7 +1004,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Divide" button
     And I set the parameter "FieldValueInput" with value "apache.geo.city"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "Layout6" button
     And I wait for "TopoTitle" will be visible
@@ -1023,7 +1023,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Email" button
     And I set the parameter "EmailInput" with value "sun.xiaojing@yottabyte.cn"
     And I click the "Email1" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "30"
@@ -1049,7 +1049,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Weight" button
     And I set the parameter "FieldValueInput" with value "cnt"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "Layout6" button
     And I wait for "TopoTitle" will be visible
@@ -1068,7 +1068,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Email" button
     And I set the parameter "EmailInput" with value "sun.xiaojing@yottabyte.cn"
     And I click the "Email1" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "30"
@@ -1090,7 +1090,7 @@ Feature: 报表新建（RZY-116）
     And I click the "Region" button
     And I click the "China" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "Layout6" button
     And I wait for "TopoTitle" will be visible
@@ -1107,7 +1107,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "35"
@@ -1130,7 +1130,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Orange" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "Layout7" button
     And I wait for "TopoTitle" will be visible
@@ -1147,7 +1147,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "35"
@@ -1174,7 +1174,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "展示全部" from the "ShowLabel"
     And I choose the "柱状内中央" from the "Label"
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "Layout7" button
     And I wait for "TopoTitle" will be visible
@@ -1191,7 +1191,7 @@ Feature: 报表新建（RZY-116）
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "35"
@@ -1215,7 +1215,7 @@ Feature: 报表新建（RZY-116）
     And I click the "StartColour" button
     And I click the "Orange" button
     And I will see the "report.CreatePage" page
-    And I display the element "SettingContent"
+    And I hide the element "SettingContent"
     And I click the "SaveTrend" button
     And I click the "Layout7" button
     And I wait for "TopoTitle" will be visible

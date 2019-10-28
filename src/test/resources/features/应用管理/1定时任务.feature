@@ -22,7 +22,7 @@ Feature: 应用定时任务(RZY-2123)
     And I click the "StartTime" button
     And I set the time input "StartTomorrow" to "<startTime>" minutes later
     And I click the "EnsureButton" button
-    And I display the element "TimePanel"
+    And I hide the element "TimePanel"
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 

@@ -12,11 +12,12 @@ Feature: 数据大屏世界地图
     And I click the "Ensure" button
     And I click the "Map" button
     And I click the "World" button
-    And I wait for "ChartPosition" will be visible
+    And I hide the element "MapDropdown"
     And I click the "ChartPosition" button
+    And I set the parameter "Width" with value "800"
     And I set the parameter "Height" with value "500"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "0"
+    And I set the parameter "ChartXaxis" with value "-82"
+    And I set the parameter "ChartYaxis" with value "-4"
     And I click the "Data" button
     And I click the "Search" button
     And I click the "Update" button
@@ -32,7 +33,7 @@ Feature: 数据大屏世界地图
     Then I will see the "galaxee.CreatePage" page
     And I click the "Map" button
     And I click the "World" button
-    And I wait for "MapHeader" will be visible
+    And I hide the element "MapDropdown"
     And I click the "MapHeader" button
     And I click the "AreaColor" button
     And I set the parameter "ColorInput" with value "#9FF50B"
@@ -47,21 +48,32 @@ Feature: 数据大屏世界地图
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I click the "ChartPosition" button
+    And I set the parameter "Width" with value "800"
     And I set the parameter "Height" with value "500"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "500"
+    And I set the parameter "ChartXaxis" with value "538"
+    And I set the parameter "ChartYaxis" with value "64"
     And I click the "Data" button
     And I click the "Search" button
     And I click the "Update" button
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/<name>"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
     Examples:
       | name |
       | 世界地图 |
+
+  Scenario Outline: 发布页截图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
+
+    Examples:
+      | name |
+      | 世界地图 |
+
+

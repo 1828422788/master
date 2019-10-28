@@ -22,7 +22,7 @@ public class AlterElementAttribute {
      *
      * @param elementName
      */
-    @And("^I display the element \"([^\"]*)\"$")
+    @And("^I hide the element \"([^\"]*)\"$")
     public void hideElement(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         hideElement(element);

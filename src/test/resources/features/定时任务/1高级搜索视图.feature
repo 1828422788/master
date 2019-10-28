@@ -17,7 +17,7 @@ Feature: 定时任务高级搜索视图
     And I click the "<chartType>" button
     And I click the "<chart>" button
     And I wait for loading invisible
-    And I display the element "ChartTypePopover"
+    And I hide the element "ChartTypePopover"
     And I wait for "1000" millsecond
     Then take part of "Chart" with name "../UI_test_screenshot/timedtask/<caseNum>"
     And I will see the "splSearch.SearchPage" page

@@ -126,7 +126,7 @@ Feature: 仪表盘配置
     And I choose the "default_Report" from the "ReportGroup"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "<%report_name%>"
     And I set the parameter "Hour" with value "17"
     And I set the parameter "Minute" with value "03"

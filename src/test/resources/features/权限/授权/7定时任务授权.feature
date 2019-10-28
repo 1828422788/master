@@ -32,7 +32,7 @@ Feature: 角色授权定时任务
     And I click the "StartTime" button
     And I set the time input "StartTomrrow" to "2" minutes later
     And I click the "EnsureButton" button
-    And I display the element "TimePanel"
+    And I hide the element "TimePanel"
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 

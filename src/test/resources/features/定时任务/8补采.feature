@@ -8,7 +8,7 @@ Feature: 定时任务补采
     When I click the "CreateComplement" button
     And I choose the "<name>" from the "SelectName"
     And I set the time input "DateEditor" to a range in recent "<day>"
-    And I display the element "DatePicker"
+    And I hide the element "DatePicker"
     And I click the "Save" button
     Then I will see the message "成功创建补采任务"
 
@@ -22,7 +22,7 @@ Feature: 定时任务补采
     When I click the "CreateComplement" button
     And I choose the "<name>" from the "SelectName"
     And I set the time input "DateEditor" between "<start>" and "<end>" at someday
-    And I display the element "DatePicker"
+    And I hide the element "DatePicker"
     And I click the "Save" button
     Then I will see the message "成功创建补采任务"
 

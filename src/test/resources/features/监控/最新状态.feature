@@ -96,7 +96,7 @@ Feature: 监控最新状态
     And I click the "LinkKnowledge" button
     And I click the "ArrowDown" button
     And I click the "KnowledgeForAlert" button
-    Then I display the element "KnowledgeList"
+    Then I hide the element "KnowledgeList"
     And I click the "SaveKnowledge" button
     And I set the parameter "HandlingSuggestion" with value "关联知识"
     And I click the first checkbox in table

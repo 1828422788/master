@@ -25,7 +25,7 @@ Feature: 应用趋势图
     And I click the "ChartType" button
     And I click the "<chart>" button
     And I click the "<chartType>" button
-    And I display the element "ChartTypePopover"
+    And I hide the element "ChartTypePopover"
     And I wait for loading invisible
     And I click the "Save" button
     And I click the "Report" button
@@ -37,7 +37,7 @@ Feature: 应用趋势图
     And I choose the "AutoTestRoleWithAllResource" from the "ReportGroup"
     And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
     And I click the "Email" button
-    And I display the element "Scrollbar"
+    And I hide the element "Scrollbar"
     And I set the parameter "Subject" with value "报表名称：<%report_name%>"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"

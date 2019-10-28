@@ -14,7 +14,8 @@ Feature: 数据大屏中国地图
     And I click the "ChinaMap" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Height" with value "300"
+    And I set the parameter "Width" with value "849"
+    And I set the parameter "Height" with value "392"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
@@ -61,9 +62,10 @@ Feature: 数据大屏中国地图
     And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "MapWordBold"
     And I click the "ChartPosition" button
-    And I set the parameter "Height" with value "300"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "300"
+    And I set the parameter "Width" with value "618"
+    And I set the parameter "Height" with value "406"
+    And I set the parameter "ChartXaxis" with value "768"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* AND apache.geo.province:甘肃 | stats count() by apache.geo.city"
     And I click the "DateEditor" button
@@ -107,9 +109,10 @@ Feature: 数据大屏中国地图
     And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "MapWordBold"
     And I click the "ChartPosition" button
-    And I set the parameter "Height" with value "300"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "600"
+    And I set the parameter "Width" with value "834"
+    And I set the parameter "Height" with value "287"
+    And I set the parameter "ChartXaxis" with value "235"
+    And I set the parameter "ChartYaxis" with value "370"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* AND apache.geo.province:四川 | stats count() by apache.geo.city"
     And I click the "DateEditor" button

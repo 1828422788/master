@@ -307,6 +307,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='dropdown'])[last()]")
     private WebElement lastUlList;
 
+    @FindBy(xpath = "//li[contains(text(),'地图')]/ul")
+    private WebElement mapDropdown;
+
+    public WebElement getMapDropdown() {
+        return mapDropdown;
+    }
+
     public WebElement getLastUlList() {
         return lastUlList;
     }

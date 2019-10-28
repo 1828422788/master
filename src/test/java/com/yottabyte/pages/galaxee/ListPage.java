@@ -19,6 +19,8 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//div[contains(text(),'galaxeeTest')]/preceding-sibling::div//i[@class='iconfont icon-shanchuxuanting_icon']")
     private WebElement deleteGalaxeeTest;
 
+    @FindBy(className = "loading")
+    private WebElement loading;
 
     public WebElement getDeleteGalaxeeTest() {
         return deleteGalaxeeTest;
@@ -30,5 +32,9 @@ public class ListPage extends PageTemplate {
 
     public WebElement getEnsure() {
         return super.getContainsTextButton("确定");
+    }
+
+    public WebElement getLoading() {
+        return loading;
     }
 }
