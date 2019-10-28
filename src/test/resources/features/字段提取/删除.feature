@@ -91,3 +91,8 @@ Feature: 字段提取删除
     And switch to window "Agent 具体配置"
     When the data name is "auto_test_format" then i click the "删除" button without paging
     And I click the "DeleteConfig" button
+
+  Scenario: 删除搜索权限
+    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    When the data name is "{'column':'1','name':'AutoTest搜索权限'}" then i click the "删除" button
+    And I click the "Ensure" button

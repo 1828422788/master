@@ -8,6 +8,19 @@ Feature: 字段提取前提条件
     And curl restart url "modulename=logriver"
     And curl restart url "modulename=logparserserver"
 
+  Scenario: 新建搜索权限
+    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    And I click the "Create" button
+    And I set the parameter "Name" with value "AutoTest搜索权限"
+    And I click the "Ensure" button
+
+  Scenario: 授权搜索权限
+    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    When the data name is "{'column':'1','name':'AutoTest搜索权限'}" then i click the "授权" button
+    And I "check" the checkbox which name is "AutoTestRole" in tiny table
+    And I click the "Ensure" button
+    Then I wait for "SuccessMessage" will be visible
+
   Scenario: RZY-2829:设置用户权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "AutoTestRole" then i click the "授权" button
@@ -18,7 +31,6 @@ Feature: 字段提取前提条件
     And I "unchecked" the checkbox which name is "可查看敏感内容"
     Then I click the "SaveButton" button
 
-  @test
   Scenario Outline: 上传字典管理文件
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button

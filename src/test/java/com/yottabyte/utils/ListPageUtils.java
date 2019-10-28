@@ -149,8 +149,8 @@ public class ListPageUtils {
 
     public WebElement getRowWithoutTotalPage(String name, int columnNum) {
         while (true) {
-            WebElement nextPage = webDriver.findElement(By.className("btn-next"));
-            List<WebElement> trList = webDriver.findElements(By.tagName("tr"));
+            WebElement nextPage = webDriver.findElement(By.xpath("//li[@class=' ant-pagination-next']"));
+            List<WebElement> trList = webDriver.findElements(By.xpath("//div[@class='ant-modal-content']//tr"));
             for (WebElement tr : trList) {
                 if (tr.getText().contains(name)) {
                     return tr;

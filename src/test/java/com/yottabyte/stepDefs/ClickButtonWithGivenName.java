@@ -361,12 +361,16 @@ public class ClickButtonWithGivenName {
         Assert.assertTrue(status.equals("close") && labelAttribute.contains("false") || status.equals("open") && labelAttribute.contains("true"));
     }
 
+    /**
+     * @param status check/uncheck
+     * @param name
+     */
     @And("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in tiny table$")
     public void checkboxInTinyTable(String status, String name) {
         WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
-        WebElement checkbox = tr.findElement(By.xpath(".//label[@class='el-checkbox']"));
-        String currentStatus = checkbox.findElement(By.xpath("./span")).getAttribute("class");
-        if (currentStatus.contains("is-checked") && "uncheck".equals(status) || !currentStatus.contains("is-checked") && "check".equals(status)) {
+        WebElement checkbox = tr.findElement(By.xpath(".//label"));
+        String currentStatus = checkbox.getAttribute("class");
+        if (currentStatus.contains("checked") && "uncheck".equals(status) || !currentStatus.contains("checked") && "check".equals(status)) {
             checkbox.click();
         }
     }

@@ -44,6 +44,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return this.getButton("新建");
     }
 
+    public WebElement getEnsure() {
+        return this.getButton("确定");
+    }
+
     public WebElement getButton(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::button"));
     }
@@ -66,6 +70,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    public WebElement getSuccessMessage() {
+        return webDriver.findElement(By.xpath("//p[text()='保存成功']"));
+    }
+
     public WebElement getLastDropdownList() {
         List<WebElement> list = webDriver.findElements(By.className("ant-select-dropdown-menu-root"));
         WebElement lastDropdownList = list.get(list.size() - 1);
@@ -85,5 +93,9 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @Override
     protected void isLoaded() throws Error {
         System.out.println("isloaded方法运行！");
+    }
+
+    public WebElement getPlaceholderInput(String placeholder) {
+        return webDriver.findElement(By.xpath("(//input[@placeholder='" + placeholder + "'])[last()]"));
     }
 }
