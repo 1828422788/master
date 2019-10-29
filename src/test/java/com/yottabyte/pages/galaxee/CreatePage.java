@@ -310,6 +310,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'地图')]/ul")
     private WebElement mapDropdown;
 
+    @FindBy(xpath = "//div[@class='panel-search-option']/div/button/span")
+    private WebElement dataSearch;
+
+    public WebElement getDataSearch() {
+        return dataSearch;
+    }
+
     public WebElement getMapDropdown() {
         return mapDropdown;
     }
@@ -432,7 +439,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getNumberStyle() {
         numberStyle.click();
-        return super.getLastDropdownList();
+        return getLastDropdownList();
     }
 
     public WebElement getColor1() {
@@ -445,7 +452,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getCountColor() {
         countColor.click();
-        return super.getLastDropdownList();
+        return getLastDropdownList();
     }
 
     public WebElement getCount() {
@@ -545,7 +552,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getFlipScaling() {
-        return this.dropdownList("翻牌器", "缩略显示");
+        return this.dropdownList("翻牌器", "缩略比例");
     }
 
     public WebElement getFlipBackgroundStyle() {
@@ -854,7 +861,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLastDivideField() {
         lastDivideField.click();
-        return super.getLastDropdownList();
+        return getLastDropdownList();
     }
 
     public WebElement getBarHorizontal() {
@@ -919,7 +926,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSecondSeriesType() {
         secondSeriesType.click();
-        return super.getLastDropdownList();
+        return this.getLastDropdownList();
     }
 
     public WebElement getLine2y() {

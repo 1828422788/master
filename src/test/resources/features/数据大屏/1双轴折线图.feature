@@ -25,7 +25,7 @@ Feature: 数据大屏双轴折线图
     And I click the "Style" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "300"
+    And I set the parameter "Height" with value "195"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
     And I wait for "Save" will be visible
@@ -89,15 +89,15 @@ Feature: 数据大屏双轴折线图
     And I click the "Smooth" button
     And I click the "Area" button
     And I choose the "虚线" from the "DataSeriesType"
-    And I choose the "虚线" from the "SecondSeriesType"
     And I set the parameter "SecondSeriesBold" with value "5"
+    And I choose the "虚线" from the "SecondSeriesType"
     And I click the "SecondSmooth" button
     And I click the "SecondArea" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
     And I set the parameter "height" with value "300"
     And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "300"
+    And I set the parameter "ChartYaxis" with value "208"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -171,16 +171,24 @@ Feature: 数据大屏双轴折线图
     And I set the parameter "Width" with value "1000"
     And I set the parameter "height" with value "300"
     And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "600"
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/<name>"
+    And I set the parameter "ChartYaxis" with value "504"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
     Examples:
       | name  |
+      | 双轴折线图 |
+
+  Scenario Outline: 发布页截图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
+
+    Examples:
+      | name |
       | 双轴折线图 |

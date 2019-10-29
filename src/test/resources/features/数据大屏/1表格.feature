@@ -15,7 +15,7 @@ Feature: 数据大屏表格
     And I wait for "Table" will be invisible
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1000"
+    And I set the parameter "Width" with value "551"
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
@@ -40,10 +40,10 @@ Feature: 数据大屏表格
     And I wait for "Table" will be invisible
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1000"
+    And I set the parameter "Width" with value "607"
     And I set the parameter "Height" with value "500"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "500"
+    And I set the parameter "ChartXaxis" with value "574"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "TableHeader" button
     And I set the parameter "TableHeaderWordSize" with value "20"
     And I click the "TableHeaderBgColor" button
@@ -73,14 +73,22 @@ Feature: 数据大屏表格
     And I click the "OrderNum" button
     And I set the parameter "NumberWidth" with value "1"
     And I choose the "旗标" from the "NumberStyle"
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/<name>"
     And I click the "Save" button
     Then I will see the success message "保存成功"
+
+    Examples:
+      | name |
+      | 表格   |
+
+  Scenario Outline: 发布页截图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
 
     Examples:
       | name |

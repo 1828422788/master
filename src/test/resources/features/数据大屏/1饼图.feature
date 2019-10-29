@@ -17,8 +17,8 @@ Feature: 数据大屏饼图
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
     And I set the parameter "Height" with value "300"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "0"
+    And I set the parameter "ChartXaxis" with value "-252"
+    And I set the parameter "ChartYaxis" with value "-2"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
     And I click the "Search" button
@@ -53,8 +53,8 @@ Feature: 数据大屏饼图
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
     And I set the parameter "Height" with value "300"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "300"
+    And I set the parameter "ChartXaxis" with value "344"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
     And I click the "Search" button
@@ -92,8 +92,8 @@ Feature: 数据大屏饼图
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
     And I set the parameter "Height" with value "300"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "600"
+    And I set the parameter "ChartXaxis" with value "27"
+    And I set the parameter "ChartYaxis" with value "337"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
     And I click the "Search" button
@@ -102,14 +102,22 @@ Feature: 数据大屏饼图
     And I choose the "apache.clientip" from the "DivideField"
     And I click the "Add" button
     And I choose the "apache.clientip" from the "LastDivideField"
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/饼图"
     And I click the "Save" button
     Then I will see the success message "保存成功"
+
+    Examples:
+      | name |
+      | 饼图   |
+
+  Scenario Outline: 发布页截图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
 
     Examples:
       | name |

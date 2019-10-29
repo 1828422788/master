@@ -19,7 +19,7 @@ Feature: 数据大屏数值翻牌器
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache| eval is_resplen_empty=empty(apache.resp_len) | eval res_str=if(is_resplen_empty,"repslen_empty","resplen_non_null") | table apache.resp_len, is_resplen_empty, res_str | where is_resplen_empty==false"
-    And I click the "Search" button
+    And I click the "DataSearch" button
     And I wait for "SearchTip" will be invisible
     And I choose the "apache.resp_len" from the "Type"
     And I wait for "Save" will be visible
@@ -44,7 +44,7 @@ Feature: 数据大屏数值翻牌器
     And I set the parameter "ChartYaxis" with value "200"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache| eval is_resplen_empty=empty(apache.resp_len) | eval res_str=if(is_resplen_empty,"repslen_empty","resplen_non_null") | table apache.resp_len, is_resplen_empty, res_str | where is_resplen_empty==false"
-    And I click the "Search" button
+    And I click the "DataSearch" button
     And I wait for "SearchTip" will be invisible
     And I choose the "is_resplen_empty" from the "Type"
     And I click the "Save" button
@@ -72,17 +72,22 @@ Feature: 数据大屏数值翻牌器
     And I set the parameter "ChartYaxis" with value "400"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache| eval is_resplen_empty=empty(apache.resp_len) | eval res_str=if(is_resplen_empty,"repslen_empty","resplen_non_null") | table apache.resp_len, is_resplen_empty, res_str | where is_resplen_empty==false"
-    And I click the "Search" button
+    And I click the "DataSearch" button
     And I wait for "SearchTip" will be invisible
     And I choose the "apache.resp_len" from the "Type"
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/<name>"
     And I click the "Save" button
     Then I will see the success message "保存成功"
+
+    Examples:
+      | name  |
+      | 数值翻牌器 |
+
+  Scenario Outline: 发布页截图
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
 
     Examples:
       | name  |

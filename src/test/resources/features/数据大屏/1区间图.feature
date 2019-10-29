@@ -16,7 +16,7 @@ Feature: 数据大屏区间图
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "500"
+    And I set the parameter "Height" with value "336"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
@@ -79,9 +79,9 @@ Feature: 数据大屏区间图
     And I set the parameter "LayoutRight" with value "20"
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
-    And I set the parameter "height" with value "500"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "500"
+    And I set the parameter "height" with value "439"
+    And I set the parameter "ChartXaxis" with value "8"
+    And I set the parameter "ChartYaxis" with value "360"
     And I click the "Data" button
     And I click the "DateEditor" button
     And I click the "TwoDays" button
@@ -92,15 +92,23 @@ Feature: 数据大屏区间图
     And I choose the "_predict_c" from the "ForecastField"
     And I choose the "upper95" from the "UpperField"
     And I choose the "lower95" from the "LowerField"
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/区间图"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
     Examples:
       | name |
       | 区间图  |
+
+  Scenario Outline: 发布页截图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
+
+    Examples:
+      | name |
+      | 区间图 |

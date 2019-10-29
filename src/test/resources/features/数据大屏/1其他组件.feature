@@ -59,12 +59,6 @@ Feature: 数据大屏其他组件
     And I set the parameter "ColorInput" with value "#37064F"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/其他组件改背景颜色"
     And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -81,15 +75,23 @@ Feature: 数据大屏其他组件
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
     And I upload a file with name "/src/test/resources/testdata/image/bg.jpg"
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/其他组件"
     And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
+
+    Examples:
+      | name |
+      | 其他组件 |
+
+  Scenario Outline: 发布页截图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
 
     Examples:
       | name |

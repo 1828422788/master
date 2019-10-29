@@ -15,6 +15,7 @@ Feature: 数据大屏攻击地图3D
     And I click the "Attack3d" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I set the parameter "Width" with value "576"
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
@@ -50,8 +51,8 @@ Feature: 数据大屏攻击地图3D
     And I wait for "EnsureColor" will be invisible
     And I click the "ChartPosition" button
     And I set the parameter "Height" with value "500"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "500"
+    And I set the parameter "ChartXaxis" with value "312"
+    And I set the parameter "ChartYaxis" with value "2"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
     And I click the "Search" button
@@ -62,15 +63,20 @@ Feature: 数据大屏攻击地图3D
     And I choose the "ts" from the "Time"
     And I choose the "cnt" from the "MeasureValue"
     And I click the "Update" button
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/<name>"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
     Examples:
-      | name |
+      | name   |
+      | 攻击地图3D |
+
+  Scenario Outline: 发布页截图
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
+
+    Examples:
+      | name   |
       | 攻击地图3D |

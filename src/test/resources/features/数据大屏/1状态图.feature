@@ -15,8 +15,8 @@ Feature: 数据大屏状态图
     And I click the "Status" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "750"
-    And I set the parameter "Height" with value "500"
+    And I set the parameter "Width" with value "456"
+    And I set the parameter "Height" with value "417"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
@@ -37,10 +37,10 @@ Feature: 数据大屏状态图
     And I click the "Status" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "750"
-    And I set the parameter "Height" with value "500"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "500"
+    And I set the parameter "Width" with value "514"
+    And I set the parameter "Height" with value "407"
+    And I set the parameter "ChartXaxis" with value "460"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
@@ -49,15 +49,20 @@ Feature: 数据大屏状态图
     And I choose the "err_avg" from the "Type"
     And I set the parameter "UnusualFromInput" with value "100"
     And I set the parameter "UnusualToInput" with value "200"
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/<name>"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
     Examples:
       | name |
       | 状态图  |
+
+  Scenario Outline: 发布页截图
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
+
+    Examples:
+      | name |
+      | 状态图 |

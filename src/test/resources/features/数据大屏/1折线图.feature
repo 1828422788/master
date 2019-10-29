@@ -1,8 +1,6 @@
 @galaxee
 Feature: 数据大屏折线图
 
-  Background:
-
   Scenario Outline: RZY-1931:编辑大屏流程
     Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -25,7 +23,7 @@ Feature: 数据大屏折线图
     And I click the "Style" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "300"
+    And I set the parameter "Height" with value "200"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
     And I wait for "Save" will be visible
@@ -101,7 +99,7 @@ Feature: 数据大屏折线图
     And I set the parameter "Width" with value "1000"
     And I set the parameter "height" with value "300"
     And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "300"
+    And I set the parameter "ChartYaxis" with value "207"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -176,16 +174,24 @@ Feature: 数据大屏折线图
     And I set the parameter "Width" with value "1000"
     And I set the parameter "height" with value "300"
     And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "600"
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/折线图"
+    And I set the parameter "ChartYaxis" with value "500"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
     Examples:
       | name |
       | 折线图  |
+
+  Scenario Outline: 发布页截图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
+
+    Examples:
+      | name |
+      | 折线图 |

@@ -15,8 +15,8 @@ Feature: 数据大屏条形图
     And I wait for "BarHorizontal" will be invisible
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "300"
+    And I set the parameter "Width" with value "530"
+    And I set the parameter "Height" with value "417"
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
@@ -53,10 +53,10 @@ Feature: 数据大屏条形图
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1000"
-    And I set the parameter "height" with value "300"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "300"
+    And I set the parameter "Width" with value "703"
+    And I set the parameter "height" with value "567"
+    And I set the parameter "ChartXaxis" with value "516"
+    And I set the parameter "ChartYaxis" with value "2"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "Search" button
@@ -94,10 +94,10 @@ Feature: 数据大屏条形图
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1000"
-    And I set the parameter "height" with value "300"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "600"
+    And I set the parameter "Width" with value "961"
+    And I set the parameter "height" with value "382"
+    And I set the parameter "ChartXaxis" with value "-7"
+    And I set the parameter "ChartYaxis" with value "406"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "Search" button
@@ -106,15 +106,23 @@ Feature: 数据大屏条形图
     And I choose the "apache.clientip" from the "DivideField"
     And I click the "Add" button
     And I choose the "apache.method" from the "LastDivideField"
-    And I alter the element "RightArrow" style to "display: inline;"
-    And I click the "RightArrow" button
-    And I alter the element "LeftArrow" style to "display: inline;"
-    And I click the "LeftArrow" button
-    And I wait for "1000" millsecond
-    And take part of "Preview" with name "galaxee/条形图"
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
     Examples:
       | name |
       | 条形图  |
+
+  Scenario Outline: 发布页截图
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    And switch to window "<name>"
+    And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
+    Then take a screenshot with name "galaxee/<name>"
+
+    Examples:
+      | name  |
+      | 条形图 |
