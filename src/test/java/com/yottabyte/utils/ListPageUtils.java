@@ -162,13 +162,13 @@ public class ListPageUtils {
             trListXpath = "//div[@class='ant-modal-content']//tr";
         }
         while (true) {
-            WebElement nextPage = webDriver.findElement(By.xpath(nextPageXpath));
             List<WebElement> trList = webDriver.findElements(By.xpath(trListXpath));
             for (WebElement tr : trList) {
                 if (tr.getText().contains(name)) {
                     return tr;
                 }
             }
+            WebElement nextPage = webDriver.findElement(By.xpath(nextPageXpath));
             if (nextPage.getAttribute("class").contains("disabled")) {
                 break;
             } else {

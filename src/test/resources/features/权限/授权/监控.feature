@@ -1,3 +1,4 @@
+@auth
 Feature: 权限-监控
 
   Scenario: 验证无新建监控、查看告警插件的权限
@@ -196,7 +197,7 @@ Feature: 权限-监控
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制授权在搜索中打开" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
     And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
@@ -236,10 +237,6 @@ Feature: 权限-监控
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制授权在搜索中打开" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
-    Then I will see the "alert.CreatePage" page
-    And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
 
     Examples:
       | name             |
@@ -270,7 +267,7 @@ Feature: 权限-监控
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用搜索权限,可使用监控,新建监控,可使用搜索页,可使用数据集"
+    And I "checked" the checkbox which name is "可使用搜索权限,可使用监控,新建监控,可使用搜索页,可使用数据集,可使用应用功能"
     And I click the "SaveButton" button
     Then I click the "{'TabButton':'监控'}" button
     When I "checked" function "读取,编辑,转授" from the auth table which name is "AutoTest权限验证修改名称"

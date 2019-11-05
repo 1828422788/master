@@ -1,23 +1,17 @@
 package com.yottabyte.pages.dashboard;
 
-import com.yottabyte.constants.WebDriverConst;
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.utils.WaitForElement;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.FluentWait;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author sunxj
  */
-public class ListPage extends PageTemplate {
+public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
     }
@@ -25,13 +19,10 @@ public class ListPage extends PageTemplate {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
-    @FindBy(xpath = "//button[@class='el-button slot-button new-btn el-button--default']")
-    private WebElement createButton;
-
     @FindBy(xpath = "//label[contains(text(),'分组')]/following-sibling::div//input[@class='el-input__inner']")
     private WebElement dashBoardGroup;
 
-    @FindBy(className = "el-message__group")
+    @FindBy(className = "ant-message-success")
     private WebElement successMessage;
 
     @FindBy(xpath = "//span[contains(text(),'确定')]")
@@ -60,6 +51,13 @@ public class ListPage extends PageTemplate {
 
     @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
     private WebElement search;
+
+    @FindBy(xpath = "//p[text()='获取角色列表失败: Api 没有权限错误']")
+    private WebElement noAuth;
+
+    public WebElement getNoAuth() {
+        return noAuth;
+    }
 
     public WebElement getSearchInput() {
         return searchInput;
@@ -101,73 +99,13 @@ public class ListPage extends PageTemplate {
         return groupInput.get(groupInput.size() - 1);
     }
 
-    public WebElement getCreateButton() {
-        return createButton;
-    }
 
     public WebElement getDashBoardName() {
-        return super.getInputElement("名称");
+        return super.getPlaceholderInput("请输入名称");
     }
-
-
-    public WebElement getDashBoardGroup() {
-        return super.getDropdownList("分组");
-    }
-
 
     public WebElement getSuccessMessage() {
         return successMessage;
     }
 
-
-    public WebElement getErrorMessage() {
-        return super.getErrorMessage();
-    }
-
-
-    public WebElement getEnsureCreateButton() {
-        return ensureButtonList.get(0);
-    }
-
-    public WebElement getEnsureChangeGroupButton() {
-        return ensureButtonList.get(1);
-    }
-
-    public WebElement getEnsureDeleteButton() {
-        return ensureButtonList.get(4);
-    }
-
-    public WebElement getEnsureRenameButton() {
-        return ensureButtonList.get(2);
-    }
-
-    public WebElement getEnsureSetDefaultButton() {
-        return ensureButtonList.get(3);
-    }
-
-    public WebElement getDisabledLi() {
-        return super.getDisabledLi();
-    }
-
-    public WebElement getSearchIcon() {
-        return super.getSearchIcon();
-    }
-
-    @Override
-    protected void isLoaded() throws Error {
-        FluentWait wait = new FluentWait(webDriver)
-                .withTimeout(8000, TimeUnit.MILLISECONDS)
-                .pollingEvery(WebDriverConst.WAIT_FOR_ELEMENT_POLLING_DURING, TimeUnit.MILLISECONDS)
-                .ignoring(NoSuchElementException.class);
-        try {
-            wait.until(new ExpectedCondition<Boolean>() {
-                public Boolean apply(WebDriver driver) {
-                    System.out.println("Waiting " + this.getClass().getName() + " Dom loading complete");
-                    return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-                }
-            });
-        } catch (Exception e) {
-            throw new Error("Can not locate " + this.getClass().getName() + "page");
-        }
-    }
 }

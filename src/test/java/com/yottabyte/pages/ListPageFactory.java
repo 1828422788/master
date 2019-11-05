@@ -23,6 +23,9 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(className = "ant-input")
     private WebElement searchInput;
 
+    @FindBy(className = "ant-select-dropdown-menu")
+    private WebElement selectDropdownMenu;
+
     public ListPageFactory(WebDriver driver) {
         this.webDriver = driver;
         PageFactory.initElements(driver, this);
@@ -30,6 +33,14 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public WebElement getSearchInput() {
         return searchInput;
+    }
+
+    public WebElement getTag() {
+        return this.getInputElement("标签");
+    }
+
+    public WebElement getTagDropdown() {
+        return selectDropdownMenu;
     }
 
     public WebElement getAppDropdown() {
