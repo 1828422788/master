@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.java.en.And;
@@ -197,7 +198,7 @@ public class CheckButtonAttribute {
 
     public void ifExist(WebElement element) {
         try {
-            element.click();
+            ClickEvent.clickUnderneathButton(element);
             Assert.assertTrue(false);
         } catch (Exception e) {
             Assert.assertTrue(true);

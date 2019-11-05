@@ -44,7 +44,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='AutoTest']/ancestor::td/preceding-sibling::td//label")
     private WebElement checkBox;
 
-    @FindBy(xpath = "(//span[contains(text(),'保存')])[last()]")
+    @FindBy(xpath = "//button[@class='el-button add-member el-button--text']/following-sibling::div/button")
     private WebElement saveMember;
 
     @FindBy(xpath = "//span[contains(text(),'添加成员')]/ancestor::button")
@@ -55,6 +55,28 @@ public class EditPage extends PageTemplate {
 
     @FindBy(className = "el-scrollbar__view")
     private WebElement dropdownList;
+
+    @FindBy(className = "el-table__empty-text")
+    private WebElement emptyText;
+
+    @FindBy(className = "member-item")
+    private WebElement memberItem;
+
+    public WebElement getMemberItem() {
+        return memberItem;
+    }
+
+    public WebElement getAutoTestCheckbox() {
+        return this.getMemberCheckbox("AutoTest");
+    }
+
+    public WebElement getAutoTestGroupCheckbox() {
+        return this.getMemberCheckbox("AutoTest同组用户");
+    }
+
+    public WebElement getEmptyText() {
+        return emptyText;
+    }
 
     public WebElement getAddMemberButtonStatus() {
         return addMemberButtonStatus;
@@ -113,5 +135,9 @@ public class EditPage extends PageTemplate {
 
     public WebElement getSaveButton() {
         return saveButton;
+    }
+
+    public WebElement getMemberCheckbox(String name) {
+        return webDriver.findElement(By.xpath("//span[contains(text(),'" + name + "')]/ancestor::td/preceding-sibling::td//label/span"));
     }
 }

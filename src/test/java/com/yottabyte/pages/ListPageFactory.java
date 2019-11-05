@@ -1,5 +1,6 @@
 package com.yottabyte.pages;
 
+import com.yottabyte.config.ConfigManager;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,7 +17,8 @@ import java.util.List;
  * @author sunxj
  */
 public class ListPageFactory extends LoadableComponent<ListPageFactory> {
-    WebDriver webDriver;
+    public static ConfigManager config = new ConfigManager();
+    public WebDriver webDriver;
 
     @FindBy(className = "ant-input")
     private WebElement searchInput;

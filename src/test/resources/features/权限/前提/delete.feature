@@ -12,8 +12,13 @@ Feature: 删除基本用户
     And I click the "MessageBoxOKButton" button
     Then I will see the success message "删除成功"
 
-  Scenario: 删除用户
+  Scenario Outline: 删除用户
     Given open the "users.ListPage" page for uri "/account/users/"
-    When the data name is "{'column':'1','name':'AutoTest'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "EnsureButton" button
     And I will see the success message "删除成功"
+
+    Examples:
+      | name         |
+      | AutoTest     |
+      | AutoTest同组用户 |

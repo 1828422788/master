@@ -68,8 +68,11 @@ public class ValidateResult {
     public void validateSearchResult(String searchResult) {
         ListPageUtils listPageUtils = new ListPageUtils();
         List<WebElement> trList = listPageUtils.getTrList();
-        if (trList == null)
+        if (trList == null && searchResult.contains("no")) {
             return;
+        } else if (trList == null) {
+            Assert.assertTrue(false);
+        }
 
         Paging paging = new Paging();
         for (int i = 0; i < paging.getTotalPage(); i++) {

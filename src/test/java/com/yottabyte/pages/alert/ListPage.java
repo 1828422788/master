@@ -2,6 +2,7 @@ package com.yottabyte.pages.alert;
 
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.stepDefs.SetKeyWithValue;
 import com.yottabyte.utils.ElementExist;
@@ -15,7 +16,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListPage extends PageTemplate {
+public class ListPage extends ListPageFactory {
 
     public ListPage(WebDriver driver) {
         super(driver);
@@ -27,10 +28,6 @@ public class ListPage extends PageTemplate {
     // 搜索输入框
     @FindBy(xpath = "//input[@placeholder='请输入']")
     private WebElement searchInput;
-
-    // 新建按钮
-    @FindBy(xpath = "//button[@class='el-button slot-button el-button--default']//span[text()='新建']")
-    WebElement createAlert;
 
     // 无搜索结果
     @FindBy(className = "el-table__empty-text")
@@ -45,9 +42,6 @@ public class ListPage extends PageTemplate {
 
     @FindBy(xpath = "//span[contains(text(),'最新状态')]")
     private WebElement latestStatus;
-
-    @FindBy(xpath = "//span[contains(text(),'告警插件')]")
-    private WebElement alertPlugin;
 
     @FindBy(xpath = "//span[contains(text(),'今日待处理全部告警')]")
     private WebElement pending;
@@ -100,8 +94,15 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//span[@class='status-number hover-number'])[last()]")
     private WebElement alertNum;
 
+    @FindBy(className = "ant-empty-description")
+    private WebElement noneData;
+
+    public WebElement getNoneData() {
+        return noneData;
+    }
+
     public WebElement getAlertPlugin() {
-        return alertPlugin;
+        return super.getButton("告警插件");
     }
 
     public WebElement getAlertNum() {
@@ -156,9 +157,9 @@ public class ListPage extends PageTemplate {
         return super.getContainsTextButton("确定");
     }
 
-    public WebElement getChangeGroup() {
-        return super.getDropdownList("分组");
-    }
+//    public WebElement getChangeGroup() {
+//        return super.getLastDropdownList("分组");
+//    }
 
     public WebElement getSearchInputElement() {
         return searchInputElement;
@@ -189,10 +190,10 @@ public class ListPage extends PageTemplate {
         return latestStatus;
     }
 
-    public WebElement getSearchInput() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
-        return searchInput;
-    }
+//    public WebElement getSearchInput() {
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
+//        return searchInput;
+//    }
 
     public WebElement getTableDeleteButton(int row) {
         WebElement element = getSearchResult();
@@ -208,8 +209,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getCreateAlert() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(createAlert));
-        return createAlert;
+        return super.getButton("新建");
     }
 
     public WebElement getMessage() {
@@ -287,15 +287,15 @@ public class ListPage extends PageTemplate {
         }
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        super.isLoaded();
-        try {
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
-        } catch (Exception e) {
-            GetLogger.getLogger().error("can not load % with error %", this.getClass().getSimpleName(), e);
-        }
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        super.isLoaded();
+//        try {
+//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
+//        } catch (Exception e) {
+//            GetLogger.getLogger().error("can not load % with error %", this.getClass().getSimpleName(), e);
+//        }
+//    }
 
 //    public static void main(String args[]) throws InterruptedException {
 //        SharedDriver driver = new SharedDriver();

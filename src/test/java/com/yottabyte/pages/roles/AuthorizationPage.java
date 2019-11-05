@@ -37,7 +37,7 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "url-checkbox")
     private List<WebElement> urlCheckboxes;
 
-    @FindBy(xpath = "//div[@class='operation-btn-block']/button/span[text()='保存']")
+    @FindBy(xpath = "//div[@class='operation-btn-block']/button/span[contains(text(),'保存')]")
     private WebElement saveButton;
 
     @FindBy(className = "el-message__group")

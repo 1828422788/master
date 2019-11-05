@@ -1,5 +1,5 @@
 @authorization @all @smoke
-Feature: 角色授权功能（校验URL）
+Feature: 权限-功能（URL校验）
 
 #  Background:
 #    Given open the "roles.ListPage" page for uri "/account/roles/"

@@ -12,39 +12,44 @@ import java.util.List;
  */
 public class Paging {
     private static WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-    List<WebElement> tableList;
-    private WebElement totalNumberElement;
-    private WebElement numbersPerPageElement;
-    private WebElement nextPage;
+    private String totalNumberElementXpath;
+    private String numbersPerPageElementXpath;
+    private String nextPageClass;
+    private String tableListClass;
 
     public Paging() {
         if (!checkUrl()) {
-            totalNumberElement = webDriver.findElement(By.xpath("//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span"));
-            numbersPerPageElement = webDriver.findElement(By.xpath("(//div[@class='ant-select-selection-selected-value'])[last()]"));
-            nextPage = webDriver.findElement(By.className("ant-pagination-next"));
-            tableList = webDriver.findElements(By.className("ant-table-tbody"));
+            totalNumberElementXpath = "//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span";
+            numbersPerPageElementXpath = "(//div[@class='ant-select-selection-selected-value'])[last()]";
+            nextPageClass = "ant-pagination-next";
+            tableListClass = "ant-table-tbody";
         } else {
-            totalNumberElement = webDriver.findElement(By.className("el-pagination__total"));
-            numbersPerPageElement = webDriver.findElement(By.xpath("//li[@class='el-select-dropdown__item selected']"));
-            nextPage = webDriver.findElement(By.className("el-icon-arrow-right"));
-            tableList = webDriver.findElements(By.className("el-table__body"));
+            totalNumberElementXpath = "//span[@class='el-pagination__total']";
+            numbersPerPageElementXpath = "//li[@class='el-select-dropdown__item selected']";
+            nextPageClass = "el-icon-arrow-right";
+            tableListClass = "el-table__body";
         }
     }
 
     public List<WebElement> getTableList() {
-        return tableList;
+        return webDriver.findElements(By.className(tableListClass));
     }
 
     public WebElement getNextPage() {
-        return nextPage;
+        return webDriver.findElement(By.className(nextPageClass));
     }
 
     public int getTotalPage() {
+        WebElement totalNumberElement = webDriver.findElement(By.xpath(totalNumberElementXpath));
         int totalNumber = StringUtils.findNumberInString(totalNumberElement.getText());
+        WebElement numbersPerPageElement = webDriver.findElement(By.xpath(numbersPerPageElementXpath));
         int numbersPerPage = StringUtils.findNumberInString(numbersPerPageElement.getText());
         return (int) Math.ceil((double) totalNumber / numbersPerPage);
     }
 
+    /**
+     * @return true为旧框架
+     */
     public boolean checkUrl() {
         String currentUrl = webDriver.getCurrentUrl();
         String[] vueUrl = {"/account/usergroups/", "/account/roles/"};

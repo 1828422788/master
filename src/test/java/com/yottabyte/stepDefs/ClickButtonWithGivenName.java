@@ -6,6 +6,7 @@ import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.ListPageUtils;
 import com.yottabyte.utils.Paging;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -87,12 +88,8 @@ public class ClickButtonWithGivenName {
      */
     @And("^the data name is \"([^\"]*)\" then i will see \"([^\"]*)\" button$")
     public void checkButton(String dataName, String result) {
-        Map<String, Object> map = JsonStringPaser.json2Stirng(result);
-        String className = "el-table_1_column_" + map.get("column");
         WebElement tr = listPageUtils.getTr(dataName);
-        String actualText = tr.findElement(By.className(className)).getText();
-        String expectText = map.get("name").toString();
-        Assert.assertEquals(expectText, actualText);
+        Assert.assertTrue(tr.getText().contains(result));
     }
 
     /**
@@ -372,6 +369,18 @@ public class ClickButtonWithGivenName {
         String currentStatus = checkbox.getAttribute("class");
         if (currentStatus.contains("checked") && "uncheck".equals(status) || !currentStatus.contains("checked") && "check".equals(status)) {
             checkbox.click();
+        }
+    }
+
+    @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table which name is \"([^\"]*)\"$")
+    public void clickAuthFunction(String status, List<String> functions, String name) {
+        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        for (String function : functions) {
+            WebElement functionButton = tr.findElement(By.xpath(".//span[contains(text(),'" + function + "')]"));
+            String functionClass = functionButton.findElement(By.xpath("./preceding-sibling::span")).getAttribute("class");
+            if (functionClass.contains("checked") && "unchecked".equals(status) || !functionClass.contains("checked") && "checked".equals(status)) {
+                functionButton.click();
+            }
         }
     }
 }

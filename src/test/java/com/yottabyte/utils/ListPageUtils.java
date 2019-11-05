@@ -14,7 +14,7 @@ import java.util.Map;
 public class ListPageUtils {
     Paging pagingInfo = new Paging();
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-    List<WebElement> tableList = pagingInfo.tableList;
+    List<WebElement> tableList = pagingInfo.getTableList();
 
     /**
      * 寻找name所在行
@@ -41,9 +41,8 @@ public class ListPageUtils {
         return this.getRowWithoutPaging(name, table);
     }
 
-    public WebElement findNameWithoutTotalNumber(String name, int columnNum) {
-        WebElement table = tableList.get(0);
-        return this.getRowWithoutTotalPage(name, columnNum);
+    public WebElement findNameWithoutTotalNumber(String name) {
+        return this.getRowWithoutTotalPage(name);
     }
 
     public WebElement findName(String name, WebElement table) {
@@ -66,12 +65,11 @@ public class ListPageUtils {
     public WebElement getTinyTr(String dataName) {
         WebElement tr;
         if (!JsonStringPaser.isJson(dataName)) {
-            tr = this.findNameWithoutTotalNumber(dataName, 0);
+            tr = this.findNameWithoutTotalNumber(dataName);
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
             String name = map.get("name").toString();
-            int columnNum = Integer.parseInt(map.get("column").toString());
-            tr = this.findNameWithoutTotalNumber(name, columnNum);
+            tr = this.findNameWithoutTotalNumber(name);
         }
         return tr;
     }
@@ -92,7 +90,13 @@ public class ListPageUtils {
 
     public List<WebElement> getTrList() {
         WebElement table = tableList.get(0);
-        return table.findElements(By.xpath(".//tr"));
+        List<WebElement> list = null;
+        try {
+            list = table.findElements(By.xpath(".//tr"));
+        } catch (Exception e) {
+
+        }
+        return list;
     }
 
     /**
@@ -147,10 +151,19 @@ public class ListPageUtils {
         return null;
     }
 
-    public WebElement getRowWithoutTotalPage(String name, int columnNum) {
+    public WebElement getRowWithoutTotalPage(String name) {
+        String nextPageXpath;
+        String trListXpath;
+        if (pagingInfo.checkUrl()) {
+            nextPageXpath = "//button[contains(@class,'btn-next')]";
+            trListXpath = "//tr";
+        } else {
+            nextPageXpath = "//li[@class=' ant-pagination-next']";
+            trListXpath = "//div[@class='ant-modal-content']//tr";
+        }
         while (true) {
-            WebElement nextPage = webDriver.findElement(By.xpath("//li[@class=' ant-pagination-next']"));
-            List<WebElement> trList = webDriver.findElements(By.xpath("//div[@class='ant-modal-content']//tr"));
+            WebElement nextPage = webDriver.findElement(By.xpath(nextPageXpath));
+            List<WebElement> trList = webDriver.findElements(By.xpath(trListXpath));
             for (WebElement tr : trList) {
                 if (tr.getText().contains(name)) {
                     return tr;

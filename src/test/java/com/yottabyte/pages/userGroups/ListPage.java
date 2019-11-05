@@ -14,6 +14,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-input__inner")
     private WebElement searchInput;
 
+    @FindBy(className = "el-loading-mask")
+    private WebElement loading;
+
+    public WebElement getLoading() {
+        return loading;
+    }
+
     @Override
     public WebElement getSearchInput() {
         return searchInput;
