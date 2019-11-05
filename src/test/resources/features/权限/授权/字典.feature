@@ -1,5 +1,4 @@
-@auth
-Feature: 权限-仪表盘
+Feature: 权限-字典
 
   Scenario: 验证无新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -9,7 +8,7 @@ Feature: 权限-仪表盘
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
+    And I "checked" the checkbox which name is "可使用字典管理"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
@@ -21,10 +20,10 @@ Feature: 权限-仪表盘
     And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I will see the "Create" doesn't exist
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    Then I will see the "UploadButton" doesn't exist
 
-  Scenario: 授权新建仪表盘（RZY-606）
+  Scenario: 验证可新建字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "AutoTestRole" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -32,7 +31,7 @@ Feature: 权限-仪表盘
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘,新建仪表盘"
+    And I "checked" the checkbox which name is "可使用字典管理,新建字典"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
@@ -44,30 +43,33 @@ Feature: 权限-仪表盘
     And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the "Create" button
-    And I set the parameter "DashBoardName" with value "AutoTestUserCreate"
-    And I click the "Ensure" button
-    Then I will see the success message "新建成功"
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    When I click the "UploadButton" button
+    And I set the parameter "GroupInput" with value "字典标签"
+    And I choose the "字典标签" from the "Group"
+    And I upload a file with name "/src/test/resources/testdata/dictionary/AutoTestUserCreate.csv"
+    And I wait for "FileName" will be visible
+    And I click the "EnsureUpload" button
+    Then I will see the success message "创建字典成功"
 
-  Scenario: 新建仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the "Create" button
-    And I set the parameter "DashBoardName" with value "仪表盘验证权限"
-    And I click the "Ensure" button
-    Then I will see the success message "新建成功"
+  Scenario: 授权无读取权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "可使用字典管理,新建字典"
+    And I click the "SaveButton" button
+    Then I click the "{'TabButton':'字典'}" button
+    And I wait for loading invisible
+    And I "checked" the label before "AutoTestUserCreate.csv"
+    And I "unchecked" the label before "AutoTestUserCreate.csv"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
 
   Scenario: 验证无读取权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -77,22 +79,26 @@ Feature: 权限-仪表盘
     And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I will see the search result "{'column':'0','name':'仪表盘验证权限','contains':'no'}"
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    Then I will see the search result "{'column':'0','name':'AutoTestUserCreate.csv','contains':'no'}"
 
-  Scenario: 授权读取（RZY-615）
+  Scenario: 授权有读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
-    Then I click the "{'TabButton':'仪表盘'}" button
-    When I "checked" function "读取" from the auth table which name is "仪表盘验证权限"
+    And I "checked" the checkbox which name is "可使用字典管理,新建字典"
+    And I click the "SaveButton" button
+    Then I click the "{'TabButton':'字典'}" button
+    And I wait for loading invisible
+    And I "checked" the label before "AutoTestUserCreate.csv"
+    And I "unchecked" the label before "AutoTestUserCreate.csv"
+    When I "checked" function "读取" from the auth table which name is "AutoTestUserCreate.csv"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
+
+  Scenario: 验证有读取权限
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -102,98 +108,28 @@ Feature: 权限-仪表盘
     And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then I will see the search result contains "{'column':'0','name':'仪表盘验证权限'}"
-
-  Scenario Outline: 授权读取+编辑（RZY-616）
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
-    And I click the "SaveButton" button
-    Then I click the "{'TabButton':'仪表盘'}" button
-    When I "checked" function "读取,编辑" from the auth table which name is "<name>"
-    And I "unchecked" function "转授,删除" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-
-    Examples:
-      | name    |
-      | 仪表盘验证权限 |
-
-  Scenario Outline: 验证读取+编辑
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权" button
-    When the data name is "<name>" then i click the "标签" button
-    And I set the parameter "Tag" with value "AutoTestTag"
-    And I choose the "AutoTestTag" from the "TagDropdown"
-    And I click the "Ensure" button
-    When the data name is "<name>" then i click the "重命名" button
-    And I set the parameter "DashBoardName" with value "仪表盘验证权限重命名"
-    And I click the "Ensure" button
-    When the data name is "仪表盘验证权限重命名" then i click the "授权" button
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    Then the data name is "{'column':'0','name':'AutoTestUserCreate.csv'}" then i will see "授权" button
+    When the data name is "AutoTestUserCreate.csv" then i click the "授权" button
     Then I wait for "NoAuth" will be visible
 
-    Examples:
-      | name    |
-      | 仪表盘验证权限 |
-
-  Scenario Outline: 授权读取+编辑+转授
+  Scenario: 授权读取+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
+    And I "checked" the checkbox which name is "可使用字典管理,新建字典"
     And I click the "SaveButton" button
-    Then I click the "{'TabButton':'仪表盘'}" button
-    When I "checked" function "读取,编辑,转授" from the auth table which name is "<name>"
-    And I "unchecked" function "删除" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-
-    Examples:
-      | name       |
-      | 仪表盘验证权限重命名 |
-
-  Scenario: 验证授权
-
-  Scenario Outline: 授权删除
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
-    And I click the "SaveButton" button
-    Then I click the "{'TabButton':'仪表盘'}" button
-    When I "checked" function "读取,删除" from the auth table which name is "<name>"
-    And I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
+    Then I click the "{'TabButton':'字典'}" button
+    And I wait for loading invisible
+    And I "checked" the label before "AutoTestUserCreate.csv"
+    When I "unchecked" function "删除,转授" from the auth table which name is "AutoTestUserCreate.csv"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
 
-    Examples:
-      | name       |
-      | 仪表盘验证权限重命名 |
-
-  Scenario Outline: 验证删除
+  Scenario: 验证读取+编辑权限
+    Given delete file "/target/download-files/AutoTestUserCreate.csv"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -203,17 +139,63 @@ Feature: 权限-仪表盘
     And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认授权删除" button
-    When the data name is "<name>" then i click the "删除" button
-    And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    Then the data name is "{'column':'0','name':'AutoTestUserCreate.csv'}" then i will see "下载编辑授权" button
+    And the data name is "AutoTestUserCreate.csv" then i click the "下载" button
+    When the data name is "AutoTestUserCreate.csv" then i click the "编辑" button
+    And I set the parameter "GroupInput" with value "字典分组AutoTest"
+    And I choose the "字典分组AutoTest" from the "Group"
+    And I upload a file with name "/src/test/resources/testdata/dictionary/AutoTestUserCreate.csv"
+    And I wait for "FileName" will be visible
+    And I click the "EnsureUpload" button
+    Then I will see the success message "更新字典内容成功"
 
-    Examples:
-      | name       |
-      | 仪表盘验证权限重命名 |
+  Scenario: 授权读取+编辑+转授功能
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "可使用字典管理,新建字典,可查看角色页"
+    And I click the "SaveButton" button
+    Then I click the "{'TabButton':'字典'}" button
+    And I wait for loading invisible
+    And I "checked" the label before "AutoTestUserCreate.csv"
+    When I "unchecked" function "删除" from the auth table which name is "AutoTestUserCreate.csv"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
 
-  Scenario Outline: 验证删除成功
+#  Scenario: 验证读取+编辑+转授功能
+#    Given delete file "/target/download-files/AutoTestUserCreate.csv"
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "all123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+#    Then the data name is "{'column':'0','name':'AutoTestUserCreate.csv'}" then i will see "下载编辑授权" button
+#    When the data name is "AutoTestUserCreate.csv" then i click the "授权" button
+
+  Scenario: 授权读取+删除
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "可使用字典管理,新建字典"
+    And I click the "SaveButton" button
+    Then I click the "{'TabButton':'字典'}" button
+    And I wait for loading invisible
+    And I "checked" the label before "AutoTestUserCreate.csv"
+    When I "unchecked" function "编辑,转授" from the auth table which name is "AutoTestUserCreate.csv"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+
+  Scenario: 验证删除
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -223,11 +205,20 @@ Feature: 权限-仪表盘
     And I set the parameter "Password" with value "all123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    When the data name is "<name>" then i click the "删除" button
-    And I click the "Ensure" button
-    Then I will see the search result "{'column':'0','name':'仪表盘验证权限重命名','contains':'no'}"
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    When the data name is "AutoTestUserCreate.csv" then i click the "删除" button
+    And I click the "EnsureButton" button
 
-    Examples:
-      | name               |
-      | AutoTestUserCreate |
+  Scenario: 验证是否删除成功
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    Then I will see the search result "{'column':'0','name':'AutoTestUserCreate.csv','contains':'no'}"
+

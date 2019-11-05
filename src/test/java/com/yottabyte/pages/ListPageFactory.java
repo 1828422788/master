@@ -26,6 +26,13 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(className = "ant-select-dropdown-menu")
     private WebElement selectDropdownMenu;
 
+    @FindBy(xpath = "//p[text()='获取角色列表失败: Api 没有权限错误']")
+    private WebElement noAuth;
+
+    public WebElement getNoAuth() {
+        return noAuth;
+    }
+
     public ListPageFactory(WebDriver driver) {
         this.webDriver = driver;
         PageFactory.initElements(driver, this);

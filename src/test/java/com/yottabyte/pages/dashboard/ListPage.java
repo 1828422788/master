@@ -52,13 +52,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
     private WebElement search;
 
-    @FindBy(xpath = "//p[text()='获取角色列表失败: Api 没有权限错误']")
-    private WebElement noAuth;
-
-    public WebElement getNoAuth() {
-        return noAuth;
-    }
-
     public WebElement getSearchInput() {
         return searchInput;
     }
