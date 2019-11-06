@@ -11,6 +11,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
@@ -186,13 +188,24 @@ public class CheckButtonAttribute {
         } else {
             name = "get" + name;
         }
+        Object page = LoginBeforeAllTests.getPageFactory();
+        Method method;
         try {
-            Object page = LoginBeforeAllTests.getPageFactory();
             Object object = page.getClass().getDeclaredMethod(name).invoke(page);
+            method = page.getClass().getDeclaredMethod(name);
             WebElement element = (WebElement) object;
             this.ifExist(element);
         } catch (Exception e) {
-            Assert.assertTrue(true);
+            method = null;
+        }
+        if (method == null) {
+            try {
+                method = page.getClass().getSuperclass().getDeclaredMethod(name);
+                Object object = method.invoke(page);
+                this.ifExist((WebElement) object);
+            } catch (Exception e) {
+                Assert.assertTrue(true);
+            }
         }
     }
 

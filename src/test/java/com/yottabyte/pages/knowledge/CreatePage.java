@@ -24,8 +24,7 @@ public class CreatePage extends PageTemplate {
     private WebElement knowledgeName;
     @FindBy(className = "el-select-dropdown")
     private List<WebElement> selectors;
-    @FindBy(xpath = "//label[contains(text(),'事件描述')]/following-sibling::div//textarea")
-    private WebElement describe;
+
     @FindBy(xpath = "//label[contains(text(),'解决方案')]/following-sibling::div//textarea")
     private WebElement solution;
     @FindBy(className = "el-dialog--tiny")
@@ -200,11 +199,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDescribe() {
-        return describe;
+        return getInputElement("事件描述");
     }
 
     public WebElement getEventCode() {
-        return super.getInputElement("事件代码");
+        return getInputElement("事件代码");
     }
 
     public List<WebElement> getSelectors() {
@@ -273,5 +272,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSearchButton() {
         return super.getButton("全文搜索");
+    }
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div/*"));
     }
 }
