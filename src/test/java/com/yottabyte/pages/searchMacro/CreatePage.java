@@ -1,6 +1,7 @@
 package com.yottabyte.pages.searchMacro;
 
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-checkbox")
     private WebElement checkbox;
 
+    @FindBy(xpath = "//span[contains(text(),'保存')]//ancestor::button")
+    private WebElement save;
+
     public WebElement getDefinition() {
         return definition;
     }
@@ -36,15 +40,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getName() {
-        return super.getInputElement("名称");
+        return getInputElement("名称");
     }
 
     public WebElement getGroup() {
         return super.getDropdownList("分组");
     }
 
-    public WebElement getSaveButton() {
-        return super.getContainsTextButton("保存");
+    public WebElement getSave() {
+        return save;
     }
 
     public WebElement getErrorMessage() {
@@ -57,5 +61,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getCheckbox() {
         return checkbox;
+    }
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div/*"));
     }
 }
