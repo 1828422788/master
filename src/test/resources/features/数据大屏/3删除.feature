@@ -1,4 +1,4 @@
-@galaxeeClean
+@cleanGalaxee
 Feature: 数据大屏删除
 
   Background:
