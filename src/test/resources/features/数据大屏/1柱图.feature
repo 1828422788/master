@@ -22,7 +22,7 @@ Feature: 数据大屏柱图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "apache.method" from the "Xaxis"
     And I choose the "count()" from the "Yaxis"
     And I wait for "Save" will be visible
@@ -81,7 +81,7 @@ Feature: 数据大屏柱图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "apache.method" from the "Xaxis"
     And I choose the "count()" from the "Yaxis"
     And I click the "Save" button
@@ -143,7 +143,7 @@ Feature: 数据大屏柱图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "apache.method" from the "Xaxis"
     And I choose the "count()" from the "Yaxis"
     And I click the "AddGroup" button

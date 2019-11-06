@@ -18,7 +18,7 @@ Feature: 数据大屏玫瑰图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "ip_count" from the "DataField"
     And I choose the "apache.clientip" from the "DivideField"
     And I click the "Style" button
@@ -63,7 +63,7 @@ Feature: 数据大屏玫瑰图
     And I click the "DateEditor" button
     And I click the "TwoDays" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "ip_count" from the "DataField"
     And I choose the "apache.clientip" from the "DivideField"
     And I click the "Save" button

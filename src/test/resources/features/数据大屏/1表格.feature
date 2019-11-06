@@ -22,7 +22,7 @@ Feature: 数据大屏表格
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424 | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "apache.clientip,ip_count" from the "DataItem"
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -61,7 +61,7 @@ Feature: 数据大屏表格
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "appname,count(),tag" from the "DataItem"
     And I click the "Style" button
     And I click the "ColumnConfig" button

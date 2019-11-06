@@ -23,7 +23,7 @@ Feature: 数据大屏状态图
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "err_avg" from the "Type"
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -45,7 +45,7 @@ Feature: 数据大屏状态图
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "err_avg" from the "Type"
     And I set the parameter "UnusualFromInput" with value "100"
     And I set the parameter "UnusualToInput" with value "200"

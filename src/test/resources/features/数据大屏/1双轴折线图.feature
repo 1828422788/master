@@ -18,7 +18,7 @@ Feature: 数据大屏双轴折线图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "appname" from the "Xaxis"
     And I choose the "count(appname)" from the "FirstYaxis"
     And I choose the "dc(appname)" from the "SecondYaxis"
@@ -48,7 +48,7 @@ Feature: 数据大屏双轴折线图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "appname" from the "Xaxis"
     And I choose the "count(appname)" from the "FirstYaxis"
     And I choose the "dc(appname)" from the "SecondYaxis"
@@ -120,7 +120,7 @@ Feature: 数据大屏双轴折线图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "appname" from the "Xaxis"
     And I choose the "count(appname)" from the "FirstYaxis"
     And I choose the "dc(appname)" from the "SecondYaxis"

@@ -22,7 +22,7 @@ Feature: 数据大屏桑基图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart AND NOT apache.clientip:221.226.97.92 | stats count() by apache.clientip,apache.resp_len,apache.method | limit 10"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "apache.clientip" from the "SourceField"
     And I choose the "apache.method" from the "TargetField"
     And I choose the "count()" from the "WeightField"
@@ -53,7 +53,7 @@ Feature: 数据大屏桑基图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart AND NOT apache.clientip:221.226.97.92 | stats count() by apache.clientip,apache.resp_len,apache.method | limit 10"
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "apache.clientip" from the "SourceField"
     And I choose the "apache.method" from the "TargetField"
     And I choose the "count()" from the "WeightField"

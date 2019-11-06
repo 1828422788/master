@@ -23,7 +23,7 @@ Feature: 数据大屏区间图
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "ts" from the "XaxisField"
     And I choose the "c" from the "ActualField"
     And I choose the "_predict_c" from the "ForecastField"
@@ -86,7 +86,7 @@ Feature: 数据大屏区间图
     And I click the "DateEditor" button
     And I click the "TwoDays" button
     And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "ts" from the "XaxisField"
     And I choose the "c" from the "ActualField"
     And I choose the "_predict_c" from the "ForecastField"

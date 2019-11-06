@@ -20,7 +20,7 @@ Feature: 数据大屏数值翻牌器
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache| eval is_resplen_empty=empty(apache.resp_len) | eval res_str=if(is_resplen_empty,"repslen_empty","resplen_non_null") | table apache.resp_len, is_resplen_empty, res_str | where is_resplen_empty==false"
     And I click the "DataSearch" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "apache.resp_len" from the "Type"
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -45,7 +45,7 @@ Feature: 数据大屏数值翻牌器
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache| eval is_resplen_empty=empty(apache.resp_len) | eval res_str=if(is_resplen_empty,"repslen_empty","resplen_non_null") | table apache.resp_len, is_resplen_empty, res_str | where is_resplen_empty==false"
     And I click the "DataSearch" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "is_resplen_empty" from the "Type"
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -73,7 +73,7 @@ Feature: 数据大屏数值翻牌器
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache| eval is_resplen_empty=empty(apache.resp_len) | eval res_str=if(is_resplen_empty,"repslen_empty","resplen_non_null") | table apache.resp_len, is_resplen_empty, res_str | where is_resplen_empty==false"
     And I click the "DataSearch" button
-    And I wait for "SearchTip" will be invisible
+    And I wait for "1000" millsecond
     And I choose the "apache.resp_len" from the "Type"
     And I click the "Save" button
     Then I will see the success message "保存成功"
