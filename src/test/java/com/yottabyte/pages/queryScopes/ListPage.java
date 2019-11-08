@@ -3,6 +3,7 @@ package com.yottabyte.pages.queryScopes;
 import com.yottabyte.pages.ListPageFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 /**
  * @author sunxj
@@ -10,6 +11,14 @@ import org.openqa.selenium.WebElement;
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
+    }
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    private WebElement successMessage;
+
+    @Override
+    public WebElement getSuccessMessage() {
+        return successMessage;
     }
 
     public WebElement getName() {

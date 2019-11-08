@@ -29,6 +29,23 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//p[text()='获取角色列表失败: Api 没有权限错误']")
     private WebElement noAuth;
 
+    @FindBy(className = "ant-empty-description")
+    private WebElement emptyData;
+
+    @FindBy(className = "ant-input-search-icon")
+    private WebElement searchIcon;
+
+    @FindBy(className = "ant-message-success")
+    private WebElement successMessage;
+
+    public WebElement getSearchIcon() {
+        return searchIcon;
+    }
+
+    public WebElement getEmptyData() {
+        return emptyData;
+    }
+
     public WebElement getNoAuth() {
         return noAuth;
     }
@@ -91,7 +108,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getSuccessMessage() {
-        return webDriver.findElement(By.xpath("//p[text()='保存成功']"));
+        return successMessage;
     }
 
     public WebElement getLastDropdownList() {

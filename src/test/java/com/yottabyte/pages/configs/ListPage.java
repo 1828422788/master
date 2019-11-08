@@ -1,6 +1,8 @@
 package com.yottabyte.pages.configs;
 
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.DropdownUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -12,10 +14,12 @@ import java.util.List;
 /**
  * @author sunxj
  */
-public class ListPage extends PageTemplate {
+public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
     }
+
+    DropdownUtils dropdownUtils = new DropdownUtils();
 
     @FindBy(className = "ant-modal-content")
     private WebElement content;
@@ -37,6 +41,9 @@ public class ListPage extends PageTemplate {
 
     @FindBy(xpath = "//ul[@role='listbox']")
     private WebElement ul;
+
+    @FindBy(className = "el-message-box__message")
+    private WebElement message;
 
     public WebElement getTagInput() {
         return tagInput;
@@ -67,7 +74,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getTagGroup() {
-        return super.getDropdownList("标签");
+        return dropdownUtils.getDropdownList("标签");
     }
 
     public WebElement getEnsureButton() {
@@ -80,7 +87,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getMessage() {
-        return super.getErrorMessage();
+        return message;
     }
 
     public WebElement getCreateButton() {
@@ -92,7 +99,7 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getGroupList() {
-        return super.getGroupDropdownList();
+        return dropdownUtils.getGroupDropdownList();
     }
 
     public WebElement getSearchInput() {

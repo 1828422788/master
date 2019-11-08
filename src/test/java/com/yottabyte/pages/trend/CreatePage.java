@@ -2,6 +2,7 @@ package com.yottabyte.pages.trend;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.GetTime;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +18,7 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "textarea-icon-padding")
+    @FindBy(className = "CodeMirror-code")
     private WebElement searchInput;
 
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
@@ -468,6 +469,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "yw-search-fields-header")
     private WebElement tableHeader;
 
+    @FindBy(xpath = "//span[text()='新建成功！']")
+    private WebElement successCreate;
+
+    public WebElement getSuccessCreate() {
+        return successCreate;
+    }
+
     public WebElement getTableHeader() {
         return tableHeader;
     }
@@ -724,35 +732,35 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getEnsureButton() {
-        return super.getContainsTextButton("确定");
+        return getContainsTextButton("确定");
     }
 
     public WebElement getGenerate() {
-        return super.getButton("生成");
+        return getButton("生成");
     }
 
     public WebElement getNameInput() {
-        return super.getInputElement("名称");
+        return getInputElement("名称");
     }
 
     public WebElement getDescribeInput() {
-        return super.getInputElement("描述");
+        return getInputElement("描述");
     }
 
     public WebElement getGroupDropdown() {
-        return super.getDropdownList("分组");
+        return getDropdownList("分组");
     }
 
     public WebElement getNextButton() {
-        return super.getButton("下一步");
+        return getButton("下一步");
     }
 
     public WebElement getSearchButton() {
-        return super.getContainsTextButton("搜索");
+        return getButton("搜索");
     }
 
     public WebElement getSave() {
-        return super.getButton("保存");
+        return getButton("保存");
     }
 
     public WebElement getToday() {
@@ -1124,5 +1132,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getIndicator() {
         return indicator;
+    }
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::input"));
     }
 }

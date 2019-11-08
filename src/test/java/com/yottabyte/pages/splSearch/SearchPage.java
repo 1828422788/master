@@ -3,10 +3,7 @@ package com.yottabyte.pages.splSearch;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.DateEditorPage;
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.ElementExist;
-import com.yottabyte.utils.GetTime;
-import com.yottabyte.utils.TakeScreenShot;
-import com.yottabyte.utils.WaitForElement;
+import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -254,9 +251,6 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='趋势图']")
     private WebElement trend;
 
-    @FindBy(xpath = "//div[@class='yw-search-form-group']/label[text()='名称']/following-sibling::input")
-    private WebElement taskName;
-
     @FindBy(xpath = "//div[@class='yw-search-form-group']/label[text()='描述']/following-sibling::input")
     private WebElement describe;
 
@@ -272,7 +266,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='确定']")
     private List<WebElement> ensure;
 
-    @FindBy(className = "el-message-box__message")
+    @FindBy(xpath = "//p[text()='保存成功']")
     private WebElement successMessage;
 
     @FindBy(xpath = "//span[contains(text(),'类型')]")
@@ -524,10 +518,10 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement lastDropdown;
 
-    @FindBy(xpath = "//span[text()='crontab']")
+    @FindBy(xpath = "//div[text()='crontab']")
     private WebElement crontab;
 
-    @FindBy(xpath = "//div[@class='yw-search-form-crontab']//input")
+    @FindBy(className = "_11DWHviyrYqinGKO4nRa5o")
     private WebElement crontabInput;
 
     @FindBy(xpath = "//span[text()='test.date']/ancestor::td/following-sibling::td")
@@ -547,6 +541,12 @@ public class SearchPage extends PageTemplate {
 
     @FindBy(className = "_34z8Og_bzWmsjaI0u5wBOf")
     private WebElement firstArea;
+
+    @FindBy(xpath = "//span[text()='保存为']")
+    private WebElement saveAsOther;
+
+    @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
+    private WebElement ensureCrontab;
 
     public WebElement getTrend() {
         return trend;
@@ -993,7 +993,7 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getEnsureCrontab() {
-        return ensure.get(1);
+        return ensureCrontab;
     }
 
     public WebElement getEnsureCreateTask() {
@@ -1040,8 +1040,7 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getTaskName() {
-
-        return taskName;
+        return InputUtils.getInputElement("名称");
     }
 
     public WebElement getTimedTask() {
@@ -1054,7 +1053,7 @@ public class SearchPage extends PageTemplate {
 
     // 保存为
     public WebElement getSaveAsOther() {
-        return buttons.get(3);
+        return saveAsOther;
     }
 
     public WebElement getDaysDropDown() {

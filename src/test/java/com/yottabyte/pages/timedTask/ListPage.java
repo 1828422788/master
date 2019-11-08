@@ -1,5 +1,6 @@
 package com.yottabyte.pages.timedTask;
 
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class ListPage extends PageTemplate {
+public class ListPage extends ListPageFactory {
 
     public ListPage(WebDriver driver) {
         super(driver);
@@ -27,9 +28,6 @@ public class ListPage extends PageTemplate {
 
     @FindBy(className = "number")
     private List<WebElement> number;
-
-    @FindBy(className = "el-message__group")
-    private WebElement successMessage;
 
     @FindBy(className = "el-input__inner")
     private List<WebElement> groups;
@@ -81,7 +79,6 @@ public class ListPage extends PageTemplate {
         return groupDropdown;
     }
 
-    @Override
     public WebElement getGroupDropdownList() {
         return groupDropdownList;
     }
@@ -139,19 +136,16 @@ public class ListPage extends PageTemplate {
         return ensureButton.get(1);
     }
 
-    public WebElement getGroup() {
-        return super.getDropdownList("分组");
-    }
+//    public WebElement getGroup() {
+//        return super.getDropdownList("分组");
+//    }
 
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
 
-    public WebElement getDisabledLi() {
-        return super.getDisabledLi();
-    }
+//    public WebElement getDisabledLi() {
+//        return super.getDisabledLi();
+//    }
 
-    public WebElement getMessage() {
-        return super.getErrorMessage();
-    }
+//    public WebElement getMessage() {
+//        return super.getErrorMessage();
+//    }
 }

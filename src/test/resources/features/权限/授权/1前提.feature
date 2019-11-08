@@ -1,0 +1,17 @@
+Feature: 权限-background
+
+  Scenario: 新建搜索权限
+    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    And I click the "Create" button
+    And I set the parameter "Name" with value "AutoTestSearch"
+    And I set the parameter "Appname" with value "*"
+    And I click the "Ensure" button
+    Then I will see the success message "操作成功"
+
+  Scenario: 分配搜索权限给AutoTest
+    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    When the data name is "{'column':'1','name':'AutoTestSearch'}" then i click the "授权" button
+    And I wait for loading invisible
+    And I "check" the checkbox which name is "AutoTestRole" in tiny table
+    And I click the "Ensure" button
+    Then I will see the success message "保存成功"
