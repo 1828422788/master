@@ -79,28 +79,3 @@ Feature: 字段提取数值型字段转换
     Examples:
       | appName         | log      |
       | auto_test_toNum | test.log |
-
-  Scenario Outline: RZY-3407:搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag             | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-      | auto_test_toNum | {'other.MNEMONIC':'other.MNEMONIC：ZONE_DP_FLT_EXECUTION_TCP_LOG(l)','other.host':'other.host：HLJ_S12508_1_FW','other.id':'other.id：190','other.message':'other.message：srcZoneName(1034)=serveruntrust;destZoneName(1035)=servertrust;rule_ID(1070)=90;policyActType(1071)=denied;protType(1001)=TCP(6);srcIPAddr(1017)=10.167.77.99;destIPAddr(1019)=10.166.5.70;srcPortNum(1018)=49362;destPortNum(1020)=1521;beginTime_e(1013)=05182016112009;endTime_e(1014)=05182016112009;','other.severity':'other.severity：6','other.timestamp':'other.timestamp：May 18 11:20:10 2016','other.vendor':'other.vendor：10FILTER'} |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'RZY1536数值型字段转换'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "数值型字段转换" value is "数值型字段转换 <result>"
-    Then I will see the config element "正则解析" value is "正则解析 <result>"
-
-    Examples:
-      | result    |
-      | 1 1 0 0 0 |

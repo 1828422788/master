@@ -12,12 +12,20 @@ Feature: 字典管理
     Then I will see the success message "更新字典内容成功"
 
   @configsSmoke
-  Scenario: 搜索字典管理
+  Scenario: 按照分组搜索字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
     And I choose the "字典分组AutoTest" from the "ResourceDropdown"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'AutoTest.csv'}"
+
+  @configsSmoke
+  Scenario: 按照名称搜索字典管理
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
+    And I set the parameter "SearchInput" with value "AutoTest.csv"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'0','name':'AutoTest.csv'}"
 
   @configsSmoke
   Scenario Outline: 删除字典管理

@@ -58,28 +58,3 @@ Feature: 字段提取正则片段解析
       | appName | tag | log        |
       | regex   | 1   | regex1.log |
       | regex   | 2   | regex2.log |
-
-  Scenario Outline: RZY-2873:在搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | spl                     | result                                |
-      | appname:regex AND tag:1 | {"other.user":"other.user：enable_15"} |
-      | appname:regex AND tag:2 | {"other.user":"other.user：enable_15"} |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'RZY2872正则片段解析'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "正则解析" value is "正则解析 <result>"
-
-    Examples:
-      | result    |
-      | 2 2 0 0 0 |

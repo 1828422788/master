@@ -7,6 +7,7 @@ Feature: 字段提取编辑
   Scenario:
     When the data name is "{'column':'1','name':'RZY3417多值字段(副本)'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
     When I set the parameter "Name" with value "多值字段副本"
     And I click the "NextButton" button

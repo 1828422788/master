@@ -27,7 +27,7 @@ Feature: 字段提取手机号码解析
     Examples:
       | name           | check    | result                                                                                                                                                          | appName       |
       | RZY2802手机号码解析  |          | Object\ngeo:Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.94381\nlongitude:121.57652\nphone:"18840824121"\nprovince:"辽宁"\nraw_message:"18840824121" | auto_test_n   |
-      | RZY2803解析到顶层字段 | Checkbox | Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.91459\nlongitude:121.61862\nprovince:"辽宁"\nraw_message:"18840824121"                                  | auto_test_tel |
+      | RZY2803解析到顶层字段 | Checkbox | Object\ncity:"大连市"\ncountry:"中国"\nisp:"中国移动"\nlatitude:38.94381\nlongitude:121.57652\nprovince:"辽宁"\nraw_message:"18840824121"                                  | auto_test_tel |
 
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -41,29 +41,3 @@ Feature: 字段提取手机号码解析
       | appName       | log     |
       | auto_test_n   | tel.log |
       | auto_test_tel | tel.log |
-
-  Scenario Outline: 搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag           | result                                                                                                                                                                                                                                                                                                                          |
-      | auto_test_n   | {'other.geo.city':'other.geo.city：鞍山市','other.geo.country':'other.geo.country：中国','other.geo.isp':'other.geo.isp：中国移动','other.geo.latitude':'other.geo.latitude：41.115009','other.geo.longitude':'other.geo.longitude：122.976822','other.geo.phone':'other.geo.phone：15998008888','other.geo.province':'other.geo.province：辽宁'} |
-      | auto_test_tel | {'other.city':'other.city：鞍山市','other.country':'other.country：中国','other.isp':'other.isp：中国移动','other.latitude':'other.latitude：41.110626','other.longitude':'other.longitude：122.995632','other.province':'other.province：辽宁'}                                                                                                 |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "手机号码解析" value is "手机号码解析 <result>"
-
-    Examples:
-      | name           | result    |
-      | RZY2802手机号码解析  | 1 1 0 0 0 |
-      | RZY2803解析到顶层字段 | 1 1 0 0 0 |

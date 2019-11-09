@@ -774,9 +774,8 @@ public class SearchPage extends PageTemplate {
     }
 
     public WebElement getEnsureCreateSavedSearch() {
-        return ensureList.get(3);
+        return super.getButton("确 定");
     }
-
 
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
     private WebElement offlineTaskName;

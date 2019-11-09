@@ -77,27 +77,3 @@ Feature: 字段提取GEO解析
     Examples:
       | appName       | log     |
       | auto_test_geo | geo.log |
-
-  Scenario Outline: RZY-3421:在搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag           | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-      | auto_test_geo | {'apache.clientip.geo.city':'apache.clientip.geo.city：private','apache.clientip.geo.country':'apache.clientip.geo.country：private','apache.clientip.geo.ip':'apache.clientip.geo.ip：192.168.1.139','apache.clientip.geo.isp':'apache.clientip.geo.isp：private','apache.clientip.geo.province':'apache.clientip.geo.province：private','apache.method':'apache.method：GET','apache.referer':'apache.referer：http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0','apache.referer_domain':'apache.referer_domain：alltest.rizhiyi.com','apache.request_path':'apache.request_path：/api/v0/search/fields/','apache.request_query':'apache.request_query：field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields','apache.resp_len':'apache.resp_len：363','apache.status':'apache.status：200','apache.timestamp':'apache.timestamp：24/Jan/2015:17:03:49 +0800','apache.ua':'apache.ua：Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0','apache.version':'apache.version：1.1'} |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "RZY1548添加GEO解析" then i click the "详情" button
-    Then I will see the config element "geo解析" value is "geo解析 <result>"
-    Then I will see the config element "正则解析" value is "正则解析 <result>"
-
-    Examples:
-      | result    |
-      | 1 1 0 0 0 |

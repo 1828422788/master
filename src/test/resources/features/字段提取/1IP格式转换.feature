@@ -48,28 +48,3 @@ Feature: 字段提取IP格式转换
     Examples:
       | appName      | log    |
       | auto_test_ip | ip.log |
-
-  Scenario Outline: RZY-3422:在搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag          | result                                 |
-      | auto_test_ip | {'other.ip':'other.ip：217.171.224.66'} |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'RZY1555IP格式转换'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "ip格式转换" value is "ip格式转换 <result>"
-    Then I will see the config element "正则解析" value is "正则解析 <result>"
-
-    Examples:
-      | result    |
-      | 1 1 0 0 0 |

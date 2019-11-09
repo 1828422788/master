@@ -59,25 +59,12 @@ Feature: 字段提取Hex转换
       | appName       | log     |
       | auto_test_hex | hex.log |
 
-  Scenario Outline: RZY-2866:在搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag           | result                             |
-      | auto_test_hex | {'raw_message':'raw_message：import sys impor'} |
-
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "RZY2826高级模式下start_offset的使用" then i click the "详情" button
-    Then I will see the config element "Hex转换" value is "Hex转换<result>"
+    When the data name is "{'column':'1','name':'RZY2826高级模式下start_offset的使用'}" then i click the "详 情" button
+    Then I will see the config element "hex转换" value is "hex转换 <result>"
 
     Examples:
       | result          |
-      | \n1\n1\n0\n0\n0 |
+      | 1 1 0 0 0 |

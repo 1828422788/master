@@ -55,8 +55,10 @@ Feature: 字段提取内容替换
     And I click the "CreateButton" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "Json解析" from the "ParseRule"
+    And I choose the "JSON解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
     And I click the "AddRule" button
     And I choose the "内容替换" from the "ParseRule"
     And I choose the "@tag" from the "SourceField"
@@ -64,7 +66,6 @@ Feature: 字段提取内容替换
     And I set the parameter "ReplaceContent" with value "$1,newinfo"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    And I click the "ParseButton" button
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
     When I set the parameter "Name" with value "RZY1559tag替换"
@@ -86,40 +87,3 @@ Feature: 字段提取内容替换
       | appName                  | log                |
       | auto_test_replaceContent | replaceContent.log |
       | auto_test_replaceTag     | rename.log         |
-
-  Scenario Outline: 搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag                      | result                                    |
-      | auto_test_replaceContent | {'raw_message':'raw_message：123456qwe'}   |
-      | auto_test_replaceTag     | {'tag':'tag：auto_test_replaceTagnewinfo'} |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "内容替换" value is "内容替换 <result>"
-
-    Examples:
-      | name        | result    |
-      | RZY1556内容替换 | 1 1 0 0 0 |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "Json解析" value is "Json解析 <result>"
-    Then I will see the config element "内容替换" value is "内容替换 <result>"
-
-    Examples:
-      | name         | result    |
-      | RZY1559tag替换 | 1 1 0 0 0 |

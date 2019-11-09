@@ -66,30 +66,3 @@ Feature: 字段提取KeyValue分解
       | appName            |
       | auto_test_dump_key |
       | auto_test_keep_key |
-
-  Scenario Outline: RZY-3396、3397
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    And I will see the spl search result data "<field>" doesn't exist
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag                | field                                                                                                           | result                                                                                                                                                                                                                                                                                                                               |
-      | auto_test_dump_key | other.order                                                                                                     | {'other.field':'other.field：tag','other.page':'other.page：1','other.query':'other.query：*','other.size':'other.size：50','other.sourcegroup':'other.sourcegroup：all','other.sourcegroupCn':'other.sourcegroupCn：%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97','other.time_range':'other.time_range：-2d,now','other.type':'other.type：fields'} |
-      | auto_test_keep_key | other.field,other.page,other.query,other.size,other.sourcegroup,other.sourcegroupCn,other.time_range,other.type | {'other.order':'other.order：desc'}                                                                                                                                                                                                                                                                                                   |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "KeyValue分解" value is "KeyValue分解 <result>"
-
-    Examples:
-      | name         | result    |
-      | RZY1532丢弃key | 1 1 0 0 0 |
-      | RZY1533保留key | 1 1 0 0 0 |

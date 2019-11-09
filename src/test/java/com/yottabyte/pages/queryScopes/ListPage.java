@@ -16,6 +16,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement successMessage;
 
+    @FindBy(className = "ant-modal-content")
+    private WebElement modalContent;
+
+    public WebElement getModalContent() {
+        return modalContent;
+    }
+
     @Override
     public WebElement getSuccessMessage() {
         return successMessage;

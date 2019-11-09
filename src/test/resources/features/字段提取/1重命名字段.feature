@@ -76,28 +76,3 @@ Feature: 字段提取重命名字段
     Examples:
       | appName          | log        |
       | auto_test_rename | rename.log |
-
-  Scenario Outline: RZY-2866:在搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag              | result                                                        |
-      | auto_test_rename | {'other.a.b.h':'other.a.b.h：d','other.a.e.h':'other.a.e.h：g'} |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'RZY2865支持通配符'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "JSON解析" value is "JSON解析 <result>"
-    Then I will see the config element "字段重命名" value is "字段重命名 <result>"
-
-    Examples:
-      | result    |
-      | 1 1 0 0 0 |

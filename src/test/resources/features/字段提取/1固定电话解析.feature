@@ -19,4 +19,4 @@ Feature: 字段提取固定电话解析
     Examples:
       | checkBox | result                                                                                                                                                  |
       |          | Object\ngeo:Object\ncity:"衡水市"\ncountry:"中国"\nlatitude:37.72831\nlongitude:115.69151\nprovince:"河北"\ntelephone:"03188433218"\nraw_message:"03188433218" |
-      | Checkbox | Object\ncity:"衡水市"\ncountry:"中国"\nlatitude:37.7351\nlongitude:115.66599\nprovince:"河北"\nraw_message:"03188433218"                                      |
+      | Checkbox | Object\ncity:"衡水市"\ncountry:"中国"\nlatitude:37.72831\nlongitude:115.69151\nprovince:"河北"\nraw_message:"03188433218"                                      |

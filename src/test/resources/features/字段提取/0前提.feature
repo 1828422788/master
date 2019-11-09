@@ -12,11 +12,13 @@ Feature: 字段提取前提条件
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I click the "Create" button
     And I set the parameter "Name" with value "AutoTest搜索权限"
+    And I set the parameter "Tag" with value "*"
     And I click the "Ensure" button
 
   Scenario: 授权搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     When the data name is "{'column':'1','name':'AutoTest搜索权限'}" then i click the "授权" button
+    And I wait for "ModalContent" will be visible
     And I "check" the checkbox which name is "AutoTestRole" in tiny table
     And I click the "Ensure" button
     Then I wait for "SuccessMessage" will be visible
@@ -56,19 +58,21 @@ Feature: 字段提取前提条件
     Then I will see the success message "修改成功"
 
   Scenario: 验证资源搜索是否正确
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I choose the "自动化测试标签" from the "ResourceDropdown"
+    Then I will see the search result contains "{'column':'1','name':'RZY3417多值字段'}"
 
-  Scenario: 取消分组
+  Scenario: 取消标签
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'RZY3417多值字段'}" then i click the "标签" button
     And I cancel selection "自动化测试标签" from the "TagGroup"
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
 
-#  Scenario: 验证分组中是否存在数据
-#    Given open the "configs.ListPage" page for uri "/configs/"
-#    When I choose the "default_ParserRule" from the "GroupList"
-#    And I wait for loading invisible
-#    Then I will see the search result "{'column':'0','name':'RZY3417多值字段','contains':'no'}"
+  Scenario: 验证标签取消成功
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I choose the "自动化测试标签" from the "ResourceDropdown"
+    Then I will see the search result "{'column':'1','name':'RZY3417多值字段','contains':'no'}"
 
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -133,7 +137,7 @@ Feature: 字段提取前提条件
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I click the "AddRule" button
-    And I choose the "Json解析" from the "ParseRule"
+    And I choose the "JSON解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "<element>" with value "<path>"
     And I click the "EnsureAddParseRule" button

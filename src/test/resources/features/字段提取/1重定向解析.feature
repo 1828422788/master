@@ -50,16 +50,3 @@ Feature: 字段提取重定向解析
     Examples:
       | appName      | log              |
       | redirect_zhu | json_sdyd_41.log |
-
-  Scenario Outline: RZY-2864:在搜索页验证严格解析
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag                                   | result                          |
-      | redirect_zhu AND appname:redirect_zhu | {"other.key":"other.key：value"} |
