@@ -26,9 +26,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "adddata-outcome__summary")
     private WebElement summary;
 
-    @FindBy(xpath = "//p[text()='您确定要删除该配置项吗？']/ancestor::div[@class='el-message-box']//button[@class='el-button el-button--default el-button--primary ']")
-    private WebElement deleteConfig;
-
     @FindBy(xpath = "//span[contains(text(),'清理输出源缓存')]")
     private WebElement cleanOutput;
 
@@ -41,7 +38,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDeleteConfig() {
-        return deleteConfig;
+        return super.getButton("确定");
     }
 
     public WebElement getSummary() {

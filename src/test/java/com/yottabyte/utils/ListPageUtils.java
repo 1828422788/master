@@ -141,10 +141,10 @@ public class ListPageUtils {
 
     public WebElement getRowWithoutPaging(String name, int column, WebElement table) {
         // 找到一行元素
-        List<WebElement> trList = table.findElements(By.tagName("tr"));
+        List<WebElement> trList = webDriver.findElements(By.tagName("tr"));
 
         for (WebElement tr : trList) {
-            if (tr.findElements(By.tagName("td")).get(column).getText().equals(name)) {
+            if (tr.getText().contains(name)) {
                 return tr;
             }
         }
