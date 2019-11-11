@@ -58,13 +58,3 @@ Feature: 字段提取Hex转换
     Examples:
       | appName       | log     |
       | auto_test_hex | hex.log |
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'RZY2826高级模式下start_offset的使用'}" then i click the "详 情" button
-    Then I will see the config element "hex转换" value is "hex转换 <result>"
-
-    Examples:
-      | result          |
-      | 1 1 0 0 0 |

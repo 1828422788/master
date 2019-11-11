@@ -32,6 +32,7 @@ Feature: 字段提取脱敏配置
     And I set the parameter "ReplaceContent" with value "$1****$3"
     And I set the parameter "Prefix" with value "\w+"
     And I set the parameter "Postfix" with value "\S+"
+    And I click the "ReplaceFirst" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -82,39 +83,5 @@ Feature: 字段提取脱敏配置
     Examples:
       | appName  | log          |
       | replacer | replacer.log |
-
-  @second @configsSmoke
-  Scenario: RZY-2830:在搜索页验证是否脱敏
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:replacer"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "{"raw_message":"raw_message：qweqwe159****8361qwe 159****8361"}"
-
-  Scenario Outline: 验证详情
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'脱敏'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
-    Then I will see the config element "脱敏配置" value is "脱敏配置 <result>"
-    Then I will see the config element "正则解析" value is "正则解析 <result>"
-
-    Examples:
-      | result    |
-      | 1 1 0 0 0 |
 
 

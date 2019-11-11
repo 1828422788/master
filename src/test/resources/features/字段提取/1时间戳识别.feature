@@ -20,8 +20,6 @@ Feature: 字段提取时间戳识别
     And I choose the "时间戳识别" from the "ParseRule"
     And I choose the "timestamp" from the "SourceField"
     And I set the parameter "TimeFormat" with value "dd/MMM/yyyy:HH:mm:ss Z"
-    And I choose the "Etc/GMT+8" from the "TimeZone"
-    And I choose the "zh" from the "Language"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -42,8 +40,6 @@ Feature: 字段提取时间戳识别
     And I choose the "时间戳识别" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "TimeFormat" with value "dd/MMM/yyyy:HH:mm:ss Z"
-    And I choose the "Etc/GMT+8" from the "TimeZone"
-    And I choose the "zh" from the "Language"
     And I set the parameter "TimestampPrefix" with value "\["
     And I set the parameter "MaxMatchLength" with value "<length>"
     And I click the "EnsureAddParseRule" button
@@ -71,12 +67,10 @@ Feature: 字段提取时间戳识别
     And I choose the "时间戳识别" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
     And I set the parameter "TimeFormat" with value "dd/MMM/yyyy:HH:mm:ss Z"
-    And I choose the "Etc/GMT+8" from the "TimeZone"
-    And I choose the "zh" from the "Language"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
-    And I wait for "CheckSuccess" will be visible
+    And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button

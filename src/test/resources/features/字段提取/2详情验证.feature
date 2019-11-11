@@ -24,6 +24,7 @@ Feature: 字段提取详情验证
       | RZY2877base64解析      | base64解析     | 正则解析         |
       | RZY2883unicode解析     | 自定义解析        | 正则解析         |
       | RZY2865支持通配符         | JSON解析       | 字段重命名        |
+      | 脱敏                   | 脱敏配置         | 正则解析         |
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"

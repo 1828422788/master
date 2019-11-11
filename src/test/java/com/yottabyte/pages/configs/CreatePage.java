@@ -108,6 +108,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='float']/ancestor::label")
     private WebElement floatRadio;
 
+    @FindBy(xpath = "//div[text()='只替换第一个']/preceding-sibling::div/label")
+    private WebElement replaceFirst;
+
+    public WebElement getReplaceFirst() {
+        return replaceFirst;
+    }
+
     public WebElement getTimeZone() {
         return super.getDropdownList("时区");
     }
