@@ -20,7 +20,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
     private WebElement ensure;
 
-    @FindBy(xpath = "el-message__group")
+    @FindBy(className = "ant-message-success")
     private WebElement successMessage;
 
     @FindBy(className = "adddata-outcome__summary")

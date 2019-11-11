@@ -24,9 +24,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-modal-content")
     private WebElement content;
 
-    @FindBy(className = "ant-message-success")
-    private WebElement successMessage;
-
     @FindBy(xpath = "//button[@role='switch']")
     private WebElement switchButton;
 
@@ -65,10 +62,6 @@ public class ListPage extends ListPageFactory {
         return switchButton;
     }
 
-    public WebElement getEnsure() {
-        return super.getButton("确定");
-    }
-
     public WebElement getGroup() {
         return ul;
     }
@@ -79,11 +72,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getEnsureButton() {
         return super.getButton("确 定");
-    }
-
-    @Override
-    public WebElement getSuccessMessage() {
-        return successMessage;
     }
 
     public WebElement getMessage() {

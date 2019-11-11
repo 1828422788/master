@@ -4,7 +4,9 @@ Feature: 字段提取删除
   Scenario Outline:
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    Then I will see the success message "删除成功"
 
     Examples:
       | name                        |
@@ -19,7 +21,7 @@ Feature: 字段提取删除
       | 脱敏                          |
       | RZY2862严格解析                 |
       | RZY2889apache解析优化           |
-      |RZY1550格式化处理                 |
+      | RZY1550格式化处理                |
       | RZY2872正则片段解析               |
       | RZY2823时间戳前缀                |
       | RZY1536数值型字段转换              |
@@ -64,8 +66,10 @@ Feature: 字段提取删除
     And switch to window "Agent 具体配置"
     When the data name is "auto_test_format" then i click the "删除" button without paging
     And I click the "DeleteConfig" button
+    Then I will see the success message "删除 Agent 配置成功。"
 
   Scenario: 删除搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     When the data name is "{'column':'1','name':'AutoTest搜索权限'}" then i click the "删除" button
     And I click the "Ensure" button
+    Then I will see the message "删除成功"

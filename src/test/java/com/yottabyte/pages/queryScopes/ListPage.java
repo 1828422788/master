@@ -55,4 +55,8 @@ public class ListPage extends ListPageFactory {
     public WebElement getFilter() {
         return super.getPlaceholderInput("请输入过滤条件");
     }
+
+    public WebElement getMessage() {
+        return super.getSuccessMessage();
+    }
 }
