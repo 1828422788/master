@@ -14,6 +14,7 @@ Feature: 应用导出
 
     Examples:
       | name             |
+      | EventApp         |
       | ReportApp        |
       | DashboardApp     |
       | AlertApp         |
@@ -22,6 +23,5 @@ Feature: 应用导出
       | SavedsearchesApp |
       | KnowledgeApp     |
       | MacroApp         |
-      | SourceApp        |
       | TopologyApp      |
       | ConfigsApp       |

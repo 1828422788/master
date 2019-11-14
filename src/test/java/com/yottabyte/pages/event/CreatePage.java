@@ -1,6 +1,7 @@
 package com.yottabyte.pages.event;
 
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,31 +30,31 @@ public class CreatePage extends PageTemplate {
     private WebElement saveButton;
 
     public WebElement getName() {
-        return super.getInputElement("名称");
+        return getInputElement("名称");
     }
 
     public WebElement getAlias() {
-        return super.getInputElement("别名");
+        return getInputElement("别名");
     }
 
     public WebElement getField() {
-        return super.getInputElement("应用字段");
+        return getInputElement("应用字段");
     }
 
     public WebElement getDisplay() {
-        return super.getDropdownList("显示于");
+        return getDropdownList("显示于");
     }
 
     public WebElement getAction() {
-        return super.getDropdownList("动作类型");
+        return getDropdownList("动作类型");
     }
 
     public WebElement getOpenUrl() {
-        return super.getDropdownList("打开链接于");
+        return getDropdownList("打开链接于");
     }
 
     public WebElement getEnsureButton() {
-        return super.getContainsTextButton("确定");
+        return getContainsTextButton("确定");
     }
 
     public WebElement getSaveButton() {
@@ -61,7 +62,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDisplayMethod() {
-        return super.getDropdownList("展示方式");
+        return getDropdownList("展示方式");
     }
 
     public WebElement getCreateButton() {
@@ -78,5 +79,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSuccessMessage() {
         return message;
+    }
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div/input"));
     }
 }

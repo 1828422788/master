@@ -3,16 +3,19 @@ Feature: 应用拓扑图（RZY-2142）
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
+    When the data name is "TopologyApp" then i click the "打开" button
     And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "TopologyApp"
     And I click the "Topology" button
     Then I will see the "topology.ListPage" page
 
   Scenario: 新建拓扑图
-    When I click the "CreateButton" button
+    When I click the "Create" button
     And I set the parameter "NameInput" with value "AutoTestApp"
-    And I choose the "AutoTestRoleWithAllResource" from the "GroupInput"
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
+    Then I will see the success message "创建成功"
+    And I will see the "app.AppPage" page
+    Then I will see the element "Title" name is "TopologyApp"
 
   Scenario: 拓扑图重命名
     When the data name is "AutoTestApp" then i click the "重命名" button

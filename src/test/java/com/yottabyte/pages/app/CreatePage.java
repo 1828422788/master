@@ -113,7 +113,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDescribeInput() {
-        return super.getInputElement("描述");
+        return getInputElement("描述");
     }
 
     public WebElement getChoiceButton() {
@@ -141,7 +141,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getUrl() {
-        return super.getInputElement("URL");
+        return getInputElement("URL");
     }
 
     public WebElement getDefaultPage() {
@@ -159,7 +159,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getNameInput() {
-        return super.getInputElement("名称");
+        return getInputElement("名称");
     }
 
     public WebElement getSaveMenuButton() {
@@ -248,5 +248,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAddSubmenu() {
         return addSubmenu;
+    }
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
     }
 }

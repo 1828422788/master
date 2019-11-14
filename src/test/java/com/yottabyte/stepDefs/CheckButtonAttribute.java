@@ -88,7 +88,7 @@ public class CheckButtonAttribute {
      * @param expectButtonName
      */
     @Then("^I will see the element \"([^\"]*)\" name is \"([^割]*)\"$")
-    public void checkElementName(List<String> buttonNameList, List<String> expectButtonName) {
+    public void ConfigsAppcheckElementName(List<String> buttonNameList, List<String> expectButtonName) {
         if (buttonNameList.size() == 1 && expectButtonName.size() != 1) {
             String finalName = expectButtonName.get(0) + expectButtonName.get(1);
             expectButtonName.clear();

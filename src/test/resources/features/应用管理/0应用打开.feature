@@ -7,7 +7,8 @@ Feature: 应用打开
   Scenario Outline: 验证单个资源的app资源范围是否正确
     When the data name is "<name>" then i click the "打开" button
     And I will see the "app.AppPage" page
-    Then I will see the element "EmptyText" value is "暂无数据"
+    And I wait for loading invisible
+    And I wait for "EmptyText" will be visible
     And I will see the element "Title" name is "<name>"
 
     Examples:
@@ -20,6 +21,5 @@ Feature: 应用打开
       | SavedsearchesApp |
       | KnowledgeApp     |
       | MacroApp         |
-      | SourceApp        |
       | TopologyApp      |
       | ConfigsApp       |

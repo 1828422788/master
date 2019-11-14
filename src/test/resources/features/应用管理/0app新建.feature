@@ -17,6 +17,7 @@ Feature: 应用新建（RZY-1899）
       | test | 请设置默认首页 |
 
   Scenario Outline: 新建失败（菜单栏校验）
+    When I set the parameter "NameInput" with value "test"
     When I click the "AddMenuButton" button
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
@@ -38,6 +39,7 @@ Feature: 应用新建（RZY-1899）
     Given delete file "/target/download-files/<name>.tar"
     And I set the parameter "NameInput" with value "<name>"
     And I click the "AddMenuButton" button
+    And I wait for "MenuName" will be visible
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
     And I click the "SaveMenuButton" button
@@ -49,87 +51,36 @@ Feature: 应用新建（RZY-1899）
     Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
 
     Examples:
-      | name             | menuName | url                    | color   |
-      | ReportApp        | 报表       | /reports/              | #84460B |
-      | DashboardApp     | 仪表盘      | /dashboard/            | #C6B8FF |
-      | AlertApp         | 监控       | /alerts/               | #B8FFEE |
-      | ScheduleApp      | 定时任务     | /schedule/             | #FFE1BD |
-      | TrendApp         | 趋势图      | /trend/                | #E4FFE6 |
-      | SavedsearchesApp | 已存搜索     | /savedsearches/        | #FFE6E4 |
-      | KnowledgeApp     | 知识       | /knowledge/            | #FF6C5C |
-      | MacroApp         | 搜索宏      | /macro/                | #5CFFA0 |
-      | SourceApp        | 日志来源     | /sources/sourcegroups/ | #FFFFFF |
-      | TopologyApp      | 拓扑图      | /topology/             | #06030B |
-      | ConfigsApp       | 字段提取     | /configs/              | #0542F9 |
+      | name             | menuName | url             | color   |
+      | EventApp         | 事件操作     | /event/action/  | #68E632 |
+      | ReportApp        | 报表       | /reports/       | #84460B |
+      | DashboardApp     | 仪表盘      | /dashboard/     | #C6B8FF |
+      | AlertApp         | 监控       | /alerts/        | #B8FFEE |
+      | TrendApp         | 趋势图      | /trend/         | #E4FFE6 |
+      | SavedsearchesApp | 已存搜索     | /savedsearches/ | #FFE6E4 |
+      | KnowledgeApp     | 知识       | /knowledge/     | #FF6C5C |
+      | MacroApp         | 搜索宏      | /macro/         | #5CFFA0 |
+      | TopologyApp      | 拓扑图      | /topology/      | #06030B |
+      | ConfigsApp       | 字段提取     | /configs/       | #0542F9 |
 
   @smoke @appSmoke
   Scenario Outline: 新建App，资源范围为全局
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"
-#    And I click the "ChoiceButton" button
-#    And I click the "ChooseFromSystemButton" button
-#    And I set the parameter "SearchSource" with value "AutoTestRoleWithAllResource"
-#    And I click the "AllCheck" button
-#    And I click the "CloseDialog" button
-#    And I wait for "ResourceConfig" will be invisible
-    And I click the "AddMenuButton" button
-    And I set the parameter "MenuName" with value "监控"
-    And I set the parameter "Url" with value "/alerts/"
-    And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "使用限额"
+    And I set the parameter "MenuName" with value "限额"
     And I set the parameter "Url" with value "/account/usage/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "报表"
-    And I set the parameter "Url" with value "/reports/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "拓扑图"
-    And I set the parameter "Url" with value "/topology/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
     And I set the parameter "MenuName" with value "搜索"
     And I set the parameter "Url" with value "/search/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "仪表盘"
-    And I set the parameter "Url" with value "/dashboard/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "定时任务"
-    And I set the parameter "Url" with value "/schedule/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "趋势图"
-    And I set the parameter "Url" with value "/trend/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "知识"
-    And I set the parameter "Url" with value "/knowledge/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "搜索宏"
-    And I set the parameter "Url" with value "/macro/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "字段提取"
-    And I set the parameter "Url" with value "/configs/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "事件操作"
-    And I set the parameter "Url" with value "/event/action/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "日志来源"
-    And I set the parameter "Url" with value "/sources/sourcegroups/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "Agent管理"
+    And I set the parameter "MenuName" with value "Agent"
     And I set the parameter "Url" with value "/sources/input/agent/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "路由配置"
+    And I set the parameter "MenuName" with value "路由"
     And I set the parameter "Url" with value "/indexsettings/indexmatchrule/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
@@ -137,15 +88,15 @@ Feature: 应用新建（RZY-1899）
     And I set the parameter "Url" with value "/ingestpriority/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "本地上传"
+    And I set the parameter "MenuName" with value "上传"
     And I set the parameter "Url" with value "/sources/input/os/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "备份策略"
+    And I set the parameter "MenuName" with value "备份"
     And I set the parameter "Url" with value "/backup/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "下载管理"
+    And I set the parameter "MenuName" with value "下载"
     And I set the parameter "Url" with value "/download/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
@@ -153,22 +104,10 @@ Feature: 应用新建（RZY-1899）
     And I set the parameter "Url" with value "/offlinetask/"
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "角色权限"
-    And I set the parameter "Url" with value "/account/roles/"
+    And I set the parameter "MenuName" with value "定时任务"
+    And I set the parameter "Url" with value "/schedule/"
     And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "资源分组管理"
-    And I set the parameter "Url" with value "/account/resourcegroups/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "用户分组"
-    And I set the parameter "Url" with value "/account/usergroups/"
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "用户管理"
-    And I set the parameter "Url" with value "/account/users/"
-    And I click the "SaveMenuButton" button
-    And I choose the "仪表盘" from the "DefaultPage"
+    And I choose the "搜索" from the "DefaultPage"
     And I click the "ColorPicker" button
     And I set the parameter "ColorValue" with value "#68E632"
     And I click the "EnsureColourButton" button
@@ -179,6 +118,37 @@ Feature: 应用新建（RZY-1899）
     Examples:
       | name                        |
       | AutoTestAppWithAllResources |
+
+  Scenario Outline:
+    Given delete file "/target/download-files/<name>.tar"
+    When I set the parameter "NameInput" with value "<name>"
+    And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "角色权限"
+    And I set the parameter "Url" with value "/account/roles/"
+    And I click the "SaveMenuButton" button
+    And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "资源分组"
+    And I set the parameter "Url" with value "/account/resourcegroups/"
+    And I click the "SaveMenuButton" button
+    And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "用户分组"
+    And I set the parameter "Url" with value "/account/usergroups/"
+    And I click the "SaveMenuButton" button
+    And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "用户管理"
+    And I set the parameter "Url" with value "/account/users/"
+    And I click the "SaveMenuButton" button
+    And I choose the "角色权限" from the "DefaultPage"
+    And I click the "ColorPicker" button
+    And I set the parameter "ColorValue" with value "#68E632"
+    And I click the "EnsureColourButton" button
+    And I click the "OverallSituation" button
+    And I click the "CreateButton" button
+    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+
+    Examples:
+      | name    |
+      | AuthApp |
 
   @smoke @appSmoke
   Scenario Outline: 新建App
@@ -277,12 +247,6 @@ Feature: 应用新建（RZY-1899）
     And I set the parameter "MenuName" with value "用户分组"
     And I set the parameter "Url" with value "/account/usergroups/"
     And I click the "SaveMenuButton" button
-
-    And I click the "AddMenuButton" button under some element
-    And I set the parameter "MenuName" with value "来源结构"
-    And I set the parameter "Url" with value "/sources/sourcegroups/structure/"
-    And I click the "SaveMenuButton" button
-
     And I click the "AddMenuButton" button under some element
     And I set the parameter "MenuName" with value "结算管理"
     And I set the parameter "Url" with value "/payments/"

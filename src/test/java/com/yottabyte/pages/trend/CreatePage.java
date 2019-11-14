@@ -1,6 +1,7 @@
 package com.yottabyte.pages.trend;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.GetTime;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,6 +18,8 @@ public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
     }
+
+    private DropdownUtils dropdownUtils = new DropdownUtils();
 
     @FindBy(className = "CodeMirror-code")
     private WebElement searchInput;
@@ -450,7 +453,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-trend")
     private WebElement canvas;
 
-    //    @FindBy(className = "yw-search-stats-charts-object")
     @FindBy(xpath = "//div[@class='yw-search-stats clearfix']")
     private WebElement chart;
 
@@ -471,6 +473,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='新建成功！']")
     private WebElement successCreate;
+
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
+    private WebElement appDropdownIcon;
 
     public WebElement getSuccessCreate() {
         return successCreate;
@@ -1136,5 +1141,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::input"));
+    }
+
+    public WebElement getAppDropdown() {
+        appDropdownIcon.click();
+        return dropdownUtils.getLastDropdownList();
     }
 }

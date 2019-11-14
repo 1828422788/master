@@ -14,7 +14,6 @@ import java.util.Map;
 public class ListPageUtils {
     Paging pagingInfo = new Paging();
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-    List<WebElement> tableList = pagingInfo.getTableList();
 
     /**
      * 寻找name所在行
@@ -24,20 +23,15 @@ public class ListPageUtils {
      */
     public WebElement findName(String name) {
         String url = webDriver.getCurrentUrl();
-
-        if (tableList.size() == 1 || url.contains("agent")) {
-            // 表体
-            WebElement table = tableList.get(0);
-            if (url.contains("agent"))
-                return this.getRowWithoutPaging(name, table);
-            return this.getRow(name, table);
-        } else {
-            return this.getSourcesGroupName(tableList, name);
+        WebElement table = pagingInfo.getTableList().get(0);
+        if (url.contains("agent")) {
+            return this.getRowWithoutPaging(name, table);
         }
+        return this.getRow(name, table);
     }
 
     public WebElement findNameWithoutPaging(String name) {
-        WebElement table = tableList.get(0);
+        WebElement table = pagingInfo.getTableList().get(0);
         return this.getRowWithoutPaging(name, table);
     }
 
@@ -82,14 +76,14 @@ public class ListPageUtils {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
             String name = map.get("name").toString();
             int columnNum = Integer.parseInt(map.get("column").toString());
-            WebElement table = tableList.get(0);
+            WebElement table = pagingInfo.getTableList().get(0);
             tr = this.getRowWithoutPaging(name, columnNum, table);
         }
         return tr;
     }
 
     public List<WebElement> getTrList() {
-        WebElement table = tableList.get(0);
+        WebElement table = pagingInfo.getTableList().get(0);
         List<WebElement> list = null;
         try {
             list = table.findElements(By.xpath(".//tr"));
@@ -111,7 +105,7 @@ public class ListPageUtils {
     }
 
     public WebElement getRowWithColumnNum(String name, int columnNum) {
-        WebElement table = tableList.get(0);
+        WebElement table = pagingInfo.getTableList().get(0);
         return this.getRowWithColumnNum(name, columnNum, table);
     }
 
@@ -174,44 +168,6 @@ public class ListPageUtils {
             } else {
                 nextPage.click();
             }
-        }
-        return null;
-    }
-
-    /**
-     * 以下情况仅针对日志来源表格进行特殊处理
-     *
-     * @param tableList
-     * @param name
-     * @return
-     */
-    public WebElement getSourcesGroupName(List<WebElement> tableList, String name) {
-        WebElement nameTable;
-        WebElement operatorTable;
-        if (tableList.size() == 2) {
-            nameTable = tableList.get(0);
-            operatorTable = tableList.get(1);
-        } else {
-            nameTable = tableList.get(1);
-            operatorTable = tableList.get(2);
-        }
-        List<WebElement> nameList = nameTable.findElements(By.tagName("tr"));
-        int totalPage = pagingInfo.getTotalPage();
-        WebElement nextPage = pagingInfo.getNextPage();
-
-        int i = 0;
-        while (i < totalPage) {
-            // 找到一行元素
-            if (i != 0 && i <= totalPage - 1)
-                nextPage.click();
-
-            for (int index = 0; index < nameList.size(); index++) {
-                String sourceName = nameList.get(index).findElement(By.tagName("td")).getText();
-                if (sourceName.equals(name)) {
-                    return operatorTable.findElements(By.tagName("tr")).get(index);
-                }
-            }
-            i++;
         }
         return null;
     }

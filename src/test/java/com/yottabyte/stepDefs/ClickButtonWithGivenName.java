@@ -124,7 +124,7 @@ public class ClickButtonWithGivenName {
      */
     private void click(String buttonName, WebElement tr) {
         String xpath;
-        if (pagingInfo.checkUrl()) {
+        if (pagingInfo.checkUrl() || webDriver.getCurrentUrl().contains("/app/list/")) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
         } else if ("详 情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";

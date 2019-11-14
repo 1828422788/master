@@ -60,7 +60,7 @@ public class ValidateResult {
 
     /**
      * 验证搜索列表
-     * contains可省，只要有contains则为不包含某一字段
+     * contains可省，只要有contains则为不包含某一字段，若匹配名称为第一列则可直接写名称
      *
      * @param searchResult 格式：{'column':'列数-1','name':'关键字名称','contains':'no'}
      */
@@ -100,7 +100,14 @@ public class ValidateResult {
     }
 
     private void validateResult(List<WebElement> trList, String searchResult) {
-        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(searchResult);
+        Map<String, Object> resultMap;
+        if (JsonStringPaser.isJson(searchResult)) {
+            resultMap = JsonStringPaser.json2Stirng(searchResult);
+        } else {
+            resultMap = new HashMap<>();
+            resultMap.put("column", "0");
+            resultMap.put("name", searchResult);
+        }
         int columnNum = Integer.parseInt(resultMap.get("column").toString());
         for (WebElement tr : trList) {
             List<WebElement> tdList = tr.findElements(By.xpath(".//td"));
@@ -111,7 +118,6 @@ public class ValidateResult {
                     return;
                 if (resultMap.containsKey("contains"))
                     Assert.assertNotEquals(expectText, actualText);
-//                    Assert.assertFalse(actualText.equals(expectText));
                 else
                     Assert.assertTrue(actualText.toLowerCase().contains(expectText.toLowerCase()));
             }

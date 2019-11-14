@@ -46,6 +46,9 @@ public class InstallPage extends PageTemplate {
     @FindBy(className = "el-icon-search")
     private WebElement searchIcon;
 
+    @FindBy(xpath = "//span[text()='读取资源包异常！']")
+    private WebElement errorInfo;
+
     public WebElement getEnsure() {
         return super.getButton("确定");
     }
@@ -115,7 +118,7 @@ public class InstallPage extends PageTemplate {
     }
 
     public WebElement getErrorInfo() {
-        return super.getButton("未知错误，请检查文件格式及内容是否正确，然后重新上传");
+        return errorInfo;
     }
 
     public WebElement getCompleteButton() {

@@ -1,6 +1,7 @@
 package com.yottabyte.pages;
 
 import com.yottabyte.config.ConfigManager;
+import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -19,6 +20,7 @@ import java.util.List;
 public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     public static ConfigManager config = new ConfigManager();
     public WebDriver webDriver;
+    DropdownUtils utils = new DropdownUtils();
 
     @FindBy(className = "ant-input")
     private WebElement searchInput;
@@ -85,6 +87,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return this.getButton("确定");
     }
 
+    public WebElement getSave() {
+        return this.getButton("保存");
+    }
+
     public WebElement getButton(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::button"));
     }
@@ -112,14 +118,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getLastDropdownList() {
-        List<WebElement> list = webDriver.findElements(By.className("ant-select-dropdown-menu-root"));
-        WebElement lastDropdownList = list.get(list.size() - 1);
-        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
-        }
-        WebElement li = lastDropdownList.findElement(By.xpath(".//li"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
-        return lastDropdownList;
+        return utils.getLastDropdownList();
     }
 
     @Override

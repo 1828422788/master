@@ -16,13 +16,13 @@ public class AppPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "el-icon-arrow-right")
+    @FindBy(xpath = "//li[@class='ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu'][not(contains(@style,'display: none'))]//span")
     private WebElement rightArrow;
 
-    @FindBy(xpath = "(//*[@class='yw-subnav-item active'])[last()]")
+    @FindBy(xpath = "//div[contains(@class,'css-rvvtck')]")
     private WebElement title;
 
-    @FindBy(className = "el-table__empty-text")
+    @FindBy(className = "ant-empty-description")
     private WebElement emptyText;
 
     @FindBy(className = "el-icon-arrow-down")
@@ -30,6 +30,13 @@ public class AppPage extends PageTemplate {
 
     @FindBy(xpath = "//li[contains(text(),'default')]")
     private List<WebElement> liText;
+
+    @FindBy(className = "yw-appnav-title")
+    private WebElement oldTitle;
+
+    public WebElement getOldTitle() {
+        return oldTitle;
+    }
 
     public List<WebElement> getLiText() {
         return liText;
@@ -92,11 +99,11 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getAgent() {
-        return this.getElementWithLinkName("Agent管理");
+        return this.getElementWithLinkName("Agent");
     }
 
     public WebElement getIndexsetting() {
-        return this.getElementWithLinkName("路由配置");
+        return this.getElementWithLinkName("路由");
     }
 
     public WebElement getIngestpriority() {
@@ -104,15 +111,15 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getUpload() {
-        return this.getElementWithLinkName("本地上传");
+        return this.getElementWithLinkName("上传");
     }
 
     public WebElement getBackup() {
-        return this.getElementWithLinkName("备份策略");
+        return this.getElementWithLinkName("备份");
     }
 
     public WebElement getDownload() {
-        return this.getElementWithLinkName("下载管理");
+        return this.getElementWithLinkName("下载");
     }
 
     public WebElement getOfflineTask() {
@@ -128,7 +135,7 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getResourceGroup() {
-        return this.getElementWithLinkName("资源分组管理");
+        return this.getElementWithLinkName("资源分组");
     }
 
     public WebElement getUserGroup() {
@@ -140,15 +147,11 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getLimit() {
-        return this.getElementWithLinkName("使用限额");
+        return this.getElementWithLinkName("限额");
     }
 
     public WebElement getPayment() {
         return this.getElementWithLinkName("结算管理");
-    }
-
-    public WebElement getGalaxee() {
-        return this.getElementWithLinkName("数据大屏");
     }
 
     public WebElement getRightArrow() {

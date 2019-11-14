@@ -17,18 +17,14 @@ Feature: 应用定时任务(RZY-2123)
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "<taskName>"
-    And I choose the "AutoTestRoleWithAllResource" from the "GroupComboBox"
-    And I set the parameter "Period" with value "<period>"
-    And I click the "StartTime" button
-    And I set the time input "StartTomorrow" to "<startTime>" minutes later
-    And I click the "EnsureButton" button
-    And I hide the element "TimePanel"
-    And I click the "Ensure" button
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
+    And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
     Examples:
-      | spl                                                                                                      | time  | taskName | period | startTime |
-      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today | AutoApp  | 17     | 5         |
+      | spl                                                                                                      | time  | taskName |
+      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today | AutoApp  |
 
   Scenario: 编辑定时任务
     When I click the "TimedTask" button
@@ -42,39 +38,37 @@ Feature: 应用定时任务(RZY-2123)
 
   Scenario: 禁用定时任务
     When I click the "TimedTask" button
-    And I will see the "timedTask.ListPage" page
-    And I disabled the data "AutoCreateApp"
+    Then I will see the "timedTask.ListPage" page
+    When the data name is "{'column':'2','name':'AutoApp'}" then I "close" the switch
     Then I will see the success message "禁用成功"
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
 
   Scenario: 复制定时任务
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
-    When the data name is "AutoCreateApp" then i click the "复制" button
+    When the data name is "{'column':'2','name':'AutoApp'}" then i click the "复制" button
     Then I will see the success message "复制成功"
-
-  Scenario Outline: 定时任务分组
-    When I click the "TimedTask" button
-    And the data name is "<name>" then i click the "分组" button
-    And I will see the "timedTask.ListPage" page
-    And I cancel selection "AutoTestRoleWithAllResource" from the "Group"
-    And I click the "EnsureChangeGroup" button
     And I refresh the website
-    Then I will see the search result "{'contains':'no','column':'0','name':'<name>'}"
+    Then I will see the search result contains "{'column':'2','name':'AutoApp(副本)'}"
 
-    Examples:
-      | name          |
-      | AutoCreateApp |
-
-  Scenario: 根据定时任务分组进行查询
+  Scenario: 定时任务标签
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
-    Given I click the "GroupDropdown" button
-    And I wait for "GroupDropdownList" will be visible
-    And I choose the "AutoTestRoleWithAllResource" from the "GroupDropdownList"
-    And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'AutoCreateApp(副本)'}"
+    When the data name is "{'column':'2','name':'AutoApp'}" then i click the "标签" button
+    And I set the parameter "Tag" with value "测试标签"
+    And I choose the "测试标签" from the "TagDropdown"
+    And I click the "Ensure" button
+    Then I will see the success message "更新成功"
     And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
+
+  Scenario: 根据定时任务标签进行查询
+    When I click the "TimedTask" button
+    And I will see the "timedTask.ListPage" page
+    And I choose the "测试标签" from the "ResourceDropdown"
+    Then I will see the search result contains "{'column':'2','name':'AutoApp'}"
+    Then I will see the search result "{'column':'2','name':'AutoApp','contains':'no'}"
 
   Scenario Outline: 根据定时任务名称进行查询
     When I click the "TimedTask" button
