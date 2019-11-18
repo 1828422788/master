@@ -3,19 +3,17 @@ Feature: 应用监控模块（RZY-2122）
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
+    When the data name is "AlertApp" then i click the "打开" button
     And I will see the "app.AppPage" page
-    And I click the "Alert" button
+    And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
 
   Scenario: 新建监控
     When I click the "CreateAlert" button
     And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTest...pWithAllResources"
+    And I will see the element "OldTitle" name is "AlertApp"
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "AutoTestAppAlert"
-    And I choose the "AutoTestRoleWithAllResource" from the "AlertGroups"
-    And I choose the "所有日志" from the "AlertSources"
     And I set the parameter "SearchContent" with value "*"
     And I set the parameter "AlertTriggerInput" with value "10000000"
     And I set the parameter "AlertLevelInput" with value "1000000000"
@@ -23,9 +21,9 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the success message "保存成功"
 
   Scenario: 编辑监控
-    When the data name is "AutoTestAppAlert" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'AutoTestAppAlert'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTest...pWithAllResources"
+    And I will see the element "OldTitle" name is "AlertApp"
     And I will see the "alert.CreatePage" page
     And I wait for loading invisible
     When I set the parameter "AlertName" with value "AutoTestAppAlertChangeName"
@@ -33,55 +31,69 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the success message "保存成功"
 
   Scenario Outline: 复制监控
-    When the data name is "<name>" then i click the "复制" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button
     And I wait for loading invisible
     And I refresh the website
-    And I will see the search result contains "{'column':'0','name':'<name>(副本)'}"
+    And I will see the search result contains "{'column':'1','name':'<name>(副本)'}"
     And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTest...pWithAllResources"
+    And I will see the element "OldTitle" name is "AlertApp"
 
     Examples:
       | name                       |
       | AutoTestAppAlertChangeName |
 
   Scenario: 在搜索中打开
-    When the data name is "AutoTestAppAlertChangeName" then i click the "在搜索中打开" button
+    When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName'}" then i click the "在搜索中打开" button
     And switch to another window
     And I wait for loading invisible
     And the page's title will be "搜索"
     And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AlertApp"
 
-  Scenario Outline: 最新状态
-    When I click the "LatestStatus" button
-    Then I will see the "knowledge.ListPage" page
-    When I click the "ArrowDown" button
-    Then I will see the "alert.MonitorPage" page
-    And I wait for "GroupMenu" will be visible
-    And I will see the element "GroupMenu" name is "<groupMenuName>"
+  Scenario: 告警插件
+    When I click the "AlertPlugin" button
+    And I wait for loading invisible
     And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTest...pWithAllResources"
+    And I will see the element "OldTitle" name is "AlertApp"
+    Then I will see the "alert.PluginPage" page
+    And I click the "Upload" button
+    And I choose the "告警类型" from the "PluginType"
+    And I upload a file with name "/src/test/resources/testdata/alertPlugins/sendSms.py"
+    And I wait for "VerifyText" will be visible
+    And I click the "EnsureButton" button
+    Then I will see the success message "上传成功"
 
-    Examples:
-      | groupMenuName                       |
-      | 全部监控分组\nAutoTestRoleWithAllResource |
+  Scenario: 修改标签
+    When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}" then i click the "标签" button
+    And I set the parameter "Tag" with value "AutoTag"
+    And I choose the "AutoTag" from the "TagDropdown"
+    And I click the "Ensure" button
+    Then I will see the success message "修改成功"
+
+  Scenario: 根据标签搜索
+    When I wait for loading invisible
+    And I choose the "AutoTag" from the "ResourceDropdown"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}"
 
   Scenario Outline: 启用禁用功能
-    When I disabled the data "AutoTestAppAlertChangeName"
+    When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName'}" then I "<status>" the switch
     And I will see the success message "<message>"
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
 
     Examples:
-      | message |
-      | 禁用成功    |
-      | 启用成功    |
+      | status | message |
+      | close  | 禁用成功    |
+      | open   | 启用成功    |
 
   Scenario Outline: 删除
-    When the data name is "<name>" then i click the "删除" button
-    And I click the "EnsureDeleteButton" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I click the "Ensure" button
     And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AlertApp"
 
     Examples:
       | name                           |
-      | AutoTestAppAlertChangeName     |
       | AutoTestAppAlertChangeName(副本) |
+      | AutoTestAppAlertChangeName     |

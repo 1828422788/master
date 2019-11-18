@@ -14,17 +14,11 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement successMessage;
 
     @Override
     public WebElement getSuccessMessage() {
         return successMessage;
     }
-
-    public WebElement getSearchInput() {
-        return super.getSearchInput();
-    }
-
-
 }

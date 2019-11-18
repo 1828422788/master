@@ -3,15 +3,15 @@ Feature: 应用已存搜索（RZY-2125）
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    And I click the "Search" button
-    Then I will see the "splSearch.SearchPage" page
 
   Scenario: 新建已存搜索
+    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
+    Then I will see the "splSearch.SearchPage" page
     When I click the "SavedSearch" button
     And I set the parameter "OfflineTaskName" with value "AutoApp"
-    And I choose the "AutoTestRoleWithAllResource" from the "GroupComboBox"
+    And I choose the "SavedsearchesApp" from the "AppDropdown"
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "创建成功"
 

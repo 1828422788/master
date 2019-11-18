@@ -95,7 +95,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']//ancestor::button"));
     }
 
-    private WebElement groupDropdownIcon(String text) {
+    public WebElement groupDropdownIcon(String text) {
         return webDriver.findElement(By.xpath("//div[text()='" + text + "']/ancestor::div/following-sibling::span/i"));
     }
 

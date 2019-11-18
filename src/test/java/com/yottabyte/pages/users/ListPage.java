@@ -64,6 +64,12 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='SuccessEditAutoTest'][@class='runner-banned-name']/following-sibling::span")
     private WebElement userStatus;
 
+    @FindBy(xpath = "//div[@class='el-select group-modal-select']//i")
+    private WebElement groupIcon;
+
+    @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
+    private WebElement ul;
+
     public WebElement getEnsureButton() {
         return ensureButton;
     }
@@ -129,11 +135,8 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getUserGroups() {
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(dialog));
-//        changeGroupButton.click();
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(dropdownLists.get(dropdownLists.size() - 1)));
-//        return dropdownLists.get(dropdownLists.size() - 1);
-        return super.getDropdownList("分组");
+        groupIcon.click();
+        return ul;
     }
 
     public WebElement getConfirmButton() {

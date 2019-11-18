@@ -13,11 +13,14 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(className = "ant-input")
-    private WebElement searchInput;
+    @FindBy(className = "search-count")
+    private WebElement searchCount;
 
-    @Override
-    public WebElement getSearchInput() {
-        return searchInput;
+    public WebElement getSearchCount() {
+        return searchCount;
+    }
+
+    public WebElement getSearch() {
+        return getButton("全文搜索");
     }
 }

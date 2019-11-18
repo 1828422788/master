@@ -1,4 +1,3 @@
-@all @app @appSmoke
 Feature: 应用分配角色选择
 
   Scenario: 授权AutoTest用户日志来源权限

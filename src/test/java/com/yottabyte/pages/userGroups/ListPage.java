@@ -17,6 +17,29 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-loading-mask")
     private WebElement loading;
 
+    @FindBy(className = "el-icon-search")
+    private WebElement searchIcon;
+
+    @FindBy(xpath = "//span[contains(text(),'确定')]/ancestor::button")
+    private WebElement messageBoxOKButton;
+
+    @FindBy(className = "el-message__group")
+    private WebElement successMessage;
+
+    @Override
+    public WebElement getSuccessMessage() {
+        return successMessage;
+    }
+
+    public WebElement getMessageBoxOKButton() {
+        return messageBoxOKButton;
+    }
+
+    @Override
+    public WebElement getSearchIcon() {
+        return searchIcon;
+    }
+
     public WebElement getLoading() {
         return loading;
     }

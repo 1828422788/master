@@ -2,6 +2,7 @@ package com.yottabyte.pages.splSearch;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.DateEditorPage;
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
@@ -21,7 +22,7 @@ import java.util.Map;
 /**
  * 搜索页面页面元素
  */
-public class SearchPage extends PageTemplate {
+public class SearchPage extends ListPageFactory {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
     TakeScreenShot shot = SharedDriver.getScreenShot();
     ExpectedCondition expectedCondition;
@@ -197,7 +198,6 @@ public class SearchPage extends PageTemplate {
         return closeAllFields;
     }
 
-    @Override
     public WebElement getErrorMessage() {
         return errorMessage;
     }
@@ -266,7 +266,7 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='确定']")
     private List<WebElement> ensure;
 
-    @FindBy(xpath = "//p[text()='保存成功']")
+    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement successMessage;
 
     @FindBy(xpath = "//span[contains(text(),'类型')]")
@@ -548,6 +548,14 @@ public class SearchPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
     private WebElement ensureCrontab;
 
+    @FindBy(xpath = "(//label[text()='所属应用']/ancestor::div//i[@class='anticon anticon-down ant-select-arrow-icon'])[last()]")
+    private WebElement appIcon;
+
+    public WebElement getAppDropdown() {
+        appIcon.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getTrend() {
         return trend;
     }
@@ -722,14 +730,6 @@ public class SearchPage extends PageTemplate {
 
     public WebElement getMaxLineNum() {
         return super.getInputElement("最大行数");
-    }
-
-    public WebElement getDocumentType() {
-        return super.getDropdownList("文件类型");
-    }
-
-    public WebElement getDocumentEncode() {
-        return super.getDropdownList("文件编码");
     }
 
     public WebElement getCreateDownloadTask() {
@@ -1027,11 +1027,6 @@ public class SearchPage extends PageTemplate {
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(dropdownList.get(dropdownList.size() - 1));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return this.dropdownList.get(dropdownList.size() - 1).findElements(By.tagName("li"));
-    }
-
-    // 分组
-    public WebElement getGroupComboBox() {
-        return super.getDropdownList("分组");
     }
 
     public WebElement getDescribe() {

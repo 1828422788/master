@@ -1,9 +1,9 @@
-@app @appSmoke
+#@app @appSmoke
 Feature: 应用资源分组（RZY-2145）
 
   Scenario: 新建资源分组
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
+    When the data name is "AuthApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I click the "ResourceGroup" button
     Then I will see the "resourceGroups.ListPage" page

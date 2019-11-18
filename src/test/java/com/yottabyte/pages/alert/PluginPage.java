@@ -1,10 +1,12 @@
 package com.yottabyte.pages.alert;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * @author sunxj
@@ -24,6 +26,7 @@ public class PluginPage extends PageTemplate {
     private WebElement pluginType;
 
     public WebElement getPluginType() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(pluginType));
         pluginType.click();
         return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
     }

@@ -21,4 +21,3 @@ Feature: 删除基本用户
     Examples:
       | name         |
       | AutoTest     |
-      | AutoTest同组用户 |

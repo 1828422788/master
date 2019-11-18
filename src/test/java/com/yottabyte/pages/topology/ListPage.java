@@ -19,6 +19,14 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
+    @FindBy(xpath = "//div[text()='标签']/following-sibling::div//input")
+    private WebElement tag;
+
+    @Override
+    public WebElement getTag() {
+        return tag;
+    }
+
     public WebElement getNameInput() {
         return getInputElement("名称");
     }

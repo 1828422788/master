@@ -40,14 +40,3 @@ Feature: 基础用户创建
     And I choose the "AutoTestRole" from the "Role"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
-
-  Scenario: 添加AutoTest同组用户
-    Given open the "users.ListPage" page for uri "/account/users/"
-    And I click the "CreateUser" button
-    And I will see the "users.CreatePage" page
-    When I set the parameter "UserName" with value "AutoTest同组用户"
-    And I set the parameter "Email" with value "autoGroup@yottabyte.cn"
-    And I set the parameter "Password" with value "all123456"
-    And I choose the "AutoTestGroup" from the "UserGroups"
-    And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
