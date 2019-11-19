@@ -16,10 +16,10 @@ Feature: 数据大屏和弦图
     And I wait for "Chord" will be invisible
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "500"
-    And I set the parameter "ChartXaxis" with value "-174"
-    And I set the parameter "ChartYaxis" with value "4"
+    And I set the parameter "Width" with value "650"
+    And I set the parameter "Height" with value "600"
+    And I set the parameter "ChartXaxis" with value "0"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.request_path"
     And I click the "Search" button

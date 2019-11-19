@@ -14,10 +14,10 @@ Feature: 数据大屏世界地图
     And I click the "World" button
     And I hide the element "MapDropdown"
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "800"
+    And I set the parameter "Width" with value "700"
     And I set the parameter "Height" with value "500"
-    And I set the parameter "ChartXaxis" with value "-82"
-    And I set the parameter "ChartYaxis" with value "-4"
+    And I set the parameter "ChartXaxis" with value "0"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I click the "Search" button
     And I click the "Update" button

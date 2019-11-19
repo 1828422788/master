@@ -15,9 +15,10 @@ Feature: 数据大屏热力地图
     And I click the "Heatmap" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I set the parameter "Width" with value "700"
     And I set the parameter "Height" with value "500"
-    And I set the parameter "ChartXaxis" with value "-147"
-    And I set the parameter "ChartYaxis" with value "-29"
+    And I set the parameter "ChartXaxis" with value "0"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I click the "Search" button
     And I wait for "1000" millsecond

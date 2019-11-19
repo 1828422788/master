@@ -14,10 +14,10 @@ Feature: 数据大屏地理分布
     And I click the "Globelabel" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1059"
+    And I set the parameter "Width" with value "500"
     And I set the parameter "Height" with value "607"
-    And I set the parameter "ChartXaxis" with value "-204"
-    And I set the parameter "ChartYaxis" with value "-1"
+    And I set the parameter "ChartXaxis" with value "0"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
     And I click the "Search" button

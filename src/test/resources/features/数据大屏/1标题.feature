@@ -46,10 +46,10 @@ Feature: 数据大屏标题
     And I choose the "lighter" from the "TitleWordBold"
     And I set the parameter "TitleAngle" with value "49"
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1441"
+    And I set the parameter "Width" with value "950"
     And I set the parameter "Height" with value "866"
-    And I set the parameter "ChartXaxis" with value "-499"
-    And I set the parameter "ChartYaxis" with value "64"
+    And I set the parameter "ChartXaxis" with value "0"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I set the parameter "Content" with value "修改标题配置"
     And I click the "Save" button

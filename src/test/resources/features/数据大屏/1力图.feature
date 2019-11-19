@@ -15,10 +15,10 @@ Feature: 数据大屏力图
     And I wait for "Force" will be invisible
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "697"
-    And I set the parameter "ChartXaxis" with value "-251"
-    And I set the parameter "ChartYaxis" with value "-13"
+    And I set the parameter "Width" with value "550"
+    And I set the parameter "Height" with value "500"
+    And I set the parameter "ChartXaxis" with value "0"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart| stats count() by apache.clientip,apache.request_path |limit 10"
     And I click the "Search" button

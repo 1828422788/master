@@ -15,10 +15,10 @@ Feature: 数据大屏饼图
     And I wait for "Pie" will be invisible
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "300"
-    And I set the parameter "ChartXaxis" with value "-252"
-    And I set the parameter "ChartYaxis" with value "-2"
+    And I set the parameter "Width" with value "500"
+    And I set the parameter "Height" with value "350"
+    And I set the parameter "ChartXaxis" with value "0"
+    And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
     And I click the "Search" button
