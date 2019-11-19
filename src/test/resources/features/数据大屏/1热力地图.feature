@@ -21,7 +21,7 @@ Feature: 数据大屏热力地图
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "apache.geo.province" from the "NameField"
     And I choose the "count()" from the "DataField"
     And I wait for "Save" will be visible
@@ -51,7 +51,7 @@ Feature: 数据大屏热力地图
     And I set the parameter "ChartYaxis" with value "315"
     And I click the "Data" button
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "apache.geo.province" from the "NameField"
     And I choose the "count()" from the "DataField"
     And I click the "Save" button

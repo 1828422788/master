@@ -25,7 +25,7 @@ Feature: 数据大屏旭日图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.city" from the "DivideField"
     And I wait for "Save" will be visible
@@ -56,7 +56,7 @@ Feature: 数据大屏旭日图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.city" from the "DivideField"
     And I click the "Save" button
@@ -90,7 +90,7 @@ Feature: 数据大屏旭日图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.city" from the "DivideField"
     And I click the "Add" button

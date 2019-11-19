@@ -19,7 +19,7 @@ Feature: 数据大屏水球图
     And I set the parameter "ChartYaxis" with value "0"
     And I click the "Data" button
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "p" from the "DataField"
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -64,7 +64,7 @@ Feature: 数据大屏水球图
     And I set the parameter "ChartYaxis" with value "200"
     And I click the "Data" button
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "p" from the "DataField"
     And I click the "Save" button
     Then I will see the success message "保存成功"

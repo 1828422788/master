@@ -17,7 +17,7 @@ Feature: 数据大屏折线图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "ts" from the "Xaxis"
     And I choose the "count()" from the "Yaxis"
     And I click the "Style" button
@@ -48,7 +48,7 @@ Feature: 数据大屏折线图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "ts" from the "Xaxis"
     And I choose the "count()" from the "Yaxis"
     And I click the "Style" button
@@ -121,7 +121,7 @@ Feature: 数据大屏折线图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "ts" from the "Xaxis"
     And I choose the "count()" from the "Yaxis"
     And I click the "AddGroup" button

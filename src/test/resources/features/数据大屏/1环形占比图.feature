@@ -22,7 +22,7 @@ Feature: 数据大屏环形占比图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "num" from the "DataField"
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -60,7 +60,7 @@ Feature: 数据大屏环形占比图
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
     And I click the "Search" button
-    And I wait for "1000" millsecond
+    And I wait for "SearchTip" will be invisible
     And I choose the "num" from the "DataField"
     And I click the "Save" button
     Then I will see the success message "保存成功"
