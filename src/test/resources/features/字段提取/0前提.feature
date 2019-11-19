@@ -76,7 +76,7 @@ Feature: 字段提取前提条件
 
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I click the "AddRule" button
@@ -96,7 +96,7 @@ Feature: 字段提取前提条件
 
   Scenario Outline: RZY-3076:配置里无extract_limit
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -114,7 +114,7 @@ Feature: 字段提取前提条件
 
   Scenario Outline: RZY-3076、3079
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -133,7 +133,7 @@ Feature: 字段提取前提条件
 
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I click the "AddRule" button
@@ -153,7 +153,7 @@ Feature: 字段提取前提条件
 
   Scenario Outline: XML解析（RZY-1546）
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<root><test><a>1</a><a>2</a></test><test>3</test></root>"
     And I click the "AddRule" button
@@ -171,7 +171,7 @@ Feature: 字段提取前提条件
 
   Scenario: RZY-2824：最大匹配长度（步骤1）
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.139 - - [24/Jan/2015:17:03:49 +0800] "GET /api/v0/search/fields/?field=tag&filters=&order=desc&page=1&query=*&size=50&sourcegroup=all&sourcegroupCn=%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97&time_range=-2d,now&type=fields HTTP/1.1" 200 363 "http://alltest.rizhiyi.com/search/?query=*&time_range=-2d%2Cnow&order=desc&size=20&page=1&sourcegroup=all&type=timeline&_t=1422088066859&title=%E9%BB%98%E8%AE%A4&index=0" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:35.0) Gecko/20100101 Firefox/35.0""
     And I click the "AddRule" button

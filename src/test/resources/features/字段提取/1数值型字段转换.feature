@@ -3,7 +3,7 @@ Feature: 字段提取数值型字段转换
 
   Scenario Outline: RZY-1537、1538
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
@@ -33,7 +33,7 @@ Feature: 字段提取数值型字段转换
 
   Scenario Outline: RZY-1536:配置数值型字段转换规则流程
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button

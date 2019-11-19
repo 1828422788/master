@@ -4,7 +4,7 @@ Feature: 字段提取KeyValue分解
   @second
   Scenario Outline: RZY-1531:配置KeyValue分解规则
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
@@ -25,7 +25,7 @@ Feature: 字段提取KeyValue分解
   @second
   Scenario Outline: RZY-1532、1533
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button

@@ -3,7 +3,7 @@ Feature: 字段提取自定义配置高级算子
 
   Scenario Outline: RZY-2870:创建dissect解析
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "http://rizhiyi.com/index.do?id=123"
     And I click the "AddRule" button
@@ -30,7 +30,7 @@ Feature: 字段提取自定义配置高级算子
 
   Scenario Outline: RZY-2875:创建script解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "{"fields":["time","count"],"values":[1516189,5664]}"
     And I click the "AddRule" button
@@ -65,7 +65,7 @@ Feature: 字段提取自定义配置高级算子
 
   Scenario Outline: RZY-2877:建立base64解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "aGVsbG8gYmFzZTY0"
     And I click the "AddRule" button
@@ -100,7 +100,7 @@ Feature: 字段提取自定义配置高级算子
 
   Scenario Outline: RZY-2883:创建unicode解析规则
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "PartyBasicInfoService_\u5ba2\u6237\u57fa\u672c\u4fe1\u606f\u670d\u52a1"
     And I click the "AddRule" button

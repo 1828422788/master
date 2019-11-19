@@ -4,7 +4,7 @@ Feature: 字段提取CSV解析
   @first
   Scenario Outline: RZY-1544:CSV解析(填写字段列表)
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "AddRule" button
@@ -25,7 +25,7 @@ Feature: 字段提取CSV解析
   @second
   Scenario Outline: RZY-3417:多值字段
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 | T1/2 down 0 0 0 0 | F2/1 up 0 0 0 0 | F2/2 up 0 0 0 0 | F2/3 down 0 0 0 0 | F2/4 down 0 0 0 0 | F2/5 down 0 0 0 0 | F2/6 down 0 0 0 0 | F2/7 down 0 0 0 0 | F2/8 down 0 0 0 0 |"
     And I click the "AddRule" button

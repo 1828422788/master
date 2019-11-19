@@ -3,7 +3,7 @@ Feature: 字段提取结构体解析
 
   Scenario Outline: RZY-2863:非严格解析
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "aaa 111"
     And I click the "AddRule" button
@@ -22,7 +22,7 @@ Feature: 字段提取结构体解析
 
   Scenario Outline: RZY-2862:严格解析
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "aaa 111"
     And I click the "AddRule" button

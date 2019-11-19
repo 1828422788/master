@@ -4,8 +4,8 @@ Feature: 字段提取URL解码规则
   @second
   Scenario Outline: RZY-1539:添加URL解析
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for "CreateButton" will be visible
-    And I click the "CreateButton" button
+    And I wait for "Create" will be visible
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button

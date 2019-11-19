@@ -13,7 +13,7 @@ Feature: 字段提取脱敏配置
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
     And I click the "AddRule" button

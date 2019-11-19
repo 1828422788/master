@@ -4,7 +4,7 @@ Feature: 字段提取Syslog_pri解析
   @second
   Scenario Outline: RZY-1547:syslog_pri解析
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<30>Oct 9 22:33:20 hlfedora auditd[1787]: The audit daemon is exiting."
     And I click the "AddRule" button

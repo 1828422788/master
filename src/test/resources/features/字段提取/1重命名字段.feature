@@ -4,7 +4,7 @@ Feature: 字段提取重命名字段
   @second
   Scenario Outline: 字段重命名（RZY-1590）
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -32,7 +32,7 @@ Feature: 字段提取重命名字段
   @second @configsSmoke
   Scenario Outline: RZY-2865、2866
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button

@@ -4,7 +4,7 @@ Feature: 字段提取UserAgent解析
   @second
   Scenario Outline: RZY-1540:配置User Agent解析
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button

@@ -3,7 +3,7 @@ Feature: 字段提取固定电话解析
 
   Scenario Outline: 固定电话解析（RZY-1558、RZY-1561）
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "03188433218"
     And I click the "AddRule" button

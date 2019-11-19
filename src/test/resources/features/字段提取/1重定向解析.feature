@@ -3,7 +3,7 @@ Feature: 字段提取重定向解析
 
   Scenario: RZY-2867：副规则
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule"
@@ -23,7 +23,7 @@ Feature: 字段提取重定向解析
 
   Scenario: RZY-2868：主规则
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "重定向规则" from the "ParseRule"

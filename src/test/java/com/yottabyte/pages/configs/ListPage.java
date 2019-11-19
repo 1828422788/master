@@ -78,10 +78,6 @@ public class ListPage extends ListPageFactory {
         return message;
     }
 
-    public WebElement getCreateButton() {
-        return super.getButton("新 建");
-    }
-
     public WebElement getDictionary() {
         return super.getButton("字典管理");
     }

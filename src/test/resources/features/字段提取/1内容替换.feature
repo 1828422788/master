@@ -3,7 +3,7 @@ Feature: 字段提取内容替换
 
   Scenario Outline: RZY-1557:不勾选 只替换第一个
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
@@ -24,7 +24,7 @@ Feature: 字段提取内容替换
 
   Scenario Outline: RZY-1556:内容替换
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
@@ -52,7 +52,7 @@ Feature: 字段提取内容替换
 
   Scenario: RZY-1559:tag替换
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule"

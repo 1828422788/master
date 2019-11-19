@@ -3,7 +3,7 @@ Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3076:配置里无extract_limit，manager中改为10
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -21,7 +21,7 @@ Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3077：有extract_limit且设置为200
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -40,7 +40,7 @@ Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3077：有extract_limit且设置为0
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -59,7 +59,7 @@ Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3077：有extract_limit且设置为-1
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -78,7 +78,7 @@ Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3076、3079，修改为10
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -97,7 +97,7 @@ Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3077、3079：有extract_limit且设置为200
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -117,7 +117,7 @@ Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3077：有extract_limit且设置为0
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -137,7 +137,7 @@ Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3077：有extract_limit且设置为-1
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
@@ -157,7 +157,7 @@ Feature: 字段提取Json、xml解析
 
   Scenario Outline: RZY-3078、3079:使用jsonpath不受长度限制影响
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button

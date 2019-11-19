@@ -3,7 +3,7 @@ Feature: 字段提取Hex转换
 
   Scenario Outline: RZY-2825：hex转换
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "e5a4a7e9bb91e5b1b1"
     And I click the "AddRule" button
@@ -22,7 +22,7 @@ Feature: 字段提取Hex转换
 
   Scenario Outline: RZY-2826:高级模式下start_offset的使用
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "00000000: 696d 706f 7274 2073 7973 0a69 6d70 6f72"
     And I click the "AddRule" button

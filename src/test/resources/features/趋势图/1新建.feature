@@ -3,11 +3,10 @@ Feature: 趋势图新建
   @first @trendSmoke
   Scenario Outline: 单值sample1（RZY-2550）
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "default_Trend" from the "GroupDropdown"
     And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -46,7 +45,7 @@ Feature: 趋势图新建
 
     Examples:
       | name               | spl                                                                                            | colourFilling |
-      | RZY-2550:单值sample1 | tag:*hide \| stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") | Background    |
+      | RZY-2550:单值sample1 | tag:*hide \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | Background    |
 
   @first @trendSmoke
   Scenario Outline: 单值sample2（RZY-2551）

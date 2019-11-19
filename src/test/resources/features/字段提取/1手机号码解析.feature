@@ -3,7 +3,7 @@ Feature: 字段提取手机号码解析
 
   Scenario Outline: RZY-2802、2803
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "18840824121"
     And I click the "AddRule" button

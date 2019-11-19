@@ -4,7 +4,7 @@ Feature: 字段提取IP格式转换
   @second
   Scenario Outline: RZY-1555:IP格式转换
     Given open the "configs.ListPage" page for uri "/configs/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "3651919938"
     And I click the "AddRule" button
