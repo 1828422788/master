@@ -12,6 +12,6 @@ Feature: 权限-background
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     When the data name is "{'column':'1','name':'AutoTestSearch'}" then i click the "授权" button
     And I wait for loading invisible
-    And I "check" the checkbox which name is "AutoTestRole" in tiny table
+    And I "check" the checkbox which name is "__user_AutoTest__" in tiny table
     And I click the "Ensure" button
-    Then I will see the success message "保存成功"
+    Then I will see the message "保存成功"

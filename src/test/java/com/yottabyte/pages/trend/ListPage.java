@@ -14,4 +14,10 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    private WebElement message;
+
+    public WebElement getMessage() {
+        return message;
+    }
 }

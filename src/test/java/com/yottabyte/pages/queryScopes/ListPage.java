@@ -23,11 +23,6 @@ public class ListPage extends ListPageFactory {
         return modalContent;
     }
 
-    @Override
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
-
     public WebElement getName() {
         return super.getPlaceholderInput("请输入名称");
     }
@@ -57,6 +52,6 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getMessage() {
-        return super.getSuccessMessage();
+        return successMessage;
     }
 }

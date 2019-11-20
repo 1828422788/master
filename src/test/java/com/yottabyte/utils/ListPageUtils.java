@@ -167,6 +167,7 @@ public class ListPageUtils {
                 break;
             } else {
                 nextPage.click();
+                WaitForElement.waitUntilLoadingDisappear();
             }
         }
         return null;

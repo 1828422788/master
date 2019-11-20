@@ -474,8 +474,15 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='新建成功！']")
     private WebElement successCreate;
 
+    @FindBy(xpath = "//span[text()='更新成功']")
+    private WebElement successUpdate;
+
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
     private WebElement appDropdownIcon;
+
+    public WebElement getSuccessUpdate() {
+        return successUpdate;
+    }
 
     public WebElement getSuccessCreate() {
         return successCreate;
