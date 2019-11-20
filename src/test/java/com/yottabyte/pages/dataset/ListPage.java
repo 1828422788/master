@@ -11,8 +11,10 @@ import org.openqa.selenium.support.FindBy;
 public class ListPage extends ListPageFactory {
     @FindBy(id = "EditDatabase_name")
     private WebElement name;
+
     @FindBy(id = "EditDatabase_alias")
     private WebElement alias;
+
     @FindBy(id = "EditDatabase_queryfilter")
     private WebElement spl;
 
@@ -30,5 +32,9 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getSpl() {
         return spl;
+    }
+
+    public WebElement getEditEvent() {
+        return super.getButton("编辑根事件");
     }
 }
