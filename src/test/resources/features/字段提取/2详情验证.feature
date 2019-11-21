@@ -1,3 +1,4 @@
+@configsSmoke
 Feature: 字段提取详情验证
 
   Scenario Outline: 验证详情

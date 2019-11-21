@@ -1,3 +1,4 @@
+@second @configsSmoke
 Feature: 字段提取搜索验证
 
   Scenario Outline: RZY-3418:在搜索页验证
@@ -67,7 +68,6 @@ Feature: 字段提取搜索验证
       | appname:base64  | {"other.code":"other.code：hello base64"}                                                               |
       | appname:unicode | {"other.rr":"other.rr：PartyBasicInfoService_客户基本信息服务"}                                                 |
 
-  @second @configsSmoke
   Scenario: RZY-2830:在搜索页验证是否脱敏
     Given I wait for loading complete
     Given I will see the "PublicNavBarPage" page

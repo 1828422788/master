@@ -19,13 +19,13 @@ Feature: 字段提取前提条件
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     When the data name is "{'column':'1','name':'AutoTest搜索权限'}" then i click the "授权" button
     And I wait for "ModalContent" will be visible
-    And I "check" the checkbox which name is "AutoTestRole" in tiny table
+    And I "check" the checkbox which name is "__user_AutoTest__" in tiny table
     And I click the "Ensure" button
     Then I wait for "SuccessMessage" will be visible
 
   Scenario: RZY-2829:设置用户权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
