@@ -1,4 +1,3 @@
-@indexSetting
 Feature: 入库优先级新建（RZY-1485）
 
   Background:
