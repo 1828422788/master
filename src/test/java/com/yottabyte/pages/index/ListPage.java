@@ -1,6 +1,6 @@
 package com.yottabyte.pages.index;
 
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.pages.ListPageFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,29 +8,9 @@ import org.openqa.selenium.support.FindBy;
 /**
  * @author sunxj
  */
-public class ListPage extends PageTemplate {
+public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
-    }
-
-    @FindBy(className = "el-message-box__message")
-    private WebElement message;
-
-    @FindBy(className = "el-message__group")
-    private WebElement successmessage;
-
-    @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
-    private WebElement searchInput;
-
-    @FindBy(className = "el-icon-search")
-    private WebElement search;
-
-    public WebElement getSearch() {
-        return search;
-    }
-
-    public WebElement getSearchInput() {
-        return searchInput;
     }
 
     public WebElement getAddButton() {
@@ -39,10 +19,6 @@ public class ListPage extends PageTemplate {
 
     public WebElement getEnsureButton() {
         return super.getContainsTextButton("确定");
-    }
-
-    public WebElement getSuccessMessage() {
-        return message;
     }
 
     public WebElement getIndexMatchRule() {
@@ -57,7 +33,4 @@ public class ListPage extends PageTemplate {
         return super.getButton("索引配置");
     }
 
-    public WebElement getMessage() {
-        return successmessage;
-    }
 }

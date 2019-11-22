@@ -21,8 +21,8 @@ Feature: 索引信息新建
     Then I will see the "index.MatchRuleCreatePage" page
     When I choose the "<name>" from the "IndexName"
     And I set the parameter "Desc" with value "AutoTest"
-    And I set the parameter "Tag" with value "test"
-    And I set the parameter "AppName" with value "test"
+    And I set the parameter "Tag" with value "AutoTest"
+    And I set the parameter "AppName" with value "AutoTest"
     And I click the "CreateButton" button
     Then I will see the <message>
 
@@ -33,14 +33,14 @@ Feature: 索引信息新建
   @second @indexSettingSmoke
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    And I set the parameter "AppName" with value "test"
-    And I set the parameter "Tag" with value "test"
+    And I set the parameter "AppName" with value "AutoTest"
+    And I set the parameter "Tag" with value "AutoTest"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
 
   @second @indexSettingSmoke
-  Scenario: RZY-1474:新建
+  Scenario: RZY-1474:新建索引
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
     When I set the parameter "Name" with value "error"
@@ -58,7 +58,7 @@ Feature: 索引信息新建
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the "SearchResult" of "<spl>" will between "10"
+    Then I will see the element "EventNumber" name is "(10)"
 
     Examples:
       | spl                                     |
@@ -89,6 +89,7 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "sunxctime"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
+    And I wait for element "VerifyText" change text to "上传完成"
 
     Examples: 新建成功
       | name      | desc           | savedTime | divideTime | message |
@@ -120,6 +121,7 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "<name>"
     And I upload a file with name "/src/test/resources/testdata/log/h3c.txt"
     And I click the "UploadButton" button
+    And I wait for element "VerifyText" change text to "上传完成"
 
     Examples: 新建成功
       | name      | desc               | savedTime | divideTime | message |
@@ -154,7 +156,7 @@ Feature: 索引信息新建
       | Test |      |           |            |           | error message "索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串" |
       | test |      |           |            |           | error message "保存时间 不能为空"                          |
       | test |      | 1         |            |           | error message "切分时间 不能为空"                          |
-      | test |      | 1         | 1          |           | error message "切分时间应小于有效时间"                        |
+      | test |      | 1         | 1          |           | error message "切分时间应小于保存时间"                        |
       | test |      | -1        | 1          |           | error message "保存时间应为正整数"                          |
       | test |      | 1         | 0.5        |           | error message "切分时间应为正整数"                          |
       | test |      | 2         | 1          | 0.1       | error message "保存大小应为正整数"                          |

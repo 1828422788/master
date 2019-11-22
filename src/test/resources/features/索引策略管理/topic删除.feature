@@ -6,4 +6,4 @@ Feature: topic删除（RZY-2429）
 
   Scenario:
     When the data name is "topictest" then i click the "删除" button
-    And I click the "EnsureDelete" button
+    And I click the "Ensure" button

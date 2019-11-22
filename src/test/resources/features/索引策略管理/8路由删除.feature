@@ -6,7 +6,7 @@ Feature: 路由删除（RZY-1482）
 
   Scenario Outline:
     Given the data name is "{'column':'<num>','name':'<name>'}" then i click the "删除" button
-    Then I click the "EnsureButton" button
+    Then I click the "Ensure" button
 
     Examples:
       | num | name                 |

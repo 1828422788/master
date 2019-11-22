@@ -2,17 +2,12 @@ package com.yottabyte.pages;
 
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.utils.DropdownUtils;
-import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.LoadableComponent;
-
-import java.util.List;
 
 /**
  * @author sunxj
@@ -39,6 +34,13 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     @FindBy(className = "ant-message-success")
     private WebElement successMessage;
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    private WebElement message;
+
+    public WebElement getMessage() {
+        return message;
+    }
 
     public WebElement getSearchIcon() {
         return searchIcon;

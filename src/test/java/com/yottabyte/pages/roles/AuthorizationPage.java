@@ -56,6 +56,34 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "function-checkbox")
     private WebElement functionCheckbox;
 
+    @FindBy(xpath = "(//span[text()='自定义']/ancestor::label)[last()]")
+    private WebElement customize;
+
+    @FindBy(xpath = "(//i[@class='el-input__icon el-icon-time'])[last()]")
+    private WebElement dateEditor;
+
+    @FindBy(xpath = "//input[@placeholder='选择时间']")
+    private WebElement timeInput;
+
+    @FindBy(className = "el-picker-panel__btn")
+    private WebElement ensureTime;
+
+    public WebElement getEnsureTime() {
+        return ensureTime;
+    }
+
+    public WebElement getTimeInput() {
+        return timeInput;
+    }
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    public WebElement getCustomize() {
+        return customize;
+    }
+
     public WebElement getLoading() {
         return loading;
     }

@@ -6,7 +6,6 @@ import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.ListPageUtils;
 import com.yottabyte.utils.Paging;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -382,5 +381,12 @@ public class ClickButtonWithGivenName {
                 functionButton.click();
             }
         }
+    }
+
+    @When("^the data name is \"([^\"]*)\" then I click the \"([^\"]*)\" button without total page$")
+    public void clickButtonWithoutTotalPage(String name, String buttonName) {
+        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        WebElement button = tr.findElement(By.xpath(".//span[text()='" + buttonName + "']/ancestor::button"));
+        button.click();
     }
 }

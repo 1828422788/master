@@ -1,6 +1,7 @@
 package com.yottabyte.pages.index;
 
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,31 +51,31 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getName() {
-        return super.getInputElement("名称");
+        return getInputElement("名称");
     }
 
     public WebElement getDesc() {
-        return super.getInputElement("描述");
+        return getInputElement("描述");
     }
 
     public WebElement getSavedTime() {
-        return super.getInputElement("保存时间");
+        return getInputElement("保存时间");
     }
 
     public WebElement getDivideTime() {
-        return super.getInputElement("切分时间");
+        return getInputElement("切分时间");
     }
 
     public WebElement getColdTime() {
-        return super.getInputElement("冷却时间");
+        return getInputElement("冷却时间");
     }
 
     public WebElement getSavedSize() {
-        return super.getInputElement("保存大小");
+        return getInputElement("保存大小");
     }
 
     public WebElement getCreateButton() {
-        return super.getContainsTextButton("新建");
+        return getContainsTextButton("新建");
     }
 
     public WebElement getSuccessMessage() {
@@ -83,5 +84,13 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
+    }
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div//input"));
+    }
+
+    public WebElement getLastDropdownList() {
+        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
     }
 }

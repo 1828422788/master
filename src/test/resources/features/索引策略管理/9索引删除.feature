@@ -5,8 +5,8 @@ Feature: 索引信息删除（RZY-1476）
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
 
   Scenario Outline:
-    Given the data name is "<name>" then i click the "删除" button without paging
-    And I click the "EnsureButton" button
+    Given the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I click the "Ensure" button
 
     Examples:
       | name       |

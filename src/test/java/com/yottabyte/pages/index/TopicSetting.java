@@ -1,6 +1,8 @@
 package com.yottabyte.pages.index;
 
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,35 +10,28 @@ import org.openqa.selenium.support.FindBy;
 /**
  * @author sunxj
  */
-public class TopicSetting extends PageTemplate {
+public class TopicSetting extends ListPageFactory {
     public TopicSetting(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(className = "el-message__group")
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement successMessage;
-
-    @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
-    private WebElement ensureDelete;
 
     public WebElement getCreateButton() {
         return super.getButton("新建");
     }
 
     public WebElement getName() {
-        return super.getInputElement("名称");
+        return getInputElement("名称");
     }
 
     public WebElement getDescribe() {
-        return super.getInputElement("描述");
+        return getInputElement("描述");
     }
 
     public WebElement getEnsureButton() {
-        return super.getButton("确定");
-    }
-
-    public WebElement getEnsureDelete() {
-        return ensureDelete;
+        return super.getButton("保存");
     }
 
     public WebElement getSuccessMessage() {
@@ -44,7 +39,11 @@ public class TopicSetting extends PageTemplate {
     }
 
     public WebElement getErrorMessage() {
-        return super.getErrorMessage();
+        return successMessage;
+    }
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::div/following-sibling::div/input"));
     }
 
 }

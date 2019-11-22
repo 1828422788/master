@@ -13,7 +13,7 @@ Feature: topic编辑（RZY-2428）
   @second @indexSettingSmoke
     Examples:
       | describe      | message                |
-      | 描述test描述，点击保存 | success message "保存成功" |
+      | 描述test描述，点击保存 | success message "更新成功" |
 
     Examples: RZY-2427
       | describe                                                                                                                                                                                                                                                        | message                     |

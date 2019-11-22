@@ -551,6 +551,13 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//label[text()='所属应用']/ancestor::div//i[@class='anticon anticon-down ant-select-arrow-icon'])[last()]")
     private WebElement appIcon;
 
+    @FindBy(xpath = "//div[text()='事件']/span")
+    private WebElement eventNumber;
+
+    public WebElement getEventNumber() {
+        return eventNumber;
+    }
+
     public WebElement getAppDropdown() {
         appIcon.click();
         return super.getLastDropdownList();

@@ -1,6 +1,7 @@
 package com.yottabyte.pages.index;
 
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,27 +36,36 @@ public class MatchRuleCreatePage extends PageTemplate {
     }
 
     public WebElement getIndexName() {
-        return super.getDropdownList("索引名");
+        return getDropdownList("索引名");
     }
 
     public WebElement getTopicName() {
-        return super.getDropdownList("Topic名");
+        return getDropdownList("Topic名");
     }
 
     public WebElement getDesc() {
-        return super.getInputElement("描述");
+        return getInputElement("描述");
     }
 
     public WebElement getCreateButton() {
-        return super.getContainsTextButton("新建");
+        return getContainsTextButton("新建");
     }
 
     public WebElement getSuccessMessage() {
-        return super.getErrorMessage();
+        return getErrorMessage();
     }
 
     public WebElement getSavedButton() {
-        return super.getContainsTextButton("保存");
+        return getContainsTextButton("保存");
     }
 
+    public WebElement getDropdownList(String name) {
+        WebElement icon = webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div"));
+        icon.click();
+        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
+    }
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div//input"));
+    }
 }

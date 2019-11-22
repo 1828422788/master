@@ -61,7 +61,7 @@ public class Paging {
      */
     public boolean checkUrl() {
         String currentUrl = webDriver.getCurrentUrl();
-        String[] vueUrl = {"/account/usergroups/", "/account/roles/", "/account/users/", "/event/"};
+        String[] vueUrl = {"/account/usergroups/", "/account/roles/", "/account/users/", "/event/","/plugins/"};
         for (String url : vueUrl) {
             if (currentUrl.contains(url)) {
                 return true;

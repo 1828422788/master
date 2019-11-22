@@ -3,7 +3,8 @@ Feature: 索引信息禁用（RZY-1475）
 
   Scenario: 禁用索引
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
-    And I disabled the data "indexerror"
+    Then the data name is "{'column':'1','name':'indexerror'}" then I "close" the switch
+    Then I will see the success message "禁用成功"
 
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -24,9 +25,10 @@ Feature: 索引信息禁用（RZY-1475）
 
   Scenario: 启用索引
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
-    And I disabled the data "indexerror"
+    Then the data name is "{'column':'1','name':'indexerror'}" then I "open" the switch
+    Then I will see the success message "启用成功"
 
-  Scenario: 上传日志
+  Scenario: 上传
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "testdisable"
     And I set the parameter "Tag" with value "testdisable"
@@ -41,7 +43,5 @@ Feature: 索引信息禁用（RZY-1475）
     And I click the "WholeTime" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "{'anonymity':'0'}"
 
 
