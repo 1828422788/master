@@ -151,15 +151,15 @@ Feature: 索引信息新建
     Then I will see the <message>
 
     Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                                            |
-      |      |      |           |            |           | error message "名称 不能为空"                            |
-      | Test |      |           |            |           | error message "索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串" |
-      | test |      |           |            |           | error message "保存时间 不能为空"                          |
-      | test |      | 1         |            |           | error message "切分时间 不能为空"                          |
-      | test |      | 1         | 1          |           | error message "切分时间应小于保存时间"                        |
-      | test |      | -1        | 1          |           | error message "保存时间应为正整数"                          |
-      | test |      | 1         | 0.5        |           | error message "切分时间应为正整数"                          |
-      | test |      | 2         | 1          | 0.1       | error message "保存大小应为正整数"                          |
-      | test |      | 2         | 1          | 0         | error message "保存大小 不能为零"                          |
-      | test |      | 2         | 1          | -1        | error message "保存大小应为正整数"                          |
+      | name     | desc | savedTime | divideTime | savedSize | message                                            |
+      |          |      |           |            |           | error message "名称 不能为空"                            |
+      | Test     |      |           |            |           | error message "索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串" |
+      | test     |      |           |            |           | error message "保存时间 不能为空"                          |
+      | test     |      | 1         |            |           | error message "切分时间 不能为空"                          |
+      | test     |      | 1         | 1          |           | error message "切分时间应小于保存时间"                        |
+      | test     |      | -1        | 1          |           | error message "保存时间应为正整数"                          |
+      | test     |      | 1         | 0.5        |           | error message "切分时间应为正整数"                          |
+      | test     |      | 2         | 1          | 0.1       | error message "保存大小应为正整数"                          |
+      | test     |      | 2         | 1          | 0         | error message "保存大小 不能为零"                          |
+      | Temptest |      | 2         | 1          | -1        | error message "保存大小应为正整数"                          |
 

@@ -24,7 +24,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the "Create" doesn't exist
 
-  Scenario: 授权新建仪表盘（RZY-606）
+  Scenario: 授权新建仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
