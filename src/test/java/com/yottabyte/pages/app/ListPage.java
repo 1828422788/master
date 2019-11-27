@@ -19,6 +19,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-table__empty-text")
     private WebElement emptyText;
 
+    @FindBy(xpath = "//span[text()='名称']/following-sibling::span")
+    private WebElement nameText;
+
+    public WebElement getNameText() {
+        return nameText;
+    }
+
     public WebElement getEmptyText() {
         return emptyText;
     }

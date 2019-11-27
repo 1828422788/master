@@ -3,6 +3,7 @@ package com.yottabyte.pages.dashboard;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -519,7 +520,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getTagName() {
-        return super.getInputElement("名称");
+        return getInputElement("名称");
     }
 
     public WebElement getEnsureCreateTagButton() {
@@ -549,5 +550,9 @@ public class DetailPage extends PageTemplate {
     @Override
     protected void isLoaded() throws Error {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
+    }
+
+    public WebElement getInputElement(String name) {
+        return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
     }
 }

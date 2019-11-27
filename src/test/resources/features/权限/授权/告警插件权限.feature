@@ -19,6 +19,7 @@ Feature: 授权告警插件
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'功能'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "可查看告警插件,可使用监控"
     And I click the "SaveButton" button
 
@@ -46,6 +47,7 @@ Feature: 授权告警插件
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'功能'}" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "可查看告警插件,可使用监控"
     And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
@@ -59,3 +61,4 @@ Feature: 授权告警插件
     And I wait for "2000" millsecond
     Given open the "alert.PluginPage" page for uri "/plugins/"
     Then I will see the search result "sendsms"
+

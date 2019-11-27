@@ -20,7 +20,7 @@ Feature: 基础用户创建
     Then I will see the "userGroups.CreatePage" page
     When I set the parameter "UserGroupName" with value "<groupProperty>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
-    And I choose the "<roleProperty>" from the "UserGroupRole"
+#    And I choose the "<roleProperty>" from the "UserGroupRole"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 

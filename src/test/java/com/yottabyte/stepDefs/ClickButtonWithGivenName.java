@@ -6,6 +6,7 @@ import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.ListPageUtils;
 import com.yottabyte.utils.Paging;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -177,13 +178,13 @@ public class ClickButtonWithGivenName {
         WebElement tr;
         if (!JsonStringPaser.isJson(name)) {
             tr = listPageUtils.findName(name);
-            xpath = ".//span[contains(text(),'" + name + "')]";
+            xpath = ".//a";
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(name);
             String text = map.get("name").toString();
             int columnNum = Integer.parseInt(map.get("column").toString());
             tr = listPageUtils.getRowWithColumnNum(text, columnNum);
-            xpath = ".//span[contains(text(),'" + text + "')]";
+            xpath = ".//a";
         }
         tr.findElement(By.xpath(xpath)).click();
     }
@@ -369,6 +370,13 @@ public class ClickButtonWithGivenName {
         if (currentStatus.contains("checked") && "uncheck".equals(status) || !currentStatus.contains("checked") && "check".equals(status)) {
             checkbox.click();
         }
+    }
+
+    @Then("^I will see the checkbox in tiny table before \"([^\"]*)\" is disabled$")
+    public void assertDisabled(String name) {
+        WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
+        WebElement checkbox = tr.findElement(By.xpath(".//label"));
+        Assert.assertTrue(checkbox.getAttribute("class").contains("ant-checkbox-wrapper-disabled"));
     }
 
     @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table which name is \"([^\"]*)\"$")

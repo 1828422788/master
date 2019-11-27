@@ -52,6 +52,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
     private WebElement search;
 
+    @FindBy(xpath = "(//div[@class='ant-modal-body']//p)[1]")
+    private WebElement errorMessage;
+
     public WebElement getSearchInput() {
         return searchInput;
     }
@@ -101,4 +104,7 @@ public class ListPage extends ListPageFactory {
         return successMessage;
     }
 
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
 }

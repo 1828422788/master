@@ -49,6 +49,13 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='读取资源包异常！']")
     private WebElement errorInfo;
 
+    @FindBy(xpath = "//span[text()='Api 没有权限错误']")
+    private WebElement noAuth;
+
+    public WebElement getNoAuth() {
+        return noAuth;
+    }
+
     public WebElement getEnsure() {
         return super.getButton("确定");
     }
