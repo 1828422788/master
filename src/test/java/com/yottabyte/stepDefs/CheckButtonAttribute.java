@@ -4,6 +4,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -230,5 +231,11 @@ public class CheckButtonAttribute {
         String xpath = "//a[text()='" + name + "']/ancestor::tr";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         Assert.assertTrue("实际值：" + element.getText() + "\n期望值：" + expectText, element.getText().contains(expectText));
+    }
+
+    @Then("^I will see the element \"([^\"]*)\" attribute is \"([^\"]*)\"$")
+    public void iWillSeeTheElementAttributeIs(String elementName, String attribute) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        Assert.assertTrue("enabled".equals(attribute) && element.isEnabled() || "disabled".equals(attribute) && !element.isEnabled());
     }
 }

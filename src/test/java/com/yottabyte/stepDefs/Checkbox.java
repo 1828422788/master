@@ -1,8 +1,12 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.ListPageUtils;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -51,5 +55,13 @@ public class Checkbox {
                 label.findElement(By.xpath(".//ancestor::label")).click();
             }
         }
+    }
+
+    @Then("^I will see the checkbox in list before \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void checkAttribute(String name, String attribute) {
+        ListPageUtils listPageUtils = new ListPageUtils();
+        WebElement tr = listPageUtils.getTr(name);
+        WebElement label = tr.findElement(By.xpath(".//button"));
+        Assert.assertTrue("enabled".equals(attribute) && label.isEnabled() || "disabled".equals(attribute) && !label.isEnabled());
     }
 }
