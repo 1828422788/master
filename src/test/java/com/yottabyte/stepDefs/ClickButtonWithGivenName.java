@@ -6,7 +6,6 @@ import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.ListPageUtils;
 import com.yottabyte.utils.Paging;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -105,7 +104,7 @@ public class ClickButtonWithGivenName {
         int column = Integer.parseInt(map.get("column").toString());
 
         WebElement table = GetElementFromPage.getWebElementWithName("Table");
-        WebElement tr = listPageUtils.getRowWithoutPaging(name, column, table);
+        WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
 
         Map<String, Object> resultMap = JsonStringPaser.json2Stirng(result);
         int resultColumn = Integer.parseInt(resultMap.get("column").toString());
@@ -132,12 +131,7 @@ public class ClickButtonWithGivenName {
             xpath = ".//a[text()='" + buttonName + "']";
         }
         List<WebElement> button = tr.findElements(By.xpath(xpath));
-        // 包含删除的按钮会有两个，因此需通过class属性去判断
-//        if (button.get(0).getAttribute("class").equals("")) {
-//            ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
-//        } else {
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
-//        }
     }
 
     @Given("^I close \"([^\"]*)\" without paging$")
@@ -396,5 +390,19 @@ public class ClickButtonWithGivenName {
         WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
         WebElement button = tr.findElement(By.xpath(".//span[text()='" + buttonName + "']/ancestor::button"));
         button.click();
+    }
+
+    @Then("^I click the star before \"([^\"]*)\" in saved search$")
+    public void iClickTheStarBeforeInSavedSearch(String name) {
+        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        WebElement star = tr.findElement(By.xpath(".//i"));
+        star.click();
+    }
+
+    @Then("^I will see the switch button before \"([^\"]*)\" is disabled$")
+    public void checkSwitch(String name) {
+        WebElement tr = listPageUtils.getTr(name);
+        WebElement switchButton = tr.findElement(By.xpath(".//button"));
+        Assert.assertFalse(switchButton.isEnabled());
     }
 }

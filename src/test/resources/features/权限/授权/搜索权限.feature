@@ -46,8 +46,7 @@ Feature: 权限-搜索权限
     Then I click the "{'TabButton':'搜索权限'}" button
     And I wait for loading invisible
     And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
-    When I "checked" function "读取" from the auth table which name is "<name>"
+    When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible

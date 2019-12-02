@@ -4,7 +4,7 @@ Feature: 已存搜索加载（RZY-153）
   Scenario Outline:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     Given I click the "OpenSavedSearchButton" button
-    And "加载" the data "<name>" in columnNum "1"
+    And "加载" the data "<name>" in tiny saved search
     Then I will see the input element "SearchInput" value will be "<spl>"
 
     Examples:

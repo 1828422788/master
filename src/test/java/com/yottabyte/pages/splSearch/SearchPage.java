@@ -409,7 +409,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//button[@class='el-button el-button--primary']/span[text()='确定']")
     private List<WebElement> ensureList;
 
-    @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
+    @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
     private WebElement deleteSavedSearch;
 
     public WebElement getDeleteSavedSearch() {
@@ -553,6 +553,9 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[text()='事件']/span")
     private WebElement eventNumber;
+
+    @FindBy(className = "ant-message-success")
+    private WebElement message;
 
     public WebElement getEventNumber() {
         return eventNumber;
@@ -1205,7 +1208,7 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getMessage() {
-        return successMessage;
+        return message;
     }
 
     public WebElement getDownloadButton() {

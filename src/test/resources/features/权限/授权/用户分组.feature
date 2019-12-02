@@ -2,7 +2,7 @@ Feature: 权限-用户分组
 
   Scenario: 验证无新建用户分组的权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -24,7 +24,7 @@ Feature: 权限-用户分组
 
   Scenario: 验证新建用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -62,7 +62,7 @@ Feature: 权限-用户分组
 
   Scenario: 授权读取+编辑AutoTestGroup
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     When I check "读取,编辑" from the "{'GroupManagement':['AutoTestGroup']}"
     And I click the "SaveButton" button
@@ -95,7 +95,7 @@ Feature: 权限-用户分组
 
   Scenario: 授权读取+编辑+删除AutoTestGroup
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     When I check "读取,编辑,删除" from the "{'GroupManagement':['AutoTestGroup']}"
     And I click the "SaveButton" button
@@ -123,7 +123,7 @@ Feature: 权限-用户分组
 
   Scenario: 取消AutoTest同组用户授权
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I "checked" the label before "用户分组权限验证"
     And I "unchecked" the label before "用户分组权限验证"
@@ -151,7 +151,7 @@ Feature: 权限-用户分组
 
   Scenario: 授权组内读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     When I check "读取,编辑" from the "{'GroupManagement':['AutoTestGroup']}"
     When I check "读取" from the "{'IntraGroupManagement':['AutoTestGroup']}"
@@ -185,7 +185,7 @@ Feature: 权限-用户分组
 
   Scenario: 授权组内读取+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     When I check "读取,编辑" from the "{'GroupManagement':['AutoTestGroup']}"
     When I check "读取,编辑" from the "{'IntraGroupManagement':['AutoTestGroup']}"
@@ -221,7 +221,7 @@ Feature: 权限-用户分组
 
 #  Scenario: 授权组内读取+编辑+转授
 #    Given open the "roles.ListPage" page for uri "/account/roles/"
-#    And the data name is "AutoTestRole" then i click the "授权" button
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
 #    And I will see the "roles.AuthorizationPage" page
 #    When I check "读取,编辑" from the "{'GroupManagement':['AutoTestGroup']}"
 #    When I check "读取,编辑,转授" from the "{'IntraGroupManagement':['AutoTestGroup']}"

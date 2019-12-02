@@ -1,5 +1,6 @@
 package com.yottabyte.pages.splSearch;
 
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * @author sunxj
  */
-public class SavedSearchPage extends PageTemplate {
+public class SavedSearchPage extends ListPageFactory {
     public SavedSearchPage(WebDriver driver) {
         super(driver);
     }
@@ -22,12 +23,6 @@ public class SavedSearchPage extends PageTemplate {
 
     @FindBy(xpath = "(//*[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
     private WebElement dropdownMenu;
-
-    @FindBy(className = "yw-modal-btn-primary")
-    private WebElement ensure;
-
-    @FindBy(className = "el-message__group")
-    private WebElement successMessage;
 
     @FindBy(xpath = "//label[contains(text(),'分组')]/following-sibling::div//input[@class='el-input__inner']")
     private WebElement changeGroup;
@@ -41,6 +36,13 @@ public class SavedSearchPage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    @FindBy(xpath = "//i[@aria-label='图标: star']")
+    private WebElement star;
+
+    public WebElement getStar() {
+        return star;
+    }
+
     public WebElement getMessage() {
         return message;
     }
@@ -52,14 +54,6 @@ public class SavedSearchPage extends PageTemplate {
     public WebElement getChangeGroup() {
         changeGroup.click();
         return dropdownList.get(dropdownList.size() - 1);
-    }
-
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
-
-    public WebElement getEnsure() {
-        return ensure;
     }
 
     public WebElement getGroupList() {

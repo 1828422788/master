@@ -3,6 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetElementFromPage;
+import com.yottabyte.utils.ListPageUtils;
 import com.yottabyte.utils.WaitForElement;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -79,18 +80,12 @@ public class Delete {
         }
     }
 
-    @Then("^\"([^\"]*)\" the data \"([^\"]*)\" in columnNum \"([^\"]*)\"$")
-    public void clickButton(String buttonName, String dataName, String columnNum) {
-        WebElement table = webDriver.findElement(By.className("yw-search-dialog-table"));
-        WebElement tableBody = table.findElement(By.tagName("tbody"));
-        List<WebElement> trList = tableBody.findElements(By.tagName("tr"));
-        String xpath = ".//span[text()='" + buttonName + "']";
-        for (WebElement tr : trList) {
-            String text = tr.findElements(By.tagName("td")).get(Integer.parseInt(columnNum)).getText();
-            if (text.equals(dataName)) {
-                tr.findElement(By.xpath(xpath)).click();
-                break;
-            }
-        }
+    @Then("^\"([^\"]*)\" the data \"([^\"]*)\" in tiny saved search$")
+    public void clickButton(String buttonName, String dataName) {
+        WebElement tableBody = webDriver.findElement(By.xpath("//tbody[@class='ant-table-tbody']"));
+        ListPageUtils listPageUtils = new ListPageUtils();
+        WebElement row = listPageUtils.getRowWithoutPaging(dataName, tableBody);
+        WebElement button = row.findElement(By.xpath(".//a[text()='" + buttonName + "']"));
+        button.click();
     }
 }

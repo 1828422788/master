@@ -70,7 +70,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return disabledLi;
     }
 
-    protected WebElement getErrorMessage() {
+    public WebElement getErrorMessage() {
         return message;
     }
 

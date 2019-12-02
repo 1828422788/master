@@ -37,6 +37,9 @@ public class VerifyTitle {
             @Override
             public Boolean apply(WebDriver driver) {
                 Boolean flag = GetElementFromPage.getCurrentPageTitle().contains(titleName);
+                if ("仪表盘|搜索".equals(titleName)) {
+                    flag = GetElementFromPage.getCurrentPageTitle().contains("仪表盘") || GetElementFromPage.getCurrentPageTitle().contains("搜索");
+                }
                 return flag;
             }
         };

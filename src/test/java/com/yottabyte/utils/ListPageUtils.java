@@ -75,9 +75,8 @@ public class ListPageUtils {
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
             String name = map.get("name").toString();
-            int columnNum = Integer.parseInt(map.get("column").toString());
             WebElement table = pagingInfo.getTableList().get(0);
-            tr = this.getRowWithoutPaging(name, columnNum, table);
+            tr = this.getRowWithoutPaging(name, table);
         }
         return tr;
     }
@@ -130,12 +129,8 @@ public class ListPageUtils {
     }
 
     public WebElement getRowWithoutPaging(String name, WebElement table) {
-        return this.getRowWithoutPaging(name, 0, table);
-    }
-
-    public WebElement getRowWithoutPaging(String name, int column, WebElement table) {
         // 找到一行元素
-        List<WebElement> trList = webDriver.findElements(By.tagName("tr"));
+        List<WebElement> trList = table.findElements(By.xpath(".//tr"));
 
         for (WebElement tr : trList) {
             if (tr.getText().contains(name)) {
@@ -153,7 +148,8 @@ public class ListPageUtils {
             trListXpath = "//tr";
         } else {
             nextPageXpath = "//li[@class=' ant-pagination-next']";
-            trListXpath = "//div[@class='ant-modal-content']//tr";
+//            trListXpath = "//div[@class='ant-modal-content']//tr";
+            trListXpath = "//tr";
         }
         while (true) {
             List<WebElement> trList = webDriver.findElements(By.xpath(trListXpath));

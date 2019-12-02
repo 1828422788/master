@@ -3,7 +3,7 @@ Feature: 权限-监控
 
   Scenario: 验证无新建监控、查看告警插件的权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -26,7 +26,7 @@ Feature: 权限-监控
 
   Scenario: 验证可查看告警插件，无新建告警插件权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -52,7 +52,7 @@ Feature: 权限-监控
 
   Scenario: 验证可新建监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -82,13 +82,11 @@ Feature: 权限-监控
 
   Scenario: 验证可新建/更新告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可查看告警插件,可新建/更新告警插件,可使用监控,新建监控"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
@@ -123,7 +121,7 @@ Feature: 权限-监控
 
   Scenario: 验证无任何权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -146,13 +144,11 @@ Feature: 权限-监控
 
   Scenario: 验证有读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可查看告警插件,可新建/更新告警插件,可使用监控,新建监控"
     And I click the "SaveButton" button
     Then I click the "{'TabButton':'监控'}" button
     When I "checked" function "读取" from the auth table which name is "AutoTest权限验证"
@@ -168,11 +164,13 @@ Feature: 权限-监控
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
+
+
     Then I will see the search result contains "{'column':'1','name':'AutoTest权限验证'}"
 
   Scenario: 授权有读取+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -210,7 +208,7 @@ Feature: 权限-监控
 
   Scenario: 授权读取+编辑+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -261,7 +259,7 @@ Feature: 权限-监控
 
   Scenario: 授权可使用搜索页
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -296,7 +294,7 @@ Feature: 权限-监控
 
   Scenario: 授权读取+删除权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
