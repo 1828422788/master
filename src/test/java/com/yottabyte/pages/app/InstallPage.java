@@ -70,7 +70,7 @@ public class InstallPage extends PageTemplate {
     }
 
     public WebElement getSearchInput() {
-        return super.findInputByPlaceholder("输入关键字");
+        return super.findInputByPlaceholder("请输入关键字");
     }
 
     public WebElement getAddDataset() {

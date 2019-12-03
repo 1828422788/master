@@ -24,7 +24,15 @@ public class DropdownUtils {
     }
 
     public WebElement getLastDropdownList() {
-        List<WebElement> list = webDriver.findElements(By.className("ant-select-dropdown-menu-root"));
+        String className;
+        Paging paging = new Paging();
+        if (paging.checkUrl()) {
+            className = "el-select-dropdown__list";
+        } else {
+            className = "ant-select-dropdown-menu-root";
+        }
+
+        List<WebElement> list = webDriver.findElements(By.className(className));
         WebElement lastDropdownList = list.get(list.size() - 1);
         if (lastDropdownList.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);

@@ -9,7 +9,7 @@ Feature: 应用事件操作（RZY-2141）
     Then I will see the "event.ListPage" page
 
   Scenario: 新建事件操作
-    When I click the "CreateButton" button
+    When I click the "Create" button
     And I will see the "app.AppPage" page
     And I will see the element "OldTitle" name is "EventApp"
     Then I will see the "event.CreatePage" page

@@ -287,6 +287,8 @@ Feature: 权限-趋势图
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"
     And I click the "NextButton" button
+    And I wait for "TrendTitle" will be visible
+    And I will see the element "TrendTitle" name is "<name>"
     And I click the "Save" button
     Then I will see the success message "保存成功"
     And open the "trend.ListPage" page for uri "/trend/"

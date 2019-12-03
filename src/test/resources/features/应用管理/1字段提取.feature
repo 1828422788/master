@@ -46,7 +46,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "test"
+    When I set the parameter "LogSample" with value "testtesttesttest"
     And I click the "NextButton" button
     And I click the "SwitchButton" button
     Then I click the "NextButton" button

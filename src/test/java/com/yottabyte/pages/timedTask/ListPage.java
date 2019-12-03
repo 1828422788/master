@@ -54,9 +54,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[@class='link switch-margin switch-text']")
     private List<WebElement> names;
 
-    @FindBy(xpath = "//input[@class='el-input__inner'][@placeholder='请输入']")
-    private WebElement searchInput;
-
     @FindBy(className = "el-table__body-wrapper")
     private WebElement table;
 
@@ -110,10 +107,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getTable() {
         return table;
-    }
-
-    public WebElement getSearchInput() {
-        return searchInput;
     }
 
     public List<WebElement> getNames() {

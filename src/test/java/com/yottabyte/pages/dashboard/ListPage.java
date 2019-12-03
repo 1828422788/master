@@ -22,9 +22,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'分组')]/following-sibling::div//input[@class='el-input__inner']")
     private WebElement dashBoardGroup;
 
-    @FindBy(className = "ant-message-success")
-    private WebElement successMessage;
-
     @FindBy(xpath = "//span[contains(text(),'确定')]")
     private List<WebElement> ensureButtonList;
 
@@ -37,30 +34,21 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'分组')]/following-sibling::div//input[@class='el-input__inner']")
     private WebElement groupButton;
 
-    @FindBy(xpath = "//div[@class='el-dialog__body']/div")
-    private WebElement message;
-
     @FindBy(xpath = "//span[text()='全部资源']/preceding-sibling::i")
     private WebElement groupDropdown;
 
     @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
     private WebElement groupDropdownList;
 
-    @FindBy(xpath = "//div[@class='yw-table-group__basic el-input']/input")
-    private WebElement searchInput;
-
-    @FindBy(xpath = "//*[@class='el-input__icon el-icon-search is-clickable']")
-    private WebElement search;
-
     @FindBy(xpath = "(//div[@class='ant-modal-body']//p)[1]")
     private WebElement errorMessage;
 
-    public WebElement getSearchInput() {
-        return searchInput;
-    }
+    @FindBy(xpath = "//span[text()='所属应用']/following-sibling::span//i")
+    private WebElement appIcon;
 
-    public WebElement getSearch() {
-        return search;
+    public WebElement getApp() {
+        appIcon.click();
+        return super.getLastDropdownList();
     }
 
     public WebElement getGroupDropdown() {
@@ -70,10 +58,6 @@ public class ListPage extends ListPageFactory {
     public WebElement getGroupDropdownList() {
 //        groupDropdown.click();
         return groupDropdownList;
-    }
-
-    public WebElement getMessage() {
-        return message;
     }
 
     public WebElement getGroupButton() {
@@ -98,10 +82,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getDashBoardName() {
         return super.getPlaceholderInput("请输入名称");
-    }
-
-    public WebElement getSuccessMessage() {
-        return successMessage;
     }
 
     public WebElement getErrorMessage() {

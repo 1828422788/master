@@ -155,6 +155,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='10'])[last()]")
     private WebElement badge10;
 
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
+    private WebElement app;
+
+    public WebElement getApp() {
+        app.click();
+        return getDropdownList();
+    }
+
     public WebElement getFirstLi() {
         return firstLi;
     }

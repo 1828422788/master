@@ -557,6 +557,13 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "ant-message-success")
     private WebElement message;
 
+    @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div")
+    private WebElement searchContent;
+
+    public WebElement getSearchContent() {
+        return searchContent;
+    }
+
     public WebElement getEventNumber() {
         return eventNumber;
     }

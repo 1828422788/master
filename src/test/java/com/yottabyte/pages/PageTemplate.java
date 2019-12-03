@@ -58,6 +58,21 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(className = "ant-input-search-icon")
     private WebElement searchIcon;
 
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='el-tag__close el-icon-close']")
+    private WebElement deleteApp;
+
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
+    private WebElement app;
+
+    public WebElement getApp() {
+        app.click();
+        return dropdownUtils.getLastDropdownList();
+    }
+
+    public WebElement getDeleteApp() {
+        return deleteApp;
+    }
+
     public WebElement getSearchIcon() {
         return searchIcon;
     }

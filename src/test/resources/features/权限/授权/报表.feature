@@ -75,6 +75,7 @@ Feature: 权限-报表
     And I set the parameter "Minute" with value "11"
     And I click the "NextButton" button
     And I choose the "ForAutoTest" from the "ChartList"
+    And I wait for "TopoTitle" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

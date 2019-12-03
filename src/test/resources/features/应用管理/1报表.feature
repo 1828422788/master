@@ -49,7 +49,7 @@ Feature: 应用报表（RZY-2127）
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
     When the data name is "{'column':'1','name':'AutoAppReport'}" then I "close" the switch
-    Then I will see the success message "禁用成功"
+    Then I will see the message "禁用成功"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "ReportApp"
 
@@ -110,6 +110,51 @@ Feature: 应用报表（RZY-2127）
     Then I will see the "app.AppPage" page
     And I will see the element "Title" name is "ReportApp"
 
+  Scenario: 取消报表所属应用
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "ReportApp" then i click the "打开" button
+    Then I will see the "app.AppPage" page
+    And I will see the element "Title" name is "ReportApp"
+    Then I will see the "report.ListPage" page
+    When the data name is "{'column':'1','name':'AutoAppForReport'}" then i click the "编辑" button
+    Then I will see the "report.CreatePage" page
+    And I wait for "DeleteApp" will be visible
+    And I click the "DeleteApp" button
+    And I click the "NextButton" button
+    Then I will see the "app.AppPage" page
+    And I will see the element "OldTitle" name is "ReportApp"
+    Then I will see the "report.CreatePage" page
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+    And I will see the "app.AppPage" page
+    Then I will see the element "OldTitle" name is "ReportApp"
+
+  Scenario: 验证应用搜索
+    Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
+    And I choose the "ReportApp" from the "AppDropdown"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'1','name':'AutoAppForReport','contains':'no'}"
+
+  Scenario: 选择报表所属应用
+    Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
+    When the data name is "{'column':'1','name':'AutoAppForReport'}" then i click the "编辑" button
+    Then I will see the "report.CreatePage" page
+    And I choose the "ReportApp" from the "App"
+    And I click the "NextButton" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  Scenario: 验证所属应用生效
+    Given open the "report.ListPage" page for uri "/reports/"
+    And I wait for loading invisible
+    And I choose the "ReportApp" from the "AppDropdown"
+    And I wait for loading invisible
+    Then I will see the search result contains "{'column':'1','name':'AutoAppForReport'}"
+
   Scenario: 删除报表及趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "AutoTestForReport" then i click the "删除" button
@@ -118,4 +163,4 @@ Feature: 应用报表（RZY-2127）
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'AutoAppForReport'}" then i click the "删除" button
     And I click the "Ensure" button
-    Then I will see the message "删除成功"
+    Then I will see the success message "删除成功"

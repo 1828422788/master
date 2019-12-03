@@ -20,7 +20,7 @@ Feature: 权限-应用
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'数据集'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     And I "checked" the label before "AutoTestForApp"
     And I click the "SaveButton" button
 

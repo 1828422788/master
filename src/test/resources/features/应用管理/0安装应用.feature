@@ -35,7 +35,7 @@ Feature: 应用安装（RZY-1988）
       | ReportApp                   |
       | DashboardApp                |
       | AlertApp                    |
-      | ScheduleApp                 |
+#      | ScheduleApp                 |
       | TrendApp                    |
       | SavedsearchesApp            |
       | KnowledgeApp                |
