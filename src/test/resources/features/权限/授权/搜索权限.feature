@@ -1,3 +1,4 @@
+@auth
 Feature: 权限-搜索权限
 
   Scenario Outline: 无读取权限

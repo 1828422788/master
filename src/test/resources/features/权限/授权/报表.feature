@@ -1,3 +1,4 @@
+@auth
 Feature: 权限-报表
 
   Scenario: 验证无新建权限

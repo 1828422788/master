@@ -1,3 +1,4 @@
+@auth
 Feature: 权限-用户分组
 
   Scenario: 验证无新建用户分组的权限

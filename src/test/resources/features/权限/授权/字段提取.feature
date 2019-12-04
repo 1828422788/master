@@ -1,3 +1,4 @@
+@auth
 Feature: 权限-字段提取
 
   Scenario: 验证无新建权限

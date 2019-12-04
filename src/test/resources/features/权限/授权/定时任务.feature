@@ -1,3 +1,4 @@
+@auth
 Feature: 权限-定时任务
 
   Scenario: 验证无新建权限

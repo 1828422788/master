@@ -1,3 +1,4 @@
+@auth
 Feature: 权限-应用
 
   Scenario: 新建应用所需数据集

@@ -1,3 +1,4 @@
+@auth
 Feature: 权限-搜索宏
 
   Scenario: 验证无新建权限
