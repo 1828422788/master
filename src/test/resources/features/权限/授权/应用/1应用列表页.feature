@@ -1,5 +1,5 @@
 @auth
-Feature: 权限-应用
+Feature: 权限-应用列表页
 
   Scenario: 新建应用所需数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -613,3 +613,17 @@ Feature: 权限-应用
     Examples:
       | name            |
       | EventAppForAuth |
+
+  Scenario: 授权应用权限供其他用例
+    Given delete file "/target/download-files/<name>.tar"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'应用'}" button
+    And I wait for loading invisible
+    When I "checked" the label before "AutoTestForAuth"
+    When I "unchecked" the label before "AutoTestForAuth"
+    When I "checked" the label before "AutoTestForAuth"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+

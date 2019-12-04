@@ -1,4 +1,4 @@
-@all @app
+@app
 Feature: 应用安装（RZY-1988）
 
   Scenario: 新建数据集
@@ -9,7 +9,6 @@ Feature: 应用安装（RZY-1988）
     And I set the parameter "Spl" with value "*"
     And I click the "Save" button
 
-  @smoke @appSmoke
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "InstallButton" button
@@ -35,7 +34,6 @@ Feature: 应用安装（RZY-1988）
       | ReportApp                   |
       | DashboardApp                |
       | AlertApp                    |
-#      | ScheduleApp                 |
       | TrendApp                    |
       | SavedsearchesApp            |
       | KnowledgeApp                |
