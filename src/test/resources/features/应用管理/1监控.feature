@@ -36,7 +36,7 @@ Feature: 应用监控模块（RZY-2122）
     And I refresh the website
     And I will see the search result contains "{'column':'1','name':'<name>(副本)'}"
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AlertApp"
+    And I will see the element "Title" name is "AlertApp"
 
     Examples:
       | name                       |
@@ -61,7 +61,6 @@ Feature: 应用监控模块（RZY-2122）
     And I upload a file with name "/src/test/resources/testdata/alertPlugins/sendSms.py"
     And I wait for "VerifyText" will be visible
     And I click the "EnsureButton" button
-    Then I will see the success message "上传成功"
 
   Scenario: 修改标签
     When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}" then i click the "标签" button
@@ -75,6 +74,7 @@ Feature: 应用监控模块（RZY-2122）
     And I choose the "AutoTag" from the "ResourceDropdown"
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}"
+    Then I will see the search result "{'column':'1','name':'AutoTestAppAlertChangeName','contains':'no'}"
 
   Scenario Outline: 启用禁用功能
     When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName'}" then I "<status>" the switch
@@ -87,6 +87,28 @@ Feature: 应用监控模块（RZY-2122）
       | close  | 禁用成功    |
       | open   | 启用成功    |
 
+  Scenario: 取消所属应用
+    When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}" then i click the "编辑" button
+    And I will see the "app.AppPage" page
+    And I will see the element "OldTitle" name is "AlertApp"
+    And I will see the "alert.CreatePage" page
+    And I wait for "DeleteApp" will be visible
+    And I click the "DeleteApp" button
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+  Scenario: 验证应用搜索
+    Given open the "alert.ListPage" page for uri "/alerts/"
+    And I wait for loading invisible
+    And I choose the "AlertApp" from the "AppDropdown"
+    And I wait for loading invisible
+    Then I will see the search result contains "{'column':'1','name':'AutoTestAppAlertChangeName'}"
+    Then I will see the search result "{'column':'1','name':'AutoTestAppAlertChangeName(副本)','contains':'no'}"
+    Given open the "alert.ListPage" page for uri "/alerts/"
+    And I wait for loading invisible
+    When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本) '}" then i click the "删除" button
+    And I click the "Ensure" button
+
   Scenario Outline: 删除
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
@@ -94,6 +116,5 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "Title" name is "AlertApp"
 
     Examples:
-      | name                           |
-      | AutoTestAppAlertChangeName(副本) |
-      | AutoTestAppAlertChangeName     |
+      | name                       |
+      | AutoTestAppAlertChangeName |

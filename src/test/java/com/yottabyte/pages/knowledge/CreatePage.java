@@ -17,6 +17,18 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
+    private WebElement app;
+
+    @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
+    private WebElement lastDropdown;
+
+    @Override
+    public WebElement getApp() {
+        app.click();
+        return lastDropdown;
+    }
+
     public WebElement getEventCode() {
         return getInputElement("事件代码");
     }

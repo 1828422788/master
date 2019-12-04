@@ -23,6 +23,18 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'保存')]//ancestor::button")
     private WebElement save;
 
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
+    private WebElement app;
+
+    @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
+    private WebElement lastDropdown;
+
+    @Override
+    public WebElement getApp() {
+        app.click();
+        return lastDropdown;
+    }
+
     public WebElement getDefinition() {
         return definition;
     }

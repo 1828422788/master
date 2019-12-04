@@ -560,6 +560,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div")
     private WebElement searchContent;
 
+    @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
+    private WebElement ensureCreateTrend;
+
     public WebElement getSearchContent() {
         return searchContent;
     }
@@ -1017,7 +1020,7 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getEnsureCreateTrend() {
-        return ensure.get(0);
+        return ensureCreateTrend;
     }
 
     public WebElement getPeriod() {

@@ -66,7 +66,7 @@
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTest...pWithAllResources"
     And I will see the "index.ListPage" page
-    And I disabled the data "auto_app_create"
+    Then the data name is "auto_app_create" then I "close" the switch
 
   Scenario: 删除索引
     When I click the "Index" button
