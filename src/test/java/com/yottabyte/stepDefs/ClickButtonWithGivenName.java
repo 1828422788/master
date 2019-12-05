@@ -170,15 +170,24 @@ public class ClickButtonWithGivenName {
     public void clickName(String name) {
         String xpath;
         WebElement tr;
+
         if (!JsonStringPaser.isJson(name)) {
             tr = listPageUtils.findName(name);
-            xpath = ".//a";
+            if (pagingInfo.checkUrl()) {
+                xpath = ".//span[contains(text(),'" + name + "')]";
+            } else {
+                xpath = ".//a";
+            }
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(name);
             String text = map.get("name").toString();
             int columnNum = Integer.parseInt(map.get("column").toString());
             tr = listPageUtils.getRowWithColumnNum(text, columnNum);
-            xpath = ".//a";
+            if (pagingInfo.checkUrl()) {
+                xpath = ".//span[contains(text(),'" + text + "')]";
+            } else {
+                xpath = ".//a";
+            }
         }
         tr.findElement(By.xpath(xpath)).click();
     }

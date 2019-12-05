@@ -62,6 +62,13 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "member-item")
     private WebElement memberItem;
 
+    @FindBy(className = "el-checkbox__input")
+    private WebElement checkboxInner;
+
+    public WebElement getCheckboxInner() {
+        return checkboxInner;
+    }
+
     public WebElement getMemberItem() {
         return memberItem;
     }

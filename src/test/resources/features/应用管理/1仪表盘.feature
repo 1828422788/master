@@ -6,7 +6,6 @@ Feature: 应用仪表盘
     When the data name is "DashboardApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
-    And I click the "Dashboard" button
     Then I will see the "dashboard.ListPage" page
     Given I click the "Create" button
     Then I set the parameter "DashBoardName" with value "AutoApp"
@@ -15,18 +14,22 @@ Feature: 应用仪表盘
 
   Scenario Outline: 仪表盘详情页
     Given open the "app.ListPage" page for uri "/app/list/"
-    Then I will see the search result "<name>"
     When the data name is "DashboardApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
     And I click the detail which name is "<name>"
-    Then the page's title will be "<name> \| 仪表盘"
-    Then I will see the element "Title" name is "DashboardApp"
+    Then I will see the "dashboard.DetailPage" page
+    When I set the parameter "TagName" with value "test"
+    And I click the "EnsureCreateTagButton" button
+    And I wait for loading invisible
+    And I will see the "app.AppPage" page
+    And I will see the element "OldTitle" name is "DashboardApp"
+    Then the page's title will be "<title>"
 
     Examples:
-      | name    |
-      | AutoApp |
+      | name    | title          |
+      | AutoApp | AutoApp \| 仪表盘 |
 
   Scenario: 在app外新建并选择所属应用
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

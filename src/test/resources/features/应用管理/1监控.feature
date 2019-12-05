@@ -106,7 +106,7 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the search result "{'column':'1','name':'AutoTestAppAlertChangeName(副本)','contains':'no'}"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本) '}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}" then i click the "删除" button
     And I click the "Ensure" button
 
   Scenario Outline: 删除

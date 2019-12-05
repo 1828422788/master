@@ -42,18 +42,17 @@ Feature: 应用趋势图
 
   Scenario Outline: 复制趋势图
     When the data name is "<name>" then i click the "复制" button
-    And I refresh the website
-    Then I will see the search result contains "<name>(副本)"
+    Then I will see the message "复制成功"
 
     Examples:
       | name    |
       | AutoApp |
 
   Scenario: 搜索趋势图
-    When I set the parameter "SearchInput" with value "Auto"
+    When I set the parameter "SearchInput" with value "AutoApp(副本)"
     And I click the "Search" button
     And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'AutoApp'}"
+    Then I will see the search result "AutoApp(副本)"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TrendApp"
 
@@ -66,22 +65,31 @@ Feature: 应用趋势图
     And I click the "NextButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
-    And I wait for "Header" will be visible
-    Then I click the "Save" button
+    And I click the "NextButton" button
+    Then I will see the element "SuccessUpdate" name is "更新成功"
+
+  Scenario: 标签
+    When the data name is "AutoApp(副本)" then i click the "标签" button
+    And I set the parameter "Tag" with value "testTag"
+    And I choose the "testTag" from the "TagDropdown"
+    And I click the "Ensure" button
+    Then I will see the success message "更新成功"
+
+  Scenario: 按照标签搜索
+    When I choose the "testTag" from the "ResourceDropdown"
+    And I wait for loading invisible
+    Then I will see the search result contains "AutoApp(副本)"
+    Then I will see the search result "{'column':'0','name':'AutoAppTrend','contains':'no'}"
 
   Scenario Outline: 趋势图删除
     When the data name is "<name>" then i click the "删除" button
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     And I will see the success message "删除成功"
     And I refresh the website
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
     Examples:
-      | name             |
-      | AutoAppTrend(副本) |
+      | name         |
+      | AutoApp(副本)  |
+      | AutoAppTrend |
 
-  Scenario: 修改分组
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "AutoAppTrend" then i click the "分组" button
-    And I choose the "AutoTestRoleWithAllResource" from the "Group"
-    And I click the "Ensure" button

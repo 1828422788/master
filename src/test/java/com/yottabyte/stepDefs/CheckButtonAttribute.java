@@ -179,7 +179,6 @@ public class CheckButtonAttribute {
 
     @And("^I will see the \"([^\"]*)\" doesn't exist$")
     public void elementNotExist(String name) {
-
         if (name.startsWith("get")) {
             name = name.split("get")[1];
         }

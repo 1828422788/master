@@ -14,7 +14,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I wait for loading invisible
+    And I wait for element "SearchContent" change text to "<spl>"
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
@@ -96,13 +96,13 @@ Feature: 应用定时任务(RZY-2123)
     Given I set the parameter "SearchInput" with value "<name>"
     And I click the "SearchIcon" button
     And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'<name>(副本)'}"
+    Then I will see the search result "{'column':'0','name':'<name>'}"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
 
     Examples:
-      | name          |
-      | AutoCreateApp |
+      | name              |
+      | AutoCreateApp(副本) |
 
   Scenario: 在app外新建定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -150,24 +150,29 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     Then I will see the search result "{'column':'2','name':'AutoTestCreate','contains':'no'}"
 
-  Scenario Outline: 定时任务删除
+  Scenario Outline: app中定时任务删除
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
-    When the data name is "{'column':'2','name':'<name>(副本)'}" then i click the "删除" button
-    And I click the "Ensure" button under some element
-    Then I will see the success message "删除成功"
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
     When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button
-    And I click the "Ensure" button under some element
-    Then I will see the success message "删除成功"
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "AutoTestCreate" then i click the "删除" button
     And I click the "Ensure" button under some element
     Then I will see the success message "删除成功"
 
     Examples:
-      | name          |
-      | AutoCreateApp |
+      | name              |
+      | AutoCreateApp(副本) |
+
+  Scenario Outline: 定时任务删除
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading invisible
+    When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button
+    And I click the "Ensure" button under some element
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name           |
+      | AutoCreateApp  |
+      | AutoTestCreate |

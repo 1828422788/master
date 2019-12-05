@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-应用仪表盘
 
   Scenario: 验证无URL访问权限

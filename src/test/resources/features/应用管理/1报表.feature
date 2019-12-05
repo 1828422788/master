@@ -155,7 +155,7 @@ Feature: 应用报表（RZY-2127）
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'AutoAppForReport'}"
 
-  Scenario: 删除报表及趋势图
+  Scenario Outline: 删除报表及趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "AutoTestForReport" then i click the "删除" button
     And I click the "Ensure" button
@@ -163,4 +163,8 @@ Feature: 应用报表（RZY-2127）
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'AutoAppForReport'}" then i click the "删除" button
     And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Then I will see the success message "<message>"
+
+    Examples:
+      | message  |
+      | 删除成功\n确定 |
