@@ -9,49 +9,6 @@ Feature: 权限-应用列表页
     And I set the parameter "Spl" with value "*"
     And I click the "Save" button
 
-  Scenario: 授权可使用应用功能
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    Then I click the "{'TabButton':'数据集'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the label before "AutoTestForApp"
-    And I click the "SaveButton" button
-
-  Scenario: 无新建权限
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "app.ListPage" page for uri "/app/list/"
-    Then I will see the "CreateButton" doesn't exist
-    And I click the "InstallButton" button
-    Then I will see the "app.InstallPage" page
-    And I wait for "AddDataset" will be visible
-    When I upload a file with name "/target/download-files/EventAppForAuth.tar"
-    Then I wait for "NoAuth" will be visible
-    And I choose the "__user_AutoTest__" from the "Role"
-    And I click the "AddDataset" button
-    And I set the parameter "SearchInput" with value "app"
-    And I click the "SearchIcon" button
-    And I click the "ResultDataset" button
-    And I click the "Ensure" button
-    And I click the "NextButton" button under some element
-    Then I will see the error message "您上传的应用包有误，或没有操作该APP的权限，请重新上传应用包"
-
   Scenario: 授权可使用应用功能,可新建应用,可使用数据集,数据集操作权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -95,6 +52,49 @@ Feature: 权限-应用列表页
     Examples:
       | name            | menuName | url            | color   |
       | EventAppForAuth | 事件操作     | /event/action/ | #68E632 |
+
+  Scenario: 授权可使用应用功能
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+    Then I click the "{'TabButton':'数据集'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the label before "AutoTestForApp"
+    And I click the "SaveButton" button
+
+  Scenario: 无新建权限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "app.ListPage" page for uri "/app/list/"
+    Then I will see the "CreateButton" doesn't exist
+    And I click the "InstallButton" button
+    Then I will see the "app.InstallPage" page
+    And I wait for "AddDataset" will be visible
+    When I upload a file with name "/target/download-files/EventAppForAuth.tar"
+    Then I wait for "NoAuth" will be visible
+    And I choose the "__user_AutoTest__" from the "Role"
+    And I click the "AddDataset" button
+    And I set the parameter "SearchInput" with value "app"
+    And I click the "SearchIcon" button
+    And I click the "ResultDataset" button
+    And I click the "Ensure" button
+    And I click the "NextButton" button under some element
+    Then I will see the error message "您上传的应用包有误，或没有操作该APP的权限，请重新上传应用包"
 
   Scenario: 安装应用
     Given I will see the "PublicNavBarPage" page

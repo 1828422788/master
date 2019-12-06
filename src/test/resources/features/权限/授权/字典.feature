@@ -114,22 +114,20 @@ Feature: 权限-字典
     When the data name is "AutoTestUserCreate.csv" then i click the "授权" button
     Then I will see the success message "获取角色列表失败: 没有相关的功能权限"
 
-  Scenario: 授权读取+编辑权限
+  Scenario Outline: 授权读取+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "可使用字典管理,可查看角色页"
-    And I click the "SaveButton" button
     Then I click the "{'TabButton':'字典'}" button
     And I wait for loading invisible
     And I "checked" the label before "AutoTestUserCreate.csv"
     When I "unchecked" function "删除,转授" from the auth table which name is "AutoTestUserCreate.csv"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
-
-  Scenario Outline: 验证读取+编辑权限
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "可使用字典管理,可查看角色页"
+    And I click the "SaveButton" button
     Given delete file "/target/download-files/<name>"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -160,8 +158,6 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "__user_AutoTest__" is disabled
-#    And I click the "Ensure" button
-#    Then I will see the success message "保存成功"
 
     Examples:
       | name                   |
@@ -218,16 +214,16 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "可使用字典管理,新建字典,可查看角色页"
-    And I click the "SaveButton" button
     Then I click the "{'TabButton':'字典'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     And I "unchecked" the label before "<name>"
     When I "checked" function "读取,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "可使用字典管理,新建字典,可查看角色页"
+    And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -245,8 +241,7 @@ Feature: 权限-字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureButton" button
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
+    Then I wait for element "SuccessMessage" change text to "删除成功"
 
     Examples:
       | name                   |
@@ -256,16 +251,16 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "可使用字典管理,新建字典,可查看角色页"
-    And I click the "SaveButton" button
     Then I click the "{'TabButton':'字典'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     And I "checked" the label before "<name>"
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "可使用字典管理,新建字典,可查看角色页"
+    And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -298,26 +293,11 @@ Feature: 权限-字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureButton" button
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
+    Then I wait for element "SuccessMessage" change text to "删除成功"
 
     Examples:
       | name         |
       | AutoTest.csv |
-
-  Scenario: 验证删除
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    When the data name is "AutoTestUserCreate.csv" then i click the "删除" button
-    And I click the "EnsureButton" button
 
   Scenario: 验证是否删除成功
     Given I will see the "PublicNavBarPage" page

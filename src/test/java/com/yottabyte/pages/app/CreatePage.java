@@ -100,6 +100,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-button--text")
     private WebElement sourceConfig;
 
+    @FindBy(className = "el-loading-mask")
+    private WebElement loading;
+
+    public WebElement getLoading() {
+        return loading;
+    }
+
     public WebElement getSourceConfig() {
         return sourceConfig;
     }

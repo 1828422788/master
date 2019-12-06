@@ -48,16 +48,15 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
     Then I click the "{'TabButton':'趋势图'}" button
     And I wait for loading invisible
     And I "checked" the label before "ForAutoTest"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user

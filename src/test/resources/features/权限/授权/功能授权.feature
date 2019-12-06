@@ -3,14 +3,14 @@ Feature: 权限-功能（URL校验）
 
 #  Background:
 #    Given open the "roles.ListPage" page for uri "/account/roles/"
-#    And the data name is "AutoTestRole" then i click the "授权" button
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
 #    And I will see the "roles.AuthorizationPage" page
 #    Then I click the "{'TabButton':'功能'}" button
 #    And I wait for "Loading" will be invisible
 
   Scenario Outline: 验证无任何权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -123,7 +123,7 @@ Feature: 权限-功能（URL校验）
 
   Scenario Outline: 验证其他权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -251,7 +251,7 @@ Feature: 权限-功能（URL校验）
 
   Scenario Outline: 验证权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -389,7 +389,7 @@ Feature: 权限-功能（URL校验）
 
   Scenario: 授权可接受消息提醒
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -412,7 +412,7 @@ Feature: 权限-功能（URL校验）
 
   Scenario Outline: 应用权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "AutoTestRole" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
