@@ -102,6 +102,10 @@ Feature: 应用已存搜索（RZY-2125）
     And I "check" the checkbox which name is "__user_AutoTest__" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
     And I wait for loading invisible
     Given I will see the "PublicNavBarPage" page
@@ -117,12 +121,30 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'AutoApp'}" then i will see "加载标签授权删除" button
 
-  Scenario: 已存搜索删除
+  Scenario Outline: 修改app资源范围
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I wait for loading invisible
+    And I click the "OverallSituation" button
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name             |
+      | SavedsearchesApp |
+
+  Scenario Outline: 已存搜索删除
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "SavedsearchesApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
-    When the data name is "{'column':'1','name':'AutoApp'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+
+    Examples:
+      | name    |
+      | 验证无App  |
+      | AutoApp |

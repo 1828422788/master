@@ -150,6 +150,19 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     Then I will see the search result "{'column':'2','name':'AutoTestCreate','contains':'no'}"
 
+  Scenario Outline: 修改app资源范围
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I wait for loading invisible
+    And I click the "OverallSituation" button
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name                        |
+      | AutoTestAppWithAllResources |
+
   Scenario Outline: app中定时任务删除
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
@@ -164,15 +177,18 @@ Feature: 应用定时任务(RZY-2123)
     Examples:
       | name              |
       | AutoCreateApp(副本) |
+      | AutoCreateApp     |
+      | AutoTestCreate    |
 
-  Scenario Outline: 定时任务删除
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
+  Scenario Outline: 复原app资源范围
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
     And I wait for loading invisible
-    When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button
-    And I click the "Ensure" button under some element
-    Then I will see the success message "删除成功"
+    And I click the "CurrentApp" button
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
 
     Examples:
-      | name           |
-      | AutoCreateApp  |
-      | AutoTestCreate |
+      | name                        |
+      | AutoTestAppWithAllResources |

@@ -83,14 +83,18 @@ Feature: 应用知识模块（RZY-2128）
     Then I will see the search result contains "AutoTestAppKnowledge"
     Then I will see the search result "{'column':'0','name':'测试无应用','contains':'no'}"
 
-  Scenario: 添加所属应用
-    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+  Scenario Outline: 修改app资源范围
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
     And I wait for loading invisible
-    When the data name is "测试无应用" then i click the "编辑" button
-    Then I will see the "knowledge.CreatePage" page
-    And I choose the "KnowledgeApp" from the "App"
-    Then I click the "Save" button
-    And I wait for loading invisible
+    And I click the "OverallSituation" button
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name         |
+      | KnowledgeApp |
 
   Scenario Outline: 删除知识
     Given open the "app.ListPage" page for uri "/app/list/"

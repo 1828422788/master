@@ -1,14 +1,12 @@
 @app @appSmoke
 Feature: 应用字段提取（RZY-2129）
 
-  Background:
+  Scenario: 新建字段提取
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "ConfigsApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
-
-  Scenario: 新建字段提取
     When I click the "Create" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
@@ -30,6 +28,11 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the element "Title" name is "ConfigsApp"
 
   Scenario Outline: 复制字段提取
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "ConfigsApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "ConfigsApp"
+    Then I will see the "configs.ListPage" page
     When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button
     And I refresh the website
     And I wait for loading invisible
@@ -42,17 +45,78 @@ Feature: 应用字段提取（RZY-2129）
       | AutoTest |
 
   Scenario: 编辑字段提取
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "ConfigsApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "ConfigsApp"
+    Then I will see the "configs.ListPage" page
     When the data name is "{'column':'1','name':'AutoTest(副本)'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "testtesttesttest"
     And I click the "NextButton" button
+    And I set the parameter "Name" with value "AutoTestCopy"
     And I click the "SwitchButton" button
+    And I choose the "ConfigsApp" from the "App"
     Then I click the "NextButton" button
     And I wait for "ConfigDone" will be visible
 
+  Scenario: 验证所属app生效及修改标签
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "ConfigsApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "ConfigsApp"
+    Then I will see the "configs.ListPage" page
+    Then I will see the search result "{'column':'1','name':'AutoTestCopy','contains':'no'}"
+    When the data name is "{'column':'1','name':'AutoTest'}" then i click the "复制" button
+    And I refresh the website
+    And I wait for loading invisible
+    Then I will see the search result contains "{'column':'1','name':'AutoTest(副本)'}"
+    When the data name is "{'column':'1','name':'AutoTest'}" then i click the "标签" button
+    And I set the parameter "Tag" with value "test"
+    And I choose the "test" from the "TagDropdown"
+    And I click the "Ensure" button
+    Then I will see the success message "修改成功"
+
+  Scenario: 按照标签搜索
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "ConfigsApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "ConfigsApp"
+    Then I will see the "configs.ListPage" page
+    And I choose the "test" from the "ResourceDropdown"
+    And I wait for loading invisible
+    Then I will see the search result contains "{'column':'1','name':'AutoTest'}"
+    Then I will see the search result "{'column':'1','name':'AutoTest(副本)','contains':'no'}"
+
+  Scenario Outline: 修改app资源范围
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I wait for loading invisible
+    And I click the "OverallSituation" button
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name       |
+      | ConfigsApp |
+
+  Scenario: 在app外按照应用搜索
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading invisible
+    And I choose the "ConfigsApp" from the "AppDropdown"
+    And I wait for loading invisible
+    Then I will see the search result contains "{'column':'1','name':'AutoTest'}"
+    Then I will see the search result "{'column':'1','name':'AutoTestCopy','contains':'no'}"
+
   Scenario Outline: 上传字典管理
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "ConfigsApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "ConfigsApp"
+    Then I will see the "configs.ListPage" page
     When I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
@@ -70,6 +134,11 @@ Feature: 应用字段提取（RZY-2129）
       | AutoTest.csv |
 
   Scenario Outline: 删除字典管理
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "ConfigsApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "ConfigsApp"
+    Then I will see the "configs.ListPage" page
     When I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
@@ -84,6 +153,11 @@ Feature: 应用字段提取（RZY-2129）
       | AutoTest.csv |
 
   Scenario Outline: 删除字段提取
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "ConfigsApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "ConfigsApp"
+    Then I will see the "configs.ListPage" page
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
@@ -91,6 +165,7 @@ Feature: 应用字段提取（RZY-2129）
     Examples:
       | name         |
       | AutoTest(副本) |
+      | AutoTestCopy |
       | AutoTest     |
 
 

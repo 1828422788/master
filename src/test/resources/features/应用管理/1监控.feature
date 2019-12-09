@@ -2,13 +2,13 @@
 Feature: 应用监控模块（RZY-2122）
 
   Background:
+
+  Scenario: 新建监控
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AlertApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
-
-  Scenario: 新建监控
     When I click the "CreateAlert" button
     And I will see the "app.AppPage" page
     And I will see the element "OldTitle" name is "AlertApp"
@@ -21,6 +21,11 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the success message "保存成功"
 
   Scenario: 编辑监控
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AlertApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
+    Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'AutoTestAppAlert'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "OldTitle" name is "AlertApp"
@@ -31,6 +36,11 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the success message "保存成功"
 
   Scenario Outline: 复制监控
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AlertApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
+    Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button
     And I wait for loading invisible
     And I refresh the website
@@ -43,6 +53,11 @@ Feature: 应用监控模块（RZY-2122）
       | AutoTestAppAlertChangeName |
 
   Scenario: 在搜索中打开
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AlertApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
+    Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName'}" then i click the "在搜索中打开" button
     And switch to another window
     And I wait for loading invisible
@@ -51,6 +66,11 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "Title" name is "AlertApp"
 
   Scenario: 告警插件
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AlertApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
+    Then I will see the "alert.ListPage" page
     When I click the "AlertPlugin" button
     And I wait for loading invisible
     And I will see the "app.AppPage" page
@@ -63,6 +83,11 @@ Feature: 应用监控模块（RZY-2122）
     And I click the "EnsureButton" button
 
   Scenario: 修改标签
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AlertApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
+    Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTag"
     And I choose the "AutoTag" from the "TagDropdown"
@@ -70,6 +95,11 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the success message "修改成功"
 
   Scenario: 根据标签搜索
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AlertApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
+    Then I will see the "alert.ListPage" page
     When I wait for loading invisible
     And I choose the "AutoTag" from the "ResourceDropdown"
     And I wait for loading invisible
@@ -77,6 +107,11 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the search result "{'column':'1','name':'AutoTestAppAlertChangeName','contains':'no'}"
 
   Scenario Outline: 启用禁用功能
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AlertApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
+    Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName'}" then I "<status>" the switch
     And I will see the success message "<message>"
     And I will see the "app.AppPage" page
@@ -88,6 +123,11 @@ Feature: 应用监控模块（RZY-2122）
       | open   | 启用成功    |
 
   Scenario: 取消所属应用
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AlertApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
+    Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "OldTitle" name is "AlertApp"
@@ -104,12 +144,26 @@ Feature: 应用监控模块（RZY-2122）
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'AutoTestAppAlertChangeName'}"
     Then I will see the search result "{'column':'1','name':'AutoTestAppAlertChangeName(副本)','contains':'no'}"
-    Given open the "alert.ListPage" page for uri "/alerts/"
+
+  Scenario Outline: 修改app资源范围
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
     And I wait for loading invisible
-    When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}" then i click the "删除" button
-    And I click the "Ensure" button
+    And I click the "OverallSituation" button
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name     |
+      | AlertApp |
 
   Scenario Outline: 删除
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AlertApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AlertApp"
+    Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
     And I will see the "app.AppPage" page

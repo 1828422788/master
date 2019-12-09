@@ -160,8 +160,26 @@ Feature: 应用仪表盘
     Then I click the "Ensure" button
     Then I will see the success message "删除成功"
 
-  Scenario: 删除App外仪表盘
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+  Scenario Outline: 修改app资源范围
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I wait for loading invisible
+    And I click the "OverallSituation" button
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name         |
+      | DashboardApp |
+
+  Scenario: 验证资源范围修改成功并删除app外资源
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "DashboardApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "DashboardApp"
+    And I click the "Dashboard" button
+    Then I will see the "dashboard.ListPage" page
     Given the data name is "仪表盘验证无app" then i click the "删除" button
     Then I click the "Ensure" button
     Then I will see the success message "删除成功"

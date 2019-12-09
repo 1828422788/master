@@ -91,7 +91,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "item-title-edit-group")
     private WebElement editGroup;
 
-    @FindBy(xpath = "//span[text()='添加子菜单']")
+    @FindBy(xpath = "(//span[text()='添加子菜单'])[1]")
     private WebElement addSubmenu;
 
     @FindBy(xpath = "//span[text()='全局']")

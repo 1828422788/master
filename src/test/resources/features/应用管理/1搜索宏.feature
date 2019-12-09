@@ -68,54 +68,47 @@ Feature: 应用搜索宏（RZY-2126）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "MacroApp"
 
-  Scenario: 按照应用搜索
+  Scenario: 新建无所属应用的搜索宏
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
-    And I choose the "MacroApp" from the "AppDropdown"
-    And I wait for loading invisible
-    Then I will see the search result contains "AutoApp"
-
-  Scenario: 取消所属应用
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "MacroApp" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    Then I will see the element "Title" name is "MacroApp"
-    Then I will see the "searchMacro.ListPage" page
-    When the data name is "AutoApp" then i click the "编辑" button
-    And I will see the "app.AppPage" page
-    Then I will see the element "OldTitle" name is "MacroApp"
+    And I click the "Create" button
     Then I will see the "searchMacro.CreatePage" page
-    And I click the "DeleteApp" button
+    When I set the parameter "Name" with value "无app"
     And I click the "Save" button
     Then I will see the success message "保存成功"
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "MacroApp" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    Then I will see the element "Title" name is "MacroApp"
-    Then I will see the "searchMacro.ListPage" page
-    Then I will see the search result "{'column':'0','name':'AutoApp','contains':'no'}"
 
   Scenario: 验证应用搜索
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     And I choose the "MacroApp" from the "AppDropdown"
     And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'AutoApp','contains':'no'}"
+    Then I will see the search result "{'column':'0','name':'无app','contains':'no'}"
+    Then I will see the search result contains "AutoApp"
 
-  Scenario: 选择应用
-    Given open the "searchMacro.ListPage" page for uri "/macro/"
-    When the data name is "AutoApp" then i click the "编辑" button
-    Then I will see the "searchMacro.CreatePage" page
-    And I choose the "MacroApp" from the "App"
-    And I click the "Save" button
+  Scenario Outline: 修改app资源范围
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I wait for loading invisible
+    And I click the "OverallSituation" button
+    And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
-  Scenario: 搜索宏删除
+    Examples:
+      | name     |
+      | MacroApp |
+
+  Scenario Outline: 搜索宏删除
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "MacroApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
-    When the data name is "AutoApp" then i click the "删除" button
+    When the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
     Then I wait for element "Message" change text to "删除成功"
+
+    Examples:
+      | name    |
+      | 无app    |
+      | AutoApp |

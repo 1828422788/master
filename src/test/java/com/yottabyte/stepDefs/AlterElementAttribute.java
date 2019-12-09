@@ -3,16 +3,13 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.WaitForElement;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import static org.openqa.grid.common.SeleniumProtocol.Selenium;
 
 public class AlterElementAttribute {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
@@ -60,8 +57,24 @@ public class AlterElementAttribute {
     }
 
     @And("^I alter the element \"([^\"]*)\" style to \"([^\"]*)\"$")
-    public void alterElementStyle(String elementName, String styleName) {
+    public void alterElementStyle(String elementName, String style) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('style','" + styleName + "')", element);
+        this.changeStyle(style, element);
+    }
+
+    /**
+     * app编辑时显示菜单栏的隐藏按钮
+     *
+     * @param style
+     * @param name
+     */
+    @And("^I change the style to \"([^\"]*)\" which name is \"([^\"]*)\"$")
+    public void changeStyleWithName(String style, String name) {
+        WebElement element = webDriver.findElement(By.xpath("(//span[text()='" + name + "']/following-sibling::span[@class='item-title-edit-group group-title-edit'])[1]"));
+        this.changeStyle(style, element);
+    }
+
+    private void changeStyle(String style, WebElement element) {
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].setAttribute('style','" + style + "')", element);
     }
 }

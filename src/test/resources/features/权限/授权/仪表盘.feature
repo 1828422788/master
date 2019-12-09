@@ -332,14 +332,8 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
-    And I click the "SaveButton" button
     Then I click the "{'TabButton':'仪表盘'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     And I "checked" the label before "AutoTestUserCreate"
     When the data name is "AutoTestUserCreate" then I click the "无期限" button without total page
     And I click the "Customize" button
@@ -348,6 +342,12 @@ Feature: 权限-仪表盘
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "可使用仪表盘"
+    And I click the "SaveButton" button
 
   Scenario: 设为默认
 

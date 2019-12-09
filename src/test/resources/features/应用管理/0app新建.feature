@@ -64,7 +64,7 @@ Feature: 应用新建（RZY-1899）
       | ConfigsApp       | 字段提取     | /configs/       | #0542F9 |
 
   @smoke @appSmoke
-  Scenario Outline: 新建App，资源范围为全局
+  Scenario Outline: 新建App
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"
     And I click the "AddMenuButton" button under some element
@@ -111,7 +111,6 @@ Feature: 应用新建（RZY-1899）
     And I click the "ColorPicker" button
     And I set the parameter "ColorValue" with value "#68E632"
     And I click the "EnsureColourButton" button
-    And I click the "OverallSituation" button
     And I click the "CreateButton" button
     Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
 
@@ -138,7 +137,6 @@ Feature: 应用新建（RZY-1899）
     And I click the "ColorPicker" button
     And I set the parameter "ColorValue" with value "#68E632"
     And I click the "EnsureColourButton" button
-    And I click the "OverallSituation" button
     And I click the "CreateButton" button
     Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
 
@@ -255,7 +253,6 @@ Feature: 应用新建（RZY-1899）
     And I click the "ColorPicker" button
     And I set the parameter "ColorValue" with value "#68E632"
     And I click the "EnsureColourButton" button
-    And I click the "OverallSituation" button
     And I click the "CreateButton" button
     Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
 

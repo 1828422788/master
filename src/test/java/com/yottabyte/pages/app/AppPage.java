@@ -162,6 +162,10 @@ public class AppPage extends PageTemplate {
         return this.getElementWithLinkName("搜索宏测试");
     }
 
+    public WebElement getBaidu() {
+        return this.getElementWithLinkName("百度");
+    }
+
     private WebElement getElementWithLinkName(String name) {
         String xpath = "(//a[text()='" + name + "'])[last()]";
         return webDriver.findElement(By.xpath(xpath));

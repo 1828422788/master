@@ -384,10 +384,17 @@ public class ClickButtonWithGivenName {
 
     @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table which name is \"([^\"]*)\"$")
     public void clickAuthFunction(String status, List<String> functions, String name) {
+        String url = webDriver.getCurrentUrl();
+        String precedingXpath;
+        if (url.contains("/account/roles/assign/")) {
+            precedingXpath = "./preceding-sibling::span";
+        } else {
+            precedingXpath = "./preceding-sibling::label";
+        }
         WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
         for (String function : functions) {
             WebElement functionButton = tr.findElement(By.xpath(".//span[contains(text(),'" + function + "')]"));
-            String functionClass = functionButton.findElement(By.xpath("./preceding-sibling::span")).getAttribute("class");
+            String functionClass = functionButton.findElement(By.xpath(precedingXpath)).getAttribute("class");
             if (functionClass.contains("checked") && "unchecked".equals(status) || !functionClass.contains("checked") && "checked".equals(status)) {
                 functionButton.click();
             }

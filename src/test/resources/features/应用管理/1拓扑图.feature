@@ -81,18 +81,45 @@ Feature: 应用拓扑图（RZY-2142）
     And I click the detail which name is "AutoApp"
     Then the page's title will be "拓扑图详情"
 
+  Scenario: 新建无所属应用的拓扑图
+    And open the "topology.ListPage" page for uri "/topology/"
+    And I wait for loading invisible
+    And I click the "Create" button
+    And I set the parameter "NameInput" with value "无app"
+    And I click the "Ensure" button
+    Then I will see the success message "创建成功"
+
   Scenario: 在app外搜索
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     And I choose the "AutoApp" from the "AppDropdown"
     Then I will see the search result contains "AutoApp"
+    Then I will see the search result "{'column':'0','name':'无app','contains':'no'}"
 
-  Scenario: 删除拓扑图
+  Scenario Outline: 修改app资源范围
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I wait for loading invisible
+    And I click the "OverallSituation" button
+    And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
+
+    Examples:
+      | name        |
+      | TopologyApp |
+
+  Scenario Outline: 删除拓扑图
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "TopologyApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TopologyApp"
     Then I will see the "topology.ListPage" page
-    When the data name is "AutoApp" then i click the "删除" button
+    When the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+
+    Examples:
+      | name    |
+      | 无app    |
+      | AutoApp |

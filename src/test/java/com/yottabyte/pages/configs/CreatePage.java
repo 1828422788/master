@@ -111,6 +111,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='只替换第一个']/preceding-sibling::div/label")
     private WebElement replaceFirst;
 
+    public WebElement getApp() {
+        return super.getDropdownList("应用");
+    }
+
     public WebElement getReturn() {
         return super.getButton("返回");
     }
