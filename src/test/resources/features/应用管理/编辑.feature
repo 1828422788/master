@@ -1,3 +1,4 @@
+@app @appSmoke
 Feature: 应用编辑
 
   Scenario: 编辑应用
