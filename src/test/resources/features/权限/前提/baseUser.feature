@@ -1,18 +1,18 @@
 @baseUser
 Feature: 基础用户创建
 
-  Scenario Outline: 创建基本角色
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    Given I click the "CreateRoleButton" button
-    And I will see the "roles.CreatePage" page
-    And I set the parameter "RoleName" with value "<RoleName>"
-    And I set the parameter "RoleDes" with value "<RoleDes>"
-    And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
-
-    Examples:
-      | RoleName     | RoleDes |
-      | AutoTestRole | 无资源分组   |
+#  Scenario Outline: 创建基本角色
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    Given I click the "CreateRoleButton" button
+#    And I will see the "roles.CreatePage" page
+#    And I set the parameter "RoleName" with value "<RoleName>"
+#    And I set the parameter "RoleDes" with value "<RoleDes>"
+#    And I click the "CreateButton" button
+#    Then I wait for "SuccessMessage" will be visible
+#
+#    Examples:
+#      | RoleName     | RoleDes |
+#      | AutoTestRole | 无资源分组   |
 
   Scenario Outline: 所需用户分组
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"

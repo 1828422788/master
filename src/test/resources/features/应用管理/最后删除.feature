@@ -14,7 +14,6 @@ Feature: 应用删除
       | ReportApp                   |
       | DashboardApp                |
       | AlertApp                    |
-      | ScheduleApp                 |
       | TrendApp                    |
       | SavedsearchesApp            |
       | KnowledgeApp                |
