@@ -1,19 +1,16 @@
 package com.yottabyte.pages.alert;
 
-import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.ListPageFactory;
-import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.stepDefs.SetKeyWithValue;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetLogger;
-import com.yottabyte.utils.WaitForElement;
-import com.yottabyte.webDriver.SharedDriver;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListPage extends ListPageFactory {
@@ -36,9 +33,6 @@ public class ListPage extends ListPageFactory {
     // 搜索结果表格
     @FindBy(className = "el-table__body")
     private WebElement searchResult;
-
-    @FindBy(className = "el-message-box")
-    private WebElement message;
 
     @FindBy(xpath = "//span[contains(text(),'最新状态')]")
     private WebElement latestStatus;
@@ -97,6 +91,10 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-empty-description")
     private WebElement noneData;
 
+    public WebElement getLoadingElement() {
+        return loadingElement;
+    }
+
     public WebElement getNoneData() {
         return noneData;
     }
@@ -147,10 +145,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getEnsureDeleteButton() {
         return ensureDeleteButton;
-    }
-
-    public WebElement getSuccessMessage() {
-        return super.getSuccessMessage();
     }
 
     public WebElement getEnsureButton() {
@@ -212,15 +206,6 @@ public class ListPage extends ListPageFactory {
         return super.getButton("新建");
     }
 
-    public WebElement getMessage() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(message));
-        return message;
-    }
-
-    public void thereIsNoAlert(String alertName) {
-        deleteAlert(alertName);
-    }
-
     public WebElement getSearchResult() {
         if (ElementExist.isElementExist(webDriver, searchResult)) {
             return searchResult;
@@ -229,40 +214,6 @@ public class ListPage extends ListPageFactory {
         } else {
             GetLogger.getLogger().error("请检查输入");
             throw new NoSuchElementException("请检查输入");
-        }
-    }
-
-    void deleteAlert(String alertName) {
-        while (true) {
-            getSearchInput().sendKeys(Keys.END);
-            getSearchInput().sendKeys(Keys.SHIFT, Keys.HOME);
-            getSearchInput().sendKeys(Keys.BACK_SPACE);
-            getSearchInput().sendKeys(alertName);
-            try {
-                if (searchResult.isDisplayed()) {
-                    List<WebElement> elements = getSearchResult().findElements(By.className("el-table_1_column_1"));
-                    if (elements.get(0).getText().trim().contains(alertName)) {
-                        getTableDeleteButton(1).click();
-                        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(message));
-                        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.textToBePresentInElement(message.findElement(By.className("el-message-box__content")), "确认删除"));
-                        message.findElement(By.className("el-message-box__btns")).findElement(By.xpath(".//span[contains(text(),'确定')]")).click();
-                        webDriver.navigate().refresh();
-                        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
-                    }
-                } else if (noSearchResultMessage.isDisplayed()) {
-                    System.out.println("do not need delete!");
-                    break;
-                } else {
-                    GetLogger.getLogger().error("没有找到搜索结果");
-                    throw new NoSuchElementException("没有找到搜索结果");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            getSearchInput().sendKeys(Keys.END);
-            getSearchInput().sendKeys(Keys.SHIFT, Keys.HOME);
-            getSearchInput().sendKeys(Keys.BACK_SPACE);
-            getSearchInput().sendKeys(alertName);
         }
     }
 

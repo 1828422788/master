@@ -93,4 +93,8 @@ public class ListPage extends ListPageFactory {
     public WebElement getSearch() {
         return super.getSearchIcon();
     }
+
+    public WebElement getErrorMessage() {
+        return super.getMessage();
+    }
 }

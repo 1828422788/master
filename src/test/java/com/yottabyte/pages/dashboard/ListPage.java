@@ -46,6 +46,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='所属应用']/following-sibling::span//i")
     private WebElement appIcon;
 
+    @FindBy(xpath = "//span[text()='名称']/following-sibling::span/input")
+    private WebElement dashBoardName;
+
     public WebElement getApp() {
         appIcon.click();
         return super.getLastDropdownList();
@@ -81,7 +84,7 @@ public class ListPage extends ListPageFactory {
 
 
     public WebElement getDashBoardName() {
-        return super.getPlaceholderInput("请输入名称");
+        return dashBoardName;
     }
 
     public WebElement getErrorMessage() {

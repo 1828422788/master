@@ -443,8 +443,8 @@ Feature: 权限-趋势图
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'趋势图'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "AutoTest(副本)"
-    When I "unchecked" function "删除" from the auth table which name is "AutoTest(副本)"
+    And I "checked" the label before "AutoTest(副本)(副本)"
+    When I "unchecked" function "删除" from the auth table which name is "AutoTest(副本)(副本)"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'功能'}" button
@@ -456,8 +456,8 @@ Feature: 权限-趋势图
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'趋势图'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "AutoTest(副本)"
-    And I "unchecked" the label before "AutoTest(副本)"
+    And I "checked" the label before "AutoTest(副本)(副本)"
+    And I "unchecked" the label before "AutoTest(副本)(副本)"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'功能'}" button
@@ -475,13 +475,13 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "AutoTest(副本)" then i will see "编辑复制标签授权" button
-    When the data name is "AutoTest(副本)" then i click the "标签" button
+    Then the data name is "AutoTest(副本)(副本)" then i will see "编辑复制标签授权" button
+    When the data name is "AutoTest(副本)(副本)" then i click the "标签" button
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button
     Then I will see the success message "更新成功"
-    When the data name is "AutoTest(副本)" then i click the "编辑" button
+    When the data name is "AutoTest(副本)(副本)" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "<name>"
     And I click the "NextButton" button
@@ -521,7 +521,7 @@ Feature: 权限-趋势图
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'趋势图'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     And I "checked" the label before "<name>"
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -653,6 +653,7 @@ Feature: 权限-趋势图
     Then I will see the message "复制成功"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
 
@@ -665,7 +666,16 @@ Feature: 权限-趋势图
     When the data name is "{'column':'1','name':'AutoTestCreate'}" then i click the "删除" button
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
+
+  Scenario Outline: 删除趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    When the data name is "AutoTest(副本)(副本)" then i click the "删除" button
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
     Then I will see the success message "删除成功"
+
+    Examples:
+      | name                 |
+      | AutoUserEdit(副本)(副本) |
+      | AutoTest(副本)         |
