@@ -29,6 +29,22 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'清理输出源缓存')]")
     private WebElement cleanOutput;
 
+    @FindBy(xpath = "//label[contains(text(),'分配角色')]/following-sibling::div//i")
+    private WebElement roleDropdown;
+
+    public WebElement getRoleDropdown() {
+        roleDropdown.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getGroupName() {
+        return this.getContainsInputElement("名称");
+    }
+
+    public WebElement getCreate() {
+        return super.getButton("新建");
+    }
+
     public WebElement getEnsureCleanOutput() {
         return super.getButton("确定");
     }
@@ -89,7 +105,15 @@ public class CreatePage extends PageTemplate {
         return super.getButton("清理缓存");
     }
 
+    public WebElement getMessage() {
+        return super.getErrorMessage();
+    }
+
     public WebElement getInputElement(String text) {
         return webDriver.findElement(By.xpath("//label[text()='" + text + "']/ancestor::div/following-sibling::div//input"));
+    }
+
+    public WebElement getContainsInputElement(String name) {
+        return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
     }
 }

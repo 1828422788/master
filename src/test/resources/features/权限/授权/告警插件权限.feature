@@ -14,8 +14,8 @@ Feature: 授权告警插件
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'告警插件'}" button
     And I wait for loading invisible
-    And I "checked" the label before "Warehouse Oracle DB  短信告警"
-    And I "unchecked" the label before "Warehouse Oracle DB  短信告警"
+    And I "checked" the label before "sendsms"
+    And I "unchecked" the label before "sendsms"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'功能'}" button
@@ -43,7 +43,7 @@ Feature: 授权告警插件
     Then I click the "{'TabButton':'告警插件'}" button
     And I wait for loading invisible
     And I "checked" the label before "Warehouse Oracle DB  短信告警"
-    When I "unchecked" function "转授" from the auth table which name is "Warehouse Oracle DB 短信告警"
+    When I "unchecked" function "转授" from the auth table which name is "sendsms"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'功能'}" button

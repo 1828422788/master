@@ -1,5 +1,6 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
 import cucumber.api.java.en.And;
@@ -56,6 +57,15 @@ public class ValidateResult {
         }
         if (ElementExist.isElementExist(webDriver, loadingMask))
             WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+    }
+
+    @Then("^I will see the search result \"([^\"]*)\" with properties$")
+    public void validateSearchResultWithProperties(String result) {
+        String resultStr = result.split("name")[1];
+        String propertyName = resultStr.split("'")[2];
+        ConfigManager config = new ConfigManager();
+        String property = config.get(propertyName);
+        this.validateSearchResult(result.replace(propertyName, property));
     }
 
     /**
