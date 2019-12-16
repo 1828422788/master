@@ -68,6 +68,13 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "el-picker-panel__btn")
     private WebElement ensureTime;
 
+    @FindBy(xpath = "(//span[@class='el-checkbox__label'][contains(text(),'新建用户')])[1]")
+    private WebElement createUser;
+
+    public WebElement getCreateUser() {
+        return createUser;
+    }
+
     public WebElement getEnsureTime() {
         return ensureTime;
     }

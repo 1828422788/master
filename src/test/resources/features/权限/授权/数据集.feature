@@ -572,7 +572,7 @@ Feature: 权限-数据集
     Then I will see the success message "修改成功"
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "AutoAuthEdit" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除数据集成功"
 

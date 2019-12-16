@@ -137,7 +137,7 @@ Feature: 权限-监控
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权" button
     Then I will see the switch button before "{'column':'1','name':'<name>'}" is disabled
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     Then I will see the "alert.CreatePage" page
@@ -148,11 +148,6 @@ Feature: 权限-监控
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "__user_验证授权用户__" is disabled
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "在搜索中打开" button
-    Then switch to another window
-    And I wait for title change text to "搜索"
 
     Examples:
       | name         |
@@ -190,7 +185,7 @@ Feature: 权限-监控
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
     When the data name is "{'column':'1','name':'<name>'}" then I "close" the switch
     Then I will see the success message "禁用成功"
     And I wait for "SuccessMessage" will be invisible
@@ -209,11 +204,6 @@ Feature: 权限-监控
     And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "在搜索中打开" button
-    Then switch to another window
-    And I wait for title change text to "搜索"
 
     Examples:
       | name         |
@@ -268,7 +258,7 @@ Feature: 权限-监控
     And I wait for title change text to "仪表盘|搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
     When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
     Then I will see the success message "启用成功"
     And I wait for "SuccessMessage" will be invisible
@@ -292,17 +282,12 @@ Feature: 权限-监控
     And I wait for title change text to "仪表盘|搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
     And I set the parameter "AlertName" with value "AutoTestAuth"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'AutoTestAuth'}" then i click the "在搜索中打开" button
-    Then switch to another window
-    And I wait for title change text to "搜索"
 
     Examples:
       | name             |
@@ -349,7 +334,7 @@ Feature: 权限-监控
     And I wait for title change text to "仪表盘|搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权" button
     Then I will see the switch button before "{'column':'1','name':'<name>'}" is disabled
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     And I wait for "LoadingElement" will be invisible
@@ -372,10 +357,7 @@ Feature: 权限-监控
     And I wait for title change text to "仪表盘|搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权在搜索中打开" button
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "在搜索中打开" button
-    Then switch to another window
-    And I wait for title change text to "搜索"
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权" button
 
     Examples:
       | name         |
@@ -413,7 +395,7 @@ Feature: 权限-监控
     And I wait for title change text to "仪表盘|搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制删除授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制删除授权" button
     Then I will see the switch button before "{'column':'1','name':'<name>'}" is disabled
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     Then I will see the "alert.CreatePage" page
@@ -424,11 +406,6 @@ Feature: 权限-监控
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "__user_验证授权用户__" is disabled
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "在搜索中打开" button
-    Then switch to another window
-    And I wait for title change text to "搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button
@@ -473,7 +450,7 @@ Feature: 权限-监控
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权" button
     When the data name is "{'column':'1','name':'<name>'}" then I "close" the switch
     Then I will see the success message "禁用成功"
     And I wait for "SuccessMessage" will be invisible
@@ -495,11 +472,6 @@ Feature: 权限-监控
     And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "在搜索中打开" button
-    Then switch to another window
-    And I wait for title change text to "搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "删除" button
@@ -549,7 +521,7 @@ Feature: 权限-监控
     And I wait for title change text to "仪表盘|搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制删除授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制删除授权" button
     Then I will see the switch button before "{'column':'1','name':'<name>'}" is disabled
     When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button
     Then I will see the success message "复制成功"
@@ -575,12 +547,7 @@ Feature: 权限-监控
     And I wait for title change text to "仪表盘|搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制删除授权在搜索中打开" button
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "在搜索中打开" button
-    Then switch to another window
-    And I wait for title change text to "搜索"
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制删除授权" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
@@ -627,7 +594,7 @@ Feature: 权限-监控
     And I wait for title change text to "仪表盘|搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权" button
     When the data name is "{'column':'1','name':'<name>'}" then I "close" the switch
     Then I will see the success message "禁用成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
@@ -645,7 +612,7 @@ Feature: 权限-监控
     And I wait for title change text to "仪表盘|搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权在搜索中打开" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
@@ -656,11 +623,6 @@ Feature: 权限-监控
     And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "在搜索中打开" button
-    Then switch to another window
-    And I wait for title change text to "搜索"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "删除" button

@@ -52,6 +52,13 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='没有相关的功能权限']")
     private WebElement noAuth;
 
+    @FindBy(xpath = "//span[text()='没有相关的资源权限']")
+    private WebElement noResourceAuth;
+
+    public WebElement getNoResourceAuth() {
+        return noResourceAuth;
+    }
+
     public WebElement getNoAuth() {
         return noAuth;
     }

@@ -96,6 +96,20 @@ Feature: 权限-应用列表页
     And I click the "NextButton" button under some element
     Then I will see the error message "您上传的应用包有误，或没有操作该APP的权限，请重新上传应用包"
 
+  Scenario: 授权新建权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'数据集'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the label before "AutoTestForApp"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
+
   Scenario: 安装应用
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -308,6 +322,15 @@ Feature: 权限-应用列表页
     And I will see the element "ImportSuccess" name is "导入成功"
 
   Scenario: 在AutoTest用户安装无更新权限的app
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'应用'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the label before "AutoTestForAuth"
+    When I "unchecked" the label before "AutoTestForAuth"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I wait for loading invisible
@@ -323,7 +346,7 @@ Feature: 权限-应用列表页
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
     When I upload a file with name "/target/download-files/AutoTestForAuth.tar"
-    Then I wait for "NoAuth" will be visible
+    Then I wait for "NoResourceAuth" will be visible
     And I choose the "__user_AutoTest__" from the "Role"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "app"
@@ -345,7 +368,7 @@ Feature: 权限-应用列表页
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     When I "checked" the label before "<name>"
     And I "unchecked" the label before "<name>"
     And I "checked" function "读取" from the auth table which name is "<name>"
@@ -385,7 +408,7 @@ Feature: 权限-应用列表页
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     When I "checked" the label before "<name>"
     And I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -457,7 +480,7 @@ Feature: 权限-应用列表页
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     When I "checked" the label before "<name>"
     When I "unchecked" the label before "<name>"
     And I "checked" function "读取" from the auth table which name is "<name>"
@@ -503,7 +526,7 @@ Feature: 权限-应用列表页
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
-    And I will see the search result "EventAppForAuth"
+    And I will see the search result "{'column':'0','name':'AutoTestForAuth','contains':'no'}"
 
   Scenario Outline: 读取+删除
     Given delete file "/target/download-files/<name>.tar"
@@ -518,7 +541,7 @@ Feature: 权限-应用列表页
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     When I "checked" the label before "<name>"
     When I "unchecked" the label before "<name>"
     And I "checked" function "读取,删除" from the auth table which name is "<name>"
@@ -570,7 +593,7 @@ Feature: 权限-应用列表页
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'应用'}" button
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     When I "checked" the label before "<name>"
     And I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -613,17 +636,4 @@ Feature: 权限-应用列表页
     Examples:
       | name            |
       | EventAppForAuth |
-
-  Scenario: 授权应用权限供其他用例
-    Given delete file "/target/download-files/<name>.tar"
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'应用'}" button
-    And I wait for loading invisible
-    When I "checked" the label before "AutoTestForAuth"
-    When I "unchecked" the label before "AutoTestForAuth"
-    When I "checked" the label before "AutoTestForAuth"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
 

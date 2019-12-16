@@ -161,5 +161,4 @@ Feature: 索引信息新建
       | test      |      | 1         | 0.5        |           | error message "切分时间应为正整数"                          |
       | test      |      | 2         | 1          | 0.1       | error message "保存大小 应为正整数"                         |
       | test      |      | 2         | 1          | 0         | error message "保存大小 应为正整数"                         |
-      | teemptest |      | 2         | 1          | -1        | error message "索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串" |
 

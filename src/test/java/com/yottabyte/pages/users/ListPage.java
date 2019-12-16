@@ -1,5 +1,6 @@
 package com.yottabyte.pages.users;
 
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.*;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ListPage extends PageTemplate {
+public class ListPage extends ListPageFactory {
 
     public ListPage(WebDriver driver) {
         super(driver);
@@ -24,9 +25,6 @@ public class ListPage extends PageTemplate {
             @FindBy(className = "el-input__inner")
     })
     private WebElement searchInput;
-
-    @FindBy(xpath = "//*[text()='新建']")
-    private WebElement createUser;
 
     @FindBy(className = "el-table__body")
     private WebElement searchResultTable;
@@ -70,6 +68,20 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement ul;
 
+    @FindBy(xpath = "//span[text()=' __user_AutoTest__ ']")
+    private WebElement role;
+
+    @FindBy(xpath = "//span[text()=' __user_AutoTestAuth__ ']")
+    private WebElement roleAuth;
+
+    public WebElement getRoleAuth() {
+        return roleAuth;
+    }
+
+    public WebElement getRole() {
+        return role;
+    }
+
     public WebElement getEnsureButton() {
         return ensureButton;
     }
@@ -78,10 +90,6 @@ public class ListPage extends PageTemplate {
         ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(loadingElement);
         WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
         return searchInput;
-    }
-
-    public WebElement getCreateUser() {
-        return createUser;
     }
 
     public WebElement getSearchResult() {
