@@ -40,28 +40,28 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'其他')]")
     private WebElement other;
 
-    @FindBy(className = "line")
+    @FindBy(className = "linechart")
     private WebElement line;
 
-    @FindBy(className = "line2Y")
+    @FindBy(className = "linechart2y")
     private WebElement line2y;
 
-    @FindBy(className = "bar")
+    @FindBy(className = "barchart")
     private WebElement bar;
 
-    @FindBy(className = "range")
+    @FindBy(className = "rangechart")
     private WebElement range;
 
-    @FindBy(className = "rose")
+    @FindBy(className = "rosechart")
     private WebElement rose;
 
-    @FindBy(className = "barHorizontal")
+    @FindBy(className = "barcharthorizontal")
     private WebElement barHorizontal;
 
-    @FindBy(className = "sunburst")
+    @FindBy(className = "sunburstchart")
     private WebElement sunburst;
 
-    @FindBy(className = "pie")
+    @FindBy(className = "piechart")
     private WebElement pie;
 
     @FindBy(xpath = "//div[text()='数据']")
@@ -79,13 +79,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "delete")
     private WebElement delete;
 
-    @FindBy(className = "scatter")
+    @FindBy(className = "scatterchart")
     private WebElement scatter;
 
     @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
     private WebElement ensureDelete;
 
-    @FindBy(className = "percent")
+    @FindBy(className = "percentchart")
     private WebElement percent;
 
     @FindBy(className = "el-upload--text")
@@ -157,7 +157,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='单环颜色']/following-sibling::div//label/following-sibling::div//span[@class='el-color-picker__color-inner']")
     private WebElement monocycleColor;
 
-    @FindBy(className = "arcBar")
+    @FindBy(className = "arcbarchart")
     private WebElement arcBar;
 
     @FindBy(xpath = "(//label[text()='图表尺寸']/following-sibling::div//input)[1]")
@@ -253,7 +253,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='panel-style-setting table-color-setting-modal']//div[@class='el-tab-pane'][not(@style='display: none;')]//label[contains(text(),'风格')]/following-sibling::div//i")
     private WebElement numberStyle;
 
-    @FindBy(className = "liquidfill")
+    @FindBy(className = "liquidfillchart")
     private WebElement liquidfill;
 
     @FindBy(xpath = "//label[contains(text(),'水波动画')]/following-sibling::label")
@@ -271,16 +271,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[contains(text(),'颜色')]/following-sibling::div//div[@class='el-color-picker__trigger'])[last()]")
     private WebElement waterWaveColor;
 
-    @FindBy(className = "chord")
+    @FindBy(className = "chordchart")
     private WebElement chord;
 
     @FindBy(xpath = "//span[contains(@style,'background: rgb(233, 30, 99);')]")
     private WebElement red;
 
-    @FindBy(className = "force")
+    @FindBy(className = "forcechart")
     private WebElement force;
 
-    @FindBy(className = "sankey")
+    @FindBy(className = "sankeychart")
     private WebElement sankey;
 
     @FindBy(className = "fullscreen")
