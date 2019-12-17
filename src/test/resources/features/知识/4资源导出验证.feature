@@ -1,4 +1,4 @@
-@knowledge @knowledgeSmoke
+#@knowledge @knowledgeSmoke
 Feature: 知识验证再次导入（RZY-2408）
 
   Scenario: 新建知识资源分组

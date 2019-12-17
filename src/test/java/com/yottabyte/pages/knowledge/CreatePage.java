@@ -23,6 +23,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement lastDropdown;
 
+    @FindBy(className = "verify-text")
+    private WebElement verifyText;
+
+    @FindBy(className = "detail-item-pic")
+    private WebElement attachment;
+
+    public WebElement getAttachment() {
+        return attachment;
+    }
+
+    public WebElement getVerifyText() {
+        return verifyText;
+    }
+
     @Override
     public WebElement getApp() {
         app.click();
@@ -35,6 +49,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDescribe() {
         return getInputElement("事件描述");
+    }
+
+    public WebElement getSolution() {
+        return getInputElement("解决方案");
+    }
+
+    public WebElement getKnowledgeName() {
+        return getInputElement("名称");
     }
 
     public WebElement getSave() {

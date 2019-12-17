@@ -16,6 +16,17 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "search-count")
     private WebElement searchCount;
 
+    @FindBy(className = "grep-key")
+    private WebElement key;
+
+    public WebElement getSearchAll() {
+        return super.getButton("全文搜索");
+    }
+
+    public WebElement getKey() {
+        return key;
+    }
+
     public WebElement getSearchCount() {
         return searchCount;
     }
