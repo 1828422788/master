@@ -35,3 +35,14 @@ Feature: 权限-background
     And I set the parameter "Password" with value "all123456"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
+
+  @cleanAuth
+  Scenario Outline: 删除用户
+    Given open the "users.ListPage" page for uri "/account/users/"
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I click the "EnsureButton" button
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name   |
+      | 验证授权用户 |

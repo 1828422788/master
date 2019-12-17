@@ -57,7 +57,6 @@ Feature: 权限-仪表盘
 
     Examples:
       | name     |
-#      | 仪表盘验证权限  |
       | 仪表盘验证权限1 |
 
   Scenario: 验证无读取权限
