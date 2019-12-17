@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-agent
 
   Scenario: 新建agent分组
