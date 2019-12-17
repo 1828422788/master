@@ -170,5 +170,6 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "Title" name is "AlertApp"
 
     Examples:
-      | name                       |
-      | AutoTestAppAlertChangeName |
+      | name                           |
+      | AutoTestAppAlertChangeName     |
+      | AutoTestAppAlertChangeName(副本) |

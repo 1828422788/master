@@ -32,7 +32,6 @@ Feature: 字段提取脱敏配置
     And I set the parameter "ReplaceContent" with value "$1****$3"
     And I set the parameter "Prefix" with value "\w+"
     And I set the parameter "Postfix" with value "\S+"
-    And I click the "ReplaceFirst" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button

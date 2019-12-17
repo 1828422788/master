@@ -175,7 +175,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='极坐标系']/following-sibling::div//label[contains(text(),'中心纬度,经度')]/following-sibling::div//input)[2]")
     private WebElement polarYaxis;
 
-    @FindBy(className = "china")
+    @FindBy(className = "chinamap2d")
     private WebElement chinaMap;
 
     @FindBy(xpath = "//label[contains(text(),'区域颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
@@ -199,7 +199,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'地图')])[2]")
     private WebElement mapHeader;
 
-    @FindBy(className = "world")
+    @FindBy(className = "worldmap2d")
     private WebElement world;
 
     @FindBy(className = "heatmap")

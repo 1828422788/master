@@ -71,7 +71,7 @@ Feature: 应用知识模块（RZY-2128）
     And I click the "Create" button
     Then I will see the "knowledge.CreatePage" page
     When I set the parameter "EventCode" with value "测试无应用"
-    And I set the parameter "Describe" with value "test"
+    And I set the parameter "Describe" with value "若该知识没被删除，则证明app全局资源有问题"
     And I click the "Save" button
     And I wait for loading invisible
 

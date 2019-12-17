@@ -3,7 +3,7 @@ Feature: 字段提取详情验证
 
   Scenario Outline: 验证详情
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible
     Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
     Then I will see the config element "<rule2>" value is "<rule2> 1 1 0 0 0"
