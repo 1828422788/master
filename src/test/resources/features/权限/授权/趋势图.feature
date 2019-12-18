@@ -661,11 +661,45 @@ Feature: 权限-趋势图
       | name             |
       | AutoUserEdit(副本) |
 
+  Scenario: 有效期限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
+    Then I click the "{'TabButton':'趋势图'}" button
+    And I wait for loading invisible
+    And I "checked" the label before "AutoUserEdit(副本)(副本)"
+    When the data name is "AutoUserEdit(副本)(副本)" then I click the "无期限" button without total page
+    And I click the "Customize" button
+    And I click the "DateEditor" button
+    And I set the time input "TimeInput" to "1" minutes later
+    And I click the "EnsureTime" button
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+
   Scenario: 删除报表
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'AutoTestCreate'}" then i click the "删除" button
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
+
+  Scenario: 验证有效期限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "验证授权用户"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    And open the "trend.ListPage" page for uri "/trend/"
+    And I wait for loading invisible
+    Then I will see the search result "{'name':'AutoUserEdit(副本)(副本)','column':'0','contains':'no'}"
 
   Scenario Outline: 删除趋势图
     And open the "trend.ListPage" page for uri "/trend/"

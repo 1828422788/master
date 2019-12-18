@@ -24,10 +24,31 @@ Feature: 权限-数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then I will see the "Create" doesn't exist
 
+  Scenario: 验证数据集搜索权限生效
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'1','name':'AutoTestSearch','contains':'no'}"
+
   Scenario Outline: 授权新建
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'搜索权限'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the label before "AutoTestSearch"
+    And I "unchecked" the label before "AutoTestSearch"
+    And I "checked" the label before "AutoTestSearch"
+    And I click the "SaveButton" button
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -415,6 +436,49 @@ Feature: 权限-数据集
       | name     |
       | AutoAuth |
 
+  Scenario: 有效期限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
+    Then I click the "{'TabButton':'数据集'}" button
+    And I wait for loading invisible
+    And I "checked" the label before "AutoAuthEdit"
+    When the data name is "AutoAuthEdit" then I click the "无期限" button without total page
+    And I click the "Customize" button
+    And I click the "DateEditor" button
+    And I set the time input "TimeInput" to "1" minutes later
+    And I click the "EnsureTime" button
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+
+  Scenario: 新建数据集
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I click the "Create" button
+    And I set the parameter "Name" with value "AutoAuth"
+    And I set the parameter "Alias" with value "auth"
+    And I set the parameter "Spl" with value "*"
+    And I click the "Save" button
+    And I wait for title change text to "数据集详情"
+
+  Scenario: 验证有效期限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for loading invisible
+    And I wait for "Dashboard" will be visible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'0','name':'AutoAuthEdit','contains':'no'}"
+
   Scenario Outline: 授权读取+删除+授权
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I wait for loading invisible
@@ -422,6 +486,8 @@ Feature: 权限-数据集
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'数据集'}" button
     And I wait for loading invisible
+    And I "checked" the label before "<name>"
+    And I "unchecked" the label before "<name>"
     And I "checked" the label before "<name>"
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -489,13 +555,6 @@ Feature: 权限-数据集
       | AutoAuthEdit |
 
   Scenario Outline: 授权所有权限
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I click the "Create" button
-    And I set the parameter "Name" with value "<name>"
-    And I set the parameter "Alias" with value "auth"
-    And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
-    And I wait for title change text to "数据集详情"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I wait for loading invisible
     And the data name is "__user_AutoTest__" then i click the "授权" button

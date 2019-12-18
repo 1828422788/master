@@ -566,13 +566,61 @@ Feature: 权限-字段提取
     When I set the parameter "Name" with value "副本"
     And I click the "NextButton" button
     Then I wait for "ConfigDone" will be visible
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'副本'}" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除成功"
 
     Examples:
       | name   |
       | 副本(副本) |
+
+  Scenario: 有效期限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
+    Then I click the "{'TabButton':'字段提取'}" button
+    And I wait for loading invisible
+    And I "checked" the label before "副本"
+    When the data name is "副本" then I click the "无期限" button without total page
+    And I click the "Customize" button
+    And I click the "DateEditor" button
+    And I set the time input "TimeInput" to "1" minutes later
+    And I click the "EnsureTime" button
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+
+  Scenario Outline: 修改字段提取名称
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
+    And I click the "NextButton" button under some element
+    When I set the parameter "Name" with value "测试有效期限"
+    And I click the "NextButton" button
+    Then I wait for "ConfigDone" will be visible
+
+    Examples:
+      | name |
+      | 副本   |
+
+  Scenario: 验证有效期限生效
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "configs.ListPage" page for uri "/configs/"
+    Then I will see the search result "{'column':'1','name':'测试有效期限','contains':'no'}"
+
+  Scenario: 删除字段提取
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "{'column':'1','name':'测试有效期限'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"

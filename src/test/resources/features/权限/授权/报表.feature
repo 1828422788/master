@@ -466,12 +466,61 @@ Feature: 权限-报表
       | name           |
       | AutoTestCreate |
 
+  Scenario: 有效期限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
+    Then I click the "{'TabButton':'报表'}" button
+    And I wait for loading invisible
+    And I "checked" the label before "AutoTestRename"
+    When the data name is "AutoTestRename" then I click the "无期限" button without total page
+    And I click the "Customize" button
+    And I click the "DateEditor" button
+    And I set the time input "TimeInput" to "1" minutes later
+    And I click the "EnsureTime" button
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+
+  Scenario: 新建
+    Given open the "report.ListPage" page for uri "/reports/"
+    And I click the "Create" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "AutoTestCreate"
+    And I set the parameter "Subject" with value "test"
+    And I set the parameter "Hour" with value "11"
+    And I set the parameter "Minute" with value "11"
+    And I click the "NextButton" button
+    And I choose the "ForAutoTest" from the "ChartList"
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "保存成功"
+
+  Scenario: 验证有效期限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "all123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "report.ListPage" page for uri "/reports/"
+    Then I will see the search result "{'column':'1','name':'AutoTestRename','contains':'no'}"
+
   Scenario Outline: 授权读取+删除+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'报表'}" button
     And I wait for "Loading" will be invisible
+    And I "checked" the label before "<name>"
+    And I "unchecked" the label before "<name>"
     And I "checked" the label before "<name>"
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -539,18 +588,6 @@ Feature: 权限-报表
       | AutoTestRename |
 
   Scenario Outline: 授权所有权限
-    Given open the "report.ListPage" page for uri "/reports/"
-    And I click the "Create" button
-    Then I will see the "report.CreatePage" page
-    And I set the parameter "Name" with value "<name>"
-    And I set the parameter "Subject" with value "test"
-    And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "11"
-    And I click the "NextButton" button
-    And I choose the "ForAutoTest" from the "ChartList"
-    And I wait for "TopoTitle" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
