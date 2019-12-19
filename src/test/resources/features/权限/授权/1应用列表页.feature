@@ -113,6 +113,7 @@ Feature: 权限-应用列表页
   Scenario: 安装应用
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -537,14 +538,15 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集,可使用入库优先级"
+    And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the label before "<name>"
     When I "unchecked" the label before "<name>"
-    And I "checked" function "读取,删除" from the auth table which name is "<name>"
+    When I "checked" the label before "<name>"
+    And I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -637,3 +639,10 @@ Feature: 权限-应用列表页
       | name            |
       | EventAppForAuth |
 
+  Scenario: 删除数据集
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I wait for loading invisible
+    When the data name is "AutoTestForApp" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除数据集成功"
