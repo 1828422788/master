@@ -21,19 +21,19 @@ public class LoginPage extends PageTemplate {
         parentPageName = "";
     }
 
-    @FindBy (className = "yw-login-form-input")
+    @FindBy(className = "yw-login-form-input")
     private WebElement username;
 
-    @FindBy (css = "#login > div.yw-login-group > div.yw-login-inputs > div:nth-child(3) > input")
+    @FindBy(css = "#login > div.yw-login-group > div.yw-login-inputs > div:nth-child(3) > input")
     private WebElement password;
 
-    @FindBy (css = "#login > div.yw-login-group > div.yw-login-inputs > div.yw-login-btn-group > button")
+    @FindBy(css = "#login > div.yw-login-group > div.yw-login-inputs > div.yw-login-btn-group > button")
     private WebElement loginButton;
 
-    @FindBy (className = "el-message-box__message")
+    @FindBy(className = "el-message-box__message")
     private WebElement errorMessageBox;
 
-    @FindBy ( className = "el-message__group")
+    @FindBy(className = "el-message__group")
     private WebElement errorMessage;
 
     public WebElement getUsername() {
@@ -48,16 +48,16 @@ public class LoginPage extends PageTemplate {
         return loginButton;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return webDriver.getTitle();
     }
 
-    public WebElement getErrorMessage(){
+    public WebElement getErrorMessage() {
         By by = By.className("el-message__group");
         WebElement message;
-        if (ElementExist.isElementExist(webDriver,by)){
+        if (ElementExist.isElementExist(webDriver, by)) {
             message = errorMessage;
-        }else {
+        } else {
             message = errorMessageBox;
         }
 

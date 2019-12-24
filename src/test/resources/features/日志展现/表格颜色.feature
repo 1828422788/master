@@ -3,14 +3,14 @@ Feature: 日志展现表格颜色设置
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario: RZY-827:颜色-梯度-连续
     When I set the parameter "SearchInput" with value "tag:sample04061424 | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "splSearch.StatisticalPage" page
     And I click the "Edit" button
     And I choose the "梯度" from the "ColourDropdown"
@@ -23,7 +23,7 @@ Feature: 日志展现表格颜色设置
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "splSearch.StatisticalPage" page
     And I click the "Edit" button
     And I choose the "梯度" from the "ColourDropdown"
@@ -36,7 +36,7 @@ Feature: 日志展现表格颜色设置
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "splSearch.StatisticalPage" page
     And I click the "Edit" button
     And I choose the "梯度" from the "ColourDropdown"
@@ -78,7 +78,7 @@ Feature: 日志展现表格颜色设置
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "splSearch.StatisticalPage" page
     And I click the "Edit" button
     And I choose the "值" from the "ColourDropdown"
@@ -110,7 +110,7 @@ Feature: 日志展现表格颜色设置
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "splSearch.StatisticalPage" page
     And I click the "FirstEdit" button
     And I choose the "梯度" from the "ColourDropdown"

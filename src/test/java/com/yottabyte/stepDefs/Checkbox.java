@@ -57,6 +57,12 @@ public class Checkbox {
         }
     }
 
+    /**
+     * 判断列表页下checkbox的状态
+     *
+     * @param name
+     * @param attribute enabled/disabled
+     */
     @Then("^I will see the checkbox in list before \"([^\"]*)\" is \"([^\"]*)\"$")
     public void checkAttribute(String name, String attribute) {
         ListPageUtils listPageUtils = new ListPageUtils();

@@ -44,7 +44,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='AutoTest']/ancestor::td/preceding-sibling::td//label")
     private WebElement checkBox;
 
-    @FindBy(xpath = "//button[@class='el-button add-member el-button--text']/following-sibling::div/button")
+    @FindBy(xpath = "//button[@class='el-button add-member el-button--text']/ancestor::div[@class='box-content']//button[@class='el-button btn-submit el-button--primary']")
     private WebElement saveMember;
 
     @FindBy(xpath = "//span[contains(text(),'添加成员')]/ancestor::button")
@@ -64,6 +64,13 @@ public class EditPage extends PageTemplate {
 
     @FindBy(className = "el-checkbox__input")
     private WebElement checkboxInner;
+
+    @FindBy(xpath = "//*[contains(text(),'暂无数据')]")
+    private WebElement noData;
+
+    public WebElement getNoData() {
+        return noData;
+    }
 
     public WebElement getCheckboxInner() {
         return checkboxInner;
@@ -146,5 +153,9 @@ public class EditPage extends PageTemplate {
 
     public WebElement getMemberCheckbox(String name) {
         return webDriver.findElement(By.xpath("//span[contains(text(),'" + name + "')]/ancestor::td/preceding-sibling::td//label/span"));
+    }
+
+    public WebElement getAddAdmin() {
+        return getContainsTextButton("添加管理员");
     }
 }

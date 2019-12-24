@@ -2,7 +2,7 @@ Feature: 日志展现
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   @logDisplay
   Scenario Outline: 内置字段不可移除（取消内置字段的星号）（RZY-207）
@@ -10,14 +10,13 @@ Feature: 日志展现
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I click the "AllFields" button
     And make element "<name>" change to "<className>"
     Then I will see the error message "此字段不可从选定字段中移除"
 
     Examples:
       | splQuery                                  | name     | className     |
-#      | *                                         | ip       | icon-shoucang |
       | index=yott* ERROR AND tag:sample04061424* | tag      | icon-shoucang |
       | index=yott* ERROR AND tag:sample04061424* | appname  | icon-shoucang |
       | index=yott* ERROR AND tag:sample04061424* | logtype  | icon-shoucang |
@@ -29,7 +28,7 @@ Feature: 日志展现
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "AllFields" button
     And make element "<name>" change to "<className>"
     And I click the "CloseAllFields" button
@@ -47,7 +46,7 @@ Feature: 日志展现
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I click the "<fieldName>" button
     And I check "<fieldValue>" from the "FieldCheckbox"
     And I click the "<optional>" button
@@ -72,7 +71,7 @@ Feature: 日志展现
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I click the "AllFields" button
     And make element "apache.request_query" change to "icon-yishoucang"
     And I click the "CloseAllField" button under some element
@@ -80,5 +79,5 @@ Feature: 日志展现
     And I wait for "LoadingSpinner" will be invisible
     And I "checked" the checkbox which name is "gw_address=192.168.11.1&gw_port=2060&gw_id=02801020000235&mac=ac:e2:15:ec:e8:0e&url=http%3A//app.video.baidu.com/adapp_static/clientconfig/img/610/navi_chase.png"
     And I click the "FileterField" button
-    And I wait element "SearchStatus" change text to "正在搜索..."
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "正在搜索..."
+    And I wait for element "SearchStatus" change text to "搜索完成!"

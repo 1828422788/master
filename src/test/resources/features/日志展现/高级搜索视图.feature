@@ -3,14 +3,14 @@ Feature: 日志展现高级搜索视图
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario: RZY-2794:地图-行政区划地图2_江苏省
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.city"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "splSearch.StatisticalPage" page
     And I click the "Type" button
     Then I will see the "trend.CreatePage" page
@@ -29,7 +29,7 @@ Feature: 日志展现高级搜索视图
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
     And I wait for "1000" millsecond
     Then take part of "Chart" with name "event/<num>"
@@ -45,7 +45,7 @@ Feature: 日志展现高级搜索视图
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
     And I wait for "1000" millsecond
     Then take part of "Chart" with name "event/<num>"

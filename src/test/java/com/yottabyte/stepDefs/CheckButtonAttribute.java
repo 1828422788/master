@@ -24,7 +24,7 @@ public class CheckButtonAttribute {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     /**
-     * 检查元素是否有某属性
+     * 检查元素class是否包含某属性
      *
      * @param buttonNameList
      * @param attribute
@@ -38,6 +38,11 @@ public class CheckButtonAttribute {
     }
 
 
+    /**
+     * 判断元素是否可点击
+     *
+     * @param buttonNameList
+     */
     @And("^I will see the \"([^\"]*)\" is clickable$")
     public void checkIsClickable(List<String> buttonNameList) {
         for (String buttonName : buttonNameList) {

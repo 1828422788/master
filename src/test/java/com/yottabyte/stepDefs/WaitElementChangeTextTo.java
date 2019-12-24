@@ -20,27 +20,6 @@ import static com.yottabyte.utils.GetTableElement.getTableElementWithRowAndCol;
  */
 public class WaitElementChangeTextTo {
 
-    /**
-     * 等待指定元素的文本变成指定内容
-     *
-     * @param elementName
-     * @param text
-     */
-    @And("^I wait element \"([^\"]*)\" change text to \"([^\"]*)\"$")
-    public void waitElementChangeTextTo(String elementName, String text) {
-        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-        WebElement element = getWebElementWithName(elementName);
-        ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver driver) {
-                Boolean flag = element.getText().contains(text);
-                return flag;
-            }
-        };
-
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-    }
-
     public void waitForElementWithExpectedCondition(WebDriver driver, ExpectedCondition expectedCondition) {
         FluentWait wait = new FluentWait(driver)
                 .withTimeout(WebDriverConst.WAIT_FOR_ELEMENT_TIMEOUT, TimeUnit.MILLISECONDS)
@@ -88,5 +67,21 @@ public class WaitElementChangeTextTo {
         };
 
         this.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+    }
+
+    @And("^I wait for element \"([^\"]*)\" value change text to \"([^\"]*)\"$")
+    public void iWaitForElementValueChangeTextTo(String elementName, String text) {
+        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+        WebElement element = getWebElementWithName(elementName);
+        ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                Boolean flag = element.getAttribute("value").contains(text);
+                return flag;
+            }
+        };
+
+        this.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+
     }
 }
