@@ -2,8 +2,10 @@ package com.yottabyte.pages.dashboard;
 
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.GetTime;
+import com.yottabyte.utils.Paging;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -223,6 +225,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'选择趋势图进行添加')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button[@class='el-button yw-modal-btn yw-modal-btn-primary el-button--primary']")
     private WebElement ensureAddTrend;
 
+    @FindBy(xpath = "//label[contains(text(),'默认值')]/following-sibling::div//i")
+    private WebElement defaultValueIcon;
+
     public WebElement getIconLoading() {
         return iconLoading;
     }
@@ -357,7 +362,7 @@ public class DetailPage extends PageTemplate {
         return addTag;
     }
 
-    public WebElement getUiautotest() {
+    public WebElement getUIautotest() {
         return uiautotest;
     }
 
@@ -395,7 +400,8 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getDefaultDropdownList() {
-        return super.getDropdownList("默认值");
+        defaultValueIcon.click();
+        return getLastDropdownList();
     }
 
     public WebElement getDynamicField() {
@@ -416,7 +422,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getFilterTitle() {
-        return super.getInputElement("标题");
+        return getInputElement("标题");
     }
 
     public WebElement getChoiceValue() {
@@ -424,15 +430,15 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getFilterToken() {
-        return super.getInputElement("标识");
+        return getInputElement("标识");
     }
 
     public WebElement getFilterField() {
-        return super.getInputElement("过滤字段");
+        return getInputElement("过滤字段");
     }
 
     public WebElement getFilterDefaultValue() {
-        return super.getInputElement("默认值");
+        return getInputElement("默认值");
     }
 
     public WebElement getEventList() {
@@ -554,5 +560,17 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
+    }
+
+    public WebElement getLastDropdownList() {
+        String className = "el-select-dropdown__list";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+        WebElement li = lastDropdownList.findElement(By.xpath(".//li"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
+        return lastDropdownList;
     }
 }

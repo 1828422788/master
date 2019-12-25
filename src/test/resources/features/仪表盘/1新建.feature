@@ -3,27 +3,24 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
 
   Scenario Outline:
     When I set the parameter "DashBoardName" with value "<name>"
-    And I choose the "<group>" from the "DashBoardGroup"
-    Then I click the "EnsureCreateButton" button
+    And I set the parameter "ResourceInput" with value "AutoTest"
+    And I choose the "AutoTest" from the "LastDropdownList"
+    And I click the "Ensure" button
+    Then I will see the success message "新建成功"
 
     Examples: 新建成功
-      | name        | group                  |
-      | UIautotest  | default_DashBoardGroup |
-      | sxjautotest |                        |
-
-  @first
-    Examples:
-      | name          | group |
-      | FirstAutoTest |       |
+      | name          |
+      | UIautotest    |
+      | FirstAutoTest |
 
   Scenario Outline: 新建失败校验
     When I set the parameter "DashBoardName" with value "<name>"
-    Then I click the "EnsureCreateButton" button
-    Then I will see the success message "<result>"
+    And I click the "Ensure" button
+    Then I will see the error message "<result>"
 
     Examples:
       | name | result                      |

@@ -102,8 +102,11 @@ public class CompareResult {
     }
 
     @And("^I compare with list \"([^\"]*)\"$")
-    public void iCompareWithList(String elementName) {
+    public void compareWithList(String elementName) {
         List<WebElement> elements = GetElementFromPage.getWebElementWithName(elementName);
+        if (elements.size() == 0) {
+            Assert.assertTrue(false);
+        }
         for (int i = 0; i < elements.size(); i++) {
             Assert.assertEquals(list.get(i), elements.get(i).getText());
         }

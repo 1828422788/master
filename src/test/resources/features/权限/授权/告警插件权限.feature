@@ -61,7 +61,7 @@ Feature: 授权告警插件
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "alert.PluginPage" page for uri "/plugins/"
-    Then I will see the search result "sendsms"
+    Then I will see the search result contains "sendsms"
 
   Scenario: 有效期限
     Given open the "roles.ListPage" page for uri "/account/roles/"

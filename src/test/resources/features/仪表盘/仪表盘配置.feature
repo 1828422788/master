@@ -3,7 +3,7 @@ Feature: 仪表盘配置
 
   Scenario Outline: 添加下拉菜单类型的过滤项（RZY-1869）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "UI自动化创建"
+    And I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I choose the "<eventList>" from the "EventList"
@@ -27,7 +27,7 @@ Feature: 仪表盘配置
 
   Scenario Outline: RZY-1668、1669添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "UI自动化创建"
+    And I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I choose the "添加输入项" from the "EventList"
@@ -43,12 +43,11 @@ Feature: 仪表盘配置
 
   Scenario Outline: 创建仪表盘所用趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "NameInput" with value "<name>"
-    And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "default_Trend" from the "GroupDropdown"
     And I click the "NextButton" button
+    And I wait for "SearchInput" will be visible
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -56,16 +55,18 @@ Feature: 仪表盘配置
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I wait for "Header" will be visible
-    And I click the "Save" button
+    And I click the "NextButton" button
+    And I click the "NextButton" button
+    Then I will see the element "SuccessCreate" name is "新建成功！"
 
     Examples:
-      | name         | spl                                                                                 |
-      | 仪表盘所用趋势图     | *\|stats count() by 'appname',logtype                                               |
-      | 仪表盘1669所用趋势图 | (appname:"aa") \|bucket timestamp span=6h as ts \|stats count('tag') as 'tag' by ts |
+      | name         | spl                                                                                       |
+      | 仪表盘所用趋势图     | *\|stats count() by 'appname'                                                             |
+      | 仪表盘1669所用趋势图 | (appname:\"aa\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
   Scenario: 验证RZY-1668:单引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "UI自动化创建"
+    And I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I choose the "添加图表" from the "EventList"
@@ -76,7 +77,7 @@ Feature: 仪表盘配置
     And I set value with element "TableList"
     And I click the "ChartSetting" button
     And I choose the "通用配置" from the "Configs"
-    And I set the parameter "Spl" with value "* | stats count() by ${input|s},logtype"
+    And I set the parameter "Spl" with value "* | stats count() by ${input|s}"
     And I click the "SettingEnsure" button
     Then I compare with list "TableList"
     And I click the "DeleteChart" button
@@ -84,7 +85,7 @@ Feature: 仪表盘配置
 
   Scenario: 验证RZY-1669:双引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "UI自动化创建"
+    And I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I choose the "添加图表" from the "EventList"
@@ -100,39 +101,39 @@ Feature: 仪表盘配置
     And I click the "SettingEnsure" button
     Then I compare with list "TableList"
 
-  @first
-  Scenario Outline: 配置邮箱
-    Given open the "system.CustomConfigs" page for uri "/system/custom/configs/"
-    When I set the parameter "SMTPPort" with value "<port>"
-    And I set the parameter "SMTPAddress" with value "<address>"
-    And I set the parameter "SendEmail" with value "<sendEmail>"
-    And I set the parameter "EmailPassword" with value "<password>"
-    And I let element "EmailPassword" lose focus
-
-    Examples:
-      | port | address          | sendEmail           | password |
-      | 465  | smtp.vip.163.com | dfuture@vip.163.com | wym0601  |
-
-  @first
-  Scenario: RZY-235:新建报表
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "UI自动化创建"
-    Then I will see the "dashboard.DetailPage" page
-    And I click the "SaveAsReportButton" button
-    And switch to window "报表"
-    Then I will see the "report.CreatePage" page
-    And I set the parameter "Name" with value "仪表盘创建报表"
-    And I set the parameter "Describe" with value "AutoTest"
-    And I choose the "default_Report" from the "ReportGroup"
-    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
-    And I click the "Email" button
-    And I hide the element "Scrollbar"
-    And I set the parameter "Subject" with value "<%report_name%>"
-    And I set the parameter "Hour" with value "17"
-    And I set the parameter "Minute" with value "03"
-    And I click the "NextButton" button
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
+#  @first
+#  Scenario Outline: 配置邮箱
+#    Given open the "system.CustomConfigs" page for uri "/system/custom/configs/"
+#    When I set the parameter "SMTPPort" with value "<port>"
+#    And I set the parameter "SMTPAddress" with value "<address>"
+#    And I set the parameter "SendEmail" with value "<sendEmail>"
+#    And I set the parameter "EmailPassword" with value "<password>"
+#    And I let element "EmailPassword" lose focus
+#
+#    Examples:
+#      | port | address          | sendEmail           | password |
+#      | 465  | smtp.vip.163.com | dfuture@vip.163.com | wym0601  |
+#
+#  @first
+#  Scenario: RZY-235:新建报表
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I click the detail which name is "UI自动化创建"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "SaveAsReportButton" button
+#    And switch to window "报表"
+#    Then I will see the "report.CreatePage" page
+#    And I set the parameter "Name" with value "仪表盘创建报表"
+#    And I set the parameter "Describe" with value "AutoTest"
+#    And I choose the "default_Report" from the "ReportGroup"
+#    And I set the parameter "EmailInput" with value "wang.yueming@yottabyte.cn"
+#    And I click the "Email" button
+#    And I hide the element "Scrollbar"
+#    And I set the parameter "Subject" with value "<%report_name%>"
+#    And I set the parameter "Hour" with value "17"
+#    And I set the parameter "Minute" with value "03"
+#    And I click the "NextButton" button
+#    And I click the "Save" button
+#    Then I will see the success message "保存成功"
 
 #  Scenario: RZY-1278:title字段
 #    Given open the "dashboard.ListPage" page for uri "/dashboard/"

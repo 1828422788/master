@@ -3,34 +3,29 @@ Feature: 仪表盘高级编辑
 
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the "CreateButton" button
+    And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
-    Then I click the "EnsureCreateButton" button
+    And I click the "Ensure" button
+    Then I will see the success message "新建成功"
 
     Examples:
       | name   |
       | 测试高级编辑 |
 
-  Scenario Outline: 新建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    And I click the "CreateButton" button
+  Scenario: 新建趋势图
+    And open the "trend.ListPage" page for uri "/trend/"
+    And I click the "Create" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "NameInput" with value "<name>"
-    And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "default_Trend" from the "GroupDropdown"
+    When I set the parameter "NameInput" with value "仪表盘所有"
     And I click the "NextButton" button
-    And I set the parameter "SearchInput" with value "<spl>"
+    And I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10 "
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
-    And I wait for "Header" will be visible
-    And I click the "Save" button
-
-    Examples:
-      | name   | spl                                                                                            |
-      | 仪表盘趋势图 | tag:*display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,"thumbs-down","thumbs-up") |
+    And I click the "NextButton" button
+    Then I will see the element "SuccessCreate" name is "新建成功！"
 
   Scenario: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

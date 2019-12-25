@@ -3,7 +3,7 @@ Feature: 仪表盘详情页
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "sxjautotest"
+    And I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
 
   @dashboardSmoke
@@ -30,47 +30,24 @@ Feature: 仪表盘详情页
     And I click the "EnsureCreateTagButton" button
     And I wait for "Main" will be visible
 
+  Scenario Outline: 新建标签页失败
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试标签页"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "AddTag" button
+    When I set the parameter "TagName" with value "<tagName>"
+    And I click the "EnsureCreateTagButton" button
+    Then I will see the success message "<message>"
+
+    Examples:
+      | tagName | message                     |
+      |         | 标签页名称不能为空                   |
+      | t e s t | 名称格式有误, 仅支持汉字，数字，字母，中划线及下划线 |
+
   @dashboardSmoke
   Scenario: 跳转到其他仪表盘（RZY-240）
     And I click the "SwitchButton" button
     And I wait for "Circular" will be invisible
-    And I click the "Uiautotest" button
+    And I click the "UIautotest" button
     And I wait for loading invisible
     Then the page's title will be "UIautotest | 仪表盘"
-
-  @dashboardSmoke
-  Scenario Outline: 添加动态菜单类型的过滤项（RZY-258）
-    When I set the parameter "TagName" with value "second"
-    And I click the "EnsureCreateTagButton" button
-    Given I click the "AddEventButton" button
-    And I choose the "<eventList>" from the "EventList"
-    And I set the parameter "FilterTitle" with value "<title>"
-    And I set the parameter "FilterToken" with value "<token>"
-    And I set the parameter "FilterField" with value "<field>"
-    And I choose the "<inputType>" from the "InputType"
-    And I set the parameter "DynamicField" with value "<dynamicField>"
-    And I set the parameter "SearchInput" with value "<search>"
-    And I click the "TimeRange" button
-    And I click the "ThisMonth" button
-    And I click the "SearchInputButton" button
-    And I will see the success message "动态字段搜索完成!"
-    And I choose the "<choiceValue>" from the "DefaultDropdownList"
-    And I click the "EnsureCreateFilter" button
-
-    Examples:
-      | eventList | title | token     | field | inputType | dynamicField | search                        | choiceValue |
-      | 添加过滤项     | test  | testtoken |       | 动态菜单      | appname      | * \| stats count() by appname | java        |
-
-  Scenario Outline: 添加过滤项以及输入项失败
-    Given I click the "AddEventButton" button
-    And I choose the "<eventList>" from the "EventList"
-    And I set the parameter "<titleName>" with value "<title>"
-    And I click the "<ensure>" button
-    Then I will see the success message "<message>"
-
-    Examples:
-      | eventList | titleName   | title | ensure             | message     |
-      | 添加过滤项     | FilterTitle |       | EnsureCreateFilter | 请输入过滤项标题    |
-      | 添加输入项     | InputTitle  |       | EnsureCreateInput  | 请输入输入项标题    |
-      | 添加过滤项     | FilterTitle | test  | EnsureCreateFilter | 请输入过滤项标识    |
-      | 添加输入项     | InputTitle  | test  | EnsureCreateInput  | 请输入输入项token |

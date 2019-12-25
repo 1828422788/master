@@ -38,6 +38,13 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
+    @FindBy(className = "ant-select-remove-icon")
+    private WebElement removeTagIcon;
+
+    public WebElement getRemoveTagIcon() {
+        return removeTagIcon;
+    }
+
     public WebElement getMessage() {
         return message;
     }
