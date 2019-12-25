@@ -40,5 +40,5 @@ Feature: 知识编辑（RZY-879）
 
     Examples:
       | name                                                                              |
-      | 附件:\nsuccess.tar\ntestAlertPlu...\ntestAlertPlu...\nAutoUpload.y...\nautotest.csv |
+      | 附件:\nsuccess.tar\ntestAlertPlu...\ntestAlertPlu...\nautotest.csv\nAutoUpload.y... |
 

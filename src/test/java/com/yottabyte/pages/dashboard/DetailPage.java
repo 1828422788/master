@@ -216,7 +216,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'清空JSON')]")
     private WebElement cleanJson;
 
-    @FindBy(id = "jsoneditor")
+//    @FindBy(id = "jsoneditor")
+    @FindBy(className = "ace_text-input")
     private WebElement jsonEditor;
 
     @FindBy(className = "el-icon-loading")
@@ -237,6 +238,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getJsonEditor() {
+        webDriver.findElement(By.id("jsoneditor")).click();
         return jsonEditor;
     }
 

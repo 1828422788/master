@@ -13,6 +13,9 @@ Feature: 知识删除（RZY-881）
     Then I will see the search result "{'column':'0','name':'<Name>','contains':'no'}"
 
     Examples:
-      | Name        |
-      | AutoTest    |
-      | sxjAutoTest |
+      | Name                |
+      | 名称1, 名称2            |
+      | 测试多个code            |
+      | AutoTestCreateByURL |
+      | AutoTest            |
+      | sxjAutoTest         |

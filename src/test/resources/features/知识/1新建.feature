@@ -34,7 +34,7 @@ Feature: 知识新建（RZY-868）
   @knowledgeSmoke
   Scenario Outline: RZY-2445:通过url参数新建知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/new/?code=<code>&name=<name>&description=AutoTest&solution=没有&tags=<tag>/"
-    And I click the "Confirm" button
+    And I click the "Save" button
     And I will see the search result contains "{'column':'0','name':'<name>'}"
     And I will see the search result contains "{'column':'1','name':'<code>'}"
 

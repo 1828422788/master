@@ -20,6 +20,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-message-error")
     private WebElement errorMessage;
 
+    @FindBy(xpath = "//span[contains(text(),'返回列表')]")
+    private WebElement returnList;
+
+    public WebElement getReturnList() {
+        return returnList;
+    }
+
     public WebElement getErrorMessage() {
         return errorMessage;
     }

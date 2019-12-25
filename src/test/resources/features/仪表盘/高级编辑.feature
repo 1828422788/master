@@ -41,8 +41,25 @@ Feature: 仪表盘高级编辑
     Then I will see the "dashboard.DetailPage" page
     And I click the "AddButton" button
     And I choose the "添加图表" from the "EventList"
-    And I check "仪表盘趋势图" from the "CheckBox"
+    And I check "仪表盘所有" from the "CheckBox"
     And I click the "EnsureAddTrend" button
+
+  Scenario: 图表高级配置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试高级编辑"
+    Then I will see the "dashboard.DetailPage" page
     And I wait for "ChartSetting" will be visible
     And I click the "ChartSetting" button
     And I click the "Edit" button
+    And I set the parameter "JsonEditor" with value "test"
+
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "仪表盘删除成功"
+
+    Examples:
+      | name   |
+      | 测试高级编辑 |
