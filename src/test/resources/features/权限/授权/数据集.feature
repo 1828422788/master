@@ -130,7 +130,7 @@ Feature: 权限-数据集
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
-    Then the data name is "<name>" then i will see "授权" button
+    Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "__user_验证授权用户__" is disabled
@@ -163,7 +163,7 @@ Feature: 权限-数据集
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "编辑标签授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
@@ -210,7 +210,7 @@ Feature: 权限-数据集
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "编辑标签删除授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签删除授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
@@ -272,7 +272,7 @@ Feature: 权限-数据集
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "删除授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认删除授权" button
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "__user_验证授权用户__" is disabled
@@ -309,7 +309,7 @@ Feature: 权限-数据集
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
+    And the data name is "__user_验证授权用户__" then i click the "设为默认授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'数据集'}" button
@@ -357,7 +357,7 @@ Feature: 权限-数据集
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "授权" button
+    Then the data name is "<name>" then i will see "设为默认授权" button
 
     Examples:
       | name     |
@@ -401,7 +401,7 @@ Feature: 权限-数据集
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "dataset.ListPage" page for uri "/dataset/"
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "编辑标签授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
@@ -545,7 +545,7 @@ Feature: 权限-数据集
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "删除授权" button
+    Then the data name is "<name>" then i will see "设为默认删除授权" button
     When the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除数据集成功"
@@ -599,7 +599,7 @@ Feature: 权限-数据集
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "dataset.ListPage" page for uri "/dataset/"
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "编辑标签删除授权" button
+    Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签删除授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
