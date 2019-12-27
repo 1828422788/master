@@ -64,6 +64,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
     private WebElement app;
 
+    public WebElement getSave() {
+        return getButton("保存");
+    }
+
     public WebElement getApp() {
         app.click();
         return dropdownUtils.getLastDropdownList();
