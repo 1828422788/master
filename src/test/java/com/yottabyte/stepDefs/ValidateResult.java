@@ -37,18 +37,6 @@ public class ValidateResult {
         this.validateSearchResult(searchResult);
     }
 
-    /**
-     * 验证任意一行数据为某一值
-     *
-     * @param dropdownMenu
-     * @param searchResult
-     */
-    @Given("^search from \"([^\"]*)\" then I will see the result contains \"([^\"]*)\"$")
-    public void verifyResultContains(String dropdownMenu, String searchResult) {
-        this.chooseFromDropdown(dropdownMenu);
-//        this.validateSearchResultContainsValue(searchResult);
-    }
-
     private void waitUntilLoadingDisappear() {
         WebElement loadingMask;
         try {
@@ -57,7 +45,7 @@ public class ValidateResult {
             return;
         }
         if (ElementExist.isElementExist(webDriver, loadingMask))
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+            WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
     }
 
     @Then("^I will see the search result \"([^\"]*)\" with properties$")
@@ -197,7 +185,7 @@ public class ValidateResult {
 
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
-                WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(paging.getNextPage()));
+                WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(paging.getNextPage()));
                 paging.getNextPage().click();
                 this.waitUntilLoadingDisappear();
                 trList = this.getTrList();
@@ -254,7 +242,7 @@ public class ValidateResult {
      */
     @Given("^choose from \"([^\"]*)\"$")
     public void chooseFromDropdown(String dropdownMenu) {
-        WaitForElement.waitUntilLoadingDisappear();
+        WaitElement.waitUntilLoadingDisappear();
         Map<String, Object> dropdownMap = JsonStringPaser.json2Stirng(dropdownMenu);
         String dropdownKey = dropdownMap.keySet().iterator().next();
         WebElement dropdownList = GetElementFromPage.getWebElementWithName(dropdownKey);

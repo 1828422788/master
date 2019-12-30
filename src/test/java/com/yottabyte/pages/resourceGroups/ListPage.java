@@ -3,7 +3,7 @@ package com.yottabyte.pages.resourceGroups;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.stepDefs.ClickSomeButton;
 import com.yottabyte.stepDefs.IChooseValueFromSelectList;
-import com.yottabyte.stepDefs.IWillSeeNewPage;
+import com.yottabyte.stepDefs.LoadingPage;
 import com.yottabyte.stepDefs.SetKeyWithValue;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetElementFromPage;
@@ -367,7 +367,7 @@ public class ListPage extends PageTemplate {
         SetKeyWithValue setKeyWithValue = new SetKeyWithValue();
         if ("暂无数据".equals(text)) {
             getCreateResourceGroup().click();
-            IWillSeeNewPage page = new IWillSeeNewPage();
+            LoadingPage page = new LoadingPage();
             page.iWillSeeNewPage("resourceGroups.CreatePage");
             setKeyWithValue.iSetTheParameterWithValue("ResourceGroupName", resourceGroupsName);
             IChooseValueFromSelectList chooseValueFromSelectList = new IChooseValueFromSelectList();

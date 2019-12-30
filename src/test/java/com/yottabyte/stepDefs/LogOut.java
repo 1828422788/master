@@ -7,9 +7,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+/**
+ * 退出登录
+ */
 public class LogOut {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
+    /**
+     * 登出当前用户
+     */
     @And("^I logout current user$")
     public void iLogoutCurrentUser() {
         try {

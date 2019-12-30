@@ -19,9 +19,14 @@ import java.util.List;
 /**
  * Created by A on 2017/4/14.
  */
-public class WaitForElementVisible {
+public class WaitElement {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
+    /**
+     * 等待元素可见
+     *
+     * @param elementName 元素名称
+     */
     @When("^I wait for \"([^\"]*)\" will be visible")
     public void iWaitForWillBeVisible(String elementName) {
         Object o = GetElementFromPage.getWebElementWithName(elementName);
@@ -36,22 +41,38 @@ public class WaitForElementVisible {
         }
     }
 
+    /**
+     * 等待元素不可见
+     *
+     * @param elementName 元素名称
+     */
     @And("^I wait for \"([^\"]*)\" will be invisible")
     public void iWaitForWillBeInvisible(String elementName) {
         try {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-//            ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(element);
-//            WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-            WaitForElement.waitElementInvisible(element);
-//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(element));
+            com.yottabyte.utils.WaitForElement.waitElementInvisible(element);
         } catch (ElementNotFoundException exception) {
             return;
         }
     }
 
+    /**
+     * 等待loading元素消失
+     */
     @Then("^I wait for loading invisible$")
     public void iWaitForLoadingInvisible() {
-        WaitForElement.waitUntilLoadingDisappear();
+        com.yottabyte.utils.WaitForElement.waitUntilLoadingDisappear();
+    }
+
+    /**
+     * 等待多少毫秒
+     *
+     * @param millseconds 毫秒值
+     * @throws InterruptedException
+     */
+    @And("^I wait for \"([^\"]*)\" millsecond")
+    public void iWaitForSecond(String millseconds) throws InterruptedException {
+        Thread.sleep(Long.parseLong(millseconds));
     }
 
     public void waitUntilInvisible(String xpath) {
@@ -66,6 +87,6 @@ public class WaitForElementVisible {
 
     private void elementInvisible(WebElement element) {
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(element);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
     }
 }

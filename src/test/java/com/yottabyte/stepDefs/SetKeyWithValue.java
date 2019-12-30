@@ -4,6 +4,7 @@ import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import org.openqa.selenium.*;
 
 
@@ -28,6 +29,17 @@ public class SetKeyWithValue {
                 iSetTheParameterWithValue(element, value);
             }
         }
+    }
+
+    /**
+     * 给搜索框传值
+     *
+     * @param name 搜索内容
+     */
+    @Then("^I set the search input with \"([^\"]*)\"$")
+    public void setSearchInput(String name) {
+        WebElement searchInput = webDriver.findElement(By.xpath("//div[@class='yw-table-group__basic el-input']/input"));
+        searchInput.sendKeys(name);
     }
 
 

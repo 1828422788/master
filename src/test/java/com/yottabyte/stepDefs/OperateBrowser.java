@@ -12,8 +12,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import javax.annotation.Nullable;
 
 /**
+ * 对浏览器原生控件的操作
+ *
  * @author sunxj
- * 操作浏览器
  */
 public class OperateBrowser {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
@@ -48,13 +49,18 @@ public class OperateBrowser {
     }
 
     /**
-     * chrome浏览器弹框
+     * chrome浏览器弹框确定
      */
     @And("^I accept alert window$")
     public void acceptAlertWindow() {
         webDriver.switchTo().alert().accept();
     }
 
+    /**
+     * 切换到另一个名称为titleName的标签页
+     *
+     * @param titleName 标签页名称
+     */
     @And("^switch to window \"([^\"]*)\"$")
     public void switchToWindow(String titleName) {
         String handle = webDriver.getWindowHandle();
@@ -68,6 +74,9 @@ public class OperateBrowser {
         }
     }
 
+    /**
+     * 等待页面加载完毕
+     */
     @Given("^I wait for loading complete$")
     public void waitForLoadingComplete() {
         JavascriptExecutor js = (JavascriptExecutor) webDriver;

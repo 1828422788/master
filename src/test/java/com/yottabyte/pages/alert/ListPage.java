@@ -185,7 +185,7 @@ public class ListPage extends ListPageFactory {
     }
 
 //    public WebElement getSearchInput() {
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
+//        WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
 //        return searchInput;
 //    }
 
@@ -242,7 +242,7 @@ public class ListPage extends ListPageFactory {
 //    protected void isLoaded() throws Error {
 //        super.isLoaded();
 //        try {
-//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
+//            WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingElement));
 //        } catch (Exception e) {
 //            GetLogger.getLogger().error("can not load % with error %", this.getClass().getSimpleName(), e);
 //        }

@@ -18,21 +18,38 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * 截屏操作
+ *
  * @author sunxj
  */
 public class Screenshot {
     private TakeScreenShot screenShot = new TakeScreenShot();
 
+    /**
+     * 截屏
+     */
     @Then("^take a screenshot$")
     public void takeScreenshot() {
         screenShot.screenShot();
     }
 
+    /**
+     * 截屏并以指定的名称或路径保存
+     *
+     * @param name 名称或路径
+     */
     @And("^take a screenshot with name \"([^\"]*)\"$")
     public void takeScreenshot(String name) {
         screenShot.screenShot(name);
     }
 
+    /**
+     * 截取某一部分的内容并以指定名称或路径保存
+     *
+     * @param elementName 想要截图部分的元素名称
+     * @param name        截图名称或路径
+     * @throws IOException
+     */
     @And("^take part of \"([^\"]*)\" with name \"([^\"]*)\"$")
     public void takePartScreenshot(String elementName, String name) throws IOException {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);

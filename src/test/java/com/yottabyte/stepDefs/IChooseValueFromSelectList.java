@@ -14,9 +14,19 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 对下拉框的选择操作
+ * Created by A on 2017/4/7.
+ */
 public class IChooseValueFromSelectList {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
+    /**
+     * 在下拉框中，根据配置文件名称选择
+     *
+     * @param propertyName   配置文件中的key
+     * @param selectListName 下拉框元素名称
+     */
     @And("^I choose the \"([^\"]*)\" from the \"([^\"]*)\" with property$")
     public void iChooseTheFromTheWithProperty(String propertyName, String selectListName) {
         ConfigManager manager = new ConfigManager();
@@ -25,6 +35,12 @@ public class IChooseValueFromSelectList {
         this.iChooseTheFromThe(list, selectListName);
     }
 
+    /**
+     * 选择下拉框内容
+     *
+     * @param values         想要选择的内容，支持list
+     * @param selectListName 下拉框元素名称
+     */
     @And("^I choose the \"([^\"]*)\" from the \"([^\"]*)\"$")
     public void iChooseTheFromThe(List<String> values, String selectListName) {
         if (values.size() == 0) {
@@ -121,12 +137,24 @@ public class IChooseValueFromSelectList {
         }
     }
 
+    /**
+     * 取消下拉框的选择
+     *
+     * @param values         待取消的内容
+     * @param selectListName 下拉框元素名称
+     */
     @And("^I cancel selection \"([^\"]*)\" from the \"([^\"]*)\"$")
     public void iCancelSelectionFromThe(List<String> values, String selectListName) {
         WebElement parentElement = GetElementFromPage.getWebElementWithName(selectListName);
         iCancelSelectionFromThe(values, parentElement);
     }
 
+    /**
+     * 根据配置文件取消下拉框的选择
+     *
+     * @param propertyName   配置文件中的key
+     * @param selectListName 下拉框元素名称
+     */
     @And("^I cancel selection \"([^\"]*)\" from the \"([^\"]*)\" with property$")
     public void cancelSelectionWithProperty(String propertyName, String selectListName) {
         WebElement parentElement = GetElementFromPage.getWebElementWithName(selectListName);

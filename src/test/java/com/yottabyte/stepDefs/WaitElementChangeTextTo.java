@@ -54,6 +54,12 @@ public class WaitElementChangeTextTo {
         }
     }
 
+    /**
+     * 验证元素的text变为某一值
+     *
+     * @param elementName 元素名称
+     * @param text        文本值
+     */
     @And("^I wait for element \"([^\"]*)\" change text to \"([^\"]*)\"$")
     public void waitUntilTextChange(String elementName, String text) {
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
@@ -69,6 +75,12 @@ public class WaitElementChangeTextTo {
         this.waitForElementWithExpectedCondition(webDriver, expectedCondition);
     }
 
+    /**
+     * 等待元素的value变为某一值
+     *
+     * @param elementName 元素名称
+     * @param text        文本值
+     */
     @And("^I wait for element \"([^\"]*)\" value change text to \"([^\"]*)\"$")
     public void iWaitForElementValueChangeTextTo(String elementName, String text) {
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();

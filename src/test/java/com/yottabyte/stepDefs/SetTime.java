@@ -15,6 +15,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 时间控件的相关操作
+ */
 public class SetTime {
     private String date;
 
@@ -45,8 +48,8 @@ public class SetTime {
     /**
      * 输入当前时间后的若干分钟，返回格式为HH:mm:ss
      *
-     * @param elementName
-     * @param time
+     * @param elementName 元素名称
+     * @param time        分钟数（整数）
      */
     @And("^I set the time input \"([^\"]*)\" to \"([^\"]*)\" minutes later$")
     public void iSetTheTimeInputToMinutesLater(String elementName, String time) {
@@ -61,8 +64,8 @@ public class SetTime {
     /**
      * 输入当前时间的若干天前
      *
-     * @param elementName
-     * @param time
+     * @param elementName 元素名称
+     * @param time        天数
      */
     @And("^I set the time input \"([^\"]*)\" to \"([^\"]*)\" days ago$")
     public void iSetTheTimeInputToMinutesAgo(String elementName, String time) {
@@ -80,7 +83,7 @@ public class SetTime {
     /**
      * 设置时间范围为yyyy-MM-dd HH:mm:ss 至 yyyy-MM-dd HH:mm:ss
      *
-     * @param elementName
+     * @param elementName 元素名称
      * @param time
      */
     @And("^I set the time input \"([^\"]*)\" to a range in recent \"([^\"]*)\"$")
@@ -96,9 +99,9 @@ public class SetTime {
     /**
      * 设置时间为当天某时至某时
      *
-     * @param elementName
-     * @param begin
-     * @param end
+     * @param elementName 元素名称
+     * @param begin       起始时间
+     * @param end         终止时间
      */
     @And("^I set the time input \"([^\"]*)\" between \"([^\"]*)\" and \"([^\"]*)\" at someday")
     public void iSetTheTimeInputBetweenAndAtToday(String elementName, String begin, String end) {
