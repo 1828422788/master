@@ -43,7 +43,7 @@ Feature: 权限-仪表盘
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the "Create" button
+    And I click the "Create" button under some element
     And I set the parameter "DashBoardName" with value "仪表盘验证权限1"
     And I click the "Ensure" button
     Then I will see the success message "新建成功"

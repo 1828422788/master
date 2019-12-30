@@ -12,7 +12,6 @@ public class LogOut {
 
     @And("^I logout current user$")
     public void iLogoutCurrentUser() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(webDriver.findElement(By.partialLinkText("仪表盘"))));
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -20,5 +19,9 @@ public class LogOut {
         }
         webDriver.manage().deleteAllCookies();
         webDriver.navigate().refresh();
+        String currentUrl = webDriver.getCurrentUrl();
+        while (!currentUrl.contains("/auth/login/")) {
+            webDriver.manage().deleteAllCookies();
+        }
     }
 }

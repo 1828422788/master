@@ -18,16 +18,18 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 检查元素是否包含某属性
+ *
  * @author sunxj
  */
 public class CheckButtonAttribute {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     /**
-     * 检查元素class是否包含某属性
+     * 检查元素class是否包含某值
      *
-     * @param buttonNameList
-     * @param attribute
+     * @param buttonNameList 元素名称（支持list）
+     * @param attribute      属性值
      */
     @Then("^I will see the \"([^\"]*)\" is \"([^\"]*)\"$")
     public void checkClass(List<String> buttonNameList, String attribute) {
@@ -41,7 +43,7 @@ public class CheckButtonAttribute {
     /**
      * 判断元素是否可点击
      *
-     * @param buttonNameList
+     * @param buttonNameList 元素名称（支持list）
      */
     @And("^I will see the \"([^\"]*)\" is clickable$")
     public void checkIsClickable(List<String> buttonNameList) {
@@ -54,7 +56,7 @@ public class CheckButtonAttribute {
     /**
      * 判断按钮显示
      *
-     * @param buttonNameList
+     * @param buttonNameList 元素名称（支持list）
      */
     @And("^I will see the \"([^\"]*)\" is display$")
     public void checkIsDisplay(List<String> buttonNameList) {
@@ -65,14 +67,11 @@ public class CheckButtonAttribute {
     }
 
     /**
-     * 判断按钮不显示
+     * 日志来源展示结构
      *
-     * @param webElement
+     * @param nodeName
+     * @param attribute
      */
-    public static void checkIsDisplay(WebElement webElement) {
-        Assert.assertTrue(webElement.getAttribute("style").contains("display: none;"));
-    }
-
     @Then("^I will see the \"([^\"]*)\" node is \"([^\"]*)\"$")
     public void checkNodeIsDisabled(String nodeName, String attribute) {
         List<WebElement> nodeList = GetElementFromPage.getWebElementWithName("NodeList");
@@ -88,10 +87,10 @@ public class CheckButtonAttribute {
     }
 
     /**
-     * 验证元素名称是否正确
+     * 验证元素内容是否为某一值，若两个参数均为list，要确保两个list长度相同
      *
-     * @param buttonNameList
-     * @param expectButtonName
+     * @param buttonNameList   元素名称（支持list）
+     * @param expectButtonName 期望值（支持list）
      */
     @Then("^I will see the element \"([^\"]*)\" name is \"([^割]*)\"$")
     public void ConfigsAppcheckElementName(List<String> buttonNameList, List<String> expectButtonName) {
@@ -107,6 +106,12 @@ public class CheckButtonAttribute {
         }
     }
 
+    /**
+     * 验证元素内容是否包含某一值，若两个参数均为list，要确保两个list长度相同
+     *
+     * @param buttonNameList   元素名称（支持list）
+     * @param expectButtonName 期望值（支持list）
+     */
     @Then("^I will see the element \"([^\"]*)\" name contains \"([^割]*)\"$")
     public void checkElementContainsName(List<String> buttonNameList, List<String> expectButtonName) {
         if (buttonNameList.size() == 1 && expectButtonName.size() != 1) {
@@ -126,7 +131,7 @@ public class CheckButtonAttribute {
     /**
      * 验证元素名称是否正确（传入json格式的参数，目的是避免检验值中出现逗号给分割成另一个参数）
      *
-     * @param jsonString
+     * @param jsonString json格式 {'元素名称'：'元素值'}
      */
     @Then("^I will see the element value in json \"([^割]*)\"$")
     public void checkElementName(String jsonString) {
@@ -163,13 +168,13 @@ public class CheckButtonAttribute {
     }
 
     /**
-     * 验证多个元素名称是否正确(包含)
+     * 验证多个元素名称是否包含某一值
      *
      * @param element  为list
      * @param nameList
      */
     @Then("^I will see the element \"([^\"]*)\" value contains \"([^割]*)\"$")
-    public void iWillSeeTheElementValueContains(String element, List<String> nameList) {
+    public void validateElementValueContains(String element, List<String> nameList) {
         Object o = GetElementFromPage.getWebElementWithName(element);
         if (o instanceof List) {
             List<WebElement> list = (List<WebElement>) o;
@@ -182,6 +187,11 @@ public class CheckButtonAttribute {
         }
     }
 
+    /**
+     * 验证元素不存在
+     *
+     * @param name 元素名称
+     */
     @And("^I will see the \"([^\"]*)\" doesn't exist$")
     public void elementNotExist(String name) {
         if (name.startsWith("get")) {
@@ -214,7 +224,7 @@ public class CheckButtonAttribute {
         }
     }
 
-    public void ifExist(WebElement element) {
+    protected void ifExist(WebElement element) {
         try {
             ClickEvent.clickUnderneathButton(element);
             Assert.assertTrue(false);

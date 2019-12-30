@@ -151,6 +151,5 @@ public class ClickSomeButton {
         }
 
         WebElement ul = webDriver.findElement(By.className("yw-searchbar__prepend-menu"));
-        new AlterElementAttribute().hideElement(ul);
     }
 }
