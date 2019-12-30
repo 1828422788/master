@@ -13,7 +13,9 @@ import org.openqa.selenium.WebElement;
 import static org.junit.Assert.*;
 
 /**
- * Created by A on 2017/4/13.
+ * 验证元素文本内容
+ *
+ * @author A on 2017/4/13.
  */
 public class VerifyElementTextWillBe {
 

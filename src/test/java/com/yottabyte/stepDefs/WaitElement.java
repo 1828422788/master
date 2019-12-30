@@ -17,7 +17,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 /**
- * Created by A on 2017/4/14.
+ * 等待元素
+ *
+ * @author by A on 2017/4/14.
  */
 public class WaitElement {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();

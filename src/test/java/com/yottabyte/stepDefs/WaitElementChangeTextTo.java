@@ -16,7 +16,7 @@ import static com.yottabyte.utils.GetTableElement.getTableElementWithRowAndCol;
 
 /**
  * 等待指定元素的文本变成指定内容
- * Created by A on 2017/4/13.
+ * @author by A on 2017/4/13.
  */
 public class WaitElementChangeTextTo {
 
