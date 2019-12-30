@@ -13,20 +13,194 @@ import java.util.List;
 
 /**
  * @author sunxj
+ * modified by Kate
  */
 public class StatisticalPage extends PageTemplate {
     public StatisticalPage(WebDriver driver) {
         super(driver);
     }
 
+    @FindBy(xpath = "(//p[text()='字段值'])[last()]/following-sibling::div")
+    private WebElement fieldValue;
+
+    @FindBy(xpath = "(//span[text()='生成']/ancestor::button)[last()]")
+    private WebElement generate;
+
+    @FindBy(xpath = "//*[local-name()='g' and @class='vx-group']/ancestor::div[1]")
+    private WebElement chart;
+
+    @FindBy(xpath = "(//span[text()='下一步']/ancestor::button)[last()]")
+    private WebElement nextStep;
+
+
+// 事件计数
+
+    @FindBy(xpath = "//p[text()='展现方式']/following-sibling::div")
+    private WebElement presentType;
+
+    @FindBy(xpath = "//span[text()='添加']/ancestor::button")
+    private WebElement addButton;
+
+    @FindBy(xpath = "//input[@class='ant-checkbox-input']/ancestor::span")
+    private WebElement independentStats;
+
+// 时间分段
+// add function for one more time bucket
+
+    @FindBy(xpath = "(//span[text()='时间分段'])[last()]")
+    private WebElement timeSlice;
+
+    @FindBy(xpath = "((//p[text()='统计类型'])[last()]/following-sibling::div[1])")
+    private WebElement statisticType;
+
+    @FindBy(xpath = "(//input[@placeholder='请选择日期'])[1]")
+    private WebElement startDate;
+
+    @FindBy(xpath = "(//input[@placeholder='请选择日期'])[2]")
+    private WebElement endDate;
+
+    @FindBy(xpath = "(//input[@placeholder='请选择时间'])[1]")
+    private WebElement startTime;
+
+    @FindBy(xpath = "(//input[@placeholder='请选择时间'])[2]")
+    private WebElement endTime;
+
+    @FindBy(xpath = "//input[@class='ant-calendar-input ']")
+    private WebElement dateInput;
+
+    @FindBy(xpath = "//input[@class='ant-time-picker-panel-input']")
+    private WebElement timeInput;
+
+    @FindBy(xpath = "//a[@class='ant-calendar-today-btn ']")
+    private WebElement todayDate;
+
+    @FindBy(xpath = "//span[@class='_2izLp4Zc5jxN1ipFB8ZiS9']/span[1]")
+    private WebElement clickOut;
+
+// 数值分段
+
+    @FindBy(xpath = "//span[text()='数值分段']")
+    private WebElement dataSlice;
+
+    @FindBy(xpath = "(//div[1]/input[@class='ant-input css-pcxrzr' and 1])[last()]")
+    private WebElement startDataValue;
+
+    @FindBy(xpath = "(//div[@class='_39AAl_kmogj0qVTSo5rkl2']/input[@class='ant-input css-pcxrzr' and 1])[last()]")
+    private WebElement endDataValue;
+
+    @FindBy(xpath = "//span[@class='_3iEG4d7LuQMWr0UxtjVuQD']")
+    private WebElement addNum;
+
+
+//  时间直方图
+
+    @FindBy(xpath = "//input[@class='ant-input css-pcxrzr _1yw-V24GdLvRnC8g0mjePJ']")
+    private WebElement timeSpan;
+
+    @FindBy(xpath = "//div[@class='css-vtfzx _2q_8HFsJlcX8GNPtnDvgup ant-select ant-select-enabled']/div[@class='ant-select-selection\n" +
+            "            ant-select-selection--single' and 1]")
+    private WebElement dropdownButton;
+
+
+//  时间直方图
+
+    @FindBy(xpath = "//span[text()='时间直方图']")
+    private WebElement timeHistogram;
+
+//  数值直方图
+
+    @FindBy(xpath = "//span[text()='数值直方图']")
+    private WebElement dataHistogram;
+
+    @FindBy(xpath = "//p[text()='数值间隔']/following-sibling::input")
+    private WebElement dataSpan;
+
+//  字段值分类
+
+    @FindBy(xpath = "//span[text()='字段值分类']")
+    private WebElement classifyFieldValue;
+
+// 字段数值
+//分组字段值 usage of this field to write in tests
+
+    @FindBy(xpath = "//span[text()='字段数值']")
+    private WebElement fieldNumber;
+
+//  累计百分比
+
+    @FindBy(xpath = "//span[text()='累计百分比']")
+    private WebElement totalPercent;
+
+    @FindBy(xpath = "//span[text()='+添加百分比']")
+    private WebElement addPercent;
+
+    @FindBy(xpath = "//input[@class='ant-input css-pcxrzr dZIEaC1a73UBe6dusnBe9']")
+    private WebElement percentInput;
+
+    @FindBy(xpath = "//span[contains(text(),'75%')]/i")
+    private WebElement closePercent75;
+
+    @FindBy(xpath = "//span[contains(text(),'25%')]/i")
+    private WebElement closePercent25;
+
+    @FindBy(xpath = "//span[contains(text(),'50%')]/i")
+    private WebElement closePercent50;
+
+    @FindBy(xpath = "//span[contains(text(),'95%')]/i")
+    private WebElement closePercent95;
+
+    @FindBy(xpath = "//span[contains(text(),'99%')]/i")
+    private WebElement closePercent99;
+
+// 百分位等级
+
+    @FindBy(xpath = "//span[text()='百分位等级']")
+    private WebElement percentDegree;
+
+    @FindBy(xpath = "//p[text()='目标值']/following-sibling::input")
+    private WebElement goalValue;
+
+    @FindBy(xpath = "//div[@class='_1VssFsB7nL6z9XyTQys85g']/div[2]/div[1]")
+    private WebElement chartPercent;
+
+// 多级统计
+
+    @FindBy(xpath = "//span[text()='多级统计']")
+    private WebElement multilevelStatistics;
+
+    @FindBy(xpath = "//tr[@data-row-key='200']//span[@class='ant-checkbox']")
+    private WebElement field;
+
+    @FindBy(xpath = "(//span[text()='统计图']/ancestor::button)[last()]")
+    private WebElement statisticsGram;
+
+    // settings for chart maybe should be hidden or else cant locate the button
+    @FindBy(xpath = "(//span[text()='生成']/ancestor::button)[last()-1]")
+    private WebElement generate1;
+
+    @FindBy(xpath = "(//div[@class='wcTVQUfowuZQBokIvdP_3']/div)[last()]")
+    private WebElement tableChart;
+
+    @FindBy(xpath = "(//div[@class='ant-table-selection'])[last()]")
+    private WebElement wholeField;
+
+// 地理分布
+
+    @FindBy(xpath = "//span[text()='地理分布']")
+    private WebElement geographicalDistribution;
+
+    @FindBy(xpath = "//*[text()='460']/ancestor::*[2]|//*[text()='230']/ancestor::*[2]")
+    private WebElement countryChina;
+
+    @FindBy(xpath = "//*[text()='42']/ancestor::*[2]|//*[text()='84']/ancestor::*[2]")
+    private WebElement provinceSichuan;
+
+// ---------
     @FindBy(className = "yw-search-stats-select")
     private List<WebElement> statsSelect;
 
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
-
-    @FindBy(xpath = "//span[text()='添加']")
-    private WebElement addButton;
 
     @FindBy(className = "el-loading-mask")
     private WebElement loading;
@@ -34,44 +208,6 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(className = "el-checkbox__label")
     private List<WebElement> checkBoxList;
 
-    @FindBy(xpath = "//span[text()='时间分段']")
-    private WebElement timeSlice;
-
-    @FindBy(xpath = "//span[text()='数值分段']")
-    private WebElement dataSlice;
-
-    @FindBy(xpath = "//span[text()='时间直方图']")
-    private WebElement timeHistogram;
-
-    @FindBy(xpath = "//span[text()='数值直方图']")
-    private WebElement dataHistogram;
-
-    @FindBy(xpath = "//span[text()='字段值分类']")
-    private WebElement classifyFieldValue;
-
-    @FindBy(xpath = "//span[text()='字段数值']")
-    private WebElement fieldNumber;
-
-    @FindBy(xpath = "//span[text()='累计百分比']")
-    private WebElement totalPercent;
-
-    @FindBy(xpath = "//span[text()='百分位等级']")
-    private WebElement percentDegree;
-
-    @FindBy(xpath = "//span[text()='多级统计']")
-    private WebElement multilevelStatistics;
-
-    @FindBy(xpath = "//span[text()='地理分布']")
-    private WebElement geographicalDistribution;
-
-    @FindBy(xpath = "(//p[text()='字段值'])[last()]/following-sibling::div")
-    private WebElement fieldValue;
-
-    @FindBy(xpath = "//p[text()='展现方式']/following-sibling::div")
-    private WebElement presentType;
-
-    @FindBy(xpath = "//p[text()='统计类型']/following-sibling::div")
-    private WebElement statisticType;
 
     @FindBy(xpath = "//p[text()='Y轴']/following-sibling::div")
     private WebElement yAxis;
@@ -91,26 +227,13 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//a[text()='此刻']")
     private List<WebElement> currentTime;
 
-    @FindBy(xpath = "//button[text()='确定'][@class='el-picker-panel__btn']")
-    private List<WebElement> ensureButtonList;
+//    @FindBy(xpath = "//button[text()='确定'][@class='el-picker-panel__btn']")
+//    private List<WebElement> ensureButtonList;
 
-    @FindBy(xpath = "(//button[@class='el-button yw-search-primary-btn el-button--default']/span[text()='生成'])[last()]")
-    private WebElement generate;
 
-    @FindBy(xpath = "(//div[@class='el-input-group__prepend'][text()='从']/following-sibling::input)[last()]")
-    private WebElement startDataValue;
+//    @FindBy(xpath = "//div[@class='yw-search-stats-select with-select el-input el-input-group el-input-group--append']//i")
+//    private WebElement dropdownButton;
 
-    @FindBy(xpath = "(//div[@class='el-input-group__prepend'][text()='到']/following-sibling::input)[last()]")
-    private WebElement endDataValue;
-
-    @FindBy(xpath = "//div[@class='yw-search-stats-select with-select el-input el-input-group el-input-group--append']/input")
-    private WebElement timeSpan;
-
-    @FindBy(xpath = "//div[@class='yw-search-stats-select with-select el-input el-input-group el-input-group--append']//i")
-    private WebElement dropdownButton;
-
-    @FindBy(xpath = "//p[text()='数值间隔']/following-sibling::div/input")
-    private WebElement dataSpan;
 
     @FindBy(xpath = "//div[@class='yw-search-stats-fieldoption']/input")
     private WebElement topNumber;
@@ -127,20 +250,6 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='自选']")
     private WebElement selfRadio;
 
-    @FindBy(xpath = "//span[text()='+ 添加百分比']")
-    private WebElement addPercent;
-
-    @FindBy(xpath = "//div[@class='input-new-tag el-input el-input--mini']/input")
-    private WebElement percentInput;
-
-    @FindBy(xpath = "//p[text()='目标值']/following-sibling::div/input")
-    private WebElement goalValue;
-
-    @FindBy(xpath = "(//span[text()='统计图'])[last()]")
-    private WebElement statisticsGram;
-
-    @FindBy(xpath = "(//span[text()='下一步'])[last()]")
-    private WebElement nextStep;
 
     @FindBy(xpath = "(//p[text()='时间桶'])[last()]/following-sibling::div/button")
     private WebElement generateWithGram;
@@ -172,35 +281,21 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'保存')])[last()]")
     private WebElement saveButton;
 
-    @FindBy(xpath = "//input[@placeholder='选择起始日期']")
-    private WebElement startTime;
-
-    @FindBy(xpath = "//input[@placeholder='选择截止日期']")
-    private WebElement endTime;
 
     @FindBy(xpath = "//span[text()='类型']")
     private WebElement type;
 
-    @FindBy(xpath = "//span[contains(text(),'75%')]/i")
-    private WebElement closePercent;
-
-    @FindBy(className = "yw-search-stats-charts-object")
-    private WebElement chart;
 
     @FindBy(className = "yw-single-chart-container")
     private WebElement chartContainer;
 
-    @FindBy(xpath = "//div[@class='cell'][text()='200']/ancestor::td/preceding-sibling::td//label")
-    private WebElement field;
 
-    @FindBy(xpath = "//p[text()='时间桶']/following-sibling::div/input")
-    private WebElement timeInput;
+//    @FindBy(xpath = "//p[text()='时间桶']/following-sibling::div/input")
+//    private WebElement timeInput;
 
     @FindBy(xpath = "(//p[text()='时间桶'])[last()]/following-sibling::div//i")
     private WebElement timeDropdown;
 
-    @FindBy(xpath = "//th[@class='el-table_1_column_4 el-table-column--selection is-leaf']//label")
-    private WebElement wholeField;
 
     @FindBy(className = "preset-btn")
     private WebElement presetButton;
@@ -211,8 +306,8 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//img[@src='/static/img/dashboard/table_color/2.png'])[last()]")
     private WebElement red;
 
-    @FindBy(className = "yw-search-stats")
-    private WebElement tableChart;
+//    @FindBy(className = "yw-search-stats")
+//    private WebElement tableChart;
 
     @FindBy(xpath = "(//label[@class='ranges-from-to-text']/following-sibling::div//input[@class='el-input__inner'][not(@disabled)])[last()]")
     private WebElement maxInput;
@@ -237,6 +332,50 @@ public class StatisticalPage extends PageTemplate {
 
     @FindBy(className = "icon-bianji")
     private WebElement firstEdit;
+
+
+
+
+
+
+    public WebElement getIndependentStats() {
+        return independentStats;
+    }
+
+    public WebElement getProvinceSichuan() {
+        return provinceSichuan;
+    }
+
+    public WebElement getCountryChina() {
+        return countryChina;
+    }
+
+    public WebElement getGenerate1() {
+        return generate1;
+    }
+
+
+    public WebElement getChartPercent() {
+        return chartPercent;
+    }
+
+    public WebElement getPercentInput() {
+        return percentInput;
+    }
+
+
+    public WebElement getTodayDate() {
+        return todayDate;
+    }
+
+    public WebElement getClickOut() {
+        return clickOut;
+    }
+
+    public WebElement getAddNum() {
+        return addNum;
+    }
+
 
     public WebElement getFirstEdit() {
         return firstEdit;
@@ -304,9 +443,9 @@ public class StatisticalPage extends PageTemplate {
         return wholeField;
     }
 
-    public WebElement getTimeInput() {
-        return timeInput;
-    }
+//    public WebElement getTimeInput() {
+//        return timeInput;
+//    }
 
     public WebElement getField() {
         return field;
@@ -320,20 +459,44 @@ public class StatisticalPage extends PageTemplate {
         return chart;
     }
 
-    public WebElement getClosePercent() {
-        return closePercent;
+    public WebElement getClosePercent75() {
+        return closePercent75;
+    }
+    public WebElement getClosePercent25() {
+        return closePercent25;
+    }
+    public WebElement getClosePercent50() {
+        return closePercent50;
+    }
+    public WebElement getClosePercent95() {
+        return closePercent95;
+    }
+    public WebElement getClosePercent99() {
+        return closePercent99;
     }
 
-    public WebElement getAddNum() {
-        return super.getButton("添加数值分段");
-    }
+//    public WebElement getAddNum() {
+//        return super.getButton("添加数值分段");
+//    }
 
     public WebElement getType() {
         return type;
     }
 
+    public WebElement getEndDate() {
+        return endDate;
+    }
+
     public WebElement getEndTime() {
         return endTime;
+    }
+
+    public WebElement getDateInput() {
+        return dateInput;
+    }
+
+    public WebElement getTimeInput() {
+        return timeInput;
     }
 
     public WebElement getGenerateTime() {
@@ -473,9 +636,9 @@ public class StatisticalPage extends PageTemplate {
         return generate;
     }
 
-    public WebElement getEnsureButton() {
-        return ensureButtonList.get(ensureButtonList.size() - 1);
-    }
+//    public WebElement getEnsureButton() {
+//        return ensureButtonList.get(ensureButtonList.size() - 1);
+//    }
 
     public WebElement getCurrentTime() {
         dateEditorList.get(1).click();
@@ -484,6 +647,10 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getStartTime() {
         return startTime;
+    }
+
+    public WebElement getStartDate() {
+        return startDate;
     }
 
     public WebElement getErrorMessage() {
