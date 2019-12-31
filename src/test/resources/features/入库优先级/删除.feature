@@ -1,4 +1,4 @@
-#@indexSetting @indexSettingSmoke
+@indexSetting @indexSettingSmoke @priority
 Feature: 入库优先级删除（RZY-1486）
 
   Background:
@@ -12,6 +12,7 @@ Feature: 入库优先级删除（RZY-1486）
 
     Examples:
       | name                 |
-      | AutoTestWithNothing  |
-      | AutoTestWithTag      |
+      | AutoTestWithTag  |
+      | autotest      |
       | AutoTestHighPriority |
+      |top_info_s_proc_status|
