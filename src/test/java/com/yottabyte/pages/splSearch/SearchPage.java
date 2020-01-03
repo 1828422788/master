@@ -111,6 +111,13 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='查看上下文']")
     private WebElement context;
 
+    @FindBy(xpath = "//span[text()='搜索']/ancestor::button/following-sibling::div//input")
+    private WebElement timeRange;
+
+    public WebElement getTimeRange() {
+        return timeRange;
+    }
+
     public WebElement getContext() {
         return context;
     }

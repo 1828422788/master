@@ -93,7 +93,13 @@ public class CompareResult {
 
     @And("^I set value with element \"([^\"]*)\"$")
     public void iSetValueWithElement(String elementName) {
-        List<WebElement> elements = GetElementFromPage.getWebElementWithName(elementName);
+        Object o = GetElementFromPage.getWebElementWithName(elementName);
+        List<WebElement> elements = new ArrayList<>();
+        if (o instanceof List) {
+            elements = (List) o;
+        } else {
+            elements.add((WebElement) o);
+        }
         List<String> list = new ArrayList<>();
         for (WebElement element : elements) {
             list.add(element.getText());
@@ -103,7 +109,13 @@ public class CompareResult {
 
     @And("^I compare with list \"([^\"]*)\"$")
     public void compareWithList(String elementName) {
-        List<WebElement> elements = GetElementFromPage.getWebElementWithName(elementName);
+        Object o = GetElementFromPage.getWebElementWithName(elementName);
+        List<WebElement> elements = new ArrayList<>();
+        if (o instanceof List) {
+            elements = (List) o;
+        } else {
+            elements.add((WebElement) o);
+        }
         if (elements.size() == 0) {
             Assert.assertTrue(false);
         }

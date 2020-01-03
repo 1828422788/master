@@ -95,7 +95,7 @@ public class VerifyElementTextWillBe {
     public void seeTheMessageContains(String messageText) {
         WebElement element = GetElementFromPage.getWebElementWithName("getMessage");
         String realText = element.getText();
-        assertTrue(realText.contains(messageText));
+        assertTrue("实际值:" + realText, realText.contains(messageText));
     }
 
     @Then("^I will see the success message contains \"([^\"]*)\"$")

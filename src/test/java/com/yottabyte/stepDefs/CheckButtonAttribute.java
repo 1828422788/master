@@ -39,6 +39,21 @@ public class CheckButtonAttribute {
         }
     }
 
+    /**
+     * 检查元素style是否包含某值
+     *
+     * @param buttonNameList 元素名称（支持list）
+     * @param attribute      属性值
+     */
+    @Then("^I will see the element \"([^\"]*)\" style contains \"([^\"]*)\"$")
+    public void checkStyle(List<String> buttonNameList, String attribute) {
+        for (String buttonName : buttonNameList) {
+            WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
+            String actualStyle = element.getAttribute("style");
+            Assert.assertTrue("style实际值：" + actualStyle, actualStyle.contains(attribute));
+        }
+    }
+
 
     /**
      * 判断元素是否可点击

@@ -45,7 +45,7 @@ public class ValidateResult {
             return;
         }
         if (ElementExist.isElementExist(webDriver, loadingMask))
-            WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
     }
 
     @Then("^I will see the search result \"([^\"]*)\" with properties$")
@@ -185,7 +185,7 @@ public class ValidateResult {
 
         for (int i = 0; i < paging.getTotalPage(); i++) {
             if (i != 0) {
-                WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(paging.getNextPage()));
+                WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(paging.getNextPage()));
                 paging.getNextPage().click();
                 this.waitUntilLoadingDisappear();
                 trList = this.getTrList();
@@ -242,7 +242,7 @@ public class ValidateResult {
      */
     @Given("^choose from \"([^\"]*)\"$")
     public void chooseFromDropdown(String dropdownMenu) {
-        WaitElement.waitUntilLoadingDisappear();
+        WaitForElement.waitUntilLoadingDisappear();
         Map<String, Object> dropdownMap = JsonStringPaser.json2Stirng(dropdownMenu);
         String dropdownKey = dropdownMap.keySet().iterator().next();
         WebElement dropdownList = GetElementFromPage.getWebElementWithName(dropdownKey);
