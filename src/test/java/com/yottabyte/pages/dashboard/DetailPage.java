@@ -153,7 +153,7 @@ public class DetailPage extends PageTemplate {
             @FindBy(className = "yw-table-head"), @FindBy(className = "table-body-td")})
     private List<WebElement> tableList;
 
-    @FindBy(xpath = "//span[text()='通用配置']/ancestor::ul")
+    @FindBy(xpath = "//span[text()='通用配置']")
     private WebElement configs;
 
     @FindBy(className = "el-textarea__inner")
@@ -295,11 +295,97 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='江苏']")
     private WebElement jiangsu;
 
+    @FindBy(xpath = "//span[text()='南京市']")
+    private WebElement nanjing;
+
     @FindBy(xpath = "//input[@placeholder='请选择钻取动作']/preceding-sibling::i")
     private WebElement drillAction;
 
     @FindBy(xpath = "//label[contains(text(),'自定义URL')]/following-sibling::div//textarea")
     private WebElement url;
+
+    @FindBy(xpath = "//span[text()='自定义']")
+    private WebElement custom;
+
+    @FindBy(xpath = "(//input[@placeholder='请选择时间范围'])[last()]")
+    private WebElement dateEditor;
+
+    @FindBy(className = "el-cascader__label")
+    private WebElement targetTag;
+
+    @FindBy(className = "el-cascader-menu")
+    private List<WebElement> menuList;
+
+    @FindBy(xpath = "//label[contains(text(),'目标参数')]/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
+    private WebElement targetParam;
+
+    @FindBy(xpath = "(//ul[@class='el-select-group'])[1]")
+    private WebElement inputGroup;
+
+    @FindBy(xpath = "//span[text()='=']/following-sibling::div//i")
+    private WebElement paramValue;
+
+    @FindBy(className = "is-multiple")
+    private WebElement paramDropdown;
+
+    @FindBy(xpath = "//div[text()='${click.value2}']")
+    private WebElement clickValue;
+
+    @FindBy(xpath = "//td[@data-col-name='apache.geo.city']")
+    private WebElement geoCity;
+
+    public WebElement getGeoCity() {
+        return geoCity;
+    }
+
+    public WebElement getClickValue() {
+        return clickValue;
+    }
+
+    public WebElement getParamDropdown() {
+        return paramDropdown;
+    }
+
+    public WebElement getParamValue() {
+        return paramValue;
+    }
+
+    public WebElement getInputGroup() {
+        return inputGroup;
+    }
+
+    public WebElement getTargetParam() {
+        return targetParam;
+    }
+
+    public WebElement getNanjing() {
+        return nanjing;
+    }
+
+    public WebElement getDashboardMenu() {
+        return menuList.get(0);
+    }
+
+    public WebElement getTagMenu() {
+        return menuList.get(1);
+    }
+
+    public WebElement getTargetTag() {
+        return targetTag;
+    }
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    // 获取今天按钮
+    public WebElement getToday() {
+        return GetTime.getTime(webDriver, "Today");
+    }
+
+    public WebElement getCustom() {
+        return custom;
+    }
 
     public WebElement getUrl() {
         return url;
