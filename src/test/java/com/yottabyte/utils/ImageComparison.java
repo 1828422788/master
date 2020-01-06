@@ -1,187 +1,163 @@
 package com.yottabyte.utils;
 
-import java.io.*;
-import java.util.HashMap;
-import java.awt.*;
-import java.awt.image.*;
 import javax.imageio.ImageIO;
-import javax.imageio.stream.FileImageOutputStream;
-import javax.imageio.stream.ImageOutputStream;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+import java.awt.image.WritableRaster;
+import java.io.File;
+import java.io.IOException;
 
-import net.coobird.thumbnailator.Thumbnails;
-
+/**
+ * 感知哈希算法
+ * 1.缩小图片：32 * 32是一个较好的大小，这样方便DCT计算
+ *
+ * 2.转化为灰度图：把缩放后的图片转化为256阶的灰度图。（具体算法见平均哈希算法步骤）
+ *
+ * 3.计算DCT:DCT把图片分离成分率的集合
+ *
+ * 4.缩小DCT：DCT是32*32，保留左上角的8*8，这些代表的图片的最低频率
+ *
+ * 5.计算平均值：计算缩小DCT后的所有像素点的平均值。
+ *
+ * 6.进一步减小DCT：大于平均值记录为1，反之记录为0.
+ *
+ * 7.得到信息指纹：组合64个信息位，顺序随意保持一致性即可。
+ *
+ * 8.对比指纹：计算两幅图片的指纹，计算汉明距离（从一个指纹到另一个指纹需要变几次），汉明距离越大则说明图片越不一致，
+ *
+ * 反之，汉明距离越小则说明图片越相似，当距离为0时，说明完全相同。通常认为0<距离<5 两张图片相似，距离>10 就是两张完全不同的图片
+ */
 public class ImageComparison {
-	private BufferedImage imgOut = null;
-	private int pixelPerBlockX;
-	private int pixelPerBlockY;
-	private double threshold;
-
-	public ImageComparison(int pixelPerBlockX, int pixelPerBlockY, double threshold) {
-		this.pixelPerBlockX = pixelPerBlockX;
-		this.pixelPerBlockY = pixelPerBlockY ;
-		this.threshold = threshold;
-	}
-	public boolean fuzzyEqual(String path1, String path2, String pathOut) throws IOException {
-		return fuzzyEqual(ImageIO.read(new File(path1)), ImageIO.read(new File(path2)), pathOut);
-	}
-
-	public boolean fuzzyEqual(File file1, File file2, String pathOut) throws IOException {
-		return fuzzyEqual(ImageIO.read(file1), ImageIO.read(file2), pathOut);
-	}
-
-	public boolean fuzzyEqual(Image img1, Image img2, String pathOut) throws IOException {
-		return fuzzyEqual(imageToBufferedImage(img1), imageToBufferedImage(img2), pathOut);
-	}
-
-	public boolean fuzzyEqual(BufferedImage img1, BufferedImage img2, String pathOut) throws IOException {
-		boolean fuzzyEqual = true;
-		img2 = adaptImageSize(img1,img2);
-
-		imgOut = imageToBufferedImage(img2);
-		Graphics2D outImgGraphics = imgOut.createGraphics();
-		outImgGraphics.setColor(Color.RED);
-
-		int subImageHeight;
-		int subImageWidth;
-//		String debug;
-
-		int blocksx = (int) Math.ceil((float) img1.getWidth()
-				/ (float) pixelPerBlockX);
-		int blocksy = (int) Math.ceil((float) img1.getHeight()
-				/ (float) pixelPerBlockY);
-
-		for (int y = 0; y < blocksy; y++) {
-//			debug = "";
-			for (int x = 0; x < blocksx; x++) {
-				subImageWidth=calcPixSpan(pixelPerBlockX,x,img1.getWidth());
-				subImageHeight=calcPixSpan(pixelPerBlockY,y,img1.getHeight());
-				//System.out.println(" Real Width:" +img1.getWidth() + " Real Height:" +img1.getHeight() + " X-Start:"+ x * pixelPerBlockX + " Y-Start:" +y * pixelPerBlockY + " sub width:" +subImageWidth + " sub height:" + subImageHeight);
-				//System.out.println(" Real Width:" +img2.getWidth() + " Real Height:" +img2.getHeight() + " X-Start:"+ x * pixelPerBlockX + " Y-Start:" +y * pixelPerBlockY + " sub width:" +subImageWidth + " sub height:" + subImageHeight);
-				HashMap<String, Integer> avgRgb1 = getAverageRgb(img1
-						.getSubimage(x * pixelPerBlockX, y * pixelPerBlockY,
-								subImageWidth, subImageHeight));
-				HashMap<String, Integer> avgRgb2 = getAverageRgb(img2
-						.getSubimage(x * pixelPerBlockX, y * pixelPerBlockY,
-								subImageWidth, subImageHeight));
-//				debug = debug
-//						+ String.format(Locale.ENGLISH, "%1.2f",
-//								calculateRgbDiff(avgRgb1, avgRgb2)) + " | ";
-				if (calculateRgbDiff(avgRgb1, avgRgb2) > threshold) {
-					outImgGraphics.drawRect(x * pixelPerBlockX, y * pixelPerBlockY,
-							pixelPerBlockX - 1, pixelPerBlockY - 1);
-					fuzzyEqual = false;
-				}
-			}
-			//System.out.println(debug);
-		}
-		if(pathOut != null && !pathOut.isEmpty()) {
-            saveImage(imgOut, pathOut);
+    /**
+     * 缩小图片
+     *
+     * @param image
+     * @param width
+     * @param height
+     * @return
+     */
+    public static BufferedImage reduceSize(BufferedImage image, int width, int height) {
+        BufferedImage new_image;
+        double width_times = (double) width / image.getWidth();
+        double height_times = (double) height / image.getHeight();
+        if (image.getType() == BufferedImage.TYPE_CUSTOM) {
+            ColorModel cm = image.getColorModel();
+            WritableRaster raster = cm.createCompatibleWritableRaster(width, height);
+            boolean alphaPremultiplied = cm.isAlphaPremultiplied();
+            new_image = new BufferedImage(cm, raster, alphaPremultiplied, null);
+        } else {
+            new_image = new BufferedImage(width, height, image.getType());
         }
-		return fuzzyEqual;
-	}
+        Graphics2D g = new_image.createGraphics();
+        g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g.drawRenderedImage(image, AffineTransform.getScaleInstance(width_times, height_times));
+        g.dispose();
+        return new_image;
+    }
 
-	private int calcPixSpan(int pixelPerBlock, int n, int overallSpan) {
-		if (pixelPerBlock * (n + 1) > overallSpan)
-			return overallSpan % pixelPerBlock;
-		else
-			return pixelPerBlock;
-	}
+    /**
+     * 得到灰度值
+     *
+     * @param image
+     * @return
+     */
+    public static double[][] getGrayValue(BufferedImage image) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+        double[][] pixels = new double[width][height];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                pixels[i][j] = computeGrayValue(image.getRGB(i, j));
+            }
+        }
+        return pixels;
+    }
 
-	private BufferedImage adaptImageSize(BufferedImage img1, BufferedImage img2) throws IOException {
-		int scalePixelWidth;
-		int scalePixelHeight;
-		//System.out.println("1 Real Width:" +img1.getWidth() + " Real Height:" +img1.getHeight());
-		//System.out.println("2 Real Width:" +img2.getWidth() + " Real Height:" +img2.getHeight());
+    /**
+     * 计算灰度值
+     *
+     * @param pixel
+     * @return
+     */
+    public static double computeGrayValue(int pixel) {
+        int red = (pixel >> 16) & 0xFF;
+        int green = (pixel >> 8) & 0xFF;
+        int blue = (pixel) & 255;
+        return 0.3 * red + 0.59 * green + 0.11 * blue;
+    }
 
-		if(((float)img2.getWidth()/(float)img1.getWidth()) < ((float)img2.getHeight()/(float)img1.getHeight())){
-			scalePixelWidth = img1.getWidth();
-			scalePixelHeight = (int) (img2.getHeight() * Math.ceil((float)img1.getWidth()/(float)img2.getWidth()));
-			//System.out.println("If : Scale Width:" +scalePixelWidth + " Scale Height:" +scalePixelHeight);
-		}else {
-			scalePixelHeight = img1.getHeight();
-			scalePixelWidth = (int) (img2.getWidth() * Math.ceil((float)img1.getHeight()/(float)img2.getHeight()));
-			//System.out.println("Else: Scale Width:" +scalePixelWidth + " Scale Height:" +scalePixelHeight);
-		}
-		//System.out.println("1 Real Width:" +img1.getWidth() + " Real Height:" +img1.getHeight());
-		//System.out.println("2 Real Width:" +Thumbnails.of(img2).size(scalePixelWidth, scalePixelHeight).asBufferedImage().getWidth() + " Real Height:" +Thumbnails.of(img2).size(scalePixelWidth, scalePixelHeight).asBufferedImage().getHeight());
+    public static int avgImage(int[][] smallImage) {
+        int avg;
+        int sum = 0;
+        int count = 0;
+        for (int i = 0; i < smallImage.length; i++) {
+            for (int j = 0; j < smallImage[i].length; j++) {
+                sum += smallImage[i][j];
+                count++;
+            }
+        }
+        avg = sum / count;
+        return avg;
+    }
 
-		return Thumbnails.of(img2).size(scalePixelWidth, scalePixelHeight).asBufferedImage();
-	}
-	private double calculateRgbDiff(HashMap<String, Integer> avgRgb1,
-									HashMap<String, Integer> avgRgb2) {
-		double maxDifference = 255 * 3;
-		double difference = Math.abs(avgRgb1.get("r") - avgRgb2.get("r"))
-				+ Math.abs(avgRgb1.get("g") - avgRgb2.get("g"))
-				+ Math.abs(avgRgb1.get("b") - avgRgb2.get("b"));
+    public static String to64(int avg, int[][] smallImage) {
+        String result = "";
+        for (int i = 0; i < smallImage.length; i++) {
+            for (int j = 0; j < smallImage[i].length; j++) {
+                if (smallImage[i][j] > avg) {
+                    result += "1";
+                } else {
+                    result += "0";
+                }
+            }
+        }
+        return result;
+    }//越小越相似
 
-		return difference / maxDifference;
-	}
+    public static String toPhash(BufferedImage image) {
+        //缩小图片
+        BufferedImage newImage = reduceSize(image, 32, 32);
+        //转换为256位灰度
+        double[][] pixels = getGrayValue(newImage);
+        //计算DCT
+        DCT dct = new DCT(25);
+        int[][] tempDCT = dct.forwardDCT(pixels);
+        //缩小DCT
+        int[][] smallImage = dct.dequantitizeImage(tempDCT, false);
+        //计算平均值
+        int avg = avgImage(smallImage);
+        //进一步减小DCT,得到信息指纹
+        String result = to64(avg, smallImage);
+        return result;
+    }
 
+    /**
+     * 计算"汉明距离"（Hamming distance）。
+     * 如果不相同的数据位不超过5，就说明两张图片很相似；如果大于10，就说明这是两张不同的图片。
+     *
+     * @param sourceHashCode 源hashCode
+     * @param hashCode       与之比较的hashCode
+     */
+    public static int hammingDistance(String sourceHashCode, String hashCode) {
+        int difference = 0;
+        int len = sourceHashCode.length();
 
-	private HashMap<String, Integer> getAverageRgb(BufferedImage img) {
-		Raster currentRaster = img.getData();
-		HashMap<String, Integer> averageRgb = new HashMap<String, Integer>();
-		averageRgb.put("r", 0);
-		averageRgb.put("g", 0);
-		averageRgb.put("b", 0);
+        for (int i = 0; i < len; i++) {
+            if (sourceHashCode.charAt(i) != hashCode.charAt(i)) {
+                difference++;
+            }
+        }
 
-		for (int y = 0; y < img.getHeight(); y++) {
-			for (int x = 0; x < img.getWidth(); x++) {
-				averageRgb.put("r", averageRgb.get("r") + currentRaster.getSample(x, y, 0));
-				averageRgb.put("g", averageRgb.get("g") + currentRaster.getSample(x, y, 1));
-				averageRgb.put("b", averageRgb.get("b") + currentRaster.getSample(x, y, 2));
+        return difference;
+    }
 
-			}
-		}
-
-		averageRgb.put("r",
-				averageRgb.get("r") / (img.getHeight() * img.getWidth()));
-		averageRgb.put("g",
-				averageRgb.get("g") / (img.getHeight() * img.getWidth()));
-		averageRgb.put("b",
-				averageRgb.get("b") / (img.getHeight() * img.getWidth()));
-
-		return averageRgb;
-	}
-
-	private BufferedImage imageToBufferedImage(Image img) {
-		BufferedImage bi = new BufferedImage(img.getWidth(null),
-				img.getHeight(null), BufferedImage.TYPE_INT_RGB);
-		Graphics2D g2 = bi.createGraphics();
-		g2.drawImage(img, null, null);
-		return bi;
-	}
-
-	private void saveImage(Image img, String filename) {
-		BufferedImage bi = imageToBufferedImage(img);
-
-		File file = new File(filename);
-		ImageOutputStream out = null;
-        System.out.println("save images " + filename);
-        if (!file.getParentFile().exists()) {
-            file.getParentFile().mkdirs();
-		}
-
-		if (!file.getParentFile().isDirectory()) {
-			System.out.println("The parent path of " + filename + " is not a directory!");
-			return;
-		}
-
-		try {
-			out = new FileImageOutputStream(file);
-		} catch (FileNotFoundException io) {
-			System.out.println("File Not Found when opening the output stream: " + io);
-			return;
-		} catch (IOException e) {
-			System.out.println("IOException when opening the output stream:" + e);
-			return;
-		}
-
-
-		try {
-			ImageIO.write(bi, "jpeg", out);
-		} catch (java.io.IOException io) {
-			System.out.println("IOException while encoding the image: " + io);
-		}
-	}
+    public static void main(String[] args) throws IOException {
+        String phash1 = toPhash(ImageIO.read(new File("target/cucumber-html-reports/embeddings/actual_img/galaxee/line.png")));
+        String phash2 = toPhash(ImageIO.read(new File("target/cucumber-html-reports/embeddings/actual_img/galaxee/line2y.png")));
+        System.out.println(phash1);
+        System.out.println(phash2);
+        System.out.println(hammingDistance(phash1, phash2));
+    }
 }
