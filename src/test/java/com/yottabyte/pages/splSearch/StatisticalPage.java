@@ -29,9 +29,18 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//*[local-name()='g' and @class='vx-group']/ancestor::div[1]")
     private WebElement chart;
 
+    @FindBy(xpath = "//div[@class='ZvGKqShXaXHE-0feDOBus']/following-sibling::div")
+    private WebElement statisticalChart;
+
     @FindBy(xpath = "(//span[text()='下一步']/ancestor::button)[last()]")
     private WebElement nextStep;
 
+    public WebElement getChartView() {
+        return chartView;
+    }
+
+    @FindBy(xpath = "//div[@class='eua4mwMYB7k125sVmyyzn']/div[1]/div[2]/div[1]")
+    private WebElement chartView;
 
 // 事件计数
 
@@ -195,7 +204,19 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//*[text()='42']/ancestor::*[2]|//*[text()='84']/ancestor::*[2]")
     private WebElement provinceSichuan;
 
+//    @FindBy(xpath = "//*[text()='92']/ancestor::*[2]|//*[text()='46']/ancestor::*[2]")
+//    private WebElement provinceJiangsu;
+
 // ---------
+
+
+
+
+
+
+
+
+
     @FindBy(className = "yw-search-stats-select")
     private List<WebElement> statsSelect;
 
@@ -282,8 +303,7 @@ public class StatisticalPage extends PageTemplate {
     private WebElement saveButton;
 
 
-    @FindBy(xpath = "//span[text()='类型']")
-    private WebElement type;
+
 
 
     @FindBy(className = "yw-single-chart-container")
@@ -345,6 +365,11 @@ public class StatisticalPage extends PageTemplate {
     public WebElement getProvinceSichuan() {
         return provinceSichuan;
     }
+
+
+//    public WebElement getProvinceJiangsu() {
+//        return provinceJiangsu;
+//    }
 
     public WebElement getCountryChina() {
         return countryChina;
@@ -458,6 +483,9 @@ public class StatisticalPage extends PageTemplate {
     public WebElement getChart() {
         return chart;
     }
+    public WebElement getStatisticalChart() {
+        return statisticalChart;
+    }
 
     public WebElement getClosePercent75() {
         return closePercent75;
@@ -478,10 +506,6 @@ public class StatisticalPage extends PageTemplate {
 //    public WebElement getAddNum() {
 //        return super.getButton("添加数值分段");
 //    }
-
-    public WebElement getType() {
-        return type;
-    }
 
     public WebElement getEndDate() {
         return endDate;

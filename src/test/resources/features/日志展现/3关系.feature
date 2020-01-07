@@ -1,0 +1,49 @@
+Feature: 高级搜索视图_关系
+#4
+
+  # tag:sample04061424_chart should be uploaded
+  Background:
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+
+  Scenario Outline: 关系（RZY-834,2783,2784)
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Connection" button
+    And I click the "<chartType>" button
+    And I wait for "1500" millsecond
+    And I drag the scroll bar to the element "Chart"
+    Then take part of "Chart" with name "日志展现/高级搜索视图/关系/<caseNum>_<chartType>"
+
+    Examples:
+      |   chartType   |   caseNum  |   spl   |
+      |    Chord      |    834     |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path  |
+      |    Sankey     |    2783    |  tag:sample04061424_chart AND NOT apache.clientip:221.226.97.92 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 10 |
+      |    Force      |    2784    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
+
+  Scenario Outline: 关系_Force
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Connection" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I click the "Exhibition" button
+    And I set the parameter "Repulsion" with value "<repValue>"
+    And I click the "Generate" button
+    And I wait for "1500" millsecond
+    And I drag the scroll bar to the element "Chart"
+    Then take part of "Chart" with name "日志展现/高级搜索视图/关系/<chartType>_repulsion"
+
+    Examples:
+      |   chartType   |repValue  |   spl   |
+      |    Force      |    20    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |

@@ -1,5 +1,4 @@
 package com.yottabyte.pages.trend;
-
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.GetTime;
@@ -9,10 +8,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 import java.util.List;
 
 /**
  * @author sunxj
+ * modified by Kate
  */
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
@@ -20,6 +21,428 @@ public class CreatePage extends PageTemplate {
     }
 
     private DropdownUtils dropdownUtils = new DropdownUtils();
+
+    public WebElement getChartView() {
+        return chartView;
+    }
+
+    @FindBy(xpath = "//div[@class='eua4mwMYB7k125sVmyyzn']/div[1]/div[2]/div[1]")
+    private WebElement chartView;
+
+    @FindBy(xpath = "//div[@class='ZvGKqShXaXHE-0feDOBus']/following-sibling::div")
+    private WebElement statisticalChart;
+
+    @FindBy(xpath = "//span[text()='类型']")
+    private WebElement type;
+
+    @FindBy(xpath = "//span[contains(text(),'设置')]")
+    private WebElement settings;
+
+// Map Interaction -----------------
+    @FindBy(xpath = "//*[text()='248']/ancestor::*[2]|//*[text()='124']/ancestor::*[2]")
+    private WebElement countryChina;
+
+    @FindBy(xpath = "//*[text()='92']/ancestor::*[2]|//*[text()='46']/ancestor::*[2]")
+    private WebElement provinceJiangsu;
+
+//----------------------------------
+// Types ------------------
+
+    @FindBy(xpath = "//div[contains(text(),'序列')]")
+    private WebElement order;
+
+    @FindBy(xpath = "//div[contains(text(),'维度')]")
+    private WebElement dimension;
+
+    @FindBy(xpath = "//div[contains(text(),'关系')]")
+    private WebElement connection;
+
+    @FindBy(xpath = "//div[contains(text(),'复合')]")
+    private WebElement compound;
+
+    @FindBy(xpath = "//div[contains(text(),'地图')]")
+    private WebElement map;
+
+    @FindBy(xpath = "//div[contains(text(),'其他')]")
+    private WebElement other;
+
+//----------------------------------
+
+// 序列-------------------------------
+    @FindBy(xpath = "(//div[contains(text(),'曲线图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement lineChart;
+
+    @FindBy(xpath = "(//div[contains(text(),'面积图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement areaChart;
+
+    @FindBy(xpath = "(//div[contains(text(),'柱状图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement columnChart;
+
+    @FindBy(xpath = "(//div[contains(text(),'散点图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement scatterChart;
+
+//维度---------------------------------
+    @FindBy(xpath = "(//div[contains(text(),'玫瑰图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement rose;
+
+    @FindBy(xpath = "(//div[contains(text(),'饼状图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement pie;
+
+    @FindBy(xpath = "(//div[contains(text(),'条形图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement bar;
+
+    @FindBy(xpath = "(//div[contains(text(),'旭日图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement sun;
+
+//关系--------------------------------
+    @FindBy(xpath = "(//div[contains(text(),'和弦图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement chord;
+
+    @FindBy(xpath = "(//div[contains(text(),'桑基图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement sankey;
+
+    @FindBy(xpath = "(//div[contains(text(),'力图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement force;
+
+//复合---------------------------------
+    @FindBy(xpath = "(//div[contains(text(),'多y轴图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement multiaxis;
+
+    @FindBy(xpath = "(//div[contains(text(),'区间图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement rangeline;
+
+//地图--------------------------------
+    @FindBy(xpath = "(//div[contains(text(),'热力地图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement heatmap;
+
+    @FindBy(xpath = "(//div[contains(text(),'攻击地图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement attackmap;
+
+    @FindBy(xpath = "(//div[contains(text(),'区划地图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement regionmap;
+
+    @FindBy(xpath = "(//div[contains(text(),'统计地图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement statisticalmap;
+
+//其他 -------------
+    @FindBy(xpath = "(//div[contains(text(),'单值')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement single;
+
+    @FindBy(xpath = "(//div[contains(text(),'水球图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement liquidfill;
+
+    @FindBy(xpath = "(//div[contains(text(),'字符云图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement wordcloud;
+
+    @FindBy(xpath = "(//div[contains(text(),'循序图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement sequence;
+
+    @FindBy(xpath = "(//div[contains(text(),'雷达图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement radar;
+
+    @FindBy(xpath = "(//div[contains(text(),'漏斗图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement funnel;
+
+    @FindBy(xpath = "(//div[contains(text(),'矩阵热力图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement matrixheatmap;
+
+    @FindBy(xpath = "(//div[contains(text(),'调用链')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement chain;
+
+//----------------------------------------
+
+//Tabs -------------------------------------
+
+    @FindBy(xpath = "(//div[contains(text(),'Y轴')])[last()]")
+    private WebElement yaxis;
+
+    @FindBy(xpath = "(//div[contains(text(),'X轴')])[last()]")
+    private WebElement xaxis;
+
+    @FindBy(xpath = "(//div[contains(text(),'分组')])[last()]")
+    private WebElement group;
+
+    @FindBy(xpath = "(//div[contains(text(),'展示')])[last()]")
+    private WebElement exhibition;
+
+    @FindBy(xpath = "(//div[contains(text(),'数值')])[last()]")
+    private WebElement value;
+
+    @FindBy(xpath = "(//div[contains(text(),'切分')])[last()]")
+    private WebElement divide;
+
+    @FindBy(xpath = "(//div[text()='general'])[last()]")
+    private WebElement general;
+
+    @FindBy(xpath = "(//div[contains(text(),'气泡')])[last()]")
+    private WebElement bubble;
+
+    @FindBy(xpath = "(//div[text()='时间'])[last()]")
+    private WebElement time;
+
+    @FindBy(xpath = "(//div[text()='信息'])[last()]")
+    private WebElement info;
+
+    @FindBy(xpath = "(//div[text()='图例'])[last()]")
+    private WebElement example;
+
+    @FindBy(xpath = "(//div[text()='目标'])[last()]")
+    private WebElement target;
+
+    @FindBy(xpath = "(//div[text()='标记'])[last()]")
+    private WebElement mark;
+
+    @FindBy(xpath = "(//div[text()='来源'])[last()]")
+    private WebElement source;
+
+    @FindBy(xpath = "(//div[text()='权重'])[last()]")
+    private WebElement weight;
+
+    @FindBy(xpath = "(//div[text()='区域'])[last()]")
+    private WebElement region;
+
+    @FindBy(xpath = "(//div[text()='下钻'])[last()]")
+    private WebElement goingDown;
+
+    @FindBy(xpath = "(//div[text()='图标'])[last()]")
+    private WebElement icon;
+
+    @FindBy(xpath = "(//div[text()='指示器'])[last()]")
+    private WebElement indicator;
+
+//-----------------------------------------------
+//Inputs ----------------------------------------
+
+    @FindBy(xpath = "//span[text()='单位']/ancestor::div/following-sibling::input")
+    private WebElement unit;
+
+    @FindBy(xpath = "//span[text()='图标名称']/ancestor::div/following-sibling::div[1]//input")
+    private WebElement iconName;
+
+    @FindBy(xpath = "(//span[contains(text(),'透明度')])[last()]/ancestor::div/following-sibling::input")
+    private WebElement transparency;
+
+    @FindBy(xpath = "(//span[contains(text(),'最小半径')])[last()]/ancestor::div/following-sibling::input")
+    private WebElement minRadius;
+
+    @FindBy(xpath = "(//span[contains(text(),'geo_max_size')])[last()]/ancestor::div/following-sibling::input")
+    private WebElement maxRadius;
+
+    @FindBy(xpath = "//span[text()='分段数']/ancestor::div/following-sibling::input")
+    private WebElement segments;
+
+    @FindBy(xpath = "(//span[text()='min']/preceding-sibling::input)[last()]")
+    private WebElement min;
+
+    @FindBy(xpath = "(//span[text()='max']/preceding-sibling::input)[last()]")
+    private WebElement max;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[last()]")
+    private WebElement minRange;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[last()]")
+    private WebElement maxRange;
+
+    @FindBy(xpath = "//span[text()='斥力因子']/ancestor::div/following-sibling::input")
+    private WebElement repulsion;
+
+//------------------------------------------------
+//Dropdown Fields---------------------------------
+
+    @FindBy(xpath = "(//span[text()='字段值'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement fieldValue;
+
+    @FindBy(xpath = "(//span[text()='经度'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement fieldLongitude;
+
+    @FindBy(xpath = "(//span[text()='纬度'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement fieldLatitude;
+
+    @FindBy(xpath = "(//span[text()='upper'])[last()]/ancestor::div/following-sibling::div[1]")
+    private WebElement topLimit;
+
+    @FindBy(xpath = "(//span[text()='lower'])[last()]/ancestor::div/following-sibling::div[1]")
+    private WebElement lowerLimit;
+
+    @FindBy(xpath = "(//span[text()='对比时间'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement contrastTime;
+
+    @FindBy(xpath = "(//span[text()='省级下钻字段'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement province;
+
+    @FindBy(xpath = "(//span[text()='市级下钻字段'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement city;
+
+    @FindBy(xpath = "(//span[text()='函数'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement function;
+
+    @FindBy(xpath = "(//span[text()='父id'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement parentId;
+
+    @FindBy(xpath = "(//span[text()='子id'])[last()]/ancestor::div/following-sibling::div[1]")
+    private WebElement childId;
+
+    @FindBy(xpath = "(//span[text()='开始时间'])[last()]/ancestor::div/following-sibling::div[1]")
+    private WebElement startTime;
+
+    @FindBy(xpath = "(//span[text()='持续时间'])[last()]/ancestor::div/following-sibling::div[1]")
+    private WebElement keepTime;
+
+    @FindBy(xpath = "(//span[text()='字段信息'])[last()]/ancestor::div/following-sibling::div[1]")
+    private WebElement infoField;
+
+    @FindBy(xpath = "//span[text()='预测值']/ancestor::div/following-sibling::div")
+    private WebElement predict;
+
+    @FindBy(xpath = "//span[text()='实际值']/ancestor::div/following-sibling::div")
+    private WebElement actual;
+
+    @FindBy(xpath = "(//span[text()='标签展示'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement showLabel;
+
+    @FindBy(xpath = "(//span[text()='标签位置'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement labelLocation;
+
+    @FindBy(xpath = "(//span[text()='气泡大小'])[last()]/ancestor::div/following-sibling::div[1]")
+    private WebElement bubbleSize;
+
+//---------------------------------
+//Colors --------------------------
+
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(156, 39, 176);')])[last()]")
+    private WebElement purple;
+
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(229, 28, 35);')])[last()]")
+    private WebElement red;
+
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(255, 152, 0);')])[last()]")
+    private WebElement orange;
+
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(37, 155, 36);')])[last()]")
+    private WebElement green;
+
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(83, 196, 27);')])[last()]")
+    private WebElement lightGreen;
+
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(255, 235, 59);')])[last()]")
+    private WebElement yellow;
+
+//---------------------------------
+//Switches ------------------------
+
+    @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::button")
+    private WebElement smooth;
+
+    @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::button")
+    private WebElement connectEmptyData;
+
+    @FindBy(xpath = "//span[text()='堆叠']/ancestor::div/following-sibling::button")
+    private WebElement pile;
+
+    @FindBy(xpath = "//span[text()='统一度量']/ancestor::div/following-sibling::button")
+    private WebElement unifyMetric;
+
+//---------------------------------
+//Buttons -------------------------
+
+    @FindBy(xpath = "//span[text()='生 成']/ancestor::button")
+    private WebElement generate;
+
+    @FindBy(xpath = "(//div[contains(@class, 'eDaDRJKwUEJDr6wgG_VbL')])[last()]")
+    private WebElement addColor;
+
+    @FindBy(xpath = "(//div[text()='按字段'])[last()]")
+    private WebElement accordingField;
+
+    @FindBy(xpath = "(//div[text()='按名称'])[last()]")
+    private WebElement accordingName;
+
+    @FindBy(xpath = "(//div[text()='按趋势'])[last()]")
+    private WebElement accordingTrend;
+
+    @FindBy(xpath = "//div[text()='按区间']")
+    private WebElement accordingArea;
+
+    @FindBy(xpath = "//span[text()='背景']")
+    private WebElement background;
+
+    @FindBy(xpath = "//span[text()='字体']")
+    private WebElement font;
+
+    @FindBy(xpath = "//span[text()='绝对值']")
+    private WebElement absolute;
+
+    @FindBy(xpath = "//span[text()='百分比']")
+    private WebElement percent;
+
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[1]")
+    private WebElement deleteFirst;
+
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[last()]")
+    private WebElement deleteLast;
+
+// Legend Positions
+    @FindBy(xpath = "(//div[text()='底部'])[last()]")
+    private WebElement bottomPosition;
+
+    @FindBy(xpath = "(//div[text()='柱状外右侧'])[last()]")
+    private WebElement rightPosition;
+
+    @FindBy(xpath = "(//div[text()='a...'])[last()]")
+    private WebElement firstPosition;
+
+    @FindBy(xpath = "(//div[text()='...z'])[last()]")
+    private WebElement secondPosition;
+
+    @FindBy(xpath = "(//div[text()='a..z'])[last()]")
+    private WebElement thirdPosition;
+
+// Labels
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[1]/span[1]")
+    private WebElement firstLabel;
+
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[2]/span[1]")
+    private WebElement secondLabel;
+
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[3]/span[1]")
+    private WebElement thirdLabel;
+
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[4]/span[1]")
+    private WebElement forthLabel;
+
+//Orders
+    @FindBy(xpath = "(//div[text()='降序']/ancestor::span)[last()]")
+    private WebElement descendingOrder;
+
+    @FindBy(xpath = "(//div[text()='升序']/ancestor::span)[last()]")
+    private WebElement ascendingOrder;
+
+
+//---------------------------------
+// text - button ------------------
+
+    @FindBy(xpath = "(//p[text()='+ 添加'])[last()]")
+    private WebElement addField;
+
+    @FindBy(xpath = "//div[contains(text(),'添加颜色区间')]")
+    private WebElement addRange;
+
+//---------------------------------
+
+//check-box ------------------------
+
+    @FindBy(xpath = "(//div[text()='中国'])/ancestor::span")
+    private WebElement selectChina;
+
+    @FindBy(xpath = "(//div[text()='江苏'])/ancestor::span")
+    private WebElement selectJiangsu;
+
+    @FindBy(xpath = "(//div[text()='世界'])/ancestor::span")
+    private WebElement selectWorld;
+//----------------------------------
+// other ----------------------------
+    @FindBy(xpath = "//span[@class='ant-select-arrow']")
+    private WebElement dropbutton;
 
     @FindBy(className = "CodeMirror-code")
     private WebElement searchInput;
@@ -29,21 +452,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='设置图表类型']")
     private WebElement chartType;
-
-    @FindBy(xpath = "//span[text()='设置']")
-    private WebElement setting;
-
-    @FindBy(className = "line")
-    private WebElement line;
-
-    @FindBy(xpath = "(//div[@class='img area'])[last()]")
-    private WebElement area;
-
-    @FindBy(xpath = "(//div[@class='img scatter'])[last()]")
-    private WebElement scatter;
-
-    @FindBy(xpath = "(//div[@class='img column'])[last()]")
-    private WebElement column;
 
     @FindBy(className = "chart-type-popover")
     private WebElement chartTypePopover;
@@ -72,38 +480,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(tagName = "th")
     private WebElement header;
 
-    @FindBy(xpath = "(//div[text()='Y轴'])[last()]")
-    private WebElement yaxis;
-
-    @FindBy(xpath = "(//div[text()='X轴'])[last()]")
-    private WebElement xaxis;
-
-    @FindBy(xpath = "(//div[contains(text(),'分组')])[last()]")
-    private WebElement group;
-
-    @FindBy(xpath = "(//div[contains(text(),'气泡')])[last()]")
-    private WebElement bubble;
-
-    @FindBy(xpath = "(//div[text()='图例'])[last()]")
-    private WebElement example;
-
-    @FindBy(xpath = "(//div[contains(text(),'展示')])[last()]")
-    private WebElement exhibition;
-
-    @FindBy(xpath = "(//div[@class='yw-search-setting-input yw-search-setting-input-text el-input']/input)[last()]")
-    private WebElement unit;
-
-    @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::label")
-    private WebElement smooth;
-
-    @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::label")
-    private WebElement connectEmptyData;
-
-    @FindBy(xpath = "(//div[text()='min']/preceding-sibling::input)[last()]")
-    private WebElement min;
-
-    @FindBy(xpath = "(//div[text()='max']/preceding-sibling::input)[last()]")
-    private WebElement max;
 
     @FindBy(className = "el-radio-button")
     private List<WebElement> radioButtonList;
@@ -111,23 +487,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='无']")
     private WebElement noneExample;
 
-    @FindBy(xpath = "//div[text()='底部']")
-    private WebElement bottomPosition;
-
-    @FindBy(xpath = "(//div[text()='右侧'])[last()]")
-    private WebElement rightPosition;
-
-    @FindBy(xpath = "(//div[text()='a...'])[last()]")
-    private WebElement firstPosition;
-
-    @FindBy(xpath = "(//div[text()='...z'])[last()]")
-    private WebElement secondPosition;
-
-    @FindBy(xpath = "(//div[text()='a..z'])[last()]")
-    private WebElement thirdPosition;
 
     @FindBy(xpath = "(//input[@class='el-input__inner'][not(@placeholder='请选择')])[last()]")
-    private WebElement startColour;
+    private WebElement startColor;
 
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
     private WebElement label;
@@ -138,164 +500,23 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-search-setting-switch")
     private WebElement settingSwitch;
 
-    @FindBy(xpath = "(//div[contains(text(),'维度')])[last()]")
-    private WebElement dimension;
-
-    @FindBy(xpath = "(//div[contains(text(),'关系')])[last()]")
-    private WebElement relation;
-
-    @FindBy(xpath = "(//div[contains(text(),'复合')])[last()]")
-    private WebElement compound;
-
-    @FindBy(xpath = "(//div[contains(text(),'序列')])[last()]")
-    private WebElement order;
-
-    @FindBy(xpath = "(//div[contains(text(),'地图')][@class='popover-type-group-item'])[last()]")
-    private WebElement map;
-
-    @FindBy(xpath = "(//div[contains(text(),'其他')])[last()]")
-    private WebElement other;
-
-    @FindBy(className = "pie")
-    private WebElement pie;
-
-    @FindBy(xpath = "(//div[@class='img rose'])[last()]")
-    private WebElement rose;
-
-    @FindBy(xpath = "(//div[@class='img bar'])[last()]")
-    private WebElement bar;
-
-    @FindBy(xpath = "(//div[@class='img sunburst'])[last()]")
-    private WebElement sunburst;
-
     @FindBy(className = "tracing")
     private WebElement tracing;
-
-    @FindBy(xpath = "(//div[contains(text(),'切分')])[last()]")
-    private WebElement divide;
-
-    @FindBy(xpath = "(//p[text()='+ 添加'])[last()]")
-    private WebElement addField;
 
     @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
     private WebElement secondSettingSelect;
 
-    @FindBy(xpath = "(//div[@class='img chord'])[last()]")
-    private WebElement chord;
-
-    @FindBy(xpath = "(//div[@class='img sankey'])[last()]")
-    private WebElement sankey;
-
-    @FindBy(xpath = "(//div[@class='img force'])[last()]")
-    private WebElement force;
-
-    @FindBy(xpath = "(//div[text()='目标'])[last()]")
-    private WebElement target;
-
-    @FindBy(xpath = "(//div[text()='标记'])[last()]")
-    private WebElement mark;
-
-    @FindBy(xpath = "(//div[text()='来源'])[last()]")
-    private WebElement source;
-
-    @FindBy(xpath = "(//div[text()='权重'])[last()]")
-    private WebElement weight;
-
-    @FindBy(xpath = "(//div[text()='区域'])[last()]")
-    private WebElement region;
-
-    @FindBy(xpath = "(//div[text()='下钻'])[last()]")
-    private WebElement goingDown;
-
-    @FindBy(xpath = "(//div[@class='img rangeline'])[last()]")
-    private WebElement rangeline;
-
-    @FindBy(xpath = "(//div[@class='img multiaxis'])[last()]")
-    private WebElement multiaxis;
-
-    @FindBy(xpath = "//span[text()='预测值']/ancestor::div/following-sibling::div")
-    private WebElement predict;
-
-    @FindBy(xpath = "//span[text()='实际值']/ancestor::div/following-sibling::div")
-    private WebElement actual;
-
-    @FindBy(xpath = "//span[text()='上限']/ancestor::div/following-sibling::div")
-    private WebElement topLimit;
-
-    @FindBy(xpath = "//span[text()='下限']/ancestor::div/following-sibling::div")
-    private WebElement lowerLimit;
-
-    @FindBy(xpath = "(//div[@class='img heatmap'])[last()]")
-    private WebElement heatmap;
-
-    @FindBy(xpath = "(//div[@class='img attackmap'])[last()]")
-    private WebElement attackmap;
-
-    @FindBy(xpath = "(//div[@class='img regionmap'])[last()]")
-    private WebElement regionmap;
-
-    @FindBy(xpath = "(//div[@class='img geostatsmap'])[last()]")
-    private WebElement geostatsmap;
+//    @FindBy(xpath = "//input[@value='world']/ancestor::label")
+//    private WebElement world;
+//
+//    @FindBy(xpath = "//input[@value='china']/ancestor::label")
+//    private WebElement china;
 
     @FindBy(className = "table")
     private WebElement table;
 
-    @FindBy(xpath = "(//div[@class='img single'])[last()]")
-    private WebElement single;
-
-    @FindBy(xpath = "(//div[@class='img liquidfill'])[last()]")
-    private WebElement liquidfill;
-
-    @FindBy(xpath = "(//div[@class='img wordcloud'])[last()]")
-    private WebElement wordcloud;
-
-    @FindBy(xpath = "(//div[@class='img sequence'])[last()]")
-    private WebElement sequence;
-
-    @FindBy(xpath = "(//div[@class='img radar'])[last()]")
-    private WebElement radar;
-
-    @FindBy(xpath = "(//div[@class='img funnel'])[last()]")
-    private WebElement funnel;
-
-    @FindBy(xpath = "(//div[@class='img matrixheatmap'])[last()]")
-    private WebElement matrixheatmap;
-
-    @FindBy(xpath = "//div[text()='背景']")
-    private WebElement background;
-
-    @FindBy(xpath = "//div[text()='字体']")
-    private WebElement font;
-
-    @FindBy(xpath = "//div[text()='图标']")
-    private WebElement icon;
-
-    @FindBy(xpath = "(//div[text()='按字段'])[last()]")
-    private WebElement accordingField;
-
-    @FindBy(xpath = "//div[text()='按名称']")
-    private WebElement accordingName;
-
-    @FindBy(xpath = "//div[text()='按趋势']")
-    private WebElement accordingTrend;
-
-    @FindBy(xpath = "//div[text()='按区间']")
-    private WebElement accordingArea;
-
-    @FindBy(xpath = "//div[text()='绝对值']")
-    private WebElement absolute;
-
-    @FindBy(xpath = "//div[text()='百分比']")
-    private WebElement percent;
-
-    @FindBy(xpath = "//div[@class='el-autocomplete yw-search-setting-select']//input")
-    private WebElement iconName;
-
     @FindBy(xpath = "(//*[@class='el-switch yw-search-setting-switch'])[last()]")
     private WebElement switchButton;
-
-    @FindBy(xpath = "(//div[text()='指示器'])[last()]")
-    private WebElement indicator;
 
     @FindBy(xpath = "(//i[@class='el-input__icon el-icon-arrow-up'])[2]")
     private WebElement pagination;
@@ -306,20 +527,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='报表']")
     private WebElement report;
 
-    @FindBy(xpath = "//span[text()='堆叠']/ancestor::div/following-sibling::label")
-    private WebElement pile;
-
-    @FindBy(xpath = "//span[text()='气泡大小']/ancestor::div/following-sibling::div//i")
-    private WebElement bubbleSize;
-
     @FindBy(xpath = "//span[text()='实际值']/ancestor::div/following-sibling::div//i")
     private WebElement actualValue;
 
-    @FindBy(xpath = "(//span[text()='类型']/ancestor::div/following-sibling::div//i)[last()]")
-    private WebElement type;
-
     @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
-    private List<WebElement> filedValueList;
+    private List<WebElement> fieldValueList;
 
     @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
     private WebElement fieldValueInput;
@@ -327,133 +539,43 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='气泡大小']/ancestor::div/following-sibling::div//input)[last()]")
     private WebElement bubbleSizeInput;
 
-    @FindBy(xpath = "(//div[text()='降序'])[last()]")
-    private WebElement descendingOrder;
-
-    @FindBy(xpath = "(//div[text()='升序'])[last()]")
-    private WebElement ascending;
-
-    @FindBy(xpath = "(//span[@style='background: rgb(156, 39, 176);'])[last()]/ancestor::li")
-    private WebElement purple;
-
-    @FindBy(xpath = "(//span[@style='background: rgb(229, 28, 35);'])[last()]/ancestor::li")
-    private WebElement red;
-
-    @FindBy(xpath = "(//span[@style='background: rgb(255, 152, 0);'])[last()]/ancestor::li")
-    private WebElement orange;
-
-    @FindBy(xpath = "(//span[@style='background: rgb(37, 155, 36);'])[last()]/ancestor::li")
-    private WebElement green;
-
-    @FindBy(xpath = "(//span[@style='background: rgb(83, 196, 27);'])[last()]/ancestor::li")
-    private WebElement lightGreen;
-
-    @FindBy(xpath = "(//span[@style='background: rgb(255, 235, 59);'])[last()]/ancestor::li")
-    private WebElement yellow;
-
-    @FindBy(xpath = "(//span[text()='实际值'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement actualValueInput;
-
-    @FindBy(xpath = "(//span[text()='预测值'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement predictValueInput;
-
-    @FindBy(xpath = "(//span[text()='上限'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement topLimitInput;
-
-    @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement lowerLimitInput;
-
-    @FindBy(xpath = "//span[text()='经度']/ancestor::div/following-sibling::div//i")
-    private WebElement longitude;
-
-    @FindBy(xpath = "(//span[text()='经度'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement longitudeInput;
-
-    @FindBy(xpath = "(//span[text()='纬度'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement latitudeInput;
-
-    @FindBy(xpath = "//span[text()='纬度']/ancestor::div/following-sibling::div//i")
-    private WebElement latitude;
-
-    @FindBy(xpath = "(//span[text()='中国'])[last()]")
-    private WebElement china;
-
-    @FindBy(xpath = "(//span[text()='江苏'])[last()]")
-    private WebElement jiangsu;
-
-    @FindBy(xpath = "(//span[text()='内蒙古'])[last()]")
-    private WebElement neimeng;
-
-    @FindBy(xpath = "//span[text()='省级下钻字段']/ancestor::div/following-sibling::div//i")
-    private WebElement province;
-
-    @FindBy(xpath = "//span[text()='市级下钻字段']/ancestor::div/following-sibling::div//i")
-    private WebElement city;
+//    @FindBy(xpath = "(//span[text()='实际值'])[last()]/ancestor::div/following-sibling::div//input")
+//    private WebElement actualValueInput;
+//
+//    @FindBy(xpath = "(//span[text()='预测值'])[last()]/ancestor::div/following-sibling::div//input")
+//    private WebElement predictValueInput;
+//
+//    @FindBy(xpath = "(//span[text()='上限'])[last()]/ancestor::div/following-sibling::div//input")
+//    private WebElement topLimitInput;
+//
+//    @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div//input")
+//    private WebElement lowerLimitInput;
+//
+//    @FindBy(xpath = "(//span[text()='经度'])[last()]/ancestor::div/following-sibling::div//input")
+//    private WebElement longitudeInput;
+//
+//    @FindBy(xpath = "(//span[text()='纬度'])[last()]/ancestor::div/following-sibling::div//input")
+//    private WebElement latitudeInput;
+//
+//    @FindBy(xpath = "(//span[text()='内蒙古'])[last()]")
+//    private WebElement neimeng;
 
     @FindBy(className = "el-radio-group")
     private WebElement radioGroup;
 
-    @FindBy(className = "range-color-group-add")
-    private WebElement addColour;
-
-    @FindBy(xpath = "(//input[@placeholder='min'])[last()]")
-    private WebElement minRange;
-
-    @FindBy(xpath = "(//input[@placeholder='max'])[last()]")
-    private WebElement maxRange;
-
-    @FindBy(xpath = "(//span[text()='分段数'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
-    private WebElement segments;
-
     @FindBy(className = "chart-setting-popover")
     private WebElement settingPopover;
-
-    @FindBy(xpath = "(//span[text()='父ID'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement parentId;
-
-    @FindBy(xpath = "(//span[text()='子ID'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement childId;
-
-    @FindBy(xpath = "(//span[text()='持续时间'])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement keepTime;
-
-    @FindBy(xpath = "(//div[text()='时间'])[last()]")
-    private WebElement time;
-
-    @FindBy(xpath = "(//div[text()='信息'])[last()]")
-    private WebElement info;
-
-    @FindBy(xpath = "(//span[contains(text(),'透明度')])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement transparency;
-
-    @FindBy(xpath = "(//span[contains(text(),'最小半径')])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement minRadius;
-
-    @FindBy(xpath = "(//span[contains(text(),'最大半径')])[last()]/ancestor::div/following-sibling::div//input")
-    private WebElement maxRadius;
-
-    @FindBy(xpath = "(//div[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
-    private WebElement delete;
-
-    @FindBy(xpath = "//div[contains(text(),'添加颜色区间')]")
-    private WebElement addRange;
 
     @FindBy(className = "el-switch__label--right")
     private WebElement switchLabel;
 
-    @FindBy(xpath = "(//span[text()='标签展示'])[last()]/ancestor::div/following-sibling::div")
-    private WebElement showLabel;
-
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
-
-    @FindBy(xpath = "(//span[text()='斥力因子'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
-    private WebElement repulsion;
 
     @FindBy(className = "yw-trend")
     private WebElement canvas;
 
-    @FindBy(xpath = "//div[@class='yw-search-stats clearfix']")
+    @FindBy(xpath = "//*[local-name()='g' and @class='vx-group']/ancestor::div[1]")
     private WebElement chart;
 
     @FindBy(id = "timestamp")
@@ -479,6 +601,193 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
     private WebElement appDropdownIcon;
+
+
+
+
+
+    public WebElement getStatisticalChart() {
+        return statisticalChart;
+    }
+
+    public WebElement getType() {
+        return type;
+    }
+
+    //--------------------------------------------------------------------
+
+    public WebElement getOrder() {
+        return order;
+    }
+
+    public WebElement getDimension() {
+        return dimension;
+    }
+
+    public WebElement getConnection() {
+        return connection;
+    }
+
+    public WebElement getCompound() {
+        return compound;
+    }
+
+    public WebElement getMap() {
+        return map;
+    }
+
+    public WebElement getOther() {
+        return other;
+    }
+
+//------------------------------------------------------------------
+
+
+    public WebElement getLineChart() {
+        return lineChart;
+    }
+
+    public WebElement getAreaChart() {
+        return areaChart;
+    }
+
+    public WebElement getColumnChart() {
+        return columnChart;
+    }
+
+    public WebElement getScatterChart() {
+        return scatterChart;
+    }
+
+
+
+    public WebElement getPie() {
+        return pie;
+    }
+
+    public WebElement getRose() {
+        return rose;
+    }
+
+    public WebElement getBar() {
+        return bar;
+    }
+
+    public WebElement getSun() {
+        return sun;
+    }
+
+
+
+    public WebElement getChord() {
+        return chord;
+    }
+
+    public WebElement getSankey() {
+        return sankey;
+    }
+
+    public WebElement getForce() {
+        return force;
+    }
+
+
+
+    public WebElement getRangeline() {
+        return rangeline;
+    }
+
+    public WebElement getMultiaxis() {
+        return multiaxis;
+    }
+
+
+
+    public WebElement getHeatmap() {
+        return heatmap;
+    }
+
+    public WebElement getAttackmap() {
+        return attackmap;
+    }
+
+    public WebElement getRegionmap() {
+        return regionmap;
+    }
+
+    public WebElement getStatisticalmap() {
+        return statisticalmap;
+    }
+
+
+    public WebElement getSingle() {
+        return single;
+    }
+
+    public WebElement getLiquidfill() {
+        return liquidfill;
+    }
+
+    public WebElement getWordcloud() {
+        return wordcloud;
+    }
+
+    public WebElement getSequence() {
+        return sequence;
+    }
+
+    public WebElement getRadar() {
+        return radar;
+    }
+
+    public WebElement getFunnel() {
+        return funnel;
+    }
+
+    public WebElement getMatrixheatmap() {
+        return matrixheatmap;
+    }
+
+    public WebElement getChain() {
+        return chain;
+    }
+
+//------------------------------------------------------------------
+
+
+    public WebElement getFirstLabel() {
+        return firstLabel;
+    }
+
+    public WebElement getSecondLabel() {
+        return secondLabel;
+    }
+
+    public WebElement getThirdLabel() {
+        return thirdLabel;
+    }
+
+    public WebElement getForthLabel() {
+        return forthLabel;
+    }
+
+
+    public WebElement getSettings() {
+        return settings;
+    }
+
+    public WebElement getProvinceJiangsu() {
+        return provinceJiangsu;
+    }
+
+    public WebElement getCountryChina() {
+        return countryChina;
+    }
+
+    public WebElement getUnifyMetric() {
+        return unifyMetric;
+    }
+
 
     public WebElement getSuccessUpdate() {
         return successUpdate;
@@ -512,8 +821,12 @@ public class CreatePage extends PageTemplate {
         return chart;
     }
 
-    public WebElement getJiangsu() {
-        return jiangsu;
+    public WebElement getSelectJiangsu() {
+        return selectJiangsu;
+    }
+
+    public WebElement getSelectWorld() {
+        return selectWorld;
     }
 
     public WebElement getCanvas() {
@@ -533,12 +846,33 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getLightGreen() {
-        return lightGreen;
+    public WebElement getLabelLocation() {
+        labelLocation.click();
+        return super.getLastDropdownList();
     }
 
-    public WebElement getOrder() {
-        return order;
+    public WebElement getFieldValue() {
+        fieldValue.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getContrastTime() {
+        contrastTime.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getFieldLongitude() {
+        fieldLongitude.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getFieldLatitude() {
+        fieldLatitude.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getLightGreen() {
+        return lightGreen;
     }
 
     public WebElement getSwitchLabel() {
@@ -549,8 +883,12 @@ public class CreatePage extends PageTemplate {
         return addRange;
     }
 
-    public WebElement getDelete() {
-        return delete;
+    public WebElement getDeleteFirst() {
+        return deleteFirst;
+    }
+
+    public WebElement getDeleteLast() {
+        return deleteLast;
     }
 
     public WebElement getTransparency() {
@@ -565,6 +903,11 @@ public class CreatePage extends PageTemplate {
         return maxRadius;
     }
 
+    public WebElement getFunction() {
+        function.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getParentId() {
         parentId.click();
         return super.getLastDropdownList();
@@ -575,8 +918,18 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    public WebElement getStartTime() {
+        startTime.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getKeepTime() {
         keepTime.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getInfoField() {
+        infoField.click();
         return super.getLastDropdownList();
     }
 
@@ -625,25 +978,25 @@ public class CreatePage extends PageTemplate {
         return maxRange;
     }
 
-    public WebElement getAddColour() {
-        return addColour;
+    public WebElement getAddColor() {
+        return addColor;
     }
 
-    public WebElement getLongitudeInput() {
-        return longitudeInput;
-    }
-
-    public WebElement getLatitudeInput() {
-        return latitudeInput;
-    }
+//    public WebElement getLongitudeInput() {
+//        return longitudeInput;
+//    }
+//
+//    public WebElement getLatitudeInput() {
+//        return latitudeInput;
+//    }
 
     public WebElement getRadioGroup() {
         return radioGroup;
     }
 
-    public WebElement getNeimeng() {
-        return neimeng;
-    }
+//    public WebElement getNeimeng() {
+//        return neimeng;
+//    }
 
     public WebElement getProvince() {
         province.click();
@@ -659,39 +1012,51 @@ public class CreatePage extends PageTemplate {
         return goingDown;
     }
 
-    public WebElement getChina() {
-        return china;
+    public WebElement getSelectChina() {
+        return selectChina;
     }
 
-    public WebElement getLongitude() {
-        longitude.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getLatitude() {
-        latitude.click();
-        return super.getLastDropdownList();
-    }
+//    public WebElement getLongitude() {
+//        longitude.click();
+//        return super.getLastDropdownList();
+//    }
+//
+//    public WebElement getLatitude() {
+//        latitude.click();
+//        return super.getLastDropdownList();
+//    }
 
     public WebElement getRegion() {
         return region;
     }
 
-    public WebElement getActualValueInput() {
-        return actualValueInput;
+    public WebElement getGeneral() {
+        return general;
     }
 
-    public WebElement getPredictValueInput() {
-        return predictValueInput;
-    }
+//    public WebElement getWorld() {
+//        return world;
+//    }
+//
+//    public WebElement getChina() {
+//        return china;
+//    }
 
-    public WebElement getTopLimitInput() {
-        return topLimitInput;
-    }
-
-    public WebElement getLowerLimitInput() {
-        return lowerLimitInput;
-    }
+//    public WebElement getActualValueInput() {
+//        return actualValueInput;
+//    }
+//
+//    public WebElement getPredictValueInput() {
+//        return predictValueInput;
+//    }
+//
+//    public WebElement getTopLimitInput() {
+//        return topLimitInput;
+//    }
+//
+//    public WebElement getLowerLimitInput() {
+//        return lowerLimitInput;
+//    }
 
     public WebElement getBubbleSizeInput() {
         return bubbleSizeInput;
@@ -701,18 +1066,13 @@ public class CreatePage extends PageTemplate {
         return fieldValueInput;
     }
 
-    public WebElement getFiledValue2() {
-        filedValueList.get(2).click();
+    public WebElement getFieldValue2() {
+        fieldValueList.get(2).click();
         return super.getLastDropdownList();
     }
 
-    public WebElement getFiledValue3() {
-        filedValueList.get(4).click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getType() {
-        type.click();
+    public WebElement getFieldValue3() {
+        fieldValueList.get(4).click();
         return super.getLastDropdownList();
     }
 
@@ -748,7 +1108,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getGenerate() {
-        return getButton("生成");
+        return generate;
     }
 
     public WebElement getNameInput() {
@@ -799,27 +1159,6 @@ public class CreatePage extends PageTemplate {
         return chartTypePopover;
     }
 
-    public WebElement getSetting() {
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", chartTypePopover);
-        return setting;
-    }
-
-    public WebElement getLine() {
-        return line;
-    }
-
-    public WebElement getArea() {
-        return area;
-    }
-
-    public WebElement getScatter() {
-        return scatter;
-    }
-
-    public WebElement getColumn() {
-        return column;
-    }
-
     public WebElement getSettingSelect() {
         settingSelect.click();
         return super.getLastDropdownList();
@@ -855,7 +1194,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAscendingOrder() {
-        return ascending;
+        return ascendingOrder;
     }
 
     public WebElement getDescendingOrder() {
@@ -929,8 +1268,8 @@ public class CreatePage extends PageTemplate {
         return thirdPosition;
     }
 
-    public WebElement getStartColour() {
-        return startColour;
+    public WebElement getStartColor() {
+        return startColor;
     }
 
     public WebElement getOrange() {
@@ -953,42 +1292,6 @@ public class CreatePage extends PageTemplate {
         return settingSwitch;
     }
 
-    public WebElement getDimension() {
-        return dimension;
-    }
-
-    public WebElement getRelation() {
-        return relation;
-    }
-
-    public WebElement getCompound() {
-        return compound;
-    }
-
-    public WebElement getMap() {
-        return map;
-    }
-
-    public WebElement getOther() {
-        return other;
-    }
-
-    public WebElement getPie() {
-        return pie;
-    }
-
-    public WebElement getRose() {
-        return rose;
-    }
-
-    public WebElement getBar() {
-        return bar;
-    }
-
-    public WebElement getSunburst() {
-        return sunburst;
-    }
-
     public WebElement getAddField() {
         return addField;
     }
@@ -997,16 +1300,8 @@ public class CreatePage extends PageTemplate {
         return divide;
     }
 
-    public WebElement getChord() {
-        return chord;
-    }
-
-    public WebElement getSankey() {
-        return sankey;
-    }
-
-    public WebElement getForce() {
-        return force;
+    public WebElement getValue() {
+        return value;
     }
 
     public WebElement getTarget() {
@@ -1015,14 +1310,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getWeight() {
         return weight;
-    }
-
-    public WebElement getRangeline() {
-        return rangeline;
-    }
-
-    public WebElement getMultiaxis() {
-        return multiaxis;
     }
 
     public WebElement getPredict() {
@@ -1045,52 +1332,8 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getHeatmap() {
-        return heatmap;
-    }
-
-    public WebElement getAttackmap() {
-        return attackmap;
-    }
-
-    public WebElement getRegionmap() {
-        return regionmap;
-    }
-
-    public WebElement getGeostatsmap() {
-        return geostatsmap;
-    }
-
     public WebElement getTable() {
         return table;
-    }
-
-    public WebElement getSingle() {
-        return single;
-    }
-
-    public WebElement getLiquidfill() {
-        return liquidfill;
-    }
-
-    public WebElement getWordcloud() {
-        return wordcloud;
-    }
-
-    public WebElement getSequence() {
-        return sequence;
-    }
-
-    public WebElement getRadar() {
-        return radar;
-    }
-
-    public WebElement getFunnel() {
-        return funnel;
-    }
-
-    public WebElement getMatrixheatmap() {
-        return matrixheatmap;
     }
 
     public WebElement getBackground() {
