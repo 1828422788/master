@@ -334,6 +334,81 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//td[@data-col-name='apache.geo.city']")
     private WebElement geoCity;
 
+    @FindBy(xpath = "//span[contains(text(),'添加事件列表')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button[@class='el-button yw-modal-btn yw-modal-btn-primary el-button--primary']")
+    private WebElement addEventEnsure;
+
+    @FindBy(className = "el-icon-caret-right")
+    private WebElement iconRight;
+
+    @FindBy(xpath = "//span[text()='apache.geo.city']/ancestor::td/following-sibling::td")
+    private WebElement cityTd;
+
+    @FindBy(xpath = "//div[@class='filter-title']/following-sibling::div[@class='el-select']")
+    private WebElement filterDropdown;
+
+    @FindBy(xpath = "//span[text()='filter']")
+    private WebElement filterName;
+
+    @FindBy(xpath = "(//a[@class='item-menu-btn iconfont icon-shezhixuanting_icon'])[last()]")
+    private WebElement filterSetting;
+
+    @FindBy(xpath = "(//a[@class='item-menu-btn iconfont icon-shanchuxuanting_icon'])[last()]")
+    private WebElement filterDelete;
+
+    @FindBy(xpath = "//span[contains(text(),'删除过滤项')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
+    private WebElement ensureDeleteFilter;
+
+    @FindBy(xpath = "//span[text()='单选']/ancestor::label")
+    private WebElement singleChoice;
+
+    @FindBy(xpath = "//div[@class='filter-title']/following-sibling::div//input")
+    private WebElement filterInput;
+
+    public WebElement getFilterInput() {
+        return filterInput;
+    }
+
+    public WebElement getSingleChoice() {
+        return singleChoice;
+    }
+
+    public WebElement getEnsureDeleteFilter() {
+        return ensureDeleteFilter;
+    }
+
+    public WebElement getFilterDelete() {
+        return filterDelete;
+    }
+
+    public WebElement getFilterSetting() {
+        return filterSetting;
+    }
+
+    public WebElement getFilterName() {
+        return filterName;
+    }
+
+    public WebElement getUpdate() {
+        return super.getContainsTextButton("更新");
+    }
+
+    public WebElement getFilterDropdown() {
+        filterDropdown.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getCityTd() {
+        return cityTd;
+    }
+
+    public WebElement getIconRight() {
+        return iconRight;
+    }
+
+    public WebElement getAddEventEnsure() {
+        return addEventEnsure;
+    }
+
     public WebElement getGeoCity() {
         return geoCity;
     }
@@ -413,6 +488,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getMessage() {
         return message;
+    }
+
+    public WebElement getSearch() {
+        return super.getContainsTextButton("搜索");
+    }
+
+    public WebElement getSearchLoading() {
+        return super.getContainsTextButton("搜索中");
     }
 
     public WebElement getDropdownLink() {
@@ -685,7 +768,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getDynamicField() {
-        return super.getInputElement("动态字段");
+        return this.getInputElement("动态字段");
     }
 
     public WebElement getSearchInput() {

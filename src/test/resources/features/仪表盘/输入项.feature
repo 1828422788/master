@@ -1,33 +1,31 @@
-@dashboard @dashboardSmoke
-Feature: 仪表盘配置
+Feature: 仪表盘输入项
 
-  Scenario Outline: 添加下拉菜单类型的过滤项（RZY-1869）
+  Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "FirstAutoTest"
-    Then I will see the "dashboard.DetailPage" page
-    When I click the "AddEventButton" button
-    And I choose the "<eventList>" from the "EventList"
-    And I set the parameter "FilterTitle" with value "<title>"
-    And I set the parameter "FilterToken" with value "<token>"
-    And I set the parameter "FilterField" with value "<field>"
-    And I choose the "<inputType>" from the "InputType"
-    And I click the "Radio" button
-    And I set the parameter "ChoiceValue" with value "json"
-    And I click the "AddChoiceValueButton" button
-    And I set the parameter "ChoiceValue" with value "<choiceValue>"
-    And I click the "AddChoiceValueButton" button
-    And I set the parameter "ChoiceValue" with value "http"
-    And I click the "AddChoiceValueButton" button
-    And I choose the "<choiceValue>" from the "DefaultDropdownList"
-    Then I click the "EnsureCreateFilter" button
+    And I click the "Create" button
+    When I set the parameter "DashBoardName" with value "<name>"
+    And I click the "Ensure" button
+    Then I will see the success message "新建成功"
 
     Examples:
-      | eventList | title  | token  | field   | inputType | choiceValue |
-      | 添加过滤项     | filter | filter | appname | 下拉菜单      | java        |
+      | name  |
+      | 测试输入项 |
+
+  Scenario Outline: 新建标签页
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When I set the parameter "TagName" with value "过滤项"
+    And I click the "EnsureCreateTagButton" button
+    And I wait for loading complete
+
+    Examples:
+      | name  |
+      | 测试输入项 |
 
   Scenario Outline: RZY-1668、1669添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "FirstAutoTest"
+    And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I choose the "添加输入项" from the "EventList"
@@ -66,17 +64,16 @@ Feature: 仪表盘配置
 
   Scenario: 验证RZY-1668:单引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "FirstAutoTest"
+    And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I choose the "添加图表" from the "EventList"
-    And I set the parameter "TrendName" with value "仪表盘"
-    And I click the "DashboardTrend" button
+    And I check "仪表盘所用趋势图" from the "CheckBox"
     And I click the "EnsureAddTrend" button
     And I wait for "ChartSetting" will be visible
     And I set value with element "TableList"
     And I click the "ChartSetting" button
-    And I choose the "通用配置" from the "Configs"
+    And I click the "Configs" button
     And I set the parameter "Spl" with value "* | stats count() by ${input|s}"
     And I click the "SettingEnsure" button
     Then I compare with list "TableList"
@@ -85,7 +82,7 @@ Feature: 仪表盘配置
 
   Scenario: 验证RZY-1669:双引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "FirstAutoTest"
+    And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I choose the "添加图表" from the "EventList"
@@ -95,8 +92,31 @@ Feature: 仪表盘配置
     And I wait for "ChartSetting" will be visible
     And I set value with element "TableList"
     And I click the "ChartSetting" button
-    And I choose the "通用配置" from the "Configs"
+    And I click the "Configs" button
     And I set the parameter "Spl" with value ""
     And I set the parameter "Spl" with value "(appname:${double_quotation|d})  |bucket timestamp span=6h as ts |stats count('tag') as 'tag' by ts"
     And I click the "SettingEnsure" button
     Then I compare with list "TableList"
+
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name         |
+      | 仪表盘1669所用趋势图 |
+      | 仪表盘所用趋势图     |
+
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name  |
+      | 测试输入项 |
