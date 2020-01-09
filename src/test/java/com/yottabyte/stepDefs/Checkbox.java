@@ -14,6 +14,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 /**
+ * 对复选框的操作
+ *
  * @author sunxj
  */
 public class Checkbox {
@@ -22,8 +24,9 @@ public class Checkbox {
     /**
      * 勾选或取消勾选名称前面的checkbox
      *
-     * @param status   checked or unchecked
-     * @param nameList
+     * @param status   想要将复选框置为的状态，checked/unchecked
+     * @param nameList 想要勾选/取消勾选的名称（支持传入list）
+     *
      */
     @And("^I \"([^\"]*)\" the label before \"([^\"]*)\"$")
     public void clickCheckLabel(String status, List<String> nameList) {
@@ -41,8 +44,8 @@ public class Checkbox {
     /**
      * 勾选或取消勾选checkbox（名称可直接点击）
      *
-     * @param status   checked or unchecked
-     * @param nameList
+     * @param status   想要将复选框置为的状态，checked/unchecked
+     * @param nameList 想要勾选/取消勾选的名称（支持传入list）
      */
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\"$")
     public void clickCheckboxWithGivenName(String status, List<String> nameList) {
@@ -60,8 +63,8 @@ public class Checkbox {
     /**
      * 判断列表页下checkbox的状态
      *
-     * @param name
-     * @param attribute enabled/disabled
+     * @param name 想要判断的名称
+     * @param attribute 状态（enabled/disabled）
      */
     @Then("^I will see the checkbox in list before \"([^\"]*)\" is \"([^\"]*)\"$")
     public void checkAttribute(String name, String attribute) {

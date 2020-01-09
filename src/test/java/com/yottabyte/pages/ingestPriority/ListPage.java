@@ -1,6 +1,7 @@
 package com.yottabyte.pages.ingestPriority;
 
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -17,7 +18,8 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getEnsureButton() {
-        return super.getContainsTextButton("确定");
+        String xpath = "//span[text()='确定']/ancestor::button";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getSuccessMessage() {

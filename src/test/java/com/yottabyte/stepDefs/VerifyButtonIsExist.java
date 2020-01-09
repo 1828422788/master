@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 /**
+ * 判断按钮是否存在
  * @author sunxj
  */
 public class VerifyButtonIsExist {

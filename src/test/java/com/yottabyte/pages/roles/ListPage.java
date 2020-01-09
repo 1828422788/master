@@ -1,8 +1,7 @@
 package com.yottabyte.pages.roles;
 
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.stepDefs.IWillSeeNewPage;
-import com.yottabyte.stepDefs.WaitForSomeSecond;
+import com.yottabyte.stepDefs.LoadingPage;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
@@ -141,7 +140,7 @@ public class ListPage extends PageTemplate {
             getSearchInput().sendKeys(Keys.BACK_SPACE);
         } else {
             getCreateRoleButton().click();
-            IWillSeeNewPage page = new IWillSeeNewPage();
+            LoadingPage page = new LoadingPage();
             CreatePage createPage = new CreatePage(webDriver);
             page.iWillSeeNewPage("roles.CreatePage");
             createPage.createARole(roleName, roleDes, resourceGroups);

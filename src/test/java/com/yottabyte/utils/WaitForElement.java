@@ -55,7 +55,7 @@ public class WaitForElement {
             } catch (Exception e) {
 
             }
-//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
+//            WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loadingMask));
         }
     }
 

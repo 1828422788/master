@@ -2,9 +2,7 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -17,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 点击按钮操作
  * Created by A on 2017/4/7.
  */
 public class ClickSomeButton {
@@ -49,19 +48,6 @@ public class ClickSomeButton {
                 LoginBeforeAllTests.getWebDriver(), ExpectedConditions.elementToBeClickable(button));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
         button.click();
-    }
-
-    @And("^I click the table \"([^\"]*)\" button$")
-    public void iClickTheTableButton(String tableAddress) {
-        if (tableAddress.contains("-")) {
-            String buttonName = tableAddress.split("-")[0];
-            int row = Integer.parseInt(tableAddress.split("-")[1]);
-            WebElement button = GetElementFromPage.getWebElementWithName(buttonName, row);
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", button);
-            button.click();
-        } else {
-            System.out.println("Table Address is wrong!!!");
-        }
     }
 
     @And("^I trigger the button \"([^\"]*)\"$")
@@ -102,21 +88,11 @@ public class ClickSomeButton {
         }
     }
 
-    @Given("^I click the first checkbox in table$")
-    public void iClickTheFirstCheckboxInTable() {
-        List<WebElement> trList = TableInfo.getTrList();
-        if (trList == null)
-            return;
-        List<WebElement> tdList;
-        if (trList.get(0).getAttribute("class").contains("divided-row"))
-            tdList = trList.get(1).findElements(By.xpath(".//td"));
-        else
-            tdList = trList.get(0).findElements(By.xpath(".//td"));
-        if (tdList.size() != 1) {
-            tdList.get(0).findElement(By.className("el-checkbox")).click();
-        }
-    }
-
+    /**
+     * 如果元素存在则点击，不存在就拉倒
+     *
+     * @param buttonName 元素名称
+     */
     @When("^I click the button \"([^\"]*)\" if exist$")
     public void clickTheButtonIfExist(String buttonName) {
         WebElement webElement = GetElementFromPage.getWebElementWithName(buttonName);
@@ -124,6 +100,11 @@ public class ClickSomeButton {
             webElement.click();
     }
 
+    /**
+     * 点击在覆层下面的元素，被一层div遮住导致无法点击时，可用此方法
+     *
+     * @param elementName 元素名称
+     */
     @And("^I click the \"([^\"]*)\" button under some element$")
     public void clickUnderneathButton(String elementName) {
         if (elementName != null && elementName.trim().length() != 0) {
@@ -151,6 +132,5 @@ public class ClickSomeButton {
         }
 
         WebElement ul = webDriver.findElement(By.className("yw-searchbar__prepend-menu"));
-        new AlterElementAttribute().hideElement(ul);
     }
 }

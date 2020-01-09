@@ -18,18 +18,33 @@ import static org.junit.Assert.assertTrue;
  */
 public class VerifyTitle {
 
+    /**
+     * 断言页面的标题为某一值
+     *
+     * @param titleName 标题名称
+     */
     @Then("^the page's title will be \"([^\"]*)\"$")
     public void theTitleWillBe(String titleName) {
         String realResult = GetElementFromPage.getCurrentPageTitle();
         assertEquals(titleName, realResult);
     }
 
+    /**
+     * 断言页面的标题包含某一值
+     *
+     * @param titleName 标题名称
+     */
     @And("^the page's title will contains \"([^\"]*)\"$")
     public void thePageSTitleWillContains(String titleName) {
         String realResult = GetElementFromPage.getCurrentPageTitle();
         assertTrue(realResult.contains(titleName));
     }
 
+    /**
+     * 等待标题变为某一值
+     *
+     * @param titleName 标题名称
+     */
     @And("^I wait for title change text to \"([^\"]*)\"$")
     public void waitForTitleChangeTextTo(String titleName) {
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();

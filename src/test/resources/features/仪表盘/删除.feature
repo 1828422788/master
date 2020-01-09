@@ -6,7 +6,7 @@ Feature: 仪表盘删除
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the success message "仪表盘删除成功"
+    Then I will see the success message "删除成功"
 
     Examples:
       | name          |

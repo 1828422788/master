@@ -7,12 +7,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+/**
+ * 退出登录
+ */
 public class LogOut {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
+    /**
+     * 登出当前用户
+     */
     @And("^I logout current user$")
     public void iLogoutCurrentUser() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(webDriver.findElement(By.partialLinkText("仪表盘"))));
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -20,5 +25,9 @@ public class LogOut {
         }
         webDriver.manage().deleteAllCookies();
         webDriver.navigate().refresh();
+        String currentUrl = webDriver.getCurrentUrl();
+        while (!currentUrl.contains("/auth/login/")) {
+            webDriver.manage().deleteAllCookies();
+        }
     }
 }

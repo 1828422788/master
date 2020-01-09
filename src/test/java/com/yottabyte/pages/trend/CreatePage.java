@@ -8,6 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import org.openqa.selenium.Point;
+import org.openqa.selenium.Dimension;
+
 
 import java.util.List;
 
@@ -18,6 +21,8 @@ import java.util.List;
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
+        //webDriver.manage().window().setPosition(new Point(0, 0));
+        driver.manage().window().setSize(new Dimension(1200,900));
     }
 
     private DropdownUtils dropdownUtils = new DropdownUtils();
@@ -39,10 +44,10 @@ public class CreatePage extends PageTemplate {
     private WebElement settings;
 
 // Map Interaction -----------------
-    @FindBy(xpath = "//*[text()='248']/ancestor::*[2]|//*[text()='124']/ancestor::*[2]")
+    @FindBy(xpath = "//*[text()='124']/ancestor::*[2]")
     private WebElement countryChina;
 
-    @FindBy(xpath = "//*[text()='92']/ancestor::*[2]|//*[text()='46']/ancestor::*[2]")
+    @FindBy(xpath = "//*[text()='46']/ancestor::*[2]")
     private WebElement provinceJiangsu;
 
 //----------------------------------
@@ -171,7 +176,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'切分')])[last()]")
     private WebElement divide;
 
-    @FindBy(xpath = "(//div[text()='general'])[last()]")
+    @FindBy(xpath = "(//div[text()='常规'])[last()]")
     private WebElement general;
 
     @FindBy(xpath = "(//div[contains(text(),'气泡')])[last()]")
@@ -210,6 +215,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='指示器'])[last()]")
     private WebElement indicator;
 
+    @FindBy(xpath = "(//div[text()='时序'])[last()]")
+    private WebElement timeSequence;
+
 //-----------------------------------------------
 //Inputs ----------------------------------------
 
@@ -225,7 +233,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'最小半径')])[last()]/ancestor::div/following-sibling::input")
     private WebElement minRadius;
 
-    @FindBy(xpath = "(//span[contains(text(),'geo_max_size')])[last()]/ancestor::div/following-sibling::input")
+    @FindBy(xpath = "(//span[contains(text(),'最大半径')])[last()]/ancestor::div/following-sibling::input")
     private WebElement maxRadius;
 
     @FindBy(xpath = "//span[text()='分段数']/ancestor::div/following-sibling::input")
@@ -341,6 +349,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='统一度量']/ancestor::div/following-sibling::button")
     private WebElement unifyMetric;
+
+    @FindBy(xpath = "//span[text()='多级']/ancestor::div/following-sibling::button")
+    private WebElement multistage;
 
 //---------------------------------
 //Buttons -------------------------
@@ -1090,6 +1101,10 @@ public class CreatePage extends PageTemplate {
         return pile;
     }
 
+    public WebElement getMultistage() {
+        return multistage;
+    }
+
     public WebElement getReport() {
         return report;
     }
@@ -1387,6 +1402,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getIndicator() {
         return indicator;
+    }
+
+    public WebElement getTimeSequence() {
+        return timeSequence;
     }
 
     public WebElement getInputElement(String name) {

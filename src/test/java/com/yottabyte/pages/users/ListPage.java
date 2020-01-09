@@ -183,7 +183,7 @@ public class ListPage extends ListPageFactory {
 
     public void thereIsAUser(String userName, String fullName, String email, String telephone, String password, List<String> userGroup) {
 //        ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(loadingElement);
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
+//        WaitElement.waitForElementWithExpectedCondition(webDriver,expectedCondition);
 //        getSearchInput().sendKeys(Keys.END);
 //        getSearchInput().sendKeys(Keys.SHIFT, Keys.HOME);
 //        getSearchInput().sendKeys(Keys.BACK_SPACE);
@@ -191,7 +191,7 @@ public class ListPage extends ListPageFactory {
 //        String text = getSearchResult().getText();
 //        if ("暂无数据".equals(text)){
 //            getCreateUser().click();
-//            IWillSeeNewPage page = new IWillSeeNewPage();
+//            LoadingPage page = new LoadingPage();
 //            page.iWillSeeNewPage("users.CreatePage");
 //            CreatePage createPage = new CreatePage(webDriver);
 //            createPage.createAUser(userName,fullName,email,telephone,password,userGroup);

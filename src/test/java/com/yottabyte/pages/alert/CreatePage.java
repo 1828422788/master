@@ -1,17 +1,11 @@
 package com.yottabyte.pages.alert;
 
-import com.yottabyte.config.ConfigManager;
-import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.stepDefs.IChooseValueFromSelectList;
 import com.yottabyte.stepDefs.SetKeyWithValue;
-import com.yottabyte.stepDefs.WaitForElementVisible;
-import com.yottabyte.stepDefs.WaitForSomeSecond;
+import com.yottabyte.stepDefs.WaitElement;
 import com.yottabyte.utils.CheckSelectedFromDropdownList;
-import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.GetLogger;
-import com.yottabyte.utils.WaitForElement;
-import com.yottabyte.webDriver.SharedDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -334,8 +328,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getAlertGroups() {
         alertGroups.click();
         WebElement lastDropdownList = super.getLastDropdownList();
-        new WaitForElementVisible().waitUntilInvisible("(//p[@class='el-select-dropdown__empty'])[last()]");
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(emptyDropdown));
+        new WaitElement().waitUntilInvisible("(//p[@class='el-select-dropdown__empty'])[last()]");
+//        WaitElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(emptyDropdown));
         return lastDropdownList;
     }
 
@@ -352,15 +346,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSavedSearch() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(savedSearchButton));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(savedSearchButton));
         savedSearchButton.click();
         List<WebElement> list = webDriver.findElements(By.className("saved-search-dropdown-menu"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
         return list.get(list.size() - 1);
     }
 
     public WebElement getAlertEnable() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertEnable));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertEnable));
         return alertEnable;
     }
 
@@ -391,7 +385,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAlertPlanCrontabButton() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertPlanCrontabButton));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertPlanCrontabButton));
         return alertPlanCrontabButton;
     }
 
@@ -473,7 +467,7 @@ public class CreatePage extends PageTemplate {
         String tmp = tmpAlertTypes.get(0);
         if (tmp.equalsIgnoreCase("基线对比监控")) {
             WebElement element = webDriver.findElement(By.xpath("//label[contains(text(),'基线时间')]/following-sibling::div//input"));
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+            com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
             return getSelectors(element).findElements(By.tagName("li"));
         } else {
             throw new NoSuchElementException("监控类型不正确，当前选择监控类型为： " + list.get(0));
@@ -506,7 +500,7 @@ public class CreatePage extends PageTemplate {
 
     // 告警级别输入框
     public WebElement getAlertLevelInput() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(alertLevel));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(alertLevel));
         return alertLevel.findElement(By.className("input-with-unit")).findElement(By.className("el-input__inner"));
     }
 
@@ -531,7 +525,7 @@ public class CreatePage extends PageTemplate {
 
     // 告警级别单位下拉框
     public List<WebElement> getAlertLevelUnit() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOfElementLocated(By.className("levels")));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOfElementLocated(By.className("levels")));
         WebElement element = webDriver.findElement(By.className("levels")).findElement(By.className("input-with-unit")).findElement(By.className("level-select"));
         WebElement tmpElement = getSelectors(element);
         List<WebElement> elementList = tmpElement.findElements(By.tagName("li"));
@@ -559,7 +553,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSaveButton() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(saveButton));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(saveButton));
         return saveButton;
     }
 
@@ -576,12 +570,12 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getNotSuppressButton() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(suppressionAlertGroup.findElements(By.className("el-radio__input")).get(0)));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(suppressionAlertGroup.findElements(By.className("el-radio__input")).get(0)));
         return suppressionAlertGroup.findElements(By.className("el-radio__input")).get(0);
     }
 
     public WebElement getSuppressButton() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(suppressionAlertGroup.findElements(By.className("el-radio__input")).get(1)));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(suppressionAlertGroup.findElements(By.className("el-radio__input")).get(1)));
         return suppressionAlertGroup.findElements(By.className("el-radio__input")).get(1);
     }
 
@@ -687,11 +681,11 @@ public class CreatePage extends PageTemplate {
                             set.iSetTheParameterWithValue(emailTitle, title);
                         }
                         if (emails != null && emails.size() != 0 && !emails.contains("")) {
-                            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(email));
+                            com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(email));
                             email.click();
                             set.iSetTheParameterWithValue(email, emails.get(0));
                             List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
-                            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
+                            com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
                             WebElement e = list.get(list.size() - 1);
                             choose.iChooseTheFromThe(emails, e.findElements(By.tagName("li")));
                         }
@@ -770,10 +764,10 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getSelectors(WebElement element) {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         element.click();
         List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
         return list.get(list.size() - 1);
     }
 
@@ -792,9 +786,9 @@ public class CreatePage extends PageTemplate {
     }
 
     private WebElement getAlertNoteTypes() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(addAlertNoteTypeButton));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(addAlertNoteTypeButton));
         addAlertNoteTypeButton.click();
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(webDriver.findElement(By.className("add-config-dropdown-menu"))));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(webDriver.findElement(By.className("add-config-dropdown-menu"))));
         return webDriver.findElement(By.className("add-config-dropdown-menu"));
     }
 

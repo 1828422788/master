@@ -4,6 +4,7 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,7 @@ import java.util.List;
 public class StatisticalPage extends PageTemplate {
     public StatisticalPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().setSize(new Dimension(1200,900));
     }
 
     @FindBy(xpath = "(//p[text()='字段值'])[last()]/following-sibling::div")
@@ -198,10 +200,10 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='地理分布']")
     private WebElement geographicalDistribution;
 
-    @FindBy(xpath = "//*[text()='460']/ancestor::*[2]|//*[text()='230']/ancestor::*[2]")
+    @FindBy(xpath = "//*[text()='230']/ancestor::*[2]")
     private WebElement countryChina;
 
-    @FindBy(xpath = "//*[text()='42']/ancestor::*[2]|//*[text()='84']/ancestor::*[2]")
+    @FindBy(xpath = "//*[text()='42']/ancestor::*[2]")
     private WebElement provinceSichuan;
 
 //    @FindBy(xpath = "//*[text()='92']/ancestor::*[2]|//*[text()='46']/ancestor::*[2]")

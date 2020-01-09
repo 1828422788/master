@@ -23,6 +23,7 @@ public class ValidateResult {
     private Map<String, Object> resultMap;
     private int columnNum;
     private Paging pagingInfo = new Paging();
+    ListPageUtils listPageUtils = new ListPageUtils();
 
     /**
      * 验证每一行数据均为某一值
@@ -34,18 +35,6 @@ public class ValidateResult {
     public void searchFromDropdown(String dropdownMenu, String searchResult) {
         this.chooseFromDropdown(dropdownMenu);
         this.validateSearchResult(searchResult);
-    }
-
-    /**
-     * 验证任意一行数据为某一值
-     *
-     * @param dropdownMenu
-     * @param searchResult
-     */
-    @Given("^search from \"([^\"]*)\" then I will see the result contains \"([^\"]*)\"$")
-    public void verifyResultContains(String dropdownMenu, String searchResult) {
-        this.chooseFromDropdown(dropdownMenu);
-//        this.validateSearchResultContainsValue(searchResult);
     }
 
     private void waitUntilLoadingDisappear() {
@@ -107,6 +96,17 @@ public class ValidateResult {
         if (trList == null)
             return;
         validateResult(trList, searchResult);
+    }
+
+    /**
+     * 验证搜索列表包含某一字段
+     *
+     * @param searchResult 格式：{'column':'列数-1','name':'关键字名称'}
+     */
+    @Then("^I will see the search result contains \"([^\"]*)\"$")
+    public void validateSearchResultContainsValue(String searchResult) {
+        WebElement tr = listPageUtils.getTr(searchResult);
+        Assert.assertNotNull("列表下不包含该字段！", tr);
     }
 
     private void validateResult(List<WebElement> trList, String searchResult) {

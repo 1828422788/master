@@ -19,8 +19,8 @@ Feature: 数据大屏攻击地图
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "800"
     And I set the parameter "Height" with value "602"
-    And I set the parameter "ChartXaxis" with value "0"
-    And I set the parameter "ChartYaxis" with value "0"
+    And I set the parameter "ChartXaxis" with value "145"
+    And I set the parameter "ChartYaxis" with value "194"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
     And I click the "Search" button
@@ -60,8 +60,8 @@ Feature: 数据大屏攻击地图
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "752"
     And I set the parameter "Height" with value "439"
-    And I set the parameter "ChartXaxis" with value "588"
-    And I set the parameter "ChartYaxis" with value "71"
+    And I set the parameter "ChartXaxis" with value "800"
+    And I set the parameter "ChartYaxis" with value "295"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
     And I click the "Search" button

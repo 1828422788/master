@@ -7,6 +7,7 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,6 +30,7 @@ public class SearchPage extends ListPageFactory {
 
     public SearchPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().setSize(new Dimension(1200,900));
     }
 
     @FindBy(xpath = "//div[text()='统计']")
@@ -1089,6 +1091,10 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getThisMonth() {
         return GetTime.getTime(webDriver, "ThisMonth");
+    }
+
+    public WebElement getLastWeek() {
+        return GetTime.getTime(webDriver, "LastWeek");
     }
 
     public void getCustomTime() {

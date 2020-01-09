@@ -4,6 +4,7 @@ import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import org.openqa.selenium.*;
 
 
@@ -28,6 +29,17 @@ public class SetKeyWithValue {
                 iSetTheParameterWithValue(element, value);
             }
         }
+    }
+
+    /**
+     * 给搜索框传值
+     *
+     * @param name 搜索内容
+     */
+    @Then("^I set the search input with \"([^\"]*)\"$")
+    public void setSearchInput(String name) {
+        WebElement searchInput = webDriver.findElement(By.xpath("//div[@class='yw-table-group__basic el-input']/input"));
+        searchInput.sendKeys(name);
     }
 
 
@@ -68,6 +80,7 @@ public class SetKeyWithValue {
     @And("^I set the parameter \"([^割]*)\" to json editor$")
     public void iSetTheParameterToJsonEditor(String value) {
         WebElement element = webDriver.findElement(By.xpath("(//*[@class='ace_text-input'])[last()]"));
+        webDriver.findElement(By.id("jsoneditor")).click();
         if (System.getProperty("os.name").startsWith("Linux"))
             element.sendKeys(Keys.CONTROL, "a");
         else

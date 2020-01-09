@@ -31,7 +31,7 @@ public class ClickButtonWithGivenName {
     /**
      * 寻找对应的操作按钮并点击
      *
-     * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start 0','name':''}
+     * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
      * @param buttonName 按钮名称
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
@@ -43,7 +43,7 @@ public class ClickButtonWithGivenName {
     /**
      * 根据配置名称点击对应按钮
      *
-     * @param propertyName 若为字符串：第一列所要匹配的名称，若为json：{'column':'start 0','name':''}
+     * @param propertyName 若为字符串：第一列所要匹配的名称，若为json：{'column':'start from 0','name':''}
      * @param buttonName   按钮名称
      */
     @Given("^the data properties is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
@@ -63,7 +63,7 @@ public class ClickButtonWithGivenName {
     /**
      * 寻找对应的操作按钮并点击，无分页
      *
-     * @param name       字符串：第一列所要匹配的名称，json：{'column':'start 0','name':''}
+     * @param name       字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
      * @param buttonName 按钮名称
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging$")
@@ -72,6 +72,13 @@ public class ClickButtonWithGivenName {
         this.click(buttonName, tr);
     }
 
+    /**
+     * 在给定的table中查找某一元素并点击相应按钮
+     *
+     * @param dataName   要匹配的名称
+     * @param tableName  table元素名称
+     * @param buttonName 按钮名称
+     */
     @Given("^the data name \"([^\"]*)\" in table \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String tableName, String buttonName) {
         WebElement table = GetElementFromPage.getWebElementWithName(tableName);
@@ -92,30 +99,6 @@ public class ClickButtonWithGivenName {
     }
 
     /**
-     * 从page页获取table
-     *
-     * @param dataName
-     * @param result
-     */
-    @And("^I get the data \"([^\"]*)\" from page then I will see \"([^\"]*)\" button$")
-    public void getDataFromPageAndCheck(String dataName, String result) {
-        Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
-        String name = map.get("name").toString();
-        int column = Integer.parseInt(map.get("column").toString());
-
-        WebElement table = GetElementFromPage.getWebElementWithName("Table");
-        WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
-
-        Map<String, Object> resultMap = JsonStringPaser.json2Stirng(result);
-        int resultColumn = Integer.parseInt(resultMap.get("column").toString());
-
-        List<WebElement> tdList = tr.findElements(By.tagName("td"));
-        String expectText = resultMap.get("name").toString();
-        String actualText = tdList.get(resultColumn).getText();
-        Assert.assertEquals(expectText, actualText);
-    }
-
-    /**
      * 点击对应行的按钮
      *
      * @param buttonName
@@ -133,33 +116,6 @@ public class ClickButtonWithGivenName {
         List<WebElement> button = tr.findElements(By.xpath(xpath));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
     }
-
-    @Given("^I close \"([^\"]*)\" without paging$")
-    public void close(String dataName) {
-        this.clickSwitch(dataName, "close");
-    }
-
-    @Given("^I open \"([^\"]*)\" without paging$")
-    public void open(String dataName) {
-        this.clickSwitch(dataName, "open");
-    }
-
-    /**
-     * 切换状态 无分页
-     *
-     * @param dataName
-     * @param action   open/close
-     */
-    private void clickSwitch(String dataName, String action) {
-        String xpath = "//span[contains(text(),'" + dataName + "')]/preceding-sibling::label";
-        WebElement tr = listPageUtils.findNameWithoutPaging(dataName);
-        WebElement switchButton = tr.findElement(By.xpath(xpath + "/div[@class='el-switch__label el-switch__label--left']"));
-        String status = switchButton.getAttribute("style");
-
-        if ("open".equals(action) && status.contains("display") || "close".equals(action) && !status.contains("display"))
-            tr.findElement(By.xpath(xpath)).click();
-    }
-
 
     /**
      * 点击详情页
@@ -241,40 +197,6 @@ public class ClickButtonWithGivenName {
         }
     }
 
-    @When("^the data name contains \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
-    public void clickButtonWithBlurName(String name, String buttonName) {
-        WebElement tr = this.findLikelyName(name);
-        this.click(buttonName, tr);
-    }
-
-    private WebElement findLikelyName(String name) {
-        int totalPage = pagingInfo.getTotalPage();
-        WebElement nextPage = pagingInfo.getNextPage();
-        WebElement tableList = webDriver.findElement(By.className("el-table__body"));
-        int i = 0;
-        while (i < totalPage) {
-            // 找到一行元素
-            List<WebElement> trList = tableList.findElements(By.tagName("tr"));
-            if (i != 0 && i <= totalPage - 1)
-                nextPage.click();
-
-            for (WebElement tr : trList) {
-                if (tr.findElement(By.tagName("td")).getText().contains(name)) {
-                    return tr;
-                }
-            }
-            i++;
-        }
-        return null;
-    }
-
-    @Given("^I click the report detail which name is \"([^\"]*)\"$")
-    public void clickReportDetail(String name) {
-        String xpath = "//span[contains(text(),'" + name + "')][@class]";
-        WebElement tr = listPageUtils.findName(name);
-        tr.findElement(By.xpath(xpath)).click();
-    }
-
     /**
      * 租户管理中点击对应的按钮
      *
@@ -296,8 +218,8 @@ public class ClickButtonWithGivenName {
     /**
      * 判断某一列为某一值时另一列的值是否符合预期
      *
-     * @param baseValue    {'column':'1','name':''}
-     * @param compareValue {'column':'1','name':''}
+     * @param baseValue    基准列 {'column':'start from 1','name':''}
+     * @param compareValue 要比较的列 {'column':'start from 1','name':''}
      */
     @When("^the data name is \"([^\"]*)\" then the result is \"([^\"]*)\"$")
     public void verifyData(String baseValue, String compareValue) {
@@ -321,6 +243,11 @@ public class ClickButtonWithGivenName {
         }
     }
 
+    /**
+     * 点击每一页的某个元素
+     *
+     * @param buttonName 元素名称
+     */
     @And("^I click the \"([^\"]*)\" button in each page$")
     public void iClickTheButtonInEachPage(String buttonName) {
         for (int i = 0; i < pagingInfo.getTotalPage(); i++) {
@@ -334,8 +261,8 @@ public class ClickButtonWithGivenName {
     /**
      * 关闭或开启禁用开关
      *
-     * @param name
-     * @param status open/close
+     * @param name   名称
+     * @param status 状态 open/close
      */
     @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the switch$")
     public void operateSwitch(String name, String status) {
@@ -350,8 +277,8 @@ public class ClickButtonWithGivenName {
     /**
      * 查看禁用/启用按钮是否为禁用/启用状态
      *
-     * @param name
-     * @param status close/open
+     * @param name   名称
+     * @param status 状态 close/open
      */
     @Then("^I will see the element \"([^\"]*)\" is \"([^\"]*)\"$")
     public void verifySwitchStatus(String name, String status) {
@@ -362,8 +289,10 @@ public class ClickButtonWithGivenName {
     }
 
     /**
-     * @param status check/uncheck
-     * @param name
+     * 勾选/取消勾选弹出框中的全选按钮
+     *
+     * @param status 状态 check/uncheck
+     * @param name   名称
      */
     @And("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in tiny table$")
     public void checkboxInTinyTable(String status, String name) {
@@ -375,6 +304,11 @@ public class ClickButtonWithGivenName {
         }
     }
 
+    /**
+     * 查看弹出框中的全选按钮是否为不可点击状态
+     *
+     * @param name 名称
+     */
     @Then("^I will see the checkbox in tiny table before \"([^\"]*)\" is disabled$")
     public void assertDisabled(String name) {
         WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
@@ -382,6 +316,13 @@ public class ClickButtonWithGivenName {
         Assert.assertTrue(checkbox.getAttribute("class").contains("ant-checkbox-wrapper-disabled"));
     }
 
+    /**
+     * 授权页面勾选权限
+     *
+     * @param status    勾选checked/取消勾选unchecked
+     * @param functions 想要勾选的权限名称
+     * @param name      想要授权的数据名称
+     */
     @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table which name is \"([^\"]*)\"$")
     public void clickAuthFunction(String status, List<String> functions, String name) {
         String url = webDriver.getCurrentUrl();
@@ -401,6 +342,12 @@ public class ClickButtonWithGivenName {
         }
     }
 
+    /**
+     * 点击列表页某条数据的某一按钮，无分页
+     *
+     * @param name       数据名称
+     * @param buttonName 按钮名称
+     */
     @When("^the data name is \"([^\"]*)\" then I click the \"([^\"]*)\" button without total page$")
     public void clickButtonWithoutTotalPage(String name, String buttonName) {
         WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
@@ -408,6 +355,11 @@ public class ClickButtonWithGivenName {
         button.click();
     }
 
+    /**
+     * 已存搜索中标记为星标
+     *
+     * @param name 数据名称
+     */
     @Then("^I click the star before \"([^\"]*)\" in saved search$")
     public void iClickTheStarBeforeInSavedSearch(String name) {
         WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
@@ -415,6 +367,11 @@ public class ClickButtonWithGivenName {
         star.click();
     }
 
+    /**
+     * 验证列表页的禁用按钮是否处于不可修改状态
+     *
+     * @param name 数据名称
+     */
     @Then("^I will see the switch button before \"([^\"]*)\" is disabled$")
     public void checkSwitch(String name) {
         WebElement tr = listPageUtils.getTr(name);

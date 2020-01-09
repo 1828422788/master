@@ -1,13 +1,16 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.utils.GetElementFromPage;
+import com.yottabyte.utils.ImageComparison;
 import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
-import java.lang.reflect.InvocationTargetException;
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +96,13 @@ public class CompareResult {
 
     @And("^I set value with element \"([^\"]*)\"$")
     public void iSetValueWithElement(String elementName) {
-        List<WebElement> elements = GetElementFromPage.getWebElementWithName(elementName);
+        Object o = GetElementFromPage.getWebElementWithName(elementName);
+        List<WebElement> elements = new ArrayList<>();
+        if (o instanceof List) {
+            elements = (List) o;
+        } else {
+            elements.add((WebElement) o);
+        }
         List<String> list = new ArrayList<>();
         for (WebElement element : elements) {
             list.add(element.getText());
@@ -103,7 +112,13 @@ public class CompareResult {
 
     @And("^I compare with list \"([^\"]*)\"$")
     public void compareWithList(String elementName) {
-        List<WebElement> elements = GetElementFromPage.getWebElementWithName(elementName);
+        Object o = GetElementFromPage.getWebElementWithName(elementName);
+        List<WebElement> elements = new ArrayList<>();
+        if (o instanceof List) {
+            elements = (List) o;
+        } else {
+            elements.add((WebElement) o);
+        }
         if (elements.size() == 0) {
             Assert.assertTrue(false);
         }
@@ -148,5 +163,25 @@ public class CompareResult {
         String compareText = compareElement.getAttribute("value");
 
         return new String[]{baseText, compareText};
+    }
+
+    /**
+     * 比较两个图片是否相似
+     *
+     * @param sourceImage 源文件路径名称
+     * @param targetImage 目标文件路径名称
+     */
+    @And("^I compare source image \"([^\"]*)\" with target image \"([^\"]*)\"$")
+    public void compareImage(String sourceImage, String targetImage) {
+        String sourceFingerPrint = null;
+        String targetFingerPrint = null;
+        try {
+            sourceFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(sourceImage)));
+            targetFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(targetImage)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int difference = ImageComparison.hammingDistance(sourceFingerPrint, targetFingerPrint);
+        Assert.assertTrue(difference <= 5);
     }
 }

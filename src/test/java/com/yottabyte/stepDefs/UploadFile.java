@@ -18,6 +18,9 @@ import java.io.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+/**
+ * 上传文件
+ */
 public class UploadFile {
     ConfigManager config = new ConfigManager();
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
