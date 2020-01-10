@@ -130,6 +130,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='单选']")
     private WebElement radio;
 
+    @FindBy(xpath = "//span[text()='多选']")
+    private WebElement multiSelect;
+
     @FindBy(xpath = "(//label[contains(text(),'可选值')]/following-sibling::div//input[@class='el-input__inner'])[last()]")
     private WebElement choiceValue;
 
@@ -358,11 +361,36 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'删除过滤项')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
     private WebElement ensureDeleteFilter;
 
+    @FindBy(xpath = "//span[contains(text(),'删除输入项')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
+    private WebElement ensureDeleteInput;
+
     @FindBy(xpath = "//span[text()='单选']/ancestor::label")
     private WebElement singleChoice;
 
     @FindBy(xpath = "//div[@class='filter-title']/following-sibling::div//input")
     private WebElement filterInput;
+
+    @FindBy(xpath = "//span[text()='appname']")
+    private WebElement appname;
+
+    @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::div")
+    private WebElement preview;
+
+    public WebElement getPreview() {
+        return preview;
+    }
+
+    public WebElement getMultiSelect() {
+        return multiSelect;
+    }
+
+    public WebElement getEnsureDeleteInput() {
+        return ensureDeleteInput;
+    }
+
+    public WebElement getAppname() {
+        return appname;
+    }
 
     public WebElement getFilterInput() {
         return filterInput;
@@ -802,6 +830,26 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getFilterDefaultValue() {
         return getInputElement("默认值");
+    }
+
+    public WebElement getPrefix() {
+        return getInputElement("标识前缀");
+    }
+
+    public WebElement getPrefixValue() {
+        return getInputElement("标识值前缀");
+    }
+
+    public WebElement getSuffixValue() {
+        return getInputElement("标识值后缀");
+    }
+
+    public WebElement getSuffix() {
+        return getInputElement("标识后缀");
+    }
+
+    public WebElement getSeparate() {
+        return getInputElement("分隔符");
     }
 
     public WebElement getEventList() {
