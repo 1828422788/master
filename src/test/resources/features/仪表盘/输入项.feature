@@ -23,22 +23,6 @@ Feature: 仪表盘输入项
       | name  |
       | 测试输入项 |
 
-  Scenario Outline: RZY-1668添加输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "测试输入项"
-    Then I will see the "dashboard.DetailPage" page
-    When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
-    And I set the parameter "FilterTitle" with value "<filter>"
-    And I set the parameter "FilterToken" with value "<filter>"
-    And I set the parameter "FilterDefaultValue" with value "<defaultValue>"
-    Then I click the "EnsureCreateInput" button
-    Then I wait for "FilterName" will be visible
-
-    Examples:
-      | filter | defaultValue    |
-      | filter | apache.geo.city |
-
   Scenario Outline: 创建仪表盘所用趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "Create" button
@@ -62,6 +46,22 @@ Feature: 仪表盘输入项
       | 仪表盘所用趋势图     | *\|stats count() by 'apache.geo.city'                                                     |
       | 仪表盘1669所用趋势图 | (appname:\"aa\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
+  Scenario Outline: RZY-1668添加输入项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I choose the "添加输入项" from the "EventList"
+    And I set the parameter "FilterTitle" with value "<filter>"
+    And I set the parameter "FilterToken" with value "<filter>"
+    And I set the parameter "FilterDefaultValue" with value "<defaultValue>"
+    Then I click the "EnsureCreateInput" button
+    Then I wait for "FilterName" will be visible
+
+    Examples:
+      | filter | defaultValue    |
+      | filter | apache.geo.city |
+
   Scenario: 验证RZY-1668:单引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -82,6 +82,7 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
+    And I click the "ShowFilter" button
     And I click the "DeleteChart" button
     And I click the "EnsureDeleteChart" button
 
