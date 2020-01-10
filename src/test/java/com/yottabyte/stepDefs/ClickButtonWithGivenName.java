@@ -84,7 +84,7 @@ public class ClickButtonWithGivenName {
     private String getAgentIp(String columnNum) {
         Agent agent = new Agent();
         String ip = agent.getIp();
-        Assert.assertNotNull(ip);
+        Assert.assertNotNull("无正在运行的agent！", ip);
         String json = "{'column':'" + columnNum + "','name':'" + ip + "'}";
         return json;
     }
