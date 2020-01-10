@@ -41,6 +41,19 @@ public class Checkbox {
         }
     }
 
+    @And("^I \"([^\"]*)\" the agent label before \"([^\"]*)\"$")
+    public void clickagentCheckLabel(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "//span[contains(text(),'" + name + "')]/ancestor::td/preceding-sibling::td//label";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            WebElement span = label.findElement(By.xpath(".//span"));
+            String attribute = span.getAttribute("class");
+            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                label.click();
+            }
+        }
+    }
+
     /**
      * 勾选或取消勾选checkbox（名称可直接点击）
      *
