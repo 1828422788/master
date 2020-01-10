@@ -116,8 +116,8 @@ public class JdbcUtils {
     }
 
     public static void main(String[] args) {
-        String sql = "insert into Knowledge (name,code,creator_id,creator_name,description,domain_id,solution) values ('sunxj1','sunxj1','1','owner','3','1','test')";
-        System.out.println(JdbcUtils.insert(sql));
+        String sql = "select ip from AgentStatus where os='mac'";
+        System.out.println(JdbcUtils.query(sql));
     }
 }
 

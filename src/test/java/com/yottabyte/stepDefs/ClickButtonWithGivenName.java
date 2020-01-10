@@ -2,10 +2,7 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.utils.GetElementFromPage;
-import com.yottabyte.utils.JsonStringPaser;
-import com.yottabyte.utils.ListPageUtils;
-import com.yottabyte.utils.Paging;
+import com.yottabyte.utils.*;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -64,12 +61,32 @@ public class ClickButtonWithGivenName {
      * 寻找对应的操作按钮并点击，无分页
      *
      * @param name       字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
-     * @param buttonName 按钮名称
+     * @param buttonName 待点击的按钮名称
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging$")
     public void clickButtonWithoutPaging(String name, String buttonName) {
         WebElement tr = listPageUtils.getTrWithoutPaging(name);
         this.click(buttonName, tr);
+    }
+
+    /**
+     * 在agent页中，点击正在运行的某一ip的功能按钮
+     *
+     * @param columnNum  agentIp所在列号（从0开始）
+     * @param buttonName 待点击的按钮名称
+     */
+    @When("^the column is \"([^\"]*)\" then i click the \"([^\"]*)\" button in agent page$")
+    public void clickButtonInAgentPage(String columnNum, String buttonName) {
+        WebElement tr = listPageUtils.getTrWithoutPaging(this.getAgentIp(columnNum));
+        this.click(buttonName, tr);
+    }
+
+    private String getAgentIp(String columnNum) {
+        Agent agent = new Agent();
+        String ip = agent.getIp();
+        Assert.assertNotNull(ip);
+        String json = "{'column':'" + columnNum + "','name':'" + ip + "'}";
+        return json;
     }
 
     /**
@@ -147,6 +164,18 @@ public class ClickButtonWithGivenName {
         }
         tr.findElement(By.xpath(xpath)).click();
     }
+
+    /**
+     * 在agent页中，点击某一ip的详情页
+     *
+     * @param columnNum 列名称（从0开始）
+     */
+    @Given("^I click the detail which column is \"([^\"]*)\" in agent page$")
+    public void clickDetailNameInAgentPage(String columnNum) {
+        String json = this.getAgentIp(columnNum);
+        this.clickName(json);
+    }
+
 
     /**
      * 读取配置文件获取名称并点击详情
