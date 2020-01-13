@@ -5,7 +5,6 @@ Feature: 入库优先级搜索
     Given open the "ingestPriority.ListPage" page for uri "/ingestpriority/"
 
   Scenario Outline:
-  Scenario Outline:
     When I set the parameter "SearchInput" with value "<searchName>"
     And I click the "Search" button
     And I wait for loading invisible

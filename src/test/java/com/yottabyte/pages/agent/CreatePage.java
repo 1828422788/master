@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * @author sunxj
+ * @author sunxj,sunxc
  */
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
@@ -37,12 +37,33 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    public WebElement getRootMessage() {
+        return RootMessage;
+    }
+
+    @FindBy(xpath = "//label[contains(@title,'文件或目录')]/parent::div/following-sibling::div//div[@class='ant-form-explain']")
+    private WebElement RootMessage;
+
+    public WebElement getWhiteListMessage() {
+        return WhiteListMessage;
+    }
+
+    @FindBy(xpath = "//label[contains(@title,'文件路径白名单')]/parent::div/following-sibling::div//div[@class='ant-form-explain']")
+    private WebElement WhiteListMessage;
+
+    public WebElement getWhiteListInput() {
+        return WhiteListInput;
+    }
+
+    @FindBy(xpath = "//label[contains(@title,'文件路径白名单')]/parent::div/following-sibling::div//input")
+    private WebElement WhiteListInput;
+
     public WebElement getGroupName() {
         return this.getContainsInputElement("名称");
     }
 
     public WebElement getCreate() {
-        return super.getButton("新建");
+        return super.getButton("添加");
     }
 
     public WebElement getEnsureCleanOutput() {
@@ -62,7 +83,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getEnsure() {
-        return ensure;
+        return super.getButton("确定");
     }
 
     public WebElement getFile() {
@@ -108,6 +129,12 @@ public class CreatePage extends PageTemplate {
     public WebElement getMessage() {
         return super.getErrorMessage();
     }
+    public WebElement getMemoMessage() {
+        return MemoMessage;
+    }
+
+    @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']")
+    private WebElement MemoMessage;
 
     public WebElement getInputElement(String text) {
         return webDriver.findElement(By.xpath("//label[text()='" + text + "']/ancestor::div/following-sibling::div//input"));

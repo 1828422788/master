@@ -27,6 +27,12 @@ public class GroupPage extends ListPageFactory{
     @FindBy(xpath = "//div[@class='el-message-box__message']/p")
     private WebElement Finalmessage;
 
+    @FindBy(xpath = "//input[contains(@placeholder,'请输入')]")
+    private WebElement Name;
+
+    public WebElement getName() {
+        return Name;
+    }
 
     public WebElement getCreateAgentGroupButton(){
         String xpath = "//span[text()='新建']/ancestor::button";
