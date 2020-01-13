@@ -415,4 +415,17 @@ public class ClickButtonWithGivenName {
         WebElement switchButton = tr.findElement(By.xpath(".//button"));
         Assert.assertFalse(switchButton.isEnabled());
     }
+
+    /**
+     * 在仪表盘中，根据图表标题及要点击按钮的class来点击元素
+     *
+     * @param chartTitle  图表标题
+     * @param buttonClass 按钮classname
+     */
+    @When("^the chart title is \"([^\"]*)\" then I click the button which classname is \"([^\"]*)\" in dashboard$")
+    public void clickButtonInDashboard(String chartTitle, String buttonClass) {
+        String xpath = "//span[contains(text(),'" + chartTitle + "')]/ancestor::span/following-sibling::div//*[@class='" + buttonClass + "']";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+    }
 }

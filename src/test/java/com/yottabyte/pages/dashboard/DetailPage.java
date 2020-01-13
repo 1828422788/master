@@ -156,9 +156,6 @@ public class DetailPage extends PageTemplate {
             @FindBy(className = "yw-table-head"), @FindBy(className = "table-body-td")})
     private List<WebElement> tableList;
 
-    @FindBy(xpath = "//span[text()='通用配置']")
-    private WebElement configs;
-
     @FindBy(className = "el-textarea__inner")
     private WebElement spl;
 
@@ -189,13 +186,16 @@ public class DetailPage extends PageTemplate {
     @FindBy(tagName = "textarea")
     private WebElement textarea;
 
-    @FindBy(xpath = "//span[text()='高级编辑']")
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='通用配置']")
+    private WebElement configs;
+
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='高级编辑']")
     private WebElement edit;
 
-    @FindBy(xpath = "//span[text()='恢复初始']")
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='恢复初始']")
     private WebElement recover;
 
-    @FindBy(xpath = "//span[text()='钻取配置']")
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='钻取配置']")
     private WebElement drillSetting;
 
     @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
