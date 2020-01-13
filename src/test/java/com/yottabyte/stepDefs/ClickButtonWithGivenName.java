@@ -162,7 +162,11 @@ public class ClickButtonWithGivenName {
             tr = listPageUtils.getRowWithColumnNum(text, columnNum);
             if (pagingInfo.checkUrl()) {
                 xpath = ".//span[contains(text(),'" + text + "')]";
-            } else {
+            }
+            else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
+                xpath = ".//span[contains(text(),'" + text + "')]";
+            }
+            else {
                 xpath = ".//a";
             }
         }
