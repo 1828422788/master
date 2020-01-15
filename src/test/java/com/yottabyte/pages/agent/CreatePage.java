@@ -1,10 +1,16 @@
 package com.yottabyte.pages.agent;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ClickEvent;
+import com.yottabyte.utils.DropdownUtils;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 /**
  * @author sunxj,sunxc
@@ -44,18 +50,13 @@ public class CreatePage extends PageTemplate {
     private WebElement SourceRoot;
 
     public WebElement getCheckAppname() {
-        return CheckAppname;
+        return getCheckpageElement("appname");
     }
 
-    @FindBy(xpath = "//span[text()='appname']/following-sibling::span")
-    private WebElement CheckAppname;
 
     public WebElement getCheckTag() {
-        return CheckTag;
+        return getCheckpageElement("tag");
     }
-
-    @FindBy(xpath = "//span[text()='tag']/following-sibling::span")
-    private WebElement CheckTag;
 
     public WebElement getPreviewMessage() {
         return PreviewMessage;
@@ -63,9 +64,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='文件路径白名单']/following-sibling::span")
     private WebElement WhitelistRoot;
-
-    @FindBy(xpath = "//label[contains(@title,'文件路径黑名单')]/parent::div/following-sibling::div//input")
-    private WebElement BlackListInput;
 
     @FindBy(xpath = "//label[contains(@title,'监听地址')]/parent::div/following-sibling::div//input" )
     private WebElement Listenaddress;
@@ -87,18 +85,28 @@ public class CreatePage extends PageTemplate {
     private WebElement Syslogtag;
 
     public WebElement getCheckListenaddress() {
-        return CheckListenaddress;
+        return getCheckpageElement("监听地址");
     }
 
-    @FindBy(xpath = "//span[text()='监听地址']/following-sibling::span/span")
-    private WebElement CheckListenaddress;
+    public WebElement getCheckScriptFile() {
+        return getCheckpageElement("脚本文件");
+    }
 
+    public WebElement getCheckParam(){
+        return getCheckpageElement("参数");
+    }
+
+    public WebElement getCheckChangeRowRule(){
+        return getCheckpageElement("换行规则");
+    }
+
+    public WebElement getCheckInternal(){
+        return getCheckpageElement("间隔");
+    }
     public WebElement getCheckMap() {
-        return CheckMap;
+        return getCheckpageElement("映射");
     }
 
-    @FindBy (xpath = "//span[text()='映射']/following-sibling::span/span")
-    private WebElement CheckMap;
 
     public WebElement getCheckPortType() {
         return CheckPortType;
@@ -106,6 +114,28 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='端口类型']/following-sibling::span")
     private WebElement CheckPortType;
+
+    public WebElement getChangeMemo() {
+        return ChangeMemo;
+    }
+
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
+    private WebElement ChangeMemo;
+
+    @FindBy(className = "ant-table-tbody")
+    private List<WebElement> tableBodyList;
+
+    public WebElement getAppNameTable() {
+        return tableBodyList.get(0);
+    }
+
+    public WebElement getScriptTable() {
+        return tableBodyList.get(2);
+    }
+
+    public WebElement getSyslogTable() {
+        return tableBodyList.get(1);
+    }
 
 
     public WebElement getSyslogtag() {
@@ -148,6 +178,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[text()='提取字段']")
     private WebElement Datafetch;
 
+    public WebElement getConfigDatasourceMsg() {
+        return ConfigDatasourceMsg;
+    }
+
+    @FindBy(xpath = "//div[@class='ant-modal-title']")
+    private WebElement ConfigDatasourceMsg;
+
     public WebElement getCurrentConfiguration() {
         return CurrentConfiguration;
     }
@@ -155,16 +192,79 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[text()='查看当前配置']")
     private WebElement CurrentConfiguration;
 
+    public WebElement getAutohekafiletest() {
+        return autohekafiletest;
+    }
+
+    @FindBy(xpath = "//td[text()='apache']")
+    private WebElement autohekafiletest;
+
+    public WebElement getEditAutoScript() {
+        return getEditAutoScript;
+    }
+
+    @FindBy(xpath = "//td[text()='autohekascripttest']/following-sibling::td//a[text()='编辑']")
+    private WebElement getEditAutoScript;
+
+    public WebElement getEditAutoFile() {
+        return EditAutoFile;
+    }
+
+    @FindBy(xpath = "//td[text()='autohekafiletest']/following-sibling::td//a[text()='编辑']")
+    private WebElement EditAutoFile;
+
+
+    public WebElement getSwitchStatus() {
+        return SwitchStatus;
+    }
+
+    @FindBy(xpath = "//td[text()='autohekafiletest']/following-sibling::td//span[@class='_3c6He8Je7GGUAtVZrEV7Nd']")
+    private WebElement SwitchStatus;
+
+    public WebElement getScriptSwitchStatus() {
+        return ScriptSwitchStatus;
+    }
+
+    @FindBy(xpath = "//td[text()='autohekascripttest']/following-sibling::td//span[@class='_3c6He8Je7GGUAtVZrEV7Nd']")
+    private WebElement ScriptSwitchStatus;
+
     public WebElement getSyslogType() {
-        return SyslogType;
+        return getSoureceTypeElement("Syslog");
     }
 
-    public WebElement getBlackListInput() {
-        return BlackListInput;
+    public WebElement getScriptType() {
+        return getSoureceTypeElement("脚本");
     }
 
-    @FindBy(xpath = "//div[text()='Syslog']")
-    private WebElement SyslogType;
+    public WebElement getFuctionType() {
+        return getSoureceTypeElement("性能数据");
+    }
+
+    public WebElement getDatabaseType() {
+        return getSoureceTypeElement("数据库数据");
+    }
+
+    public WebElement getBeatsType() {
+        return getSoureceTypeElement("Beats");
+    }
+
+    public WebElement getPacketbeatType() {
+        return getSoureceTypeElement("Packetbeat");
+    }
+
+    public WebElement getS3Type() {
+        return getSoureceTypeElement("S3");
+    }
+
+    public WebElement getKafkaType() {
+        return getSoureceTypeElement("Kafka");
+    }
+
+
+
+
+
+
 
     public WebElement getListenaddress() {
         return Listenaddress;
@@ -188,12 +288,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[@class='ant-radio']")
     private WebElement ChooseButton;
 
-    public WebElement getAppaname() {
-        return Appaname;
-    }
 
-    @FindBy(xpath = "//label[contains(@title,'appname')]/parent::div/following-sibling::div//input")
-    private WebElement Appaname;
+    public List<WebElement> getTableBodyList() {
+        return tableBodyList;
+    }
 
     @FindBy(xpath = "//label[contains(@title,'tag')]/parent::div/following-sibling::div//input")
     private WebElement Tag;
@@ -229,20 +327,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//label[contains(@title,'文件路径白名单')]/parent::div/following-sibling::div//div[@class='ant-form-explain']")
     private WebElement WhiteListMessage;
-
-    public WebElement getWhiteListInput() {
-        return WhiteListInput;
-    }
-    public WebElement getRootListInput() {
-        return RootListInput;
-    }
-
-    @FindBy(xpath = "//label[contains(@title,'文件或目录')]/parent::div/following-sibling::div//input")
-    private WebElement RootListInput;
-
-    @FindBy(xpath = "//label[contains(@title,'文件路径白名单')]/parent::div/following-sibling::div//input")
-    private WebElement WhiteListInput;
-
 
     public WebElement getChooseButton() {
         return ChooseButton;
@@ -285,6 +369,10 @@ public class CreatePage extends PageTemplate {
         return super.getButton("上一步");
     }
 
+    public WebElement getBackup() {
+        return super.getButton("返回");
+    }
+
     public WebElement getNext() {
         return super.getButton("下一步");
     }
@@ -305,6 +393,76 @@ public class CreatePage extends PageTemplate {
         return getInputElement("最后修改时间");
     }
 
+    public WebElement getTimeKind(){
+        return getDropDownListElement("最后修改时间");
+    }
+
+    public WebElement getCharacterKind(){
+        return getDropDownListElement("字符集");
+    }
+
+    public WebElement getCharsetKind(){
+        return getDropDownListElement("charset");
+    }
+
+    public WebElement getRoot() {
+        return getInputElement("路径");
+    }
+
+    public WebElement getRegex() {
+        return getInputElement("换行正则");
+    }
+
+    public WebElement getBlackList() {
+        return getInputElement("文件路径黑名单");
+    }
+
+    public WebElement getStream() {
+        return getInputElement("分流字段");
+    }
+
+    public WebElement getContextWhiteList() {
+        return getInputElement("日志内容白名单");
+    }
+
+    public WebElement getContextBlackList() {
+        return getInputElement("日志内容黑名单");
+    }
+
+    public WebElement getExcuteFile() {
+        return getInputElement("可执行文件");
+    }
+    public WebElement getInternalTime() {
+        return getInputElement("间隔时间");
+    }
+
+    public WebElement getInternalTimeKind() {
+        return getDropDownListElement("间隔时间");
+    }
+
+    public WebElement getAppname(){
+        return getInputElement("appname");
+    }
+
+    public WebElement getScriptFile() {
+        return getInputElement("脚本文件");
+    }
+    public WebElement getParam() {
+        return getInputElement("参数");
+    }
+
+    public WebElement getChangeRowRule() {
+        return getInputElement("换行规则");
+    }
+
+    public WebElement getInterval(){
+        return getInputElement("间隔");
+    }
+
+    public WebElement getSort() {
+        return getInputElement("排序字段");
+    }
+
     public WebElement getTag() {
         return Tag;
     }
@@ -317,6 +475,9 @@ public class CreatePage extends PageTemplate {
         return super.getButton("清理缓存");
     }
 
+    public WebElement getCancle() {
+        return super.getButton("取消");
+    }
     public WebElement getMessage() {
         return super.getErrorMessage();
     }
@@ -328,10 +489,26 @@ public class CreatePage extends PageTemplate {
     private WebElement MemoMessage;
 
     public WebElement getInputElement(String text) {
-        return webDriver.findElement(By.xpath("//label[text()='" + text + "']/ancestor::div/following-sibling::div//input"));
+        return webDriver.findElement(By.xpath("//label[text()='" + text + "']/parent::div/following-sibling::div//input"));
     }
 
     public WebElement getContainsInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
+    }
+
+    public WebElement getSoureceTypeElement(String name) {
+        return webDriver.findElement(By.xpath("//div[text()='" + name + "']"));
+    }
+    public WebElement getCheckpageElement(String name) {
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/following-sibling::span/span"));
+    }
+
+
+    public WebElement getDropDownListElement(String name) {
+        DropdownUtils dropdownUtils = new DropdownUtils();
+        WebElement element = webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return dropdownUtils.getLastDropdownList();
     }
 }

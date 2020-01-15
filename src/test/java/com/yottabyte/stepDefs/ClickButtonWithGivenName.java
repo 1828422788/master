@@ -310,6 +310,23 @@ public class ClickButtonWithGivenName {
             label.click();
         }
     }
+    /**
+     * 关闭或开启禁用agent数据源开关
+     *
+     * @param dataName   要匹配的名称
+     * @param tableName  table元素名称
+     * @param status 状态 open/close
+     */
+    @Given("^the data name \"([^\"]*)\" in agent table \"([^\"]*)\" then i click the \"([^\"]*)\" switch")
+    public void operateAgentSwitch(String dataName, String tableName, String status) {
+        WebElement table = GetElementFromPage.getWebElementWithName(tableName);
+        WebElement tr = listPageUtils.findName(dataName, table);
+        WebElement label = tr.findElement(By.xpath(".//button"));
+        String labelAttribute = label.getAttribute("aria-checked");
+        if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
+            label.click();
+        }
+    }
 
     /**
      * 查看禁用/启用按钮是否为禁用/启用状态
