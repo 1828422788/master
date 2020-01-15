@@ -346,11 +346,14 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='apache.geo.city']/ancestor::td/following-sibling::td")
     private WebElement cityTd;
 
-    @FindBy(xpath = "//div[@class='filter-title']/following-sibling::div[@class='el-select']")
+    @FindBy(xpath = "(//div[@class='filter-title']/following-sibling::div[@class='el-select'])[last()]")
     private WebElement filterDropdown;
 
     @FindBy(xpath = "//span[text()='filter']")
     private WebElement filterName;
+
+    @FindBy(xpath = "(//span[text()='000000001203094955'])[2]")
+    private WebElement entry;
 
     @FindBy(xpath = "(//a[@class='item-menu-btn iconfont icon-shezhixuanting_icon'])[last()]")
     private WebElement filterSetting;
@@ -375,6 +378,31 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::div")
     private WebElement preview;
+
+    @FindBy(xpath = "//span[contains(text(),'仪表盘return')]/ancestor::div[@class='widget-control-panel']/following-sibling::div//*[@class='yw-table-head' or @class='table-body-td']")
+    private List<WebElement> returnList;
+
+    @FindBy(xpath = "//span[contains(text(),'仪表盘workflow')]/ancestor::div[@class='widget-control-panel']/following-sibling::div//*[@class='yw-table-head' or @class='table-body-td']")
+    private List<WebElement> workflowList;
+
+    @FindBy(xpath = "//i[@class='el-icon-search']")
+    private WebElement openInSearch;
+
+    public WebElement getOpenInSearch() {
+        return openInSearch;
+    }
+
+    public List<WebElement> getWorkflowList() {
+        return workflowList;
+    }
+
+    public List<WebElement> getReturnList() {
+        return returnList;
+    }
+
+    public WebElement getEntry() {
+        return entry;
+    }
 
     public WebElement getPreview() {
         return preview;

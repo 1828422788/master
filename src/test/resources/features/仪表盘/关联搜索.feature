@@ -108,6 +108,7 @@ Feature: 仪表盘关联搜索
 
   Scenario: 修改表格workflow查询语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘workflow" then I click the button which classname is "img iconfont icon-gengduopeizhi el-tooltip" in dashboard
@@ -134,3 +135,74 @@ Feature: 仪表盘关联搜索
       | return   |
       | workflow |
 
+  Scenario: 验证return搜索结果
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:auto_test_dashboard_return AND return.EPORT_ID:000000001203094955 | table return.EPORT_ID,tag,return.CUS_ID | rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I set value with element "TableList"
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘关联搜索"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I wait for "Entry" will be visible
+    And I click the "Entry" button under some element
+    And I wait for "ReturnList" will be visible
+    And I compare with list "ReturnList"
+
+  Scenario: 验证workflow搜索结果
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:531620160167359680 | table tag,workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I set value with element "TableList"
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘关联搜索"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "Entry" button under some element
+    And I wait for "WorkflowList" will be visible
+    And I compare with list "WorkflowList"
+
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name    |
+      | 仪表盘关联搜索 |
+
+  Scenario Outline: 删除字段提取
+    Given open the "configs.ListPage" page for uri "/configs/"
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name             |
+      | 仪表盘关联搜索_workflow |
+      | 仪表盘关联搜索_return   |
+      | 仪表盘关联搜索_message  |
+
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name        |
+      | 仪表盘workflow |
+      | 仪表盘return   |
+      | 仪表盘message  |
