@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.Agent;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
@@ -238,6 +239,42 @@ public class CheckButtonAttribute {
             }
         }
     }
+    @And("^I will see the agent doesn't exist in \"([^\"]*)\" cloumn$")
+    public void AgentelementNotExist(String columnNum) {
+        Agent agent = new Agent();
+        String ip = agent.getIp();
+        Assert.assertNotNull("无正在运行的agent！", ip);
+        String name = "{'column':'" + columnNum + "','name':'" + ip + "'}";
+        if (name.startsWith("get")) {
+            name = name.split("get")[1];
+        }
+        if (Character.isLowerCase(name.charAt(0))) {
+            System.out.println("\n Wanning: name is " + name + " , might be UpperCase in the first! \n");
+            name = "get" + name.substring(0, 1).toUpperCase() + name.substring(1);
+        } else {
+            name = "get" + name;
+        }
+        Object page = LoginBeforeAllTests.getPageFactory();
+        Method method;
+        try {
+            Object object = page.getClass().getDeclaredMethod(name).invoke(page);
+            method = page.getClass().getDeclaredMethod(name);
+            WebElement element = (WebElement) object;
+            this.ifExist(element);
+        } catch (Exception e) {
+            method = null;
+        }
+        if (method == null) {
+            try {
+                method = page.getClass().getSuperclass().getDeclaredMethod(name);
+                Object object = method.invoke(page);
+                this.ifExist((WebElement) object);
+            } catch (Exception e) {
+                Assert.assertTrue(true);
+            }
+        }
+    }
+
 
     protected void ifExist(WebElement element) {
         try {

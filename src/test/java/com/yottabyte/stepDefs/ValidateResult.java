@@ -15,6 +15,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.*;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * @author sunxj
  */
@@ -82,6 +84,35 @@ public class ValidateResult {
             }
             validateResult(trList, searchResult);
         }
+    }
+
+    @Then("^I will see the agent search result \"([^\"]*)\"$")
+    public void validateAgentSearchResult(String columnNum) {
+        ListPageUtils listPageUtils = new ListPageUtils();
+        Agent agent = new Agent();
+        List<WebElement> trList = listPageUtils.getTrList();
+        String excpText = this.getAgentIp(columnNum);
+        assertEquals(excpText, trList);
+        if (trList == null ) {
+            Assert.assertTrue(false);
+        }
+        Paging paging = new Paging();
+        for (int i = 0; i < paging.getTotalPage(); i++) {
+            if (i != 0) {
+                paging.getNextPage().click();
+                this.waitUntilLoadingDisappear();
+                trList = this.getTrList();
+            }
+            validateResult(trList, excpText);
+        }
+    }
+
+    @Then("^I will see the agent search result contains \"([^\"]*)\"$")
+    public void validateSearchAgentResultContainsValue(String columnNum) {
+        Agent agent = new Agent();
+        String excpText = this.getAgentIp(columnNum);
+        WebElement tr = listPageUtils.getTr(excpText);
+        Assert.assertNotNull("列表下不包含该字段！", tr);
     }
 
     /**
@@ -344,4 +375,12 @@ public class ValidateResult {
         String actualName = tr.findElement(By.xpath(xpath)).getText();
         Assert.assertEquals(valuesMap.get("name"), actualName);
     }
+    private String getAgentIp(String columnNum) {
+        Agent agent = new Agent();
+        String ip = agent.getIp();
+        Assert.assertNotNull("无正在运行的agent！", ip);
+        String json = "{'column':'" + columnNum + "','name':'" + ip + "'}";
+        return json;
+    }
 }
+

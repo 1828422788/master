@@ -32,6 +32,185 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'分配角色')]/following-sibling::div//i")
     private WebElement roleDropdown;
 
+    public WebElement getSourceRoot() {
+        return SourceRoot;
+    }
+
+    @FindBy(xpath = "//label[contains(@title,'最后修改时间')]/parent::div/following-sibling::div//input")
+    private WebElement LastChangeTime;
+
+
+    @FindBy(xpath = "//span[text()='来源路径']/following-sibling::span")
+    private WebElement SourceRoot;
+
+    public WebElement getCheckAppname() {
+        return CheckAppname;
+    }
+
+    @FindBy(xpath = "//span[text()='appname']/following-sibling::span")
+    private WebElement CheckAppname;
+
+    public WebElement getCheckTag() {
+        return CheckTag;
+    }
+
+    @FindBy(xpath = "//span[text()='tag']/following-sibling::span")
+    private WebElement CheckTag;
+
+    public WebElement getPreviewMessage() {
+        return PreviewMessage;
+    }
+
+    @FindBy(xpath = "//span[text()='文件路径白名单']/following-sibling::span")
+    private WebElement WhitelistRoot;
+
+    @FindBy(xpath = "//label[contains(@title,'文件路径黑名单')]/parent::div/following-sibling::div//input")
+    private WebElement BlackListInput;
+
+    @FindBy(xpath = "//label[contains(@title,'监听地址')]/parent::div/following-sibling::div//input" )
+    private WebElement Listenaddress;
+
+    @FindBy(xpath = "//span[contains(text(),'+ 添加新映射')]")
+    private WebElement AddNewMap;
+
+    public WebElement getSyslogip() {
+        return Syslogip;
+    }
+
+    @FindBy(xpath = "//tr/td[1]/div/div/div/span/input")
+    private WebElement Syslogip;
+
+    @FindBy(xpath = "//tr/td[2]/div/div/div/span/div/div/div/ul/li/div/input")
+    private WebElement Syslogappname;
+
+    @FindBy(xpath = "//tr/td[3]/div/div/div/span/div/div/div/ul/li/div/input")
+    private WebElement Syslogtag;
+
+    public WebElement getCheckListenaddress() {
+        return CheckListenaddress;
+    }
+
+    @FindBy(xpath = "//span[text()='监听地址']/following-sibling::span/span")
+    private WebElement CheckListenaddress;
+
+    public WebElement getCheckMap() {
+        return CheckMap;
+    }
+
+    @FindBy (xpath = "//span[text()='映射']/following-sibling::span/span")
+    private WebElement CheckMap;
+
+    public WebElement getCheckPortType() {
+        return CheckPortType;
+    }
+
+    @FindBy(xpath = "//span[text()='端口类型']/following-sibling::span")
+    private WebElement CheckPortType;
+
+
+    public WebElement getSyslogtag() {
+        return Syslogtag;
+    }
+
+    public WebElement getSyslogappname() {
+        return Syslogappname;
+    }
+
+    public WebElement getAddNewMap() {
+        return AddNewMap;
+    }
+
+    public WebElement getAddsuccessmsg() {
+        return Addsuccessmsg;
+    }
+
+    @FindBy(xpath = "//p[@class='_1YeMXA5GiLhhXEnu-UQysl']")
+    private WebElement Addsuccessmsg;
+
+    public WebElement getContinueAdd() {
+        return ContinueAdd;
+    }
+
+    @FindBy(xpath = "//a[text()='继续添加']")
+    private WebElement ContinueAdd;
+
+    public WebElement getConfigDatasource() {
+        return ConfigDatasource;
+    }
+
+    @FindBy(xpath = "//a[text()='批量配置该数据源']")
+    private WebElement ConfigDatasource;
+
+    public WebElement getDatafetch() {
+        return Datafetch;
+    }
+
+    @FindBy(xpath = "//a[text()='提取字段']")
+    private WebElement Datafetch;
+
+    public WebElement getCurrentConfiguration() {
+        return CurrentConfiguration;
+    }
+
+    @FindBy(xpath = "//a[text()='查看当前配置']")
+    private WebElement CurrentConfiguration;
+
+    public WebElement getSyslogType() {
+        return SyslogType;
+    }
+
+    public WebElement getBlackListInput() {
+        return BlackListInput;
+    }
+
+    @FindBy(xpath = "//div[text()='Syslog']")
+    private WebElement SyslogType;
+
+    public WebElement getListenaddress() {
+        return Listenaddress;
+    }
+
+    public WebElement getWhitelistRoot() {
+        return WhitelistRoot;
+    }
+
+
+    public WebElement getMonitoring() {
+        return Monitoring;
+    }
+
+    @FindBy(xpath = "//span[text()='连续监视']/following-sibling::span")
+    private WebElement Monitoring;
+
+    @FindBy(xpath = "//div[@class='ant-form-explain']")
+    private WebElement PreviewMessage;
+
+    @FindBy(xpath = "//span[@class='ant-radio']")
+    private WebElement ChooseButton;
+
+    public WebElement getAppaname() {
+        return Appaname;
+    }
+
+    @FindBy(xpath = "//label[contains(@title,'appname')]/parent::div/following-sibling::div//input")
+    private WebElement Appaname;
+
+    @FindBy(xpath = "//label[contains(@title,'tag')]/parent::div/following-sibling::div//input")
+    private WebElement Tag;
+
+    public WebElement getLastChangeTime() {
+        return LastChangeTime;
+    }
+
+
+    public WebElement getInputKind() {
+        return InputKind;
+    }
+
+    @FindBy(xpath = "//span[text()='输入类型']/following-sibling::span")
+    private WebElement InputKind;
+
+
     public WebElement getRoleDropdown() {
         roleDropdown.click();
         return super.getLastDropdownList();
@@ -54,9 +233,21 @@ public class CreatePage extends PageTemplate {
     public WebElement getWhiteListInput() {
         return WhiteListInput;
     }
+    public WebElement getRootListInput() {
+        return RootListInput;
+    }
+
+    @FindBy(xpath = "//label[contains(@title,'文件或目录')]/parent::div/following-sibling::div//input")
+    private WebElement RootListInput;
 
     @FindBy(xpath = "//label[contains(@title,'文件路径白名单')]/parent::div/following-sibling::div//input")
     private WebElement WhiteListInput;
+
+
+    public WebElement getChooseButton() {
+        return ChooseButton;
+    }
+
 
     public WebElement getGroupName() {
         return this.getContainsInputElement("名称");
@@ -90,6 +281,10 @@ public class CreatePage extends PageTemplate {
         return file;
     }
 
+    public WebElement getBack() {
+        return super.getButton("上一步");
+    }
+
     public WebElement getNext() {
         return super.getButton("下一步");
     }
@@ -110,12 +305,8 @@ public class CreatePage extends PageTemplate {
         return getInputElement("最后修改时间");
     }
 
-    public WebElement getAppname() {
-        return getInputElement("appname");
-    }
-
     public WebElement getTag() {
-        return getInputElement("tag");
+        return Tag;
     }
 
     public WebElement getSuccessMessage() {
