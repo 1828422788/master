@@ -370,7 +370,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='单选']/ancestor::label")
     private WebElement singleChoice;
 
-    @FindBy(xpath = "//div[@class='filter-title']/following-sibling::div//input")
+    @FindBy(xpath = "(//div[@class='filter-title']/following-sibling::div//input)[last()]")
     private WebElement filterInput;
 
     @FindBy(xpath = "//span[text()='appname']")
@@ -387,6 +387,27 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//i[@class='el-icon-search']")
     private WebElement openInSearch;
+
+    @FindBy(xpath = "//span[text()='49']")
+    private WebElement countNum;
+
+    @FindBy(className = "custom-title")
+    private WebElement customTitle;
+
+    @FindBy(xpath = "//label[contains(text(),'图表描述')]/following-sibling::div//textarea")
+    private WebElement chartDesc;
+
+    public WebElement getChartDesc() {
+        return chartDesc;
+    }
+
+    public WebElement getCustomTitle() {
+        return customTitle;
+    }
+
+    public WebElement getCountNum() {
+        return countNum;
+    }
 
     public WebElement getOpenInSearch() {
         return openInSearch;
@@ -990,6 +1011,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getEnsureAddTrend() {
         return ensureAddTrend;
+    }
+
+    public WebElement getChartTitle() {
+        return this.getInputElement("图表标题");
     }
 
     @Override

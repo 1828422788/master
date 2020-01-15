@@ -90,6 +90,42 @@ Feature: 仪表盘输入项联动
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "logtype:json AND hostname:192.168.1.26"
 
+  Scenario: 添加输入项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘输入项联动"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I choose the "添加输入项" from the "EventList"
+    And I set the parameter "FilterTitle" with value "filter"
+    And I set the parameter "FilterToken" with value "filter"
+    Then I click the "EnsureCreateInput" button
+    Then I wait for "FilterName" will be visible
+
+  Scenario: 修改搜索语句
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘输入项联动"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "ChartSetting" will be visible
+    And I click the "ChartSetting" button
+    And I click the "Configs" button
+    And I set the parameter "Spl" with value ""
+    And I set the parameter "Spl" with value "${filter|e}"
+    And I click the "SettingEnsure" button
+
+  Scenario: 验证支持token filter
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘输入项联动"
+    Then I will see the "dashboard.DetailPage" page
+    And I set the parameter "FilterInput" with value "a+b"
+    And I click the "Update" button
+    And I click the "ChartSetting" button
+    And I click the "Configs" button
+    And I wait for "OpenInSearch" will be visible
+    And I click the "OpenInSearch" button
+    And switch to another window
+    Then I will see the "splSearch.SearchPage" page
+    Then I will see the element "SearchInput" name is "a\+b"
+
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button

@@ -277,6 +277,39 @@ Feature: 仪表盘高级编辑
       | "mode": "custom"                                                                                                       | drilldown -> query 字段为必填项     |
       | "mode": "custom","query": "tag:sample04061424 \| where apache.status<400 && apache.status>200 \| stats count() as cnt" | drilldown -> timeRange 字段为必填项 |
 
+  Scenario: 新建输入项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试高级编辑"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I choose the "添加输入项" from the "EventList"
+    And I set the parameter "FilterTitle" with value "filter"
+    And I set the parameter "FilterToken" with value "filter"
+    Then I click the "EnsureCreateInput" button
+    Then I wait for "FilterName" will be visible
+
+  Scenario: 修改仪表盘配置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试高级编辑"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I wait for "ChartSetting" will be visible
+    And I click the "ChartSetting" button
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘所有","description": "","row": 1,"column": 1,"sizex": 12,"sizey": 4,"search": {"query": "*|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+200"}]}}" to json editor
+    And I wait for element "Message" change text to ""
+    And I click the "Check" button
+    Then I wait for "CheckRight" will be visible
+    And I click the "EnsureEdit" button
+
+  Scenario: 验证输入值支持eval
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试高级编辑"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "CountNum" button
+    Then I will see the input element "FilterInput" value will contains "249"
+
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
