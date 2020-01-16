@@ -187,3 +187,14 @@ Feature: 仪表盘事件列表
     When the data name is "仪表盘测试事件列表" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name    |
+      | 仪表盘事件操作 |
