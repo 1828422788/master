@@ -397,6 +397,48 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'图表描述')]/following-sibling::div//textarea")
     private WebElement chartDesc;
 
+    @FindBy(className = "icon-fanyeqishangjiantou")
+    private WebElement eventIcon;
+
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu field-dropdown-menu'])[last()]/li[text()='仪表盘测试事件列表']")
+    private WebElement event;
+
+    @FindBy(xpath = "//span[text()='appname']")
+    private WebElement eventAppname;
+
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu field-dropdown-menu'])[last()]/li[text()='实时查看']")
+    private WebElement realTime;
+
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu field-dropdown-menu'])[last()]/li[text()='配置字段提取']")
+    private WebElement createConfig;
+
+    @FindBy(xpath = "(//ul[@class='el-dropdown-menu field-dropdown-menu'])[last()]/li[text()='添加到知识库']")
+    private WebElement addKnowledge;
+
+    public WebElement getCreateConfig() {
+        return createConfig;
+    }
+
+    public WebElement getAddKnowledge() {
+        return addKnowledge;
+    }
+
+    public WebElement getRealTime() {
+        return realTime;
+    }
+
+    public WebElement getEventAppname() {
+        return eventAppname;
+    }
+
+    public WebElement getEvent() {
+        return event;
+    }
+
+    public WebElement getEventIcon() {
+        return eventIcon;
+    }
+
     public WebElement getChartDesc() {
         return chartDesc;
     }

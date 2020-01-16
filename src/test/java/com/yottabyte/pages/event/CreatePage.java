@@ -84,4 +84,10 @@ public class CreatePage extends PageTemplate {
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div/input"));
     }
+
+    public WebElement getDropdownList(String name) {
+        String xpath = "//label[text()='" + name + "']//following-sibling::div//i";
+        webDriver.findElement(By.xpath(xpath)).click();
+        return super.getLastDropdownList();
+    }
 }
