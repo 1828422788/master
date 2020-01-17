@@ -126,15 +126,15 @@ public class CreatePage extends PageTemplate {
     private List<WebElement> tableBodyList;
 
     public WebElement getAppNameTable() {
-        return tableBodyList.get(0);
+        return getTableElement("文件和目录");
     }
 
     public WebElement getScriptTable() {
-        return tableBodyList.get(2);
+        return getTableElement("脚本");
     }
 
     public WebElement getSyslogTable() {
-        return tableBodyList.get(1);
+        return getTableElement("Syslog");
     }
 
 
@@ -501,6 +501,10 @@ public class CreatePage extends PageTemplate {
     }
     public WebElement getCheckpageElement(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']/following-sibling::span/span"));
+    }
+
+    public WebElement getTableElement(String name) {
+        return webDriver.findElement(By.xpath("//div[text()='" + name +"']/following-sibling::div//tbody"));
     }
 
 
