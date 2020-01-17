@@ -68,18 +68,23 @@ Feature: 编辑脚本类型数据源
     And I set the parameter "Appname" with value "Changeautohekascripttest"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-    Given the data name "Changeautohekascripttest" in table "SyslogTable" then i click the "编辑" button
+    Given the data name "Changeautohekascripttest" in table "ScriptTable" then i click the "编辑" button
     And I set the parameter "Appname" with value "autohekascripttest"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
   Scenario: 文件目录数据源禁用
-    Given the data name "autohekascripttest" in agent table "SyslogTable" then i click the "close" switch
+    Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "close" switch
     Then I wait for loading invisible
     Then I will see the element "ScriptSwitchStatus" name is "已禁用"
 
 
   Scenario: 文件目录数据源启用
-    Given the data name "autohekascripttest" in agent table "SyslogTable" then i click the "open" switch
+    Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "open" switch
     Then I wait for loading invisible
     Then I will see the element "ScriptSwitchStatus" name is "已启用"
+
+  Scenario: 脚本类型数据源删除
+    Given the data name "/sbin/service" in table "ScriptTable" then i click the "删除" button
+    And I click the "Ensure" button
+    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
