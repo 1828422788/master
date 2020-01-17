@@ -82,13 +82,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'移出')][@class='action']")
     private WebElement moveoutTag;
 
+    @FindBy(className = "ant-message-success")
+    private WebElement successMessage;
+
     @FindBy(xpath = "//span[contains(text(),'删除')][@class='action']")
     private WebElement deleteTag;
 
-    @FindBy(className = "el-message__group")
-    private WebElement successMessage;
-
-    @FindBy(className = "icon-tianjiatubiaoxuanting_icon")
+    @FindBy(xpath = "//i[@class='anticon css-ifnfqv ant-dropdown-trigger']")
     private WebElement addEventButton;
 
     @FindBy(className = "yw-dropdown-menu")
@@ -228,9 +228,6 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "el-icon-loading")
     private WebElement iconLoading;
-
-    @FindBy(xpath = "//span[contains(text(),'选择趋势图进行添加')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button[@class='el-button yw-modal-btn yw-modal-btn-primary el-button--primary']")
-    private WebElement ensureAddTrend;
 
     @FindBy(xpath = "//label[contains(text(),'默认值')]/following-sibling::div//i")
     private WebElement defaultValueIcon;
@@ -414,6 +411,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "(//ul[@class='el-dropdown-menu field-dropdown-menu'])[last()]/li[text()='添加到知识库']")
     private WebElement addKnowledge;
+
+    @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomRight']/ul")
+    private WebElement addChartDropdown;
 
     public WebElement getCreateConfig() {
         return createConfig;
@@ -944,7 +944,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getEventList() {
-        return eventList.get(eventList.size() - 1);
+        return addChartDropdown;
     }
 
     public WebElement getAddEventButton() {
@@ -1049,10 +1049,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getEnsureCreateInput() {
         return ensureList.get(9);
-    }
-
-    public WebElement getEnsureAddTrend() {
-        return ensureAddTrend;
     }
 
     public WebElement getChartTitle() {
