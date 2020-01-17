@@ -1028,11 +1028,11 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getTagName() {
-        return getInputElement("名称");
+        return getNewInputElement("名称");
     }
 
     public WebElement getEnsureCreateTagButton() {
-        return ensureList.get(0);
+        return super.getButton("确定");
     }
 
     public WebElement getEnsureMoveTagButton() {
@@ -1059,11 +1059,6 @@ public class DetailPage extends PageTemplate {
         return this.getInputElement("图表标题");
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
-    }
-
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
     }
@@ -1082,5 +1077,10 @@ public class DetailPage extends PageTemplate {
 
     private WebElement getTagText(String text) {
         return webDriver.findElement(By.xpath("//div[contains(text(),'" + text + "')]"));
+    }
+
+    private WebElement getNewInputElement(String name) {
+        String xpath = "//span[contains(text(),'" + name + "')]/following-sibling::span/input";
+        return webDriver.findElement(By.xpath(xpath));
     }
 }

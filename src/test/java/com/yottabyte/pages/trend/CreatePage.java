@@ -480,6 +480,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
     private WebElement appDropdownIcon;
 
+    public WebElement getComplete() {
+        return super.getButton("完成");
+    }
+
     public WebElement getSuccessUpdate() {
         return successUpdate;
     }
