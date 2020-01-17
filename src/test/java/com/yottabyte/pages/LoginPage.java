@@ -21,15 +21,6 @@ public class LoginPage extends PageTemplate {
         parentPageName = "";
     }
 
-    @FindBy(className = "yw-login-form-input")
-    private WebElement username;
-
-    @FindBy(css = "#login > div.yw-login-group > div.yw-login-inputs > div:nth-child(3) > input")
-    private WebElement password;
-
-    @FindBy(css = "#login > div.yw-login-group > div.yw-login-inputs > div.yw-login-btn-group > button")
-    private WebElement loginButton;
-
     @FindBy(className = "el-message-box__message")
     private WebElement errorMessageBox;
 
@@ -37,15 +28,15 @@ public class LoginPage extends PageTemplate {
     private WebElement errorMessage;
 
     public WebElement getUsername() {
-        return username;
+        return this.getInputElement("用户名");
     }
 
     public WebElement getPassword() {
-        return password;
+        return this.getInputElement("密码");
     }
 
     public WebElement getLoginButton() {
-        return loginButton;
+        return super.getButton("登 录");
     }
 
     public String getTitle() {
@@ -64,13 +55,9 @@ public class LoginPage extends PageTemplate {
         return message;
     }
 
-    public void getLogin(String userName, String password) {
-        SetKeyWithValue setKey = new SetKeyWithValue();
-        ClickSomeButton click = new ClickSomeButton();
-        setKey.iSetTheParameterWithValue(getUsername(), userName);
-        setKey.iSetTheParameterWithValue(getPassword(), password);
-        click.clickElement(getLoginButton());
-        webDriver.navigate().refresh();
+    public WebElement getInputElement(String name) {
+        String xpath = "//label[text()='" + name + "']/following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
 }
