@@ -156,7 +156,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'其他')])[last()]")
     private WebElement other;
 
-    @FindBy(className = "pie")
+    @FindBy(xpath = "//div[text()='饼状图']")
     private WebElement pie;
 
     @FindBy(xpath = "(//div[@class='img rose'])[last()]")
@@ -479,6 +479,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
     private WebElement appDropdownIcon;
+
+    @FindBy(className = "ant-popover-inner-content")
+    private WebElement content;
 
     public WebElement getComplete() {
         return super.getButton("完成");

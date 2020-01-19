@@ -145,10 +145,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'仪表盘1669所用趋势图')]")
     private WebElement dashboardTrend1669;
 
-    public WebElement getDashboardTrend1669() {
-        return dashboardTrend1669;
-    }
-
     @FindBy(className = "icon-gengduopeizhi")
     private WebElement chartSetting;
 
@@ -167,9 +163,6 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='是否删除图表?']/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
     private WebElement ensureDeleteChart;
-
-    @FindBy(className = "icon-leixing_icon")
-    private WebElement type;
 
     @FindBy(xpath = "//*[@class='img iconfont icon-shezhi_icon']")
     private WebElement setting;
@@ -415,6 +408,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomRight']/ul")
     private WebElement addChartDropdown;
 
+    @FindBy(xpath = "//i[@class='anticon css-ifnfqv']")
+    private List<WebElement> iconList;
+
+    public WebElement getType() {
+        return iconList.get(3);
+    }
+
     public WebElement getCreateConfig() {
         return createConfig;
     }
@@ -570,6 +570,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getDateEditor() {
         return dateEditor;
+    }
+
+    public WebElement getDashboardTrend1669() {
+        return dashboardTrend1669;
     }
 
     // 获取今天按钮
@@ -793,10 +797,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getSetting() {
         return setting;
-    }
-
-    public WebElement getType() {
-        return type;
     }
 
     public WebElement getEnsureDeleteChart() {

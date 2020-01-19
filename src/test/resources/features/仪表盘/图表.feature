@@ -51,3 +51,7 @@ Feature: 仪表盘图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
+    And I click the "Type" button
+    Then I will see the "trend.CreatePage" page
+    And I click the "Dimension" button
+    And I click the "Pie" button
