@@ -34,11 +34,14 @@ Feature: 数据大屏世界地图
     And I click the "Map" button
     And I click the "World" button
     And I hide the element "MapDropdown"
+
     And I click the "MapHeader" button
+
     And I click the "AreaColor" button
     And I set the parameter "ColorInput" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
+
     And I click the "BoundaryColor" button
     And I set the parameter "ColorInput" with value "#0E0E0E"
     And I click the "EnsureColor" button

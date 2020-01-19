@@ -1231,4 +1231,76 @@ public class SearchPage extends ListPageFactory {
     public WebElement getDownloadButton() {
         return super.getButton("下载");
     }
+
+
+
+//author_jnd
+
+    //数据集父子行为是无的根节点的子节点
+    @FindBy(xpath = "//span[text()='无1']")
+    private WebElement fatherChildNull;
+    public WebElement getFatherChildNull(){return fatherChildNull;}
+
+    //数据集父子行为是汇聚的根节点
+    @FindBy(xpath = "//span[text()='汇聚']")
+    private WebElement huiJu;
+    public WebElement getHuiJu(){return huiJu;}
+
+    //数据集父子行为是继承的根节点的子节点
+    @FindBy(xpath =  "//span[text()='继承1']")
+    private WebElement jiCheng;
+    public WebElement getJiCheng(){return jiCheng;}
+
+    //数据集的展开按钮
+    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div/div[2]/div[1]/div/div/div[1]/span/a")
+    private WebElement zhanKai;
+    public WebElement getZhanKai(){return zhanKai;}
+
+    //数据集的内容
+    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div/div[2]/div[1]/div/div/div[2]/span")
+    private WebElement dataSetPosition;
+    public WebElement getDataSetPosition(){return dataSetPosition;}
+
+    //保存为定时任务成功之后弹窗上的确定按钮
+    @FindBy(xpath = "/html/body/div[6]/div/div[2]/div/div[2]/div[2]/div[2]/button")
+    private WebElement timeTaskEnsure;
+    public WebElement getTimeTaskEnsure(){return super.getButton("确定");}
+
+    //页面上方定时任务超链接
+    @FindBy(xpath = "//*[@id=\"app\"]/section/section/header/ul/li[8]/a")
+    private WebElement schedule;
+    public WebElement getSchedule(){
+        return schedule;
+    }
+
+    //搜索页面保存为趋势图
+    @FindBy(xpath = "//li[text()='趋势图']")
+    private WebElement saveTrend;
+    public WebElement getSaveTrend(){return saveTrend;}
+
+    //保存为趋势图的名称
+    @FindBy(xpath = "/html/body/div[3]/div/div[2]/div/div[2]/div[2]/div/div[1]/input")
+    private WebElement trendName;
+    public WebElement getTrendName(){return trendName;}
+
+
+    //保存为趋势图成功之后提示弹窗中的确定按钮
+    @FindBy(xpath = "/html/body/div[5]/div/div[2]/div/div[2]/div[2]/div[2]/button")
+    private WebElement trendEnsureAfterEnsure;
+    public WebElement getTrendEnsureAfterEnsure(){return super.getButton("确定");}
+
+    //页面上方趋势图超链接
+    @FindBy(xpath = "//*[@id=\"app\"]/section/section/header/ul/li[12]/a")
+    private WebElement upperTrend;
+    public WebElement getUpperTrend(){return upperTrend;}
+
+    //保存为定时任务弹窗中的【描述】
+    @FindBy(xpath = "/html/body/div[3]/div/div[2]/div/div[2]/div[2]/div/div[2]/input")
+    private WebElement scheduleDescribe;
+    public WebElement getScheduleDescribe(){return scheduleDescribe;}
+
+
+
+
+
 }

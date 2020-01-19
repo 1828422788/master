@@ -1154,4 +1154,22 @@ public class CreatePage extends PageTemplate {
         appDropdownIcon.click();
         return dropdownUtils.getLastDropdownList();
     }
+
+    //author-jnd
+    //数据集的展开按钮
+    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[2]/div[1]/div/div/div[1]/span/a")
+    private WebElement zhanKai;
+    public WebElement getZhanKai(){return zhanKai;}
+    //数据集的显示位置
+    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[2]/div[1]/div/div/div[2]/span")
+    private WebElement dataSetPosition;
+    public WebElement getDataSetPosition(){return dataSetPosition;}
+
+
+
+
+
+
+
+
 }

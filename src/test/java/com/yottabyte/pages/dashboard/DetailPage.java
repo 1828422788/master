@@ -857,4 +857,17 @@ public class DetailPage extends PageTemplate {
     private WebElement getTagText(String text) {
         return webDriver.findElement(By.xpath("//div[contains(text(),'" + text + "')]"));
     }
+
+    //author-jnd
+    //通用配置
+    @FindBy(xpath = "//span[text()='通用配置']")
+    private WebElement generalConfig;
+    public WebElement getGeneralConfig(){return generalConfig;}
+    //通用配置中的数据集位置
+    @FindBy(xpath = "//*[@id=\"scrollContainer\"]/div[15]/div/div[2]/div/form/div[4]/div")
+    private WebElement dataSetPosition;
+    public WebElement getDataSetPosition(){return dataSetPosition;}
+
+
+
 }
