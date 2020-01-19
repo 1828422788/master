@@ -2,9 +2,11 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.Agent;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 
 
@@ -29,6 +31,20 @@ public class SetKeyWithValue {
                 iSetTheParameterWithValue(element, value);
             }
         }
+    }
+
+    /**
+     * 在agent中使用，自动输入运行中Agent的ip，只需定位输入框即可
+     *
+     * @param elementName 输入框元素名称
+     */
+    @And("^I set the agent parameter \"([^\"]*)\" with running ip$")
+    public void setParamInAgent(String elementName) {
+        Agent agent = new Agent();
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        String ip = agent.getIp();
+        Assert.assertNotNull("无正在运行中的Agent！", ip);
+        iSetTheParameterWithValue(element, ip);
     }
 
     /**

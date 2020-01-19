@@ -21,11 +21,26 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//input[contains(@placeholder,'模糊搜索主机名')]")
     private WebElement hostname;
 
+    @FindBy(xpath = "//div/label/span/span")
+    private WebElement AllButton;
+
+    public WebElement getMultiGruopButton() {
+        return MultiGruopButton;
+    }
+
+    @FindBy(xpath = "//li/span[text()='分组']")
+    private WebElement MultiGruopButton;
 
     public WebElement getAgentGroupButton(){
         return super.getButton("分组设置");
     }
+    public WebElement getAgentMultiButton(){
+        return super.getButton("批量操作");
+    }
 
+    public WebElement getAllButton() {
+        return AllButton;
+    }
 
     public WebElement getHostname() {
         return hostname;
@@ -80,14 +95,18 @@ public class ListPage extends ListPageFactory {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    public WebElement getFinishButton() {
+        return super.getButton("完成");
+    }
+    public WebElement getGroupButton() {
+        String xpath = "//span[text()='sunxctest']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     public WebElement getChangeMemoButton(){
         String xpath = "//span/a[text()='修改备注']";
         return webDriver.findElement(By.xpath(xpath));
     }
-//    public WebElement getChangeMemoButton(){
-//        String xpath = "//span/a[text()='修改备注']";
-//        return webDriver.findElement(By.xpath(xpath));
-//    }
     public WebElement getOprationElement(String text) {
         String xpath = "//span[text()='192.168.1.136']/ancestor::td/following-sibling::td/span/a[text()=' " + text + "']";
         return webDriver.findElement(By.xpath(xpath));
@@ -100,6 +119,11 @@ public class ListPage extends ListPageFactory {
         return element;
     }
 
+    public WebElement getGroupMemo(){
+        String xpath = "//div[@class='ant-message-notice-content']";
+        WebElement element =  webDriver.findElement(By.xpath(xpath));
+        return element;
+    }
 
     public ListPage(WebDriver driver) {
         super(driver);
