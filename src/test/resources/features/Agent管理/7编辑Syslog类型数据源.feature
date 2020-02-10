@@ -34,15 +34,15 @@ Feature: 编辑Syslog类型数据源
     Then I wait for loading invisible
     Then I will see the element "SyslogSwitchStatus" name is "已启用"
 
-#  Scenario Outline: 修改Syslog数据源charset
-#    Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
-#    When I choose the "<characterkind>" from the "SyslogChar"
-#    And I click the "Ensure" button
-#    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-#    Examples:
-#      | characterkind |
-##      |   utf-8    |
-##      |    gbk    |
+  Scenario Outline: 修改Syslog数据源charset
+    Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
+    When I choose the "<characterkind>" from the "SyslogChar"
+    And I click the "Ensure" button
+    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Examples:
+      | characterkind |
+      |   utf-8    |
+#      |    gbk    |
 
   Scenario Outline: Syslog数据源修改ip成功
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button

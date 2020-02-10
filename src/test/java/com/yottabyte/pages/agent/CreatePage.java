@@ -173,7 +173,9 @@ public class CreatePage extends PageTemplate {
         return getTableElement("性能数据");
     }
 
-
+    public WebElement getSyslogTable() {
+        return getTableElement("Syslog");
+    }
 
     public WebElement getSyslogtag() {
         return Syslogtag;
@@ -259,7 +261,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSyslogSwitchStatus() {
-        return getSwitchStatus("192.168.1.31:514");
+        return getSwitchStatus("192.168.1.161:514");
     }
 
     public WebElement getFuctionTypeSwitchStatus() {

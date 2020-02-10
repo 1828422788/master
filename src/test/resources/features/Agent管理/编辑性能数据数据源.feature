@@ -66,16 +66,16 @@ Feature: 编辑性能数据类型数据源
       |   changefunctiontag,changefunctiontag2    |
       |   change_functiontag                    |
 
-#  Scenario Outline: 性能数据源修改tag失败
-#    Given the data name "500s" in table "FuctionTypeTable" then i click the "编辑" button
-#    And I set the parameter "Tag" with value "<tagkind>"
-#    And I click the "Ensure" button
-#    Then I will see the element "PreviewMessage" name is "请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。"
-#
-#    Examples:
-#      | tagkind |
-#      |   s，s    |
-#      |   #￥%…&*   |
+  Scenario Outline: 性能数据源修改tag失败
+    Given the data name "500s" in table "FuctionTypeTable" then i click the "编辑" button
+    And I set the parameter "Tag" with value "<tagkind>"
+    And I click the "Ensure" button
+    Then I will see the element "PreviewMessage" name is "请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。"
+
+    Examples:
+      | tagkind |
+      |   s，s    |
+      |   #￥%…&*   |
 
   Scenario Outline: 性能数据源修改采集频率成功
     Given the data name "500s" in table "FuctionTypeTable" then i click the "编辑" button
