@@ -56,7 +56,7 @@ public class GroupPage extends ListPageFactory{
     }
 
     public WebElement getMessage() {
-        return webDriver.findElement(By.xpath("//div[@class='el-message-box__message']/p"));
+        return webDriver.findElement(By.xpath("//div[@class='ant-modal-body']//p"));
     }
 
     public WebElement getFinalmessage(){

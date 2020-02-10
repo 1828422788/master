@@ -483,6 +483,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-popover-inner-content")
     private WebElement content;
 
+    public WebElement getContent() {
+        return content;
+    }
+
     public WebElement getComplete() {
         return super.getButton("完成");
     }
@@ -755,7 +759,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getGenerate() {
-        return getButton("生成");
+        return getButton("生 成");
     }
 
     public WebElement getNameInput() {

@@ -164,9 +164,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='是否删除图表?']/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
     private WebElement ensureDeleteChart;
 
-    @FindBy(xpath = "//*[@class='img iconfont icon-shezhi_icon']")
-    private WebElement setting;
-
     @FindBy(xpath = "//div[@class='settings-content']//i")
     private WebElement fieldValue;
 
@@ -413,6 +410,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getType() {
         return iconList.get(3);
+    }
+
+    public WebElement getSetting() {
+        return iconList.get(4);
     }
 
     public WebElement getCreateConfig() {
@@ -793,10 +794,6 @@ public class DetailPage extends PageTemplate {
     public WebElement getFieldValue() {
         fieldValue.click();
         return getLastDropdownList();
-    }
-
-    public WebElement getSetting() {
-        return setting;
     }
 
     public WebElement getEnsureDeleteChart() {

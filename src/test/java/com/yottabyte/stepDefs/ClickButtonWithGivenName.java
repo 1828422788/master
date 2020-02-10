@@ -350,7 +350,7 @@ public class ClickButtonWithGivenName {
      */
     @And("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in tiny table$")
     public void checkboxInTinyTable(String status, String name) {
-        WebElement tr = listPageUtils.getTinyTr("{'column':'1','name':'" + name + "'}");
+        WebElement tr = listPageUtils.getTinyTr("{'column':'0','name':'" + name + "'}");
         WebElement checkbox = tr.findElement(By.xpath(".//label"));
         String currentStatus = checkbox.getAttribute("class");
         if (currentStatus.contains("checked") && "uncheck".equals(status) || !currentStatus.contains("checked") && "check".equals(status)) {
@@ -379,6 +379,19 @@ public class ClickButtonWithGivenName {
      */
     @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table which name is \"([^\"]*)\"$")
     public void clickAuthFunction(String status, List<String> functions, String name) {
+        String preXpath = ".//span[contains(text(),'";
+        String sufXpath = "')]";
+        this.clickAuthButton(status,functions,name,preXpath,sufXpath);
+    }
+
+    @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table in group which name is \"([^\"]*)\"$")
+    public void clickAuthFunctionInGroup(String status,List<String> functions,String name) {
+        String preXpath = "(.//span[contains(text(),'";
+        String sufXpath = "')])[last()]";
+        this.clickAuthButton(status,functions,name,preXpath,sufXpath);
+    }
+
+    private void clickAuthButton(String status,List<String> functions,String name,String preXpath,String sufXpath){
         String url = webDriver.getCurrentUrl();
         String precedingXpath;
         if (url.contains("/account/roles/assign/")) {
@@ -388,7 +401,7 @@ public class ClickButtonWithGivenName {
         }
         WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
         for (String function : functions) {
-            WebElement functionButton = tr.findElement(By.xpath(".//span[contains(text(),'" + function + "')]"));
+            WebElement functionButton = tr.findElement(By.xpath(preXpath + function + sufXpath));
             String functionClass = functionButton.findElement(By.xpath(precedingXpath)).getAttribute("class");
             if (functionClass.contains("checked") && "unchecked".equals(status) || !functionClass.contains("checked") && "checked".equals(status)) {
                 functionButton.click();

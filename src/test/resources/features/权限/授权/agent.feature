@@ -16,7 +16,7 @@ Feature: 权限-agent
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
@@ -36,7 +36,7 @@ Feature: 权限-agent
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
@@ -67,7 +67,7 @@ Feature: 权限-agent
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
@@ -98,12 +98,13 @@ Feature: 权限-agent
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     Then the data name is "<name>" then i will see "跳转" button
     And the data name is "<name>" then i click the "跳转" button
+    And I wait for "Message" will be visible
     Then I will see the message "<message>"
 
     Examples:
@@ -131,7 +132,7 @@ Feature: 权限-agent
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
@@ -175,7 +176,7 @@ Feature: 权限-agent
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
@@ -193,7 +194,7 @@ Feature: 权限-agent
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
@@ -221,7 +222,7 @@ Feature: 权限-agent
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
@@ -258,7 +259,7 @@ Feature: 权限-agent
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
@@ -278,3 +279,94 @@ Feature: 权限-agent
     Examples:
       | name          | message                    |
       | AutoTestAgent | 获取 Agent 数据失败，原因：没有相关的功能权限 |
+
+  Scenario: 新建
+    Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
+    And I click the "Create" button
+    Then I will see the "agent.CreatePage" page
+    And I set the parameter "GroupName" with value "验证组内权限"
+    And I choose the "__user_验证授权用户__" from the "RoleDropdown"
+    And I click the "Create" button
+    Then I will see the message "创建成功"
+
+  Scenario Outline: 授权组内读取权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'Agent 管理'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the label before "<name>"
+    And I "unchecked" the label before "<name>"
+    And I "checked" function "读取" from the auth table which name is "<name>"
+    And I "checked" function "读取" from the auth table in group which name is "<name>"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+
+    Examples:
+      | name   |
+      | 验证组内权限 |
+
+  Scenario: 修改agent分组
+    Given open the "agent.ListPage" page for uri "/sources/input/agent/"
+    And I wait for loading invisible
+    When the column is "1" then i click the "分组" button in agent page
+    And I click the "Auth" button
+    Then I click the "Complete" button
+
+  Scenario Outline: 验证组内读取权限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "All#123456"
+    And I click the "LoginButton" button
+    And I wait for title change text to "仪表盘|搜索"
+    Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
+    And the data name is "<name>" then i click the "跳转" button
+    Then I will see the agent result in column "1"
+
+    Examples:
+      | name   |
+      | 验证组内权限 |
+
+  Scenario Outline: 授权组内读取+编辑权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'Agent 管理'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the label before "<name>"
+    And I "unchecked" the label before "<name>"
+    And I "checked" function "读取" from the auth table which name is "<name>"
+    And I "checked" function "读取,编辑" from the auth table in group which name is "<name>"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+
+    Examples:
+      | name   |
+      | 验证组内权限 |
+
+  Scenario Outline: 验证组内读取+编辑权限
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "All#123456"
+    And I click the "LoginButton" button
+    And I wait for title change text to "仪表盘|搜索"
+    Given open the "agent.ListPage" page for uri "/sources/input/agent/"
+    And I wait for loading invisible
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "分组停止重启升级修改备注" button
+    When the column is "1" then i click the "修改备注" button in agent page
+    And I set the parameter "Memo" with value "testAuth"
+    And I click the "EnsureButton" button
+    And  I wait for loading invisible
+    Then I will see the search result contains "{'column':'3','name':'testAuth'}"
+
+    Examples:
+      | name   |
+      | 验证组内权限 |

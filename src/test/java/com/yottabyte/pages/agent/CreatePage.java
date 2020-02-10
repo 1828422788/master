@@ -113,12 +113,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[5]/descendant::input")
     private WebElement SyslogEditdelete;
 
-    public WebElement getSyslogChar() {
-        return SyslogChar;
-    }
-
-    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[4]/descendant::span/i")
+    @FindBy(xpath = "(//div[contains(@class,'ant-select-selection--single')])[last()]")
     private WebElement SyslogChar;
+
+    public WebElement getSyslogChar() {
+        SyslogChar.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getCheckListenaddress() {
         return getCheckpageElement("监听地址");
@@ -373,7 +374,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreate() {
-        return super.getButton("添加");
+        return super.getButton("新建");
     }
 
     public WebElement getCleanOutput() {
