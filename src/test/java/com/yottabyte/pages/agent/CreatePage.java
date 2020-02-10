@@ -84,6 +84,42 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//tr/td[3]/div/div/div/span/div/div/div/ul/li/div/input")
     private WebElement Syslogtag;
 
+    public WebElement getSyslogEditip() {
+        return SyslogEditip;
+    }
+
+    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[1]/descendant::input")
+    private WebElement SyslogEditip;
+
+    public WebElement getSyslogEditappname() {
+        return SyslogEditappname;
+    }
+
+    public WebElement getSyslogEdittag() {
+        return SyslogEdittag;
+    }
+
+    public WebElement getSyslogEditdelete() {
+
+        return SyslogEditdelete;
+    }
+
+    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[2]/descendant::input")
+    private WebElement SyslogEditappname;
+
+    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[3]/descendant::input")
+    private WebElement SyslogEdittag;
+
+    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[5]/descendant::input")
+    private WebElement SyslogEditdelete;
+
+    public WebElement getSyslogChar() {
+        return SyslogChar;
+    }
+
+    @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[4]/descendant::span/i")
+    private WebElement SyslogChar;
+
     public WebElement getCheckListenaddress() {
         return getCheckpageElement("监听地址");
     }
@@ -133,9 +169,10 @@ public class CreatePage extends PageTemplate {
         return getTableElement("脚本");
     }
 
-    public WebElement getSyslogTable() {
-        return getTableElement("Syslog");
+    public WebElement getFuctionTypeTable() {
+        return getTableElement("性能数据");
     }
+
 
 
     public WebElement getSyslogtag() {
@@ -213,20 +250,21 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//td[text()='autohekafiletest']/following-sibling::td//a[text()='编辑']")
     private WebElement EditAutoFile;
 
-
-    public WebElement getSwitchStatus() {
-        return SwitchStatus;
+    public WebElement getDataSourceSwitchStatus() {
+        return getSwitchStatus("autohekafiletest");
     }
-
-    @FindBy(xpath = "//td[text()='autohekafiletest']/following-sibling::td//span[@class='_3c6He8Je7GGUAtVZrEV7Nd']")
-    private WebElement SwitchStatus;
 
     public WebElement getScriptSwitchStatus() {
-        return ScriptSwitchStatus;
+        return getSwitchStatus("autohekascripttest");
     }
 
-    @FindBy(xpath = "//td[text()='autohekascripttest']/following-sibling::td//span[@class='_3c6He8Je7GGUAtVZrEV7Nd']")
-    private WebElement ScriptSwitchStatus;
+    public WebElement getSyslogSwitchStatus() {
+        return getSwitchStatus("192.168.1.31:514");
+    }
+
+    public WebElement getFuctionTypeSwitchStatus() {
+        return getSwitchStatus("磁盘指标, 系统指标");
+    }
 
     public WebElement getSyslogType() {
         return getSoureceTypeElement("Syslog");
@@ -259,11 +297,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getKafkaType() {
         return getSoureceTypeElement("Kafka");
     }
-
-
-
-
-
 
 
     public WebElement getListenaddress() {
@@ -341,16 +374,8 @@ public class CreatePage extends PageTemplate {
         return super.getButton("添加");
     }
 
-    public WebElement getEnsureCleanOutput() {
-        return super.getButton("确定");
-    }
-
     public WebElement getCleanOutput() {
         return cleanOutput;
-    }
-
-    public WebElement getDeleteConfig() {
-        return super.getButton("确定");
     }
 
     public WebElement getSummary() {
@@ -376,6 +401,10 @@ public class CreatePage extends PageTemplate {
     public WebElement getNext() {
         return super.getButton("下一步");
     }
+    public WebElement getFinish() {
+        return super.getButton("完成");
+    }
+
 
     public WebElement getAdd() {
         return super.getButton("添加");
@@ -443,10 +472,23 @@ public class CreatePage extends PageTemplate {
     public WebElement getAppname(){
         return getInputElement("appname");
     }
+    public WebElement getPreAppname(){
+        return getInputElement("appname前缀");
+    }
 
     public WebElement getScriptFile() {
         return getInputElement("脚本文件");
     }
+
+    public WebElement getSpecialPort() {
+        return getInputElement("采集特定端口");
+    }
+
+    public WebElement getFrequency() {
+        return getInputElement("采集频率");
+    }
+
+
     public WebElement getParam() {
         return getInputElement("参数");
     }
@@ -505,6 +547,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTableElement(String name) {
         return webDriver.findElement(By.xpath("//div[text()='" + name +"']/following-sibling::div//tbody"));
+    }
+
+    public WebElement getSwitchStatus(String name) {
+        return webDriver.findElement(By.xpath("//td[text()='" + name +"']/following-sibling::td//span[@class='_3c6He8Je7GGUAtVZrEV7Nd']"));
     }
 
 

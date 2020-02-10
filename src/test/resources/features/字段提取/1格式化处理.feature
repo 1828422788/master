@@ -156,7 +156,7 @@ Feature: 字段提取格式化处理
     And switch to window "Agent 具体配置"
     And I click the "CleanCache" button
     And I click the "CleanOutput" button
-    And I click the "EnsureCleanOutput" button
+    And I click the "Ensure" button
 
   Scenario: 搜索页验证
     Given I wait for loading complete

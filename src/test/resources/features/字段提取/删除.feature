@@ -65,7 +65,7 @@ Feature: 字段提取删除
     When I click the detail with properties "{'column':'1','name':'rizhiyi_server_host'}"
     And switch to window "Agent 具体配置"
     When the data name is "auto_test_format" then i click the "删除" button without paging
-    And I click the "DeleteConfig" button
+    And I click the "Ensure" button
     Then I will see the success message "删除 Agent 配置成功。"
 
   Scenario: 删除搜索权限

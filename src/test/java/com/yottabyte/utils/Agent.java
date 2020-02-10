@@ -10,7 +10,7 @@ public class Agent {
     private List<String> ipList;
 
     public Agent() {
-        String sql = "SELECT ip FROM AgentStatus WHERE `status`='Running' AND last_update_timestamp> SUBDATE(NOW(),interval 15 minute)";
+        String sql = "SELECT ip FROM AgentStatus WHERE (`status`='Running' or `status`='Pending') AND last_update_timestamp> SUBDATE(NOW(),interval 15 minute)";
         this.ipList = JdbcUtils.query(sql);
     }
 
