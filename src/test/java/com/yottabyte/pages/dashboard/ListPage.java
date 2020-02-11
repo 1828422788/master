@@ -32,14 +32,14 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getDashBoardName() {
-        return this.getInputElement("名称");
+        return this.getInput("名称");
     }
 
     public WebElement getResourceInput() {
-        return this.getInputElement("资源标签");
+        return this.getInput("资源标签");
     }
 
-    public WebElement getInputElement(String name) {
+    public WebElement getInput(String name) {
         return webDriver.findElement(By.xpath("(//span[text()='" + name + "'])[last()]/following-sibling::span//input"));
     }
 }

@@ -71,7 +71,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getTag() {
-        return this.getInputElement("标签");
+        return getInputElement("标签");
     }
 
     public WebElement getTagDropdown() {

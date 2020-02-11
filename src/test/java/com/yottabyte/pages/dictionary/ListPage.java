@@ -54,7 +54,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getGroupInput() {
-        return super.getInputElement("字典标签");
+        return super.getInputElement("资源标签");
     }
 
     public WebElement getGroup() {
