@@ -17,7 +17,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -41,7 +41,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -58,7 +58,7 @@ Feature: 权限-字段提取
     And I click the "SwitchButton" button
     When I set the parameter "Name" with value "AutoTestUserCreate"
     And I set the parameter "Logtype" with value "other"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
   Scenario: 取消读取权限
@@ -77,7 +77,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -107,7 +107,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -117,7 +117,7 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    Then I will see the element "NextButton" attribute is "disabled"
+    Then I will see the element "Done" attribute is "disabled"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -150,7 +150,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -163,7 +163,7 @@ Feature: 权限-字段提取
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "AutoTestUserRename"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "标签" button
@@ -173,7 +173,7 @@ Feature: 权限-字段提取
     Then I will see the success message "修改成功"
     And the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "授权" button
     And I wait for loading invisible
-    Then I will see the checkbox in tiny table before "__user_验证授权用户__" is disabled
+    Then I will see the checkbox in tiny table before "验证授权用户" is disabled
 
   Scenario Outline: 授权读取+编辑+删除权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -198,7 +198,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -211,7 +211,7 @@ Feature: 权限-字段提取
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "副本"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'副本'}" then i click the "标签" button
@@ -222,7 +222,7 @@ Feature: 权限-字段提取
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'副本'}" then i click the "授权" button
     And I wait for loading invisible
-    Then I will see the checkbox in tiny table before "__user_验证授权用户__" is disabled
+    Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'副本'}" then i click the "删除" button
@@ -250,14 +250,13 @@ Feature: 权限-字段提取
     When I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用字段提取,可查看角色页,可使用应用功能"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -267,11 +266,11 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    Then I will see the element "NextButton" attribute is "disabled"
+    Then I will see the element "Done" attribute is "disabled"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
-    Then I will see the checkbox in tiny table before "__user_验证授权用户__" is disabled
+    Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
@@ -315,7 +314,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -326,11 +325,11 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    Then I will see the element "NextButton" attribute is "disabled"
+    Then I will see the element "Done" attribute is "disabled"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
-    And I "check" the checkbox which name is "__user_验证授权用户__" in tiny table
+    And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the error message "保存成功"
     Given I will see the "PublicNavBarPage" page
@@ -339,7 +338,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -382,7 +381,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -398,7 +397,7 @@ Feature: 权限-字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
-    And I "check" the checkbox which name is "__user_验证授权用户__" in tiny table
+    And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the error message "保存成功"
     Given I will see the "PublicNavBarPage" page
@@ -407,7 +406,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -417,7 +416,7 @@ Feature: 权限-字段提取
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "副本"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -457,7 +456,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -470,11 +469,11 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    Then I will see the element "NextButton" attribute is "disabled"
+    Then I will see the element "Done" attribute is "disabled"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
-    And I "check" the checkbox which name is "__user_验证授权用户__" in tiny table
+    And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the error message "保存成功"
     Given I will see the "PublicNavBarPage" page
@@ -483,7 +482,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -529,7 +528,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -545,7 +544,7 @@ Feature: 权限-字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
-    And I "check" the checkbox which name is "__user_验证授权用户__" in tiny table
+    And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the error message "保存成功"
     Given I will see the "PublicNavBarPage" page
@@ -554,7 +553,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -564,7 +563,7 @@ Feature: 权限-字段提取
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "副本"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -597,7 +596,7 @@ Feature: 权限-字段提取
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "测试有效期限"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -612,7 +611,7 @@ Feature: 权限-字段提取
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"

@@ -3,6 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -148,11 +149,9 @@ public class ClickButtonWithGivenName {
             tr = listPageUtils.findName(name);
             if (pagingInfo.checkUrl()) {
                 xpath = ".//span[contains(text(),'" + name + "')]";
-            }
-            else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
+            } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
                 xpath = ".//span[contains(text(),'" + name + "')]";
-            }
-            else {
+            } else {
                 xpath = ".//a";
             }
         } else {
@@ -162,11 +161,9 @@ public class ClickButtonWithGivenName {
             tr = listPageUtils.getRowWithColumnNum(text, columnNum);
             if (pagingInfo.checkUrl()) {
                 xpath = ".//span[contains(text(),'" + text + "')]";
-            }
-            else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
+            } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
                 xpath = ".//span[contains(text(),'" + text + "')]";
-            }
-            else {
+            } else {
                 xpath = ".//a";
             }
         }
@@ -310,12 +307,13 @@ public class ClickButtonWithGivenName {
             label.click();
         }
     }
+
     /**
      * 关闭或开启禁用agent数据源开关
      *
-     * @param dataName   要匹配的名称
-     * @param tableName  table元素名称
-     * @param status 状态 open/close
+     * @param dataName  要匹配的名称
+     * @param tableName table元素名称
+     * @param status    状态 open/close
      */
     @Given("^the data name \"([^\"]*)\" in agent table \"([^\"]*)\" then i click the \"([^\"]*)\" switch")
     public void operateAgentSwitch(String dataName, String tableName, String status) {
@@ -381,17 +379,17 @@ public class ClickButtonWithGivenName {
     public void clickAuthFunction(String status, List<String> functions, String name) {
         String preXpath = ".//span[contains(text(),'";
         String sufXpath = "')]";
-        this.clickAuthButton(status,functions,name,preXpath,sufXpath);
+        this.clickAuthButton(status, functions, name, preXpath, sufXpath);
     }
 
     @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table in group which name is \"([^\"]*)\"$")
-    public void clickAuthFunctionInGroup(String status,List<String> functions,String name) {
+    public void clickAuthFunctionInGroup(String status, List<String> functions, String name) {
         String preXpath = "(.//span[contains(text(),'";
         String sufXpath = "')])[last()]";
-        this.clickAuthButton(status,functions,name,preXpath,sufXpath);
+        this.clickAuthButton(status, functions, name, preXpath, sufXpath);
     }
 
-    private void clickAuthButton(String status,List<String> functions,String name,String preXpath,String sufXpath){
+    private void clickAuthButton(String status, List<String> functions, String name, String preXpath, String sufXpath) {
         String url = webDriver.getCurrentUrl();
         String precedingXpath;
         if (url.contains("/account/roles/assign/")) {
@@ -457,5 +455,37 @@ public class ClickButtonWithGivenName {
         String xpath = "//span[contains(text(),'" + chartTitle + "')]/ancestor::span/following-sibling::div//*[@class='" + buttonClass + "']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
+    }
+
+    /**
+     * 勾选弹出框中，特定功能前面的checkbox，比如勾选授权弹框中某一数据的读取权限
+     *
+     * @param status       check/uncheck
+     * @param functionName 可为list，需要勾选按钮的名称
+     * @param name         基准名称
+     */
+    @When("^I \"([^\"]*)\" the function \"([^\"]*)\" which name is \"([^\"]*)\" in tiny table$")
+    public void iTheFunctionWhichNameIsInTinyTable(String status, List<String> functionName, String name) {
+        WebElement tr = listPageUtils.getTinyTr("{'column':'0','name':'" + name + "'}");
+        for (String function : functionName) {
+            WebElement checkbox = tr.findElement(By.xpath(".//span[text()='" + function + "']/preceding-sibling::label"));
+            String currentStatus = checkbox.getAttribute("class");
+            if (currentStatus.contains("checked") && "uncheck".equals(status) || !currentStatus.contains("checked") && "check".equals(status)) {
+                checkbox.click();
+            }
+        }
+    }
+
+    /**
+     * 点击在搜索页中已存搜索弹窗对应数据的按钮
+     *
+     * @param function 按钮名称
+     * @param name     数据名称
+     */
+    @And("^\"([^\"]*)\" the data \"([^\"]*)\" in tiny saved search$")
+    public void operateDataInTinySavedSearch(String function, String name) {
+        WebElement table = webDriver.findElement(By.className("ant-table-tbody"));
+        WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
+        this.click(function, tr);
     }
 }

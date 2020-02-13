@@ -189,6 +189,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//canvas[@style='position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; width: 1126px; height: 289px; cursor: auto;']")
     private WebElement canvas;
 
+    public WebElement getSave() {
+        return super.getButton("保存");
+    }
+
     public WebElement getUpdate() {
         return super.getButton("更新节点");
     }

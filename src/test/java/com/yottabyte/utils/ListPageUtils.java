@@ -57,15 +57,16 @@ public class ListPageUtils {
     }
 
     public WebElement getTinyTr(String dataName) {
-        WebElement tr;
+        String name;
         if (!JsonStringPaser.isJson(dataName)) {
-            tr = this.findNameWithoutTotalNumber(dataName);
+            name = dataName;
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
-            String name = map.get("name").toString();
-            tr = this.findNameWithoutTotalNumber(name);
+            name = map.get("name").toString();
         }
-        return tr;
+        String nextPageXpath = "//li[@class=' ant-pagination-next']";
+        String trListXpath = "//div[@class='ant-modal-body']//tr";
+        return this.clickNextPage(trListXpath, nextPageXpath, name);
     }
 
     public WebElement getTrWithoutPaging(String dataName) {
@@ -151,8 +152,15 @@ public class ListPageUtils {
 //            trListXpath = "//div[@class='ant-modal-content']//tr";
             trListXpath = "//tr";
         }
+        return this.clickNextPage(trListXpath, nextPageXpath, name);
+    }
+
+    private WebElement clickNextPage(String trListXpath, String nextPageXpath, String name) {
         while (true) {
             List<WebElement> trList = webDriver.findElements(By.xpath(trListXpath));
+            while (trList.size()==1) {
+                trList = webDriver.findElements(By.xpath(trListXpath));
+            }
             for (WebElement tr : trList) {
                 if (tr.getText().contains(name)) {
                     return tr;
@@ -160,12 +168,12 @@ public class ListPageUtils {
             }
             WebElement nextPage = webDriver.findElement(By.xpath(nextPageXpath));
             if (nextPage.getAttribute("class").contains("disabled")) {
-                break;
+                return null;
             } else {
                 nextPage.click();
                 WaitForElement.waitUntilLoadingDisappear();
             }
         }
-        return null;
+
     }
 }

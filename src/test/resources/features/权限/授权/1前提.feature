@@ -26,6 +26,31 @@ Feature: 权限-background
     Then I will see the success message "删除成功"
 
   @auth
+  Scenario Outline: 所需用户分组
+    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
+    And I click the "Create" button
+    Then I will see the "userGroups.CreatePage" page
+    When I set the parameter "UserGroupName" with value "<groupProperty>"
+    When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
+    And I click the "CreateButton" button
+    Then I wait for "SuccessMessage" will be visible
+
+    Examples:
+      | groupProperty | UserGroupDes |
+      | 验证授权用户分组      | des1         |
+
+  @auth
+  Scenario: 授权索引配置
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'索引配置'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the label before "yotta"
+    And I click the "SaveButton" button
+    And I will see the success message "保存成功"
+
+  @auth
   Scenario: 添加授权验证用户
     Given open the "users.ListPage" page for uri "/account/users/"
     And I click the "CreateUser" button
@@ -33,6 +58,7 @@ Feature: 权限-background
     When I set the parameter "UserName" with value "验证授权用户"
     And I set the parameter "Email" with value "testAuthGroup@autotest.cn"
     And I set the parameter "Password" with value "All#123456"
+    And I choose the "验证授权用户分组" from the "UserGroups"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 

@@ -20,13 +20,12 @@ Feature: 基础用户创建
     Then I will see the "userGroups.CreatePage" page
     When I set the parameter "UserGroupName" with value "<groupProperty>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
-#    And I choose the "<roleProperty>" from the "UserGroupRole"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 
     Examples:
-      | groupProperty | UserGroupDes | roleProperty |
-      | AutoTestGroup | des1         | AutoTestRole |
+      | groupProperty | UserGroupDes |
+      | AutoTestGroup | des1         |
 
   Scenario: 添加基本用户
     Given open the "users.ListPage" page for uri "/account/users/"
@@ -37,6 +36,5 @@ Feature: 基础用户创建
     And I set the parameter "Email" with value "autoFullName@yottabyte.cn"
     And I set the parameter "Password" with value "All#123456"
     And I choose the "AutoTestGroup" from the "UserGroups"
-#    And I choose the "AutoTestRole" from the "Role"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible

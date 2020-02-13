@@ -1,7 +1,9 @@
 package com.yottabyte.pages.report;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.DropdownUtils;
 import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,18 +17,8 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "el-message-box__message")
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement successMessage;
-
-    // 下拉列表
-    @FindBy(className = "el-select-dropdown__list")
-    private List<WebElement> dropdownLists;
-
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::div/input")
-    private WebElement name;
-
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::div/input")
-    private WebElement describe;
 
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
     private WebElement runningUser;
@@ -37,10 +29,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div//input[@class='el-input__inner']")
     private WebElement reportType;
 
-    @FindBy(xpath = "//li[@class='el-dropdown-menu__item'][1]")
+    @FindBy(xpath = "//li[@class='ant-dropdown-menu-item'][1]")
     private WebElement li;
 
-    @FindBy(xpath = "//span[@class='yw-title']")
+    @FindBy(className = "ant-collapse-header")
     private WebElement topoTitle;
 
     @FindBy(xpath = "//label[text()='接收邮箱']/following-sibling::div//input")
@@ -49,13 +41,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
 
-    @FindBy(xpath = "//label[text()='邮件主题']/following-sibling::div//input")
-    private WebElement subject;
-
-    @FindBy(xpath = "//label[text()='趋势图列表']/following-sibling::div/button")
+    @FindBy(xpath = "//span[text()='趋势图列表']/following-sibling::div/button")
     private WebElement chartList;
 
-    @FindBy(className = "el-dropdown-menu")
+    @FindBy(className = "ant-dropdown-menu")
     private WebElement chartDropdownList;
 
     @FindBy(xpath = "//span[text()='crontab']")
@@ -64,18 +53,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='crontab']//input")
     private WebElement crontab;
 
-    // 下一步
-    @FindBy(className = "yw-extract-primary-btn")
-    private WebElement nextButton;
-
     @FindBy(xpath = "//input[@placeholder='分']")
     private WebElement minute;
 
     @FindBy(xpath = "//input[@placeholder='时']")
     private WebElement hour;
-
-    @FindBy(xpath = "//span[text()='保存']")
-    private WebElement save;
 
     @FindBy(id = "layout1")
     private WebElement layout1;
@@ -248,15 +230,16 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDropdownList() {
-        return dropdownLists.get(dropdownLists.size() - 1);
+        DropdownUtils utils = new DropdownUtils();
+        return utils.getLastDropdownList();
     }
 
     public WebElement getName() {
-        return name;
+        return this.getInput("名称");
     }
 
     public WebElement getDescribe() {
-        return describe;
+        return this.getInput("描述");
     }
 
     public WebElement getRunningUser() {
@@ -287,7 +270,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSubject() {
-        return subject;
+        return this.getInput("邮件主题");
     }
 
     public WebElement getHour() {
@@ -299,7 +282,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getNextButton() {
-        return nextButton;
+        return super.getButton("下一步");
     }
 
     public WebElement getChartList() throws InterruptedException {
@@ -318,7 +301,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSave() {
-        return save;
+        return super.getButton("完成");
     }
 
     public WebElement getCrontab() {
@@ -352,5 +335,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLayout8() {
         return layout8;
+    }
+
+    private WebElement getInput(String name) {
+        String xpath = "//label[contains(text(),'" + name + "')]/following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
     }
 }

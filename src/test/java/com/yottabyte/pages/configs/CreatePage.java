@@ -119,6 +119,10 @@ public class CreatePage extends PageTemplate {
         return super.getButton("返回");
     }
 
+    public WebElement getDone() {
+        return super.getButton("完成");
+    }
+
     public WebElement getReplaceFirst() {
         return replaceFirst;
     }
