@@ -56,13 +56,13 @@ public class ListPage extends ListPageFactory {
     private WebElement tipsyuju; // 提示输入语句
     */
 
-    @FindBy(xpath= "//div[text()='请输入数据集名称']")
+    @FindBy(xpath = "//div[text()='请输入数据集名称']")
     private WebElement tipsname;
 
-    @FindBy(xpath= "//div[text()='请输入别名']")
+    @FindBy(xpath = "//div[text()='请输入别名']")
     private WebElement tipsalias;
 
-    @FindBy(xpath= "//div[text()='请输入约束语句']")
+    @FindBy(xpath = "//div[text()='请输入约束语句']")
     private WebElement tipsyuju;
 
 
@@ -73,43 +73,52 @@ public class ListPage extends ListPageFactory {
     public WebElement getName() {
         return name;
     }
+
     public WebElement getAlias() {
         return alias;
     }
-    public WebElement getYuju() { return yuju; }
+
+    public WebElement getYuju() {
+        return yuju;
+    }
 
     public WebElement getSpl() {
         return spl;
     }
 
-   /* public WebElement getEditEvent() {
+    //勿删！！！
+    public WebElement getEditEvent() {
         return super.getButton("编辑根事件");
-    }*/
+    }
 
-    public WebElement getTipsname(){return tipsname;}
-    public WebElement getTipsalias(){return tipsalias;}
-    public WebElement getTipsyuju(){return tipsyuju;}
+    public WebElement getTipsname() {
+        return tipsname;
+    }
+
+    public WebElement getTipsalias() {
+        return tipsalias;
+    }
+
+    public WebElement getTipsyuju() {
+        return tipsyuju;
+    }
 
 
-
-    public WebElement getApplist(){
+    public WebElement getApplist() {
         applist.click();
         return super.getLastDropdownList();
     }
 
-    public WebElement getResourcegroup()
-    {
+    public WebElement getResourcegroup() {
         resourcegroup.click();
         return super.getLastDropdownList();
     }
 
-    public WebElement getAppbutton()
-    {
+    public WebElement getAppbutton() {
         return appbutton;
     }
 
-    public WebElement getApp_search_list()
-    {
+    public WebElement getApp_search_list() {
         return super.getLastDropdownList();
     }
 
@@ -117,11 +126,17 @@ public class ListPage extends ListPageFactory {
     //新建数据集弹窗中的汇聚继承
     @FindBy(xpath = "//*[@id=\"EditDatabase_action\"]/label[2]/span[2]")
     private WebElement huiju;  //父子行为为汇聚
-    public WebElement getHuiju(){return huiju;}
+
+    public WebElement getHuiju() {
+        return huiju;
+    }
 
 
     @FindBy(xpath = "//*[@id=\"EditDatabase_action\"]/label[3]/span[2]")
     private WebElement jicheng; //父子行为继承
-    public WebElement getJicheng(){return jicheng;}
+
+    public WebElement getJicheng() {
+        return jicheng;
+    }
 
 }

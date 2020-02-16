@@ -17,7 +17,7 @@ Feature: 权限-用户
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "users.ListPage" page for uri "/account/users/"
@@ -38,7 +38,7 @@ Feature: 权限-用户
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "users.ListPage" page for uri "/account/users/"
@@ -46,7 +46,7 @@ Feature: 权限-用户
     And I will see the "users.CreatePage" page
     When I set the parameter "UserName" with value "AutoTestAuth"
     And I set the parameter "Email" with value "AutoTestAuth@152.cn"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "CreateButton" button
     Then I will see the success message "创建成功"
 
@@ -69,6 +69,7 @@ Feature: 权限-用户
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
+    Then I will see the success message "保存成功"
 
   Scenario: 验证无可修改自己账户信息权限
     Given I will see the "PublicNavBarPage" page
@@ -78,7 +79,7 @@ Feature: 权限-用户
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "users.ListPage" page for uri "/account/users/"
@@ -94,11 +95,12 @@ Feature: 权限-用户
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "users.ListPage" page for uri "/account/users/"
-    Then I will see the search result "{'column':'1','name':'AutoTestAuth','contains':'no'}"
+    And I click the detail which name is "{'column':'1','name':'AutoTest'}"
+    Then I will see the "RoleText" doesn't exist
 
   Scenario: 验证可修改自己账户信息
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -116,7 +118,7 @@ Feature: 权限-用户
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "users.ListPage" page for uri "/account/users/"
@@ -148,7 +150,7 @@ Feature: 权限-用户
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "users.ListPage" page for uri "/account/users/"
@@ -179,7 +181,7 @@ Feature: 权限-用户
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "users.ListPage" page for uri "/account/users/"
@@ -215,16 +217,29 @@ Feature: 权限-用户
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "users.ListPage" page for uri "/account/users/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看分组" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看 分组" button
     And I click the detail which name is "{'column':'1','name':'<name>'}"
     And I wait for "RoleAuth" will be visible
     Then I will see the "users.EditPage" page
-    Then I will see the "EditInfoButton" doesn't exist
+    And I click the "EditInfoButton" button
+    And I set the parameter "FullName" with value "test"
+    And I click the "SaveButton" button
+    Then I will see the success message "更新成功"
+
+    Examples:
+      | name         |
+      | AutoTestAuth |
+
+  Scenario Outline: 删除用户
+    Given open the "users.ListPage" page for uri "/account/users/"
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I click the "EnsureButton" button
+    And I will see the success message "删除成功"
 
     Examples:
       | name         |

@@ -170,7 +170,7 @@ public class ListPageUtils {
             if (nextPage.getAttribute("class").contains("disabled")) {
                 return null;
             } else {
-                nextPage.click();
+                ClickEvent.clickUnderneathButton(nextPage);
                 WaitForElement.waitUntilLoadingDisappear();
             }
         }
