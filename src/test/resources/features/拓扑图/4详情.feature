@@ -12,11 +12,16 @@ Feature: 拓扑图详情页
     And I set the parameter "NodeName" with value "node1"
     And I set the parameter "NodeGroup" with value "测试组"
     And I click the "AddNodeButton" button
+    And I click the "Save" button
     And I refresh the website
+    And I accept alert window
     And I click the "Edit" button
     And I set the parameter "NodeName" with value "node2"
     And I set the parameter "NodeGroup" with value "g2"
     Then I click the "AddNodeButton" button
+    And I click the "Save" button
+    And I refresh the website
+    And I accept alert window
 
   @second @topologySmoke
   Scenario: RZY-2515：标识前后缀

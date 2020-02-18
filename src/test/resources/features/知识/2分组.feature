@@ -13,5 +13,5 @@ Feature: 知识分组（RZY-880）
 
     Examples:
       | name   | Type    |
-      | sunxj1 | TestTag |
+      | sunxj1 | testTag |
 
