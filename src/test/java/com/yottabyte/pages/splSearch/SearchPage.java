@@ -33,6 +33,12 @@ public class SearchPage extends ListPageFactory {
         driver.manage().window().setSize(new Dimension(1200,900));
     }
 
+    @FindBy(xpath = "(//label[text()='资源标签'])[last()]/following-sibling::div")
+    private WebElement groupComboBox;
+
+    @FindBy(xpath = "(//label[text()='所属应用'])[last()]/following-sibling::div")
+    private WebElement appComboBox;
+
     @FindBy(xpath = "//div[text()='统计']")
     private WebElement countButton;
 
@@ -259,7 +265,8 @@ public class SearchPage extends ListPageFactory {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
-    @FindBy(xpath = "//div[@class='custom']//div[@class='value el-input']/input")
+
+    @FindBy(xpath = "//input[@class='_11DWHviyrYqinGKO4nRa5o']")
     private WebElement period;
 
     @FindBy(className = "el-input__inner")
@@ -384,7 +391,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='分组']/following-sibling::div")
     private WebElement group;
 
-    @FindBy(xpath = "//div[@class='el-time-panel__footer']/button[text()='确定']")
+    @FindBy(xpath = "//span[text()='确 定']/ancestor::button")
     private WebElement ensureButton;
 
     @FindBy(className = "el-icon--right")
@@ -442,7 +449,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
 
-    @FindBy(className = "el-time-panel")
+    @FindBy(xpath = "(//input[@placeholder='请选择时间']/ancestor::div[2])[last()]")
     private WebElement timePanel;
 
     @FindBy(xpath = "//div[@class='el-message-box']//span[contains(text(),'确定')]")
@@ -514,7 +521,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='从搜索删除']")
     private WebElement removeFromSearch;
 
-    @FindBy(xpath = "//span[text()='执行一次']/preceding-sibling::div[@class='el-select unit']")
+    @FindBy(xpath = "//span[text()='执行一次']/preceding-sibling::div")
     private WebElement executeTime;
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
@@ -565,6 +572,16 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
     private WebElement ensureCreateTrend;
 
+    public WebElement getGroupComboBox() {
+        groupComboBox.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getAppComboBox() {
+        appComboBox.click();
+        return this.getLastDropdownList();
+    }
+
     public WebElement getSearchContent() {
         return searchContent;
     }
@@ -607,9 +624,13 @@ public class SearchPage extends ListPageFactory {
         return crontabInput;
     }
 
+    public WebElement getCrontab(){
+        return crontab;
+    }
+
     public WebElement getExecuteTime() {
         executeTime.click();
-        return lastDropdown;
+        return this.getLastDropdownList();
     }
 
     public WebElement getTag() {
@@ -804,6 +825,10 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getApplyButton() {
         return GetTime.getTime(webDriver, "ApplyButton");
+    }
+
+    public WebElement getApplyCustomTime() {
+        return GetTime.getTime(webDriver, "ApplyCustomTime");
     }
 
     public WebElement getOfflineTaskName() {
@@ -1029,11 +1054,14 @@ public class SearchPage extends ListPageFactory {
         return period;
     }
 
-    @FindBy(xpath = "//span[text()='开始']/preceding-sibling::div/input")
+    @FindBy(xpath = "//span[text()='开始']/preceding-sibling::span/input")
     private WebElement startTime;
 
-    @FindBy(xpath = "//span[text()='明天开始']/preceding-sibling::div/input")
+    @FindBy(xpath = "//span[text()='明天开始']/preceding-sibling::input")
     private WebElement startTomorrow;
+
+    @FindBy(xpath = "//input[@class='ant-time-picker-panel-input']")
+    private WebElement startTimeInput;
 
     public WebElement getStartTomorrow() {
         return startTomorrow;
@@ -1041,6 +1069,10 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getStartTime() {
         return startTime;
+    }
+
+    public WebElement getStartTimeInput() {
+        return startTimeInput;
     }
 
     // 运行用户
@@ -1052,7 +1084,8 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getDescribe() {
-        return describe;
+        //return describe;
+        return InputUtils.getInputElement("描述");
     }
 
     public WebElement getTaskName() {
@@ -1089,16 +1122,24 @@ public class SearchPage extends ListPageFactory {
         return GetTime.getTime(webDriver, "RealTimeButton");
     }
 
-    public WebElement getThisMonth() {
-        return GetTime.getTime(webDriver, "ThisMonth");
+    @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
+    private WebElement customTimeTab;
+
+    public WebElement getCustomTimeTab() {
+        return customTimeTab;
     }
 
-    public WebElement getLastWeek() {
-        return GetTime.getTime(webDriver, "LastWeek");
+    public WebElement getStartTimeField() {
+        return GetTime.getTime(webDriver, "StartTimeInput");
     }
-
-    public void getCustomTime() {
-        GetTime.getTime(webDriver, "CustomTime");
+    public WebElement getEndTimeField() {
+        return GetTime.getTime(webDriver, "EndTimeInput");
+    }
+    public WebElement getStartDateField() {
+        return GetTime.getTime(webDriver, "StartDateInput");
+    }
+    public WebElement getEndDateField() {
+        return GetTime.getTime(webDriver, "EndDateInput");
     }
 
     /**
@@ -1144,6 +1185,30 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getThisWeek() {
         return GetTime.getTime(webDriver, "ThisWeek");
+    }
+
+    public WebElement getThisMonth() {
+        return GetTime.getTime(webDriver, "ThisMonth");
+    }
+
+    public WebElement getLastWeek() {
+        return GetTime.getTime(webDriver, "LastWeek");
+    }
+
+    public WebElement getLastMonth() {
+        return GetTime.getTime(webDriver, "LastMonth");
+    }
+
+    public WebElement getOneDay() {
+        return GetTime.getTime(webDriver, "OneDay");
+    }
+
+    public WebElement getTwoDays() {
+        return GetTime.getTime(webDriver, "TwoDays");
+    }
+
+    public WebElement getSevenDays() {
+        return GetTime.getTime(webDriver, "SevenDays");
     }
 
     // 获取昨天按钮

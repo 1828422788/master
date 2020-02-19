@@ -171,8 +171,8 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/816_时间直方图/<caseNum>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/816_时间直方图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/816_时间直方图/<caseNum>.png"
+    And take part of "Chart" with name "日志展现/普通统计视图/816_数值间隔/<caseNum>"
+    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/816_数值间隔/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/816_数值间隔/<caseNum>.png"
 
     Examples:
       | fieldValue      | number  | caseNum |

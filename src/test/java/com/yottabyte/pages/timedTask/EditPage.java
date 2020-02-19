@@ -16,14 +16,22 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='描述']/following-sibling::div//input")
     private WebElement describe;
 
-    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div/div/input")
     private WebElement user;
 
-    @FindBy(xpath = "//label[text()='日志来源']/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-select-dropdown__wrap el-scrollbar__wrap']//li[@class = 'el-select-dropdown__item selected hover']/span")
+    private WebElement userChosen;
+
+    //@FindBy(xpath = "//label[text()='日志来源']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='数据集']/following-sibling::span")
     private WebElement resource;
 
-    @FindBy(xpath = "//label[text()='任务分组']/following-sibling::div//input")
+    //@FindBy(xpath = "//label[text()='任务分组']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div/div/span/span/span")
     private WebElement taskGroup;
+
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div/span/span/span")
+    private WebElement taskApp;
 
     @FindBy(xpath = "//div[@class='custom']//input[@placeholder='请输入']")
     private WebElement period;
@@ -103,6 +111,10 @@ public class EditPage extends PageTemplate {
     public WebElement getUnit() {
         unit.click();
         return getLastDropdownList();
+    }
+
+    public WebElement getUserChosen() {
+        return userChosen;
     }
 
     public WebElement getTextarea() {
@@ -210,9 +222,16 @@ public class EditPage extends PageTemplate {
         return dropdownLists.get(dropdownLists.size() - 1);
     }
 
+//    public WebElement getTaskGroup() {
+//        taskGroup.click();
+//        return dropdownLists.get(dropdownLists.size() - 1);
+//    }
     public WebElement getTaskGroup() {
-        taskGroup.click();
-        return dropdownLists.get(dropdownLists.size() - 1);
+        return taskGroup;
+    }
+
+    public WebElement getTaskApp() {
+        return taskApp;
     }
 
     public WebElement getPeriod() {

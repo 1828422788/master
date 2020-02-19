@@ -38,6 +38,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-button--primary")
     private List<WebElement> ensureButton;
 
+    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
+    private WebElement ensureDelete;
+
     // 表体
     @FindBy(className = "el-table__body")
     private WebElement tableBody;
@@ -125,10 +128,12 @@ public class ListPage extends ListPageFactory {
         return ensureButton.get(0);
     }
 
+//    public WebElement getEnsureDelete() {
+//        return ensureButton.get(1);
+//    }
     public WebElement getEnsureDelete() {
-        return ensureButton.get(1);
+        return ensureDelete;
     }
-
 //    public WebElement getGroup() {
 //        return super.getDropdownList("分组");
 //    }

@@ -133,6 +133,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'单值')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement single;
 
+    @FindBy(xpath = "(//div[contains(text(),'环形比例图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement ring;
+
     @FindBy(xpath = "(//div[contains(text(),'水球图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement liquidfill;
 
@@ -218,10 +221,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='时序'])[last()]")
     private WebElement timeSequence;
 
+    @FindBy(xpath = "(//div[text()='对比'])[last()]")
+    private WebElement compare;
+
+    @FindBy(xpath = "(//div[text()=' 分面'])[last()]")
+    private WebElement facet;
+
 //-----------------------------------------------
 //Inputs ----------------------------------------
 
-    @FindBy(xpath = "//span[text()='单位']/ancestor::div/following-sibling::input")
+    @FindBy(xpath = "(//span[text()='单位'])[last()]/ancestor::div/following-sibling::input")
     private WebElement unit;
 
     @FindBy(xpath = "//span[text()='图标名称']/ancestor::div/following-sibling::div[1]//input")
@@ -254,11 +263,24 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='斥力因子']/ancestor::div/following-sibling::input")
     private WebElement repulsion;
 
+    @FindBy(xpath = "(//span[text()='行数']/preceding-sibling::input)[last()]")
+    private WebElement rowNum;
+
+    @FindBy(xpath = "(//span[text()='列数']/preceding-sibling::input)[last()]")
+    private WebElement columnNum;
+
 //------------------------------------------------
 //Dropdown Fields---------------------------------
 
     @FindBy(xpath = "(//span[text()='字段值'][last()])/ancestor::div/following-sibling::div[1]")
     private WebElement fieldValue;
+
+    //@FindBy(xpath = "(//span[text()='类型'][last()])/ancestor::div/following-sibling::div[1]")
+    @FindBy(className = "_60Zb-B7E6TtmTcIJHF1wy ant-select ant-select-enabled")
+    private WebElement typeChartField;
+
+    @FindBy(xpath = "(//span[text()='数值字段'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement numericField;
 
     @FindBy(xpath = "(//span[text()='经度'][last()])/ancestor::div/following-sibling::div[1]")
     private WebElement fieldLongitude;
@@ -266,10 +288,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='纬度'][last()])/ancestor::div/following-sibling::div[1]")
     private WebElement fieldLatitude;
 
-    @FindBy(xpath = "(//span[text()='upper'])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[text()='上限'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement topLimit;
 
-    @FindBy(xpath = "(//span[text()='lower'])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[text()='下限'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement lowerLimit;
 
     @FindBy(xpath = "(//span[text()='对比时间'][last()])/ancestor::div/following-sibling::div[1]")
@@ -314,6 +336,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='气泡大小'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement bubbleSize;
 
+    @FindBy(xpath = "(//span[text()='数据精度'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement precision;
+
+    @FindBy(xpath = "(//span[text()='展示字段'][last()])/ancestor::div/following-sibling::div[1]")
+    private WebElement displayField;
+
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]")
+    private WebElement groupField;
+
+    @FindBy(xpath = "(//label[text()='所属应用'][last()])/following-sibling::div[1]")
+    private WebElement appField;
 //---------------------------------
 //Colors --------------------------
 
@@ -353,6 +386,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='多级']/ancestor::div/following-sibling::button")
     private WebElement multistage;
 
+    @FindBy(xpath = "//span[text()='使用千分隔符']/ancestor::div/following-sibling::button")
+    private WebElement thousandSeparator;
+
 //---------------------------------
 //Buttons -------------------------
 
@@ -391,6 +427,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv _2FmD69BXKIajYmOQLvFY29 _14T_hDxmrDu4vX6PHAQs1u'])[last()]")
     private WebElement deleteLast;
+
+    @FindBy(xpath = "//span[text()='前面']")
+    private WebElement unitPositionBefore;
+
+    @FindBy(xpath = "//span[text()='后面']")
+    private WebElement unitPositionAfter;
 
 // Legend Positions
     @FindBy(xpath = "(//div[text()='底部'])[last()]")
@@ -735,6 +777,10 @@ public class CreatePage extends PageTemplate {
         return single;
     }
 
+    public WebElement getRing() {
+        return ring;
+    }
+
     public WebElement getLiquidfill() {
         return liquidfill;
     }
@@ -848,6 +894,14 @@ public class CreatePage extends PageTemplate {
         return repulsion;
     }
 
+    public WebElement getRowNum() {
+        return rowNum;
+    }
+
+    public WebElement getColumnNum(){
+        return columnNum;
+    }
+
     public WebElement getScrollbar() {
         return scrollbar;
     }
@@ -864,6 +918,16 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getFieldValue() {
         fieldValue.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getTypeChartField() {
+        typeChartField.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getNumericField() {
+        numericField.click();
         return this.getLastDropdownList();
     }
 
@@ -900,6 +964,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDeleteLast() {
         return deleteLast;
+    }
+
+    public WebElement getUnitPositionBefore() {
+        return unitPositionBefore;
+    }
+
+    public WebElement getUnitPositionAfter() {
+        return unitPositionAfter;
     }
 
     public WebElement getTransparency() {
@@ -1097,6 +1169,26 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    public WebElement getPrecision() {
+        precision.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getDisplayField() {
+        displayField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getGroupField() {
+        groupField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getAppField() {
+        appField.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getPile() {
         return pile;
     }
@@ -1104,6 +1196,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getMultistage() {
         return multistage;
     }
+
+    public WebElement getThousandSeparator() {return thousandSeparator; }
 
     public WebElement getReport() {
         return report;
@@ -1140,6 +1234,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getNextButton() {
         return getButton("下一步");
+    }
+
+    public WebElement getFinishButton() {
+        return getButton("完成");
     }
 
     public WebElement getSearchButton() {
@@ -1406,6 +1504,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTimeSequence() {
         return timeSequence;
+    }
+
+    public WebElement getCompare() {
+        return compare;
+    }
+
+    public WebElement getFacet() {
+        return facet;
     }
 
     public WebElement getInputElement(String name) {

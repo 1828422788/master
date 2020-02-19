@@ -85,8 +85,11 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//a[@class='ant-calendar-today-btn ']")
     private WebElement todayDate;
 
-    @FindBy(xpath = "//span[@class='_2izLp4Zc5jxN1ipFB8ZiS9']/span[1]")
-    private WebElement clickOut;
+    @FindBy(xpath = "//div[@class='ant-calendar-panel']")
+    private WebElement datePanel;
+
+    @FindBy(xpath = "//div[@class='ant-time-picker-panel-inner']")
+    private WebElement timePanel;
 
 // 数值分段
 
@@ -395,8 +398,8 @@ public class StatisticalPage extends PageTemplate {
         return todayDate;
     }
 
-    public WebElement getClickOut() {
-        return clickOut;
+    public WebElement getTimePanel() {
+        return timePanel;
     }
 
     public WebElement getAddNum() {

@@ -17,6 +17,19 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
+    @FindBy(xpath = "//span[text() = '创建']/ancestor::button")
+    private WebElement createButton;
+
+    @FindBy(xpath = "//div[text() = '新建']")
+    private WebElement newTrendButton;
+
+    public WebElement getNewTrendButton(){
+        createButton.click();
+        return newTrendButton;
+    }
+
+
+
     public WebElement getMessage() {
         return message;
     }
