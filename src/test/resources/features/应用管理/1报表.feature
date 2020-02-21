@@ -3,19 +3,21 @@ Feature: 应用报表（RZY-2127）
 
   Scenario: 新建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
-    And I set the parameter "NameInput" with value "AutoTestForReport"
-    And I choose the "ReportApp" from the "AppDropdown"
-    And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10 "
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for "Header" will be visible
     And I click the "NextButton" button
-    Then I wait for "SuccessCreate" will be visible
+    When I set the parameter "NameInput" with value "AutoTestForReport"
+    And I choose the "ReportApp" from the "AppDropdown"
+    And I click the "Complete" button
+    And I wait for "SuccessCreate" will be visible
 
   Scenario: 新建报表
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -25,7 +27,7 @@ Feature: 应用报表（RZY-2127）
     Then I will see the "report.ListPage" page
     When I click the "Create" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "ReportApp"
+    And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoAppReport"
     And I set the parameter "Subject" with value "AutoTest"
@@ -33,14 +35,14 @@ Feature: 应用报表（RZY-2127）
     And I set the parameter "Minute" with value "1"
     And I click the "NextButton" button
     Then I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "ReportApp"
+    And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.CreatePage" page
     And I choose the "AutoTestForReport" from the "ChartList"
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
     And I will see the "app.AppPage" page
-    Then I will see the element "OldTitle" name is "ReportApp"
+    Then I will see the element "Title" name is "ReportApp"
 
   Scenario: 禁用报表
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -61,7 +63,7 @@ Feature: 应用报表（RZY-2127）
     Then I will see the "report.ListPage" page
     When the data name is "{'column':'1','name':'AutoAppReport'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "ReportApp"
+    And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoAppForReport"
     And I click the "NextButton" button
@@ -104,7 +106,7 @@ Feature: 应用报表（RZY-2127）
     Then I will see the "report.ListPage" page
     And I click the "Report" button
     Then I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "ReportApp"
+    And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
     And I click the "ReturnList" button
     Then I will see the "app.AppPage" page
@@ -154,7 +156,7 @@ Feature: 应用报表（RZY-2127）
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
-    Then I will see the success message "<message>"
+    Then I wait for element "Message" change text to "<message>"
 
     Examples:
       | name             | message  |

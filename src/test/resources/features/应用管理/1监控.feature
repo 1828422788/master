@@ -52,19 +52,6 @@ Feature: 应用监控模块（RZY-2122）
       | name                       |
       | AutoTestAppAlertChangeName |
 
-  Scenario: 在搜索中打开
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "AlertApp" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AlertApp"
-    Then I will see the "alert.ListPage" page
-    When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName'}" then i click the "在搜索中打开" button
-    And switch to another window
-    And I wait for loading invisible
-    And the page's title will be "搜索"
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AlertApp"
-
   Scenario: 告警插件
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AlertApp" then i click the "打开" button
@@ -77,7 +64,6 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "OldTitle" name is "AlertApp"
     Then I will see the "alert.PluginPage" page
     And I click the "Upload" button
-    And I choose the "告警类型" from the "PluginType"
     And I upload a file with name "/src/test/resources/testdata/alertPlugins/sendSms.py"
     And I wait for "VerifyText" will be visible
     And I click the "EnsureButton" button

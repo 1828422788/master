@@ -103,6 +103,7 @@ Feature: 应用知识模块（RZY-2128）
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page
     Given the data name is "{'column':'1','name':'<Name>'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     When I click the "Ensure" button
     And I will see the success message "删除知识成功"
 

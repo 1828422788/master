@@ -477,7 +477,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='更新成功']")
     private WebElement successUpdate;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//input")
     private WebElement appDropdownIcon;
 
     @FindBy(className = "ant-popover-inner-content")

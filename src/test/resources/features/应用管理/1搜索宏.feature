@@ -105,6 +105,7 @@ Feature: 应用搜索宏（RZY-2126）
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
     When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I wait for element "Message" change text to "删除成功"
 

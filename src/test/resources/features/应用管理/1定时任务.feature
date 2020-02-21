@@ -11,7 +11,7 @@ Feature: 应用定时任务(RZY-2123)
     And I click the "DateEditor" button
     And I click the "<time>" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I wait for element "SearchContent" change text to "<spl>"

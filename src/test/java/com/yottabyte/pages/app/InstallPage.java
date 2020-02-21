@@ -40,7 +40,7 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//i[@class='el-icon-circle-check']/following-sibling::span")
     private WebElement importSuccess;
 
-    @FindBy(xpath = "//span[contains(text(),'app')]")
+    @FindBy(xpath = "(//span[contains(text(),'AutoTestApp')])[last()]")
     private WebElement resultDataset;
 
     @FindBy(className = "el-icon-search")

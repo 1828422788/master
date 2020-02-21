@@ -27,6 +27,7 @@ Feature: 拓扑图详情页
   Scenario: RZY-2515：标识前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
+    And I wait for "1000" millsecond
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识前后缀"
     And I set the parameter "Token" with value "first"
@@ -49,12 +50,14 @@ Feature: 拓扑图详情页
     And I choose the "avg(apache.resp_len)" from the "FiledInput"
     And I click the "Apply" button
     Then I wait for "SuccessMessage" will be visible
+    And I refresh the website
+    And I accept alert window
 
   @second @topologySmoke
   Scenario: RZY-2517：标识分隔符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I click the "Edit" button
+    And I wait for "1000" millsecond
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识分隔符"
     And I set the parameter "Token" with value "second"
@@ -78,12 +81,14 @@ Feature: 拓扑图详情页
     And I wait for "1000" millsecond
     And I choose the "count()" from the "FiledInput"
     And I click the "Apply" button
+    And I refresh the website
+    And I accept alert window
 
   @second @topologySmoke
   Scenario: RZY-2519：标识值前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I click the "Edit" button
+    And I wait for "1000" millsecond
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识值前后缀"
     And I set the parameter "Token" with value "third"
@@ -108,22 +113,21 @@ Feature: 拓扑图详情页
     And I wait for "1000" millsecond
     And I choose the "dc(cnt)" from the "FiledInput"
     And I click the "Apply" button
-
-  @all @topologySmoke
-  Scenario: 夜间模式截图（RZY-1230）
-    And I click the detail which name is "sxjautotest"
-    Then I will see the "topology.DetailPage" page
-    Then I click the "NightMode" button
+    And I refresh the website
+    And I accept alert window
 
   @all @smoke @topologySmoke
   Scenario Outline: 添加文本、下拉输入项成功（RZY-1239、RZY-1240）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
+    And I wait for "1000" millsecond
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
     Then I choose the "<inputType>" from the "InputType"
     Then I click the "EnsureInputButton" button
+    And I refresh the website
+    And I accept alert window
 
     Examples:
       | title           | token | inputType |
@@ -133,14 +137,17 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加动态菜单输入项失败
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
-    Then I click the "AddInputButton" button
-    Then I set the parameter "Title" with value "<title>"
-    Then I set the parameter "Token" with value "<token>"
-    Then I choose the "<inputType>" from the "InputType"
-    Then I set the parameter "DynamicFields" with value "<dynamicFields>"
-    Then I set the parameter "SearchInput" with value "<searchInput>"
-    Then I click the "SearchInputButton" button
-    Then I will see the success message "<message>"
+    And I wait for "1000" millsecond
+    And I click the "AddInputButton" button
+    And I set the parameter "Title" with value "<title>"
+    And I set the parameter "Token" with value "<token>"
+    And I choose the "<inputType>" from the "InputType"
+    And I set the parameter "DynamicFields" with value "<dynamicFields>"
+    And I set the parameter "SearchInput" with value "<searchInput>"
+    And I click the "SearchInputButton" button
+    And I will see the success message "<message>"
+    And I refresh the website
+    And I accept alert window
 
   @all
     Examples:
@@ -152,6 +159,7 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加动态菜单输入项成功（RZY-1243）
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
+    And I wait for "1000" millsecond
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -164,6 +172,8 @@ Feature: 拓扑图详情页
     Then I will see the success message "动态字段搜索完成!"
     Then I choose the "69" from the "DynamicDefault"
     Then I click the "SearchInputButton" button
+    And I refresh the website
+    And I accept alert window
 
   @all @smoke @topologySmoke
     Examples:
@@ -173,18 +183,21 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加输入项失败
     And I click the detail which name is "sxjautotest"
     Then I will see the "topology.DetailPage" page
+    And I wait for "1000" millsecond
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
     Then I click the "EnsureInputButton" button
     Then I will see the success message "<message>"
+    And I refresh the website
+    And I accept alert window
 
   @all
     Examples:
       | title           | token | message  |
       |                 |       | 请填写标题    |
       | title           |       | 请填写token |
-      | apache.resp_len | tag1  | 当前标识已存在! |
+#      | apache.resp_len | tag1  | 当前标识已存在! |
 
 #  Scenario Outline: 禁用、启用编辑（RZY-356至357）
 #    And I click the detail which name is "sxjautotest"
@@ -586,7 +599,6 @@ Feature: 拓扑图详情页
     And I set the parameter "SetColourInput" with value "#16DDE4"
     Then I click the "EnsureSetColourButton" button
     Then I click the "Apply" button
-
     Then I click the "RightTop" button
     Then I set the parameter "TextArea" with value "<rightValue>"
     Then I click the "DateEditor" button

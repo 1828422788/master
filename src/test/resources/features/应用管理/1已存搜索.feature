@@ -35,7 +35,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "Trend" button
     And I set the parameter "TaskName" with value "AutoCreateApp"
@@ -99,9 +99,12 @@ Feature: 应用已存搜索（RZY-2125）
     Then I will see the "splSearch.SavedSearchPage" page
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoApp'}" then i click the "授权" button
-    And I "check" the checkbox which name is "__user_AutoTest__" in tiny table
+    And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -114,7 +117,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"

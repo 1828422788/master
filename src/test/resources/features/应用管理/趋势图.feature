@@ -7,20 +7,20 @@ Feature: 应用趋势图
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "TrendApp" then i click the "打开" button
     Then I will see the "trend.ListPage" page
-    When I click the "Create" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "TrendApp"
+    And I click the "CreateButton" button
+    And I click the "Create" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "NameInput" with value "<name>"
-    And I click the "NextButton" button
-    And I set the parameter "SearchInput" with value "<spl>"
+    And I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10 "
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for "Header" will be visible
     And I click the "NextButton" button
-    Then I will see the element "SuccessCreate" name is "新建成功！"
+    When I set the parameter "NameInput" with value "AutoTest"
+    And I click the "NextButton" button
+    And I wait for "SuccessCreate" will be visible
     And I click the "Report" button
     And switch to another window
     And I will see the "app.AppPage" page
@@ -37,8 +37,8 @@ Feature: 应用趋势图
     Then I will see the success message "保存成功"
 
     Examples:
-      | name    | spl                                                                          | reportName |
-      | AutoApp | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10 | AutoApp    |
+      | name    | reportName |
+      | AutoApp | AutoApp    |
 
   Scenario Outline: 复制趋势图
     Given open the "app.ListPage" page for uri "/app/list/"
