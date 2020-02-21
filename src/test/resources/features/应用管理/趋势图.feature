@@ -1,8 +1,6 @@
 @app @appSmoke
 Feature: 应用趋势图
 
-  Background:
-
   Scenario Outline: 新建趋势图并存为报表
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "TrendApp" then i click the "打开" button
