@@ -99,11 +99,11 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getAgent() {
-        return this.getElementWithLinkName("Agent");
+        return this.getElementWithLinkName("Agent管理");
     }
 
     public WebElement getIndexsetting() {
-        return this.getElementWithLinkName("路由");
+        return this.getElementWithLinkName("路由配置");
     }
 
     public WebElement getIngestpriority() {
@@ -111,15 +111,15 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getUpload() {
-        return this.getElementWithLinkName("上传");
+        return this.getElementWithLinkName("本地上传");
     }
 
     public WebElement getBackup() {
-        return this.getElementWithLinkName("备份");
+        return this.getElementWithLinkName("备份策略");
     }
 
     public WebElement getDownload() {
-        return this.getElementWithLinkName("下载");
+        return this.getElementWithLinkName("下载管理");
     }
 
     public WebElement getOfflineTask() {
@@ -134,10 +134,6 @@ public class AppPage extends PageTemplate {
         return this.getElementWithLinkName("角色权限");
     }
 
-    public WebElement getResourceGroup() {
-        return this.getElementWithLinkName("资源分组");
-    }
-
     public WebElement getUserGroup() {
         return this.getElementWithLinkName("用户分组");
     }
@@ -147,7 +143,7 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getLimit() {
-        return this.getElementWithLinkName("限额");
+        return this.getElementWithLinkName("使用限额");
     }
 
     public WebElement getPayment() {
