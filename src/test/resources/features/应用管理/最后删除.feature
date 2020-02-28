@@ -4,11 +4,13 @@ Feature: 应用删除
   Scenario Outline:
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I will see the success message "删除成功"
 
     Examples:
       | name                        |
+      | DatasetApp                  |
       | AutoTestAppWithAllResources |
       | EventApp                    |
       | ReportApp                   |

@@ -37,6 +37,8 @@ Feature: 应用知识模块（RZY-2128）
     When I set the parameter "SearchInput" with value "<search>"
     And I click the "Search" button
     And I wait for element "SearchCount" change text to "<value>"
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "KnowledgeApp"
 
     Examples:
       | search      | value       |
