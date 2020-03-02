@@ -40,7 +40,7 @@ public class DetailPage extends PageTemplate {
     private WebElement addNodeButton;
 
     @FindBy(className = "el-message-box__message")
-    private WebElement alert;
+    private WebElement message;
 
     @FindBy(className = "leftright")
     private WebElement leftRightButton;
@@ -114,8 +114,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-message__group']")
     private WebElement successMessage;
 
-    @FindBy(xpath = "(//div[@class='el-message__group'])[2]")
-    private WebElement message;
+//    @FindBy(xpath = "(//div[@class='el-message__group'])[2]")
+//    private WebElement message;
 
     @FindBy(xpath = "//p[text()='+ 添加']")
     private WebElement addColourButton;
@@ -279,10 +279,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getLeftRightButton() {
         return leftRightButton;
-    }
-
-    public WebElement getAlert() {
-        return alert;
     }
 
     public WebElement getAddNodeButton() {

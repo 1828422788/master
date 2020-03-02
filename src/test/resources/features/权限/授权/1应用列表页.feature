@@ -91,6 +91,7 @@ Feature: 权限-应用列表页
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "app"
     And I click the "SearchIcon" button
+    And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
