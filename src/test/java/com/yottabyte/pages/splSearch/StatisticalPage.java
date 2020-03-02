@@ -203,10 +203,12 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='地理分布']")
     private WebElement geographicalDistribution;
 
-    @FindBy(xpath = "//*[text()='230']/ancestor::*[2]")
+    //230
+    @FindBy(xpath = "//*[text()='231']/ancestor::*[2]")
     private WebElement countryChina;
 
-    @FindBy(xpath = "//*[text()='42']/ancestor::*[2]")
+    //42
+    @FindBy(xpath = "//*[text()='43']/ancestor::*[2]")
     private WebElement provinceSichuan;
 
 //    @FindBy(xpath = "//*[text()='92']/ancestor::*[2]|//*[text()='46']/ancestor::*[2]")

@@ -269,6 +269,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='列数']/preceding-sibling::input)[last()]")
     private WebElement columnNum;
 
+    @FindBy(xpath = "//span[text()='展示字号']/ancestor::div/following-sibling::input")
+    private WebElement fontSize;
+
 //------------------------------------------------
 //Dropdown Fields---------------------------------
 
@@ -350,22 +353,22 @@ public class CreatePage extends PageTemplate {
 //---------------------------------
 //Colors --------------------------
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(156, 39, 176);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(161, 20, 249);')])[last()]")
     private WebElement purple;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(229, 28, 35);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(248, 0, 80);')])[last()]")
     private WebElement red;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(255, 152, 0);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 173, 8);')])[last()]")
     private WebElement orange;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(37, 155, 36);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(50, 194, 125);')])[last()]")
     private WebElement green;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(83, 196, 27);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(179, 198, 92);')])[last()]")
     private WebElement lightGreen;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(255, 235, 59);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 227, 16);')])[last()]")
     private WebElement yellow;
 
 //---------------------------------
@@ -900,6 +903,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getColumnNum(){
         return columnNum;
+    }
+
+    public WebElement getFontSize() {
+        return fontSize;
     }
 
     public WebElement getScrollbar() {

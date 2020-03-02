@@ -6,8 +6,7 @@ Feature: 高级搜索视图_其它
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-# BUG Funnel runtime error
-  Scenario Outline: 其它(RZY-2303,2804,2807,2449)
+  Scenario Outline: others(RZY-2804,2807,2449)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -17,159 +16,22 @@ Feature: 高级搜索视图_其它
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+
+    And I click the "Type" button
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png"
+    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
       |  chartType    |caseNum  |   spl   |
-      |   Single      | 2303    | tag:auto_sample_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
       |   Wordcloud   | 2804    | tag:auto_sample_chart \| stats count() by apache.geo.city |
       |   Radar       | 2807    | tag:auto_sample_chart \| stats count() by apache.status,apache.geo.city |
-#      |   Funnel      | 2449    | tag:auto_sample_chart \| stats count() by apache.clientip \| limit 5 |
+      |   Funnel      | 2449    | tag:auto_sample_chart \| stats count() by apache.clientip \| limit 5 |
 
-  Scenario Outline: 其它_单值_icon(RZY-2799)
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Icon" button
-    And I click the "AccordingField" button
-    And I choose the "<iconValue>" from the "FieldValue"
-    And I click the "Generate" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>/<caseNum>_<iconValue>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>/<caseNum>_<iconValue>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>/<caseNum>_<iconValue>.png"
 
-    Examples:
-      |  chartType    |   iconValue  |  caseNum  |   spl   |
-      |   Single      |    icon      |   2799    | tag:auto_sample_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      |    cnt       |   2799    | tag:auto_sample_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-
-  Scenario Outline: 其它_单值_font(RZY-2799)
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Icon" button
-    And I click the "AccordingName" button
-    And I set the parameter "IconName" with value "<fontValue>"
-    And I click the "Generate" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>/<caseNum>_<fontValue>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>/<caseNum>_<fontValue>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>/<caseNum>_<fontValue>.png"
-
-    Examples:
-      |  chartType    |   fontValue       |  caseNum  |   spl   |
-      |   Single      | font-awesome-flag |   2799    | tag:auto_sample_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      | font-awesome      |   2799    | tag:auto_sample_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-
-# BUG background is not shown
-  Scenario Outline: 其它_单值_背景(RZY-2800)
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Exhibition" button
-    And I click the "Background" button
-    And I click the "Generate" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png"
-
-    Examples:
-      |  chartType    |  caseNum  |   spl   |
-      |   Single      |   2800    | tag:auto_sample_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-
-# BUG infinity
-  Scenario Outline: 其它_单值_按趋势(RZY-1369)
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Exhibition" button
-    And I click the "AccordingTrend" button
-    And I choose the "<timeValue>" from the "ContrastTime"
-    And I click the "Generate" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>"
- #   Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png"
-
-    Examples:
-      |  chartType    |  caseNum  | timeValue    |   spl   |
-      |   Single      |   1369    | 一天前        |tag:auto_sample_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-
-#BUG background is not displayed
-  Scenario Outline: 其它_单值_按区间(RZY-1370)
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Exhibition" button
-    And I click the "AccordingArea" button
-    And I set the parameter "MinRange" with value "<minVal1>"
-    And I set the parameter "MaxRange" with value "<maxVal1>"
-    And I click the "AddColor" button
-    And I click the "<color1>" button
-    And I click the "AddRange" button
-    And I set the parameter "MinRange" with value "<minVal2>"
-    And I set the parameter "MaxRange" with value "<maxVal2>"
-    And I click the "AddColor" button
-    And I click the "<color2>" button
-    And I click the "<colorFill>" button
-    And I click the "Generate" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>/<caseNum>_<chartType>_<colorFill>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>/<caseNum>_<chartType>_<colorFill>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>/<caseNum>_<chartType>_<colorFill>.png"
-
-    Examples:
-      |  chartType    |  caseNum  | minVal1 | maxVal1  |  color1  | minVal2 | maxVal2  |  color2  | colorFill     |   spl   |
-      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Font         |tag:auto_sample_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Background   |tag:auto_sample_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-
-  Scenario Outline: 其它_雷达图(RZY-2808)
+  Scenario Outline: radar(RZY-2808)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -182,25 +44,26 @@ Feature: 高级搜索视图_其它
     And I click the "Settings" button
     And I click the "Divide" button
     And I choose the "<divField>" from the "FieldValue"
-    And I click the "UnifyMetric" button
     And I click the "Indicator" button
     And I choose the "<divField>" from the "FieldValue"
+    And I click the "UnifyMetric" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color1>" button
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png"
+    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
       |  chartType    | divField       | color1 | caseNum  |   spl   |
       |   Radar       | apache.geo.city| Yellow | 2808    | tag:auto_sample_chart \| stats count() by apache.status,apache.geo.city |
 
-#BUG runtime error
-  Scenario Outline: 其它_漏斗图(RZY-2809)
+  Scenario Outline: funnel(RZY-2809)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -221,17 +84,20 @@ Feature: 高级搜索视图_其它
     And I click the "AddColor" button
     And I click the "<color1>" button
     And I click the "Generate" button
+
+    And I wait for "1000" millsecond
+    And I click the "Settings" button
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png"
+    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
       |   Funnel      |  count()   | apache.geo.city|LightGreen |2809    | tag:auto_sample_chart \| stats count() by apache.status,apache.geo.city |
 
-  Scenario Outline: 其它_矩阵热力图(RZY-2810,2811)
+  Scenario Outline: matrixheatmap(RZY-2810,2811)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -248,18 +114,20 @@ Feature: 高级搜索视图_其它
     And I choose the "<yValue>" from the "FieldValue"
     And I set the parameter "Segments" with value "<segNum>"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png"
+    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
       |  chartType     |  xValue         |  yValue       | segNum |caseNum  |   spl   |
       |  Matrixheatmap |  count()        | apache.status |  10    |2810    | tag:auto_sample_chart \| stats count() by apache.status,apache.geo.city |
       |  Matrixheatmap | apache.geo.city |    count()    |  5     |2811    | tag:auto_sample_chart \| stats count() by apache.status,apache.geo.city |
 
-  Scenario Outline: 其它_调用链(RZY-2812,2814)
+  Scenario Outline: chain(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "LastWeek" button
@@ -280,19 +148,25 @@ Feature: 高级搜索视图_其它
     And I choose the "<childIDvalue>" from the "FieldValue"
     And I click the "Info" button
     And I choose the "<infoValue>" from the "InfoField"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I choose the "<precision>" from the "Precision"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png"
+    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
-      |  chartType |  function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
-      |  Chain     |  dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    |tag:gf_dapper\* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
-      |  Chain     |  dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    |tag:gf_dapper\* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
+      |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
+      |  Chain     | Green  | 1        |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    |tag:gf_dapper\* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
+      |  Chain     | Red    | 2        |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    |tag:gf_dapper\* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
 
-  Scenario Outline: 其它_循序图(RZY-2805)
+  Scenario Outline: sequence(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -314,12 +188,15 @@ Feature: 高级搜索视图_其它
     And I click the "Mark" button
     And I choose the "<mark>" from the "FieldValue"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/其它/<caseNum>_<chartType>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/其它/<caseNum>_<chartType>.png"
+    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
       |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |tag:auto_sample_chart \| stats count() by hostname,apache.clientip \|limit 4|
+

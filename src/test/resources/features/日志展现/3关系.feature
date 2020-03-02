@@ -6,7 +6,7 @@ Feature: 高级搜索视图_关系
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: 关系（RZY-834,2783,2784)
+  Scenario Outline: connection(RZY-834,2783,2784)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -16,11 +16,13 @@ Feature: 高级搜索视图_关系
     And I click the "Type" button
     And I click the "Connection" button
     And I click the "<chartType>" button
+
+    And I click the "Type" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/关系/<caseNum>_<chartType>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/关系/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/关系/<caseNum>_<chartType>.png"
+    And take part of "Chart" with name "日志展现/高级搜索视图/3关系/<caseNum>_<chartType>"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/3关系/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/3关系/<caseNum>_<chartType>.png"
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
@@ -28,7 +30,7 @@ Feature: 高级搜索视图_关系
       |    Sankey     |    2783    |  tag:auto_sample_chart AND NOT apache.clientip:221.226.97.92 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 10 |
       |    Force      |    2784    |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
-  Scenario Outline: 关系_Force
+  Scenario Outline: Force
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -42,18 +44,20 @@ Feature: 高级搜索视图_关系
     And I click the "Exhibition" button
     And I set the parameter "Repulsion" with value "<repValue>"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/关系/<chartType>_repulsion"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/关系/<chartType>_repulsion.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/关系/<chartType>_repulsion.png"
+    And take part of "Chart" with name "日志展现/高级搜索视图/3关系/<chartType>_repulsion"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/3关系/<chartType>_repulsion.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/3关系/<chartType>_repulsion.png"
 
     Examples:
       |   chartType   |repValue  |   spl   |
       |    Force      |    20    |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
 
-  Scenario Outline: 桑基图_multistage
+  Scenario Outline: multistage
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -69,11 +73,13 @@ Feature: 高级搜索视图_关系
     And I click the "Red" button
     And I click the "<button>" button
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/关系/<chartType>_<button>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/关系/<chartType>_<button>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/关系/<chartType>_<button>.png"
+    And take part of "Chart" with name "日志展现/高级搜索视图/3关系/<chartType>_<button>"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/3关系/<chartType>_<button>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/3关系/<chartType>_<button>.png"
 
 
     Examples:

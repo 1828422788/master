@@ -6,7 +6,7 @@ Feature: 普通统计视图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: 事件计数统计（RZY-807,808,809,810）
+  Scenario Outline: count(RZY-807,808,809,810)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
@@ -26,13 +26,13 @@ Feature: 普通统计视图
 
     Examples:
       | chart   | value1                | value2               | caseNum            |
-      | 曲线图   | logtype               | apache.clientip      | 807_事件计数->曲线图 |
-      | 面积图   | apache.geo.city       | tag                  | 808_事件计数->面积图 |
-      | 散点图   | apache.x_forward      | apache.geo.latitude  | 810_事件计数->散点图 |
-      | 柱状图   | apache.referer_domain | apache.resp_len      | 809_事件计数->柱状图 |
+      | 曲线图   | logtype               | apache.clientip      | 807_事件计数_曲线图 |
+      | 面积图   | apache.geo.city       | tag                  | 808_事件计数_面积图 |
+      | 散点图   | apache.x_forward      | apache.geo.latitude  | 810_事件计数_散点图 |
+      | 柱状图   | apache.referer_domain | apache.resp_len      | 809_事件计数_柱状图 |
 
 
-  Scenario Outline: 事件计数统计_独立数统计（RZY-2718）
+  Scenario Outline: count_independent(RZY-2718)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
@@ -57,10 +57,12 @@ Feature: 普通统计视图
       | 曲线图   | apache.clientip       | appname          | 2718_事件计数_独立数统计 |
 
 
-  Scenario Outline: 时间分段统计（RZY-812,813,2721,2722,2723,2724）
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+  Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
+    #When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    #And I click the "Yesterday" button
+    And I click the "LastMonth" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -70,19 +72,17 @@ Feature: 普通统计视图
     Then I choose the "<statisticType>" from the "StatisticType"
     # Set Time Parameters
     And I click the "StartDate" button
-    And I set the parameter "DateInput" with value "<startDate>"
-#    And I click the "TodayDate" button
-    And I click the "ClickOut" button
+    And I set the parameter "DateInput" with value "2020-02-20"
+    And I hide the element "DatePanel"
     And I click the "StartTime" button
     And I set the parameter "TimeInput" with value "<startTime>"
-    And I click the "ClickOut" button
+    And I hide the element "TimePanel"
     And I click the "EndDate" button
-    And I set the parameter "DateInput" with value "<endDate>"
-#    And I click the "TodayDate" button
-    And I click the "ClickOut" button
+    And I set the parameter "DateInput" with value "2020-02-21"
+    And I hide the element "DatePanel"
     And I click the "EndTime" button
     And I set the parameter "TimeInput" with value "<endTime>"
-    And I click the "ClickOut" button
+    And I hide the element "TimePanel"
     And I click the "GenerateTime" button under some element
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -91,15 +91,15 @@ Feature: 普通统计视图
 
     Examples:
       | fieldValue               | statisticType | startDate   |    startTime  |endDate       | endTime | caseNum            |
-      | apache.resp_len          |计数            | 2020-01-08  | 00:00:00      | 2020-01-08   |23:59:59 | 812_时间分段->计数  |
-      | apache.resp_len          |独立数          | 2020-01-08  | 00:00:00      | 2020-01-08   |23:59:59 | 813_时间分段->独立数 |
-      | apache.resp_len          |总计            | 2020-01-08  | 00:00:00      | 2020-01-08   |23:59:59 | 2721_时间分段->总计  |
-      | apache.resp_len          |平均值          | 2020-01-08  | 00:00:00      | 2020-01-08   |23:59:59 | 2722_时间分段->平均值 |
-      | apache.resp_len          |最大值          | 2020-01-08  | 00:00:00      | 2020-01-08   |23:59:59 | 2723_时间分段->最大值 |
-      | apache.resp_len          |最小值          | 2020-01-08  | 00:00:00      | 2020-01-08   |23:59:59 | 2724_时间分段->最小值 |
+      | apache.resp_len          |计数            | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 812_时间分段_计数  |
+      | apache.resp_len          |独立数          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 813_时间分段_独立数 |
+      | apache.resp_len          |总计            | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2721_时间分段_总计  |
+      | apache.resp_len          |平均值          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2722_时间分段_平均值 |
+      | apache.resp_len          |最大值          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2723_时间分段_最大值 |
+      | apache.resp_len          |最小值          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2724_时间分段_最小值 |
 
 
-  Scenario Outline: 数值分段统计（RZY-814,3137）
+  Scenario Outline: dataslice(RZY-814,3137)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
@@ -130,7 +130,7 @@ Feature: 普通统计视图
       | apache.geo.latitude  |0       | 22.5   | 22.5    | 32.05  |32.05   | 39.90| 3137_数值分段_实数 |
 
 
-  Scenario Outline: 时间直方图（RZY-815,2725）
+  Scenario Outline: timehistogram(RZY-815,2725)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
     And I click the "<period>" button
@@ -149,15 +149,15 @@ Feature: 普通统计视图
     Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
-     | period    | timeSpan | time   | caseNum              |
-     | Yesterday | 1        |        | 815_时间直方图/815_1h     |
-     | Yesterday | 3600     | 秒     | 815_时间直方图/815_3600s  |
-     | Yesterday | 60       | 分钟    | 815_时间直方图/815_60m    |
-     | ThisMonth | 7        | 天     | 2725_时间直方图/2725_7d    |
-     | ThisMonth | 1        | 周     | 2725_时间直方图/2725_1w    |
+      | period    | timeSpan | time   | caseNum              |
+      | Yesterday | 1        |        | 815_时间直方图/815_1h     |
+      | Yesterday | 3600     | 秒     | 815_时间直方图/815_3600s  |
+      | Yesterday | 60       | 分钟    | 815_时间直方图/815_60m    |
+      | ThisMonth | 7        | 天     | 2725_时间直方图/2725_7d    |
+      | ThisMonth | 1        | 周     | 2725_时间直方图/2725_1w    |
 
-
-  Scenario Outline: 数值直方图（RZY-816）
+######graph is not displayed
+  Scenario Outline: datehistogram(RZY-816)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
@@ -171,8 +171,8 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/816_数值间隔/<caseNum>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/816_数值间隔/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/816_数值间隔/<caseNum>.png"
+    And take part of "Chart" with name "日志展现/普通统计视图/816_数值直方图/<caseNum>"
+    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/816_数值直方图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/816_数值直方图/<caseNum>.png"
 
     Examples:
       | fieldValue      | number  | caseNum |
@@ -180,7 +180,7 @@ Feature: 普通统计视图
       | apache.resp_len | 1000    | 816_1000   |
 
 # can not compare, because of same values
-  Scenario Outline: 字段值分类 (RZY-817)
+  Scenario Outline: classifyfieldvalue(RZY-817)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
@@ -225,8 +225,8 @@ Feature: 普通统计视图
       | apache.clientip  |    条形图    |  5    |   10   |  20    |   50   | 817_条形图    |
 
 
-  Scenario Outline: 字段数值 (RZY-2727)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+  Scenario Outline: fieldnumber(RZY-2727)
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "<period>" button
     And I click the "SearchButton" button
@@ -247,16 +247,16 @@ Feature: 普通统计视图
     Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>.png"
 
     Examples:
-     |period     | yFieldValue       |  groupBy         | statType  | chart   | timeSpan| time |
-     |Yesterday  |apache.resp_len    |  apache.clientip |  总计     |  曲线图   |   1     | 小时  |
-     |Yesterday  |apache.resp_len    |  apache.clientip |  平均值   |  面积图   |   60    |  分钟 |
-     |Yesterday  |apache.resp_len    |  apache.clientip |  最大值   |  散点图   |   60    |  分钟 |
-     |Yesterday  |apache.resp_len    |  apache.clientip |  最小值   |  柱状图   |  3600   |  秒   |
-     |ThisMonth  |apache.status      |  apache.clientip |  总计     |  曲线图   |   7     | 天   |
-     |ThisMonth  |apache.status      |  apache.clientip |  平均值   |  面积图   |   1     |  周  |
+      |period     | yFieldValue       |  groupBy         | statType  | chart   | timeSpan| time |
+      |Yesterday  |apache.resp_len    |  apache.clientip |  总计     |  曲线图   |   1     | 小时  |
+      |Yesterday  |apache.resp_len    |  apache.clientip |  平均值   |  面积图   |   60    |  分钟 |
+      |Yesterday  |apache.resp_len    |  apache.clientip |  最大值   |  散点图   |   60    |  分钟 |
+      |Yesterday  |apache.resp_len    |  apache.clientip |  最小值   |  柱状图   |  3600   |  秒   |
+      |ThisMonth  |apache.status      |  apache.clientip |  总计     |  曲线图   |   7     | 天   |
+      |ThisMonth  |apache.status      |  apache.clientip |  平均值   |  面积图   |   1     |  周  |
 
 
-  Scenario Outline: 累计百分比 (RZY-819, 2730)
+  Scenario Outline: totalpercent(RZY-819,2730)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
@@ -276,12 +276,12 @@ Feature: 普通统计视图
     Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>.png"
 
     Examples:
-    |    fieldValue     |  percent1  |   percent2   |  screenName            |
-    |   apache.resp_len |    80      |      75      |  819_累计百分比_80_75   |
-    |   apache.resp_len |   30.30    |      25      |  2730_累计百分比_实数     |
+      |    fieldValue     |  percent1  |   percent2   |  screenName            |
+      |   apache.resp_len |    80      |      75      |  819_累计百分比_80_75   |
+      |   apache.resp_len |   30.30    |      25      |  2730_累计百分比_实数     |
 
 
-  Scenario Outline: 百分位等级 (RZY-821, 3136)
+  Scenario Outline: percentdegree(RZY-821, 3136)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
@@ -300,11 +300,11 @@ Feature: 普通统计视图
 
     Examples:
       |    fieldValue     |  value1     | screenName               |
-      |   apache.resp_len |     100     |  821_累计百分比_100        |
-      |   apache.resp_len |  1262.50    |  3136_累计百分比_1262-50   |
+      |   apache.resp_len |     100     |  821_百分位等级_100        |
+      |   apache.resp_len |  1262.50    |  3136_百分位等级_1262-50   |
 
 
-  Scenario Outline: 多级统计 (RZY-822)
+  Scenario Outline: multilevelstats(RZY-822)
     # types of chart
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
@@ -358,7 +358,7 @@ Feature: 普通统计视图
       | apache.status  |    饼图    |apache.clientip |    曲线图   |  apache.resp_len |    饼图    |  822       |
 
 
-  Scenario:地理分布(RZY-825)
+  Scenario:geogrdistr(RZY-825)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button

@@ -6,7 +6,7 @@ Feature: 高级搜索视图_复合
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: 复合_区间图(RZY-835)
+  Scenario Outline: compound(RZY-835)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -26,11 +26,13 @@ Feature: 高级搜索视图_复合
     And I choose the "<upperValue>" from the "TopLimit"
     And I choose the "<lowerValue>" from the "LowerLimit"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/复合/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/复合/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/复合/<caseNum>_<chartType>.png"
+    And take part of "Chart" with name "日志展现/高级搜索视图/4复合/<caseNum>_<chartType>"
+   # Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/4复合/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/4复合/<caseNum>_<chartType>.png"
 
     Examples:
       | xValue | actualValue|  predictedValue| upperValue | lowerValue |   chartType   |   caseNum  |   spl   |
@@ -38,7 +40,7 @@ Feature: 高级搜索视图_复合
       |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    835_2   | tag: auto_sample_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
 
 
-  Scenario Outline: 复合_多Y轴图(RZY-2785,2786)
+  Scenario Outline: manyy(RZY-2785,2786)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "<period>" button
@@ -48,11 +50,13 @@ Feature: 高级搜索视图_复合
     And I click the "Type" button
     And I click the "Compound" button
     And I click the "<chartType>" button
+
+    And I click the "Type" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/复合/<caseNum>_<chartType>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/复合/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/复合/<caseNum>_<chartType>.png"
+    And take part of "Chart" with name "日志展现/高级搜索视图/4复合/<caseNum>_<chartType>"
+    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/4复合/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/4复合/<caseNum>_<chartType>.png"
 
     Examples:
       |   chartType   | period  |  caseNum  |   spl   |
