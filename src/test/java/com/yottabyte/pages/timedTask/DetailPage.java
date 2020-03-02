@@ -84,4 +84,15 @@ public class DetailPage extends PageTemplate {
         number.click();
         return lookUpButton;
     }
+
+
+
+    //author_jnd
+    //定时任务详情页的数据集
+    @FindBy(xpath = "//*[@id=\"schedule\"]/div[3]/div/div[2]/div[2]/div[2]")
+    private WebElement detailDataSet;
+    public WebElement getDetailDataSet(){return detailDataSet;}
+
+
+
 }

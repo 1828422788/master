@@ -130,10 +130,14 @@ public class IChooseValueFromSelectList {
                 }
             }
         }
-        if (parentElement.isDisplayed()) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
-            ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(parentElement);
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        try {
+            if (parentElement.isDisplayed()) {
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
+                ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(parentElement);
+                WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+            }
+        } catch (Exception e) {
+            return;
         }
     }
 

@@ -242,4 +242,18 @@ public class EditPage extends PageTemplate {
         return startTime;
     }
 
+
+
+
+    //author_jnd
+    //定时任务编辑页的数据集
+    @FindBy(xpath = "//*[@id=\"schedule\"]/div[3]/div/div/div/div[2]/div[1]/div/div[4]/span")
+    private WebElement dataSet;
+    public WebElement getDataSet(){return dataSet;}
+
+
+
+
+
+
 }
