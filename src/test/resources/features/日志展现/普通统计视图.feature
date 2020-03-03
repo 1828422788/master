@@ -156,7 +156,7 @@ Feature: 普通统计视图
       | ThisMonth | 7        | 天     | 2725_时间直方图/2725_7d    |
       | ThisMonth | 1        | 周     | 2725_时间直方图/2725_1w    |
 
-######graph is not displayed
+
   Scenario Outline: datehistogram(RZY-816)
     When I set the parameter "SearchInput" with value "tag:auto_sample_display"
     And I click the "DateEditor" button
