@@ -646,20 +646,20 @@ Feature: 权限-拓扑图
     And I click the "Ensure" button
     Then I will see the success message "创建成功"
 
-    Scenario: 给AutoTest所用权限
-      Given open the "topology.ListPage" page for uri "/topology/"
-      And I wait for loading invisible
-      When the data name is "验证二次授权" then i click the "授权" button
-      And I "check" the checkbox which name is "AutoTest" in tiny table
-      And I click the "Ensure" button
-      Then I will see the message "保存成功"
-      Given open the "roles.ListPage" page for uri "/account/roles/"
-      And the data name is "__user_验证授权用户__" then i click the "授权" button
-      And I will see the "roles.AuthorizationPage" page
-      Then I click the "{'TabButton':'功能'}" button
-      And I wait for "Loading" will be invisible
-      And I "checked" the checkbox which name is "全选"
-      And I click the "SaveButton" button
+  Scenario: 给AutoTest所用权限
+    Given open the "topology.ListPage" page for uri "/topology/"
+    And I wait for loading invisible
+    When the data name is "验证二次授权" then i click the "授权" button
+    And I "check" the checkbox which name is "AutoTest" in tiny table
+    And I click the "Ensure" button
+    Then I will see the message "保存成功"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_验证授权用户__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
 
   Scenario Outline: 二次授权读取
     Given I will see the "PublicNavBarPage" page
@@ -757,8 +757,8 @@ Feature: 权限-拓扑图
     And I accept alert window
 
     Examples:
-      | authRole | authName | function | name   |
-      | 角色       | __user_验证授权用户__   | 编辑       | 验证二次授权 |
+      | authRole | authName        | function | name   |
+      | 角色       | __user_验证授权用户__ | 编辑       | 验证二次授权 |
 
   Scenario Outline: 二次授权读取+编辑+删除
     Given I will see the "PublicNavBarPage" page
@@ -819,5 +819,66 @@ Feature: 权限-拓扑图
     Then I will see the success message "删除成功"
 
     Examples:
-      | authRole | authName | function | name         |
-      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除       | 验证二次授权 |
+      | authRole | authName | function | name   |
+      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 验证二次授权 |
+
+  Scenario: 新建拓扑图验证详情
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "All#123456"
+    And I click the "LoginButton" button
+    And I wait for title change text to "仪表盘|搜索"
+    Given open the "topology.ListPage" page for uri "/topology/"
+    And I wait for loading invisible
+    And I click the "Create" button
+    And I set the parameter "NameInput" with value "测试权限详情"
+    And I click the "Ensure" button
+    Then I will see the success message "创建成功"
+
+  Scenario: 验证详情
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "All#123456"
+    And I click the "LoginButton" button
+    And I wait for title change text to "仪表盘|搜索"
+    Given open the "topology.ListPage" page for uri "/topology/"
+    And I wait for loading invisible
+    When I click the detail which name is "测试权限详情"
+    Then I will see the "topology.DetailPage" page
+    And I wait for "1000" millsecond
+    And I click the "AddInputButton" button
+    And I set the parameter "Title" with value "标识前后缀"
+    And I set the parameter "Token" with value "first"
+    And I choose the "下拉菜单" from the "InputType"
+    And I set the parameter "Optional" with value "stats"
+    And I click the "Add" button
+    And I choose the "stats" from the "DefaultValueDropdown"
+    And I set the parameter "Prefix" with value "* | "
+    And I set the parameter "Postfix" with value " avg(apache.resp_len)"
+    And I click the "EnsureInputButton" button
+    And I set the parameter "NodeName" with value "n1"
+    And I set the parameter "NodeGroup" with value "g1"
+    And I click the "AddNodeButton" button
+    And I click the "SingleValueButton" button
+    And I set the parameter "TextArea" with value "${first}"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I will see the success message "搜索完成!"
+    And I choose the "avg(apache.resp_len)" from the "FiledInput"
+    And I click the "Apply" button
+    Then I wait for "SuccessMessage" will be visible
+    And I click the "Save" button
+    Then I will see the element "Message" value is "保存成功"
+    And I refresh the website
+    And I accept alert window

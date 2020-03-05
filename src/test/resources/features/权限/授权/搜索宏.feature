@@ -781,3 +781,59 @@ Feature: 权限-搜索宏
     Examples:
       | authRole | authName | function | name         |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权Rename |
+
+  Scenario Outline: 新建搜索宏验证
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "All#123456"
+    And I click the "LoginButton" button
+    And I wait for title change text to "仪表盘|搜索"
+    Given open the "searchMacro.ListPage" page for uri "/macro/"
+    When I click the "Create" button
+    Then I will see the "searchMacro.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Definition" with value "<definition>"
+    And I set the parameter "Param" with value "<param>"
+    And I set the parameter "ValidateExpression" with value "<validateExpression>"
+    And I set the parameter "ValidateFalseInfo" with value "<validateFalseInfo>"
+    And I click the "Save" button
+    Then I will see the <message>
+
+    Examples:
+      | name           | group         | definition                                                                                                                  | button   | param | validateExpression   | validateFalseInfo | message                |
+      | AuthTest(1)  | default_Macro | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$                        |          | x     | isstr(x)             | 请输⼊字符串            | success message "保存成功" |
+
+  Scenario Outline: 验证参数
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+    And I wait for loading invisible
+    And I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "All#123456"
+    And I click the "LoginButton" button
+    And I wait for title change text to "仪表盘|搜索"
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I set the parameter "SearchInput" with value "<splQuery>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I save the result "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
+    And I set the parameter "SearchInput" with value "<splQuery1>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
+
+    Examples:
+      | splQuery                            | splQuery1                                                                                                                                 |
+      | `AuthTest(\"23.166.125.53\")`       | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                          |
+

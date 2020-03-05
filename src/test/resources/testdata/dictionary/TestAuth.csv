@@ -1,0 +1,33 @@
+sourcename,level,source
+system,1,sys
+Service Control Manager,2,sys
+EventLog,1,sys
+Microsoft-Windows-Kernel-General,3,ms
+Microsoft-Windows-TerminalServices-Printers,3,ms
+Microsoft-Windows-Iphlpsvc,3,ms
+Microsoft-Windows-Time-Service,3,ms
+Microsoft-Windows-Kernel-Processor-Power,3,ms
+Application Popup,1,sys
+NETLOGON,1,sys
+Microsoft-Windows-UserPnp,3,ms
+Microsoft-Windows-Winlogon,3,ms
+Microsoft-Windows-FilterManager,3,ms
+Microsoft-Windows-DNS-Client,3,ms
+TermDD,1,sys
+Microsoft-Windows-DfsSvc,3,ms
+Microsoft-Windows-DHCPv6-Client,3,ms
+Microsoft-Windows-Dhcp-Client,3,ms
+Microsoft-Windows-Directory-Services-SAM,3,ms
+Microsoft-Windows-Kerberos-Key-Distribution-Center,3,ms
+Microsoft-Windows-GroupPolicy,3,ms
+Microsoft-Windows-WinRM,3,ms
+USER32,2,user
+Microsoft-Windows-Kernel-Power,3,ms
+Virtual Disk Service,2,user
+Microsoft-Windows-WindowsUpdateClient,3,ms
+Schannel,2,user
+LsaSrv,2,user
+Microsoft-Windows-TerminalServices-RemoteConnectionManager,3,ms
+Microsoft-Windows-DistributedCOM,3,ms
+Microsoft-Windows-HttpEvent,3,ms
+System,1,sys

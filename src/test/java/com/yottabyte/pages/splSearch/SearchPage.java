@@ -454,7 +454,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='el-message-box']//span[contains(text(),'确定')]")
     private WebElement sourceEnsure;
 
-    @FindBy(xpath = "//td[@data-col-name]/span")
+    @FindBy(xpath = "//td/span")
     private List<WebElement> columnList;
 
     @FindBy(className = "_2dbwZ_u3soDYQC50Ls5yOo")
