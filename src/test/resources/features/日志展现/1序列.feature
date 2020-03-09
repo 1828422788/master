@@ -89,7 +89,7 @@ Feature: 高级搜索视图_序列
       |   AreaChart   |    Pile       | Red    | 2767      |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.method  |
       |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.method  |
 
-  Scenario Outline: scatter_bubble
+  Scenario Outline: scatter_bubble (RZY-4204)
     When I set the parameter "SearchInput" with value "tag:auto_sample_chart | stats count() by apache.clientip,apache.method"
     And I click the "DateEditor" button
     And I click the "Today" button

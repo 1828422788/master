@@ -93,8 +93,7 @@ Feature: 高级搜索视图_维度
       |   chartType   |  value      |     divValue   | color1   |caseNum  | spl   |
       |      Pie      |  count      | apache.clientip| Red      |2774     |  tag:auto_sample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
 
-#BUG Bar label always is shown
-  Scenario Outline: label
+  Scenario Outline: label(RZY-4205,4208,4211,4206,4209,4212,4207,4210)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -147,7 +146,7 @@ Feature: 高级搜索视图_维度
       |      Rose     |  不展示     | 展示全部   | 只展示名称  |tag:auto_sample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
       |      Bar      |  不展示     | 展示全部   | 只展示名称  |tag:auto_sample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
 
-  Scenario Outline: label_location
+  Scenario Outline: label_location(RZY-4213,4214,4215,4216,4217,4218,4219,4220,4221,4222)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button

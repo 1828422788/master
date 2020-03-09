@@ -182,7 +182,7 @@ Feature: 高级搜索视图_其他_单值
       |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Font         |tag:auto_sample_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
       |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Background   |tag:auto_sample_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
-  Scenario Outline: simple_number_view
+  Scenario Outline: simple_number_view(RZY-4193,4194,4195,4196,4197)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button

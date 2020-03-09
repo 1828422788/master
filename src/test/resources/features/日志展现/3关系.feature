@@ -30,7 +30,7 @@ Feature: 高级搜索视图_关系
       |    Sankey     |    2783    |  tag:auto_sample_chart AND NOT apache.clientip:221.226.97.92 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 10 |
       |    Force      |    2784    |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
-  Scenario Outline: Force
+  Scenario Outline: Force(RZY-4223)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -57,7 +57,7 @@ Feature: 高级搜索视图_关系
       |    Force      |    20    |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
 
-  Scenario Outline: multistage
+  Scenario Outline: multistage(RZY-4224)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button

@@ -6,7 +6,7 @@ Feature: 高级搜索视图_其它
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline:  ringchart_onefield
+  Scenario Outline:  ringchart_onefield(RZY-4198,4199)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -34,7 +34,7 @@ Feature: 高级搜索视图_其它
       |  chartType    |  caseNum  |   spl   |
       |   Ring        |  onefield |tag:auto_sample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
-  Scenario Outline:  ringchart_twofields
+  Scenario Outline:  ringchart_twofields(RZY-4200)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -62,7 +62,7 @@ Feature: 高级搜索视图_其它
       |  chartType    |  caseNum  |   spl   |
       |   Ring        |  twofields|tag:auto_sample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
-  Scenario Outline:  ringchart_table
+  Scenario Outline:  ringchart_table(RZY-4201)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -97,7 +97,7 @@ Feature: 高级搜索视图_其它
       |   Ring        | table_1r_4c  |  1      |   4       | tag:auto_sample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
 
-  Scenario Outline:  ringchart_colors
+  Scenario Outline:  ringchart_colors(RZY-4202)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -150,7 +150,7 @@ Feature: 高级搜索视图_其它
       |  chartType    |    caseNum          | rows    |  columns  |   spl   |
       |   Ring        | table_1r_3c_colors  |  1      |   3       | tag:auto_sample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
-  Scenario Outline:  ringchart_precision
+  Scenario Outline:  ringchart_precision(RZY-4203)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
