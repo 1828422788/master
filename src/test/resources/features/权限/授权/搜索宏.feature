@@ -805,8 +805,8 @@ Feature: 权限-搜索宏
     Then I will see the <message>
 
     Examples:
-      | name           | group         | definition                                                                                                                  | button   | param | validateExpression   | validateFalseInfo | message                |
-      | AuthTest(1)  | default_Macro | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$                        |          | x     | isstr(x)             | 请输⼊字符串            | success message "保存成功" |
+      | name        | definition                                                                                           | param | validateExpression | validateFalseInfo | message                |
+      | AuthTest(1) | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==$x$ | x     | isstr(x)           | 请输⼊字符串            | success message "保存成功" |
 
   Scenario Outline: 验证参数
     Given I will see the "PublicNavBarPage" page
@@ -834,6 +834,6 @@ Feature: 权限-搜索宏
     Then I compare with "{'ClientIp':'Column1','Version':'Column2','Count':'Column3'}"
 
     Examples:
-      | splQuery                            | splQuery1                                                                                                                                 |
-      | `AuthTest(\"23.166.125.53\")`       | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\"                          |
+      | splQuery                      | splQuery1                                                                                                          |
+      | `AuthTest(\"23.166.125.53\")` | tag:sample04061424 \| stats count() by apache.clientip, apache.version \| where apache.clientip==\"23.166.125.53\" |
 
