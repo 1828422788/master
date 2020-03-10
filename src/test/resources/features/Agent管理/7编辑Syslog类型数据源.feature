@@ -42,7 +42,7 @@ Feature: 编辑Syslog类型数据源
     Examples:
       | characterkind |
       |   utf-8    |
-#      |    gbk    |
+      |    gbk    |
 
   Scenario Outline: Syslog数据源修改ip成功
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
@@ -52,8 +52,8 @@ Feature: 编辑Syslog类型数据源
 
     Examples:
       | ipkind |
-#      |   1:2::3    |
-#      |   1:2:3:4:0:*:5:6    |
+      |   1:2::3    |
+      |   1:2:3:4:0:*:5:6    |
       |   *.*.*.*    |
       |   192.168.1.19    |
 

@@ -62,6 +62,10 @@ public class CreatePage extends PageTemplate {
         return PreviewMessage;
     }
 
+    public WebElement getPreview() {
+        return Preview;
+    }
+
     @FindBy(xpath = "//span[text()='文件路径白名单']/following-sibling::span")
     private WebElement WhitelistRoot;
 
@@ -174,6 +178,11 @@ public class CreatePage extends PageTemplate {
         return getTableElement("性能数据");
     }
 
+    public WebElement getDatabaseTypeTable() {
+        return getTableElement("数据库数据");
+    }
+
+
     public WebElement getSyslogTable() {
         return getTableElement("Syslog");
     }
@@ -269,6 +278,10 @@ public class CreatePage extends PageTemplate {
         return getSwitchStatus("磁盘指标, 系统指标");
     }
 
+    public WebElement getDatabaseTypeSwitchStatus() {
+        return getSwitchStatus("autotestmysql");
+    }
+
     public WebElement getSyslogType() {
         return getSoureceTypeElement("Syslog");
     }
@@ -301,6 +314,9 @@ public class CreatePage extends PageTemplate {
         return getSoureceTypeElement("Kafka");
     }
 
+    public WebElement getCreateLink(){
+        return getSoureceTypeElement("+新建连接");
+    }
 
     public WebElement getListenaddress() {
         return Listenaddress;
@@ -315,11 +331,20 @@ public class CreatePage extends PageTemplate {
         return Monitoring;
     }
 
+    public WebElement getMysqlDatabase() {
+        return MysqlDatabase;
+    }
     @FindBy(xpath = "//span[text()='连续监视']/following-sibling::span")
     private WebElement Monitoring;
 
     @FindBy(xpath = "//div[@class='ant-form-explain']")
     private WebElement PreviewMessage;
+
+    @FindBy(xpath ="//span[text()='autotestmysql']")
+    private WebElement MysqlDatabase;
+
+    @FindBy(xpath = "//p")
+    private WebElement Preview;
 
     @FindBy(xpath = "//span[@class='ant-radio']")
     private WebElement ChooseButton;
@@ -368,13 +393,19 @@ public class CreatePage extends PageTemplate {
         return ChooseButton;
     }
 
+    public WebElement getGetEditAutoScript() {
+        return getEditAutoScript;
+    }
+
+//    @FindBy(xpath = "//div[@class='ant-select-selection-selected-value']")
+//    private WebElement Frequency;
 
     public WebElement getGroupName() {
         return this.getContainsInputElement("名称");
     }
 
     public WebElement getCreate() {
-        return super.getButton("新建");
+        return super.getButton("添加");
     }
 
     public WebElement getCleanOutput() {
@@ -401,9 +432,13 @@ public class CreatePage extends PageTemplate {
         return super.getButton("返回");
     }
 
+    public WebElement getSave() {
+        return super.getButton("保存");
+    }
     public WebElement getNext() {
         return super.getButton("下一步");
     }
+
     public WebElement getFinish() {
         return super.getButton("完成");
     }
@@ -425,8 +460,8 @@ public class CreatePage extends PageTemplate {
         return getInputElement("最后修改时间");
     }
 
-    public WebElement getTimeKind(){
-        return getDropDownListElement("最后修改时间");
+    public WebElement getFrequency(){
+        return getDropDownListElement("采集频率");
     }
 
     public WebElement getCharacterKind(){
@@ -461,8 +496,8 @@ public class CreatePage extends PageTemplate {
         return getInputElement("日志内容黑名单");
     }
 
-    public WebElement getExcuteFile() {
-        return getInputElement("可执行文件");
+    public WebElement getEditSql() {
+        return getInputElement("SQL 语句");
     }
     public WebElement getInternalTime() {
         return getInputElement("间隔时间");
@@ -472,9 +507,34 @@ public class CreatePage extends PageTemplate {
         return getDropDownListElement("间隔时间");
     }
 
+    public WebElement getEidtFrequency() {
+        return getInputElement("采集频率");
+    }
+
+    public WebElement getIncreaseData() {
+        return getInputElement("增量字段");
+    }
+
+    public WebElement getIncreaseSymbol() {
+        return getInputElement("增量操作符");
+    }
+
+    public WebElement getRecordNumber() {
+        return getInputElement("每轮采集记录条数");
+    }
+
+    public WebElement getExcuteFile() {
+        return getInputElement("可执行文件");
+    }
+
+
     public WebElement getAppname(){
         return getInputElement("appname");
     }
+    public WebElement getProcessWhiteList(){
+        return getInputElement("采集进程白名单");
+    }
+
     public WebElement getPreAppname(){
         return getInputElement("appname前缀");
     }
@@ -487,10 +547,9 @@ public class CreatePage extends PageTemplate {
         return getInputElement("采集特定端口");
     }
 
-    public WebElement getFrequency() {
-        return getInputElement("采集频率");
+    public WebElement getTimeKind(){
+        return getDropDownListElement("最后修改时间");
     }
-
 
     public WebElement getParam() {
         return getInputElement("参数");
@@ -523,9 +582,40 @@ public class CreatePage extends PageTemplate {
     public WebElement getCancle() {
         return super.getButton("取消");
     }
+
     public WebElement getMessage() {
         return super.getErrorMessage();
     }
+
+    public WebElement getLinkName() {
+        return getInputElement("连接名称");
+    }
+    public WebElement getUsername() {
+        return getInputElement("用户名");
+    }
+
+    public WebElement getPassword() {
+        return getInputElement("密码");
+    }
+
+    public WebElement getHost() {
+        return getInputElement("主机");
+    }
+
+    public WebElement getDataBaseName() {
+        return getInputElement("数据库名");
+    }
+
+    public WebElement getMaxLink() {
+        return getInputElement("最大连接数");
+    }
+
+    public WebElement getSql() {
+        return getInputElement("SQL 查询语句");
+    }
+
+
+
     public WebElement getMemoMessage() {
         return MemoMessage;
     }
