@@ -83,8 +83,11 @@ public class SetKeyWithValue {
                 flag = false;
             }
         }
-        JavascriptExecutor js = (JavascriptExecutor)webDriver;
-        js.executeScript("arguments[0].value=\""+value+"\"",element);
+        element.sendKeys(value);
+        if (!element.getAttribute("value").equals(value)) {
+            JavascriptExecutor js = (JavascriptExecutor) webDriver;
+            js.executeScript("arguments[0].value=\"" + value + "\"", element);
+        }
     }
 
     @And("^I set the parameter \"([^\"]*)\" with properties \"([^\"]*)\"$")
