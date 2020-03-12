@@ -340,6 +340,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-form-explain']")
     private WebElement PreviewMessage;
 
+    public WebElement getEditMysql() {
+        return EditMysql;
+    }
+
+    @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='编辑']")
+    private WebElement EditMysql;
+
     @FindBy(xpath ="//span[text()='autotestmysql']")
     private WebElement MysqlDatabase;
 

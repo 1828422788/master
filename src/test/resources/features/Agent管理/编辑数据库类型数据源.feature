@@ -62,7 +62,7 @@ Feature: 编辑数据库数据类型数据源
 
   Scenario:编辑增量操作符
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
-    And I set the parameter "IncreaseSymbol" with value "<"
+    And I set the parameter "IncreaseSymbol" with value ">="
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
@@ -72,3 +72,35 @@ Feature: 编辑数据库数据类型数据源
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
+  Scenario: 编辑mysql数据库类型数据库链接
+    And I click the "Create" button
+    And I click the "DatabaseType" button
+    And I click the "MysqlDatabase" button
+    And I click the "EditMysql" button
+    And I set the parameter "Password" with value "rizhiyi&2014"
+#    And I set the parameter "Host" with value "192.168.1.134"
+#    And I set the parameter "DataBaseName" with value "rizhiyi_system"
+#    And I set the parameter "MaxLin" with value "1"
+    And I click the "Save" button
+    Then I will see the element "ChangeMemo" name is "修改成功"
+#    And I wait for loading invisible
+#    And I click the "MysqlDatabase" button
+#    And I click the "Next" button
+#    And I set the parameter "Sql" with value "Select * from Domain"
+#    And I click the "Preview" button
+#    And I set the parameter "Appname" with value "autotestmysql"
+#    And I set the parameter "Tag" with value "autotestmysql"
+#    And I click the "Next" button
+#    And I click the "Finish" button
+#    And I will see the element "Addsuccessmsg" name is "添加成功"
+
+  Scenario: 编辑mysql数据库类型数据库名
+    And I click the "Create" button
+    And I click the "DatabaseType" button
+    And I click the "MysqlDatabase" button
+    And I click the "EditMysql" button
+    And I set the parameter "Password" with value "rizhiyi&2014"
+    And I set the parameter "DataBaseName" with value "rizhiyi_yottaweb"
+    And I click the "Save" button
+    Then I will see the element "ChangeMemo" name is "修改成功"
+#    And I wait for loading invisible
