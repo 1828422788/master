@@ -838,10 +838,3 @@ Feature: 权限-仪表盘
     Examples:
       | authRole | authName | function | name      |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权重命名 |
-
-  Scenario: 新建仪表盘验证详情
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the "Create" button under some element
-    And I set the parameter "DashBoardName" with value "测试权限"
-    And I click the "Ensure" button
-    Then I will see the success message "新建仪表盘成功"
