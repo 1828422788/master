@@ -347,6 +347,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='编辑']")
     private WebElement EditMysql;
 
+    public WebElement getCopyMysql() {
+        return CopyMysql;
+    }
+
+    @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='复制']")
+    private WebElement CopyMysql;
+
+    public WebElement getDeleteMysql() {
+        return DeleteMysql;
+    }
+
+    @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='删除']")
+    private WebElement DeleteMysql;
+
     @FindBy(xpath ="//span[text()='autotestmysql']")
     private WebElement MysqlDatabase;
 
@@ -604,6 +618,10 @@ public class CreatePage extends PageTemplate {
     public WebElement getPassword() {
         return getInputElement("密码");
     }
+    public WebElement getMysqlPort() {
+        return getInputElement("端口");
+    }
+
 
     public WebElement getHost() {
         return getInputElement("主机");
