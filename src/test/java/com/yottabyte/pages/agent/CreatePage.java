@@ -125,9 +125,25 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    @FindBy(xpath = "//label[contains(@title,'appname')]/parent::div/following-sibling::div//input" )
+    private WebElement BeatsAppname;
+
+    @FindBy(xpath = "//label[contains(@title,'tag')]/parent::div/following-sibling::div//input" )
+    private WebElement BeatsTag;
+
+
+    public WebElement getBeatsAppname() {
+        return BeatsAppname;
+    }
+
+    public WebElement getBeatsTag() {
+        return BeatsTag;
+    }
+
     public WebElement getCheckListenaddress() {
         return getCheckpageElement("监听地址");
     }
+
 
     public WebElement getCheckScriptFile() {
         return getCheckpageElement("脚本文件");
@@ -181,6 +197,11 @@ public class CreatePage extends PageTemplate {
     public WebElement getDatabaseTypeTable() {
         return getTableElement("数据库数据");
     }
+
+    public WebElement getBeatsTable() {
+        return getTableElement("Beats");
+    }
+
 
 
     public WebElement getSyslogTable() {
@@ -273,6 +294,11 @@ public class CreatePage extends PageTemplate {
     public WebElement getSyslogSwitchStatus() {
         return getSwitchStatus("192.168.1.161:514");
     }
+
+    public WebElement getBeatsSwitchStatus() {
+        return getSwitchStatus("192.168.1.139:299");
+    }
+
 
     public WebElement getFuctionTypeSwitchStatus() {
         return getSwitchStatus("磁盘指标, 系统指标");
