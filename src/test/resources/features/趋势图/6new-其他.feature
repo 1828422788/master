@@ -1,4 +1,8 @@
+@trendOtherCreate
 Feature: 趋势图新建-其他
+# 28
+# sample04061424_chart for Today
+# uncomment comparison
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -12,21 +16,26 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
-
+    
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I wait for "1000" millsecond
+    And I click the "Type" button
+
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -51,18 +60,23 @@ Feature: 趋势图新建-其他
     And I click the "Icon" button
     And I click the "AccordingField" button
     And I choose the "<iconValue>" from the "FieldValue"
+    And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "100"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -86,18 +100,23 @@ Feature: 趋势图新建-其他
     And I click the "Icon" button
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "<fontValue>"
+    And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "100"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -118,21 +137,25 @@ Feature: 趋势图新建-其他
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "100"
     And I click the "AddColor" button
     And I click the "Orange" button
     And I click the "Background" button
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -152,20 +175,24 @@ Feature: 趋势图新建-其他
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "100"
     And I click the "AccordingTrend" button
     And I choose the "<timeValue>" from the "ContrastTime"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -197,17 +224,20 @@ Feature: 趋势图新建-其他
     And I click the "<color2>" button
     And I click the "<colorFill>" button
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -238,18 +268,20 @@ Feature: 趋势图新建-其他
     And I set the parameter "Unit" with value "个"
     And I click the "<unitPosition>" button
     And I click the "Generate" button
+
     And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -257,7 +289,7 @@ Feature: 趋势图新建-其他
       |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
       |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
-####run
+
   Scenario Outline: ring_onefield
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -277,17 +309,18 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -313,17 +346,18 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -354,17 +388,18 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -417,17 +452,18 @@ Feature: 趋势图新建-其他
     And I click the "Generate" button
 
     And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -458,14 +494,15 @@ Feature: 趋势图新建-其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -494,22 +531,25 @@ Feature: 趋势图新建-其他
     And I click the "AddColor" button
     And I click the "<color1>" button
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |  chartType    | divField       | color1 | caseNum  |   spl   |
-      |   Radar       | apache.geo.city| Yellow | 2635     | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |  chartType    | divField       | color1   | caseNum  |   spl   |
+      |   Radar       | apache.geo.city| DarkBlue | 2635     | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
   Scenario Outline: funnel
     When I set the parameter "SearchInput" with value "<spl>"
@@ -534,17 +574,20 @@ Feature: 趋势图新建-其他
     And I click the "AddColor" button
     And I click the "<color1>" button
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -569,17 +612,20 @@ Feature: 趋势图新建-其他
     And I choose the "<yValue>" from the "FieldValue"
     And I set the parameter "Segments" with value "<segNum>"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -590,7 +636,7 @@ Feature: 趋势图新建-其他
   Scenario Outline: chain
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "LastWeek" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -614,18 +660,20 @@ Feature: 趋势图新建-其他
     And I click the "<color>" button
     And I choose the "<precision>" from the "Precision"
     And I click the "Generate" button
+
     And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -657,20 +705,42 @@ Feature: 趋势图新建-其他
     And I click the "Mark" button
     And I choose the "<mark>" from the "FieldValue"
     And I click the "Generate" button
+
     And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
-      |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 4|
+      |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 3|
+
+  Scenario: table
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.city | limit 5"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "StatisticalChart" will be visible
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "trend/Table_Test"
+#    Then I compare source image "src/test/resources/expect/趋势图/Table_Test.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/Table_Test.png"
+    And I click the "NextButton" button
+    When I set the parameter "NameInput" with value "Table_Test"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I choose the "AutoTest" from the "GroupField"
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible

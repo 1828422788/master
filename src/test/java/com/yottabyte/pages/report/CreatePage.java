@@ -18,6 +18,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement successMessage;
 
+
+
     // 下拉列表
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownLists;
@@ -34,7 +36,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='报表分组']/following-sibling::div//input[@class='el-input__inner']")
     private WebElement reportGroup;
 
-    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div//input[@class='el-input__inner']")
+    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div")
     private WebElement reportType;
 
     @FindBy(xpath = "//li[@class='el-dropdown-menu__item'][1]")
@@ -65,8 +67,14 @@ public class CreatePage extends PageTemplate {
     private WebElement crontab;
 
     // 下一步
-    @FindBy(className = "yw-extract-primary-btn")
+    @FindBy(xpath = "//span[text()='下一步']/ancestor::button")
     private WebElement nextButton;
+
+    @FindBy(xpath = "//span[text()='完成']/ancestor::button")
+    private WebElement finishButton;
+
+    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
+    private WebElement EnsureButton;
 
     @FindBy(xpath = "//input[@placeholder='分']")
     private WebElement minute;
@@ -157,6 +165,13 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
     private WebElement app;
+
+    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]")
+    private WebElement chosenTrendLast;
+
+    public WebElement getChosenTrendLast(){
+        return chosenTrendLast;
+    }
 
     public WebElement getApp() {
         app.click();
@@ -300,6 +315,14 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getNextButton() {
         return nextButton;
+    }
+
+    public WebElement getFinishButton() {
+        return finishButton;
+    }
+
+    public WebElement getEnsureButton() {
+        return EnsureButton;
     }
 
     public WebElement getChartList() throws InterruptedException {

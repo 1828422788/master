@@ -1,4 +1,9 @@
+@trendMapCreate
 Feature: 趋势图新建_地图
+# 10
+# sample04061424_chart for Today
+# vendors_461 for Today
+# uncomment comparison
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -13,35 +18,40 @@ Feature: 趋势图新建_地图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+
+    And I click the "Type" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "Chart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
-   #   |   Heatmap     |    2539    |  tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |   Heatmap     |    2539    |  tag:sample04061424_chart \| stats count() by apache.geo.city |
       |   Regionmap   |    2545    | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
   Scenario Outline: attackmap
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 <spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
@@ -59,23 +69,26 @@ Feature: 趋势图新建_地图
     And I click the "Region" button
     And I click the "Select<regionBut>" button
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "Chart" with name "trend/<chartType>_<regionBut>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<regionBut>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<regionBut>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<regionBut>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |chartType|      source     |  sourceLon | sourceLat  | target     | targetLon | targetLat |  weight | regionBut |caseNum  |
-      |Attackmap| apache.clientip | client_lon | client_lat | gw_address | gw_lon    |  gw_lat   |   cnt   |   World   | 2542    |
-      |Attackmap| apache.clientip | client_lon | client_lat | gw_address | gw_lon    |  gw_lat   |   cnt   |   China   | 2543    |
+      |chartType|      source     |  sourceLon | sourceLat  | target     | targetLon | targetLat |  weight | regionBut |caseNum  | spl   |
+      |Attackmap| apache.clientip | clientlon  | clientlat  | gw_address | gw_lon    |  gw_lat   |   cnt   |   World   | 2542    | \|eval clientlon= -0.127758 \| eval clientlat=51.507|
+      |Attackmap| apache.clientip | clientlon  | clientlat  | gw_address | gw_lon    |  gw_lat   |   cnt   |   China   | 2543    | \|eval clientlon= 114.109467 \| eval clientlat=22.396427|
 
   Scenario Outline: regionmap
     When I set the parameter "SearchInput" with value "<spl>"
@@ -85,6 +98,7 @@ Feature: 趋势图新建_地图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
@@ -99,17 +113,20 @@ Feature: 趋势图新建_地图
     And I choose the "<provinceDrilldown>" from the "Province"
     And I choose the "<cityDrilldown>" from the "City"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<region>_<chartType>"
+    And take part of "Chart" with name "trend/<chartType>_<region>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<region>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<region>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<region>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -129,22 +146,26 @@ Feature: 趋势图新建_地图
     And I click the "Type" button
     And I click the "Map" button
     And I click the "<chartType>" button
+
+    And I click the "Type" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+    #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
       |chartType      |caseNum  |   spl   |
       |Statisticalmap | 2098    | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap | 2797    | tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince|
 
   Scenario Outline: statistical_map_parameters
     When I set the parameter "SearchInput" with value "<spl>"
@@ -164,19 +185,23 @@ Feature: 趋势图新建_地图
     And I set the parameter "MinRadius" with value "<minRadiusValue>"
     And I set the parameter "MaxRadius" with value "<maxRadiusValue>"
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
+    #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
       |chartType      |   tranparencyValue  | minRadiusValue | maxRadiusValue  | caseNum        |   spl   |
       |Statisticalmap |        0.5          |     10         |      50         |  2098_param    | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap |        0.5          |     10         |      50         |  2797_param    | tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince|

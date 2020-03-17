@@ -1,4 +1,9 @@
+@trendCompoundCreate
 Feature: 趋势图新建_复合
+# 2
+# sample04061424_chart for yesterday
+# sample04061424_display for today
+# uncomment comparison
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -8,7 +13,7 @@ Feature: 趋势图新建_复合
   Scenario Outline: compound_rangeline(rzy-2516)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -27,18 +32,19 @@ Feature: 趋势图新建_复合
     And I choose the "<lowerValue>" from the "LowerLimit"
     And I click the "Generate" button
 
-    And I click the "Settings" button
     And I wait for "Chart" will be visible
+    And I click the "Settings" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "Chart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -54,18 +60,19 @@ Feature: 趋势图新建_复合
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Compound" button
     And I click the "<chartType>" button
+
     And I click the "Settings" button
     And I click the "Xaxis" button
     And I choose the "apache.resp_len" from the "FieldValue"
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
-    And I choose the "<maxF>" from the "FieldValue"
-    And I wait for "10000" millsecond
-   # And I choose the "<chart1>" from the "TypeChartField"
+    And I choose the "max(apache.resp_len)" from the "FieldValue"
+    And I choose the "面积图" from the "TypeChartField"
     And I set the parameter "Unit" with value "面"
     And I click the "Smooth" button
     And I click the "ConnectEmptyData" button
@@ -73,17 +80,17 @@ Feature: 趋势图新建_复合
     And I set the parameter "Max" with value "170000"
 
     And I click the "AddField" button
-    And I choose the "<minF>" from the "FieldValue"
-    And I wait for "10000" millsecond
-   # And I choose the "<chart2>" from the "TypeChartField"
+    And I drag the scroll bar to the element "FieldValue"
+    And I choose the "min(apache.resp_len)" from the "FieldValue"
+    And I choose the "柱状图" from the "TypeChartField"
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"
     And I set the parameter "Max" with value ""
 
     And I click the "AddField" button
-    And I choose the "<sumF>" from the "FieldValue"
-    And I wait for "10000" millsecond
-   # And I choose the "<chart3>" from the "TypeChartField"
+    And I drag the scroll bar to the element "FieldValue"
+    And I choose the "sum(apache.status)" from the "FieldValue"
+    And I choose the "散点图" from the "TypeChartField"
     And I set the parameter "Unit" with value "散"
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "49000"
@@ -97,17 +104,18 @@ Feature: 趋势图新建_复合
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "Chart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |   chartType   | chart1  |  chart2   | chart3   |  minF               |       maxF          |       sumF             |  caseNum  |
-      |   Multiaxis   | 面积图  | 柱状图     | 散点图    |min(apache.resp_len)| max(apache.resp_len)|sum(apache.status)      |   2523    |
+      |   chartType   |  caseNum  |
+      |   Multiaxis   |   2523    |
 

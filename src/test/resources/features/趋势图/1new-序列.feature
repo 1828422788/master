@@ -1,11 +1,15 @@
+@trendOrderCreate
 Feature: 趋势图新建_序列
+# 7
+# sample04061424_chart for Today
+# uncomment comparison
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
 
-  Scenario Outline: sequence(RZY-2477,2005,2491,2499)
+  Scenario Outline: order(RZY-2477,2005,2491,2499)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -16,32 +20,30 @@ Feature: 趋势图新建_序列
     And I click the "Type" button
     And I click the "Order" button
     And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Exhibition" button
-    And I click the "AddColor" button
-    And I click the "Red" button
-    And I click the "Generate" button
+
+    And I click the "Type" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<caseNum>_<chartType>"
+    And take part of "Chart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
     |   chartType   |caseNum  |  spl  |
     |    LineChart  |  2477   | tag:sample04061424_chart  \| stats count() by apache.clientip,apache.method|
-    |   AreaChart   |  2005   | tag:sample04061424_chart  \| bucket timestamp span = 30m as ts \| stats count()  as cnt by apache.status,ts \|sort by cnt \| limit 20 |
-    |  ScatterChart |  2491   | tag:sample04061424_chart  \| stats count() by apache.clientip,apache.resp_len \| limit 10                    |
+    |   AreaChart   |  2005   | tag:sample04061424_chart  \| stats count() by apache.clientip,apache.method |
+    |  ScatterChart |  2491   | tag:sample04061424_chart  \| stats count() by apache.clientip,apache.method |
     |  ColumnChart  |  2499   | tag:sample04061424_chart  \| stats count() by apache.clientip,apache.method|
 
-  Scenario Outline: sequence_pile
+  Scenario Outline: order
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -59,17 +61,20 @@ Feature: 趋势图新建_序列
     And I click the "AddColor" button
     And I click the "<color>" button
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<chartType>_<buttonChoice>"
+    And take part of "Chart" with name "trend/<chartType>_<buttonChoice>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<buttonChoice>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<buttonChoice>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -77,7 +82,7 @@ Feature: 趋势图新建_序列
       |   AreaChart   |    Pile       | Red    | 2767      |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
       |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
 
-  Scenario Outline: sequence_bubble
+  Scenario Outline: order_bubble
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -96,17 +101,20 @@ Feature: 趋势图新建_序列
     And I click the "AddColor" button
     And I click the "Orange" button
     And I click the "Generate" button
+
+    And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/trend/<chartType>_<caseNum>"
+    And take part of "Chart" with name "trend/<chartType>_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "无数集app之api全部测试用例" from the "AppField"
-    And I click the "FinishButton" button
+    And I choose the "TrendApp" from the "AppField"
+    And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

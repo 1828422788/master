@@ -275,11 +275,12 @@ public class CreatePage extends PageTemplate {
 //------------------------------------------------
 //Dropdown Fields---------------------------------
 
-    @FindBy(xpath = "(//span[text()='字段值'][last()])/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement fieldValue;
 
     //@FindBy(xpath = "(//span[text()='类型'][last()])/ancestor::div/following-sibling::div[1]")
-    @FindBy(className = "_60Zb-B7E6TtmTcIJHF1wy ant-select ant-select-enabled")
+    //@FindBy(className = "_60Zb-B7E6TtmTcIJHF1wy ant-select ant-select-enabled")
+    @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement typeChartField;
 
     @FindBy(xpath = "(//span[text()='数值字段'][last()])/ancestor::div/following-sibling::div[1]")
@@ -370,6 +371,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 227, 16);')])[last()]")
     private WebElement yellow;
+
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(72, 87, 175);')])[last()]")
+    private WebElement darkBlue;
 
 //---------------------------------
 //Switches ------------------------
@@ -496,6 +500,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='世界'])/ancestor::span")
     private WebElement selectWorld;
 //----------------------------------
+
+// Drag and drop -------------------------
+
+    @FindBy(className = "_1pGh3cs00Rp1iccZrcDgHU")
+    private WebElement listOfFields;
+
+    @FindBy(className = "_1L7hbwdzCpZJFzkuvvcudu")
+    private WebElement checkBox;
+
+//--------------------------------------------
 // other ----------------------------
     @FindBy(xpath = "//span[@class='ant-select-arrow']")
     private WebElement dropbutton;
@@ -1060,6 +1074,11 @@ public class CreatePage extends PageTemplate {
         return yellow;
     }
 
+    public WebElement getDarkBlue(){
+        return darkBlue;
+    }
+
+
     public WebElement getMinRange() {
         return minRange;
     }
@@ -1261,6 +1280,34 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getYesterday() {
         return GetTime.getTime(webDriver, "Yesterday");
+    }
+
+    public WebElement getThisWeek() {
+        return GetTime.getTime(webDriver, "ThisWeek");
+    }
+
+    public WebElement getThisMonth() {
+        return GetTime.getTime(webDriver, "ThisMonth");
+    }
+
+    public WebElement getLastWeek() {
+        return GetTime.getTime(webDriver, "LastWeek");
+    }
+
+    public WebElement getLastMonth() {
+        return GetTime.getTime(webDriver, "LastMonth");
+    }
+
+    public WebElement getOneDay() {
+        return GetTime.getTime(webDriver, "OneDay");
+    }
+
+    public WebElement getTwoDays() {
+        return GetTime.getTime(webDriver, "TwoDays");
+    }
+
+    public WebElement getSevenDays() {
+        return GetTime.getTime(webDriver, "SevenDays");
     }
 
     public WebElement getSuccessMessage() {
@@ -1528,5 +1575,13 @@ public class CreatePage extends PageTemplate {
     public WebElement getAppDropdown() {
         appDropdownIcon.click();
         return dropdownUtils.getLastDropdownList();
+    }
+
+    public WebElement getListOfFields() {
+        return listOfFields;
+    }
+
+    public WebElement getCheckBox() {
+        return checkBox;
     }
 }
