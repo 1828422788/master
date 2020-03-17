@@ -125,9 +125,25 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    @FindBy(xpath = "//label[contains(@title,'appname')]/parent::div/following-sibling::div//input" )
+    private WebElement BeatsAppname;
+
+    @FindBy(xpath = "//label[contains(@title,'tag')]/parent::div/following-sibling::div//input" )
+    private WebElement BeatsTag;
+
+
+    public WebElement getBeatsAppname() {
+        return BeatsAppname;
+    }
+
+    public WebElement getBeatsTag() {
+        return BeatsTag;
+    }
+
     public WebElement getCheckListenaddress() {
         return getCheckpageElement("监听地址");
     }
+
 
     public WebElement getCheckScriptFile() {
         return getCheckpageElement("脚本文件");
@@ -181,6 +197,11 @@ public class CreatePage extends PageTemplate {
     public WebElement getDatabaseTypeTable() {
         return getTableElement("数据库数据");
     }
+
+    public WebElement getBeatsTable() {
+        return getTableElement("Beats");
+    }
+
 
 
     public WebElement getSyslogTable() {
@@ -274,6 +295,11 @@ public class CreatePage extends PageTemplate {
         return getSwitchStatus("192.168.1.161:514");
     }
 
+    public WebElement getBeatsSwitchStatus() {
+        return getSwitchStatus("192.168.1.139:299");
+    }
+
+
     public WebElement getFuctionTypeSwitchStatus() {
         return getSwitchStatus("磁盘指标, 系统指标");
     }
@@ -346,6 +372,20 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='编辑']")
     private WebElement EditMysql;
+
+    public WebElement getCopyMysql() {
+        return CopyMysql;
+    }
+
+    @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='复制']")
+    private WebElement CopyMysql;
+
+    public WebElement getDeleteMysql() {
+        return DeleteMysql;
+    }
+
+    @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='删除']")
+    private WebElement DeleteMysql;
 
     @FindBy(xpath ="//span[text()='autotestmysql']")
     private WebElement MysqlDatabase;
@@ -604,6 +644,10 @@ public class CreatePage extends PageTemplate {
     public WebElement getPassword() {
         return getInputElement("密码");
     }
+    public WebElement getMysqlPort() {
+        return getInputElement("端口");
+    }
+
 
     public WebElement getHost() {
         return getInputElement("主机");

@@ -71,7 +71,7 @@ Feature: 编辑Syslog类型数据源
 
   Scenario Outline: Syslog数据源修改appname成功
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
-    And I set the parameter "SyslogEditappname" with value "<appnamekind>"
+    And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
@@ -84,7 +84,7 @@ Feature: 编辑Syslog类型数据源
 
   Scenario Outline: Syslog数据源修改appname失败
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
-    And I set the parameter "SyslogEditappname" with value "<appnamekind>"
+    And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     Then I will see the element "PreviewMessage" name is "请以字母或数字下划线为元素"
 
@@ -95,7 +95,7 @@ Feature: 编辑Syslog类型数据源
 
   Scenario Outline: Syslog数据源修改tag成功
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
-    And I set the parameter "SyslogEdittag" with value "<tagkind>"
+    And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
@@ -107,7 +107,7 @@ Feature: 编辑Syslog类型数据源
 
   Scenario Outline: Syslog数据源修改tag失败
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
-    And I set the parameter "SyslogEdittag" with value "<tagkind>"
+    And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     Then I will see the element "PreviewMessage" name is "请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。"
 
