@@ -18,6 +18,10 @@ Feature: 趋势图比较
     @trendOrderCompare
     Examples:
       | name                                     |
+      | AreaChart_2483_ConnectEmptyData          |
+      | AreaChart_2483_Smooth                    |
+      | LineChart_2479_ConnectEmptyData          |
+      | LineChart_2479_Smooth                    |
       | ScatterChart_bubbles                     |
       | ColumnChart_Pile                         |
       | AreaChart_Pile                           |

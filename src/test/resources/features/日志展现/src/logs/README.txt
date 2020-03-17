@@ -13,3 +13,7 @@
    -- auto_sankey:
 	tag: auto_sankey
 	appname: json 
+	
+   -- vendors:
+    tag: vendors_461
+	appname: vendors

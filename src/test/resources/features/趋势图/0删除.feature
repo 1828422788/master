@@ -10,6 +10,10 @@ Feature: 趋势图删除（RZY-1891）
     @trendOrderClean
     Examples:
       | name                                     |
+      | AreaChart_2483_ConnectEmptyData          |
+      | AreaChart_2483_Smooth                    |
+      | LineChart_2479_ConnectEmptyData          |
+      | LineChart_2479_Smooth                    |
       | ScatterChart_bubbles                     |
       | ColumnChart_Pile                         |
       | AreaChart_Pile                           |
