@@ -37,9 +37,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "el-switch__label--left")
     private WebElement clickableButton;
 
-    @FindBy(className = "el-switch__label--right")
-    private WebElement openEdit;
-
     @FindBy(className = "icon-tianjiatubiaoxuanting_icon")
     private WebElement addButton;
 
@@ -124,8 +121,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[contains(text(),'测试标签页移出')]")
     private WebElement testMoveTag;
 
-    @FindBy(className = "icon-tianjiatubiao_icon")
-    private WebElement addTag;
+//    @FindBy(className = "icon-tianjiatubiao_icon")
+//    private WebElement addTag;
 
     @FindBy(xpath = "//span[text()='单选']")
     private WebElement radio;
@@ -152,7 +149,7 @@ public class DetailPage extends PageTemplate {
             @FindBy(className = "yw-table-head"), @FindBy(className = "table-body-td")})
     private List<WebElement> tableList;
 
-    @FindBy(className = "el-textarea__inner")
+    @FindBy(xpath = "//textarea[@class='ant-input']")
     private WebElement spl;
 
     @FindBy(xpath = "(//*[@class='el-dialog__body']/following-sibling::div//button/span[contains(text(),'确定')])[last()]")
@@ -179,7 +176,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='通用配置']")
     private WebElement configs;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='高级编辑']")
+    @FindBy(xpath = "//span[text()='高级编辑']")
     private WebElement edit;
 
     @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='恢复初始']")
@@ -297,7 +294,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='自定义']")
     private WebElement custom;
 
-    @FindBy(xpath = "(//input[@placeholder='请选择时间范围'])[last()]")
+    @FindBy(xpath = "(//input[@placeholder='请选择时间'])[last()]")
     private WebElement dateEditor;
 
     @FindBy(className = "el-cascader__label")
@@ -324,10 +321,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//td[@data-col-name='apache.geo.city']")
     private WebElement geoCity;
 
-    @FindBy(xpath = "//span[contains(text(),'添加事件列表')]/ancestor::div[@class='el-dialog el-dialog--tiny']//button[@class='el-button yw-modal-btn yw-modal-btn-primary el-button--primary']")
-    private WebElement addEventEnsure;
+    @FindBy(xpath = "(//i[contains(@class,'ant-dropdown-trigger')][contains(@class,'anticon css-ifnfqv')])[4]")
+    private WebElement eventOperate;
 
-    @FindBy(className = "el-icon-caret-right")
+    @FindBy(xpath = "//span[text()='事件列表']/ancestor::div/following-sibling::div//i")
     private WebElement iconRight;
 
     @FindBy(xpath = "//span[text()='apache.geo.city']/ancestor::td/following-sibling::td")
@@ -387,19 +384,19 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-fanyeqishangjiantou")
     private WebElement eventIcon;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu field-dropdown-menu'])[last()]/li[text()='仪表盘测试事件列表']")
+    @FindBy(xpath = "//li[text()='仪表盘测试事件列表']")
     private WebElement event;
 
     @FindBy(xpath = "//span[text()='appname']")
     private WebElement eventAppname;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu field-dropdown-menu'])[last()]/li[text()='实时查看']")
+    @FindBy(xpath = "//li[text()='实时查看']")
     private WebElement realTime;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu field-dropdown-menu'])[last()]/li[text()='配置字段提取']")
+    @FindBy(xpath = "//li[text()='配置字段提取']")
     private WebElement createConfig;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu field-dropdown-menu'])[last()]/li[text()='添加到知识库']")
+    @FindBy(xpath = "//li[text()='添加到知识库']")
     private WebElement addKnowledge;
 
     @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomRight']/ul")
@@ -407,6 +404,139 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//i[@class='anticon css-ifnfqv']")
     private List<WebElement> iconList;
+
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[2]")
+    private WebElement settingIcon;
+
+    @FindBy(xpath = "(//ul[contains(@class,'ant-dropdown-menu')])[1]/li")
+    private List<WebElement> liList;
+
+    @FindBy(xpath = "//span[text()='/']/following-sibling::span")
+    private WebElement tagIcon;
+
+    @FindBy(xpath = "//span[text()='新建标签页']")
+    private WebElement addTag;
+
+    @FindBy(xpath = "//span[text()='保存']/preceding-sibling::input")
+    private WebElement tagInput;
+
+    @FindBy(xpath = "//span[text()='保存']")
+    private WebElement saveTagInput;
+
+    @FindBy(xpath = "//input[@placeholder='请输入关键字']")
+    private WebElement searchTagInput;
+
+    @FindBy(xpath = "//a[text()='first']")
+    private WebElement firstTag;
+
+    @FindBy(xpath = "//a[text()='testSearch']")
+    private WebElement testSearch;
+
+    @FindBy(xpath = "//span[text()='/']/preceding-sibling::span")
+    private WebElement dashboardIcon;
+
+    @FindBy(xpath = "//li[text()='UIautotest']")
+    private WebElement uiAutoTest;
+
+    @FindBy(xpath = "//li[text()='FirstAutoTest']")
+    private WebElement firstAutoTest;
+
+    @FindBy(xpath = "//div[text()='返回列表']")
+    private WebElement returnToList;
+
+    @FindBy(xpath = "//span[text()='appname:']")
+    private WebElement hoverElement;
+
+    @FindBy(xpath = "//span[contains(text(),'标签页名称')]/following-sibling::span/input")
+    private WebElement tagName;
+
+    @FindBy(className = "ant-spin-dot")
+    private WebElement spinDot;
+
+    public WebElement getSpinDot() {
+        return spinDot;
+    }
+
+    public WebElement getEventOperate() {
+        return eventOperate;
+    }
+
+    public WebElement getHoverElement() {
+        return hoverElement;
+    }
+
+    public WebElement getReturnToList() {
+        return returnToList;
+    }
+
+    public WebElement getUIAutoTest() {
+        return uiAutoTest;
+    }
+
+    public WebElement getFirstAutoTest() {
+        return firstAutoTest;
+    }
+
+    public WebElement getDashboardIcon() {
+        return dashboardIcon;
+    }
+
+    public WebElement getTestSearch() {
+        return testSearch;
+    }
+
+    public WebElement getFirstTag() {
+        return firstTag;
+    }
+
+    public WebElement getSearchTagInput() {
+        return searchTagInput;
+    }
+
+    public WebElement getSaveTagInput() {
+        return saveTagInput;
+    }
+
+    public WebElement getTagInput() {
+        return tagInput;
+    }
+
+    public WebElement getTagIcon() {
+        return tagIcon;
+    }
+
+    public WebElement getEditLayout() {
+        return this.getLi("编辑布局");
+    }
+
+    public WebElement getRemoveTag() {
+        return this.getLi("移出标签页");
+    }
+
+    public WebElement getManualRefresh() {
+        return this.getLi("手动刷新");
+    }
+
+    public WebElement getAutoRefresh() {
+        return this.getLi("自动刷新");
+    }
+
+    public List<WebElement> getLiList() {
+        return liList;
+    }
+
+    public WebElement getOpenEdit() {
+        return getSwitchButton("启用编辑项");
+    }
+
+    private WebElement getSwitchButton(String name) {
+        String xpath = "//span[text()='" + name + "']/following-sibling::button";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getSettingIcon() {
+        return settingIcon;
+    }
 
     public WebElement getType() {
         return iconList.get(3);
@@ -523,10 +653,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getIconRight() {
         return iconRight;
-    }
-
-    public WebElement getAddEventEnsure() {
-        return addEventEnsure;
     }
 
     public WebElement getGeoCity() {
@@ -764,7 +890,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getCheck() {
-        return super.getContainsTextButton("校验");
+        return super.getButton("校验");
     }
 
     public WebElement getEnsureEdit() {
@@ -851,10 +977,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getHeader() {
         return header;
-    }
-
-    public WebElement getOpenEdit() {
-        return openEdit;
     }
 
     public WebElement getLabelName() {
@@ -1024,8 +1146,12 @@ public class DetailPage extends PageTemplate {
         return showFilter;
     }
 
-    public WebElement getTagName() {
+    public WebElement getEventName() {
         return getNewInputElement("名称");
+    }
+
+    public WebElement getTagName() {
+        return tagName;
     }
 
     public WebElement getEnsureCreateTagButton() {
@@ -1052,6 +1178,10 @@ public class DetailPage extends PageTemplate {
         return this.getInputElement("图表标题");
     }
 
+    public WebElement getEnsure() {
+        return super.getButton("确定");
+    }
+
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
     }
@@ -1073,7 +1203,12 @@ public class DetailPage extends PageTemplate {
     }
 
     private WebElement getNewInputElement(String name) {
-        String xpath = "//span[contains(text(),'" + name + "')]/following-sibling::span/input";
+        String xpath = "//label[contains(text(),'" + name + "')]/following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    private WebElement getLi(String name) {
+        String xpath = "//span[text()='" + name + "']/ancestor::li";
         return webDriver.findElement(By.xpath(xpath));
     }
 }

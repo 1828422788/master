@@ -452,7 +452,7 @@ public class ClickButtonWithGivenName {
      */
     @When("^the chart title is \"([^\"]*)\" then I click the button which classname is \"([^\"]*)\" in dashboard$")
     public void clickButtonInDashboard(String chartTitle, String buttonClass) {
-        String xpath = "//span[contains(text(),'" + chartTitle + "')]/ancestor::span/following-sibling::div//*[@class='" + buttonClass + "']";
+        String xpath = "//div[text()='" + chartTitle + "']/following-sibling::div//*[@class='" + buttonClass + "']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         element.click();
     }

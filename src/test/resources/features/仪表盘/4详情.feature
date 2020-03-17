@@ -4,53 +4,48 @@ Feature: 仪表盘详情页
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
 
-  Scenario Outline: 打开/关闭编辑、全屏操作、夜间模式（RZY-228、RZY-229、RZY-237、RZY-238）
-    And I click the detail which name is "FirstAutoTest"
+  Scenario: 新建第一个tag
+    When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "<tagName>"
+    When I set the parameter "TagName" with value "first"
     And I click the "EnsureCreateTagButton" button
-    And I will see the "<button>" is clickable
-    And I click the "ClickableButton" button
-    And I will see the "<disabledButton>" is "disabled"
-    And I click the "ShowFilter" button
-    And I will see the "Filter" is display
-    And I click the "NightModeButton" button
-    And I click the "FullScreenButton" button
 
-    Examples:
-      | tagName | button                                                                                 | disabledButton                     |
-      | first   | AddButton,MoveButton,RefreshButton,SaveAsReportButton,NightModeButton,FullScreenButton | AddButton,MoveButton,RefreshButton |
-
-  Scenario: 新建tag
-    And I click the detail which name is "FirstAutoTest"
+  Scenario: 关闭编辑
+    When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
-    When I click the "OpenEdit" button
+    And I click the "SettingIcon" button
+    And I click the "OpenEdit" button
+    Then I will see the success message "编辑功能已禁用"
+
+  Scenario: 验证关闭编辑（少一个自动刷新后的switch button未验证）
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "AddEventButton" button
+    Then I will see the "LiList" is "disabled"
+    And I hide the element "EventList"
+    And I click the "SettingIcon" button
+    Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "disabled"
+
+  Scenario: 新建标签页，验证搜索
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "TagIcon" button
     And I click the "AddTag" button
-    When I set the parameter "TagName" with value "second"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for "Main" will be visible
+    And I set the parameter "TagInput" with value "testSearch"
+    And I click the "SaveTagInput" button
 
-  Scenario: 验证新建tag是否成功
-    Then I will see the data "FirstAutoTest" values "{'column':'2','name':'first, second'}"
-
-  Scenario: 移动标签页
-    And I click the detail which name is "FirstAutoTest"
+  Scenario: 验证标签搜索
+    When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "MoveButton" will be visible
-    And I click the "MoveButton" button
-    And I check "UIautotest" from the "CheckBox"
-    And I click the "EnsureMoveTagButton" button
-    And I wait for loading invisible
-    And open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    Then I will see the data "FirstAutoTest" values "{'column':'2','name':'first'}"
-    Then I will see the data "UIautotest" values "{'column':'2','name':'second'}"
+    And I click the "TagIcon" button
+    And I set the parameter "SearchTagInput" with value "Search"
+    Then I will see the "FirstTag" doesn't exist
+    Then I click the "TestSearch" button
 
-  Scenario: 跳转到其他仪表盘（RZY-240）
-    And I click the detail which name is "FirstAutoTest"
+  Scenario: 仪表盘搜索
+    When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "SwitchButton" button
-    And I wait for "Circular" will be invisible
-    And I click the "UIautotest" button
-    And I wait for loading invisible
-    Then the page's title will be "UIautotest | 仪表盘"
+    And I click the "DashboardIcon" button
+    And I set the parameter "SearchTagInput" with value "UIautotest"
+    Then I will see the "FirstAutoTest" doesn't exist
+    Then I click the "UIAutoTest" button

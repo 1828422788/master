@@ -16,7 +16,7 @@ Feature: 仪表盘关联搜索
     And I set the parameter "Logtype" with value "<logtype>"
     And I set the parameter "AppName" with value "<appname>"
     And I set the parameter "Tag" with value "<appname>"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -44,7 +44,7 @@ Feature: 仪表盘关联搜索
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "仪表盘关联搜索"
     And I click the "Ensure" button
-    Then I will see the success message "新建成功"
+    Then I will see the success message "新建仪表盘成功"
 
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -60,18 +60,20 @@ Feature: 仪表盘关联搜索
 
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "NameInput" with value "<name>"
-    And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for "Header" will be visible
     And I click the "NextButton" button
-    Then I will see the element "SuccessCreate" name is "新建成功！"
+    When I set the parameter "NameInput" with value "<name>"
+    And I click the "NextButton" button
+    And I wait for "SuccessCreate" will be visible
 
     Examples:
       | name        | spl                                                                                                                                                                               |
@@ -83,28 +85,29 @@ Feature: 仪表盘关联搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "AddButton" button
+    And I wait for "AddEventButton" will be visible
+    When I click the "AddEventButton" button
     And I choose the "添加图表" from the "EventList"
-    And I check "仪表盘message,仪表盘return,仪表盘workflow" from the "CheckBox"
-    And I click the "EnsureAddTrend" button
-    And I wait for "ChartSetting" will be visible
+    And I wait for "SpinDot" will be invisible
+    And I "checked" the checkbox which name is "仪表盘message,仪表盘return,仪表盘workflow"
+    And I click the "Ensure" button
+#    And I wait for "ChartSetting" will be visible
 
   Scenario Outline: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "img iconfont icon-gengduopeizhi el-tooltip" in dashboard
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "<json>" to json editor
-    And I wait for element "Message" change text to ""
     And I click the "Check" button
-    Then I wait for "CheckRight" will be visible
-    Then I click the "EnsureEdit" button
+    Then I will see the success message "校验通过"
+    Then I click the "Ensure" button
 
     Examples:
       | name       | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘message | {"title": "仪表盘message","description": "","row": 5,"column": 1,"sizex": 12,"sizey": 4,"search": {"query": "tag:auto_test_dashboard_message \| table tag ,message.PRE_ENTRY_ID,message.CREATE_DATE \| rename tag as tag, message.PRE_ENTRY_ID as PRE_ENTRY, message.CREATE_DATE as CREAT_DATE","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "set","name": "return","value": "${click.value2}"}]}} |
-      | 仪表盘return  | {"title": "仪表盘return","description": "","row": 9,"column": 1,"sizex": 12,"sizey": 4,"search": {"query": "tag:auto_test_dashboard_return AND return.EPORT_ID:${return}\| table return.EPORT_ID,tag,return.CUS_ID \| rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID","startTime": "now/d","endTime": "now","done": {"type": "local","targets": [{"action": "eval","name": "workflow","value": "${result.CUS_ID}"}]}},"chart": {"chartType": "table"}}                |
+      | 仪表盘message | {"title": "仪表盘message","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_message \| table tag ,message.PRE_ENTRY_ID,message.CREATE_DATE \| rename tag as tag, message.PRE_ENTRY_ID as PRE_ENTRY, message.CREATE_DATE as CREAT_DATE","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "set","name": "return","value": "${click.value2}"}]}} |
+      | 仪表盘return  | {"title": "仪表盘return","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_return AND return.EPORT_ID:${return}\| table return.EPORT_ID,tag,return.CUS_ID \| rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID","startTime": "now/d","endTime": "now","done": {"type": "local","targets": [{"action": "eval","name": "workflow","value": "${result.CUS_ID}"}]}},"chart": {"chartType": "table"}}                |
 
   Scenario: 修改表格workflow查询语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

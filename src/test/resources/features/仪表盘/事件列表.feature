@@ -5,7 +5,7 @@ Feature: 仪表盘事件列表
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "仪表盘事件操作"
     And I click the "Ensure" button
-    Then I will see the success message "新建成功"
+    Then I will see the success message "新建仪表盘成功"
 
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -26,11 +26,11 @@ Feature: 仪表盘事件列表
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I choose the "添加事件列表" from the "EventList"
-    And I set the parameter "TagName" with value "测试事件操作"
+    And I set the parameter "EventName" with value "测试事件操作"
     And I set the parameter "Spl" with value "appname:apache"
     And I click the "DateEditor" button
     And I click the "Today" button
-    And I click the "AddEventEnsure" button
+    And I click the "Ensure" button
 
   Scenario: 添加事件操作
     Given open the "event.ListPage" page for uri "/event/action/"
@@ -45,8 +45,9 @@ Feature: 仪表盘事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "IconRight" button
-    And I click the "EventIcon" button
+    And I wait for "HoverElement" will be visible
+    And I click the "HoverElement" button
+    And I click the "EventOperate" button
     And I click the "Event" button
     And switch to another window
     Then the page's title will be "趋势图"
@@ -64,6 +65,19 @@ Feature: 仪表盘事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "HoverElement" will be visible
+    And I click the "HoverElement" button
+    And I click the "EventOperate" button
+    And I click the "Event" button
+    And switch to another window
+    Then the page's title will be "趋势图"
+
+  Scenario: 验证事件操作显示于两者
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "HoverElement" will be visible
+    And I click the "HoverElement" button
     And I click the "IconRight" button
     And I click the "EventAppname" button
     And I click the "Event" button
@@ -83,8 +97,9 @@ Feature: 仪表盘事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "IconRight" button
-    And I click the "EventIcon" button
+    And I wait for "HoverElement" will be visible
+    And I click the "HoverElement" button
+    And I click the "EventOperate" button
     And I wait for "1000" millsecond
     Then I will see the "Event" doesn't exist
 
@@ -92,6 +107,8 @@ Feature: 仪表盘事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "HoverElement" will be visible
+    And I click the "HoverElement" button
     And I click the "IconRight" button
     And I click the "EventAppname" button
     And I click the "Event" button
@@ -102,6 +119,7 @@ Feature: 仪表盘事件列表
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "仪表盘测试事件列表" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
+    And I wait for loading invisible
     And I choose the "搜索" from the "Action"
     And I set the parameter "Spl" with value "appname:${appname}"
     And I click the "SaveButton" button
@@ -111,6 +129,8 @@ Feature: 仪表盘事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "HoverElement" will be visible
+    And I click the "HoverElement" button
     And I click the "IconRight" button
     And I click the "<button>" button
     And I click the "Event" button
@@ -121,14 +141,14 @@ Feature: 仪表盘事件列表
     Examples:
       | button       |
       | EventAppname |
-      | EventIcon    |
 
   Scenario: 实时查看
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "IconRight" button
-    And I click the "EventIcon" button
+    And I wait for "HoverElement" will be visible
+    And I click the "HoverElement" button
+    And I click the "EventOperate" button
     And I click the "RealTime" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
@@ -138,8 +158,9 @@ Feature: 仪表盘事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "IconRight" button
-    And I click the "EventIcon" button
+    And I wait for "HoverElement" will be visible
+    And I click the "HoverElement" button
+    And I click the "EventOperate" button
     And I click the "CreateConfig" button
     And switch to another window
     Then I will see the "configs.CreatePage" page
@@ -151,15 +172,16 @@ Feature: 仪表盘事件列表
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "仪表盘配置字段提取"
     And I set the parameter "Logtype" with value "other"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
   Scenario: 添加到知识库
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "IconRight" button
-    And I click the "EventIcon" button
+    And I wait for "HoverElement" will be visible
+    And I click the "HoverElement" button
+    And I click the "EventOperate" button
     And I click the "AddKnowledge" button
     And switch to another window
     And I will see the "knowledge.CreatePage" page
