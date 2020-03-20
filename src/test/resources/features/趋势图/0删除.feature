@@ -1,3 +1,4 @@
+@cleanTrend @clean
 Feature: 趋势图删除（RZY-1891）
 
   Scenario Outline: delete
@@ -10,6 +11,8 @@ Feature: 趋势图删除（RZY-1891）
     @trendOrderClean
     Examples:
       | name                                     |
+      | ScatterChart_2492_limit                  |
+      | ColumnChart_2500_limit                   |
       | AreaChart_2483_ConnectEmptyData          |
       | AreaChart_2483_Smooth                    |
       | LineChart_2479_ConnectEmptyData          |
@@ -107,6 +110,22 @@ Feature: 趋势图删除（RZY-1891）
       | Radar_2633                               |
       | Wordcloud_2625                           |
       | Single_2549                              |
+
+    @trendTimechartClean
+    Examples:
+      | name                                     |
+      | timechart_3250_column                    |
+      | timechart_3249_scatter                   |
+      | timechart_3248_area                      |
+      | timechart_3247_line                      |
+      | timechart_3099_column                    |
+      | timechart_3098_column                    |
+      | timechart_3097_scatter                   |
+      | timechart_3096_scatter                   |
+      | timechart_3095_area                      |
+      | timechart_3094_area                      |
+      | timechart_3093_line                      |
+      | timechart_3092_line                      |
 
 
 

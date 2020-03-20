@@ -15,19 +15,24 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "el-message-box__message")
+    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement successMessage;
 
+    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
+    private WebElement message;
+
+    @FindBy(xpath = "//div[@class = 'ant-message-custom-content ant-message-warning']/span")
+    private WebElement errorMessage;
 
 
     // 下拉列表
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownLists;
 
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::div/input")
+    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
     private WebElement name;
 
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::div/input")
+    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
     private WebElement describe;
 
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
@@ -37,9 +42,12 @@ public class CreatePage extends PageTemplate {
     private WebElement reportGroup;
 
     @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div")
+    private WebElement reportTypeButton;
+
+    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div//input")
     private WebElement reportType;
 
-    @FindBy(xpath = "//li[@class='el-dropdown-menu__item'][1]")
+    @FindBy(xpath = "//li[@class='ant-dropdown-menu-item'][1]")
     private WebElement li;
 
     @FindBy(xpath = "//span[@class='yw-title']")
@@ -51,19 +59,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
 
-    @FindBy(xpath = "//label[text()='邮件主题']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='邮件主题']/following-sibling::input")
     private WebElement subject;
 
-    @FindBy(xpath = "//label[text()='趋势图列表']/following-sibling::div/button")
+    @FindBy(xpath = "//span[text()='趋势图列表']/following-sibling::div/button")
     private WebElement chartList;
 
-    @FindBy(className = "el-dropdown-menu")
+//    @FindBy(className = "el-dropdown-menu")
+    @FindBy(xpath = "//li[@class='ant-dropdown-menu-item']/ancestor::ul")
     private WebElement chartDropdownList;
 
     @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontabButton;
 
-    @FindBy(xpath = "//div[@class='crontab']//input")
+    @FindBy(xpath = "//span[text()='crontab']/ancestor::span/following-sibling::div/input")
     private WebElement crontab;
 
     // 下一步
@@ -75,6 +84,18 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement EnsureButton;
+
+    @FindBy(xpath = "(//span[text()='定时']/ancestor::span/following-sibling::div/div/div)[last()]")
+    private WebElement period;
+
+    @FindBy(xpath = "//span[text()='定时']/ancestor::span/following-sibling::div/div[2]/div")
+    private WebElement selectDay;
+
+    @FindBy(xpath = "//li[text()='每周']")
+    private WebElement everyWeek;
+
+    @FindBy(xpath = "//li[text()='每月']")
+    private WebElement everyMonth;
 
     @FindBy(xpath = "//input[@placeholder='分']")
     private WebElement minute;
@@ -112,16 +133,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//i[@class='el-collapse-item__header__arrow el-icon-arrow-right'])[last()]")
     private WebElement arrow;
 
-    @FindBy(xpath = "(//label[text()='参数设置'])[last()]")
-    private WebElement parameterSetting;
-
     @FindBy(xpath = "(//button[@class='el-button btn-submit el-button--primary'])[last()]")
     private WebElement saveTrend;
 
     @FindBy(xpath = "(//div[@class='popover-setting-content'])[last()]")
     private WebElement settingContent;
 
-    @FindBy(xpath = "(//span[text()='编辑'][not(@class)])[last()]")
+    @FindBy(xpath = "//span[text()='编辑']/ancestor::button")
     private WebElement editButton;
 
     @FindBy(className = "yw-title")
@@ -163,19 +181,139 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='10'])[last()]")
     private WebElement badge10;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//input")
     private WebElement app;
 
-    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]")
+    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div//input")
+    private WebElement tag;
+
+    @FindBy(xpath = "(//div[@class='ant-collapse-header']/div/span[2])[last()]")
     private WebElement chosenTrendLast;
+
+    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]")
+    private WebElement chosenTrendFirst;
+
+    @FindBy(xpath = "(//div[@class='ant-collapse-header']/div/span[2])[last()]/following-sibling::span/i[1]")
+    private WebElement lastTrendDelete;
+
+    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]/following-sibling::span/i[1]")
+    private WebElement firstTrendDelete;
+
+    @FindBy(xpath = "(//div[@class='ant-collapse-header']/div/span[2])[last()]/following-sibling::span/i[5]")
+    private WebElement lastTrendUpTop;
+
+    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]/following-sibling::span/i[4]")
+    private WebElement firstTrendDownBottom;
+
+    @FindBy(xpath = "(//div[@class='ant-collapse-header']/div/span[2])[last()]/following-sibling::span/i[2]")
+    private WebElement lastTrendUp;
+
+    @FindBy(xpath = "//div[@class='ant-collapse-header']/div/span[2]/following-sibling::span/i[3]")
+    private WebElement firstTrendDown;
+
+    @FindBy(xpath = "//span[text()='描述']/ancestor::p")
+    private WebElement trendDescription;
+
+    @FindBy(xpath = "//span[text()='搜索内容']/ancestor::p")
+    private WebElement trendSpl;
+
+    @FindBy(xpath = "//span[text()='数据集']/ancestor::p")
+    private WebElement trendData;
+
+    @FindBy(xpath = "//span[text()='统计类型']/ancestor::p")
+    private WebElement trendChart;
+
+    @FindBy(xpath = "//span[text()='名称']/following-sibling::span/input")
+    private WebElement trendNameField;
+
+    @FindBy(xpath = "//span[text()='描述']/following-sibling::span/input")
+    private WebElement trendDescribeField;
+
+    @FindBy(xpath = "//span[text()='搜索内容']/following-sibling::span/textarea")
+    private WebElement trendSplField;
+
+    @FindBy(xpath = "//span[text()='统计类型']/following-sibling::span/button")
+    private WebElement trendChartType;
+
+    @FindBy(xpath = "(//label[text()='参数设置'])[last()]")
+    private WebElement parameterSetting;
+
+    @FindBy(xpath = "(//div[contains(text(),'面积图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement areaChart;
+
+    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
+    private WebElement cancelButton;
+
+
 
     public WebElement getChosenTrendLast(){
         return chosenTrendLast;
     }
+    public WebElement getChosenTrendFirst(){
+        return chosenTrendFirst;
+    }
+    public WebElement getLastTrendDelete() {
+        return lastTrendDelete;
+    }
+    public WebElement getFirstTrendDelete() {
+        return firstTrendDelete;
+    }
+    public WebElement getLastTrendUpTop() {
+        return lastTrendUpTop;
+    }
+    public WebElement getFirstTrendDownBottom() {
+        return firstTrendDownBottom;
+    }
+    public WebElement getLastTrendUp() {
+        return lastTrendUp;
+    }
+    public WebElement getFirstTrendDown() {
+        return firstTrendDown;
+    }
+
+    public WebElement getTrendDescription() {
+        return trendDescription;
+    }
+    public WebElement getTrendSpl() {
+        return trendSpl;
+    }
+    public WebElement getTrendData() {
+        return trendData;
+    }
+    public WebElement getTrendChart() {
+        return trendChart;
+    }
+
+    public WebElement getTrendNameField() {
+        return trendNameField;
+    }
+    public WebElement getTrendDescribeField() {
+        return trendDescribeField;
+    }
+    public WebElement getTrendSplField() {
+        return trendSplField;
+    }
+    public WebElement getTrendChartType() {
+        return trendChartType;
+    }
+    public WebElement getAreaChart() {
+        return areaChart;
+    }
+
+    public WebElement getCancelButton() {
+        return cancelButton;
+    }
 
     public WebElement getApp() {
-        app.click();
-        return getDropdownList();
+//        app.click();
+//        return getDropdownList();
+        return app;
+    }
+
+    public WebElement getTag() {
+//        tag.click();
+//        return getDropdownList();
+        return tag;
     }
 
     public WebElement getFirstLi() {
@@ -262,6 +400,14 @@ public class CreatePage extends PageTemplate {
         return successMessage;
     }
 
+    public WebElement getMessage() {
+        return message;
+    }
+
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+
     public WebElement getDropdownList() {
         return dropdownLists.get(dropdownLists.size() - 1);
     }
@@ -285,8 +431,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getReportType() {
-        reportType.click();
-        return this.getDropdownList();
+        reportTypeButton.click();
+        return reportType;
     }
 
     public WebElement getEmailInput() {
@@ -303,6 +449,20 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSubject() {
         return subject;
+    }
+
+    public WebElement getSelectDay() {
+        return selectDay;
+    }
+
+    public WebElement getEveryWeek(){
+        period.click();
+        return everyWeek;
+    }
+
+    public WebElement getEveryMonth(){
+        period.click();
+        return everyMonth;
     }
 
     public WebElement getHour() {
@@ -325,10 +485,22 @@ public class CreatePage extends PageTemplate {
         return EnsureButton;
     }
 
-    public WebElement getChartList() throws InterruptedException {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(chartList));
+//    public WebElement getChartList() throws InterruptedException {
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(chartList));
+//        chartList.click();
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
+//        return chartDropdownList;
+//    }
+
+    public WebElement getChartListButton() {
+        return chartList;
+    }
+
+    public WebElement getListOfCharts(){
+        return chartList;
+    }
+    public WebElement getChartList() {
         chartList.click();
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
         return chartDropdownList;
     }
 

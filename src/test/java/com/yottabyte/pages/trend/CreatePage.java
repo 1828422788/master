@@ -43,6 +43,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'设置')]")
     private WebElement settings;
 
+    @FindBy(xpath = "//span[text()='保存为']")
+    private WebElement saveAs;
+
+    @FindBy(xpath = "//li[text()='趋势图']")
+    private WebElement saveAsTrend;
+
 // Map Interaction -----------------
     @FindBy(xpath = "//*[text()='124']/ancestor::*[2]")
     private WebElement countryChina;
@@ -544,7 +550,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
-    @FindBy(xpath = "//i[@class='iconfont icon-chenggong1']/following-sibling::span")
+//    @FindBy(xpath = "//i[@class='iconfont icon-chenggong1']/following-sibling::span")
+    @FindBy(className = "_1JjlGgMGUnJmBrqR_9PZl8")
     private WebElement successMessage;
 
     @FindBy(tagName = "th")
@@ -683,6 +690,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getType() {
         return type;
     }
+
+
 
     //--------------------------------------------------------------------
 
@@ -848,6 +857,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSettings() {
         return settings;
+    }
+
+    public WebElement getSaveAsTrend() {
+        saveAs.click();
+        return saveAsTrend;
     }
 
     public WebElement getProvinceJiangsu() {
@@ -1240,6 +1254,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getEnsureButton() {
         return getContainsTextButton("确定");
+    }
+
+    public WebElement getCreateEnsureButton() {
+        return getContainsTextButton("确 定");
     }
 
     public WebElement getGenerate() {

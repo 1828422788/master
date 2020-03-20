@@ -22,6 +22,15 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement successMessage;
 
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    private WebElement message;
+
+    @FindBy(xpath = "//span[text()='新建']/ancestor::button")
+    private WebElement newReportButton;
+
+    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
+    private WebElement ensureButton;
+
     @Override
     public WebElement getSuccessMessage() {
         return successMessage;
@@ -34,8 +43,20 @@ public class ListPage extends ListPageFactory {
     public WebElement getReturnList() {
         return super.getButton("返回列表");
     }
+//
+//    public WebElement getMessage() {
+//        return super.getSuccessMessage();
+//    }
+
+    public WebElement getNewReportButton() {
+        return newReportButton;
+    }
 
     public WebElement getMessage() {
-        return super.getSuccessMessage();
+        return message;
+    }
+
+    public WebElement getEnsureButton() {
+        return ensureButton;
     }
 }
