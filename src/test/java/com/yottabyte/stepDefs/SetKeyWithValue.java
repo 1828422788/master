@@ -104,4 +104,49 @@ public class SetKeyWithValue {
         element.sendKeys(Keys.DELETE);
         element.sendKeys(value);
     }
+
+    @And("^I set the parameter \"([^割]*)\" to json editor in field parsing$")
+    public void iSetTheParameterToJsonEditorNotClick(String value) {
+        WebElement element = webDriver.findElement(By.xpath("(//*[@class='ace_text-input'])[last()]"));
+        if (System.getProperty("os.name").startsWith("Linux"))
+            element.sendKeys(Keys.CONTROL, "a");
+        else
+            element.sendKeys(Keys.COMMAND, "a");
+        element.sendKeys(Keys.DELETE);
+        element.sendKeys(value);
+    }
+
+    @And("^I set the value \"([^割]*)\" to the textarea \"([^\"]*)\"$")
+    public void iSetTheValueToTextarea(String value, String elementName) {
+        if (elementName != null && elementName.trim().length() != 0) {
+            WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+            if (element.getAttribute("class").contains("CodeMirror")) {
+                WebElement element1 = webDriver.findElement(By.className("CodeMirror"));
+                JavascriptExecutor js = (JavascriptExecutor) webDriver;
+                js.executeScript("arguments[0].CodeMirror.setValue(\"" + value + "\");", element1);
+            } else {
+                iSetTheValueToTextarea(element, value);
+            }
+        }
+    }
+
+    private void iSetTheValueToTextarea(WebElement element, String value) {
+        boolean flag = true;
+        while (flag) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            element.click();
+            element.sendKeys(Keys.CONTROL + "a");
+            element.sendKeys(Keys.END);
+            element.sendKeys(Keys.SHIFT, Keys.HOME);
+            element.sendKeys(Keys.BACK_SPACE);
+            if (element.getText().equalsIgnoreCase("")) {
+                flag = false;
+            }
+        }
+        element.sendKeys(value);
+    }
 }

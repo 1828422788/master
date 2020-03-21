@@ -33,7 +33,7 @@ Feature: 字段提取URL解码规则
     And I set the parameter "Logtype" with value "apache"
     And I set the parameter "AppName" with value "auto_test_url"
     And I set the parameter "Tag" with value "auto_test_url"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:

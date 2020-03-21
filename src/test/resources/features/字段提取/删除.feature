@@ -57,8 +57,8 @@ Feature: 字段提取删除
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "owner"
-    And I set the parameter "Password" with value "all123456"
+    When I set the parameter "Username" with value "admin"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "agent.CreatePage" page for uri "/sources/input/agent/"

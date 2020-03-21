@@ -162,4 +162,9 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     public WebElement getPlaceholderInput(String placeholder) {
         return webDriver.findElement(By.xpath("(//input[@placeholder='" + placeholder + "'])[last()]"));
     }
+
+    public WebElement getClearIcon(String text){
+        String xpath = "//li[@title='" + text + "']//span/i[@aria-label='图标: close']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
 }

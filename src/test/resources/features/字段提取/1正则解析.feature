@@ -40,7 +40,7 @@ Feature: 字段提取正则解析
     And I set the parameter "Logtype" with value "apache"
     And I set the parameter "AppName" with value "auto_test_apache"
     And I set the parameter "Tag" with value "auto_test_apache"
-    And I click the "NextButton" button
+    Then I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:

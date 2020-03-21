@@ -27,11 +27,12 @@ Feature: 字段提取KeyValue正则匹配
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "NextButton" button under some element
+    And I click the "SwitchButton" button
     When I set the parameter "Name" with value "RZY1535KeyValue正则匹配"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "auto_test_KV"
     And I set the parameter "Tag" with value "auto_test_KV"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -61,7 +62,7 @@ Feature: 字段提取KeyValue正则匹配
     And I set the parameter "Logtype" with value "test"
     And I set the parameter "AppName" with value "auto_test_KV_group"
     And I set the parameter "Tag" with value "auto_test_KV_group"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
