@@ -28,9 +28,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'确定')]")
     private List<WebElement> ensureList;
 
-    @FindBy(className = "icon-guolvxuanting_icon")
-    private WebElement showFilter;
-
     @FindBy(className = "control-panel-content")
     private WebElement filter;
 
@@ -76,13 +73,16 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'恢复')][@class='action']")
     private WebElement recoverTag;
 
-    @FindBy(xpath = "//span[contains(text(),'移出')][@class='action']")
+    @FindBy(xpath = "//span[text()='移出标签页')]")
     private WebElement moveoutTag;
 
     @FindBy(className = "ant-message-success")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//span[contains(text(),'删除')][@class='action']")
+    @FindBy(className = "ant-message-error")
+    private WebElement errorMessage;
+
+    @FindBy(xpath = "(//span[text()='filter']/following-sibling::i)[last()]")
     private WebElement deleteTag;
 
     @FindBy(xpath = "//i[@class='anticon css-ifnfqv ant-dropdown-trigger']")
@@ -91,7 +91,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "yw-dropdown-menu")
     private List<WebElement> eventList;
 
-    @FindBy(xpath = "//label[contains(text(),'输入类型')]/following-sibling::div//button")
+    @FindBy(xpath = "//div[@id='filter_type']//i")
     private WebElement inputType;
 
     @FindBy(xpath = "//span[text()='添加']")
@@ -130,7 +130,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='多选']")
     private WebElement multiSelect;
 
-    @FindBy(xpath = "(//label[contains(text(),'可选值')]/following-sibling::div//input[@class='el-input__inner'])[last()]")
+    @FindBy(xpath = "//input[@placeholder='请输入选项值']")
     private WebElement choiceValue;
 
     @FindBy(xpath = "//*[@placeholder='请输入趋势图名称']")
@@ -145,8 +145,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-gengduopeizhi")
     private WebElement chartSetting;
 
-    @FindAll({
-            @FindBy(className = "yw-table-head"), @FindBy(className = "table-body-td")})
+    @FindBy(tagName = "table")
     private List<WebElement> tableList;
 
     @FindBy(xpath = "//textarea[@class='ant-input']")
@@ -155,7 +154,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//*[@class='el-dialog__body']/following-sibling::div//button/span[contains(text(),'确定')])[last()]")
     private WebElement settingEnsure;
 
-    @FindBy(xpath = "//*[@class='img iconfont icon-shanchuxuanting_icon el-tooltip']")
+    @FindBy(xpath = "//div[text()='仪表盘所用趋势图']/following-sibling::div//*[@class='anticon css-ifnfqv'][2]")
     private WebElement deleteChart;
 
     @FindBy(xpath = "//div[text()='是否删除图表?']/ancestor::div[@class='el-dialog el-dialog--tiny']//button")
@@ -173,7 +172,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(tagName = "textarea")
     private WebElement textarea;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='通用配置']")
+    @FindBy(xpath = "//span[text()='通用配置']")
     private WebElement configs;
 
     @FindBy(xpath = "//span[text()='高级编辑']")
@@ -182,7 +181,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='恢复初始']")
     private WebElement recover;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='钻取配置']")
+    @FindBy(xpath = "//span[text()='钻取配置']")
     private WebElement drillSetting;
 
     @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
@@ -216,7 +215,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "el-icon-loading")
     private WebElement iconLoading;
 
-    @FindBy(xpath = "//label[contains(text(),'默认值')]/following-sibling::div//i")
+    @FindBy(xpath = "//span[contains(text(),'默认值')]/ancestor::div/following-sibling::div//div[@id]")
     private WebElement defaultValueIcon;
 
     @FindBy(xpath = "//td[@data-col-name='a_']")
@@ -234,7 +233,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'生成')]")
     private WebElement generate;
 
-    @FindBy(className = "el-progress--line")
+    @FindBy(className = "ant-progress-line")
     private WebElement progress;
 
     @FindBy(xpath = "//span[text()='添加颜色范围']")
@@ -264,16 +263,16 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//i[@class='el-icon-check el-icon--right']")
     private WebElement checkRight;
 
-    @FindBy(className = "drowdown-link")
+    @FindBy(xpath = "//div[@id='fullscreenAll']//label")
     private WebElement dropdownLink;
 
     @FindBy(className = "message")
     private WebElement message;
 
-    @FindBy(xpath = "//span[@class='img iconfont icon-beizhu_icon']")
+    @FindBy(xpath = "(//div[@id='fullscreenAll']//div[@id]//i[@class='anticon css-ifnfqv'])[2]")
     private WebElement describe;
 
-    @FindBy(xpath = "//div[@x-placement]")
+    @FindBy(xpath = "(//div[@class='ant-tooltip-inner'])[last()]")
     private WebElement describeText;
 
     @FindBy(xpath = "//span[text()='操作']")
@@ -285,37 +284,37 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='南京市']")
     private WebElement nanjing;
 
-    @FindBy(xpath = "//input[@placeholder='请选择钻取动作']/preceding-sibling::i")
+    @FindBy(xpath = "//div[@class='ant-select ant-select-enabled']")
     private WebElement drillAction;
 
-    @FindBy(xpath = "//label[contains(text(),'自定义URL')]/following-sibling::div//textarea")
+    @FindBy(xpath = "//label[contains(text(),'自定义URL')]/following-sibling::textarea")
     private WebElement url;
 
-    @FindBy(xpath = "//span[text()='自定义']")
+    @FindBy(xpath = "//div[text()='自定义']")
     private WebElement custom;
 
     @FindBy(xpath = "(//input[@placeholder='请选择时间'])[last()]")
     private WebElement dateEditor;
 
-    @FindBy(className = "el-cascader__label")
+    @FindBy(className = "ant-cascader-picker")
     private WebElement targetTag;
 
     @FindBy(className = "el-cascader-menu")
     private List<WebElement> menuList;
 
-    @FindBy(xpath = "//label[contains(text(),'目标参数')]/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
+    @FindBy(xpath = "//label[contains(text(),'目标参数')]/following-sibling::div")
     private WebElement targetParam;
 
-    @FindBy(xpath = "(//ul[@class='el-select-group'])[1]")
+    @FindBy(xpath = "(//ul[@class='ant-select-dropdown-menu-item-group-list'])[1]")
     private WebElement inputGroup;
 
-    @FindBy(xpath = "//span[text()='=']/following-sibling::div//i")
+    @FindBy(xpath = "//div[text()='=']//i")
     private WebElement paramValue;
 
     @FindBy(className = "is-multiple")
     private WebElement paramDropdown;
 
-    @FindBy(xpath = "//div[text()='${click.value2}']")
+    @FindBy(xpath = "//span[text()='${click.value2}']")
     private WebElement clickValue;
 
     @FindBy(xpath = "//td[@data-col-name='apache.geo.city']")
@@ -327,10 +326,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='事件列表']/ancestor::div/following-sibling::div//i")
     private WebElement iconRight;
 
-    @FindBy(xpath = "//span[text()='apache.geo.city']/ancestor::td/following-sibling::td")
+    @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::span/pre")
     private WebElement cityTd;
 
-    @FindBy(xpath = "(//div[@class='filter-title']/following-sibling::div[@class='el-select'])[last()]")
+    @FindBy(className = "ant-select-selection")
     private WebElement filterDropdown;
 
     @FindBy(xpath = "//span[text()='filter']")
@@ -339,7 +338,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='000000001203094955'])[2]")
     private WebElement entry;
 
-    @FindBy(xpath = "(//a[@class='item-menu-btn iconfont icon-shezhixuanting_icon'])[last()]")
+    @FindBy(xpath = "//span[text()='filter']/following-sibling::i")
     private WebElement filterSetting;
 
     @FindBy(xpath = "(//a[@class='item-menu-btn iconfont icon-shanchuxuanting_icon'])[last()]")
@@ -354,10 +353,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='单选']/ancestor::label")
     private WebElement singleChoice;
 
-    @FindBy(xpath = "(//div[@class='filter-title']/following-sibling::div//input)[last()]")
+    @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div/input")
     private WebElement filterInput;
 
-    @FindBy(xpath = "//span[text()='appname']")
+    @FindBy(xpath = "//th[text()='appname']")
     private WebElement appname;
 
     @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::div")
@@ -369,16 +368,16 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'仪表盘workflow')]/ancestor::div[@class='widget-control-panel']/following-sibling::div//*[@class='yw-table-head' or @class='table-body-td']")
     private List<WebElement> workflowList;
 
-    @FindBy(xpath = "//i[@class='el-icon-search']")
+    @FindBy(xpath = "//span[text()='在搜索中打开']")
     private WebElement openInSearch;
 
     @FindBy(xpath = "//span[text()='49']")
     private WebElement countNum;
 
-    @FindBy(className = "custom-title")
+    @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div")
     private WebElement customTitle;
 
-    @FindBy(xpath = "//label[contains(text(),'图表描述')]/following-sibling::div//textarea")
+    @FindBy(id = "filter_trendDescription")
     private WebElement chartDesc;
 
     @FindBy(className = "icon-fanyeqishangjiantou")
@@ -452,6 +451,27 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "ant-spin-dot")
     private WebElement spinDot;
+
+    @FindBy(xpath = "//span[text()='标识']/ancestor::div/following-sibling::div//input")
+    private WebElement filterToken;
+
+    @FindBy(id = "filter_textValue")
+    private WebElement filterDefaultValue;
+
+    @FindBy(xpath = "//div[text()='快捷选项']")
+    private WebElement shortcut;
+
+    @FindBy(xpath = "(//ul[@class='ant-cascader-menu'])[last()]")
+    private WebElement dashboardMenu;
+
+    @Override
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+
+    public WebElement getShortcut() {
+        return shortcut;
+    }
 
     public WebElement getSpinDot() {
         return spinDot;
@@ -527,6 +547,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getOpenEdit() {
         return getSwitchButton("启用编辑项");
+    }
+
+    public WebElement getShowFilter() {
+        return getSwitchButton("显示过滤项");
     }
 
     private WebElement getSwitchButton(String name) {
@@ -644,7 +668,7 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getFilterDropdown() {
         filterDropdown.click();
-        return this.getLastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getCityTd() {
@@ -664,7 +688,8 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getParamDropdown() {
-        return paramDropdown;
+//        return paramDropdown;
+        return super.getLastDropdownList();
     }
 
     public WebElement getParamValue() {
@@ -684,7 +709,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getDashboardMenu() {
-        return menuList.get(0);
+        return dashboardMenu;
     }
 
     public WebElement getTagMenu() {
@@ -717,7 +742,8 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getDrillAction() {
-        return drillAction;
+        drillAction.click();
+        return super.getLastDropdownList();
     }
 
     public WebElement getDrillSetting() {
@@ -741,7 +767,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getSearch() {
-        return super.getContainsTextButton("搜索");
+        return super.getButton("搜 索");
     }
 
     public WebElement getSearchLoading() {
@@ -1002,11 +1028,11 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getDefaultDropdownList() {
         defaultValueIcon.click();
-        return getLastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getDynamicField() {
-        return this.getInputElement("动态字段");
+        return this.getInput("动态字段值");
     }
 
     public WebElement getSearchInput() {
@@ -1019,11 +1045,11 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getInputType() {
         inputType.click();
-        return eventList.get(eventList.size() - 1);
+        return super.getLastDropdownList();
     }
 
     public WebElement getFilterTitle() {
-        return getInputElement("标题");
+        return getInput("标题");
     }
 
     public WebElement getChoiceValue() {
@@ -1031,35 +1057,35 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getFilterToken() {
-        return getInputElement("标识");
+        return filterToken;
     }
 
     public WebElement getFilterField() {
-        return getInputElement("过滤字段");
+        return getInput("过滤字段");
     }
 
     public WebElement getFilterDefaultValue() {
-        return getInputElement("默认值");
+        return filterDefaultValue;
     }
 
     public WebElement getPrefix() {
-        return getInputElement("标识前缀");
+        return getInput("标识前缀");
     }
 
     public WebElement getPrefixValue() {
-        return getInputElement("标识值前缀");
+        return getInput("标识值前缀");
     }
 
     public WebElement getSuffixValue() {
-        return getInputElement("标识值后缀");
+        return getInput("标识值后缀");
     }
 
     public WebElement getSuffix() {
-        return getInputElement("标识后缀");
+        return getInput("标识后缀");
     }
 
     public WebElement getSeparate() {
-        return getInputElement("分隔符");
+        return getInput("分隔符");
     }
 
     public WebElement getEventList() {
@@ -1142,10 +1168,6 @@ public class DetailPage extends PageTemplate {
         return filter;
     }
 
-    public WebElement getShowFilter() {
-        return showFilter;
-    }
-
     public WebElement getEventName() {
         return getNewInputElement("名称");
     }
@@ -1175,7 +1197,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getChartTitle() {
-        return this.getInputElement("图表标题");
+        return this.getInput("图表标题");
     }
 
     public WebElement getEnsure() {
@@ -1209,6 +1231,11 @@ public class DetailPage extends PageTemplate {
 
     private WebElement getLi(String name) {
         String xpath = "//span[text()='" + name + "']/ancestor::li";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    private WebElement getInput(String name) {
+        String xpath = "//label[text()='" + name + "']/ancestor::div/following-sibling::div//input";
         return webDriver.findElement(By.xpath(xpath));
     }
 }

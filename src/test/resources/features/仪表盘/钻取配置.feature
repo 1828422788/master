@@ -6,7 +6,7 @@ Feature: 仪表盘钻取配置
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
-    Then I will see the success message "新建成功"
+    Then I will see the success message "新建仪表盘成功"
 
     Examples:
       | name   |
@@ -15,25 +15,27 @@ Feature: 仪表盘钻取配置
 
   Scenario: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "NameInput" with value "仪表盘钻取配置"
-    And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for "Header" will be visible
     And I click the "NextButton" button
-    Then I will see the element "SuccessCreate" name is "新建成功！"
+    When I set the parameter "NameInput" with value "仪表盘钻取配置"
+    And I click the "NextButton" button
+    And I wait for "SuccessCreate" will be visible
 
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "chart"
-    And I click the "EnsureCreateTagButton" button
+    And I click the "Ensure" button
     And I wait for loading complete
 
     Examples:
@@ -45,24 +47,24 @@ Feature: 仪表盘钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "AddButton" button
+    And I wait for "AddEventButton" will be visible
+    When I click the "AddEventButton" button
     And I choose the "添加图表" from the "EventList"
-    And I check "仪表盘钻取配置" from the "CheckBox"
-    And I click the "EnsureAddTrend" button
-    And I wait for "ChartSetting" will be visible
+    And I wait for "SpinDot" will be invisible
+    And I "checked" the checkbox which name is "仪表盘钻取配置"
+    And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
   Scenario: 在当前页面跳转到搜索页-自动
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    And I click the "ChartSetting" button
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "DrillSetting" button
-    And I click the "DrillAction" button
-    And I choose the "跳转到搜索页" from the "LastDropdownList"
+    And I choose the "跳转到搜索页" from the "DrillAction"
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
-    And I click the "SettingEnsure" button
-    Then I will see the success message "配置保存成功"
+    And I click the "Ensure" button
     And I click the "Jiangsu" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
@@ -73,13 +75,11 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    And I click the "ChartSetting" button
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "DrillSetting" button
-    And I click the "DrillAction" button
-    And I choose the "跳转到搜索页" from the "LastDropdownList"
+    And I choose the "跳转到搜索页" from the "DrillAction"
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
-    And I click the "SettingEnsure" button
-    Then I will see the success message "配置保存成功"
+    And I click the "Ensure" button
     And I click the "Jiangsu" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
@@ -90,17 +90,16 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    And I click the "ChartSetting" button
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "DrillSetting" button
-    And I click the "DrillAction" button
-    And I choose the "跳转到搜索页" from the "LastDropdownList"
+    And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "DateEditor" button
+    And I click the "Shortcut" button
     And I click the "Today" button
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
-    And I click the "SettingEnsure" button
-    Then I will see the success message "配置保存成功"
+    And I click the "Ensure" button
     And I click the "Jiangsu" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
@@ -112,17 +111,16 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    And I click the "ChartSetting" button
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "DrillSetting" button
-    And I click the "DrillAction" button
-    And I choose the "跳转到搜索页" from the "LastDropdownList"
+    And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
     And I set the parameter "Spl" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "DateEditor" button
+    And I click the "Shortcut" button
     And I click the "Today" button
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
-    And I click the "SettingEnsure" button
-    Then I will see the success message "配置保存成功"
+    And I click the "Ensure" button
     And I click the "Jiangsu" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
@@ -134,14 +132,12 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    And I click the "ChartSetting" button
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "DrillSetting" button
-    And I click the "DrillAction" button
-    And I choose the "跳转到自定义URL" from the "LastDropdownList"
+    And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
-    And I click the "SettingEnsure" button
-    Then I will see the success message "配置保存成功"
+    And I click the "Ensure" button
     And I click the "Jiangsu" button
     Then I wait for title change text to "<title>"
 
@@ -155,13 +151,12 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    And I click the "ChartSetting" button
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "DrillSetting" button
-    And I click the "DrillAction" button
-    And I choose the "跳转到自定义URL" from the "LastDropdownList"
+    And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
-    And I click the "SettingEnsure" button
+    And I click the "Ensure" button
     Then I will see the success message "配置保存成功"
     And I click the "Jiangsu" button
     And switch to another window
@@ -174,28 +169,31 @@ Feature: 仪表盘钻取配置
 
   Scenario: 新建标签页钻取所需趋势图
     And open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "NameInput" with value "测试标签钻取"
-    And I click the "NextButton" button
     And I set the parameter "SearchInput" with value "tag:sample04061424_chart AND 'apache.geo.province':江苏 | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for "Header" will be visible
     And I click the "NextButton" button
-    Then I will see the element "SuccessCreate" name is "新建成功！"
+    When I set the parameter "NameInput" with value "测试标签钻取"
+    And I click the "NextButton" button
+    And I wait for "SuccessCreate" will be visible
 
   Scenario: 仪表盘添加钻取趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "钻取跳转"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "AddButton" button
+    And I wait for "AddEventButton" will be visible
+    When I click the "AddEventButton" button
     And I choose the "添加图表" from the "EventList"
-    And I check "测试标签钻取" from the "CheckBox"
-    And I click the "EnsureAddTrend" button
-    And I wait for "ChartSetting" will be visible
+    And I "checked" the checkbox which name is "测试标签钻取"
+    And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
   Scenario Outline: 仪表盘添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -206,7 +204,7 @@ Feature: 仪表盘钻取配置
     And I set the parameter "FilterTitle" with value "<filter>"
     And I set the parameter "FilterToken" with value "<filter>"
     And I set the parameter "FilterDefaultValue" with value "<defaultValue>"
-    Then I click the "EnsureCreateInput" button
+    Then I click the "Ensure" button
 
     Examples:
       | filter | defaultValue |
@@ -216,31 +214,29 @@ Feature: 仪表盘钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "钻取跳转"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "ChartSetting" button
+    When the chart title is "测试标签钻取" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I set the parameter "Spl" with value "tag:sample04061424_chart AND apache.geo.city:${city}| stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
-    And I click the "SettingEnsure" button
-    Then I will see the success message "配置保存成功"
+    And I click the "Ensure" button
+    Then I will see the success message "配置成功"
 
-  Scenario: 跳转到标签页
+  Scenario: 跳转到标签页(后三步待验证)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
-    And I click the "ChartSetting" button
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "DrillSetting" button
-    And I click the "DrillAction" button
-    And I choose the "跳转到标签页" from the "LastDropdownList"
+    And I choose the "跳转到标签页" from the "DrillAction"
     And I click the "TargetTag" button
     And I choose the "钻取跳转" from the "DashboardMenu"
-    And I choose the "chart" from the "TagMenu"
+    And I choose the "chart" from the "DashboardMenu"
     And I click the "TargetParam" button
     And I choose the "city" from the "InputGroup"
     And I hide the element "ParamDropdown"
     And I click the "ParamValue" button
     And I click the "ClickValue" button
-    And I click the "SettingEnsure" button
-    Then I will see the success message "配置保存成功"
+    And I click the "Ensure" button
     And I click the "Nanjing" button
     And I wait for title change text to "钻取跳转 | 仪表盘"
     And I wait for "Progress" will be invisible

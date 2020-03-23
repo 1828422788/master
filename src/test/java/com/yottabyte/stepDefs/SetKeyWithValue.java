@@ -79,9 +79,9 @@ public class SetKeyWithValue {
 //            element.sendKeys(Keys.SHIFT, Keys.HOME);
 //            element.sendKeys(Keys.BACK_SPACE);
             element.clear();
-            if (element.getText().equalsIgnoreCase("")) {
+//            if (element.getText().equalsIgnoreCase("")) {
                 flag = false;
-            }
+//            }
         }
         element.sendKeys(value);
     }

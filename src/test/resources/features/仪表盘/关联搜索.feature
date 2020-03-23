@@ -91,7 +91,7 @@ Feature: 仪表盘关联搜索
     And I wait for "SpinDot" will be invisible
     And I "checked" the checkbox which name is "仪表盘message,仪表盘return,仪表盘workflow"
     And I click the "Ensure" button
-#    And I wait for "ChartSetting" will be visible
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
   Scenario Outline: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -106,18 +106,19 @@ Feature: 仪表盘关联搜索
 
     Examples:
       | name       | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘message | {"title": "仪表盘message","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_message \| table tag ,message.PRE_ENTRY_ID,message.CREATE_DATE \| rename tag as tag, message.PRE_ENTRY_ID as PRE_ENTRY, message.CREATE_DATE as CREAT_DATE","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "set","name": "return","value": "${click.value2}"}]}} |
-      | 仪表盘return  | {"title": "仪表盘return","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_return AND return.EPORT_ID:${return}\| table return.EPORT_ID,tag,return.CUS_ID \| rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID","startTime": "now/d","endTime": "now","done": {"type": "local","targets": [{"action": "eval","name": "workflow","value": "${result.CUS_ID}"}]}},"chart": {"chartType": "table"}}                |
+      | 仪表盘message | {"title": "仪表盘message","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_message \| table tag ,message.PRE_ENTRY_ID,message.CREATE_DATE \| rename tag as tag, message.PRE_ENTRY_ID as PRE_ENTRY, message.CREATE_DATE as CREAT_DATE","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "set","name": "return","value": "${click.value2}"}]}} |
+      | 仪表盘return  | {"title": "仪表盘return","description": "","x": 0,"y": 20,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_return AND return.EPORT_ID:${return}\| table return.EPORT_ID,tag,return.CUS_ID \| rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID","startTime": "now/d","endTime": "now","done": {"type": "local","targets": [{"action": "eval","name": "workflow","value": "${result.CUS_ID}"}]}},"chart": {"chartType": "table"}}                |
 
   Scenario: 修改表格workflow查询语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘workflow" then I click the button which classname is "img iconfont icon-gengduopeizhi el-tooltip" in dashboard
+    When the chart title is "仪表盘workflow" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I set the parameter "Spl" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:${workflow} | table tag,workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"
-    Then I click the "SettingEnsure" button
+    Then I click the "Ensure" button
+    Then I will see the success message "配置成功"
 
   Scenario Outline: 添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -129,9 +130,8 @@ Feature: 仪表盘关联搜索
     And I set the parameter "FilterToken" with value "<name>"
     And I choose the "下拉菜单" from the "InputType"
     And I click the "SingleChoice" button
-    And I "checked" the checkbox which name is "当输入项值改变时自动搜索"
-    Then I click the "EnsureCreateInput" button
-    And I wait for "EnsureCreateInput" will be invisible
+    And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
+    Then I click the "Ensure" button
 
     Examples:
       | name     |

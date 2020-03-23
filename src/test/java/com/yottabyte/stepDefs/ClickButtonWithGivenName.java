@@ -454,7 +454,8 @@ public class ClickButtonWithGivenName {
     public void clickButtonInDashboard(String chartTitle, String buttonClass) {
         String xpath = "//div[text()='" + chartTitle + "']/following-sibling::div//*[@class='" + buttonClass + "']";
         WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(false);", element);
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", element);
     }
 
     /**

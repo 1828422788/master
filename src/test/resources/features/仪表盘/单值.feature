@@ -13,21 +13,26 @@ Feature: 仪表盘单值
       | name    |
       | 仪表盘图表管理 |
 
-  Scenario: 新建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
+  Scenario Outline: 新建趋势图
+    And open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "NameInput" with value "仪表盘单值"
-    And I click the "NextButton" button
-    And I wait for "SearchInput" will be visible
-    And I set the parameter "SearchInput" with value "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")"
+    And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
+    And I wait for "Header" will be visible
     And I click the "NextButton" button
-    Then I will see the element "SuccessCreate" name is "新建成功！"
+    When I set the parameter "NameInput" with value "<name>"
+    And I click the "NextButton" button
+    And I wait for "SuccessCreate" will be visible
+
+    Examples:
+      | spl                                                                                                | name  |
+      | tag:*display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | 仪表盘单值 |
 
   Scenario: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -41,11 +46,12 @@ Feature: 仪表盘单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘图表管理"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "AddButton" will be visible
-    And I click the "AddButton" button
+    And I wait for "AddEventButton" will be visible
+    When I click the "AddEventButton" button
     And I choose the "添加图表" from the "EventList"
-    And I check "仪表盘单值" from the "CheckBox"
-    And I click the "EnsureAddTrend" button
+    And I wait for "SpinDot" will be invisible
+    And I "checked" the checkbox which name is "仪表盘单值"
+    And I click the "Ensure" button
     And I wait for "SingleChartFieldA" will be visible
     And I set value with element "SingleChartFieldA"
     And I wait for "FadingLeave" will be invisible
