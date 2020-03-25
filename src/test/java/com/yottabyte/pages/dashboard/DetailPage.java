@@ -76,6 +76,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='移出标签页')]")
     private WebElement moveoutTag;
 
+    @FindBy(xpath = "//span[text()='保存为']")
+    private WebElement saveAs;
+
+    @FindBy(xpath = "//span[text()='存为报表']")
+    private WebElement saveAsReport;
+
     @FindBy(className = "ant-message-success")
     private WebElement successMessage;
 
@@ -187,7 +193,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
     private WebElement ensureEdit;
 
-    @FindBy(xpath = "//span[@class='trend-title']/span")
+    @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div")
     private WebElement trendTitle;
 
     @FindBy(xpath = "//span[text()='second'][@class='main']")
@@ -266,10 +272,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@id='fullscreenAll']//label")
     private WebElement dropdownLink;
 
-    @FindBy(className = "message")
+    @FindBy(xpath = "//div[@class='ant-modal-body']//i/ancestor::div")
     private WebElement message;
 
-    @FindBy(xpath = "(//div[@id='fullscreenAll']//div[@id]//i[@class='anticon css-ifnfqv'])[2]")
+    @FindBy(xpath = "(//div[@id='fullscreenAll']//div[@id]/div/following-sibling::div)[2]/i")
     private WebElement describe;
 
     @FindBy(xpath = "(//div[@class='ant-tooltip-inner'])[last()]")
@@ -371,7 +377,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='在搜索中打开']")
     private WebElement openInSearch;
 
-    @FindBy(xpath = "//span[text()='49']")
+    @FindBy(xpath = "//span[text()='779']")
     private WebElement countNum;
 
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div")
@@ -463,6 +469,21 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "(//ul[@class='ant-cascader-menu'])[last()]")
     private WebElement dashboardMenu;
+
+    @FindBy(xpath = "(//ul[@class='ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical'])[last()]")
+    private WebElement chartDropdown;
+
+    public WebElement getSaveAsReport() {
+        return saveAsReport;
+    }
+
+    public WebElement getSaveAs() {
+        return saveAs;
+    }
+
+    public WebElement getChartDropdown() {
+        return chartDropdown;
+    }
 
     @Override
     public WebElement getErrorMessage() {
@@ -731,6 +752,10 @@ public class DetailPage extends PageTemplate {
     // 获取今天按钮
     public WebElement getToday() {
         return GetTime.getTime(webDriver, "Today");
+    }
+
+    public WebElement getYesterday() {
+        return GetTime.getTime(webDriver, "Yesterday");
     }
 
     public WebElement getCustom() {
