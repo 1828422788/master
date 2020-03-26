@@ -26,7 +26,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='报表分组']/following-sibling::div//input[@class='el-input__inner']")
     private WebElement reportGroup;
 
-    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div//input[@class='el-input__inner']")
+    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div//i")
     private WebElement reportType;
 
     @FindBy(xpath = "//li[@class='ant-dropdown-menu-item'][1]")
