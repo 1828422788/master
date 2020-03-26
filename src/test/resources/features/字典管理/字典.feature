@@ -194,6 +194,7 @@ Feature:
   Scenario Outline: RZY-4146(列表页修改标签wymtest1->wymtest2)
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
+    Then I wait for "1000" millsecond
     Then I click the "ClearIcon1" button
     Then I set the parameter "Tag" with value "wymtest2"
     And I choose the "wymtest2" from the "Group"
