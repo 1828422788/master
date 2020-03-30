@@ -8,7 +8,6 @@ Feature: 编辑数据库数据类型数据源
     And I will see the "agent.CreatePage" page
 
   Scenario: 新建mysql数据库类型数据源
-#    When I click the detail which name is "<ip>"
     And I click the "Create" button
     And I click the "DatabaseType" button
     And I click the "CreateLink" button
@@ -17,7 +16,6 @@ Feature: 编辑数据库数据类型数据源
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "Host" with value "192.168.1.134"
     And I set the parameter "DataBaseName" with value "rizhiyi_system"
-#    And I set the parameter "MaxLin" with value "1"
     And I click the "Save" button
     Then I will see the element "ChangeMemo" name is "保存成功"
     And I wait for loading invisible
@@ -111,7 +109,7 @@ Feature: 编辑数据库数据类型数据源
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
-    Then I will see the element "PreviewMessage" name is "请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。"
+    Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
 
     Examples:
       | tagkind |

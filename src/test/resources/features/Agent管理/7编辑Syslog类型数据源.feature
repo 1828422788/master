@@ -109,7 +109,7 @@ Feature: 编辑Syslog类型数据源
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
-    Then I will see the element "PreviewMessage" name is "请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。"
+    Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
 
     Examples:
       | tagkind |

@@ -1,13 +1,13 @@
 Feature: 编辑脚本类型数据源
 
   Background:
-
-  Scenario:新建脚本类型数据源
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
     When I click the detail which column is "1" in agent page
     And switch to another window
     And I will see the "agent.CreatePage" page
+
+  Scenario:新建脚本类型数据源
     And I wait for loading invisible
     And I click the "Create" button
     And I click the "ScriptType" button
@@ -24,7 +24,7 @@ Feature: 编辑脚本类型数据源
     And I will see the element "CheckParam" name is "rsyslog status"
     And I will see the element "CheckChangeRowRule" name is "\n"
     And I will see the element "CheckInternal" name is "120 秒"
-    And I click the "Finish" button
+    And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
   Scenario:编辑修改可执行文件
@@ -104,6 +104,6 @@ Feature: 编辑脚本类型数据源
     Then I will see the element "ScriptSwitchStatus" name is "已启用"
 
   Scenario: 脚本类型数据源删除
-    Given the data name "/sbin/service" in table "ScriptTable" then i click the "删除" button
+    Given the data name "autohekascripttest" in table "ScriptTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"

@@ -283,6 +283,21 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//td[text()='autohekafiletest']/following-sibling::td//a[text()='编辑']")
     private WebElement EditAutoFile;
 
+    public WebElement getCleanOutputCache() {
+        return CleanOutputCache;
+    }
+
+    public WebElement getCleanInputCache() {
+
+        return CleanInputCache;
+    }
+
+    @FindBy(xpath = "//span[text()='清理输入源缓存']//ancestor::li")
+    private WebElement CleanInputCache;
+
+    @FindBy(xpath = "//span[text()='清理输出源缓存']//ancestor::li")
+    private WebElement CleanOutputCache;
+
     public WebElement getDataSourceSwitchStatus() {
         return getSwitchStatus("autohekafiletest");
     }
@@ -301,7 +316,7 @@ public class CreatePage extends PageTemplate {
 
 
     public WebElement getFuctionTypeSwitchStatus() {
-        return getSwitchStatus("磁盘指标, 系统指标");
+        return getSwitchStatus("磁盘指标, 磁盘 IO, 系统指标");
     }
 
     public WebElement getDatabaseTypeSwitchStatus() {
@@ -360,6 +375,7 @@ public class CreatePage extends PageTemplate {
     public WebElement getMysqlDatabase() {
         return MysqlDatabase;
     }
+
     @FindBy(xpath = "//span[text()='连续监视']/following-sibling::span")
     private WebElement Monitoring;
 
@@ -444,8 +460,8 @@ public class CreatePage extends PageTemplate {
         return getEditAutoScript;
     }
 
-//    @FindBy(xpath = "//div[@class='ant-select-selection-selected-value']")
-//    private WebElement Frequency;
+    @FindBy(xpath = "//div[@class='ant-select-selection-selected-value']")
+    private WebElement Frequency;
 
     public WebElement getGroupName() {
         return this.getContainsInputElement("名称");
@@ -625,6 +641,7 @@ public class CreatePage extends PageTemplate {
     public WebElement getCleanCache() {
         return super.getButton("清理缓存");
     }
+
 
     public WebElement getCancle() {
         return super.getButton("取消");
