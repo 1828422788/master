@@ -84,10 +84,8 @@ public class SharedDriver extends EventFiringWebDriver {
             browser.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
             String ServerHOst;
             ServerHOst = config.get("selenium_server_host");
-            System.out.println("看看问题！！！！");
             GetLogger.getLogger().info("ServerHOst: {}", ServerHOst);
             URL url = new URL("http://" + ServerHOst + ":4444/wd/hub");
-            System.out.println("初始化remotewebdriver！！！！");
             REAL_DRIVER = new RemoteWebDriver(url, browser);
             REAL_DRIVER = new EventFiringWebDriver(REAL_DRIVER).register(eventListener);
             WebDriverType = "Remote";
@@ -170,12 +168,7 @@ public class SharedDriver extends EventFiringWebDriver {
             String downloadFilepath = config.get("ftp_base_path") + sp + "target" + sp + "download-files";
             ChromeOptions options = new ChromeOptions();
             System.out.println("测试系统：" + System.getProperty("os.name"));
-//            if ("Mac OS X".equalsIgnoreCase(System.getProperty("os.name"))) {
-//            options.setBinary(config.get("macbinary"));
-//            options.setBinary("C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
             options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-//            System.out.println("测试位置：" + config.get("macbinary"));
-//            }
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
             // 设置为禁止弹出下载窗口
             chromePrefs.put("profile.default_content_settings.popups", 0);
