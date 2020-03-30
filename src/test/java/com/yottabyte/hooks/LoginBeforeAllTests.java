@@ -26,10 +26,15 @@ public class LoginBeforeAllTests {
     private static String loginURL;
 
     public LoginBeforeAllTests(SharedDriver driver, ConfigManager manager) {
+        System.out.println("测试webdriver！！！！！！！");
         webDriver = driver;
+        System.out.println("测试webdriver！！！！！！！");
         config = manager;
+        System.out.println("测试webdriver！！！！！！！");
         baseURL = "http://" + manager.get("rizhiyi_server_host");
+        System.out.println("测试webdriver！！！！！！！");
         loginURL = manager.get("login_url");
+        System.out.println("测试webdriver！！！！！！！");
     }
 
     @Before
