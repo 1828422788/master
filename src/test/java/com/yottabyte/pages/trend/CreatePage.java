@@ -30,9 +30,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='设置图表类型']")
     private WebElement chartType;
 
-    @FindBy(xpath = "//span[text()='设置']")
-    private WebElement setting;
-
     @FindBy(className = "line")
     private WebElement line;
 
@@ -240,7 +237,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "table")
     private WebElement table;
 
-    @FindBy(xpath = "(//div[@class='img single'])[last()]")
+    @FindBy(xpath = "((//div[text()='单值'])[last()]/ancestor::div/preceding-sibling::div)[last()]")
     private WebElement single;
 
     @FindBy(xpath = "(//div[@class='img liquidfill'])[last()]")
@@ -482,6 +479,24 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "ant-popover-inner-content")
     private WebElement content;
+
+    @FindBy(xpath = "(//label[text()='今天']/following-sibling::i)[2]")
+    private WebElement setting;
+
+    @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")
+    private WebElement dataField;
+
+    @FindBy(xpath = "(//div[@class='ant-popover-inner-content'])[2]")
+    private WebElement settingContent;
+
+    public WebElement getSettingContent() {
+        return settingContent;
+    }
+
+    public WebElement getDataField() {
+        dataField.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getContent() {
         return content;
@@ -811,7 +826,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSetting() {
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", chartTypePopover);
+//        ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", chartTypePopover);
         return setting;
     }
 

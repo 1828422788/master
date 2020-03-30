@@ -557,6 +557,29 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  Scenario: 添加输入项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I choose the "添加输入项" from the "EventList"
+    And I set the parameter "FilterTitle" with value "filter"
+    And I set the parameter "FilterToken" with value "filter"
+    Then I click the "Ensure" button
+    Then I wait for "FilterName" will be visible
+
+  Scenario: RZY-1834:输入值支持eval（未完成·）
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘1669所用趋势图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "*|stats count() by appname","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+2000"}]}}" to json editor
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button

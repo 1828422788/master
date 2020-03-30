@@ -473,6 +473,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical'])[last()]")
     private WebElement chartDropdown;
 
+    @FindBy(xpath = "//label[text()='今天']/following-sibling::i")
+    private WebElement chartType;
+
+    public WebElement getChartType() {
+        return chartType;
+    }
+
     public WebElement getSaveAsReport() {
         return saveAsReport;
     }

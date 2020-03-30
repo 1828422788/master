@@ -258,6 +258,81 @@ Feature: 仪表盘过滤项
       | city |
       | 苏州市  |
 
+  Scenario: 添加eval过滤项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "FilterName" button
+    And I click the "DeleteTag" button
+    When I click the "AddEventButton" button
+    And I choose the "添加过滤项" from the "EventList"
+    And I set the parameter "FilterTitle" with value "filter"
+    And I set the parameter "FilterToken" with value "filter"
+    And I set the parameter "FilterField" with value "apache.status"
+    Then I "checked" the checkbox which name is "测试过滤项"
+    Then I click the "Ensure" button
+    Then I wait for "FilterName" will be visible
+
+  Scenario Outline: 创建仪表盘所用趋势图
+    And open the "trend.ListPage" page for uri "/trend/"
+    And I click the "CreateButton" button
+    And I click the "Create" button
+    Then I will see the "trend.CreatePage" page
+    And I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+    When I set the parameter "NameInput" with value "<name>"
+    And I click the "NextButton" button
+    And I wait for "SuccessCreate" will be visible
+
+    Examples:
+      | name      | spl                                 |
+      | 测试仪表盘eval | *\|stats count() by 'apache.status' |
+
+  Scenario: 删除趋势图
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "测试过滤项" then I click the button which classname is "anticon css-ifnfqv" in dashboard
+    And I click the "Ensure" button
+
+  Scenario: 添加图表
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I choose the "添加图表" from the "EventList"
+    And I "checked" the checkbox which name is "测试仪表盘eval"
+    And I click the "Ensure" button
+
+  Scenario: 验证eval(undone)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "测试仪表盘eval" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "*|stats count() by 'apache.status'","startTime": "-1d/d","endTime": "now/d"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "target2","value": "${click.value2}-9101"}]}}" to json editor
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name      |
+      | 测试仪表盘eval |
+
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
