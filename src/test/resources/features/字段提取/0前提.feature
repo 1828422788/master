@@ -17,9 +17,9 @@ Feature: 字段提取前提条件
 
   Scenario: 授权搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    When the data name is "{'column':'1','name':'AutoTest搜索权限'}" then i click the "授权" button
+    When the data name is "{'column':'0','name':'AutoTest搜索权限'}" then i click the "授权" button
     And I wait for "ModalContent" will be visible
-    And I "check" the checkbox which name is "__user_AutoTest__" in tiny table
+    And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
 
@@ -33,26 +33,27 @@ Feature: 字段提取前提条件
     And I "unchecked" the checkbox which name is "可查看敏感内容"
     Then I click the "SaveButton" button
 
-  Scenario Outline: 上传字典管理文件
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    When I click the "UploadButton" button
-    And I set the parameter "GroupInput" with value "字典标签"
-    And I choose the "字典标签" from the "Group"
-    And I upload a file with name "/src/test/resources/testdata/dictionary/<name>"
-    And I wait for "FileName" will be visible
-    And I click the "EnsureUpload" button
-    Then I will see the success message "创建字典成功"
-    And I refresh the website
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
-
-    Examples:
-      | name         |
-      | AutoTest.csv |
+#  Scenario Outline: 上传字典管理文件
+#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+#    When I click the "UploadButton" button
+#    And I set the parameter "GroupInput" with value " "
+#    And I choose the "字典标签" from the "Group"
+#    And I upload a file with name "/src/test/resources/testdata/dictionary/<name>"
+#    And I wait for "FileName" will be visible
+#    And I click the "EnsureUpload" button
+#    Then I will see the success message "创建字典成功"
+#    And I refresh the website
+#    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+#
+#    Examples:
+#      | name         |
+#      | AutoTest.csv |
 
   Scenario: 选择标签
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'RZY3417多值字段'}" then i click the "标签" button
     And I set the parameter "TagInput" with value "自动化测试标签"
+    Then I wait for "1000" millsecond
     And I choose the "自动化测试标签" from the "Group"
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
@@ -112,7 +113,7 @@ Feature: 字段提取前提条件
       | log                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
       | {"name":"用户操作按menuId","application":"www.dz.sdboss.com","type":"PAGE_ACTION","timestamp":"2018-08-09 09:00:55.972+0800","purePathId":"PT\u003d85817305;PA\u003d1069222345;PS\u003d-1350680648","startTime":"2015-09-22 13:41:40.794+0800","dimensions":{"cookie CURRENT_MENUID":"CollectHistory_WEB","cookie Login Cookie":"d110U003","IP":"134.36.139.53"},"measures":{"Server_Contribution":3.562864303588867,"Network_Contribution":0.04063353204625707},"failed":false,"visitId":4323763,"actionName":"click on \"查 询\"","url":"http://www.dz.sdboss.com/custcare/charge/commonbusiness/FeeHistoryQueryTab/FeeHistoryQueryTab.do?act\u003dinitPages\u0026ywjkEnterMenu\u003d123456\u0026currentTabID\u003dCollectHistory_WEB","responseTime":48.3828125,"duration":48.3828125,"execTime":48.3828125,"clientErrors":0} | Object\nactionName:"click on "查 询""\napplication:"www.dz.sdboss.com"\nclientErrors:0\ndimensions:Object\nIP:"134.36.139.53"\ncookie CURRENT_MENUID:"CollectHistory_WEB"\ncookie Login Cookie:"d110U003"\nduration:48.38281\nexecTime:48.38281\nfailed:false\nmeasures:Object\nNetwork_Contribution:0.04063\nServer_Contribution:3.56286\nname:"用户操作按menuId"\npurePathId:"PT=85817305;PA=1069222345;PS=-1350680648"\nresponseTime:48.38281\nstartTime:"2015-09-22 13:41:40.794+0800"\ntimestamp:"2018-08-09 09:00:55.972+0800"\ntype:"PAGE_ACTION"\nurl:"http://www.dz.sdboss.com/custcare/charge/commonbusiness/FeeHistoryQueryTab/FeeHistoryQueryTab.do?act=initPages&ywjkEnterMenu=123456&currentTabID=CollectHistory_WEB"\nvisitId:4323763\nraw_message:"{"name":"用户操作按menuId","application":"www.dz.sdboss.com","type":"PAGE_ACTION","timestamp":"2018-08-09 09:00:55.972+0800","purePathId":"PT\\\u003d85817305;PA\\\u003d1069222345;PS\\\u003d-1350680648","startTime":"2015-09-22 13:41:40.794+0800","dimensions":{"cookie CURRENT_MENUID":"CollectHistory_WEB","cookie Login Cookie":"d110U003","IP":"134.36.139.53"},"measures":{"Server_Contribution":3.562864303588867,"Network_Contribution":0.04063353204625707},"failed":false,"visitId":4323763,"actionName":"click on \\\"查 询\\\"","url":"http://www.dz.sdboss.com/custcare/charge/commonbusiness/FeeHistoryQueryTab/FeeHistoryQueryTab.do?act\\\u003dinitPages\\\u0026ywjkEnterMenu\\\u003d123456\\\u0026currentTabID\\\u003dCollectHistory_WEB","responseTime":48.3828125,"duration":48.3828125,"execTime":48.3828125,"clientErrors":0}" |
 
-  Scenario Outline: RZY-3076、3079
+  Scenario Outline: RZY-3079
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page

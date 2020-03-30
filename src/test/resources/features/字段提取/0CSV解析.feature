@@ -49,7 +49,7 @@ Feature: 字段提取CSV解析
     And I click the "AddRule" button
     And I choose the "CSV解析" from the "ParseRule"
     And I click the "ChangeToJson" button under some element
-    And I set the parameter "{"source": "portinfo[]","split_string": "\\s","add_fields": [],"names": ["1","2","3","4","5","6"],"split_option":null}" to json editor
+    And I set the parameter "{"source": "portinfo[]","split_string": "\\s","add_fields": [],"names": ["1","2","3","4","5","6"],"split_option":null}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -61,7 +61,7 @@ Feature: 字段提取CSV解析
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "auto_test_csv"
     And I set the parameter "Tag" with value "auto_test_csv"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:

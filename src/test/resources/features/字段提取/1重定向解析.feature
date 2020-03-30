@@ -18,7 +18,7 @@ Feature: 字段提取重定向解析
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "redirect_fu"
     And I set the parameter "Tag" with value "redirect_fu"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
   Scenario: RZY-2868：主规则
@@ -27,8 +27,8 @@ Feature: 字段提取重定向解析
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
     And I choose the "重定向规则" from the "ParseRule"
+    And I wait for "2000" millsecond
     And I choose the "RZY2867redirect副规则" from the "Redirect"
-    And I choose the "json" from the "Redirect"
     And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
     And I click the "SwitchButton" button
@@ -36,7 +36,7 @@ Feature: 字段提取重定向解析
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "redirect_zhu"
     And I set the parameter "Tag" with value "redirect_zhu"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
   Scenario Outline: 上传日志

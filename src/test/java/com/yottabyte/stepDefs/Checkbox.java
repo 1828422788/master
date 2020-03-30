@@ -88,12 +88,50 @@ public class Checkbox {
     }
 
 
-
     private String getAgentIp(String columnNum) {
         Agent agent = new Agent();
         String ip = agent.getIp();
         Assert.assertNotNull("无正在运行的agent！", ip);
         String json = "{'column':'" + columnNum + "','name':'" + ip + "'}";
         return json;
+    }
+
+
+    /**
+     * 勾选或取消勾选名称前面的checkbox
+     *
+     * @param status   想要将复选框置为的状态，checked/unchecked
+     * @param nameList 想要勾选/取消勾选的名称（支持传入list）
+     *                 仅用于字典管理授权页的checkbox
+     */
+    @And("^I \"([^\"]*)\" the label before \"([^\"]*)\" in the dictionary$")
+    public void clickCheckLabeldic(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "//span[contains(text(),'" + name + "')]/ancestor::td//label";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            WebElement span = label.findElement(By.xpath(".//span"));
+            String attribute = span.getAttribute("class");
+            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                label.click();
+            }
+        }
+    }
+
+    /**
+     * 判断checkbox的勾选状态
+     *
+     * @param status   判断状态，checked/unchecked
+     * @param nameList 判断名称（支持传入list）
+     *
+     */
+    @And("^I check the label \"([^\"]*)\" status before \"([^\"]*)\" in the dictionary$")
+    public void iCheckLabeldic(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "//span[contains(text(),'" + name + "')]/ancestor::td//label";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            String attribute = label.getAttribute("class");
+            Assert.assertTrue((attribute.contains("checked") && "checked".equals(status))
+                    || (!attribute.contains("checked") && "unchecked".equals(status)));
+        }
     }
 }
