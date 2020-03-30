@@ -173,7 +173,7 @@ public class SharedDriver extends EventFiringWebDriver {
 //            if ("Mac OS X".equalsIgnoreCase(System.getProperty("os.name"))) {
 //            options.setBinary(config.get("macbinary"));
 //            options.setBinary("C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
-            options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\dfs\\chrome.exe");
+            options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
 //            System.out.println("测试位置：" + config.get("macbinary"));
 //            }
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -181,7 +181,7 @@ public class SharedDriver extends EventFiringWebDriver {
             chromePrefs.put("profile.default_content_settings.popups", 0);
             // 设置为文件下载路径
             chromePrefs.put("download.default_directory", downloadFilepath);
-
+            System.out.println("设置下载路径");
             LoggingPreferences loggingPreferences = new LoggingPreferences();
 
             loggingPreferences.enable(LogType.BROWSER, Level.ALL);
