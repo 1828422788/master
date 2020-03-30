@@ -84,8 +84,10 @@ public class SharedDriver extends EventFiringWebDriver {
             browser.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
             String ServerHOst;
             ServerHOst = config.get("selenium_server_host");
+            System.out.println("看看问题！！！！");
             GetLogger.getLogger().info("ServerHOst: {}", ServerHOst);
             URL url = new URL("http://" + ServerHOst + ":4444/wd/hub");
+            System.out.println("初始化remotewebdriver！！！！");
             REAL_DRIVER = new RemoteWebDriver(url, browser);
             REAL_DRIVER = new EventFiringWebDriver(REAL_DRIVER).register(eventListener);
             WebDriverType = "Remote";
