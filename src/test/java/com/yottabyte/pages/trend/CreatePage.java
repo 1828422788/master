@@ -48,7 +48,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-search-setting-select")
     private WebElement settingSelect;
 
-    @FindBy(xpath = "(//input[@value='horizontal']/following-sibling::span)[last()]")
+    @FindBy(xpath = "//input[@value='horizontal']")
     private WebElement horizontal;
 
     @FindBy(xpath = "//input[@value='left']")
@@ -237,9 +237,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "table")
     private WebElement table;
 
-    @FindBy(xpath = "((//div[text()='单值'])[last()]/ancestor::div/preceding-sibling::div)[last()]")
-    private WebElement single;
-
     @FindBy(xpath = "(//div[@class='img liquidfill'])[last()]")
     private WebElement liquidfill;
 
@@ -254,9 +251,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='img funnel'])[last()]")
     private WebElement funnel;
-
-    @FindBy(xpath = "(//div[@class='img matrixheatmap'])[last()]")
-    private WebElement matrixheatmap;
 
     @FindBy(xpath = "//div[text()='背景']")
     private WebElement background;
@@ -399,7 +393,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//input[@placeholder='max'])[last()]")
     private WebElement maxRange;
 
-    @FindBy(xpath = "(//span[text()='分段数'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
+    @FindBy(xpath = "//span[text()='分段数']/ancestor::div/following-sibling::input")
     private WebElement segments;
 
     @FindBy(className = "chart-setting-popover")
@@ -486,11 +480,19 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")
     private WebElement dataField;
 
+    @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
+    private WebElement dataValue;
+
     @FindBy(xpath = "(//div[@class='ant-popover-inner-content'])[2]")
     private WebElement settingContent;
 
     public WebElement getSettingContent() {
         return settingContent;
+    }
+
+    public WebElement getDataValue() {
+        dataValue.click();
+        return super.getLastDropdownList();
     }
 
     public WebElement getDataField() {
@@ -1092,7 +1094,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSingle() {
-        return single;
+        return getChartButton("单值");
     }
 
     public WebElement getLiquidfill() {
@@ -1116,7 +1118,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getMatrixheatmap() {
-        return matrixheatmap;
+        return getChartButton("矩阵热力图");
     }
 
     public WebElement getBackground() {
@@ -1181,21 +1183,27 @@ public class CreatePage extends PageTemplate {
         return dropdownUtils.getLastDropdownList();
     }
 
+    private WebElement getChartButton(String chartName) {
+        String xpath = "((//div[text()='" + chartName + "'])[last()]/ancestor::div/preceding-sibling::div)[last()]";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     //author-jnd
     //数据集的展开按钮
     @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[2]/div[1]/div/div/div[1]/span/a")
     private WebElement zhanKai;
-    public WebElement getZhanKai(){return zhanKai;}
+
+    public WebElement getZhanKai() {
+        return zhanKai;
+    }
+
     //数据集的显示位置
     @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[2]/div[1]/div/div/div[2]/span")
     private WebElement dataSetPosition;
-    public WebElement getDataSetPosition(){return dataSetPosition;}
 
-
-
-
-
-
+    public WebElement getDataSetPosition() {
+        return dataSetPosition;
+    }
 
 
 }

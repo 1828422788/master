@@ -476,6 +476,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='今天']/following-sibling::i")
     private WebElement chartType;
 
+    @FindBy(id = "fullscreenAll")
+    private WebElement fullScreen;
+
+    public WebElement getFullScreen() {
+        return fullScreen;
+    }
+
     public WebElement getChartType() {
         return chartType;
     }

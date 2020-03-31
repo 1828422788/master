@@ -118,15 +118,34 @@ Feature: 仪表盘单值
       | status       | message                       |
       | ErrorMessage | chart -> comparsionTime字段为必填项 |
 
-  Scenario: 单值图按趋势展示
+  Scenario Outline: 单值图按趋势展示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "24","singleChartIcon": "none","displayMode": "trending","comparsionTime": "-7d","comparsionMode": "percent","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
+    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "24","singleChartIcon": "none","displayMode": "default","comparsionTime": "-7d","comparsionMode": "percent","color": "#5C9DF5","colorFillingMode": "font","liveRefreshMode": false}}" to json editor
     And I click the "Check" button
-    Then I wait for element "<status>" change text to "<message>"
+    Then I will see the error message "<message>"
+
+    Examples:
+      | message                              |
+      | chart -> useThousandSeparators字段为必填项 |
+
+  Scenario Outline: 单值图按区间展示
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "single","field": "a_","fontSize": "24","precision": "1","useThousandSeparators": false,"unit": "ge","unitPosition": "after","displayField": "chart","singleChartIcon": "fixed","fixedSetting": "","displayMode": "<mode>","colorFillingMode": "font","colorRanges": [{"from":"100","to":"<to>","color":"#259B24"}]}}" to json editor
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "<message>"
+
+    Examples:
+      | mode    | to  | message                                  |
+      | default | 300 | chart -> color字段为必填项                     |
+      | ranging | 1   | chart -> colorRanges -> 颜色范围区间结束值需要大于开始值 |
 
     ###########
   Scenario: 添加图表并验证单值结果是否正确
@@ -195,7 +214,7 @@ Feature: 仪表盘单值
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Then I will see the success message "删除仪表盘成功"
 
     Examples:
       | name  |
