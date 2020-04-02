@@ -12,7 +12,7 @@ Feature: 编辑性能数据类型数据源
     And I click the "Create" button
     And I click the "FuctionType" button
     And I set the parameter "SpecialPort" with value "23"
-#    And I set the parameter "Frequency" with value "500"
+    And I set the parameter "EidtFrequency" with value "500"
     And I click the "Next" button
     And I wait for loading invisible
     And I set the parameter "PreAppname" with value "autotop_info"

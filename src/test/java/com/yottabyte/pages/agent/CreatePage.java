@@ -179,8 +179,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
     private WebElement ChangeMemo;
 
-    @FindBy(className = "ant-table-tbody")
-    private List<WebElement> tableBodyList;
+    @FindBy(xpath = "//tbody")
+    private WebElement BackUpTable;
+
 
     public WebElement getAppNameTable() {
         return getTableElement("文件和目录");
@@ -302,8 +303,24 @@ public class CreatePage extends PageTemplate {
         return getSwitchStatus("autohekafiletest");
     }
 
+    public WebElement getSecuritySwitchStatus() {
+        return getBackUpSwitchStatus("使用安全链接");
+    }
+
+    public WebElement getZipSaveSwitchStatus() {
+        return getBackUpSwitchStatus("压缩保存");
+    }
+
+    public WebElement getDeleteLogSwitchStatus() {
+        return getBackUpSwitchStatus("");
+    }
+
     public WebElement getScriptSwitchStatus() {
         return getSwitchStatus("autohekascripttest");
+    }
+
+    public WebElement getBackUpSwitchStatus() {
+        return getSwitchStatus("hekabackup");
     }
 
     public WebElement getSyslogSwitchStatus() {
@@ -359,6 +376,10 @@ public class CreatePage extends PageTemplate {
         return getSoureceTypeElement("+新建连接");
     }
 
+    public WebElement getCreateDestObject(){
+        return getSoureceTypeElement("+新建目的对象");
+    }
+
     public WebElement getListenaddress() {
         return Listenaddress;
     }
@@ -389,6 +410,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='编辑']")
     private WebElement EditMysql;
 
+    public WebElement getEditBackUpObject() {
+        return EditBackUpObject;
+    }
+
+    @FindBy(xpath = "//span[text()='autotest']/following-sibling::span/span[text()='编辑']")
+    private WebElement EditBackUpObject;
+
     public WebElement getCopyMysql() {
         return CopyMysql;
     }
@@ -403,8 +431,22 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='删除']")
     private WebElement DeleteMysql;
 
+    public WebElement getDeleteBackUpObject() {
+        return DeleteBackUpObject;
+    }
+
+    @FindBy(xpath = "//span[text()='autotest']/following-sibling::span/span[text()='删除']")
+    private WebElement DeleteBackUpObject;
+
     @FindBy(xpath ="//span[text()='autotestmysql']")
     private WebElement MysqlDatabase;
+
+    public WebElement getBackUpObject() {
+        return BackUpObject;
+    }
+
+    @FindBy(xpath ="//span[text()='autotest']")
+    private WebElement BackUpObject;
 
     @FindBy(xpath = "//p")
     private WebElement Preview;
@@ -412,9 +454,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[@class='ant-radio']")
     private WebElement ChooseButton;
 
-
-    public List<WebElement> getTableBodyList() {
-        return tableBodyList;
+    public WebElement getBackUpTable() {
+        return BackUpTable;
     }
 
     @FindBy(xpath = "//label[contains(@title,'tag')]/parent::div/following-sibling::div//input")
@@ -432,6 +473,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='输入类型']/following-sibling::span")
     private WebElement InputKind;
 
+    public WebElement getAgentTitle() {
+        return AgentTitle;
+    }
+
+    public WebElement getAgentMainTitle() {
+        return AgentMainTitle;
+    }
+
+    @FindBy(xpath = "//span[@class='_2rCPBoR3iHg_lupjY8ClSJ']")
+    private WebElement AgentMainTitle;
 
     public WebElement getRoleDropdown() {
         roleDropdown.click();
@@ -451,6 +502,23 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//label[contains(@title,'文件路径白名单')]/parent::div/following-sibling::div//div[@class='ant-form-explain']")
     private WebElement WhiteListMessage;
+
+    public WebElement getBackupLocalDisk() {
+        return BackupLocalDisk;
+    }
+
+    @FindBy(xpath = "(((//label[text()='选择目的对象']/parent::div/following-sibling::div//label)[1])/span)[1]")
+    private WebElement BackupLocalDisk;
+
+    @FindBy(xpath = "//div[@class='_3s7X_-ogD6wlZTZzO8vwz2']")
+    private WebElement AgentTitle;
+
+    public WebElement getAgentConfigurationTitle() {
+        return AgentConfigurationTitle;
+    }
+
+    @FindBy(xpath = "//div[@class='ant-modal-title']")
+    private WebElement AgentConfigurationTitle;
 
     public WebElement getChooseButton() {
         return ChooseButton;
@@ -498,6 +566,7 @@ public class CreatePage extends PageTemplate {
     public WebElement getSave() {
         return super.getButton("保存");
     }
+
     public WebElement getNext() {
         return super.getButton("下一步");
     }
@@ -506,9 +575,28 @@ public class CreatePage extends PageTemplate {
         return super.getButton("完成");
     }
 
+    public WebElement getBackList() {
+        return super.getButton("返回列表");}
 
-    public WebElement getAdd() {
-        return super.getButton("添加");
+
+    public WebElement getSenior() {
+        return super.getButton("高级");
+    }
+
+    public WebElement getAddBackUP() {
+        return super.getButton("添加备份");
+    }
+
+    public WebElement getChangeConfiguration() {
+        return super.getButton("修改&重启");
+    }
+
+    public WebElement getDownloadConfiguration() {
+        return super.getButton("下载配置文件");
+    }
+
+    public WebElement getBackUp() {
+        return super.getButton("备份配置");
     }
 
     public WebElement getDocument() {
@@ -519,12 +607,20 @@ public class CreatePage extends PageTemplate {
         return getInputElement("文件路径白名单");
     }
 
+    public WebElement getBackUPTime() {
+        return getInputElement("只备份该时间前的文件");
+    }
+
     public WebElement getLastModifyTime() {
         return getInputElement("最后修改时间");
     }
 
     public WebElement getFrequency(){
         return getDropDownListElement("采集频率");
+    }
+
+    public WebElement getBackUpTimeoutUnit(){
+        return getDropDownListElement("超时时间");
     }
 
     public WebElement getCharacterKind(){
@@ -555,6 +651,23 @@ public class CreatePage extends PageTemplate {
         return getInputElement("日志内容白名单");
     }
 
+    public WebElement getBackUpRoot() {
+        return getInputElement("备份路径(绝对路径)");
+    }
+
+    public WebElement getBackUpName() {
+        return getInputElement("备份策略名");
+    }
+
+    public WebElement getBackUpRoute() {
+        return getInputElement("执行周期");
+    }
+
+    public WebElement getBackUpTimeout() {
+        return getInputElement("超时时间");
+    }
+
+
     public WebElement getContextBlackList() {
         return getInputElement("日志内容黑名单");
     }
@@ -562,6 +675,7 @@ public class CreatePage extends PageTemplate {
     public WebElement getEditSql() {
         return getInputElement("SQL 语句");
     }
+
     public WebElement getInternalTime() {
         return getInputElement("间隔时间");
     }
@@ -590,10 +704,28 @@ public class CreatePage extends PageTemplate {
         return getInputElement("可执行文件");
     }
 
-
     public WebElement getAppname(){
         return getInputElement("appname");
     }
+
+    public WebElement getDestObjectName(){
+        return getInputElement("名称");
+    }
+
+    public WebElement getThreadNum(){
+        return getInputElement("处理线程数");
+    }
+
+    public WebElement getServerAddress(){
+        return getInputElement("服务器地址");
+    }
+    public WebElement getTimeOut(){
+        return getInputElement("超时秒数");
+    }
+    public WebElement getDestObjectKind(){
+        return getInputElement("对象类型");
+    }
+
     public WebElement getProcessWhiteList(){
         return getInputElement("采集进程白名单");
     }
@@ -640,6 +772,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getCleanCache() {
         return super.getButton("清理缓存");
+    }
+
+    public WebElement getClean() {
+        return super.getButton("清理");
     }
 
 
@@ -712,6 +848,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSwitchStatus(String name) {
         return webDriver.findElement(By.xpath("//td[text()='" + name +"']/following-sibling::td//span[@class='_3c6He8Je7GGUAtVZrEV7Nd']"));
+    }
+
+    public WebElement getBackUpSwitchStatus(String name) {
+        return webDriver.findElement(By.xpath("//label[@title='" + name + "']/parent::div/following-sibling::div//span[@class='ant-form-item-children']"));
     }
 
 
