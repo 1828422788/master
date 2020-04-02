@@ -479,6 +479,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(id = "fullscreenAll")
     private WebElement fullScreen;
 
+    @FindBy(className = "ace_text-layer")
+    private WebElement textLayer;
+
+    public WebElement getTextLayer() {
+        return textLayer;
+    }
+
     public WebElement getFullScreen() {
         return fullScreen;
     }

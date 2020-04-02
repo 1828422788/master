@@ -25,7 +25,7 @@ public class VerifyElementTextWillBe {
      * @param elementName
      * @param excpText
      */
-    @Then("^I will see the \"([^\"]*)\" result will be \"([^\"]*)\"$")
+    @Then("^I will see the \"([^\"]*)\" result will be \"([^割]*)\"$")
     public void iWillSeeTheResultWillBe(String elementName, String excpText) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String realText = element.getText();

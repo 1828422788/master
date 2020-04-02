@@ -123,7 +123,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='a..z'])[last()]")
     private WebElement thirdPosition;
 
-    @FindBy(xpath = "(//input[@class='el-input__inner'][not(@placeholder='请选择')])[last()]")
+    @FindBy(xpath = "(//span[text()='图表起始颜色']/ancestor::div/following-sibling::div/div)[1]")
     private WebElement startColour;
 
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
@@ -237,20 +237,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "table")
     private WebElement table;
 
-    @FindBy(xpath = "(//div[@class='img liquidfill'])[last()]")
-    private WebElement liquidfill;
-
     @FindBy(xpath = "(//div[@class='img wordcloud'])[last()]")
     private WebElement wordcloud;
 
     @FindBy(xpath = "(//div[@class='img sequence'])[last()]")
     private WebElement sequence;
-
-    @FindBy(xpath = "(//div[@class='img radar'])[last()]")
-    private WebElement radar;
-
-    @FindBy(xpath = "(//div[@class='img funnel'])[last()]")
-    private WebElement funnel;
 
     @FindBy(xpath = "//div[text()='背景']")
     private WebElement background;
@@ -330,7 +321,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[@style='background: rgb(229, 28, 35);'])[last()]/ancestor::li")
     private WebElement red;
 
-    @FindBy(xpath = "(//span[@style='background: rgb(255, 152, 0);'])[last()]/ancestor::li")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 173, 8);')])[last()]")
     private WebElement orange;
 
     @FindBy(xpath = "(//span[@style='background: rgb(37, 155, 36);'])[last()]/ancestor::li")
@@ -485,6 +476,13 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='ant-popover-inner-content'])[2]")
     private WebElement settingContent;
+
+    @FindBy(xpath = "//span[text()='统一度量']/ancestor::div/following-sibling::button")
+    private WebElement unifiedMetric;
+
+    public WebElement getUnifiedMetric() {
+        return unifiedMetric;
+    }
 
     public WebElement getSettingContent() {
         return settingContent;
@@ -1098,23 +1096,23 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getLiquidfill() {
-        return liquidfill;
+        return getChartButton("水球图");
     }
 
     public WebElement getWordcloud() {
-        return wordcloud;
+        return getChartButton("字符云图");
     }
 
     public WebElement getSequence() {
-        return sequence;
+        return getChartButton("循序图");
     }
 
     public WebElement getRadar() {
-        return radar;
+        return getChartButton("雷达图");
     }
 
     public WebElement getFunnel() {
-        return funnel;
+        return getChartButton("漏斗图");
     }
 
     public WebElement getMatrixheatmap() {
