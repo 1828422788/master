@@ -165,7 +165,7 @@ public class SharedDriver extends EventFiringWebDriver {
         String sp = File.separator;
         ConfigManager config = new ConfigManager();
         try {
-            String downloadFilepath = config.get("ftp_base_path") + "/" + "target" + "/" + "download-files";
+            String downloadFilepath = config.get("ftp_base_path") + "\\" + "target" + "\\" + "download-files";
             ChromeOptions options = new ChromeOptions();
             System.out.println("测试系统：" + System.getProperty("os.name"));
             options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
