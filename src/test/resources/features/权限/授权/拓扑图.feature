@@ -19,7 +19,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then I will see the "Create" doesn't exist
 
@@ -40,7 +40,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     And I click the "Create" button
@@ -74,7 +74,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
@@ -105,7 +105,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -143,7 +143,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -193,7 +193,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名删除授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -255,7 +255,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "删除授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -319,7 +319,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -336,7 +336,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "授权" button
     And I click the detail which name is "<name>"
@@ -385,7 +385,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -408,7 +408,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名授权" button
     When the data name is "<name>" then i click the "重命名" button
@@ -469,7 +469,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then I will see the search result "{'column':'0','name':'AutoRename','contains':'no'}"
 
@@ -511,7 +511,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "删除授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -528,7 +528,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "删除授权" button
     And I click the detail which name is "<name>"
@@ -587,7 +587,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名删除授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -610,7 +610,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名删除授权" button
     When the data name is "<name>" then i click the "重命名" button
@@ -671,7 +671,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When the data name is "验证二次授权" then i click the "授权" button
@@ -688,7 +688,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -714,7 +714,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When the data name is "验证二次授权" then i click the "授权" button
@@ -732,7 +732,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -770,7 +770,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When the data name is "验证二次授权" then i click the "授权" button
@@ -788,7 +788,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名删除授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -832,7 +832,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     And I click the "Create" button
@@ -850,7 +850,7 @@ Feature: 权限-拓扑图
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When I click the detail which name is "测试权限详情"

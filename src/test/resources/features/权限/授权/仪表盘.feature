@@ -41,7 +41,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button under some element
     And I set the parameter "DashBoardName" with value "仪表盘验证权限1"
@@ -99,7 +99,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -363,7 +363,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -379,7 +379,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then the data name is "<name>" then i will see "设为默认授权" button
     And I wait for loading invisible
@@ -508,7 +508,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then the data name is "<name>" then i will see "设为默认授权删除" button
     When the data name is "<name>" then i click the "授权" button
@@ -524,7 +524,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then the data name is "<name>" then i will see "设为默认授权" button
     And I wait for loading invisible
@@ -552,7 +552,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"
@@ -692,7 +692,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "测试二次授权" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -708,7 +708,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -734,7 +734,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "测试二次授权" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -751,7 +751,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -791,7 +791,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -808,7 +808,7 @@ Feature: 权限-仪表盘
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权删除" button
     And the data name is "<name>" then i click the "授权" button

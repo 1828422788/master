@@ -40,7 +40,7 @@ Feature: 权限-用户分组
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page

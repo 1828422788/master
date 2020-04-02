@@ -115,7 +115,7 @@ Feature: 权限-搜索权限
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看授权" button
@@ -182,7 +182,7 @@ Feature: 权限-搜索权限
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -199,7 +199,7 @@ Feature: 权限-搜索权限
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看授权" button

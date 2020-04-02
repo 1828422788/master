@@ -526,7 +526,7 @@ Feature: 权限-定时任务
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
     Then the data name is "{'column':'2','name':'<name>'}" then i will see "编辑复制标签授权删除" button
@@ -611,7 +611,7 @@ Feature: 权限-定时任务
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'验证有效期限'}" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -627,7 +627,7 @@ Feature: 权限-定时任务
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     Then the data name is "{'column':'2','name':'验证有效期限'}" then i will see "查看复制授权" button
     When the data name is "{'column':'2','name':'验证有效期限'}" then i click the "查看" button
@@ -652,7 +652,7 @@ Feature: 权限-定时任务
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'验证有效期限'}" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -669,7 +669,7 @@ Feature: 权限-定时任务
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
     Then the data name is "{'column':'2','name':'<name>'}" then i will see "编辑复制标签授权" button
@@ -703,7 +703,7 @@ Feature: 权限-定时任务
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'<name>'}" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -720,7 +720,7 @@ Feature: 权限-定时任务
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     Then the data name is "{'column':'2','name':'<name>'}" then i will see "编辑复制标签授权" button
     When the data name is "{'column':'2','name':'<name>'}" then i click the "标签" button

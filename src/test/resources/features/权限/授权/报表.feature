@@ -706,7 +706,7 @@ Feature: 权限-报表
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'测试二次授权'}" then i click the "授权" button
     When I "check" the function "<function>" which name is "<authName>" in tiny table
@@ -721,7 +721,7 @@ Feature: 权限-报表
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     Then the data name is "{'column':'1','name':'测试二次授权'}" then i will see "授权" button
     When the data name is "{'column':'1','name':'测试二次授权'}" then i click the "授权" button
@@ -742,7 +742,7 @@ Feature: 权限-报表
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'测试二次授权'}" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -759,7 +759,7 @@ Feature: 权限-报表
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
@@ -796,7 +796,7 @@ Feature: 权限-报表
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -813,7 +813,7 @@ Feature: 权限-报表
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签删除授权" button
