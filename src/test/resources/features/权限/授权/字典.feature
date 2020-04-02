@@ -94,7 +94,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then I will see the search result "{'column':'0','name':'AutoTestUserCreate.csv','contains':'no'}"
 
@@ -124,7 +124,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "授权" button
     When the data name is "AutoTestUserCreate.csv" then i click the "授权" button
@@ -154,7 +154,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "下载编辑标签授权" button
     Given delete file "/target/download-files/<name>"
@@ -257,7 +257,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "删除授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -295,7 +295,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "下载编辑标签删除授权" button
     Given delete file "/target/download-files/<name>"
@@ -375,7 +375,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "授权" button
     When the data name is "AutoTestUserCreate.csv" then i click the "授权" button
@@ -392,7 +392,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "授权" button
 
@@ -438,7 +438,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "下载编辑标签授权" button
     Given delete file "/target/download-files/<name>"
@@ -465,7 +465,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "下载编辑标签授权" button
     When the data name is "<name>" then i click the "编辑" button
@@ -528,7 +528,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "删除授权" button
     When the data name is "AutoTestUserCreate.csv" then i click the "授权" button
@@ -545,7 +545,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "删除授权" button
     When the data name is "AutoTestUserCreate.csv" then i click the "删除" button
@@ -600,7 +600,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "下载编辑标签删除授权" button
     Given delete file "/target/download-files/<name>"
@@ -627,7 +627,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "下载编辑标签删除授权" button
     When the data name is "<name>" then i click the "编辑" button
@@ -680,7 +680,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AuthTest.csv" then i will see "授权" button
     When the data name is "AuthTest.csv" then i click the "授权" button
@@ -719,7 +719,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AuthTest.csv" then i will see "授权" button
     When the data name is "AuthTest.csv" then i click the "授权" button
@@ -760,7 +760,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AuthTest.csv" then i will see "授权" button
     When the data name is "AuthTest.csv" then i click the "授权" button
@@ -791,7 +791,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -807,7 +807,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AuthTest.csv" then i will see "授权" button
     When the data name is "AuthTest.csv" then i click the "授权" button
@@ -828,7 +828,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -845,7 +845,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "下载编辑标签授权" button
     Given delete file "/target/download-files/<name>"
@@ -882,7 +882,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -899,7 +899,7 @@ Feature: 权限-字典
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "下载编辑标签删除授权" button
     Given delete file "/target/download-files/<name>"

@@ -728,7 +728,7 @@ Feature: 权限-字段提取
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -743,7 +743,7 @@ Feature: 权限-字段提取
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制授权" button
     Then I will see the checkbox in list before "{'column':'1','name':'<name>'}" is "disabled"
@@ -768,7 +768,7 @@ Feature: 权限-字段提取
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -784,7 +784,7 @@ Feature: 权限-字段提取
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制授权" button
     Then I will see the checkbox in list before "{'column':'1','name':'<name>'}" is "enabled"
@@ -815,7 +815,7 @@ Feature: 权限-字段提取
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -831,7 +831,7 @@ Feature: 权限-字段提取
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权" button
     Then I will see the checkbox in list before "{'column':'1','name':'<name>'}" is "enabled"

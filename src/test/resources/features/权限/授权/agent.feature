@@ -1,26 +1,26 @@
 @auth
 Feature: 权限-agent
 
-  Scenario: 验证无新建分组权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "新建 Agent 分组"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
-    Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
-    Then I will see the "Create" doesn't exist
+#  Scenario: 验证无新建分组权限
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    When I "unchecked" the checkbox which name is "新建 Agent 分组"
+#    And I click the "SaveButton" button
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
+#    Then I will see the "Create" doesn't exist
 
   Scenario: 验证有新建分组权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -38,7 +38,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And I click the "Create" button
     Then I will see the "agent.CreatePage" page
@@ -69,7 +69,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
 
@@ -100,7 +100,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     Then the data name is "<name>" then i will see "跳转" button
     And the data name is "<name>" then i click the "跳转" button
@@ -134,7 +134,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "编辑 跳转" button
@@ -178,7 +178,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And I click the "Create" button
     Then I will see the "agent.CreatePage" page
@@ -196,7 +196,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     Then I will see the search result "{'column':'0','name':'TestAuthRename','contains':'no'}"
 
@@ -224,7 +224,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     Then the data name is "<name>" then i will see "跳转 删除" button
     And the data name is "<name>" then i click the "跳转" button
@@ -261,7 +261,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     Then the data name is "<name>" then i will see "编辑 跳转 删除" button
     And the data name is "<name>" then i click the "跳转" button
@@ -322,7 +322,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And the data name is "<name>" then i click the "跳转" button
     Then I will see the agent result in column "1"
@@ -357,7 +357,7 @@ Feature: 权限-agent
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "分组停止重启升级修改备注" button

@@ -19,7 +19,7 @@ Feature: 权限-用户
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "users.ListPage" page for uri "/account/users/"
     Then I will see the "Create" doesn't exist
 
@@ -40,7 +40,7 @@ Feature: 权限-用户
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "users.ListPage" page for uri "/account/users/"
     And I click the "Create" button
     And I will see the "users.CreatePage" page
@@ -81,7 +81,7 @@ Feature: 权限-用户
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "users.ListPage" page for uri "/account/users/"
     And I click the detail which name is "{'column':'1','name':'AutoTest'}"
     Then I will see the "users.EditPage" page
@@ -97,7 +97,7 @@ Feature: 权限-用户
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "users.ListPage" page for uri "/account/users/"
     And I click the detail which name is "{'column':'1','name':'AutoTest'}"
     Then I will see the "RoleText" doesn't exist
@@ -120,7 +120,7 @@ Feature: 权限-用户
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "users.ListPage" page for uri "/account/users/"
     And I click the detail which name is "{'column':'1','name':'AutoTest'}"
     Then I will see the "users.EditPage" page
@@ -152,7 +152,7 @@ Feature: 权限-用户
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "users.ListPage" page for uri "/account/users/"
     And I wait for loading invisible
     And I click the detail which name is "{'column':'1','name':'AutoTestAuth'}"
@@ -183,7 +183,7 @@ Feature: 权限-用户
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "users.ListPage" page for uri "/account/users/"
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看" button
@@ -219,7 +219,7 @@ Feature: 权限-用户
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "users.ListPage" page for uri "/account/users/"
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看 分组" button

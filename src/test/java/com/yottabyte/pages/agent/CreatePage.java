@@ -536,7 +536,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreate() {
-        return super.getButton("添加");
+        return super.getButton("新建");
     }
 
     public WebElement getCleanOutput() {

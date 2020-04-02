@@ -100,7 +100,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     Then the data name is "AutoTestUserCreate" then i will see "授权" button
     And the data name is "AutoTestUserCreate" then i click the "授权" button
@@ -129,7 +129,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "编辑标签授权" button
@@ -177,7 +177,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "编辑标签授权删除" button
@@ -237,7 +237,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     Then the data name is "AutoTestUserCreate" then i will see "授权删除" button
     And the data name is "AutoTestUserCreate" then i click the "授权" button
@@ -299,7 +299,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     Then the data name is "<name>" then i will see "授权" button
     And the data name is "<name>" then i click the "授权" button
@@ -315,7 +315,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "授权" button
@@ -367,7 +367,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     Then the data name is "<name>" then i will see "编辑标签授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -391,7 +391,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "编辑标签授权" button
@@ -445,7 +445,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     Then I will see the search result "{'column':'0','name':'AutoTestCreate','contains':'no'}"
 
@@ -494,7 +494,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     Then the data name is "<name>" then i will see "授权删除" button
     And the data name is "<name>" then i click the "授权" button
@@ -510,7 +510,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "授权删除" button
@@ -564,7 +564,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     Then the data name is "<name>" then i will see "编辑标签授权删除" button
     When the data name is "<name>" then i click the "标签" button
@@ -588,7 +588,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "编辑标签授权删除" button
@@ -641,7 +641,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -658,7 +658,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     Then the data name is "<name>" then i will see "授权" button
     And the data name is "<name>" then i click the "授权" button
@@ -679,7 +679,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -697,7 +697,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "编辑标签授权" button
@@ -733,7 +733,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
@@ -751,7 +751,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "验证授权用户"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "编辑标签授权删除" button
@@ -792,7 +792,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     When I click the "Create" button
     Then I will see the "searchMacro.CreatePage" page
@@ -818,7 +818,7 @@ Feature: 权限-搜索宏
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
