@@ -303,8 +303,28 @@ public class CreatePage extends PageTemplate {
         return getSwitchStatus("autohekafiletest");
     }
 
-    public WebElement getSecuritySwitchStatus() {
-        return getBackUpSwitchStatus("使用安全链接");
+    public WebElement getDiskQuota() {
+        return getBackUpSwitchStatus("磁盘指标");
+    }
+
+    public WebElement getDiskIO() {
+        return getBackUpSwitchStatus("磁盘IO");
+    }
+
+    public WebElement getSystemQuota() {
+        return getBackUpSwitchStatus("系统指标");
+    }
+
+    public WebElement getCPUQuota() {
+        return getBackUpSwitchStatus("单个cpu指标");
+    }
+
+    public WebElement getNetQuota() {
+        return getBackUpSwitchStatus("单个net指标");
+    }
+
+    public WebElement getProcessQuota() {
+        return getBackUpSwitchStatus("进程指标");
     }
 
     public WebElement getZipSaveSwitchStatus() {
@@ -536,7 +556,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreate() {
-        return super.getButton("新建");
+        return super.getButton("添加");
     }
 
     public WebElement getCleanOutput() {
