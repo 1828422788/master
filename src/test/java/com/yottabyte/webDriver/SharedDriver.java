@@ -170,7 +170,7 @@ public class SharedDriver extends EventFiringWebDriver {
             System.out.println("测试系统：" + System.getProperty("os.name"));
 //            if ("Mac OS X".equalsIgnoreCase(System.getProperty("os.name"))) {
 //            options.setBinary(config.get("macbinary"));
-            options.setBinary("C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
+            options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
             System.out.println("测试位置：" + config.get("macbinary"));
 //            }
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
