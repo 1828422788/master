@@ -1,4 +1,4 @@
-@trendDimensionCreate
+@all @trend @trendDimensionCreate @trendChartCreate
 Feature: 趋势图新建_维度
 # 21
 # sample04061424_chart for Today

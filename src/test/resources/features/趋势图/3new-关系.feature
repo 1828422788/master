@@ -1,4 +1,4 @@
-@trendConnectionCreate
+@all @trend @trendConnectionCreate @trendChartCreate
 Feature: 趋势图新建_关系
 # 5
 # sample04061424_chart for Today

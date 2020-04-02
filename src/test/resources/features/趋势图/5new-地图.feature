@@ -1,4 +1,4 @@
-@trendMapCreate
+@all @trend @trendMapCreate @trendChartCreate
 Feature: 趋势图新建_地图
 # 10
 # sample04061424_chart for Today
@@ -57,15 +57,15 @@ Feature: 趋势图新建_地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Source" button
-    And I choose the "<source>" from the "FieldValue"
-    And I choose the "<sourceLon>" from the "FieldLongitude"
-    And I choose the "<sourceLat>" from the "FieldLatitude"
+    And I choose the "apache.clientip" from the "FieldValue"
+    And I choose the "clientlon" from the "FieldLongitude"
+    And I choose the "clientlat" from the "FieldLatitude"
     And I click the "Target" button
-    And I choose the "<target>" from the "FieldValue"
-    And I choose the "<targetLon>" from the "FieldLongitude"
-    And I choose the "<targetLat>" from the "FieldLatitude"
+    And I choose the "gw_address" from the "FieldValue"
+    And I choose the "gw_lon" from the "FieldLongitude"
+    And I choose the "gw_lat" from the "FieldLatitude"
     And I click the "Weight" button
-    And I choose the "<weight>" from the "FieldValue"
+    And I choose the "cnt" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<regionBut>" button
     And I click the "Generate" button
@@ -86,9 +86,9 @@ Feature: 趋势图新建_地图
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |chartType|      source     |  sourceLon | sourceLat  | target     | targetLon | targetLat |  weight | regionBut |caseNum  | spl   |
-      |Attackmap| apache.clientip | clientlon  | clientlat  | gw_address | gw_lon    |  gw_lat   |   cnt   |   World   | 2542    | \|eval clientlon= -0.127758 \| eval clientlat=51.507|
-      |Attackmap| apache.clientip | clientlon  | clientlat  | gw_address | gw_lon    |  gw_lat   |   cnt   |   China   | 2543    | \|eval clientlon= 114.109467 \| eval clientlat=22.396427|
+      |chartType| regionBut |caseNum  | spl   |
+      |Attackmap|   World   | 2542    | \|eval clientlon= -0.127758 \| eval clientlat=51.507|
+      |Attackmap|   China   | 2543    | \|eval clientlon= 114.109467 \| eval clientlat=22.396427|
 
   Scenario Outline: regionmap
     When I set the parameter "SearchInput" with value "<spl>"

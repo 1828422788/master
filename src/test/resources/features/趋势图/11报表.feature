@@ -1,6 +1,7 @@
+@all @trend @trendReport
 Feature: 趋势图新建_报表
 
-  @trendReportCreate
+
   Scenario Outline: create_report
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
@@ -34,11 +35,13 @@ Feature: 趋势图新建_报表
     Then I will see the "report.CreatePage" page
     When I set the parameter "Name" with value "<report_name>"
     And I set the parameter "Describe" with value "AutoCreate"
-#    And I set the parameter "EmailInput" with value "ekaterina.kiseleva@yottabyte.cn"
-    And I set the parameter "App" with value "TrendApp"
-    And I set the parameter "Tag" with value "AutoTest"
+    And I will see the element "SelectedUser" contains "admin"
+    And I choose the "AutoTest" from the "Tag"
+    And I choose the "TrendApp" from the "App"
+    And I choose the "PDF" from the "ReportType"
+    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
+    And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
-    And I set the parameter "ReportType" with value "PDF"
     And I set the parameter "Hour" with value "16"
     And I set the parameter "Minute" with value "45"
     And I click the "NextButton" button
@@ -51,7 +54,7 @@ Feature: 趋势图新建_报表
       | trend_name    | report_name   |
       | Trend_Test    | Report_Test   |
 
-  @trendReportDelete
+
   Scenario: delete_trend_report
     When open the "trend.ListPage" page for uri "/trend/"
     And  the data name is "{'column':'0','name':'Trend_Test'}" then i click the "删除" button

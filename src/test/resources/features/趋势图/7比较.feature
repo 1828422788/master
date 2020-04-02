@@ -1,3 +1,4 @@
+@all @trend @trendCompare
 Feature: 趋势图比较
 
   Scenario Outline: compare

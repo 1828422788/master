@@ -17,6 +17,7 @@ import java.util.List;
 /**
  * @author sunxj
  * modified by Kate
+ * can be used for creating trends, for editing charts on the search page
  */
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
@@ -464,23 +465,23 @@ public class CreatePage extends PageTemplate {
     private WebElement thirdPosition;
 
 // Labels
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[1]/span[1]")
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[1]")
     private WebElement firstLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[2]/span[1]")
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[2]")
     private WebElement secondLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[3]/span[1]")
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[3]")
     private WebElement thirdLabel;
 
-    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[4]/span[1]")
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[4]")
     private WebElement forthLabel;
 
 //Orders
-    @FindBy(xpath = "(//div[text()='降序']/ancestor::span)[last()]")
+    @FindBy(xpath = "(//div[text()='降序'])[last()]")
     private WebElement descendingOrder;
 
-    @FindBy(xpath = "(//div[text()='升序']/ancestor::span)[last()]")
+    @FindBy(xpath = "(//div[text()='升序'])[last()]")
     private WebElement ascendingOrder;
 
 
@@ -516,6 +517,80 @@ public class CreatePage extends PageTemplate {
     private WebElement checkBox;
 
 //--------------------------------------------
+//Table Pencil ---------------------------------------
+
+    @FindBy(xpath = "//th[last()]/i")
+    private WebElement pencil;
+
+    @FindBy(xpath = "//div[text()='表格颜色设置']/ancestor::div[2]")
+    private WebElement colorPanel;
+
+    @FindBy(xpath = "//label[text()='color']/following-sibling::div")
+    private WebElement colorType;
+
+    @FindBy(xpath = "(//div[@class='ant-select-selection-selected-value'])[last()]")
+    private WebElement selectedValueColorType;
+
+
+    @FindBy(xpath = "//label[text()='预设置']/following-sibling::span")
+    private WebElement selectColor;
+
+    @FindBy(xpath = "//img[@src='/static/img/dashboard/table_color/3.png']/ancestor::a")
+    private WebElement continuity;
+
+    @FindBy(xpath = "//img[@src='/static/img/dashboard/table_color/4.png']/ancestor::a")
+    private WebElement discrete;
+
+    @FindBy(xpath = "//label[text()='下限值']/following-sibling::input")
+    private WebElement lowerLimitValue;
+
+    @FindBy(xpath = "//label[text()='中值']/following-sibling::input")
+    private WebElement middleValue;
+
+    @FindBy(xpath = "//label[text()='上限值']/following-sibling::input")
+    private WebElement upperLimitValue;
+
+
+    @FindBy(xpath = "//span[text()='添加范围颜色']/ancestor::button")
+    private WebElement addInterval;
+
+    @FindBy(xpath = "//input[@value='max']/ancestor::div/preceding-sibling::div[1]/input")
+    private WebElement intervalInput;
+
+    @FindBy(xpath="(//span[@class='css-j4ndc3'])[last()]/ancestor::div[1]")
+    private WebElement changeColor;
+
+    @FindBy(xpath="(//div[text()='Hex'])[last()]/preceding-sibling::input")
+    private WebElement colorCode;
+
+    @FindBy(xpath = "//input[@value='min']/ancestor::label/following-sibling::i")
+    private WebElement deleteFirstInterval;
+
+    @FindBy(xpath = "//input[@value='min']/ancestor::div/following-sibling::div[1]/i")
+    private WebElement deleteSecondInterval;
+
+    @FindBy(xpath = "//input[@value='max']//ancestor::div/preceding-sibling::div[1]/i")
+    private WebElement deleteLastInterval;
+
+
+
+    @FindBy(xpath = "//span[text()='自 动']/ancestor::button")
+    private WebElement autoColor;
+
+    @FindBy(xpath = "//span[text()='自定义']/ancestor::button")
+    private WebElement customColor;
+
+    @FindBy(xpath = "//span[contains(text(),'添加值颜色')]/ancestor::button")
+    private WebElement addValue;
+
+    @FindBy(xpath = "(//span[text()='值']/following-sibling::input)[last()]")
+    private WebElement inputValue;
+
+    @FindBy(xpath = "(//span[text()='值']/following-sibling::i)[last()]")
+    private WebElement deleteLastValue;
+
+
+//----------------------------------------------------
 // other ----------------------------
     @FindBy(xpath = "//span[@class='ant-select-arrow']")
     private WebElement dropbutton;
@@ -1602,4 +1677,102 @@ public class CreatePage extends PageTemplate {
     public WebElement getCheckBox() {
         return checkBox;
     }
+
+
+//Table Color -----------------------------------------------
+    public WebElement getPencil() {
+        return pencil;
+    }
+
+    public WebElement getColorPanel() {
+        return colorPanel;
+    }
+
+    public WebElement getColorType() {
+        colorType.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getSelectedValueColorType() {
+        return selectedValueColorType;
+    }
+
+    public WebElement getSelectColor() {
+        return selectColor;
+    }
+
+    public WebElement getContinuity() {
+        selectColor.click();
+        return continuity;
+    }
+
+    public WebElement getDiscrete() {
+        selectColor.click();
+        return discrete;
+    }
+
+    public WebElement getLowerLimitValue() {
+        return lowerLimitValue;
+    }
+
+    public WebElement getMiddleValue() {
+        return middleValue;
+    }
+
+    public WebElement getUpperLimitValue() {
+        return upperLimitValue;
+    }
+
+    public WebElement getAddInterval() {
+        return addInterval;
+    }
+
+    public WebElement getIntervalInput() {
+        return intervalInput;
+    }
+
+    public WebElement getChangeColor() {
+        return changeColor;
+    }
+
+    public WebElement getColorCode() {
+        changeColor.click();
+        return colorCode;
+    }
+
+    public WebElement getDeleteFirstInterval() {
+        return deleteFirstInterval;
+    }
+
+    public WebElement getDeleteSecondInterval() {
+        return deleteSecondInterval;
+    }
+
+    public WebElement getDeleteLastInterval() {
+        return deleteLastInterval;
+    }
+
+    public WebElement getAutoColor() {
+        return autoColor;
+    }
+
+    public WebElement getCustomColor() {
+        return customColor;
+    }
+
+    private WebElement getAddValue() {
+        webDriver.findElement(By.className("ant-btn _32bH0U5KaD1BVtC9fAn8hP")).click();
+        return addValue;
+    }
+
+    private WebElement getInputValue() {
+        return inputValue;
+    }
+
+    private WebElement getDeleteLastValue() {
+        return deleteLastValue;
+    }
+//-----------------------------------------------------
+
+
 }

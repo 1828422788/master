@@ -1,4 +1,4 @@
-@copyTrend
+@all @trend @copyTrend
 Feature: 趋势图复制(RZY-1889)
 
   Background:

@@ -1,4 +1,4 @@
-@tagTrend
+@all @trend @tagTrend
 Feature: 趋势图标签
 
   Background:

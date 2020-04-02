@@ -1,4 +1,4 @@
-@trendOtherCreate
+@all @trend @trendOtherCreate @trendChartCreate
 Feature: 趋势图新建-其他
 # 28
 # sample04061424_chart for Today
@@ -559,6 +559,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -592,7 +593,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
-      |   Funnel      |  count()   | apache.clientip|LightGreen |2858    | tag:sample04061424_chart \|  stats count() by apache.clientip \| limit 8 |
+      |   Funnel      |  count()   | apache.clientip|LightGreen |2858    | tag:sample04061424_chart \|  stats count() by apache.clientip \| limit 5 |
 
   Scenario Outline: matrixheatmap
     When I set the parameter "SearchInput" with value "<spl>"
