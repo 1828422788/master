@@ -64,7 +64,7 @@ Feature: 应用新建（RZY-1899）
       | TopologyApp      | 拓扑图      | /topology/      | #06030B |
       | ConfigsApp       | 字段提取     | /configs/       | #0542F9 |
 
-  @smoke @appSmoke
+  @smoke @appSmoke @testApp
   Scenario Outline: 新建App
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"
