@@ -64,7 +64,7 @@ Feature: 应用新建（RZY-1899）
       | TopologyApp      | 拓扑图      | /topology/      | #06030B |
       | ConfigsApp       | 字段提取     | /configs/       | #0542F9 |
 
-  @smoke @appSmoke @testApp
+  @smoke @appSmoke
   Scenario Outline: 新建App
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"
@@ -114,7 +114,6 @@ Feature: 应用新建（RZY-1899）
     And I click the "EnsureColourButton" button
     And I click the "CreateButton" button
     Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
-    And I wait for "SuccessMessage" will be invisible
 
     Examples:
       | name                        |
