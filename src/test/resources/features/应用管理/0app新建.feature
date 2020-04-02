@@ -114,6 +114,7 @@ Feature: 应用新建（RZY-1899）
     And I click the "EnsureColourButton" button
     And I click the "CreateButton" button
     Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+    And I wait for "SuccessMessage" will be invisible
 
     Examples:
       | name                        |

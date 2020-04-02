@@ -174,7 +174,7 @@ public class SharedDriver extends EventFiringWebDriver {
             chromePrefs.put("profile.default_content_settings.popups", 0);
             // 设置为文件下载路径
             chromePrefs.put("download.default_directory", downloadFilepath);
-            System.out.println("设置下载路径");
+            System.out.println("设置下载路径-----" + downloadFilepath);
             LoggingPreferences loggingPreferences = new LoggingPreferences();
 
             loggingPreferences.enable(LogType.BROWSER, Level.ALL);
