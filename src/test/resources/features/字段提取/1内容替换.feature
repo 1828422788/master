@@ -75,6 +75,7 @@ Feature: 字段提取内容替换
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
+  @testConfig
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appName>"
