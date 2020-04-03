@@ -2,7 +2,7 @@
 # Tags: optional
 
 @dictionary
-Feature:
+Feature: 字典管理
 
   Scenario Outline: RZY-4136新建字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
