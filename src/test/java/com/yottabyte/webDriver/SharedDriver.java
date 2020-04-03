@@ -174,9 +174,6 @@ public class SharedDriver extends EventFiringWebDriver {
             } else if ("Windows 10".equalsIgnoreCase(System.getProperty("os.name"))) {
                 options.setBinary(config.get("winbinary"));
                 System.out.println("测试位置：" + config.get("winbinary"));
-            } else if ("Linux".equalsIgnoreCase(System.getProperty("os.name"))) {
-                options.setBinary("C:\\Users\\Administrator\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
-                System.out.println("测试位置：" + config.get("macbinary"));
             }
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
             // 设置为禁止弹出下载窗口
