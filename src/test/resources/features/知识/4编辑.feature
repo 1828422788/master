@@ -33,12 +33,8 @@ Feature: 知识编辑（RZY-879）
       | resourceGroups/success.tar        |
 
   @knowledgeSmoke
-  Scenario Outline: 验证附件是否上传成功
+  Scenario: 验证附件是否上传成功
     When I click the detail which name is "sxjAutoTest"
     Then I will see the "knowledge.CreatePage" page
-    Then I will see the element "Attachment" name is "<name>"
-
-    Examples:
-      | name                                                                              |
-      | 附件:\nsuccess.tar\ntestAlertPlu...\ntestAlertPlu...\nautotest.csv\nAutoUpload.y... |
+    Then I will see the element "Attachment,Attachment,Attachment,Attachment" name contains "success.tar,autotest.csv,testAlertPlu...,AutoUpload.y..."
 
