@@ -1,6 +1,7 @@
 # new feature
 # Tags: optional
 
+@dictionary
 Feature:
 
   Scenario Outline: RZY-4136新建字典
@@ -222,6 +223,13 @@ Feature:
     Examples:
       | dictionaryName | newTag             |
       | wymtest1.csv   | wymtest1, wymtest2 |
+
+  Scenario: 按照标签搜索字典
+    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
+    And I choose the "wymtest1" from the "ResourceDropdown"
+    And I wait for loading invisible
+    Then I will see the search result contains "{'column':'0','name':'wymtest1.csv'}"
 
   Scenario Outline: RZY-4147(列表页清空全部标签)
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
