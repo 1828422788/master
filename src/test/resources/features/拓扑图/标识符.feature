@@ -135,3 +135,11 @@ Feature: 拓扑图标识符
     Examples:
       | title  | token | inputType | dynamicFields   | searchInput                                   |
       | 测试动态字段 | tag4  | 动态菜单      | apache.resp_len | tag:"sample04061424" \| top 1 apache.resp_len |
+
+  Scenario Outline:
+    Given the data name is "<name>" then i click the "删除" button
+    And I click the "Ensure" button
+
+    Examples:
+      | name  |
+      | 测试标识符 |
