@@ -87,9 +87,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'展示')])[last()]")
     private WebElement exhibition;
 
-    @FindBy(xpath = "(//div[@class='yw-search-setting-input yw-search-setting-input-text el-input']/input)[last()]")
-    private WebElement unit;
-
     @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::label")
     private WebElement smooth;
 
@@ -479,6 +476,32 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='统一度量']/ancestor::div/following-sibling::button")
     private WebElement unifiedMetric;
+
+    @FindBy(xpath = "//span[text()='展示字段']/ancestor::div/following-sibling::div//i")
+    private WebElement displayField;
+
+    @FindBy(xpath = "//input[@placeholder='展示字号']")
+    private WebElement wordSize;
+
+    @FindBy(xpath = "//span[text()='数据精度']/ancestor::div/following-sibling::div")
+    private WebElement dataPrecision;
+
+    @FindBy(xpath = "//span[text()='单位']/ancestor::div/following-sibling::input")
+    private WebElement unit;
+
+    public WebElement getDataPrecision() {
+        dataPrecision.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getWordSize() {
+        return wordSize;
+    }
+
+    public WebElement getDisplayField() {
+        displayField.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getUnifiedMetric() {
         return unifiedMetric;
