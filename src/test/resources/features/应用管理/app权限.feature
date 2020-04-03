@@ -20,7 +20,7 @@ Feature: 应用权限
     And I set the parameter "Password" with properties "userPwd"
     And I click the "LoginButton" button
     Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+    And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page

@@ -16,7 +16,7 @@ Feature: 应用报表（RZY-2127）
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoTestForReport"
     And I choose the "ReportApp" from the "AppDropdown"
-    And I click the "Complete" button
+    And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
 
   Scenario: 新建报表
