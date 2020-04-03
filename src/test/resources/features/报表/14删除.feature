@@ -1,4 +1,4 @@
-@clean @cleanReport
+@clean
 Feature: 删除报表
 
   Scenario Outline: delete_report
@@ -10,6 +10,7 @@ Feature: 删除报表
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 
+    @cleanReport
     Examples:
       |   name                |
       |  test_report_EXCEL    |
@@ -20,6 +21,7 @@ Feature: 删除报表
       |  test_report_每周     |
       |  test_report_每天     |
 
+    @cleanReport
     Examples:
       |   name                |
       |  test_downFirst       |
@@ -30,7 +32,7 @@ Feature: 删除报表
       |  test_deleteLast      |
       |  test_10trends        |
 
-    @reportFromTrendClean @reportTimechartClean
+    @cleanReportFromTrend @cleanReportTimechart
     Examples:
       |    name               |
       | test_timechart_1      |
@@ -38,7 +40,7 @@ Feature: 删除报表
       | test_timechart_3      |
 
 
-    @reportFromTrendClean @reportOtherClean
+    @cleanReportFromTrend @cleanReportOther
     Examples:
       |    name               |
       |test其他_Other_Single_2|
@@ -48,25 +50,25 @@ Feature: 删除报表
       | test其他_Other_2      |
       | test其他_Other_1      |
 
-    @reportFromTrendClean @reportMapClean
+    @cleanReportFromTrend @cleanReportMap
     Examples:
       |    name               |
       | test地图_Map_3        |
       | test地图_Map_2        |
       | test地图_Map_1        |
 
-    @reportFromTrendClean @reportCompoundClean
+    @cleanReportFromTrend @cleanReportCompound
     Examples:
       |    name               |
       | test复合_Compound_1   |
 
-    @reportFromTrendClean @reportConnectionClean
+    @cleanReportFromTrend @cleanReportConnection
     Examples:
       |    name               |
       | test关系_Connection_2 |
       | test关系_Connection_1 |
 
-    @reportFromTrendClean @reportOrderClean
+    @cleanReportFromTrend @cleanReportOrder
     Examples:
       |    name               |
       | test序列_Order_4      |
@@ -74,7 +76,7 @@ Feature: 删除报表
       | test序列_Order_2      |
       | test序列_Order_1      |
 
-    @reportFromTrendClean @reportDimensionClean
+    @cleanReportFromTrend @cleanReportDimension
     Examples:
       |    name               |
       | test维度_Dimension_5  |
@@ -85,8 +87,8 @@ Feature: 删除报表
 
 
 
-    @reportDeleteChartsPDF
-    Scenario Outline: delete_report_charts
+  @cleanReport @cleanReportPDF @cleanReportCharts
+    Scenario Outline: delete_report_charts_pdf
       When open the "report.ListPage" page for uri "/reports/"
       And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "删除" button
       Then I will see the message "此操作将删除 [<name>_PDF], 是否继续？"
@@ -131,8 +133,8 @@ Feature: 删除报表
       |   AreaChart          |
       |   LineChart          |
 
-  @reportDeleteChartsEXCEL
-  Scenario Outline: delete_report_charts
+  @cleanReport @cleanReportEXCEL @cleanReportCharts
+  Scenario Outline: delete_report_charts_excel
     When open the "report.ListPage" page for uri "/reports/"
     And the data name is "{'column':'1','name':'<name>_EXCEL'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [<name>_EXCEL], 是否继续？"
@@ -176,5 +178,39 @@ Feature: 删除报表
       |   AreaChart_Pile     |
       |   AreaChart          |
       |   LineChart          |
+
+  @cleanReportData
+  Scenario Outline: delete
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+    Then I will see the message "确认删除 [<name>] ?"
+    When I click the "EnsureButton" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      |   name                 |
+      | table_Order            |
+      | table_Dimension        |
+      | table_Sun              |
+      | table_Chord            |
+      | table_Sankey           |
+      | table_Force            |
+      | table_Sankey_Mult      |
+      | table_Rangeline        |
+      | table_Multiaxis        |
+      | table_Heatmap          |
+    #regionmap_china
+      | table_Regionmap        |
+      | table_Attackmap_World  |
+      | table_Attackmap_China  |
+      | table_Regionmap_Jiangsu|
+      | table_Single           |
+      | table_Wordcloud        |
+    #radar, matrixheatmap
+      | table_Radar_Matr       |
+      | table_Funnel           |
+      | table_Single_Range     |
+      | table_Liquidfill       |
+
 
 

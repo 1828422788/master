@@ -1,4 +1,4 @@
-@report @all
+@report @all @reportSelectTrend
 Feature: 报表新建_选择
 
   Background:
@@ -10,8 +10,8 @@ Feature: 报表新建_选择
     When I set the parameter "Name" with value "test_10trends"
     And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
-    And I set the parameter "Hour" with value "15"
-    And I set the parameter "Minute" with value "50"
+    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "FinishButton" will be visible
     When I choose the "<chart1>" from the "ChartList"
@@ -58,8 +58,8 @@ Feature: 报表新建_选择
     When I set the parameter "Name" with value "<caseNum>"
     And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
-    And I set the parameter "Hour" with value "15"
-    And I set the parameter "Minute" with value "50"
+    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "FinishButton" will be visible
     When I choose the "LineChart_2477" from the "ChartList"
@@ -91,8 +91,8 @@ Feature: 报表新建_选择
     When I set the parameter "Name" with value "test_modify_cancel"
     And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
-    And I set the parameter "Hour" with value "15"
-    And I set the parameter "Minute" with value "50"
+    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "FinishButton" will be visible
     When I choose the "LineChart_2477" from the "ChartList"

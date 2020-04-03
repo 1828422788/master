@@ -1,4 +1,4 @@
-@reportCreateCharts
+@report @all @reportCreateCharts
 Feature: 报表新建_编辑_关系
 #4
 
@@ -8,8 +8,8 @@ Feature: 报表新建_编辑_关系
     Then I will see the "report.CreatePage" page
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "Tag"
-    And I set the parameter "Hour" with value "16"
-    And I set the parameter "Minute" with value "00"
+    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Minute" with value "30"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 

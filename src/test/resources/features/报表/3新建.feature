@@ -1,4 +1,4 @@
-@report @all
+@reportFromTrend
 Feature: 报表新建
 
   Background:
@@ -11,7 +11,7 @@ Feature: 报表新建
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
-    And I set the parameter "Hour" with value "9"
+    And I set the parameter "Hour" with value "7"
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "FinishButton" will be visible
@@ -84,7 +84,7 @@ Feature: 报表新建
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
-    And I set the parameter "Hour" with value "9"
+    And I set the parameter "Hour" with value "7"
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "FinishButton" will be visible
