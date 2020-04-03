@@ -1,4 +1,4 @@
-@agent_backup
+@agent_backup @agent
 Feature: Agent具体配置高级配置及清理缓存操作
 
   Background:

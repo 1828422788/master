@@ -331,8 +331,12 @@ public class CreatePage extends PageTemplate {
         return getBackUpSwitchStatus("压缩保存");
     }
 
+    public WebElement getSecuritySwitchStatus() {
+        return getBackUpSwitchStatus("使用安全链接");
+    }
+
     public WebElement getDeleteLogSwitchStatus() {
-        return getBackUpSwitchStatus("");
+        return getBackUpSwitchStatus("删日志源");
     }
 
     public WebElement getScriptSwitchStatus() {
