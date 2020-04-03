@@ -115,6 +115,7 @@ Feature: 拓扑图标识符
     And I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
     And I wait for "1000" millsecond
+    And I click the "Edit" button
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
