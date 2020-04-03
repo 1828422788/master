@@ -1,3 +1,4 @@
+@dashboard @dashboardSmoke
 Feature: 仪表盘调用链
 
   Scenario Outline: 新建仪表盘

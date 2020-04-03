@@ -1,3 +1,4 @@
+@dashboard @dashboardSmoke
 Feature: 仪表盘关联搜索
 
   Scenario Outline: 新建字段提取

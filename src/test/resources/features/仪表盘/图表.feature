@@ -1,3 +1,4 @@
+@dashboard @dashboardSmoke
 Feature: 仪表盘图表
 
   Scenario: 新建仪表盘

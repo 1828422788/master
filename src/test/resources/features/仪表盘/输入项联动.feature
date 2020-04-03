@@ -1,3 +1,4 @@
+@dashboard @dashboardSmoke
 Feature: 仪表盘输入项联动
 
   Scenario: 新建仪表盘
