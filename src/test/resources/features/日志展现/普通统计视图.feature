@@ -1,13 +1,14 @@
+@logDisplay @logDisplayGeneral
 Feature: 普通统计视图
 #34 (24)
 
-  # tag:auto_sample_display should be uploaded for Yesterday
+  # tag:sample04061424_display should be uploaded for Yesterday
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: count(RZY-807,808,809,810)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -22,7 +23,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
       | chart   | value1                | value2               | caseNum            |
@@ -33,7 +34,7 @@ Feature: 普通统计视图
 
 
   Scenario Outline: count_independent(RZY-2718)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -50,7 +51,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
       | chart   | value1                | value2           |     caseNum            |
@@ -58,7 +59,7 @@ Feature: 普通统计视图
 
 
   Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
-    #When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    #When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     #And I click the "Yesterday" button
@@ -87,7 +88,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
       | fieldValue               | statisticType | startDate   |    startTime  |endDate       | endTime | caseNum            |
@@ -100,7 +101,7 @@ Feature: 普通统计视图
 
 
   Scenario Outline: dataslice(RZY-814,3137)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -122,7 +123,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
       | fieldValue           | start1 | end1   | start2  |end2    | start3 | end3 | caseNum          |
@@ -131,7 +132,7 @@ Feature: 普通统计视图
 
 
   Scenario Outline: timehistogram(RZY-815,2725)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "<period>" button
     And I click the "SearchButton" button
@@ -146,7 +147,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
       | period    | timeSpan | time   | caseNum              |
@@ -158,7 +159,7 @@ Feature: 普通统计视图
 
 
   Scenario Outline: datehistogram(RZY-816)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -172,7 +173,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/816_数值直方图/<caseNum>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/816_数值直方图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/816_数值直方图/<caseNum>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/816_数值直方图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/816_数值直方图/<caseNum>.png"
 
     Examples:
       | fieldValue      | number  | caseNum |
@@ -181,7 +182,7 @@ Feature: 普通统计视图
 
 # can not compare, because of same values
   Scenario Outline: classifyfieldvalue(RZY-817)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -244,7 +245,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>.png"
 
     Examples:
       |period     | yFieldValue       |  groupBy         | statType  | chart   | timeSpan| time |
@@ -257,7 +258,7 @@ Feature: 普通统计视图
 
 
   Scenario Outline: totalpercent(RZY-819,2730)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -273,7 +274,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/<screenName>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>.png"
 
     Examples:
       |    fieldValue     |  percent1  |   percent2   |  screenName            |
@@ -282,7 +283,7 @@ Feature: 普通统计视图
 
 
   Scenario Outline: percentdegree(RZY-821, 3136)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -296,7 +297,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "ChartPercent"
     And I wait for "2000" millsecond
     And take part of "ChartPercent" with name "日志展现/普通统计视图/<screenName>"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>.png"
 
     Examples:
       |    fieldValue     |  value1     | screenName               |
@@ -306,7 +307,7 @@ Feature: 普通统计视图
 
   Scenario Outline: multilevelstats(RZY-822)
     # types of chart
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -323,7 +324,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1.png"
 
     # Click checkbox with 200
     When I click the "Field" button
@@ -337,7 +338,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2.png"
 
     # Select the whole table
     When I click the "WholeField" button
@@ -351,7 +352,7 @@ Feature: 普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3.png"
 
     Examples:
       |  fieldValue1   | chartType |  fieldValue2   | chartType2 |    fieldValue3   | chartType3 | screenName |
@@ -359,7 +360,7 @@ Feature: 普通统计视图
 
 
   Scenario:geogrdistr(RZY-825)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -371,17 +372,17 @@ Feature: 普通统计视图
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/825_地理分布/825_world"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/825_地理分布/825_world.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/825_地理分布/825_world.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/825_地理分布/825_world.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/825_地理分布/825_world.png"
 
     When I click the "CountryChina" button
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/825_地理分布/825_china"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/825_地理分布/825_china.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/825_地理分布/825_china.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/825_地理分布/825_china.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/825_地理分布/825_china.png"
 
     When I click the "ProvinceSichuan" button
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/普通统计视图/825_地理分布/825_sichuan"
-    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/825_地理分布/825_sichuan.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/825_地理分布/825_sichuan.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/825_地理分布/825_sichuan.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/825_地理分布/825_sichuan.png"
 
 
 

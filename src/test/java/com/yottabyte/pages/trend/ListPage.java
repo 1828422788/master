@@ -32,7 +32,12 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//div[text()='标签'])[last()]/following-sibling::div[1]")
     private WebElement tagField;
 
+    @FindBy(xpath = "//span[text()='趋势图']/ancestor::div/div/span/input")
+    private WebElement searchInput;
 
+    public WebElement getSearchInput(){
+        return searchInput;
+    }
 
 
     public WebElement getNewTrendButton(){

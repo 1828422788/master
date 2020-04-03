@@ -1,4 +1,4 @@
-@all @trend @trendMapCreate @trendChartCreate
+@all @trend @createTrendMap @createTrend
 Feature: 趋势图新建_地图
 # 10
 # sample04061424_chart for Today

@@ -1,4 +1,4 @@
-@all @trend @trendCompoundCreate @trendChartCreate
+@all @trend @createTrendCompound @createTrend
 Feature: 趋势图新建_复合
 # 2
 # sample04061424_chart for yesterday

@@ -1,4 +1,4 @@
-@all @trend @trendReport
+@all @trend @reportTrend
 Feature: 趋势图新建_报表
 
 

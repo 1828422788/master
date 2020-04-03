@@ -31,7 +31,7 @@ Feature: 报表新建
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @all @reportOrderCreate
+    @reportOrderCreate
     Examples:
       |    name          |   chart1              |    chart2                       |    chart3              |    chart4                       |
       | test序列_Order_1 | LineChart_2477        | AreaChart_2005                  | ScatterChart_2491      | ColumnChart_2499                |
@@ -39,38 +39,38 @@ Feature: 报表新建
       | test序列_Order_3 | AreaChart_Pile        | ColumnChart_Pile                | ColumnChart_2500_limit | ScatterChart_2492_limit         |
       | test序列_Order_4 | ScatterChart_bubbles  |                                 |                        |                                 |
 
-    @report @all @reportDimensionCreate
+    @reportDimensionCreate
     Examples:
       |    name                |   chart1       |    chart2       |    chart3    |    chart4    |
       | test维度_Dimension_1   | Pie_2503       | Rose_2858       | Bar_2676     | Sun_2850      |
       | test维度_Dimension_2   | Pie_只展示名称  | Rose_只展示名称 | Pie_展示全部  | Rose_展示全部 |
       | test维度_Dimension_3   | Pie_不展示      | Rose_不展示     | Bar_不展示   |               |
 
-    @report @all @reportConnectionCreate
+    @reportConnectionCreate
     Examples:
       |    name                 |   chart1         |    chart2       |    chart3    |    chart4       |
       | test关系_Connection_1   | Chord_2505       | Sankey_2507     | Force_2511   | Force_repulsion  |
       | test关系_Connection_2   |Sankey_Multistage  |                |              |                  |
 
-    @report @all @reportCompoundCreate
+    @reportCompoundCreate
     Examples:
       |    name                 |   chart1         |    chart2       |    chart3    |    chart4       |
       | test复合_Compound_1     | Multiaxis_2523   | Rangeline_2516  |              |                 |
 
-    @report @all @reportMapCreate
+    @reportMapCreate
     Examples:
       |    name         |   chart1            |    chart2                  |    chart3              |    chart4               |
       | test地图_Map_1  | Regionmap_2545      | Regionmap_China_2546       | Regionmap_Jiangsu_2547 |                         |
       | test地图_Map_2  | Heatmap_2539        | Attackmap_World_2542       | Attackmap_China_2543   |                         |
       | test地图_Map_3  | Statisticalmap_2797 | Statisticalmap_2797_param  | Statisticalmap_2098    |Statisticalmap_2098_param|
 
-    @report @all @reportOtherCreate
+    @reportOtherCreate
     Examples:
       |    name           |   chart1        |    chart2             |    chart3        |    chart4         |
       | test其他_Other_1  | Single_2549     | Wordcloud_2625        | Radar_2633       | Funnel_2654       |
       | test其他_Other_3  | Chain_2831      | Chain_2982            | Sequence_2805    |                   |
 
-    @report @all @reportTimechartCreate
+    @reportTimechartCreate
     Examples:
       |    name           |   chart1              |    chart2               |    chart3             |     chart4            |
       | test_timechart_1  | timechart_3092_line   | timechart_3093_line     | timechart_3094_area   | timechart_3095_area   |
@@ -107,13 +107,13 @@ Feature: 报表新建
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @all @reportDimensionCreate
+    @reportDimensionCreate
     Examples:
       |    name              |   chart1                |    chart2                |    chart3                |    chart4                  | chart5                     |
       | test维度_Dimension_4 | Bar_只展示名称_柱状外左侧 | Bar_只展示名称_柱状外右侧 | Bar_只展示名称_柱状内中央 | Bar_只展示名称_柱状内靠左侧 | Bar_只展示名称_柱状内靠右侧 |
       | test维度_Dimension_5 | Bar_展示全部_柱状外左侧   | Bar_展示全部_柱状外右侧  | Bar_展示全部_柱状内中央    | Bar_展示全部_柱状内靠左侧   | Bar_展示全部_柱状内靠右侧  |
 
-    @report @all @reportOtherCreate
+    @reportOtherCreate
     Examples:
       |    name                  |   chart1      |    chart2      |    chart3        |    chart4                   | chart5                        |
       | test其他_Other_ring      | Ring_onefield | Ring_twofields | Ring_table_3r_2c  | Ring_table_1r_4c            | Ring_table_1r_3c_colors       |

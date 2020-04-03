@@ -3,12 +3,14 @@ Feature: 趋势图删除（RZY-1891）
 
   Scenario Outline: delete
     Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "EnsureButton" button
     Then I will see the success message "删除成功"
 
-    @trendOrderClean
+    @cleanTrendOrder
     Examples:
       | name                                     |
       | ScatterChart_2492_limit                  |
@@ -25,7 +27,7 @@ Feature: 趋势图删除（RZY-1891）
       | AreaChart_2005                           |
       | LineChart_2477                           |
 
-    @trendDimensionClean
+    @cleanTrendDimension
     Examples:
       | name                                     |
       | Rose_展示全部                            |
@@ -50,7 +52,7 @@ Feature: 趋势图删除（RZY-1891）
       | Rose_2858                                |
       | Pie_2503                                 |
 
-    @trendConnectionClean
+    @cleanTrendConnection
     Examples:
       | name                                     |
       | Sankey_Multistage                        |
@@ -59,13 +61,13 @@ Feature: 趋势图删除（RZY-1891）
       | Sankey_2507                              |
       | Chord_2505                               |
 
-    @trendCompoundClean
+    @cleanTrendCompound
     Examples:
       | name                                     |
       | Multiaxis_2523                           |
       | Rangeline_2516                           |
 
-    @trendMapClean
+    @cleanTrendMap
     Examples:
       | name                                     |
       | Statisticalmap_2098_param                |
@@ -79,7 +81,7 @@ Feature: 趋势图删除（RZY-1891）
       | Regionmap_2545                           |
       | Heatmap_2539                             |
 
-    @trendOtherClean
+    @cleanTrendOther
     Examples:
       | name                                     |
       | Table_Test                               |
@@ -111,7 +113,7 @@ Feature: 趋势图删除（RZY-1891）
       | Wordcloud_2625                           |
       | Single_2549                              |
 
-    @trendTimechartClean
+    @cleanTrendTimechart
     Examples:
       | name                                     |
       | timechart_3250_column                    |

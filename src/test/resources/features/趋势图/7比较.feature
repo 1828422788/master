@@ -1,9 +1,11 @@
-@all @trend @trendCompare
+@compareTrend
 Feature: 趋势图比较
 
   Scenario Outline: compare
     Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "{'column':'0','name':'<name>'}" then i click the "编辑" button
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -16,7 +18,7 @@ Feature: 趋势图比较
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
 
-    @trendOrderCompare
+    @compareTrendOrder
     Examples:
       | name                                     |
       | ScatterChart_2492_limit                  |
@@ -34,7 +36,7 @@ Feature: 趋势图比较
       | LineChart_2477                           |
 
 
-    @trendDimensionCompare
+    @compareTrendDimension
     Examples:
       | name                                     |
       | Rose_展示全部                            |
@@ -60,7 +62,7 @@ Feature: 趋势图比较
       | Pie_2503                                 |
 
 
-    @trendConnectionCompare
+    @compareTrendConnection
     Examples:
       | name                                     |
       | Sankey_Multistage                        |
@@ -69,13 +71,13 @@ Feature: 趋势图比较
       | Sankey_2507                              |
       | Chord_2505                               |
 
-    @trendCompoundCompare
+    @compareTrendCompound
     Examples:
       | name                                     |
       | Multiaxis_2523                           |
       | Rangeline_2516                           |
 
-    @trendMapCompare
+    @compareTrendMap
     Examples:
       | name                                     |
       | Regionmap_Jiangsu_2547                   |
@@ -85,7 +87,7 @@ Feature: 趋势图比较
       | Regionmap_2545                           |
       | Heatmap_2539                             |
 
-    @trendTimechartCompare
+    @compareTrendTimechart
     Examples:
       | name                                     |
       | timechart_3250_column                    |
@@ -103,7 +105,9 @@ Feature: 趋势图比较
 
   Scenario Outline: compare_others
     Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "{'column':'0','name':'<name>'}" then i click the "编辑" button
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -116,7 +120,7 @@ Feature: 趋势图比较
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
 
-    @trendOtherCompare
+    @compareTrendOther
     Examples:
       | name                                     |
       | Table_Test                               |
@@ -148,7 +152,7 @@ Feature: 趋势图比较
       | Wordcloud_2625                           |
       | Single_2549                              |
 
-    @trendMapCompare
+    @compareTrendMap
     Examples:
       | name                                     |
       | Statisticalmap_2098_param                |

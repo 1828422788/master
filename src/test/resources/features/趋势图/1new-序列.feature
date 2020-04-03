@@ -1,4 +1,4 @@
-@all @trend @trendOrderCreate @trendChartCreate
+@all @trend @createTrendOrder @createTrend
 Feature: 趋势图新建_序列
 # 13
 # sample04061424_chart for Today

@@ -1,13 +1,14 @@
+@logDisplay @logDisplayOrder
 Feature: 高级搜索视图_序列
 #8
 
-  # tag:auto_sample_chart should be uploaded for Today
+  # tag:sample04061424_chart should be uploaded for Today
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: sequence(RZY-2770,2771,2769,2768)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_chart | stats count() by apache.clientip,apache.method"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -56,8 +57,8 @@ Feature: 高级搜索视图_序列
 
     Examples:
       |   chartType   | unitValue  | buttonChoice      |  caseNum  |   spl|
-      |   LineChart   |   个       | Smooth            | 832    |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.method  |
-      |   LineChart   |   个       | ConnectEmptyData  | 832    |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.method  |
+      |   LineChart   |   个       | Smooth            | 832    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
+      |   LineChart   |   个       | ConnectEmptyData  | 832    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
 
   Scenario Outline: pile(RZY-2767,2773)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -86,11 +87,11 @@ Feature: 高级搜索视图_序列
 
     Examples:
       |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
-      |   AreaChart   |    Pile       | Red    | 2767      |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.method  |
-      |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:auto_sample_chart \| stats count() by apache.clientip,apache.method  |
+      |   AreaChart   |    Pile       | Red    | 2767      |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
+      |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
 
   Scenario Outline: scatter_bubble (RZY-4204)
-    When I set the parameter "SearchInput" with value "tag:auto_sample_chart | stats count() by apache.clientip,apache.method"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

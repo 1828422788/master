@@ -1,4 +1,4 @@
-@saveAsTrend @saveAsTrendTimechart
+@saveAsTrend @saveAsTrendTimechart @all @trend @createTrend
 Feature: 保存为趋势图_timechart
 #12
 # tag:sample04061424_chart should be uploaded for Today

@@ -1,4 +1,4 @@
-@all @trend @trendOtherCreate @trendChartCreate
+@all @trend @createTrendOther @createTrend
 Feature: 趋势图新建-其他
 # 28
 # sample04061424_chart for Today
