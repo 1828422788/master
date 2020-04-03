@@ -61,14 +61,23 @@ public class ScrollBar {
      */
     @And("^I drag the element \"([^\"]*)\" to the \"([^\"]*)\"$")
     public void dragElement(String source, String target) {
-        WebElement element = webDriver.findElement(By.className("yw-drag-icon"));
+        //WebElement element = webDriver.findElement(By.className("yw-drag-icon"));
         WebElement sourceElement = GetElementFromPage.getWebElementWithName(source);
         WebElement targetElement = GetElementFromPage.getWebElementWithName(target);
         Actions actions = (new Actions(webDriver));
 
-        sourceElement.click();
-        actions.dragAndDrop(element, targetElement).perform();
-        actions.release();
+        actions.clickAndHold(sourceElement);
+        actions.moveToElement(targetElement,5,5);
+        actions.perform();
+        actions.release(targetElement);
+        actions.perform();
+        //actions.clickAndHold(sourceElement).moveToElement(targetElement).click(targetElement).release().build().perform();
+//        actions.clickAndHold(sourceElement).build().perform();
+//        actions.moveToElement(targetElement).build().perform();
+//        actions.release(sourceElement).build().perform();
+        //sourceElement.click();
+        //actions.dragAndDrop(sourceElement, targetElement).build().perform();
+        //actions.release();
 
         System.out.println();
     }
