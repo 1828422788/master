@@ -103,7 +103,7 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getIndexsetting() {
-        return this.getElementWithLinkName("路由配置");
+        return this.getElementWithLinkName("路由");
     }
 
     public WebElement getIngestpriority() {
@@ -111,7 +111,7 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getUpload() {
-        return this.getElementWithLinkName("本地上传");
+        return this.getElementWithLinkName("上传");
     }
 
     public WebElement getBackup() {
@@ -143,7 +143,7 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getLimit() {
-        return this.getElementWithLinkName("使用限额");
+        return this.getElementWithLinkName("限额");
     }
 
     public WebElement getPayment() {

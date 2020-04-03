@@ -177,4 +177,4 @@ Feature: 应用仪表盘
     Then I will see the "dashboard.ListPage" page
     Given the data name is "仪表盘验证无app" then i click the "删除" button
     Then I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Then I will see the success message "删除仪表盘成功"

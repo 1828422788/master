@@ -65,11 +65,18 @@ Feature: 仪表盘单值
     And I hide the element "Content"
     And I click the "Setting" button under some element
     And I choose the "a_" from the "DataField"
+    And I choose the "icon" from the "DisplayField"
+    And I click the "Exhibition" button
+    And I set the parameter "WordSize" with value "30"
+    And I choose the "3" from the "DataPrecision"
+    And I set the parameter "Unit" with value "个"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
+    And take part of "FullScreen" with name "dashboard/仪表盘单值"
+    Then I compare source image "dashboard/仪表盘单值" with target image "dashboard/single"
 
   Scenario Outline: 验证单值图的fontSize
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
