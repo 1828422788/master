@@ -77,6 +77,27 @@ public class Checkbox {
     }
 
 
+    /**
+     * 勾选或取消勾选名称前面的checkbox
+     *
+     * @param status   想要将复选框置为的状态，checked/unchecked
+     * @param nameList 想要勾选/取消勾选的名称（支持传入list）
+     *                 仅用于字典管理授权页的checkbox
+     */
+    @And("^I \"([^\"]*)\" the label before \"([^\"]*)\" in the agent$")
+    public void clickCheckLabelAgent(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "//span[contains(text(),'" + name + "')]//ancestor::th//preceding-sibling::th//label";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            WebElement span = label.findElement(By.xpath("./span"));
+            String attribute = span.getAttribute("class");
+            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                label.click();
+            }
+        }
+    }
+
+
     @When("^the column is \"([^\"]*)\" then i \"([^\"]*)\" the agent label in agent page$")
     public void clickagentLabel(String columnNum, String status) {
         WebElement tr = listPageUtils.getTrWithoutPaging(this.getAgentIp(columnNum));
@@ -134,4 +155,5 @@ public class Checkbox {
                     || (!attribute.contains("checked") && "unchecked".equals(status)));
         }
     }
+
 }

@@ -3,7 +3,7 @@ package com.yottabyte.utils;
 import java.util.List;
 
 /**
- * @author sunxj
+ * @author sunxj,sunxc
  */
 public class Agent {
     private String ip;
