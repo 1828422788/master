@@ -90,19 +90,6 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Save" button
     Then I will see the element "ChangeMemo" name is "修改成功"
 
-  Scenario: 备份策略编辑目的对象处理线程数
-    And I click the "AddBackUP" button
-    And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
-    And I set the parameter "WhiteList" with value ".*\.log"
-    And I set the parameter "BackUPTime" with value "0"
-    And I click the "Next" button
-    And I click the "Next" button
-    And I click the "BackUpObject" button
-    And I click the "EditBackUpObject" button
-    And I set the parameter "ThreadNum" with value "1"
-    And I click the "Save" button
-    Then I will see the element "ChangeMemo" name is "修改成功"
-
   Scenario Outline: 备份策略编辑目的对象服务器地址
     And I click the "AddBackUP" button
     And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
