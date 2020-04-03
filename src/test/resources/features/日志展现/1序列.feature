@@ -23,7 +23,7 @@ Feature: 高级搜索视图_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/高级搜索视图/1序列/<caseNum>_<chartType>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png"
 
     Examples:
       |   chartType   |   caseNum  |
@@ -53,7 +53,7 @@ Feature: 高级搜索视图_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>.png"
 
     Examples:
       |   chartType   | unitValue  | buttonChoice      |  caseNum  |   spl|
@@ -83,7 +83,7 @@ Feature: 高级搜索视图_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_Pile.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_Pile.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_Pile.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_Pile.png"
 
     Examples:
       |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
@@ -114,7 +114,7 @@ Feature: 高级搜索视图_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/高级搜索视图/1序列/<caseNum>_<chartType>"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png"
 
     Examples:
       |   chartType   |   bubbleSize |caseNum  |
