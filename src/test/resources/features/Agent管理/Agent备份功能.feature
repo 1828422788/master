@@ -1,3 +1,4 @@
+@agent_backup
 Feature: Agent具体配置高级配置及清理缓存操作
 
   Background:
@@ -144,4 +145,10 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "DeleteBackUpObject" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除目的对象成功。"
+
+  Scenario: 备份策略删除
+    Given the data name "hekabackup" in table "BackUpTable" then i click the "删除" button
+    And I click the "Ensure" button
+    Then I will see the element "ChangeMemo" name is "删除备份配置成功"
+
 
