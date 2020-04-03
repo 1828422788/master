@@ -27,7 +27,7 @@ Feature: 路由编辑
     When the data name is "{'column':'3','name':'AutoCreateForSxcTest'}" then i click the "编辑" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I choose the "topictest" from the "TopicName"
-    When I choose the "indextest" from the "IndexName"
+    When I choose the "indexerror" from the "IndexName"
     And I click the "SavedButton" button
     Then I will see the success message "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -46,10 +46,10 @@ Feature: 路由编辑
 
     Examples:
       | spl           |
-      | index=error * |
+      | index=indexerror * |
 
   Scenario: 编辑indexerror
-    When the data name is "{'column':'3','name':'AutoTest'}" then i click the "编辑" button
+    When the data name is "{'column':'3','name':'AutoCreateForSxcTest'}" then i click the "编辑" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "AppName" with value "testdisable"
     And I set the parameter "Tag" with value "testdisable"
