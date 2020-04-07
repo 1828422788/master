@@ -2,7 +2,7 @@
 Feature: 数据大屏弧形柱图
 
   Scenario: 新建默认类型的弧形柱图
-    Given I wait for title change text to "仪表盘"
+#    Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -30,13 +30,13 @@ Feature: 数据大屏弧形柱图
     Then I will see the success message "保存成功"
 
   Scenario Outline: 修改配置
-    Given I wait for title change text to "仪表盘"
+#    Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" button
+    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Chart" button
-    And I click the "ArcBar" button
+    And I click the "pictureOne" button
+
     And I click the "Style" button
     And I wait for "ArcBar" will be invisible
     And I wait for "RadiusAxis" will be visible
@@ -73,12 +73,12 @@ Feature: 数据大屏弧形柱图
     And I set the parameter "Height" with value "378"
     And I set the parameter "ChartXaxis" with value "527"
     And I set the parameter "ChartYaxis" with value "208"
-    And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I choose the "apache.clientip" from the "RadialAxis"
-    And I choose the "count()" from the "AngleAxis"
+#    And I click the "Data" button
+#    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+#    And I click the "Search" button
+#    And I wait for "SearchTip" will be invisible
+#    And I choose the "apache.clientip" from the "RadialAxis"
+#    And I choose the "count()" from the "AngleAxis"
     And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -88,14 +88,13 @@ Feature: 数据大屏弧形柱图
       | 弧形柱图 |
 
   Scenario Outline: 增加分组
-    Given I wait for title change text to "仪表盘"
+#    Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" button
+    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Chart" button
-    And I wait for "ArcBar" will be visible
-    And I click the "ArcBar" button
+    And I click the "pictureOne" button
+
     And I click the "Style" button
     And I wait for "ArcBar" will be invisible
     And I wait for "RadiusAxis" will be visible
@@ -132,12 +131,13 @@ Feature: 数据大屏弧形柱图
     And I set the parameter "Height" with value "367"
     And I set the parameter "ChartXaxis" with value "73"
     And I set the parameter "ChartYaxis" with value "369"
+
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I choose the "apache.clientip" from the "RadialAxis"
-    And I choose the "count()" from the "AngleAxis"
+#    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+#    And I click the "Search" button
+#    And I wait for "SearchTip" will be invisible
+#    And I choose the "apache.clientip" from the "RadialAxis"
+#    And I choose the "count()" from the "AngleAxis"
     And I click the "AddGroup" button
     And I choose the "apache.method" from the "Group"
     And I switch the "Pile" button to "enable"
@@ -149,10 +149,10 @@ Feature: 数据大屏弧形柱图
       | 弧形柱图 |
 
   Scenario Outline: 发布页截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond

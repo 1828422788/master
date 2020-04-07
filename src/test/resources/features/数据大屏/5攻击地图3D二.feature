@@ -2,10 +2,10 @@
   Feature: 攻击地图3D II
 
       Scenario: 攻击地图3DII默认设置
-        Given I will see the "PublicNavBarPage" page
-        And I wait for "Dashboard" will be visible
-        And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-        When I click the "Create" button
+       # Given I will see the "PublicNavBarPage" page
+       # And I wait for "Dashboard" will be visible
+        Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+        And I click the "Create" button
         Then I will see the "galaxee.CreatePage" page
         When I click the "Create" button
         And I set the parameter "Name" with value "攻击地图3D II默认"
@@ -21,10 +21,10 @@
         Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII默认设置发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+     # Given I will see the "PublicNavBarPage" page
+     # And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -37,9 +37,9 @@
 ######################################无耻的分割线################################
 
     Scenario: 攻击地图3DII之样式设置
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      #Given I will see the "PublicNavBarPage" page
+      #And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
@@ -71,10 +71,10 @@
 
 
     Scenario Outline: 攻击地图3DII样式设置发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+     # Given I will see the "PublicNavBarPage" page
+     # And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -86,10 +86,10 @@
 ######################################无耻的分割线################################
 
     Scenario: 攻击地图3DII之数据设置(数据源类型：搜索)
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "攻击地图3DII数据之搜索"
@@ -124,10 +124,10 @@
 
 
     Scenario Outline: 攻击地图3DII数据发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -140,10 +140,10 @@
 
 
     Scenario: 攻击地图3DII之数据设置(数据源类型：静态数据)
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "攻击地图3DII数据之静态数据"
@@ -172,10 +172,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之静态数据发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -187,10 +187,10 @@
 ######################################无耻的分割线################################
 
     Scenario: 攻击地图3DII之数据设置(数据源类型：绑定搜索)
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "攻击地图3DII数据之绑定数据"
@@ -235,10 +235,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之绑定数据发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"

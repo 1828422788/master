@@ -2,8 +2,8 @@
   Feature: 实体
 
     Scenario: 实体默认设置
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -14,6 +14,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
@@ -21,10 +22,10 @@
 
 
     Scenario Outline: 实体默认设置发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -36,8 +37,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 实体样式
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -48,6 +49,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
@@ -67,10 +69,10 @@
 
 
     Scenario Outline: 实体样式发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -83,8 +85,8 @@
 
 
     Scenario: 实体样式firewall
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -95,6 +97,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "firewall" from the "entityStyleSelect"
@@ -105,10 +108,10 @@
 
 
     Scenario Outline: 实体样式firewall发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -120,8 +123,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 实体样式router1
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -132,6 +135,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "router1" from the "entityStyleSelect"
@@ -142,10 +146,10 @@
 
 
     Scenario Outline: 实体样式router1发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -157,8 +161,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 实体样式router2
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -169,6 +173,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "router2" from the "entityStyleSelect"
@@ -179,10 +184,10 @@
 
 
     Scenario Outline: 实体样式router2发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -193,8 +198,8 @@
 
 ######################################无耻的分割线################################
     Scenario: 实体样式switch
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -205,6 +210,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "switch" from the "entityStyleSelect"
@@ -215,10 +221,10 @@
 
 
     Scenario Outline: 实体样式switch发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -229,8 +235,8 @@
 
  ######################################无耻的分割线################################
     Scenario: 实体样式balance
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -241,6 +247,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "balance" from the "entityStyleSelect"
@@ -251,10 +258,10 @@
 
 
     Scenario Outline: 实体样式balance发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -264,8 +271,8 @@
         |实体样式balance     |
  ######################################无耻的分割线################################
     Scenario: 实体样式cloud
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -276,6 +283,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "cloud" from the "entityStyleSelect"
@@ -286,10 +294,10 @@
 
 
     Scenario Outline: 实体样式cloud发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -300,8 +308,8 @@
 
 ######################################无耻的分割线################################
     Scenario: 实体样式database
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -312,6 +320,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "database" from the "entityStyleSelect"
@@ -322,10 +331,10 @@
 
 
     Scenario Outline: 实体样式database发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -336,8 +345,8 @@
 
  ######################################无耻的分割线################################
     Scenario: 实体样式file
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -348,6 +357,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "file" from the "entityStyleSelect"
@@ -358,10 +368,10 @@
 
 
     Scenario Outline: 实体样式database发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -372,9 +382,10 @@
 
 
 ######################################无耻的分割线################################
+
     Scenario: 实体数据之搜索值异常
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -385,8 +396,11 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #数据设置
       And I click the "Data" button
+      And I click the "DateEditor" button
+      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -399,10 +413,10 @@
 
 
     Scenario Outline: 实体数据之搜索值异常发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -414,8 +428,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 实体数据之搜索值正常
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -424,10 +438,14 @@
       And I click the "Ensure" button
       #选择上方的网络
       And I click the "net" button
+
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #数据设置
       And I click the "Data" button
+      And I click the "DateEditor" button
+      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -445,10 +463,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 实体数据之搜索值正常发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -460,8 +478,8 @@
       ######################################无耻的分割线################################
 
     Scenario: 实体数据之搜索值严重
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -472,8 +490,11 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #数据设置
       And I click the "Data" button
+      And I click the "DateEditor" button
+      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -494,10 +515,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 实体数据之搜索值严重发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -510,8 +531,8 @@
 
   #静态数据
     Scenario: 实体数据之静态数据
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -522,6 +543,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #数据设置
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -539,10 +561,10 @@
 
 
     Scenario Outline: 实体数据之静态数据发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -554,8 +576,8 @@
  ######################################无耻的分割线################################
 
     Scenario: 实体数据之绑定搜索
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -566,6 +588,8 @@
       And I click the "Other" button
       And I click the "otherSearch" button
       And I set the parameter "SplInput" with value "* | stats avg(apache.status) as err_avg"
+      And I click the "DateEditor" button
+      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -574,6 +598,7 @@
       And I click the "net" button
       #选择实体
       And I click the "entity" button
+      And I hide the element "netDropdown"
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -598,10 +623,10 @@
 
 
     Scenario Outline: 实体数据之绑定搜索发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"

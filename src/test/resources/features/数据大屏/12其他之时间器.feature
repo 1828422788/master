@@ -2,8 +2,8 @@
 Feature: 时间器
 
   Scenario: 时间器默认设置
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -21,10 +21,10 @@ Feature: 时间器
 
 
   Scenario Outline: 时间器默认设置默认设置发布并截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
@@ -36,8 +36,8 @@ Feature: 时间器
 ######################################无耻的分割线################################
 
   Scenario: 时间器样式
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -73,17 +73,17 @@ Feature: 时间器
     And I choose the "yyyy-MM-dd" from the "timeFormat"
       #3 全局样式修改名成
     And I click the "globalStyle" button
-    And I set the parameter "globalStyleName" with value "齿轮组合样式修改"
+    And I set the parameter "globalStyleName" with value "时间器样式修改"
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
 
   Scenario Outline: 时间器样式发布并截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
@@ -95,8 +95,8 @@ Feature: 时间器
 ######################################无耻的分割线################################
 
   Scenario: 时间器样式2
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -130,10 +130,10 @@ Feature: 时间器
 
 
   Scenario Outline: 时间器样式2发布并截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
@@ -145,8 +145,8 @@ Feature: 时间器
     ######################################无耻的分割线################################
 
   Scenario: 时间器样式3
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -179,10 +179,10 @@ Feature: 时间器
 
 
   Scenario Outline: 时间器样式3发布并截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"

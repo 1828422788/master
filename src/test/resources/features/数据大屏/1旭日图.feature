@@ -2,8 +2,8 @@
 Feature: 数据大屏旭日图
 
   Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建旭日图，默认配置
@@ -33,11 +33,12 @@ Feature: 数据大屏旭日图
     Then I will see the success message "保存成功"
 
   Scenario Outline: 旭日图修改配置
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" button
+    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Chart" button
-    And I click the "Sunburst" button
+    And I click the "pictureOne" button
+#    And I click the "Chart" button
+#    And I click the "Sunburst" button
     And I click the "Style" button
     And I wait for "Sunburst" will be invisible
     And I wait for "ChartTag" will be visible
@@ -67,11 +68,12 @@ Feature: 数据大屏旭日图
       | 旭日图  |
 
   Scenario Outline: 旭日图增加切分数据
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" button
+    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Chart" button
-    And I click the "Sunburst" button
+    And I click the "pictureOne" button
+#    And I click the "Chart" button
+#    And I click the "Sunburst" button
     And I click the "Style" button
     And I wait for "Sunburst" will be invisible
     And I wait for "ChartTag" will be visible
@@ -93,6 +95,7 @@ Feature: 数据大屏旭日图
     And I wait for "SearchTip" will be invisible
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.city" from the "DivideField"
+
     And I click the "Add" button
     And I choose the "apache.geo.province" from the "lastDivideField"
     And I click the "Save" button
@@ -103,7 +106,7 @@ Feature: 数据大屏旭日图
       | 旭日图  |
 
   Scenario Outline: 发布页截图
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond

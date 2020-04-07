@@ -2,8 +2,8 @@
 Feature: 水平胶囊
 
   Scenario: 水平胶囊默认设置
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -22,10 +22,10 @@ Feature: 水平胶囊
 
 
   Scenario Outline: 水平胶囊默认设置发布并截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
@@ -38,8 +38,8 @@ Feature: 水平胶囊
 
 
   Scenario: 水平胶囊样式
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -92,10 +92,10 @@ Feature: 水平胶囊
 
 
   Scenario Outline: 水平胶囊样式发布并截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
@@ -107,8 +107,8 @@ Feature: 水平胶囊
 ######################################无耻的分割线################################
 
   Scenario: 水平胶囊数据之搜索
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -145,10 +145,10 @@ Feature: 水平胶囊
 
 
   Scenario Outline: 水平胶囊数据之搜索发布并截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
@@ -161,8 +161,8 @@ Feature: 水平胶囊
 ##################################无耻的分割线###############################
 
   Scenario: 水平胶囊数据之静态数据
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -205,10 +205,10 @@ Feature: 水平胶囊
 
 
   Scenario Outline: 水平胶囊数据之静态数据发布并截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
@@ -221,8 +221,8 @@ Feature: 水平胶囊
 ##################################无耻的分割线###############################
 
   Scenario: 水平胶囊数据之绑定搜索
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -277,10 +277,10 @@ Feature: 水平胶囊
 
 
   Scenario Outline: 水平胶囊数据之绑定搜索发布并截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"

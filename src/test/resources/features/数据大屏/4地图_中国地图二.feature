@@ -2,10 +2,10 @@
   Feature: 中国地图II
 
     Scenario: 默认类型的中国地图II
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+       # Given I will see the "PublicNavBarPage" page
+       #And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "中国地图II默认"
@@ -15,34 +15,35 @@
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
-      #保存
+     #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
 
-    Scenario Outline: 中国地图II默认发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
-      And switch to window "<name>"
-      And I wait for loading invisible
-      Then take a screenshot with name "galaxee/<name>"
 
+    Scenario Outline: 中国地图II默认发布并截图
+     # Given I will see the "PublicNavBarPage" page
+     # And I wait for "Dashboard" will be visible
+      Given  open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+      And switch to window "<name>"
+      And I wait for "Loading" will be invisible
+      And I wait for "1000" millsecond
+      Then take a screenshot with name "galaxee/<name>"
       Examples:
         |name            |
-        |中国地图II默认    |
+        |中国地图II默认   |
 
 ######################################无耻的分割线################################
 
 
   @galaxee
   Scenario: 对中国地图II进行样式编辑
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
+   # Given I will see the "PublicNavBarPage" page
+    #And I wait for "Dashboard" will be visible
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
     And I set the parameter "Name" with value "中国地图II样式"
@@ -73,17 +74,17 @@
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #3 全局样式修改名成
-    And I click the "globalStyle" button
-    And I set the parameter "globalStyleName" with value "中国地图II样式修改"
+  #  And I click the "globalStyle" button
+  #  And I set the parameter "globalStyleName" with value "中国地图II样式修改"
 #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
 Scenario Outline: 中国地图II样式发布并截图
-  Given I will see the "PublicNavBarPage" page
-  And I wait for "Dashboard" will be visible
-  And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-  When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+  #Given I will see the "PublicNavBarPage" page
+  #And I wait for "Dashboard" will be visible
+  Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+  When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
   And switch to window "<name>"
   And I wait for loading invisible
   Then take a screenshot with name "galaxee/<name>"
@@ -96,13 +97,11 @@ Scenario Outline: 中国地图II样式发布并截图
 ######################################无耻的分割线################################
 
 
-
-    @galaxee
     Scenario: 对中国地图II样式->地图->区域选择无锡
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+      #Given I will see the "PublicNavBarPage" page
+      #And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And  I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "中国地图II样式无锡"
@@ -112,17 +111,19 @@ Scenario Outline: 中国地图II样式发布并截图
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
-  #设置->样式->地图->区域选择无锡
+    #设置->样式->地图->区域选择无锡
       And I click the "MapHeader" button
       And I choose the "无锡" from the "MapArea"
+
+      And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
     Scenario Outline: 中国地图II样式->地图->区域选择无锡发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+     # Given I will see the "PublicNavBarPage" page
+     # And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -136,10 +137,10 @@ Scenario Outline: 中国地图II样式发布并截图
 
   #数据-搜索
     Scenario: 中国地图II数据之搜索
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+     # Given I will see the "PublicNavBarPage" page
+     # And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "中国地图II数据之搜索"
@@ -164,10 +165,10 @@ Scenario Outline: 中国地图II样式发布并截图
       Then I will see the success message "保存成功"
 
     Scenario Outline: 中国地图II数据之搜索发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+     # Given I will see the "PublicNavBarPage" page
+     # And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -179,9 +180,9 @@ Scenario Outline: 中国地图II样式发布并截图
 ######################################无耻的分割线################################
   #数据-静态数据
     Scenario: 中国地图II数据之静态数据
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    #  Given I will see the "PublicNavBarPage" page
+    # And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
@@ -214,10 +215,10 @@ Scenario Outline: 中国地图II样式发布并截图
 
 
     Scenario Outline: 中国地图II数据之静态数据发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    #  Given I will see the "PublicNavBarPage" page
+    #  And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -229,10 +230,10 @@ Scenario Outline: 中国地图II样式发布并截图
 ######################################无耻的分割线################################
   #数据-绑定数据
     Scenario: 中国地图II数据之绑定搜索
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+      #Given I will see the "PublicNavBarPage" page
+      #And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "中国地图II数据之绑定搜索"
@@ -278,10 +279,10 @@ Scenario Outline: 中国地图II样式发布并截图
 
 
     Scenario Outline: 中国地图II数据之绑定搜索发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      #Given I will see the "PublicNavBarPage" page
+      #And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"

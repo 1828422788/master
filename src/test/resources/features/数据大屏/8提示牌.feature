@@ -1,53 +1,21 @@
 @galaxee
-  Feature: 揭示牌
+Feature: 揭示牌
 
-    Scenario: 提示牌默认设置
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+
+    Scenario: 揭示牌样式搜索
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
-      And I set the parameter "Name" with value "提示牌默认设置"
+      And I set the parameter "Name" with value "揭示牌样式搜索"
       And I click the "Ensure" button
-      #选择上方的指标
+     #选择上方的指标
       And I click the "Index" button
       #选择提示牌
       And I click the "tipsCard" button
-       #保存
-      And I wait for "Save" will be visible
-      And I click the "Save" button
-      Then I will see the success message "保存成功"
-
-
-    Scenario Outline: 提示牌默认设置发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
-      And switch to window "<name>"
-      And I wait for loading invisible
-      Then take a screenshot with name "galaxee/<name>"
-
-      Examples:
-        |name              |
-        |提示牌默认设置      |
-
-######################################无耻的分割线################################
-
-    Scenario: 提示牌样式
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
-      Then I will see the "galaxee.CreatePage" page
-      When I click the "Create" button
-      And I set the parameter "Name" with value "提示牌样式"
-      And I click the "Ensure" button
-      #选择上方的指标
-      And I click the "Index" button
-      #选择提示牌
-      And I click the "tipsCard" button
+      And I hide the element "IndexDropdown"
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
@@ -56,53 +24,23 @@
       And I set the parameter "ChartXaxis" with value "600"
       And I set the parameter "ChartYaxis" with value "100"
       #2设置标题和缩放
-     And I click the "styleTipsCard" button
+      And I click the "styleTipsCard" button
       And I set the parameter "styleTipsCardTiTle" with value "交易金额超过量"
       And I set the parameter "styleTipsCardZoom" with value "2"
 
        #3 全局样式修改名成
       And I click the "globalStyle" button
       And I set the parameter "globalStyleName" with value "提示牌样式修改"
-       #保存
-      And I click the "Save" button
-      Then I will see the success message "保存成功"
 
-
-    Scenario Outline: 提示牌样式发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
-      And switch to window "<name>"
-      And I wait for loading invisible
-      Then take a screenshot with name "galaxee/<name>"
-
-      Examples:
-        |name           |
-        |提示牌样式      |
-######################################无耻的分割线################################
-
-
-    Scenario: 揭示牌数据之搜索
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
-      Then I will see the "galaxee.CreatePage" page
-      When I click the "Create" button
-      And I set the parameter "Name" with value "揭示牌数据之搜索"
-      And I click the "Ensure" button
-     #选择上方的指标
-      And I click the "Index" button
-      #选择提示牌
-      And I click the "tipsCard" button
      #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
       And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I click the "DateEditor" button
+      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
-      And I choose the "p" from the "tipsCardNumber"
+      And I choose the "num" from the "tipsCardNumber"
       #设置阈值以及显示值
       And I set the parameter "thresholdOne" with value "6"
       And I set the parameter "displayOne" with value "6亿"
@@ -113,30 +51,31 @@
       And I set the parameter "tipsTwo" with value "同比上涨350%"
 
     #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
 
     Scenario Outline: 揭示牌数据之搜索发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
       Examples:
         |name            |
-        |揭示牌数据之搜索   |
+        |揭示牌样式搜索   |
 
 
 
 ######################################无耻的分割线################################
 
     Scenario: 揭示牌数据之静态数据
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -147,9 +86,12 @@
       And I click the "Index" button
       #选择提示牌
       And I click the "tipsCard" button
+      And I hide the element "IndexDropdown"
      #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
       And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I click the "DateEditor" button
+      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -169,15 +111,16 @@
       And I set the parameter "tipsTwo" with value "同比上涨350%"
 
     #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
 
     Scenario Outline: 揭示牌数据之静态数据发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -189,8 +132,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 揭示牌数据之绑定搜索
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -201,6 +144,8 @@
       And I click the "Other" button
       And I click the "otherSearch" button
       And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I click the "DateEditor" button
+      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -209,6 +154,7 @@
       And I click the "Index" button
       #选择提示牌
       And I click the "tipsCard" button
+      And I hide the element "IndexDropdown"
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -236,14 +182,15 @@
 
       Then take a screenshot with name "galaxee/揭示牌数据之绑定搜索编辑页"
       #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
     Scenario Outline: 揭示牌数据之绑定搜索发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"

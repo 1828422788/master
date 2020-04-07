@@ -1,8 +1,15 @@
 @galaxee
 Feature: 数据大屏折线图
 
+
+
+  Scenario: 删除相似名称的大屏以便定位
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "双轴折线图" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+
   Scenario Outline: RZY-1931:编辑大屏流程
-    Given I wait for title change text to "仪表盘"
+#    Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -35,22 +42,23 @@ Feature: 数据大屏折线图
       | 折线图  |
 
   Scenario Outline: 折线图设置
-    Given I wait for title change text to "仪表盘"
+#    Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" button
+    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Chart" button
-    And I click the "Line" button
-    And I click the "Style" button
-    And I wait for "Line" will be invisible
-    And I wait for "Data" will be visible
-    And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I choose the "ts" from the "Xaxis"
-    And I choose the "count()" from the "Yaxis"
+    And I click the "pictureOne" button
+   # And I click the "Chart" button
+  #  And I click the "Line" button
+#    And I click the "Style" button
+#    And I wait for "Line" will be invisible
+#    And I wait for "Data" will be visible
+#    And I click the "Data" button
+#    And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
+#    And I click the "Search" button
+#    And I wait for "SearchTip" will be invisible
+#    And I choose the "ts" from the "Xaxis"
+#    And I choose the "count()" from the "Yaxis"
     And I click the "Style" button
     And I click the "XaxisHeader" button
     And I set the parameter "XaxisWordSize" with value "20"
@@ -85,16 +93,18 @@ Feature: 数据大屏折线图
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
+
     And I click the "DataSeries" button
     And I wait for "DataSeriesColor" will be visible
     And I click the "DataSeriesColor" button
     And I set the parameter "ColorInput" with value "#D73535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
-    And I choose the "虚线" from the "DataSeriesType"
+
     And I set the parameter "DataSeriesBold" with value "5"
     And I click the "Smooth" button
     And I click the "Area" button
+
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
     And I set the parameter "height" with value "300"
@@ -108,24 +118,26 @@ Feature: 数据大屏折线图
       | 折线图  |
 
   Scenario Outline: 折线图设置增加分组
-    Given I wait for title change text to "仪表盘"
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" button
+#    Given I wait for title change text to "仪表盘"
+   And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Chart" button
-    And I click the "Line" button
-    And I click the "Style" button
-    And I wait for "Line" will be invisible
-    And I wait for "Data" will be visible
+    And I click the "pictureOne" button
+   # And I click the "Chart" button
+   # And I click the "Line" button
+#    And I click the "Style" button
+#    And I wait for "Line" will be invisible
+#    And I wait for "Data" will be visible
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I choose the "ts" from the "Xaxis"
-    And I choose the "count()" from the "Yaxis"
+#    And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
+#    And I click the "Search" button
+#    And I wait for "SearchTip" will be invisible
+#    And I choose the "ts" from the "Xaxis"
+#    And I choose the "count()" from the "Yaxis"
     And I click the "AddGroup" button
     And I choose the "count()" from the "Group"
+
     And I click the "Style" button
     And I click the "XaxisHeader" button
     And I set the parameter "XaxisWordSize" with value "20"
@@ -166,7 +178,7 @@ Feature: 数据大屏折线图
     And I set the parameter "ColorInput" with value "#D73535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
-    And I choose the "虚线" from the "DataSeriesType"
+
     And I set the parameter "DataSeriesBold" with value "5"
     And I click the "Smooth" button
     And I click the "Area" button
@@ -183,10 +195,10 @@ Feature: 数据大屏折线图
       | 折线图  |
 
   Scenario Outline: 发布页截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond

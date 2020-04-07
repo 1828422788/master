@@ -2,8 +2,8 @@
   Feature: 百分比
 
     Scenario: 百分比默认设置
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -14,16 +14,17 @@
       And I click the "Index" button
       #选择百分比
       And I click the "percentage" button
+      And I hide the element "IndexDropdown"
        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
     Scenario Outline: 百分比默认设置发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -36,8 +37,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 百分比样式
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -48,6 +49,7 @@
       And I click the "Index" button
       #选择百分比
       And I click the "percentage" button
+      And I hide the element "IndexDropdown"
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
@@ -79,10 +81,10 @@
 
 
     Scenario Outline: 百分比样式发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -94,8 +96,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 百分比样式字体粗细bolder
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -106,6 +108,7 @@
       And I click the "Index" button
       #选择百分比
       And I click the "percentage" button
+      And I hide the element "IndexDropdown"
       #百分比样式字体粗细bolder
       And I click the "stylePercentage" button
       And I wait for "1000" millsecond
@@ -117,10 +120,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 百分比样式字体粗细bolder发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -132,8 +135,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 百分比样式字体粗细lighter
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -144,6 +147,7 @@
       And I click the "Index" button
       #选择百分比
       And I click the "percentage" button
+      And I hide the element "IndexDropdown"
       #百分比样式字体粗细bolder
       And I click the "stylePercentage" button
       And I wait for "1000" millsecond
@@ -155,10 +159,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 百分比样式字体粗细lighter发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -170,8 +174,8 @@
 ######################################无耻的分割线################################
   #数据
     Scenario: 百分比数据之搜索
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -182,6 +186,7 @@
       And I click the "Index" button
       #选择百分比
       And I click the "percentage" button
+      And I hide the element "IndexDropdown"
     #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
       And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
@@ -194,10 +199,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 百分比数据之搜索发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -209,8 +214,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 百分比数据之静态数据
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -221,6 +226,7 @@
       And I click the "Index" button
       #选择百分比
       And I click the "percentage" button
+      And I hide the element "IndexDropdown"
       #数据设置
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -238,10 +244,10 @@
 
 
     Scenario Outline: 百分比数据之静态数据发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -254,8 +260,8 @@
 
 
     Scenario: 百分比数据之绑定搜索
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -274,6 +280,7 @@
       And I click the "Index" button
       #选择百分比
       And I click the "percentage" button
+      And I hide the element "IndexDropdown"
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -297,10 +304,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 百分比数据之绑定搜索发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"

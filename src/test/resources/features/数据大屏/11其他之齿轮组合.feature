@@ -2,8 +2,8 @@
   Feature: 齿轮组合
 
     Scenario: 齿轮组合默认设置
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -21,10 +21,10 @@
 
 
     Scenario Outline: 齿轮组合默认设置发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -36,8 +36,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 齿轮组合样式
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -78,10 +78,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 齿轮组合样式发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -93,8 +93,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 齿轮组合关闭图层2
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -115,10 +115,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 齿轮组合关闭图层2发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -130,8 +130,8 @@
 ######################################无耻的分割线################################
 
     Scenario: 齿轮组合关闭图层3
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -152,10 +152,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: 齿轮组合关闭图层3发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"

@@ -2,10 +2,10 @@
   Feature: Top3
 
     Scenario: Top3默认设置
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+     # Given I will see the "PublicNavBarPage" page
+     # And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "Top3默认设置"
@@ -14,16 +14,17 @@
       And I click the "Index" button
       #选择top3
       And I click the "Top3" button
+      And I hide the element "IndexDropdown"
       #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
     Scenario Outline: Top3默认设置发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -36,10 +37,10 @@
 ######################################无耻的分割线################################
 
   Scenario: Top3样式设置
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "Top3样式设置"
@@ -48,6 +49,7 @@
       And I click the "Index" button
       #选择top3
      And I click the "Top3" button
+    And I hide the element "IndexDropdown"
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
@@ -78,10 +80,10 @@
 
 
     Scenario Outline: Top3样式设置发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -93,10 +95,10 @@
 ######################################无耻的分割线################################
 
     Scenario: Top3样式字体bolder单位无
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "Top3样式字体bolder单位无"
@@ -105,6 +107,7 @@
       And I click the "Index" button
       #选择top3
       And I click the "Top3" button
+      And I hide the element "IndexDropdown"
       #数值字体粗细的设置
       And I click the "styleTop3" button
       And I wait for "4000" millsecond
@@ -116,10 +119,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: Top3样式字体bolder单位无发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -131,10 +134,10 @@
   ######################################无耻的分割线################################
 
     Scenario: Top3样式字体normal单位无
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When I click the "Create" button
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
       When I click the "Create" button
       And I set the parameter "Name" with value "Top3样式字体normal单位无"
@@ -143,6 +146,7 @@
       And I click the "Index" button
       #选择top3
       And I click the "Top3" button
+      And I hide the element "IndexDropdown"
       #数值字体粗细的设置
       And I click the "styleTop3" button
       And I wait for "4000" millsecond
@@ -150,14 +154,15 @@
       #不显示单位
       And I click the "danWei" button
       #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
-    Scenario Outline: Top3样式字体normal单位无发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+    Scenario Outline: Top3样式字体normal单位无发布并截图  
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -168,9 +173,9 @@
 
 ######################################无耻的分割线################################
   #数据
-  Scenario: Top3数据之搜索
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+  Scenario: Top3数据之搜索         
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -181,23 +186,24 @@
     And I click the "Index" button
       #选择top3
     And I click the "Top3" button
+    And I hide the element "IndexDropdown"
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() by hostname"
+    And I set the parameter "SplInput" with value "* | stats count() by appname"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-    And I choose the "hostname" from the "dataSearchName"
+    And I choose the "appname" from the "dataSearchName"
     And I choose the "count()" from the "dataSearchNumber"
     #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
     Scenario Outline: Top3数据之搜索发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -210,9 +216,9 @@
  ######################################无耻的分割线################################
 
 
-    Scenario: Top3数据之静态数据
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+    Scenario: Top3数据之静态数据      
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -223,6 +229,7 @@
       And I click the "Index" button
       #选择top3
       And I click the "Top3" button
+      And I hide the element "IndexDropdown"
       #数据设置
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -234,15 +241,16 @@
       And I choose the "value" from the "dataSearchNumber"
       And I wait for "1000" millsecond
       #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
 
-    Scenario Outline: Top3数据之静态数据发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+    Scenario Outline: Top3数据之静态数据发布并截图 
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
@@ -255,8 +263,8 @@
 
 
     Scenario: Top3数据之绑定搜索
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -266,7 +274,7 @@
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
       And I click the "otherSearch" button
-      And I set the parameter "SplInput" with value "* | stats count() by hostname"
+      And I set the parameter "SplInput" with value "* | stats count() by appname"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -275,6 +283,7 @@
       And I click the "Index" button
       #选择top3
       And I click the "Top3" button
+      And I hide the element "IndexDropdown"
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -291,7 +300,7 @@
       And I click the "pictureTwo" button
       And I click the "Data" button
       And I wait for "2000" millsecond
-      And I choose the "hostname" from the "dataSearchName"
+      And I choose the "appname" from the "dataSearchName"
       And I choose the "count()" from the "dataSearchNumber"
       Then take a screenshot with name "galaxee/Top3数据之绑定搜索编辑页"
       #保存
@@ -299,10 +308,10 @@
       Then I will see the success message "保存成功"
 
     Scenario Outline: Top3数据之绑定搜索发布并截图
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
