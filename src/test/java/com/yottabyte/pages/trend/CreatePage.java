@@ -528,7 +528,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='color']/following-sibling::div")
     private WebElement colorType;
 
-    @FindBy(xpath = "(//div[@class='ant-select-selection-selected-value'])[last()]")
+    @FindBy(xpath = "//div[text()='Select']/following-sibling::div")
     private WebElement selectedValueColorType;
 
 

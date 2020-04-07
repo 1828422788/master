@@ -14,7 +14,6 @@ Feature: 日志展现_表格
 
   Scenario Outline: table_default
     When I click the "Pencil" button
-    And I wait for "ColorType" will be visible
     And I will see the element "SelectedValueColorType" contains "无"
     And I click the "CreateEnsureButton" button
 

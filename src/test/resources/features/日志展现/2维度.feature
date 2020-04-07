@@ -127,7 +127,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "日志展现/高级搜索视图/2维度/label/<chartType>_<option2>_full"
-    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label/<chartType>_<option2>_full.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label/<chartType>_<option2>_full.png"
+#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label/<chartType>_<option2>_full.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label/<chartType>_<option2>_full.png"
 
     When I click the "Settings" button
     And I click the "Exhibition" button
