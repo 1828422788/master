@@ -1,3 +1,4 @@
+@agent
 Feature: 编辑Beats类型数据源
 
   Background:

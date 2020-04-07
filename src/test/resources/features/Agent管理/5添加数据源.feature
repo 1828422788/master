@@ -1,3 +1,4 @@
+@agent
 Feature: 添加数据源
 
   Background:

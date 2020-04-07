@@ -1,3 +1,4 @@
+@agent
 Feature: Agent管理
 
   Background:

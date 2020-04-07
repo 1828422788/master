@@ -1,3 +1,4 @@
+@agent
 Feature: 编辑脚本类型数据源
 
   Background:

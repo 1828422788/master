@@ -1,3 +1,4 @@
+@agent
 Feature: 编辑数据库数据类型数据源
 
   Background:

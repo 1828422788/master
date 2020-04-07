@@ -1,3 +1,4 @@
+@agent
 Feature: 页面跳转
 
   Background:

@@ -1,3 +1,4 @@
+@agent
 Feature: 编辑Syslog类型数据源
 
   Background:

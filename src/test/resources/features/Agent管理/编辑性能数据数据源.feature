@@ -1,3 +1,4 @@
+@agent
 Feature: 编辑性能数据类型数据源
 
   Background:

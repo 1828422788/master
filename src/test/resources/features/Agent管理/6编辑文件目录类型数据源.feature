@@ -1,4 +1,5 @@
-Feature: 添加数据源
+@agent
+Feature: 编辑文件目录类型数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"

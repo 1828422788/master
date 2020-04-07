@@ -1,3 +1,4 @@
+@agent
 Feature: 操作
 
   Background:
