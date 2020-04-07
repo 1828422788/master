@@ -14,7 +14,7 @@ Feature: 报表新建_从趋势图
     And I set the parameter "Hour" with value "7"
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart1>"
@@ -87,7 +87,7 @@ Feature: 报表新建_从趋势图
     And I set the parameter "Hour" with value "7"
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart1>"

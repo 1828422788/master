@@ -17,7 +17,7 @@ Feature: 报表新建_编辑_序列
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
@@ -71,7 +71,7 @@ Feature: 报表新建_编辑_序列
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
@@ -126,7 +126,7 @@ Feature: 报表新建_编辑_序列
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"

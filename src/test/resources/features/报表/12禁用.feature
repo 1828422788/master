@@ -13,7 +13,7 @@ Feature: 报表禁用/启用
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "50"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "LineChart_2477" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "LineChart_2477"

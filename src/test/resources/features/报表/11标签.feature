@@ -7,13 +7,14 @@ Feature: 报表标签
   Scenario: create_report
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
+    And I wait for "1000" millsecond
     When I set the parameter "Name" with value "Test_Tag"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "50"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "LineChart_2477" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
@@ -37,6 +38,7 @@ Feature: 报表标签
   Scenario: verify_tag
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
+    And I wait for "1000" millsecond
     And I will see the input element "Name" value will be "Test_Tag"
     And I will see the input element "Describe" value will be "AutoCreate"
     And I will see the element "ChosenTag" contains "AutoTest"

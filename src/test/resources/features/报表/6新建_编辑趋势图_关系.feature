@@ -17,7 +17,7 @@ Feature: 报表新建_编辑_关系
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "table_<typeChart>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
@@ -65,7 +65,7 @@ Feature: 报表新建_编辑_关系
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "table_<typeChart>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
@@ -112,7 +112,7 @@ Feature: 报表新建_编辑_关系
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    Then I wait for "ChartListButton" will be visible
     When I choose the "table_<typeChart>_Mult" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_<typeChart>_Mult"
