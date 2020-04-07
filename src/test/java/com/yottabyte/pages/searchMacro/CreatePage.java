@@ -40,15 +40,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getParam() {
-        return super.getInputElement("参数");
+        return getInputElement("参数");
     }
 
     public WebElement getValidateExpression() {
-        return super.getInputElement("验证表达式");
+        return getInputElement("验证表达式");
     }
 
     public WebElement getValidateFalseInfo() {
-        return super.getInputElement("验证错误信息");
+        return getInputElement("验证错误信息");
     }
 
     public WebElement getName() {

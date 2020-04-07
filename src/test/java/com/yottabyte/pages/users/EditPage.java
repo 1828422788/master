@@ -49,6 +49,14 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    @FindBy(xpath = "//label[text()='可管理角色']/following-sibling::div//i")
+    private WebElement manageRole;
+
+    public WebElement getManageRole() {
+        manageRole.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getEditInfoButton() {
         return super.getContainsTextButton("修改信息");
     }

@@ -58,7 +58,7 @@ Feature: 字段提取重命名字段
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "auto_test_rename"
     And I set the parameter "Tag" with value "auto_test_rename"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -69,10 +69,10 @@ Feature: 字段提取重命名字段
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appName>"
     And I set the parameter "Tag" with value "<appName>"
-    And I upload a file with name "/src/test/resources/testdata/log/<log>"
+    And I upload a file with name "/src/test/resources/testdata/log/<lg>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
 
     Examples:
-      | appName          | log        |
+      | appName          | lg        |
       | auto_test_rename | rename.log |

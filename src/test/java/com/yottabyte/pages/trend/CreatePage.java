@@ -30,9 +30,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='设置图表类型']")
     private WebElement chartType;
 
-    @FindBy(xpath = "//span[text()='设置']")
-    private WebElement setting;
-
     @FindBy(className = "line")
     private WebElement line;
 
@@ -51,7 +48,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "yw-search-setting-select")
     private WebElement settingSelect;
 
-    @FindBy(xpath = "(//input[@value='horizontal']/following-sibling::span)[last()]")
+    @FindBy(xpath = "//input[@value='horizontal']")
     private WebElement horizontal;
 
     @FindBy(xpath = "//input[@value='left']")
@@ -90,9 +87,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'展示')])[last()]")
     private WebElement exhibition;
 
-    @FindBy(xpath = "(//div[@class='yw-search-setting-input yw-search-setting-input-text el-input']/input)[last()]")
-    private WebElement unit;
-
     @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::label")
     private WebElement smooth;
 
@@ -126,7 +120,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='a..z'])[last()]")
     private WebElement thirdPosition;
 
-    @FindBy(xpath = "(//input[@class='el-input__inner'][not(@placeholder='请选择')])[last()]")
+    @FindBy(xpath = "(//span[text()='图表起始颜色']/ancestor::div/following-sibling::div/div)[1]")
     private WebElement startColour;
 
     @FindBy(xpath = "(//input[@class='el-input__inner'])[last()]")
@@ -240,26 +234,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "table")
     private WebElement table;
 
-    @FindBy(xpath = "(//div[@class='img single'])[last()]")
-    private WebElement single;
-
-    @FindBy(xpath = "(//div[@class='img liquidfill'])[last()]")
-    private WebElement liquidfill;
-
     @FindBy(xpath = "(//div[@class='img wordcloud'])[last()]")
     private WebElement wordcloud;
 
     @FindBy(xpath = "(//div[@class='img sequence'])[last()]")
     private WebElement sequence;
-
-    @FindBy(xpath = "(//div[@class='img radar'])[last()]")
-    private WebElement radar;
-
-    @FindBy(xpath = "(//div[@class='img funnel'])[last()]")
-    private WebElement funnel;
-
-    @FindBy(xpath = "(//div[@class='img matrixheatmap'])[last()]")
-    private WebElement matrixheatmap;
 
     @FindBy(xpath = "//div[text()='背景']")
     private WebElement background;
@@ -339,7 +318,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[@style='background: rgb(229, 28, 35);'])[last()]/ancestor::li")
     private WebElement red;
 
-    @FindBy(xpath = "(//span[@style='background: rgb(255, 152, 0);'])[last()]/ancestor::li")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 173, 8);')])[last()]")
     private WebElement orange;
 
     @FindBy(xpath = "(//span[@style='background: rgb(37, 155, 36);'])[last()]/ancestor::li")
@@ -402,7 +381,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//input[@placeholder='max'])[last()]")
     private WebElement maxRange;
 
-    @FindBy(xpath = "(//span[text()='分段数'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
+    @FindBy(xpath = "//span[text()='分段数']/ancestor::div/following-sibling::input")
     private WebElement segments;
 
     @FindBy(className = "chart-setting-popover")
@@ -477,11 +456,74 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='更新成功']")
     private WebElement successUpdate;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//input")
     private WebElement appDropdownIcon;
 
     @FindBy(className = "ant-popover-inner-content")
     private WebElement content;
+
+    @FindBy(xpath = "(//label[text()='今天']/following-sibling::i)[2]")
+    private WebElement setting;
+
+    @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")
+    private WebElement dataField;
+
+    @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
+    private WebElement dataValue;
+
+    @FindBy(xpath = "(//div[@class='ant-popover-inner-content'])[2]")
+    private WebElement settingContent;
+
+    @FindBy(xpath = "//span[text()='统一度量']/ancestor::div/following-sibling::button")
+    private WebElement unifiedMetric;
+
+    @FindBy(xpath = "//span[text()='展示字段']/ancestor::div/following-sibling::div//i")
+    private WebElement displayField;
+
+    @FindBy(xpath = "//input[@placeholder='展示字号']")
+    private WebElement wordSize;
+
+    @FindBy(xpath = "//span[text()='数据精度']/ancestor::div/following-sibling::div")
+    private WebElement dataPrecision;
+
+    @FindBy(xpath = "//span[text()='单位']/ancestor::div/following-sibling::input")
+    private WebElement unit;
+
+    public WebElement getDataPrecision() {
+        dataPrecision.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getWordSize() {
+        return wordSize;
+    }
+
+    public WebElement getDisplayField() {
+        displayField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getUnifiedMetric() {
+        return unifiedMetric;
+    }
+
+    public WebElement getSettingContent() {
+        return settingContent;
+    }
+
+    public WebElement getDataValue() {
+        dataValue.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getDataField() {
+        dataField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getContent() {
+        return content;
+    }
 
     public WebElement getComplete() {
         return super.getButton("完成");
@@ -755,7 +797,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getGenerate() {
-        return getButton("生成");
+        return getButton("生 成");
     }
 
     public WebElement getNameInput() {
@@ -807,7 +849,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSetting() {
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", chartTypePopover);
+//        ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", chartTypePopover);
         return setting;
     }
 
@@ -1073,31 +1115,31 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSingle() {
-        return single;
+        return getChartButton("单值");
     }
 
     public WebElement getLiquidfill() {
-        return liquidfill;
+        return getChartButton("水球图");
     }
 
     public WebElement getWordcloud() {
-        return wordcloud;
+        return getChartButton("字符云图");
     }
 
     public WebElement getSequence() {
-        return sequence;
+        return getChartButton("循序图");
     }
 
     public WebElement getRadar() {
-        return radar;
+        return getChartButton("雷达图");
     }
 
     public WebElement getFunnel() {
-        return funnel;
+        return getChartButton("漏斗图");
     }
 
     public WebElement getMatrixheatmap() {
-        return matrixheatmap;
+        return getChartButton("矩阵热力图");
     }
 
     public WebElement getBackground() {
@@ -1162,21 +1204,27 @@ public class CreatePage extends PageTemplate {
         return dropdownUtils.getLastDropdownList();
     }
 
+    private WebElement getChartButton(String chartName) {
+        String xpath = "((//div[text()='" + chartName + "'])[last()]/ancestor::div/preceding-sibling::div)[last()]";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     //author-jnd
     //数据集的展开按钮
     @FindBy(xpath = "//a[text()='展开']")
     private WebElement zhanKai;
-    public WebElement getZhanKai(){return zhanKai;}
+
+    public WebElement getZhanKai() {
+        return zhanKai;
+    }
+
     //数据集的显示位置
     @FindBy(xpath = "//div[@class='_10GY9a1TR9fkHwR6NvTQN7']/span")
     private WebElement dataSetPosition;
-    public WebElement getDataSetPosition(){return dataSetPosition;}
 
-
-
-
-
-
+    public WebElement getDataSetPosition() {
+        return dataSetPosition;
+    }
 
 
 }

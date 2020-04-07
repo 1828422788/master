@@ -99,7 +99,7 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getAgent() {
-        return this.getElementWithLinkName("Agent");
+        return this.getElementWithLinkName("Agent管理");
     }
 
     public WebElement getIndexsetting() {
@@ -115,11 +115,11 @@ public class AppPage extends PageTemplate {
     }
 
     public WebElement getBackup() {
-        return this.getElementWithLinkName("备份");
+        return this.getElementWithLinkName("备份策略");
     }
 
     public WebElement getDownload() {
-        return this.getElementWithLinkName("下载");
+        return this.getElementWithLinkName("下载管理");
     }
 
     public WebElement getOfflineTask() {
@@ -132,10 +132,6 @@ public class AppPage extends PageTemplate {
 
     public WebElement getRole() {
         return this.getElementWithLinkName("角色权限");
-    }
-
-    public WebElement getResourceGroup() {
-        return this.getElementWithLinkName("资源分组");
     }
 
     public WebElement getUserGroup() {

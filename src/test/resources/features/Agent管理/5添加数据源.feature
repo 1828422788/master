@@ -33,7 +33,7 @@ Feature: 添加数据源
     And I will see the element "Monitoring" name is "是"
     And I will see the element "CheckAppname" name is "autohekafiletest"
     And I will see the element "CheckTag" name is "autohekafiletest"
-    And I click the "Next" button
+    And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     And I wait for loading invisible
@@ -46,7 +46,7 @@ Feature: 添加数据源
       | charsetKind |
       |   utf-8    |
       |    gbk    |
-      |utf-16  |
+      |utf-16     |
 
 
   Scenario: 到搜索页中进行验证
@@ -75,7 +75,7 @@ Feature: 添加数据源
     And I click the "Next" button
     And I will see the element "CheckListenaddress" name is "192.168.1.161:514"
 #    And I will see the element "CheckMap" name is "[{"ip":"192.168.1.134","appname":"autohekaSyslog","tag":"autohekaSyslog","charset":"utf-8"}]"
-    And I click the "Next" button
+    And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "删除" button
@@ -84,7 +84,7 @@ Feature: 添加数据源
 #    Then I will see the search result "{'column':'2','name':'192.168.1.161:514'}
 
 
-  Scenario Outline: Agent添加数据源-脚本采集-utf-8
+  Scenario Outline: Agent添加数据源-脚本采集
 #    And I set the agent parameter "IP" with running ip
     And I wait for loading invisible
     And I click the "Create" button
@@ -103,7 +103,7 @@ Feature: 添加数据源
     And I will see the element "CheckParam" name is "rsyslog status"
     And I will see the element "CheckChangeRowRule" name is "\n"
     And I will see the element "CheckInternal" name is "120 秒"
-    And I click the "Next" button
+    And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     Given the data name "/sbin/service" in table "ScriptTable" then i click the "删除" button

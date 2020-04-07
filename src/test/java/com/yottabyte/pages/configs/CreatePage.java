@@ -102,6 +102,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='解析成功'])[4]")
     private WebElement checkSuccess4;
 
+    @FindBy(xpath = "(//span[text()='解析失败])")
+    private WebElement checkFailed;
+
     @FindBy(xpath = "//span[text()='int']/ancestor::label")
     private WebElement intRadio;
 
@@ -117,6 +120,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getReturn() {
         return super.getButton("返回");
+    }
+
+    public WebElement getDone() {
+        return super.getButton("完成");
     }
 
     public WebElement getReplaceFirst() {
@@ -161,6 +168,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getCheckSuccess() {
         return checkSuccess;
+    }
+
+    public WebElement getFailedMessage() {
+        return failedMessage;
     }
 
     public WebElement getRuleName() {

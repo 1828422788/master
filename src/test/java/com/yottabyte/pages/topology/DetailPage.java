@@ -40,7 +40,7 @@ public class DetailPage extends PageTemplate {
     private WebElement addNodeButton;
 
     @FindBy(className = "el-message-box__message")
-    private WebElement alert;
+    private WebElement message;
 
     @FindBy(className = "leftright")
     private WebElement leftRightButton;
@@ -114,8 +114,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-message__group']")
     private WebElement successMessage;
 
-    @FindBy(xpath = "(//div[@class='el-message__group'])[2]")
-    private WebElement message;
+//    @FindBy(xpath = "(//div[@class='el-message__group'])[2]")
+//    private WebElement message;
 
     @FindBy(xpath = "//p[text()='+ 添加']")
     private WebElement addColourButton;
@@ -189,6 +189,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//canvas[@style='position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; width: 1126px; height: 289px; cursor: auto;']")
     private WebElement canvas;
 
+    public WebElement getSave() {
+        return super.getButton("保存");
+    }
+
     public WebElement getUpdate() {
         return super.getButton("更新节点");
     }
@@ -228,15 +232,16 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getPrefix() {
-        return super.getInputElement("标识前缀");
+        return getInputElement("标识前缀");
     }
 
     public WebElement getPostfix() {
-        return super.getInputElement("标识后缀");
+        return getInputElement("标识后缀");
     }
 
     public WebElement getDefaultValueDropdown() {
-        return super.getDropdownList("默认值");
+        defaultValue.click();
+        return dropdownList.get(dropdownList.size()-1);
     }
 
     public WebElement getNodeGroup() {
@@ -274,10 +279,6 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getLeftRightButton() {
         return leftRightButton;
-    }
-
-    public WebElement getAlert() {
-        return alert;
     }
 
     public WebElement getAddNodeButton() {
@@ -453,7 +454,7 @@ public class DetailPage extends PageTemplate {
     public WebElement getFiledInput() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(filedInput));
         filedInput.click();
-        return super.getLastDropdownList();
+        return dropdownList.get(dropdownList.size()-1);
     }
 
     public WebElement getToInput() {
@@ -539,10 +540,15 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getSeparate() {
-        return super.getInputElement("分隔符");
+        return getInputElement("分隔符");
     }
 
     public WebElement getIdentityPrefix() {
-        return super.getInputElement("标识值前缀");
+        return getInputElement("标识值前缀");
+    }
+
+    public WebElement getInputElement(String name) {
+        String xpath = "(//label[contains(text(),'"+name+"')]/following-sibling::div//input[@class='el-input__inner'])[last()]";
+        return webDriver.findElement(By.xpath(xpath));
     }
 }

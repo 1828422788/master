@@ -4,7 +4,7 @@ Feature: 应用导出
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
 
-  Scenario Outline:
+  Scenario Outline: 验证导出是否成功
     Given delete file "/target/download-files/<name>.tar"
     When the data name is "<name>" then i click the "导出" button
     And I will see the "app.CreatePage" page
@@ -18,7 +18,7 @@ Feature: 应用导出
       | ReportApp        |
       | DashboardApp     |
       | AlertApp         |
-#      | ScheduleApp      |
+      | ScheduleApp      |
       | TrendApp         |
       | SavedsearchesApp |
       | KnowledgeApp     |

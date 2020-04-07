@@ -28,7 +28,7 @@ Feature: 字段提取Hex转换
     And I click the "AddRule" button
     And I choose the "hex转换" from the "ParseRule"
     And I click the "ChangeToJson" button under some element
-    And I set the parameter "{"source": "raw_message","codec_type": "GBK","start_offset":10,"column_bytes":16}" to json editor
+    And I set the parameter "{"source": "raw_message","codec_type": "GBK","start_offset":10,"column_bytes":16}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -40,7 +40,7 @@ Feature: 字段提取Hex转换
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "auto_test_hex"
     And I set the parameter "Tag" with value "auto_test_hex"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:

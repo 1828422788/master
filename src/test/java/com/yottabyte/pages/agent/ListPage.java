@@ -31,6 +31,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//li/span[text()='分组']")
     private WebElement MultiGruopButton;
 
+    @FindBy(xpath = "//span[text()='验证组内权限']")
+    private WebElement auth;
+
+    public WebElement getAuth() {
+        return auth;
+    }
+
     public WebElement getAgentGroupButton(){
         return super.getButton("分组设置");
     }

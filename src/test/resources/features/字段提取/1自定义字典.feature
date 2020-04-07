@@ -43,7 +43,7 @@ Feature: 字段提取自定义字典
     And I set the parameter "Logtype" with value "json"
     And I set the parameter "AppName" with value "auto_test_dictionary"
     And I set the parameter "Tag" with value "auto_test_dictionary"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:

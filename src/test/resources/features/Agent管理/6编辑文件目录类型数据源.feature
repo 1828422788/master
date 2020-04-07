@@ -33,7 +33,7 @@ Feature: 添加数据源
     And I will see the element "Monitoring" name is "是"
     And I will see the element "CheckAppname" name is "autohekafiletest"
     And I will see the element "CheckTag" name is "autohekafiletest"
-    And I click the "Next" button
+    And I click the "Finish" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     And I wait for loading invisible
@@ -113,13 +113,13 @@ Feature: 添加数据源
   Scenario: 文件目录数据源禁用
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
     Then I wait for loading invisible
-    Then I will see the element "SwitchStatus" name is "已禁用"
+    Then I will see the element "DataSourceSwitchStatus" name is "已禁用"
 
 
   Scenario: 文件目录数据源启用
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "open" switch
     Then I wait for loading invisible
-    Then I will see the element "SwitchStatus" name is "已启用"
+    Then I will see the element "DataSourceSwitchStatus" name is "已启用"
 
   Scenario: 文件目录数据源删除
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "删除" button

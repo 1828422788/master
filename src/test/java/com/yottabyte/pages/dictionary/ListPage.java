@@ -20,6 +20,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement successMessage;
 
+    @FindBy(xpath = "//p[@class='ant-empty-description']")
+    private WebElement message;
+
     @FindBy(className = "el-table__empty-text")
     private WebElement emptyText;
 
@@ -28,6 +31,57 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//button")
     private WebElement ensureDelete;
+
+    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    private WebElement dictionaryFilter;
+
+    @FindBy(xpath = "//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span")
+    private WebElement totalItem;
+
+    @FindBy(className = "_2dAJUXRHMFMdem7AELR7it")
+    private WebElement UserFilter;
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']//button")
+    private WebElement ensureButton2;
+
+    @FindBy(xpath = "//span[text()='无限期']")
+    private WebElement indefinitely;
+
+    @FindBy(xpath = "//span[text()='自定义']/preceding-sibling::span")
+    private WebElement customize;
+
+    @FindBy(xpath = "//span[text()='无限期']/preceding-sibling::span")
+    private WebElement unCustomize;
+
+    @FindBy(xpath = "//div[@aria-selected='true']")
+    private WebElement dateNow;
+
+    @FindBy(xpath = "//div[@aria-selected='true']/ancestor::td/following-sibling::td[1]")
+    private WebElement dateNext;
+
+    @FindBy(xpath = "//input[@placeholder='请选择日期时间']/ancestor::div[1]")
+    private WebElement timeSelector;
+
+    @FindBy(xpath = "//a[text()='选择时间']")
+    private WebElement searchTime;
+
+    @FindBy(xpath = "//div[@class='ant-calendar-time-picker-combobox']/div[1]/ul/li[24]")
+    private WebElement hour23;
+
+    @FindBy(xpath = "//div[@class='ant-calendar-time-picker-combobox']/div[2]/ul/li[60]")
+    private WebElement minute59;
+
+    @FindBy(xpath = "//div[@class='ant-calendar-time-picker-combobox']/div[3]/ul/li[60]")
+    private WebElement second59;
+
+    @FindBy(xpath = "//a[text()='选择时间']/following-sibling::a[text()='确 定']")
+    private WebElement dateSelectConfirm;
+
+    @FindBy(xpath = "//a[text()='选择日期']/following-sibling::a[text()='确 定']")
+    private WebElement timeSelectConfirm;
+
+    @FindBy(xpath = "//div[@class='ant-spin-container']/table/tbody/tr[1]/td[3]")
+    private WebElement deadLine;
 
     public WebElement getEnsureDelete() {
         return ensureDelete;
@@ -57,6 +111,11 @@ public class ListPage extends ListPageFactory {
         return super.getInputElement("字典标签");
     }
 
+    @Override
+    public WebElement getTag() {
+        return super.getTag();
+    }
+
     public WebElement getGroup() {
         return super.getLastDropdownList();
     }
@@ -65,8 +124,92 @@ public class ListPage extends ListPageFactory {
         return super.getButton("确定");
     }
 
+    public WebElement getAuthCancelButton(){
+        return super.getButton("取消");
+    }
+
     public WebElement getUpdate() {
         return super.getContainsTextButton("更新");
     }
 
+    public WebElement getDictionaryFilter() {
+        return dictionaryFilter;
+    }
+
+    public WebElement getTotalItem() {
+        return totalItem;
+    }
+
+    public WebElement getClearIcon1(){
+        return super.getClearIcon("wymtest1");
+    }
+
+    public WebElement getClearIcon2(){
+        return super.getClearIcon("wymtest2");
+    }
+
+    public WebElement getUserFilter() {
+        return UserFilter;
+    }
+
+    public WebElement getEnsureButton2() {
+        return ensureButton2;
+    }
+
+    @Override
+    public WebElement getMessage() {
+        return message;
+    }
+
+    public WebElement getIndefinitely() {
+        return indefinitely;
+    }
+
+    public WebElement getCustomize() {
+        return customize;
+    }
+
+    public WebElement getDateNow() {
+        return dateNow;
+    }
+
+    public WebElement getDateNext() {
+        return dateNext;
+    }
+
+    public WebElement getTimeSelector() {
+        return timeSelector;
+    }
+
+    public WebElement getDateSelectConfirm() {
+        return dateSelectConfirm;
+    }
+
+    public WebElement getDeadLine() {
+        return deadLine;
+    }
+
+    public WebElement getSearchTime() {
+        return searchTime;
+    }
+
+    public WebElement getHour23() {
+        return hour23;
+    }
+
+    public WebElement getMinute59() {
+        return minute59;
+    }
+
+    public WebElement getSecond59() {
+        return second59;
+    }
+
+    public WebElement getTimeSelectConfirm() {
+        return timeSelectConfirm;
+    }
+
+    public WebElement getUnCustomize() {
+        return unCustomize;
+    }
 }

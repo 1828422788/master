@@ -9,7 +9,7 @@ Feature: 字段提取自定义配置高级算子
     And I click the "AddRule" button
     And I choose the "自定义解析" from the "ParseRule"
     And I set the parameter "RuleName" with value "dissect"
-    And I set the parameter "{"enable_escape": true,"format": "http://%{domain}/%{url}?%{arg}=%{@arg:i}","source": "raw_message","strict_mode": false}" to json editor
+    And I set the parameter "{"enable_escape": true,"format": "http://%{domain}/%{url}?%{arg}=%{@arg:i}","source": "raw_message","strict_mode": false}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -21,7 +21,7 @@ Feature: 字段提取自定义配置高级算子
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "dissect"
     And I set the parameter "Tag" with value "dissect"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -44,7 +44,7 @@ Feature: 字段提取自定义配置高级算子
     And I click the "AddRule" button
     And I choose the "自定义解析" from the "ParseRule"
     And I set the parameter "RuleName" with value "script"
-    And I set the parameter "{"script":"source[\"result\"] = todict(mvzip(source[\"fields\"],source[\"values\"]))"}" to json editor
+    And I set the parameter "{"script":"source[\"result\"] = todict(mvzip(source[\"fields\"],source[\"values\"]))"}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -56,7 +56,7 @@ Feature: 字段提取自定义配置高级算子
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "script"
     And I set the parameter "Tag" with value "script"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -91,7 +91,7 @@ Feature: 字段提取自定义配置高级算子
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "base64"
     And I set the parameter "Tag" with value "base64"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -115,7 +115,7 @@ Feature: 字段提取自定义配置高级算子
     And I click the "AddRule" button
     And I choose the "自定义解析" from the "ParseRule"
     And I set the parameter "RuleName" with value "codec"
-    And I set the parameter "{"source": "rr","codec_type": "unicode_decode"}" to json editor
+    And I set the parameter "{"source": "rr","codec_type": "unicode_decode"}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -127,7 +127,7 @@ Feature: 字段提取自定义配置高级算子
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "unicode"
     And I set the parameter "Tag" with value "unicode"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
