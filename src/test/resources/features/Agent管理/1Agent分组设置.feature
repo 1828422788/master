@@ -94,7 +94,7 @@ Feature: Agent分组设置
     Then I will see the success message "删除成功"
 
     Examples: 失败
-      | message       |
+      | message            |
       | 确认删除 [sunxctest] ? |
 
 
