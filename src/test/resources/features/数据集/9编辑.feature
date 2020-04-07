@@ -1,5 +1,5 @@
 @dataset
-Feature: 编辑按钮是否可用jnd
+Feature: 编辑按钮是否可用jndjnd
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"

@@ -8,9 +8,10 @@ Feature: 查询数据集jnd
     And I wait for loading invisible
     When I choose the "<GroupList>" from the "ResourceDropdown"
     And I wait for loading invisible
-    Then I will see the search result contains "<name>"
-
+    #Then I will see the search result contains "<name>"
+    Then I will see the data "{'column':'0','name':'<name>'}" values "{'column':'5','name':'auto_package'}"
 
     Examples:
       |GroupList     |name    |
       |auto_package  |分组和应用|
+

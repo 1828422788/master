@@ -1,5 +1,5 @@
 @dataset
-Feature: 设为默认jnd
+Feature: 设为默认jndjnd
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"

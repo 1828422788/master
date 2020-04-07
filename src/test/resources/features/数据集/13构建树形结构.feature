@@ -8,7 +8,7 @@ Feature: 构建树形结构
     When I click the "Create" button
     And I set the parameter "Name" with value "父子无"
     And I set the parameter "Alias" with value "无"
-    And I set the parameter "Yuju" with value "*"
+    And I set the parameter "YuJu" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -17,28 +17,29 @@ Feature: 构建树形结构
     And I click the "rootAdd" button
     And I set the parameter "BInputName" with value "无1"
     And I click the "BRightDuiHao" button
-    And I set the parameter "modifyNodeSentence" with value "tag:heka"
+    And I set the parameter "sentenceInput" with value "tag:sample*"
     And I click the "save" button
-    And I wait for loading invisible
+
+    And I wait for "3000" millsecond
       #构建第三层节点"C"
     And I click the "B" button
     And I click the "BAdd" button
     And I set the parameter "CInputName" with value "无2"
     And I click the "CRightDuiHao" button
-    And I set the parameter "modifyNodeSentence" with value "tag:top_info"
+    And I set the parameter "sentenceInput" with value "tag:beyond4"
     And I click the "save" button
-    And I wait for loading invisible
+    And I wait for "2000" millsecond
       #构建"D"
     And I click the "B" button
     And I click the "BAdd" button
     And I set the parameter "DInputName" with value "无11"
     And I click the "DRightDuiHao" button
-    And I set the parameter "modifyNodeSentence" with value "appname:apache"
+    And I set the parameter "sentenceInput" with value "appname:apache"
     And I click the "save" button
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
 
    #返回列表页验证
-    And I click the "Backlist" button
+    And I click the "BackList" button
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'父子无'}" values "{'column':'2','name':'无'}"
     And I will see the data "{'column':'0','name':'父子无'}" values "{'column':'3','name':'无'}"
@@ -57,9 +58,9 @@ Feature: 构建树形结构
     And I set the parameter "Name" with value "父子汇聚"
     And I set the parameter "Alias" with value "汇聚"
 #选择汇聚
-    And I click the "Huiju" button
+    And I click the "HuiJu" button
 
-    And I set the parameter "Yuju" with value "*"
+    And I set the parameter "YuJu" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -68,27 +69,27 @@ Feature: 构建树形结构
     And I click the "rootAdd" button
     And I set the parameter "BInputName" with value "汇聚1"
     And I click the "BRightDuiHao" button
-    And I set the parameter "modifyNodeSentence" with value "tag:heka"
+    And I set the parameter "sentenceInput" with value "tag:sample*"
     And I click the "save" button
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
       #构建第三层节点"C"
     And I click the "B" button
     And I click the "BAdd" button
     And I set the parameter "CInputName" with value "汇聚2"
     And I click the "CRightDuiHao" button
-    And I set the parameter "modifyNodeSentence" with value "tag:top_info"
+    And I set the parameter "sentenceInput" with value "tag:beyond4"
     And I click the "save" button
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
       #构建"D"
     And I click the "B" button
     And I click the "BAdd" button
     And I set the parameter "DInputName" with value "汇聚11"
     And I click the "DRightDuiHao" button
-    And I set the parameter "modifyNodeSentence" with value "appname:apache"
+    And I set the parameter "sentenceInput" with value "appname:apache"
     And I click the "save" button
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
    #返回列表页验证
-    And I click the "Backlist" button
+    And I click the "BackList" button
     And I wait for loading invisible
       #别名
     Then I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'2','name':'汇聚'}"
@@ -111,9 +112,9 @@ Feature: 构建树形结构
     And I set the parameter "Name" with value "父子继承"
     And I set the parameter "Alias" with value "继承"
 #选择继承
-    And I click the "Jicheng" button
+    And I click the "JiCheng" button
 
-    And I set the parameter "Yuju" with value "*"
+    And I set the parameter "YuJu" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -122,27 +123,27 @@ Feature: 构建树形结构
     And I click the "rootAdd" button
     And I set the parameter "BInputName" with value "继承1"
     And I click the "BRightDuiHao" button
-    And I set the parameter "modifyNodeSentence" with value "tag:heka"
+    And I set the parameter "sentenceInput" with value "tag:sample*"
     And I click the "save" button
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
       #构建第三层节点"C"
     And I click the "B" button
     And I click the "BAdd" button
     And I set the parameter "CInputName" with value "继承2"
     And I click the "CRightDuiHao" button
-    And I set the parameter "modifyNodeSentence" with value "tag:top_info"
+    And I set the parameter "sentenceInput" with value "tag:beyond4"
     And I click the "save" button
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
       #构建"D"
     And I click the "B" button
     And I click the "BAdd" button
     And I set the parameter "DInputName" with value "继承11"
     And I click the "DRightDuiHao" button
-    And I set the parameter "modifyNodeSentence" with value "appname:apache"
+    And I set the parameter "sentenceInput" with value "appname:apache"
     And I click the "save" button
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
    #返回列表页验证
-    And I click the "Backlist" button
+    And I click the "BackList" button
     And I wait for loading invisible
       #别名
     Then I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'2','name':'继承'}"

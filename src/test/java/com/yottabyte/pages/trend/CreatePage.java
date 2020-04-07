@@ -1164,11 +1164,11 @@ public class CreatePage extends PageTemplate {
 
     //author-jnd
     //数据集的展开按钮
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[2]/div[1]/div/div/div[1]/span/a")
+    @FindBy(xpath = "//a[text()='展开']")
     private WebElement zhanKai;
     public WebElement getZhanKai(){return zhanKai;}
     //数据集的显示位置
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[2]/div[1]/div/div/div[2]/span")
+    @FindBy(xpath = "//div[@class='_10GY9a1TR9fkHwR6NvTQN7']/span")
     private WebElement dataSetPosition;
     public WebElement getDataSetPosition(){return dataSetPosition;}
 

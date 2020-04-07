@@ -24,26 +24,45 @@ public class ListPage extends ListPageFactory {
     @FindBy(id = "EditDatabase_alias")
     private WebElement alias;  //别名
 
-
     @FindBy(id = "EditDatabase_queryfilter")
-    private WebElement yuju; //约束语句
+    private WebElement yuJu; //约束语句
 
-    @FindBy(xpath = "//*[@id=\"EditDatabase_app_ids\"]/div/div/div")
-    private WebElement applist; //所属应用
+    public WebElement getName() {
+        return name;
+    }
+    public WebElement getAlias() {
+        return alias;
+    }
+    public WebElement getYuJu() { return yuJu; }
 
 
-    @FindBy(xpath = "//*[@id=\"EditDatabase_rt_names\"]/div/div/div")
-    private WebElement resourcegroup; //分组
+    @FindBy(xpath = "//label[text()='所属应用']/ancestor::div/following-sibling::div")
+    private WebElement appList; //所属应用
+    public WebElement getAppList(){
+       appList.click();
+        return super.getLastDropdownList();
+    }
 
+    @FindBy(xpath = "//label[text()='分组']/ancestor::div/following-sibling::div")
+    private WebElement resourceGroup; //分组
+    public WebElement getResourceGroup()
+    {
+        resourceGroup.click();
+        return super.getLastDropdownList();
+    }
 
     @FindBy(id = "EditDatabase_queryfilter")
     private WebElement spl;
 
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[1]/div/span")
-    private WebElement appbutton; //选择应用按钮
 
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[1]/div/div/div[1]")
-    private WebElement app_search_list;   //应用列表
+    @FindBy(xpath = "//div[text()='请选择应用']")
+    private WebElement appSearch;
+    public WebElement getAppSearch()
+    {
+        appSearch.click();
+        return super.getLastDropdownList();
+    }
+
 
    /*
    @FindBy(xpath = "//label[text()='名称']/ancestor::div//following-sibling::div//div[text()='请输入数据集名称']")
@@ -57,71 +76,78 @@ public class ListPage extends ListPageFactory {
     */
 
     @FindBy(xpath= "//div[text()='请输入数据集名称']")
-    private WebElement tipsname;
+    private WebElement tipsName;
 
     @FindBy(xpath= "//div[text()='请输入别名']")
-    private WebElement tipsalias;
+    private WebElement tipsAlias;
 
     @FindBy(xpath= "//div[text()='请输入约束语句']")
-    private WebElement tipsyuju;
+    private WebElement tipsYuJu;
+
+    public WebElement getTipsName(){return tipsName;}
+    public WebElement getTipsAlias(){return tipsAlias;}
+    public WebElement getTipsYuJu(){return tipsYuJu;}
 
 
     public ListPage(WebDriver driver) {
         super(driver);
     }
 
-    public WebElement getName() {
-        return name;
-    }
-    public WebElement getAlias() {
-        return alias;
-    }
-    public WebElement getYuju() { return yuju; }
+
 
     public WebElement getSpl() {
         return spl;
     }
 
-   /* public WebElement getEditEvent() {
-        return super.getButton("编辑根事件");
-    }*/
-
-    public WebElement getTipsname(){return tipsname;}
-    public WebElement getTipsalias(){return tipsalias;}
-    public WebElement getTipsyuju(){return tipsyuju;}
-
-
-
-    public WebElement getApplist(){
-        applist.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getResourcegroup()
-    {
-        resourcegroup.click();
-        return super.getLastDropdownList();
-    }
-
-    public WebElement getAppbutton()
-    {
-        return appbutton;
-    }
-
-    public WebElement getApp_search_list()
-    {
-        return super.getLastDropdownList();
-    }
-
 
     //新建数据集弹窗中的汇聚继承
-    @FindBy(xpath = "//*[@id=\"EditDatabase_action\"]/label[2]/span[2]")
-    private WebElement huiju;  //父子行为为汇聚
-    public WebElement getHuiju(){return huiju;}
+    @FindBy(xpath = "//span[text()='汇聚']")
+    private WebElement huiJu;  //父子行为为汇聚
+    public WebElement getHuiJu(){return huiJu;}
+
+    @FindBy(xpath = "//span[text()='继承']")
+    private WebElement jiCheng;  //父子行为继承
+    public WebElement getJiCheng(){return jiCheng;}
 
 
-    @FindBy(xpath = "//*[@id=\"EditDatabase_action\"]/label[3]/span[2]")
-    private WebElement jicheng; //父子行为继承
-    public WebElement getJicheng(){return jicheng;}
+
+
+    //v3.2   字段右侧的添加按钮
+    @FindBy(xpath = "//label[contains(text(),'字段')]/ancestor::div/following-sibling::div")
+    private WebElement fieldAdd;
+    public WebElement getFieldAdd(){return fieldAdd;}
+
+    //第一个字段名称
+   // @FindBy(xpath = "//span[@class='ant-input-wrapper ant-input-group']/input[@class='ant-input']")
+    @FindBy(id="EditDatabase_fields[0].name")
+    private WebElement firstFieldName;
+    public WebElement getFirstFieldName(){return firstFieldName;}
+    //第一个字段类型
+   // @FindBy(xpath = "//div[text()='请选择']")
+    @FindBy(id="EditDatabase_fields[0].type")
+    private WebElement FirstFieldType;
+    public WebElement getFirstFieldType(){
+        FirstFieldType.click();
+        return super.getLastDropdownList();
+    }
+
+    //第二个字段名称
+    @FindBy(id="EditDatabase_fields[1].name")
+    private WebElement secondFieldName;
+    public WebElement getSecondFieldName(){return secondFieldName;}
+    //第二个字段类型
+    @FindBy(id="EditDatabase_fields[1].type")
+    private WebElement secondFieldType;
+    public WebElement getSecondFieldType(){
+        secondFieldType.click();
+        return super.getLastDropdownList();
+    }
+
+    //字段下的添加按钮
+    @FindBy(xpath = "//p[text()='添加']")
+    private WebElement fieldLowAdd;
+    public WebElement getFieldLowAdd() {
+        return fieldLowAdd;
+    }
 
 }

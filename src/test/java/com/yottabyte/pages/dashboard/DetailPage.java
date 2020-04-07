@@ -1079,4 +1079,14 @@ public class DetailPage extends PageTemplate {
         String xpath = "//span[contains(text(),'" + name + "')]/following-sibling::span/input";
         return webDriver.findElement(By.xpath(xpath));
     }
+
+
+
+   //添加趋势图的确定按钮
+    @FindBy(xpath = "//div[@class='Yt5JX-42Xe_Kz4p92ocJI']/button")
+    private WebElement ensureAddTrend;
+    public WebElement getEnsureAddTrend(){return super.getButton("确定");}
+
+
+
 }

@@ -1261,22 +1261,22 @@ public class SearchPage extends ListPageFactory {
     public WebElement getJiCheng(){return jiCheng;}
 
     //数据集的展开按钮
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div/div[2]/div[1]/div/div/div[1]/span/a")
+    @FindBy(xpath = "//a[text()='展开']")
     private WebElement zhanKai;
     public WebElement getZhanKai(){return zhanKai;}
 
     //数据集的内容
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div/div[2]/div[1]/div/div/div[2]/span")
+    @FindBy(xpath = "//div[@class='haE36auAEA9saq70cDkWx']/span")
     private WebElement dataSetPosition;
     public WebElement getDataSetPosition(){return dataSetPosition;}
 
     //保存为定时任务成功之后弹窗上的确定按钮
-    @FindBy(xpath = "/html/body/div[6]/div/div[2]/div/div[2]/div[2]/div[2]/button")
+    @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
     private WebElement timeTaskEnsure;
     public WebElement getTimeTaskEnsure(){return super.getButton("确定");}
 
     //页面上方定时任务超链接
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/header/ul/li[8]/a")
+    @FindBy(xpath = "//a[contains(text(),'定时任务')]")
     private WebElement schedule;
     public WebElement getSchedule(){
         return schedule;
@@ -1288,23 +1288,24 @@ public class SearchPage extends ListPageFactory {
     public WebElement getSaveTrend(){return saveTrend;}
 
     //保存为趋势图的名称
-    @FindBy(xpath = "/html/body/div[3]/div/div[2]/div/div[2]/div[2]/div/div[1]/input")
+    @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
     private WebElement trendName;
     public WebElement getTrendName(){return trendName;}
 
 
     //保存为趋势图成功之后提示弹窗中的确定按钮
-    @FindBy(xpath = "/html/body/div[5]/div/div[2]/div/div[2]/div[2]/div[2]/button")
+    @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
     private WebElement trendEnsureAfterEnsure;
     public WebElement getTrendEnsureAfterEnsure(){return super.getButton("确定");}
 
     //页面上方趋势图超链接
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/header/ul/li[12]/a")
+    @FindBy(xpath =  "//a[contains(text(),'趋势图')]")
     private WebElement upperTrend;
     public WebElement getUpperTrend(){return upperTrend;}
 
+
     //保存为定时任务弹窗中的【描述】
-    @FindBy(xpath = "/html/body/div[3]/div/div[2]/div/div[2]/div[2]/div/div[2]/input")
+    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
     private WebElement scheduleDescribe;
     public WebElement getScheduleDescribe(){return scheduleDescribe;}
 

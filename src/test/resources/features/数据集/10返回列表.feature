@@ -9,5 +9,5 @@ Feature: 返回列表页面jnd
 
   @dataset
   Scenario: 返回列表页面
-    When I click the "Backlist" button
+    When I click the "BackList" button
     And I wait for title change text to "数据集"

@@ -28,6 +28,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     public String parentPageName;
     private DropdownUtils dropdownUtils = new DropdownUtils();
 
+
     public WebElement getUsername() {
         return null;
     }

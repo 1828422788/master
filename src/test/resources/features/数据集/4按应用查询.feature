@@ -1,17 +1,10 @@
 @dataset
-Feature: 按应用查询jnd
-
-  Background:
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for loading invisible
+Feature: 按应用查询jndjnd
 
   @dataset
   Scenario: 按应用查询
-    Given I click the "appbutton" button
-    And  I wait for "app_search_list" will be visible
-
-
-    And I choose the "EventApp" from the "app_search_list"
-
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I wait for loading invisible
+    Given I choose the "无数集app之api全部测试用例" from the "appSearch"
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'分组和应用'}"
