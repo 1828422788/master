@@ -1,5 +1,5 @@
 @agent
-Feature: Agent管理
+Feature: Agent分组设置
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"

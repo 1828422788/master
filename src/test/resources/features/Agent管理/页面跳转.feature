@@ -1,5 +1,5 @@
 @agent
-Feature: 页面跳转
+Feature: Agent页面跳转
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
