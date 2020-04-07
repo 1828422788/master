@@ -955,8 +955,9 @@ public class CreatePage extends PageTemplate {
     public WebElement getListOfCharts(){
         return chartList;
     }
-    public WebElement getChartList() {
+    public WebElement getChartList() throws InterruptedException {
         chartList.click();
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
         return chartDropdownList;
     }
 
