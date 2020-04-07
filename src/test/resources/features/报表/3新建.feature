@@ -1,5 +1,5 @@
 @reportFromTrend
-Feature: 报表新建
+Feature: 报表新建_从趋势图
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"

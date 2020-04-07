@@ -1,5 +1,5 @@
 @logDisplay @logDisplayConnection
-Feature: 高级搜索视图_关系
+Feature: 日志展现_关系
 #5
 
   # tag:sample04061424_chart, auto_sankey should be uploaded for Today

@@ -1,5 +1,5 @@
 @clean
-Feature: 删除报表
+Feature: 报表_删除
 
   Scenario Outline: delete_report
     When open the "report.ListPage" page for uri "/reports/"

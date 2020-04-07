@@ -1,5 +1,5 @@
 @logDisplay @logDisplayTable
-Feature: 高级搜索视图_表格
+Feature: 日志展现_表格
 
   # tag:sample04061424_chart should be uploaded for Today
   Background:

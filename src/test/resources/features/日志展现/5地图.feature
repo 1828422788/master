@@ -1,5 +1,5 @@
 @logDisplay @logDisplayMap
-Feature: 高级搜索视图_地图
+Feature: 日志展现_地图
 #10
 
   # tag:sample04061424_chart should be uploaded for Today

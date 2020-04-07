@@ -1,5 +1,5 @@
 @logDisplay @logDisplayOther
-Feature: 高级搜索视图_其它
+Feature: 日志展现_其它_环形比例图
 #16 (19) bug
 
   # tag:sample04061424_chart should be uploaded for Today

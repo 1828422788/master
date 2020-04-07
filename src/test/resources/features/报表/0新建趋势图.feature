@@ -1,5 +1,5 @@
 @reportCreateData
-Feature: 新建趋势图_表格
+Feature: 报表_新建趋势图_表格
 # 20
 # sample04061424_chart for Today and Yesterday
 # sample04061424_display for Today and Yesterday

@@ -1,5 +1,5 @@
 @logDisplay @logDisplayTimechart
-Feature: 高级搜索视图_timechart
+Feature: 日志展现_timechart
 #12
 
   # tag:sample04061424_chart should be uploaded for Today

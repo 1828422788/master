@@ -1,5 +1,5 @@
 @checkFiles
-Feature: 检查文件
+Feature: 报表_检查文件
 # Verifying that files were generated
 
   Background:

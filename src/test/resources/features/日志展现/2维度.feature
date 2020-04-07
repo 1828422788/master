@@ -1,5 +1,5 @@
 @logDisplay @logDisplayDimension
-Feature: 高级搜索视图_维度
+Feature: 日志展现_维度
 #11 bug
 
   # tag:sample04061424_chart should be uploaded for Today

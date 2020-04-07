@@ -1,6 +1,6 @@
 @logDisplay @logDisplayCompound
-Feature: 高级搜索视图_复合
-#4(3) fix
+Feature: 日志展现_复合
+#4(3)
 
   # tag:sample04061424_chart should be uploaded for Today
   Background:

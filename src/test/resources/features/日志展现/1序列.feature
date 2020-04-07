@@ -1,5 +1,5 @@
 @logDisplay @logDisplayOrder
-Feature: 高级搜索视图_序列
+Feature: 日志展现_序列
 #8
 
   # tag:sample04061424_chart should be uploaded for Today

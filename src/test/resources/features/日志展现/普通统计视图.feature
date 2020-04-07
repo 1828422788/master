@@ -1,5 +1,5 @@
 @logDisplay @logDisplayGeneral
-Feature: 普通统计视图
+Feature: 日志展现_普通统计视图
 #34 (24)
 
   # tag:sample04061424_display should be uploaded for Yesterday
