@@ -558,19 +558,19 @@ Feature: 权限-仪表盘
     And I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
-    And I wait for "SuccessMessage" will be invisible
-    When the data name is "<name>" then i click the "设为默认" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "设置默认仪表盘成功"
-    And I refresh the website
-    And I wait for title change text to "<title>"
-    And I click the "ReturnList" button under some element
-    And I wait for loading invisible
-    When the data name is "<name>" then i click the "取消默认" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "取消默认仪表盘成功"
+#    And I wait for "SuccessMessage" will be invisible
+#    When the data name is "<name>" then i click the "设为默认" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    Then I will see the success message "设置默认仪表盘成功"
+#    And I refresh the website
+#    And I wait for title change text to "<title>"
+#    And I click the "ReturnList" button under some element
+#    And I wait for loading invisible
+#    When the data name is "<name>" then i click the "取消默认" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    Then I will see the success message "取消默认仪表盘成功"
 
     Examples:
       | name     | title           |
