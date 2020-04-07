@@ -1702,12 +1702,10 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getContinuity() {
-        selectColor.click();
         return continuity;
     }
 
     public WebElement getDiscrete() {
-        selectColor.click();
         return discrete;
     }
 
@@ -1760,16 +1758,15 @@ public class CreatePage extends PageTemplate {
         return customColor;
     }
 
-    private WebElement getAddValue() {
-        webDriver.findElement(By.className("ant-btn _32bH0U5KaD1BVtC9fAn8hP")).click();
+    public WebElement getAddValue() {
         return addValue;
     }
 
-    private WebElement getInputValue() {
+    public WebElement getInputValue() {
         return inputValue;
     }
 
-    private WebElement getDeleteLastValue() {
+    public WebElement getDeleteLastValue() {
         return deleteLastValue;
     }
 //-----------------------------------------------------

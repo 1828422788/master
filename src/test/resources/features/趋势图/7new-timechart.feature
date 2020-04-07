@@ -1,34 +1,34 @@
-@saveAsTrend @saveAsTrendTimechart
-Feature: 保存为趋势图_timechart
-#12
-# tag:sample04061424_chart should be uploaded for Today
+@all @trend @createTrendOTimechart @createTrend
+Feature: 趋势图新建-timechart
+# 12
+# sample04061424_chart for Today
 # uncomment comparison
 
   Background:
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Given open the "trend.ListPage" page for uri "/trend/"
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
 
-  Scenario Outline: timechart（RZY-3092,3247,3094,3248,3096,3249,3098,3250)
+  Scenario Outline: timechart1
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
-
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现_趋势图/timechart_<caseNum>"
-#    Then I compare source image "src/test/resources/expect/趋势图/timechart_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/timechart_<caseNum>.png"
-    And I click the "SaveAsTrend" button
+    And take part of "Chart" with name "trend/timechart_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/timechart_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/timechart_<caseNum>.png"
+    And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTestTag" from the "GroupField"
+    And I choose the "AutoTest" from the "GroupField"
     And I choose the "TrendApp" from the "AppField"
-    And I click the "CreateEnsureButton" button
-    Then I will see the success message "创建成功"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
 
     Examples:
       |  caseNum    |   spl|
@@ -41,13 +41,14 @@ Feature: 保存为趋势图_timechart
       | 3098_column |  tag:sample04061424_chart \| timechart cont=true span=30m rendertype=\"column\" count() min(apache.resp_len) by apache.status  |
       | 3250_column |  tag:sample04061424_chart \| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype=\"column\" count() min(apache.resp_len) by apache.status |
 
-  Scenario Outline: timechart（RZY-3093,3095)
+  Scenario Outline: timechart2
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
     And I click the "Settings" button
     And I click the "Xaxis" button
     And I click the "ThirdLabel" button
@@ -71,29 +72,31 @@ Feature: 保存为趋势图_timechart
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现_趋势图/timechart_<caseNum>"
- #   Then I compare source image "src/test/resources/expect/趋势图/timechart_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/timechart_<caseNum>.png"
-    And I click the "SaveAsTrend" button
+    And take part of "Chart" with name "trend/timechart_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/timechart_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/timechart_<caseNum>.png"
+    And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTestTag" from the "GroupField"
+    And I choose the "AutoTest" from the "GroupField"
     And I choose the "TrendApp" from the "AppField"
-    And I click the "CreateEnsureButton" button
-    Then I will see the success message "创建成功"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice |  spl|
       | 3093_line   | 0      |1000   | Yellow      | tag:sample04061424_chart \| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=0 endindex=8 limit=5 rendertype=\"line\"  count() min(apache.resp_len) by apache.status |
       | 3095_area   | 0      |1000   | Orange      | tag:sample04061424_chart \| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype=\"area\"  count() min(apache.resp_len) by apache.status |
 
-  Scenario Outline: timechart(RZY-3097,3099)
+
+  Scenario Outline: timechart3
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
     And I click the "Settings" button
     And I click the "Xaxis" button
     And I click the "ThirdLabel" button
@@ -113,16 +116,16 @@ Feature: 保存为趋势图_timechart
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现_趋势图/timechart_<caseNum>"
-  #  Then I compare source image "src/test/resources/expect/趋势图/timechart_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/timechart_<caseNum>.png"
-    And I click the "SaveAsTrend" button
+    And take part of "Chart" with name "trend/timechart_<caseNum>"
+#    Then I compare source image "src/test/resources/expect/趋势图/timechart_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/timechart_<caseNum>.png"
+    And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTestTag" from the "GroupField"
+    And I choose the "AutoTest" from the "GroupField"
     And I choose the "TrendApp" from the "AppField"
-    And I click the "CreateEnsureButton" button
-    Then I will see the success message "创建成功"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice|  spl|
