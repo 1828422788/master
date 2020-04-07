@@ -1,4 +1,3 @@
-@agent
 Feature: Agent分组设置
 
   Background:
@@ -96,7 +95,7 @@ Feature: Agent分组设置
 
     Examples: 失败
       | message       |
-      | 确认删除 [中文中文] ? |
+      | 确认删除 [sunxctest] ? |
 
 
 
