@@ -1,4 +1,4 @@
-@dashboard
+#@dashboard
 Feature: 仪表盘设为/取消默认（RZY-211）
 
   Background:

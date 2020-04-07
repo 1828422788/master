@@ -136,7 +136,7 @@ Feature: 拓扑图标识符
       | title  | token | inputType | dynamicFields   | searchInput                                   |
       | 测试动态字段 | tag4  | 动态菜单      | apache.resp_len | tag:"sample04061424" \| top 1 apache.resp_len |
 
-  Scenario Outline:
+  Scenario Outline: 删除拓扑图
     Given the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
 
