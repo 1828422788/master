@@ -1,11 +1,11 @@
-@spl @all @timedTask
+#@spl @all @timedTask
 Feature: 定时任务新增
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait element "SearchStatus" change text to "搜索完成!"
 
-  @first @timedTaskSmoke
+#  @first @timedTaskSmoke
   Scenario Outline: RZY-396:定时任务_sample_表格_近一天
     Given I set the parameter "SearchInput" with value "<spl>"
     And I choose the "所有日志" as log resource
@@ -57,7 +57,7 @@ Feature: 定时任务新增
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
-  @first @timedTaskSmoke
+#  @first @timedTaskSmoke
     Examples:
       | spl                                                                                    | time      | chartType | chart  | taskName              | describe                 |
       | tag:sample04061424_chart \| stats count() by apache.resp_len                           | Yesterday |           | Line   | RZY-397:定时任务sample_昨天 | testing 定时任务样例           |
@@ -79,7 +79,7 @@ Feature: 定时任务新增
     And I click the "EnsureCrontab" button
     Then I will see the success message "<message>"
 
-  @first @timedTaskSmoke
+#  @first @timedTaskSmoke
     Examples:
       | spl                                                          | time      | taskName                   | crontab        | message |
       | tag:sample04061424_chart \| stats count() by apache.resp_len | Yesterday | RZY-2695:执行计划-crontab_57分钟 | 0 */57 * * * ? | 保存成功    |
@@ -90,7 +90,7 @@ Feature: 定时任务新增
       | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | test    | 无效参数, 参数：[crontab]\n错误码: FE_7 |
       | tag:sample04061424_chart \| stats count() by apache.resp_len | Today | test     | 测试      | 无效参数, 参数：[crontab]\n错误码: FE_7 |
 
-  @smoke @timedTaskSmoke
+#  @smoke @timedTaskSmoke
   Scenario Outline: 生成图表类型的定时任务（RZY-1488、RZY-2296、RZY-2297、RZY-2298、RZY-2300）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
@@ -117,7 +117,7 @@ Feature: 定时任务新增
       | splQuery                                                                                                                       | groupType | type | name                     | describe | groups                | period |
       | (tag:heka) \|bucket timestamp timeranges=((2018-07-26:10:39:50, 2018-07-27:10:40:02)) as tr \| stats dc('appname') as ct by tr | Order     | Line | RZY-1488:保存为各种类型的定时任务-序列 | owner    | default_SavedSchedule | 10     |
 
-  @smoke @timedTaskSmoke
+#  @smoke @timedTaskSmoke
   Scenario Outline: 生成循序图的定时任务（RZY-2300步骤5）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
@@ -157,7 +157,7 @@ Feature: 定时任务新增
       | splQuery | groupType | type | timeSequence | source | target | cut | mark | name | describe | groups | period |
 #      | *\| stats count() by hostname,apache.clientip | Other     | Sequence | hostname     | apache.clientip | hostname | apache.clientip | apache.clientip | sequenceAutoTest |          | default_SavedSchedule | 15     |
 
-  @smoke @timedTaskSmoke
+#  @smoke @timedTaskSmoke
   Scenario Outline: 生成力图的定时任务（RZY-2297步骤3）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     When I click the "DateEditor" button
@@ -192,7 +192,7 @@ Feature: 定时任务新增
       | splQuery | groupType | type | target | weight | name | describe | groups | period |
 #      | * \| stats avg(raw_message_length) as avg_length, count(apache.clientip) as ip_count by appname \| sort by ip_count | Connection | Force | appname | ip_count | forceSunAutoTest |          | default_SavedSchedule | 15     |
 
-  @smoke @timedTaskSmoke
+#  @smoke @timedTaskSmoke
   Scenario Outline: 生成区间图的定时任务（RZY-2298步骤1）
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -228,7 +228,7 @@ Feature: 定时任务新增
       | splQuery | groupType | type | xaxis | acturalData | predictData | topLimit | lowerLimit | name | describe | groups | period |
 #      | * \| bucket timestamp span=3h as ts\| stats count(appname) as count_ by ts \| movingavg count_,5 as ma \| rollingstd count_,5 as rs\| eval lower=ma-3*rs\| eval upper=ma+3*rs \| eval outlier=if(count_>upper\|\|count_<lower, count_, null) | Compound  | rangeline | ts    | count_      | count_      | upper    | lower      | rangelineAutoTest |          | default_SavedSchedule | 15     |
 
-  @second @timedTaskSmoke
+#  @second @timedTaskSmoke
   Scenario: RZY-2956:task_其它_调用链_sample
     When I set the parameter "SearchInput" with value "tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:>0 | table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp"
     And I click the "DateEditor" button
@@ -261,7 +261,7 @@ Feature: 定时任务新增
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third @timedTaskSmoke
+#  @third @timedTaskSmoke
   Scenario Outline: RZY-403、404
     Given I set the parameter "SearchInput" with value "<spl>"
     And I choose the "所有日志" as log resource

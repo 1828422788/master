@@ -1,4 +1,4 @@
-@logDisplay @logDisplayMap
+@all @logDisplay @logDisplayMap
 Feature: 日志展现_地图
 #10
 

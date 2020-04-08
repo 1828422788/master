@@ -1,4 +1,4 @@
-@logDisplay @logDisplayTimechart
+@all @logDisplay @logDisplayTimechart
 Feature: 日志展现_timechart
 #12
 

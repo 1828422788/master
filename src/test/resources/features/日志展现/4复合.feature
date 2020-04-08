@@ -1,4 +1,4 @@
-@logDisplay @logDisplayCompound
+@all @logDisplay @logDisplayCompound
 Feature: 日志展现_复合
 #4(3)
 

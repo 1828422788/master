@@ -1,4 +1,4 @@
-@logDisplay @logDisplayOther
+@all @logDisplay @logDisplayOther
 Feature: 日志展现_其它_环形比例图
 #16 (19) bug
 

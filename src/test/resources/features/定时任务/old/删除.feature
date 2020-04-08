@@ -1,13 +1,13 @@
-@clean
+#@clean
 Feature: 定时任务删除（RZY-412）
 
-  @cleanTimedTask
+#  @cleanTimedTask
   Scenario Outline: 定时任务删除
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "<name>" then i click the "删除" button
     And I click the "EnsureDelete" button under some element
 
-  @cleanSecond
+#  @cleanSecond
     Examples:
       | name                              |
       | RZY-398:定时任务_更新                   |
@@ -17,7 +17,7 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2698:执行计划-定时_2天               |
       | RZY-2696:执行计划-定时_7小时              |
 
-  @cleanThird
+#  @cleanThird
     Examples:
       | name                          |
       | RZY-402:任务分组hunter_roles_m    |
@@ -43,7 +43,7 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2910:task_维度-饼状图1         |
       | RZY-2928:task_复合_多Y轴图         |
 
-  @cleanSecond
+#  @cleanSecond
     Examples:
       | name                              |
       | RZY-2957:task_其它_调用链1             |
@@ -55,7 +55,7 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2948:task_其它_循序图_sample       |
       | RZY-2925:task_复合_区间图_sample       |
 
-  @cleanThird
+#  @cleanThird
     Examples:
       | name                     |
       | RZY-2930:task_地图-热力地图    |
@@ -63,7 +63,7 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2938:task_地图-统计地图_权重 |
       | RZY-2918:task_维度_旭日图1    |
 
-  @cleanSecond
+#  @cleanSecond
     Examples:
       | name                           |
       | RZY-2954:task_其它_矩阵热力图_sample  |
@@ -85,18 +85,18 @@ Feature: 定时任务删除（RZY-412）
       | RZY-2903:task_序列-面积图_sample    |
       | RZY-2901:task_序列-曲线图_sample    |
 
-  @cleanFirst
+#  @cleanFirst
     Examples:
       | name                         |
       | RZY-2936:task_地图-统计地图_sample |
 
-  @cleanThird
+#  @cleanThird
     Examples:
       | name                |
       | RZY-404:执行计划-定时1天   |
       | RZY-403:执行计划-定时_3小时 |
 
-  @cleanSecond
+#  @cleanSecond
     Examples:
       | name                        |
       | RZY-2956:task_其它_调用链_sample |
@@ -105,7 +105,7 @@ Feature: 定时任务删除（RZY-412）
       | name                     |
       | RZY-1488:保存为各种类型的定时任务-序列 |
 
-  @cleanFirst
+#  @cleanFirst
     Examples:
       | name                       |
       | RZY-2695:执行计划-crontab_57分钟 |

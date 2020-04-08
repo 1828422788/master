@@ -1,4 +1,4 @@
-@logDisplay @logDisplayOther
+@all @logDisplay @logDisplayOther
 Feature: 日志展现_其它
 #16 (19) bug
 
@@ -61,8 +61,8 @@ Feature: 日志展现_其它
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
-      |  chartType    | divField       | color1 | caseNum  |   spl   |
-      |   Radar       | apache.geo.city| Yellow | 2808    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |  chartType    | divField       | color1   | caseNum  |   spl   |
+      |   Radar       | apache.geo.city| DarkBlue | 2808    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
   Scenario Outline: funnel(RZY-2809)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -131,7 +131,7 @@ Feature: 日志展现_其它
   Scenario Outline: chain(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "LastWeek" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -164,8 +164,8 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
-      |  Chain     | Green  | 1        |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    |tag:gf_dapper\* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
-      |  Chain     | Red    | 2        |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    |tag:gf_dapper\* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
+      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp|
+      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp|
 
   Scenario Outline: sequence(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"

@@ -1,4 +1,4 @@
-@logDisplay @logDisplayOrder
+@all @logDisplay @logDisplayOrder
 Feature: 日志展现_序列
 #8
 

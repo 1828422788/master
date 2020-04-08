@@ -1,4 +1,4 @@
-@logDisplay @logDisplayGeneral
+@all @logDisplay @logDisplayGeneral
 Feature: 日志展现_普通统计视图
 #34 (24)
 
@@ -63,7 +63,7 @@ Feature: 日志展现_普通统计视图
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     #And I click the "Yesterday" button
-    And I click the "LastMonth" button
+    And I click the "ThisMonth" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -73,13 +73,13 @@ Feature: 日志展现_普通统计视图
     Then I choose the "<statisticType>" from the "StatisticType"
     # Set Time Parameters
     And I click the "StartDate" button
-    And I set the parameter "DateInput" with value "2020-03-31"
+    And I set the parameter "DateInput" with value "2020-04-06"
     And I hide the element "DatePanel"
     And I click the "StartTime" button
     And I set the parameter "TimeInput" with value "<startTime>"
     And I hide the element "TimePanel"
     And I click the "EndDate" button
-    And I set the parameter "DateInput" with value "2020-03-31"
+    And I set the parameter "DateInput" with value "2020-04-07"
     And I hide the element "DatePanel"
     And I click the "EndTime" button
     And I set the parameter "TimeInput" with value "<endTime>"

@@ -1,4 +1,4 @@
-@timedTask @all @smoke @timedTaskSmoke
+#@timedTask @all @smoke @timedTaskSmoke
 Feature: 定时任务分组（RZY-411）
 
   Background:

@@ -1,4 +1,4 @@
-@logDisplay @logDisplayTable
+@all @logDisplay @logDisplayTable
 Feature: 日志展现_表格
 
   # tag:sample04061424_chart should be uploaded for Today

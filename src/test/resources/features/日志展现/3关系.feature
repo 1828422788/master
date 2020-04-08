@@ -1,4 +1,4 @@
-@logDisplay @logDisplayConnection
+@all @logDisplay @logDisplayConnection
 Feature: 日志展现_关系
 #5
 

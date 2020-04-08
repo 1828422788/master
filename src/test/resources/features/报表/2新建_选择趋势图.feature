@@ -5,6 +5,7 @@ Feature: 报表新建_选择
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
+    And I wait for element "SelectedUser" change text to "admin"
 
   Scenario Outline: new_report_10_trends
     When I set the parameter "Name" with value "test_10trends"
@@ -14,37 +15,37 @@ Feature: 报表新建_选择
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "<chart1>" from the "ChartList"
+    When I choose the "<chart1>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "<chart1>"
-    When I choose the "<chart2>" from the "ChartList"
+#    Then I will see the element "ChosenTrendLast" contains "<chart1>"
+    When I choose the "<chart2>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart2>"
-    When I choose the "<chart3>" from the "ChartList"
+    When I choose the "<chart3>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart3>"
-    When I choose the "<chart4>" from the "ChartList"
+    When I choose the "<chart4>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart4>"
-    When I choose the "<chart5>" from the "ChartList"
+    When I choose the "<chart5>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart5>"
-    When I choose the "<chart6>" from the "ChartList"
+    When I choose the "<chart6>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart6>"
-    When I choose the "<chart7>" from the "ChartList"
+    When I choose the "<chart7>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart7>"
-    When I choose the "<chart8>" from the "ChartList"
+    When I choose the "<chart8>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart8>"
-    When I choose the "<chart9>" from the "ChartList"
+    When I choose the "<chart9>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart9>"
-    When I choose the "<chart10>" from the "ChartList"
+    When I choose the "<chart10>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart10>"
-    When I choose the "<chart11>" from the "ChartList"
+    When I choose the "<chart11>" from the "ChartListDropdown"
     Then I will see the error message "每个用户最多保存十个趋势图"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
@@ -62,13 +63,13 @@ Feature: 报表新建_选择
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartList"
+    When I choose the "LineChart_2477" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
-    When I choose the "AreaChart_2005" from the "ChartList"
+    When I choose the "AreaChart_2005" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "AreaChart_2005"
-    When I choose the "ScatterChart_2491" from the "ChartList"
+    When I choose the "ScatterChart_2491" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "ScatterChart_2491"
     When I click the "<button>" button

@@ -1,4 +1,4 @@
-@timedTaskSmoke
+#@timedTaskSmoke
 Feature: 定时任务高级搜索视图
 
   Background:
@@ -30,12 +30,12 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @first
+#  @first
     Examples:
       | spl                                                                                                          | chartType | chart       | caseNum | taskName                     |
       | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt | Map       | Geostatsmap | 2795    | RZY-2936:task_地图-统计地图_sample |
 
-  @second
+#  @second
     Examples:
       | spl                                                                                                                                          | chartType | chart         | caseNum | taskName                       |
       | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10                                                                 |           | Line          | 2770    | RZY-2901:task_序列-曲线图_sample    |
@@ -57,7 +57,7 @@ Feature: 定时任务高级搜索视图
       | tag:sample04061424_chart \| stats count() by apache.status,apache.clientip \| limit 10                                                       | Other     | Funnel        | 2449    | RZY-2952:task_其它_漏斗图sample     |
       | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                                                   | Other     | Matrixheatmap | 2810    | RZY-2954:task_其它_矩阵热力图_sample  |
 
-  @third
+#  @third
     Examples:
       | spl                                                                                                                                                                                              | chartType | chart       | caseNum | taskName                 |
       | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city                                                                                                  | Dimension | Sunburst    | 2782    | RZY-2918:task_维度_旭日图1    |
@@ -65,7 +65,7 @@ Feature: 定时任务高级搜索视图
       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 10                                                                          | Dimension | Rose        | 2777    | RZY-2913:task_维度_玫瑰图1    |
       | tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                                                                     | Map       | Heatmap     | 1229    | RZY-2930:task_地图-热力地图    |
 
-  @second
+#  @second
   Scenario Outline: 区间图sample
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -101,7 +101,7 @@ Feature: 定时任务高级搜索视图
       | spl                                                                                                                                                                                                                                          | chartType | chart     | caseNum | name |
       | * \| bucket timestamp span=3h as ts\| stats count(appname) as count_ by ts \| movingavg count_,5 as ma \| rollingstd count_,5 as rs\| eval lower=ma-3*rs\| eval upper=ma+3*rs \| eval outlier=if(count_>upper\|\|count_<lower, count_, null) | Compound  | Rangeline | 835     | 区间图  |
 
-  @second
+#  @second
   Scenario: 循序图（RZY-2805）
     When I set the parameter "SearchInput" with value "*| stats count() by hostname,apache.clientip |limit 10"
     And I click the "DateEditor" button
@@ -136,7 +136,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @second
+#  @second
   Scenario: 行政区划地图钻取sample（RZY-2792）
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
     And I click the "DateEditor" button
@@ -166,7 +166,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @second
+#  @second
   Scenario: 地图-行政区划地图1_中国
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.geo.province"
     And I click the "DateEditor" button
@@ -194,7 +194,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @second
+#  @second
   Scenario: 其它_水球图_sample
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats pct_ranks(apache.resp_len,25) as p | eval res = p.25/100"
     And I click the "DateEditor" button
@@ -222,7 +222,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @second
+#  @second
   Scenario: 攻击地图（RZY-2302）
     When I set the parameter "SearchInput" with value "logtype:apache | parse field=apache.request_query \"^gw_address=(?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" | stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address | eval gw_lat=39.5427 | eval gw_lon=116.2317"
     And I click the "DateEditor" button
@@ -257,7 +257,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @second
+#  @second
   Scenario: 旭日图（RZY-2781）
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
     And I click the "DateEditor" button
@@ -285,7 +285,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @second
+#  @second
   Scenario: 调用链（RZY-2812、2814）
     When I set the parameter "SearchInput" with value "tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:>0 | table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp"
     And I click the "DateEditor" button
@@ -332,7 +332,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario Outline: 多Y轴图1（RZY-2786）
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
@@ -386,7 +386,7 @@ Feature: 定时任务高级搜索视图
       | spl                                                                                                                                                                             | chartType | chart     | tag        | order          |
       | tag:*display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | Compound  | Multiaxis | Horizontal | AscendingOrder |
 
-  @third
+#  @third
   Scenario: 饼状图1（RZY-2774）
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
     And I click the "DateEditor" button
@@ -415,7 +415,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 饼状图2（RZY-2775）
     When I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "DateEditor" button
@@ -444,7 +444,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 条形图1（RZY-2779）
     When I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "DateEditor" button
@@ -476,7 +476,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 条形图2（RZY-2780）
     When I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
     And I click the "DateEditor" button
@@ -508,7 +508,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 统计地图（RZY-2796）
     When I set the parameter "SearchInput" with value "tag:vendors_461 | geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt"
     And I click the "DateEditor" button
@@ -537,7 +537,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: RZY-2799:其它_单值_图标
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,\"thumbs-down\",\"thumbs-up\")"
     And I click the "DateEditor" button
@@ -582,7 +582,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: RZY-2799:其它_单值_背景
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,\"thumbs-down\",\"thumbs-up\")"
     And I click the "DateEditor" button
@@ -610,7 +610,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 其它_单值_按趋势
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,\"thumbs-down\",\"thumbs-up\")"
     And I click the "DateEditor" button
@@ -639,7 +639,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 其它_单值设置-按区间
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,\"thumbs-down\",\"thumbs-up\")"
     And I click the "DateEditor" button
@@ -674,7 +674,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 其它_雷达图1
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart|stats count() by apache.status,apache.geo.city"
     And I click the "DateEditor" button
@@ -706,7 +706,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 其它_矩阵热力图1
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart|stats count() by apache.status,apache.geo.city"
     And I click the "DateEditor" button
@@ -735,7 +735,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 其它_循序图1
     When I set the parameter "SearchInput" with value "appname:seq_test | table timestamp,sequence.from, sequence.to,sequence.relatemsg,sequence.msgid"
     And I click the "DateEditor" button
@@ -770,7 +770,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 其它_漏斗图1
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.city,apache.clientip"
     And I click the "DateEditor" button
@@ -804,7 +804,7 @@ Feature: 定时任务高级搜索视图
     Then I will see the success message "保存成功"
 
 
-  @third
+#  @third
   Scenario: 曲线图（RZY-832）
     When I set the parameter "SearchInput" with value "tag:sample04061424* | stats count(apache.clientip) as ip_count by appname | sort by ip_count"
     And I click the "DateEditor" button
@@ -833,7 +833,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 面积图（RZY-2767）
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "DateEditor" button
@@ -860,7 +860,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario: 柱状图（RZY-2773）
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "DateEditor" button
@@ -889,7 +889,7 @@ Feature: 定时任务高级搜索视图
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
 
-  @third
+#  @third
   Scenario Outline: 散点图（RZY-2772）
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button

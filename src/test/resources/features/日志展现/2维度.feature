@@ -1,4 +1,4 @@
-@logDisplay @logDisplayDimension
+@all @logDisplay @logDisplayDimension
 Feature: 日志展现_维度
 #11 bug
 

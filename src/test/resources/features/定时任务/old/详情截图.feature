@@ -1,4 +1,4 @@
-@scheduleScreenshot @screenshot
+#@scheduleScreenshot @screenshot
 Feature: 定时任务详情页截图
 
   Background:
@@ -14,7 +14,7 @@ Feature: 定时任务详情页截图
     And I wait for "1800" millsecond
     And take part of "Chart" with name "timedtask/<screenName>"
 
-  @firstScreenshot
+#  @firstScreenshot
     Examples:
       | name                         | screenName      |
       | chs_task_funnel              | chs_task_funnel |
@@ -54,7 +54,7 @@ Feature: 定时任务详情页截图
       | RZY-400:日志来源_api_log_source_m | 400        |
       | RZY-399:运行用户_api_usr_m        | 399        |
 
-  @secondScreenshot
+#  @secondScreenshot
     Examples:
       | name                              | screenName |
       | RZY-2956:task_其它_调用链_sample       | 2956       |

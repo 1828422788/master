@@ -1,10 +1,10 @@
-@timedTask @all
+#@timedTask @all
 Feature: 定时任务编辑（RZY-409、RZY-1205）
 
   Background:
     Given open the "timedTask.ListPage" page for uri "/schedule/"
 
-  @third @timedTaskSmoke
+#  @third @timedTaskSmoke
   Scenario Outline: RZY-399:定时任务_api_usr_m
     When the data name is "<dataName>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
@@ -18,7 +18,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | dataName                  | name                   | describe   | user      | result |
       | RZY-397:定时任务sample_昨天(副本) | RZY-399:运行用户_api_usr_m | AutoCreate | api_usr_m | 保存成功   |
 
-  @third @timedTaskSmoke
+#  @third @timedTaskSmoke
   Scenario Outline: RZY-400:日志来源_api_log_source_m
     When the data name is "<dataName>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
@@ -32,7 +32,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | dataName                  | name                          | describe   | resource         | result |
       | RZY-397:定时任务sample_昨天(副本) | RZY-400:日志来源_api_log_source_m | AutoCreate | api_log_source_m | 保存成功   |
 
-  @third @timedTaskSmoke
+#  @third @timedTaskSmoke
   Scenario Outline: RZY-401:搜索内容
     When the data name is "<dataName>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
@@ -46,7 +46,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | dataName                  | name         | describe   | result |
       | RZY-397:定时任务sample_昨天(副本) | RZY-401:搜索内容 | AutoCreate | 保存成功   |
 
-  @third @timedTaskSmoke
+#  @third @timedTaskSmoke
   Scenario Outline: RZY-402:任务分组hunter_roles_m
     When the data name is "<dataName>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
@@ -61,7 +61,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | dataName                  | name                       | describe   | taskGroup      | result |
       | RZY-397:定时任务sample_昨天(副本) | RZY-402:任务分组hunter_roles_m | AutoCreate | hunter_roles_m | 保存成功   |
 
-  @second @timedTaskSmoke
+#  @second @timedTaskSmoke
   Scenario Outline: RZY-2696、2698 修改执行计划
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
@@ -76,7 +76,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | RZY-396:定时任务_sample_表格_近一天(副本) | RZY-2696:执行计划-定时_7小时 | 7      | 小时   |
       | RZY-396:定时任务_sample_表格_近一天(副本) | RZY-2698:执行计划-定时_2天  | 2      | 天    |
 
-  @second @timedTaskSmoke
+#  @second @timedTaskSmoke
   Scenario Outline: RZY-2699、2700、2702 修改crontab
     When the data name is "<name>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
@@ -91,7 +91,7 @@ Feature: 定时任务编辑（RZY-409、RZY-1205）
       | RZY-396:定时任务_sample_表格_近一天(副本) | RZY-2700_执行计划-crontab_每天9点整至9点30分 | 0 0-30/10 9 * * ?    |
       | RZY-396:定时任务_sample_表格_近一天(副本) | RZY-2702_执行计划-crontab_周一到周五       | 0 0/15 9 ? * MON-FRI |
 
-  @second @timedTaskSmoke
+#  @second @timedTaskSmoke
   Scenario Outline: 编辑定时任务
     When the data name is "<dataName>" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page

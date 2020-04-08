@@ -1,4 +1,4 @@
-@timedTask @all @smoke @timedTaskSmoke
+#@timedTask @all @smoke @timedTaskSmoke
 Feature: 定时任务启用（RZY-414、RZY-415）
 
   Background:

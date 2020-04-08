@@ -6,6 +6,7 @@ Feature: 报表新建_编辑_地图
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
+    And I wait for element "SelectedUser" change text to "admin"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "Tag"
     And I set the parameter "Hour" with value "05"

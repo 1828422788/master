@@ -1,4 +1,4 @@
-@logDisplay @logDisplayOther
+@all @logDisplay @logDisplayOther
 Feature: 日志展现_其他_单值
 
   # tag:sample04061424_chart should be uploaded for Today
