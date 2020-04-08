@@ -56,7 +56,6 @@ Feature: Agent编辑脚本类型数据源
     And I click the "EditAutoScript" button
     When I choose the "<Internaltimekind>" from the "InternalTimeKind"
     And I click the "Ensure" button
-    And I wait for loading invisible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
     Examples:
@@ -70,7 +69,6 @@ Feature: Agent编辑脚本类型数据源
     And I click the "EditAutoScript" button
     When I choose the "<characterkind>" from the "CharacterKind"
     And I click the "Ensure" button
-    And I wait for loading invisible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
     Examples:
       | characterkind |
