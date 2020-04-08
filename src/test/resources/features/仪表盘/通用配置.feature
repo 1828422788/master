@@ -1,6 +1,6 @@
-@dashboard @dashboardSmoke
 Feature: 仪表盘通用配置
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -12,6 +12,7 @@ Feature: 仪表盘通用配置
       | name   |
       | 测试通用配置 |
 
+  @dashboard @dashboardSmoke
   Scenario: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试通用配置"
@@ -20,6 +21,7 @@ Feature: 仪表盘通用配置
     And I click the "Ensure" button
     And I wait for loading complete
 
+  @dashboard @dashboardSmoke
   Scenario: 添加事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试通用配置"
@@ -33,6 +35,7 @@ Feature: 仪表盘通用配置
     And I click the "Today" button
     And I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 修改图表标题
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试通用配置"
@@ -44,6 +47,7 @@ Feature: 仪表盘通用配置
     And I wait for "Ensure" will be invisible
     Then I will see the element "CustomTitle" name is "测试通用配置"
 
+  @dashboard @dashboardSmoke
   Scenario: 修改spl
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试通用配置"
@@ -61,6 +65,7 @@ Feature: 仪表盘通用配置
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "*|stats count() by apache.geo.city"
 
+  @dashboard @dashboardSmoke
   Scenario: 修改图表描述
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试通用配置"
@@ -74,6 +79,7 @@ Feature: 仪表盘通用配置
     And I click the "Describe" button
     Then I will see the "DescribeText" result will be "描述信息"
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button

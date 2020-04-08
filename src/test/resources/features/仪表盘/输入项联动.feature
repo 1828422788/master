@@ -1,6 +1,6 @@
-@dashboard @dashboardSmoke
 Feature: 仪表盘输入项联动
 
+  @dashboard @dashboardSmoke
   Scenario: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When I click the "Create" button
@@ -8,6 +8,7 @@ Feature: 仪表盘输入项联动
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -19,6 +20,7 @@ Feature: 仪表盘输入项联动
       | name     |
       | 仪表盘输入项联动 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 添加下拉菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘输入项联动"
@@ -42,6 +44,7 @@ Feature: 仪表盘输入项联动
       | name |
       | f1   |
 
+  @dashboard @dashboardSmoke
   Scenario: 添加动态菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘输入项联动"
@@ -59,6 +62,7 @@ Feature: 仪表盘输入项联动
     And I click the "Search" button under some element
     Then I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 添加事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘输入项联动"
@@ -72,6 +76,7 @@ Feature: 仪表盘输入项联动
     And I click the "Today" button
     Then I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 验证
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘输入项联动"
@@ -86,6 +91,7 @@ Feature: 仪表盘输入项联动
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "logtype:json AND hostname:192.168.1.26"
 
+  @dashboard @dashboardSmoke
   Scenario: 添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘输入项联动"
@@ -97,6 +103,7 @@ Feature: 仪表盘输入项联动
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 修改搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘输入项联动"
@@ -107,6 +114,7 @@ Feature: 仪表盘输入项联动
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证支持token filter
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘输入项联动"
@@ -121,6 +129,7 @@ Feature: 仪表盘输入项联动
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "a\+b"
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button

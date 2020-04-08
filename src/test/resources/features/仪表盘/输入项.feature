@@ -1,6 +1,6 @@
-@dashboard @dashboardSmoke
 Feature: 仪表盘输入项
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -12,6 +12,7 @@ Feature: 仪表盘输入项
       | name  |
       | 测试输入项 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -24,6 +25,7 @@ Feature: 仪表盘输入项
       | name  |
       | 测试输入项 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -46,6 +48,7 @@ Feature: 仪表盘输入项
       | 仪表盘所用趋势图     | *\|stats count() by 'apache.geo.city'                                                     |
       | 仪表盘1669所用趋势图 | (appname:\"aa\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: RZY-1668添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -62,6 +65,7 @@ Feature: 仪表盘输入项
       | filter | defaultValue    |
       | filter | apache.geo.city |
 
+  @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -71,6 +75,7 @@ Feature: 仪表盘输入项
     And I "checked" the checkbox which name is "仪表盘所用趋势图"
     And I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 验证输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -83,6 +88,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 删除图表单引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -90,6 +96,7 @@ Feature: 仪表盘输入项
     And I click the "DeleteChart" button
     And I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 删除单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -97,6 +104,7 @@ Feature: 仪表盘输入项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
 
+  @dashboard @dashboardSmoke
   Scenario Outline: RZY-1669添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -113,6 +121,7 @@ Feature: 仪表盘输入项
       | filter | defaultValue |
       | filter | aa           |
 
+  @dashboard @dashboardSmoke
   Scenario: RZY-1669:添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -123,6 +132,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -135,6 +145,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 删除双引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -142,6 +153,7 @@ Feature: 仪表盘输入项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
 
+  @dashboard @dashboardSmoke
   Scenario: 增加标识前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -156,6 +168,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 验证标识前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -173,6 +186,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 修改标识值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -183,6 +197,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I wait for "Appname" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 修改为自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -198,6 +213,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I wait for "Appname" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 删除文本输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -206,6 +222,7 @@ Feature: 仪表盘输入项
     And I click the "DeleteTag" button
     And I wait for "FilterName" will be invisible
 
+  @dashboard @dashboardSmoke
   Scenario: 修改图表搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -216,6 +233,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 添加下拉菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -236,6 +254,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 验证下拉菜单默认输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -249,6 +268,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证下拉菜单搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -270,6 +290,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 修改下拉菜单为自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -280,6 +301,7 @@ Feature: 仪表盘输入项
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
     Then I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 验证下拉菜单为自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -298,6 +320,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 修改为多选并填入分割符
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -309,6 +332,7 @@ Feature: 仪表盘输入项
     And I set the parameter "Separate" with value "OR apache.geo.city:"
     Then I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 验证多选生效
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -324,6 +348,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 增加前后缀值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -335,6 +360,7 @@ Feature: 仪表盘输入项
     And I set the parameter "Suffix" with value " ,appname"
     Then I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 验证前后缀生效
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -353,6 +379,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 修改通用配置搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -365,6 +392,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 增加标识值前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -389,6 +417,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 验证标识符前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -405,6 +434,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 删除下拉菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -417,6 +447,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 添加动态菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -437,6 +468,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 验证动态菜单默认值结果
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -450,6 +482,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 切换动态菜单值并验证结果
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -470,6 +503,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 增加动态菜单标识符前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -493,6 +527,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 增加动态菜单多选及标识值前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -517,6 +552,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 验证多选
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -537,6 +573,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证修改值自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -558,6 +595,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
+  @dashboard @dashboardSmoke
   Scenario: 添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -569,6 +607,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: RZY-1834:输入值支持eval（未完成·）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
@@ -581,6 +620,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button
@@ -593,6 +633,7 @@ Feature: 仪表盘输入项
       | 仪表盘1669所用趋势图 |
       | 仪表盘所用趋势图     |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button

@@ -1,6 +1,6 @@
-@dashboard @dashboardSmoke
 Feature: 仪表盘过滤项
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -12,6 +12,7 @@ Feature: 仪表盘过滤项
       | name  |
       | 测试过滤项 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -23,6 +24,7 @@ Feature: 仪表盘过滤项
       | name  |
       | 测试过滤项 |
 
+  @dashboard @dashboardSmoke
   Scenario: 添加事件操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -36,6 +38,7 @@ Feature: 仪表盘过滤项
     And I click the "Today" button
     And I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 添加下拉菜单类型的过滤项（RZY-1869）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -61,6 +64,7 @@ Feature: 仪表盘过滤项
       | eventList | title  | token  | field           | inputType | choiceValue |
       | 添加过滤项     | filter | filter | apache.geo.city | 下拉菜单      | 南京市         |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 验证下拉过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -78,6 +82,7 @@ Feature: 仪表盘过滤项
       | 苏州市  |
       | 成都市  |
 
+  @dashboard @dashboardSmoke
   Scenario: 修改为过滤项发生变化自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -88,6 +93,7 @@ Feature: 仪表盘过滤项
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
     Then I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 验证过滤项发生变化自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -104,6 +110,7 @@ Feature: 仪表盘过滤项
       | 苏州市  |
       | 成都市  |
 
+  @dashboard @dashboardSmoke
   Scenario: 删除下拉过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -111,6 +118,7 @@ Feature: 仪表盘过滤项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
 
+  @dashboard @dashboardSmoke
   Scenario: 添加动态菜单
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -132,6 +140,7 @@ Feature: 仪表盘过滤项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 验证动态菜单绑定图表生效
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -142,6 +151,7 @@ Feature: 仪表盘过滤项
     And I click the "IconRight" button
     Then I will see the element "CityTd" name is "成都市 "
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 切换动态值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -158,6 +168,7 @@ Feature: 仪表盘过滤项
       | city |
       | 纽约   |
 
+  @dashboard @dashboardSmoke
   Scenario: 设置动态菜单自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -168,6 +179,7 @@ Feature: 仪表盘过滤项
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
     Then I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 验证动态菜单自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -183,6 +195,7 @@ Feature: 仪表盘过滤项
       | city |
       | 苏州市  |
 
+  @dashboard @dashboardSmoke
   Scenario: 删除动态菜单过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -190,6 +203,7 @@ Feature: 仪表盘过滤项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
 
+  @dashboard @dashboardSmoke
   Scenario: 添加文本过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -204,6 +218,7 @@ Feature: 仪表盘过滤项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 验证文本过滤绑定成功
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -214,6 +229,7 @@ Feature: 仪表盘过滤项
     And I click the "IconRight" button
     Then I will see the element "CityTd" name is "成都市 "
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 验证修改文本值搜索内容是否正确
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -232,6 +248,7 @@ Feature: 仪表盘过滤项
       | city |
       | 苏州市  |
 
+  @dashboard @dashboardSmoke
   Scenario: 修改文本过滤为自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -242,6 +259,7 @@ Feature: 仪表盘过滤项
     And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
     Then I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 验证文本过滤自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -258,6 +276,7 @@ Feature: 仪表盘过滤项
       | city |
       | 苏州市  |
 
+  @dashboard @dashboardSmoke
   Scenario: 添加eval过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -273,6 +292,7 @@ Feature: 仪表盘过滤项
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -294,6 +314,7 @@ Feature: 仪表盘过滤项
       | name      | spl                                 |
       | 测试仪表盘eval | *\|stats count() by 'apache.status' |
 
+  @dashboard @dashboardSmoke
   Scenario: 删除趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -301,6 +322,7 @@ Feature: 仪表盘过滤项
     When the chart title is "测试过滤项" then I click the button which classname is "anticon css-ifnfqv" in dashboard
     And I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -310,6 +332,7 @@ Feature: 仪表盘过滤项
     And I "checked" the checkbox which name is "测试仪表盘eval"
     And I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 验证eval(undone)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试过滤项"
@@ -322,6 +345,7 @@ Feature: 仪表盘过滤项
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button
@@ -333,6 +357,7 @@ Feature: 仪表盘过滤项
       | name      |
       | 测试仪表盘eval |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
