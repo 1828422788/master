@@ -1,5 +1,5 @@
 @dataset
-Feature: 编辑根事件jnd
+Feature: 数据集-编辑根事件
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -10,7 +10,7 @@ Feature: 编辑根事件jnd
 
       And I set the parameter "Name" with value "edit"
       And I set the parameter "Alias" with value "editRootTest"
-      And I set the parameter "YuJu" with value "*"
+      And I set the parameter "Spl" with value "*"
 
       And I click the "Save" button
       Then I wait for title change text to "数据集详情"

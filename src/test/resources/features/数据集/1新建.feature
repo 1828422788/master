@@ -1,6 +1,6 @@
 
 @dataset
-Feature: 数据集新建jnd
+Feature: 数据集-新建
 
   @dataset
   Scenario Outline: 新建数据集必填项测试【父子行为无】
@@ -9,7 +9,7 @@ Feature: 数据集新建jnd
 
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Alias" with value "<alias>"
-    And I set the parameter "YuJu" with value "<yuJu>"
+    And I set the parameter "Spl" with value "<Spl>"
 
     And I click the "Save" button
 
@@ -18,16 +18,16 @@ Feature: 数据集新建jnd
    #返回列表页验证
     And I click the "backList" button
 
-    And I wait for loading invisible
-   Then I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'2','name':'jnd'}"
-   And I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'3','name':'无'}"
-   And I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'4','name':'无'}"
-   And I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'5','name':'无'}"
-   And I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'6','name':'admin'}"
+   And I wait for loading invisible
+   Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'2','name':'jnd'}"
+   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
+   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'无'}"
+   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'无'}"
+   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'admin'}"
 
     Examples: 新建成功
-      | name    | alias  | yuJu  |
-      |jndceshi |jnd     |*      |
+      | name    | alias  | Spl  |
+      |JNDTest |jnd     |*     |
 
   @dataset
   Scenario: 新建数据集选择分组和应用
@@ -36,7 +36,7 @@ Feature: 数据集新建jnd
 
     And I set the parameter "Name" with value "分组和应用"
     And I set the parameter "Alias" with value "groupApp"
-    And I set the parameter "YuJu" with value "*"
+    And I set the parameter "Spl" with value "*"
 
     And I choose the "无数集app之api全部测试用例" from the "appList"
     And I choose the "auto_package" from the "resourceGroup"
@@ -64,7 +64,7 @@ Feature: 数据集新建jnd
 
     And I click the "HuiJu" button
 
-    And I set the parameter "YuJu" with value "*"
+    And I set the parameter "Spl" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -91,9 +91,9 @@ Feature: 数据集新建jnd
     And I set the parameter "Name" with value "父子继承"
     And I set the parameter "Alias" with value "继承"
 
-    And I click the "JiCheng" button
+    And I click the "inherit" button
 
-    And I set the parameter "YuJu" with value "*"
+    And I set the parameter "Spl" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible

@@ -176,23 +176,7 @@ public class DetailPage extends PageTemplate {
         return successMessage;
     }
 
-    //编辑根事件，添加第三个字段
-    //第三个字段名称
-    @FindBy(id="EditDatabase_fields[2].name")
-    private WebElement thirdFieldName;
-    public WebElement getThirdFieldName(){return thirdFieldName;}
-    //第三个字段类型
-    @FindBy(id="EditDatabase_fields[2].type")
-    private WebElement thirdFieldType;
-    public WebElement getThirdFieldType(){
-        thirdFieldType.click();
-        return super.getLastDropdownList();
-    }
 
-    //编辑根事件中第三个字段的删除按钮
-    @FindBy(xpath = "//input[@id='EditDatabase_fields[2].name']/ancestor::span/ancestor::span/following-sibling::i")
-    private WebElement deleteField;
-    public WebElement getDeleteField(){return deleteField;}
 
 
 
@@ -344,6 +328,22 @@ A（root）
 
 
 
+//编辑根事件，添加第三个字段
+    //第三个字段名称
+    @FindBy(id="EditDatabase_fields[2].name")
+    private WebElement thirdFieldName;
+    public WebElement getThirdFieldName(){return thirdFieldName;}
+    //第三个字段类型
+    @FindBy(id="EditDatabase_fields[2].type")
+    private WebElement thirdFieldType;
+    public WebElement getThirdFieldType(){
+        thirdFieldType.click();
+        return super.getLastDropdownList();
+    }
 
+    //编辑根事件中第三个字段的删除按钮
+    @FindBy(xpath = "//input[@id='EditDatabase_fields[2].name']/ancestor::span/ancestor::span/following-sibling::i")
+    private WebElement deleteField;
+    public WebElement getDeleteField(){return deleteField;}
 
 }

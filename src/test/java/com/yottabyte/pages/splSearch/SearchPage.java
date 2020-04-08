@@ -1251,7 +1251,7 @@ public class SearchPage extends ListPageFactory {
     public WebElement getFatherChildNull(){return fatherChildNull;}
 
     //数据集父子行为是汇聚的根节点
-    @FindBy(xpath = "//span[text()='汇聚']")
+    @FindBy(xpath = "//span[text()='汇聚tree']")
     private WebElement huiJu;
     public WebElement getHuiJu(){return huiJu;}
 
