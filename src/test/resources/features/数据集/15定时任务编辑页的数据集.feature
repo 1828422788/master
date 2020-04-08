@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集在定时任务中的应用【编辑页】
+Feature: 数据集在定时任务编辑页
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

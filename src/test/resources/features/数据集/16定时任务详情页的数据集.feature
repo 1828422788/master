@@ -1,5 +1,5 @@
 @dataset
-Feature: 定时任务详情页的数据集
+Feature: 数据集在定时任务详情页
 
   Background:
     Given open the "timedTask.ListPage" page for uri "/schedule/"

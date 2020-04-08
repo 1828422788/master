@@ -1,5 +1,5 @@
 @dataset
-Feature: 取消默认jndjnd
+Feature: 数据集取消默认
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"

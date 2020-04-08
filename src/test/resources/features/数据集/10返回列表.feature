@@ -1,5 +1,5 @@
 @dataset
-Feature: 返回列表页面jnd
+Feature: 数据集返回列表页面
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"

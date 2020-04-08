@@ -1,6 +1,6 @@
 
 @dataset
-Feature: 修改标签jndjnd
+Feature: 数据集修改标签
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"

@@ -1,6 +1,6 @@
 
 @dataset
-Feature: 按名称查询jiangnd
+Feature: 数据集按名称查询
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
