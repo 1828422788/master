@@ -1,14 +1,14 @@
 @dataset
-Feature: 构建树形结构
+Feature: 数据集构建树形结构
 
   @dataset
   Scenario: 父子行为无RZY-4085
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
-    And I set the parameter "Name" with value "父子无"
-    And I set the parameter "Alias" with value "无"
-    And I set the parameter "YuJu" with value "*"
+    And I set the parameter "Name" with value "父子无tree"
+    And I set the parameter "Alias" with value "无tree"
+    And I set the parameter "Spl" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -41,11 +41,11 @@ Feature: 构建树形结构
    #返回列表页验证
     And I click the "BackList" button
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'父子无'}" values "{'column':'2','name':'无'}"
-    And I will see the data "{'column':'0','name':'父子无'}" values "{'column':'3','name':'无'}"
-    And I will see the data "{'column':'0','name':'父子无'}" values "{'column':'4','name':'无'}"
-    And I will see the data "{'column':'0','name':'父子无'}" values "{'column':'5','name':'无'}"
-    And I will see the data "{'column':'0','name':'父子无'}" values "{'column':'6','name':'admin'}"
+    Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'2','name':'无tree'}"
+    And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'3','name':'无'}"
+    And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'4','name':'无'}"
+    And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'5','name':'无'}"
+    And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'6','name':'admin'}"
 
 
 
@@ -55,12 +55,12 @@ Feature: 构建树形结构
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
-    And I set the parameter "Name" with value "父子汇聚"
-    And I set the parameter "Alias" with value "汇聚"
+    And I set the parameter "Name" with value "父子汇聚tree"
+    And I set the parameter "Alias" with value "汇聚tree"
 #选择汇聚
     And I click the "HuiJu" button
 
-    And I set the parameter "YuJu" with value "*"
+    And I set the parameter "Spl" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -92,15 +92,15 @@ Feature: 构建树形结构
     And I click the "BackList" button
     And I wait for loading invisible
       #别名
-    Then I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'2','name':'汇聚'}"
+    Then I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'2','name':'汇聚tree'}"
       #父子行为
-    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'3','name':'汇聚'}"
+    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'3','name':'汇聚'}"
       #所属应用
-    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'4','name':'无'}"
+    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'4','name':'无'}"
       #标签
-    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'5','name':'无'}"
+    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'5','name':'无'}"
       #创建者
-    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'6','name':'admin'}"
+    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'6','name':'admin'}"
 
 
 
@@ -109,12 +109,12 @@ Feature: 构建树形结构
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
-    And I set the parameter "Name" with value "父子继承"
-    And I set the parameter "Alias" with value "继承"
+    And I set the parameter "Name" with value "父子继承tree"
+    And I set the parameter "Alias" with value "继承tree"
 #选择继承
-    And I click the "JiCheng" button
+    And I click the "inherit" button
 
-    And I set the parameter "YuJu" with value "*"
+    And I set the parameter "Spl" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -146,15 +146,15 @@ Feature: 构建树形结构
     And I click the "BackList" button
     And I wait for loading invisible
       #别名
-    Then I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'2','name':'继承'}"
+    Then I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'2','name':'继承tree'}"
       #父子行为
-    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'3','name':'继承'}"
+    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'3','name':'继承'}"
       #所属应用
-    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'4','name':'无'}"
+    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'4','name':'无'}"
       #标签
-    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'5','name':'无'}"
+    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'5','name':'无'}"
       #创建者
-    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'6','name':'admin'}"
+    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'6','name':'admin'}"
 
 
 

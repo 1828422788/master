@@ -1,5 +1,5 @@
 @dataset
-Feature: 按应用查询jndjnd
+Feature: 数据集按应用查询
 
   @dataset
   Scenario: 按应用查询

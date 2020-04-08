@@ -1,12 +1,12 @@
 @dataset
-Feature: 对节点的操作【数据集中根有一个子节点】
+Feature: 数据集对节点的操作
 
-    Scenario: 新建一个数据集修改
+    Scenario: 新建一个数据集修改【数据集中根有一个子节点】
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
     And I set the parameter "Name" with value "node_op_jnd"
     And I set the parameter "Alias" with value "op"
-    And I set the parameter "YuJu" with value "*"
+    And I set the parameter "Spl" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible

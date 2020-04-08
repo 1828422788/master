@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集在搜索页中的应用
+Feature: 数据集在搜索页
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
