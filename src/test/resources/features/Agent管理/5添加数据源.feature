@@ -1,5 +1,5 @@
-@agent
-Feature: 添加数据源
+@agent @agent_add
+Feature: Agent添加数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"

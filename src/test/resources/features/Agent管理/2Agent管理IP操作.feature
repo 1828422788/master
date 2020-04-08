@@ -1,5 +1,5 @@
 @agent
-Feature: 操作
+Feature: Agent管理ip操作
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -64,7 +64,7 @@ Feature: 操作
   Scenario Outline: Agent批量操作空操作&加入分组
     And I click the "AgentMultiButton" button
 #    Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
-    And I will see the message "请务必选择至少一个 Agent 进行操作，并且确认它有更新权限。"
+    And I will see the message "请务必选择至少一个 Agent 进行操作。"
     Then I click the "EnsureButton" button
     When the column is "1" then i "checked" the agent label in agent page
     And I click the "AgentMultiButton" button

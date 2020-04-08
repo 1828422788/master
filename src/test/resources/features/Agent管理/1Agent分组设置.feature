@@ -1,5 +1,4 @@
-@agent
-Feature: Agent管理
+Feature: Agent分组设置
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -95,8 +94,8 @@ Feature: Agent管理
     Then I will see the success message "删除成功"
 
     Examples: 失败
-      | message       |
-      | 确认删除 [中文中文] ? |
+      | message            |
+      | 确认删除 [sunxctest] ? |
 
 
 

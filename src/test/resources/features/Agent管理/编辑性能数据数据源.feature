@@ -1,5 +1,5 @@
-@agent
-Feature: 编辑性能数据类型数据源
+@agent @agent_fuction
+Feature: Agent编辑性能数据类型数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"

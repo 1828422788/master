@@ -1,5 +1,5 @@
-@agent
-Feature: 编辑数据库数据类型数据源
+@agent @agent_database
+Feature: Agent编辑数据库数据类型数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"

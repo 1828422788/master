@@ -1,5 +1,5 @@
-@agent
-Feature: 编辑文件目录类型数据源
+@agent @agent_addfile
+Feature: Agent编辑文件目录类型数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -33,8 +33,8 @@ Feature: 编辑文件目录类型数据源
 #    And I will see the element "WhitelistRoot" name is "hekad-daemon\.log"
     And I will see the element "Monitoring" name is "是"
     And I will see the element "CheckAppname" name is "autohekafiletest"
-    And I will see the element "CheckTag" name is "autohekafiletest"
-    And I click the "Finish" button
+#    And I will see the element "CheckTag" name is "autohekafiletest"
+    And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     And I wait for loading invisible
