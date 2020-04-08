@@ -1,6 +1,6 @@
 
 @dataset
-Feature: 数据集新建
+Feature: 数据集-新建
 
   @dataset
   Scenario Outline: 新建数据集必填项测试【父子行为无】
@@ -19,15 +19,15 @@ Feature: 数据集新建
     And I click the "backList" button
 
    And I wait for loading invisible
-   Then I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'2','name':'jnd'}"
-   And I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'3','name':'无'}"
-   And I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'4','name':'无'}"
-   And I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'5','name':'无'}"
-   And I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'6','name':'admin'}"
+   Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'2','name':'jnd'}"
+   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
+   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'无'}"
+   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'无'}"
+   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'admin'}"
 
     Examples: 新建成功
       | name    | alias  | Spl  |
-      |jndceshi |jnd     |*     |
+      |JNDTest |jnd     |*     |
 
   @dataset
   Scenario: 新建数据集选择分组和应用

@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集在趋势图中的应用
+Feature: 数据集-在趋势图中的应用
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

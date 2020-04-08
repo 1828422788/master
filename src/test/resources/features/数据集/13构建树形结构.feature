@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集构建树形结构
+Feature: 数据集-构建树形结构
 
   @dataset
   Scenario: 父子行为无RZY-4085

@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集预定义字段列表
+Feature: 数据集-预定义字段列表
 
   @dataset
   Scenario Outline: 新建数据集，对根事件添加字段 RZY-4291

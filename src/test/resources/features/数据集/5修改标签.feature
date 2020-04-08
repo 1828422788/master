@@ -1,6 +1,6 @@
 
 @dataset
-Feature: 数据集修改标签
+Feature: 数据集-修改标签
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -16,4 +16,4 @@ Feature: 数据集修改标签
 
     Examples:
       |name    |Type        |
-      |jndceshi|auto_package|
+      |JNDTest|auto_package|
