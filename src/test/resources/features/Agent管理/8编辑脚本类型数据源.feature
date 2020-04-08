@@ -1,4 +1,4 @@
-@agent
+@agent @agent_script
 Feature: Agent编辑脚本类型数据源
 
   Background:

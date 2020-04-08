@@ -1,4 +1,4 @@
-@agent
+@agent @agent_add
 Feature: Agent添加数据源
 
   Background:
