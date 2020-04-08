@@ -42,6 +42,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
+    @FindBy(className = "ant-empty-description")
+    private WebElement searchResultIsEmpty;
+
     public WebElement getTagInput() {
         return tagInput;
     }
@@ -96,5 +99,9 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getErrorMessage() {
         return super.getMessage();
+    }
+
+    public WebElement getSearchResultIsEmpty() {
+        return searchResultIsEmpty;
     }
 }
