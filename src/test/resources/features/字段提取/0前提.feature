@@ -58,7 +58,8 @@ Feature: 字段提取前提条件
   Scenario: 验证标签取消成功
     Given open the "configs.ListPage" page for uri "/configs/"
     And I choose the "自动化测试标签" from the "ResourceDropdown"
-    Then I will see the search result "{'column':'1','name':'RZY3417多值字段','contains':'no'}"
+#    Then I will see the search result "{'column':'1','name':'RZY3417多值字段','contains':'no'}"
+    And I will see the "SearchResultIsEmpty" result will be "暂无数据"
 
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"

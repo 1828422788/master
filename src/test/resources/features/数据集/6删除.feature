@@ -1,12 +1,12 @@
 @dataset
-Feature: 删除jnd
+Feature: 数据集-删除
   Background:
     #新建一个数据集再删除
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
     And I set the parameter "Name" with value "deleteceshi"
     And I set the parameter "Alias" with value "delete"
-    And I set the parameter "YuJu" with value "*"
+    And I set the parameter "Spl" with value "*"
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible

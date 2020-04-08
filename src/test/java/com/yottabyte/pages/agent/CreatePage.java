@@ -455,6 +455,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='删除']")
     private WebElement DeleteMysql;
 
+    public WebElement getDeleteMysql139() {
+        return DeleteMysql139;
+    }
+
+    @FindBy(xpath = "//span[text()='autotestmysql']/following-sibling::span/span[text()='删除']")
+    private WebElement DeleteMysql139;
+
     public WebElement getDeleteBackUpObject() {
         return DeleteBackUpObject;
     }
@@ -464,6 +471,13 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath ="//span[text()='autotestmysql']")
     private WebElement MysqlDatabase;
+
+    public WebElement getMysqlDatabase139() {
+        return MysqlDatabase139;
+    }
+
+    @FindBy(xpath ="//span[text()='autotestmysql']")
+    private WebElement MysqlDatabase139;
 
     public WebElement getBackUpObject() {
         return BackUpObject;

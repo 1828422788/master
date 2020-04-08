@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集预定义字段列表
+Feature: 数据集-预定义字段列表
 
   @dataset
   Scenario Outline: 新建数据集，对根事件添加字段 RZY-4291
@@ -7,7 +7,7 @@ Feature: 数据集预定义字段列表
     When I click the "Create" button
     And I set the parameter "Name" with value "<name>"
     And I set the parameter "Alias" with value "<alias>"
-    And I set the parameter "YuJu" with value "<yuJu>"
+    And I set the parameter "Spl" with value "<spl>"
 
     And I click the "fieldAdd" button
     And I set the parameter "firstFieldName" with value "apache.status"
@@ -25,7 +25,7 @@ Feature: 数据集预定义字段列表
     Then I will see the "secondName" result will be "appname"
 
     Examples: 新建成功
-      | name           | alias      | yuJu  |
+      | name           | alias      | spl  |
       |have_root_field |hrfield     |*      |
 
 
@@ -74,7 +74,7 @@ Feature: 数据集预定义字段列表
      And I set the parameter "BInputName" with value "child1"
      And I click the "BRightDuiHao" button
      And I set the parameter "sentenceInput" with value "logtype:apache"
-     And I click the "save" button
+#     And I click the "save" button
      And I wait for "2000" millsecond
 
      And I click the "childFieldAdd" button

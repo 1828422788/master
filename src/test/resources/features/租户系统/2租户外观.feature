@@ -39,9 +39,9 @@ Scenario: 验证界面颜色
 
   Scenario: 更换logo
     Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
-    When I set the parameter "Username" with properties "saas_username"
-    And I set the parameter "Password" with properties "saas_password"
-    And I click the "LoginButton" button
+#    When I set the parameter "Username" with properties "saas_username"
+#    And I set the parameter "Password" with properties "saas_password"
+#    And I click the "LoginButton" button
     And I will see the "tenant.ListPage" page
     #租户外观
     And I click the "tenantAppearance" button
