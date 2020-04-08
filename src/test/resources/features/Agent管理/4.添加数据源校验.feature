@@ -1,4 +1,5 @@
-Feature: 添加数据源校验
+@agent
+Feature: Agent添加数据源校验
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"

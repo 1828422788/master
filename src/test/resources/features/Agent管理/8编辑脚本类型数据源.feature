@@ -1,4 +1,5 @@
-Feature: 编辑脚本类型数据源
+@agent @agent_script
+Feature: Agent编辑脚本类型数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"

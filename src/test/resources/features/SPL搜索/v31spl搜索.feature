@@ -1,11 +1,11 @@
 
-Feature: 输入SPL语句，检查搜索完成后的事件数
+Feature: SPL语句执行
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
 #  @smoke @spl @all
-  @spl
+  @v31tcspl
   Scenario Outline: V3.1版本SPL用例、截图
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I wait for "1000" millsecond

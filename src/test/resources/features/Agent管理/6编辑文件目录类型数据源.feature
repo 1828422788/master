@@ -1,4 +1,5 @@
-Feature: 添加数据源
+@agent @agent_addfile
+Feature: Agent编辑文件目录类型数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -6,9 +7,6 @@ Feature: 添加数据源
     When I click the detail which column is "1" in agent page
     And switch to another window
     And I will see the "agent.CreatePage" page
-
-
-#    When the data name is "autohekafiletest" then I "close" the switch
 
   Scenario: 文件目录配置修改文件路径白名单
     And I click the "Create" button
@@ -29,11 +27,9 @@ Feature: 添加数据源
     And I click the "Next" button
     And I will see the element "InputKind" name is "文件监视"
     And I will see the element "SourceRoot" name is "/data/rizhiyi/logs/heka"
-#    And I will see the element "WhitelistRoot" name is "hekad-daemon\.log"
     And I will see the element "Monitoring" name is "是"
     And I will see the element "CheckAppname" name is "autohekafiletest"
-    And I will see the element "CheckTag" name is "autohekafiletest"
-    And I click the "Finish" button
+    And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     And I wait for loading invisible
@@ -41,6 +37,18 @@ Feature: 添加数据源
     And I set the parameter "WhiteList" with value "hekad\.stderr"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+
+
+  Scenario: 文件目录数据源禁用
+    Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
+    Then I wait for loading invisible
+    Then I will see the element "DataSourceSwitchStatus" name is "已禁用"
+
+
+  Scenario: 文件目录数据源启用
+    Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "open" switch
+    Then I wait for loading invisible
+    Then I will see the element "DataSourceSwitchStatus" name is "已启用"
 
   Scenario: 文件目录配置修改文件路径黑名单
     And I click the "EditAutoFile" button
@@ -109,17 +117,6 @@ Feature: 添加数据源
     And I set the parameter "Appname" with value "autohekafiletest"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-
-  Scenario: 文件目录数据源禁用
-    Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
-    Then I wait for loading invisible
-    Then I will see the element "DataSourceSwitchStatus" name is "已禁用"
-
-
-  Scenario: 文件目录数据源启用
-    Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "open" switch
-    Then I wait for loading invisible
-    Then I will see the element "DataSourceSwitchStatus" name is "已启用"
 
   Scenario: 文件目录数据源删除
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "删除" button

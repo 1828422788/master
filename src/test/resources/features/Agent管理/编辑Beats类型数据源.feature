@@ -1,4 +1,5 @@
-Feature: 编辑Beats类型数据源
+@agent @agent_beats
+Feature: Agent编辑Beats类型数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
