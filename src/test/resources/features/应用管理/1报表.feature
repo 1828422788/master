@@ -30,6 +30,7 @@ Feature: 应用报表（RZY-2127）
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoAppReport"
+    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Subject" with value "AutoTest"
     And I set the parameter "Hour" with value "1"
     And I set the parameter "Minute" with value "1"
