@@ -122,3 +122,4 @@ Feature: Agent编辑Syslog类型数据源
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+    And I close all windows

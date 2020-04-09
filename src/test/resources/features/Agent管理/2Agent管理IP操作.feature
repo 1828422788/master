@@ -90,6 +90,8 @@ Feature: Agent管理ip操作
     Given open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     Then the data name is "<name>" then i will see "编辑 跳转 删除" button
     And the data name is "<name>" then i click the "跳转" button
+    And I close all windows
+
 #    Then I will see the agent search result not contains "1"
 
     Examples:

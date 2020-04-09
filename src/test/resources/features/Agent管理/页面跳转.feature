@@ -49,3 +49,4 @@ Feature: Agent页面跳转
   Scenario: 跳转到字段提取页面
     And I click the "Datafetch" button
     Then the page's title will be "字段提取"
+    And I close all windows

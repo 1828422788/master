@@ -137,5 +137,6 @@ Feature: Agent备份功能
     Given the data name "hekabackup" in table "BackUpTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除备份配置成功"
+    And I close all windows
 
 

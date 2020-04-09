@@ -92,6 +92,8 @@ Feature: Agent分组设置
     Then I will see the message "<message>"
     And I click the "EnsureButton" button
     Then I will see the success message "删除成功"
+    And I close all windows
+
 
     Examples: 失败
       | message            |
