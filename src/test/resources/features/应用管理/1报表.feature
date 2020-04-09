@@ -118,6 +118,7 @@ Feature: 应用报表（RZY-2127）
     And I click the "Create" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "无app"
+    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Subject" with value "test"
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"

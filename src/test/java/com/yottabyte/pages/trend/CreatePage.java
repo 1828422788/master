@@ -1134,11 +1134,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAttackmap() {
-        return attackmap;
+        return getChartButton("攻击地图");
     }
 
     public WebElement getRegionmap() {
-        return regionmap;
+        return getChartButton("区划地图");
     }
 
     public WebElement getGeostatsmap() {

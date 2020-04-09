@@ -80,6 +80,7 @@ Feature: 应用拓扑图（RZY-2142）
     Then I will see the "topology.ListPage" page
     And I click the detail which name is "AutoApp"
     And I will see the "app.AppPage" page
+    Then I will see the url contains "app"
     And I will see the element "Title" name is "TopologyApp"
     Then the page's title will be "拓扑图详情"
 

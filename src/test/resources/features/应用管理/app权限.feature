@@ -1,4 +1,4 @@
-@all @app @appSmoke
+#@all @app @appSmoke
 Feature: 应用权限
 
   Scenario: 授权所有权限
@@ -11,15 +11,13 @@ Feature: 应用权限
     And I click the "SaveButton" button
 
   Scenario: 在AutoTest用户上安装app
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+    When I wait for "2000" millsecond
     Given I logout current user
-    And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with properties "user"
     And I set the parameter "Password" with properties "userPwd"
     And I click the "LoginButton" button
-    Given I will see the "PublicNavBarPage" page
+#    Given I will see the "PublicNavBarPage" page
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "InstallButton" button
