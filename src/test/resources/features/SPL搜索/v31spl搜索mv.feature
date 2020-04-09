@@ -1,20 +1,21 @@
 
-Feature: SPL语句_多值指令部分
+Feature: SPL语句_多值指令
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
 #  @smoke @spl @all
   @v31tcsplmv
-  Scenario Outline: V3.1版本SPL用例、截图
+  Scenario Outline: SPL用例_多值指令
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I wait for "1000" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    #And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "5000" millsecond
     Then take a screenshot with name "<splcasename>"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+
 
     Examples:
       |splcasename| splQuery|

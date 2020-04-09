@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -95,5 +96,10 @@ public class OperateBrowser {
 
     private boolean ifReady(Object readyState) {
         return "complete".equals(readyState);
+    }
+
+    @And("^I close all windows$")
+    public void closeAllWindows() {
+        webDriver.quit();
     }
 }
