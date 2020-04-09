@@ -1,5 +1,5 @@
 @cleanGalaxee
-Feature: 数据大屏删除
+Feature: 数据大屏-删除
 
   Background:
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

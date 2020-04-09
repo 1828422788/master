@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏环形占比图
+Feature: 数据大屏-环形占比图
 
   Scenario: 新建默认类型的环形占比图
 #    Given I wait for title change text to "仪表盘"

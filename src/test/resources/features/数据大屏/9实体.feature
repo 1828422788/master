@@ -1,5 +1,5 @@
 @galaxee
-  Feature: 实体
+  Feature: 数据大屏-实体
 
     Scenario: 实体默认设置
 #      Given I will see the "PublicNavBarPage" page

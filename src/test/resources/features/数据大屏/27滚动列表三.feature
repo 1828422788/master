@@ -1,5 +1,5 @@
 @galaxee
-Feature: 滚动列表三
+Feature: 数据大屏-滚动列表三
 
   Scenario: 滚动列表三默认设置
 #    Given I will see the "PublicNavBarPage" page

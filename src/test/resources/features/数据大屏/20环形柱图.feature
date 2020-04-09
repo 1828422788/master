@@ -1,5 +1,5 @@
 @galaxee
-Feature: 环形柱图
+Feature: 数据大屏-环形柱图
 
   Scenario: 环形柱图默认设置
 #    Given I will see the "PublicNavBarPage" page

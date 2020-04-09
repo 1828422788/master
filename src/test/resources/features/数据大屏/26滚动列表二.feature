@@ -1,5 +1,5 @@
 @galaxee
-Feature: 滚动列表二
+Feature: 数据大屏-滚动列表二
 
   Scenario: 滚动列表二默认设置
 #    Given I will see the "PublicNavBarPage" page

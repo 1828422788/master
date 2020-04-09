@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏攻击地图
+Feature: 数据大屏-攻击地图
 
   Background:
 #    Given I wait for title change text to "仪表盘"

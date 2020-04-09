@@ -1,5 +1,5 @@
 @galaxee
-Feature: 栅格百分图
+Feature: 数据大屏-栅格百分图
 
   Scenario: 栅格百分图默认设置
 #    Given I will see the "PublicNavBarPage" page

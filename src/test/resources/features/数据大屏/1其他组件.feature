@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏其他组件
+Feature: 数据大屏-其他组件
 
   Scenario: 新建
 #    Given I will see the "PublicNavBarPage" page

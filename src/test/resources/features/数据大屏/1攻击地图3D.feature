@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏攻击地图3D
+Feature: 数据大屏-攻击地图3D
 
 
   Scenario: 删除相似名称的大屏以便定位

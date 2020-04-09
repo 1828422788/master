@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏表格
+Feature: 数据大屏-表格
 
   Scenario: 新建默认类型的表格
 #    Given I wait for title change text to "仪表盘"

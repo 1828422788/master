@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏水球图
+Feature: 数据大屏-水球图
 
   Scenario: 新建水球图，默认配置
 #    Given I wait for title change text to "仪表盘"

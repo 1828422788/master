@@ -1,5 +1,5 @@
 @galaxee
-  Feature: 中国地图II
+  Feature: 数据大屏-中国地图II
 
     Scenario: 默认类型的中国地图II
        # Given I will see the "PublicNavBarPage" page

@@ -1,5 +1,5 @@
 @galaxee
-Feature: 字符云图
+Feature: 数据大屏-字符云图
 
   Scenario: 字符云图默认设置
 #    Given I will see the "PublicNavBarPage" page

@@ -1,5 +1,5 @@
 @galaxee
-Feature: 滚动条形图
+Feature: 数据大屏-滚动条形图
 
 
   Scenario: 删除相似名称的大屏以便定位

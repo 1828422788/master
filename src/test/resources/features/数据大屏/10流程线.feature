@@ -1,5 +1,5 @@
 @galaxee
-  Feature: 流程线
+  Feature: 数据大屏-流程线
 
     Scenario: 流程线默认设置
 #      Given I will see the "PublicNavBarPage" page

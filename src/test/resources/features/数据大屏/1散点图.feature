@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏散点图
+Feature: 数据大屏-散点图
 
   Background:
 #    Given I wait for title change text to "仪表盘"

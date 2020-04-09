@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏世界地图
+Feature: 数据大屏-世界地图
 
   Scenario: 新建默认类型的世界地图
 #    Given I will see the "PublicNavBarPage" page

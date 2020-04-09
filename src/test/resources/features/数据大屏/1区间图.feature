@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏区间图
+Feature: 数据大屏-区间图
 
   Scenario: 新建默认区间图
 #    Given I wait for title change text to "仪表盘"

@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏折线图
+Feature: 数据大屏-折线图
 
 
 
