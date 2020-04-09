@@ -1181,6 +1181,24 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
     private WebElement dateEditor;
 
+    @FindBy(xpath = "//div[contains(text(),'自定义时间范围')]")
+    private WebElement CustomizeTimeField;
+
+    @FindBy(xpath = "//input[@placeholder='开始日期']")
+    private WebElement startDate;
+
+    @FindBy(xpath = "//input[@placeholder='结束日期']")
+    private WebElement endDate;
+
+    @FindBy(xpath = "//input[@placeholder='开始时间']")
+    private WebElement startTimes;
+
+    @FindBy(xpath = "//input[@placeholder='结束时间']")
+    private WebElement endTimes;
+
+    @FindBy(xpath = "//button[text()='应用']")
+    private WebElement apply;
+
     public WebElement getDateEditor() {
         return dateEditor;
     }
@@ -1241,9 +1259,31 @@ public class SearchPage extends ListPageFactory {
         return super.getButton("下载");
     }
 
+    public WebElement getCustomizeTimeField() {
+        return CustomizeTimeField;
+    }
 
+    public WebElement getStartDate() {
+        return startDate;
+    }
 
-//author_jnd
+    public WebElement getStartTimes() {
+        return startTimes;
+    }
+
+    public WebElement getEndDate() {
+        return endDate;
+    }
+
+    public WebElement getEndTimes() {
+        return endTimes;
+    }
+
+    public WebElement getApply() {
+        return apply;
+    }
+
+    //author_jnd
 
     //数据集父子行为是无的根节点的子节点
     @FindBy(xpath = "//span[text()='无1']")
