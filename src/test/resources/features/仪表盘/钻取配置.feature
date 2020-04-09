@@ -1,6 +1,6 @@
-@dashboard @dashboardSmoke
 Feature: 仪表盘钻取配置
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -13,6 +13,7 @@ Feature: 仪表盘钻取配置
       | 测试钻取配置 |
       | 钻取跳转   |
 
+  @dashboard @dashboardSmoke
   Scenario: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -30,6 +31,7 @@ Feature: 仪表盘钻取配置
     And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -43,6 +45,7 @@ Feature: 仪表盘钻取配置
       | 测试钻取配置 |
       | 钻取跳转   |
 
+  @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
@@ -55,6 +58,7 @@ Feature: 仪表盘钻取配置
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 在当前页面跳转到搜索页-自动
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
@@ -70,6 +74,7 @@ Feature: 仪表盘钻取配置
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
+  @dashboard @dashboardSmoke
   Scenario: 在新标签页跳转到搜索页-自动
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
@@ -85,6 +90,7 @@ Feature: 仪表盘钻取配置
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
+  @dashboard @dashboardSmoke
   Scenario: 在当前页面跳转到搜索页-自定义
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
@@ -106,6 +112,7 @@ Feature: 仪表盘钻取配置
     Then I will see the "SearchInput" result will be "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
     Then I will see the input element "TimeRange" value will contains "今天"
 
+  @dashboard @dashboardSmoke
   Scenario: 在新标签页跳转到搜索页-自定义
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
@@ -127,6 +134,7 @@ Feature: 仪表盘钻取配置
     Then I will see the "SearchInput" result will be "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
     Then I will see the input element "TimeRange" value will contains "今天"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 在当前页面跳转到自定义URL
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
@@ -146,6 +154,7 @@ Feature: 仪表盘钻取配置
       | https://www.baidu.com/ | 百度一下，你就知道 |
       | /alerts/               | 监控        |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 在新标签跳转到自定义URL
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
@@ -167,6 +176,7 @@ Feature: 仪表盘钻取配置
       | https://www.baidu.com/ | 百度一下，你就知道 |
       | /trend/                | 趋势图       |
 
+  @dashboard @dashboardSmoke
   Scenario: 新建标签页钻取所需趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -184,6 +194,7 @@ Feature: 仪表盘钻取配置
     And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 仪表盘添加钻取趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "钻取跳转"
@@ -195,6 +206,7 @@ Feature: 仪表盘钻取配置
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 仪表盘添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "钻取跳转"
@@ -210,6 +222,7 @@ Feature: 仪表盘钻取配置
       | filter | defaultValue |
       | city   | 苏州市          |
 
+  @dashboard @dashboardSmoke
   Scenario: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "钻取跳转"
@@ -220,6 +233,7 @@ Feature: 仪表盘钻取配置
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 跳转到标签页(后三步待验证)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
@@ -242,6 +256,7 @@ Feature: 仪表盘钻取配置
     And I wait for "Progress" will be invisible
     Then I will see the "GeoCity" result will be "南京市"
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
@@ -254,6 +269,7 @@ Feature: 仪表盘钻取配置
       | 钻取跳转   |
       | 测试钻取配置 |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button

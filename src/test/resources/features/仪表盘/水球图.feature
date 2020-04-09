@@ -1,6 +1,6 @@
-@dashboard
 Feature: 仪表盘水球图
 
+  @dashboard
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -12,6 +12,7 @@ Feature: 仪表盘水球图
       | name   |
       | 仪表盘水球图 |
 
+  @dashboard
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -33,6 +34,7 @@ Feature: 仪表盘水球图
       | spl                                                          | name   |
       | tag:*display \| stats count() by apache.clientip \| limit 10 | 仪表盘水球图 |
 
+  @dashboard
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘<name>"
@@ -45,6 +47,7 @@ Feature: 仪表盘水球图
       | name |
       | 水球图  |
 
+  @dashboard
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -59,6 +62,7 @@ Feature: 仪表盘水球图
       | name   |
       | 仪表盘水球图 |
 
+  @dashboard
   Scenario Outline: 修改为字符云图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -88,6 +92,7 @@ Feature: 仪表盘水球图
       | name   |
       | 仪表盘水球图 |
 
+  @dashboard
   Scenario Outline: 验证配置是否在高级编辑中体现
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -100,6 +105,7 @@ Feature: 仪表盘水球图
       | name   | json                                                                                                                                                                                                                                                                                                                                               |
       | 仪表盘水球图 | {\n  "title": "仪表盘水球图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:*display \| stats count() by apache.clientip \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "liquidfill",\n    "field": "count()",\n    "precision": ""\n  }\n} |
 
+  @dashboard
   Scenario Outline: RZY-1362:修改field
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -119,6 +125,7 @@ Feature: 仪表盘水球图
       | name   | json                                                                                                                                                                                                                                                                         |
       | 仪表盘水球图 | {"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display \| stats count() by apache.clientip \| limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "apache.clientip","precision": ""}} |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
@@ -130,6 +137,7 @@ Feature: 仪表盘水球图
       | name   |
       | 仪表盘水球图 |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button

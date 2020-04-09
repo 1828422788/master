@@ -87,6 +87,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'展示')])[last()]")
     private WebElement exhibition;
 
+    @FindBy(xpath = "(//div[contains(text(),'对比')])[last()]")
+    private WebElement compare;
+
     @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::label")
     private WebElement smooth;
 
@@ -144,7 +147,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'序列')])[last()]")
     private WebElement order;
 
-    @FindBy(xpath = "(//div[contains(text(),'地图')][@class='popover-type-group-item'])[last()]")
+    @FindBy(xpath = "(//div[text()='地图'])[last()]")
     private WebElement map;
 
     @FindBy(xpath = "(//div[contains(text(),'其他')])[last()]")
@@ -167,6 +170,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[contains(text(),'切分')])[last()]")
     private WebElement divide;
+
+    @FindBy(xpath = "(//div[contains(text(),'分面')])[last()]")
+    private WebElement divideSide;
 
     @FindBy(xpath = "(//p[text()='+ 添加'])[last()]")
     private WebElement addField;
@@ -327,7 +333,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[@style='background: rgb(83, 196, 27);'])[last()]/ancestor::li")
     private WebElement lightGreen;
 
-    @FindBy(xpath = "(//span[@style='background: rgb(255, 235, 59);'])[last()]/ancestor::li")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 227, 16);')])[last()]")
     private WebElement yellow;
 
     @FindBy(xpath = "(//span[text()='实际值'])[last()]/ancestor::div/following-sibling::div//input")
@@ -488,6 +494,35 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='单位']/ancestor::div/following-sibling::input")
     private WebElement unit;
+
+    @FindBy(xpath = "//span[text()='行数']/preceding-sibling::input")
+    private WebElement layoutRow;
+
+    @FindBy(xpath = "//span[text()='列数']/preceding-sibling::input")
+    private WebElement layoutColumn;
+
+    @FindBy(xpath = "//input[@placeholder='max']/following-sibling::div")
+    private WebElement rangeColor;
+
+    public WebElement getRangeColor() {
+        return rangeColor;
+    }
+
+    public WebElement getLayoutRow() {
+        return layoutRow;
+    }
+
+    public WebElement getLayoutColumn() {
+        return layoutColumn;
+    }
+
+    public WebElement getDivideSide() {
+        return divideSide;
+    }
+
+    public WebElement getCompare() {
+        return compare;
+    }
 
     public WebElement getDataPrecision() {
         dataPrecision.click();
@@ -1107,7 +1142,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getGeostatsmap() {
-        return geostatsmap;
+        return getChartButton("统计地图");
     }
 
     public WebElement getTable() {
@@ -1140,6 +1175,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getMatrixheatmap() {
         return getChartButton("矩阵热力图");
+    }
+
+    public WebElement getAnnular() {
+        return getChartButton("环形比例图");
     }
 
     public WebElement getBackground() {

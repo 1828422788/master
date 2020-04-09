@@ -1,6 +1,6 @@
-Feature: 仪表盘漏斗图
+Feature: 仪表盘统计地图
 
-  @dashboard
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -9,10 +9,10 @@ Feature: 仪表盘漏斗图
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
-      | name   |
-      | 仪表盘漏斗图 |
+      | name    |
+      | 仪表盘统计地图 |
 
-  @dashboard
+  @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -31,10 +31,10 @@ Feature: 仪表盘漏斗图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                         | name   |
-      | tag:*display \| stats count() by apache.clientip \| limit 8 | 仪表盘漏斗图 |
+      | spl                                                                                                          | name    |
+      | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt | 仪表盘统计地图 |
 
-  @dashboard
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘<name>"
@@ -45,9 +45,9 @@ Feature: 仪表盘漏斗图
 
     Examples:
       | name |
-      | 漏斗图  |
+      | 统计地图 |
 
-  @dashboard
+  @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -59,36 +59,29 @@ Feature: 仪表盘漏斗图
     And I click the "Ensure" button
 
     Examples:
-      | name   |
-      | 仪表盘漏斗图 |
+      | name    |
+      | 仪表盘统计地图 |
 
-  @dashboard
-  Scenario Outline: 修改为漏斗图
+  @dashboard @dashboardSmoke
+  Scenario Outline: 修改为统计地图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Other" will be visible
-    And I click the "Other" button
-    And I click the "Funnel" button
+    And I wait for "Map" will be visible
+    And I click the "Map" button
+    And I click the "Geostatsmap" button
     And I hide the element "Content"
-    And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
-    And I choose the "count()" from the "DataValue"
-    And I click the "Divide" button
-    And I choose the "apache.clientip" from the "DataValue"
-    Then I click the "Generate" button
-    And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
-    Then I compare source image "dashboard/<name>" with target image "dashboard/<name>"
+    Then I compare source image "dashboard/<name>" with target image "dashboard/Geostatsmap"
 
     Examples:
-      | name   |
-      | 仪表盘漏斗图 |
+      | name    |
+      | 仪表盘统计地图 |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
@@ -99,8 +92,8 @@ Feature: 仪表盘漏斗图
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
-      | name   |
-      | 仪表盘漏斗图 |
+      | name     |
+      | 仪表盘统计地图 |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
@@ -111,5 +104,5 @@ Feature: 仪表盘漏斗图
     And I will see the success message "删除成功"
 
     Examples:
-      | name   |
-      | 仪表盘漏斗图 |
+      | name     |
+      | 仪表盘统计地图 |

@@ -1,6 +1,6 @@
-@dashboard @dashboardSmoke
 Feature: 仪表盘高级编辑
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -12,6 +12,7 @@ Feature: 仪表盘高级编辑
       | name   |
       | 测试高级编辑 |
 
+  @dashboard @dashboardSmoke
   Scenario: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -29,6 +30,7 @@ Feature: 仪表盘高级编辑
     And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -37,6 +39,7 @@ Feature: 仪表盘高级编辑
     And I click the "Ensure" button
     And I wait for loading complete
 
+  @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -48,6 +51,7 @@ Feature: 仪表盘高级编辑
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
+  @dashboard @dashboardSmoke
   Scenario: 修改query字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -63,6 +67,7 @@ Feature: 仪表盘高级编辑
     And I wait for "Progress" will be invisible
     Then I will see the "TableHeader" result will be "apache.geo.country  apache.geo.province  apache.geo.city  count() "
 
+  @dashboard @dashboardSmoke
   Scenario: 修改开始时间
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -78,6 +83,7 @@ Feature: 仪表盘高级编辑
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "最近2天"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 校验开始时间和结束时间
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -93,6 +99,7 @@ Feature: 仪表盘高级编辑
       |       | now | search -> startTime 字段不能为空 |
       | -2d   |     | search -> endTime 字段不能为空   |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 校验row和column
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -112,6 +119,7 @@ Feature: 仪表盘高级编辑
       | 13 | 15 | 1  | 12 | x 字段值的有效区间范围为'0'至'12' |
       | 1  | -1 | 1  | 12 | y 字段值不能低于其允许最小值'0'    |
 
+  @dashboard @dashboardSmoke
   Scenario: 验证title字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -124,6 +132,7 @@ Feature: 仪表盘高级编辑
     And I click the "Ensure" button
     Then I will see the "TrendTitle" result will be "仪表盘高级编辑"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证备注字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -138,6 +147,7 @@ Feature: 仪表盘高级编辑
     And I click the "Describe" button
     Then I will see the "DescribeText" result will be "测试描述"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证清空JSON
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -162,6 +172,7 @@ Feature: 仪表盘高级编辑
 #    And I click the "Check" button
 #    Then I will see the message contains "7行"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证重置JSON
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -176,6 +187,7 @@ Feature: 仪表盘高级编辑
     And I click the "Check" button
     Then I will see the success message "校验通过"
 
+  @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-type
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -191,6 +203,7 @@ Feature: 仪表盘高级编辑
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
+  @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-blank
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -206,6 +219,7 @@ Feature: 仪表盘高级编辑
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
+  @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-query及timeRange
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -222,6 +236,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "SearchInput" result will be "tag:sample04061424 | where apache.status<400 && apache.status>200 | stats count() as cnt"
     Then I will see the input element "TimeRange" value will contains "昨天"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 高级搜索钻取修改校验
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -237,6 +252,7 @@ Feature: 仪表盘高级编辑
       | "mode": "custom"                                                                                                       | drilldown -> query 字段为必填项     |
       | "mode": "custom","query": "tag:sample04061424 \| where apache.status<400 && apache.status>200 \| stats count() as cnt" | drilldown -> timeRange 字段为必填项 |
 
+  @dashboard @dashboardSmoke
   Scenario: 新建输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -248,6 +264,7 @@ Feature: 仪表盘高级编辑
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -259,6 +276,7 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 验证输入值支持eval
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -267,6 +285,7 @@ Feature: 仪表盘高级编辑
     And I click the "CountNum" button
     Then I will see the input element "FilterInput" value will contains "249"
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
@@ -278,6 +297,7 @@ Feature: 仪表盘高级编辑
       | name   |
       | 测试高级编辑 |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button

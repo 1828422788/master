@@ -1,6 +1,6 @@
-@dashboard @dashboardSmoke
 Feature: 仪表盘关联搜索
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "Create" button
@@ -26,6 +26,7 @@ Feature: 仪表盘关联搜索
       | ^[^\t\n]*\t(?<CREATE_DATE>[^\t]+)\t(?<EPORT_ID>\d+)\t(?<CUS_ID>\d+)\t(?<MESSAGE_ID>.+)       | 仪表盘关联搜索_return   | return   | auto_test_dashboard_return   |
       | ^(?<ENTRY_ID>[^\t]+)\t(?<STEP_ID>[^\t]+)\t(?<CREATE_DATE>[^\t]+)                             | 仪表盘关联搜索_workflow | workflow | auto_test_dashboard_workflow |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appName>"
@@ -40,6 +41,7 @@ Feature: 仪表盘关联搜索
       | auto_test_dashboard_return   | 11.21RETURN_RECEIPT_BAK.txt |
       | auto_test_dashboard_workflow | 11.15-11.2100000000.txt     |
 
+  @dashboard @dashboardSmoke
   Scenario: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When I click the "Create" button
@@ -47,6 +49,7 @@ Feature: 仪表盘关联搜索
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -59,6 +62,7 @@ Feature: 仪表盘关联搜索
       | name    |
       | 仪表盘关联搜索 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -82,6 +86,7 @@ Feature: 仪表盘关联搜索
       | 仪表盘return   | tag:auto_test_dashboard_return \| table tag,return.CUS_ID,return.EPORT_ID \| rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID                                           |
       | 仪表盘workflow | tag:auto_test_dashboard_workflow \| table tag,workflow.ENTRY_ID \| rename workflow.ENTRY_ID as ENTRY_ID                                                                           |
 
+  @dashboard @dashboardSmoke
   Scenario: 在仪表盘中添加趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘关联搜索"
@@ -94,6 +99,7 @@ Feature: 仪表盘关联搜索
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘关联搜索"
@@ -110,6 +116,7 @@ Feature: 仪表盘关联搜索
       | 仪表盘message | {"title": "仪表盘message","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_message \| table tag ,message.PRE_ENTRY_ID,message.CREATE_DATE \| rename tag as tag, message.PRE_ENTRY_ID as PRE_ENTRY, message.CREATE_DATE as CREAT_DATE","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "set","name": "return","value": "${click.value2}"}]}} |
       | 仪表盘return  | {"title": "仪表盘return","description": "","x": 0,"y": 20,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_return AND return.EPORT_ID:${return}\| table return.EPORT_ID,tag,return.CUS_ID \| rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID","startTime": "now/d","endTime": "now","done": {"type": "local","targets": [{"action": "eval","name": "workflow","value": "${result.CUS_ID}"}]}},"chart": {"chartType": "table"}}                |
 
+  @dashboard @dashboardSmoke
   Scenario: 修改表格workflow查询语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -121,6 +128,7 @@ Feature: 仪表盘关联搜索
     Then I click the "Ensure" button
     Then I will see the success message "配置成功"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘关联搜索"
@@ -139,6 +147,7 @@ Feature: 仪表盘关联搜索
       | return   |
       | workflow |
 
+  @dashboard @dashboardSmoke
   Scenario: 验证return搜索结果
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -157,6 +166,7 @@ Feature: 仪表盘关联搜索
     And I wait for "ReturnList" will be visible
     And I compare with list "ReturnList"
 
+  @dashboard @dashboardSmoke
   Scenario: 验证workflow搜索结果
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -174,6 +184,7 @@ Feature: 仪表盘关联搜索
     And I wait for "WorkflowList" will be visible
     And I compare with list "WorkflowList"
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
@@ -185,6 +196,7 @@ Feature: 仪表盘关联搜索
       | name    |
       | 仪表盘关联搜索 |
 
+  @cleanDashboard
   Scenario Outline: 删除字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
@@ -198,6 +210,7 @@ Feature: 仪表盘关联搜索
       | 仪表盘关联搜索_return   |
       | 仪表盘关联搜索_message  |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button

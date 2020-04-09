@@ -1,6 +1,6 @@
-@dashboard
 Feature: 仪表盘矩阵热力图
 
+  @dashboard
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -12,6 +12,7 @@ Feature: 仪表盘矩阵热力图
       | name     |
       | 仪表盘矩阵热力图 |
 
+  @dashboard
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -33,6 +34,7 @@ Feature: 仪表盘矩阵热力图
       | spl                                                         | name     |
       | tag:*display \| stats count() by apache.clientip \| limit 8 | 仪表盘矩阵热力图 |
 
+  @dashboard
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘<name>"
@@ -45,6 +47,7 @@ Feature: 仪表盘矩阵热力图
       | name  |
       | 矩阵热力图 |
 
+  @dashboard
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘矩阵热力图"
@@ -55,6 +58,7 @@ Feature: 仪表盘矩阵热力图
     And I "checked" the checkbox which name is "仪表盘矩阵热力图"
     And I click the "Ensure" button
 
+  @dashboard
   Scenario: 修改为矩阵热力图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘矩阵热力图"
@@ -80,6 +84,7 @@ Feature: 仪表盘矩阵热力图
     And take part of "FullScreen" with name "dashboard/仪表盘矩阵热力图"
     Then I compare source image "dashboard/仪表盘矩阵热力图" with target image "dashboard/Matrixheatmap"
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
@@ -91,6 +96,7 @@ Feature: 仪表盘矩阵热力图
       | name     |
       | 仪表盘矩阵热力图 |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button
