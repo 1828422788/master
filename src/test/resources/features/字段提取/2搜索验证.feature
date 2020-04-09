@@ -87,6 +87,7 @@ Feature: 字段提取搜索验证
     And I set the parameter "SearchInput" with value "tag:replacer"
     And I click the "DateEditor" button
     And I click the "Today" button
+    Then I wait for "2000" millsecond
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button

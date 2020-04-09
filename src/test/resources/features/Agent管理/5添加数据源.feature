@@ -102,6 +102,8 @@ Feature: Agent添加数据源
     Given the data name "/sbin/service" in table "ScriptTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+    And I close all windows
+
 
     Examples:
       | charsetKind |

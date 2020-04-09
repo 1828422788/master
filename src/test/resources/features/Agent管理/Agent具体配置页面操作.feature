@@ -56,4 +56,6 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Senior" button
     And I click the "Cancle" button
     And I will see the "AgentConfigurationTitle" doesn't exist
+    And I close all windows
+
 

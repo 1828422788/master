@@ -34,4 +34,6 @@ Feature: Agent添加数据源校验
     And I click the "Ensure" button
     And I will see the element "PreviewMessage" name is "请务必选择一个文件用来预览。"
     And I click the "ChooseButton" button
-    And I click the "Next" button
+    And I click the "Next"
+    And I close all windows
+

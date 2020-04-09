@@ -129,8 +129,9 @@ Feature: 字段提取时间戳识别
     And I set the parameter "EndDate" with value "<endDate>"
     And I set the parameter "StartTimes" with value "<startTime>"
     And I set the parameter "EndTimes" with value "<endTime>"
+    Then I wait for "1000" millsecond
     Then I click the "Apply" button
-    Then I wait for "2000" millsecond
+    Then I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "1000" millsecond

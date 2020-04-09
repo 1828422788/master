@@ -35,6 +35,8 @@ Feature: AgentIP过滤
     When I set the parameter "IP" with value "<ip>"
     And  I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'192.168.1.136'}"
+    And I close all windows
+
 
 
     Examples: 模糊搜索ip过滤成功
