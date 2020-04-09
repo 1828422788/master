@@ -102,7 +102,7 @@ public class OperateBrowser {
      * 关闭除当前打开页签以外的所有页签
      */
     @And("^I close all tabs except main tab$")
-    public void closeAllWindows() {
+    public void closeTabsExceptMainTab() {
         String mainTab = webDriver.getWindowHandle();
         for (String handle : webDriver.getWindowHandles()) {
             if (!handle.equals(mainTab)) {
