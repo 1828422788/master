@@ -1,4 +1,4 @@
-@agent
+@agent @agent_jump
 Feature: Agent页面跳转
 
   Background:
