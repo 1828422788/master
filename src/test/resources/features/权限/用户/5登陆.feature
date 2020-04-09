@@ -12,11 +12,11 @@ Feature: 用户登陆（RZY-1152、RZY-1153）
 
     Examples:
       | usernameValue       | passwordValue | errorMessage |
-      |                     | all123456     | 请输入用户名       |
+      |                     | All#123456     | 请输入用户名       |
       | owner               |               | 请输入密码        |
       | owner               | asd           | 用户名或密码错误     |
       | qweax               | asd           | 登录名不存在       |
-      | SuccessEditAutoTest | 123456        | 该账号已被禁用      |
+      | SuccessEditAutoTest | All#123456        | 该账号已被禁用      |
 
   @smoke @usersSmoke
   Scenario: 启用账号

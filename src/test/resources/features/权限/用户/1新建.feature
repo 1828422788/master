@@ -19,24 +19,24 @@ Feature: 用户新建（RZY-1164）
   @smoke @usersSmoke
     Examples:
       | UserName        | FullName         | Email                        | Telephone | Password   | UserGroups | Result                 |
-      | AutoTestForEdit | autoTestFullName | autoTestForEdit@yottabyte.cn |           | qqqqq11111 | admin      | success message "创建成功" |
-#      | AutoTestForSavedSearch | AutoTestForSavedSearch | AutoTestForSavedSearch@yottabyte.cn |           | qqqqq11111 | admin      | success message "创建成功" |
+      | AutoTestForEdit | autoTestFullName | autoTestForEdit@yottabyte.cn |           | All#123456 | admin      | success message "创建成功" |
+#      | AutoTestForSavedSearch | AutoTestForSavedSearch | AutoTestForSavedSearch@yottabyte.cn |           | All#123456 | admin      | success message "创建成功" |
 
     Examples: 添加用户失败
       | UserName | FullName         | Email                     | Telephone   | Password          | UserGroups | Result                              |
-      |          | autoTestFullName | autoFullName@yottabyte.cn |             | qqqqq11111        | group      | error message "用户名 不能为空"            |
-      | AutoTest | autoTestFullName |                           |             | qqqqq11111        | group      | error message "邮箱地址 不能为空"           |
-      | AutoTest | autoTestFullName | autoFullName              | 13111111111 | qqqqq11111        | group      | error message "邮箱地址 不合法"            |
-      | AutoTest |                  | autoFullName@aa.          |             | qqqqq11111        | group      | error message "邮箱地址 不合法"            |
-      | AutoTest |                  | autoFullName@.cn          |             | qqqqq11111        | group      | error message "邮箱地址 不合法"            |
-      | AutoTest |                  | autoFullName.cn           |             | qqqqq11111        | group      | error message "邮箱地址 不合法"            |
+      |          | autoTestFullName | autoFullName@yottabyte.cn |             | All#123456        | group      | error message "用户名 不能为空"            |
+      | AutoTest | autoTestFullName |                           |             | All#123456        | group      | error message "邮箱地址 不能为空"           |
+      | AutoTest | autoTestFullName | autoFullName              | 13111111111 | All#123456        | group      | error message "邮箱地址 不合法"            |
+      | AutoTest |                  | autoFullName@aa.          |             | All#123456        | group      | error message "邮箱地址 不合法"            |
+      | AutoTest |                  | autoFullName@.cn          |             | All#123456        | group      | error message "邮箱地址 不合法"            |
+      | AutoTest |                  | autoFullName.cn           |             | All#123456        | group      | error message "邮箱地址 不合法"            |
       | AutoTest |                  | autoFullName@yottabyte.cn |             |                   | group      | error message "密码 不能为空"             |
       | AutoTest |                  | autoFullName@yottabyte.cn |             | qqqqqq1           | group      | error message "密码输入有误，请重新输入"        |
       | AutoTest |                  | autoFullName@yottabyte.cn |             | qqqqqqqq          | group      | error message "密码输入有误，请重新输入"        |
       | AutoTest |                  | autoFullName@yottabyte.cn |             | 11111111          | group      | error message "密码输入有误，请重新输入"        |
-      | AutoTest |                  | autoFullName@yottabyte.cn |             | qqqqqqqq111111111 | group      | error message "密码输入有误，请重新输入"        |
-      | AutoTest |                  | autoFullName@yottabyte.cn |             | qqqqq11111        |            | error message "用户分组 不能为空"           |
-      | AutoTest |                  | autoFullName@rizhiyi.com  |             | qqqqq11111        | group      | error message "用户名已存在\n错误码: FE_532" |
+      | AutoTest |                  | autoFullName@yottabyte.cn |             | qqqAll#1234561111 | group      | error message "密码输入有误，请重新输入"        |
+      | AutoTest |                  | autoFullName@yottabyte.cn |             | All#123456        |            | error message "用户分组 不能为空"           |
+      | AutoTest |                  | autoFullName@rizhiyi.com  |             | All#123456        | group      | error message "用户名已存在\n错误码: FE_532" |
 
   Scenario Outline: 邮箱重复校验
     And I click the "CreateUser" button
@@ -50,7 +50,7 @@ Feature: 用户新建（RZY-1164）
 
     Examples:
       | UserName | Email     | Password   | UserGroups | Result              |
-      | aaa      | userEmail | qqqqq11111 | group      | 邮件名已存在\n错误码: FE_533 |
+      | aaa      | userEmail | All#123456 | group      | 邮件名已存在\n错误码: FE_533 |
 
   Scenario Outline: 名称重复校验
     And I click the "CreateUser" button
@@ -64,4 +64,4 @@ Feature: 用户新建（RZY-1164）
 
     Examples:
       | UserName | Email                    | Password   | UserGroups | Result              |
-      | user     | autoFullName@rizhiyi.com | qqqqq11111 | group      | 用户名已存在\n错误码: FE_532 |
+      | user     | autoFullName@rizhiyi.com | All#123456 | group      | 用户名已存在\n错误码: FE_532 |
