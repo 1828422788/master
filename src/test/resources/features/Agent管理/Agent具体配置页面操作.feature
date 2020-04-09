@@ -46,7 +46,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
   Scenario: 修改&重启Agent高级配置
     And I click the "Senior" button
     And I click the "ChangeConfiguration" button
-    Then I will see the element "ChangeMemo" name is "提交修改 Agent 配置成功，正在尝试重启。"
+#    Then I will see the element "ChangeMemo" name is "提交修改 Agent 配置成功，正在尝试重启。"
     And I close all tabs except main tab
 
   Scenario: 下载Agent高级配置

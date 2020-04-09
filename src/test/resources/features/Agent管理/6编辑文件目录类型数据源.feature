@@ -85,12 +85,12 @@ Feature: Agent编辑文件目录类型数据源
     And I close all tabs except main tab
 
 
-  Scenario: 文件目录配置修改分流字段
-    And I click the "EditAutoFile" button
-    And I set the parameter "Stream" with value ""
-    And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-    And I close all tabs except main tab
+#  Scenario: 文件目录配置修改分流字段
+#    And I click the "EditAutoFile" button
+#    And I set the parameter "Stream" with value ""
+#    And I click the "Ensure" button
+#    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+#    And I close all tabs except main tab
 
 
   Scenario Outline: 文件目录配置修改最后修改时间

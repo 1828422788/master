@@ -29,6 +29,19 @@ Feature: Agent编辑脚本类型数据源
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I close all tabs except main tab
 
+  Scenario: 文件目录数据源禁用
+    Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "close" switch
+    Then I wait for loading invisible
+    Then I will see the element "ScriptSwitchStatus" name is "已禁用"
+    And I close all tabs except main tab
+
+
+  Scenario: 文件目录数据源启用
+    Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "open" switch
+    Then I wait for loading invisible
+    Then I will see the element "ScriptSwitchStatus" name is "已启用"
+    And I close all tabs except main tab
+
   Scenario:编辑修改可执行文件
     And I click the "EditAutoScript" button
     And I set the parameter "ExcuteFile" with value "/bin/ls"
@@ -99,19 +112,6 @@ Feature: Agent编辑脚本类型数据源
     And I set the parameter "Appname" with value "autohekascripttest"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-    And I close all tabs except main tab
-
-  Scenario: 文件目录数据源禁用
-    Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "close" switch
-    Then I wait for loading invisible
-    Then I will see the element "ScriptSwitchStatus" name is "已禁用"
-    And I close all tabs except main tab
-
-
-  Scenario: 文件目录数据源启用
-    Given the data name "autohekascripttest" in agent table "ScriptTable" then i click the "open" switch
-    Then I wait for loading invisible
-    Then I will see the element "ScriptSwitchStatus" name is "已启用"
     And I close all tabs except main tab
 
   Scenario: 脚本类型数据源删除
