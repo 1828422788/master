@@ -2,8 +2,10 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -17,6 +19,7 @@ import static org.junit.Assert.assertTrue;
  * Created by A on 2017/4/7.
  */
 public class VerifyTitle {
+    WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     /**
      * 断言页面的标题为某一值
@@ -47,7 +50,6 @@ public class VerifyTitle {
      */
     @And("^I wait for title change text to \"([^\"]*)\"$")
     public void waitForTitleChangeTextTo(String titleName) {
-        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
@@ -60,5 +62,11 @@ public class VerifyTitle {
         };
 
         new WaitElementChangeTextTo().waitForElementWithExpectedCondition(webDriver, expectedCondition);
+    }
+
+    @Then("^I will see the url contains \"([^\"]*)\"$")
+    public void urlContainsName(String name) {
+        String url = webDriver.getCurrentUrl();
+        Assert.assertTrue(url.contains(name));
     }
 }
