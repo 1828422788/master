@@ -30,7 +30,7 @@ Feature: Agent添加数据源
     And I will see the element "SourceRoot" name is "/data/rizhiyi/logs/heka"
     And I will see the element "Monitoring" name is "是"
     And I will see the element "CheckAppname" name is "autohekafiletest"
-    And I click the "Finish" button
+    And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     And I wait for loading invisible
