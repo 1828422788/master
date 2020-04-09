@@ -31,6 +31,7 @@ Feature: 趋势图新建_报表
     When I click the "Report" button
 
     And switch to window "编辑报表"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then I will see the "report.CreatePage" page
     When I set the parameter "Name" with value "<report_name>"
