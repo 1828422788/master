@@ -70,7 +70,7 @@ Feature: Agent添加数据源
     And I set the parameter "Syslogtag" with value "autohekaSyslog"
     And I click the "Next" button
     And I will see the element "CheckListenaddress" name is "192.168.1.161:514"
-    And I click the "Finish" button
+    And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "删除" button
@@ -96,7 +96,7 @@ Feature: Agent添加数据源
     And I will see the element "CheckParam" name is "rsyslog status"
     And I will see the element "CheckChangeRowRule" name is "\n"
     And I will see the element "CheckInternal" name is "120 秒"
-    And I click the "Finish" button
+    And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     Given the data name "/sbin/service" in table "ScriptTable" then i click the "删除" button
