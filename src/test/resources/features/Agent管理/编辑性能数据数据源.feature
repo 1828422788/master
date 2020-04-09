@@ -19,7 +19,7 @@ Feature: Agent编辑性能数据类型数据源
     And I set the parameter "PreAppname" with value "autotop_info"
     And I set the parameter "Tag" with value "autotop_info"
     And I click the "Next" button
-    And I click the "Finish" button
+    And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
   Scenario: 性能数据源禁用
