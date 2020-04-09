@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集在定时任务中的应用【编辑页】
+Feature: 数据集-在定时任务编辑页
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -10,6 +10,8 @@ Feature: 数据集在定时任务中的应用【编辑页】
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为无的数据集
     And I click the "fatherChildNull" button
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
@@ -27,18 +29,14 @@ Feature: 数据集在定时任务中的应用【编辑页】
     And I click the "schedule" button
     Then I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-
     When the data name is "{'column':'2','name':'无'}" then i click the "编辑" button
-
     And I will see the "timedTask.EditPage" page
-
-
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
     Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
       |spl                         |taskName |describe               | crontab      |dataSetResult|
-      |*\| stats count() by appname|无       |选择了父子行为为无的数据集 |0 */57 * * * ?|(tag:heka    |
+      |*\| stats count() by appname|无       |选择了父子行为为无的数据集 |0 */57 * * * ?|(tag:sample*)   |
 
 
 
@@ -48,6 +46,8 @@ Feature: 数据集在定时任务中的应用【编辑页】
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为汇聚的数据集
     And I click the "huiJu" button
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
@@ -67,12 +67,12 @@ Feature: 数据集在定时任务中的应用【编辑页】
     When the data name is "{'column':'2','name':'汇聚'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
 
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
     Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
       |spl                         |taskName|describe               | crontab      | dataSetResult|
-      |*\| stats count() by appname|汇聚     |选择了父子行为为汇聚的数据集|0 */57 * * * ?|(* AND tag:heka AND (tag:top_info OR appname:apache))|
+      |*\| stats count() by appname|汇聚     |选择了父子行为为汇聚的数据集|0 */57 * * * ?|(* AND tag:sample* AND (tag:beyond4 OR appname:apache))|
 
 
 
@@ -81,6 +81,8 @@ Feature: 数据集在定时任务中的应用【编辑页】
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为继承的数据集
     And I click the "jiCheng" button
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
@@ -104,9 +106,9 @@ Feature: 数据集在定时任务中的应用【编辑页】
 
     And I will see the "timedTask.EditPage" page
 
-    And I wait for loading invisible
+    And I wait for "3000" millsecond
     Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
       |spl                         |taskName |describe               | crontab       | dataSetResult|
-      |*\| stats count() by appname|继承      |选择了父子行为为继承的数据集|0 */57 * * * ?|(* AND tag:heka)|
+      |*\| stats count() by appname|继承      |选择了父子行为为继承的数据集|0 */57 * * * ?|(* AND tag:sample*)|

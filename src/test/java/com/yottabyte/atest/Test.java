@@ -1,20 +1,30 @@
 package com.yottabyte.atest;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * @author sunxj
  */
 public class Test {
-    public static int m;
 
     public static void main(String[] args) {
         Test test = new Test();
-        Test.m = 3;
-        test.test(Test.m);
-        System.out.println(m);
+        System.out.println(test.getCurrenTime());
     }
 
-    public void test(int m) {
-        Test.m = m;
-        System.out.println(Test.m);
+    public Object parseTime() {
+        String time = "1578758450320";
+        Long lo = Long.parseLong(time);
+        Date date = new Date(lo);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return format.format(date);
     }
+
+    public Object getCurrenTime() {
+        Date date = new Date();
+        return date.getTime();
+    }
+
 }

@@ -20,7 +20,7 @@ Feature: 仪表盘搜索（RZY-216）
     When the data name is "UIautotest" then i click the "标签" button
     And I click the "RemoveTagIcon" button
     And I click the "Ensure" button
-    Then I will see the success message "更新成功"
+    Then I will see the success message "更新仪表盘成功"
 
   Scenario: 按照资源分组搜索
     When I choose the "AutoTest" from the "ResourceDropdown"

@@ -169,10 +169,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='图表尺寸']/following-sibling::div//input)[2]")
     private WebElement height;
 
-    @FindBy(xpath = "(//label[text()='图表位置']/following-sibling::div//input)[1]")
+    //@FindBy(xpath = "(//label[text()='图表位置']/following-sibling::div//input)[1]")
+    @FindBy(xpath = "(//label[text()='图表位移']/following-sibling::div//input)[1]")
     private WebElement chartXaxis;
 
-    @FindBy(xpath = "(//label[text()='图表位置']/following-sibling::div//input)[2]")
+   // @FindBy(xpath = "(//label[text()='图表位置']/following-sibling::div//input)[2]")
+    @FindBy(xpath = "(//label[text()='图表位移']/following-sibling::div//input)[2]")
     private WebElement chartYaxis;
 
     @FindBy(xpath = "(//div[text()='极坐标系']/following-sibling::div//label[contains(text(),'中心纬度,经度')]/following-sibling::div//input)[2]")
@@ -199,7 +201,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='正常']/following-sibling::div//input")
     private List<WebElement> mapInputList;
 
-    @FindBy(xpath = "(//div[contains(text(),'地图')])[2]")
+    @FindBy(xpath = "(//div[contains(text(),'地图')])/i")
     private WebElement mapHeader;
 
     @FindBy(className = "worldmap2d")
@@ -217,7 +219,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "attack3d")
     private WebElement attack3d;
 
-    @FindBy(className = "flipNumber")
+//    @FindBy(className = "flipNumber")
+    @FindBy(xpath = "//li[text()='数值翻牌器']")
     private WebElement flipNumber;
 
     @FindBy(className = "status")
@@ -1304,6 +1307,10 @@ public class CreatePage extends PageTemplate {
 
 
 //author-jnd
+    //发布
+    @FindBy(xpath = "//span[text()='发布']")
+    private WebElement fabu;
+    public WebElement getFabu(){return fabu;}
     //全局样式
     @FindBy(xpath = "//div[text()='全局样式']/i")
     private WebElement globalStyle;
@@ -1318,23 +1325,23 @@ public class CreatePage extends PageTemplate {
     private WebElement ChineseMapTwo;
     public WebElement getChineseMapTwo(){return ChineseMapTwo;}
     //中国地图二->样式->名称颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[2]/div")
+    @FindBy(xpath = "//label[contains(text(),'名称颜色')]/following-sibling::div")
     private WebElement ChineseMapTwoNameColor;
     public WebElement getChineseMapTwoNameColor(){return ChineseMapTwoNameColor;}
     //中国地图二->样式->数值颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[3]/div")
+     @FindBy(xpath = "//label[contains(text(),'数值颜色')]/following-sibling::div")
     private WebElement ChineseMapTwoNumberColor;
     public WebElement getChineseMapTwoNumberColor(){return ChineseMapTwoNumberColor;}
 
     //中国地图二-数据-搜索-类别
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[1]/div")
+    @FindBy(xpath = "//label[text()='类别']/following-sibling::div")
     private WebElement ChineseMapTwoDataSearchCategory;
     public WebElement getChineseMapTwoDataSearchCategory(){
         ChineseMapTwoDataSearchCategory.click();
         return this.getLastDropdownList();
     }
     //中国地图二-数据-搜索-值
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[2]/div")
+    @FindBy(xpath = "//label[text()='值']/following-sibling::div")
     private WebElement ChineseMapTwoDataSearchValue;
     public WebElement getChineseMapTwoDataSearchValue(){
         ChineseMapTwoDataSearchValue.click();
@@ -1349,7 +1356,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getAttackMapThreeDTwo(){return attackMapThreeDTwo;}
 
     //数据中的更新频率
-  // @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[2]/div[2]/div[4]/div/input")
    @FindBy(xpath = "//div[@class='panel-search-cycle']/div/input[@class='el-input__inner']")
     private WebElement updateFrequency;
     public WebElement getUpdateFrequency(){return updateFrequency;}
@@ -2139,16 +2145,16 @@ public class CreatePage extends PageTemplate {
     private WebElement rollList2;
       public WebElement getRollList2(){return rollList2;}
 
-    //样式中的滚动列表2 注：在此处前端开发人员显示成了轮播列表
-    @FindBy(xpath = "//div[text()='轮播列表']/i")
+    //样式中的滚动列表2
+    @FindBy(xpath = "//div[text()='滚动列表II']/i")
     private WebElement styleRollList2;
       public WebElement getStyleRollList2(){return styleRollList2;}
       //字体大小
       public WebElement getRollList2WordSize() {
-          return this.input("轮播列表", "字体大小");
+          return this.input("滚动列表II", "字体大小");
       }
     //字体粗细
-    public WebElement getRollList2WordBold(){return this.dropdownList("轮播列表","字体粗细");}
+    public WebElement getRollList2WordBold(){return this.dropdownList("滚动列表II","字体粗细");}
      //背景颜色1
     @FindBy(xpath = "//label[contains(text(),'背景颜色1')]/following-sibling::div")
     private WebElement backgroundColor1;
@@ -2166,17 +2172,32 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[text()='滚动列表III']")
     private WebElement rollList3;
       public WebElement getRollList3(){return rollList3;}
-    //样式中的滚动列表3 注：在此处前端开发人员显示成了轮播列表
-    @FindBy(xpath = "//div[text()='轮播列表']/i")
+    //样式中的滚动列表3
+    @FindBy(xpath = "//div[text()='滚动列表III']/i")
     private WebElement styleRollList3;
     public WebElement getStyleRollList3(){return styleRollList3;}
     //字体大小
     public WebElement getRollList3WordSize() {
-        return this.input("轮播列表", "字体大小");
+        return this.input("滚动列表III", "字体大小");
     }
     //字体粗细
-    public WebElement getRollList3WordBold(){return this.dropdownList("轮播列表","字体粗细");}
+    public WebElement getRollList3WordBold(){return this.dropdownList("滚动列表III","字体粗细");}
 
 
+    //指标的下拉菜单
+    @FindBy(xpath = "//li[contains(text(),'指标')]/ul")
+    private WebElement indexDropdown;
+    public  WebElement getIndexDropdown(){return indexDropdown;}
+
+    //网络下拉菜单
+    @FindBy(xpath = "//li[contains(text(),'网络')]/ul")
+    private WebElement netDropdown;
+    public WebElement getNetDropdown(){return netDropdown;}
+
+
+    //其他下拉菜单
+    @FindBy(xpath = "//li[contains(text(),'其他')]/ul")
+    private WebElement otherDropdown;
+    public WebElement getOtherDropdown(){return otherDropdown;}
 
 }

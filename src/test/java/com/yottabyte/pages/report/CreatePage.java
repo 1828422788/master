@@ -133,6 +133,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//i[@class='el-collapse-item__header__arrow el-icon-arrow-right'])[last()]")
     private WebElement arrow;
 
+    @FindBy(xpath = "(//label[text()='参数设置'])[last()]")
+    private WebElement parameterSetting;
+
     @FindBy(xpath = "(//button[@class='el-button btn-submit el-button--primary'])[last()]")
     private WebElement saveTrend;
 
@@ -241,8 +244,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='统计类型']/following-sibling::span/button")
     private WebElement trendChartType;
 
-    @FindBy(xpath = "(//label[text()='参数设置'])[last()]")
-    private WebElement parameterSetting;
 
     @FindBy(xpath = "//span[text()='取消']/ancestor::button")
     private WebElement cancelButton;

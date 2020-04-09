@@ -1,6 +1,7 @@
 package com.yottabyte.pages.tenant;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.DropdownUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,55 +15,97 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@placeholder='请再次输入']")
-    private WebElement inputAgain;
-
     @FindBy(className = "el-switch")
     private WebElement switchButton;
-
     public WebElement getSwitchButton() {
         return switchButton;
     }
 
-    public WebElement getName() {
-        return super.getInputElement("名称");
-    }
 
-    public WebElement getDomainName() {
-        return super.getInputElement("域名");
-    }
+    @FindBy(xpath = "//label[contains(text(),'名称:')]/parent::div/div/div/input")
+    private WebElement name;
+   public WebElement getName(){return name;}
 
+    @FindBy(xpath = "//label[contains(text(),'域名')]/parent::div/div/div/input")
+    private WebElement domainName;
+    public WebElement getDomainName(){return domainName;}
+
+/*
     public WebElement getSupportFeature() {
         return getDropdownList("支持特性");
     }
+    public WebElement getDropdownList(String text) {
+        String xpath = "//label[contains(text(),'" + text + "')]/parent::div/div/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return getLastDropdownList();
 
-    public WebElement getDailyLimit() {
-        return super.getInputElement("每日限额");
     }
-
-    public WebElement getUploadLimit() {
-        return super.getInputElement("文件上传限制");
+    public WebElement getLastDropdownList() {
+        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
     }
+*/
 
-    public WebElement getExcessLimit() {
-        return super.getInputElement("超额次数限定");
+
+    public WebElement getDropdownList(String text) {
+        String xpath = "//label[contains(text(),'" + text + "')]/parent::div/div/div";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
     }
-
+    public WebElement getSupportFeature() {
+        return getDropdownList("支持特性");
+    }
     public WebElement getExcessBehavior() {
-        return super.getDropdownList("超额行为");
+        return  getDropdownList("超额行为");
     }
 
+
+
+    @FindBy(xpath = "//label[contains(text(),'每日限额')]/parent::div/div/div/input")
+    private WebElement dailyLimit;
+    public WebElement getDailyLimit() {
+        return dailyLimit;
+    }
+
+    @FindBy(xpath = "//label[contains(text(),'文件上传限制')]/parent::div/div/div/input")
+    private WebElement uploadLimit;
+    public WebElement getUploadLimit() {
+        return uploadLimit;
+    }
+
+    @FindBy(xpath = "//label[contains(text(),'超额次数限定')]/parent::div/div/div/input")
+    private WebElement excessLimit;
+    public WebElement getExcessLimit() {
+        return excessLimit;
+    }
+
+
+
+    @FindBy(xpath = "//label[contains(text(),'管理员名称')]/parent::div/div/div/input")
+    private WebElement managerName;
     public WebElement getManagerName() {
-        return super.getInputElement("管理员名称");
+        return managerName;
     }
 
+    @FindBy(xpath = "//label[contains(text(),'管理员邮箱')]/parent::div/div/div/input")
+    private WebElement managerEmail;
     public WebElement getManagerEmail() {
-        return super.getInputElement("管理员邮箱");
+        return managerEmail;
     }
 
+    @FindBy(xpath = "//label[contains(text(),'管理员密码')]/parent::div/div/div/input")
+    private WebElement managerPassword;
     public WebElement getManagerPassword() {
-        return super.getInputElement("管理员密码");
+        return managerPassword;
     }
+    @FindBy(xpath = "//input[@placeholder='请再次输入']")
+    private WebElement inputAgain;
+    public WebElement getInputAgain() {
+        return inputAgain;
+    }
+
+
 
     public WebElement getSaveButton() {
         return super.getButton("保存");
@@ -76,14 +119,6 @@ public class CreatePage extends PageTemplate {
         return super.getErrorMessage();
     }
 
-    public WebElement getInputAgain() {
-        return inputAgain;
-    }
 
-    public WebElement getDropdownList(String text) {
-        String xpath = "//label[contains(text(),'" + text + "')]/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        element.click();
-        return getLastDropdownList();
-    }
+
 }

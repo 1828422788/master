@@ -1,8 +1,8 @@
 @galaxee
-Feature: 数据大屏攻击地图
+Feature: 数据大屏-攻击地图
 
   Background:
-    Given I wait for title change text to "仪表盘"
+#    Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建默认类型的攻击地图
@@ -37,11 +37,12 @@ Feature: 数据大屏攻击地图
     Then I will see the success message "保存成功"
 
   Scenario Outline: 修改攻击地图配置
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" button
+    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Map" button
-    And I click the "Attackmap" button
+    And I click the "pictureOne" button
+#    And I click the "Map" button
+#    And I click the "Attackmap" button
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I click the "BoundaryColor" button
@@ -81,7 +82,7 @@ Feature: 数据大屏攻击地图
       | 攻击地图 |
 
   Scenario Outline: 发布页截图
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond

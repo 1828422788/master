@@ -74,6 +74,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()=' __user_AutoTestAuth__ ']")
     private WebElement roleAuth;
 
+    @FindBy(xpath = "//label[text()='所拥有角色']")
+    private WebElement roleText;
+
+    public WebElement getRoleText() {
+        return roleText;
+    }
+
     public WebElement getCreateUser() {
         return super.getButton("新建");
     }

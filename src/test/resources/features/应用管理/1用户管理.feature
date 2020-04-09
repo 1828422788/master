@@ -17,9 +17,9 @@ Feature: 应用用户管理（RZY-2147）
     And I will see the "users.CreatePage" page
     When I set the parameter "UserName" with value "AutoAppCreate"
     And I set the parameter "Email" with value "test@163.com"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "CreateButton" button
-    Then I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
 
   Scenario: 查看用户并编辑
     When the data name is "{'column':'1','name':'AutoAppCreate'}" then i click the "查看" button

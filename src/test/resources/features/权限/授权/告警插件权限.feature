@@ -5,7 +5,6 @@ Feature: 授权告警插件
     Given open the "alert.PluginPage" page for uri "/plugins/"
     And I wait for loading invisible
     And I click the "Upload" button
-    And I choose the "告警类型" from the "PluginType"
     And I upload a file with name "/src/test/resources/testdata/alertPlugins/sendSms.py"
     And I wait for "VerifyText" will be visible
     And I click the "EnsureButton" button
@@ -31,7 +30,7 @@ Feature: 授权告警插件
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "alert.PluginPage" page for uri "/plugins/"
@@ -57,7 +56,7 @@ Feature: 授权告警插件
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "alert.PluginPage" page for uri "/plugins/"

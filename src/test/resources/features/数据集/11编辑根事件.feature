@@ -1,5 +1,5 @@
 @dataset
-Feature: 编辑根事件jnd
+Feature: 数据集-编辑根事件
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -10,20 +10,10 @@ Feature: 编辑根事件jnd
 
       And I set the parameter "Name" with value "edit"
       And I set the parameter "Alias" with value "editRootTest"
-      And I set the parameter "Yuju" with value "*"
+      And I set the parameter "Spl" with value "*"
 
       And I click the "Save" button
       Then I wait for title change text to "数据集详情"
-
-     # Then I will see the "dataset.DetailPage" page
-     # And I wait for loading invisible
-   #返回列表页
-    #  And I click the "Backlist" button
-    #  And I wait for loading invisible
-    #  When the data name is "edit" then i click the "编辑" button
-    #  Then I will see the "dataset.DetailPage" page
-   #   And I wait for loading invisible
-
 
   @dataset
   Scenario: 修改根别名
@@ -32,11 +22,11 @@ Feature: 编辑根事件jnd
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
 
-    When I click the "Editevent" button
-    And I set the parameter "Editalias" with value "rootalias"
-    And I click the "Rootsave" button
+    When I click the "editEvent" button
+    And I set the parameter "editAlias" with value "rootalias"
+    And I click the "rootSave" button
     And I wait for loading invisible
-    Then I will see the "Afteralias" result will be "rootalias"
+    Then I will see the "afterAlias" result will be "rootalias"
 
   @dataset
   Scenario: 修改约束语句
@@ -44,12 +34,11 @@ Feature: 编辑根事件jnd
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
 
-
-    When I click the "Editevent" button
-    And I set the parameter "Edityuju" with value "tag:heka"
-    And I click the "Rootsave" button
+    When I click the "editEvent" button
+    And I set the parameter "editYuJu" with value "tag:heka"
+    And I click the "rootSave" button
     And I wait for loading invisible
-    Then I will see the "Afteryuju" result will be "tag:heka"
+    Then I will see the "AfterYuJu" result will be "tag:heka"
 
 
   @dataset
@@ -58,12 +47,11 @@ Feature: 编辑根事件jnd
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
 
+    When I click the "editEvent" button
 
-    When I click the "Editevent" button
+    And I click the "editHuiJu" button
 
-    And I click the "Edithuiju" button
-
-    And I click the "Rootsave" button
+    And I click the "rootSave" button
     And I wait for loading invisible
 
     Then I will see the "AfterFatherChild" result will be "汇聚"
@@ -76,9 +64,9 @@ Feature: 编辑根事件jnd
     And I wait for loading invisible
 
 
-    When I click the "Editevent" button
-    And I click the "Editjicheng" button
-    And I click the "Rootsave" button
+    When I click the "editEvent" button
+    And I click the "editJiCheng" button
+    And I click the "rootSave" button
     And I wait for loading invisible
     And I will see the "AfterFatherChild" result will be "继承"
 
@@ -89,9 +77,9 @@ Feature: 编辑根事件jnd
     And I wait for loading invisible
 
 
-    When I click the "Editevent" button
-    And I click the "Editwu" button
-    And I click the "Rootsave" button
+    When I click the "editEvent" button
+    And I click the "editWu" button
+    And I click the "rootSave" button
     And I wait for loading invisible
     And I will see the "AfterFatherChild" result will be "无"
 
@@ -101,18 +89,16 @@ Feature: 编辑根事件jnd
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
-
-    When I click the "Editevent" button
-    And I set the parameter "Edityuju" with value "appname:apache"
-    And I choose the "EventApp" from the "rootAppList"
+    When I click the "editEvent" button
+    And I choose the "无数集app之api全部测试用例" from the "rootAppList"
     And I choose the "auto_package" from the "rootResourceGroup"
-    And I click the "Rootsave" button
+    And I click the "rootSave" button
     And I wait for loading invisible
    #验证
-    And I click the "Backlist" button
+    And I click the "backList" button
     Then I will see the "dataset.ListPage" page
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'edit'}" values "{'column':'4','name':'EventApp'}"
+    Then I will see the data "{'column':'0','name':'edit'}" values "{'column':'4','name':'无数集app之api全部测试用例'}"
     And I will see the data "{'column':'0','name':'edit'}" values "{'column':'5','name':'auto_package'}"
 
 
@@ -123,10 +109,10 @@ Feature: 编辑根事件jnd
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
 
-    When I click the "Editevent" button
-    And I set the parameter "Editname" with value "rootname"
-    And I click the "Rootsave" button
+    When I click the "editEvent" button
+    And I set the parameter "editName" with value "rootname"
+    And I click the "rootSave" button
     And I wait for loading invisible
-    Then I will see the "Aftername" result will be "rootname"
+    Then I will see the "afterName" result will be "rootname"
 
 

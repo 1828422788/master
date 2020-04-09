@@ -26,7 +26,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "verify-text")
     private WebElement verifyText;
 
-    @FindBy(className = "detail-item-pic")
+    @FindBy(xpath = "//div[text()='附件: ']/ancestor::div[1]")
     private WebElement attachment;
 
     public WebElement getAttachment() {

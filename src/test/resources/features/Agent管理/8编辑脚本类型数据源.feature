@@ -1,4 +1,5 @@
-Feature: 编辑脚本类型数据源
+@agent @agent_script
+Feature: Agent编辑脚本类型数据源
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -6,7 +7,26 @@ Feature: 编辑脚本类型数据源
     When I click the detail which column is "1" in agent page
     And switch to another window
     And I will see the "agent.CreatePage" page
+
+  Scenario:新建脚本类型数据源
     And I wait for loading invisible
+    And I click the "Create" button
+    And I click the "ScriptType" button
+    And I set the parameter "ScriptFile" with value "/sbin/service"
+    And I set the parameter "Param" with value "rsyslog status"
+    And I set the parameter "ChangeRowRule" with value "\n"
+    And I set the parameter "Interval" with value "120"
+    And I click the "Next" button
+    And I wait for loading invisible
+    And I set the parameter "Appname" with value "autohekascripttest"
+    And I set the parameter "Tag" with value "autohekascripttest"
+    And I click the "Next" button
+    And I will see the element "CheckScriptFile" name is "/sbin/service"
+    And I will see the element "CheckParam" name is "rsyslog status"
+    And I will see the element "CheckChangeRowRule" name is "\n"
+    And I will see the element "CheckInternal" name is "120 秒"
+    And I click the "Next" button
+    And I will see the element "Addsuccessmsg" name is "添加成功"
 
   Scenario:编辑修改可执行文件
     And I click the "EditAutoScript" button
@@ -36,7 +56,6 @@ Feature: 编辑脚本类型数据源
     And I click the "EditAutoScript" button
     When I choose the "<Internaltimekind>" from the "InternalTimeKind"
     And I click the "Ensure" button
-    And I wait for loading invisible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
     Examples:
@@ -50,7 +69,6 @@ Feature: 编辑脚本类型数据源
     And I click the "EditAutoScript" button
     When I choose the "<characterkind>" from the "CharacterKind"
     And I click the "Ensure" button
-    And I wait for loading invisible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
     Examples:
       | characterkind |
@@ -85,6 +103,7 @@ Feature: 编辑脚本类型数据源
     Then I will see the element "ScriptSwitchStatus" name is "已启用"
 
   Scenario: 脚本类型数据源删除
-    Given the data name "/sbin/service" in table "ScriptTable" then i click the "删除" button
+    Given the data name "autohekascripttest" in table "ScriptTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+    And I close all windows

@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -118,6 +119,13 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//li[text()='查看上下文']")
     private WebElement context;
+
+    @FindBy(xpath = "//span[text()='搜索']/ancestor::button/following-sibling::div//input")
+    private WebElement timeRange;
+
+    public WebElement getTimeRange() {
+        return timeRange;
+    }
 
     public WebElement getContext() {
         return context;
@@ -449,7 +457,8 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
 
-    @FindBy(xpath = "(//input[@placeholder='请选择时间']/ancestor::div[2])[last()]")
+    @FindBy(className = "el-time-panel")
+   // @FindBy(xpath = "(//input[@placeholder='请选择时间']/ancestor::div[2])[last()]")
     private WebElement timePanel;
 
     @FindBy(xpath = "//div[@class='el-message-box']//span[contains(text(),'确定')]")
@@ -552,6 +561,9 @@ public class SearchPage extends ListPageFactory {
     private WebElement firstArea;
 
     @FindBy(xpath = "//span[text()='保存为']")
+    private WebElement saveAsOther;
+
+    @FindBy(xpath = "//span[text()='保存为']")
     private WebElement saveAs;
 
     @FindBy(xpath = "//li[text()='趋势图']")
@@ -577,6 +589,15 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
     private WebElement ensureCreateTrend;
+
+    @FindAll({
+            @FindBy(tagName = "th"), @FindBy(tagName = "td")})
+    private List<WebElement> tableList;
+
+    public List<WebElement> getTableList() {
+        return tableList;
+    }
+
 
     public WebElement getGroupComboBox() {
         groupComboBox.click();
@@ -1107,6 +1128,10 @@ public class SearchPage extends ListPageFactory {
     }
 
     // 保存为
+    public WebElement getSaveAsOther() {
+        return saveAsOther;
+    }
+
     public WebElement getSaveAsTrend() {
         saveAs.click();
         return saveAsTrend;
@@ -1139,6 +1164,10 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getCustomTimeTab() {
         return customTimeTab;
+    }
+
+    public void getCustomTime() {
+        GetTime.getTime(webDriver, "CustomTime");
     }
 
     public WebElement getStartTimeField() {
@@ -1248,6 +1277,25 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
     private WebElement dateEditor;
 
+    @FindBy(xpath = "//div[contains(text(),'自定义时间范围')]")
+    private WebElement CustomizeTimeField;
+
+    @FindBy(xpath = "//input[@placeholder='开始日期']")
+    private WebElement startDate;
+
+    @FindBy(xpath = "//input[@placeholder='结束日期']")
+    private WebElement endDate;
+
+    @FindBy(xpath = "//input[@placeholder='开始时间']")
+    private WebElement startTimes;
+
+    @FindBy(xpath = "//input[@placeholder='结束时间']")
+    private WebElement endTimes;
+
+    @FindBy(xpath = "//button[text()='应用']")
+    private WebElement apply;
+
+
     public WebElement getDateEditor() {
         return dateEditor;
     }
@@ -1307,4 +1355,100 @@ public class SearchPage extends ListPageFactory {
     public WebElement getDownloadButton() {
         return super.getButton("下载");
     }
+
+
+    public WebElement getCustomizeTimeField() {
+        return CustomizeTimeField;
+    }
+
+    public WebElement getStartDate() {
+        return startDate;
+    }
+
+    public WebElement getStartTimes() {
+        return startTimes;
+    }
+
+    public WebElement getEndDate() {
+        return endDate;
+    }
+
+    public WebElement getEndTimes() {
+        return endTimes;
+    }
+
+    public WebElement getApply() {
+        return apply;
+    }
+
+    //author_jnd
+
+    //数据集父子行为是无的根节点的子节点
+    @FindBy(xpath = "//span[text()='无1']")
+    private WebElement fatherChildNull;
+    public WebElement getFatherChildNull(){return fatherChildNull;}
+
+    //数据集父子行为是汇聚的根节点
+    @FindBy(xpath = "//span[text()='汇聚tree']")
+    private WebElement huiJu;
+    public WebElement getHuiJu(){return huiJu;}
+
+    //数据集父子行为是继承的根节点的子节点
+    @FindBy(xpath =  "//span[text()='继承1']")
+    private WebElement jiCheng;
+    public WebElement getJiCheng(){return jiCheng;}
+
+    //数据集的展开按钮
+    @FindBy(xpath = "//a[text()='展开']")
+    private WebElement zhanKai;
+    public WebElement getZhanKai(){return zhanKai;}
+
+    //数据集的内容
+    @FindBy(xpath = "//div[@class='haE36auAEA9saq70cDkWx']/span")
+    private WebElement dataSetPosition;
+    public WebElement getDataSetPosition(){return dataSetPosition;}
+
+    //保存为定时任务成功之后弹窗上的确定按钮
+    @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
+    private WebElement timeTaskEnsure;
+    public WebElement getTimeTaskEnsure(){return super.getButton("确定");}
+
+    //页面上方定时任务超链接
+    @FindBy(xpath = "//a[contains(text(),'定时任务')]")
+    private WebElement schedule;
+    public WebElement getSchedule(){
+        return schedule;
+    }
+
+    //搜索页面保存为趋势图
+    @FindBy(xpath = "//li[text()='趋势图']")
+    private WebElement saveTrend;
+    public WebElement getSaveTrend(){return saveTrend;}
+
+    //保存为趋势图的名称
+    @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
+    private WebElement trendName;
+    public WebElement getTrendName(){return trendName;}
+
+
+    //保存为趋势图成功之后提示弹窗中的确定按钮
+    @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
+    private WebElement trendEnsureAfterEnsure;
+    public WebElement getTrendEnsureAfterEnsure(){return super.getButton("确定");}
+
+    //页面上方趋势图超链接
+    @FindBy(xpath =  "//a[contains(text(),'趋势图')]")
+    private WebElement upperTrend;
+    public WebElement getUpperTrend(){return upperTrend;}
+
+
+    //保存为定时任务弹窗中的【描述】
+    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
+    private WebElement scheduleDescribe;
+    public WebElement getScheduleDescribe(){return scheduleDescribe;}
+
+
+
+
+
 }

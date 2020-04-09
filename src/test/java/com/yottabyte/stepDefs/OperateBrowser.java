@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -95,5 +96,19 @@ public class OperateBrowser {
 
     private boolean ifReady(Object readyState) {
         return "complete".equals(readyState);
+    }
+
+    /**
+     * 关闭除当前打开页签以外的所有页签
+     */
+    @And("^I close all tabs except main tab$")
+    public void closeTabsExceptMainTab() {
+        String mainTab = webDriver.getWindowHandle();
+        for (String handle : webDriver.getWindowHandles()) {
+            if (!handle.equals(mainTab)) {
+                webDriver.switchTo().window(handle).close();
+            }
+        }
+        webDriver.switchTo().window(mainTab);
     }
 }

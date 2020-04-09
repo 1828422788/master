@@ -5,9 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * @author sunxj
- */
+
 public class ListPage extends PageTemplate {
     public ListPage(WebDriver driver) {
         super(driver);
@@ -15,12 +13,81 @@ public class ListPage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='搜索租户']")
     private WebElement searchInput;
-
     public WebElement getSearchInput() {
         return searchInput;
     }
 
+    @FindBy(xpath = "//button[@class='el-button tenant_new el-button--primary']/span[@text()='新建']")
+    private WebElement createButton;
     public WebElement getCreateButton() {
         return super.getButton("新建");
     }
+
+
+//   jnd
+//系统状态的按钮
+    @FindBy(xpath = "//a[text()='系统状态']")
+    private WebElement systemStatus;
+    public WebElement getSystemStatus(){return systemStatus;}
+    //支持特性的查看按钮
+    @FindBy(xpath = "//div[text()='支持特性:']/following-sibling::div/button/span[text()='查看']")
+    private WebElement supportCharacter;
+    public WebElement getSupportCharacter(){return supportCharacter;}
+    //支持特性收起按钮
+    @FindBy(xpath = "//div[text()='支持特性:']/following-sibling::div/button/span[text()='收起']")
+    private WebElement characterRetract;
+    public WebElement getCharacterRetract(){return characterRetract;}
+
+    //许可证详情查看
+    @FindBy(xpath = "//div[text()='许可证详情:']/following-sibling::div/button/span[text()='查看']")
+    private WebElement  permitDetails;
+    public WebElement getPermitDetails(){return permitDetails;}
+
+    //许可证详情收起
+    @FindBy(xpath = "//div[text()='许可证详情:']/following-sibling::div/button/span[text()='收起']")
+    private WebElement  permitDetailsRetract;
+    public WebElement getPermitDetailsRetract(){return permitDetailsRetract;}
+
+//租户外观按钮
+    @FindBy(xpath = "//a[text()='租户外观']")
+    private WebElement tenantAppearance;
+    public WebElement getTenantAppearance(){return tenantAppearance;}
+
+    @FindBy(xpath = "(//input[@class='el-color-dropdown__value'])[last()]")
+    private WebElement colorInput;
+    public WebElement getColorInput(){return colorInput;}
+
+    @FindBy(xpath = "(//button[@class='el-color-dropdown__btn'])[last()]")
+    private WebElement ensureColor;
+    public WebElement getEnsureColor(){return ensureColor;}
+
+    //主色系
+    @FindBy(xpath = "//h5[text()='主色系']/parent::div/following-sibling::div")
+    private WebElement mainColor;
+    public WebElement getMainColor(){return mainColor;}
+    //    主色系悬停
+    @FindBy(xpath = "//h5[text()='主色系悬停']/parent::div/following-sibling::div")
+    private WebElement mainColorHover;
+    public WebElement getMainColorHover(){return mainColorHover;}
+    //一级导航
+    @FindBy(xpath = "//h5[text()='一级导航']/parent::div/following-sibling::div")
+    private WebElement firstNavigation;
+    public WebElement getFirstNavigation(){return firstNavigation;}
+    //图标及占位符辅助色
+    @FindBy(xpath = "//h5[text()='图标及占位符辅助色']/parent::div/following-sibling::div")
+    private WebElement iconColor;
+    public WebElement getIconColor(){return iconColor;}
+
+    //更新按钮
+    @FindBy(xpath = "//span[text()='更新']")
+    private WebElement update;
+    public WebElement getUpdate(){return update;}
+
+    //替换logo的按钮
+    @FindBy(xpath = "//span[text()='替换']")
+    private WebElement replaceLogo;
+    public WebElement getReplaceLogo(){return replaceLogo;}
+
+
+
 }

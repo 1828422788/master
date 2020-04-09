@@ -89,7 +89,7 @@ public class DetailPage extends PageTemplate {
 
     //author_jnd
     //定时任务详情页的数据集
-    @FindBy(xpath = "//*[@id=\"schedule\"]/div[3]/div/div[2]/div[2]/div[2]")
+    @FindBy(xpath = "//div[text()='数据集:']/following-sibling::div")
     private WebElement detailDataSet;
     public WebElement getDetailDataSet(){return detailDataSet;}
 

@@ -12,7 +12,7 @@ Feature: 知识搜索（RZY-884）
 
     Examples:
       | GroupList |
-      | TestTag   |
+      | testTag   |
 
   Scenario Outline: 全文搜索
     When I set the parameter "SearchInput" with value "<search>"

@@ -3,6 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
+import cucumber.api.java.cs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -93,7 +94,7 @@ public class ValidateResult {
         List<WebElement> trList = listPageUtils.getTrList();
         String excpText = this.getAgentIp(columnNum);
         assertEquals(excpText, trList);
-        if (trList == null ) {
+        if (trList == null) {
             Assert.assertTrue(false);
         }
         Paging paging = new Paging();
@@ -375,12 +376,25 @@ public class ValidateResult {
         String actualName = tr.findElement(By.xpath(xpath)).getText();
         Assert.assertEquals(valuesMap.get("name"), actualName);
     }
+
     private String getAgentIp(String columnNum) {
         Agent agent = new Agent();
         String ip = agent.getIp();
         Assert.assertNotNull("无正在运行的agent！", ip);
         String json = "{'column':'" + columnNum + "','name':'" + ip + "'}";
         return json;
+    }
+
+    /**
+     * 根据数据库中查询出的数据，验证agent列表页是否包含该数据
+     *
+     * @param column
+     */
+    @Then("^I will see the agent result in column \"([^\"]*)\"$")
+    public void validateAgentResult(String column) {
+        Agent agent = new Agent();
+        String json = "{'column':'" + column + "','name':'" + agent.getIp() + "'}";
+        this.validateSearchResult(json);
     }
 }
 

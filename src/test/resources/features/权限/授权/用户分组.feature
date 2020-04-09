@@ -17,7 +17,7 @@ Feature: 权限-用户分组
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
@@ -38,9 +38,9 @@ Feature: 权限-用户分组
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for title change text to "仪表盘|搜索"
+    And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page
@@ -67,7 +67,7 @@ Feature: 权限-用户分组
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
@@ -101,7 +101,7 @@ Feature: 权限-用户分组
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
@@ -152,12 +152,14 @@ Feature: 权限-用户分组
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible
-    Then I will see the search result "{'column':'1','name':'AutoTest用户修改','contains':'no'}"
+    When I click the detail which name is "{'column':'1','name':'AutoTest用户修改'}"
+    And I will see the "userGroups.EditPage" page
+    Then I will see the element "BasicSaveButton" attribute is "disabled"
 
   Scenario Outline: 授权读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -180,7 +182,7 @@ Feature: 权限-用户分组
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
@@ -219,7 +221,7 @@ Feature: 权限-用户分组
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"

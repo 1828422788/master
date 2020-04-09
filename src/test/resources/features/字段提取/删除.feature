@@ -52,24 +52,25 @@ Feature: 字段提取删除
       | win_sys_sourcename.csv |
 
   Scenario: 删除owner下的agent配置
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "owner"
-    And I set the parameter "Password" with value "all123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    Given I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "admin"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
     Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
     When I click the detail with properties "{'column':'1','name':'rizhiyi_server_host'}"
     And switch to window "Agent 具体配置"
     When the data name is "auto_test_format" then i click the "删除" button without paging
-    And I click the "DeleteConfig" button
+    And I click the "Ensure" button
     Then I will see the success message "删除 Agent 配置成功。"
 
   Scenario: 删除搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    When the data name is "{'column':'1','name':'AutoTest搜索权限'}" then i click the "删除" button
+    When the data name is "{'column':'0','name':'AutoTest搜索权限'}" then i click the "删除" button
     And I click the "Ensure" button
-    Then I will see the message "删除成功"
+    Then I wait for "1000" millsecond
+    Then I will see the success message "删除成功"

@@ -137,7 +137,7 @@ public class IChooseValueFromSelectList {
                 WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
             }
         } catch (Exception e) {
-            return;
+//            return;
         }
     }
 

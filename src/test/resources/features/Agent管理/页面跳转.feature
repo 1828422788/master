@@ -1,4 +1,5 @@
-Feature: 页面跳转
+@agent @agent_jump
+Feature: Agent页面跳转
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -48,3 +49,4 @@ Feature: 页面跳转
   Scenario: 跳转到字段提取页面
     And I click the "Datafetch" button
     Then the page's title will be "字段提取"
+    And I close all windows

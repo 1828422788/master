@@ -1,4 +1,4 @@
-@cleanDashboard
+@dashboard @dashboardSmoke
 Feature: 仪表盘删除
 
   Background:

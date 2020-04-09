@@ -2,11 +2,13 @@ package com.yottabyte.pages;
 
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.utils.DropdownUtils;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
 /**
@@ -41,6 +43,23 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(className = "ant-select-remove-icon")
     private WebElement removeTagIcon;
 
+    @FindBy(xpath = "//div[@class='ant-modal-body']//div[contains(@class,'ant-select-selection--single')]")
+    private WebElement authDropdown;
+
+    @FindBy(xpath = "(//span[text()='所属应用'])[last()]/following-sibling::span//input")
+    private WebElement app;
+
+    public WebElement getApp() {
+        app.click();
+        return utils.getLastDropdownList();
+    }
+
+    public WebElement getAuthDropdown() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver,ExpectedConditions.visibilityOf(authDropdown));
+        authDropdown.click();
+        return utils.getLastDropdownList();
+    }
+
     public WebElement getRemoveTagIcon() {
         return removeTagIcon;
     }
@@ -71,7 +90,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getTag() {
-        return this.getInputElement("标签");
+        return getInputElement("标签");
     }
 
     public WebElement getTagDropdown() {
@@ -142,5 +161,10 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public WebElement getPlaceholderInput(String placeholder) {
         return webDriver.findElement(By.xpath("(//input[@placeholder='" + placeholder + "'])[last()]"));
+    }
+
+    public WebElement getClearIcon(String text){
+        String xpath = "//li[@title='" + text + "']//span/i[@aria-label='图标: close']";
+        return webDriver.findElement(By.xpath(xpath));
     }
 }

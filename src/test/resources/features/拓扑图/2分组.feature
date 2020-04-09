@@ -1,15 +1,14 @@
-#@topology @all @smoke @topologySmoke
-Feature: 拓扑图分组（RZY-353）
+@topology @all @smoke @topologySmoke
+Feature: 拓扑图标签（RZY-353）
 
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"
 
-  Scenario Outline:
-    Given the data name is "sxjautotest" then i click the "分组" button
-    Then I <group>
-    And I click the "EnsureButton" button
-    Then I will see the error message "请至少选择一个分组"
+  Scenario: 修改标签
+    Given the data name is "sxjautotest" then i click the "标签" button
+    And I click the "RemoveTagIcon" button
+    And I click the "Ensure" button
+    Then I will see the success message "修改成功"
 
-    Examples:
-      | group                                                     |
-      | cancel selection "default_Topology" from the "GroupInput" |
+  Scenario: 验证标签修改成功
+    Given the data name is "{'column':'1','name':'sxjautotest'}" then the result is "{'column':'2','name':'无'}"

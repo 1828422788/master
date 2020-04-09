@@ -1,9 +1,9 @@
 @galaxee
-Feature: 数据大屏双轴折线图
+Feature: 数据大屏-双轴折线图
 
   Scenario: 新建双轴折线图，默认配置
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -32,16 +32,17 @@ Feature: 数据大屏双轴折线图
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  Scenario Outline: 修改配置
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+  Scenario Outline: 修改配置      
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" button
+    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Chart" button
-    And I wait for "Line2y" will be visible
-    And I click the "Line2y" button
+    And I click the "pictureOne" button
+   # And I click the "Chart" button
+   # And I wait for "Line2y" will be visible
+   # And I click the "Line2y" button
     And I click the "Style" button
     And I wait for "Line2y" will be invisible
     And I wait for "Data" will be visible
@@ -52,7 +53,9 @@ Feature: 数据大屏双轴折线图
     And I choose the "appname" from the "Xaxis"
     And I choose the "count(appname)" from the "FirstYaxis"
     And I choose the "dc(appname)" from the "SecondYaxis"
+
     And I click the "Style" button
+
     And I click the "XaxisHeader" button
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
@@ -84,15 +87,17 @@ Feature: 数据大屏双轴折线图
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
+
     And I click the "DataSeries" button
     And I set the parameter "DataSeriesBold" with value "5"
     And I click the "Smooth" button
-    And I click the "Area" button
-    And I choose the "虚线" from the "DataSeriesType"
+  #  And I click the "Area" button
+  #  And I choose the "虚线" from the "DataSeriesType"
     And I set the parameter "SecondSeriesBold" with value "5"
-    And I choose the "虚线" from the "SecondSeriesType"
+   # And I choose the "虚线" from the "SecondSeriesType"
     And I click the "SecondSmooth" button
-    And I click the "SecondArea" button
+  #  And I click the "SecondArea" button
+
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
     And I set the parameter "height" with value "300"
@@ -105,17 +110,18 @@ Feature: 数据大屏双轴折线图
       | name  |
       | 双轴折线图 |
 
-  Scenario Outline: 增加分组
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+  Scenario Outline: 增加分组   
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" button
+    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
     Then I will see the "galaxee.CreatePage" page
-    And I click the "Chart" button
-    And I click the "Line2y" button
-    And I click the "Style" button
-    And I wait for "Line2y" will be invisible
+     And I click the "pictureOne" button
+#    And I click the "Chart" button
+#    And I click the "Line2y" button
+#    And I click the "Style" button
+#    And I wait for "Line2y" will be invisible
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
@@ -158,15 +164,16 @@ Feature: 数据大屏双轴折线图
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
-    And I click the "DataSeries" button
-    And I set the parameter "DataSeriesBold" with value "5"
-    And I click the "Smooth" button
-    And I click the "Area" button
-    And I choose the "虚线" from the "DataSeriesType"
-    And I choose the "虚线" from the "SecondSeriesType"
-    And I set the parameter "SecondSeriesBold" with value "5"
-    And I click the "SecondSmooth" button
-    And I click the "SecondArea" button
+
+      And I click the "DataSeries" button
+      And I set the parameter "DataSeriesBold" with value "5"
+      And I click the "Smooth" button
+    #  And I click the "Area" button
+    #  And I choose the "虚线" from the "DataSeriesType"
+      And I set the parameter "SecondSeriesBold" with value "5"
+     # And I choose the "虚线" from the "SecondSeriesType"
+      And I click the "SecondSmooth" button
+    #  And I click the "SecondArea" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
     And I set the parameter "height" with value "300"
@@ -180,10 +187,10 @@ Feature: 数据大屏双轴折线图
       | 双轴折线图 |
 
   Scenario Outline: 发布页截图
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" button
+    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond

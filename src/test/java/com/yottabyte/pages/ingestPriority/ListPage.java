@@ -18,10 +18,9 @@ public class ListPage extends PageTemplate {
     }
 
     public WebElement getEnsureButton() {
-        String xpath = "//span[text()='确定']/ancestor::button";
+        String xpath = "//span[text()='ok']/ancestor::button";
         return webDriver.findElement(By.xpath(xpath));
     }
-
     public WebElement getSuccessMessage() {
         return super.getSuccessMessage();
     }

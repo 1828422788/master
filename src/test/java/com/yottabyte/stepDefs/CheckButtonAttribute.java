@@ -34,6 +34,16 @@ public class CheckButtonAttribute {
      */
     @Then("^I will see the \"([^\"]*)\" is \"([^\"]*)\"$")
     public void checkClass(List<String> buttonNameList, String attribute) {
+        if (buttonNameList.size() == 1) {
+            Object element = GetElementFromPage.getWebElementWithName(buttonNameList.get(0));
+            if (element instanceof List) {
+                List<WebElement> elements = (List<WebElement>) element;
+                for (WebElement webElement : elements) {
+                    Assert.assertTrue(webElement.getAttribute("class").contains(attribute));
+                }
+                return;
+            }
+        }
         for (String buttonName : buttonNameList) {
             WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
             Assert.assertTrue(element.getAttribute("class").contains(attribute));
@@ -239,6 +249,7 @@ public class CheckButtonAttribute {
             }
         }
     }
+
     @And("^I will see the agent doesn't exist in \"([^\"]*)\" cloumn$")
     public void AgentelementNotExist(String columnNum) {
         Agent agent = new Agent();

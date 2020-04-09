@@ -20,6 +20,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text() = '创建']/ancestor::button")
     private WebElement createButton;
 
+    @FindBy(xpath = "//div[text()='新建']")
+    private WebElement create;
+
     @FindBy(xpath = "//div[text() = '新建']")
     private WebElement newTrendButton;
 
@@ -39,6 +42,13 @@ public class ListPage extends ListPageFactory {
         return searchInput;
     }
 
+    public WebElement getCreate() {
+        return create;
+    }
+
+    public WebElement getCreateButton() {
+        return super.getButton("创建");
+    }
 
     public WebElement getNewTrendButton(){
         createButton.click();

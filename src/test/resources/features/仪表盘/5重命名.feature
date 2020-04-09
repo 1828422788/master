@@ -15,4 +15,4 @@ Feature: 仪表盘重命名（RZY-213）
 
     Examples: 重命名成功
       | name       | newName | message |
-      | UIautotest | UI自动化创建 | 重命名成功   |
+      | UIautotest | UI自动化创建 | 重命名仪表盘成功   |

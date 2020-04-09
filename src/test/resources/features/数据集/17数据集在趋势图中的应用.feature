@@ -1,5 +1,5 @@
 @dataset
-Feature: 定时任务在趋势图中的应用
+Feature: 数据集-在趋势图中的应用
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -12,6 +12,8 @@ Feature: 定时任务在趋势图中的应用
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为无的数据集
     And I click the "fatherChildNull" button
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
@@ -27,8 +29,6 @@ Feature: 定时任务在趋势图中的应用
     When the data name is "<trendName>" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
     And I wait for loading invisible
-    And I click the "NextButton" button
-    And I wait for loading invisible
     And I click the "zhanKai" button
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
 
@@ -36,7 +36,7 @@ Feature: 定时任务在趋势图中的应用
 
     Examples:
       |spl                         |trendName|dataSetResult|
-      |*\| stats count() by appname|父子无    |tag:heka     |
+      |*\| stats count() by appname|父子无    |tag:sample* |
 
 
 
@@ -48,6 +48,8 @@ Feature: 定时任务在趋势图中的应用
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为汇聚的数据集
     And I click the "huiJu" button
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
@@ -64,8 +66,7 @@ Feature: 定时任务在趋势图中的应用
     When the data name is "<trendName>" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
     And I wait for loading invisible
-    And I click the "NextButton" button
-    And I wait for loading invisible
+
     And I click the "zhanKai" button
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
 
@@ -73,9 +74,7 @@ Feature: 定时任务在趋势图中的应用
 
     Examples:
       |spl                         |trendName  |dataSetResult|
-      |*\| stats count() by appname|父子汇聚    |* AND tag:heka AND (tag:top_info OR appname:apache)|
-
-
+      |*\| stats count() by appname|父子汇聚    |* AND tag:sample* AND (tag:beyond4 OR appname:apache)|
 
 
 
@@ -85,6 +84,8 @@ Feature: 定时任务在趋势图中的应用
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为继承的数据集
     And I click the "jiCheng" button
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
@@ -101,12 +102,11 @@ Feature: 定时任务在趋势图中的应用
     When the data name is "<trendName>" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
     And I wait for loading invisible
-    And I click the "NextButton" button
-    And I wait for loading invisible
+
     And I click the "zhanKai" button
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
 
 
     Examples:
       |spl                         |trendName|dataSetResult|
-      |*\| stats count() by appname|父子继承  |* AND tag:heka|
+      |*\| stats count() by appname|父子继承  |* AND tag:sample*|

@@ -21,7 +21,7 @@ Feature: 应用字段提取（RZY-2129）
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "auto_test_csv"
     And I set the parameter "Tag" with value "auto_test_csv"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
     And I click the "Return" button
     And I will see the "app.AppPage" page
@@ -59,7 +59,7 @@ Feature: 应用字段提取（RZY-2129）
     And I set the parameter "Name" with value "AutoTestCopy"
     And I click the "SwitchButton" button
     And I choose the "ConfigsApp" from the "App"
-    Then I click the "NextButton" button
+    Then I click the "Done" button
     And I wait for "ConfigDone" will be visible
 
   Scenario: 验证所属app生效及修改标签
@@ -122,8 +122,6 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.ListPage" page
     When I click the "UploadButton" button
-    And I set the parameter "GroupInput" with value "字典分组AutoTest"
-    And I choose the "字典分组AutoTest" from the "Group"
     And I upload a file with name "/src/test/resources/testdata/dictionary/<name>"
     And I wait for "FileName" will be visible
     And I click the "EnsureUpload" button

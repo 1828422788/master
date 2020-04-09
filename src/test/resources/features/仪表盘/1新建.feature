@@ -1,4 +1,4 @@
-@dashboard @dashboardSmoke
+@dashboard
 Feature: 仪表盘新建（RZY-208至RZY-210）
 
   Background:
@@ -10,7 +10,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
     And I set the parameter "ResourceInput" with value "AutoTest"
     And I choose the "AutoTest" from the "LastDropdownList"
     And I click the "Ensure" button
-    Then I will see the success message "新建成功"
+    Then I will see the success message "新建仪表盘成功"
 
     Examples:
       | name          |
