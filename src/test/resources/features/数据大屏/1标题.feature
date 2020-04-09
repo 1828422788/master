@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏标题
+Feature: 数据大屏-标题
 
   Background:
 #    Given I wait for title change text to "仪表盘"

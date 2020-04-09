@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏热力地图
+Feature: 数据大屏-热力地图
 
   Background:
 #    Given I wait for title change text to "仪表盘"

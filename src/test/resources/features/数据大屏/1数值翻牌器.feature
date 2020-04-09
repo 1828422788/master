@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏数值翻牌器
+Feature: 数据大屏-数值翻牌器
 
   Background:
 #    Given I wait for title change text to "仪表盘"

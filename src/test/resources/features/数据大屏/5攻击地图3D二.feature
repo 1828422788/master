@@ -1,5 +1,5 @@
 @galaxee
-  Feature: 攻击地图3D II
+  Feature: 数据大屏-攻击地图3D II
 
       Scenario: 攻击地图3DII默认设置
        # Given I will see the "PublicNavBarPage" page

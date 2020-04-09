@@ -1,5 +1,5 @@
 @galaxee
-  Feature: 百分比
+  Feature: 数据大屏-百分比
 
     Scenario: 百分比默认设置
 #      Given I will see the "PublicNavBarPage" page

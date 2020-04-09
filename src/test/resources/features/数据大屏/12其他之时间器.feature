@@ -1,5 +1,5 @@
 @galaxee
-Feature: 时间器
+Feature: 数据大屏-时间器
 
   Scenario: 时间器默认设置
 #    Given I will see the "PublicNavBarPage" page

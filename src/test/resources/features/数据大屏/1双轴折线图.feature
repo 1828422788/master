@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏双轴折线图
+Feature: 数据大屏-双轴折线图
 
   Scenario: 新建双轴折线图，默认配置
 #    Given I will see the "PublicNavBarPage" page

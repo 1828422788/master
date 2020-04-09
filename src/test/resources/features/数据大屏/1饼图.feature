@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏饼图
+Feature: 数据大屏-饼图
 
   Scenario: 新建饼图，默认配置
 #    Given I wait for title change text to "仪表盘"

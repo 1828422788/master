@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏玫瑰图
+Feature: 数据大屏-玫瑰图
 
   Scenario: 新建玫瑰图，默认配置
 #    Given I will see the "PublicNavBarPage" page
