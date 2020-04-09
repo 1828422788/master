@@ -50,6 +50,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[text()='趋势图']")
     private WebElement saveAsTrend;
 
+    @FindBy(xpath = "//li[text()='定时任务']")
+    private WebElement saveAsSchedule;
+
 // Map Interaction -----------------
     @FindBy(xpath = "//*[text()='124']/ancestor::*[2]")
     private WebElement countryChina;
@@ -937,6 +940,11 @@ public class CreatePage extends PageTemplate {
     public WebElement getSaveAsTrend() {
         saveAs.click();
         return saveAsTrend;
+    }
+
+    public WebElement getSaveAsSchedule() {
+        saveAs.click();
+        return saveAsSchedule;
     }
 
     public WebElement getProvinceJiangsu() {

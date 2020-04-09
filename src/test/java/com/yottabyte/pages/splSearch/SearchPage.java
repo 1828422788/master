@@ -552,7 +552,13 @@ public class SearchPage extends ListPageFactory {
     private WebElement firstArea;
 
     @FindBy(xpath = "//span[text()='保存为']")
-    private WebElement saveAsOther;
+    private WebElement saveAs;
+
+    @FindBy(xpath = "//li[text()='趋势图']")
+    private WebElement saveAsTrend;
+
+    @FindBy(xpath = "//li[text()='定时任务']")
+    private WebElement saveAsSchedule;
 
     @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
     private WebElement ensureCrontab;
@@ -1101,8 +1107,14 @@ public class SearchPage extends ListPageFactory {
     }
 
     // 保存为
-    public WebElement getSaveAsOther() {
-        return saveAsOther;
+    public WebElement getSaveAsTrend() {
+        saveAs.click();
+        return saveAsTrend;
+    }
+
+    public WebElement getSaveAsSchedule() {
+        saveAs.click();
+        return saveAsSchedule;
     }
 
     public WebElement getDaysDropDown() {

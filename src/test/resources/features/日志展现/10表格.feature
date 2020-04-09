@@ -174,7 +174,7 @@ Feature: 日志展现_表格
     And I set the parameter "InputValue" with value "10"
     And I set the parameter "ColorCode" with value "#FFFF00"
     And I click the "AddValue" button
-    And I set the parameter "InputValue" with value "10"
+    And I set the parameter "InputValue" with value "24"
     And I set the parameter "ColorCode" with value "#FF00FF"
     And I click the "DeleteLastValue" button
 
