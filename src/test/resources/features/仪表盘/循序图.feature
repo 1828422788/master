@@ -1,6 +1,6 @@
-@dashboard
 Feature: 仪表盘循序图
 
+  @dashboard
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -12,6 +12,7 @@ Feature: 仪表盘循序图
       | name   |
       | 仪表盘循序图 |
 
+  @dashboard
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -33,6 +34,7 @@ Feature: 仪表盘循序图
       | spl                                                                        | name   |
       | tag:sample04061424* \| stats count() by hostname,apache.clientip \|limit 5 | 仪表盘循序图 |
 
+  @dashboard
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘<name>"
@@ -45,6 +47,7 @@ Feature: 仪表盘循序图
       | name |
       | 循序图  |
 
+  @dashboard
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -59,6 +62,7 @@ Feature: 仪表盘循序图
       | name   |
       | 仪表盘循序图 |
 
+  @dashboard
   Scenario Outline: 修改为循序图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -92,6 +96,7 @@ Feature: 仪表盘循序图
       | name   |
       | 仪表盘循序图 |
 
+  @dashboard
   Scenario Outline: 验证配置是否在高级编辑中体现
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -104,6 +109,7 @@ Feature: 仪表盘循序图
       | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
       | 仪表盘循序图 | {\n  "title": "仪表盘循序图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424* \| stats count() by hostname,apache.clientip \|limit 5",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
 
+  @dashboard
   Scenario Outline: RZY-1365:两个字段为同一个值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
@@ -123,6 +129,7 @@ Feature: 仪表盘循序图
       | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
       | 仪表盘循序图 | {"title": "仪表盘循序图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424* \| stats count() by hostname,apache.clientip \|limit 5","startTime": "now/d","endTime": "now"},"chart": {"chartType": "sequence","field": "hostname","fromField": "hostname","toField": "hostname","labelField": "apache.clientip","category": "apache.clientip"}} |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
@@ -134,6 +141,7 @@ Feature: 仪表盘循序图
       | name   |
       | 仪表盘循序图 |
 
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button

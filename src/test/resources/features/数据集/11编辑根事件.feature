@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集编辑根事件
+Feature: 数据集-编辑根事件
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"

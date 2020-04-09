@@ -1,6 +1,6 @@
 
 @dataset
-Feature: 数据集修改标签
+Feature: 数据集-修改标签
 
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -12,8 +12,8 @@ Feature: 数据集修改标签
     And I choose the "<Type>" from the "TagDropdown"
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
-    And I will see the data "{'column':'0','name':'jndceshi'}" values "{'column':'5','name':'auto_package'}"
+    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'auto_package'}"
 
     Examples:
       |name    |Type        |
-      |jndceshi|auto_package|
+      |JNDTest|auto_package|

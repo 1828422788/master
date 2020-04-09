@@ -1,6 +1,6 @@
 
 @dataset
-Feature: 数据集查询
+Feature: 数据集-按资源查询
 
   @dataset
   Scenario Outline: 按资源查询
