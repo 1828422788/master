@@ -1,5 +1,5 @@
 @galaxee
-Feature: 占比图3D
+Feature: 数据大屏-占比图3D
 
   Scenario: 占比图3D默认设置
 #    Given I will see the "PublicNavBarPage" page

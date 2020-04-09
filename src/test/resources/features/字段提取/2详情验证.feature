@@ -1,7 +1,7 @@
 @configsSmoke
 Feature: 字段提取详情验证
 
-  Scenario Outline: 验证详情
+  Scenario Outline: 验证详情a
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible
@@ -27,9 +27,9 @@ Feature: 字段提取详情验证
       | RZY2865支持通配符         | JSON解析       | 字段重命名        |
       | 脱敏                   | 脱敏配置         | 正则解析         |
 
-  Scenario Outline: 验证详情
+  Scenario Outline: 验证详情b
     Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "详 情" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible
     Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
 
@@ -46,11 +46,12 @@ Feature: 字段提取详情验证
       | RZY2862严格解析                 | 结构体解析        |
       | RZY2870创建dissect解析          | 自定义解析        |
 
-  Scenario Outline: 验证详情
+  Scenario Outline: 验证详情c
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
-    When the data name is "{'column':'1','name':'RZY2872正则片段解析'}" then i click the "详 情" button
-    And I wait for "SmallTr" will be visible
+    When the data name is "{'column':'1','name':'RZY2872正则片段解析'}" then i click the "详情" button
+#    And I wait for "SmallTr" will be visible
+    And I wait for loading invisible
     Then I will see the config element "正则解析" value is "正则解析 <result>"
 
     Examples:

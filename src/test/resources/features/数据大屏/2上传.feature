@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏上传
+Feature: 数据大屏-上传
 
   Background:
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

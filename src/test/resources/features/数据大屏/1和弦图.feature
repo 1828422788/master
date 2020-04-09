@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏和弦图
+Feature: 数据大屏-和弦图
 
   Scenario: 新建和弦图，默认配置
 #    Given I will see the "PublicNavBarPage" page

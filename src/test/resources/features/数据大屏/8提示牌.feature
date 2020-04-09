@@ -1,5 +1,5 @@
 @galaxee
-Feature: 揭示牌
+Feature: 数据大屏-揭示牌
 
 
     Scenario: 揭示牌样式搜索

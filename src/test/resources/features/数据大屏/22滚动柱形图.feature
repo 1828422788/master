@@ -1,5 +1,5 @@
 @galaxee
-Feature: 滚动柱形图
+Feature: 数据大屏-滚动柱形图
 
   Scenario: 滚动柱形图默认设置
 #    Given I will see the "PublicNavBarPage" page

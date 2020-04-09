@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏弧形柱图
+Feature: 数据大屏-弧形柱图
 
   Scenario: 新建默认类型的弧形柱图
 #    Given I wait for title change text to "仪表盘"

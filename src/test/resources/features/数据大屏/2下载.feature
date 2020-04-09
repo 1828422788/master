@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏下载
+Feature: 数据大屏-下载
 
   Background:
     Given delete file "/target/download-files/galaxeeTest.glx"

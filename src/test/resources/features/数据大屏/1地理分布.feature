@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏地理分布
+Feature: 数据大屏-地理分布
 
   Scenario: 新建默认类型的地理分布
 #    Given I will see the "PublicNavBarPage" page

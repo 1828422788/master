@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏中国地图
+Feature: 数据大屏-中国地图
 
   Scenario: 新建默认类型的中国地图
 #    Given I will see the "PublicNavBarPage" page

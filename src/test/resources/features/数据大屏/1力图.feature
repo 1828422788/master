@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏力图
+Feature: 数据大屏-力图
 
   Scenario: 新建力图，默认配置
 #    Given I wait for title change text to "仪表盘"

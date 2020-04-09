@@ -1,5 +1,5 @@
 @galaxee
-Feature: 水平胶囊
+Feature: 数据大屏-水平胶囊
 
   Scenario: 水平胶囊默认设置
 #    Given I will see the "PublicNavBarPage" page

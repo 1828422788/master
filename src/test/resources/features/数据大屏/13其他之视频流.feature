@@ -1,5 +1,5 @@
 @galaxee
-Feature: 视频流
+Feature: 数据大屏-视频流
 
   Scenario: 视频流
 #    Given I will see the "PublicNavBarPage" page

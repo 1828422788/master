@@ -70,14 +70,16 @@ public class ListPage extends ListPageFactory {
 
 
 
-
-    @FindBy(xpath= "//div[text()='请输入数据集名称']")
+    @FindBy(xpath = "//label[text()='名称']/ancestor::div//following-sibling::div//div[text()='请输入数据集名称']")
+    //@FindBy(xpath= "//div[text()='请输入数据集名称']")
     private WebElement tipsName;
 
-    @FindBy(xpath= "//div[text()='请输入别名']")
+    //@FindBy(xpath= "//div[text()='请输入别名']")
+    @FindBy(xpath = "//label[text()='别名']/ancestor::div//following-sibling::div//div[text()='请输入别名']")
     private WebElement tipsAlias;
 
-    @FindBy(xpath= "//div[text()='请输入约束语句']")
+    @FindBy(xpath = "//label[text()='约束语句']/ancestor::div//following-sibling::div//div[text()='请输入约束语句']")
+   // @FindBy(xpath= "//div[text()='请输入约束语句']")
     private WebElement tipsYuJu;
 
     public WebElement getTipsName(){return tipsName;}

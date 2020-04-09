@@ -1,5 +1,5 @@
 @galaxee
-Feature: 数据大屏柱图
+Feature: 数据大屏-柱图
 
   Scenario: 新建默认配置的柱图
 #    Given I wait for title change text to "仪表盘"

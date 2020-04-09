@@ -1,5 +1,5 @@
 @galaxee
-Feature: 综合列表
+Feature: 数据大屏-综合列表
 
   Scenario: 综合列表默认设置
 #    Given I will see the "PublicNavBarPage" page

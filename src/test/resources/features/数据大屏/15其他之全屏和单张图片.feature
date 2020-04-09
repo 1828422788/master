@@ -1,5 +1,5 @@
 @galaxee
-Feature: 全屏和单张图片
+Feature: 数据大屏-全屏和单张图片
 
   Scenario: 全屏
 #    Given I will see the "PublicNavBarPage" page

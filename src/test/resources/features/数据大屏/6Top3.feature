@@ -1,5 +1,5 @@
 @galaxee
-  Feature: Top3
+  Feature: 数据大屏-Top3
 
     Scenario: Top3默认设置
      # Given I will see the "PublicNavBarPage" page

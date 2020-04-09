@@ -24,10 +24,12 @@ Feature: Agent编辑Beats类型数据源
     Then I wait for loading invisible
     Then I will see the element "getBeatsSwitchStatus" name is "已禁用"
 
+
   Scenario: Beats数据源启用
     Given the data name "192.168.1.139:299" in agent table "BeatsTable" then i click the "open" switch
     Then I wait for loading invisible
     Then I will see the element "getBeatsSwitchStatus" name is "已启用"
+
 
   Scenario Outline: Beats数据源修改appname成功
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "编辑" button
@@ -81,3 +83,4 @@ Feature: Agent编辑Beats类型数据源
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+    And I close all windows

@@ -1,5 +1,5 @@
 @galaxee
-  Feature: 齿轮组合
+  Feature: 数据大屏-齿轮组合
 
     Scenario: 齿轮组合默认设置
 #      Given I will see the "PublicNavBarPage" page
