@@ -40,7 +40,7 @@ public class ListPage extends ListPageFactory {
         return spl;
     }
 
-   // @FindBy(xpath = "//*[@id=\"EditDatabase_app_ids\"]/div/div/div")
+
     @FindBy(xpath = "//label[@title='所属应用']/parent::div/following-sibling::div")
     private WebElement appList; //所属应用
     public WebElement getAppList(){
@@ -48,7 +48,7 @@ public class ListPage extends ListPageFactory {
         return super.getLastDropdownList();
     }
 
-  //  @FindBy(xpath = "//*[@id=\"EditDatabase_rt_names\"]/div/div/div")
+
     @FindBy(xpath = "//label[@title='分组']/parent::div/following-sibling::div")
     private WebElement resourceGroup; //分组
     public WebElement getResourceGroup()
@@ -58,19 +58,17 @@ public class ListPage extends ListPageFactory {
     }
 
 
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[1]/div/span")
-    private WebElement appButton; //选择应用按钮
-    public WebElement getAppButton()
-    {
-        return appButton;
-    }
+   //利用应用查询
+   @FindBy(xpath = "//div[text()='请选择应用']/parent::div")
+   private WebElement appSearch;
+   public WebElement getAppSearch(){
+       appSearch.click();
+       return super.getLastDropdownList();
+   }
 
-    @FindBy(xpath = "//*[@id=\"app\"]/section/section/main/div[2]/div[1]/div/div/div[1]")
-    private WebElement app_search_list;   //应用列表
-    public WebElement getApp_search_list()
-    {
-        return super.getLastDropdownList();
-    }
+
+
+
 
 
     @FindBy(xpath= "//div[text()='请输入数据集名称']")
@@ -88,12 +86,11 @@ public class ListPage extends ListPageFactory {
 
 
     //新建数据集弹窗中的汇聚继承
-   // @FindBy(xpath = "//*[@id=\"EditDatabase_action\"]/label[2]/span[2]")
     @FindBy(xpath = "//label[@title='父子行为']/parent::div/following-sibling::div//span[text()='汇聚']")
     private WebElement huiJu;  //父子行为为汇聚
     public WebElement getHuiJu(){return huiJu;}
 
-   // @FindBy(xpath = "//*[@id=\"EditDatabase_action\"]/label[3]/span[2]")
+
    @FindBy(xpath = "//label[@title='父子行为']/parent::div/following-sibling::div//span[text()='继承']")
     private WebElement inherit; //父子行为继承
     public WebElement getInherit(){return inherit;}
