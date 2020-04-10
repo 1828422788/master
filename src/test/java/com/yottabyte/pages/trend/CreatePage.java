@@ -90,16 +90,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'对比')])[last()]")
     private WebElement compare;
 
-    @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::label")
+    @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::button")
     private WebElement smooth;
 
-    @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::label")
+    @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::button")
     private WebElement connectEmptyData;
 
-    @FindBy(xpath = "(//div[text()='min']/preceding-sibling::input)[last()]")
+    @FindBy(xpath = "(//span[text()='min']/preceding-sibling::input)[last()]")
     private WebElement min;
 
-    @FindBy(xpath = "(//div[text()='max']/preceding-sibling::input)[last()]")
+    @FindBy(xpath = "(//span[text()='max']/preceding-sibling::input)[last()]")
     private WebElement max;
 
     @FindBy(className = "el-radio-button")
@@ -207,12 +207,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='下钻'])[last()]")
     private WebElement goingDown;
 
-    @FindBy(xpath = "(//div[@class='img rangeline'])[last()]")
-    private WebElement rangeline;
-
-    @FindBy(xpath = "(//div[@class='img multiaxis'])[last()]")
-    private WebElement multiaxis;
-
     @FindBy(xpath = "//span[text()='预测值']/ancestor::div/following-sibling::div")
     private WebElement predict;
 
@@ -309,7 +303,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[@style='background: rgb(156, 39, 176);'])[last()]/ancestor::li")
     private WebElement purple;
 
-    @FindBy(xpath = "(//span[@style='background: rgb(229, 28, 35);'])[last()]/ancestor::li")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(248, 0, 80);')])[last()]")
     private WebElement red;
 
     @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 173, 8);')])[last()]")
@@ -462,7 +456,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='数值字段']/ancestor::div/following-sibling::div//i")
     private WebElement dataField;
 
-    @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::div//i")
     private WebElement dataValue;
 
     @FindBy(xpath = "(//div[@class='ant-popover-inner-content'])[2]")
@@ -480,7 +474,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='数据精度']/ancestor::div/following-sibling::div")
     private WebElement dataPrecision;
 
-    @FindBy(xpath = "//span[text()='单位']/ancestor::div/following-sibling::input")
+    @FindBy(xpath = "(//span[text()='单位'])[last()]/ancestor::div/following-sibling::input")
     private WebElement unit;
 
     @FindBy(xpath = "//span[text()='行数']/preceding-sibling::input")
@@ -1090,11 +1084,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRangeline() {
-        return rangeline;
+        return getChartButton("区间图");
     }
 
     public WebElement getMultiaxis() {
-        return multiaxis;
+        return getChartButton("多y轴图");
     }
 
     public WebElement getPredict() {
