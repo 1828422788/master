@@ -21,6 +21,7 @@ Feature: Agent分组设置
     And I click the "EnsureButton" button
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    And I close all tabs except main tab
 
 
 #  @indexSettingSmoke
@@ -42,6 +43,7 @@ Feature: Agent分组设置
     And I choose the "<role>" from the "Role"
     And I click the "BuildButton" button
     Then I will see the message "<message>"
+    And I close all tabs except main tab
 
     Examples: 失败
       | name      | description | role      | message                                                           |
@@ -67,6 +69,8 @@ Feature: Agent分组设置
     When I set the parameter "Description" with value "<description>"
     And I click the "SaveButton" button
     Then I will see the element "Updatemsg" name is "<updatemessage>"
+    And I close all tabs except main tab
+
 
     Examples: 更新分组信息
       | name          | description | updatemessage |
@@ -77,6 +81,7 @@ Feature: Agent分组设置
     When I set the parameter "Name" with value "<name>"
     And  I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<correctName>'}"
+    And I close all tabs except main tab
 
 
     Examples: 模糊搜索ip过滤成功
@@ -92,7 +97,7 @@ Feature: Agent分组设置
     Then I will see the message "<message>"
     And I click the "EnsureButton" button
     Then I will see the success message "删除成功"
-    And I close all windows
+    And I close all tabs except main tab
 
 
     Examples: 失败

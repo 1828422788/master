@@ -37,6 +37,7 @@ Feature: Agent添加数据源
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+    And I close all tabs except main tab
 
 
     Examples:
@@ -53,6 +54,7 @@ Feature: Agent添加数据源
     And I click the "WholeTime" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I close all tabs except main tab
 
 
   Scenario: Agent添加Syslog数据源
@@ -76,6 +78,7 @@ Feature: Agent添加数据源
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+    And I close all tabs except main tab
 
 
   Scenario Outline: Agent添加数据源-脚本采集
@@ -102,7 +105,7 @@ Feature: Agent添加数据源
     Given the data name "/sbin/service" in table "ScriptTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
-    And I close all windows
+    And I close all tabs except main tab
 
 
     Examples:

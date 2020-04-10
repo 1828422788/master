@@ -82,13 +82,13 @@ Feature: 用户编辑（RZY-1554）
 
     Examples:
       | UserName            | NewPassword | RepeatPassword | Result                                           |
-      | SuccessEditAutoTest | qqqqq11111  | qqqqq11111     | success message "新设置的密码与最近使用过的密码重复\n错误码: FE_593" |
+      | SuccessEditAutoTest | All#123456  | All#123456     | success message "新设置的密码与最近使用过的密码重复\n错误码: FE_593" |
 
     Examples:
       | UserName            | NewPassword | RepeatPassword | Result                           |
-      | SuccessEditAutoTest | qqqqq11111  |                | error message "重复密码 不能为空"        |
-      | SuccessEditAutoTest |             | qqqqq11111     | error message "新密码 不能为空"         |
-      | SuccessEditAutoTest | 112         | qqqqq11111     | error message "密码需满足: 8-16个字符"   |
+      | SuccessEditAutoTest | All#123456  |                | error message "重复密码 不能为空"        |
+      | SuccessEditAutoTest |             | All#123456     | error message "新密码 不能为空"         |
+      | SuccessEditAutoTest | 112         | All#123456     | error message "密码需满足: 8-16个字符"   |
       | SuccessEditAutoTest | qqqqq       | qqqqq          | error message "密码需满足: 8-16个字符"   |
       | SuccessEditAutoTest | qqqqqqqq    | qqqqqqqqq      | error message "密码需满足: 至少包含数字和字母" |
       | SuccessEditAutoTest | 1234567qwer | 123456qwert    | error message "两次密码输入不一致，请重新输入"  |
