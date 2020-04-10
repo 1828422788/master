@@ -230,6 +230,7 @@ Feature: 权限-趋势图
     And I wait for "SuccessUpdate" will be visible
     And I click the "Report" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "403 Permission Denied"
 
     Examples:
@@ -290,6 +291,7 @@ Feature: 权限-趋势图
     And I wait for "SuccessUpdate" will be visible
     And I click the "Report" button
     And switch to another window
+    Then I close all tabs except main tab
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoTestCreate"
     And I set the parameter "Subject" with value "test"
@@ -856,6 +858,7 @@ Feature: 权限-趋势图
     And I wait for "SuccessUpdate" will be visible
     And I click the "Report" button
     And switch to another window
+    Then I close all tabs except main tab
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoTestCreate"
     And I set the parameter "Subject" with value "test"
