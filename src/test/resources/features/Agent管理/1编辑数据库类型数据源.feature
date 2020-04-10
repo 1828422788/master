@@ -1,4 +1,4 @@
-@agent_database
+@agent_database @agent2
 Feature: Agent编辑数据库数据类型数据源
 
   Background:

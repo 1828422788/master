@@ -1,4 +1,4 @@
-@agent_beats
+@agent_beats @agent2
 Feature: Agent编辑Beats类型数据源
 
   Background:

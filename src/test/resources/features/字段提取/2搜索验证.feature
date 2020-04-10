@@ -72,14 +72,14 @@ Feature: 字段提取搜索验证
       | appname:unicode | {"other.rr":"other.rr：PartyBasicInfoService_客户基本信息服务 "}                                                 |
 
   Scenario: RZY-2830:在搜索页验证是否脱敏
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I wait for loading complete
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "wym"
-    And I set the parameter "Password" with value "Rzy202002#"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
@@ -92,5 +92,10 @@ Feature: 字段提取搜索验证
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "RightIcon" button
     Then I will see the spl search result "{"raw_message":"raw_message：qweqwe159****8361qwe 159****8361 ","replace.phone":"replace.phone：qweqwe159****8361qwe 159****8361  "}"
+    Then I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+
+
 
 
