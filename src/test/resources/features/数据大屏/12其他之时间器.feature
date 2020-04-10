@@ -26,6 +26,7 @@ Feature: 数据大屏-时间器
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -85,6 +86,7 @@ Feature: 数据大屏-时间器
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -135,6 +137,7 @@ Feature: 数据大屏-时间器
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -169,6 +172,8 @@ Feature: 数据大屏-时间器
     And I click the "styleClock" button
     #字体粗细
     And I choose the "lighter" from the "ClockWordBold"
+    #对齐方式
+    And I choose the "居中" from the "ClockHorizontal"
     #时间格式
     And I choose the "yyyy/MM/dd hh:mm:ss" from the "timeFormat"
 
@@ -184,9 +189,24 @@ Feature: 数据大屏-时间器
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
     Examples:
       |name            |
+      |时间器样式3   |
+
+
+
+  Scenario Outline: 删除关于时间器的大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+
+    Examples:
+      |name|
+      |时间器默认设置    |
+      |时间器样式   |
+      |时间器样式2   |
       |时间器样式3   |
