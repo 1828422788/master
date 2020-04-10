@@ -1,47 +1,16 @@
 @galaxee
 Feature: 数据大屏-字符云图
 
-  Scenario: 字符云图默认设置
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "字符云图默认设置"
-    And I click the "Ensure" button
-      #选择上方的图表
-    And I click the "Chart" button
-      #选择字符云图
-    And I click the "characterCloudChart" button
-       #保存
-    And I wait for "Save" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 字符云图默认设置发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name              |
-      |字符云图默认设置    |
-
 ######################################无耻的分割线################################
 
-  Scenario: 字符云图样式
+  Scenario: 字符云图样式-搜索
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
-    And I set the parameter "Name" with value "字符云图样式"
+    And I set the parameter "Name" with value "字符云图样式-搜索"
     And I click the "Ensure" button
      #选择上方的图表
     And I click the "Chart" button
@@ -66,22 +35,33 @@ Feature: 数据大屏-字符云图
     #3 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "字符云图样式修改"
+#数据设置（数据源类型默认：搜索）
+    And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
+    And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
+    And I set the parameter "updateFrequency" with value "0.1"
+    #数值字段
+    And I choose the "count()" from the "cloudDataSearchNumber"
+    #切分字段
+    And I choose the "apache.clientip" from the "cloudDataSearchSegmentation"
        #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  Scenario Outline: 字符云图样式发布并截图
+  Scenario Outline: 字符云图样式-搜索发布并截图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
     Examples:
       |name              |
-      |字符云图样式    |
+      |字符云图样式-搜索    |
 
 
 ######################################无耻的分割线################################
@@ -113,6 +93,7 @@ Feature: 数据大屏-字符云图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -121,122 +102,6 @@ Feature: 数据大屏-字符云图
       |字符云图字体类型fantasy   |
 
 ######################################无耻的分割线################################
-
-  Scenario: 字符云图字体类型monospace
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "字符云图字体类型monospace"
-    And I click the "Ensure" button
-     #选择上方的图表
-    And I click the "Chart" button
-      #选择字符云图
-    And I click the "characterCloudChart" button
-   #选择字体类型monospace
-    And I click the "styleCloudChart" button
-    And I choose the "monospace" from the "fontType"
-
-    And I wait for "Save" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 字符云图字体类型monospace发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name              |
-      |字符云图字体类型monospace  |
-
-######################################无耻的分割线################################
-
-  Scenario: 字符云图字体类型serif
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "字符云图字体类型serif"
-    And I click the "Ensure" button
-     #选择上方的图表
-    And I click the "Chart" button
-      #选择字符云图
-    And I click the "characterCloudChart" button
-   #选择字体类型serif
-    And I click the "styleCloudChart" button
-    And I choose the "serif" from the "fontType"
-
-    And I wait for "Save" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 字符云图字体类型serif发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name              |
-      |字符云图字体类型serif  |
-
-######################################无耻的分割线################################
-
-  Scenario: 字符云图数据之搜索
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "字符云图数据之搜索"
-    And I click the "Ensure" button
-      #选择上方的图表
-    And I click the "Chart" button
-      #选择字符云图
-    And I click the "characterCloudChart" button
-    #数据设置（数据源类型默认：搜索）
-    And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I set the parameter "updateFrequency" with value "0.1"
-    #数值字段
-    And I choose the "count()" from the "cloudDataSearchNumber"
-    #切分字段
-    And I choose the "apache.clientip" from the "cloudDataSearchSegmentation"
-
-    #保存
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 字符云图数据之搜索发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name            |
-      |字符云图数据之搜索   |
-
-######################################无耻的分割线################################
-
   Scenario: 字符云图数据之静态数据
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -250,6 +115,9 @@ Feature: 数据大屏-字符云图
     And I click the "Chart" button
       #选择字符云图
     And I click the "characterCloudChart" button
+     #选择字体类型serif
+    And I click the "styleCloudChart" button
+    And I choose the "serif" from the "fontType"
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
@@ -278,6 +146,7 @@ Feature: 数据大屏-字符云图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -309,6 +178,9 @@ Feature: 数据大屏-字符云图
     And I click the "Chart" button
       #选择字符云图
     And I click the "characterCloudChart" button
+    #选择字体类型monospace
+    And I click the "styleCloudChart" button
+    And I choose the "monospace" from the "fontType"
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
@@ -320,7 +192,7 @@ Feature: 数据大屏-字符云图
     And I click the "pictureTwo" button
     And I click the "pictureOne" button
     And I click the "Search" button
-     #对百分比的参数进行设置
+     #参数进行设置
     And I click the "pictureOne" button
     And I click the "pictureTwo" button
     And I click the "Data" button
@@ -340,6 +212,7 @@ Feature: 数据大屏-字符云图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -350,3 +223,14 @@ Feature: 数据大屏-字符云图
 
 
 
+  Scenario Outline: 删除关于字符云图大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+
+    Examples:
+      |name|
+      |字符云图样式-搜索    |
+      |字符云图字体类型fantasy   |
+      |字符云图数据之静态数据  |
+      |字符云图数据之绑定搜索 |

@@ -78,6 +78,7 @@ Feature: 数据大屏-地理分布
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
@@ -85,3 +86,13 @@ Feature: 数据大屏-地理分布
     Examples:
       | name |
       | 地理分布 |
+
+
+  Scenario Outline: 删除关于地理分布的大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+
+    Examples:
+      |name|
+      | 地理分布|

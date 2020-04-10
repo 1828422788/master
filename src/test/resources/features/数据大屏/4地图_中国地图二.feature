@@ -28,6 +28,7 @@
       Given  open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for "Loading" will be invisible
       And I wait for "1000" millsecond
       Then take a screenshot with name "galaxee/<name>"
@@ -86,6 +87,7 @@ Scenario Outline: 中国地图II样式发布并截图
   Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
   When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
   And switch to window "<name>"
+  And I close all tabs except main tab
   And I wait for loading invisible
   Then take a screenshot with name "galaxee/<name>"
 
@@ -125,6 +127,7 @@ Scenario Outline: 中国地图II样式发布并截图
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -170,6 +173,7 @@ Scenario Outline: 中国地图II样式发布并截图
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -220,6 +224,7 @@ Scenario Outline: 中国地图II样式发布并截图
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -284,6 +289,7 @@ Scenario Outline: 中国地图II样式发布并截图
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -294,6 +300,19 @@ Scenario Outline: 中国地图II样式发布并截图
 
 
 
+    Scenario Outline: 删除关于中国地图II的大屏
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+      Then I click the "Ensure" button
+
+      Examples:
+        |name|
+        |中国地图II默认   |
+        |中国地图II样式    |
+        |中国地图II样式无锡     |
+        |中国地图II数据之搜索   |
+        |中国地图II数据之静态数据   |
+        |中国地图II数据之绑定搜索 |
 
 
 

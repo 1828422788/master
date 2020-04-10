@@ -108,10 +108,21 @@ Feature: 数据大屏-旭日图
   Scenario Outline: 发布页截图
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
 
     Examples:
       | name  |
+      | 旭日图 |
+
+
+  Scenario Outline: 删除关于| 旭日图 |的大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+
+    Examples:
+      |name|
       | 旭日图 |

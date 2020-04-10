@@ -62,6 +62,7 @@ Feature: 数据大屏-揭示牌
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -122,6 +123,7 @@ Feature: 数据大屏-揭示牌
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -192,6 +194,7 @@ Feature: 数据大屏-揭示牌
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -200,8 +203,16 @@ Feature: 数据大屏-揭示牌
         |揭示牌数据之绑定搜索 |
 
 
+  Scenario Outline: 删除关于揭示牌的大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
 
-
+    Examples:
+      |name|
+      |揭示牌样式搜索   |
+  |揭示牌数据之静态数据   |
+  |揭示牌数据之绑定搜索 |
 
 
 
