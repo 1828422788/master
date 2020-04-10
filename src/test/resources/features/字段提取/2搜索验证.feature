@@ -72,9 +72,9 @@ Feature: 字段提取搜索验证
 
   @tuomin
   Scenario: RZY-2830:在搜索页验证是否脱敏
-    Given I wait for loading complete
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#    Given I wait for loading complete
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
