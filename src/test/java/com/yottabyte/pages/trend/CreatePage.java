@@ -225,18 +225,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='下限']/ancestor::div/following-sibling::div")
     private WebElement lowerLimit;
 
-    @FindBy(xpath = "(//div[@class='img heatmap'])[last()]")
-    private WebElement heatmap;
-
-    @FindBy(xpath = "(//div[@class='img attackmap'])[last()]")
-    private WebElement attackmap;
-
-    @FindBy(xpath = "(//div[@class='img regionmap'])[last()]")
-    private WebElement regionmap;
-
-    @FindBy(xpath = "(//div[@class='img geostatsmap'])[last()]")
-    private WebElement geostatsmap;
-
     @FindBy(className = "table")
     private WebElement table;
 
@@ -1130,7 +1118,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getHeatmap() {
-        return heatmap;
+        return getChartButton("热力地图");
     }
 
     public WebElement getAttackmap() {
