@@ -457,8 +457,8 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
 
-    @FindBy(className = "el-time-panel")
-   // @FindBy(xpath = "(//input[@placeholder='请选择时间']/ancestor::div[2])[last()]")
+    //@FindBy(className = "el-time-panel")
+    @FindBy(xpath = "(//input[@placeholder='请选择时间']/ancestor::div[2])[last()]")
     private WebElement timePanel;
 
     @FindBy(xpath = "//div[@class='el-message-box']//span[contains(text(),'确定')]")
