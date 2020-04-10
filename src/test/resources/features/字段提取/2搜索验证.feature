@@ -81,10 +81,10 @@ Feature: 字段提取搜索验证
     When I set the parameter "Username" with value "wym"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for "2000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "tag:replacer"
+    And I wait for "5000" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
     Then I wait for "2000" millsecond
