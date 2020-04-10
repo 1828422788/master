@@ -1,4 +1,4 @@
-@second @configsSmoke
+@second @configsSmoke @search
 Feature: 字段提取搜索验证
 
   Scenario Outline: RZY-3418:在搜索页验证
