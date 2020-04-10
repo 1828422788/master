@@ -11,6 +11,7 @@ Feature: 数据大屏-和弦图
     And I set the parameter "Name" with value "和弦图"
     And I click the "Ensure" button
     And I click the "Chart" button
+    And I drag the scroll bar to the element "Chord"
     And I click the "Chord" button
     And I click the "Style" button
     And I wait for "Chord" will be invisible

@@ -10,6 +10,7 @@ Feature: 数据大屏-水球图
     And I set the parameter "Name" with value "水球图"
     And I click the "Ensure" button
     And I click the "Chart" button
+    And I drag the scroll bar to the element "Liquidfill"
     And I click the "Liquidfill" button
     And I click the "Style" button
     And I wait for "Liquidfill" will be invisible

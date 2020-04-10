@@ -13,6 +13,7 @@ Feature: 数据大屏-状态图
     And I click the "Ensure" button
     And I click the "Index" button
     And I click the "Status" button
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "456"
@@ -36,6 +37,7 @@ Feature: 数据大屏-状态图
     And I click the "pictureOne" button
 #    And I click the "Index" button
 #    And I click the "Status" button
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "514"

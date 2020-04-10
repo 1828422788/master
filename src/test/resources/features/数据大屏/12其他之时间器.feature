@@ -51,6 +51,7 @@ Feature: 数据大屏-时间器
     And I click the "Clock" button
 #设置样式
       #1 设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1000"
@@ -110,6 +111,7 @@ Feature: 数据大屏-时间器
       #选择时间器
     And I click the "Clock" button
 #设置样式
+    And I click the "Style" button
      #1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
@@ -161,6 +163,7 @@ Feature: 数据大屏-时间器
       #选择时间器
     And I click the "Clock" button
 #设置样式
+    And I click the "Style" button
      #1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button

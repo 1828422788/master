@@ -52,6 +52,7 @@
       And I click the "entity" button
       And I hide the element "netDropdown"
 #设置样式
+      And I click the "Style" button
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
       And I set the parameter "Width" with value "400"
@@ -100,6 +101,7 @@
       #选择实体
       And I click the "entity" button
       And I hide the element "netDropdown"
+      And I click the "Style" button
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "firewall" from the "entityStyleSelect"
@@ -139,6 +141,7 @@
       #选择实体
       And I click the "entity" button
       And I hide the element "netDropdown"
+      And I click the "Style" button
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "router1" from the "entityStyleSelect"
@@ -178,6 +181,7 @@
       #选择实体
       And I click the "entity" button
       And I hide the element "netDropdown"
+      And I click the "Style" button
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "router2" from the "entityStyleSelect"
@@ -216,6 +220,7 @@
       #选择实体
       And I click the "entity" button
       And I hide the element "netDropdown"
+      And I click the "Style" button
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "switch" from the "entityStyleSelect"
@@ -254,6 +259,7 @@
       #选择实体
       And I click the "entity" button
       And I hide the element "netDropdown"
+      And I click the "Style" button
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "balance" from the "entityStyleSelect"
@@ -294,6 +300,7 @@
       #选择实体
       And I click the "entity" button
       And I hide the element "netDropdown"
+      And I click the "Style" button
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "file" from the "entityStyleSelect"
@@ -343,6 +350,7 @@
       #选择实体
       And I click the "entity" button
       And I hide the element "netDropdown"
+      And I click the "Style" button
       #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "database" from the "entityStyleSelect"
@@ -416,6 +424,7 @@
       #选择实体
       And I click the "entity" button
       And I hide the element "netDropdown"
+      And I click the "Style" button
        #实体样式的选择
       And I click the "entityStyle" button
       And I choose the "cloud" from the "entityStyleSelect"

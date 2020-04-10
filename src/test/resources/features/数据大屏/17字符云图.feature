@@ -1,7 +1,6 @@
 @galaxee
 Feature: 数据大屏-字符云图
 
-######################################无耻的分割线################################
 
   Scenario: 字符云图样式-搜索
 #    Given I will see the "PublicNavBarPage" page
@@ -14,10 +13,12 @@ Feature: 数据大屏-字符云图
     And I click the "Ensure" button
      #选择上方的图表
     And I click the "Chart" button
+    And I drag the scroll bar to the element "characterCloudChart"
       #选择字符云图
     And I click the "characterCloudChart" button
  #设置样式
    # 1 设置图表尺寸位置
+    And I click the "Style" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "660"
     And I set the parameter "Height" with value "450"
@@ -77,8 +78,10 @@ Feature: 数据大屏-字符云图
     And I click the "Ensure" button
      #选择上方的图表
     And I click the "Chart" button
+    And I drag the scroll bar to the element "characterCloudChart"
       #选择字符云图
     And I click the "characterCloudChart" button
+    And I click the "Style" button
    #选择字体类型fantasy
     And I click the "styleCloudChart" button
     And I choose the "fantasy" from the "fontType"
@@ -113,8 +116,10 @@ Feature: 数据大屏-字符云图
     And I click the "Ensure" button
     #选择上方的图表
     And I click the "Chart" button
+    And I drag the scroll bar to the element "characterCloudChart"
       #选择字符云图
     And I click the "characterCloudChart" button
+    And I click the "Style" button
      #选择字体类型serif
     And I click the "styleCloudChart" button
     And I choose the "serif" from the "fontType"
@@ -176,8 +181,10 @@ Feature: 数据大屏-字符云图
       #添加一个字符云图控件
      #选择上方的图表
     And I click the "Chart" button
+    And I drag the scroll bar to the element "characterCloudChart"
       #选择字符云图
     And I click the "characterCloudChart" button
+    And I click the "Style" button
     #选择字体类型monospace
     And I click the "styleCloudChart" button
     And I choose the "monospace" from the "fontType"

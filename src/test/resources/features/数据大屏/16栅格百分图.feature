@@ -19,8 +19,7 @@ Feature: 数据大屏-栅格百分图
     And I hide the element "chartDropdown"
  #设置样式
    # 1 设置图表尺寸位置
-#    And I wait for "ChartPosition" will be visible
-    And I click the "style" button
+    And I click the "Style" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "850"
     And I set the parameter "Height" with value "460"
@@ -92,6 +91,7 @@ Feature: 数据大屏-栅格百分图
     And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
     And I hide the element "chartDropdown"
+    And I click the "Style" button
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
@@ -150,6 +150,7 @@ Feature: 数据大屏-栅格百分图
     And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
     And I hide the element "chartDropdown"
+    And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button

@@ -52,6 +52,7 @@ Feature: 数据大屏-视频流
     And I click the "videoFlow" button
 #设置样式
       #1 设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "700"

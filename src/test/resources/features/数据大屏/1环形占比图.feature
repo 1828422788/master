@@ -10,6 +10,7 @@ Feature: 数据大屏-环形占比图
     And I set the parameter "Name" with value "环形占比图"
     And I click the "Ensure" button
     And I click the "Chart" button
+    And I drag the scroll bar to the element "Percent"
     And I click the "Percent" button
     And I click the "Style" button
     And I wait for "Percent" will be invisible

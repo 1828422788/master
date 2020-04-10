@@ -13,6 +13,7 @@ Feature: 数据大屏-世界地图
     And I click the "Map" button
     And I click the "World" button
     And I hide the element "MapDropdown"
+    And I click the "Style" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "700"
     And I set the parameter "Height" with value "500"
@@ -35,7 +36,7 @@ Feature: 数据大屏-世界地图
    # And I click the "Map" button
    # And I click the "World" button
    # And I hide the element "MapDropdown"
-
+    And I click the "Style" button
     And I click the "MapHeader" button
 
     And I click the "AreaColor" button

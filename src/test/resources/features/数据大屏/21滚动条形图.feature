@@ -18,6 +18,7 @@ Feature: 数据大屏-滚动条形图
     And I hide the element "ChartDropdown"
 #修改样式
     # 1 设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "740"
@@ -88,6 +89,7 @@ Feature: 数据大屏-滚动条形图
       #选择滚动条形图
     And I click the "scrollBar" button
     And I hide the element "ChartDropdown"
+    And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
@@ -152,7 +154,7 @@ Feature: 数据大屏-滚动条形图
       #选择滚动条形图
     And I click the "scrollBar" button
     And I hide the element "ChartDropdown"
-
+    And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button

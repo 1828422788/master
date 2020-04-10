@@ -10,6 +10,7 @@ Feature: 数据大屏-力图
     And I set the parameter "Name" with value "力图"
     And I click the "Ensure" button
     And I click the "Chart" button
+    And I drag the scroll bar to the element "Force"
     And I click the "Force" button
     And I click the "Style" button
     And I wait for "Force" will be invisible

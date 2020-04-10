@@ -10,6 +10,7 @@ Feature: 数据大屏-桑基图
     And I set the parameter "Name" with value "桑基图"
     And I click the "Ensure" button
     And I click the "Chart" button
+    And I drag the scroll bar to the element "Sankey"
     And I click the "Sankey" button
     And I click the "Style" button
     And I wait for "Sankey" will be invisible
@@ -17,8 +18,8 @@ Feature: 数据大屏-桑基图
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "684"
     And I set the parameter "Height" with value "664"
-    And I set the parameter "ChartXaxis" with value "-9"
-    And I set the parameter "ChartYaxis" with value "-8"
+    And I set the parameter "ChartXaxis" with value "100"
+    And I set the parameter "ChartYaxis" with value "80"
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart AND NOT apache.clientip:221.226.97.92 | stats count() by apache.clientip,apache.resp_len,apache.method | limit 10"
     And I click the "Search" button
