@@ -267,12 +267,14 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='趋势图']")
     private WebElement trend;
 
-    @FindBy(xpath = "//div[@class='yw-search-form-group']/label[text()='描述']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
     private WebElement describe;
 
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
+    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    private WebElement selectedUser;
 
     @FindBy(xpath = "//input[@class='_11DWHviyrYqinGKO4nRa5o']")
     private WebElement period;
@@ -850,6 +852,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
     private WebElement offlineTaskName;
 
+    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
+    private WebElement taskName;
+
     public WebElement getApplyButton() {
         return GetTime.getTime(webDriver, "ApplyButton");
     }
@@ -1111,12 +1116,15 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getDescribe() {
-        //return describe;
-        return InputUtils.getInputElement("描述");
+        return describe;
+    }
+
+    public WebElement getSelectedUser() {
+        return selectedUser;
     }
 
     public WebElement getTaskName() {
-        return InputUtils.getInputElement("名称");
+        return taskName;
     }
 
     public WebElement getTimedTask() {

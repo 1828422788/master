@@ -54,22 +54,15 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[text()='定时任务']")
     private WebElement saveAsSchedule;
 
-// Map Interaction -----------------
     @FindBy(xpath = "//*[text()='124']/ancestor::*[2]")
     private WebElement countryChina;
 
     @FindBy(xpath = "//*[text()='46']/ancestor::*[2]")
     private WebElement provinceJiangsu;
 
-//----------------------------------
-// Types ------------------
-
     @FindBy(xpath = "//div[contains(text(),'关系')]")
     private WebElement connection;
 
-//----------------------------------
-
-// 序列-------------------------------
     @FindBy(xpath = "(//div[contains(text(),'曲线图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement lineChart;
 
@@ -82,15 +75,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'散点图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement scatterChart;
 
-//维度---------------------------------
-
     @FindBy(xpath = "(//div[contains(text(),'旭日图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement sun;
 
     @FindBy(xpath = "(//div[contains(text(),'统计地图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement statisticalmap;
 
-//其他 -------------
     @FindBy(xpath = "(//div[contains(text(),'单值')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement single;
 
@@ -112,10 +102,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'调用链')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement chain;
 
-//----------------------------------------
-
-//Tabs -------------------------------------
-
     @FindBy(xpath = "(//div[contains(text(),'数值')])[last()]")
     private WebElement value;
 
@@ -128,11 +114,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()=' 分面'])[last()]")
     private WebElement facet;
 
-//-----------------------------------------------
-//Inputs ----------------------------------------
-
-
-
     @FindBy(xpath = "(//span[text()='行数']/preceding-sibling::input)[last()]")
     private WebElement rowNum;
 
@@ -141,9 +122,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='展示字号']/ancestor::div/following-sibling::input")
     private WebElement fontSize;
-
-//------------------------------------------------
-//Dropdown Fields---------------------------------
 
     @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement fieldValue;
@@ -512,13 +490,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
     private WebElement secondSettingSelect;
 
-    @FindBy(xpath = "(//div[@class='img chord'])[last()]")
+    @FindBy(xpath = "(//div[contains(text(),'和弦图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement chord;
 
-    @FindBy(xpath = "(//div[@class='img sankey'])[last()]")
+    @FindBy(xpath = "(//div[contains(text(),'桑基图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement sankey;
 
-    @FindBy(xpath = "(//div[@class='img force'])[last()]")
+    @FindBy(xpath = "(//div[contains(text(),'力图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement force;
 
     @FindBy(xpath = "(//div[text()='目标'])[last()]")

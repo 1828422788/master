@@ -75,6 +75,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
     private WebElement groupDropdownList;
 
+    @FindBy(xpath = "//span[text()='定时任务']/ancestor::div/div/span/input")
+    private WebElement searchInput;
+
+    public WebElement getSearchInput(){
+        return searchInput;
+    }
+
     public WebElement getGroupDropdown() {
         return groupDropdown;
     }
