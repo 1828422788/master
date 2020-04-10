@@ -70,6 +70,7 @@ Feature: 字段提取搜索验证
       | appname:base64  | {"other.code":"other.code：hello base64 "}                                                               |
       | appname:unicode | {"other.rr":"other.rr：PartyBasicInfoService_客户基本信息服务 "}                                                 |
 
+  @tuomin
   Scenario: RZY-2830:在搜索页验证是否脱敏
 #    Given I wait for loading complete
 #    Given I will see the "PublicNavBarPage" page
@@ -94,22 +95,5 @@ Feature: 字段提取搜索验证
     Then I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
-
-
-  @search
-  Scenario Outline: RZY-3418:在搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag                                   | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-      | auto_test_csv                         | {'other.portinfo[].1':'other.portinfo[].1：T1/1 T1/2 F2/1 F2/2 F2/3 F2/4 F2/5 F2/6 F2/7 F2/8 ','other.portinfo[].2':'other.portinfo[].2：down down up up down down down down down down ','other.portinfo[].3':'other.portinfo[].3：0 0 0 0 0 0 0 0 0 0 ','other.portinfo[].4':'other.portinfo[].4：0 0 0 0 0 0 0 0 0 0 ','other.portinfo[].5':'other.portinfo[].5：0 0 0 0 0 0 0 0 0 0 ','other.portinfo[].6':'other.portinfo[].6：0 0 0 0 0 0 0 0 0 0 '}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 
