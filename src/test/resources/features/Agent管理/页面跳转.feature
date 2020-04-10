@@ -1,4 +1,4 @@
-@agent @agent_jump
+@agent2 @agent_jump
 Feature: Agent页面跳转
 
   Background:
@@ -53,4 +53,10 @@ Feature: Agent页面跳转
   Scenario: 跳转到字段提取页面
     And I click the "Datafetch" button
     Then the page's title will be "字段提取"
+    And I close all tabs except main tab
+
+  Scenario: 跳转用数据源删除
+    Given the data name "autotestjump" in table "SyslogTable" then i click the "删除" button
+    And I click the "Ensure" button
+    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
     And I close all tabs except main tab
