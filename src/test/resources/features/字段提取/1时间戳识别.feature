@@ -129,7 +129,7 @@ Feature: 字段提取时间戳识别
     And I set the parameter "StartDate" with value "<startDate>"
     And I set the parameter "EndDate" with value "<endDate>"
 #    And I set the parameter "StartTimes" with value "<startTime>"
-    And I set the parameter "EndTimes" with value "<endTime>"
+#    And I set the parameter "EndTimes" with value "<endTime>"
     Then I click the "Endtimes" button
     Then I wait for "1000" millsecond
     Then I click the "Apply" button
