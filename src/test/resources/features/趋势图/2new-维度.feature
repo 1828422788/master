@@ -32,8 +32,6 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -74,8 +72,6 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>_<option>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -121,8 +117,6 @@ Feature: 趋势图新建_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 

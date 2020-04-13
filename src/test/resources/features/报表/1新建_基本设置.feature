@@ -83,13 +83,12 @@ Feature: 报表新建_执行计划
       | test_report  |          | crontab模式下, 执行计划不能为零或空             |
       | test_report  |   test   | 非法crontab表达式, 请检查后重试                 |
 
-#not possible to type spaces into crontab input
+
   Scenario: new_report_success_crontab
     When I set the parameter "Name" with value "test_report_crontab"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
-    And I click the "CrontabButton" button
     And I set the parameter "Crontab" with value "0 0/15 9 ? * MON-FRI"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible

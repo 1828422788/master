@@ -33,8 +33,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -74,8 +72,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -114,8 +110,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -153,8 +147,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -190,8 +182,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -235,8 +225,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -279,8 +267,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -318,8 +304,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -355,8 +339,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -397,8 +379,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -461,8 +441,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -500,8 +478,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -542,8 +518,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -586,8 +560,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -624,8 +596,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -672,8 +642,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -717,8 +685,6 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -741,7 +707,5 @@ Feature: 趋势图新建-其他
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "Table_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible

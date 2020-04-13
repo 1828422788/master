@@ -25,8 +25,6 @@ Feature: 趋势图新建-timechart
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -78,8 +76,6 @@ Feature: 趋势图新建-timechart
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -122,8 +118,6 @@ Feature: 趋势图新建-timechart
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 

@@ -27,13 +27,11 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "trend/<chartType>_<caseNum>"
-#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
+    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<caseNum>.png" with target image "trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -69,13 +67,11 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "trend/<chartType>_<buttonChoice>"
-#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<buttonChoice>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<buttonChoice>.png"
+    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<buttonChoice>.png" with target image "trend/<chartType>_<buttonChoice>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -110,13 +106,11 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "trend/<chartType>_<caseNum>"
-#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
+    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<caseNum>.png" with target image "trend/<chartType>_<caseNum>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -149,13 +143,11 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "trend/<chartType>_<caseNum>_<buttonChoice>"
-#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>_<buttonChoice>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>_<buttonChoice>.png"
+    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<caseNum>_<buttonChoice>.png" with target image "trend/<chartType>_<caseNum>_<buttonChoice>.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -191,13 +183,11 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "trend/<chartType>_<caseNum>_limit"
-#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>_limit.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>_limit.png"
+    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<caseNum>_limit.png" with target image "trend/<chartType>_<caseNum>_limit.png"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_limit"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 

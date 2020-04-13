@@ -240,6 +240,17 @@ public class DateEditorPage extends PageTemplate {
         applyCustomTime.click();
     }
 
+    public void getCustomTimeTest() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(customTime));
+        customTime.click();
+        SetKeyWithValue setValue = new SetKeyWithValue();
+        setValue.iSetTheParameterWithValue(startTimeInput, "00:00:00.000");
+        setValue.iSetTheParameterWithValue(endTimeInput, "00:00:00.000");
+        setValue.iSetTheParameterWithValue(startDateInput, "2020-04-01");
+        setValue.iSetTheParameterWithValue(endDateInput, "2020-04-03");
+        applyCustomTime.click();
+    }
+
     public void getRecently(String time, String timeUnit) {
         recently.click();
         timeInput.sendKeys(time);
