@@ -12,6 +12,7 @@ Feature: 数据大屏-地理分布
     And I click the "Ensure" button
     And I click the "Map" button
     And I click the "Globelabel" button
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "500"
@@ -41,6 +42,7 @@ Feature: 数据大屏-地理分布
     And I click the "pictureOne" button
    # And I click the "Map" button
    # And I click the "Globelabel" button
+    And I click the "Style" button
     And I wait for "GlobelabelMapHeader" will be visible
     And I click the "GlobelabelMapHeader" button
     And I click the "AreaColor" button

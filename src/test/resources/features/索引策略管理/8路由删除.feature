@@ -1,4 +1,4 @@
-@clean @cleanSecond @cleanIndex
+@clean @cleanSecond @cleanIndex @indexSettingSmoke
 Feature: 路由删除（RZY-1482）
 
   Background:

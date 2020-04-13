@@ -53,6 +53,7 @@ Feature: 数据大屏-边框
     And I click the "frame" button
     And I hide the element "otherDropdown"
       #1 设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "400"
@@ -100,6 +101,7 @@ Feature: 数据大屏-边框
       #选择边框
     And I click the "frame" button
     And I hide the element "otherDropdown"
+    And I click the "Style" button
     #选择样式3
     And I wait for "styleFrame" will be visible
     And I click the "styleFrame" button

@@ -13,6 +13,7 @@ Feature: 数据大屏-标题
     And I click the "Ensure" button
     And I click the "Word" button
     And I click the "TitleImg" button
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "750"
@@ -32,6 +33,7 @@ Feature: 数据大屏-标题
     And I click the "pictureOne" button
 #    And I click the "Word" button
 #    And I click the "TitleImg" button
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "750"

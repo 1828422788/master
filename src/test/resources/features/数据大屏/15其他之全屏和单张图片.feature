@@ -16,6 +16,7 @@ Feature: 数据大屏-全屏和单张图片
     And I click the "Fullscreen" button
     And I hide the element "otherDropdown"
  #设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "560"
@@ -64,6 +65,7 @@ Feature: 数据大屏-全屏和单张图片
     And I click the "Picture" button
     And I hide the element "otherDropdown"
  #设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1140"

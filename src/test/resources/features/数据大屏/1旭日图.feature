@@ -13,6 +13,7 @@ Feature: 数据大屏-旭日图
     And I set the parameter "Name" with value "旭日图"
     And I click the "Ensure" button
     And I click the "Chart" button
+    And I drag the scroll bar to the element "Sunburst"
     And I click the "Sunburst" button
     And I click the "Style" button
     And I wait for "Sunburst" will be invisible

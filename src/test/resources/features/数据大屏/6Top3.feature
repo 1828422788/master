@@ -16,6 +16,7 @@
       #选择top3
      And I click the "Top3" button
     And I hide the element "IndexDropdown"
+    And I click the "Style" button
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
@@ -83,6 +84,7 @@
       #选择top3
       And I click the "Top3" button
       And I hide the element "IndexDropdown"
+      And I click the "Style" button
       #数据设置
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -138,6 +140,7 @@
       #选择top3
       And I click the "Top3" button
       And I hide the element "IndexDropdown"
+      And I click the "Style" button
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button

@@ -50,6 +50,7 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
+      And I click the "Style" button
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
@@ -100,6 +101,7 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
+      And I click the "Style" button
       #设置样式中的事件颜色（利用搜索看事件颜色变化）
       And I click the "GlobelabelMapHeader" button
       And I click the "EventColor" button
@@ -155,6 +157,7 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
+      And I click the "Style" button
       #数据设置
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -211,6 +214,7 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
+      And I click the "Style" button
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button

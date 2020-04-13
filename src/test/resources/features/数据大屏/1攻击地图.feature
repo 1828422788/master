@@ -13,6 +13,7 @@ Feature: 数据大屏-攻击地图
     And I click the "Ensure" button
     And I click the "Map" button
     And I click the "Attackmap" button
+    And I click the "Style" button
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I set the parameter "Scaling" with value "1"
@@ -43,6 +44,7 @@ Feature: 数据大屏-攻击地图
     And I click the "pictureOne" button
 #    And I click the "Map" button
 #    And I click the "Attackmap" button
+    And I click the "Style" button
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I click the "BoundaryColor" button

@@ -18,6 +18,7 @@ Feature: 数据大屏-滚动列表二
     And I hide the element "ChartDropdown"
 #修改样式
     # 1 设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "997"
@@ -116,6 +117,7 @@ Feature: 数据大屏-滚动列表二
     And I click the "rollList2" button
     And I hide the element "ChartDropdown"
     #  设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "997"
@@ -189,6 +191,7 @@ Feature: 数据大屏-滚动列表二
     And I click the "rollList2" button
     And I hide the element "ChartDropdown"
     #  设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "997"

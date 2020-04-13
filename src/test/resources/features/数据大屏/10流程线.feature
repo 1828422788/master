@@ -51,10 +51,11 @@
       #选择流程线
       And I click the "flowLine" button
       And I hide the element "netDropdown"
-
+      And I click the "Style" button
       And I wait for "ChartPosition" will be visible
 #设置样式
       #1 设置图表尺寸位置
+
       And I click the "ChartPosition" button
       And I set the parameter "Width" with value "400"
       And I set the parameter "Height" with value "400"

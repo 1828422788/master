@@ -10,6 +10,7 @@ Feature: 数据大屏-弧形柱图
     And I set the parameter "Name" with value "弧形柱图"
     And I click the "Ensure" button
     And I click the "Chart" button
+    And I drag the scroll bar to the element "ArcBar"
     And I click the "ArcBar" button
     And I click the "Style" button
     And I wait for "ArcBar" will be invisible

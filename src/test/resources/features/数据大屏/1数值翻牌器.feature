@@ -13,6 +13,7 @@ Feature: 数据大屏-数值翻牌器
     And I click the "Ensure" button
     And I click the "Index" button
     And I click the "FlipNumber" button
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "ChartXaxis" with value "0"

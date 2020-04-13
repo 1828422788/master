@@ -50,6 +50,7 @@
       #选择齿轮组合
       And I click the "gearCombination" button
 #设置样式
+      And I click the "Style" button
       #1 设置图表尺寸位置
       And I wait for "ChartPosition" will be visible
       And I click the "ChartPosition" button
@@ -107,6 +108,7 @@
       And I click the "Other" button
       #选择齿轮组合
       And I click the "gearCombination" button
+      And I click the "Style" button
      #关闭图层2
       And I click the "styleGearCombination" button
 
@@ -145,6 +147,7 @@
       And I click the "Other" button
       #选择齿轮组合
       And I click the "gearCombination" button
+      And I click the "Style" button
      #关闭图层3
       And I click the "styleGearCombination" button
 

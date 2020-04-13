@@ -56,6 +56,7 @@
     And I hide the element "MapDropdown"
 #设置样式
     #1 设置图表尺寸位置
+    And I click the "Style" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "700"
     And I set the parameter "Height" with value "500"
@@ -113,6 +114,7 @@ Scenario Outline: 中国地图II样式发布并截图
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
+      And I click the "Style" button
     #设置->样式->地图->区域选择无锡
       And I click the "MapHeader" button
       And I choose the "无锡" from the "MapArea"
@@ -153,6 +155,7 @@ Scenario Outline: 中国地图II样式发布并截图
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
+      And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
       And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
@@ -197,6 +200,7 @@ Scenario Outline: 中国地图II样式发布并截图
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
+      And I click the "Style" button
      #数据设置
       And I click the "Data" button
       And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
@@ -256,6 +260,7 @@ Scenario Outline: 中国地图II样式发布并截图
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
+      And I click the "Style" button
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button

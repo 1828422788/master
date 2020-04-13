@@ -13,6 +13,7 @@ Feature: 数据大屏-热力地图
     And I click the "Ensure" button
     And I click the "Map" button
     And I click the "Heatmap" button
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "700"
@@ -35,6 +36,7 @@ Feature: 数据大屏-热力地图
     And I click the "pictureOne" button
 #    And I click the "Map" button
 #    And I click the "Heatmap" button
+    And I click the "Style" button
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I choose the "山东" from the "MapArea"
