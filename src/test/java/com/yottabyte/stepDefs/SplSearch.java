@@ -28,12 +28,7 @@ public class SplSearch {
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
 
         for (String key : map.keySet()) {
-            WebElement tr;
-            if (key != "raw_message") {
-                tr = webDriver.findElement(By.xpath("((//span[text()='" + key + "'])[last()]/ancestor::div)[last()]"));
-            } else {
-                tr = webDriver.findElement(By.xpath("((//span[text()='" + key + "'])[last()]/ancestor::div)[last()]/ancestor::div[1]"));
-            }
+            WebElement tr = webDriver.findElement(By.xpath("((//span[text()='" + key + "'])[last()]/ancestor::div)[last()]"));
             String actualValue = tr.getText();
             Assert.assertEquals(map.get(key), actualValue);
         }
