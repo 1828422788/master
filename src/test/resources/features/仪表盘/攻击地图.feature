@@ -76,8 +76,6 @@ Feature: 仪表盘攻击地图
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I choose the "apache.clientip" from the "DataValue"
-    And I click the "Divide" button
-    And I choose the "apache.geo.country" from the "DataValue"
     And I choose the "client_lat" from the "Longitude"
     And I choose the "client_lon" from the "Latitude"
     And I click the "Target" button
@@ -97,7 +95,7 @@ Feature: 仪表盘攻击地图
 
     Examples:
       | name    | targetName |
-      | 仪表盘攻击地图 | Regionmap  |
+      | 仪表盘攻击地图 | Attackmap  |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
