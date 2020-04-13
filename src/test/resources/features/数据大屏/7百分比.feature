@@ -70,7 +70,7 @@
 
 ######################################无耻的分割线################################
 
-    Scenario: 百分比数据之静态数据
+    Scenario: 百分比数据之静态数据  
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -85,17 +85,20 @@
       And I click the "percentage" button
       And I hide the element "IndexDropdown"
       And I click the "Style" button
-      #数据设置
+ #数据设置
       And I click the "Data" button
-      And I click the "dataSourceType" button
+      And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I click the "Search" button
+      And I wait for "SearchTip" will be invisible
+      And I set the parameter "updateFrequency" with value "0.1"
       #选择静态数据
+      And I click the "dataSourceType" button
       And I click the "statisticsData" button
-
       And I click the "Ensure" button
-      And I wait for "1000" millsecond
-      And I choose the "value" from the "percentageSearchNumber"
+      And I wait for "6000" millsecond
+      And I choose the "p" from the "percentageSearchNumber"
 
-      #保存
+    #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
       Then I will see the success message "保存成功"

@@ -1305,6 +1305,12 @@ public class CreatePage extends PageTemplate {
     }
 
 
+@FindBy(xpath = "//label[contains(text(),'数据源类型')]")
+private WebElement dataType;
+    public WebElement getDataType(){return dataType;}
+
+
+
 
 //author-jnd
     //发布
@@ -1384,7 +1390,7 @@ public class CreatePage extends PageTemplate {
     private WebElement bindingSearchChoose;
     public WebElement getBindingSearchChoose(){return bindingSearchChoose;}
     //选择绑定搜索
-    @FindBy(xpath = "/html/body/div[9]/div/div[1]/ul/li[2]/span")
+    @FindBy(xpath = "//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[2]/span[contains(text(),'search_widget')]")
     private WebElement search_widget;
     public WebElement getSearch_widget(){return search_widget;}
 
@@ -1763,7 +1769,8 @@ public class CreatePage extends PageTemplate {
     }
 
 //图表中的字符云图
-    @FindBy(xpath = "//li[text()='字符云图']")
+   // @FindBy(xpath = "//li[text()='字符云图']")
+    @FindBy(className = "wordcloudchart")
     private WebElement characterCloudChart;
       public WebElement getCharacterCloudChart(){return characterCloudChart;}
 
@@ -1782,7 +1789,7 @@ public class CreatePage extends PageTemplate {
       private WebElement yellow;
       public WebElement getYellow(){return yellow;}
     //字体类型
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[2]/div")
+   @FindBy(xpath = "//label[contains(text(),'字体类型')]/parent::div/div")
     private WebElement fontType;
       public WebElement getFontType(){
           fontType.click();

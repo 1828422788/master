@@ -363,6 +363,8 @@
       And I set the parameter "updateFrequency" with value "0.1"
       And I choose the "err_avg" from the "entitySearchCategory"
       #选择静态数据
+      And I drag the scroll bar to the element "dataType"
+      And I click the "dataSourceType" button
       And I click the "statisticsData" button
       And I click the "Ensure" button
       And I wait for "2000" millsecond
@@ -397,7 +399,6 @@
         |实体数据之静态数据值严重   |
 
 ######################################无耻的分割线################################
-
 
 
     Scenario: 实体数据之绑定搜索值正常

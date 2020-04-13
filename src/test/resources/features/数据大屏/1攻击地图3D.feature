@@ -1,12 +1,6 @@
 @galaxee
 Feature: 数据大屏-攻击地图3D
 
-
-  Scenario: 删除相似名称的大屏以便定位
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "攻击地图" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
   Scenario: 新建默认类型的攻击地图3D
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
