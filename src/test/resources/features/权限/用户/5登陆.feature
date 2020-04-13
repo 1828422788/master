@@ -1,4 +1,4 @@
-@all @users
+@all @users @usersSmoke
 Feature: 用户登陆（RZY-1152、RZY-1153）
 
   Scenario Outline: 登陆失败
@@ -8,17 +8,17 @@ Feature: 用户登陆（RZY-1152、RZY-1153）
     When I set the parameter "Username" with value "<usernameValue>"
     And I set the parameter "Password" with value "<passwordValue>"
     And I click the "LoginButton" button
-    Then I will see the error message contains "<errorMessage>"
+    Then I will see the <errorMessage>
 
     Examples:
-      | usernameValue       | passwordValue | errorMessage |
-      |                     | All#123456     | 请输入用户名       |
-      | owner               |               | 请输入密码        |
-      | owner               | asd           | 用户名或密码错误     |
-      | qweax               | asd           | 登录名不存在       |
-      | SuccessEditAutoTest | All#123456        | 该账号已被禁用      |
+      | usernameValue   | passwordValue | errorMessage                        |
+      |                 | All#123456    | message contains "请填写用户名"           |
+      | owner           |               | message contains "请填写密码"            |
+      | owner           | asd           | error message contains "用户名邮箱或密码错误" |
+      | qweax           | asd           | error message contains "用户名邮箱或密码错误" |
+      | AutoTestForEdit | All#123456    | error message contains "账户被禁用"      |
 
-  @smoke @usersSmoke
   Scenario: 启用账号
     Given open the "users.ListPage" page for uri "/account/users/"
-    When the data name is "{'column':'1','name':'SuccessEditAutoTest\n已禁用'}" then i click the "启用" button
+    When the data name is "{'column':'1','name':'AutoTestForEdit\n已禁用'}" then i click the "启用" button
+    And I wait for "2000" millsecond

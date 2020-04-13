@@ -21,10 +21,10 @@ public class LoginPage extends PageTemplate {
         parentPageName = "";
     }
 
-    @FindBy(className = "el-message-box__message")
-    private WebElement errorMessageBox;
+    @FindBy(className = "ant-message")
+    private WebElement message;
 
-    @FindBy(className = "el-message__group")
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement errorMessage;
 
     public WebElement getUsername() {
@@ -44,20 +44,24 @@ public class LoginPage extends PageTemplate {
     }
 
     public WebElement getErrorMessage() {
-        By by = By.className("el-message__group");
-        WebElement message;
-        if (ElementExist.isElementExist(webDriver, by)) {
-            message = errorMessage;
-        } else {
-            message = errorMessageBox;
-        }
+        return errorMessage;
+    }
 
+    public WebElement getMessage() {
         return message;
     }
 
     public WebElement getInputElement(String name) {
         String xpath = "//label[text()='" + name + "']/following-sibling::input";
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+
+    public void getLogin(String userName, String password) {
+        this.getUsername().sendKeys(userName);
+        this.getPassword().sendKeys(password);
+        this.getLoginButton().click();
+        webDriver.navigate().refresh();
     }
 
 }
