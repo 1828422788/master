@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeLast
 Feature: 数据大屏-桑基图
 
   Scenario: 新建桑基图，默认配置
