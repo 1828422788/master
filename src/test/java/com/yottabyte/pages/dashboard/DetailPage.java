@@ -73,7 +73,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'恢复')][@class='action']")
     private WebElement recoverTag;
 
-    @FindBy(xpath = "//span[text()='移出标签页')]")
+    @FindBy(xpath = "//span[text()='移出标签页']")
     private WebElement moveoutTag;
 
     @FindBy(xpath = "//span[text()='保存为']")
