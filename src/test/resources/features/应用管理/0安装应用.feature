@@ -30,7 +30,6 @@ Feature: 应用安装（RZY-1988）
 
     Examples:
       | appName                     |
-      | ScheduleApp                 |
       | AutoTestAppWithAllResources |
       | EventApp                    |
       | ReportApp                   |
