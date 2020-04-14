@@ -27,4 +27,5 @@ Feature: 应用删除
   Scenario: 删除数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "AutoTestApp" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
