@@ -31,8 +31,8 @@ Feature: 仪表盘热力地图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                    | name    |
-      | tag:sample04061424 \| stats count() by apache.geo.city | 仪表盘热力地图 |
+      | spl                                       | name    |
+      | tag:* \| stats count() by apache.geo.city | 仪表盘热力地图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -67,6 +67,7 @@ Feature: 仪表盘热力地图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Map" will be visible

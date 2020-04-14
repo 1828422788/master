@@ -75,6 +75,8 @@ public class GroupPage extends ListPageFactory{
         return super.getContainsTextButton("确定");
     }
 
-
+    public WebElement getContainEnsure() {
+        return super.getContainsTextButton("确定");
+    }
 
 }

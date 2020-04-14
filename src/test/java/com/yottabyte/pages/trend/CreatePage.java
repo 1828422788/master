@@ -153,18 +153,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'其他')])[last()]")
     private WebElement other;
 
-    @FindBy(xpath = "//div[text()='饼状图']")
-    private WebElement pie;
-
-    @FindBy(xpath = "(//div[@class='img rose'])[last()]")
-    private WebElement rose;
-
-    @FindBy(xpath = "(//div[@class='img bar'])[last()]")
-    private WebElement bar;
-
-    @FindBy(xpath = "(//div[@class='img sunburst'])[last()]")
-    private WebElement sunburst;
-
     @FindBy(className = "tracing")
     private WebElement tracing;
 
@@ -179,15 +167,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
     private WebElement secondSettingSelect;
-
-    @FindBy(xpath = "(//div[@class='img chord'])[last()]")
-    private WebElement chord;
-
-    @FindBy(xpath = "(//div[@class='img sankey'])[last()]")
-    private WebElement sankey;
-
-    @FindBy(xpath = "(//div[@class='img force'])[last()]")
-    private WebElement force;
 
     @FindBy(xpath = "(//div[text()='目标'])[last()]")
     private WebElement target;
@@ -300,7 +279,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='升序'])[last()]")
     private WebElement ascending;
 
-    @FindBy(xpath = "(//span[@style='background: rgb(156, 39, 176);'])[last()]/ancestor::li")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(133, 3, 218);')])[last()]")
     private WebElement purple;
 
     @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(248, 0, 80);')])[last()]")
@@ -414,7 +393,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
 
-    @FindBy(xpath = "(//span[text()='斥力因子'])[last()]/ancestor::div/following-sibling::div//input[@class='el-input__inner']")
+    @FindBy(xpath = "(//span[text()='斥力因子'])[last()]/ancestor::div/following-sibling::input")
     private WebElement repulsion;
 
     @FindBy(className = "yw-trend")
@@ -1040,19 +1019,19 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPie() {
-        return pie;
+        return getChartButton("饼状图");
     }
 
     public WebElement getRose() {
-        return rose;
+        return getChartButton("玫瑰图");
     }
 
     public WebElement getBar() {
-        return bar;
+        return getChartButton("条形图");
     }
 
     public WebElement getSunburst() {
-        return sunburst;
+        return getChartButton("旭日图");
     }
 
     public WebElement getAddField() {
@@ -1064,15 +1043,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getChord() {
-        return chord;
+        return getChartButton("和弦图");
     }
 
     public WebElement getSankey() {
-        return sankey;
+        return getChartButton("桑基图");
     }
 
     public WebElement getForce() {
-        return force;
+        return getChartButton("力图");
     }
 
     public WebElement getTarget() {

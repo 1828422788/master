@@ -158,12 +158,11 @@ Feature: 应用报表（RZY-2127）
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
-    Then I wait for element "Message" change text to "<message>"
 
     Examples:
-      | name             | message  |
-      | AutoAppForReport | 删除成功\n确定 |
-      | 无app             | 删除成功\n确定 |
+      | name             |
+      | AutoAppForReport |
+      | 无app             |
 
   Scenario: 删除趋势图
     Given open the "trend.ListPage" page for uri "/trend/"

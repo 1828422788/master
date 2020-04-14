@@ -116,6 +116,6 @@ public class VerifyElementTextWillBe {
     public void iWillSeeTheErrorMessageContains(String errorMessage) {
         WebElement element = GetElementFromPage.getWebElementWithName("ErrorMessage");
         String realResult = element.getText();
-        assertTrue(realResult.contains(errorMessage));
+        assertTrue("实际值：" + realResult, realResult.contains(errorMessage));
     }
 }

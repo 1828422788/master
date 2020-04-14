@@ -141,13 +141,8 @@ Feature: 应用趋势图
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
 
-  Scenario Outline: 删除报表
+  Scenario: 删除报表
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'AutoApp'}" then i click the "删除" button
     And I click the "Ensure" button
-    Then I will see the success message "<message>"
-
-    Examples:
-      | message |
-      | 删除成功    |
 

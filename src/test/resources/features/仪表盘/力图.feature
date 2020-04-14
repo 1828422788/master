@@ -1,4 +1,4 @@
-Feature: 仪表盘多Y轴图
+Feature: 仪表盘力图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
@@ -9,8 +9,8 @@ Feature: 仪表盘多Y轴图
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
-      | name    |
-      | 仪表盘多Y轴图 |
+      | name  |
+      | 仪表盘力图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
@@ -31,8 +31,8 @@ Feature: 仪表盘多Y轴图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                                                                                                                             | name    |
-      | tag:*display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10 | 仪表盘多Y轴图 |
+      | spl                                                                                                                                                                                                            | name  |
+      | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | 仪表盘力图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -45,7 +45,7 @@ Feature: 仪表盘多Y轴图
 
     Examples:
       | name |
-      | 多Y轴图 |
+      | 力图   |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
@@ -59,47 +59,30 @@ Feature: 仪表盘多Y轴图
     And I click the "Ensure" button
 
     Examples:
-      | name    |
-      | 仪表盘多Y轴图 |
+      | name  |
+      | 仪表盘力图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为多Y轴图
+  Scenario Outline: 修改为力图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Compound" will be visible
-    And I click the "Compound" button
+    And I wait for "Relation" will be visible
+    And I click the "Relation" button
     And I click the "<targetName>" button
     And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
+    And I choose the "apache.x_forward" from the "DataValue"
+    And I click the "Target" button
     And I choose the "apache.resp_len" from the "DataValue"
-    And I click the "Yaxis" button
-    And I click the "AddField" button
-    And I choose the "max(apache.resp_len)" from the "DataValue"
-    And I choose the "面积图" from the "Type"
-    And I set the parameter "Unit" with value "面"
-    And I click the "Smooth" button
-    And I click the "ConnectEmptyData" button
-    And I click the "AddField" button
-    And I choose the "max(apache.resp_len)" from the "DataValue"
-    And I choose the "柱状图" from the "Type"
-    And I set the parameter "Unit" with value "柱"
-    And I set the parameter "Min" with value "2"
-    And I click the "AddField" button
-    And I choose the "sum(apache.status)" from the "DataValue"
-    And I choose the "散点图" from the "Type"
-    And I set the parameter "Unit" with value "散"
-    And I set the parameter "Max" with value "49000"
-    And I click the "Group" button
-    And I click the "AddField" button
-    And I choose the "apache.status" from the "DataValue"
+    And I click the "Weight" button
+    And I choose the "count()" from the "DataValue"
     And I click the "Exhibition" button
-    And I click the "StartColour" button
-    And I click the "Red" button
+    And I set the parameter "Repulsion" with value "12"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
     Then I hide the element "SettingContent"
@@ -110,8 +93,8 @@ Feature: 仪表盘多Y轴图
     Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
-      | name    | targetName |
-      | 仪表盘多Y轴图 | Multiaxis  |
+      | name  | targetName |
+      | 仪表盘力图 | Force      |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
@@ -122,8 +105,8 @@ Feature: 仪表盘多Y轴图
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
-      | name    |
-      | 仪表盘多Y轴图 |
+      | name  |
+      | 仪表盘力图 |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
@@ -134,5 +117,5 @@ Feature: 仪表盘多Y轴图
     And I will see the success message "删除成功"
 
     Examples:
-      | name    |
-      | 仪表盘多Y轴图 |
+      | name  |
+      | 仪表盘力图 |

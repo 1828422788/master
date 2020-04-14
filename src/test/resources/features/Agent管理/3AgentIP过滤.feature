@@ -4,7 +4,7 @@ Feature: AgentIP过滤
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
-
+    And I close all tabs except main tab
 
   Scenario Outline: Agent过滤
     And I click the "SeniorfilterButton" button
@@ -21,7 +21,7 @@ Feature: AgentIP过滤
     And I click the "EnsureButton" button
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'192.168.1.4'}"
-    And I close all tabs except main tab
+
 
 
 #  @indexSettingSmoke
@@ -36,7 +36,7 @@ Feature: AgentIP过滤
     When I set the parameter "IP" with value "<ip>"
     And  I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'192.168.1.136'}"
-    And I close all tabs except main tab
+
 
 
 

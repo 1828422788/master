@@ -52,7 +52,6 @@ Feature: 应用新建（RZY-1899）
 
     Examples:
       | name             | menuName | url             | color   |
-      | ScheduleApp      | 定时任务     | /schedule/      | #FF6C5C |
       | EventApp         | 事件操作     | /event/action/  | #68E632 |
       | ReportApp        | 报表       | /reports/       | #84460B |
       | DashboardApp     | 仪表盘      | /dashboard/     | #C6B8FF |

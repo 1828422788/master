@@ -63,6 +63,7 @@ Feature: 仪表盘矩阵热力图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘矩阵热力图"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible

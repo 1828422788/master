@@ -6,6 +6,7 @@ Feature: Agent编辑Beats类型数据源
     And I wait for loading invisible
     When I click the detail which column is "1" in agent page
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "agent.CreatePage" page
 
   Scenario: 新增Beats类型数据源
@@ -18,30 +19,22 @@ Feature: Agent编辑Beats类型数据源
     And I click the "Next" button
     And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
-    And I close all tabs except main tab
-
-
 
   Scenario: 修改beats数据源禁用
     Given the data name "192.168.1.139:299" in agent table "BeatsTable" then i click the "close" switch
     Then I wait for loading invisible
     Then I will see the element "getBeatsSwitchStatus" name is "已禁用"
-    And I close all tabs except main tab
-
 
   Scenario: Beats数据源启用
     Given the data name "192.168.1.139:299" in agent table "BeatsTable" then i click the "open" switch
     Then I wait for loading invisible
     Then I will see the element "getBeatsSwitchStatus" name is "已启用"
-    And I close all tabs except main tab
-
 
   Scenario Outline: Beats数据源修改appname成功
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "编辑" button
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-    And I close all tabs except main tab
 
     Examples:
       | appnamekind |
@@ -55,7 +48,7 @@ Feature: Agent编辑Beats类型数据源
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     Then I will see the element "PreviewMessage" name is "请以字母或数字下划线为元素"
-    And I close all tabs except main tab
+
 
     Examples:
       | appnamekind |
@@ -67,7 +60,7 @@ Feature: Agent编辑Beats类型数据源
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-    And I close all tabs except main tab
+
 
     Examples:
       | tagkind |
@@ -80,7 +73,7 @@ Feature: Agent编辑Beats类型数据源
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
-    And I close all tabs except main tab
+
 
     Examples:
       | tagkind |
@@ -92,4 +85,4 @@ Feature: Agent编辑Beats类型数据源
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
-    And I close all tabs except main tab
+

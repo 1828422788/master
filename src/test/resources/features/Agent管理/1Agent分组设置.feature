@@ -1,8 +1,10 @@
+@agent
 Feature: Agent分组设置
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
+    And I close all tabs except main tab
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
 
@@ -12,7 +14,6 @@ Feature: Agent分组设置
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And open the "agent.NewGroupPage" page for uri "/sources/input/agent/group/new/"
-
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
     And I choose the "<role>" from the "Role"
@@ -21,8 +22,6 @@ Feature: Agent分组设置
     And I click the "EnsureButton" button
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<name>'}"
-    And I close all tabs except main tab
-
 
 #  @indexSettingSmoke
     Examples: 成功
@@ -37,13 +36,11 @@ Feature: Agent分组设置
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And open the "agent.NewGroupPage" page for uri "/sources/input/agent/group/new/"
-
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
     And I choose the "<role>" from the "Role"
     And I click the "BuildButton" button
     Then I will see the message "<message>"
-    And I close all tabs except main tab
 
     Examples: 失败
       | name      | description | role      | message                                                           |
@@ -56,20 +53,17 @@ Feature: Agent分组设置
   Scenario Outline: 编辑Agent资源分组
     And switch to another window
     And I wait for loading invisible
-#    Given the data name is "{'column':'0','name':'aaa'}" then i click the "编辑" button without paging
-    And I click the "EditButton" button
+    Given the data name is "{'column':'1','name':'English'}" then i click the "编辑" button
     Then I will see the "agent.NewGroupPage" page
     And I click the "ReturnButton" button
     And I will see the "agent.GroupPage" page
     And I wait for loading invisible
-    And I click the "EditButton" button
+    Given the data name is "{'column':'1','name':'English'}" then i click the "编辑" button
     Then I will see the "agent.NewGroupPage" page
-
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
     And I click the "SaveButton" button
     Then I will see the element "Updatemsg" name is "<updatemessage>"
-    And I close all tabs except main tab
 
 
     Examples: 更新分组信息
@@ -81,28 +75,24 @@ Feature: Agent分组设置
     When I set the parameter "Name" with value "<name>"
     And  I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<correctName>'}"
-    And I close all tabs except main tab
-
 
     Examples: 模糊搜索ip过滤成功
 
       | name  | correctName |
-      | sunxc | sunxctest   |
+      | sunxc | sunxc_test   |
       | 中文    | 中文中文        |
 
   Scenario Outline: 删除Agent分组
     And switch to another window
     And I wait for loading invisible
-    And I click the "DeleteAgentGroupButton" button
-    Then I will see the message "<message>"
-    And I click the "EnsureButton" button
-    Then I will see the success message "删除成功"
-    And I close all tabs except main tab
+    Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+    And I click the "ContainEnsure" button
+    Examples:
+      | name       |
+      | sunxc_test |
+      | 中文中文       |
+      | 中文角色       |
 
-
-    Examples: 失败
-      | message            |
-      | 确认删除 [sunxctest] ? |
 
 
 
