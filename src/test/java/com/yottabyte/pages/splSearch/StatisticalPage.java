@@ -400,6 +400,10 @@ public class StatisticalPage extends PageTemplate {
         return todayDate;
     }
 
+    public WebElement getDatePanel() {
+        return datePanel;
+    }
+
     public WebElement getTimePanel() {
         return timePanel;
     }

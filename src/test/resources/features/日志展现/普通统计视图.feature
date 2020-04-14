@@ -79,7 +79,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "TimeInput" with value "<startTime>"
     And I hide the element "TimePanel"
     And I click the "EndDate" button
-    And I set the parameter "DateInput" with value "2020-04-07"
+    And I set the parameter "DateInput" with value "2020-04-06"
     And I hide the element "DatePanel"
     And I click the "EndTime" button
     And I set the parameter "TimeInput" with value "<endTime>"
