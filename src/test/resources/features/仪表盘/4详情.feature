@@ -103,6 +103,7 @@ Feature: 仪表盘详情页
     And I click the "SaveAs" button
     And I click the "SaveAsReport" button
     And switch to another window
+    And I close all tabs except main tab
 
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "仪表盘保存为报表"
