@@ -30,7 +30,7 @@ Feature: 用户新建（RZY-1164）
       | AutoTest |                  | autoFullName.cn           |             | All#123456        | error message "邮箱地址 不合法"                         |
       | AutoTest |                  | autoFullName@yottabyte.cn |             |                   | error message "密码 不能为空"                          |
       | AutoTest |                  | autoFullName@yottabyte.cn |             | qqqqqq1           | error message "密码需满足：8-16个字符"                    |
-      | AutoTest |                  | autoFullName@yottabyte.cn |             | qqqqqqqq          | error message "密码需满足：8-16个字符"                    |
+      | AutoTest |                  | autoFullName@yottabyte.cn |             | qqqqqqqq          | error message "密码需满足：必须同时包含数字、大小写字母和特殊字符"                    |
       | AutoTest |                  | autoFullName@yottabyte.cn |             | 11111111          | error message "密码需满足：必须同时包含数字、大小写字母和特殊字符"        |
       | AutoTest |                  | autoFullName@yottabyte.cn |             | qqqAll#1234561111 | error message "密码需满足：8-16个字符"                    |
       | AutoTest |                  | autoFullName@rizhiyi.com  |             | All#123456        | error message "email: AutoTest 已存在\n错误码: AUTH_7" |
