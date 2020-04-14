@@ -16,7 +16,7 @@ Feature: 用户分组删除（RZY-1180）
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "测试分组管理员"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
@@ -29,3 +29,12 @@ Feature: 用户分组删除（RZY-1180）
       | name             |
       | __user_测试分组管理员__ |
 
+  Scenario Outline: 删除用户成功
+    Given open the "users.ListPage" page for uri "/account/users/"
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I click the "EnsureButton" button
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name    |
+      | 测试分组管理员 |
