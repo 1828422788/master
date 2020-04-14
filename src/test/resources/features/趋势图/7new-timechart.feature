@@ -2,7 +2,6 @@
 Feature: 趋势图新建-timechart
 # 12
 # sample04061424_chart for Today
-# uncomment comparison
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -19,14 +18,14 @@ Feature: 趋势图新建-timechart
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/timechart_<caseNum>"
-#    Then I compare source image "src/test/resources/expect/趋势图/timechart_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/timechart_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/timechart_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/timechart_<caseNum>.png" with target image "actual/timechart_<caseNum>.png"
 
     Examples:
       |  caseNum    |   spl|
@@ -70,14 +69,14 @@ Feature: 趋势图新建-timechart
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/timechart_<caseNum>"
-#    Then I compare source image "src/test/resources/expect/趋势图/timechart_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/timechart_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/timechart_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/timechart_<caseNum>.png" with target image "actual/timechart_<caseNum>.png"
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice |  spl|
@@ -112,14 +111,14 @@ Feature: 趋势图新建-timechart
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/timechart_<caseNum>"
-#    Then I compare source image "src/test/resources/expect/趋势图/timechart_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/timechart_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/timechart_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/timechart_<caseNum>.png" with target image "actual/timechart_<caseNum>.png"
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice|  spl|

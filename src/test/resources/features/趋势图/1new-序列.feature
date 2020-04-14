@@ -2,7 +2,6 @@
 Feature: 趋势图新建_序列
 # 13
 # sample04061424_chart for Today
-# uncomment comparison
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -26,14 +25,14 @@ Feature: 趋势图新建_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/<chartType>_<caseNum>"
-    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<caseNum>.png" with target image "trend/<chartType>_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
 
     Examples:
     |   chartType   |caseNum  |  spl  |
@@ -66,14 +65,14 @@ Feature: 趋势图新建_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/<chartType>_<buttonChoice>"
-    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<buttonChoice>.png" with target image "trend/<chartType>_<buttonChoice>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/<chartType>_<buttonChoice>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<buttonChoice>.png" with target image "actual/<chartType>_<buttonChoice>.png"
 
     Examples:
       |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
@@ -105,14 +104,14 @@ Feature: 趋势图新建_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/<chartType>_<caseNum>"
-    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<caseNum>.png" with target image "trend/<chartType>_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
 
     Examples:
       |   chartType   |   bubbleSize |caseNum  |
@@ -142,14 +141,14 @@ Feature: 趋势图新建_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/<chartType>_<caseNum>_<buttonChoice>"
-    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<caseNum>_<buttonChoice>.png" with target image "trend/<chartType>_<caseNum>_<buttonChoice>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/<chartType>_<caseNum>_<buttonChoice>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>_<buttonChoice>.png" with target image "actual/<chartType>_<caseNum>_<buttonChoice>.png"
 
     Examples:
       |   chartType   | unitValue  | buttonChoice      |  caseNum  |
@@ -182,14 +181,14 @@ Feature: 趋势图新建_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/<chartType>_<caseNum>_limit"
-    Then I compare source image "src/test/resources/expect/趋势图/linux/<chartType>_<caseNum>_limit.png" with target image "trend/<chartType>_<caseNum>_limit.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/<chartType>_<caseNum>_limit"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_limit"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>_limit.png" with target image "actual/<chartType>_<caseNum>_limit.png"
 
     Examples:
       |   chartType    | unitValue  |  caseNum  |

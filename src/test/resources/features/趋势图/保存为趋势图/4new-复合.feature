@@ -35,7 +35,7 @@ Feature: 保存为趋势图_复合
     And I click the "Settings" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "Chart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -103,7 +103,7 @@ Feature: 保存为趋势图_复合
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "Chart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 

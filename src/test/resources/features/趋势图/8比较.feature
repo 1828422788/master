@@ -12,8 +12,8 @@ Feature: 趋势图比较
 
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend_比较/<name>"
-    Then I compare source image "src/test/resources/expect/趋势图/<name>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend_比较/<name>.png"
+    And take part of "Chart" with name "aftersave/<name>"
+    Then I compare source image "expect/<name>.png" with target image "aftersave/<name>.png"
     And I click the "NextButton" button
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
@@ -114,8 +114,8 @@ Feature: 趋势图比较
 
     And I wait for "StatisticalChart" will be visible
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "trend_比较_stat/<name>"
-    Then I compare source image "src/test/resources/expect/趋势图/<name>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend_比较_stat/<name>.png"
+    And take part of "StatisticalChart" with name "aftersave/<name>"
+    Then I compare source image "expect/<name>.png" with target image "aftersave/<name>.png"
     And I click the "NextButton" button
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible

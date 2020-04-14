@@ -14,7 +14,24 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
-    And I wait for "Header" will be visible
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "ScatterChart" button
+    And I click the "Settings" button
+    And I click the "Bubble" button
+    And I click the "AccordingField" button
+    And I choose the "count()" from the "BubbleSize"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "Orange" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/test_original"
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "Copy_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
@@ -22,6 +39,7 @@ Feature: 趋势图复制(RZY-1889)
     And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/ScatterChart_bubbles.png" with target image "actual/test_original.png"
 
   Scenario: copy_trend
     When the data name is "Copy_Test" then i click the "复制" button
@@ -35,7 +53,10 @@ Feature: 趋势图复制(RZY-1889)
     And I will see the "trend.CreatePage" page
     And I wait for "Header" will be visible
     And I click the "NextButton" button
-    And I wait for "Header" will be visible
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/test_copy"
     And I click the "NextButton" button
     And I will see the input element "NameInput" value will be "Copy_Test(副本)"
     And I will see the input element "DescribeInput" value will be "AutoCreate"
@@ -43,6 +64,7 @@ Feature: 趋势图复制(RZY-1889)
     And I cancel selection "AutoTest" from the "GroupField"
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
+    And I compare source image "expect/ScatterChart_bubbles.png" with target image "actual/test_copy.png"
 
   Scenario Outline: delete_copy
     Given open the "trend.ListPage" page for uri "/trend/"

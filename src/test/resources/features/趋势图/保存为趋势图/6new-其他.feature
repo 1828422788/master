@@ -26,7 +26,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -67,7 +67,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -107,7 +107,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -146,7 +146,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -183,7 +183,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -228,7 +228,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -272,7 +272,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -311,7 +311,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -348,7 +348,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -390,7 +390,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -454,7 +454,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -493,7 +493,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -535,7 +535,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -578,7 +578,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -616,7 +616,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -664,7 +664,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -677,8 +677,8 @@ Feature: 保存为趋势图_其他
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
-      |  Chain     | Green  | 1        |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2831    |tag:gf_dapper\* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
-      |  Chain     | Red    | 2        |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2982    |tag:gf_dapper\* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
+      |  Chain     | Green  | 1        |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2831    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
+      |  Chain     | Red    | 2        |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2982    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
 
 
   Scenario Outline: sequence
@@ -709,7 +709,7 @@ Feature: 保存为趋势图_其他
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "StatisticalChart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -734,7 +734,7 @@ Feature: 保存为趋势图_其他
 
     And I wait for "StatisticalChart" will be visible
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现_趋势图/Table_Test"
+    And take part of "StatisticalChart" with name "saveAsTrend/Table_Test"
 #    Then I compare source image "src/test/resources/expect/趋势图/Table_Test.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/Table_Test.png"
     And I click the "SaveAsTrend" button
     When I set the parameter "NameInput" with value "Table_Test"

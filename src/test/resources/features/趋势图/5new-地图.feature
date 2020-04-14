@@ -3,7 +3,6 @@ Feature: 趋势图新建_地图
 # 10
 # sample04061424_chart for Today
 # vendors_461 for Today
-# uncomment comparison
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -27,14 +26,14 @@ Feature: 趋势图新建_地图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/<chartType>_<caseNum>"
-#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
@@ -72,14 +71,14 @@ Feature: 趋势图新建_地图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/<chartType>_<regionBut>_<caseNum>"
-#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<regionBut>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<regionBut>_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/<chartType>_<regionBut>_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<regionBut>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<regionBut>_<caseNum>.png" with target image "actual/<chartType>_<regionBut>_<caseNum>.png"
 
     Examples:
       |chartType| regionBut |caseNum  | spl   |
@@ -114,14 +113,14 @@ Feature: 趋势图新建_地图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "trend/<chartType>_<region>_<caseNum>"
-#    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<region>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<region>_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "Chart" with name "actual/<chartType>_<region>_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<region>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<region>_<caseNum>.png" with target image "actual/<chartType>_<region>_<caseNum>.png"
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
@@ -145,14 +144,14 @@ Feature: 趋势图新建_地图
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
-    #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
 
     Examples:
       |chartType      |caseNum  |   spl   |
@@ -182,14 +181,14 @@ Feature: 趋势图新建_地图
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "trend/<chartType>_<caseNum>"
-    #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/trend/<chartType>_<caseNum>.png"
-    And I click the "NextButton" button
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
 
     Examples:
       |chartType      |   tranparencyValue  | minRadiusValue | maxRadiusValue  | caseNum        |   spl   |

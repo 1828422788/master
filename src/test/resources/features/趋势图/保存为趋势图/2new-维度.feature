@@ -25,7 +25,7 @@ Feature: 保存为趋势图_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现_趋势图/<chartType>_<caseNum>"
+    And take part of "Chart" with name "saveAsTrend/<chartType>_<caseNum>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<caseNum>.png"
     And I click the "SaveAsTrend" button
 
@@ -67,7 +67,7 @@ Feature: 保存为趋势图_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现_趋势图/<chartType>_<typeInfo>_<option>"
+    And take part of "Chart" with name "saveAsTrend/<chartType>_<typeInfo>_<option>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<typeInfo>_<option>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<typeInfo>_<option>.png"
     And I click the "SaveAsTrend" button
 
@@ -114,7 +114,7 @@ Feature: 保存为趋势图_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现_趋势图/<chartType>_<typeInfo>"
+    And take part of "Chart" with name "saveAsTrend/<chartType>_<typeInfo>"
 #    Then I compare source image "src/test/resources/expect/趋势图/<chartType>_<typeInfo>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现_趋势图/<chartType>_<typeInfo>.png"
     And I click the "SaveAsTrend" button
 
