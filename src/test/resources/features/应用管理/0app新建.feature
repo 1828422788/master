@@ -34,7 +34,7 @@ Feature: 应用新建（RZY-1899）
     When I upload a file "LogoInput" with name "/src/test/resources/testdata/resourceGroups/testcase.txt"
     Then I will see the error message "文件类型不符"
 
-  @smoke @appSmoke @test
+  @smoke @appSmoke
   Scenario Outline: 新建单个资源app
     Given delete file "/target/download-files/<name>.tar"
     And I set the parameter "NameInput" with value "<name>"
@@ -119,6 +119,7 @@ Feature: 应用新建（RZY-1899）
       | name                        |
       | AutoTestAppWithAllResources |
 
+  @test
   Scenario Outline: 新建权限应用
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"
