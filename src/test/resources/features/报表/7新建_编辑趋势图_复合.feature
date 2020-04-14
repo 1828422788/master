@@ -1,4 +1,4 @@
-@report @all @reportCreateCharts
+@reportCreateCharts
 Feature: 报表新建_编辑_复合
 #2
 
@@ -46,7 +46,7 @@ Feature: 报表新建_编辑_复合
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |
       |  PDF        | Rangeline      | Rangeline  |
@@ -118,7 +118,7 @@ Feature: 报表新建_编辑_复合
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |
       |  PDF        | Multiaxis      | Multiaxis  |

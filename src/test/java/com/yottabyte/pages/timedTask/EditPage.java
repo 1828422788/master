@@ -27,11 +27,17 @@ public class EditPage extends PageTemplate {
     private WebElement resource;
 
     //@FindBy(xpath = "//label[text()='任务分组']/following-sibling::div//input")
-    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div/div/span/span/span")
+    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div")
     private WebElement taskGroup;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div/span/span/span")
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
     private WebElement taskApp;
+
+    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div/div/span/span/span")
+    private WebElement taskGroupSelected;
+
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div/span/span/span")
+    private WebElement taskAppSelected;
 
     @FindBy(xpath = "//div[@class='custom']//input[@placeholder='请输入']")
     private WebElement period;
@@ -42,7 +48,7 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownLists;
 
-    @FindBy(className = "el-button--primary")
+    @FindBy(xpath = "//span[text()='保存']/ancestor::button")
     private WebElement saveButton;
 
     @FindBy(className = "el-message-box__message")
@@ -93,7 +99,7 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "column-value")
     private List<WebElement> dataMappings;
 
-    @FindBy(xpath = "//button[@class='el-time-panel__btn confirm']")
+    @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
     private WebElement ensureButton;
 
     @FindBy(xpath = "//span[text()='crontab']")
@@ -107,6 +113,13 @@ public class EditPage extends PageTemplate {
 
     @FindBy(className = "unit")
     private WebElement unit;
+
+    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
+    private WebElement selectedUser;
+
+    public WebElement getSelectedUser() {
+        return selectedUser;
+    }
 
     public WebElement getUnit() {
         unit.click();
@@ -222,16 +235,23 @@ public class EditPage extends PageTemplate {
         return dropdownLists.get(dropdownLists.size() - 1);
     }
 
-//    public WebElement getTaskGroup() {
-//        taskGroup.click();
-//        return dropdownLists.get(dropdownLists.size() - 1);
-//    }
+
     public WebElement getTaskGroup() {
-        return taskGroup;
+        taskGroup.click();
+        return this.getLastDropdownList();
     }
 
     public WebElement getTaskApp() {
-        return taskApp;
+        taskApp.click();
+        return this.getLastDropdownList();
+    }
+
+    public WebElement getTaskGroupSelected() {
+        return taskGroupSelected;
+    }
+
+    public WebElement getTaskAppSelected() {
+        return taskAppSelected;
     }
 
     public WebElement getPeriod() {

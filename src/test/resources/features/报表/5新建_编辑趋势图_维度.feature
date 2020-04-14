@@ -1,4 +1,4 @@
-@report @all @reportCreateCharts
+@reportCreateCharts
 Feature: 报表新建_编辑_维度
 #6
 
@@ -49,7 +49,7 @@ Feature: 报表新建_编辑_维度
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |  typeInfo     |   color   |
       |  PDF        |  Pie           |  Pie       |  只展示名称    |   Red     |
@@ -100,7 +100,7 @@ Feature: 报表新建_编辑_维度
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |   color   |
       |  PDF        |  Sun           |  Sun       |   Yellow  |
@@ -146,7 +146,7 @@ Feature: 报表新建_编辑_维度
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
       |  PDF        |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |

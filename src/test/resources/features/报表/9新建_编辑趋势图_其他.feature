@@ -1,4 +1,4 @@
-@report @all @reportCreateCharts
+@reportCreateCharts
 Feature: 报表新建_编辑_其他
 #10
 
@@ -43,7 +43,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |  color  |
       |  PDF        | Single         | Single     |  Green  |
@@ -86,7 +86,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name         |  color  |  iconValue |
       |  PDF        |    Single      | Single_icon   |  Red    | icon       |
@@ -130,7 +130,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name         |  color  |  fontValue        |
       |  PDF        |   Single       | Single_font   |  Orange | font-awesome-flag |
@@ -179,7 +179,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name                 |  color1  |  color2 |
       |  PDF        |   Single       | Single_range_backgr   |  Yellow  | Orange  |
@@ -218,7 +218,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name        |  color  |
       |  PDF        |   Liquidfill   | Liquidfill   |  Green  |
@@ -262,7 +262,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name        |  color  |
       |  PDF        |   Wordcloud    | Wordcloud    |  Green  |
@@ -308,7 +308,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType | typeChart   |  name     |   color  |
       |  PDF        | Radar       | Radar     | DarkBlue |
@@ -352,7 +352,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType | typeChart   |  name     |   color    |   label          |
       |  PDF        | Funnel      | Funnel    | LightGreen | FirstPosition    |
@@ -393,7 +393,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType | typeChart   |  name       |
       |  PDF        |Matrixheatmap|Matrixheatmap|
@@ -425,7 +425,7 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType | typeChart   |  name       |
       |  PDF        |  Table      |  Table      |

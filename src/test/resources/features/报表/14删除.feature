@@ -137,7 +137,7 @@ Feature: 报表_删除
       |   AreaChart          |
       |   LineChart          |
 
-  @cleanReport @cleanReportEXCEL @cleanReportCharts
+  @cleanReportEXCEL @cleanReportCharts
   Scenario Outline: delete_report_charts_excel
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>_EXCEL"

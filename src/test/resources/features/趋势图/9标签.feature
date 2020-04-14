@@ -47,7 +47,7 @@ Feature: 趋势图标签
     Then I will see the data "Tag_Test" values "{'column':'3','name':'无'}"
 
 
-  Scenario Outline: delete_copy
+  Scenario Outline: delete_trend
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<name>] ?"

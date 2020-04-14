@@ -39,7 +39,7 @@ public class ListPage extends ListPageFactory {
     private List<WebElement> ensureButton;
 
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
-    private WebElement ensureDelete;
+    private WebElement ensure;
 
     // 表体
     @FindBy(className = "el-table__body")
@@ -77,6 +77,12 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[text()='定时任务']/ancestor::div/div/span/input")
     private WebElement searchInput;
+
+    @FindBy(xpath= "//div[@class='ant-modal-content']")
+    private WebElement tagPanel;
+
+    @FindBy(xpath = "(//div[text()='标签'])[last()]/following-sibling::div[1]")
+    private WebElement tagField;
 
     public WebElement getSearchInput(){
         return searchInput;
@@ -135,11 +141,20 @@ public class ListPage extends ListPageFactory {
         return ensureButton.get(0);
     }
 
+    public WebElement getTagPanel() {
+        return tagPanel;
+    }
+
+    public WebElement getTagField() {
+        tagField.click();
+        return this.getLastDropdownList();
+    }
+
 //    public WebElement getEnsureDelete() {
 //        return ensureButton.get(1);
 //    }
-    public WebElement getEnsureDelete() {
-        return ensureDelete;
+    public WebElement getEnsure() {
+        return ensure;
     }
 //    public WebElement getGroup() {
 //        return super.getDropdownList("分组");

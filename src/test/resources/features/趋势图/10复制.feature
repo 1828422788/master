@@ -8,7 +8,7 @@ Feature: 趋势图复制(RZY-1889)
   Scenario: create_trend
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.city"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button

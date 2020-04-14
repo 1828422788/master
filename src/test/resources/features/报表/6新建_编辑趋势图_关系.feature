@@ -1,4 +1,4 @@
-@report @all @reportCreateCharts
+@reportCreateCharts
 Feature: 报表新建_编辑_关系
 #4
 
@@ -50,7 +50,7 @@ Feature: 报表新建_编辑_关系
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
       |  PDF        |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |
@@ -99,7 +99,7 @@ Feature: 报表新建_编辑_关系
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
       |  PDF        |  Force         |  Force     | apache.clientip   | apache.request_path  |  count()     | Green    |
@@ -146,7 +146,7 @@ Feature: 报表新建_编辑_关系
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name        |  color   |
       |  PDF        |  Sankey        |  Sankey_Mult | Red      |

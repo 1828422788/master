@@ -1,4 +1,4 @@
-@report @all @reportCreateCharts
+@reportCreateCharts
 Feature: 报表新建_编辑_序列
 #5
 
@@ -54,7 +54,7 @@ Feature: 报表新建_编辑_序列
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType | typeChart | label        | order           |  unit  |  button        | min |   max  | legendPosition |  name    |
       |  PDF        | LineChart | FirstLabel   |                 |   个   |  Smooth        |  1  |   25   | FirstPosition  |LineChart |
@@ -111,7 +111,7 @@ Feature: 报表新建_编辑_序列
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart | label      | order           | unit | min | max | legendPosition |  name          |
       |  PDF        |   AreaChart | ThirdLabel | DescendingOrder | pcs. | 2   | 25  | ThirdPosition  |AreaChart_Pile  |
@@ -163,7 +163,7 @@ Feature: 报表新建_编辑_序列
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @reportChartsPDF
+    @all @report @reportChartsPDF
     Examples:
       |  reportType | typeChart    | label       | unit | legendPosition |  name        |
       |  PDF        | ScatterChart | SecondLabel | 个   | FirstPosition  |ScatterChart  |
