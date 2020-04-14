@@ -1,5 +1,5 @@
-@all @tenant @smoke @tenantSmoke
-Feature: 租户搜索（RZY-1713）
+@tenant
+Feature: 租户系统-租户搜索
 
 
 

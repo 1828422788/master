@@ -1,5 +1,5 @@
 @tenant
-Feature: 系统状态
+Feature: 租户系统-系统状态
 
   Background:
     Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"

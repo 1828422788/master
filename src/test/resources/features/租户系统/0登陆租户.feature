@@ -1,5 +1,5 @@
-@all @tenant
-Feature: 租户登陆（RZY-1695）
+@tenant
+Feature: 租户系统-租户登陆
 
   Background:
     Given open the "saas.SaasLoginPage" page for uri "/auth/domainlogin/"
