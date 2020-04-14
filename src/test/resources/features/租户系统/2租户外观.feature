@@ -1,5 +1,5 @@
 @tenant
-Feature:  租户外观
+Feature:  租户系统-租户外观
 
 
 Scenario: 界面配色
