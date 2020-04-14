@@ -97,12 +97,12 @@
     And I will see the "app.AppPage" page
     And I will see the element "OldTitle" name is "AutoTest...pWithAllResources"
     Then I will see the "index.MatchRuleCreatePage" page
-    And I set the parameter "AppName" with value "apptestcreate"
+    And I set the parameter "Desc" with value "apptestcreate"
     And I click the "SavedButton" button
     Then I will see the success message "保存成功"
 
   Scenario: 路由删除
-    When the data name is "apptestcreate" then i click the "删除" button
+    When the data name is "apptest" then i click the "删除" button
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     Then I wait for element "Message" change text to "删除成功"

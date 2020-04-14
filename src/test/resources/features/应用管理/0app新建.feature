@@ -119,7 +119,6 @@ Feature: 应用新建（RZY-1899）
       | name                        |
       | AutoTestAppWithAllResources |
 
-  @test
   Scenario Outline: 新建权限应用
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"
