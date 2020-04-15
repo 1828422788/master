@@ -90,7 +90,7 @@ Feature: 仪表盘雷达图
 #    And I wait for "TrendTitle" will be visible
 #    And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/仪表盘雷达图"
-    Then I compare source image "dashboard\仪表盘雷达图" with target image "dashboard\Radar"
+    Then I compare source image "dashboard/仪表盘雷达图" with target image "dashboard/Radar"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
