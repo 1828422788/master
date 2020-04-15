@@ -66,5 +66,8 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Cancle" button
     And I will see the "AgentConfigurationTitle" doesn't exist
 
-
+  Scenario: 性能数据源删除
+    Given the data name ".*" in table "FuctionTypeTable" then i click the "删除" button
+    And I click the "Ensure" button
+    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
