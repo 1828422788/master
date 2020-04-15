@@ -22,7 +22,7 @@ Feature: 日志展现_普通统计视图
     And I click the "AddButton" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
@@ -50,7 +50,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "1000" millsecond
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
@@ -87,7 +87,7 @@ Feature: 日志展现_普通统计视图
     And I click the "GenerateTime" button under some element
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
@@ -122,7 +122,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "Loading" will be invisible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
@@ -146,7 +146,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "Loading" will be invisible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<caseNum>.png"
 
     Examples:
@@ -172,7 +172,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/816_数值直方图/<caseNum>"
+    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/816_数值直方图/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/816_数值直方图/<caseNum>.png"
 
     Examples:
@@ -196,28 +196,28 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/817_字段值分类/<screenName>_<value1>"
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value1>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value1>.png"
 
     When I choose the "<value2>" from the "TopElement"
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/817_字段值分类/<screenName>_<value2>"
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value2>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value2>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value2>.png"
 
     When I choose the "<value3>" from the "TopElement"
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/817_字段值分类/<screenName>_<value3>"
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value3>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value3>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value3>.png"
 
     When I choose the "<value4>" from the "TopElement"
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/817_字段值分类/<screenName>_<value4>"
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value4>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value4>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value4>.png"
 
     Examples:
@@ -244,7 +244,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>.png"
 
     Examples:
@@ -273,7 +273,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/<screenName>"
+    And take part of "Chart" with name "actual/普通统计视图/<screenName>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>.png"
 
     Examples:
@@ -296,7 +296,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "ChartPercent"
     And I wait for "2000" millsecond
-    And take part of "ChartPercent" with name "日志展现/普通统计视图/<screenName>"
+    And take part of "ChartPercent" with name "actual/普通统计视图/<screenName>"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>.png"
 
     Examples:
@@ -323,7 +323,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1"
+    And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1.png"
 
     # Click checkbox with 200
@@ -337,7 +337,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2"
+    And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2.png"
 
     # Select the whole table
@@ -351,7 +351,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3"
+    And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3.png"
 
     Examples:
@@ -371,17 +371,17 @@ Feature: 日志展现_普通统计视图
     And I choose the "apache.geo.country" from the "FieldValue"
     And I click the "Generate" button
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/825_地理分布/825_world"
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_world"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/825_地理分布/825_world.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/825_地理分布/825_world.png"
 
     When I click the "CountryChina" button
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/825_地理分布/825_china"
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_china"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/825_地理分布/825_china.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/825_地理分布/825_china.png"
 
     When I click the "ProvinceSichuan" button
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/普通统计视图/825_地理分布/825_sichuan"
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_sichuan"
 #    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/825_地理分布/825_sichuan.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/825_地理分布/825_sichuan.png"
 
 

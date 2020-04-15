@@ -32,7 +32,7 @@ Feature: 日志展现_复合
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/4复合/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"
    # Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/4复合/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/4复合/<caseNum>_<chartType>.png"
 
     Examples:
@@ -91,7 +91,7 @@ Feature: 日志展现_复合
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/4复合/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/4复合/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/4复合/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/4复合/<caseNum>_<chartType>.png"
 
     Examples:

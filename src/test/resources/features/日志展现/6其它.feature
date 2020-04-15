@@ -22,7 +22,7 @@ Feature: 日志展现_其它
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
@@ -57,7 +57,7 @@ Feature: 日志展现_其它
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
@@ -91,7 +91,7 @@ Feature: 日志展现_其它
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
@@ -120,7 +120,7 @@ Feature: 日志展现_其它
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
@@ -159,7 +159,7 @@ Feature: 日志展现_其它
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:
@@ -194,7 +194,7 @@ Feature: 日志展现_其它
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<caseNum>_<chartType>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
 
     Examples:

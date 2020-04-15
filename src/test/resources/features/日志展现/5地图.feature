@@ -22,7 +22,7 @@ Feature: 日志展现_地图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>.png"
 
     Examples:
@@ -57,7 +57,7 @@ Feature: 日志展现_地图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "3000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>.png"
 
     Examples:
@@ -80,7 +80,7 @@ Feature: 日志展现_地图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>.png"
 
     Examples:
@@ -113,7 +113,7 @@ Feature: 日志展现_地图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>_<region>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>_<region>.png"
 
     Examples:
@@ -148,21 +148,21 @@ Feature: 日志展现_地图
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/5地图/<caseNum>_<chartType>/World"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/地图/<caseNum>_<chartType>/World.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/地图/<caseNum>_<chartType>/World.png"
 
     When I click the "CountryChina" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/5地图/<caseNum>_<chartType>/China"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/地图/<caseNum>_<chartType>/China.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/地图/<caseNum>_<chartType>/China.png"
 
     When I click the "ProvinceJiangsu" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/地图/<caseNum>_<chartType>/Jiangsu.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/地图/<caseNum>_<chartType>/Jiangsu.png"
 
     Examples:
@@ -184,7 +184,7 @@ Feature: 日志展现_地图
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>.png"
 
     Examples:
@@ -214,7 +214,7 @@ Feature: 日志展现_地图
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "日志展现/高级搜索视图/5地图/<caseNum>_<chartType>"
+    And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/5地图/<caseNum>_<chartType>.png"
 
     Examples:

@@ -23,8 +23,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/<caseNum>_<chartType>.png"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
+#    Then I compare source image "expect/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |  spl   |
@@ -56,8 +56,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/<caseNum>_<chartType>.png"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
+#    Then I compare source image "expect/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   | color1  |  caseNum  |
@@ -87,8 +87,8 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/<caseNum>_<chartType>.png"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
+#    Then I compare source image "expect/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |  value      |     divValue   | color1   |caseNum  | spl   |
@@ -114,7 +114,7 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/label/<chartType>_<option1>_nolabel"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option1>_nolabel"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label/<chartType>_<option1>_nolabel.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label/<chartType>_<option1>_nolabel.png"
 
     When I click the "Settings" button
@@ -126,7 +126,7 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/label/<chartType>_<option2>_full"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option2>_full"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label/<chartType>_<option2>_full.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label/<chartType>_<option2>_full.png"
 
     When I click the "Settings" button
@@ -138,7 +138,7 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/label/<chartType>_<option3>_name"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option3>_name"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label/<chartType>_<option3>_name.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label/<chartType>_<option3>_name.png"
 
     Examples:
@@ -170,7 +170,7 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option1>_out_left"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option1>_out_left"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option1>_out_left.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option1>_out_left.png"
 
     When I click the "Settings" button
@@ -182,7 +182,7 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option2>_out_right"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option2>_out_right"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option2>_out_right.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option2>_out_right.png"
 
     When I click the "Settings" button
@@ -194,7 +194,7 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option3>_middle"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option3>_middle"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option3>_middle.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option3>_middle.png"
 
     When I click the "Settings" button
@@ -206,7 +206,7 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option4>_in_left"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option4>_in_left"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option4>_in_left.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option4>_in_left.png"
 
     When I click the "Settings" button
@@ -218,7 +218,7 @@ Feature: 日志展现_维度
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option5>_in_right"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option5>_in_right"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option5>_in_right.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option5>_in_right.png"
 
     Examples:

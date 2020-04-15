@@ -28,7 +28,7 @@ Feature: 日志展现_其它_环形比例图
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png"
 
     Examples:
@@ -56,7 +56,7 @@ Feature: 日志展现_其它_环形比例图
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png"
 
     Examples:
@@ -89,7 +89,7 @@ Feature: 日志展现_其它_环形比例图
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png"
 
     Examples:
@@ -144,7 +144,7 @@ Feature: 日志展现_其它_环形比例图
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png"
 
     Examples:
@@ -179,7 +179,7 @@ Feature: 日志展现_其它_环形比例图
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>1"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>1"
 #   Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>1.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>1.png"
 
 
@@ -192,7 +192,7 @@ Feature: 日志展现_其它_环形比例图
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>2"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>2"
 #   Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>2.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>2.png"
 
 
@@ -205,7 +205,7 @@ Feature: 日志展现_其它_环形比例图
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>3"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>3"
 #   Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>3.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>3.png"
 
     Examples:

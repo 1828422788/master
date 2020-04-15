@@ -21,7 +21,7 @@ Feature: 日志展现_其他_单值
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png"
 
     Examples:
@@ -51,7 +51,7 @@ Feature: 日志展现_其他_单值
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>.png"
 
     Examples:
@@ -81,7 +81,7 @@ Feature: 日志展现_其他_单值
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>.png"
 
     Examples:
@@ -109,7 +109,7 @@ Feature: 日志展现_其他_单值
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png"
 
     Examples:
@@ -137,7 +137,7 @@ Feature: 日志展现_其他_单值
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png"
 
     Examples:
@@ -175,7 +175,7 @@ Feature: 日志展现_其他_单值
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>.png"
 
     Examples:
@@ -211,7 +211,7 @@ Feature: 日志展现_其他_单值
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "日志展现/高级搜索视图/6其它/<chartType>/<caseNum>"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 #    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<chartType>/<caseNum>.png"
 
     Examples:
