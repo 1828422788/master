@@ -403,6 +403,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::button")
     private WebElement connectEmptyData;
 
+    @FindBy(xpath = "(//span[text()='显示所有X轴标签'])[last()]/ancestor::div/following-sibling::button")
+    private WebElement showAllLabels;
+
     @FindBy(xpath = "(//span[text()='min']/preceding-sibling::input)[last()]")
     private WebElement min;
 
@@ -1566,6 +1569,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getConnectEmptyData() {
         return connectEmptyData;
+    }
+
+    public WebElement getShowAllLabels() {
+        return showAllLabels;
     }
 
     public WebElement getMin() {

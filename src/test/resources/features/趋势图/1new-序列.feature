@@ -36,10 +36,10 @@ Feature: 趋势图新建_序列
 
     Examples:
     |   chartType   |caseNum  |  spl  |
-    |    LineChart  |  2477   | tag:sample04061424_chart  \| stats count() by apache.clientip,apache.method|
-    |   AreaChart   |  2005   | tag:sample04061424_chart  \| stats count() by apache.clientip,apache.method |
-    |  ScatterChart |  2491   | tag:sample04061424_chart  \| stats count() by apache.clientip,apache.method |
-    |  ColumnChart  |  2499   | tag:sample04061424_chart  \| stats count() by apache.clientip,apache.method|
+    |    LineChart  |  2477   | tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip |
+    |   AreaChart   |  2005   | tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip |
+    |  ScatterChart |  2491   | tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip |
+    |  ColumnChart  |  2499   | tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip |
 
   Scenario Outline: order
     When I set the parameter "SearchInput" with value "<spl>"
@@ -54,6 +54,7 @@ Feature: 趋势图新建_序列
     And I click the "Order" button
     And I click the "<chartType>" button
     And I click the "Settings" button
+    And I click the "ShowAllLabels" button
     And I click the "Group" button
     And I click the "<buttonChoice>" button
     And I click the "Exhibition" button
@@ -76,11 +77,11 @@ Feature: 趋势图新建_序列
 
     Examples:
       |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
-      |   AreaChart   |    Pile       | Red    | 2767      |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
-      |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
+      |   AreaChart   |    Pile       | Red    | 2767      |  tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
 
   Scenario Outline: order_bubble
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -92,6 +93,7 @@ Feature: 趋势图新建_序列
     And I click the "Order" button
     And I click the "<chartType>" button
     And I click the "Settings" button
+    And I click the "ShowAllLabels" button
     And I click the "Bubble" button
     And I click the "AccordingField" button
     And I choose the "<bubbleSize>" from the "BubbleSize"
@@ -118,7 +120,7 @@ Feature: 趋势图新建_序列
       |  ScatterChart |    count()   | bubbles   |
 
   Scenario Outline: order_switch
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -130,6 +132,7 @@ Feature: 趋势图新建_序列
     And I click the "Order" button
     And I click the "<chartType>" button
     And I click the "Settings" button
+    And I click the "ShowAllLabels" button
     And I click the "Yaxis" button
     And I set the parameter "Unit" with value "<unitValue>"
     And I click the "<buttonChoice>" button
@@ -159,7 +162,7 @@ Feature: 趋势图新建_序列
 
 
   Scenario Outline: order_limit
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -171,6 +174,7 @@ Feature: 趋势图新建_序列
     And I click the "Order" button
     And I click the "<chartType>" button
     And I click the "Settings" button
+    And I click the "ShowAllLabels" button
     And I click the "Yaxis" button
     And I set the parameter "Unit" with value "<unitValue>"
     And I set the parameter "Min" with value "1"
