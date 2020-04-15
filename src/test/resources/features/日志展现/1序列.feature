@@ -8,7 +8,7 @@ Feature: 日志展现_序列
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: sequence(RZY-2770,2771,2769,2768)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -22,8 +22,8 @@ Feature: 日志展现_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/1序列/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
+    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |
@@ -52,13 +52,13 @@ Feature: 日志展现_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>.png"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
+    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
 
     Examples:
       |   chartType   | unitValue  | buttonChoice      |  caseNum  |   spl|
-      |   LineChart   |   个       | Smooth            | 832    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
-      |   LineChart   |   个       | ConnectEmptyData  | 832    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
+      |   LineChart   |   个       | Smooth            | 832       |  tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |   LineChart   |   个       | ConnectEmptyData  | 832       |  tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
 
   Scenario Outline: pile(RZY-2767,2773)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -82,16 +82,16 @@ Feature: 日志展现_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_Pile.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>_Pile.png"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
+    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_Pile" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
 
     Examples:
       |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
-      |   AreaChart   |    Pile       | Red    | 2767      |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
-      |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.method  |
+      |   AreaChart   |    Pile       | Red    | 2767      |  tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
 
   Scenario Outline: scatter_bubble (RZY-4204)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -113,9 +113,9 @@ Feature: 日志展现_序列
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "日志展现/高级搜索视图/1序列/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/1序列/<caseNum>_<chartType>.png"
+    And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
+    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   bubbleSize |caseNum  |
-      |  ScatterChart |    count()   | bubbles   |
+      |  ScatterChart |    cnt       | bubbles   |
