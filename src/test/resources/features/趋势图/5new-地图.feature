@@ -33,7 +33,7 @@ Feature: 趋势图新建_地图
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
@@ -78,7 +78,7 @@ Feature: 趋势图新建_地图
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<regionBut>_<caseNum>.png" with target image "actual/<chartType>_<regionBut>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<regionBut>_<caseNum>" with target image "actual/<chartType>_<regionBut>_<caseNum>"
 
     Examples:
       |chartType| regionBut |caseNum  | spl   |
@@ -120,7 +120,7 @@ Feature: 趋势图新建_地图
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<region>_<caseNum>.png" with target image "actual/<chartType>_<region>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<region>_<caseNum>" with target image "actual/<chartType>_<region>_<caseNum>"
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
@@ -151,7 +151,7 @@ Feature: 趋势图新建_地图
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |chartType      |caseNum  |   spl   |
@@ -188,7 +188,7 @@ Feature: 趋势图新建_地图
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |chartType      |   tranparencyValue  | minRadiusValue | maxRadiusValue  | caseNum        |   spl   |

@@ -25,7 +25,7 @@ Feature: 趋势图新建-timechart
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/timechart_<caseNum>.png" with target image "actual/timechart_<caseNum>.png"
+    And I compare source image "expect/timechart_<caseNum>" with target image "actual/timechart_<caseNum>"
 
     Examples:
       |  caseNum    |   spl|
@@ -76,7 +76,7 @@ Feature: 趋势图新建-timechart
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/timechart_<caseNum>.png" with target image "actual/timechart_<caseNum>.png"
+    And I compare source image "expect/timechart_<caseNum>" with target image "actual/timechart_<caseNum>"
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice |  spl|
@@ -118,7 +118,7 @@ Feature: 趋势图新建-timechart
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/timechart_<caseNum>.png" with target image "actual/timechart_<caseNum>.png"
+    And I compare source image "expect/timechart_<caseNum>" with target image "actual/timechart_<caseNum>"
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice|  spl|

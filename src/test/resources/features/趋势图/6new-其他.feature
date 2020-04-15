@@ -34,7 +34,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |caseNum  |   spl   |
@@ -73,7 +73,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |   iconValue  |  caseNum  |   spl   |
@@ -111,7 +111,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |   fontValue       |  caseNum  |   spl   |
@@ -148,7 +148,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
@@ -183,7 +183,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  | timeValue    |   spl   |
@@ -226,7 +226,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  | minVal1 | maxVal1  |  color1  | minVal2 | maxVal2  |  color2  | colorFill     |   spl   |
@@ -268,7 +268,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    | precision |  unitPosition       |  buttonSwitch     |  caseNum                |   spl   |
@@ -305,7 +305,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
@@ -340,7 +340,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
@@ -380,7 +380,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |    caseNum   | rows    |  columns  |   spl   |
@@ -442,7 +442,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |    caseNum          | rows    |  columns  |   spl   |
@@ -479,7 +479,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    |   caseNum  |   spl   |
@@ -519,7 +519,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    | divField       | color1   | caseNum  |   spl   |
@@ -561,7 +561,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
@@ -597,7 +597,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType     |  xValue         |  yValue       | segNum |caseNum  |   spl   |
@@ -643,7 +643,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
@@ -686,7 +686,7 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
@@ -709,4 +709,4 @@ Feature: 趋势图新建-其他
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/Table_Test.png" with target image "actual/Table_Test.png"
+    And I compare source image "expect/Table_Test" with target image "actual/Table_Test"

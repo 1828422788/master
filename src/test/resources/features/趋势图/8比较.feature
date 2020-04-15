@@ -13,7 +13,7 @@ Feature: 趋势图比较
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "aftersave/<name>"
-    Then I compare source image "expect/<name>.png" with target image "aftersave/<name>.png"
+    Then I compare source image "expect/<name>" with target image "aftersave/<name>"
     And I click the "NextButton" button
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
@@ -115,7 +115,7 @@ Feature: 趋势图比较
     And I wait for "StatisticalChart" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "aftersave/<name>"
-    Then I compare source image "expect/<name>.png" with target image "aftersave/<name>.png"
+    Then I compare source image "expect/<name>" with target image "aftersave/<name>"
     And I click the "NextButton" button
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible

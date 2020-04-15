@@ -32,7 +32,7 @@ Feature: 趋势图新建_序列
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
     |   chartType   |caseNum  |  spl  |
@@ -73,7 +73,7 @@ Feature: 趋势图新建_序列
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<buttonChoice>.png" with target image "actual/<chartType>_<buttonChoice>.png"
+    And I compare source image "expect/<chartType>_<buttonChoice>" with target image "actual/<chartType>_<buttonChoice>"
 
     Examples:
       |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
@@ -113,7 +113,7 @@ Feature: 趋势图新建_序列
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |   chartType   |   bubbleSize |caseNum  |
@@ -151,7 +151,7 @@ Feature: 趋势图新建_序列
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>_<buttonChoice>.png" with target image "actual/<chartType>_<caseNum>_<buttonChoice>.png"
+    And I compare source image "expect/<chartType>_<caseNum>_<buttonChoice>" with target image "actual/<chartType>_<caseNum>_<buttonChoice>"
 
     Examples:
       |   chartType   | unitValue  | buttonChoice      |  caseNum  |
@@ -192,7 +192,7 @@ Feature: 趋势图新建_序列
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>_limit.png" with target image "actual/<chartType>_<caseNum>_limit.png"
+    And I compare source image "expect/<chartType>_<caseNum>_limit" with target image "actual/<chartType>_<caseNum>_limit"
 
     Examples:
       |   chartType    | unitValue  |  caseNum  |

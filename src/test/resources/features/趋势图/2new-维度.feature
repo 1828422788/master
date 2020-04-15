@@ -32,7 +32,7 @@ Feature: 趋势图新建_维度
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>.png" with target image "actual/<chartType>_<caseNum>.png"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |   chartType   |   caseNum  |  spl  |
@@ -72,7 +72,7 @@ Feature: 趋势图新建_维度
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<typeInfo>_<option>.png" with target image "actual/<chartType>_<typeInfo>_<option>.png"
+    And I compare source image "expect/<chartType>_<typeInfo>_<option>" with target image "actual/<chartType>_<typeInfo>_<option>"
 
     Examples:
       |   chartType   | color  |typeInfo | option       |
@@ -117,7 +117,7 @@ Feature: 趋势图新建_维度
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<typeInfo>.png" with target image "actual/<chartType>_<typeInfo>.png"
+    And I compare source image "expect/<chartType>_<typeInfo>" with target image "actual/<chartType>_<typeInfo>"
 
     Examples:
       |   chartType   | color  |typeInfo    |

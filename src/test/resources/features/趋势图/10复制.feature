@@ -8,7 +8,7 @@ Feature: 趋势图复制(RZY-1889)
   Scenario: create_trend
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -21,7 +21,7 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "Settings" button
     And I click the "Bubble" button
     And I click the "AccordingField" button
-    And I choose the "count()" from the "BubbleSize"
+    And I choose the "cnt" from the "BubbleSize"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
@@ -39,7 +39,7 @@ Feature: 趋势图复制(RZY-1889)
     And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/ScatterChart_bubbles.png" with target image "actual/test_original.png"
+    And I compare source image "expect/ScatterChart_bubbles" with target image "actual/test_original"
 
   Scenario: copy_trend
     When the data name is "Copy_Test" then i click the "复制" button
@@ -64,7 +64,7 @@ Feature: 趋势图复制(RZY-1889)
     And I cancel selection "AutoTest" from the "GroupField"
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
-    And I compare source image "expect/ScatterChart_bubbles.png" with target image "actual/test_copy.png"
+    And I compare source image "expect/ScatterChart_bubbles" with target image "actual/test_copy"
 
   Scenario Outline: delete_copy
     Given open the "trend.ListPage" page for uri "/trend/"
