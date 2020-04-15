@@ -384,7 +384,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_world"
-    Then I compare source image "expect/普通统计视图/825_地理分布/825_world" with target image "actual_img/普通统计视图/825_地理分布/825_world"
+    Then I compare source image "expect/普通统计视图/825_地理分布/825_world" with target image "actual/普通统计视图/825_地理分布/825_world"
 
     When I click the "CountryChina" button
     And I wait for "2000" millsecond
