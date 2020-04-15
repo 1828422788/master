@@ -169,7 +169,7 @@ Feature: 定时任务新建
 
     Examples:
       | time                                      | taskName     |
-      | 2020-04-01 00:00:00 ~ 2020-04-09 00:00:00 | interval_date|
+#      | 2020-04-01 00:00:00 ~ 2020-04-09 00:00:00 | interval_date|
       | -1M/M ~ now/M                             | lastMonth    |
       | now/M ~ now                               | thisMonth    |
       | -1w/w ~ now/w                             | lastWeek     |

@@ -8,7 +8,6 @@ Feature: 报表新建_编辑_地图
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to "admin"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "Tag"
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "50"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"

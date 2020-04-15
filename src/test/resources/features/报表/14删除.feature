@@ -12,7 +12,7 @@ Feature: 报表_删除
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 
-    @cleanReport
+    @cleanReport @cleanKate
     Examples:
       |   name                |
       |  test_report_EXCEL    |
@@ -23,7 +23,7 @@ Feature: 报表_删除
       |  test_report_每周     |
       |  test_report_每天     |
 
-    @cleanReport
+    @cleanReport @cleanKate
     Examples:
       |   name                |
       |  test_downFirst       |
@@ -89,7 +89,7 @@ Feature: 报表_删除
 
 
 
-  @cleanReport @cleanReportPDF @cleanReportCharts
+  @cleanReport @cleanReportPDF @cleanReportCharts @cleanKate
   Scenario Outline: delete_report_charts_pdf
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>_PDF"

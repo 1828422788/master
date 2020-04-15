@@ -1,4 +1,4 @@
-@cleanTrend @clean
+@cleanTrend @clean @cleanKate
 Feature: 趋势图删除（RZY-1891）
 
   Scenario Outline: delete

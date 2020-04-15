@@ -19,7 +19,7 @@ Feature: 定时任务复制
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:10:10"
+    And I set the parameter "StartTimeInput" with value "10:00:00"
     And I hide the element "TimePanel"
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureButton" button
@@ -46,7 +46,6 @@ Feature: 定时任务复制
     And I will see the element "SearchContent" contains "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count(apache.clientip) as c_ip by ts"
     And I will see the element "TimePeriod" contains "-1d ~ now"
     And I will see the element "Description" contains "testing"
-    #And I will see the element "StartTime" value contains "21:10:10"
     And I will see the element "ExecutionPeriod" contains "5 分钟"
     
 

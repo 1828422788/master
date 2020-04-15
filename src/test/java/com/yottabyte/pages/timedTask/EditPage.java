@@ -27,10 +27,10 @@ public class EditPage extends PageTemplate {
     private WebElement resource;
 
     //@FindBy(xpath = "//label[text()='任务分组']/following-sibling::div//input")
-    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div")
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]")
     private WebElement taskGroup;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
+    @FindBy(xpath = "(//label[text()='所属应用'][last()])/following-sibling::div[1]")
     private WebElement taskApp;
 
     @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div/div/span/span/span")
@@ -238,12 +238,12 @@ public class EditPage extends PageTemplate {
 
     public WebElement getTaskGroup() {
         taskGroup.click();
-        return this.getLastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getTaskApp() {
         taskApp.click();
-        return this.getLastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getTaskGroupSelected() {

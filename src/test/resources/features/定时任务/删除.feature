@@ -1,4 +1,4 @@
-@clean @cleanTimedTask
+@clean @cleanTimedTask @cleanKate
 Feature: 定时任务删除
 
 
