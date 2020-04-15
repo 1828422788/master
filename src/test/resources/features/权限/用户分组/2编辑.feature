@@ -17,8 +17,8 @@ Feature: 用户分组修改（RZY-1179）
       | AutoTestForDelete | AutoTestForEdit  | 测试修改            | success message "更新成功" |
 
     Examples:
-      | UserGroupName   | NewUserGroupName | NewUserGroupDes | Result                              |
-      | AutoTestForEdit | AutoTestGroup    | NewDes          | error message "用户组已存在\n错误码: FE_536" |
+      | UserGroupName   | NewUserGroupName | NewUserGroupDes | Result                                                             |
+      | AutoTestForEdit | AutoTestGroup    | NewDes          | error message "account_group_name: AutoTestGroup 已存在\n错误码: AUTH_7" |
 
   Scenario: 取消admin角色（验证仅有默认角色时能否保存成功）
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
@@ -35,7 +35,7 @@ Feature: 用户分组修改（RZY-1179）
     And I will see the "users.CreatePage" page
     When I set the parameter "UserName" with value "测试分组管理员"
     And I set the parameter "Email" with value "AutoTestAdmin@yottabyte.cn"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
 
@@ -46,7 +46,7 @@ Feature: 用户分组修改（RZY-1179）
     And I wait for element "UserGroupName" value change text to "AutoTestForEdit"
     And I click the "AddAdmin" button
     And I wait for "NoData" will be invisible
-    And I "check" the checkbox which name is "测试分组管理员" in tiny table
+    And I "check" the checkbox which name is "测试分组管理员" in user group
     And I click the "EnsureButton" button
     And I click the "SaveMember" button
     Then I will see the success message "更新成功"
@@ -66,7 +66,7 @@ Feature: 用户分组修改（RZY-1179）
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "测试分组管理员"
-    And I set the parameter "Password" with value "all123456"
+    And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for title change text to "仪表盘|搜索"
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -76,4 +76,3 @@ Feature: 用户分组修改（RZY-1179）
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"

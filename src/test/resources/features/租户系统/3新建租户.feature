@@ -1,5 +1,5 @@
 @tenant
-Feature: 租户新建（RZY-1691）
+Feature: 租户系统-租户新建
   Background:
     Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
 

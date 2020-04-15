@@ -1,5 +1,5 @@
-@all @tenant @smoke @tenantSmoke
-Feature: 租户管理（RZY-1713）
+@tenant
+Feature: 租户系统-租户管理
 
   Scenario: RZY-1867:不同域内上传的插件互不干扰
     Given open the "alert.PluginPage" page for uri "/plugins/"

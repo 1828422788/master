@@ -72,7 +72,7 @@ Feature: 仪表盘循序图
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
     And I click the "Other" button
-    And I click the "Sequence" button
+    And I click the "<image>" button
     And I hide the element "Content"
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
@@ -91,11 +91,11 @@ Feature: 仪表盘循序图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
-    Then I compare source image "dashboard/<name>" with target image "dashboard/<name>"
+    Then I compare source image "dashboard/<name>" with target image "dashboard/<image>"
 
     Examples:
-      | name   |
-      | 仪表盘循序图 |
+      | name   |image|
+      | 仪表盘循序图 |Sequence|
 
   @dashboard
   Scenario Outline: 验证配置是否在高级编辑中体现
@@ -124,7 +124,7 @@ Feature: 仪表盘循序图
     Then I wait for element "SuccessMessage" change text to "配置成功"
     And I wait for "2000" millsecond
     And take part of "FullScreen" with name "dashboard/<name>1365"
-    Then I compare source image "dashboard/<name>1365" with target image "dashboard/<name>1365"
+    Then I compare source image "dashboard/<name>1365" with target image "dashboard/Sequence1365"
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |

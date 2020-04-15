@@ -16,7 +16,6 @@ Feature: 应用打开
       | ReportApp        |
       | DashboardApp     |
       | AlertApp         |
-      | ScheduleApp      |
       | TrendApp         |
       | SavedsearchesApp |
       | KnowledgeApp     |

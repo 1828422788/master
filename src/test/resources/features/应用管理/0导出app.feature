@@ -18,7 +18,6 @@ Feature: 应用导出
       | ReportApp        |
       | DashboardApp     |
       | AlertApp         |
-      | ScheduleApp      |
       | TrendApp         |
       | SavedsearchesApp |
       | KnowledgeApp     |

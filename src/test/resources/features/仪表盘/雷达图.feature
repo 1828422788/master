@@ -62,34 +62,34 @@ Feature: 仪表盘雷达图
       | name   |
       | 仪表盘雷达图 |
 
-  @dashboard
+  @dashboard @test
   Scenario: 修改为雷达图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘雷达图"
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
-    And I click the "ChartType" button
-    Then I will see the "trend.CreatePage" page
-    And I wait for "Other" will be visible
-    And I click the "Other" button
-    And I click the "Radar" button
-    And I hide the element "Content"
-    And I wait for "1000" millsecond
-    And I click the "Setting" button under some element
-    And I choose the "count()" from the "DataValue"
-    And I click the "Indicator" button
-    And I choose the "apache.clientip" from the "DataValue"
-    And I click the "UnifiedMetric" button
-    And I click the "Divide" button
-    And I click the "AddField" button
-    And I choose the "apache.clientip" from the "DataValue"
-    Then I click the "Generate" button
-    And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I wait for "Progress" will be invisible
+#    And I click the "ChartType" button
+#    Then I will see the "trend.CreatePage" page
+#    And I wait for "Other" will be visible
+#    And I click the "Other" button
+#    And I click the "Radar" button
+#    And I hide the element "Content"
+#    And I wait for "1000" millsecond
+#    And I click the "Setting" button under some element
+#    And I choose the "count()" from the "DataValue"
+#    And I click the "Indicator" button
+#    And I choose the "apache.clientip" from the "DataValue"
+#    And I click the "UnifiedMetric" button
+#    And I click the "Divide" button
+#    And I click the "AddField" button
+#    And I choose the "apache.clientip" from the "DataValue"
+#    Then I click the "Generate" button
+#    And I wait for "1000" millsecond
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/仪表盘雷达图"
-    Then I compare source image "dashboard/仪表盘雷达图" with target image "dashboard/仪表盘雷达图"
+    Then I compare source image "dashboard/仪表盘雷达图" with target image "dashboard/Radar"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
