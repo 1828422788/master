@@ -20,9 +20,9 @@ Feature: 租户系统-租户管理
 
   Scenario: RZY-1690:取消机器学习支持特性
     Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
-    When I set the parameter "Username" with properties "saas_username"
-    And I set the parameter "Password" with properties "saas_password"
-    And I click the "LoginButton" button
+#    When I set the parameter "Username" with properties "saas_username"
+#    And I set the parameter "Password" with properties "saas_password"
+#    And I click the "LoginButton" button
     And I will see the "tenant.ListPage" page
     When the data name is "{'column':'1','name':'no_scheduler (noschedule)'}" then i click the label "管理"
     And I will see the "tenant.CreatePage" page
