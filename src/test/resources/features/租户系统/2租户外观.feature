@@ -4,9 +4,9 @@ Feature:  租户系统-租户外观
 
 Scenario: 界面配色
   Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
-  When I set the parameter "Username" with properties "saas_username"
-  And I set the parameter "Password" with properties "saas_password"
-  And I click the "LoginButton" button
+#  When I set the parameter "Username" with properties "saas_username"
+#  And I set the parameter "Password" with properties "saas_password"
+#  And I click the "LoginButton" button
   And I will see the "tenant.ListPage" page
 #租户外观
   And I click the "tenantAppearance" button
@@ -34,6 +34,7 @@ Scenario: 界面配色
 
 Scenario: 验证界面颜色
   Given open the "dashboard.ListPage" page for uri "/dashboard/"
+  And I wait for loading invisible
   Then take a screenshot with name "tenantStatus/界面配色"
 
 

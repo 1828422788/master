@@ -30,12 +30,12 @@ Feature: 索引信息编辑（RZY-1477至1480）
 
     Examples:
       | savedSize | savedSizeDropDown | message                |
-      | 100       | Byte              | success message "保存成功" |
-      | 100       | PB                | success message "保存成功" |
-      | 100       | TB                | success message "保存成功" |
-      | 100       | GB                | success message "保存成功" |
-      | 100       | KB                | success message "保存成功" |
-      | 100       | MB                | success message "保存成功" |
+      | 100       | Byte              | 保存成功 |
+      | 100       | PB                | 保存成功|
+      | 100       | TB                |  保存成功 |
+      | 100       | GB                | 保存成功|
+      | 100       | KB                | 保存成功 |
+      | 100       | MB                | 保存成功 |
 
   Scenario Outline:修改保存时间
     Given the data name is "{'column':'2','name':'AutoTestForsxc'}" then i click the "编辑" button without paging

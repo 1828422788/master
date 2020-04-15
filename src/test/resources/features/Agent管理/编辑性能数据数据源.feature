@@ -135,11 +135,11 @@ Feature: Agent编辑性能数据类型数据源
 #    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 #
 
-  Scenario: 性能数据源修改采集单个 net 指标（不采集->采集）
-    Given the data name ".*" in table "FuctionTypeTable" then i click the "编辑" button
-    And I click the "NetQuota" button
-    And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+#  Scenario: 性能数据源修改采集单个 net 指标（不采集->采集）
+#    Given the data name ".*" in table "FuctionTypeTable" then i click the "编辑" button
+#    And I click the "NetQuota" button
+#    And I click the "Ensure" button
+#    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
   Scenario: 性能数据源修改采集进程指标（不采集->采集）
