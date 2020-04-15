@@ -45,6 +45,8 @@ Feature: 日志展现_序列
     And I click the "Settings" button
     And I click the "Yaxis" button
     And I set the parameter "Unit" with value "<unitValue>"
+    And I set the parameter "Min" with value "1"
+    And I set the parameter "Max" with value "15"
     And I click the "<buttonChoice>" button
     And I click the "Generate" button
 
