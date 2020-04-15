@@ -117,7 +117,7 @@ Feature: 趋势图新建_序列
 
     Examples:
       |   chartType   |   bubbleSize |caseNum  |
-      |  ScatterChart |    count()   | bubbles   |
+      |  ScatterChart |    cnt       | bubbles   |
 
   Scenario Outline: order_switch
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
