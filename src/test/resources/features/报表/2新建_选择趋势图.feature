@@ -9,10 +9,10 @@ Feature: 报表新建_选择
 
   Scenario Outline: new_report_10_trends
     When I set the parameter "Name" with value "test_10trends"
-    And I choose the "AutoTest" from the "Tag"
-    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "00"
+    And I choose the "AutoTest" from the "Tag"
+    And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartListDropdown"
@@ -57,10 +57,10 @@ Feature: 报表新建_选择
 
   Scenario Outline: new_report_moveTrends
     When I set the parameter "Name" with value "<caseNum>"
-    And I choose the "AutoTest" from the "Tag"
-    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "00"
+    And I choose the "AutoTest" from the "Tag"
+    And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
     When I choose the "LineChart_2477" from the "ChartListDropdown"
@@ -90,10 +90,10 @@ Feature: 报表新建_选择
 
   Scenario: new_report_modifyTrend_cancel
     When I set the parameter "Name" with value "test_modify_cancel"
-    And I choose the "AutoTest" from the "Tag"
-    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "00"
+    And I choose the "AutoTest" from the "Tag"
+    And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "FinishButton" will be visible
     When I choose the "LineChart_2477" from the "ChartList"

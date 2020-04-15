@@ -1,11 +1,11 @@
-@checkFiles
+@checkAllFiles
 Feature: 报表_检查文件
 # Verifying that files were generated
 
   Background:
     Given open the "report.ListPage" page for uri "/reports/"
 
-  @checkFilesPDF
+  @checkFilesPDF @checkFiles
   Scenario Outline: check_type_pdf
     When I set the parameter "SearchInput" with value "<name>_PDF"
     And I wait for loading invisible
