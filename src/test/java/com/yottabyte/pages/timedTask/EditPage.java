@@ -33,6 +33,9 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='所属应用'][last()])/following-sibling::div[1]")
     private WebElement taskApp;
 
+    @FindBy(xpath = "//li[@class='el-select-dropdown__item']/ancestor::ul")
+    private WebElement appDropdownList;
+
     @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div/div/span/span/span")
     private WebElement taskGroupSelected;
 
@@ -131,6 +134,10 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getTextarea() {
+        return textarea;
+    }
+
+    public WebElement getSearchTextarea() {
         return textarea;
     }
 
@@ -243,7 +250,7 @@ public class EditPage extends PageTemplate {
 
     public WebElement getTaskApp() {
         taskApp.click();
-        return super.getLastDropdownList();
+        return appDropdownList;
     }
 
     public WebElement getTaskGroupSelected() {
