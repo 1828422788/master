@@ -34,7 +34,7 @@ Feature: 租户系统-租户新建
 
     Examples:
       | name  | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit |uploadLimit| excessLimit | excessBehavior | managerName | managerEmail       | managerPassword | inputAgain |
-      | first | firstdomain| API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 10        |3            | 拒绝采集输入     | first       | first@yottabyte.cn | All#123456      | All#123456  |
+      | first | fir        | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 10        |3            | 拒绝采集输入     | first       | first@yottabyte.cn | All#123456      | All#123456  |
 
   @tenantSmoke
   Scenario Outline: 新建autotest域
@@ -66,7 +66,7 @@ Feature: 租户系统-租户新建
 #    Then I wait for "SuccessMessage" will be visible
     Examples:
       | name  | domainName | supportFeature                                                                                                                                                                                                                        | dailyLimit | uploadLimit|excessLimit | excessBehavior | managerName | managerEmail        | managerPassword | inputAgain |
-      | atestb| autotestb   | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 5           |3           | 拒绝采集输入   | atesta      | atesta@yottabyte.cn | All#123456      | All#123456  |
+      | atestc| autotestc   | API,AgentConfiguration,Alert,Apps,Backup,Beneficiary,Dashboard,FieldExtract,Galaxee,IncidentAction,IndexManagement,Ingest,IngestPriority,Knowledge,MachineLearning,OfflineSearch,Pivot,Report,Schedule,Search,StatisticModel,Topology | 1          | 5           |3           | 拒绝采集输入   | atestc      | atestc@yottabyte.cn | All#123456      | All#123456  |
 
 
   Scenario Outline: 保存失败
@@ -112,7 +112,7 @@ Feature: 租户系统-租户新建
       | test | test               | API            | 1          | 2           | 1           | 拒绝采集输入     | test         | tools@yottabyte.cn | 12345678        | 12345678   | 密码需满足：必须同时包含数字、大小写字母和特殊字符|
       | test | test               | API            | 1          |  2          | 1           | 拒绝采集输入     | test         | tools@yottabyte.cn | 12345678a       |            | 密码不一致  |
       | test | Test               | API            | 1          |  2           | 1           | 拒绝采集输入     | test        | tools@yottabyte.cn | All#123456      | All#123456 | 域名只支持小写字母、数字、下划线，且不能以下划线开头，长度小于10 |
-      | test | autotestb          | API            | 1          |  2           | 1           | 拒绝采集输入     | test        | tools@yottabyte.cn | All#123456      | All#123456 |域名已存在\n错误码: FE_531  |
+      | test | autotestc          | API            | 1          |  2           | 1           | 拒绝采集输入     | test        | tools@yottabyte.cn | All#123456      | All#123456 |init domain error!\n错误码: api_0  |
       | test | auto_testauto_test | API            | 1          |  2           | 1           | 拒绝采集输入     | test        | tools@yottabyte.cn | All#123456      |All#123456  | 域名只支持小写字母、数字、下划线，且不能以下划线开头，长度小于10 |
       | test | test               | API            | 200000001  |   2          | 1           | 拒绝采集输入     | test        | tools@yottabyte.cn | All#123456      | All#123456 | 每日限额 需小于 8388608GB |
       | test | test               | API            | 1          |  2           | 2147483648  | 拒绝采集输入     | test        | tools@yottabyte.cn | All#123456      | All#123456 |超额次数限定 需小于 2147483647 |

@@ -55,3 +55,20 @@ Scenario:  验证logo
   And I wait for title change text to "登录"
   And open the "LoginPage" page for uri "/auth/login/"
   Then take a screenshot with name "tenantStatus/logo"
+
+
+  Scenario: 页面颜色恢复初始状态
+    Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
+    And I will see the "tenant.ListPage" page
+    #租户外观
+    And I click the "tenantAppearance" button
+    And I click the "firstStatus" button
+    And I wait for loading invisible
+
+
+  Scenario: logo恢复初始状态
+    Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
+    And I will see the "tenant.ListPage" page
+    #租户外观
+    And I click the "tenantAppearance" button
+    And I click the "reset" button
