@@ -157,7 +157,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "MysqlPort" with value "3307"
     And I set the parameter "DataBaseName" with value "mysql"
     And I click the "Save" button
-    Then I will see the element "ChangeMemo" name is "修改成功"
+#    Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 编辑mysql数据库类型最大连接数
     And I click the "Create" button
