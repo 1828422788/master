@@ -14,6 +14,7 @@ Feature: 日志展现_普通统计视图
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
+    And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
     And I choose the "<chart>" from the "PresentType"
     And I choose the "<value1>" from the "FieldValue"
@@ -40,6 +41,7 @@ Feature: 日志展现_普通统计视图
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
+    And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
     And I choose the "<chart>" from the "PresentType"
     And I choose the "<value1>" from the "FieldValue"
@@ -69,6 +71,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "TimeSlice" button
+    And I wait for "1000" millsecond
     Then I choose the "<fieldValue>" from the "FieldValue"
     Then I choose the "<statisticType>" from the "StatisticType"
     # Set Time Parameters
@@ -109,6 +112,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "DataSlice" button
+    And I wait for "1000" millsecond
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "StartDataValue" with value "<start1>"
     And I set the parameter "EndDataValue" with value "<end1>"
@@ -140,6 +144,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "TimeHistogram" button
+    And I wait for "1000" millsecond
     When I set the parameter "TimeSpan" with value "<timeSpan>"
     And I choose the "<time>" from the "Time"
     And I click the "Generate" button
@@ -167,6 +172,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "DataHistogram" button
+    And I wait for "1000" millsecond
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "DataSpan" with value "<number>"
     And I click the "Generate" button
@@ -190,6 +196,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "ClassifyFieldValue" button
+    And I wait for "1000" millsecond
     And I choose the "<fieldValue>" from the "FieldValue"
     And I choose the "<charttype>" from the "PresentType"
     And I choose the "<value1>" from the "TopElement"
@@ -235,6 +242,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "FieldNumber" button
+    And I wait for "1000" millsecond
     And I choose the "<yFieldValue>" from the "YAxis"
     And I choose the "<groupBy>" from the "GroupField"
     Then I choose the "<statType>" from the "StatisticType"
@@ -266,6 +274,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "TotalPercent" button
+    And I wait for "1000" millsecond
     And I choose the "<fieldValue>" from the "FieldValue"
     And I click the "ClosePercent<percent2>" button
     And I click the "AddPercent" button
@@ -291,6 +300,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "PercentDegree" button
+    And I wait for "1000" millsecond
     And I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "GoalValue" with value "<value1>"
     And I click the "Generate" button
@@ -315,6 +325,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "MultilevelStatistics" button
+    And I wait for "1000" millsecond
     And I choose the "<fieldValue1>" from the "FieldValue"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
@@ -368,6 +379,7 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "GeographicalDistribution" button
+    And I wait for "1000" millsecond
     And I choose the "apache.geo.country" from the "FieldValue"
     And I click the "Generate" button
     And I wait for "2000" millsecond
