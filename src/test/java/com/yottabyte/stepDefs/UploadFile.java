@@ -189,7 +189,7 @@ public class UploadFile {
         String directory = relativePath.substring(0, index);
         String fileName = relativePath.substring(index + 1);
 
-        SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), "192.168.1.164", 22);
+        SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
         sftpUtil.login();
 
         try {

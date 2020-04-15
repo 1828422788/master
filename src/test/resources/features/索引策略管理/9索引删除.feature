@@ -1,4 +1,4 @@
-@clean @cleanSecond @cleanIndex
+@clean @cleanSecond @cleanIndex @indexSettingSmoke
 Feature: 索引信息删除（RZY-1476）
 
   Background:

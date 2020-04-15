@@ -176,8 +176,10 @@ public class CompareResult {
         String sourceFingerPrint = null;
         String targetFingerPrint = null;
         try {
-            sourceFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(sourceImage)));
-            targetFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(targetImage)));
+            System.out.println(System.getProperty("user.dir"));
+            System.out.println("sourceImage = [" + sourceImage + "], targetImage = [" + targetImage + "]");
+            sourceFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(sourceImage + ".png")));
+            targetFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(targetImage + ".png")));
         } catch (IOException e) {
             e.printStackTrace();
         }

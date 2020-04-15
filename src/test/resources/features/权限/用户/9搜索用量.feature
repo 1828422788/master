@@ -1,4 +1,4 @@
-@users @all
+#@users @all
 Feature: 用户搜索用量
 
   Background:

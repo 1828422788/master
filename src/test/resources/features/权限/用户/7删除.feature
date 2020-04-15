@@ -10,11 +10,10 @@ Feature: 用户删除
     Then I will see the search result "{'column':'1','name':'<name>','contains':'no'}"
 
     Examples:
-      | name                   |
-      | SuccessEditAutoTest    |
-#      | AutoTestForSavedSearch |
+      | name            |
+      | AutoTestForEdit |
 
   Scenario: 删除用户分组
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    And the data name is "{'column':'1','name':'TempGroup'}" then i click the "删除" button
+    And the data name is "{'column':'1','name':'测试用户所需分组'}" then i click the "删除" button
     And I click the "MessageBoxOKButton" button
