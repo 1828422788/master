@@ -1,13 +1,13 @@
 @all @logDisplay @logDisplayDimension
 Feature: 日志展现_维度
-#11 bug
+#11
 
   # tag:sample04061424_chart should be uploaded for Today
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-#labels should be shouwn by default
+
   Scenario Outline: dimension(RZY-833,2776,2778,2782)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
