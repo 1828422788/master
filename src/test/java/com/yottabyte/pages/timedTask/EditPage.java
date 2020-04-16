@@ -16,6 +16,9 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='描述']/following-sibling::div//input")
     private WebElement describe;
 
+    @FindBy(xpath = "//label[text()='搜索条数']/following-sibling::div//input")
+    private WebElement number;
+
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div/div/input")
     private WebElement user;
 
@@ -231,15 +234,17 @@ public class EditPage extends PageTemplate {
         return describe;
     }
 
+    public WebElement getNumber() {
+        return number;
+    }
+
     public WebElement getUser() {
         user.click();
         return dropdownLists.get(dropdownLists.size() - 1);
     }
 
     public WebElement getResource() {
-
-        resource.click();
-        return dropdownLists.get(dropdownLists.size() - 1);
+        return resource;
     }
 
 

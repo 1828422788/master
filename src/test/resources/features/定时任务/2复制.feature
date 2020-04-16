@@ -47,7 +47,7 @@ Feature: 定时任务复制
     And I will see the element "TimePeriod" contains "-1d ~ now"
     And I will see the element "Description" contains "testing"
     And I will see the element "ExecutionPeriod" contains "5 分钟"
-    
+
 
   Scenario: copy_schedule_editpage
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -56,9 +56,11 @@ Feature: 定时任务复制
     And I wait for "1500" millsecond
     And I will see the input element "Name" value will be "copytask(副本)"
     And I will see the input element "Describe" value will be "testing"
-    #And I will see the element "Resource" contains ""
+    And I will see the input element "Number" value will be "20000"
+    And I will see the element "Resource" contains ""
     And I will see the element "TaskGroupSelected" contains "AutoTestTag"
     And I will see the element "TaskAppSelected" contains "TrendApp"
+    And I will see the input element "Period" value will be "5"
 
   Scenario Outline: delete_copiedTask
     Given open the "timedTask.ListPage" page for uri "/schedule/"

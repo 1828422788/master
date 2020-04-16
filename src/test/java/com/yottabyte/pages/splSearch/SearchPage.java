@@ -603,12 +603,12 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getGroupComboBox() {
         groupComboBox.click();
-        return this.getLastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getAppComboBox() {
         appComboBox.click();
-        return this.getLastDropdownList();
+        return super.getLastDropdownList();
     }
 
     public WebElement getSearchContent() {

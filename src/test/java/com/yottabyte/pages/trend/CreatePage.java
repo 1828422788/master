@@ -1046,6 +1046,8 @@ public class CreatePage extends PageTemplate {
         WebDriverWait wait = new WebDriverWait(webDriver,10);
         wait.until(ExpectedConditions.elementToBeClickable(showLabel));
         showLabel.click();
+        WebElement list_el = webDriver.findElement(By.xpath("//li[text()='只展示名称'] "));
+        wait.until(ExpectedConditions.elementToBeClickable(list_el));
         return super.getLastDropdownList();
     }
 
@@ -1053,6 +1055,8 @@ public class CreatePage extends PageTemplate {
         WebDriverWait wait = new WebDriverWait(webDriver,10);
         wait.until(ExpectedConditions.elementToBeClickable(labelLocation));
         labelLocation.click();
+        WebElement list_el = webDriver.findElement(By.xpath("//li[text()='柱状内中央']"));
+        wait.until(ExpectedConditions.elementToBeClickable(list_el));
         return super.getLastDropdownList();
     }
 
