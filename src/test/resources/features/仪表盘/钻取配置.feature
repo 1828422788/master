@@ -59,6 +59,15 @@ Feature: 仪表盘钻取配置
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
+  Scenario: 开启钻取配置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试钻取配置"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I click the "OpenDrilldown" button
+    Then I will see the success message "钻取功能已启用"
+
+  @dashboard @dashboardSmoke
   Scenario: 在当前页面跳转到搜索页-自动
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试钻取配置"
