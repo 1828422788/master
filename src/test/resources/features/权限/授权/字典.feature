@@ -1,102 +1,102 @@
 @auth
 Feature: 权限-字典
 
-  Scenario: 验证无新建权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "新建字典"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then I will see the "UploadButton" doesn't exist
-
-  Scenario: 验证告警插件有效期限生效
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "alert.PluginPage" page for uri "/plugins/"
-    Then I will see the search result "{'column':'0','name':'sendsms','contains':'no'}"
-
-  Scenario: 验证可新建字典
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用字典管理,新建字典"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    Then I click the "{'TabButton':'告警插件'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the label before "sendsms"
-    And I "unchecked" the label before "sendsms"
-    And I "checked" the label before "sendsms"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    When I click the "UploadButton" button
-    And I upload a file with name "/src/test/resources/testdata/dictionary/AutoTestUserCreate.csv"
-    And I wait for "FileName" will be visible
-    And I click the "EnsureUpload" button
-    Then I will see the success message "创建字典成功"
-
-  Scenario: 授权无读取权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'字典'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the label before "AutoTestUserCreate.csv"
-    And I "unchecked" the label before "AutoTestUserCreate.csv"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-
-  Scenario: 验证无读取权限
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then I will see the search result "{'column':'0','name':'AutoTestUserCreate.csv','contains':'no'}"
+#  Scenario: 验证无新建权限
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    When I "unchecked" the checkbox which name is "新建字典"
+#    And I click the "SaveButton" button
+#    And I will see the success message "保存成功"
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+#    Then I will see the "UploadButton" doesn't exist
+#
+#  Scenario: 验证告警插件有效期限生效
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I wait for loading invisible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "alert.PluginPage" page for uri "/plugins/"
+#    Then I will see the search result "{'column':'0','name':'sendsms','contains':'no'}"
+#
+#  Scenario: 验证可新建字典
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    And I "unchecked" the checkbox which name is "全选"
+#    And I "checked" the checkbox which name is "可使用字典管理,新建字典"
+#    And I click the "SaveButton" button
+#    And I will see the success message "保存成功"
+#    Then I click the "{'TabButton':'告警插件'}" button
+#    And I wait for "Loading" will be invisible
+#    And I "checked" the label before "sendsms"
+#    And I "unchecked" the label before "sendsms"
+#    And I "checked" the label before "sendsms"
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+#    When I click the "UploadButton" button
+#    And I upload a file with name "/src/test/resources/testdata/dictionary/AutoTestUserCreate.csv"
+#    And I wait for "FileName" will be visible
+#    And I click the "EnsureUpload" button
+#    Then I will see the success message "创建字典成功"
+#
+#  Scenario: 授权无读取权限
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    Then I click the "{'TabButton':'字典'}" button
+#    And I wait for "Loading" will be invisible
+#    And I "checked" the label before "AutoTestUserCreate.csv"
+#    And I "unchecked" the label before "AutoTestUserCreate.csv"
+#    And I click the "SaveButton" button
+#    And I will see the success message "保存成功"
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    And I click the "SaveButton" button
+#
+#  Scenario: 验证无读取权限
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "2000" millsecond
+#    And I wait for loading invisible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+#    Then I will see the search result "{'column':'0','name':'AutoTestUserCreate.csv','contains':'no'}"
 
   Scenario: 授权有读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"

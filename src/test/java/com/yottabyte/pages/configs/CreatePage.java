@@ -114,6 +114,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='只替换第一个']/preceding-sibling::div/label")
     private WebElement replaceFirst;
 
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    private WebElement message;
+
     public WebElement getApp() {
         return super.getDropdownList("应用");
     }
@@ -398,5 +401,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getEnsureAddParseRule() {
         return super.getButton("确定");
+    }
+
+    public WebElement getMessage() {
+        return message;
     }
 }
