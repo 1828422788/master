@@ -85,6 +85,8 @@ Feature: 字段提取搜索验证
     And I wait for "5000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I refresh the website
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "tag:replacer"
     And I wait for "5000" millsecond
     And I click the "DateEditor" button

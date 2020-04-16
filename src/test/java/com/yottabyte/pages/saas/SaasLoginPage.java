@@ -55,4 +55,9 @@ public class SaasLoginPage extends PageTemplate {
         webDriver.navigate().refresh();
     }
 
+//登陆信息错时，弹唱中的确定按钮
+@FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']/span[contains(text(),'确定')]")
+    private WebElement ensure;
+    public WebElement getEnsure(){return ensure;}
+
 }
