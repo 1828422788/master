@@ -15,7 +15,7 @@ Feature: 权限-报表
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
-    And I click the "Complete" button
+    And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -71,6 +71,7 @@ Feature: 权限-报表
     And I click the "Create" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoTestCreate"
+    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Subject" with value "test"
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"
@@ -258,6 +259,7 @@ Feature: 权限-报表
     And I click the "Create" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
+    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Subject" with value "test"
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"
@@ -318,6 +320,7 @@ Feature: 权限-报表
     And I click the "Create" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "<name>"
+    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Subject" with value "test"
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"
@@ -384,6 +387,7 @@ Feature: 权限-报表
     And the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoCreate"
+    And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
@@ -494,6 +498,7 @@ Feature: 权限-报表
     And I click the "Create" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "AutoTestCreate"
+    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Subject" with value "test"
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"
@@ -679,6 +684,7 @@ Feature: 权限-报表
     And I click the "Create" button
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "测试二次授权"
+    And I choose the "PDF" from the "ReportType"
     And I set the parameter "Subject" with value "test"
     And I set the parameter "Hour" with value "11"
     And I set the parameter "Minute" with value "11"
