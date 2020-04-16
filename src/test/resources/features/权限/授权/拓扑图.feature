@@ -882,3 +882,16 @@ Feature: 权限-拓扑图
     Then I will see the element "Message" value is "保存成功"
     And I refresh the website
     And I accept alert window
+
+  @cleanAuth
+  Scenario Outline: 清理
+    Given open the "topology.ListPage" page for uri "/topology/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name     |
+      | 测试权限详情   |
+      | AutoTest |
