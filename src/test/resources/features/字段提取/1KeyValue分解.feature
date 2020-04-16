@@ -29,8 +29,11 @@ Feature: 字段提取KeyValue分解
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
+    Then I wait for "1000" millsecond
     And I choose the "KeyValue分解" from the "ParseRule"
+    Then I wait for "1000" millsecond
     And I choose the "<sourceField>" from the "SourceField"
+    Then I wait for "1000" millsecond
     And I set the parameter "FieldSeparator" with value "&"
     And I set the parameter "KVSeparator" with value "="
     And I set the parameter "KeepKey" with value "<keepKey>"
