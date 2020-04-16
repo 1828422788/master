@@ -98,6 +98,30 @@ public class ListPage extends PageTemplate {
     private WebElement reset;
     public WebElement getReset(){return reset;}
 
+//租户管理列表页，查看租户ops信息
+    @FindBy(xpath = "//div[text()='ops (ops)']/parent::td/preceding-sibling::td/div/div/i")
+    private WebElement lookButton;
+    public WebElement getLookButton(){return lookButton;}
+
+    @FindBy(xpath = "//label[contains(text(),'每日限额:')]/parent::div/div/span")
+    private WebElement everydayLimit;
+    public WebElement getEverydayLimit(){return everydayLimit;}
+
+    @FindBy(xpath = "//label[contains(text(),'有效期')]/parent::div/div/span")
+    private WebElement timeOfValidity;
+    public WebElement getTimeOfValidity(){return timeOfValidity;}
+
+    @FindBy(xpath = "//label[contains(text(),'支持特性')]/parent::div/div")
+    private WebElement support;
+    public WebElement getSupport(){return support;}
+
+
+
+
+
+
+
+
 
 
 }
