@@ -23,7 +23,7 @@ Feature: 日志展现_关系
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/3关系/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/3关系/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/3关系/<caseNum>_<chartType>.png"
+    Then I compare source image "expect/高级搜索视图/3关系/<caseNum>_<chartType>" with target image "actual/高级搜索视图/3关系/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
@@ -51,7 +51,7 @@ Feature: 日志展现_关系
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/3关系/<chartType>_repulsion"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/3关系/<chartType>_repulsion.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/3关系/<chartType>_repulsion.png"
+    Then I compare source image "expect/高级搜索视图/3关系/<chartType>_repulsion" with target image "actual/高级搜索视图/3关系/<chartType>_repulsion"
 
     Examples:
       |   chartType   |repValue  |   spl   |
@@ -80,7 +80,7 @@ Feature: 日志展现_关系
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/3关系/<chartType>_<button>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/3关系/<chartType>_<button>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/3关系/<chartType>_<button>.png"
+    Then I compare source image "expect/高级搜索视图/3关系/<chartType>_<button>" with target image "actual/高级搜索视图/3关系/<chartType>_<button>"
 
 
     Examples:

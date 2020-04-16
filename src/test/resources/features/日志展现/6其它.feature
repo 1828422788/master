@@ -23,7 +23,7 @@ Feature: 日志展现_其它
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
+    Then I compare source image "expect/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
       |  chartType    |caseNum  |   spl   |
@@ -58,7 +58,7 @@ Feature: 日志展现_其它
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
+    Then I compare source image "expect/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
       |  chartType    | divField       | color1   | caseNum  |   spl   |
@@ -92,7 +92,7 @@ Feature: 日志展现_其它
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
+    Then I compare source image "expect/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
@@ -121,7 +121,7 @@ Feature: 日志展现_其它
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
+    Then I compare source image "expect/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
       |  chartType     |  xValue         |  yValue       | segNum |caseNum  |   spl   |
@@ -160,7 +160,7 @@ Feature: 日志展现_其它
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
+    Then I compare source image "expect/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
@@ -195,7 +195,7 @@ Feature: 日志展现_其它
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
-#    Then I compare source image "src/test/resources/expect/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/高级搜索视图/6其它/<caseNum>_<chartType>.png"
+    Then I compare source image "expect/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |

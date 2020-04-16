@@ -23,7 +23,7 @@ Feature: 日志展现_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
-#    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
+    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |
@@ -55,7 +55,7 @@ Feature: 日志展现_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
-#    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
+    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
 
     Examples:
       |   chartType   | unitValue  | buttonChoice      |  caseNum  |   spl|
@@ -85,7 +85,7 @@ Feature: 日志展现_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
-#    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_Pile" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
+    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_Pile" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
 
     Examples:
       |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
@@ -116,7 +116,7 @@ Feature: 日志展现_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
-#    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
+    Then I compare source image "expect/高级搜索视图/1序列/<caseNum>_<chartType>" with target image "actual/高级搜索视图/1序列/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   bubbleSize |caseNum  |
