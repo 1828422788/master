@@ -35,6 +35,7 @@ Feature: 数据大屏-散点图
   Scenario Outline: 修改参数设置
     When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
+    And I close all tabs except main tab
     Then I will see the "galaxee.CreatePage" page
     And I click the "pictureOne" button
 #    And I click the "Chart" button
@@ -96,6 +97,7 @@ Feature: 数据大屏-散点图
   Scenario Outline: 增加分组
     When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
+    And I close all tabs except main tab
     Then I will see the "galaxee.CreatePage" page
     And I click the "pictureOne" button
 #    And I click the "Chart" button
@@ -157,7 +159,7 @@ Feature: 数据大屏-散点图
   Scenario Outline: 发布页截图
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
-
+    And I close all tabs except main tab
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"

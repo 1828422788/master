@@ -83,10 +83,20 @@ public class ListPage extends PageTemplate {
     private WebElement update;
     public WebElement getUpdate(){return update;}
 
+    //恢复初始状态
+    @FindBy(xpath = "//span[text()='恢复初始值']")
+    private WebElement firstStatus;
+    public WebElement getFirstStatus(){return firstStatus;}
+
     //替换logo的按钮
     @FindBy(xpath = "//span[text()='替换']")
     private WebElement replaceLogo;
     public WebElement getReplaceLogo(){return replaceLogo;}
+
+    //重值logo按钮
+    @FindBy(xpath = "//span[text()='重置']")
+    private WebElement reset;
+    public WebElement getReset(){return reset;}
 
 
 
