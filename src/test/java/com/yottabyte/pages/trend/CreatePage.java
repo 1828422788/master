@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import java.util.List;
@@ -1041,16 +1043,22 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getShowLabel() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(showLabel));
         showLabel.click();
         return super.getLastDropdownList();
     }
 
     public WebElement getLabelLocation() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(labelLocation));
         labelLocation.click();
         return super.getLastDropdownList();
     }
 
     public WebElement getFieldValue() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(fieldValue));
         fieldValue.click();
         return this.getLastDropdownList();
     }
@@ -1066,6 +1074,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getContrastTime() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(contrastTime));
         contrastTime.click();
         return this.getLastDropdownList();
     }
@@ -1711,21 +1721,29 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getPredict() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(predict));
         predict.click();
         return super.getLastDropdownList();
     }
 
     public WebElement getActual() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(actual));
         actual.click();
         return super.getLastDropdownList();
     }
 
     public WebElement getTopLimit() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(topLimit));
         topLimit.click();
         return super.getLastDropdownList();
     }
 
     public WebElement getLowerLimit() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(lowerLimit));
         lowerLimit.click();
         return super.getLastDropdownList();
     }
@@ -1873,6 +1891,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getColorType() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(colorType));
         colorType.click();
         return super.getLastDropdownList();
     }
@@ -1941,6 +1961,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getColorCode() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(changeColor));
         changeColor.click();
         return colorCode;
     }
