@@ -14,6 +14,7 @@ Feature: 报表新建_选择
     And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
+    And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
@@ -62,6 +63,7 @@ Feature: 报表新建_选择
     And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
+    And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "LineChart_2477" from the "ChartListDropdown"
     And I click the "ChartListButton" button
@@ -95,7 +97,8 @@ Feature: 报表新建_选择
     And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "FinishButton" will be visible
+    And I wait for "2000" millsecond
+    Then I wait for "ChartListButton" will be visible
     When I choose the "LineChart_2477" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "LineChart_2477"

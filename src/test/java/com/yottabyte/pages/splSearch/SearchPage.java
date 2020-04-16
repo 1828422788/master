@@ -592,6 +592,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
     private WebElement ensureCreateTrend;
 
+    @FindBy(xpath = "//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all']")
+    private WebElement resourceAll;
+
     @FindAll({
             @FindBy(tagName = "th"), @FindBy(tagName = "td")})
     private List<WebElement> tableList;
@@ -600,6 +603,9 @@ public class SearchPage extends ListPageFactory {
         return tableList;
     }
 
+    public WebElement getResourceAll() {
+        return resourceAll;
+    }
 
     public WebElement getGroupComboBox() {
         groupComboBox.click();
