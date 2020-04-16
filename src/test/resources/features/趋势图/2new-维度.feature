@@ -57,6 +57,7 @@ Feature: 趋势图新建_维度
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I choose the "<typeInfo>" from the "ShowLabel"
     And I choose the "<option>" from the "LabelLocation"
     And I click the "Generate" button
@@ -103,6 +104,7 @@ Feature: 趋势图新建_维度
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I choose the "<typeInfo>" from the "ShowLabel"
     And I click the "Generate" button
 

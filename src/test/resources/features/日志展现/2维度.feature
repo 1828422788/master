@@ -107,6 +107,7 @@ Feature: 日志展现_维度
 
     And I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I choose the "<option1>" from the "ShowLabel"
     And I click the "Generate" button
 
@@ -119,6 +120,7 @@ Feature: 日志展现_维度
 
     When I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I choose the "<option2>" from the "ShowLabel"
     And I click the "Generate" button
 
@@ -131,6 +133,7 @@ Feature: 日志展现_维度
 
     When I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I choose the "<option3>" from the "ShowLabel"
     And I click the "Generate" button
 
@@ -162,6 +165,7 @@ Feature: 日志展现_维度
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
+    And I wait for "1000" millsecond
     And I choose the "<typeInfo>" from the "ShowLabel"
     And I choose the "<option1>" from the "LabelLocation"
     And I click the "Generate" button
@@ -175,6 +179,7 @@ Feature: 日志展现_维度
 
     When I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I choose the "<option2>" from the "LabelLocation"
     And I click the "Generate" button
 
@@ -187,6 +192,7 @@ Feature: 日志展现_维度
 
     When I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I choose the "<option3>" from the "LabelLocation"
     And I click the "Generate" button
 
@@ -199,6 +205,7 @@ Feature: 日志展现_维度
 
     When I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I choose the "<option4>" from the "LabelLocation"
     And I click the "Generate" button
 
@@ -211,6 +218,7 @@ Feature: 日志展现_维度
 
     When I click the "Settings" button
     And I click the "Exhibition" button
+    And I wait for "1000" millsecond
     And I choose the "<option5>" from the "LabelLocation"
     And I click the "Generate" button
 
