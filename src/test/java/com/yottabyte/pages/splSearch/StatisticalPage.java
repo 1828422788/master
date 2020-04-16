@@ -86,10 +86,10 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//a[@class='ant-calendar-today-btn ']")
     private WebElement todayDate;
 
-    @FindBy(xpath = "//div[@class='ant-calendar-panel']")
+    @FindBy(xpath = "//div[@class='ant-calendar']/ancestor::div[1]")
     private WebElement datePanel;
 
-    @FindBy(xpath = "//div[@class='ant-time-picker-panel-inner']")
+    @FindBy(xpath = "//div[@class='ant-time-picker-panel-inner']/ancestor::div[1]")
     private WebElement timePanel;
 
 // 数值分段
