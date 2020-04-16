@@ -34,7 +34,7 @@ Scenario Outline: 用户信息-修改管理员名称和邮箱
     And I click the "userInformation" button
     Then I will see the "verifyAdminName" result will be "admin1"
     Then I will see the "verifyMailbox" result will be "jiang.nadie@yottabyte.cn"
-#修改回原来的账户密码
+#修改回原来的账户
     And I click the "modifyInformation" button
     And I set the parameter "managerName" with value "admin"
     And I set the parameter "acceptMailbox" with value "rizhiyi@yottabyte.cn"
@@ -45,3 +45,12 @@ Scenario Outline: 用户信息-修改管理员名称和邮箱
     |message|
     |超级管理员登陆失败\n错误码: AUTH_913 |
 
+Scenario: 退出登陆
+    Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
+#    When I set the parameter "Username" with properties "saas_username"
+#    And I set the parameter "Password" with properties "saas_password"
+#    And I click the "LoginButton" button
+    And I will see the "tenant.ListPage" page
+    And I click the "people" button
+    And I click the "logout" button
+    Then I will see the "saas.SaasLoginPage" page

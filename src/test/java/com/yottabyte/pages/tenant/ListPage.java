@@ -127,6 +127,10 @@ public class ListPage extends PageTemplate {
     @FindBy(xpath = "//ul[@class='el-dropdown-menu group_user_menu']/li[text()='用户信息']")
     private WebElement userInformation;
     public WebElement getUserInformation(){return userInformation;}
+    //退出登陆
+    @FindBy(xpath = "//ul[@class='el-dropdown-menu group_user_menu']/li[text()='退出登录']")
+    private WebElement logout;
+    public WebElement getLogout(){return logout;}
 
     //修改信息
     @FindBy(xpath = "//span[text()='修改信息']")
