@@ -101,13 +101,13 @@ Feature: 报表新建_编辑_维度
 
     @all @report @reportChartsPDF
     Examples:
-      |  reportType |   typeChart    |  name      |   color   |
-      |  PDF        |  Sun           |  Sun       |   Yellow  |
+      |  reportType |   typeChart    |  name      |   color     |
+      |  PDF        |  Sun           |  Sun       |   DarkBlue  |
 
     @reportChartsEXCEL
     Examples:
-      |  reportType |   typeChart    |  name      |   color   |
-      |  EXCEL      |  Sun           |  Sun       |   Yellow  |
+      |  reportType |   typeChart    |  name      |   color    |
+      |  EXCEL      |  Sun           |  Sun       |   DarkBlue |
 
   Scenario Outline: new_report_trend_bar_label
     When I set the parameter "Name" with value "<name>_<reportType>"
