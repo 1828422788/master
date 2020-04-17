@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仪表盘图表</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>图表名称</th>
+        <th>SPL</th>
+        <th>预期展现图</th>
+        <th>实际展现图</th>
+    </tr>
+    <tr>
+        <td>环形比例图</td>
+        <td>* | stats count() as num | eval p = num/28000</td>
+        <td><img src="dashboard/Annular.png"></td>
+        <td><img src="dashboard/仪表盘环形比例图.png"></td>
+    </tr>
+    <tr>
+        <td>环形比例图-修改展示区间</td>
+        <td>* | stats count() as num | eval p = num/28000</td>
+        <td><img src="dashboard/AnnularChangeRange.png"></td>
+        <td><img src="dashboard/仪表盘环形比例图修改展示区间.png"></td>
+    </tr>
+    <tr>
+        <td>力图</td>
+        <td>tag:*display | stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method | rename
+            apache.clientip as apache.x_forward_group| rename apache.method as apache.resp_len_group| limit 20
+        </td>
+        <td><img src="dashboard/Force.png"></td>
+        <td><img src="dashboard/仪表盘力图.png"></td>
+    </tr>
+    <tr>
+        <td>区划地图</td>
+        <td>tag:sample04061424* | stats count() by apache.geo.country,apache.geo.province,apache.geo.city</td>
+        <td><img src="dashboard/Regionmap.png"></td>
+        <td><img src="dashboard/仪表盘区划地图.png"></td>
+    </tr>
+    <tr>
+        <td>区间图</td>
+        <td>tag:*display | bucket timestamp span=1h as ts | stats count('apache.status') as 'count' by ts | esma count
+            timefield=ts
+        </td>
+        <td><img src="dashboard/Rangeline.png"></td>
+        <td><img src="dashboard/仪表盘区间图.png"></td>
+    </tr>
+    <tr>
+        <td>和弦图</td>
+        <td>tag:*display | stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method | rename
+            apache.clientip as apache.x_forward_group| rename apache.method as apache.resp_len_group| limit 20
+        </td>
+        <td><img src="dashboard/Chord.png"></td>
+        <td><img src="dashboard/仪表盘和弦图.png"></td>
+    </tr>
+    <tr>
+        <td>多Y轴图</td>
+        <td>tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status),
+            avg(apache.resp_len) by apache.resp_len,apache.status | limit 10
+        </td>
+        <td><img src="dashboard/Multiaxis.png"></td>
+        <td><img src="dashboard/仪表盘多Y轴图.png"></td>
+    </tr>
+    <tr>
+        <td>字符云图</td>
+        <td>tag:*display | stats count() by apache.clientip | limit 10</td>
+        <td><img src="dashboard/Wordcloud.png"></td>
+        <td><img src="dashboard/仪表盘字符云图.png"></td>
+    </tr>
+    <tr>
+        <td>循序图</td>
+        <td>tag:sample04061424* | stats count() by hostname,apache.clientip |limit 5</td>
+        <td><img src="dashboard/Sequence.png"></td>
+        <td><img src="dashboard/仪表盘循序图.png"></td>
+    </tr>
+    <tr>
+        <td>攻击地图</td>
+        <td>tag:sample* | parse field=apache.request_query
+            "^gw_address=(?&ltgw_address>\d+\.\d+\.\d+\.\d+)\" | stats count() as cnt,
+            min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip,
+            gw_address | eval gw_lat=39.5427 | eval gw_lon=116.2317
+        </td>
+        <td><img src="dashboard/Attackmap.png"></td>
+        <td><img src="dashboard/仪表盘攻击地图.png"></td>
+    </tr>
+    <tr>
+        <td>旭日图</td>
+        <td>tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10</td>
+        <td><img src="dashboard/Sunburst.png"></td>
+        <td><img src="dashboard/仪表盘旭日图.png"></td>
+    </tr>
+    <tr>
+        <td>条形图</td>
+        <td>tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10</td>
+        <td><img src="dashboard/Bar.png"></td>
+        <td><img src="dashboard/仪表盘条形图.png"></td>
+    </tr>
+    <tr>
+        <td>桑基图</td>
+        <td>tag:*display | stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method | rename
+            apache.clientip as apache.x_forward_group| rename apache.method as apache.resp_len_group| limit 20
+        </td>
+        <td><img src="dashboard/Sankey.png"></td>
+        <td><img src="dashboard/仪表盘桑基图.png"></td>
+    </tr>
+    <tr>
+        <td>水球图</td>
+        <td>tag:*display | stats count() by apache.clientip | limit 10</td>
+        <td><img src="dashboard/Liquidfill.png"></td>
+        <td><img src="dashboard/仪表盘水球图.png"></td>
+    </tr>
+    <tr>
+        <td>漏斗图</td>
+        <td>tag:*display | stats count() by apache.clientip | limit 8</td>
+        <td><img src="dashboard/Funnel.png"></td>
+        <td><img src="dashboard/仪表盘漏斗图.png"></td>
+    </tr>
+    <tr>
+        <td>热力地图</td>
+        <td>tag:* | stats count() by apache.geo.city</td>
+        <td><img src="dashboard/Heatmap.png"></td>
+        <td><img src="dashboard/仪表盘热力地图.png"></td>
+    </tr>
+    <tr>
+        <td>玫瑰图</td>
+        <td>tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10</td>
+        <td><img src="dashboard/Rose.png"></td>
+        <td><img src="dashboard/仪表盘玫瑰图.png"></td>
+    </tr>
+    <tr>
+        <td>矩阵热力图</td>
+        <td>tag:*display | stats count() by apache.clientip | limit 8</td>
+        <td><img src="dashboard/Matrixheatmap.png"></td>
+        <td><img src="dashboard/仪表盘矩阵热力图.png"></td>
+    </tr>
+    <tr>
+        <td>统计地图</td>
+        <td>tag:vendors_461 | geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as
+            cnt
+        </td>
+        <td><img src="dashboard/Geostatsmap.png"></td>
+        <td><img src="dashboard/仪表盘统计地图.png"></td>
+    </tr>
+    <tr>
+        <td>雷达图</td>
+        <td>tag:*display | stats count() by apache.clientip,apache.status | limit 10</td>
+        <td><img src="dashboard/Radar.png"></td>
+        <td><img src="dashboard/仪表盘雷达图.png"></td>
+    </tr>
+</table>
+</body>
+</html>

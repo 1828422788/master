@@ -745,7 +745,7 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    Then I will see the element "Done" attribute is "disabled"
+    Then I will see the message "没有编辑权限"
 
     Examples:
       | authRole | authName | function | name     |

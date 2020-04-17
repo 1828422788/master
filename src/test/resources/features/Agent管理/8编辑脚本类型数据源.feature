@@ -74,6 +74,7 @@ Feature: Agent编辑脚本类型数据源
   Scenario Outline:编辑修改时间间隔种类
     And I click the "EditAutoScript" button
     When I choose the "<Internaltimekind>" from the "InternalTimeKind"
+    Then I wait for "1000" millsecond
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
@@ -88,6 +89,7 @@ Feature: Agent编辑脚本类型数据源
   Scenario Outline: Syslog配置修改字符集
     And I click the "EditAutoScript" button
     When I choose the "<characterkind>" from the "CharacterKind"
+    Then I wait for "1000" millsecond
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
