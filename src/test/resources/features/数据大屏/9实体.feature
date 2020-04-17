@@ -65,6 +65,8 @@
        #3 全局样式修改名成
       And I click the "globalStyle" button
       And I set the parameter "globalStyleName" with value "实体样式"
+      #开启背景动画
+      And I click the "backgroundAuto" button
        #保存
       And I click the "Save" button
       Then I will see the success message "保存成功"
@@ -107,6 +109,7 @@
       And I choose the "firewall" from the "entityStyleSelect"
        #保存
       And I wait for "Save" will be visible
+      And I wait for "2000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -147,6 +150,7 @@
       And I choose the "router1" from the "entityStyleSelect"
        #保存
       And I wait for "Save" will be visible
+      And I wait for "2000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -187,6 +191,7 @@
       And I choose the "router2" from the "entityStyleSelect"
        #保存
       And I wait for "Save" will be visible
+      And I wait for "2000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -226,6 +231,7 @@
       And I choose the "switch" from the "entityStyleSelect"
        #保存
       And I wait for "Save" will be visible
+      And I wait for "2000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -265,6 +271,7 @@
       And I choose the "balance" from the "entityStyleSelect"
        #保存
       And I wait for "Save" will be visible
+      And I wait for "2000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -438,11 +445,11 @@
       And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
       And I click the "pictureTwo" button
-      And I click the "pictureOne" button
+#      And I click the "pictureOne" button
       And I click the "Search" button
      #对实体的参数进行设置
       And I click the "pictureOne" button
-      And I click the "pictureTwo" button
+#      And I click the "pictureTwo" button
       And I click the "Data" button
       And I wait for "3000" millsecond
 
