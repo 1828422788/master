@@ -5,7 +5,7 @@ Feature: SPL语句_多值指令
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
 #  @smoke @spl @all
-  @v31tcsplmv
+  @v31tcspl @v31tcsplmv
   Scenario Outline: SPL用例_多值指令
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I wait for "1000" millsecond
