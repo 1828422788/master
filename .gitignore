@@ -3,5 +3,5 @@ target/
 smoke-test.iml
 smokeTest.iml
 test.iml
-config/
+config/custom.properties
 
