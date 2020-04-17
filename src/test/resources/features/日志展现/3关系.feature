@@ -28,7 +28,7 @@ Feature: 日志展现_关系
     Examples:
       |   chartType   |   caseNum  |   spl   |
       |    Chord      |    834     |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path  |
-      |    Sankey     |    2783    |  tag:sample04061424_chart AND NOT apache.clientip:221.226.97.92 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 10 |
+      |    Sankey     |    2783    |  tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
       |    Force      |    2784    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
   Scenario Outline: Force(RZY-4223)

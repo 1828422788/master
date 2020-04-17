@@ -11,23 +11,23 @@ Feature: 定时任务删除
     Then I will see the success message "删除成功"
 
     Examples:
-    |    name          |
-    |  recent1d        |
-    |  recent2d        |
-    |  recent7d        |
-    |  today           |
-    |  yesterday       |
-    |  thisWeek        |
-    |  lastWeek        |
-    |  thisMonth       |
-    |  lastMonth       |
-    |  every15th       |
-    |  crontab_9_930   |
-    |  crontab_mon_fri |
-    |  crontab_5h      |
-    |  crontab_57min   |
-    |  crontab_7min    |
-    |Test_StartTomorrow|
+    |    name            |
+    |  recent1d          |
+    |  recent2d          |
+    |  recent7d          |
+    |  today             |
+    |  yesterday         |
+    |  thisWeek          |
+    |  lastWeek          |
+    |  thisMonth         |
+    |  lastMonth         |
+    |  crontab_every15th |
+    |  crontab_9_930     |
+    |  crontab_mon_fri   |
+    |  crontab_5h        |
+    |  crontab_57min     |
+    |  crontab_7min      |
+    |  Test_StartTomorrow|
 
 
     Examples:
