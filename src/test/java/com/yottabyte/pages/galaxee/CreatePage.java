@@ -1325,7 +1325,10 @@ private WebElement dataType;
     @FindBy(xpath = "//label[text()='名称']/ancestor::div//following-sibling::div//input[@class='el-input__inner']")
     private WebElement globalStyleName;
     public WebElement getGlobalStyleName(){return globalStyleName;}
-
+    //背景动画
+    @FindBy(xpath = "//label[contains(text(),'背景动画')]/following-sibling::label")
+    private WebElement backgroundAuto;
+    public WebElement getBackgroundAuto(){return backgroundAuto;}
     //中国地图二
     @FindBy(xpath = "//li[text()='中国地图II']")
     private WebElement ChineseMapTwo;
@@ -1338,7 +1341,14 @@ private WebElement dataType;
      @FindBy(xpath = "//label[contains(text(),'数值颜色')]/following-sibling::div")
     private WebElement ChineseMapTwoNumberColor;
     public WebElement getChineseMapTwoNumberColor(){return ChineseMapTwoNumberColor;}
-
+    //中国地图二->样式->边框宽度
+    @FindBy(xpath = "//label[contains(text(),'边框宽度')]/following-sibling::div/input")
+    private WebElement borderWidth;
+    public WebElement getBorderWidth(){return borderWidth;}
+    //边框颜色
+    @FindBy(xpath = "//label[contains(text(),'边框颜色')]/following-sibling::div")
+    private WebElement borderColor;
+    public WebElement getBorderColor(){return borderColor;}
     //中国地图二-数据-搜索-类别
     @FindBy(xpath = "//label[text()='类别']/following-sibling::div")
     private WebElement ChineseMapTwoDataSearchCategory;
@@ -1396,11 +1406,11 @@ private WebElement dataType;
 
 
     //右侧图层的第一个选择按钮
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[1]/div/ul/li[1]/label/span[1]")
+   @FindBy(xpath = "//div[contains(text(),'图层')]/parent::div/ul/li[1]")
     private WebElement pictureOne;
     public WebElement getPictureOne(){return pictureOne;}
     //右侧图层的第二个选择按钮
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[1]/div/ul/li[2]/label/span[1]")
+    @FindBy(xpath = "//div[contains(text(),'图层')]/parent::div/ul/li[2]")
     private WebElement pictureTwo;
     public WebElement getPictureTwo(){return pictureTwo;}
 
