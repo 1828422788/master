@@ -203,7 +203,7 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
-    Then I compare source image "expect/普通统计视图/817_字段值分类/<screenName>_<value1>" with target image "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
+#    Then I compare source image "expect/普通统计视图/817_字段值分类/<screenName>_<value1>" with target image "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
 
     When I choose the "<value2>" from the "TopElement"
     And I click the "Generate" button

@@ -441,6 +441,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//i[@title='取消']")
     private WebElement cancle;
 
+    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
+    private WebElement cancel;
+
     @FindBy(xpath = "//i[@title='恢复']")
     private WebElement recover;
 
@@ -827,6 +830,10 @@ public class SearchPage extends ListPageFactory {
         return cancle;
     }
 
+    public WebElement getCancel() {
+        return cancel;
+    }
+
     @FindBy(className = "status-text")
     private WebElement statusText;
 
@@ -1100,6 +1107,13 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//input[@class='ant-time-picker-panel-input']")
     private WebElement startTimeInput;
+
+    @FindBy(xpath = "(//span[@class='_2x-YdNak-IrcZb4ybbyK1X'])[last()]")
+    private WebElement whenToStart;
+
+    public WebElement getWhenToStart() {
+        return whenToStart;
+    }
 
     public WebElement getStartTomorrow() {
         return startTomorrow;

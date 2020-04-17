@@ -1,6 +1,44 @@
 @all @timedTask
 Feature: 定时任务新建
-# 25
+# 26
+
+  #bug
+  Scenario: test_schedule_time
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count() by tag"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "SaveAsOther" button
+    And I click the "TimedTask" button
+    And I wait for element "SelectedUser" change text to "admin"
+    And I set the parameter "TaskName" with value "Test_StartTomorrow"
+    And I set the parameter "Period" with value "5"
+    And I choose the "分钟" from the "ExecuteTime"
+    And I click the "StartTime" button
+    And I set the parameter "StartTimeInput" with value "23:59:10"
+    And I hide the element "TimePanel"
+    And I will see the element "WhenToStart" contains "今天开始"
+    And I click the "StartTime" button
+    And I click the "StartTime" button
+    And I set the parameter "StartTimeInput" with value "00:01:10"
+    And I hide the element "TimePanel"
+    And I will see the element "WhenToStart" contains "明天开始"
+    And I click the "EnsureButton" button
+    Then I will see the success message "明天开始，是否继续"
+    When I click the "Cancel" button
+    And I click the "EnsureButton" button
+    And I will see the success message "明天开始，是否继续"
+    And I click the "TimeTaskEnsure" button
+    And I wait for "1500" millsecond
+    Then I will see the success message "保存成功"
+    When open the "timedTask.ListPage" page for uri "/schedule/"
+    And I wait for loading complete
+    # check that there was no executions
+    # Then I will see the data "{'column':'2','name':'Test_StartTomorrow'}" values "{'column':'6','name':''}"
+
   Scenario Outline: sample(RZY-396,397,403,404,2695,2696,2698)
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -170,13 +208,14 @@ Feature: 定时任务新建
     Examples:
       | time                                      | taskName     |
 #      | 2020-04-01 00:00:00 ~ 2020-04-09 00:00:00 | interval_date|
-      | -1M/M ~ now/M                             | lastMonth    |
-      | now/M ~ now                               | thisMonth    |
-      | -1w/w ~ now/w                             | lastWeek     |
-      | now/w ~ now                               | thisWeek     |
-      | -1d/d ~ now/d                             | yesterday    |
-      | now/d ~ now                               | today        |
-      | -7d ~ now                                 | recent7d     |
-      | -2d ~ now                                 | recent2d     |
-      | -1d ~ now                                 | recent1d     |
+      | -1M/M ~ now/M                             | lastMonth         |
+      | now/M ~ now                               | thisMonth         |
+      | -1w/w ~ now/w                             | lastWeek          |
+      | now/w ~ now                               | thisWeek          |
+      | -1d/d ~ now/d                             | yesterday         |
+      | now/d ~ now                               | today             |
+      | -7d ~ now                                 | recent7d          |
+      | -2d ~ now                                 | recent2d          |
+      | -1d ~ now                                 | recent1d          |
+      | now/d ~ now                               |Test_StartTomorrow |
 
