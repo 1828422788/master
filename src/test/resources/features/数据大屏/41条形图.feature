@@ -34,6 +34,7 @@ Feature: 数据大屏-条形图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
+    And I close all tabs except main tab
     Then I will see the "galaxee.CreatePage" page
     And I click the "pictureOne" button
 #    And I click the "Chart" button
@@ -76,6 +77,7 @@ Feature: 数据大屏-条形图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
+    And I close all tabs except main tab
     Then I will see the "galaxee.CreatePage" page
     And I click the "pictureOne" button
 #    And I click the "Chart" button
@@ -121,7 +123,7 @@ Feature: 数据大屏-条形图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
-
+    And I close all tabs except main tab
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
@@ -130,6 +132,7 @@ Feature: 数据大屏-条形图
       | name  |
       | 条形图 |
 
+<<<<<<<< HEAD:src/test/resources/features/数据大屏/41条形图.feature
   Scenario Outline: 删除关于| 条形图 |的大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
@@ -138,3 +141,5 @@ Feature: 数据大屏-条形图
     Examples:
       |name|
       | 条形图 |
+========
+>>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/1条形图.feature

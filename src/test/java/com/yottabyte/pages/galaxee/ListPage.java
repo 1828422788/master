@@ -1,16 +1,20 @@
 package com.yottabyte.pages.galaxee;
 
 import com.yottabyte.pages.PageTemplate;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * @author sunxj
+ * @author jnd
  */
 public class ListPage extends PageTemplate {
     public ListPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().setPosition(new Point(0,0));
+        driver.manage().window().setSize(new Dimension(1400,1000));
     }
 
     @FindBy(className = "big-v-create-button")

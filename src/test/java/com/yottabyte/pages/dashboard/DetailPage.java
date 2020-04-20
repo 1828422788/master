@@ -73,7 +73,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'恢复')][@class='action']")
     private WebElement recoverTag;
 
-    @FindBy(xpath = "//span[text()='移出标签页')]")
+    @FindBy(xpath = "//span[text()='移出标签页']")
     private WebElement moveoutTag;
 
     @FindBy(xpath = "//span[text()='保存为']")
@@ -278,7 +278,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[@id='fullscreenAll']//div[@id]/div/following-sibling::div)[2]/i")
     private WebElement describe;
 
-    @FindBy(xpath = "(//div[@class='ant-tooltip-inner'])[last()]")
+    @FindBy(xpath = "//div[text()='测试描述']")
     private WebElement describeText;
 
     @FindBy(xpath = "//span[text()='操作']")
@@ -377,7 +377,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='在搜索中打开']")
     private WebElement openInSearch;
 
-    @FindBy(xpath = "//span[text()='779']")
+    @FindBy(xpath = "//span[text()='89']")
     private WebElement countNum;
 
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div")
@@ -594,6 +594,9 @@ public class DetailPage extends PageTemplate {
     public WebElement getShowFilter() {
         return getSwitchButton("显示过滤项");
     }
+    //添加趋势图的确定按钮
+    @FindBy(xpath = "//div[@class='Yt5JX-42Xe_Kz4p92ocJI']/button")
+    private WebElement ensureAddTrend;
 
     private WebElement getSwitchButton(String name) {
         String xpath = "//span[text()='" + name + "']/following-sibling::button";
@@ -1285,13 +1288,13 @@ public class DetailPage extends PageTemplate {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    public WebElement getOpenDrilldown() {
+        return getSwitchButton("是否启用钻取");
+    }
 
-
-   //添加趋势图的确定按钮
-    @FindBy(xpath = "//div[@class='Yt5JX-42Xe_Kz4p92ocJI']/button")
-    private WebElement ensureAddTrend;
-    public WebElement getEnsureAddTrend(){return super.getButton("确定");}
-
+    public WebElement getEnsureAddTrend() {
+        return super.getButton("确定");
+    }
 
 
 }

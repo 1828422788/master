@@ -62,11 +62,12 @@ Feature: 仪表盘雷达图
       | name   |
       | 仪表盘雷达图 |
 
-  @dashboard
+  @dashboard @test
   Scenario: 修改为雷达图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘雷达图"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
@@ -86,9 +87,9 @@ Feature: 仪表盘雷达图
     And I wait for "1000" millsecond
     Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
+    And I wait for "Progress" will be invisible
     And take part of "FullScreen" with name "dashboard/仪表盘雷达图"
-    Then I compare source image "dashboard/仪表盘雷达图" with target image "dashboard/仪表盘雷达图"
+    Then I compare source image "dashboard/仪表盘雷达图" with target image "dashboard/Radar"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

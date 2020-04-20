@@ -111,6 +111,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
@@ -169,6 +170,7 @@ Feature: 权限-已存搜索
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
@@ -272,6 +274,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
@@ -341,6 +344,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
@@ -423,6 +427,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -518,6 +523,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
@@ -595,6 +601,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -689,6 +696,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
@@ -768,6 +776,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
@@ -832,6 +841,7 @@ Feature: 权限-已存搜索
     Given open the "splSearch.SavedSearchPage" page for uri "/savedsearches/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible
@@ -893,6 +903,7 @@ Feature: 权限-已存搜索
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "加载" button
     And switch to another window
+    Then I close all tabs except main tab
     Then the page's title will be "搜索"
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for loading invisible

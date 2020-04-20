@@ -1,5 +1,15 @@
 @galaxee
 Feature: 数据大屏-折线图
+<<<<<<<< HEAD:src/test/resources/features/数据大屏/40折线图.feature
+========
+
+
+
+  Scenario: 删除相似名称的大屏以便定位
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "双轴折线图" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+>>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/1折线图.feature
 
   Scenario Outline: RZY-1931:编辑大屏流程
 #    Given I wait for title change text to "仪表盘"
@@ -39,6 +49,7 @@ Feature: 数据大屏-折线图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
+    And I close all tabs except main tab
     Then I will see the "galaxee.CreatePage" page
     And I click the "pictureOne" button
    # And I click the "Chart" button
@@ -115,6 +126,7 @@ Feature: 数据大屏-折线图
    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
+    And I close all tabs except main tab
     Then I will see the "galaxee.CreatePage" page
     And I click the "pictureOne" button
    # And I click the "Chart" button
@@ -193,7 +205,7 @@ Feature: 数据大屏-折线图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
-
+    And I close all tabs except main tab
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"

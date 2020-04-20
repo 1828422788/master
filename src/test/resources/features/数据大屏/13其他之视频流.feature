@@ -26,6 +26,7 @@ Feature: 数据大屏-视频流
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -51,6 +52,7 @@ Feature: 数据大屏-视频流
     And I click the "videoFlow" button
 #设置样式
       #1 设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "700"
@@ -74,6 +76,7 @@ Feature: 数据大屏-视频流
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -81,3 +84,13 @@ Feature: 数据大屏-视频流
       |name            |
       |视频流样式   |
 
+
+  Scenario Outline: 删除关于视频流的大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+
+    Examples:
+      |name|
+      |视频流   |
+      |视频流样式   |

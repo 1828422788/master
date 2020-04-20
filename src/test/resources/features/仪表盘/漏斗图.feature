@@ -67,6 +67,7 @@ Feature: 仪表盘漏斗图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
@@ -84,7 +85,7 @@ Feature: 仪表盘漏斗图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
-    Then I compare source image "dashboard/<name>" with target image "dashboard/<name>"
+    Then I compare source image "dashboard/<name>" with target image "dashboard/Funnel"
 
     Examples:
       | name   |

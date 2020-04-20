@@ -18,6 +18,7 @@ Feature: 数据大屏-揭示牌
       And I hide the element "IndexDropdown"
 #设置样式
       #1 设置图表尺寸位置
+      And I click the "Style" button
       And I click the "ChartPosition" button
       And I set the parameter "Width" with value "1000"
       And I set the parameter "Height" with value "1000"
@@ -31,7 +32,8 @@ Feature: 数据大屏-揭示牌
        #3 全局样式修改名成
       And I click the "globalStyle" button
       And I set the parameter "globalStyleName" with value "提示牌样式修改"
-
+     #开启背景动画
+      And I click the "backgroundAuto" button
      #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
       And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
@@ -62,6 +64,7 @@ Feature: 数据大屏-揭示牌
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -87,6 +90,7 @@ Feature: 数据大屏-揭示牌
       #选择提示牌
       And I click the "tipsCard" button
       And I hide the element "IndexDropdown"
+      And I click the "Style" button
      #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
       And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
@@ -122,6 +126,7 @@ Feature: 数据大屏-揭示牌
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -155,6 +160,7 @@ Feature: 数据大屏-揭示牌
       #选择提示牌
       And I click the "tipsCard" button
       And I hide the element "IndexDropdown"
+      And I click the "Style" button
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -164,11 +170,11 @@ Feature: 数据大屏-揭示牌
       And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
       And I click the "pictureTwo" button
-      And I click the "pictureOne" button
+#      And I click the "pictureOne" button
       And I click the "Search" button
      #设置阈值以及显示值
       And I click the "pictureOne" button
-      And I click the "pictureTwo" button
+#      And I click the "pictureTwo" button
       And I click the "Data" button
       And I wait for "3000" millsecond
       And I choose the "num" from the "tipsCardNumber"
@@ -192,6 +198,7 @@ Feature: 数据大屏-揭示牌
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -200,8 +207,16 @@ Feature: 数据大屏-揭示牌
         |揭示牌数据之绑定搜索 |
 
 
+  Scenario Outline: 删除关于揭示牌的大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
 
-
+    Examples:
+      |name|
+      |揭示牌样式搜索   |
+  |揭示牌数据之静态数据   |
+  |揭示牌数据之绑定搜索 |
 
 
 

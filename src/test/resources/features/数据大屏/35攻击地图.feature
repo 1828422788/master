@@ -40,11 +40,15 @@ Feature: 数据大屏-攻击地图
   Scenario Outline: 修改攻击地图配置
     When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
     And switch to window "<name>"
+    And I close all tabs except main tab
     Then I will see the "galaxee.CreatePage" page
     And I click the "pictureOne" button
 #    And I click the "Map" button
 #    And I click the "Attackmap" button
+<<<<<<<< HEAD:src/test/resources/features/数据大屏/35攻击地图.feature
     And I click the "Style" button
+========
+>>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/1攻击地图.feature
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I click the "BoundaryColor" button
@@ -86,7 +90,7 @@ Feature: 数据大屏-攻击地图
   Scenario Outline: 发布页截图
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
-
+    And I close all tabs except main tab
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"

@@ -27,6 +27,7 @@
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -50,10 +51,11 @@
       #选择流程线
       And I click the "flowLine" button
       And I hide the element "netDropdown"
-
+      And I click the "Style" button
       And I wait for "ChartPosition" will be visible
 #设置样式
       #1 设置图表尺寸位置
+
       And I click the "ChartPosition" button
       And I set the parameter "Width" with value "400"
       And I set the parameter "Height" with value "400"
@@ -90,9 +92,22 @@
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
       Examples:
         |name           |
         |流程线样式       |
+
+
+
+    Scenario Outline: 删除关于流程线的大屏
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+      Then I click the "Ensure" button
+
+      Examples:
+        |name|
+        |流程线样式       |
+        |流程线默认设置      |

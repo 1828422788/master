@@ -62,7 +62,7 @@ public class VerifyElementTextWillBe {
     public void iWillSeeTheInputElementValueWillContains(String elementName, String value) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String realValue = element.getAttribute("value");
-        Assert.assertTrue(realValue.contains(value));
+        Assert.assertTrue("实际值" + realValue, realValue.contains(value));
     }
 
     /**
@@ -116,6 +116,6 @@ public class VerifyElementTextWillBe {
     public void iWillSeeTheErrorMessageContains(String errorMessage) {
         WebElement element = GetElementFromPage.getWebElementWithName("ErrorMessage");
         String realResult = element.getText();
-        assertTrue(realResult.contains(errorMessage));
+        assertTrue("实际值：" + realResult, realResult.contains(errorMessage));
     }
 }

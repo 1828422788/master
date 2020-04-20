@@ -42,6 +42,8 @@
        #3 全局样式修改名成
       And I click the "globalStyle" button
       And I set the parameter "globalStyleName" with value "百分比样式修改"
+      #开启背景动画
+      And I click the "backgroundAuto" button
        #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
       And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
@@ -151,13 +153,13 @@
       #选择上步添加的搜索
       And I click the "bindingSearchChoose" button
       And I click the "search_widget" button
-      #再次点击搜索控件中的【搜索按钮】
+       #再次点击搜索控件中的【搜索按钮】
       And I click the "pictureTwo" button
-      And I click the "pictureOne" button
+#      And I click the "pictureOne" button
       And I click the "Search" button
-     #对百分比的参数进行设置
+     #对中国地图二的参数进行设置
       And I click the "pictureOne" button
-      And I click the "pictureTwo" button
+#      And I click the "pictureTwo" button
       And I click the "Data" button
       And I wait for "3000" millsecond
       And I choose the "p" from the "percentageSearchNumber"

@@ -100,7 +100,6 @@ Feature: 权限-字段提取
     When I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用字段提取,可查看角色页,可使用应用功能"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -117,11 +116,11 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    Then I will see the element "Done" attribute is "disabled"
+    Then I will see the message "没有编辑权限"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
-    Then I will see the checkbox in tiny table before "__user_验证授权用户__" is disabled
+    Then I will see the checkbox in tiny table before "验证授权用户" is disabled
 
     Examples:
       | name               |
@@ -270,7 +269,7 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    Then I will see the element "Done" attribute is "disabled"
+    Then I will see the message "没有编辑权限"
 
     Examples:
       | name                       |
@@ -332,12 +331,6 @@ Feature: 权限-字段提取
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制授权" button
     Then I will see the checkbox in list before "{'column':'1','name':'<name>'}" is "disabled"
-#    When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
-#    Then I will see the "configs.CreatePage" page
-#    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
-#    And I click the "NextButton" button
-#    Then I will see the element "Done" attribute is "disabled"
-#    Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -752,7 +745,7 @@ Feature: 权限-字段提取
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "NextButton" button
-    Then I will see the element "Done" attribute is "disabled"
+    Then I will see the message "没有编辑权限"
 
     Examples:
       | authRole | authName | function | name     |

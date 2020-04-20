@@ -27,6 +27,7 @@ Feature: 数据大屏-边框
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -52,6 +53,7 @@ Feature: 数据大屏-边框
     And I click the "frame" button
     And I hide the element "otherDropdown"
       #1 设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "400"
@@ -75,6 +77,7 @@ Feature: 数据大屏-边框
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -98,6 +101,7 @@ Feature: 数据大屏-边框
       #选择边框
     And I click the "frame" button
     And I hide the element "otherDropdown"
+    And I click the "Style" button
     #选择样式3
     And I wait for "styleFrame" will be visible
     And I click the "styleFrame" button
@@ -113,9 +117,22 @@ Feature: 数据大屏-边框
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
     Examples:
-      |name            |
+      |name      |
+      | 边框样式3 |
+
+
+  Scenario Outline: 删除关于边框的大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+
+    Examples:
+      |name|
+      | 边框默认设置样式1 |
+      | 边框样式2 |
       | 边框样式3 |

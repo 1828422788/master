@@ -112,8 +112,8 @@ Feature: 仪表盘高级编辑
 
     Examples:
       | x  | y  | w  | h  | message               |
-      | 0  | 15 | 0  | 1  | w 字段值的有效区间范围为'0'至'12' |
-      | 0  | 15 | 13 | 1  | w 字段值的有效区间范围为'0'至'12' |
+      | 0  | 15 | 0  | 1  | w 字段值的有效区间范围为'1'至'12' |
+      | 0  | 15 | 13 | 1  | w 字段值的有效区间范围为'1'至'12' |
       | 0  | 15 | 1  | 0  | h 字段值不能低于其允许最小值'1'    |
       | -1 | 15 | 1  | 12 | x 字段值的有效区间范围为'0'至'12' |
       | 13 | 15 | 1  | 12 | x 字段值的有效区间范围为'0'至'12' |
@@ -160,18 +160,6 @@ Feature: 仪表盘高级编辑
     And I click the "Check" button
     Then I will see the error message "title 字段为必填项"
 
-#  Scenario: 验证美化JSON
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    And I click the detail which name is "测试高级编辑"
-#    Then I will see the "dashboard.DetailPage" page
-#    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-#    And I click the "Edit" button
-#    And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
-#    And I click the "Operate" button under some element
-#    And I choose the "美化JSON" from the "ChartDropdown"
-#    And I click the "Check" button
-#    Then I will see the message contains "7行"
-
   @dashboard @dashboardSmoke
   Scenario: 验证重置JSON
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -188,6 +176,15 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "校验通过"
 
   @dashboard @dashboardSmoke
+  Scenario: 开启钻取配置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试高级编辑"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I click the "OpenDrilldown" button
+    Then I will see the success message "钻取功能已启用"
+
+  @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-type
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试高级编辑"
@@ -200,8 +197,10 @@ Feature: 仪表盘高级编辑
     And I click the "Ensure" button
     And I click the "Jiangsu" button
     And switch to another window
+    Then I wait for title change text to "搜索"
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 江苏"
 
   @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-blank
@@ -216,8 +215,9 @@ Feature: 仪表盘高级编辑
     And I click the "Ensure" button
     And I click the "Jiangsu" button
     Then I wait for title change text to "搜索"
+    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 江苏"
 
   @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-query及timeRange
@@ -283,7 +283,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "CountNum" button
-    Then I will see the input element "FilterInput" value will contains "249"
+    Then I will see the input element "FilterInput" value will contains "289"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

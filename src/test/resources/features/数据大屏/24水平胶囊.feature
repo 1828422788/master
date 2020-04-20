@@ -1,50 +1,15 @@
 @galaxee
 Feature: 数据大屏-水平胶囊
 
-  Scenario: 水平胶囊默认设置
+
+  Scenario: 水平胶囊样式-搜索
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
-    And I set the parameter "Name" with value "水平胶囊默认设置"
-    And I click the "Ensure" button
-      #选择上方的图表
-    And I click the "Chart" button
-      #选择水平胶囊
-    And I click the "horizontalCapsule" button
-    And I hide the element "ChartDropdown"
-       #保存
-    And I wait for "Save" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-
-  Scenario Outline: 水平胶囊默认设置发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name              |
-      |水平胶囊默认设置    |
-
-######################################无耻的分割线################################
-
-
-  Scenario: 水平胶囊样式
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "水平胶囊样式"
+    And I set the parameter "Name" with value "水平胶囊样式-搜索"
     And I click the "Ensure" button
      #选择上方的图表
     And I click the "Chart" button
@@ -53,6 +18,7 @@ Feature: 数据大屏-水平胶囊
     And I hide the element "ChartDropdown"
 #修改样式
     # 1 设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "800"
@@ -84,50 +50,7 @@ Feature: 数据大屏-水平胶囊
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "水平胶囊样式修改"
     And I wait for "3000" millsecond
-    Then take a screenshot with name "galaxee/水平胶囊样式编辑页"
-     #保存
-    And I wait for "Save" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-
-  Scenario Outline: 水平胶囊样式发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name              |
-      |水平胶囊样式    |
-
-######################################无耻的分割线################################
-
-  Scenario: 水平胶囊数据之搜索
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "水平胶囊数据之搜索"
-    And I click the "Ensure" button
-      #选择上方的图表
-    And I click the "Chart" button
-      #选择水平胶囊
-    And I click the "horizontalCapsule" button
-    And I hide the element "ChartDropdown"
-    # 设置图表尺寸位置
-    And I wait for "ChartPosition" will be visible
-    And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "800"
-    And I set the parameter "Height" with value "490"
-    And I set the parameter "ChartXaxis" with value "455"
-    And I set the parameter "ChartYaxis" with value "275"
-    #数据设置（数据源类型默认：搜索）
+#数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
     And I click the "DateEditor" button
@@ -138,27 +61,27 @@ Feature: 数据大屏-水平胶囊
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-    #保存
-    And I wait for "3000" millsecond
+     #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 水平胶囊数据之搜索发布并截图
+  Scenario Outline: 水平胶囊样式-搜索发布并截图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
     Examples:
-      |name               |
-      |水平胶囊数据之搜索   |
+      |name              |
+      |水平胶囊样式-搜索    |
 
-
-##################################无耻的分割线###############################
+######################################无耻的分割线################################
 
   Scenario: 水平胶囊数据之静态数据
 #    Given I will see the "PublicNavBarPage" page
@@ -174,13 +97,7 @@ Feature: 数据大屏-水平胶囊
       #选择水平胶囊
     And I click the "horizontalCapsule" button
     And I hide the element "ChartDropdown"
-    # 设置图表尺寸位置
-    And I wait for "ChartPosition" will be visible
-    And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "800"
-    And I set the parameter "Height" with value "490"
-    And I set the parameter "ChartXaxis" with value "455"
-    And I set the parameter "ChartYaxis" with value "275"
+    And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
@@ -210,6 +127,7 @@ Feature: 数据大屏-水平胶囊
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -244,14 +162,7 @@ Feature: 数据大屏-水平胶囊
       #选择水平胶囊
     And I click the "horizontalCapsule" button
     And I hide the element "ChartDropdown"
-    #  设置图表尺寸位置
-    And I wait for "ChartPosition" will be visible
-    And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "800"
-    And I set the parameter "Height" with value "490"
-    And I set the parameter "ChartXaxis" with value "455"
-    And I set the parameter "ChartYaxis" with value "275"
-
+    And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
@@ -282,6 +193,7 @@ Feature: 数据大屏-水平胶囊
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -289,3 +201,14 @@ Feature: 数据大屏-水平胶囊
       |name              |
       |水平胶囊数据之绑定搜索 |
 
+
+  Scenario Outline: 删除关于水平胶囊大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+
+    Examples:
+      |name|
+      |水平胶囊样式-搜索    |
+      |水平胶囊数据之绑定搜索 |
+      |水平胶囊数据之静态数据  |

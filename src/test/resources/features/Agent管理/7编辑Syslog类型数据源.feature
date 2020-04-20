@@ -6,6 +6,7 @@ Feature: Agent编辑Syslog类型数据源
     And I wait for loading invisible
     When I click the detail which column is "1" in agent page
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "agent.CreatePage" page
 
   Scenario: 新建Syslog数据源
@@ -24,10 +25,12 @@ Feature: Agent编辑Syslog类型数据源
     And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
+
   Scenario: 修改Syslog数据源禁用
     Given the data name "192.168.1.161:514" in agent table "SyslogTable" then i click the "close" switch
     Then I wait for loading invisible
     Then I will see the element "SyslogSwitchStatus" name is "已禁用"
+
 
 
   Scenario: Syslog数据源启用
@@ -35,11 +38,16 @@ Feature: Agent编辑Syslog类型数据源
     Then I wait for loading invisible
     Then I will see the element "SyslogSwitchStatus" name is "已启用"
 
+
+
   Scenario Outline: 修改Syslog数据源charset
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
     When I choose the "<characterkind>" from the "SyslogChar"
+    Then I wait for "1000" millsecond
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+
+
     Examples:
       | characterkind |
       |   utf-8    |
@@ -50,6 +58,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEditip" with value "<ipkind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+
 
     Examples:
       | ipkind |
@@ -64,6 +73,7 @@ Feature: Agent编辑Syslog类型数据源
     And I click the "Ensure" button
     Then I will see the element "PreviewMessage" name is "格式错，192.168.1.60 或 *.*.*.* 或 1:2::3 或 1:2:3:4:0:*:5:6"
 
+
     Examples:
       | ipkind |
       |   中文    |
@@ -75,6 +85,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEditappname" with value "<appnamekind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+
 
     Examples:
       | appnamekind |
@@ -89,6 +100,7 @@ Feature: Agent编辑Syslog类型数据源
     And I click the "Ensure" button
     Then I will see the element "PreviewMessage" name is "请以字母或数字下划线为元素"
 
+
     Examples:
       | appnamekind |
       |   中文    |
@@ -99,6 +111,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEdittag" with value "<tagkind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+
 
     Examples:
       | tagkind |
@@ -112,6 +125,7 @@ Feature: Agent编辑Syslog类型数据源
     And I click the "Ensure" button
     Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
 
+
     Examples:
       | tagkind |
       |   s，s    |
@@ -122,4 +136,4 @@ Feature: Agent编辑Syslog类型数据源
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
-    And I close all windows
+

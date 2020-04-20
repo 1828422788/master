@@ -5,7 +5,7 @@ Feature: SPL语句执行_PART3
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
 #  @smoke @spl @all
-  @v31tcspl3
+  @v31tcspl @v31tcspl3
   Scenario Outline: V3.1版本SPL用例、截图
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I wait for "1000" millsecond

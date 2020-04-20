@@ -12,12 +12,14 @@ Feature: 数据大屏-雷达图
     And I click the "Ensure" button
      #选择上方的图表
     And I click the "Chart" button
+    And I drag the scroll bar to the element "radarChart"
       #选择雷达图
     And I click the "radarChart" button
     And I hide the element "ChartDropdown"
     And I wait for "3000" millsecond
  #设置样式
    # 1 设置图表尺寸位置
+    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "660"
@@ -79,6 +81,7 @@ Feature: 数据大屏-雷达图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -98,9 +101,11 @@ Feature: 数据大屏-雷达图
     And I click the "Ensure" button
     #选择上方的图表
     And I click the "Chart" button
+    And I drag the scroll bar to the element "radarChart"
       #选择雷达图
     And I click the "radarChart" button
     And I hide the element "ChartDropdown"
+    And I click the "Style" button
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 10"
@@ -126,6 +131,7 @@ Feature: 数据大屏-雷达图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -154,9 +160,11 @@ Feature: 数据大屏-雷达图
       #添加一个雷达图控件
      #选择上方的图表
     And I click the "Chart" button
+    And I drag the scroll bar to the element "radarChart"
       #选择雷达图
     And I click the "radarChart" button
     And I hide the element "ChartDropdown"
+    And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
@@ -187,6 +195,7 @@ Feature: 数据大屏-雷达图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 

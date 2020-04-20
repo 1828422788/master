@@ -1,57 +1,25 @@
-@galaxee
+@galaxeeLast
 Feature: 数据大屏-栅格百分图
 
-  Scenario: 栅格百分图默认设置
+
+  Scenario: 栅格百分图样式-搜索
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
-    And I set the parameter "Name" with value "栅格百分图默认设置"
+    And I set the parameter "Name" with value "栅格百分图样式-搜索"
     And I click the "Ensure" button
       #选择上方的图表
     And I click the "Chart" button
       #选择栅格百分图
-    And I click the "gridPercentChart" button
-    And I hide the element "chartDropdown"
-       #保存
-    And I wait for "Save" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 栅格百分图默认设置发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" brelease button
-    And switch to window "<name>"
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name              |
-      |栅格百分图默认设置    |
-
-
-######################################无耻的分割线################################
-
-  Scenario: 栅格百分图样式
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "栅格百分图样式"
-    And I click the "Ensure" button
-      #选择上方的图表
-    And I click the "Chart" button
-      #选择栅格百分图
+    And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
     And I hide the element "chartDropdown"
  #设置样式
    # 1 设置图表尺寸位置
+    And I click the "Style" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "850"
     And I set the parameter "Height" with value "460"
@@ -80,64 +48,31 @@ Feature: 数据大屏-栅格百分图
     #3 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "栅格百分图样式修改"
-       #保存
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-  Scenario Outline: 栅格百分图样式发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name              |
-      |栅格百分图样式    |
-
-
-######################################无耻的分割线################################
-
-  Scenario: 栅格百分图数据之搜索
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "栅格百分图数据之搜索"
-    And I click the "Ensure" button
-       #选择上方的图表
-    And I click the "Chart" button
-      #选择栅格百分图
-    And I click the "gridPercentChart" button
-    And I hide the element "chartDropdown"
-    #数据设置（数据源类型默认：搜索）
+     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-
     And I choose the "p" from the "gridDataSearchCategory"
-    #保存
+       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  Scenario Outline: 栅格百分图数据之搜索发布并截图
+  Scenario Outline: 栅格百分图样式-搜索发布并截图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
     Examples:
-      |name            |
-      |栅格百分图数据之搜索   |
+      |name              |
+      |栅格百分图样式-搜索    |
+
 
 ######################################无耻的分割线################################
 
@@ -150,11 +85,13 @@ Feature: 数据大屏-栅格百分图
     When I click the "Create" button
     And I set the parameter "Name" with value "栅格百分图数据之静态数据"
     And I click the "Ensure" button
-    #选择上方的图表
+      #选择上方的图表
     And I click the "Chart" button
       #选择栅格百分图
+    And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
     And I hide the element "chartDropdown"
+    And I click the "Style" button
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
@@ -180,6 +117,7 @@ Feature: 数据大屏-栅格百分图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -206,11 +144,13 @@ Feature: 数据大屏-栅格百分图
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
       #添加一个栅格百分图控件
-      #选择上方的图表
+        #选择上方的图表
     And I click the "Chart" button
       #选择栅格百分图
+    And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
     And I hide the element "chartDropdown"
+    And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
@@ -239,6 +179,7 @@ Feature: 数据大屏-栅格百分图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
+    And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
 
@@ -247,5 +188,17 @@ Feature: 数据大屏-栅格百分图
       |栅格百分图数据之绑定搜索 |
 
 
+###############################删除分割线#####################################################
+
+  Scenario Outline: 删除关于栅格百分图大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
+
+    Examples:
+      |name|
+      |栅格百分图样式-搜索    |
+      |栅格百分图数据之静态数据   |
+      |栅格百分图数据之绑定搜索 |
 
 

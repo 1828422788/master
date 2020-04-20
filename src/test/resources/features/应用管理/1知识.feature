@@ -1,5 +1,5 @@
 @all @smoke @app @appSmoke
-Feature: 应用知识模块（RZY-2128）
+Feature: 应用知识
 
   Scenario: 新增知识并验证是否跳转到外部
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -28,21 +28,21 @@ Feature: 应用知识模块（RZY-2128）
     And I set the parameter "EventCode" with value "AutoTestApp"
     Then I click the "Save" button
 
-  Scenario Outline: 全文搜索
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "KnowledgeApp" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "KnowledgeApp"
-    Then I will see the "knowledge.ListPage" page
-    When I set the parameter "SearchInput" with value "<search>"
-    And I click the "Search" button
-    And I wait for element "SearchCount" change text to "<value>"
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "KnowledgeApp"
-
-    Examples:
-      | search      | value       |
-      | AutoTestApp | 全文搜索共 1 个结果 |
+#  Scenario Outline: 全文搜索
+#    Given open the "app.ListPage" page for uri "/app/list/"
+#    When the data name is "KnowledgeApp" then i click the "打开" button
+#    And I will see the "app.AppPage" page
+#    And I will see the element "Title" name is "KnowledgeApp"
+#    Then I will see the "knowledge.ListPage" page
+#    When I set the parameter "SearchInput" with value "<search>"
+#    And I click the "Search" button
+#    And I wait for element "SearchCount" change text to "<value>"
+#    And I will see the "app.AppPage" page
+#    And I will see the element "Title" name is "KnowledgeApp"
+#
+#    Examples:
+#      | search      | value       |
+#      | AutoTestApp | 全文搜索共 1 个结果 |
 
   Scenario: 修改标签
     Given open the "app.ListPage" page for uri "/app/list/"

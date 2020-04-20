@@ -1305,6 +1305,12 @@ public class CreatePage extends PageTemplate {
     }
 
 
+@FindBy(xpath = "//label[contains(text(),'数据源类型')]")
+private WebElement dataType;
+    public WebElement getDataType(){return dataType;}
+
+
+
 
 //author-jnd
     //发布
@@ -1319,7 +1325,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='名称']/ancestor::div//following-sibling::div//input[@class='el-input__inner']")
     private WebElement globalStyleName;
     public WebElement getGlobalStyleName(){return globalStyleName;}
-
+    //背景动画
+    @FindBy(xpath = "//label[contains(text(),'背景动画')]/following-sibling::label")
+    private WebElement backgroundAuto;
+    public WebElement getBackgroundAuto(){return backgroundAuto;}
     //中国地图二
     @FindBy(xpath = "//li[text()='中国地图II']")
     private WebElement ChineseMapTwo;
@@ -1332,7 +1341,14 @@ public class CreatePage extends PageTemplate {
      @FindBy(xpath = "//label[contains(text(),'数值颜色')]/following-sibling::div")
     private WebElement ChineseMapTwoNumberColor;
     public WebElement getChineseMapTwoNumberColor(){return ChineseMapTwoNumberColor;}
-
+    //中国地图二->样式->边框宽度
+    @FindBy(xpath = "//label[contains(text(),'边框宽度')]/following-sibling::div/input")
+    private WebElement borderWidth;
+    public WebElement getBorderWidth(){return borderWidth;}
+    //边框颜色
+    @FindBy(xpath = "//label[contains(text(),'边框颜色')]/following-sibling::div")
+    private WebElement borderColor;
+    public WebElement getBorderColor(){return borderColor;}
     //中国地图二-数据-搜索-类别
     @FindBy(xpath = "//label[text()='类别']/following-sibling::div")
     private WebElement ChineseMapTwoDataSearchCategory;
@@ -1384,17 +1400,17 @@ public class CreatePage extends PageTemplate {
     private WebElement bindingSearchChoose;
     public WebElement getBindingSearchChoose(){return bindingSearchChoose;}
     //选择绑定搜索
-    @FindBy(xpath = "/html/body/div[9]/div/div[1]/ul/li[2]/span")
+    @FindBy(xpath = "//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[2]/span[contains(text(),'search_widget')]")
     private WebElement search_widget;
     public WebElement getSearch_widget(){return search_widget;}
 
 
     //右侧图层的第一个选择按钮
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[1]/div/ul/li[1]/label/span[1]")
+   @FindBy(xpath = "//div[contains(text(),'图层')]/parent::div/ul/li[1]")
     private WebElement pictureOne;
     public WebElement getPictureOne(){return pictureOne;}
     //右侧图层的第二个选择按钮
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[1]/div/ul/li[2]/label/span[1]")
+    @FindBy(xpath = "//div[contains(text(),'图层')]/parent::div/ul/li[2]")
     private WebElement pictureTwo;
     public WebElement getPictureTwo(){return pictureTwo;}
 
@@ -1763,7 +1779,8 @@ public class CreatePage extends PageTemplate {
     }
 
 //图表中的字符云图
-    @FindBy(xpath = "//li[text()='字符云图']")
+   // @FindBy(xpath = "//li[text()='字符云图']")
+    @FindBy(className = "wordcloudchart")
     private WebElement characterCloudChart;
       public WebElement getCharacterCloudChart(){return characterCloudChart;}
 
@@ -1782,7 +1799,7 @@ public class CreatePage extends PageTemplate {
       private WebElement yellow;
       public WebElement getYellow(){return yellow;}
     //字体类型
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[2]/div")
+   @FindBy(xpath = "//label[contains(text(),'字体类型')]/parent::div/div")
     private WebElement fontType;
       public WebElement getFontType(){
           fontType.click();

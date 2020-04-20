@@ -26,6 +26,7 @@
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -49,6 +50,7 @@
       #选择齿轮组合
       And I click the "gearCombination" button
 #设置样式
+      And I click the "Style" button
       #1 设置图表尺寸位置
       And I wait for "ChartPosition" will be visible
       And I click the "ChartPosition" button
@@ -83,6 +85,7 @@
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -105,6 +108,7 @@
       And I click the "Other" button
       #选择齿轮组合
       And I click the "gearCombination" button
+      And I click the "Style" button
      #关闭图层2
       And I click the "styleGearCombination" button
 
@@ -120,6 +124,7 @@
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -142,6 +147,7 @@
       And I click the "Other" button
       #选择齿轮组合
       And I click the "gearCombination" button
+      And I click the "Style" button
      #关闭图层3
       And I click the "styleGearCombination" button
 
@@ -157,9 +163,23 @@
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
+      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
       Examples:
         |name           |
         |齿轮组合关闭图层3    |
+
+
+    Scenario Outline: 删除关于齿轮组合的大屏
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+      Then I click the "Ensure" button
+
+      Examples:
+        |name|
+        |齿轮组合默认设置    |
+        |齿轮组合样式      |
+        |齿轮组合关闭图层3    |
+        |齿轮组合关闭图层2     |

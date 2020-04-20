@@ -1,5 +1,11 @@
 @galaxee
   Feature: 数据大屏-中国地图II
+<<<<<<<< HEAD:src/test/resources/features/数据大屏/4中国地图二.feature
+
+
+  @galaxee
+  Scenario: 对中国地图II进行样式-搜索
+========
 
     Scenario: 默认类型的中国地图II
        # Given I will see the "PublicNavBarPage" page
@@ -28,7 +34,6 @@
       Given  open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
-      And I close all tabs except main tab
       And I wait for "Loading" will be invisible
       And I wait for "1000" millsecond
       Then take a screenshot with name "galaxee/<name>"
@@ -41,13 +46,14 @@
 
   @galaxee
   Scenario: 对中国地图II进行样式编辑
+>>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/4地图_中国地图二.feature
    # Given I will see the "PublicNavBarPage" page
     #And I wait for "Dashboard" will be visible
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
-    And I set the parameter "Name" with value "中国地图II样式"
+    And I set the parameter "Name" with value "中国地图II样式-搜素"
     And I click the "Ensure" button
       #选择上方的地图
     And I click the "Map" button
@@ -75,14 +81,42 @@
     And I set the parameter "ColorInput" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
+    #边框宽度
+    And I set the parameter "borderWidth" with value "5"
+    #边框颜色
+    And I click the "borderColor" button
+    And I set the parameter "ColorInput" with value "#D72644"
+    And I click the "EnsureColor" button
+    And I wait for "EnsureColor" will be invisible
     #3 全局样式修改名成
+<<<<<<<< HEAD:src/test/resources/features/数据大屏/4中国地图二.feature
+    And I click the "globalStyle" button
+    And I set the parameter "globalStyleName" with value "中国地图II样式修改"
+    #开启背景动画
+   And I click the "backgroundAuto" button
+    #数据设置（数据源类型默认：搜索）
+    And I click the "Data" button
+    And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
+    And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
+    And I set the parameter "updateFrequency" with value "0.1"
+      #类别
+    And I choose the "apache.geo.province" from the "ChineseMapTwoDataSearchCategory"
+      #值
+    And I choose the "count()" from the "ChineseMapTwoDataSearchValue"
+========
   #  And I click the "globalStyle" button
   #  And I set the parameter "globalStyleName" with value "中国地图II样式修改"
+>>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/4地图_中国地图二.feature
 #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
+<<<<<<<< HEAD:src/test/resources/features/数据大屏/4中国地图二.feature
+Scenario Outline: 中国地图II样式-搜索发布并截图
+========
 Scenario Outline: 中国地图II样式发布并截图
+>>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/4地图_中国地图二.feature
   #Given I will see the "PublicNavBarPage" page
   #And I wait for "Dashboard" will be visible
   Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -94,7 +128,7 @@ Scenario Outline: 中国地图II样式发布并截图
 
   Examples:
   |name            |
-  |中国地图II样式    |
+  |中国地图II样式-搜素    |
 
 
 ######################################无耻的分割线################################
@@ -114,7 +148,10 @@ Scenario Outline: 中国地图II样式发布并截图
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
+<<<<<<<< HEAD:src/test/resources/features/数据大屏/4中国地图二.feature
       And I click the "Style" button
+========
+>>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/4地图_中国地图二.feature
     #设置->样式->地图->区域选择无锡
       And I click the "MapHeader" button
       And I choose the "无锡" from the "MapArea"
@@ -139,6 +176,8 @@ Scenario Outline: 中国地图II样式发布并截图
 
 
 ######################################无耻的分割线################################
+<<<<<<<< HEAD:src/test/resources/features/数据大屏/4中国地图二.feature
+========
 
   #数据-搜索
     Scenario: 中国地图II数据之搜索
@@ -155,7 +194,6 @@ Scenario Outline: 中国地图II样式发布并截图
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
-      And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
       And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
@@ -176,7 +214,6 @@ Scenario Outline: 中国地图II样式发布并截图
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
-      And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
 
@@ -185,6 +222,7 @@ Scenario Outline: 中国地图II样式发布并截图
         |中国地图II数据之搜索   |
 
 ######################################无耻的分割线################################
+>>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/4地图_中国地图二.feature
   #数据-静态数据
     Scenario: 中国地图II数据之静态数据
     #  Given I will see the "PublicNavBarPage" page
@@ -270,11 +308,11 @@ Scenario Outline: 中国地图II样式发布并截图
       And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
       And I click the "pictureTwo" button
-      And I click the "pictureOne" button
+#      And I click the "pictureOne" button
       And I click the "Search" button
      #对中国地图二的参数进行设置
       And I click the "pictureOne" button
-      And I click the "pictureTwo" button
+#      And I click the "pictureTwo" button
       And I click the "Data" button
       And I wait for "3000" millsecond
       #类别
@@ -312,10 +350,8 @@ Scenario Outline: 中国地图II样式发布并截图
 
       Examples:
         |name|
-        |中国地图II默认   |
-        |中国地图II样式    |
+        |中国地图II样式-搜素    |
         |中国地图II样式无锡     |
-        |中国地图II数据之搜索   |
         |中国地图II数据之静态数据   |
         |中国地图II数据之绑定搜索 |
 

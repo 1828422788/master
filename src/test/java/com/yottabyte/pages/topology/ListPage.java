@@ -19,8 +19,11 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//label[@title='资源标签']/ancestor::div/following-sibling::div//input")
+    @FindBy(xpath = "//div[text()='标签']/following-sibling::div//input")
     private WebElement tag;
+
+    @FindBy(xpath = "//label[@title='资源标签']/ancestor::div/following-sibling::div//input")
+    private WebElement tagInput;
 
     @FindBy(className = "ant-form-explain")
     private WebElement errorMessage;
@@ -32,6 +35,10 @@ public class ListPage extends ListPageFactory {
     @Override
     public WebElement getTag() {
         return tag;
+    }
+
+    public WebElement getTagInput() {
+        return tagInput;
     }
 
     public WebElement getNameInput() {

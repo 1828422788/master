@@ -125,7 +125,7 @@ public class ClickButtonWithGivenName {
     private void click(String buttonName, WebElement tr) {
         String xpath;
         if (pagingInfo.checkUrl() || webDriver.getCurrentUrl().contains("/app/list/")) {
-            xpath = ".//span[contains(text(),'" + buttonName + "')]";
+            xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
         } else {
@@ -488,5 +488,21 @@ public class ClickButtonWithGivenName {
         WebElement table = webDriver.findElement(By.className("ant-table-tbody"));
         WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
         this.click(function, tr);
+    }
+
+    /**
+     * 用户分组中添加管理员操作
+     *
+     * @param status checked/unchecked
+     * @param name   管理员名称
+     */
+    @And("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in user group$")
+    public void addMemeberInUserGroup(String status, String name) {
+        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        WebElement checkbox = tr.findElement(By.xpath(".//label[@class='el-checkbox']"));
+        String currentStatus = checkbox.findElement(By.xpath(".//span")).getAttribute("class");
+        if (currentStatus.contains("checked") && "uncheck".equals(status) || !currentStatus.contains("checked") && "check".equals(status)) {
+            checkbox.click();
+        }
     }
 }

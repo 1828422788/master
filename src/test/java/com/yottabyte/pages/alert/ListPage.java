@@ -10,6 +10,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 
 import java.util.List;
 
@@ -17,6 +19,8 @@ public class ListPage extends ListPageFactory {
 
     public ListPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().setPosition(new Point(0, 0));
+        driver.manage().window().setSize(new Dimension(2100,1100));
     }
 
     @FindBy(className = "el-loading-mask")
@@ -267,5 +271,27 @@ public class ListPage extends ListPageFactory {
 ////        p.deleteAlert("AutoTest");
 ////        p.thereIsAnAlert("AutoTest", list, list1, list2);
 //    }
+
+
+    // 搜索输入框
+    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    private WebElement alertListSearchInput;
+    public WebElement getAlertListSearchInput() {
+        return alertListSearchInput;
+    }
+
+    @FindBy(xpath = "(//a[contains(text(),'删除')])")
+    private WebElement alertListDeleteButton;
+    public WebElement getAlertListDeleteButton() throws InterruptedException {
+        Thread.sleep(2000);
+        return alertListDeleteButton;
+    }
+
+    @FindBy(className = "ant-btn-primary")
+    private WebElement confirmDelAlertButton;
+    public WebElement getConfirmDelAlertButton() throws InterruptedException {
+        Thread.sleep(2000);
+        return confirmDelAlertButton;
+    }
 
 }

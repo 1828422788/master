@@ -6,6 +6,7 @@ Feature: Agent添加数据源校验
     And I wait for loading invisible
     When I click the detail which column is "1" in agent page
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "agent.CreatePage" page
 
   Scenario: 添加文件目录类型数据源校验
@@ -34,6 +35,6 @@ Feature: Agent添加数据源校验
     And I click the "Ensure" button
     And I will see the element "PreviewMessage" name is "请务必选择一个文件用来预览。"
     And I click the "ChooseButton" button
-    And I click the "Next"
-    And I close all windows
+    And I click the "Next" button
+
 

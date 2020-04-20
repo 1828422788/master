@@ -77,7 +77,7 @@ Feature: 仪表盘通用配置
     And I wait for "Ensure" will be invisible
     And I click the "CustomTitle" button
     And I click the "Describe" button
-    Then I will see the "DescribeText" result will be "描述信息"
+    Then I will see the "DescribeText" result will be "测试描述"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
