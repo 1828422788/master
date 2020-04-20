@@ -1,15 +1,5 @@
 @galaxee
 Feature: 数据大屏-折线图
-<<<<<<<< HEAD:src/test/resources/features/数据大屏/40折线图.feature
-========
-
-
-
-  Scenario: 删除相似名称的大屏以便定位
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "双轴折线图" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
->>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/1折线图.feature
 
   Scenario Outline: RZY-1931:编辑大屏流程
 #    Given I wait for title change text to "仪表盘"

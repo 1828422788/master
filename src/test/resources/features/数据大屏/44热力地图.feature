@@ -37,10 +37,7 @@ Feature: 数据大屏-热力地图
     And I click the "pictureOne" button
 #    And I click the "Map" button
 #    And I click the "Heatmap" button
-<<<<<<<< HEAD:src/test/resources/features/数据大屏/44热力地图.feature
     And I click the "Style" button
-========
->>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/1热力地图.feature
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     And I choose the "山东" from the "MapArea"

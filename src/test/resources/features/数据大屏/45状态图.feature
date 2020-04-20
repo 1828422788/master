@@ -38,10 +38,7 @@ Feature: 数据大屏-状态图
     And I click the "pictureOne" button
 #    And I click the "Index" button
 #    And I click the "Status" button
-<<<<<<<< HEAD:src/test/resources/features/数据大屏/45状态图.feature
     And I click the "Style" button
-========
->>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/1状态图.feature
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "514"

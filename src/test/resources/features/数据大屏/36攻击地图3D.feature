@@ -1,14 +1,5 @@
 @galaxee
 Feature: 数据大屏-攻击地图3D
-<<<<<<<< HEAD:src/test/resources/features/数据大屏/36攻击地图3D.feature
-========
-
-
-  Scenario: 删除相似名称的大屏以便定位
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "攻击地图" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
->>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/1攻击地图3D.feature
 
   Scenario: 新建默认类型的攻击地图3D
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -50,10 +41,7 @@ Feature: 数据大屏-攻击地图3D
     And I click the "pictureOne" button
 #    And I click the "Map" button
 #    And I click the "Attack3d" button
-<<<<<<<< HEAD:src/test/resources/features/数据大屏/36攻击地图3D.feature
     And I click the "Style" button
-========
->>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/1攻击地图3D.feature
     And I wait for "GlobelabelMapHeader" will be visible
     And I click the "GlobelabelMapHeader" button
     And I click the "AreaColor" button

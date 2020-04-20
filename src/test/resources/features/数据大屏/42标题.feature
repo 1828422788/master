@@ -34,10 +34,7 @@ Feature: 数据大屏-标题
     And I click the "pictureOne" button
 #    And I click the "Word" button
 #    And I click the "TitleImg" button
-<<<<<<<< HEAD:src/test/resources/features/数据大屏/42标题.feature
     And I click the "Style" button
-========
->>>>>>>> 36385d1ac1ceb7eb27d3eec307790100a724f9e8:src/test/resources/features/数据大屏/1标题.feature
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "750"
