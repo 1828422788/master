@@ -1620,29 +1620,41 @@ private WebElement dataType;
 
 
      //样式中的流程线
-     @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[1]/i")
+     @FindBy(xpath = "//div[text()='流程线']/i")
      private WebElement styleFlowLine;
      public WebElement getStyleFlowLine(){return styleFlowLine;}
+     //流程线大小
+    @FindBy(xpath = "//label[contains(text(),'流程线大小')]/following-sibling::div/input")
+    private WebElement flowLineSize;
+     public WebElement getFlowLineSize(){return flowLineSize;}
+    //流程线粗细
+    @FindBy(xpath = "//label[contains(text(),'流程线粗细')]/following-sibling::div/input")
+    private WebElement flowLineCoarseness;
+    public WebElement getFlowLineCoarseness(){return flowLineCoarseness;}
      //流程线颜色
-     @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[1]/div")
+     @FindBy(xpath = "//label[contains(text(),'流程线颜色')]/following-sibling::div")
      private WebElement flowLineColor;
      public WebElement getFlowLineColor(){return flowLineColor;}
-     //流程线粗细
-     @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[2]/div/input")
-     private WebElement flowLineCoarseness;
-     public WebElement getFlowLineCoarseness(){return flowLineCoarseness;}
     //角度
-     @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[3]/div/input")
+    @FindBy(xpath = "//label[contains(text(),'角度')]/following-sibling::div/input")
      private WebElement angle;
      public WebElement getAngle(){return angle;}
      //标注颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[4]/div")
+     @FindBy(xpath = "//label[contains(text(),'标注颜色')]/following-sibling::div")
      private WebElement taggingColor;
      public WebElement getTaggingColor(){return taggingColor;}
     //标注大小
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[5]/div/input")
+    @FindBy(xpath = "//label[contains(text(),'标注大小')]/following-sibling::div/input")
     private WebElement taggingSize;
      public WebElement getTaggingSize(){return taggingSize;}
+     //弧线
+     @FindBy(xpath = "//label[contains(text(),'弧线')]/following-sibling::label")
+     private WebElement arcs;
+     public WebElement getArcs(){return arcs;}
+    //弧线翻转
+    @FindBy(xpath = "//label[contains(text(),'弧线翻转')]/following-sibling::label")
+    private WebElement arcsFlip;
+     public WebElement getArcsFlip(){return arcsFlip;}
 
 //齿轮组合
     //其他中的齿轮组合
@@ -1654,25 +1666,25 @@ private WebElement dataType;
     private WebElement styleGearCombination;
     public WebElement getStyleGearCombination(){return styleGearCombination;}
     //光环颜色
-      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[1]/div")
+      @FindBy(xpath = "//label[contains(text(),'光环颜色')]/following-sibling::div")
       private WebElement haloColor;
       public WebElement getHaloColor(){ return haloColor;}
       //背景颜色
-      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[2]/div")
+      @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div")
       private WebElement backgroundColor;
       public WebElement getBackgroundColor(){
           return backgroundColor;
       }
       //显示图层1
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[3]/label[2]")
+      @FindBy(xpath = "//label[contains(text(),'显示图层 1')]/following-sibling::label")
     private WebElement showLayerOne;
       public WebElement getShowLayerOne(){return showLayerOne;}
      //显示图层2
-      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[4]/label[2]")
-      private WebElement showLayerTwo;
+     @FindBy(xpath = "//label[contains(text(),'显示图层 2')]/following-sibling::label")
+     private WebElement showLayerTwo;
       public WebElement getShowLayerTwo(){return showLayerTwo;}
       //显示图层3
-      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[5]/label[2]")
+      @FindBy(xpath = "//label[contains(text(),'显示图层 3')]/following-sibling::label")
       private WebElement showLayerThree;
       public WebElement getShowLayerThree(){return showLayerThree;}
 
@@ -1690,7 +1702,7 @@ private WebElement dataType;
         return this.input("时间器", "字体大小");
     }
       //字体颜色
-      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[2]/div")
+      @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
       private WebElement clockFontColor;
       public WebElement getClockFontColor(){return clockFontColor;}
      //字体粗细
@@ -1700,7 +1712,7 @@ private WebElement dataType;
      //对齐方式
     public WebElement getClockHorizontal(){return this.dropdownList("时间器","对齐");}
     //时间格式
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[5]/div")
+    @FindBy(xpath = "//label[contains(text(),'时间格式')]/following-sibling::div")
     private WebElement timeFormat;
       public WebElement getTimeFormat(){
           timeFormat.click();
@@ -1717,7 +1729,7 @@ private WebElement dataType;
     private WebElement styleVideoFlow;
       public WebElement getStyleVideoFlow(){return styleVideoFlow;}
       //样式中的视频地址
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[2]/div[2]/div/div/div/input")
+      @FindBy(xpath = "//label[contains(text(),'视频地址')]/following-sibling::div/input")
     private WebElement videoAddress;
       public WebElement getVideoAddress(){return videoAddress;}
 
@@ -1728,7 +1740,7 @@ private WebElement dataType;
     private WebElement styleFrame;
       public WebElement getStyleFrame(){return styleFrame;}
       //样式选择下拉框
-      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div/div")
+      @FindBy(xpath = "//label[contains(text(),'样式')]/following-sibling::div")
       private WebElement  styleFrameSelect;
       public WebElement getStyleFrameSelect(){
           styleFrameSelect.click();
@@ -1746,32 +1758,32 @@ private WebElement dataType;
     private WebElement styleGridPercentChart;
       public WebElement getStyleGridPercentChart(){return styleGridPercentChart;}
     //字号
-      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[1]/div/input")
+      @FindBy(xpath = "//label[contains(text(),'字号')]/following-sibling::div/input")
       private WebElement gridPercentFontSize;
       public WebElement getGridPercentFontSize(){return gridPercentFontSize;}
     //行高
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[2]/div/input")
+    @FindBy(xpath = "//label[contains(text(),'行高')]/following-sibling::div/input")
     private WebElement rowHeight;
       public WebElement getRowHeight(){return rowHeight;}
     //字体颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[3]/div/div/span[1]/span")
+    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
    private WebElement gridFontColor;
       public WebElement getGridFontColor(){return gridFontColor;}
     //栅格间隙
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[4]/div/input")
+    @FindBy(xpath = "//label[contains(text(),'栅格间隙')]/following-sibling::div/input")
     private WebElement gridClearance;
       public WebElement getGridClearance(){return gridClearance;}
     //栅格颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[5]/div")
+    @FindBy(xpath = "//label[contains(text(),'栅格颜色')]/following-sibling::div")
     private WebElement gridColor;
       public WebElement getGridColor(){return gridColor;}
     //标题
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[6]/div/input")
+    @FindBy(xpath = "//label[contains(text(),'标题')]/following-sibling::div/input")
     private WebElement gridTitle;
       public WebElement getGridTitle(){return gridTitle;}
 
       //栅格百分图之数据-搜索-类别
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[1]/div")
+      @FindBy(xpath = "//label[contains(text(),'类别')]/following-sibling::div")
     private WebElement gridDataSearchCategory;
       public WebElement getGridDataSearchCategory(){
         gridDataSearchCategory.click();
@@ -1789,38 +1801,38 @@ private WebElement dataType;
     private WebElement styleCloudChart;
       public WebElement getStyleCloudChart(){return styleCloudChart;}
      //图表起始颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[1]/div")
+     @FindBy(xpath = "//label[contains(text(),'图表起始颜色')]/following-sibling::div")
     private WebElement chartStartColor;
       public WebElement getChartStartColor(){
           chartStartColor.click();
           return this.getLastDropdownList();
       }
-      @FindBy(xpath = "/html/body/div[8]/div/div[1]/ul/li[8]/span")
+     @FindBy(xpath = "//span[@style='background: rgb(255, 235, 59);']")
       private WebElement yellow;
       public WebElement getYellow(){return yellow;}
     //字体类型
-   @FindBy(xpath = "//label[contains(text(),'字体类型')]/parent::div/div")
+    @FindBy(xpath = "//label[contains(text(),'字体类型')]/following-sibling::div")
     private WebElement fontType;
       public WebElement getFontType(){
           fontType.click();
           return this.getLastDropdownList();
       }
       //字体最大字号
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[3]/div/input")
+      @FindBy(xpath = "//label[contains(text(),'字体最大字号')]/following-sibling::div/input")
     private WebElement maxFont;
       public WebElement getMaxFont(){
           return maxFont;
       }
 
       //字符云图-数据-搜索-数值字段
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[1]/div")
+      @FindBy(xpath = "//label[contains(text(),'数值字段')]/following-sibling::div")
     private WebElement cloudDataSearchNumber;
       public WebElement getCloudDataSearchNumber(){
           cloudDataSearchNumber.click();
           return getLastDropdownList();
       }
       //字符云图-数据-搜索-切分字段
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[2]/div")
+      @FindBy(xpath = "//label[contains(text(),'切分字段')]/following-sibling::div")
     private WebElement cloudDataSearchSegmentation;
       public WebElement getCloudDataSearchSegmentation(){
           cloudDataSearchSegmentation.click();
@@ -1842,7 +1854,7 @@ private WebElement dataType;
       @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[2]/div/input")
      private WebElement radarFontSize;
       public WebElement getRadarFontSize(){return radarFontSize;}
-    //颜色
+    //颜色;/
     @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[3]/div")
     private WebElement radarColor;
       public WebElement getRadarColor(){return radarColor;}
