@@ -633,25 +633,25 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='升序'])[last()]")
     private WebElement ascending;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(161, 20, 249);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(161, 20, 249);')])[last()] | (//span[contains(@style,'background-color: rgb(156, 39, 176);')])[last()]")
     private WebElement purple;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(248, 0, 80);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(248, 0, 80);')])[last()] | (//span[contains(@style,'background-color: rgb(229, 28, 35);')])[last()]")
     private WebElement red;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 173, 8);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 173, 8);')])[last()] | (//span[contains(@style,'background-color: rgb(255, 152, 0);')])[last()]")
     private WebElement orange;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(50, 194, 125);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(50, 194, 125);')])[last()] | (//span[contains(@style,'background-color: rgb(37, 155, 36);')])[last()]")
     private WebElement green;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(179, 198, 92);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(179, 198, 92);')])[last()] | (//span[contains(@style,'background-color: rgb(176, 231, 43);')])[last()]")
     private WebElement lightGreen;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 227, 16);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 227, 16);')])[last()] | (//span[contains(@style,'background-color: rgb(255, 235, 59);')])[last()] ")
     private WebElement yellow;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(72, 87, 175);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(72, 87, 175);')])[last()] | (//span[contains(@style,'background-color: rgb(63, 81, 181);')])[last()]")
     private WebElement darkBlue;
 
     @FindBy(xpath = "(//span[text()='实际值'])[last()]/ancestor::div/following-sibling::div//input")

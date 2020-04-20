@@ -21,7 +21,7 @@ Feature: 日志展现_表格
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
+#    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
 
     Examples:
       | caseNum  |
@@ -39,7 +39,7 @@ Feature: 日志展现_表格
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
+#    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
 
     Examples:
       | caseNum      |
@@ -97,7 +97,7 @@ Feature: 日志展现_表格
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
+#    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
 
     Examples:
       | caseNum  |
@@ -131,7 +131,7 @@ Feature: 日志展现_表格
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
+#    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
 
     Examples:
       |  button               | caseNum          |
@@ -152,7 +152,7 @@ Feature: 日志展现_表格
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
+#    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
 
     Examples:
       | caseNum     |
@@ -184,7 +184,7 @@ Feature: 日志展现_表格
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
+#    Then I compare source image "expect/高级搜索视图/8表格/<caseNum>" with target image "actual/高级搜索视图/8表格/<caseNum>"
 
     Examples:
       | caseNum     |

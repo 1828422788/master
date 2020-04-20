@@ -23,7 +23,7 @@ Feature: 日志展现_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
+#    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
@@ -58,7 +58,7 @@ Feature: 日志展现_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
+#    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
 
     Examples:
       |chartType|      source     |  sourceLon | sourceLat  | target     | targetLon | targetLat |  weight | regionBut |caseNum  |   spl   |
@@ -81,7 +81,7 @@ Feature: 日志展现_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
+#    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 
     Examples:
       |chartType|caseNum  |   spl   |
@@ -114,7 +114,7 @@ Feature: 日志展现_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
-    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>_<region>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
+#    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>_<region>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
@@ -149,21 +149,21 @@ Feature: 日志展现_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World"
-    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World"
+#    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World"
 
     When I click the "CountryChina" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China"
-    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China"
+#    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China"
 
     When I click the "ProvinceJiangsu" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
-    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
+#    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
@@ -185,7 +185,7 @@ Feature: 日志展现_地图
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
+#    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 
     Examples:
       |chartType      |caseNum  |   spl   |
@@ -215,7 +215,7 @@ Feature: 日志展现_地图
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
+#    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 
     Examples:
       |chartType      |   tranparencyValue  | minRadiusValue | maxRadiusValue  | caseNum  |   spl   |
