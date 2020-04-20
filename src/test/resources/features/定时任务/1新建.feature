@@ -3,6 +3,7 @@ Feature: 定时任务新建
 # 26
 
   #bug
+  @startTomorrowTask
   Scenario: test_schedule_time
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
