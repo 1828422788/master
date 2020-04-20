@@ -2,7 +2,7 @@
 Feature: 日志展现_维度
 #11
 
-  # tag:autosample_chart should be uploaded for Today
+  # tag:sample04061424_chart should be uploaded for Today
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -28,13 +28,13 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |   caseNum  |  spl   |
-      |      Pie      |     833    | tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Rose     |     2776   | tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      |     2778   | tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Sun      |     2782   | tag:autosample_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
+      |      Pie      |     833    | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Rose     |     2776   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Bar      |     2778   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Sun      |     2782   | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
   Scenario Outline: dimension_sun(RZY-2781)
-    When I set the parameter "SearchInput" with value "tag:autosample_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -92,7 +92,7 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  value      |     divValue   | color1   |caseNum  | spl   |
-      |      Pie      |  count      | apache.clientip| Red      |2774     |  tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Pie      |  count      | apache.clientip| Red      |2774     |  tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
 
   Scenario Outline: label(RZY-4205,4208,4211,4206,4209,4212,4207,4210)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -146,9 +146,9 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  option1   | option2   | option3    | spl   |
-      |      Pie      |  不展示     | 展示全部   | 只展示名称  |tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Rose     |  不展示     | 展示全部   | 只展示名称  |tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      |  不展示     | 展示全部   | 只展示名称  |tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Pie      |  不展示     | 展示全部   | 只展示名称  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Rose     |  不展示     | 展示全部   | 只展示名称  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Bar      |  不展示     | 展示全部   | 只展示名称  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
 
   Scenario Outline: label_location(RZY-4213,4214,4215,4216,4217,4218,4219,4220,4221,4222)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -231,5 +231,5 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   | color  |typeInfo | option1   | option2   | option3    | option4     | option5    | spl   |
-      |      Bar      | Red    |只展示名称|柱状外左侧   | 柱状外右侧 | 柱状内中央  | 柱状内靠左侧  |柱状内靠右侧  |tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      | Yellow |展示全部  |柱状外左侧   | 柱状外右侧 | 柱状内中央  | 柱状内靠左侧  |柱状内靠右侧  |tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Bar      | Red    |只展示名称|柱状外左侧   | 柱状外右侧 | 柱状内中央  | 柱状内靠左侧  |柱状内靠右侧  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Bar      | Yellow |展示全部  |柱状外左侧   | 柱状外右侧 | 柱状内中央  | 柱状内靠左侧  |柱状内靠右侧  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |

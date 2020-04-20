@@ -2,7 +2,7 @@
 Feature: 日志展现_地图
 #10
 
-  # tag:autosample_chart should be uploaded for Today
+  # tag:sample04061424_chart should be uploaded for Today
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -27,10 +27,10 @@ Feature: 日志展现_地图
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
-      |   Heatmap     |    1229    |  tag:autosample_chart \| stats count() by apache.geo.city |
+      |   Heatmap     |    1229    |  tag:sample04061424_chart \| stats count() by apache.geo.city |
 
   Scenario Outline: attackMap(RZY-2302)
-    When I set the parameter "SearchInput" with value "tag:autosample_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -62,8 +62,8 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|      source     |  sourceLon | sourceLat  | target     | targetLon | targetLat |  weight | regionBut |caseNum  |   spl   |
-      |Attackmap| apache.clientip | client_lon | client_lat | gw_address | gw_lon    |  gw_lat   |   cnt   |   World   | 2302    | tag:autosample_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 |
-      |Attackmap| apache.clientip | client_lon | client_lat | gw_address | gw_lon    |  gw_lat   |   cnt   |   China   | 2302    | tag:autosample_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 |
+      |Attackmap| apache.clientip | client_lon | client_lat | gw_address | gw_lon    |  gw_lat   |   cnt   |   World   | 2302    | tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 |
+      |Attackmap| apache.clientip | client_lon | client_lat | gw_address | gw_lon    |  gw_lat   |   cnt   |   China   | 2302    | tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 |
 
   Scenario Outline: regionmap(RZY-2790)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -85,7 +85,7 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|caseNum  |   spl   |
-      |Regionmap| 2790    | tag:autosample_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| 2790    | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
   Scenario Outline: regionMap(RZY-2793,2794)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -118,8 +118,8 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793    |tag:autosample_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794    |tag:autosample_chart \| stats count() by apache.geo.city |
+      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793    |tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794    |tag:sample04061424_chart \| stats count() by apache.geo.city |
 
 
   Scenario Outline: regionMap_click(RZY-2792)
@@ -167,7 +167,7 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |tag:autosample_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
   Scenario Outline: statMap(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -189,8 +189,8 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType      |caseNum  |   spl   |
-      |Statisticalmap | 2795    | tag:vendors_auto \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
-      |Statisticalmap | 2797    | tag:vendors_auto \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
+      |Statisticalmap | 2795    | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap | 2797    | tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
 
 
   Scenario Outline: statMap(RZY-2796)
@@ -219,5 +219,5 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType      |   tranparencyValue  | minRadiusValue | maxRadiusValue  | caseNum  |   spl   |
-      |Statisticalmap |        0.5          |     10         |      50         |  2796    | tag:vendors_auto \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap |        0.5          |     10         |      50         |  2796    | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
 

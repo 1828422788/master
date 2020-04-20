@@ -2,7 +2,7 @@
 Feature: 日志展现_关系
 #5
 
-  # tag:autosample_chart, auto_sankey should be uploaded for Today
+  # tag:sample04061424_chart, auto_sankey should be uploaded for Today
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -27,9 +27,9 @@ Feature: 日志展现_关系
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
-      |    Chord      |    834     |  tag:autosample_chart \| stats count() by apache.clientip,apache.request_path  |
-      |    Sankey     |    2783    |  tag:autosample_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
-      |    Force      |    2784    |  tag:autosample_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
+      |    Chord      |    834     |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path  |
+      |    Sankey     |    2783    |  tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
+      |    Force      |    2784    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
   Scenario Outline: Force(RZY-4223)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -55,7 +55,7 @@ Feature: 日志展现_关系
 
     Examples:
       |   chartType   |repValue  |   spl   |
-      |    Force      |    20    |  tag:autosample_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
+      |    Force      |    20    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
 
   Scenario Outline: multistage(RZY-4224)

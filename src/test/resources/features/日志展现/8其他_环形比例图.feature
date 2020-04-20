@@ -2,7 +2,7 @@
 Feature: 日志展现_其它_环形比例图
 #16 (19) bug
 
-  # tag:autosample_chart should be uploaded for Today
+  # tag:sample04061424_chart should be uploaded for Today
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -33,7 +33,7 @@ Feature: 日志展现_其它_环形比例图
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
-      |   Ring        |  onefield |tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      |   Ring        |  onefield |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline:  ringchart_twofields(RZY-4200)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -61,7 +61,7 @@ Feature: 日志展现_其它_环形比例图
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
-      |   Ring        |  twofields|tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      |   Ring        |  twofields|tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline:  ringchart_table(RZY-4201)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -94,8 +94,8 @@ Feature: 日志展现_其它_环形比例图
 
     Examples:
       |  chartType    |    caseNum   | rows    |  columns  |   spl   |
-      |   Ring        | table_3r_2c  |  3      |   2       | tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
-      |   Ring        | table_1r_4c  |  1      |   4       | tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      |   Ring        | table_3r_2c  |  3      |   2       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      |   Ring        | table_1r_4c  |  1      |   4       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
 
   Scenario Outline:  ringchart_colors(RZY-4202)
@@ -149,7 +149,7 @@ Feature: 日志展现_其它_环形比例图
 
     Examples:
       |  chartType    |    caseNum          | rows    |  columns  |   spl   |
-      |   Ring        | table_1r_3c_colors  |  1      |   3       | tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      |   Ring        | table_1r_3c_colors  |  1      |   3       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline:  ringchart_precision(RZY-4203)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -210,4 +210,4 @@ Feature: 日志展现_其它_环形比例图
 
     Examples:
       |  chartType    |    caseNum       |   spl   |
-      |   Ring        |     Precision    | tag:autosample_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/51 \| eval count2_perc=ip_count/204 \| limit 6 |
+      |   Ring        |     Precision    | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/51 \| eval count2_perc=ip_count/204 \| limit 6 |

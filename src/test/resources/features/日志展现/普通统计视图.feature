@@ -2,13 +2,13 @@
 Feature: 日志展现_普通统计视图
 #34 (24)
 
-  # tag:autosample_display should be uploaded for Yesterday
+  # tag:sample04061424_display should be uploaded for Yesterday
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: count(RZY-807,808,809,810)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -35,7 +35,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: count_independent(RZY-2718)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -62,7 +62,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
     #When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "ThisMonth" button
     And I click the "SearchButton" button
@@ -75,13 +75,13 @@ Feature: 日志展现_普通统计视图
     Then I choose the "<statisticType>" from the "StatisticType"
     # Set Time Parameters
     And I click the "StartDate" button
-    And I set the parameter "DateInput" with value "2020-04-06"
+    And I set the parameter "DateInput" with value "2020-04-20"
     And I hide the element "DatePanel"
     And I click the "StartTime" button
     And I set the parameter "TimeInput" with value "<startTime>"
     And I hide the element "TimePanel"
     And I click the "EndDate" button
-    And I set the parameter "DateInput" with value "2020-04-06"
+    And I set the parameter "DateInput" with value "2020-04-20"
     And I hide the element "DatePanel"
     And I click the "EndTime" button
     And I set the parameter "TimeInput" with value "<endTime>"
@@ -103,7 +103,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: dataslice(RZY-814,3137)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -135,7 +135,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: timehistogram(RZY-815,2725)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "<period>" button
     And I click the "SearchButton" button
@@ -163,7 +163,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: datehistogram(RZY-816)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -187,7 +187,7 @@ Feature: 日志展现_普通统计视图
 
 # can not compare, because of same values
   Scenario Outline: classifyfieldvalue(RZY-817)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -233,7 +233,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: fieldnumber(RZY-2727)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "<period>" button
     And I click the "SearchButton" button
@@ -265,7 +265,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: totalpercent(RZY-819,2730)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -291,7 +291,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: percentdegree(RZY-821, 3136)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -316,7 +316,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: multilevelstats(RZY-822)
     # types of chart
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
@@ -370,7 +370,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario:geogrdistr(RZY-825)
-    When I set the parameter "SearchInput" with value "tag:autosample_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
     And I click the "SearchButton" button
