@@ -2,7 +2,7 @@
 Feature: 日志展现_其它
 #16 (19) bug
 
-  # tag:sample04061424_chart should be uploaded for Today
+  # tag:autosample_chart should be uploaded for Today
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -28,7 +28,7 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    |caseNum  |   spl   |
-      |   Wordcloud   | 2804    | tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |   Wordcloud   | 2804    | tag:autosample_chart \| stats count() by apache.geo.city |
 
   Scenario Outline: others(RZY-2807,2449)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -50,8 +50,8 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    |caseNum  |   spl   |
-      |   Radar       | 2807    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-      |   Funnel      | 2449    | tag:sample04061424_chart \| stats count() by apache.clientip \| limit 5 |
+      |   Radar       | 2807    | tag:autosample_chart \| stats count() by apache.status,apache.geo.city |
+      |   Funnel      | 2449    | tag:autosample_chart \| stats count() by apache.clientip \| limit 5 |
 
 
   Scenario Outline: radar(RZY-2808)
@@ -84,7 +84,7 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    | divField       | color1   | caseNum  |   spl   |
-      |   Radar       | apache.geo.city| DarkBlue | 2808    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |   Radar       | apache.geo.city| DarkBlue | 2808    | tag:autosample_chart \| stats count() by apache.status,apache.geo.city |
 
   Scenario Outline: funnel(RZY-2809)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -118,7 +118,7 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
-      |   Funnel      |  count()   | apache.geo.city|LightGreen |2809    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |   Funnel      |  count()   | apache.geo.city|LightGreen |2809    | tag:autosample_chart \| stats count() by apache.status,apache.geo.city |
 
   Scenario Outline: matrixheatmap(RZY-2810,2811)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -147,8 +147,8 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType     |  xValue         |  yValue       | segNum |caseNum  |   spl   |
-      |  Matrixheatmap |  count()        | apache.status |  10    |2810    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-      |  Matrixheatmap | apache.geo.city |    count()    |  5     |2811    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |  Matrixheatmap |  count()        | apache.status |  10    |2810    | tag:autosample_chart \| stats count() by apache.status,apache.geo.city |
+      |  Matrixheatmap | apache.geo.city |    count()    |  5     |2811    | tag:autosample_chart \| stats count() by apache.status,apache.geo.city |
 
   Scenario Outline: chain(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -221,5 +221,5 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
-      |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 4|
+      |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |tag:autosample_chart \| stats count() by hostname,apache.clientip \|limit 4|
 

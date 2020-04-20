@@ -1,11 +1,11 @@
 @all @logDisplay @logDisplayTable
 Feature: 日志展现_表格
 
-  # tag:sample04061424_chart should be uploaded for Today
+  # tag:autosample_chart should be uploaded for Today
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
+    When I set the parameter "SearchInput" with value "tag:autosample_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
