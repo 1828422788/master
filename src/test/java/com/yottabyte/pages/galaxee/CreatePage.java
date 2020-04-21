@@ -1851,11 +1851,11 @@ private WebElement dataType;
     private WebElement styleRadarChart;
       public WebElement getStyleRadarChart(){return styleRadarChart;}
       //字号
-      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[2]/div/input")
-     private WebElement radarFontSize;
+      @FindBy(xpath = "//label[contains(text(),'字号')]/following-sibling::div/input")
+    private WebElement radarFontSize;
       public WebElement getRadarFontSize(){return radarFontSize;}
-    //颜色;/
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[3]/div")
+    //颜色
+    @FindBy(xpath = "//label[contains(text(),'颜色')]/following-sibling::div")
     private WebElement radarColor;
       public WebElement getRadarColor(){return radarColor;}
     //字体粗细
@@ -1863,35 +1863,35 @@ private WebElement dataType;
         return this.dropdownList("雷达图", "字体粗细");
     }
     //区域边框颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[5]/div")
+    @FindBy(xpath = "//label[contains(text(),'区域边框颜色')]/following-sibling::div")
     private WebElement areaBorderColor;
       public WebElement getAreaBorderColor(){return areaBorderColor;}
     //区域颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[6]/div")
+    @FindBy(xpath = "//label[contains(text(),'区域颜色')]/following-sibling::div")
     private WebElement radarAreaColor;
       public WebElement getRadarAreaColor(){return radarAreaColor;}
     //辐射线颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[7]/div")
+    @FindBy(xpath = "//label[contains(text(),'辐射线颜色')]/following-sibling::div")
     private WebElement radarLineColor;
       public WebElement getRadarLineColor(){return radarLineColor;}
       //分割线颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[8]/div")
-    private WebElement splitLineColor;
+      @FindBy(xpath = "//label[contains(text(),'分割线颜色')]/following-sibling::div")
+      private WebElement splitLineColor;
       public WebElement getSplitLineColor(){return splitLineColor;}
     //雷达图占比大小
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div/div[9]/div/input")
+    @FindBy(xpath = "//label[contains(text(),'雷达图占比大小')]/following-sibling::div/input")
     private WebElement proportionOfRadarChart;
       public WebElement getProportionOfRadarChart(){return proportionOfRadarChart;}
 
       //雷达图-数据-搜索-名称字段
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[1]/div")
+      @FindBy(xpath = "//label[contains(text(),'名称字段')]/following-sibling::div")
     private WebElement radarNameFile;
       public WebElement getRadarNameFile(){
           radarNameFile.click();
           return this.getLastDropdownList();
       }
     //雷达图-数据-搜索-数值字段
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[2]/div")
+    @FindBy(xpath = "//label[contains(text(),'数值字段')]/following-sibling::div")
     private WebElement radarNumberFile;
       public WebElement getRadarNumberFile(){
           radarNumberFile.click();
@@ -1914,29 +1914,28 @@ private WebElement dataType;
       public WebElement getStylePercent3dChart(){return stylePercent3dChart;}
 
       //名称
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[1]/div/input")
+      @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::div/input")
     private WebElement percent3dName;
       public WebElement getPercent3dName(){return percent3dName;}
     //名称字号
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[2]/div/input")
+    @FindBy(xpath = "//label[contains(text(),'名称字号')]/following-sibling::div/input")
     private WebElement percent3dNameFontSize;
       public WebElement getPercent3dNameFontSize(){return percent3dNameFontSize;}
     //名称颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[3]/div")
+    @FindBy(xpath = "//label[contains(text(),'名称颜色')]/following-sibling::div")
     private WebElement percent3dNameColor;
       public WebElement getPercent3dNameColor(){return percent3dNameColor;}
     //数值字号
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[4]/div/input")
+    @FindBy(xpath = "//label[contains(text(),'数值字号')]/following-sibling::div/input")
     private WebElement numberFontSize;
       public WebElement getNumberFontSize(){return numberFontSize;}
     //数值颜色
-  //  @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[5]/div")
     @FindBy(xpath = "//label[contains(text(),'数值颜色')]/following-sibling::div")
     private WebElement numberColor;
       public WebElement getNumberColor(){return numberColor;}
 
       //数据-搜索-类别
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[1]/div")
+      @FindBy(xpath = "//label[contains(text(),'类别')]/following-sibling::div")
       private WebElement percent3dDataSearchCategory;
       public WebElement getPercent3dDataSearchCategory(){
           percent3dDataSearchCategory.click();
@@ -1944,28 +1943,28 @@ private WebElement dataType;
       }
       //值范围
     //正常最小值
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[3]/div[1]/div/div[1]/input")
+    @FindBy(xpath = "//label[text()='正常']/following-sibling::div/div/div[1]/input")
     private WebElement normalMin;
       public WebElement getNormalMin(){return normalMin;}
     //正常最大值
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[3]/div[1]/div/div[2]/input")
+    @FindBy(xpath = "//label[text()='正常']/following-sibling::div/div/div[2]/input")
     private WebElement normalMax;
       public WebElement getNormalMax(){return normalMax;}
 
     //异常最小值
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[3]/div[2]/div/div[1]/input")
+    @FindBy(xpath = "//label[text()='异常']/following-sibling::div/div/div[1]/input")
     private WebElement abnormalMin;
       public WebElement getAbnormalMin(){return abnormalMin;}
     //异常最大值
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[3]/div[2]/div/div[2]/input")
+    @FindBy(xpath = "//label[text()='异常']/following-sibling::div/div/div[2]/input")
     private WebElement abnormalMax;
       public WebElement getAbnormalMax(){return abnormalMax;}
     //严重最小值
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[3]/div[3]/div/div[1]/input")
+    @FindBy(xpath = "//label[text()='严重']/following-sibling::div/div/div[1]/input")
     private WebElement seriousMin;
       public WebElement getSeriousMin(){return seriousMin;}
     //严重最大值
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div[3]/div[3]/div/div[2]/input")
+    @FindBy(xpath = "//label[text()='严重']/following-sibling::div/div/div[2]/input")
     private WebElement seriousMax;
       public WebElement getSeriousMax(){return seriousMax;}
 
@@ -1978,11 +1977,11 @@ private WebElement dataType;
     private WebElement styleCirCylChart;
       public WebElement getStyleCirCylChart(){return styleCirCylChart;}
     //文本字体大小
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[2]/div[2]/div[2]/div/div/div[2]/div/input")
+    @FindBy(xpath = "//label[contains(text(),'字体大小')]/following-sibling::div/input")
    private WebElement textFontSize;
       public WebElement getTextFontSize(){return textFontSize;}
     //文本字体颜色
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[2]/div[2]/div[2]/div/div/div[3]/div")
+    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
     private WebElement textFontColor;
       public WebElement getTextFontColor(){return textFontColor;}
     //文本字体粗细
@@ -1990,27 +1989,27 @@ private WebElement dataType;
         return this.dropdownList("图表", "字体粗细");
     }
     //环柱渐变色1
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[2]/div[2]/div[2]/div/div/div[8]/div")
+    @FindBy(xpath = "//label[contains(text(),'渐变色1')]/following-sibling::div")
     private WebElement gradation1;
       public WebElement getGradation1(){return gradation1;}
     //环柱渐变色2
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[2]/div[2]/div[2]/div/div/div[9]/div")
+    @FindBy(xpath = "//label[contains(text(),'渐变色2')]/following-sibling::div")
     private WebElement gradation2;
       public WebElement getGradation2(){return gradation2;}
     //环柱渐变色3
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[2]/div[2]/div[2]/div/div/div[10]/div")
+    @FindBy(xpath = "//label[contains(text(),'渐变色3')]/following-sibling::div")
     private WebElement gradation3;
       public WebElement getGradation3(){return gradation3;}
 
     //环形柱图-数据-搜索-标签
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[3]/div/div")
+    @FindBy(xpath = "//label[contains(text(),'标签')]/following-sibling::div")
     private WebElement dataSearchLabel;
       public WebElement getDataSearchLabel(){
           dataSearchLabel.click();
           return this.getLastDropdownList();
       }
     //环形柱图-数据-搜索-值
-    @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[2]/div[4]/div/div")
+    @FindBy(xpath = "//label[contains(text(),'值')]/following-sibling::div")
     private WebElement dataSearchValue;
       public WebElement getDataSearchValue(){
           dataSearchValue.click();
