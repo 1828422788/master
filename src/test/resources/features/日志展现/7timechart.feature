@@ -18,7 +18,7 @@ Feature: 日志展现_timechart
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/7timechart/<caseNum>" with target image "actual/高级搜索视图/7timechart/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/7timechart/<caseNum>" with target image "actual/高级搜索视图/7timechart/<caseNum>"
 
     Examples:
       |  caseNum    |   spl|
@@ -62,7 +62,7 @@ Feature: 日志展现_timechart
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/7timechart/<caseNum>" with target image "actual/高级搜索视图/7timechart/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/7timechart/<caseNum>" with target image "actual/高级搜索视图/7timechart/<caseNum>"
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice |  spl|
@@ -96,7 +96,7 @@ Feature: 日志展现_timechart
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/7timechart/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/7timechart/<caseNum>" with target image "actual/高级搜索视图/7timechart/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/7timechart/<caseNum>" with target image "actual/高级搜索视图/7timechart/<caseNum>"
 
     Examples:
       |  caseNum    | minVal | maxVal| colorChoice|  spl|

@@ -29,7 +29,7 @@ Feature: 日志展现_其它_环形比例图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
@@ -57,7 +57,7 @@ Feature: 日志展现_其它_环形比例图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
@@ -90,7 +90,7 @@ Feature: 日志展现_其它_环形比例图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |    caseNum   | rows    |  columns  |   spl   |
@@ -145,7 +145,7 @@ Feature: 日志展现_其它_环形比例图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |    caseNum          | rows    |  columns  |   spl   |
@@ -180,7 +180,7 @@ Feature: 日志展现_其它_环形比例图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>1"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>1" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>1"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>1" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>1"
 
 
     And I click the "Settings" button
@@ -193,7 +193,7 @@ Feature: 日志展现_其它_环形比例图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>2"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>2" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>2"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>2" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>2"
 
 
     And I click the "Settings" button
@@ -206,7 +206,7 @@ Feature: 日志展现_其它_环形比例图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>3"
-#   Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>3" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>3"
+   Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>3" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>3"
 
     Examples:
       |  chartType    |    caseNum       |   spl   |

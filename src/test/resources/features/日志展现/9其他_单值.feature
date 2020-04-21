@@ -22,7 +22,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |caseNum  |   spl   |
@@ -52,7 +52,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
 
     Examples:
       |  chartType    |   iconValue  |  caseNum  |   spl   |
@@ -82,7 +82,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
 
     Examples:
       |  chartType    |   fontValue       |  caseNum  |   spl   |
@@ -110,7 +110,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
@@ -138,7 +138,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  | timeValue    |   spl   |
@@ -176,7 +176,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
 
     Examples:
       |  chartType    |  caseNum  | minVal1 | maxVal1  |  color1  | minVal2 | maxVal2  |  color2  | colorFill     |   spl   |
@@ -212,7 +212,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-#    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    | precision |  unitPosition       |  buttonSwitch     |  caseNum                |   spl   |
