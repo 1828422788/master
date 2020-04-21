@@ -17,6 +17,7 @@
       And I hide the element "netDropdown"
        #保存
       And I wait for "Save" will be visible
+      And I wait for "2000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -63,13 +64,15 @@
       And I set the parameter "ChartYaxis" with value "400"
       #2设置流程线外观
       And I click the "styleFlowLine" button
+      #流程线大小
+      And I set the parameter "flowLineSize" with value "400"
+      #流程线粗细
+      And I set the parameter "flowLineCoarseness" with value "10"
       #流程线颜色
       And I click the "flowLineColor" button
       And I set the parameter "ColorInput" with value "#9FF50B"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
-      #流程线粗细
-      And I set the parameter "flowLineCoarseness" with value "10"
       #角度
       And I set the parameter "angle" with value "90"
       #标注颜色
@@ -79,6 +82,8 @@
       And I wait for "EnsureColor" will be invisible
       #标注大小
       And I set the parameter "taggingSize" with value "20"
+      And I click the "arcs" button
+      And I click the "arcsFlip" button
        #3 全局样式修改名成
       And I click the "globalStyle" button
       And I set the parameter "globalStyleName" with value "流程线样式修改"

@@ -160,15 +160,14 @@ Feature: 数据大屏-栅格百分图
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button
-    And I click the "pictureOne" button
+#    And I click the "pictureOne" button
     And I click the "Search" button
      #对栅格百分图的参数进行设置
     And I click the "pictureOne" button
-    And I click the "pictureTwo" button
+#    And I click the "pictureTwo" button
     And I click the "Data" button
     And I wait for "3000" millsecond
     And I choose the "num" from the "gridDataSearchCategory"
-    Then take a screenshot with name "galaxee/栅格百分图数据之绑定搜索编辑页"
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"

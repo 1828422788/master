@@ -1,61 +1,25 @@
 @galaxee
 Feature: 数据大屏-占比图3D
 
-  Scenario: 占比图3D默认设置
+
+  Scenario: 占比图3D数据之样式-搜索
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
-    And I set the parameter "Name" with value "占比图3D默认设置"
+    And I set the parameter "Name" with value "占比图3D数据之样式-搜索"
     And I click the "Ensure" button
-      #选择上方的图表
+       #选择上方的图表
     And I click the "Chart" button
     And I drag the scroll bar to the element "percent3dChart"
       #选择占比图3D
     And I click the "percent3dChart" button
     And I hide the element "ChartDropdown"
-       #保存
-    And I wait for "Save" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-
-  Scenario Outline: 占比图3D默认设置发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name              |
-      |占比图3D默认设置    |
-
-    ######################################无耻的分割线################################
-
-  Scenario: 占比图3D样式
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "占比图3D样式"
-    And I click the "Ensure" button
-     #选择上方的图表
-    And I click the "Chart" button
-    And I drag the scroll bar to the element "percent3dChart"
-      #选择占比图3D
-    And I click the "percent3dChart" button
-    And I hide the element "ChartDropdown"
- #设置样式
-   # 1 设置图表尺寸位置
     And I click the "Style" button
+    #设置样式
+   # 1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "640"
@@ -83,43 +47,6 @@ Feature: 数据大屏-占比图3D
     #3 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "占比图3D样式修改"
-       #保存
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-
-  Scenario Outline: 占比图3D样式发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name         |
-      |占比图3D样式   |
-
- ##################################无耻的分割线################################
-
-  Scenario: 占比图3D数据之搜索
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When I click the "Create" button
-    Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "占比图3D数据之搜索"
-    And I click the "Ensure" button
-       #选择上方的图表
-    And I click the "Chart" button
-    And I drag the scroll bar to the element "percent3dChart"
-      #选择占比图3D
-    And I click the "percent3dChart" button
-    And I hide the element "ChartDropdown"
-    And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/2800000"
@@ -143,7 +70,7 @@ Feature: 数据大屏-占比图3D
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  Scenario Outline: 占比图3D数据之搜索发布并截图
+  Scenario Outline: 占比图3D数据之样式-搜索发布并截图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -155,7 +82,7 @@ Feature: 数据大屏-占比图3D
 
     Examples:
       |name               |
-      |占比图3D数据之搜索   |
+      |占比图3D数据之样式-搜索   |
 
 ######################################无耻的分割线################################
 
@@ -235,6 +162,7 @@ Feature: 数据大屏-占比图3D
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/2800000"
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
@@ -258,11 +186,11 @@ Feature: 数据大屏-占比图3D
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button
-    And I click the "pictureOne" button
+#    And I click the "pictureOne" button
     And I click the "Search" button
      #对占比图的参数进行设置
     And I click the "pictureOne" button
-    And I click the "pictureTwo" button
+#    And I click the "pictureTwo" button
     And I click the "Data" button
     And I wait for "3000" millsecond
     And I choose the "p" from the "percent3dDataSearchCategory"
@@ -303,8 +231,6 @@ Feature: 数据大屏-占比图3D
 
     Examples:
       |name|
-      |占比图3D默认设置    |
-      |占比图3D样式   |
-      |占比图3D数据之搜索   |
+      |占比图3D数据之样式-搜索   |
       |占比图3D数据之静态数据   |
       |占比图3D数据之绑定搜索 |
