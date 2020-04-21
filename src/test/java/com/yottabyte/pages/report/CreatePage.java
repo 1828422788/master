@@ -1457,6 +1457,11 @@ public class CreatePage extends PageTemplate {
         return ascendingOrder;
     }
 
+    private WebElement getInput(String name) {
+        String xpath = "//label[contains(text(),'" + name + "')]/following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     public WebElement getDescendingOrder() {
         return descendingOrder;
     }

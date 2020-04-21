@@ -515,6 +515,7 @@ public class StatisticalPage extends PageTemplate {
         return closePercent99;
     }
 
+
 //    public WebElement getAddNum() {
 //        return super.getButton("添加数值分段");
 //    }

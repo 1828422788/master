@@ -77,8 +77,6 @@ public class Screenshot {
             filePath = "";
         } else if (system.contains("Mac")) {
             filePath = "target/cucumber-html-reports/embeddings/actual_img/";
-        }else if (system.contains("Windows")) {
-            filePath = "F:/WORK/auto_test_UI/target/cucumber-html-reports/embeddings/actual_img/";
         }
 
         FileUtils.copyFile(screen, new File(filePath + name + ".png"));

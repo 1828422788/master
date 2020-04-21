@@ -123,7 +123,7 @@ public class CompareResult {
             Assert.assertTrue(false);
         }
         for (int i = 0; i < elements.size(); i++) {
-            Assert.assertEquals(list.get(i).trim(), elements.get(i).getText().trim());
+            Assert.assertEquals("\n实际值： " + elements.get(i).getText().trim() + "\n期望值： " + list.get(i).trim(), list.get(i).trim(), elements.get(i).getText().trim());
         }
     }
 

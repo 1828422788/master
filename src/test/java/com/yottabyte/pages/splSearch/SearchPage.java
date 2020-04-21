@@ -598,13 +598,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all']")
     private WebElement resourceAll;
 
-    @FindAll({
-            @FindBy(tagName = "th"), @FindBy(tagName = "td")})
-    private List<WebElement> tableList;
 
-    public List<WebElement> getTableList() {
-        return tableList;
-    }
 
     public WebElement getResourceAll() {
         return resourceAll;
@@ -619,6 +613,12 @@ public class SearchPage extends ListPageFactory {
         appComboBox.click();
         return super.getLastDropdownList();
     }
+
+    @FindBy(tagName = "table")
+    private WebElement tableList;
+    //数据集父子行为是继承的根节点的子节点
+    @FindBy(xpath = "//span[text()='继承1']")
+    private WebElement jiCheng;
 
     public WebElement getSearchContent() {
         return searchContent;
@@ -1414,69 +1414,99 @@ public class SearchPage extends ListPageFactory {
     //数据集父子行为是无的根节点的子节点
     @FindBy(xpath = "//span[text()='无1']")
     private WebElement fatherChildNull;
-    public WebElement getFatherChildNull(){return fatherChildNull;}
+    //页面上方趋势图超链接
+    @FindBy(xpath = "//a[contains(text(),'趋势图')]")
+    private WebElement upperTrend;
 
     //数据集父子行为是汇聚的根节点
     @FindBy(xpath = "//span[text()='汇聚tree']")
     private WebElement huiJu;
-    public WebElement getHuiJu(){return huiJu;}
 
-    //数据集父子行为是继承的根节点的子节点
-    @FindBy(xpath =  "//span[text()='继承1']")
-    private WebElement jiCheng;
-    public WebElement getJiCheng(){return jiCheng;}
+    public WebElement getTableList() {
+        return tableList;
+    }
+
+    public WebElement getFatherChildNull() {
+        return fatherChildNull;
+    }
+
+    public WebElement getHuiJu() {
+        return huiJu;
+    }
 
     //数据集的展开按钮
     @FindBy(xpath = "//a[text()='展开']")
     private WebElement zhanKai;
-    public WebElement getZhanKai(){return zhanKai;}
+
+    public WebElement getJiCheng() {
+        return jiCheng;
+    }
 
     //数据集的内容
     @FindBy(xpath = "//div[@class='haE36auAEA9saq70cDkWx']/span")
     private WebElement dataSetPosition;
-    public WebElement getDataSetPosition(){return dataSetPosition;}
+
+    public WebElement getZhanKai() {
+        return zhanKai;
+    }
 
     //保存为定时任务成功之后弹窗上的确定按钮
     @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
     private WebElement timeTaskEnsure;
-    public WebElement getTimeTaskEnsure(){return super.getButton("确定");}
+
+    public WebElement getDataSetPosition() {
+        return dataSetPosition;
+    }
 
     //页面上方定时任务超链接
     @FindBy(xpath = "//a[contains(text(),'定时任务')]")
     private WebElement schedule;
-    public WebElement getSchedule(){
-        return schedule;
+
+    public WebElement getTimeTaskEnsure() {
+        return super.getButton("确定");
     }
 
     //搜索页面保存为趋势图
     @FindBy(xpath = "//li[text()='趋势图']")
     private WebElement saveTrend;
-    public WebElement getSaveTrend(){return saveTrend;}
+
+    public WebElement getSchedule() {
+        return schedule;
+    }
 
     //保存为趋势图的名称
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
     private WebElement trendName;
-    public WebElement getTrendName(){return trendName;}
+
+    public WebElement getSaveTrend() {
+        return saveTrend;
+    }
 
 
     //保存为趋势图成功之后提示弹窗中的确定按钮
     @FindBy(xpath = "//div[@class='minaCXZ5tceRilaw8FVvn']/button")
     private WebElement trendEnsureAfterEnsure;
-    public WebElement getTrendEnsureAfterEnsure(){return super.getButton("确定");}
 
-    //页面上方趋势图超链接
-    @FindBy(xpath =  "//a[contains(text(),'趋势图')]")
-    private WebElement upperTrend;
-    public WebElement getUpperTrend(){return upperTrend;}
+    public WebElement getTrendName() {
+        return trendName;
+    }
+
+    public WebElement getTrendEnsureAfterEnsure() {
+        return super.getButton("确定");
+    }
+
+    public WebElement getUpperTrend() {
+        return upperTrend;
+    }
 
 
     //保存为定时任务弹窗中的【描述】
     @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
     private WebElement scheduleDescribe;
-    public WebElement getScheduleDescribe(){return scheduleDescribe;}
 
-
-
+    public WebElement getScheduleDescribe() {
+        return scheduleDescribe;
+    }
 
 
 }
