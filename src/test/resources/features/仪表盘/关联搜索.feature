@@ -100,6 +100,15 @@ Feature: 仪表盘关联搜索
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
+  Scenario: 开启钻取配置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "仪表盘关联搜索"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I click the "OpenDrilldown" button
+    Then I will see the success message "钻取功能已启用"
+
+  @dashboard @dashboardSmoke
   Scenario Outline: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘关联搜索"
@@ -112,7 +121,7 @@ Feature: 仪表盘关联搜索
     Then I click the "Ensure" button
 
     Examples:
-      | name       | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+      | name       | json                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
       | 仪表盘message | {"title": "仪表盘message","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_message \| table tag ,message.PRE_ENTRY_ID,message.CREATE_DATE \| rename tag as tag, message.PRE_ENTRY_ID as PRE_ENTRY, message.CREATE_DATE as CREAT_DATE","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "set","name": "return","value": "${click.value2}"}]}} |
       | 仪表盘return  | {"title": "仪表盘return","description": "","x": 0,"y": 20,"w": 12,"h": 5,"search": {"query": "tag:auto_test_dashboard_return AND return.EPORT_ID:${return}\| table return.EPORT_ID,tag,return.CUS_ID \| rename return.CUS_ID as CUS_ID,return.EPORT_ID as EPORT_ID","startTime": "now/d","endTime": "now","done": {"type": "local","targets": [{"action": "eval","name": "workflow","value": "${result.CUS_ID}"}]}},"chart": {"chartType": "table"}}                |
 
@@ -160,7 +169,7 @@ Feature: 仪表盘关联搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I wait for "2000" millsecond
     And I wait for "Entry" will be visible
     And I click the "Entry" button under some element
     And I wait for "ReturnList" will be visible
@@ -179,7 +188,7 @@ Feature: 仪表盘关联搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+    And I wait for "2000" millsecond
     And I click the "Entry" button under some element
     And I wait for "WorkflowList" will be visible
     And I compare with list "WorkflowList"
