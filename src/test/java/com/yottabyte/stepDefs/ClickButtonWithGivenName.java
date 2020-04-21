@@ -150,7 +150,7 @@ public class ClickButtonWithGivenName {
             if (pagingInfo.checkUrl()) {
                 xpath = ".//span[contains(text(),'" + name + "')]";
             } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
-                xpath = ".//span[contains(text(),'" + name + "')]";
+                xpath = "(.//span[contains(text(),'" + name + "')])[2]";
             } else {
                 xpath = ".//a";
             }
@@ -162,7 +162,7 @@ public class ClickButtonWithGivenName {
             if (pagingInfo.checkUrl()) {
                 xpath = ".//span[contains(text(),'" + text + "')]";
             } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
-                xpath = ".//span[contains(text(),'" + text + "')]";
+                xpath = "(.//span[contains(text(),'" + text + "')])[2]";
             } else {
                 xpath = ".//a";
             }
