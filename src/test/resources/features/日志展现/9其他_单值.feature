@@ -41,7 +41,7 @@ Feature: 日志展现_其他_单值
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
+#    And I set the parameter "FontSize" with value "100"
     And I click the "Icon" button
     And I click the "AccordingField" button
     And I choose the "<iconValue>" from the "FieldValue"
@@ -71,7 +71,7 @@ Feature: 日志展现_其他_单值
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
+#    And I set the parameter "FontSize" with value "100"
     And I click the "Icon" button
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "<fontValue>"
@@ -101,7 +101,7 @@ Feature: 日志展现_其他_单值
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
+#    And I set the parameter "FontSize" with value "100"
     And I click the "Background" button
     And I click the "Generate" button
 
@@ -129,7 +129,7 @@ Feature: 日志展现_其他_单值
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AccordingTrend" button
-    And I set the parameter "FontSize" with value "150"
+#    And I set the parameter "FontSize" with value "150"
     And I choose the "<timeValue>" from the "ContrastTime"
     And I click the "Generate" button
 
@@ -158,7 +158,7 @@ Feature: 日志展现_其他_单值
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
-    And I set the parameter "FontSize" with value "100"
+#    And I set the parameter "FontSize" with value "100"
     And I set the parameter "MinRange" with value "<minVal1>"
     And I set the parameter "MaxRange" with value "<maxVal1>"
     And I click the "AddColor" button
@@ -197,7 +197,7 @@ Feature: 日志展现_其他_单值
     And I choose the "data" from the "NumericField"
     And I choose the "name" from the "DisplayField"
     And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
+#    And I set the parameter "FontSize" with value "100"
     And I click the "AddColor" button
     And I click the "Orange" button
     And I choose the "<precision>" from the "Precision"

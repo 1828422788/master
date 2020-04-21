@@ -59,7 +59,7 @@ Feature: 趋势图新建-其他
     And I click the "AccordingField" button
     And I choose the "<iconValue>" from the "FieldValue"
     And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
+#    And I set the parameter "FontSize" with value "100"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -97,7 +97,7 @@ Feature: 趋势图新建-其他
     And I click the "AccordingName" button
     And I set the parameter "IconName" with value "<fontValue>"
     And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
+#    And I set the parameter "FontSize" with value "100"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -131,7 +131,7 @@ Feature: 趋势图新建-其他
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
+#    And I set the parameter "FontSize" with value "100"
     And I click the "AddColor" button
     And I click the "Orange" button
     And I click the "Background" button
@@ -167,7 +167,7 @@ Feature: 趋势图新建-其他
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
+#    And I set the parameter "FontSize" with value "100"
     And I click the "AccordingTrend" button
     And I choose the "<timeValue>" from the "ContrastTime"
     And I click the "Generate" button

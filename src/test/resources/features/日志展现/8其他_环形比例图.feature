@@ -78,7 +78,8 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Compare" button
     And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue"
-    And I click the "Facet" button
+#    And I click the "Facet" button
+    And I click the "Group" button
     And I click the "AddField" button
     And I choose the "apache.clientip" from the "FieldValue"
     And I set the parameter "RowNum" with value "<rows>"
@@ -113,7 +114,8 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Compare" button
     And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue"
-    And I click the "Facet" button
+    #    And I click the "Facet" button
+    And I click the "Group" button
     And I click the "AddField" button
     And I choose the "apache.clientip" from the "FieldValue"
     And I set the parameter "RowNum" with value "<rows>"
@@ -166,7 +168,8 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Compare" button
     And I click the "AddField" button
     And I choose the "count2_perc" from the "FieldValue"
-    And I click the "Facet" button
+    #    And I click the "Facet" button
+    And I click the "Group" button
     And I click the "AddField" button
     And I choose the "apache.clientip" from the "FieldValue"
     And I set the parameter "RowNum" with value "2"

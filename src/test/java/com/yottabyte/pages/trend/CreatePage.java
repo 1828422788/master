@@ -645,7 +645,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(50, 194, 125);')])[last()] | (//span[contains(@style,'background-color: rgb(37, 155, 36);')])[last()]")
     private WebElement green;
 
-    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(179, 198, 92);')])[last()] | (//span[contains(@style,'background-color: rgb(176, 231, 43);')])[last()]")
+    @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(179, 198, 92);')])[last()] | (//span[contains(@style,'background-color: rgb(179, 198, 92);')])[last()]")
     private WebElement lightGreen;
 
     @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(251, 227, 16);')])[last()] | (//span[contains(@style,'background-color: rgb(255, 235, 59);')])[last()] ")
