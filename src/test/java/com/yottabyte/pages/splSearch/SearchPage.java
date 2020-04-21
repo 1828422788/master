@@ -7,6 +7,7 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -30,7 +31,14 @@ public class SearchPage extends ListPageFactory {
 
     public SearchPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().setSize(new Dimension(1200,900));
     }
+
+    @FindBy(xpath = "(//label[text()='资源标签'])[last()]/following-sibling::div")
+    private WebElement groupComboBox;
+
+    @FindBy(xpath = "(//label[text()='所属应用'])[last()]/following-sibling::div")
+    private WebElement appComboBox;
 
     @FindBy(xpath = "//div[text()='统计']")
     private WebElement countButton;
@@ -259,13 +267,16 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='趋势图']")
     private WebElement trend;
 
-    @FindBy(xpath = "//div[@class='yw-search-form-group']/label[text()='描述']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
     private WebElement describe;
 
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownList;
 
-    @FindBy(xpath = "//div[@class='custom']//div[@class='value el-input']/input")
+    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    private WebElement selectedUser;
+
+    @FindBy(xpath = "//input[@class='_11DWHviyrYqinGKO4nRa5o']")
     private WebElement period;
 
     @FindBy(className = "el-input__inner")
@@ -390,7 +401,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='分组']/following-sibling::div")
     private WebElement group;
 
-    @FindBy(xpath = "//div[@class='el-time-panel__footer']/button[text()='确定']")
+    @FindBy(xpath = "//span[text()='确 定']/ancestor::button")
     private WebElement ensureButton;
 
     @FindBy(className = "el-icon--right")
@@ -430,6 +441,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//i[@title='取消']")
     private WebElement cancle;
 
+    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
+    private WebElement cancel;
+
     @FindBy(xpath = "//i[@title='恢复']")
     private WebElement recover;
 
@@ -448,13 +462,14 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
 
-    @FindBy(className = "el-time-panel")
+    //@FindBy(className = "el-time-panel")
+    @FindBy(xpath = "(//input[@placeholder='请选择时间']/ancestor::div[2])[last()]")
     private WebElement timePanel;
 
     @FindBy(xpath = "//div[@class='el-message-box']//span[contains(text(),'确定')]")
     private WebElement sourceEnsure;
 
-    @FindBy(xpath = "//td/span")
+    @FindBy(xpath = "//td[@data-col-name]/span")
     private List<WebElement> columnList;
 
     @FindBy(className = "_2dbwZ_u3soDYQC50Ls5yOo")
@@ -520,7 +535,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='从搜索删除']")
     private WebElement removeFromSearch;
 
-    @FindBy(xpath = "//span[text()='执行一次']/preceding-sibling::div[@class='el-select unit']")
+    @FindBy(xpath = "//span[text()='执行一次']/preceding-sibling::div")
     private WebElement executeTime;
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
@@ -553,6 +568,15 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='保存为']")
     private WebElement saveAsOther;
 
+    @FindBy(xpath = "//span[text()='保存为']")
+    private WebElement saveAs;
+
+    @FindBy(xpath = "//li[text()='趋势图']")
+    private WebElement saveAsTrend;
+
+    @FindBy(xpath = "//li[text()='定时任务']")
+    private WebElement saveAsSchedule;
+
     @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
     private WebElement ensureCrontab;
 
@@ -570,6 +594,25 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
     private WebElement ensureCreateTrend;
+
+    @FindBy(xpath = "//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all']")
+    private WebElement resourceAll;
+
+
+
+    public WebElement getResourceAll() {
+        return resourceAll;
+    }
+
+    public WebElement getGroupComboBox() {
+        groupComboBox.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getAppComboBox() {
+        appComboBox.click();
+        return super.getLastDropdownList();
+    }
 
     @FindBy(tagName = "table")
     private WebElement tableList;
@@ -619,9 +662,13 @@ public class SearchPage extends ListPageFactory {
         return crontabInput;
     }
 
+    public WebElement getCrontab(){
+        return crontab;
+    }
+
     public WebElement getExecuteTime() {
         executeTime.click();
-        return lastDropdown;
+        return this.getLastDropdownList();
     }
 
     public WebElement getTag() {
@@ -783,6 +830,10 @@ public class SearchPage extends ListPageFactory {
         return cancle;
     }
 
+    public WebElement getCancel() {
+        return cancel;
+    }
+
     @FindBy(className = "status-text")
     private WebElement statusText;
 
@@ -814,8 +865,15 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input")
     private WebElement offlineTaskName;
 
+    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
+    private WebElement taskName;
+
     public WebElement getApplyButton() {
         return GetTime.getTime(webDriver, "ApplyButton");
+    }
+
+    public WebElement getApplyCustomTime() {
+        return GetTime.getTime(webDriver, "ApplyCustomTime");
     }
 
     public WebElement getOfflineTaskName() {
@@ -1041,11 +1099,21 @@ public class SearchPage extends ListPageFactory {
         return period;
     }
 
-    @FindBy(xpath = "//span[text()='开始']/preceding-sibling::div/input")
+    @FindBy(xpath = "//span[text()='开始']/preceding-sibling::span/input")
     private WebElement startTime;
 
-    @FindBy(xpath = "//span[text()='明天开始']/preceding-sibling::div/input")
+    @FindBy(xpath = "//span[text()='明天开始']/preceding-sibling::input")
     private WebElement startTomorrow;
+
+    @FindBy(xpath = "//input[@class='ant-time-picker-panel-input']")
+    private WebElement startTimeInput;
+
+    @FindBy(xpath = "(//span[@class='_2x-YdNak-IrcZb4ybbyK1X'])[last()]")
+    private WebElement whenToStart;
+
+    public WebElement getWhenToStart() {
+        return whenToStart;
+    }
 
     public WebElement getStartTomorrow() {
         return startTomorrow;
@@ -1053,6 +1121,10 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getStartTime() {
         return startTime;
+    }
+
+    public WebElement getStartTimeInput() {
+        return startTimeInput;
     }
 
     // 运行用户
@@ -1067,8 +1139,12 @@ public class SearchPage extends ListPageFactory {
         return describe;
     }
 
+    public WebElement getSelectedUser() {
+        return selectedUser;
+    }
+
     public WebElement getTaskName() {
-        return InputUtils.getInputElement("名称");
+        return taskName;
     }
 
     public WebElement getTimedTask() {
@@ -1082,6 +1158,16 @@ public class SearchPage extends ListPageFactory {
     // 保存为
     public WebElement getSaveAsOther() {
         return saveAsOther;
+    }
+
+    public WebElement getSaveAsTrend() {
+        saveAs.click();
+        return saveAsTrend;
+    }
+
+    public WebElement getSaveAsSchedule() {
+        saveAs.click();
+        return saveAsSchedule;
     }
 
     public WebElement getDaysDropDown() {
@@ -1101,12 +1187,28 @@ public class SearchPage extends ListPageFactory {
         return GetTime.getTime(webDriver, "RealTimeButton");
     }
 
-    public WebElement getThisMonth() {
-        return GetTime.getTime(webDriver, "ThisMonth");
+    @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
+    private WebElement customTimeTab;
+
+    public WebElement getCustomTimeTab() {
+        return customTimeTab;
     }
 
     public void getCustomTime() {
         GetTime.getTime(webDriver, "CustomTime");
+    }
+
+    public WebElement getStartTimeField() {
+        return GetTime.getTime(webDriver, "StartTimeInput");
+    }
+    public WebElement getEndTimeField() {
+        return GetTime.getTime(webDriver, "EndTimeInput");
+    }
+    public WebElement getStartDateField() {
+        return GetTime.getTime(webDriver, "StartDateInput");
+    }
+    public WebElement getEndDateField() {
+        return GetTime.getTime(webDriver, "EndDateInput");
     }
 
     /**
@@ -1154,6 +1256,30 @@ public class SearchPage extends ListPageFactory {
         return GetTime.getTime(webDriver, "ThisWeek");
     }
 
+    public WebElement getThisMonth() {
+        return GetTime.getTime(webDriver, "ThisMonth");
+    }
+
+    public WebElement getLastWeek() {
+        return GetTime.getTime(webDriver, "LastWeek");
+    }
+
+    public WebElement getLastMonth() {
+        return GetTime.getTime(webDriver, "LastMonth");
+    }
+
+    public WebElement getOneDay() {
+        return GetTime.getTime(webDriver, "OneDay");
+    }
+
+    public WebElement getTwoDays() {
+        return GetTime.getTime(webDriver, "TwoDays");
+    }
+
+    public WebElement getSevenDays() {
+        return GetTime.getTime(webDriver, "SevenDays");
+    }
+
     // 获取昨天按钮
     public WebElement getYesterday() {
         DateEditorPage dateEditorPage = new DateEditorPage(webDriver);
@@ -1196,6 +1322,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//button[text()='应用']")
     private WebElement apply;
+
 
     public WebElement getDateEditor() {
         return dateEditor;
@@ -1256,6 +1383,7 @@ public class SearchPage extends ListPageFactory {
     public WebElement getDownloadButton() {
         return super.getButton("下载");
     }
+
 
     public WebElement getCustomizeTimeField() {
         return CustomizeTimeField;

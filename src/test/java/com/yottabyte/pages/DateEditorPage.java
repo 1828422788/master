@@ -4,6 +4,7 @@ import com.yottabyte.stepDefs.IChooseValueFromSelectList;
 import com.yottabyte.stepDefs.SetKeyWithValue;
 import com.yottabyte.utils.ConstructPageFactoryWithName;
 import com.yottabyte.utils.WaitForElement;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -104,6 +105,9 @@ public class DateEditorPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-tabs__item'][text()='自定义时间范围']")
     private WebElement customTime;
 
+    @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
+    private WebElement customTimeTab;
+
     @FindBy(xpath = "//div[@class='el-input el-input-group el-input-group--append']/input")
     private WebElement timeInput;
 
@@ -128,7 +132,7 @@ public class DateEditorPage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='结束日期']")
     private WebElement endDateInput;
 
-    @FindBy(xpath = "//div[@class='title-btn']//span[text()='应用']")
+    @FindBy(xpath = "//button[text()='应用']")
     private WebElement applyCustomTime;
 
     @FindBy(xpath = "//span[text()='最近']/preceding-sibling::span")
@@ -142,6 +146,10 @@ public class DateEditorPage extends PageTemplate {
 
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> daysDropDown;
+
+    public WebElement getCustomTimeTab() {
+        return customTimeTab;
+    }
 
     public WebElement getRecentTenMinutes() {
         return recentTenMinutes;
@@ -192,6 +200,25 @@ public class DateEditorPage extends PageTemplate {
         return this.getDateButton(recentlyRadioButton);
     }
 
+    public WebElement getStartTimeInput(){
+        return startTimeInput;
+    }
+
+    public WebElement getStartDateInput(){
+        return startDateInput;
+    }
+
+    public WebElement getEndTimeInput(){
+        return endTimeInput;
+    }
+
+    public WebElement getEndDateInput(){
+        return endDateInput;
+    }
+
+    public WebElement getApplyCustomTime(){
+        return applyCustomTime;
+    }
     public void getCustomTime(String startTime, String endTime, String startDate, String endDate) {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(customTime));
         customTime.click();
@@ -210,6 +237,17 @@ public class DateEditorPage extends PageTemplate {
         setValue.iSetTheParameterWithValue(endTimeInput, "00:00:00");
         setValue.iSetTheParameterWithValue(startDateInput, "2016-08-01");
         setValue.iSetTheParameterWithValue(endDateInput, "2019-08-03");
+        applyCustomTime.click();
+    }
+
+    public void getCustomTimeTest() {
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(customTime));
+        customTime.click();
+        SetKeyWithValue setValue = new SetKeyWithValue();
+        setValue.iSetTheParameterWithValue(startTimeInput, "00:00:00.000");
+        setValue.iSetTheParameterWithValue(endTimeInput, "00:00:00.000");
+        setValue.iSetTheParameterWithValue(startDateInput, "2020-04-01");
+        setValue.iSetTheParameterWithValue(endDateInput, "2020-04-03");
         applyCustomTime.click();
     }
 

@@ -16,14 +16,34 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='描述']/following-sibling::div//input")
     private WebElement describe;
 
-    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='搜索条数']/following-sibling::div//input")
+    private WebElement number;
+
+    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div/div/input")
     private WebElement user;
 
-    @FindBy(xpath = "//label[text()='日志来源']/following-sibling::div//input")
+    @FindBy(xpath = "//div[@class='el-select-dropdown__wrap el-scrollbar__wrap']//li[@class = 'el-select-dropdown__item selected hover']/span")
+    private WebElement userChosen;
+
+    //@FindBy(xpath = "//label[text()='日志来源']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='数据集']/following-sibling::span")
     private WebElement resource;
 
-    @FindBy(xpath = "//label[text()='任务分组']/following-sibling::div//input")
+    //@FindBy(xpath = "//label[text()='任务分组']/following-sibling::div//input")
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]")
     private WebElement taskGroup;
+
+    @FindBy(xpath = "(//label[text()='所属应用'][last()])/following-sibling::div[1]")
+    private WebElement taskApp;
+
+    @FindBy(xpath = "//li[@class='el-select-dropdown__item']/ancestor::ul")
+    private WebElement appDropdownList;
+
+    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div/div/span/span/span")
+    private WebElement taskGroupSelected;
+
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div/span/span/span")
+    private WebElement taskAppSelected;
 
     @FindBy(xpath = "//div[@class='custom']//input[@placeholder='请输入']")
     private WebElement period;
@@ -34,7 +54,7 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownLists;
 
-    @FindBy(className = "el-button--primary")
+    @FindBy(xpath = "//span[text()='保存']/ancestor::button")
     private WebElement saveButton;
 
     @FindBy(className = "el-message-box__message")
@@ -85,7 +105,7 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "column-value")
     private List<WebElement> dataMappings;
 
-    @FindBy(xpath = "//button[@class='el-time-panel__btn confirm']")
+    @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
     private WebElement ensureButton;
 
     @FindBy(xpath = "//span[text()='crontab']")
@@ -100,12 +120,27 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "unit")
     private WebElement unit;
 
+    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
+    private WebElement selectedUser;
+
+    public WebElement getSelectedUser() {
+        return selectedUser;
+    }
+
     public WebElement getUnit() {
         unit.click();
         return getLastDropdownList();
     }
 
+    public WebElement getUserChosen() {
+        return userChosen;
+    }
+
     public WebElement getTextarea() {
+        return textarea;
+    }
+
+    public WebElement getSearchTextarea() {
         return textarea;
     }
 
@@ -199,20 +234,36 @@ public class EditPage extends PageTemplate {
         return describe;
     }
 
+    public WebElement getNumber() {
+        return number;
+    }
+
     public WebElement getUser() {
         user.click();
         return dropdownLists.get(dropdownLists.size() - 1);
     }
 
     public WebElement getResource() {
-
-        resource.click();
-        return dropdownLists.get(dropdownLists.size() - 1);
+        return resource;
     }
+
 
     public WebElement getTaskGroup() {
         taskGroup.click();
-        return dropdownLists.get(dropdownLists.size() - 1);
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getTaskApp() {
+        taskApp.click();
+        return appDropdownList;
+    }
+
+    public WebElement getTaskGroupSelected() {
+        return taskGroupSelected;
+    }
+
+    public WebElement getTaskAppSelected() {
+        return taskAppSelected;
     }
 
     public WebElement getPeriod() {
