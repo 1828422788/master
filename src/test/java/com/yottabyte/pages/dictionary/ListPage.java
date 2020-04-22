@@ -6,9 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/**
- * @author sunxj
- */
+
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
@@ -16,6 +14,9 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(className = "ant-upload-list-item-name")
     private WebElement fileName;
+
+    @FindBy(xpath = "//span[text()='.csv']/preceding-sibling::input[@placeholder='请输入名称']")
+    private WebElement name;
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement successMessage;
@@ -82,6 +83,10 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[@class='ant-spin-container']/table/tbody/tr[1]/td[3]")
     private WebElement deadLine;
+
+    public WebElement getName() {
+        return name;
+    }
 
     public WebElement getEnsureDelete() {
         return ensureDelete;
