@@ -1,341 +1,401 @@
-Feature: 日志展现普通统计视图
+@all @logDisplay @logDisplayGeneral
+Feature: 日志展现_普通统计视图
+#34 (24)
 
+  # tag:sample04061424_display should be uploaded for Yesterday
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  Scenario Outline: 事件计数统计sample（RZY-807至810）
+  Scenario Outline: count(RZY-807,808,809,810)
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
+    And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
     And I choose the "<chart>" from the "PresentType"
     And I choose the "<value1>" from the "FieldValue"
     And I click the "AddButton" button
     And I choose the "<value2>" from the "FieldValue"
     And I click the "AddButton" button
-    And I wait for loading invisible
-    Then take part of "Chart" with name "event/<caseNum>"
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
-  @first @logDisplay
     Examples:
-      | chart | value1  | value2          | caseNum |
-      | 曲线图   | logtype | apache.clientip | 807     |
+      | chart   | value1                | value2               | caseNum            |
+      | 曲线图   | logtype               | apache.clientip      | 807_事件计数_曲线图 |
+      | 面积图   | apache.geo.city       | tag                  | 808_事件计数_面积图 |
+      | 散点图   | apache.x_forward      | apache.geo.latitude  | 810_事件计数_散点图 |
+      | 柱状图   | apache.referer_domain | apache.resp_len      | 809_事件计数_柱状图 |
 
-  @logDisplay
-    Examples:
-      | chart | value1                | value2              | caseNum |
-      | 面积图   | apache.geo.city       | tag                 | 808     |
-      | 散点图   | apache.referer_domain | apache.resp_len     | 809     |
-      | 柱状图   | apache.x_forward      | apache.geo.latitude | 810     |
 
-  @logDisplay
-  Scenario Outline: 时间分段（RZY-812、813、2721、2722、2723、2724）
+  Scenario Outline: count_independent(RZY-2718)
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I wait for "1000" millsecond
+    And I will see the "splSearch.StatisticalPage" page
+    And I choose the "<chart>" from the "PresentType"
+    And I choose the "<value1>" from the "FieldValue"
+    And I click the "AddButton" button
+    And I choose the "<value2>" from the "FieldValue"
+    And I click the "IndependentStats" button
+    And I click the "AddButton" button
+    And I wait for "1000" millsecond
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
+
+    Examples:
+      | chart   | value1                | value2           |     caseNum            |
+      | 曲线图   | apache.clientip       | appname          | 2718_事件计数_独立数统计 |
+
+
+  Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
+    #When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "ThisMonth" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "TimeSlice" button
+    And I wait for "1000" millsecond
     Then I choose the "<fieldValue>" from the "FieldValue"
     Then I choose the "<statisticType>" from the "StatisticType"
-    And I set the parameter "StartTime" with value "<startTime>"
-    Then I click the "EnsureButton" button
-    And I set the parameter "EndTime" with value "<endTime>"
-    And I click the "EnsureButton" button
+    # Set Time Parameters
+    And I click the "StartDate" button
+    And I set the parameter "DateInput" with value "2020-04-20"
+    And I hide the element "DatePanel"
+    And I click the "StartTime" button
+    And I set the parameter "TimeInput" with value "<startTime>"
+    And I hide the element "TimePanel"
+    And I click the "EndDate" button
+    And I set the parameter "DateInput" with value "2020-04-20"
+    And I hide the element "DatePanel"
+    And I click the "EndTime" button
+    And I set the parameter "TimeInput" with value "<endTime>"
+    And I hide the element "TimePanel"
     And I click the "GenerateTime" button under some element
-    And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
-    Then take part of "Chart" with name "event/<caseNum>"
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
     Examples:
-      | fieldValue           | statisticType | startTime           | endTime             | caseNum |
-      | apache.request_query |               | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 812     |
-      | apache.request_query | 独立数           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 813     |
-      | apache.resp_len      | 总计            | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2721    |
-      | apache.resp_len      | 平均值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2722    |
-      | apache.resp_len      | 最大值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2723    |
-      | apache.resp_len      | 最小值           | 2019-02-01 00:00:00 | 2019-02-01 23:59:59 | 2724    |
+      | fieldValue               | statisticType | startDate   |    startTime  |endDate       | endTime | caseNum            |
+      | apache.resp_len          |计数            | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 812_时间分段_计数  |
+      | apache.resp_len          |独立数          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 813_时间分段_独立数 |
+      | apache.resp_len          |总计            | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2721_时间分段_总计  |
+      | apache.resp_len          |平均值          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2722_时间分段_平均值 |
+      | apache.resp_len          |最大值          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2723_时间分段_最大值 |
+      | apache.resp_len          |最小值          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2724_时间分段_最小值 |
 
-  @logDisplay
-  Scenario: 数值分段（RZY-814）
-    When I set the parameter "SearchInput" with value "tag:sample04061424*"
+
+  Scenario Outline: dataslice(RZY-814,3137)
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "DataSlice" button
-    When I choose the "apache.resp_len" from the "FieldValue"
-    And I set the parameter "StartDataValue" with value "1"
-    And I set the parameter "EndDataValue" with value "100"
+    And I wait for "1000" millsecond
+    When I choose the "<fieldValue>" from the "FieldValue"
+    And I set the parameter "StartDataValue" with value "<start1>"
+    And I set the parameter "EndDataValue" with value "<end1>"
     And I click the "AddNum" button
-    And I set the parameter "StartDataValue" with value "100"
-    And I set the parameter "EndDataValue" with value "500"
+    And I set the parameter "StartDataValue" with value "<start2>"
+    And I set the parameter "EndDataValue" with value "<end2>"
     And I click the "AddNum" button
-    And I set the parameter "StartDataValue" with value "500"
-    And I set the parameter "EndDataValue" with value "1000"
+    And I set the parameter "StartDataValue" with value "<start3>"
+    And I set the parameter "EndDataValue" with value "<end3>"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
-    Then take part of "Chart" with name "event/814"
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
-  @logDisplay
-  Scenario Outline: 时间直方图（RZY-815）
-    When I set the parameter "SearchInput" with value "tag:sample04061424*"
+    Examples:
+      | fieldValue           | start1 | end1   | start2  |end2    | start3 | end3 | caseNum          |
+      | apache.resp_len      |1       | 100    | 100     | 500    |500     | 10000| 814_数值分段_整数  |
+      | apache.geo.latitude  |0       | 22.5   | 22.5    | 32.05  |32.05   | 39.90| 3137_数值分段_实数 |
+
+
+  Scenario Outline: timehistogram(RZY-815,2725)
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "<period>" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "TimeHistogram" button
-    Then I set the parameter "TimeSpan" with value "<timeSpan>"
+    And I wait for "1000" millsecond
+    When I set the parameter "TimeSpan" with value "<timeSpan>"
     And I choose the "<time>" from the "Time"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
-    Then take part of "Chart" with name "event/<screenName>"
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
     Examples:
-      | timeSpan | time | screenName |
-      | 1        |      | 8151h      |
-      | 3600     | 秒    | 8153600s   |
-      | 60       | 分钟   | 81560m     |
-      | 1        | 天    | 27251d     |
-      | 1        | 周    | 27251w     |
+      | period    | timeSpan | time   | caseNum              |
+      | Yesterday | 1        |        | 815_时间直方图/815_1h     |
+      | Yesterday | 3600     | 秒     | 815_时间直方图/815_3600s  |
+      | Yesterday | 60       | 分钟    | 815_时间直方图/815_60m    |
+      | ThisMonth | 7        | 天     | 2725_时间直方图/2725_7d    |
+      | ThisMonth | 1        | 周     | 2725_时间直方图/2725_1w    |
 
-  @logDisplay
-  Scenario Outline: 生成数值直方图（RZY-816）
-    When I set the parameter "SearchInput" with value "tag:sample04061424*"
+
+  Scenario Outline: datehistogram(RZY-816)
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "DataHistogram" button
+    And I wait for "1000" millsecond
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "DataSpan" with value "<number>"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    Then take part of "Chart" with name "event/816"
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/816_数值直方图/<caseNum>"
+    Then I compare source image "expect/普通统计视图/816_数值直方图/<caseNum>" with target image "actual/普通统计视图/816_数值直方图/<caseNum>"
 
     Examples:
-      | fieldValue    | number |
-      | json.duration | 200    |
+      | fieldValue      | number  | caseNum |
+      | apache.resp_len | 500     | 816_500    |
+      | apache.resp_len | 1000    | 816_1000   |
 
-  @first @logDisplay
-  Scenario: RZY-819:[字段] [百分比]_sample
+# can not compare, because of same values
+  Scenario Outline: classifyfieldvalue(RZY-817)
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    And I click the "CountButton" button
-    And I will see the "splSearch.StatisticalPage" page
-    And I click the "TotalPercent" button
-    And I choose the "apache.resp_len" from the "FieldValue"
-    And I click the "ClosePercent" button
-    And I click the "AddPercent" button
-    And I set the parameter "PercentInput" with value "80"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    Then take part of "Chart" with name "event/819"
-
-  @third @logDisplay
-  Scenario: RZY-817:[展现方式]_字段值分类_sample
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "ClassifyFieldValue" button
-    And I choose the "apache.clientip" from the "FieldValue"
+    And I wait for "1000" millsecond
+    And I choose the "<fieldValue>" from the "FieldValue"
+    And I choose the "<charttype>" from the "PresentType"
+    And I choose the "<value1>" from the "TopElement"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    And take part of "Chart" with name "event/817top5"
-    And I choose the "10" from the "TopElement"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    And take part of "Chart" with name "event/817top10"
-    And I choose the "20" from the "TopElement"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    And take part of "Chart" with name "event/817top20"
-    And I choose the "50" from the "TopElement"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    And take part of "Chart" with name "event/817top50"
-    And I choose the "条形图" from the "PresentType"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    And take part of "Chart" with name "event/817条top50"
-    And I choose the "20" from the "TopElement"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    And take part of "Chart" with name "event/817条top20"
-    And I choose the "10" from the "TopElement"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    And take part of "Chart" with name "event/817条top10"
-    And I choose the "5" from the "TopElement"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    Then take part of "Chart" with name "event/817条top5"
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
+#    Then I compare source image "expect/普通统计视图/817_字段值分类/<screenName>_<value1>" with target image "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
 
-  @third @logDisplay
-  Scenario: RZY-818:展现方式_字段数值_sample
+    When I choose the "<value2>" from the "TopElement"
+    And I click the "Generate" button
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value2>"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value2>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value2>.png"
+
+    When I choose the "<value3>" from the "TopElement"
+    And I click the "Generate" button
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value3>"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value3>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value3>.png"
+
+    When I choose the "<value4>" from the "TopElement"
+    And I click the "Generate" button
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value4>"
+#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value4>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value4>.png"
+
+    Examples:
+      | fieldValue       |  charttype  | value1 | value2 | value3 | value4 | screenName |
+      | apache.clientip  |    饼图      |  5    |   10   |  20    |   50   | 817_饼图    |
+      | apache.clientip  |    条形图    |  5    |   10   |  20    |   50   | 817_条形图    |
+
+
+  Scenario Outline: fieldnumber(RZY-2727)
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "<period>" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "FieldNumber" button
-    And I choose the "apache.status" from the "YAxis"
-    And I choose the "apache.clientip" from the "GroupField"
-    And I set the parameter "TimeBucket" with value "1"
+    And I wait for "1000" millsecond
+    And I choose the "<yFieldValue>" from the "YAxis"
+    And I choose the "<groupBy>" from the "GroupField"
+    Then I choose the "<statType>" from the "StatisticType"
+    And I choose the "<chart>" from the "PresentType"
+    When I set the parameter "TimeSpan" with value "<timeSpan>"
+    And I choose the "<time>" from the "Time"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    Then take part of "Chart" with name "event/818"
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+    Then I compare source image "expect/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
 
-  @third @logDisplay
-  Scenario: RZY-825:地理分布_sample
+    Examples:
+      |period     | yFieldValue       |  groupBy         | statType  | chart   | timeSpan| time |
+      |Yesterday  |apache.resp_len    |  apache.clientip |  总计     |  曲线图   |   1     | 小时  |
+      |Yesterday  |apache.resp_len    |  apache.clientip |  平均值   |  面积图   |   60    |  分钟 |
+      |Yesterday  |apache.resp_len    |  apache.clientip |  最大值   |  散点图   |   60    |  分钟 |
+      |Yesterday  |apache.resp_len    |  apache.clientip |  最小值   |  柱状图   |  3600   |  秒   |
+      |ThisMonth  |apache.status      |  apache.clientip |  总计     |  曲线图   |   7     | 天   |
+      |ThisMonth  |apache.status      |  apache.clientip |  平均值   |  面积图   |   1     |  周  |
+
+
+  Scenario Outline: totalpercent(RZY-819,2730)
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
-    And I click the "GeographicalDistribution" button
-    And I choose the "apache.geo.country" from the "FieldValue"
+    And I click the "TotalPercent" button
+    And I wait for "1000" millsecond
+    And I choose the "<fieldValue>" from the "FieldValue"
+    And I click the "ClosePercent<percent2>" button
+    And I click the "AddPercent" button
+    And I set the parameter "PercentInput" with value "<percent1>"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    Then take part of "Chart" with name "event/825"
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<screenName>"
+    Then I compare source image "expect/普通统计视图/<screenName>" with target image "actual/普通统计视图/<screenName>"
 
-  @second @logDisplay
-  Scenario: RZY-3137:统计_数值分段_实数
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    And I click the "CountButton" button
-    And I will see the "splSearch.StatisticalPage" page
-    And I click the "DataSlice" button
-    And I choose the "apache.geo.latitude" from the "FieldValue"
-    And I set the parameter "StartDataValue" with value "0"
-    And I set the parameter "EndDataValue" with value "22.5"
-    And I click the "AddNum" button
-    And I set the parameter "StartDataValue" with value "22.5"
-    And I set the parameter "EndDataValue" with value "32.05"
-    And I click the "AddNum" button
-    And I set the parameter "StartDataValue" with value "32.05"
-    And I set the parameter "EndDataValue" with value "39.9"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    Then take part of "Chart" with name "event/3137"
+    Examples:
+      |    fieldValue     |  percent1  |   percent2   |  screenName            |
+      |   apache.resp_len |    80      |      75      |  819_累计百分比_80_75   |
+      |   apache.resp_len |   30.30    |      25      |  2730_累计百分比_实数     |
 
-  @second @logDisplay
-  Scenario: RZY-3136:字段_等级数值_实数
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
+
+  Scenario Outline: percentdegree(RZY-821, 3136)
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "PercentDegree" button
-    And I choose the "apache.resp_len" from the "FieldValue"
-    And I set the parameter "GoalValue" with value "1262.5"
+    And I wait for "1000" millsecond
+    And I choose the "<fieldValue>" from the "FieldValue"
+    And I set the parameter "GoalValue" with value "<value1>"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I wait for "500" millsecond
-    Then take part of "ChartContainer" with name "event/3136"
+    And I drag the scroll bar to the element "ChartPercent"
+    And I wait for "2000" millsecond
+    And take part of "ChartPercent" with name "actual/普通统计视图/<screenName>"
+    Then I compare source image "expect/普通统计视图/<screenName>" with target image "actual/普通统计视图/<screenName>"
 
-  @third @logDisplay
-  Scenario: RZY-822:[字段] [TOP] [统计图]_sample
+    Examples:
+      |    fieldValue     |  value1     | screenName               |
+      |   apache.resp_len |     100     |  821_百分位等级_100        |
+      |   apache.resp_len |  1262.50    |  3136_百分位等级_1262-50   |
+
+
+  Scenario Outline: multilevelstats(RZY-822)
+    # types of chart
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
     And I click the "MultilevelStatistics" button
-    And I choose the "apache.status" from the "FieldValue"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I click the "Field" button
-    And I click the "NextStep" button
-    And I choose the "apache.clientip" from the "FieldValue"
+    And I wait for "1000" millsecond
+    And I choose the "<fieldValue1>" from the "FieldValue"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
     And I click the "StatisticsGram" button
-    And I set the parameter "TimeInput" with value "1"
-    And I choose the "小时" from the "TimeBucketDropdownButton"
+    And I choose the "<chartType>" from the "PresentType"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
     And I drag the scroll bar to the element "Chart"
-    And I wait for "500" millsecond
-    Then take part of "Chart" with name "event/822step1"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1"
+    Then I compare source image "expect/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1" with target image "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1"
 
-  @third @logDisplay
-  Scenario: RZY-822:[字段] [TOP] [统计图]_sample step2
+    # Click checkbox with 200
+    When I click the "Field" button
+    And I click the "NextStep" button
+    And I choose the "<fieldValue2>" from the "FieldValue"
+    And I choose the "计数" from the "StatisticType"
+    And I click the "Generate1" button
+    And I wait for "Loading" will be invisible
+    And I click the "StatisticsGram" button
+    And I click the "Generate" button
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2"
+    Then I compare source image "expect/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2" with target image "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2"
+
+    # Select the whole table
+    When I click the "WholeField" button
+    And I click the "NextStep" button
+    And I choose the "<fieldValue3>" from the "FieldValue"
+    And I choose the "计数" from the "StatisticType"
+    And I click the "Generate1" button
+    And I wait for "Loading" will be invisible
+    And I click the "StatisticsGram" button
+    And I click the "Generate" button
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3"
+    Then I compare source image "expect/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3" with target image "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3"
+
+    Examples:
+      |  fieldValue1   | chartType |  fieldValue2   | chartType2 |    fieldValue3   | chartType3 | screenName |
+      | apache.status  |    饼图    |apache.clientip |    曲线图   |  apache.resp_len |    饼图    |  822       |
+
+
+  Scenario:geogrdistr(RZY-825)
     When I set the parameter "SearchInput" with value "tag:sample04061424_display"
     And I click the "DateEditor" button
-    And I click the "Today" button
+    And I click the "Yesterday" button
     And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
-    And I click the "MultilevelStatistics" button
-    And I choose the "apache.status" from the "FieldValue"
+    And I click the "GeographicalDistribution" button
+    And I wait for "1000" millsecond
+    And I choose the "apache.geo.country" from the "FieldValue"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I click the "Field" button
-    And I click the "NextStep" button
-    And I choose the "apache.clientip" from the "FieldValue"
-    And I click the "Generate" button
-    And I click the "WholeField" button
-    And I click the "NextStep" button
-    And I choose the "apache.resp_len" from the "FieldValue"
-    And I click the "Generate" button
-    And I click the "StatisticsGram" button
-    And I set the parameter "TimeInput" with value "1"
-    And I choose the "小时" from the "TimeBucketDropdownButton"
-    And I click the "Generate" button
-    And I wait for "Loading" will be invisible
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "500" millsecond
-    Then take part of "Chart" with name "event/822step2"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_world"
+    Then I compare source image "expect/普通统计视图/825_地理分布/825_world" with target image "actual/普通统计视图/825_地理分布/825_world"
 
-  Scenario: RZY-831:特殊的可视化效果
-    When I set the parameter "SearchInput" with value "* | stats sparkline(sum(raw_message_length),30m), count(apache.clientip) as ip_count by appname | sort by ip_count | limit 5"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait element "SearchStatus" change text to "搜索完成!"
-    And I will see the "splSearch.StatisticalPage" page
-    Then take part of "TableChart" with name "event/831"
+    When I click the "CountryChina" button
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_china"
+    Then I compare source image "expect/普通统计视图/825_地理分布/825_china" with target image "actual/普通统计视图/825_地理分布/825_china"
+
+    When I click the "ProvinceSichuan" button
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_sichuan"
+    Then I compare source image "expect/普通统计视图/825_地理分布/825_sichuan" with target image "actual/普通统计视图/825_地理分布/825_sichuan"
+
+
+
+
+

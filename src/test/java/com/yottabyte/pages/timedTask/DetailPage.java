@@ -13,6 +13,21 @@ public class DetailPage extends PageTemplate {
         super(driver);
     }
 
+    @FindBy(xpath = "//div[text()='搜索内容:']/following-sibling::div")
+    private WebElement searchContent;
+
+    @FindBy(xpath = "//div[text()='时间范围:']/following-sibling::div")
+    private WebElement timePeriod;
+
+    @FindBy(xpath = "//div[text()='任务描述:']/following-sibling::div")
+    private WebElement description;
+
+    @FindBy(xpath = "//div[text()='开始时间:']/following-sibling::div")
+    private WebElement startTime;
+
+    @FindBy(xpath = "//div[text()='执行计划:']/following-sibling::div")
+    private WebElement executionPeriod;
+
     @FindBy(className = "el-button--text")
     private List<WebElement> show;
 
@@ -27,6 +42,26 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "yw-content")
     private WebElement content;
+
+    public WebElement getTimePeriod(){
+        return timePeriod;
+    }
+
+    public WebElement getSearchContent() {
+        return searchContent;
+    }
+
+    public WebElement getDescription() {
+        return description;
+    }
+
+    public WebElement getStartTime() {
+        return startTime;
+    }
+
+    public WebElement getExecutionPeriod() {
+        return executionPeriod;
+    }
 
     public WebElement getContent() {
         return content;

@@ -78,7 +78,17 @@ public class ClickButtonWithGivenName {
      */
     @When("^the column is \"([^\"]*)\" then i click the \"([^\"]*)\" button in agent page$")
     public void clickButtonInAgentPage(String columnNum, String buttonName) {
-        WebElement tr = listPageUtils.getTrWithoutPaging(this.getAgentIp(columnNum));
+        String json = this.getAgentIp(columnNum);
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        Map<String, Object> map = JsonStringPaser.json2Stirng(json);
+        int num = 0;
+        for (WebElement tr : table.findElements(By.xpath("./tr"))) {
+            num++;
+            if (tr.getText().contains(map.get("name").toString())) {
+                break;
+            }
+        }
+        WebElement tr = webDriver.findElement(By.xpath("((//tbody)[3]/tr)[" + num + "]"));
         this.click(buttonName, tr);
     }
 
@@ -100,7 +110,7 @@ public class ClickButtonWithGivenName {
     @Given("^the data name \"([^\"]*)\" in table \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String tableName, String buttonName) {
         WebElement table = GetElementFromPage.getWebElementWithName(tableName);
-        WebElement tr = listPageUtils.findName(dataName, table);
+        WebElement tr = listPageUtils.getRowWithoutPaging(dataName, table);
         this.click(buttonName, tr);
     }
 
@@ -147,25 +157,19 @@ public class ClickButtonWithGivenName {
 
         if (!JsonStringPaser.isJson(name)) {
             tr = listPageUtils.findName(name);
-            if (pagingInfo.checkUrl()) {
-                xpath = ".//span[contains(text(),'" + name + "')]";
-            } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
-                xpath = "(.//span[contains(text(),'" + name + "')])[2]";
-            } else {
-                xpath = ".//a";
-            }
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(name);
-            String text = map.get("name").toString();
+            name = map.get("name").toString();
             int columnNum = Integer.parseInt(map.get("column").toString());
-            tr = listPageUtils.getRowWithColumnNum(text, columnNum);
-            if (pagingInfo.checkUrl()) {
-                xpath = ".//span[contains(text(),'" + text + "')]";
-            } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
-                xpath = "(.//span[contains(text(),'" + text + "')])[2]";
-            } else {
-                xpath = ".//a";
-            }
+            tr = listPageUtils.getRowWithColumnNum(name, columnNum);
+        }
+
+        if (pagingInfo.checkUrl()) {
+            xpath = ".//span[contains(text(),'" + name + "')]";
+        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
+            xpath = "(.//span[contains(text(),'" + name + "')])[2]";
+        } else {
+            xpath = ".//a";
         }
         tr.findElement(By.xpath(xpath)).click();
     }
@@ -178,7 +182,11 @@ public class ClickButtonWithGivenName {
     @Given("^I click the detail which column is \"([^\"]*)\" in agent page$")
     public void clickDetailNameInAgentPage(String columnNum) {
         String json = this.getAgentIp(columnNum);
-        this.clickName(json);
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        Map<String, Object> map = JsonStringPaser.json2Stirng(json);
+        WebElement tr = listPageUtils.getRowWithoutPaging(map.get("name").toString(), table);
+        int num = Integer.parseInt(columnNum) + 1;
+        tr.findElement(By.xpath("(./td)[" + num + "]")).click();
     }
 
 
@@ -318,7 +326,7 @@ public class ClickButtonWithGivenName {
     @Given("^the data name \"([^\"]*)\" in agent table \"([^\"]*)\" then i click the \"([^\"]*)\" switch")
     public void operateAgentSwitch(String dataName, String tableName, String status) {
         WebElement table = GetElementFromPage.getWebElementWithName(tableName);
-        WebElement tr = listPageUtils.findName(dataName, table);
+        WebElement tr = listPageUtils.getRowWithoutPaging(dataName, table);
         WebElement label = tr.findElement(By.xpath(".//button"));
         String labelAttribute = label.getAttribute("aria-checked");
         if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
