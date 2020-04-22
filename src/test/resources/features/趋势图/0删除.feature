@@ -70,6 +70,9 @@ Feature: 趋势图删除（RZY-1891）
     @cleanTrendMap
     Examples:
       | name                                     |
+      | Regionmap_Jiangsu_2547_white             |
+      | Regionmap_China_2546_white               |
+      | Regionmap_2545_white                     |
       | Statisticalmap_2098_param                |
       | Statisticalmap_2098                      |
       | Statisticalmap_2797_param                |
