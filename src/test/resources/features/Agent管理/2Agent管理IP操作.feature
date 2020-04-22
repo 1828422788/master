@@ -7,9 +7,10 @@ Feature: Agent管理ip操作
     And I close all tabs except main tab
 
   Scenario Outline: 修改备注成功
-    Then the column is "1" then i click the "修改备注" button in agent page
+    Then the column is "1" then i click the "更多" button in agent page
+    And I click the "MemoButton" button
     And I set the parameter "Memo" with value "<memory>"
-    And I click the "EnsureButton" button
+    And I click the "Ensure" button
     And  I wait for loading invisible
     Then I will see the search result contains "{'column':'3','name':'<memory>'}"
 
