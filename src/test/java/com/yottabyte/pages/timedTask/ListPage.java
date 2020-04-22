@@ -38,6 +38,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-button--primary")
     private List<WebElement> ensureButton;
 
+    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
+    private WebElement ensure;
+
     // 表体
     @FindBy(className = "el-table__body")
     private WebElement tableBody;
@@ -71,6 +74,19 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]")
     private WebElement groupDropdownList;
+
+    @FindBy(xpath = "//span[text()='定时任务']/ancestor::div/div/span/input | //span[text()='schedule']/ancestor::div/div/span/input")
+    private WebElement searchInput;
+
+    @FindBy(xpath= "//div[@class='ant-modal-content']")
+    private WebElement tagPanel;
+
+    @FindBy(xpath = "(//div[text()='标签'])[last()]/following-sibling::div[1]")
+    private WebElement tagField;
+
+    public WebElement getSearchInput(){
+        return searchInput;
+    }
 
     public WebElement getGroupDropdown() {
         return groupDropdown;
@@ -125,10 +141,21 @@ public class ListPage extends ListPageFactory {
         return ensureButton.get(0);
     }
 
-    public WebElement getEnsureDelete() {
-        return ensureButton.get(1);
+    public WebElement getTagPanel() {
+        return tagPanel;
     }
 
+    public WebElement getTagField() {
+        tagField.click();
+        return this.getLastDropdownList();
+    }
+
+//    public WebElement getEnsureDelete() {
+//        return ensureButton.get(1);
+//    }
+    public WebElement getEnsure() {
+        return ensure;
+    }
 //    public WebElement getGroup() {
 //        return super.getDropdownList("分组");
 //    }

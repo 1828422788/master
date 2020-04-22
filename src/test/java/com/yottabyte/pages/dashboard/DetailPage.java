@@ -368,8 +368,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'预览')]/following-sibling::div")
     private WebElement preview;
 
-    @FindBy(xpath = "//span[contains(text(),'仪表盘return')]/ancestor::div[@class='widget-control-panel']/following-sibling::div//*[@class='yw-table-head' or @class='table-body-td']")
-    private List<WebElement> returnList;
+    @FindBy(xpath = "//th[text()='EPORT_ID']/ancestor::table")
+    private WebElement returnList;
 
     @FindBy(xpath = "//span[contains(text(),'仪表盘workflow')]/ancestor::div[@class='widget-control-panel']/following-sibling::div//*[@class='yw-table-head' or @class='table-body-td']")
     private List<WebElement> workflowList;
@@ -594,6 +594,7 @@ public class DetailPage extends PageTemplate {
     public WebElement getShowFilter() {
         return getSwitchButton("显示过滤项");
     }
+
     //添加趋势图的确定按钮
     @FindBy(xpath = "//div[@class='Yt5JX-42Xe_Kz4p92ocJI']/button")
     private WebElement ensureAddTrend;
@@ -659,7 +660,7 @@ public class DetailPage extends PageTemplate {
         return workflowList;
     }
 
-    public List<WebElement> getReturnList() {
+    public WebElement getReturnList() {
         return returnList;
     }
 

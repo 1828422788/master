@@ -39,9 +39,9 @@ public class ListPageUtils {
         return this.getRowWithoutTotalPage(name);
     }
 
-    public WebElement findName(String name, WebElement table) {
-        return this.getRowWithoutPaging(name, table);
-    }
+//    public WebElement findName(String name, WebElement table) {
+//        return this.getRowWithoutPaging(name, table);
+//    }
 
     public WebElement getTr(String dataName) {
         WebElement tr;
