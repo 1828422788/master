@@ -15,9 +15,9 @@ Feature: 数据大屏-边框
       #选择边框
     And I click the "frame" button
     And I hide the element "otherDropdown"
-
       #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -68,6 +68,7 @@ Feature: 数据大屏-边框
     And I set the parameter "globalStyleName" with value "边框样式2"
       #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -108,6 +109,7 @@ Feature: 数据大屏-边框
     And I choose the "样式3" from the "styleFrameSelect"
       #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

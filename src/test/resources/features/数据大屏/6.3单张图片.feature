@@ -51,12 +51,11 @@ Feature: 数据大屏-单张图片
       | 单张图片|
 
 
-  Scenario Outline: 删除全屏和单张图片大屏
+  Scenario Outline: 删除单张图片大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
       |name|
-      | 全屏|
       | 单张图片|

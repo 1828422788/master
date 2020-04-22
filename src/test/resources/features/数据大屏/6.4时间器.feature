@@ -2,8 +2,7 @@
 Feature: 数据大屏-时间器
 
   Scenario: 时间器默认设置
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
+
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -21,8 +20,7 @@ Feature: 数据大屏-时间器
 
 
   Scenario Outline: 时间器默认设置默认设置发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
+
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -37,8 +35,7 @@ Feature: 数据大屏-时间器
 ######################################无耻的分割线################################
 
   Scenario: 时间器样式
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
+
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -82,8 +79,7 @@ Feature: 数据大屏-时间器
 
 
   Scenario Outline: 时间器样式发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
+
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -98,8 +94,7 @@ Feature: 数据大屏-时间器
 ######################################无耻的分割线################################
 
   Scenario: 时间器样式2
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
+
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -134,8 +129,7 @@ Feature: 数据大屏-时间器
 
 
   Scenario Outline: 时间器样式2发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
+
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -150,8 +144,7 @@ Feature: 数据大屏-时间器
     ######################################无耻的分割线################################
 
   Scenario: 时间器样式3
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
+
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -187,8 +180,7 @@ Feature: 数据大屏-时间器
 
 
   Scenario Outline: 时间器样式3发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
+
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
