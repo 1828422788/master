@@ -14,11 +14,17 @@ public class DetailPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "node-name")
+    @FindBy(xpath = "//span[@class='ant-tree-title']//span")
     private WebElement menuName;
 
+    @FindBy(id = "register_name")
+    private WebElement name;
+
+    @FindBy(className = "ant-select-selection-selected-value")
+    private WebElement defaultPage;
+
     public WebElement getName() {
-        return getSpanElement("名称");
+        return name;
     }
 
     public WebElement getDescribe() {
@@ -26,7 +32,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getDefaultPage() {
-        return getSpanElement("默认首页");
+        return defaultPage;
     }
 
     public WebElement getResourceRange() {

@@ -16,7 +16,7 @@ public class InstallPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "verify-text")
+    @FindBy(xpath = "//div[text()='上传完成']")
     private WebElement verifyText;
 
     @FindBy(xpath = "//span[text()='分组预览']/ancestor::div[@class='yw-one-step active']")
@@ -37,23 +37,36 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'AutoTestSourceForApp')]")
     private WebElement editText;
 
-    @FindBy(xpath = "//i[@class='el-icon-circle-check']/following-sibling::span")
+    @FindBy(xpath = "//div[@class='ant-spin-container']/p")
     private WebElement importSuccess;
 
-    @FindBy(className = "filterd")
+    @FindBy(xpath = "//span[text()='AutoTestApp']")
     private WebElement resultDataset;
 
-    @FindBy(className = "el-icon-search")
+    @FindBy(className = "ant-input-search-icon")
     private WebElement searchIcon;
-
-    @FindBy(xpath = "//span[text()='读取资源包异常！']")
-    private WebElement errorInfo;
 
     @FindBy(xpath = "//span[text()='没有相关的功能权限']")
     private WebElement noAuth;
 
     @FindBy(xpath = "//span[text()='没有相关的资源权限']")
     private WebElement noResourceAuth;
+
+    @FindBy(id = "register_upload")
+    private WebElement upload;
+
+    @FindBy(className = "ant-select-selection__rendered")
+    private WebElement role;
+
+    @FindBy(xpath = "//a[text()='添加数据集']")
+    private WebElement addDataset;
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    private WebElement message;
+
+    public WebElement getUpload() {
+        return upload;
+    }
 
     public WebElement getNoResourceAuth() {
         return noResourceAuth;
@@ -77,11 +90,11 @@ public class InstallPage extends PageTemplate {
     }
 
     public WebElement getSearchInput() {
-        return super.findInputByPlaceholder("请输入关键字");
+        return super.findInputByPlaceholder("请输入");
     }
 
     public WebElement getAddDataset() {
-        return super.getButton("添加数据集");
+        return addDataset;
     }
 
     public WebElement getImportSuccess() {
@@ -109,7 +122,8 @@ public class InstallPage extends PageTemplate {
     }
 
     public WebElement getRole() {
-        return getDropdownList("分配角色");
+        role.click();
+        return super.getLastDropdownList();
     }
 
     public WebElement getResource() {
@@ -131,10 +145,6 @@ public class InstallPage extends PageTemplate {
         return super.getButton("下一步");
     }
 
-    public WebElement getErrorInfo() {
-        return errorInfo;
-    }
-
     public WebElement getCompleteButton() {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(super.getButton("下一步")));
         return super.getButton("完成");
@@ -149,6 +159,6 @@ public class InstallPage extends PageTemplate {
     }
 
     public WebElement getErrorMessage() {
-        return super.getErrorMessage();
+        return message;
     }
 }

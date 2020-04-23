@@ -1,6 +1,8 @@
 package com.yottabyte.pages.app;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.stepDefs.ClickSomeButton;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.ElementExist;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
@@ -32,13 +34,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']/span")
     private WebElement ensureButton;
 
-    @FindBy(xpath = "//span[text()='上传logo']/ancestor::button/following-sibling::input")
-    private WebElement logoInput;
-
-    @FindBy(className = "el-color-picker__color-inner")
+    @FindBy(xpath = "//span[text()='菜单颜色']/following-sibling::div")
     private WebElement colorPicker;
 
-    @FindBy(className = "el-color-dropdown__value")
+    @FindBy(xpath = "//div[@class='flexbox-fix']//input")
     private WebElement colorValue;
 
     @FindBy(className = "el-color-dropdown__btn")
@@ -47,10 +46,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-message-box__wrapper")
     private WebElement fadeOut;
 
-    @FindBy(xpath = "//form[@class='el-form el-form--label-right']//input")
-    private WebElement menuName;
-
-    @FindBy(className = "el-input__icon")
+    @FindBy(className = "ant-select-arrow-icon")
     private WebElement dropdownArrow;
 
     @FindBy(xpath = "//div[@class='el-dialog__wrapper yw-modal-form yw-new-modal-form']")
@@ -79,9 +75,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='本APP']")
     private WebElement currentApp;
 
-    @FindBy(xpath = "//button[@class='el-button yw-modal-btn yw-modal-btn-primary el-button--primary']/span")
-    private WebElement saveMenuButton;
-
     @FindBy(xpath = "//div[@class='el-dialog__wrapper yw-modal-form resource-config']")
     private WebElement resourceConfig;
 
@@ -102,6 +95,47 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "el-loading-mask")
     private WebElement loading;
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
+    private WebElement message;
+
+    @FindBy(xpath = "//a[text()='添加一级菜单']")
+    private WebElement addMenu;
+
+    @FindBy(xpath = "//input[@id='NavEdit_name']/ancestor::span/following-sibling::div")
+    private WebElement nameMessage;
+
+    @FindBy(xpath = "//input[@id='NavEdit_url']/ancestor::span/following-sibling::div")
+    private WebElement urlMessage;
+
+    @FindBy(xpath = "//a[text()='已选择 0 个资源']")
+    private WebElement addResource;
+
+    @FindBy(xpath = "//span[contains(@class,'ant-input-search')]/input")
+    private WebElement searchResourceInput;
+
+    @FindBy(xpath = "//*[@class='ant-spin-container ant-spin-blur']")
+    private WebElement searchLoading;
+
+    public WebElement getSearchLoading() {
+        return searchLoading;
+    }
+
+    public WebElement getSearchResourceInput() {
+        return searchResourceInput;
+    }
+
+    public WebElement getAddResource() {
+        return addResource;
+    }
+
+    public WebElement getUrlMessage() {
+        return urlMessage;
+    }
+
+    public WebElement getNameMessage() {
+        return nameMessage;
+    }
 
     public WebElement getLoading() {
         return loading;
@@ -132,7 +166,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAddMenuButton() {
-        return super.getButton("添加一级菜单");
+        return addMenu;
     }
 
     public WebElement getSaveButton() {
@@ -148,13 +182,13 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getUrl() {
-        return getInputElement("URL");
+        return this.getElementById("NavEdit_url");
     }
 
     public WebElement getDefaultPage() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(dialogWrapper));
-        dropdownArrow.click();
-        return getLastDropdownList();
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(dropdownArrow));
+        ClickEvent.clickUnderneathButton(dropdownArrow);
+        return super.getLastDropdownList();
     }
 
     public WebElement getLastDropdownList() {
@@ -162,7 +196,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreateButton() {
-        return super.getButton("创建");
+        return super.getButton("保存");
     }
 
     public WebElement getNameInput() {
@@ -170,7 +204,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSaveMenuButton() {
-        return saveMenuButton;
+        return super.getButton("确定");
     }
 
     public WebElement getSuccessMessage() {
@@ -178,7 +212,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getErrorMessage() {
-        return super.getErrorMessage();
+        return message;
     }
 
     public WebElement getUploadButton() {
@@ -186,7 +220,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getMenuName() {
-        return menuName;
+        return this.getElementById("NavEdit_name");
     }
 
     public WebElement getChooseFromSystemButton() {
@@ -202,7 +236,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getLogoInput() {
-        return logoInput;
+        return this.getElementById("register_upload");
     }
 
     public WebElement getColorPicker() {
@@ -258,6 +292,10 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
+        return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/ancestor::div/following-sibling::div//input"));
+    }
+
+    public WebElement getElementById(String id) {
+        return webDriver.findElement(By.id(id));
     }
 }

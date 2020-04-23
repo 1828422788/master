@@ -47,7 +47,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         parentPageName = LoginBeforeAllTests.getPageFactory() == null ? "" : LoginBeforeAllTests.getPageFactory().getClass().getSimpleName();
     }
 
-    @FindBy(className = "el-message-box__message")
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
     @FindBy(xpath = "//span[text()='AutoTestRoleWithAllResource']/ancestor::li")
@@ -64,6 +64,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
     private WebElement app;
+
+    public WebElement getMessage() {
+        return message;
+    }
 
     public WebElement getSave() {
         return getButton("保存");
