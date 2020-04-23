@@ -172,7 +172,7 @@ Feature: 日志展现_地图
   Scenario Outline: statMap(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "ThisMonth" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -196,7 +196,7 @@ Feature: 日志展现_地图
   Scenario Outline: statMap(RZY-2796)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "ThisMonth" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -285,3 +285,53 @@ Feature: 日志展现_地图
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum      |   spl   |
       |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793_white  |tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
       |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794_white  |tag:sample04061424_chart \| stats count() by apache.geo.city |
+
+  Scenario Outline: regionMap_click(RZY-2792_white)
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Map" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I click the "Value" button
+    And I choose the "<value>" from the "FieldValue"
+    And I click the "Divide" button
+    And I choose the "<divideField>" from the "FieldValue"
+    And I click the "Region" button
+    And I click the "Select<region>" button
+    And I click the "Exhibition" button
+    # Switch to white map
+    And I click the "ShowBubbles" button
+    And I click the "GoingDown" button
+    And I choose the "<provinceDrilldown>" from the "Province"
+    And I choose the "<cityDrilldown>" from the "City"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
+    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World_white" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
+
+    When I click the "OpenChina" button
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
+    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China_white" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
+
+    When I click the "OpenJiangsu" button
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white"
+    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white"
+
+    Examples:
+      |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
+      |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
