@@ -2,7 +2,7 @@
 @dataset
 Feature: 数据集-新建
 
-  @dataset
+
   Scenario Outline: 新建数据集必填项测试【父子行为无】
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -29,7 +29,7 @@ Feature: 数据集-新建
       | name    | alias  | Spl  |
       |JNDTest |jnd     |*     |
 
-  @dataset
+
   Scenario: 新建数据集选择分组和应用
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -38,7 +38,7 @@ Feature: 数据集-新建
     And I set the parameter "Alias" with value "groupApp"
     And I set the parameter "Spl" with value "*"
 
-    And I choose the "无数集app之api全部测试用例" from the "appList"
+    And I choose the "TrendApp" from the "appList"
     And I choose the "auto_package" from the "resourceGroup"
 
     And I click the "Save" button
@@ -49,13 +49,13 @@ Feature: 数据集-新建
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'2','name':'groupApp'}"
     And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'3','name':'无'}"
-    And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'4','name':'无数集app之api全部测试用例'}"
+    And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'4','name':'TrendApp'}"
     And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'5','name':'auto_package'}"
     And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'6','name':'admin'}"
 
 
 
-  @dataset
+
   Scenario: 父子行为为汇聚
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -84,7 +84,7 @@ Feature: 数据集-新建
 
 
 
-  @dataset
+
   Scenario: 父子行为为继承
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -114,7 +114,7 @@ Feature: 数据集-新建
 
 
 
-  @dataset
+
   Scenario: 新建数据集失败0
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -128,7 +128,7 @@ Feature: 数据集-新建
 
 
 
-  @dataset
+
   Scenario: 新建数据集失败1
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -142,7 +142,7 @@ Feature: 数据集-新建
 
 
 
-  @dataset
+
   Scenario: 新建数据集失败2
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button

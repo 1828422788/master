@@ -5,7 +5,7 @@ Feature: 数据集-在定时任务编辑页
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @dataset
+
   Scenario Outline: 数据集父子行为无
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为无的数据集
@@ -41,7 +41,7 @@ Feature: 数据集-在定时任务编辑页
 
 
 
-  @dataset
+
   Scenario Outline: 数据集父子行为汇聚
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为汇聚的数据集
@@ -76,7 +76,7 @@ Feature: 数据集-在定时任务编辑页
 
 
 
-  @dataset
+
   Scenario Outline: 数据集父子行为继承
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为继承的数据集

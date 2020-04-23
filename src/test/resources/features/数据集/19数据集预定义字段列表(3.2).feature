@@ -1,7 +1,7 @@
 @dataset
 Feature: 数据集-预定义字段列表
 
-  @dataset
+
   Scenario Outline: 新建数据集，对根事件添加字段 RZY-4291
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -29,7 +29,7 @@ Feature: 数据集-预定义字段列表
       |have_root_field |hrfield     |*      |
 
 
-   @dataset
+
      Scenario: 在编辑根事件中添加字段
      Given open the "dataset.ListPage" page for uri "/dataset/"
      When the data name is "have_root_field" then i click the "编辑" button
@@ -46,7 +46,7 @@ Feature: 数据集-预定义字段列表
      Then I will see the "thirdName" result will be "ip"
 
 
-  @dataset
+
   Scenario: 在编辑根事件中删除字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
@@ -62,7 +62,7 @@ Feature: 数据集-预定义字段列表
 
 
 
-   @dataset
+
    Scenario: 对子节点添加字段RZY-4292
      Given open the "dataset.ListPage" page for uri "/dataset/"
      When the data name is "have_root_field" then i click the "编辑" button
@@ -91,7 +91,7 @@ Feature: 数据集-预定义字段列表
      And I click the "save" button
 
 
-     @dataset
+
      Scenario: 删除第三个子节点的字段
        Given open the "dataset.ListPage" page for uri "/dataset/"
        When the data name is "have_root_field" then i click the "编辑" button
@@ -103,7 +103,7 @@ Feature: 数据集-预定义字段列表
        And I click the "save" button
 
 
-  @dataset
+
   Scenario: 批量删除子节点的字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button

@@ -1,6 +1,5 @@
 @dataset
 Feature: 数据集-取消默认
-
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
 

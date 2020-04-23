@@ -1,7 +1,7 @@
 @dataset
 Feature: 数据集-构建树形结构
 
-  @dataset
+
   Scenario: 父子行为无RZY-4085
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -49,8 +49,6 @@ Feature: 数据集-构建树形结构
 
 
 
-
-  @dataset
   Scenario: 父子行为汇聚RZY-4083
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -104,7 +102,6 @@ Feature: 数据集-构建树形结构
 
 
 
-  @dataset
   Scenario: 父子行为继承RZY-4084
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"

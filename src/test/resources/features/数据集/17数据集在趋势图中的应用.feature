@@ -7,7 +7,7 @@ Feature: 数据集-在趋势图中的应用
 
 
 
-  @dataset
+
   Scenario Outline: 父子行为无
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为无的数据集
@@ -43,7 +43,7 @@ Feature: 数据集-在趋势图中的应用
 
 
 
-  @dataset
+
   Scenario Outline: 父子行为汇聚
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为汇聚的数据集
@@ -79,7 +79,7 @@ Feature: 数据集-在趋势图中的应用
 
 
 
-  @dataset
+
   Scenario Outline: 父子行为继承
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为继承的数据集
