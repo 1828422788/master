@@ -27,9 +27,6 @@ public class NewGroupPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='新建']/ancestor::button")
     private WebElement BuildButton;
 
-    @FindBy(xpath = "//span[text()='保存']/ancestor::button")
-    private WebElement SaveButton;
-
     @FindBy(xpath = "//span[contains(text(),'确定')]/ancestor::button")
     private WebElement EnsureButton;
 
@@ -47,9 +44,6 @@ public class NewGroupPage extends PageTemplate {
         return Updatemsg;
     }
 
-    public WebElement getSaveButton(){
-        return SaveButton;
-    }
     public WebElement getName() {
         return Name;
     }
@@ -67,7 +61,7 @@ public class NewGroupPage extends PageTemplate {
     }
 
     public WebElement getRole(){
-        String xpath = "//label[contains(text(),'分配角色')]/following-sibling::div//i";
+        String xpath = "//div[@class='ant-select-selection__placeholder']";
         DropdownUtils dropdownUtils = new DropdownUtils();
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
