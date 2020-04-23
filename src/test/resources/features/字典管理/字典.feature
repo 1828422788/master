@@ -7,10 +7,11 @@ Feature: 字典管理
   Scenario Outline: RZY-4136新建字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
-    And I set the parameter "GroupInput" with value "wymtest1"
-    And I choose the "wymtest1" from the "Group"
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I set the parameter "GroupInput" with value "wymtest1"
+    And I choose the "wymtest1" from the "Group"
     And I click the "EnsureUpload" button
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
@@ -25,8 +26,8 @@ Feature: 字典管理
     Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
 
     Examples:
-      | dictionaryName | totalItem | editOnlineArea                                                                                         |
-      | wymtest1.csv   | 1         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
+      | dictionaryNameWithOutCsv | dictionaryName | totalItem | editOnlineArea                                                                                         |
+      | wymtest1                 | wymtest1.csv   | 1         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
   Scenario Outline: RZY-4137下载字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -47,7 +48,7 @@ Feature: 字典管理
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
     Then I will see the "dictionary.ListPage" page
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
       | dictionaryName | newTag   |
@@ -63,7 +64,7 @@ Feature: 字典管理
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
     Then I will see the "dictionary.ListPage" page
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
       | dictionaryName | newTag             |
@@ -79,7 +80,7 @@ Feature: 字典管理
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
     Then I will see the "dictionary.ListPage" page
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
       | dictionaryName | newTag |
@@ -92,38 +93,41 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymdoubletest1.csv"
     And I wait for "FileName" will be visible
     Then I click the "SaveButton" button
-    Then I will see the message "更新字典文件必须和原字典文件同名"
-    Then I click the "EnsureButton" button
-    Then I click the "EditOnline" button
-    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
-
-    Examples:
-      | dictionaryName | editOnlineArea                                                                                         |
-      | wymtest1.csv   | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
-
-  Scenario Outline: RZY-4142删除非同名文件
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
-    Then I will see the "dictionary.CreatePage" page
-    And I upload a file with name "/src/test/resources/testdata/dictionary/wymdoubletest1.csv"
-    And I wait for "FileName" will be visible
-    Then I click the "SaveButton" button
-    Then I will see the message "更新字典文件必须和原字典文件同名"
-    Then I click the "EnsureButton" button
-    Then I click the "DeleteIcon1" button
-    And I click the "SaveButton" button
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
     Then I will see the "dictionary.ListPage" page
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
-    And I wait for "1000" millsecond
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
 
     Examples:
-      | dictionaryName | editOnlineArea                                                                                         |
-      | wymtest1.csv   | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
+      | dictionaryName | editOnlineArea                                                                                                                                                                                                 |
+      | wymtest1.csv   | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
+
+#  Scenario Outline: RZY-4142删除非同名文件
+#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
+#    Then I will see the "dictionary.CreatePage" page
+#    And I upload a file with name "/src/test/resources/testdata/dictionary/wymdoubletest1.csv"
+#    And I wait for "FileName" will be visible
+#    Then I click the "SaveButton" button
+#    Then I will see the message "更新字典文件必须和原字典文件同名"
+#    Then I click the "EnsureButton" button
+#    Then I click the "DeleteIcon1" button
+#    And I click the "SaveButton" button
+#    Then I will see the message "更新字典内容成功"
+#    Then I click the "EnsureButton" button
+#    Then I will see the "dictionary.ListPage" page
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
+#    Then I will see the "dictionary.CreatePage" page
+#    And I wait for "1000" millsecond
+#    Then I click the "EditOnline" button
+#    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
+#
+#    Examples:
+#      | dictionaryName | editOnlineArea                                                                                         |
+#      | wymtest1.csv   | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
   Scenario Outline: RZY-4141上传同名文件
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -186,7 +190,7 @@ Feature: 字典管理
     Then I click the "EnsureButton" button
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
       | dictionaryName | newTag   |
@@ -203,7 +207,7 @@ Feature: 字典管理
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
     And I wait for "1000" millsecond
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
       | dictionaryName | newTag   |
@@ -218,7 +222,7 @@ Feature: 字典管理
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
     And I wait for "2000" millsecond
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
       | dictionaryName | newTag             |
@@ -240,7 +244,7 @@ Feature: 字典管理
     Then I click the "EnsureButton" button
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
       | dictionaryName | newTag |

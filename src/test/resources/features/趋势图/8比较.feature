@@ -80,6 +80,9 @@ Feature: 趋势图比较
     @compareTrendMap
     Examples:
       | name                                     |
+      | Regionmap_Jiangsu_2547_white             |
+      | Regionmap_China_2546_white               |
+      | Regionmap_2545_white                     |
       | Regionmap_Jiangsu_2547                   |
       | Regionmap_China_2546                     |
       | Attackmap_China_2543                     |

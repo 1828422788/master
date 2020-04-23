@@ -2228,4 +2228,105 @@ private WebElement dataType;
     private WebElement otherDropdown;
     public WebElement getOtherDropdown(){return otherDropdown;}
 
+//动态卡片
+    @FindBy(xpath = "//li[text()='动态卡片']")
+    private WebElement dynamicCard;
+    public WebElement getDynamicCard(){return dynamicCard;}
+
+    @FindBy(xpath = "//div[text()='动态卡片']/i")
+    private WebElement styleDynamicCard;
+    public WebElement getStyleDynamicCard(){return styleDynamicCard;}
+
+    @FindBy(xpath = "//label[contains(text(),'名称字体大小')]/following-sibling::div/input")
+    private WebElement nameFontSize;
+    public WebElement getNameFontSize(){return nameFontSize;}
+
+    //名称字体粗细
+    public WebElement getDynamicCardWordBold(){return this.dropdownList("动态卡片","名称字体粗细");}
+
+    @FindBy(xpath = "//label[contains(text(),'名称颜色')]/following-sibling::div")
+    private WebElement nameColor;
+    public WebElement getNameColor(){return nameColor;}
+
+    @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div")
+    private WebElement backColor;
+    public WebElement getBackColor(){return backColor;}
+
+    @FindBy(xpath = "//label[contains(text(),'值字体大小')]/following-sibling::div/input")
+    private WebElement valueFontSize;
+    public WebElement getValueFontSize(){return valueFontSize;}
+
+    //值字体粗细
+    public WebElement getValueFontWordBold(){return this.dropdownList("动态卡片","值字体粗细");}
+
+    @FindBy(xpath = "//label[contains(text(),'值颜色')]/following-sibling::div")
+    private WebElement valueColor;
+    public WebElement getValueColor(){return valueColor;}
+
+    @FindBy(xpath = "//label[contains(text(),'线宽度')]/following-sibling::div/input")
+    private WebElement lineBold;
+    public WebElement getLineBold(){return lineBold;}
+
+    //   线颜色
+    @FindBy(xpath = "//label[contains(text(),'线颜色')]/following-sibling::div")
+    private WebElement lineColor;
+    public WebElement getLineColor(){return lineColor;}
+   //    边框宽度
+    @FindBy(xpath = "//label[contains(text(),'边框宽度')]/following-sibling::div/input")
+    private WebElement bordWidth;
+    public WebElement getBordWidth(){return bordWidth;}
+   //    边框颜色
+    @FindBy(xpath = "//label[contains(text(),'边框颜色')]/following-sibling::div")
+    private WebElement bordColor;
+    public WebElement getBordColor(){return bordColor;}
+   //    动画时长
+    @FindBy(xpath = "//label[contains(text(),'动画时长')]/following-sibling::div/input")
+    private WebElement dynamicTime;
+    public WebElement getDynamicTime(){return dynamicTime;}
+   //    动画停留
+    @FindBy(xpath = "//label[contains(text(),'动画停留')]/following-sibling::div/input")
+    private WebElement dynamicStop;
+    public WebElement getDynamicStop(){return dynamicStop;}
+   //    间距
+    @FindBy(xpath = "//label[contains(text(),'间距')]/following-sibling::div/input")
+    private WebElement spacing;
+    public WebElement getSpacing(){return spacing;}
+
+    //数据-搜索-名称
+    @FindBy(xpath = "//div[text()='动态卡片']/following-sibling::div/following-sibling::div/div/div")
+    private WebElement dynamicCardName;
+    public WebElement  getDynamicCardName(){
+        dynamicCardName.click();
+        return this.getLastDropdownList();
+    }
+    //数据-搜索-数值字段
+    @FindBy(xpath = "//label[contains(text(),'数值字段')]/following-sibling::div")
+    private WebElement dynamicCardNumberFiled;
+    public WebElement getDynamicCardNumberFiled(){
+        dynamicCardNumberFiled.click();
+        return this.getLastDropdownList();
+    }
+
+//动态卡片二
+    @FindBy(xpath = "//li[text()='动态卡片II']")
+    private WebElement dynamicCardTwo;
+    public WebElement getDynamicCardTwo(){return dynamicCardTwo;}
+
+    @FindBy(xpath = "//div[text()='动态卡片II']/i")
+    private WebElement styleDynamicCardTwo;
+    public WebElement getStyleDynamicCardTwo(){return styleDynamicCardTwo;}
+
+    @FindBy(xpath = "//div[text()='动态卡片II']/following-sibling::div/following-sibling::div/div/div")
+    private WebElement dynamicCardNameTwo;
+    public WebElement  getDynamicCardNameTwo(){
+        dynamicCardNameTwo.click();
+        return this.getLastDropdownList();
+    }
+
+    //名称字体粗细
+    public WebElement getDynamicCardTwoWordBold(){return this.dropdownList("动态卡片II","名称字体粗细");}
+    //值字体粗细
+    public WebElement getValueFontTwoWordBold(){return this.dropdownList("动态卡片II","值字体粗细");}
+
+
 }
