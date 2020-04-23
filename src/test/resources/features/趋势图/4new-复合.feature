@@ -17,6 +17,7 @@ Feature: 趋势图新建_复合
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Compound" button
     And I click the "<chartType>" button

@@ -14,7 +14,7 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入']")
+    @FindBy(xpath = "//input[@placeholder='请输入名称']")
     private WebElement searchInput;
 
     @FindBy(className = "el-message__group")
@@ -22,6 +22,10 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[contains(text(),'确定')]")
     private WebElement ensure;
+
+    public WebElement getCreate() {
+        return super.getButton("新 建");
+    }
 
     @Override
     public WebElement getEnsure() {

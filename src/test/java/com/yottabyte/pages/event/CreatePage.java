@@ -14,23 +14,20 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//label[contains(text(),'链接')]/following-sibling::div//textarea")
+    @FindBy(id = "register_name")
+    private WebElement name;
+
+    @FindBy(id = "register_url")
     private WebElement url;
 
     @FindBy(xpath = "//label[contains(text(),'搜索语句')]/following-sibling::div//textarea")
     private WebElement spl;
 
-    @FindBy(className = "btn-submit")
-    private WebElement createButton;
-
-    @FindBy(className = "el-message-box__message")
-    private WebElement message;
-
     @FindBy(xpath = "//*[@class='yw-btn']//span")
     private WebElement saveButton;
 
     public WebElement getName() {
-        return getInputElement("名称");
+        return name;
     }
 
     public WebElement getAlias() {
@@ -66,7 +63,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreateButton() {
-        return createButton;
+        return super.getButton("保 存");
     }
 
     public WebElement getUrl() {
@@ -75,10 +72,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSpl() {
         return spl;
-    }
-
-    public WebElement getSuccessMessage() {
-        return message;
     }
 
     public WebElement getInputElement(String name) {

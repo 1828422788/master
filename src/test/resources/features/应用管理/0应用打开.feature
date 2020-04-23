@@ -20,5 +20,15 @@ Feature: 应用打开
       | SavedsearchesApp |
       | KnowledgeApp     |
       | MacroApp         |
-      | TopologyApp      |
       | ConfigsApp       |
+
+  Scenario Outline: 验证资源正确
+    When the data name is "<name>" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I wait for loading invisible
+    Then I will see the search result "app所选资源"
+    And I will see the element "Title" name is "<name>"
+
+    Examples:
+      | name        |
+      | TopologyApp |
