@@ -641,6 +641,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -744,6 +745,57 @@ Feature: 趋势图新建-其他
     Then I wait for "SuccessCreate" will be visible
     And I compare source image "expect/Table_Test" with target image "actual/Table_Test"
 
+  Scenario Outline: chain_tree
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "<function>" from the "Function"
+    And I choose the "<parentIDvalue>" from the "ParentId"
+    And I choose the "<childIDvalue>" from the "ChildId"
+    And I click the "Time" button
+    And I choose the "<starttime>" from the "StartTime"
+    And I choose the "<duration>" from the "KeepTime"
+    And I click the "Divide" button
+    And I choose the "<childIDvalue>" from the "FieldValue"
+    And I click the "Info" button
+    And I choose the "<infoValue>" from the "InfoField"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I choose the "<precision>" from the "Precision"
+    And I choose the "tree" from the "TracingType"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+
+    Examples:
+      |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum      |   spl   |
+      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2831_tree    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
+      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2982_tree    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
+
+
   @compareTrend @compareTrendOther
   Scenario Outline: compare_view
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -763,6 +815,8 @@ Feature: 趋势图新建-其他
 
     Examples:
       | name                                     |
+      | Chain_2831_tree                          |
+      | Chain_2982_tree                          |
       | Table_Test                               |
       | Sequence_2805                            |
       | Chain_2982                               |
@@ -791,3 +845,4 @@ Feature: 趋势图新建-其他
       | Radar_2633                               |
       | Wordcloud_2625                           |
       | Single_2549                              |
+

@@ -87,6 +87,8 @@ Feature: 趋势图删除（RZY-1891）
     @cleanTrendOther
     Examples:
       | name                                     |
+      | Chain_2831_tree                          |
+      | Chain_2982_tree                          |
       | Table_Test                               |
       | Sequence_2805                            |
       | Chain_2982                               |

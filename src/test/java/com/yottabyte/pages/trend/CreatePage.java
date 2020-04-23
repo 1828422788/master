@@ -2026,4 +2026,15 @@ public class CreatePage extends PageTemplate {
         return showBubbles;
     }
 
+    // for 调用链
+    @FindBy(xpath = "(//span[text()='展示类型'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement tracingType;
+
+    public WebElement getTracingType() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(tracingType));
+        tracingType.click();
+        return super.getLastDropdownList();
+    }
+
 }
