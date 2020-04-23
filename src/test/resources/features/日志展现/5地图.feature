@@ -172,7 +172,7 @@ Feature: 日志展现_地图
   Scenario Outline: statMap(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "ThisMonth" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -196,7 +196,7 @@ Feature: 日志展现_地图
   Scenario Outline: statMap(RZY-2796)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
-    And I click the "ThisMonth" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page

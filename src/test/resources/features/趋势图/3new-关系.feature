@@ -1,15 +1,14 @@
 @all @trend @createTrendConnection @createTrend
 Feature: 趋势图新建_关系
-# 5
 # sample04061424_chart for Today
 # auto_sankey  Today
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
 
   Scenario Outline: connection(RZY-2505,2507,2511)
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -42,6 +41,8 @@ Feature: 趋势图新建_关系
       |    Force      |    2511    |  tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
   Scenario Outline: connection_force_repulsion
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -78,6 +79,8 @@ Feature: 趋势图新建_关系
       |    Force      |    2505    |  tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
 
   Scenario Outline: connection_sankey_multistage
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -113,3 +116,27 @@ Feature: 趋势图新建_关系
       |   chartType   |  button    |   spl   |
       |    Sankey     | Multistage |  tag:auto_sankey \| stats count() by json.fromstate,json.tostate \| limit 3      |
 
+  @compareTrend @compareTrendConnection
+  Scenario Outline: compare_view
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I will see the element "ChartName" contains "<name>"
+    And I wait for "ChartView" will be visible
+    And I will see the "NoData" doesn't exist
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual_view/<name>"
+
+    Examples:
+      | name                                     |
+      | Sankey_Multistage                        |
+      | Force_repulsion                          |
+      | Force_2511                               |
+      | Sankey_2507                              |
+      | Chord_2505                               |
