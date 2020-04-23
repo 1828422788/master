@@ -18,10 +18,10 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入分组名']")
+    @FindBy(id = "UserGroupUpdate_name")
     private WebElement userGroupName;
 
-    @FindBy(xpath = "//input[@placeholder='请输入描述']")
+    @FindBy(id = "UserGroupUpdate_memo")
     private WebElement userGroupDes;
 
     @FindBy(className = "yw-select-owner")
@@ -32,12 +32,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "el-select-dropdown")
     private List<WebElement> selectors;
-
-    @FindBy(className = "btn-submit")
-    private WebElement createButton;
-
-    @FindBy(className = "el-message-box__message")
-    private WebElement message;
 
     @FindBy(xpath = "//*[@class='el-message-box__btns']//span[contains(text(),'确定')]")
     private WebElement OKButton;
@@ -66,17 +60,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreateButton() {
-        ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(createButton);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        return createButton;
+        return super.getButton("新建");
     }
 
     public WebElement getSuccessMessage() {
-        return message;
+        return super.getMessage();
     }
 
     public WebElement getErrorMessage() {
-        return message;
+        return super.getMessage();
     }
 
     public WebElement getOKButton() {

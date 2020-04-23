@@ -25,8 +25,8 @@ public class AuthorizationPage extends PageTemplate {
 
     private WebElement webElement;
 
-//    @FindBy(className = "el-loading-mask")
-//    private WebElement loading;
+    @FindBy(className = "ant-spin-spinning")
+    private WebElement loading;
 
     @FindBy(xpath = "//div[not(contains(@style,'display: none;'))][@class='assign-tab']")
     private WebElement tab;
@@ -36,9 +36,6 @@ public class AuthorizationPage extends PageTemplate {
 
     @FindBy(className = "url-checkbox")
     private List<WebElement> urlCheckboxes;
-
-    @FindBy(xpath = "//span[contains(text(),'保存')]/ancestor::button")
-    private WebElement saveButton;
 
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
@@ -71,13 +68,6 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//span[@class='el-checkbox__label'][contains(text(),'新建用户')])[1]")
     private WebElement createUser;
 
-    @FindBy(xpath = "//a[text()='功能']")
-    private WebElement feature;
-
-    public WebElement getFeature() {
-        return feature;
-    }
-
     public WebElement getCreateUser() {
         return createUser;
     }
@@ -98,9 +88,9 @@ public class AuthorizationPage extends PageTemplate {
         return customize;
     }
 
-//    public WebElement getLoading() {
-//        return loading;
-//    }
+    public WebElement getLoading() {
+        return loading;
+    }
 
     public WebElement getFunctionCheckbox() {
         return functionCheckbox;
@@ -119,7 +109,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getSaveButton() {
-        return saveButton;
+        return super.getButton("保存");
     }
 
     public WebElement getRecall() {
@@ -128,7 +118,7 @@ public class AuthorizationPage extends PageTemplate {
 
     public WebElement getTabButton(String tabName) {
 //        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
-        return webDriver.findElement(By.xpath("//span[text()='" + tabName + "']/parent::button"));
+        return webDriver.findElement(By.xpath("//a[text()='" + tabName + "']"));
     }
 
     public WebElement getCreateGroupButton(String value) {

@@ -28,8 +28,8 @@ Feature: 应用仪表盘
     Then the page's title will be "<title>"
 
     Examples:
-      | name    | title          |
-      | AutoApp | 仪表盘 |
+      | name    | title |
+      | AutoApp | 仪表盘   |
 
   Scenario: 在app外新建并选择所属应用
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -106,11 +106,12 @@ Feature: 应用仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -162,7 +163,7 @@ Feature: 应用仪表盘
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
 
     Examples:
       | name         |
