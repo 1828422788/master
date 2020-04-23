@@ -1,4 +1,4 @@
-@app @appSmoke
+#@app @appSmoke
 Feature: 应用定时任务(RZY-2123)
 
   Scenario Outline: 新建定时任务

@@ -1,4 +1,4 @@
-@app @appSmoke
+#@app @appSmoke
 Feature: 应用搜索宏（RZY-2126）
 
   Scenario: 新建搜索宏

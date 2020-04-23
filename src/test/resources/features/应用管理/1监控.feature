@@ -1,4 +1,4 @@
-@all @smoke @app @appSmoke
+#@all @smoke @app @appSmoke
 Feature: 应用监控模块（RZY-2122）
 
   Background:

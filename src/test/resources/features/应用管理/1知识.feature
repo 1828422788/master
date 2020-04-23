@@ -1,4 +1,4 @@
-@all @smoke @app @appSmoke
+#@all @smoke @app @appSmoke
 Feature: 应用知识
 
   Scenario: 新增知识并验证是否跳转到外部

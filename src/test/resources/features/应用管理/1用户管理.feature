@@ -1,4 +1,4 @@
-@app @appSmoke
+#@app @appSmoke
 Feature: 应用用户管理（RZY-2147）
 
   Background:

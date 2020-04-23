@@ -1,4 +1,4 @@
-@app @appSmoke
+#@app @appSmoke
 Feature: 应用拓扑图（RZY-2142）
 
   Scenario: 新建拓扑图

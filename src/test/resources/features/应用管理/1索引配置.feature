@@ -1,4 +1,4 @@
-@app @appSmoke
+#@app @appSmoke
   Feature: 应用索引配置(RZY-2183)
 
   Background:

@@ -1,3 +1,4 @@
+#@app @appSmoke
 Feature: 应用数据集
 
   Scenario Outline: 新建数据集应用

@@ -143,7 +143,6 @@ public class Checkbox {
      *
      * @param status   判断状态，checked/unchecked
      * @param nameList 判断名称（支持传入list）
-     *
      */
     @And("^I check the label \"([^\"]*)\" status before \"([^\"]*)\" in the dictionary$")
     public void iCheckLabeldic(String status, List<String> nameList) {
@@ -156,4 +155,65 @@ public class Checkbox {
         }
     }
 
+    /**
+     * 授权页面勾选权限
+     *
+     * @param status    勾选checked/取消勾选unchecked
+     * @param functions 想要勾选的权限名称
+     * @param name      想要授权的数据名称
+     */
+    @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table which name is \"([^\"]*)\"$")
+    public void clickAuthFunction(String status, List<String> functions, String name) {
+        String preXpath = ".//span[contains(text(),'";
+        String sufXpath = "')]";
+        this.clickAuthButton(status, functions, name, preXpath, sufXpath);
+    }
+
+    /**
+     * 授权页面组内读取权限的勾选
+     *
+     * @param status
+     * @param functions
+     * @param name
+     */
+    @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table in group which name is \"([^\"]*)\"$")
+    public void clickAuthFunctionInGroup(String status, List<String> functions, String name) {
+        String preXpath = "(.//span[contains(text(),'";
+        String sufXpath = "')])[last()]";
+        this.clickAuthButton(status, functions, name, preXpath, sufXpath);
+    }
+
+    private void clickAuthButton(String status, List<String> functions, String name, String preXpath, String sufXpath) {
+        String url = webDriver.getCurrentUrl();
+        String precedingXpath;
+        if (url.contains("/account/roles/assign/")) {
+            precedingXpath = "./preceding-sibling::span";
+        } else {
+            precedingXpath = "./preceding-sibling::label";
+        }
+        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        for (String function : functions) {
+            WebElement functionButton = tr.findElement(By.xpath(preXpath + function + sufXpath));
+            String functionClass = functionButton.findElement(By.xpath(precedingXpath)).getAttribute("class");
+            if (functionClass.contains("checked") && "unchecked".equals(status) || !functionClass.contains("checked") && "checked".equals(status)) {
+                functionButton.click();
+            }
+        }
+    }
+
+    /**
+     * 勾选权限授权页各资源权限的全选/取消全选
+     *
+     * @param status checked/unchecked
+     * @param name
+     */
+    @And("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in auth table$")
+    public void checkboxInAuth(String status, String name) {
+        WebElement tr = listPageUtils.getTableRow(name, null);
+        WebElement button = tr.findElement(By.xpath(".//label"));
+        String functionClass = button.getAttribute("class");
+        if (functionClass.contains("checked") && "unchecked".equals(status) || !functionClass.contains("checked") && "checked".equals(status)) {
+            button.click();
+        }
+    }
 }

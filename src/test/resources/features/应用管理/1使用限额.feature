@@ -10,6 +10,6 @@ Feature: 应用限额管理（RZY-2182）
   Scenario:
     When I click the "Limit" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "usage.ListPage" page
     And I click the "ShowButton" button
