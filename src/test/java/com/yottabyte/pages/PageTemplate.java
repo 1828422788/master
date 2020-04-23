@@ -65,6 +65,9 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
     private WebElement app;
 
+    @FindBy(className = "ant-message-success")
+    private WebElement successMessage;
+
     public WebElement getMessage() {
         return message;
     }
@@ -99,11 +102,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     }
 
     protected WebElement getSuccessMessage() {
-        if (ElementExist.isElementExist(webDriver, By.className("el-message__group"))) {
-            return webDriver.findElement(By.className("el-message__group"));
-        } else {
-            return message;
-        }
+        return successMessage;
     }
 
     @Override

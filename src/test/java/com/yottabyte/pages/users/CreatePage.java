@@ -20,19 +20,19 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@placeholder='请输入用户名']")
+    @FindBy(id = "AccountUpdate_name")
     private WebElement userName;
 
-    @FindBy(xpath = "//input[@placeholder='请输入全名']")
+    @FindBy(id = "AccountUpdate_fullName")
     private WebElement fullName;
 
-    @FindBy(xpath = "//input[@placeholder='请输入邮箱地址']")
+    @FindBy(id = "AccountUpdate_email")
     private WebElement email;
 
-    @FindBy(xpath = "//input[@placeholder='请输入电话号码']")
+    @FindBy(id = "AccountUpdate_phone")
     private WebElement telephone;
 
-    @FindBy(xpath = "//input[@placeholder='长度8到16个字符，至少包含数字和字母']")
+    @FindBy(xpath = "//label[contains(text(),'密码')]/ancestor::div/following-sibling::div//input")
     private WebElement password;
 
     @FindBy(className = "yw-select")
@@ -49,6 +49,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "el-message-box__message")
     private WebElement message;
+
+    @FindBy(className = "ant-select-selection__rendered")
+    private WebElement userGroup;
 
     public WebElement getUserName() {
         return userName;
@@ -71,7 +74,8 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getUserGroups() {
-        return getDropdownList("用户分组");
+        userGroup.click();
+        return super.getLastDropdownList();
     }
 
     public WebElement getRole() {
@@ -79,9 +83,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreateButton() {
-        ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(createButton);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        return createButton;
+        return super.getButton("新建");
     }
 
     public WebElement getOKButton() {
@@ -100,9 +102,5 @@ public class CreatePage extends PageTemplate {
         String xpath = "//label[text()='" + name + "']/following-sibling::div//i";
         webDriver.findElement(By.xpath(xpath)).click();
         return this.getLastDropdownList();
-    }
-
-    public WebElement getLastDropdownList() {
-        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
     }
 }

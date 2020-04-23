@@ -20,16 +20,8 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
 
-    @FindBy(xpath = "//span[contains(text(),'确定')]")
-    private WebElement ensure;
-
     public WebElement getCreate() {
         return super.getButton("新 建");
-    }
-
-    @Override
-    public WebElement getEnsure() {
-        return ensure;
     }
 
     @Override

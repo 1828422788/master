@@ -25,7 +25,7 @@ public class AuthorizationPage extends PageTemplate {
 
     private WebElement webElement;
 
-    @FindBy(className = "el-loading-mask")
+    @FindBy(className = "ant-spin-spinning")
     private WebElement loading;
 
     @FindBy(xpath = "//div[not(contains(@style,'display: none;'))][@class='assign-tab']")
@@ -36,9 +36,6 @@ public class AuthorizationPage extends PageTemplate {
 
     @FindBy(className = "url-checkbox")
     private List<WebElement> urlCheckboxes;
-
-    @FindBy(xpath = "//div[@class='operation-btn-block']/button/span[contains(text(),'保存')]")
-    private WebElement saveButton;
 
     @FindBy(className = "el-message__group")
     private WebElement successMessage;
@@ -112,7 +109,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getSaveButton() {
-        return saveButton;
+        return super.getButton("保存");
     }
 
     public WebElement getRecall() {
@@ -120,8 +117,8 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getTabButton(String tabName) {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
-        return webDriver.findElement(By.xpath("//span[text()='" + tabName + "']/parent::button"));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
+        return webDriver.findElement(By.xpath("//a[text()='" + tabName + "']"));
     }
 
     public WebElement getCreateGroupButton(String value) {
@@ -179,15 +176,15 @@ public class AuthorizationPage extends PageTemplate {
         webDriver.get("http://" + config.get("rizhiyi_server_host") + "/account/roles/");
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        try {
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
-            assertTrue(webDriver.getCurrentUrl().contains("/account/roles/"));
-        } catch (Exception e) {
-            throw new Error("Cannot locate account roles page");
-        }
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        try {
+//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
+//            assertTrue(webDriver.getCurrentUrl().contains("/account/roles/"));
+//        } catch (Exception e) {
+//            throw new Error("Cannot locate account roles page");
+//        }
+//    }
 
 //    public static void main(String[] args) throws InterruptedException {
 //        SharedDriver driver = new SharedDriver();
