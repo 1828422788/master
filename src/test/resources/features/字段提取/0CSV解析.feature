@@ -75,7 +75,7 @@ Feature: 字段提取CSV解析
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "2000" millsecond
+    Then I wait for "10000" millsecond
 
     Examples:
       | appName       | log     |

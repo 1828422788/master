@@ -52,7 +52,7 @@ Feature: 字段提取搜索验证
       | auto_test_dump_key | other.order                                                                                                     | {'other.field':'other.field：tag ','other.page':'other.page：1 ','other.query':'other.query：* ','other.size':'other.size：50 ','other.sourcegroup':'other.sourcegroup：all ','other.sourcegroupCn':'other.sourcegroupCn：%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97 ','other.time_range':'other.time_range：-2d,now ','other.type':'other.type：fields '} |
       | auto_test_keep_key | other.field,other.page,other.query,other.size,other.sourcegroup,other.sourcegroupCn,other.time_range,other.type | {'other.order':'other.order：desc '}                                                                                                                                                                                                                                                                                                   |
 
-  Scenario Outline: RZY-3418:在搜索页验证
+  Scenario Outline: RZY-3418:在搜索页验证自定义配置高级算子
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "<spl>"
