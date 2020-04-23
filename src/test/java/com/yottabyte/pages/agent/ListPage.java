@@ -15,6 +15,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  * @author sunxj,sunxc
  */
 public class ListPage extends ListPageFactory {
+
+
+    public WebElement getMemoButton() {
+        return MemoButton;
+    }
+
+    @FindBy(xpath = "//div[@class='ant-popover _3J5Pw1DBfL5ONdRgQNn9yD ant-popover-placement-bottom']//span[contains(text(),'修改备注')]/ancestor::li")
+    private WebElement MemoButton;
+
     @FindBy(className = "_2FuqHHfRc-c7BJzf3RvYta")
     private WebElement agentGroup;
 

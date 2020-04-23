@@ -150,7 +150,7 @@ public class CheckButtonAttribute {
             String expectText = expectButtonName.get(buttonNameList.indexOf(buttonName));
             WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
             String actualText = element.getText();
-            Assert.assertTrue(actualText.contains(expectText));
+            Assert.assertTrue("实际值： " + actualText + "\n期望值： " + expectText, actualText.contains(expectText));
         }
     }
 

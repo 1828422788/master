@@ -10,10 +10,12 @@ Feature: 数据大屏-其他组件
     When I click the "Create" button
     And I set the parameter "Name" with value "其他组件"
     And I click the "Ensure" button
+
     And I click the "Other" button
     And I click the "Fullscreen" button
     And I click the "Other" button
     And I click the "Picture" button
+
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "ChartXaxis" with value "58"

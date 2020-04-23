@@ -183,7 +183,7 @@ Feature: 日志展现_地图
     And I click the "Type" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
-    And I wait for "2000" millsecond
+    And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
     Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 
@@ -213,7 +213,7 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
     And I drag the scroll bar to the element "StatisticalChart"
-    And I wait for "2000" millsecond
+    And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
     Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 
@@ -221,3 +221,67 @@ Feature: 日志展现_地图
       |chartType      |   tranparencyValue  | minRadiusValue | maxRadiusValue  | caseNum  |   spl   |
       |Statisticalmap |        0.5          |     10         |      50         |  2796    | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
 
+  Scenario Outline: regionmap(RZY-2790white)
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Map" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Exhibition" button
+    # Switch to white map
+    And I click the "ShowBubbles" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
+    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
+
+    Examples:
+      |chartType|caseNum        |   spl   |
+      |Regionmap| 2790_white    | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+
+  Scenario Outline: regionMap(RZY-2793,2794white)
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Map" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I click the "Value" button
+    And I choose the "<value>" from the "FieldValue"
+    And I click the "Divide" button
+    And I choose the "<divideField>" from the "FieldValue"
+    And I click the "Region" button
+    And I click the "Select<region>" button
+    And I click the "Exhibition" button
+    # Switch to white map
+    And I click the "ShowBubbles" button
+    And I click the "GoingDown" button
+    And I choose the "<provinceDrilldown>" from the "Province"
+    And I choose the "<cityDrilldown>" from the "City"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
+    Then I compare source image "expect/高级搜索视图/5地图/<caseNum>_<chartType>_<region>" with target image "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
+
+    Examples:
+      |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum      |   spl   |
+      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793_white  |tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794_white  |tag:sample04061424_chart \| stats count() by apache.geo.city |
