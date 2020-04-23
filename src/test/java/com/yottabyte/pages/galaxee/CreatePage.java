@@ -2384,9 +2384,18 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
     private WebElement tableShowRow;
     public WebElement getTableShowRow(){return tableShowRow;}
 
-
-
-
-
+//数值翻牌器
+    //字体颜色
+    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
+    private WebElement numberFontColor;
+    public WebElement getNumberFontColor(){return numberFontColor;}
+    //字体粗细
+    public WebElement getFlipNumberWordBold(){return this.dropdownList("翻转","字体粗细");}
+    //对齐方式
+    public WebElement getFlipNumberHorizontal(){return this.dropdownList("翻转","对齐");}
+    // 间距
+    @FindBy(xpath = "//label[contains(text(),'间距')]/following-sibling::div/input")
+    private WebElement flipSpacing;
+    public WebElement getFlipSpacing(){return flipSpacing;}
 
 }
