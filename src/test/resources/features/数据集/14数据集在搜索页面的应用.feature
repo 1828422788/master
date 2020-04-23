@@ -6,7 +6,7 @@ Feature: 数据集-在搜索页
     And I wait for element "SearchStatus" change text to "搜索完成!"
     #And I wait element "SearchStatus" change text to "搜索完成!"
 
-  @dataset
+
   Scenario: 父子行为无
     And I click the "fatherChildNull" button
     And I click the "DateEditor" button
@@ -23,7 +23,7 @@ Feature: 数据集-在搜索页
     Then I will see the "dataSetPosition" result will be "tag:sample*"
 
 
-  @dataset
+
   Scenario: 父子行为汇聚
     When I click the "huiJu" button
     And I click the "DateEditor" button
@@ -40,7 +40,7 @@ Feature: 数据集-在搜索页
     And I will see the "dataSetPosition" result will be "* AND tag:sample* AND (tag:beyond4 OR appname:apache)"
 
 
-  @dataset
+
   Scenario: 父子行为为：继承
     When I click the "jiCheng" button
     And I click the "DateEditor" button

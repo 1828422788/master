@@ -52,7 +52,6 @@ Feature: 数据集-对节点的操作
     Then I will see the "modifyNodeSentence" result will be "appname:apache"
 
 
-
   @dataset @Override
   Scenario: 删除节点
     Given open the "dataset.ListPage" page for uri "/dataset/"
