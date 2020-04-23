@@ -91,7 +91,9 @@ Feature: 字段提取前提条件
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
     And I choose the "<rule>" from the "ParseRule"
+    Then I wait for "2000" millsecond
     And I choose the "raw_message" from the "SourceField"
+    Then I wait for "2000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button

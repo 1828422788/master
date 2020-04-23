@@ -1,10 +1,14 @@
 package com.yottabyte.pages.agent;
 
+import com.yottabyte.utils.ClickEvent;
+import com.yottabyte.utils.DropdownUtils;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import com.yottabyte.pages.ListPageFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * @author sunxc,sunxj
@@ -21,22 +25,33 @@ public class GroupPage extends ListPageFactory{
     @FindBy(xpath = "//td//div[contains(text(),'English')]/ancestor::td/following-sibling::td//span[contains(text(),'删除')]/ancestor::button")
     private WebElement DeleteAgentGroupButton;
 
-    @FindBy(xpath = "//span[contains(text(),'确定')]/ancestor::button")
-    private WebElement Ensurebutton;
-
     @FindBy(xpath = "//div[@class='el-message-box__message']/p")
     private WebElement Finalmessage;
 
-    @FindBy(xpath = "//input[contains(@placeholder,'请输入')]")
-    private WebElement Name;
 
     public WebElement getName() {
-        return Name;
+        return getelement("请输入名称");
+    }
+
+    @FindBy(xpath = "//textarea[contains(@placeholder,'请输入描述')]")
+    private WebElement Description;
+
+    public WebElement getDescription() {
+        return Description;
     }
 
     public WebElement getCreateAgentGroupButton(){
-        String xpath = "//span[text()='新建']/ancestor::button";
+        String xpath = "//span[text()='新建 Agent 分组']/ancestor::button";
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getRole(){
+        String xpath = "//div[@class='ant-select-selection__placeholder']";
+        DropdownUtils dropdownUtils = new DropdownUtils();
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return dropdownUtils.getLastDropdownList();
     }
 
     public WebElement getEditButton(){
@@ -51,9 +66,31 @@ public class GroupPage extends ListPageFactory{
         return DeleteAgentGroupButton;
     }
 
-    public WebElement getEnsurebutton(){
-        return Ensurebutton;
+    public WebElement getSave() {
+        return super.getButton("保存");
     }
+
+    @Override
+    public WebElement getSearchInput() {
+        return searchInput;
+    }
+
+    @FindBy(xpath = "//div[text()='请输入名称']")
+    private WebElement searchInput;
+
+    public WebElement getSearchRole() {
+        return searchRole;
+    }
+
+    @FindBy(xpath = "//div[text()='请选择角色']")
+    private WebElement searchRole;
+
+    public WebElement getAddsuccessmsg() {
+        return Addsuccessmsg;
+    }
+
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']//span")
+    private WebElement Addsuccessmsg;
 
     public WebElement getMessage() {
         return webDriver.findElement(By.xpath("//div[@class='ant-modal-body']//p"));
@@ -75,8 +112,8 @@ public class GroupPage extends ListPageFactory{
         return super.getContainsTextButton("确定");
     }
 
-    public WebElement getContainEnsure() {
-        return super.getContainsTextButton("确定");
+    public WebElement getelement(String text){
+        return webDriver.findElement(By.xpath("//input[contains(@placeholder,'" + text + "')]"));
     }
 
 }

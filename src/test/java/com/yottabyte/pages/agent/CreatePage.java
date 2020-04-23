@@ -45,7 +45,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(@title,'最后修改时间')]/parent::div/following-sibling::div//input")
     private WebElement LastChangeTime;
 
-
     @FindBy(xpath = "//span[text()='来源路径']/following-sibling::span")
     private WebElement SourceRoot;
 

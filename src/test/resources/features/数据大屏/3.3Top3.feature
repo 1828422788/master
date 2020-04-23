@@ -3,8 +3,6 @@
 
 
   Scenario: Top3样式-搜索
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -53,12 +51,11 @@
     And I choose the "count()" from the "dataSearchNumber"
       #保存
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: Top3样式-搜索发布并截图
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
+
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
@@ -70,11 +67,10 @@
         |name           |
         |Top3样式-搜索    |
 
-######################################无耻的分割线################################
+#############################无耻的分割线################################
 
     Scenario: Top3数据之静态数据      
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
+
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -100,13 +96,12 @@
       #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: Top3数据之静态数据发布并截图 
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+
+      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
       And I close all tabs except main tab
@@ -121,8 +116,6 @@
 
 
     Scenario: Top3数据之绑定搜索
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -152,23 +145,20 @@
       And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
       And I click the "pictureTwo" button
-#      And I click the "pictureOne" button
       And I click the "Search" button
+      And I wait for "SearchTip" will be invisible
      #对Top3的参数进行设置
       And I click the "pictureOne" button
-#      And I click the "pictureTwo" button
       And I click the "Data" button
       And I wait for "2000" millsecond
       And I choose the "appname" from the "dataSearchName"
       And I choose the "count()" from the "dataSearchNumber"
-      Then take a screenshot with name "galaxee/Top3数据之绑定搜索编辑页"
       #保存
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
     Scenario Outline: Top3数据之绑定搜索发布并截图
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
+
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"

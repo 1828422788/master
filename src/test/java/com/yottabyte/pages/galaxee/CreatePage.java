@@ -491,6 +491,7 @@ public class CreatePage extends PageTemplate {
     public WebElement getCellFrameBold() {
         return this.input("单元格", "边框粗细");
     }
+    public WebElement getTableHeadFrameBold(){return this.input("表头","边框粗细");}
 
     public WebElement getCellBold() {
         return this.dropdownList("单元格", "字体粗细");
@@ -2222,6 +2223,14 @@ private WebElement dataType;
     private WebElement netDropdown;
     public WebElement getNetDropdown(){return netDropdown;}
 
+    //文字下拉菜单
+    @FindBy(xpath = "//li[contains(text(),'文字')]/ul")
+    private WebElement wordDropdown;
+    public WebElement getWordDropdown(){return wordDropdown;}
+
+
+
+
 
     //其他下拉菜单
     @FindBy(xpath = "//li[contains(text(),'其他')]/ul")
@@ -2328,5 +2337,65 @@ private WebElement dataType;
     //值字体粗细
     public WebElement getValueFontTwoWordBold(){return this.dropdownList("动态卡片II","值字体粗细");}
 
+//标题控件中的对齐方式
+public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐");}
+//标题中的动画
+   @FindBy(xpath = "//label[contains(text(),'角度')]/parent::div/following-sibling::div/label[contains(text(),'动画')]/following-sibling::label")
+    private WebElement dynamic;
+    public WebElement getDynamic(){return dynamic;}
+
+//表格
+    //表头高度
+    @FindBy(xpath = "//label[contains(text(),'表头高度')]/following-sibling::div/input")
+    private WebElement headHeight;
+    public WebElement getHeadHeight(){return headHeight;}
+    //表头-颜色
+    @FindBy(xpath = "//label[contains(text(),'颜色')]/following-sibling::div")
+    private WebElement color;
+    public WebElement getColor(){return color;}
+//    内边距
+    @FindBy(xpath = "//label[contains(text(),'内边距')]/following-sibling::div/input")
+    private WebElement padding;
+    public WebElement getPadding(){return padding;}
+//   显示行数
+    @FindBy(xpath = "//label[contains(text(),'显示行数')]/following-sibling::div/input")
+    private WebElement showRows;
+    public WebElement getShowRows(){return showRows;}
+
+//单元格-颜色
+     @FindBy(xpath = "//div[contains(text(),'单元格')]/following-sibling::div/div/div/div[2]/div")
+     private WebElement tableColor;
+    public WebElement getTableColor(){return tableColor;}
+//单元格-背景颜色
+    @FindBy(xpath = "//div[contains(text(),'单元格')]/following-sibling::div/div/div/div[4]/div")
+    private WebElement tableBgColor;
+    public WebElement getTableBgColor(){return tableBgColor;}
+//单元格-边框颜色
+    @FindBy(xpath = "//div[contains(text(),'单元格')]/following-sibling::div/div/div/div[6]/div")
+    private WebElement tableFrameColor;
+    public WebElement getTableFrameColor(){return tableFrameColor;}
+//单元格-内边距
+    @FindBy(xpath = "//div[contains(text(),'单元格')]/following-sibling::div/div/div/div[7]/div/input")
+    private WebElement tablePadding;
+    public WebElement getTablePadding(){
+        return tablePadding;}
+//单元格-显示行数
+    @FindBy(xpath = "//div[contains(text(),'单元格')]/following-sibling::div/div/div/div[8]/div/input")
+    private WebElement tableShowRow;
+    public WebElement getTableShowRow(){return tableShowRow;}
+
+//数值翻牌器
+    //字体颜色
+    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
+    private WebElement numberFontColor;
+    public WebElement getNumberFontColor(){return numberFontColor;}
+    //字体粗细
+    public WebElement getFlipNumberWordBold(){return this.dropdownList("翻转","字体粗细");}
+    //对齐方式
+    public WebElement getFlipNumberHorizontal(){return this.dropdownList("翻转","对齐");}
+    // 间距
+    @FindBy(xpath = "//label[contains(text(),'间距')]/following-sibling::div/input")
+    private WebElement flipSpacing;
+    public WebElement getFlipSpacing(){return flipSpacing;}
 
 }
