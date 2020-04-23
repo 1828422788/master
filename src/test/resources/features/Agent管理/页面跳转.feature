@@ -58,6 +58,7 @@ Feature: Agent页面跳转
     And I wait for loading invisible
     When I click the detail which column is "1" in agent page
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "agent.CreatePage" page
     Given the data name "192.168.1.160:514" in table "SyslogTable" then i click the "删除" button
     And I click the "Ensure" button
