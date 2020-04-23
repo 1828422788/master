@@ -2001,4 +2001,12 @@ public class CreatePage extends PageTemplate {
 //-----------------------------------------------------
 
 
+
+    @FindBy(xpath = "(//span[text()='展示气泡'])[last()]/ancestor::div/following-sibling::button")
+    private WebElement showBubbles;
+
+    public WebElement getShowBubbles() {
+        return showBubbles;
+    }
+
 }

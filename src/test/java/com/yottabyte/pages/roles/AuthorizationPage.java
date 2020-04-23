@@ -25,8 +25,8 @@ public class AuthorizationPage extends PageTemplate {
 
     private WebElement webElement;
 
-    @FindBy(className = "el-loading-mask")
-    private WebElement loading;
+//    @FindBy(className = "el-loading-mask")
+//    private WebElement loading;
 
     @FindBy(xpath = "//div[not(contains(@style,'display: none;'))][@class='assign-tab']")
     private WebElement tab;
@@ -37,7 +37,7 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "url-checkbox")
     private List<WebElement> urlCheckboxes;
 
-    @FindBy(xpath = "//div[@class='operation-btn-block']/button/span[contains(text(),'保存')]")
+    @FindBy(xpath = "//span[contains(text(),'保存')]/ancestor::button")
     private WebElement saveButton;
 
     @FindBy(className = "el-message__group")
@@ -71,6 +71,13 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//span[@class='el-checkbox__label'][contains(text(),'新建用户')])[1]")
     private WebElement createUser;
 
+    @FindBy(xpath = "//a[text()='功能']")
+    private WebElement feature;
+
+    public WebElement getFeature() {
+        return feature;
+    }
+
     public WebElement getCreateUser() {
         return createUser;
     }
@@ -91,9 +98,9 @@ public class AuthorizationPage extends PageTemplate {
         return customize;
     }
 
-    public WebElement getLoading() {
-        return loading;
-    }
+//    public WebElement getLoading() {
+//        return loading;
+//    }
 
     public WebElement getFunctionCheckbox() {
         return functionCheckbox;
@@ -120,7 +127,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getTabButton(String tabName) {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
         return webDriver.findElement(By.xpath("//span[text()='" + tabName + "']/parent::button"));
     }
 
@@ -179,15 +186,15 @@ public class AuthorizationPage extends PageTemplate {
         webDriver.get("http://" + config.get("rizhiyi_server_host") + "/account/roles/");
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        try {
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
-            assertTrue(webDriver.getCurrentUrl().contains("/account/roles/"));
-        } catch (Exception e) {
-            throw new Error("Cannot locate account roles page");
-        }
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        try {
+//            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
+//            assertTrue(webDriver.getCurrentUrl().contains("/account/roles/"));
+//        } catch (Exception e) {
+//            throw new Error("Cannot locate account roles page");
+//        }
+//    }
 
 //    public static void main(String[] args) throws InterruptedException {
 //        SharedDriver driver = new SharedDriver();

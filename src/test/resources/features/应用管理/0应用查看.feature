@@ -7,11 +7,11 @@ Feature: 应用查看
   Scenario Outline:
     When the data name is "<name>" then i click the "查看" button
     And I will see the "app.DetailPage" page
-    And I will see the element "Name" name is "<name>"
+    And I wait for "Name" will be visible
+    And I will see the input element "Name" value will contains "<name>"
     And I will see the element "MenuName" name is "<menuName>"
     And I will see the element "DefaultPage" name is "<defaultPage>"
-    And I will see the element "ResourceRange" name is "<resourceRange>"
 
     Examples:
-      | name      | menuName | defaultPage | resourceRange |
-      | ReportApp | 报表       | 报表          | 本APP          |
+      | name      | menuName | defaultPage |
+      | ReportApp | 报表       | 报表          |
