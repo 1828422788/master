@@ -12,43 +12,52 @@ Feature: Agent分组设置
     And switch to another window
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
-    And open the "agent.NewGroupPage" page for uri "/sources/input/agent/group/new/"
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
     And I choose the "<role>" from the "Role"
-    And I click the "BuildButton" button
-    Then I will see the message "<message>"
-    And I click the "EnsureButton" button
-    And I wait for loading invisible
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    And I click the "Save" button
+    And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"
 
 #  @indexSettingSmoke
     Examples: 成功
-      | name       | description | role      | message |
-      | sunxctest  | English     | __admin__ | 创建成功    |
-      | 中文角色       | 中文          | __admin__ | 创建成功    |
-      | sunxc_test |             | __admin__ | 创建成功    |
+      | name       | description | role      |
+      | sunxctest  | English     | __admin__ |
+      | 中文角色       | 中文          | __admin__ |
+      | sunxc_test |             | __admin__ |
 
-
-  Scenario Outline: 新建Agent分组设置失败
+  Scenario: Agent分组重名新建失败
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
-    And open the "agent.NewGroupPage" page for uri "/sources/input/agent/group/new/"
-    And I set the parameter "Name" with value "<name>"
-    When I set the parameter "Description" with value "<description>"
-    And I choose the "<role>" from the "Role"
-    And I click the "BuildButton" button
-    Then I will see the message "<message>"
+    And I set the parameter "Name" with value "sunxctest"
+#    When I set the parameter "Description" with value "<description>"
+    And I choose the "__admin__" from the "Role"
+    And I click the "Save" button
+    Then I will see the message "操作失败，原因：1062-Duplicate entry '1-sunxctest' for key 'domain_id_name'"
 
-    Examples: 失败
-      | name      | description | role      | message                                                           |
-      | sunxctest |             |           | 请分配角色                                                             |
-      |           |             |           | 填写资源分组名称                                                          |
-      |           |             | __admin__ | 填写资源分组名称                                                          |
-      | sunxctest |             | __admin__ | 保存失败: 1062-Duplicate entry '1-sunxctest' for key 'domain_id_name' |
+  Scenario: Agent分组未填写名称新建失败
+    And I click the "AgentGroupButton" button
+    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
+    And switch to another window
+    And I wait for loading invisible
+    And I click the "CreateAgentGroupButton" button
+#    When I set the parameter "Description" with value "<description>"
+    And I choose the "__admin__" from the "Role"
+    And I click the "Save" button
+    Then I will see the element "searchInput" name is "请输入名称"
+
+  Scenario: Agent分组未填写角色新建失败
+    And I click the "AgentGroupButton" button
+    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
+    And switch to another window
+    And I wait for loading invisible
+    And I click the "CreateAgentGroupButton" button
+    And I set the parameter "Name" with value "sunxctest2"
+#    When I set the parameter "Description" with value "<description>"
+    And I click the "Save" button
+    Then I will see the element "searchRole" name is "请选择角色"
 
   Scenario Outline: Agent分组添加和跳转
     Then the column is "1" then i click the "分组" button in agent page
@@ -61,11 +70,9 @@ Feature: Agent分组设置
     And the data name is "<name>" then i click the "跳转" button
     Then I will see the agent search result contains "1"
 
-
-
 #  @indexSettingSmokes
     Examples:
-      | name      | message                    |
+      | name      | message              |
       | sunxctest | 成功加入分组 [ sunxctest ] |
 
   Scenario Outline: Agent移出分组
@@ -81,7 +88,7 @@ Feature: Agent分组设置
 
 
     Examples:
-      | name      | message                    |
+      | name      | message              |
       | sunxctest | 成功移出分组 [ sunxctest ] |
 
   Scenario Outline: Agent批量操作空操作&加入分组
@@ -102,7 +109,7 @@ Feature: Agent分组设置
 
 
     Examples:
-      | name      | message                    |
+      | name      | message              |
       | sunxctest | 成功加入分组 [ sunxctest ] |
 
   Scenario Outline: Agent批量操作移出分组
@@ -120,7 +127,7 @@ Feature: Agent分组设置
 #    Then I will see the agent search result not contains "1"
 
     Examples:
-      | name      | message                    |
+      | name      | message              |
       | sunxctest | 成功移出分组 [ sunxctest ] |
 
   Scenario Outline: 编辑Agent资源分组
@@ -156,7 +163,7 @@ Feature: Agent分组设置
     Examples: 模糊搜索ip过滤成功
 
       | name  | correctName |
-      | sunxc | sunxc_test   |
+      | sunxc | sunxc_test  |
       | 中文    | 中文中文        |
 
   Scenario Outline: 删除Agent分组
