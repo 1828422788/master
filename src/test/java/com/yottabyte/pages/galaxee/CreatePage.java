@@ -186,6 +186,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'区域颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
     private WebElement areaColor;
 
+    @FindBy(xpath = "//label[contains(text(),'文本颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    private WebElement textColor;
+    public WebElement getTextColor(){return textColor;}
+
     @FindBy(xpath = "//label[contains(text(),'边界颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
     private WebElement boundaryColor;
 
