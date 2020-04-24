@@ -193,6 +193,19 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'边界颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
     private WebElement boundaryColor;
 
+//    标注色(起)
+      @FindBy(xpath = "//label[contains(text(),'标注色(起)')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+      private WebElement markColor1;
+      public WebElement getMarkColor1(){return markColor1;}
+//    标注色(中)
+     @FindBy(xpath = "//label[contains(text(),'标注色(中)')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+     private WebElement markColor2;
+    public WebElement getMarkColor2(){return markColor2;}
+//    标注色(止)
+    @FindBy(xpath = "//label[contains(text(),'标注色(止)')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    private WebElement markColor3;
+    public WebElement getMarkColor3(){return markColor3;}
+
     @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
     private WebElement wordColor;
 
