@@ -10,7 +10,6 @@ Feature: 应用删除
 
     Examples:
       | name                        |
-      | DatasetApp                  |
       | AutoTestAppWithAllResources |
       | EventApp                    |
       | ReportApp                   |
@@ -23,6 +22,7 @@ Feature: 应用删除
       | TopologyApp                 |
       | ConfigsApp                  |
       | AuthApp                     |
+      | DatasetApp                  |
 
   Scenario: 删除数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
