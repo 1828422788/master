@@ -114,9 +114,18 @@ public class ListPage extends ListPageFactory {
     public WebElement getFinishButton() {
         return super.getButton("完成");
     }
+
+
     public WebElement getGroupButton() {
-        String xpath = "//span[text()='sunxctest']";
+        String xpath = "//li[@class='_2YNvVzZq0iDG7om4qpUbnZ']/span[text()='sunxctest']";
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+    @FindBy(xpath = "//p/span[text()='sunxctest']")
+    private WebElement OpenGroupButton;
+
+    public WebElement getOpenGroupButton() {
+        return OpenGroupButton;
     }
 
     public WebElement getChangeMemoButton(){
