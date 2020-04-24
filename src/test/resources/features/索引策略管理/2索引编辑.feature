@@ -11,7 +11,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "<divideTimeDropDown>" from the "DivideTimeDropDown"
     And I click the "SavedButton" button
-    Then I will see the success message "<message>"
+    And I will see the element "Message" name is "<message>"
 
     Examples:
       | divideTime | divideTimeDropDown | message     |
@@ -26,8 +26,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "SavedButton" button
-    Then I will see the success message "<message>"
-
+    And I will see the element "Message" name is "<message>"
     Examples:
       | savedSize | savedSizeDropDown | message                |
       | 100       | Byte              | 保存成功 |
@@ -43,7 +42,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I choose the "<savedTimeDropDown>" from the "savedTimeDropDown"
     And I click the "SavedButton" button
-    Then I will see the success message "<message>"
+    And I will see the element "Message" name is "<message>"
 
     Examples:
       | savedTime | savedTimeDropDown | message     |
@@ -57,7 +56,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     Then I will see the "index.CreatePage" page
     And I set the parameter "Desc" with value "<desc>"
     And I click the "SavedButton" button
-    Then I will see the success message "<message>"
+    And I will see the element "Message" name is "<message>"
 
     Examples:
       | desc                 | message |
