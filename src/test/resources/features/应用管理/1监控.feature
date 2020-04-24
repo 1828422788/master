@@ -1,7 +1,5 @@
-#@all @smoke @app @appSmoke
+@all @smoke @app @appSmoke
 Feature: 应用监控模块（RZY-2122）
-
-  Background:
 
   Scenario: 新建监控
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -11,14 +9,16 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the "alert.ListPage" page
     When I click the "CreateAlert" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AlertApp"
+    And I will see the element "Title" name is "AlertApp"
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "AutoTestAppAlert"
+    And I choose the "admin" from the "AlertUsers"
     And I set the parameter "SearchContent" with value "*"
-    And I set the parameter "AlertTriggerInput" with value "10000000"
-    And I set the parameter "AlertLevelInput" with value "1000000000"
-    And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    And I set the parameter "TimeInput" with value "100000"
+    And I set the parameter "TriggerInput" with value "10000000"
+    And I set the parameter "TriggerLevel" with value "1000000000"
+    And I click the "CreateButton" button
+    Then I will see the success message "创建成功"
 
   Scenario: 编辑监控
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -28,12 +28,13 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'AutoTestAppAlert'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AlertApp"
+    And I will see the element "Title" name is "AlertApp"
     And I will see the "alert.CreatePage" page
     And I wait for loading invisible
     When I set the parameter "AlertName" with value "AutoTestAppAlertChangeName"
+    And I set the parameter "TimeInput" with value "30"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
 
   Scenario Outline: 复制监控
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -61,11 +62,11 @@ Feature: 应用监控模块（RZY-2122）
     When I click the "AlertPlugin" button
     And I wait for loading invisible
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AlertApp"
+    And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.PluginPage" page
     And I click the "Upload" button
     And I upload a file with name "/src/test/resources/testdata/alertPlugins/sendSms.py"
-    And I wait for "VerifyText" will be visible
+#    And I wait for "VerifyText" will be visible
     And I click the "EnsureButton" button
 
   Scenario: 修改标签
@@ -116,12 +117,12 @@ Feature: 应用监控模块（RZY-2122）
     Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName(副本)'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AlertApp"
+    And I will see the element "Title" name is "AlertApp"
     And I will see the "alert.CreatePage" page
     And I wait for "DeleteApp" will be visible
     And I click the "DeleteApp" button
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
 
   Scenario: 验证应用搜索
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -138,7 +139,7 @@ Feature: 应用监控模块（RZY-2122）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
 
     Examples:
       | name     |

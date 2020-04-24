@@ -29,7 +29,7 @@ public class CreatePage extends PageTemplate {
     private List<WebElement> tabs;
 
     // 监控名称
-    @FindBy(xpath = "//label[@class='el-form-item__label'][contains(text(),'名称')]/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
     private WebElement alertName;
 
     // 监控描述
@@ -45,7 +45,7 @@ public class CreatePage extends PageTemplate {
     private WebElement alertGroupSelectors;
 
     // 运行用户的按钮
-    @FindBy(className = "runner-select")
+    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div/div")
     private WebElement alertUserButton;
 
     // 日志来源的按钮
@@ -53,7 +53,7 @@ public class CreatePage extends PageTemplate {
     private WebElement alertSourceButton;
 
     // 搜索内容
-    @FindBy(className = "el-textarea__inner")
+    @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div/textarea")
     private WebElement searchContent;
 
     // 已存搜索按钮
@@ -95,10 +95,6 @@ public class CreatePage extends PageTemplate {
     // 添加阈值按钮
     @FindBy(className = "add-threshold")
     private WebElement addThresholdButton;
-
-    // 保存按钮
-    @FindBy(className = "update-save")
-    private WebElement saveButton;
 
     // 提示信息弹框
     @FindBy(className = "el-message-box__message")
@@ -212,6 +208,27 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//p[@class='el-select-dropdown__empty'])[last()]")
     private WebElement emptyDropdown;
+
+    @FindBy(xpath = "//input[@placeholder='请输入']")
+    private WebElement timeInput;
+
+    @FindBy(xpath = "//span[text()='条件']/following-sibling::div//input")
+    private WebElement triggerInput;
+
+    @FindBy(xpath = "//span[text()='触发告警级别']/following-sibling::div//input")
+    private WebElement triggerLevel;
+
+    public WebElement getTriggerLevel() {
+        return triggerLevel;
+    }
+
+    public WebElement getTriggerInput() {
+        return triggerInput;
+    }
+
+    public WebElement getTimeInput() {
+        return timeInput;
+    }
 
     public WebElement getEmptyDropdown() {
         return emptyDropdown;
@@ -553,8 +570,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSaveButton() {
-        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(saveButton));
-        return saveButton;
+        return super.getButton("保存");
+    }
+
+    public WebElement getCreateButton() {
+        return super.getButton("新建");
     }
 
     public WebElement getExSearchContent() {
@@ -766,9 +786,9 @@ public class CreatePage extends PageTemplate {
     private WebElement getSelectors(WebElement element) {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         element.click();
-        List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
-        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
-        return list.get(list.size() - 1);
+//        List<WebElement> list = webDriver.findElements(By.className("el-select-dropdown__list"));
+//        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
+        return super.getLastDropdownList();
     }
 
     private List<String> getAlertNoteTitle() {
