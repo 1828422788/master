@@ -1,4 +1,4 @@
-#@all @smoke @app @appSmoke
+@all @smoke @app @appSmoke
 Feature: 应用已存搜索（RZY-2125）
 
   Scenario: 新建已存搜索
@@ -12,18 +12,6 @@ Feature: 应用已存搜索（RZY-2125）
     And I choose the "SavedsearchesApp" from the "AppDropdown"
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "创建成功"
-
-#  Scenario Outline: 查看已存搜索
-#    When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
-#    And I will see the "app.AppPage" page
-#    And I will see the element "Title" name is "AutoTestAppWithAllResources"
-#    Then I will see the "splSearch.SearchPage" page
-#    Given I click the "OpenSavedSearchButton" button
-#    And I wait for loading invisible
-#
-#    Examples:
-#      | name    |
-#      | AutoApp |
 
   Scenario: 存为趋势图
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -131,7 +119,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
 
     Examples:
       | name             |

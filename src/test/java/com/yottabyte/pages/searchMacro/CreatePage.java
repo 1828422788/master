@@ -29,6 +29,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement lastDropdown;
 
+    @FindBy(className = "el-message-box__message")
+    private WebElement successMessage;
+
     @Override
     public WebElement getApp() {
         app.click();
@@ -68,7 +71,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return super.getErrorMessage();
+        return successMessage;
     }
 
     public WebElement getCheckbox() {

@@ -19,9 +19,6 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@class='ant-modal-body']//p | //div[@class='ant-message-custom-content ant-message-success']/span")
-    private WebElement successMessage;
-
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
@@ -31,7 +28,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensureButton;
 
-    @FindBy(xpath= "//div[@class='ant-modal-content']")
+    @FindBy(xpath = "//div[@class='ant-modal-content']")
     private WebElement tagPanel;
 
     @FindBy(xpath = "(//div[text()='标签'])[last()]/following-sibling::div[1]")
@@ -65,16 +62,10 @@ public class ListPage extends ListPageFactory {
     private WebElement searchInput;
 
     @FindBy(xpath = "//tbody[@class='ant-table-tbody']/tr[last()]/td[2]//a")
-    private  WebElement firstCreatedReport;
+    private WebElement firstCreatedReport;
 
     @FindBy(xpath = "//span[text()='报表列表']/ancestor::div/div/div[2]/div")
-    private  WebElement tagDropdown;
-
-
-    @Override
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
+    private WebElement tagDropdown;
 
     public WebElement getReportListButton() {
         return super.getButton("已生成报表");
@@ -83,10 +74,6 @@ public class ListPage extends ListPageFactory {
     public WebElement getReturnList() {
         return super.getButton("返回列表");
     }
-//
-//    public WebElement getMessage() {
-//        return super.getSuccessMessage();
-//    }
 
     public WebElement getNewReportButton() {
         return newReportButton;
@@ -153,6 +140,10 @@ public class ListPage extends ListPageFactory {
     public WebElement getTagDropdown() {
         tagDropdown.click();
         return this.getLastDropdownList();
+    }
+
+    public WebElement getReport() {
+        return super.getButton("已生成报表");
     }
 
 }

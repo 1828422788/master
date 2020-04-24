@@ -10,7 +10,7 @@ import java.util.List;
 
 public class EditPage extends PageTemplate {
 
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
     private WebElement name;
 
     @FindBy(xpath = "//label[text()='描述']/following-sibling::div//input")
@@ -53,12 +53,6 @@ public class EditPage extends PageTemplate {
 
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownLists;
-
-    @FindBy(xpath = "//span[text()='保存']/ancestor::button")
-    private WebElement saveButton;
-
-    @FindBy(className = "el-message-box__message")
-    private WebElement result;
 
     @FindBy(className = "el-tabs__item")
     private List<WebElement> resultHandling;
@@ -122,6 +116,14 @@ public class EditPage extends PageTemplate {
 
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
     private WebElement selectedUser;
+
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div")
+    private WebElement appDropdown;
+
+    public WebElement getAppDropdown() {
+        appDropdown.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getSelectedUser() {
         return selectedUser;
@@ -215,11 +217,11 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return result;
+        return super.getMessage();
     }
 
     public WebElement getSaveButton() {
-        return saveButton;
+        return super.getButton("保存");
     }
 
     public EditPage(WebDriver driver) {
@@ -275,17 +277,14 @@ public class EditPage extends PageTemplate {
     }
 
 
-
-
     //author_jnd
     //定时任务编辑页的数据集
     @FindBy(xpath = "//label[text()='数据集']/following-sibling::span")
     private WebElement dataSet;
-    public WebElement getDataSet(){return dataSet;}
 
-
-
-
+    public WebElement getDataSet() {
+        return dataSet;
+    }
 
 
 }

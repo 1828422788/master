@@ -1,4 +1,4 @@
-#@app @appSmoke
+@app @appSmoke
 Feature: 应用数据集
 
   Scenario Outline: 新建数据集应用
@@ -7,17 +7,24 @@ Feature: 应用数据集
     Then I will see the "app.CreatePage" page
     Given delete file "/target/download-files/<name>.tar"
     And I set the parameter "NameInput" with value "<name>"
-    And I click the "AddMenuButton" button
+    And I click the "AddResource" button
+    And I set the parameter "SearchResourceInput" with value "app所选资源"
+    And I wait for "SearchLoading" will be invisible
+    And I "check" the checkbox which name is "app所选资源" in tiny table
+    And I click the "SaveMenuButton" button
+    And I click the "AddMenuButton" button under some element
     And I wait for "MenuName" will be visible
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
     And I click the "SaveMenuButton" button
     And I choose the "<menuName>" from the "DefaultPage"
-    And I click the "ColorPicker" button
-    And I set the parameter "ColorValue" with value "<color>"
-    And I click the "EnsureColourButton" button
+    And I click the "CurrentApp" button
+#    And I click the "ColorPicker" button
+#    And I set the parameter "ColorValue" with value "<color>"
+#    And I click the "EnsureColourButton" button
     And I click the "CreateButton" button
-    Then I will see the success message "请等待下载开始后，点击确定返回列表页，然后等待下载完成"
+    And I will see the "app.ListPage" page
+    Then I wait for "CreateButton" will be visible
 
     Examples:
       | name       | menuName | url       | color   |
@@ -28,9 +35,9 @@ Feature: 应用数据集
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
-    When I upload a file with name "/target/download-files/<appName>.tar"
-    And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
+    When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
+    And I will see the element "VerifyText" name is "上传完成"
     And I click the "AddDataset" button
     And I set the parameter "SearchInput" with value "AutoTestApp"
     And I click the "SearchIcon" button
@@ -40,7 +47,7 @@ Feature: 应用数据集
     And I click the "NextButton" button under some element
     And I click the "NextButton" button
     And I wait for "ImportSuccess" will be visible
-    Then I will see the element "ImportSuccess" name is "导入成功"
+    Then I will see the element "ImportSuccess" name is "添加成功"
 
     Examples:
       | appName    |
@@ -55,7 +62,7 @@ Feature: 应用数据集
     When I click the "Create" button
     And I set the parameter "Name" with value "DatasetApp内新建"
     And I set the parameter "Alias" with value "DatasetApp"
-    And I set the parameter "Yuju" with value "*"
+    And I set the parameter "Spl" with value "*"
     And I click the "Save" button
     Then I wait for title change text to "数据集详情"
 
@@ -70,11 +77,11 @@ Feature: 应用数据集
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
-    When I click the "Editevent" button
-    And I set the parameter "Edityuju" with value "tag:heka"
-    And I click the "Rootsave" button
+    When I click the "EditEvent" button
+    And I set the parameter "EditYuJu" with value "tag:heka"
+    And I click the "RootSave" button
     And I wait for loading invisible
-    Then I will see the "Afteryuju" result will be "tag:heka"
+    Then I will see the "AfterYuJu" result will be "tag:heka"
 
   Scenario: 修改标签
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -98,7 +105,7 @@ Feature: 应用数据集
     When I click the "Create" button
     And I set the parameter "Name" with value "DatasetApp内新建无标签"
     And I set the parameter "Alias" with value "DatasetAppWithoutTag"
-    And I set the parameter "Yuju" with value "*"
+    And I set the parameter "Spl" with value "*"
     And I click the "Save" button
     Then I wait for title change text to "数据集详情"
 
@@ -141,7 +148,7 @@ Feature: 应用数据集
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
-    When I click the "Editevent" button
+    When I click the "EditEvent" button
     Then I will see the "dataset.ListPage" page
     And I click the "RemoveTagIcon" button
     Then I will see the "dataset.DetailPage" page
@@ -164,7 +171,7 @@ Feature: 应用数据集
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
 
     Examples:
       | name       |
