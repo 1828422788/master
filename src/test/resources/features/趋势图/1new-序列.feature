@@ -1,14 +1,13 @@
 @all @trend @createTrendOrder @createTrend
 Feature: 趋势图新建_序列
-# 13
 # sample04061424_chart for Today
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
 
   Scenario Outline: order(RZY-2477,2005,2491,2499)
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -42,6 +41,8 @@ Feature: 趋势图新建_序列
     |  ColumnChart  |  2499   | tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip |
 
   Scenario Outline: order
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -81,6 +82,8 @@ Feature: 趋势图新建_序列
       |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
 
   Scenario Outline: order_bubble
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -120,6 +123,8 @@ Feature: 趋势图新建_序列
       |  ScatterChart |    cnt       | bubbles   |
 
   Scenario Outline: order_switch
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -162,6 +167,8 @@ Feature: 趋势图新建_序列
 
 
   Scenario Outline: order_limit
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -198,3 +205,36 @@ Feature: 趋势图新建_序列
       |   chartType    | unitValue  |  caseNum  |
       |   ScatterChart |   个       |  2492     |
       |   ColumnChart  |   pcs.     |  2500     |
+
+    @compareTrend @compareTrendOrder
+  Scenario Outline: compare_view
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I will see the element "ChartName" contains "<name>"
+    And I wait for "ChartView" will be visible
+    And I will see the "NoData" doesn't exist
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual_view/<name>"
+
+    Examples:
+      | name                                     |
+      | ScatterChart_2492_limit                  |
+      | ColumnChart_2500_limit                   |
+      | AreaChart_2483_ConnectEmptyData          |
+      | AreaChart_2483_Smooth                    |
+      | LineChart_2479_ConnectEmptyData          |
+      | LineChart_2479_Smooth                    |
+      | ScatterChart_bubbles                     |
+      | ColumnChart_Pile                         |
+      | AreaChart_Pile                           |
+      | ColumnChart_2499                         |
+      | ScatterChart_2491                        |
+      | AreaChart_2005                           |
+      | LineChart_2477                           |

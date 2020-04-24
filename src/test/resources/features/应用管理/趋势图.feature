@@ -1,4 +1,4 @@
-@app @appSmoke
+#@app @appSmoke
 Feature: 应用趋势图
 
   Scenario Outline: 新建趋势图并存为报表

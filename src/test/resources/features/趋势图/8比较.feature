@@ -1,4 +1,4 @@
-@compareTrend
+#@compareTrend
 Feature: 趋势图比较
 
   Scenario Outline: compare
@@ -18,7 +18,7 @@ Feature: 趋势图比较
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
 
-    @compareTrendOrder
+#    @compareTrendOrder
     Examples:
       | name                                     |
       | ScatterChart_2492_limit                  |
@@ -36,7 +36,7 @@ Feature: 趋势图比较
       | LineChart_2477                           |
 
 
-    @compareTrendDimension
+#    @compareTrendDimension
     Examples:
       | name                                     |
       | Rose_展示全部                            |
@@ -62,7 +62,7 @@ Feature: 趋势图比较
       | Pie_2503                                 |
 
 
-    @compareTrendConnection
+#    @compareTrendConnection
     Examples:
       | name                                     |
       | Sankey_Multistage                        |
@@ -71,13 +71,13 @@ Feature: 趋势图比较
       | Sankey_2507                              |
       | Chord_2505                               |
 
-    @compareTrendCompound
+#    @compareTrendCompound
     Examples:
       | name                                     |
       | Multiaxis_2523                           |
       | Rangeline_2516                           |
 
-    @compareTrendMap
+#    @compareTrendMap
     Examples:
       | name                                     |
       | Regionmap_Jiangsu_2547_white             |
@@ -90,7 +90,7 @@ Feature: 趋势图比较
       | Regionmap_2545                           |
       | Heatmap_2539                             |
 
-    @compareTrendTimechart
+#    @compareTrendTimechart
     Examples:
       | name                                     |
       | timechart_3250_column                    |
@@ -123,9 +123,11 @@ Feature: 趋势图比较
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
 
-    @compareTrendOther
+#    @compareTrendOther
     Examples:
       | name                                     |
+      | Chain_2831_tree                          |
+      | Chain_2982_tree                          |
       | Table_Test                               |
       | Sequence_2805                            |
       | Chain_2982                               |
@@ -155,7 +157,7 @@ Feature: 趋势图比较
       | Wordcloud_2625                           |
       | Single_2549                              |
 
-    @compareTrendMap
+#    @compareTrendMap
     Examples:
       | name                                     |
       | Statisticalmap_2098_param                |

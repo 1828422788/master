@@ -56,11 +56,19 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[text()='定时任务']")
     private WebElement saveAsSchedule;
 
+    // with bubbles
     @FindBy(xpath = "//*[text()='124']/ancestor::*[2]")
     private WebElement countryChina;
 
     @FindBy(xpath = "//*[text()='46']/ancestor::*[2]")
     private WebElement provinceJiangsu;
+
+    // without bubbles displayed
+    @FindBy(xpath = " //*[text()='中国']")
+    private WebElement openChina;
+
+    @FindBy(xpath = " //*[text()='江苏']")
+    private WebElement openJiangsu;
 
     @FindBy(xpath = "//div[contains(text(),'关系')]")
     private WebElement connection;
@@ -930,6 +938,15 @@ public class CreatePage extends PageTemplate {
     public WebElement getProvinceJiangsu() {
         return provinceJiangsu;
     }
+
+    public WebElement getOpenChina() {
+        return openChina;
+    }
+
+    public WebElement getOpenJiangsu() {
+        return openJiangsu;
+    }
+
     public WebElement getWordSize() {
         return wordSize;
     }
@@ -2007,6 +2024,17 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getShowBubbles() {
         return showBubbles;
+    }
+
+    // for 调用链
+    @FindBy(xpath = "(//span[text()='展示类型'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement tracingType;
+
+    public WebElement getTracingType() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(tracingType));
+        tracingType.click();
+        return super.getLastDropdownList();
     }
 
 }

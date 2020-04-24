@@ -1,15 +1,14 @@
 @all @trend @createTrendCompound @createTrend
 Feature: 趋势图新建_复合
-# 2
 # sample04061424_chart for yesterday
 # sample04061424_display for today
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
 
   Scenario Outline: compound_rangeline(rzy-2516)
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Yesterday" button
@@ -51,6 +50,8 @@ Feature: 趋势图新建_复合
 
 
   Scenario Outline: compound_manyY(rzy-2523)
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "tag: sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -115,3 +116,24 @@ Feature: 趋势图新建_复合
       |   chartType   |  caseNum  |
       |   Multiaxis   |   2523    |
 
+  @compareTrend @compareTrendCompound
+  Scenario Outline: compare_view
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I will see the element "ChartName" contains "<name>"
+    And I wait for "ChartView" will be visible
+    And I will see the "NoData" doesn't exist
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual_view/<name>"
+
+    Examples:
+      | name                                     |
+      | Multiaxis_2523                           |
+      | Rangeline_2516                           |

@@ -1,4 +1,4 @@
-@all @smoke @app @appSmoke
+#@all @smoke @app @appSmoke
 Feature: 应用已存搜索（RZY-2125）
 
   Scenario: 新建已存搜索

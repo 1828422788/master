@@ -223,3 +223,42 @@ Feature: 日志展现_其它
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
       |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 4|
 
+  Scenario Outline: chain_tree(RZY-2812,2814)
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "<function>" from the "Function"
+    And I choose the "<parentIDvalue>" from the "ParentId"
+    And I choose the "<childIDvalue>" from the "ChildId"
+    And I click the "Time" button
+    And I choose the "<starttime>" from the "StartTime"
+    And I choose the "<duration>" from the "KeepTime"
+    And I click the "Divide" button
+    And I choose the "<childIDvalue>" from the "FieldValue"
+    And I click the "Info" button
+    And I choose the "<infoValue>" from the "InfoField"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I choose the "<precision>" from the "Precision"
+    And I choose the "tree" from the "TracingType"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "ChartView" will be visible
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+    Then I compare source image "expect/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+
+    Examples:
+      |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum   |   spl   |
+      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812_tree |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp|
+      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp|

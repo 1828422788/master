@@ -35,14 +35,6 @@ public class ListPageUtils {
         return this.getRowWithoutPaging(name, table);
     }
 
-    public WebElement findNameWithoutTotalNumber(String name) {
-        return this.getRowWithoutTotalPage(name);
-    }
-
-//    public WebElement findName(String name, WebElement table) {
-//        return this.getRowWithoutPaging(name, table);
-//    }
-
     public WebElement getTr(String dataName) {
         WebElement tr;
         if (!JsonStringPaser.isJson(dataName)) {
@@ -158,7 +150,7 @@ public class ListPageUtils {
     private WebElement clickNextPage(String trListXpath, String nextPageXpath, String name) {
         while (true) {
             List<WebElement> trList = webDriver.findElements(By.xpath(trListXpath));
-            while (trList.size()==1) {
+            while (trList.size() == 1) {
                 trList = webDriver.findElements(By.xpath(trListXpath));
             }
             for (WebElement tr : trList) {
@@ -174,6 +166,45 @@ public class ListPageUtils {
                 WaitForElement.waitUntilLoadingDisappear();
             }
         }
+    }
 
+    /**
+     * 匹配包含name的tr并返回
+     *
+     * @param name  名称
+     * @param table 若有多个table，需指定查找哪个table下的数据
+     * @return tr
+     */
+    public WebElement getTableRow(String name, WebElement table) {
+        WebElement nextPage = webDriver.findElement(By.className(" ant-pagination-next"));
+        String buttonAttribute = nextPage.getAttribute("aria-disabled");
+
+        List<WebElement> trList = this.getTableRowList(table);
+        for (WebElement tr : trList) {
+            if (tr.getText().contains(name)) {
+                return tr;
+            }
+        }
+        while (buttonAttribute.equals("false")) {
+            nextPage.click();
+            WaitForElement.waitUntilLoadingDisappear();
+            trList = this.getTableRowList(table);
+            for (WebElement tr : trList) {
+                if (tr.getText().contains(name)) {
+                    return tr;
+                }
+            }
+        }
+        return null;
+    }
+
+    private List<WebElement> getTableRowList(WebElement table) {
+        List<WebElement> trList;
+        if (table == null) {
+            trList = webDriver.findElements(By.xpath("//tbody/tr"));
+        } else {
+            trList = table.findElements(By.xpath("./tbody/tr"));
+        }
+        return trList;
     }
 }

@@ -43,7 +43,7 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "el-input__inner")
     private WebElement maxTime;
 
-//    @FindBy(xpath = "(//div[@class='el-checkbox-group'])[last()]")
+    //    @FindBy(xpath = "(//div[@class='el-checkbox-group'])[last()]")
     @FindBy(className = "url-checkbox")
     private WebElement checkboxGroup;
 
@@ -67,6 +67,10 @@ public class AuthorizationPage extends PageTemplate {
 
     @FindBy(xpath = "(//span[@class='el-checkbox__label'][contains(text(),'新建用户')])[1]")
     private WebElement createUser;
+
+    public WebElement getResourceName(String name) {
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/preceding-sibling::label"));
+    }
 
     public WebElement getCreateUser() {
         return createUser;

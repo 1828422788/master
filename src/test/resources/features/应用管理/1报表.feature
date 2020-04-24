@@ -1,4 +1,4 @@
-@app @appSmoke
+#@app @appSmoke
 Feature: 应用报表（RZY-2127）
 
   Scenario: 新建趋势图

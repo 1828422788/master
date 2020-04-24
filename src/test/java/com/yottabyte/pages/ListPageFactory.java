@@ -46,7 +46,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[@class='ant-modal-body']//div[contains(@class,'ant-select-selection--single')]")
     private WebElement authDropdown;
 
-    @FindBy(xpath = "(//span[text()='所属应用'])[last()]/following-sibling::span//input")
+    @FindBy(xpath = "//div[text()='请选择应用']")
     private WebElement app;
 
     public WebElement getApp() {
