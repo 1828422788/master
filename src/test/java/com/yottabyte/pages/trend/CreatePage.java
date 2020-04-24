@@ -2037,4 +2037,19 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    // for 单值-二级标题
+    @FindBy(xpath = "(//div[text()='二级标题'])[last()]")
+    private WebElement secondTitle;
+
+    @FindBy(xpath = "//span[text()='名称']/ancestor::div/following-sibling::input")
+    private WebElement titleName;
+
+    public WebElement getSecondTitle() {
+        return secondTitle;
+    }
+
+    public WebElement getTitleName() {
+        return titleName;
+    }
+
 }

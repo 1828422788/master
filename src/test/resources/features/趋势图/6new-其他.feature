@@ -286,6 +286,49 @@ Feature: 趋势图新建-其他
       |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
       |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
+  Scenario Outline: second_title
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "100"
+    And I click the "AddColor" button
+    And I click the "Purple" button
+    And I click the "Icon" button
+    And I click the "AccordingField" button
+    And I choose the "<iconValue>" from the "FieldValue"
+    And I click the "SecondTitle" button
+    And I set the parameter "TitleName" with value "二级title"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+
+    Examples:
+      |  chartType    |   iconValue  |  caseNum    |   spl   |
+      |   Single      |    icon      | secondTitle | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+
 
   Scenario Outline: ring_onefield
     And I click the "NewTrendButton" button
@@ -832,6 +875,7 @@ Feature: 趋势图新建-其他
       | Ring_table_3r_2c                         |
       | Ring_twofields                           |
       | Ring_onefield                            |
+      | Single_secondTitle
       | Single_prec2_1000off_back_after          |
       | Single_prec1_1000on__before              |
       | Single_rangeB                            |
