@@ -219,3 +219,35 @@ Feature: 日志展现_其他_单值
       |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
       |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
+  Scenario Outline: second_title
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "100"
+    And I click the "AddColor" button
+    And I click the "Purple" button
+    And I click the "Icon" button
+    And I click the "AccordingField" button
+    And I choose the "<iconValue>" from the "FieldValue"
+    And I click the "SecondTitle" button
+    And I set the parameter "TitleName" with value "二级title"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "ChartView" will be visible
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
+
+    Examples:
+      |  chartType    |   iconValue  |  caseNum         |   spl   |
+      |   Single      |    icon      |   secondTitle    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |

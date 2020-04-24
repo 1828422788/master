@@ -103,6 +103,7 @@ Feature: 趋势图删除（RZY-1891）
       | Ring_table_3r_2c                         |
       | Ring_twofields                           |
       | Ring_onefield                            |
+      | Single_secondTitle                       |
       | Single_prec2_1000off_back_after          |
       | Single_prec1_1000on__before              |
       | Single_rangeB                            |
