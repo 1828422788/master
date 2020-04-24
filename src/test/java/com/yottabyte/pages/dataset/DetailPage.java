@@ -100,8 +100,6 @@ public class DetailPage extends PageTemplate {
         return editWu;
     }
 
-    @FindBy(xpath = "//button[@class='ant-btn _3aTYSyOZTloazTQBYnBoxo css-hz5ttt _30I_KNdORT28dRU6TndFW _1o5KgcdDIjnVRXP6n1af9d ant-btn-primary']/span[text()='保存']")
-    private WebElement rootSave;  //编辑根事件的保存按钮
     public WebElement getRootSave() {
         return super.getButton("保存");
     }

@@ -54,7 +54,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[@class='ant-dropdown-menu-item'][1]")
     private WebElement li;
 
-    @FindBy(xpath = "//span[@class='yw-title']")
+    @FindBy(className = "ant-collapse-header")
     private WebElement topoTitle;
 
     @FindBy(xpath = "//label[text()='接收邮箱']/following-sibling::div/div")
@@ -103,9 +103,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='时']")
     private WebElement hour;
-
-    @FindBy(xpath = "//span[text()='保存']")
-    private WebElement save;
 
     @FindBy(id = "layout1")
     private WebElement layout1;
@@ -980,7 +977,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSave() {
-        return save;
+        return super.getButton("完成");
     }
 
     public WebElement getCrontab() {

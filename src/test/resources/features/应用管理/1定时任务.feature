@@ -1,4 +1,4 @@
-#@app @appSmoke
+@app @appSmoke
 Feature: 应用定时任务(RZY-2123)
 
   Scenario Outline: 新建定时任务
@@ -32,7 +32,7 @@ Feature: 应用定时任务(RZY-2123)
     When I click the "TimedTask" button
     And the data name is "{'column':'2','name':'AutoApp'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
     And I will see the "timedTask.EditPage" page
     And I set the parameter "Name" with value "AutoCreateApp"
     And I click the "SaveButton" button
@@ -138,8 +138,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     When the data name is "{'column':'2','name':'AutoTestCreate'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
-    And I wait for "DeleteApp" will be visible
-    And I click the "DeleteApp" button
+    And I choose the "AutoTestAppWithAllResources" from the "AppDropdown"
     And I click the "SaveButton" button
     Then I will see the success message "保存成功"
 
@@ -157,7 +156,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
 
     Examples:
       | name                        |
@@ -187,7 +186,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     And I click the "CurrentApp" button
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
 
     Examples:
       | name                        |

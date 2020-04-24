@@ -1,4 +1,4 @@
-#@app @appSmoke
+@app @appSmoke
 Feature: 应用本地上传日志（RZY-2148）
 
   Background:
