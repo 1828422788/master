@@ -25,7 +25,8 @@ Feature: Agent管理ip操作
       | 68      |
 
   Scenario Outline: 修改备注失败
-    Then the column is "1" then i click the "修改备注" button in agent page
+    Then the column is "1" then i click the "更多" button in agent page
+    And I click the "MemoButton" button
     And I set the parameter "Memo" with value "<memory>"
     And  I wait for loading invisible
     Then I will see the element "MemoError" name is "<errormessage>"
