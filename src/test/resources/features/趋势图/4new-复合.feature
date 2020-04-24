@@ -132,6 +132,7 @@ Feature: 趋势图新建_复合
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual_view/<name>"
+    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
 
     Examples:
       | name                                     |
