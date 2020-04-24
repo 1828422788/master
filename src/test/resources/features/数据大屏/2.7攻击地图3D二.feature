@@ -2,8 +2,6 @@
   Feature: 数据大屏-攻击地图3D II
 
     Scenario: 攻击地图3DII之样式-搜索
-      #Given I will see the "PublicNavBarPage" page
-      #And I wait for "Dashboard" will be visible
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -48,13 +46,13 @@
       And I choose the "cnt" from the "MeasureValue"
       And I click the "Update" button
       #保存
+      And I wait for "Save" will be visible
+      And I wait for "2000" millsecond
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 攻击地图3DII样式-搜索设置发布并截图
-     # Given I will see the "PublicNavBarPage" page
-     # And I wait for "Dashboard" will be visible
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
@@ -69,10 +67,7 @@
 
 ######################################无耻的分割线################################
 
-
     Scenario: 攻击地图3DII之数据设置(数据源类型：静态数据)
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -84,6 +79,9 @@
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
       And I click the "Style" button
+      #开启背景动画
+      And I click the "globalStyle" button
+      And I click the "backgroundAuto" button
       #数据设置
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -100,12 +98,12 @@
       And I choose the "count" from the "MeasureValue"
       And I click the "Update" button
       #保存
+      And I wait for "Save" will be visible
+      And I wait for "2000" millsecond
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之静态数据发布并截图
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
@@ -135,12 +133,14 @@
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
-      #添加一个攻击地图3D II控件
       #选择上方的地图
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
       And I click the "Style" button
+      #开启背景动画
+      And I click the "globalStyle" button
+      And I click the "backgroundAuto" button
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -150,11 +150,10 @@
       And I click the "search_widget" button
         #再次点击搜索控件中的【搜索按钮】
       And I click the "pictureTwo" button
-#      And I click the "pictureOne" button
       And I click the "Search" button
+      And I wait for "SearchTip" will be invisible
      #对中国地图二的参数进行设置
       And I click the "pictureOne" button
-#      And I click the "pictureTwo" button
       And I click the "Data" button
       And I wait for "3000" millsecond
 
@@ -167,11 +166,9 @@
       And I click the "Update" button
       #保存
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之绑定数据发布并截图
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
       And switch to window "<name>"
@@ -185,7 +182,7 @@
 
 
 
-    Scenario Outline: 删除关于攻击地图3D的大屏
+    Scenario Outline: 删除关于攻击地图3D二的大屏
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
       Then I click the "Ensure" button
