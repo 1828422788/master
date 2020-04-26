@@ -9,6 +9,7 @@ Feature: 应用安装（RZY-1988）
     And I set the parameter "Spl" with value "*"
     And I click the "Save" button
 
+  @test
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "InstallButton" button
@@ -31,17 +32,17 @@ Feature: 应用安装（RZY-1988）
     Examples:
       | appName                     |
       | AutoTestAppWithAllResources |
-      | EventApp                    |
-      | ReportApp                   |
-      | DashboardApp                |
-      | AlertApp                    |
-      | TrendApp                    |
-      | SavedsearchesApp            |
-      | KnowledgeApp                |
-      | MacroApp                    |
-      | TopologyApp                 |
-      | ConfigsApp                  |
-      | AuthApp                     |
+#      | EventApp                    |
+#      | ReportApp                   |
+#      | DashboardApp                |
+#      | AlertApp                    |
+#      | TrendApp                    |
+#      | SavedsearchesApp            |
+#      | KnowledgeApp                |
+#      | MacroApp                    |
+#      | TopologyApp                 |
+#      | ConfigsApp                  |
+#      | AuthApp                     |
 
   Scenario Outline: 新建测试app
     Given open the "app.ListPage" page for uri "/app/list/"

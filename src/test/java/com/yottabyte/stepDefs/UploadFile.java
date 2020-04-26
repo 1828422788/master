@@ -92,9 +92,9 @@ public class UploadFile {
     @And("^I upload a file \"([^\"]*)\" with name \"([^\"]*)\"$")
     public void uploadFileWithName(String inputName, String fileNameWithPath) {
         WebElement fileInput = GetElementFromPage.getWebElementWithName(inputName);
-        if (fileNameWithPath.contains("target"))
-            uploadFileWithDifferentPath(fileInput, fileNameWithPath);
-        else
+//        if (fileNameWithPath.contains("target"))
+//            uploadFileWithDifferentPath(fileInput, fileNameWithPath);
+//        else
             uploadFile(fileInput, fileNameWithPath);
     }
 
@@ -114,6 +114,7 @@ public class UploadFile {
                     String fileName = tmpFile.getName();
                     String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
                     courseFile = courseFile + "/" + path;
+                    System.out.println("路径："+courseFile);
                     fileNameWithPath = fileName;
                 }
 //                else if ("Remote".equalsIgnoreCase(type) && userAgent.contains("Mac OS X")) {
