@@ -15,7 +15,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
-    
+
     And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
@@ -36,11 +36,11 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |caseNum  |   spl   |
-      |   Single      | 2549    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>300,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Wordcloud   | 2625    | tag:sample04061424_chart \| stats count() by apache.geo.city |
-      |   Radar       | 2633    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-      |   Funnel      | 2654    | tag:sample04061424_chart \| stats count() by apache.clientip \| limit 5 |
+      | chartType | caseNum | spl                                                                                                          |
+      | Single    | 2549    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>300,\"thumbs-down\",\"thumbs-up\"\) |
+      | Wordcloud | 2625    | tag:sample04061424_chart \| stats count() by apache.geo.city                                                 |
+      | Radar     | 2633    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                   |
+      | Funnel    | 2654    | tag:sample04061424_chart \| stats count() by apache.clientip \| limit 5                                      |
 
   Scenario Outline: single_icon
     And I click the "NewTrendButton" button
@@ -77,9 +77,9 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |   iconValue  |  caseNum  |   spl   |
-      |   Single      |    icon      |   icon    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      |    cnt       |   cnt     | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | chartType | iconValue | caseNum | spl                                                                                                              |
+      | Single    | icon      | icon    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | Single    | cnt       | cnt     | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
 
   Scenario Outline: single_font
@@ -117,9 +117,9 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |   fontValue       |  caseNum  |   spl   |
-      |   Single      | font-awesome-flag |   font1   | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      | font-awesome      |   font2   | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | chartType | fontValue         | caseNum | spl                                                                                                              |
+      | Single    | font-awesome-flag | font1   | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | Single    | font-awesome      | font2   | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: single_background
     And I click the "NewTrendButton" button
@@ -156,8 +156,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |  caseNum  |   spl   |
-      |   Single      |   backgr  | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | chartType | caseNum | spl                                                                                                              |
+      | Single    | backgr  | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: single_trend
     And I click the "NewTrendButton" button
@@ -193,8 +193,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |  caseNum  | timeValue    |   spl   |
-      |   Single      |   trend   | 一天前        |tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | chartType | caseNum | timeValue | spl                                                                                                              |
+      | Single    | trend   | 一天前       | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: single_range
     And I click the "NewTrendButton" button
@@ -238,9 +238,9 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |  caseNum  | minVal1 | maxVal1  |  color1  | minVal2 | maxVal2  |  color2  | colorFill     |   spl   |
-      |   Single      |   rangeF  | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Font         |tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      |   rangeB  | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Background   |tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | chartType | caseNum | minVal1 | maxVal1 | color1 | minVal2 | maxVal2 | color2 | colorFill  | spl                                                                                                                               |
+      | Single    | rangeF  | 0       | 100     | Green  | 100     | 1000    | Red    | Font       | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\)                  |
+      | Single    | rangeB  | 0       | 100     | Green  | 100     | 1000    | Red    | Background | tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: single_1000separator
     And I click the "NewTrendButton" button
@@ -282,9 +282,9 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    | precision |  unitPosition       |  buttonSwitch     |  caseNum                |   spl   |
-      |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
-      |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      | chartType | precision | unitPosition       | buttonSwitch      | caseNum                  | spl                                                                                                        |
+      | Single    | 1         | UnitPositionBefore | ThousandSeparator | prec1_1000on__before     | tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      | Single    | 2         | UnitPositionAfter  | Background        | prec2_1000off_back_after | tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
   Scenario Outline: second_title
     And I click the "NewTrendButton" button
@@ -326,8 +326,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |   iconValue  |  caseNum    |   spl   |
-      |   Single      |    icon      | secondTitle | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | chartType | iconValue | caseNum     | spl                                                                                                              |
+      | Single    | icon      | secondTitle | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
 
   Scenario Outline: ring_onefield
@@ -364,8 +364,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |  caseNum  |   spl   |
-      |   Ring        |  onefield |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | chartType | caseNum  | spl                                                                                                                                                                                   |
+      | Ring      | onefield | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline: ring_twofields
     And I click the "NewTrendButton" button
@@ -401,8 +401,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |  caseNum  |   spl   |
-      |   Ring        |  twofields|tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | chartType | caseNum   | spl                                                                                                                                                                                   |
+      | Ring      | twofields | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline: ring_table
     And I click the "NewTrendButton" button
@@ -443,9 +443,9 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |    caseNum   | rows    |  columns  |   spl   |
-      |   Ring        | table_3r_2c  |  3      |   2       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
-      |   Ring        | table_1r_4c  |  1      |   4       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | chartType | caseNum     | rows | columns | spl                                                                                                                                                                                   |
+      | Ring      | table_3r_2c | 3    | 2       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | Ring      | table_1r_4c | 1    | 4       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
 
   Scenario Outline: ring_colors
@@ -507,8 +507,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |    caseNum          | rows    |  columns  |   spl   |
-      |   Ring        | table_1r_3c_colors  |  1      |   3       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | chartType | caseNum            | rows | columns | spl                                                                                                                                                                                   |
+      | Ring      | table_1r_3c_colors | 1    | 3       | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
 
   Scenario Outline: liquidfill
@@ -546,8 +546,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    |   caseNum  |   spl   |
-      |   Liquidfill  |  percent   | tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
+      | chartType  | caseNum | spl                                                                       |
+      | Liquidfill | percent | tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
 
 
   Scenario Outline: radar
@@ -588,8 +588,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    | divField       | color1   | caseNum  |   spl   |
-      |   Radar       | apache.geo.city| DarkBlue | 2635     | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      | chartType | divField        | color1   | caseNum | spl                                                                        |
+      | Radar     | apache.geo.city | DarkBlue | 2635    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
   Scenario Outline: funnel
     And I click the "NewTrendButton" button
@@ -632,8 +632,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
-      |   Funnel      |  count()   | apache.clientip|LightGreen |2858    | tag:sample04061424_chart \|  stats count() by apache.clientip \| limit 5 |
+      | chartType | countValue | divValue        | color1     | caseNum | spl                                                                      |
+      | Funnel    | count()    | apache.clientip | LightGreen | 2858    | tag:sample04061424_chart \|  stats count() by apache.clientip \| limit 5 |
 
   Scenario Outline: matrixheatmap
     And I click the "NewTrendButton" button
@@ -670,9 +670,9 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType     |  xValue         |  yValue       | segNum |caseNum  |   spl   |
-      |  Matrixheatmap |  count()        | apache.status |  10    |2660    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-      |  Matrixheatmap | apache.geo.city |    count()    |  5     |2661    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      | chartType     | xValue          | yValue        | segNum | caseNum | spl                                                                        |
+      | Matrixheatmap | count()         | apache.status | 10     | 2660    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      | Matrixheatmap | apache.geo.city | count()       | 5      | 2661    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
   Scenario Outline: chain
     And I click the "NewTrendButton" button
@@ -719,9 +719,9 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
-      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2831    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
-      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2982    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
+      | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp |
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id | collector_recv_timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp |
 
 
   Scenario Outline: sequence
@@ -764,8 +764,8 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
-      |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 3|
+      | chartType | timeSeq  | source          | target   | segmentation    | mark    | caseNum | spl                                                                             |
+      | Sequence  | hostname | apache.clientip | hostname | apache.clientip | count() | 2805    | tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 3 |
 
   Scenario: table
     And I click the "NewTrendButton" button
@@ -834,9 +834,9 @@ Feature: 趋势图新建-其他
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-      |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum      |   spl   |
-      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2831_tree    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
-      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2982_tree    |tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp|
+      | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum   | spl                                                                                                                                                                                                                                                       |
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp |
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id | collector_recv_timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp |
 
 
   @compareTrend @compareTrendOther
@@ -858,36 +858,36 @@ Feature: 趋势图新建-其他
     And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
 
     Examples:
-      | name                                     |
-      | Chain_2831_tree                          |
-      | Chain_2982_tree                          |
-      | Table_Test                               |
-      | Sequence_2805                            |
-      | Chain_2982                               |
-      | Chain_2831                               |
-      | Matrixheatmap_2661                       |
-      | Matrixheatmap_2660                       |
-      | Funnel_2858                              |
-      | Radar_2635                               |
-      | Liquidfill_percent                       |
-      | Ring_table_1r_3c_colors                  |
-      | Ring_table_1r_4c                         |
-      | Ring_table_3r_2c                         |
-      | Ring_twofields                           |
-      | Ring_onefield                            |
-      | Single_secondTitle
-      | Single_prec2_1000off_back_after          |
-      | Single_prec1_1000on__before              |
-      | Single_rangeB                            |
-      | Single_rangeF                            |
-      | Single_trend                             |
-      | Single_backgr                            |
-      | Single_font2                             |
-      | Single_font1                             |
-      | Single_cnt                               |
-      | Single_icon                              |
-      | Funnel_2654                              |
-      | Radar_2633                               |
-      | Wordcloud_2625                           |
-      | Single_2549                              |
+      | name                            |
+      | Chain_2831_tree                 |
+      | Chain_2982_tree                 |
+      | Table_Test                      |
+      | Sequence_2805                   |
+      | Chain_2982                      |
+      | Chain_2831                      |
+      | Matrixheatmap_2661              |
+      | Matrixheatmap_2660              |
+      | Funnel_2858                     |
+      | Radar_2635                      |
+      | Liquidfill_percent              |
+      | Ring_table_1r_3c_colors         |
+      | Ring_table_1r_4c                |
+      | Ring_table_3r_2c                |
+      | Ring_twofields                  |
+      | Ring_onefield                   |
+      | Single_secondTitle              |
+      | Single_prec2_1000off_back_after |
+      | Single_prec1_1000on__before     |
+      | Single_rangeB                   |
+      | Single_rangeF                   |
+      | Single_trend                    |
+      | Single_backgr                   |
+      | Single_font2                    |
+      | Single_font1                    |
+      | Single_cnt                      |
+      | Single_icon                     |
+      | Funnel_2654                     |
+      | Radar_2633                      |
+      | Wordcloud_2625                  |
+      | Single_2549                     |
 
