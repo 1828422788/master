@@ -92,10 +92,10 @@ public class UploadFile {
     @And("^I upload a file \"([^\"]*)\" with name \"([^\"]*)\"$")
     public void uploadFileWithName(String inputName, String fileNameWithPath) {
         WebElement fileInput = GetElementFromPage.getWebElementWithName(inputName);
-//        if (fileNameWithPath.contains("target"))
-//            uploadFileWithDifferentPath(fileInput, fileNameWithPath);
-//        else
-            uploadFile(fileInput, fileNameWithPath);
+        if (fileNameWithPath.contains("target"))
+            uploadFileWithDifferentPath(fileInput, fileNameWithPath);
+        else
+        uploadFile(fileInput, fileNameWithPath);
     }
 
     private void uploadFile(WebElement uploadInput, String fileNameWithPath) {
@@ -114,7 +114,7 @@ public class UploadFile {
                     String fileName = tmpFile.getName();
                     String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
                     courseFile = courseFile + "/" + path;
-                    System.out.println("路径："+courseFile);
+                    System.out.println("路径：" + courseFile);
                     fileNameWithPath = fileName;
                 }
 //                else if ("Remote".equalsIgnoreCase(type) && userAgent.contains("Mac OS X")) {
@@ -160,6 +160,7 @@ public class UploadFile {
                     courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
                     File tmpFile = new File(fileNameWithPath);
                     courseFile = courseFile + "/" + tmpFile.getPath();
+                    System.out.println("路径：" + courseFile);
                 } else {
                     courseFile = directory.getCanonicalPath() + fileNameWithPath;
                 }
