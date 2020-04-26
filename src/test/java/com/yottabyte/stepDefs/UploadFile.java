@@ -95,7 +95,7 @@ public class UploadFile {
         if (fileNameWithPath.contains("target"))
             uploadFileWithDifferentPath(fileInput, fileNameWithPath);
         else
-        uploadFile(fileInput, fileNameWithPath);
+            uploadFile(fileInput, fileNameWithPath);
     }
 
     private void uploadFile(WebElement uploadInput, String fileNameWithPath) {
@@ -160,11 +160,12 @@ public class UploadFile {
                     courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
                     File tmpFile = new File(fileNameWithPath);
                     courseFile = courseFile + "/" + tmpFile.getPath();
-                    System.out.println("路径：" + courseFile);
                 } else {
                     courseFile = directory.getCanonicalPath() + fileNameWithPath;
                 }
-                uploadInput.sendKeys(courseFile.replace("//", "/"));
+                courseFile = courseFile.replace("//", "/");
+                System.out.println("路径：" + courseFile);
+                uploadInput.sendKeys(courseFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }
