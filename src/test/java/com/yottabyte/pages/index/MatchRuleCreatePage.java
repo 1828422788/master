@@ -55,6 +55,15 @@ public class MatchRuleCreatePage extends PageTemplate {
         return getErrorMessage();
     }
 
+
+    @FindBy(xpath = "//div[@class='el-message-box__message']")
+    private WebElement Message;
+
+    @Override
+    public WebElement getMessage() {
+        return Message;
+    }
+
     public WebElement getSavedButton() {
         return getContainsTextButton("保存");
     }

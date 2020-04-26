@@ -33,4 +33,17 @@ public class ListPage extends ListPageFactory {
         return super.getButton("索引配置");
     }
 
+    @FindBy(xpath = "//div[@class='el-message-box__message']")
+    private WebElement Message;
+
+    public WebElement getMemoMessage() {
+        return MemoMessage;
+    }
+
+    @FindBy(xpath = "//p[@class='_1JjlGgMGUnJmBrqR_9PZl8']")
+    private WebElement MemoMessage;
+
+    public WebElement getMessage() {
+        return Message;
+    }
 }

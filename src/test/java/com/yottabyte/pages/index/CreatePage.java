@@ -86,6 +86,14 @@ public class CreatePage extends PageTemplate {
         return super.getErrorMessage();
     }
 
+    @FindBy(xpath = "//div[@class='el-message-box__message']")
+    private WebElement Message;
+
+    @Override
+    public WebElement getMessage() {
+        return Message;
+    }
+
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div//input"));
     }
