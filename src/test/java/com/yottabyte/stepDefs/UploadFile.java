@@ -92,7 +92,10 @@ public class UploadFile {
     @And("^I upload a file \"([^\"]*)\" with name \"([^\"]*)\"$")
     public void uploadFileWithName(String inputName, String fileNameWithPath) {
         WebElement fileInput = GetElementFromPage.getWebElementWithName(inputName);
-        uploadFile(fileInput, fileNameWithPath);
+        if (fileNameWithPath.contains("target"))
+            uploadFileWithDifferentPath(fileInput, fileNameWithPath);
+        else
+            uploadFile(fileInput, fileNameWithPath);
     }
 
     private void uploadFile(WebElement uploadInput, String fileNameWithPath) {
