@@ -114,6 +114,7 @@ public class UploadFile {
                     String fileName = tmpFile.getName();
                     String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
                     courseFile = courseFile + "/" + path;
+                    System.out.println("路径：" + courseFile);
                     fileNameWithPath = fileName;
                 }
 //                else if ("Remote".equalsIgnoreCase(type) && userAgent.contains("Mac OS X")) {
@@ -162,7 +163,9 @@ public class UploadFile {
                 } else {
                     courseFile = directory.getCanonicalPath() + fileNameWithPath;
                 }
-                uploadInput.sendKeys(courseFile.replace("//", "/"));
+                courseFile = courseFile.replace("//", "/");
+                System.out.println("路径：" + courseFile);
+                uploadInput.sendKeys(courseFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }
