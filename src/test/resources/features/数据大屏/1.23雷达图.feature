@@ -2,8 +2,6 @@
 Feature: 数据大屏-雷达图
 
   Scenario: 雷达图样式-搜索
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -62,9 +60,13 @@ Feature: 数据大屏-雷达图
     #3 全局样式修改名称
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "雷达图样式修改"
+    #开启背景动画
+    And I click the "backgroundAuto" button
 #数据-搜索
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 10"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -72,12 +74,10 @@ Feature: 数据大屏-雷达图
     And I choose the "count()" from the "radarNumberFile"
      #保存
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 雷达图样式-搜索发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -91,8 +91,6 @@ Feature: 数据大屏-雷达图
 
  ##################################无耻的分割线################################
   Scenario: 雷达图数据之静态数据
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -109,6 +107,8 @@ Feature: 数据大屏-雷达图
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 10"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -122,12 +122,10 @@ Feature: 数据大屏-雷达图
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 雷达图数据之静态数据发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -142,8 +140,6 @@ Feature: 数据大屏-雷达图
 #################################无耻的分割线###############################
 
   Scenario: 雷达图数据之绑定搜索
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -155,6 +151,8 @@ Feature: 数据大屏-雷达图
     And I click the "otherSearch" button
     And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 10"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -175,11 +173,10 @@ Feature: 数据大屏-雷达图
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button
-#    And I click the "pictureOne" button
     And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
      #对雷达图的参数进行设置
     And I click the "pictureOne" button
-#    And I click the "pictureTwo" button
     And I click the "Data" button
     And I wait for "3000" millsecond
 
@@ -187,12 +184,10 @@ Feature: 数据大屏-雷达图
     And I choose the "count()" from the "radarNumberFile"
       #保存
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 雷达图数据之绑定搜索发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
