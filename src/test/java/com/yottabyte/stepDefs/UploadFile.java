@@ -163,7 +163,7 @@ public class UploadFile {
                 } else {
                     courseFile = directory.getCanonicalPath() + fileNameWithPath;
                 }
-                courseFile = courseFile.replace("//", "/");
+                courseFile = courseFile.replace("/", File.separator).replace("\\", File.separator).replace("//", File.separator);
                 System.out.println("路径：" + courseFile);
                 uploadInput.sendKeys(courseFile);
             } catch (IOException e) {
