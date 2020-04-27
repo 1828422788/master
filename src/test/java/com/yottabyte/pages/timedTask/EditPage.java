@@ -54,40 +54,40 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownLists;
 
-    @FindBy(className = "el-tabs__item")
+    @FindBy(className = " ant-tabs-tab")
     private List<WebElement> resultHandling;
 
-    @FindBy(className = "add-jdbc")
+    @FindBy(xpath = "//label[text()='添加jdbc']")
     private WebElement addJDBC;
 
-    @FindBy(className = "yw-title")
+    @FindBy(xpath = "(//div[text()='JDBC'])[last()]")
     private WebElement jdbc;
 
-    @FindBy(xpath = "//label[contains(text(),'连接名称')]/following-sibling::div/input")
+    @FindBy(xpath = "//label[contains(text(),'连接名称')]/following-sibling::input")
     private WebElement connectName;
 
-    @FindBy(xpath = "//label[contains(text(),'用户名')]/following-sibling::div/input")
+    @FindBy(xpath = "//label[contains(text(),'用户名')]/following-sibling::input")
     private WebElement userName;
 
-    @FindBy(xpath = "//label[contains(text(),'密码')]/following-sibling::div/input")
+    @FindBy(xpath = "//label[contains(text(),'密码')]/following-sibling::input")
     private WebElement password;
 
-    @FindBy(xpath = "//label[contains(text(),'主机')]/following-sibling::div/input")
+    @FindBy(xpath = "//label[contains(text(),'主机')]/following-sibling::input")
     private WebElement host;
 
-    @FindBy(xpath = "//label[contains(text(),'端口')]/following-sibling::div/input")
+    @FindBy(xpath = "//label[contains(text(),'端口')]/following-sibling::input")
     private WebElement port;
 
-    @FindBy(xpath = "//input[@placeholder='请选择数据库类型']")
+    @FindBy(xpath = "//label[text()='数据库类型']/following-sibling::div")
     private WebElement databaseType;
 
-    @FindBy(xpath = "//label[contains(text(),'数据库名')]/following-sibling::div/input")
+    @FindBy(xpath = "//label[contains(text(),'数据库名')]/following-sibling::input")
     private WebElement dbName;
 
-    @FindBy(xpath = "//label[contains(text(),'数据库表名称')]/following-sibling::div/input")
+    @FindBy(xpath = "//label[contains(text(),'数据库表名称')]/following-sibling::input")
     private WebElement tableName;
 
-    @FindBy(className = "verify_button")
+    @FindBy(xpath = "//span[text()='验证']/ancestor::button")
     private WebElement verify;
 
     @FindBy(className = "el-select-dropdown__list")
@@ -169,7 +169,7 @@ public class EditPage extends PageTemplate {
 
     public WebElement getDbType() {
         databaseType.click();
-        return selectLists.get(selectLists.size() - 1);
+        return super.getLastDropdownList();
     }
 
     public WebElement getAddJDBC() {
