@@ -2027,7 +2027,8 @@ private WebElement dataType;
           return this.getLastDropdownList();
       }
     //环形柱图-数据-搜索-值
-    @FindBy(xpath = "//label[contains(text(),'值')]/following-sibling::div")
+   // @FindBy(xpath = "//label[contains(text(),'值')]/following-sibling::div")
+   @FindBy(xpath = "//div[text()='环形柱图']/parent::div/div[4]/div/div")
     private WebElement dataSearchValue;
       public WebElement getDataSearchValue(){
           dataSearchValue.click();
