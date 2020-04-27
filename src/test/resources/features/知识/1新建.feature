@@ -73,12 +73,37 @@ Feature: 知识新建（RZY-868）
     And I wait for "Code" will be visible
     And I wait for element "Code" change text to "<code>"
     And I will see the element value in json "{'Code':'<code>'}"
-    And I will see the element "Desc" name is "<desc> "
-    And I will see the element "Solution" name is "<solution> "
+    And I will see the element "Desc" name is "<desc>"
+    And I will see the element "Solution" name is "<solution>"
 
     Examples:
-      | name    | code    | desc | solution |
-      | 知识名     | 全部      | 事件描述 | 解决方案     |
-      | 没有名称    | 没有名称    | 事件描述 | 解决方案     |
-      | 事件代码+描述 | 事件代码+描述 | 事件描述 |          |
-      | 仅有事件代码  | 仅有事件代码  |      |          |
+      | name | code | desc | solution |
+      | 知识名  | 全部   | 事件描述 | 解决方案     |
+      | 没有名称 | 没有名称 | 事件描述 | 解决方案     |
+
+  Scenario Outline: 验证知识新建
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    And I wait for loading invisible
+    When I click the detail which name is "<name>"
+    Then I will see the "knowledge.DetailPage" page
+    And I wait for "Code" will be visible
+    And I wait for element "Code" change text to "<code>"
+    And I will see the element value in json "{'Code':'<code>'}"
+    And I will see the element "Desc" name is "<desc>"
+
+    Examples:
+      | name    | code    | desc |
+      | 事件代码+描述 | 事件代码+描述 | 事件描述 |
+
+  Scenario Outline: 验证知识新建
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
+    And I wait for loading invisible
+    When I click the detail which name is "<name>"
+    Then I will see the "knowledge.DetailPage" page
+    And I wait for "Code" will be visible
+    And I wait for element "Code" change text to "<code>"
+    And I will see the element value in json "{'Code':'<code>'}"
+
+    Examples:
+      | name   | code   |
+      | 仅有事件代码 | 仅有事件代码 |
