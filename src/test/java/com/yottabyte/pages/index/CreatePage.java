@@ -78,20 +78,20 @@ public class CreatePage extends PageTemplate {
         return getContainsTextButton("新建");
     }
 
-    public WebElement getSuccessMessage() {
-        return super.getErrorMessage();
-    }
+    @FindBy(xpath = "//div[@class='el-message-box__message']")
+    private WebElement message;
 
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
     }
 
-    @FindBy(xpath = "//div[@class='el-message-box__message']")
-    private WebElement Message;
+    public WebElement getSuccessMessage() {
+        return message;
+    }
 
     @Override
     public WebElement getMessage() {
-        return Message;
+        return super.getMessage();
     }
 
     public WebElement getInputElement(String name) {
