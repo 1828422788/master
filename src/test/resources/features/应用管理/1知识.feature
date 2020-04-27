@@ -111,6 +111,7 @@ Feature: 应用知识
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page
+    And I wait for loading invisible
     Given the data name is "{'column':'1','name':'<Name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     When I click the "Ensure" button
