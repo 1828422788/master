@@ -12,6 +12,9 @@ Feature: 知识分组（RZY-880）
     Then I will see the success message "修改成功"
 
     Examples:
-      | name   | Type    |
-      | sunxj1 | testTag |
+      | name | Type    |
+      | 知识名  | testTag |
+
+  Scenario: 验证标签修改成功
+    When the data name is "知识名" then i will see "testTag" button
 

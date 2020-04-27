@@ -1,7 +1,6 @@
 @knowledge
 Feature: 知识新建（RZY-868）
 
-  @knowledgeSmoke
   Scenario Outline: 新建知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I click the "Create" button
@@ -34,7 +33,6 @@ Feature: 知识新建（RZY-868）
     And I click the "Next" button
     Then I will see the error message "请输入事件代码"
 
-  @knowledgeSmoke
   Scenario Outline: RZY-2445:通过url参数新建知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/new/?code=<code>&name=<name>&description=AutoTest&solution=没有&rt_names=<tag>/"
     Then I will see the "knowledge.CreatePage" page
