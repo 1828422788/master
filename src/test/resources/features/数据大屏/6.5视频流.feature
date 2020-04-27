@@ -16,7 +16,7 @@ Feature: 数据大屏-视频流
     And I wait for loading invisible
       #保存
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 视频流发布并截图
@@ -64,7 +64,7 @@ Feature: 数据大屏-视频流
     And I set the parameter "globalStyleName" with value "视频流样式"
        #保存
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
   Scenario Outline: 视频流样式发布并截图
 
