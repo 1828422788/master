@@ -32,7 +32,9 @@ Feature: 字段提取自定义字典
     And I choose the "SourceName" from the "SourceField"
     And I choose the "win_sys_sourcename.csv" from the "Dictionary"
     And I choose the "sourcename" from the "BaseField"
+    Then I wait for "1000" millsecond
     And I choose the "level,source" from the "ExtendField"
+    Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
