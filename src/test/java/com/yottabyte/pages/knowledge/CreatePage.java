@@ -29,6 +29,32 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='附件: ']/ancestor::div[1]")
     private WebElement attachment;
 
+    @FindBy(className = "ql-editor")
+    private WebElement richEditor;
+
+    @FindBy(xpath = "//div[@class='ant-spin-container']/p")
+    private WebElement successAdd;
+
+    @FindBy(className = "ant-message-error")
+    private WebElement errorMessage;
+
+    @Override
+    public WebElement getErrorMessage() {
+        return errorMessage;
+    }
+
+    public WebElement getSuccessAdd() {
+        return successAdd;
+    }
+
+    public WebElement getNext() {
+        return super.getButton("下一步");
+    }
+
+    public WebElement getRichEditor() {
+        return richEditor;
+    }
+
     public WebElement getAttachment() {
         return attachment;
     }
@@ -47,14 +73,6 @@ public class CreatePage extends PageTemplate {
         return getInputElement("事件代码");
     }
 
-    public WebElement getDescribe() {
-        return getInputElement("事件描述");
-    }
-
-    public WebElement getSolution() {
-        return getInputElement("解决方案");
-    }
-
     public WebElement getKnowledgeName() {
         return getInputElement("名称");
     }
@@ -64,6 +82,14 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div/*"));
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::input"));
+    }
+
+    public WebElement getResourceInput() {
+        return this.getDropdownInput("资源标签");
+    }
+
+    public WebElement getDropdownInput(String name) {
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div//div[@class='ant-select-selection__placeholder']"));
     }
 }

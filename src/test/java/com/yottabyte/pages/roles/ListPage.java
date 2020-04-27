@@ -1,5 +1,6 @@
 package com.yottabyte.pages.roles;
 
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.stepDefs.LoadingPage;
 import com.yottabyte.utils.ElementExist;
@@ -12,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class ListPage extends PageTemplate {
+public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
     }
@@ -25,9 +26,6 @@ public class ListPage extends PageTemplate {
             @FindBy(className = "el-input__inner")
     })
     private WebElement searchInput;
-
-    @FindBy(className = "slot-button")
-    private WebElement createRoleButton;
 
     @FindBy(className = "el-table__body")
     private WebElement searchResultTable;
@@ -85,12 +83,6 @@ public class ListPage extends PageTemplate {
         }
     }
 
-    public WebElement getCreateRoleButton() {
-        ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(createRoleButton);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        return createRoleButton;
-    }
-
     public WebElement getSearchResultTable() {
         return searchResultTable;
     }
@@ -113,52 +105,6 @@ public class ListPage extends PageTemplate {
     public WebElement getTableDeleteButton(int row) {
         WebElement e = getTableRowButtons(row);
         return e.findElement(By.xpath("//button/span[contains(text(),'删除')]"));
-    }
-
-    public WebElement getMessageBoxOKButton() {
-        ExpectedCondition expectedCondition = ExpectedConditions.textToBePresentInElement(messageInfo, "确认删除");
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        List<WebElement> list = messageBoxButtons.findElements(By.tagName("button"));
-        for (WebElement e : list) {
-            if ("确定".equals(e.getText())) {
-                return e;
-            }
-        }
-        return null;
-    }
-
-    public WebElement getSuccessMessage() {
-        ExpectedCondition expectedCondition = ExpectedConditions.textToBePresentInElement(messageInfo, "成功");
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        return messageInfo;
-    }
-
-    public void thereIsARole(String roleName, String roleDes, List<String> resourceGroups) {
-        if (searchARole(roleName)) {
-            getSearchInput().sendKeys(Keys.END);
-            getSearchInput().sendKeys(Keys.SHIFT, Keys.HOME);
-            getSearchInput().sendKeys(Keys.BACK_SPACE);
-        } else {
-            getCreateRoleButton().click();
-            LoadingPage page = new LoadingPage();
-            CreatePage createPage = new CreatePage(webDriver);
-            page.iWillSeeNewPage("roles.CreatePage");
-            createPage.createARole(roleName, roleDes, resourceGroups);
-            page.iWillSeeNewPage("roles.CreatePage");
-        }
-    }
-
-    public void thereIsNoRole(String roleName) {
-        if (searchARole(roleName)) {
-            getTableDeleteButton(1).click();
-            ExpectedCondition e = ExpectedConditions.elementToBeClickable(getMessageBoxOKButton());
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, e);
-            getMessageBoxOKButton().click();
-            ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(loadingElement);
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-            webDriver.navigate().refresh();
-            WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(searchInput));
-        }
     }
 
     private boolean searchARole(String roleName) {

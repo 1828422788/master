@@ -1,4 +1,4 @@
-@all @smoke @app @appSmoke
+#@all @smoke @app @appSmoke
 Feature: 应用导出
 
   Background:

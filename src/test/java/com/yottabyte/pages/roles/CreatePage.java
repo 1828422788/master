@@ -20,17 +20,14 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "el-input__inner")
-    private List<WebElement> inputs;
-
     @FindBy(className = "el-checkbox__input")
     private WebElement resourceGroupCheckbox;
 
     @FindBy(className = "checkbox-group")
     private WebElement checkBoxs;
 
-    @FindBy(className = "el-button--primary")
-    private WebElement createButton;
+    @FindBy(id = "RoleUpdate_name")
+    private WebElement roleName;
 
 //    @FindBy(className = "el-message-box__message")
 //    private WebElement message;
@@ -38,13 +35,15 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[@class='el-message-box__btns']//span[contains(text(),'确定')]")
     private WebElement OKButton;
 
+    @FindBy(id = "RoleUpdate_memo")
+    private WebElement roleDes;
 
     public WebElement getRoleName() {
-        return inputs.get(0);
+        return roleName;
     }
 
     public WebElement getRoleDes() {
-        return inputs.get(1);
+        return roleDes;
     }
 
     public List<WebElement> getResourceGroupCheckbox() {
@@ -55,12 +54,15 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getCreateButton() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(createButton));
-        return createButton;
+        return super.getButton("新建");
     }
 
     public WebElement getOKButton() {
         return OKButton;
+    }
+
+    public WebElement getSave() {
+        return super.getButton("保存");
     }
 
     public WebElement getSuccessMessage() {
@@ -71,14 +73,7 @@ public class CreatePage extends PageTemplate {
         return super.getErrorMessage();
     }
 
-    public void createARole(String roleName, String roleDes, List<String> roleResourceGroup) {
-        SetKeyWithValue setKey = new SetKeyWithValue();
-        ClickSomeButton click = new ClickSomeButton();
-        ICheckValuesFromCheckBox checkBox = new ICheckValuesFromCheckBox();
-        setKey.iSetTheParameterWithValue("RoleName", roleName);
-        setKey.iSetTheParameterWithValue("RoleDes", roleDes);
-        checkBox.iCheckFromThe(roleResourceGroup, "ResourceGroupCheckbox");
-        click.clickButton("CreateButton");
-        click.clickButton("OKButton");
+    public WebElement getCopy() {
+        return super.getButton("复制");
     }
 }

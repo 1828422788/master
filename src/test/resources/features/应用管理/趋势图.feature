@@ -1,4 +1,4 @@
-#@app @appSmoke
+@app @appSmoke
 Feature: 应用趋势图
 
   Scenario Outline: 新建趋势图并存为报表
@@ -21,6 +21,7 @@ Feature: 应用趋势图
     And I wait for "SuccessCreate" will be visible
     And I click the "Report" button
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "TrendApp"
     And I will see the "report.CreatePage" page
@@ -113,36 +114,25 @@ Feature: 应用趋势图
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
-
-  Scenario: 验证app是否为全局
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TrendApp" then i click the "打开" button
-    Then I will see the search result contains "AutoApp"
+    Then I will see the success message "更新成功"
 
   Scenario Outline: 趋势图删除
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "TrendApp" then i click the "打开" button
     Then I will see the "trend.ListPage" page
     When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I will see the success message "删除成功"
 
     Examples:
       | name        |
       | AutoApp(副本) |
-
-  Scenario: 删除趋势图
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "TrendApp" then i click the "打开" button
-    Then I will see the "trend.ListPage" page
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "AutoApp" then i click the "删除" button
-    And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+      | AutoApp     |
 
   Scenario: 删除报表
     Given open the "report.ListPage" page for uri "/reports/"
     When the data name is "{'column':'1','name':'AutoApp'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
 
