@@ -83,7 +83,7 @@ Feature: 应用索引配置(RZY-2183)
     When the data name is "{'column':'1','name':'auto_app_create'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Then I wait for element "Message" change text to "删除成功"
 
   Scenario: 路由新建
     When I click the "AddButton" button
@@ -107,5 +107,24 @@ Feature: 应用索引配置(RZY-2183)
     When the data name is "apptest" then i click the "删除" button
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Then I wait for element "Message" change text to "删除成功"
 
+  Scenario: 验证返回列表页不跳出app
+    When I click the "Topic" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
+    Then I will see the "index.TopicSetting" page
+    And I click the "ReturnList" button
+    And I wait for title change text to "路由配置"
+    Then I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
+
+  Scenario: 验证返回列表页不跳出app
+    When I click the "Index" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
+    Then I will see the "index.ListPage" page
+    And I click the "ReturnList" button
+    And I wait for title change text to "路由配置"
+    Then I will see the "app.AppPage" page
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"

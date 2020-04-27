@@ -36,12 +36,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='请输入节点分组']")
     private WebElement nodeGroup;
 
-    @FindBy(xpath = "//span[text()='添加节点']")
-    private WebElement addNodeButton;
-
-    @FindBy(className = "el-message-box__message")
-    private WebElement message;
-
     @FindBy(className = "leftright")
     private WebElement leftRightButton;
 
@@ -72,31 +66,22 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-yejian")
     private WebElement nightMode;
 
-    @FindBy(className = "icon-tianjia")
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[2]")
     private WebElement addInputButton;
 
-    @FindBy(xpath = "//textarea[@placeholder='请输入搜索内容']")
+    @FindBy(xpath = "//textarea[@placeholder='请输入语句']")
     private WebElement textArea;
 
-    @FindBy(xpath = "//input[@placeholder='请输入搜索时间范围']")
+    @FindBy(xpath = "//input[contains(@class,'ant-input css-pcxrzr')]")
     private WebElement dateEditor;
 
-    @FindBy(xpath = "//span[text()='搜索']")
-    private WebElement searchButton;
-
-    @FindBy(xpath = "//label[contains(text(),'标题')]/following-sibling::div//input")
-    private WebElement title;
-
-    @FindBy(xpath = "//label[contains(text(),'标识')]/following-sibling::div//input")
-    private WebElement token;
-
-    @FindBy(xpath = "//label[contains(text(),'默认值')]/following-sibling::div//input")
+    @FindBy(id = "optionValues")
     private WebElement defaultValue;
 
-    @FindBy(xpath = "//label[contains(text(),'输入类型')]/following-sibling::div//button")
+    @FindBy(id = "inputRange")
     private WebElement inputType;
 
-    @FindBy(xpath = "(//input[@placeholder='请选择展示字段']/preceding-sibling::i)[last()]")
+    @FindBy(xpath = "//span[text()='展示字段']/ancestor::div/following-sibling::div")
     private WebElement filedInput;
 
     @FindBy(xpath = "//input[@placeholder='请选择展示字段']/preceding-sibling::i")
@@ -108,14 +93,8 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='展示单位']/ancestor::div/following-sibling::div/input")
     private WebElement unit;
 
-    @FindBy(xpath = "//span[text()='应用']")
-    private WebElement apply;
-
-    @FindBy(xpath = "//div[@class='el-message__group']")
+    @FindBy(xpath = "//div[@class='ant-message-custom-content']")
     private WebElement successMessage;
-
-//    @FindBy(xpath = "(//div[@class='el-message__group'])[2]")
-//    private WebElement message;
 
     @FindBy(xpath = "//p[text()='+ 添加']")
     private WebElement addColourButton;
@@ -171,10 +150,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'时间范围')]/following-sibling::div//input")
     private WebElement timeRange;
 
-    @FindBy(xpath = "//span[text()='添加']")
-    private WebElement add;
-
-    @FindBy(xpath = "(//label[contains(text(),'可选值')]/following-sibling::div//input[@class='el-input__inner'])[last()]")
+    @FindBy(xpath = "(//input[@placeholder='请输入可选值'])[last()]")
     private WebElement optional;
 
     @FindBy(className = "icon-bianji1")
@@ -189,8 +165,32 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//canvas[@style='position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; width: 1126px; height: 289px; cursor: auto;']")
     private WebElement canvas;
 
+    @FindBy(xpath = "//span[text()='+ 添加值']")
+    private WebElement addValue;
+
+    @FindBy(className = "ant-collapse-header")
+    private WebElement valueHeader;
+
+    @FindBy(className = "ant-message-notice-content")
+    private WebElement message;
+
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[3]")
+    private WebElement addNode;
+
+    public WebElement getAddNode() {
+        return addNode;
+    }
+
+    public WebElement getValueHeader() {
+        return valueHeader;
+    }
+
+    public WebElement getAddValue() {
+        return addValue;
+    }
+
     public WebElement getSave() {
-        return super.getButton("保存");
+        return super.getButton("保 存");
     }
 
     public WebElement getUpdate() {
@@ -228,20 +228,20 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getAdd() {
-        return add;
+        return super.getButton("添加");
     }
 
     public WebElement getPrefix() {
-        return getInputElement("标识前缀");
+        return getInput("标识前缀");
     }
 
     public WebElement getPostfix() {
-        return getInputElement("标识后缀");
+        return getInput("标识后缀");
     }
 
     public WebElement getDefaultValueDropdown() {
         defaultValue.click();
-        return dropdownList.get(dropdownList.size()-1);
+        return super.getLastDropdownList();
     }
 
     public WebElement getNodeGroup() {
@@ -282,7 +282,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getAddNodeButton() {
-        return addNodeButton;
+        return super.getButton("添加节点");
     }
 
     public WebElement getNodeName() {
@@ -318,7 +318,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getApply() {
-        return apply;
+        return super.getButton("应 用");
     }
 
     public WebElement getDefaultValue() {
@@ -326,7 +326,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getToken() {
-        return token;
+        return this.getInputElement("标识");
     }
 
     public WebElement getDateEditor() {
@@ -438,23 +438,21 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getSearchButton() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(searchButton));
-        return searchButton;
+        return super.getButton("搜 索");
     }
 
     public WebElement getInputType() {
         inputType.click();
-        return webDriver.findElement(By.className("filter-type-selection-menu"));
+        return super.getLastDropdownList();
     }
 
     public WebElement getTitle() {
-        return title;
+        return this.getInputElement("标题");
     }
 
     public WebElement getFiledInput() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(filedInput));
         filedInput.click();
-        return dropdownList.get(dropdownList.size()-1);
+        return super.getLastDropdownList();
     }
 
     public WebElement getToInput() {
@@ -514,7 +512,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getEnsureInputButton() {
-        return ensureInputButton.get(0);
+        return super.getButton("确 定");
     }
 
     public WebElement getSearchInput() {
@@ -540,7 +538,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getSeparate() {
-        return getInputElement("分隔符");
+        return getInput("分隔符");
     }
 
     public WebElement getIdentityPrefix() {
@@ -548,7 +546,12 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getInputElement(String name) {
-        String xpath = "(//label[contains(text(),'"+name+"')]/following-sibling::div//input[@class='el-input__inner'])[last()]";
+        String xpath = "//span[text()='" + name + "']/ancestor::span/following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getInput(String name) {
+        String xpath = "//span[text()='" + name + "']/following-sibling::input";
         return webDriver.findElement(By.xpath(xpath));
     }
 }
