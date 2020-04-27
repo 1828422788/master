@@ -15,7 +15,7 @@ Feature: 定时任务复制
     And I set the parameter "Describe" with value "testing"
     And I set the parameter "Describe" with value "testing"
     And I choose the "AutoTestTag" from the "GroupComboBox"
-    And I choose the "无数集app之api全部测试用例" from the "AppComboBox"
+    And I choose the "TrendApp" from the "AppComboBox"
 
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"

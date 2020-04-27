@@ -1,4 +1,4 @@
-@all @timedTask @JDBCTimedTask
+@all @timedTask @JDBCtimedTask
 Feature: 定时任务_结果处理方式
 
   Scenario Outline: create_schedule
