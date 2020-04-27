@@ -54,8 +54,8 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "el-select-dropdown__list")
     private List<WebElement> dropdownLists;
 
-    @FindBy(className = " ant-tabs-tab")
-    private List<WebElement> resultHandling;
+    @FindBy(xpath = "//div[text()='结果处理方式']")
+    private WebElement resultHandling;
 
     @FindBy(xpath = "//label[text()='添加jdbc']")
     private WebElement addJDBC;
@@ -213,7 +213,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getResultHandling() {
-        return resultHandling.get(resultHandling.size() - 1);
+        return resultHandling;
     }
 
     public WebElement getSuccessMessage() {
