@@ -1,5 +1,5 @@
-#@app @appSmoke
-  Feature: 应用索引配置(RZY-2183)
+@app @appSmoke
+Feature: 应用索引配置(RZY-2183)
 
   Background:
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -45,6 +45,8 @@
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.ListPage" page
     Given I click the "AddButton" button
+    And I will see the "app.AppPage" page
+    And I will see the element "OldTitle" name is "AutoTest...pWithAllResources"
     Then I will see the "index.CreatePage" page
     When I set the parameter "Name" with value "auto_app_create"
     And I set the parameter "SavedTime" with value "2"
@@ -81,6 +83,7 @@
     When the data name is "{'column':'1','name':'auto_app_create'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    Then I will see the message "删除成功"
     Then I wait for element "Message" change text to "删除成功"
 
   Scenario: 路由新建
@@ -90,7 +93,7 @@
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "AppName" with value "apptest"
     And I click the "CreateButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the message "保存成功"
 
   Scenario: 路由编辑
     When the data name is "apptest" then i click the "编辑" button
@@ -99,11 +102,11 @@
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "Desc" with value "apptestcreate"
     And I click the "SavedButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the message "保存成功"
 
   Scenario: 路由删除
     When the data name is "apptest" then i click the "删除" button
     And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
-    Then I wait for element "Message" change text to "删除成功"
+    Then I will see the success message "删除成功"
 

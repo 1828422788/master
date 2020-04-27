@@ -13,11 +13,19 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(className = "search-count")
+    @FindBy(xpath = "//div[text()='全文搜索共 1 个结果']")
     private WebElement searchCount;
 
     @FindBy(className = "grep-key")
     private WebElement key;
+
+    @FindBy(xpath = "//input[@placeholder='请输入']")
+    private WebElement searchInput;
+
+    @Override
+    public WebElement getSearchInput() {
+        return searchInput;
+    }
 
     public WebElement getSearchAll() {
         return super.getButton("全文搜索");

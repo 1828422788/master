@@ -79,8 +79,8 @@ Feature: Agent分组设置
     And I click the "GroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
     And I click the "FinishButton" button
-    And I click the "OpenGroupButton" button
-    Then I will see the agent doesn't exist in "1" cloumn
+#    And I click the "OpenGroupButton" button
+#    Then I will see the agent doesn't exist in "1" cloumn
 
     Examples:
       | message              |

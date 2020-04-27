@@ -35,7 +35,7 @@ Feature: 应用仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
     And I set the parameter "DashBoardName" with value "仪表盘验证App"
-    And I choose the "DashboardApp" from the "App"
+    And I choose the "DashboardApp" from the "BelongedApp"
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
 

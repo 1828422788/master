@@ -84,7 +84,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "item-title-edit-group")
     private WebElement editGroup;
 
-    @FindBy(xpath = "(//span[text()='添加子菜单'])[1]")
+    @FindBy(xpath = "(//a[text()='添加子菜单'])[1]")
     private WebElement addSubmenu;
 
     @FindBy(xpath = "//span[text()='全局']")
@@ -116,6 +116,13 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//*[@class='ant-spin-container ant-spin-blur']")
     private WebElement searchLoading;
+
+    @FindBy(xpath = "//span[text()='事件操作']")
+    private WebElement event;
+
+    public WebElement getEvent() {
+        return event;
+    }
 
     public WebElement getSearchLoading() {
         return searchLoading;

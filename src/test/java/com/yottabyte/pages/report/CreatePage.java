@@ -143,7 +143,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='编辑']/ancestor::button")
     private WebElement editButton;
 
-    @FindBy(className = "yw-title")
+    @FindBy(className = "ant-collapse-header")
     private WebElement trendTitle;
 
     @FindBy(xpath = "(//label[contains(text(),'图表类型')]/following-sibling::span//i)[last()]")
