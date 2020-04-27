@@ -30,7 +30,7 @@ Feature: 数据大屏-全屏
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 全屏发布并截图
