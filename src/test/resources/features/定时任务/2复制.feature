@@ -20,7 +20,7 @@ Feature: 定时任务复制
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:10:10"
+    And I set the parameter "StartTimeInput" with value "23:58:10"
     And I hide the element "TimePanel"
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureButton" button
