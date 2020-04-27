@@ -185,6 +185,7 @@ Feature: 应用字段提取（RZY-2129）
 
   Scenario: 根据app搜索应用
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
     And I choose the "ConfigsApp" from the "App"
     And I wait for loading invisible
     Then I will see the search result contains "字典管理app.csv"
@@ -225,10 +226,6 @@ Feature: 应用字段提取（RZY-2129）
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "ConfigsApp" in auth table
-    And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -238,14 +235,8 @@ Feature: 应用字段提取（RZY-2129）
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "ConfigsApp"
-    Then I will see the "configs.ListPage" page
+    Given open the "configs.ListPage" page for uri "/configs/"
     When I click the "Dictionary" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "ConfigsApp"
     And I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     Then the data name is "{'column':'0','name':'字典管理app.csv'}" then i will see "下载编辑标签删除授权" button

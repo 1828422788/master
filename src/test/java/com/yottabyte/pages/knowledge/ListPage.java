@@ -16,7 +16,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='全文搜索共 1 个结果']")
     private WebElement searchCount;
 
-    @FindBy(className = "grep-key")
+    @FindBy(className = "grepKey")
     private WebElement key;
 
     @FindBy(xpath = "//input[@placeholder='请输入']")

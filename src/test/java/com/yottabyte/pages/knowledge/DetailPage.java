@@ -4,6 +4,9 @@ import com.yottabyte.pages.PageTemplate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 /**
  * @author sunxj
@@ -11,6 +14,13 @@ import org.openqa.selenium.WebElement;
 public class DetailPage extends PageTemplate {
     public DetailPage(WebDriver driver) {
         super(driver);
+    }
+
+    @FindBy(className = "ql-file-name")
+    private List<WebElement> fileName;
+
+    public List<WebElement> getFileName() {
+        return fileName;
     }
 
     public WebElement getCode() {

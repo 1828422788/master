@@ -1,76 +1,59 @@
 @galaxee
-Feature: 数据大屏-综合列表
+Feature: 数据大屏-条形图
 
-  Scenario: 综合列表样式-搜索
+  Scenario: 条形图-样式搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
-    When I click the "Create" button
-    And I set the parameter "Name" with value "综合列表样式-搜索"
+    And I click the "Create" button
+    And I set the parameter "Name" with value "条形图-样式搜索"
     And I click the "Ensure" button
-      #选择上方的图表
+    #条形图
     And I click the "Chart" button
-      #选择综合列表
-    And I click the "comprehensiveList" button
-    And I hide the element "ChartDropdown"
-#修改样式
-    # 1 设置图表尺寸位置
+    And I click the "BarHorizontal" button
+    #样式
     And I click the "Style" button
-    And I wait for "ChartPosition" will be visible
+    #标签
+    And I wait for "Tag" will be visible
+    And I click the "Tag" button
+    And I set the parameter "TagWordSize" with value "20"
+    And I click the "TagWordColor" button
+    And I set the parameter "ColorInput" with value "#DFFE19"
+    And I click the "EnsureColor" button
+    And I wait for "EnsureColor" will be invisible
+    And I choose the "lighter" from the "TagBold"
+    #布局
+    And I click the "Layout" button
+    And I set the parameter "LayoutBottom" with value "20"
+    And I set the parameter "LayoutLeft" with value "20"
+    And I set the parameter "LayoutRight" with value "20"
+    #尺寸
     And I click the "ChartPosition" button
-    And I set the parameter "Width" with value "770"
-    And I set the parameter "Height" with value "770"
-    And I set the parameter "ChartXaxis" with value "448"
-    And I set the parameter "ChartYaxis" with value "145"
-    #2 设置滚动频率
-    And I click the "roll" button
-    And I set the parameter "rollF" with value "5"
-    #3 设置外观
-    And I click the "styleComprehensiveList" button
-
-    #标题颜色
-    And I click the "listTitleColor" button
-    And I set the parameter "ColorInput" with value "#DEE119"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
-    #数值颜色
-    And I click the "numberColor" button
-    And I set the parameter "ColorInput" with value "#58DA29"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
-    #条颜色
-    And I click the "aspectColor" button
-    And I set the parameter "ColorInput" with value "#E047FF"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
-    #缩略比例
-    And I choose the "1" from the "abbRatio"
-    #单位不显示
-    And I click the "danWei" button
-    #4 全局样式修改名成
+    And I set the parameter "Width" with value "703"
+    And I set the parameter "height" with value "567"
+    And I set the parameter "ChartXaxis" with value "516"
+    And I set the parameter "ChartYaxis" with value "2"
+     #4 全局样式修改名成
     And I click the "globalStyle" button
-    And I set the parameter "globalStyleName" with value "综合列表样式修改"
-    #开启背景动画
+    And I set the parameter "globalStyleName" with value "条形图-样式搜索"
+    And I wait for "3000" millsecond
+     #开启背景动画
     And I click the "backgroundAuto" button
-    #数据设置（数据源类型默认：搜索）
+    #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats sparkline(count(), 1m) as spk by hostname"
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
 
-
-    And I choose the "hostname" from the "scrollBarSearchName"
-    And I choose the "spk" from the "ScrollBarSearchNumber"
-     #保存
-    And I wait for "Save" will be visible
+    And I choose the "count()" from the "DataField"
+    And I choose the "apache.clientip" from the "DivideField"
     And I click the "Save" button
 #    Then I will see the success message "保存成功"
 
-
-  Scenario Outline: 综合列表样式-搜索发布并截图
+  Scenario Outline: 条形图-样式搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -80,28 +63,31 @@ Feature: 数据大屏-综合列表
 
     Examples:
       |name              |
-      |综合列表样式-搜索    |
+      |条形图-样式搜索    |
+##################################无耻的分割线###############################
 
-######################################无耻的分割线################################
-
-  Scenario: 综合列表数据之静态数据
+  Scenario: 条形图-静态数据
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
-    And I set the parameter "Name" with value "综合列表数据之静态数据"
+    And I set the parameter "Name" with value "条形图-静态数据"
     And I click the "Ensure" button
-       #选择上方的图表
-    And I click the "Chart" button
-      #选择综合列表
-    And I click the "comprehensiveList" button
-    And I hide the element "ChartDropdown"
+    #条形图
+     And I click the "Chart" button
+    And I click the "BarHorizontal" button
     And I click the "Style" button
+    #尺寸
+    And I click the "ChartPosition" button
+    And I set the parameter "Width" with value "703"
+    And I set the parameter "height" with value "567"
+    And I set the parameter "ChartXaxis" with value "516"
+    And I set the parameter "ChartYaxis" with value "2"
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats sparkline(count(), 1m) as spk by hostname"
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -111,8 +97,9 @@ Feature: 数据大屏-综合列表
     And I click the "Ensure" button
     And I wait for "6000" millsecond
 
-    And I choose the "hostname" from the "scrollBarSearchName"
-    And I choose the "spk" from the "ScrollBarSearchNumber"
+    And I choose the "count()" from the "DataField"
+    And I choose the "apache.clientip" from the "DivideField"
+
     And I wait for "3000" millsecond
     #保存
     And I wait for "Save" will be visible
@@ -120,7 +107,7 @@ Feature: 数据大屏-综合列表
 #    Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 综合列表数据之静态数据发布并截图
+  Scenario Outline: 条形图-静态数据发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -130,34 +117,37 @@ Feature: 数据大屏-综合列表
 
     Examples:
       |name            |
-      |综合列表数据之静态数据  |
+      |条形图-静态数据  |
+
 
 ##################################无耻的分割线###############################
 
-  Scenario: 综合列表数据之绑定搜索
+  Scenario: 条形图-绑定搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
-    And I set the parameter "Name" with value "综合列表数据之绑定搜索"
+    And I set the parameter "Name" with value "条形图-绑定搜索"
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I set the parameter "SplInput" with value "* | stats sparkline(count(), 1m) as spk by hostname"
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      #添加一个综合列表的控件
-      #选择上方的图表
+    #条形图
     And I click the "Chart" button
-      #选择综合列表
-    And I click the "comprehensiveList" button
-    And I hide the element "ChartDropdown"
+    And I click the "BarHorizontal" button
     And I click the "Style" button
-
+    #尺寸
+    And I click the "ChartPosition" button
+    And I set the parameter "Width" with value "703"
+    And I set the parameter "height" with value "567"
+    And I set the parameter "ChartXaxis" with value "516"
+    And I set the parameter "ChartYaxis" with value "2"
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
@@ -167,24 +157,25 @@ Feature: 数据大屏-综合列表
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button
-#    And I click the "pictureOne" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
-     #对综合列表的参数进行设置
+     #对滚动条形图的参数进行设置
     And I click the "pictureOne" button
-#    And I click the "pictureTwo" button
     And I click the "Data" button
     And I wait for "3000" millsecond
 
-    And I choose the "hostname" from the "scrollBarSearchName"
-    And I choose the "spk" from the "ScrollBarSearchNumber"
+    And I choose the "count()" from the "DataField"
+    And I choose the "apache.clientip" from the "DivideField"
+    #切分字段
+    And I click the "Add" button
+    And I choose the "apache.method" from the "LastDivideField"
     And I wait for "3000" millsecond
       #保存
     And I click the "Save" button
 #    Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 综合列表数据之绑定搜索发布并截图
+  Scenario Outline: 条形图-绑定搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -194,16 +185,16 @@ Feature: 数据大屏-综合列表
 
     Examples:
       |name              |
-      |综合列表数据之绑定搜索 |
+      |条形图-绑定搜索 |
 
 
-  Scenario Outline: 删除关于综合列表大屏
+  Scenario Outline: 删除关于| 条形图 |的大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
       |name|
-      |综合列表样式-搜索    |
-      |综合列表数据之绑定搜索 |
-      |综合列表数据之静态数据  |
+      |条形图-绑定搜索 |
+      |条形图-静态数据  |
+      |条形图-样式搜索    |

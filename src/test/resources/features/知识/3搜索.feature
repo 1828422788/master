@@ -7,8 +7,8 @@ Feature: 知识搜索（RZY-884）
   Scenario Outline: 按分组搜索
     When I choose the "<GroupList>" from the "ResourceDropdown"
     And I wait for loading invisible
-    Then I will see the search result contains "sunxj1"
-    Then I will see the search result "{'column':'0','name':'AutoTest','contains':'no'}"
+    Then I will see the search result contains "知识名"
+    Then I will see the search result "{'column':'0','name':'测试多个code','contains':'no'}"
 
     Examples:
       | GroupList |
@@ -20,5 +20,5 @@ Feature: 知识搜索（RZY-884）
     Then I will see the element value in json "<value>"
 
     Examples:
-      | search | value            |
-      | sunxj1 | {'Key':'sunxj1'} |
+      | search | value         |
+      | 知识名    | {'Key':'知识名'} |

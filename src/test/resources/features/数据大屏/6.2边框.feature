@@ -19,7 +19,7 @@ Feature: 数据大屏-边框
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
   Scenario Outline: 边框默认设置样式1发布并截图
 #    Given I will see the "PublicNavBarPage" page
@@ -70,7 +70,7 @@ Feature: 数据大屏-边框
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
   Scenario Outline: 边框样式2发布并截图
 #    Given I will see the "PublicNavBarPage" page
@@ -111,7 +111,7 @@ Feature: 数据大屏-边框
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
   Scenario Outline: 边框样式3发布并截图
 #    Given I will see the "PublicNavBarPage" page

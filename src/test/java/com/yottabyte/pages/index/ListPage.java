@@ -46,4 +46,8 @@ public class ListPage extends ListPageFactory {
     public WebElement getMessage() {
         return Message;
     }
+
+    public WebElement getSuccessMessage() {
+        return super.getMessage();
+    }
 }

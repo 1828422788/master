@@ -2027,7 +2027,8 @@ private WebElement dataType;
           return this.getLastDropdownList();
       }
     //环形柱图-数据-搜索-值
-    @FindBy(xpath = "//label[contains(text(),'值')]/following-sibling::div")
+   // @FindBy(xpath = "//label[contains(text(),'值')]/following-sibling::div")
+   @FindBy(xpath = "//div[text()='环形柱图']/parent::div/div[4]/div/div")
     private WebElement dataSearchValue;
       public WebElement getDataSearchValue(){
           dataSearchValue.click();
@@ -2106,17 +2107,17 @@ private WebElement dataType;
       public WebElement getChartColor2(){return chartColor2;}
 
 
-//轮播列表
-    @FindBy(xpath = "//li[text()='轮播列表']")
+//滚动列表
+    @FindBy(xpath = "//li[text()='滚动列表']")
    private WebElement listOfTurns;
       public WebElement getListOfTurns(){return listOfTurns;}
       //样式中的轮播列表
-    @FindBy(xpath = "//div[text()='轮播列表']/i")
+    @FindBy(xpath = "//div[text()='滚动列表']/i")
     private WebElement styleListOfTurns;
       public WebElement getStyleListOfTurns(){return styleListOfTurns;}
       //字体大小
       public WebElement getListOfTurnsWordSize() {
-          return this.input("轮播列表", "字体大小");
+          return this.input("滚动列表", "字体大小");
       }
     //序号颜色
     @FindBy(xpath = "//label[contains(text(),'序号颜色')]/following-sibling::div")
@@ -2132,7 +2133,7 @@ private WebElement dataType;
       public WebElement getContentColor(){return contentColor;}
     //字体粗细
     public WebElement getListOfTurnsWordBold() {
-        return this.dropdownList("轮播列表", "字体粗细");
+        return this.dropdownList("滚动列表", "字体粗细");
     }
 
 

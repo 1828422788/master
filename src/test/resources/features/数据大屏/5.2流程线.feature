@@ -18,7 +18,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 流程线默认设置发布并截图
@@ -86,7 +86,7 @@
       And I set the parameter "globalStyleName" with value "流程线样式修改"
        #保存
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
     Scenario Outline: 流程线样式发布并截图
 

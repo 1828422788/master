@@ -19,7 +19,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体默认设置发布并截图
@@ -70,7 +70,7 @@
       And I click the "backgroundAuto" button
        #保存
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体样式发布并截图
@@ -112,7 +112,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体样式firewall发布并截图
@@ -153,7 +153,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体样式router1发布并截图
@@ -194,7 +194,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体样式router2发布并截图
@@ -234,7 +234,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体样式switch发布并截图
@@ -274,7 +274,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体样式balance发布并截图
@@ -324,7 +324,7 @@
        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体数据之搜索值异常发布并截图
@@ -390,7 +390,7 @@
        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
     Scenario Outline: 实体数据之静态数据值严重发布并截图
 #      Given I will see the "PublicNavBarPage" page
@@ -464,7 +464,7 @@
       And I set the parameter "abnormalEnd" with value "400"
       #保存
       And I click the "Save" button
-      Then I will see the success message "保存成功"
+#      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体数据之绑定搜索发布并截图

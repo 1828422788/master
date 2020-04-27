@@ -83,8 +83,7 @@ Feature: 应用索引配置(RZY-2183)
     When the data name is "{'column':'1','name':'auto_app_create'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the message "删除成功"
-    Then I wait for element "Message" change text to "删除成功"
+    Then I will see the success message "删除成功"
 
   Scenario: 路由新建
     When I click the "AddButton" button
