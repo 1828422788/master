@@ -1,4 +1,4 @@
-#@all @smoke @app @appSmoke
+@all @smoke @app @appSmoke
 Feature: 应用知识
 
   Scenario: 新增知识并验证是否跳转到外部
@@ -9,7 +9,7 @@ Feature: 应用知识
     Then I will see the "knowledge.ListPage" page
     When I click the "Create" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "KnowledgeApp"
+    And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.CreatePage" page
     And I set the parameter "EventCode" with value "AutoTestAppKnowledge"
     And I set the parameter "Describe" with value "test"
@@ -23,7 +23,7 @@ Feature: 应用知识
     Then I will see the "knowledge.ListPage" page
     When the data name is "AutoTestAppKnowledge" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "KnowledgeApp"
+    And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.CreatePage" page
     And I set the parameter "EventCode" with value "AutoTestApp"
     Then I click the "Save" button

@@ -114,33 +114,15 @@ public class UploadFile {
                     String fileName = tmpFile.getName();
                     String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
                     courseFile = courseFile + "/" + path;
+                    System.out.println("路径：" + courseFile);
                     fileNameWithPath = fileName;
                 }
-//                else if ("Remote".equalsIgnoreCase(type) && userAgent.contains("Mac OS X")) {
-//                    // 远程端为本地时。仅供测试 需删
-//                    courseFile = "/Users/sunxj/IdeaProjects/rzy_auto_test_UI";
-//                }
                 else {
                     courseFile = directory.getCanonicalPath();
                     System.out.println("路径：" + courseFile);
                 }
                 fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
-
-                if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
-                    try {
-                        uploadInput.sendKeys(courseFile + fileNameWithPath);
-                    } catch (Exception e) {
-                        return;
-                    }
-                } else {
-                    System.out.println("courseFile!!!!! : " + courseFile + s + fileNameWithPath);
-                    try {
-
-                        uploadInput.sendKeys(courseFile + s + fileNameWithPath);
-                    } catch (Exception e) {
-                        return;
-                    }
-                }
+                this.upload(uploadInput, fileNameWithPath, courseFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -157,17 +139,36 @@ public class UploadFile {
                 File directory = new File("");
                 if ("Remote".equalsIgnoreCase(type)) {
                     courseFile = new ConfigManager().get("ftp_base_path");  // c:\\ftp
-                    File tmpFile = new File(fileNameWithPath);
-                    courseFile = courseFile + "/" + tmpFile.getPath();
                 } else {
-                    courseFile = directory.getCanonicalPath() + fileNameWithPath;
+                    courseFile = directory.getCanonicalPath();
                 }
-                uploadInput.sendKeys(courseFile.replace("//", "/"));
+                this.upload(uploadInput,fileNameWithPath,courseFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
             System.out.println("skip this step !");
+        }
+    }
+
+    private void upload(WebElement uploadInput, String fileNameWithPath, String courseFile) {
+        String s = File.separator;
+        fileNameWithPath = fileNameWithPath.replace("/", s).replace("\\", s);
+
+        if (fileNameWithPath.startsWith(s) || fileNameWithPath.startsWith("." + s)) {
+            try {
+                uploadInput.sendKeys(courseFile + fileNameWithPath);
+            } catch (Exception e) {
+                return;
+            }
+        } else {
+            System.out.println("courseFile!!!!! : " + courseFile + s + fileNameWithPath);
+            try {
+
+                uploadInput.sendKeys(courseFile + s + fileNameWithPath);
+            } catch (Exception e) {
+                return;
+            }
         }
     }
 

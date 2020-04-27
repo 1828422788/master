@@ -62,7 +62,7 @@ Feature: 仪表盘雷达图
       | name   |
       | 仪表盘雷达图 |
 
-  @dashboard @test
+  @dashboard
   Scenario: 修改为雷达图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘雷达图"
