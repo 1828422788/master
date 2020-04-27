@@ -11,8 +11,7 @@ Feature: 索引-yotta默认索引信息编辑（RZY-1477至1480）
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "<divideTimeDropDown>" from the "DivideTimeDropDown"
     And I click the "SavedButton" button
-    And I will see the element "Message" name is "<message>"
-
+    Then I will see the success message "保存成功"
     Examples:
       | divideTime | divideTimeDropDown | message     |
       | 1          | 月                  | 保存成功 |
