@@ -17,5 +17,7 @@ Feature: 知识删除（RZY-881）
       | 名称1, 名称2            |
       | 测试多个code            |
       | AutoTestCreateByURL |
-      | AutoTest            |
-      | sxjAutoTest         |
+      | 知识名                 |
+      | 没有名称                |
+      | 事件代码+描述             |
+      | 仅有事件代码              |
