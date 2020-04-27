@@ -2,16 +2,7 @@
 Feature: 字段提取脱敏配置
 
   Scenario Outline: RZY-2827：新建脱敏配置规则
-#    Given I wait for loading complete
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-#    Given I logout current user
-#    And I wait for title change text to "登录"
-#    And open the "LoginPage" page for uri "/auth/login/"
-#    When I set the parameter "Username" with value "admin"
-#    And I set the parameter "Password" with value "All#123456"
-#    And I click the "LoginButton" button
-#    And I wait for "2000" millsecond
+
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
@@ -56,6 +47,7 @@ Feature: 字段提取脱敏配置
     And I set the parameter "Tag" with value "replacer"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
+    
 
     Examples:
       | regexResult                                                                                      | result                                                                                                                                             | result1                                                                                                                                            |

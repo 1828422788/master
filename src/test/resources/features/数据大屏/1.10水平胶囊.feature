@@ -3,8 +3,6 @@ Feature: 数据大屏-水平胶囊
 
 
   Scenario: 水平胶囊样式-搜索
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -50,6 +48,8 @@ Feature: 数据大屏-水平胶囊
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "水平胶囊样式修改"
     And I wait for "3000" millsecond
+     #开启背景动画
+    And I click the "backgroundAuto" button
 #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
@@ -64,12 +64,10 @@ Feature: 数据大屏-水平胶囊
      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 水平胶囊样式-搜索发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -84,8 +82,6 @@ Feature: 数据大屏-水平胶囊
 ######################################无耻的分割线################################
 
   Scenario: 水平胶囊数据之静态数据
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -118,12 +114,10 @@ Feature: 数据大屏-水平胶囊
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 水平胶囊数据之静态数据发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -139,8 +133,6 @@ Feature: 数据大屏-水平胶囊
 ##################################无耻的分割线###############################
 
   Scenario: 水平胶囊数据之绑定搜索
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -172,11 +164,12 @@ Feature: 数据大屏-水平胶囊
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button
-    And I click the "pictureOne" button
+#    And I click the "pictureOne" button
     And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
      #对水平胶囊的参数进行设置
     And I click the "pictureOne" button
-    And I click the "pictureTwo" button
+#    And I click the "pictureTwo" button
     And I click the "Data" button
     And I wait for "3000" millsecond
     And I choose the "apache.clientip" from the "scrollBarSearchName"
@@ -184,12 +177,10 @@ Feature: 数据大屏-水平胶囊
     And I wait for "3000" millsecond
       #保存
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 水平胶囊数据之绑定搜索发布并截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"

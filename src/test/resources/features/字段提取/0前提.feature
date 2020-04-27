@@ -28,10 +28,22 @@ Feature: 字段提取前提条件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_wym__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I click the "Feature" button
+    Then I wait for "2000" millsecond
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "可查看敏感内容"
     Then I click the "SaveButton" button
+
+#  Scenario: 设置索引配置
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_wym__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    Then I wait for "2000" millsecond
+#    Then I click the "{'TabButton':'索引配置'}" button
+#    And I wait for "Loading" will be invisible
+#    And I "checked" the label before "yotta"
+#    Then I click the "SaveButton" button
 
   Scenario: 选择标签
     Given open the "configs.ListPage" page for uri "/configs/"
