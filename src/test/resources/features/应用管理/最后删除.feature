@@ -29,3 +29,25 @@ Feature: 应用删除
     When the data name is "AutoTestApp" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+
+  Scenario Outline: 删除拓扑图资源
+    Given open the "topology.ListPage" page for uri "/topology/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+
+    Examples:
+      | name    |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |
+      | app所选资源 |

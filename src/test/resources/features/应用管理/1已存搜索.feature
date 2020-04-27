@@ -53,6 +53,7 @@ Feature: 应用已存搜索（RZY-2125）
     Then I will see the "splSearch.SavedSearchPage" page
     When the data name is "{'column':'1','name':'AutoApp'}" then i click the "加载" button
     And switch to another window
+    And I close all tabs except main tab
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "SavedsearchesApp"
 
