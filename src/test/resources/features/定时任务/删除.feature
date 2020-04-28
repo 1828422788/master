@@ -12,6 +12,9 @@ Feature: 定时任务删除
 
     Examples:
     |    name            |
+    |  sql_server_3358   |
+    |  mysql_3357        |
+    |  oracle_3301       |
     |  recent1d          |
     |  recent2d          |
     |  recent7d          |

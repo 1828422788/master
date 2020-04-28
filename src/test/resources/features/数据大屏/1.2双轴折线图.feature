@@ -30,7 +30,7 @@ Feature: 数据大屏-双轴折线图
     And I set the parameter "ChartYaxis" with value "0"
     And I wait for "Save" will be visible
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
   Scenario Outline: 修改配置      
 #    Given I will see the "PublicNavBarPage" page
@@ -105,7 +105,7 @@ Feature: 数据大屏-双轴折线图
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "208"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
     Examples:
       | name  |
@@ -182,7 +182,7 @@ Feature: 数据大屏-双轴折线图
     And I set the parameter "ChartXaxis" with value "0"
     And I set the parameter "ChartYaxis" with value "504"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
     Examples:
       | name  |

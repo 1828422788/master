@@ -17,7 +17,7 @@ Feature: 定时任务标签
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "ExecuteTime"
     And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
+    And I set the parameter "StartTimeInput" with value "23:59:00"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"

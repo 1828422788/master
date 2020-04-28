@@ -579,35 +579,35 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getFlipScaling() {
-        return this.dropdownList("翻牌器", "缩略比例");
+        return this.dropdownList("翻转", "缩略比例");
     }
 
     public WebElement getFlipBackgroundStyle() {
-        return this.dropdownList("翻牌器", "背景样式");
+        return this.dropdownList("翻转", "背景样式");
     }
 
     public WebElement getPrefix() {
-        return this.input("翻牌器", "前缀");
+        return this.input("翻转", "前缀");
     }
 
     public WebElement getSuffix() {
-        return this.input("翻牌器", "后缀");
+        return this.input("翻转", "后缀");
     }
 
     public WebElement getFlipWordBold() {
-        return this.dropdownList("翻牌器", "字体粗细");
+        return this.dropdownList("翻转", "字体粗细");
     }
 
     public WebElement getFlipWordSize() {
-        return this.input("翻牌器", "字体大小");
+        return this.input("翻转", "字体大小");
     }
 
     public WebElement getFlipWord() {
-        return this.dropdownList("翻牌器", "字体");
+        return this.dropdownList("翻转", "字体");
     }
 
     public WebElement getFlip() {
-        return this.header("翻牌器");
+        return this.header("翻转");
     }
 
     public WebElement getType() {
