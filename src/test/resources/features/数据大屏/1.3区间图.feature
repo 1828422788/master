@@ -185,7 +185,7 @@ Feature: 数据大屏-区间图
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
-    And I set the parameter "Name" with value "散点图-绑定搜索"
+    And I set the parameter "Name" with value "区间图-绑定搜索"
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
@@ -232,7 +232,7 @@ Feature: 数据大屏-区间图
 #    Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 散点图-绑定搜索发布并截图
+  Scenario Outline: 区间图-绑定搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -242,7 +242,7 @@ Feature: 数据大屏-区间图
 
     Examples:
       |name       |
-      |散点图-绑定搜索|
+      |区间图-绑定搜索|
 
 
   Scenario Outline: 删除关于区间图的大屏
@@ -252,6 +252,6 @@ Feature: 数据大屏-区间图
 
     Examples:
       |name|
-      |散点图-绑定搜索|
+      |区间图-绑定搜索|
       |区间图-图例-静态数据|
       | 区间图XY轴布局搜索 |
