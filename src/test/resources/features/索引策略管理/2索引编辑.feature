@@ -46,7 +46,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "<divideTimeDropDown>" from the "DivideTimeDropDown"
     And I click the "SavedButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "切分时间应小于保存时间"
 
     Examples:
       | divideTime | divideTimeDropDown | message     |
