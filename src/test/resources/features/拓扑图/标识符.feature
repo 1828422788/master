@@ -16,7 +16,7 @@ Feature: 拓扑图标识符
   Scenario: RZY-2515：标识前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I wait for "1000" millsecond
+    And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识前后缀"
     And I set the parameter "Token" with value "first"
@@ -46,7 +46,7 @@ Feature: 拓扑图标识符
   Scenario: RZY-2517：标识分隔符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I wait for "1000" millsecond
+    And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识分隔符"
     And I set the parameter "Token" with value "second"
@@ -81,7 +81,7 @@ Feature: 拓扑图标识符
   Scenario: RZY-2519：标识值前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I wait for "1000" millsecond
+    And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识值前后缀"
     And I set the parameter "Token" with value "third"
@@ -118,7 +118,7 @@ Feature: 拓扑图标识符
   Scenario Outline: 添加动态菜单输入项成功（RZY-1243）
     And I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I wait for "1000" millsecond
+    And I wait for "AddInputButton" will be visible
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
