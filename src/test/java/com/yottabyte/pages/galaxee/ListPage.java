@@ -13,8 +13,8 @@ import org.openqa.selenium.support.FindBy;
 public class ListPage extends PageTemplate {
     public ListPage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setPosition(new Point(0,0));
-        driver.manage().window().setSize(new Dimension(1400,1000));
+//        driver.manage().window().setPosition(new Point(0,0));
+//        driver.manage().window().setSize(new Dimension(1400,1000));
     }
 
     @FindBy(className = "big-v-create-button")
