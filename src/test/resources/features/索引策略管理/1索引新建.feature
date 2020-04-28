@@ -25,7 +25,8 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "AutoTest"
     And I set the parameter "AppName" with value "AutoTest"
     And I click the "CreateButton" button
-    Then I will see the success message "保存成功"
+    And I will see the element "Message" name is "保存成功"
+
     Examples: 新建成功
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown |
       | indexerror | AutoTest | 2         | 1          | 100       | MB                |
