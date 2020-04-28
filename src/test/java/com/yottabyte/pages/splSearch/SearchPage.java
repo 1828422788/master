@@ -595,7 +595,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
     private WebElement ensureCreateTrend;
 
-    @FindBy(xpath = "//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all']")
+    @FindBy(xpath = "(//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all']) | (//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all_']) ")
     private WebElement resourceAll;
 
 
