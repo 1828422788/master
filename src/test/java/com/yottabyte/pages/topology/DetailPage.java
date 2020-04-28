@@ -138,16 +138,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "yw-modal-btn-primary")
     private List<WebElement> ensureInputButton;
 
-    @FindBy(xpath = "//label[contains(text(),'动态字段')]/following-sibling::div//input")
-    private WebElement dynamicFields;
-
-    @FindBy(xpath = "//label[contains(text(),'搜索内容')]/following-sibling::div//textarea")
+    @FindBy(xpath = "//span[text()='搜索内容']/following-sibling::textarea")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//div[@class='el-form-item dynamic-search-btn']//span")
-    private WebElement searchInputButton;
-
-    @FindBy(xpath = "//label[contains(text(),'时间范围')]/following-sibling::div//input")
+    @FindBy(xpath = "//input[@placeholder='请选择时间范围']")
     private WebElement timeRange;
 
     @FindBy(xpath = "(//input[@placeholder='请输入可选值'])[last()]")
@@ -176,6 +170,17 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[3]")
     private WebElement addNode;
+
+    @FindBy(id = "topo-container")
+    private WebElement container;
+
+    public WebElement getMultiChoice() {
+        return super.getButton("多 选");
+    }
+
+    public WebElement getContainer() {
+        return container;
+    }
 
     public WebElement getAddNode() {
         return addNode;
@@ -508,7 +513,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getDynamicFields() {
-        return dynamicFields;
+        return this.getInput("动态字段");
     }
 
     public WebElement getEnsureInputButton() {
@@ -519,10 +524,6 @@ public class DetailPage extends PageTemplate {
         return searchInput;
     }
 
-    public WebElement getSearchInputButton() {
-        return searchInputButton;
-    }
-
     public WebElement getTimeRange() {
         return timeRange;
     }
@@ -530,7 +531,7 @@ public class DetailPage extends PageTemplate {
     // 动态菜单下的默认值
     public WebElement getDynamicDefault() {
         defaultValue.click();
-        return dropdownList.get(dropdownList.size() - 1);
+        return super.getLastDropdownList();
     }
 
     public WebElement getOptional() {
@@ -542,7 +543,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getIdentityPrefix() {
-        return getInputElement("标识值前缀");
+        return getInput("标识值前缀");
     }
 
     public WebElement getInputElement(String name) {

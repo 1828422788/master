@@ -7,20 +7,22 @@ Feature: 拓扑图新建（RZY-346至348）
   Scenario Outline: 成功新建拓扑图（RZY-346）
     When I click the "Create" button
     And I set the parameter "NameInput" with value "<name>"
-    And I set the parameter "TagInput" with value "<Type>"
+    And I set the parameter "Tag" with value "<Type>"
     And I choose the "<Type>" from the "TagDropdown"
     And I click the "Ensure" button
 
-  @smoke @topologySmoke
     Examples:
       | name        | Type             |
-      | sxjautotest | default_Topology |
+      | 拓扑图AutoTest | default_Topology |
 
-  @second @topologySmoke
+  Scenario Outline: 新建拓扑图（不包含标签）
+    When I click the "Create" button
+    And I set the parameter "NameInput" with value "<name>"
+    And I click the "Ensure" button
+
     Examples:
-      | name            | Type             |
-      | 测试标识符           | default_Topology |
-      | auto_topology样例 | default_Topology |
+      | name   |
+      | 拓扑图无标签 |
 
   Scenario Outline: 新建拓扑图失败（RZY-347至348）
     When I click the "Create" button

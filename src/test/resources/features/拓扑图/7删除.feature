@@ -1,4 +1,4 @@
-@clean @cleanTopology
+@topology @all
 Feature: 拓扑图删除（RZY-350）
 
   Background:
@@ -6,14 +6,11 @@ Feature: 拓扑图删除（RZY-350）
 
   Scenario Outline:
     Given the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
 
-  @cleanSecond
     Examples:
-      | name            |
-      | auto_topology样例 |
-      | 测试标识符           |
+      | name        |
+      | 拓扑图没有标签     |
+      | 拓扑图AutoTest |
 
-    Examples:
-      | name   |
-      | 八种布局方式 |
