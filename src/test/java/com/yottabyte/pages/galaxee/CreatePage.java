@@ -976,6 +976,8 @@ public class CreatePage extends PageTemplate {
         return super.getButton("添加分组");
     }
 
+    public WebElement getAddLine(){return super.getButton("添加 Line");}
+
     public WebElement getAdd() {
         return super.getButton("+添加");
     }
@@ -1022,6 +1024,15 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLayout() {
         return this.header("布局");
+    }
+
+    public WebElement getNumber(){return this.header("数值");}
+    //柱图中的数值
+    public WebElement getNumberWordSize() {
+        return this.input("数值", "字体大小");
+    }
+    public WebElement getNumberWordBold() {
+        return this.dropdownList("数值", "字体粗细");
     }
 
     public WebElement getDataSeries() {
@@ -1211,6 +1222,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getYaxis() {
         return this.dropdownList("", "Y轴");
     }
+
+    public WebElement getLineYaxis(){return this.dropdownList("","线Y轴");}
 
     public WebElement getFirstYaxis() {
         return this.dropdownList("", "Y轴1");
@@ -2415,5 +2428,58 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
     @FindBy(xpath = "//label[contains(text(),'间距')]/following-sibling::div/input")
     private WebElement flipSpacing;
     public WebElement getFlipSpacing(){return flipSpacing;}
+
+// 柱图-X轴-分割线
+    //宽度
+    @FindBy(xpath = "//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[1]/div/input")
+    private WebElement xDividingLineBold;
+    public WebElement  getXDividingLineBold(){return xDividingLineBold;}
+    //颜色
+    @FindBy(xpath = "//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[2]/div")
+    private WebElement xDividingLineColor;
+    public WebElement getXDividingLineColor(){return xDividingLineColor;}
+    //类型
+    @FindBy(xpath = "//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[3]/div")
+    private WebElement xDividingLineType;
+    public WebElement getXDividingLineType(){
+        xDividingLineType.click();
+        return this.getLastDropdownList();
+    }
+    //轴线
+    @FindBy(xpath = "//label[contains(text(),'轴线')]/parent::div/following-sibling::div[1]/div")
+    private WebElement xLineColor;
+    public WebElement getXLineColor(){return xLineColor;}
+
+    @FindBy(xpath = "//label[contains(text(),'轴线')]/parent::div/following-sibling::div[2]/div/input")
+    private WebElement xLineBold;
+    public WebElement getXLineBold(){return xLineBold;}
+
+
+// 柱图-Y轴-分割线
+    //宽度
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[11]/div/input")
+    private WebElement yDividingLineBold;
+    public WebElement  getYDividingLineBold(){return yDividingLineBold;}
+    //颜色
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[12]/div")
+    private WebElement yDividingLineColor;
+    public WebElement getYDividingLineColor(){return yDividingLineColor;}
+    //类型
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[13]/div")
+    private WebElement yDividingLineType;
+    public WebElement getYDividingLineType(){
+        yDividingLineType.click();
+        return this.getLastDropdownList();
+    }
+//轴线
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[16]/div")
+    private WebElement yLineColor;
+    public WebElement getYLineColor(){return yLineColor;}
+
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[17]/div/input")
+    private WebElement yLineBold;
+    public WebElement getYLineBold(){return yLineBold;}
+
+
 
 }

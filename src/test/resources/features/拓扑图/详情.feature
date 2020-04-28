@@ -120,7 +120,7 @@ Feature: 拓扑图详情页
     Examples:
       | leftValue | dateEditor | date  | message    |
       |           |            |       | 搜索语句不能为空   |
-      | *         | DateEditor | Today | 请输入统计类搜索内容 |
+#      | *         | DateEditor | Today | 请输入统计类搜索内容 |
 
   Scenario Outline: 删除拓扑图
     Given the data name is "<name>" then i click the "删除" button

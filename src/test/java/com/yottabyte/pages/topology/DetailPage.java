@@ -150,7 +150,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-bianji1")
     private WebElement edit;
 
-    @FindBy(className = "el-switch__label--right")
+    @FindBy(className = "ant-switch")
     private WebElement openChart;
 
     @FindBy(xpath = "//input[@placeholder='请选择插图类型']/preceding-sibling::i")
