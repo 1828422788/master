@@ -10,6 +10,7 @@ Feature: Agent分组设置
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
+    And I close all tabs except main tab
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "<name>"
@@ -29,6 +30,7 @@ Feature: Agent分组设置
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
+    And I close all tabs except main tab
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest"
@@ -41,6 +43,7 @@ Feature: Agent分组设置
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
+    And I close all tabs except main tab
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
 #    When I set the parameter "Description" with value "<description>"
@@ -52,6 +55,7 @@ Feature: Agent分组设置
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
+    And I close all tabs except main tab
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest2"
@@ -129,42 +133,40 @@ Feature: Agent分组设置
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
+    And I close all tabs except main tab
     And I wait for loading invisible
-    Given the data name is "{'column':'1','name':'English'}" then i click the "编辑" button
-    Then I will see the "agent.NewGroupPage" page
-    And I click the "ReturnButton" button
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
-    Given the data name is "{'column':'1','name':'English'}" then i click the "编辑" button
-    Then I will see the "agent.NewGroupPage" page
+    And I click the "OpenGroupButton" button
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
-    And I click the "SaveButton" button
-    Then I will see the element "Updatemsg" name is "<updatemessage>"
+    And I click the "Update" button
+    Then I will see the element "Addsuccessmsg" name is "<updatemessage>"
 
 
     Examples: 更新分组信息
-      | name          | description | updatemessage |
-      | sunxctesttest | English     | 保存成功          |
-      | 中文中文          | English     | 保存成功          |
+      | name      | description | updatemessage |
+      | sunxctest | test描述      | 更新 Agent 分组成功 |
+      | sunxctest | English     | 更新 Agent 分组成功 |
+      | 中文中文      | English     | 更新 Agent 分组成功 |
 
-  Scenario Outline: 模糊搜索Agent分组
-    And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
-    When I set the parameter "Name" with value "<name>"
-    And  I wait for loading invisible
-    Then I will see the search result contains "{'column':'0','name':'<correctName>'}"
 
-    Examples: 模糊搜索ip过滤成功
-
-      | name  | correctName |
-      | sunxc | sunxc_test  |
-      | 中文    | 中文中文        |
+#  Scenario Outline: 模糊搜索Agent分组
+#    And I click the "AgentGroupButton" button
+#    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
+#    When I set the parameter "SearchName" with value "<name>"
+#    And  I wait for loading invisible
+#    Then I will see the search result contains "{'column':'0','name':'<correctName>'}"
+#
+#    Examples: 模糊搜索ip过滤成功
+#
+#      | name  | correctName |
+#      | sunxc | sunxc_test  |
+#      | 中文    | 中文中文        |
 
   Scenario Outline: 删除Agent分组
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
+    And I close all tabs except main tab
     And I wait for loading invisible
     Given the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     And I click the "ContainEnsure" button

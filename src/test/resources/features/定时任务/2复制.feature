@@ -15,12 +15,12 @@ Feature: 定时任务复制
     And I set the parameter "Describe" with value "testing"
     And I set the parameter "Describe" with value "testing"
     And I choose the "AutoTestTag" from the "GroupComboBox"
-    And I choose the "无数集app之api全部测试用例" from the "AppComboBox"
+    And I choose the "TrendApp" from the "AppComboBox"
 
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:10:10"
+    And I set the parameter "StartTimeInput" with value "23:58:10"
     And I hide the element "TimePanel"
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureButton" button

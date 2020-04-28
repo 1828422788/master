@@ -33,7 +33,7 @@ public class ListPage extends ListPageFactory {
         return super.getButton("索引配置");
     }
 
-    @FindBy(xpath = "//div[@class='el-message-box__message']")
+//    @FindBy(xpath = "//div[@class='el-message-box__message']")
     private WebElement Message;
 
     public WebElement getMemoMessage() {
@@ -44,10 +44,10 @@ public class ListPage extends ListPageFactory {
     private WebElement MemoMessage;
 
     public WebElement getMessage() {
-        return Message;
+        return super.getMessage();
     }
 
-    public WebElement getSuccessMessage() {
-        return super.getMessage();
+    public WebElement getReturnList() {
+        return super.getButton("返回列表");
     }
 }

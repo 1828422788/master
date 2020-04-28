@@ -58,7 +58,7 @@ Feature: 定时任务新建
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "21:10:10"
+    And I set the parameter "StartTimeInput" with value "23:58:10"
 #    And I set the parameter "StartTimeInput" with value "CurrentTime5min"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
@@ -104,7 +104,7 @@ Feature: 定时任务新建
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "21:10:10"
+    And I set the parameter "StartTimeInput" with value "23:58:10"
 #    And I set the parameter "StartTimeInput" with value "CurrentTime5min"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button

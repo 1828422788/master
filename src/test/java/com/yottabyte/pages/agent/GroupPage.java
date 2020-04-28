@@ -33,6 +33,10 @@ public class GroupPage extends ListPageFactory{
         return getelement("请输入名称");
     }
 
+    public WebElement getSearchName() {
+        return getelement("搜索");
+    }
+
     @FindBy(xpath = "//textarea[contains(@placeholder,'请输入描述')]")
     private WebElement Description;
 
@@ -70,9 +74,21 @@ public class GroupPage extends ListPageFactory{
         return super.getButton("保存");
     }
 
+    public WebElement getUpdate() {
+        return super.getButton("更新");
+    }
+
+
     @Override
     public WebElement getSearchInput() {
         return searchInput;
+    }
+
+    @FindBy(xpath = "//p/span[text()='sunxctest']")
+    private WebElement OpenGroupButton;
+
+    public WebElement getOpenGroupButton() {
+        return OpenGroupButton;
     }
 
     @FindBy(xpath = "//div[text()='请输入名称']")

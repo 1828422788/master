@@ -28,7 +28,7 @@ Feature: 报表标签
     And I choose the "AutoTest" from the "TagField"
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
-    Then I will see the success message "修改成功"
+    Then I will see the message "修改成功"
     And I click the "EnsureButton" button
     And I refresh the website
     #column 6 is a tag

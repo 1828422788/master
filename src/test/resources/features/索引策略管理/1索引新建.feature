@@ -24,8 +24,7 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "AutoTest"
     And I set the parameter "AppName" with value "AutoTest"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
-
+    Then I will see the success message "保存成功"
     Examples: 新建成功
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown |
       | indexerror | AutoTest | 2         | 1          | 100       | MB                |
@@ -50,7 +49,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "100"
     And I choose the "MB" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
+    Then I will see the success message "保存成功"
 
   @second @indexSettingSmoke
   Scenario Outline: 验证1474搜索结果
@@ -74,7 +73,7 @@ Feature: 索引信息新建
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "小时" from the "DivideTimeDropDown"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
+    Then I will see the success message "保存成功"
     Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
@@ -83,7 +82,7 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "sunxctime"
     And I set the parameter "AppName" with value "sunxctime"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
+    Then I will see the success message "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "sunxctime"
     And I set the parameter "Tag" with value "sunxctime"
@@ -106,7 +105,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "1"
     And I choose the "MB" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
+    Then I will see the success message "保存成功"
     Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
@@ -115,7 +114,7 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "<name>"
     And I set the parameter "AppName" with value "<name>"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
+    Then I will see the success message "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<name>"
     And I set the parameter "Tag" with value "<name>"
@@ -136,7 +135,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedTime" with value "10"
     And I set the parameter "DivideTime" with value "1"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 新建失败
     Given I click the "AddButton" button
@@ -148,17 +147,136 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "<message>"
+    Then I will see the success message "名称 不能为空"
 
     Examples:
       | name | desc | savedTime | divideTime | savedSize | message                            |
       |      |      |           |            |           | 名称 不能为空                            |
-      | Test |      |           |            |           | 索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串 |
-      | test |      |           |            |           | 保存时间 不能为空                          |
-      | test |      | 1         |            |           | 切分时间 不能为空                          |
-      | test |      | 1         | 1          |           | 切分时间应小于保存时间                        |
-      | test |      | -1        | 1          |           | 保存时间应为正整数                          |
-      | test |      | 1         | 0.5        |           | 切分时间应为正整数                          |
-      | test |      | 2         | 1          | 0.1       | 保存大小 应为正整数                         |
-      | test |      | 2         | 1          | 0         | 保存大小 应为正整数                         |
 
+  Scenario Outline: 新建失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I set the parameter "SavedSize" with value "<savedSize>"
+    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+    And I click the "CreateButton" button
+    Then I will see the success message "索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串"
+
+    Examples:
+      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | Test |      |           |            |           | 索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串 |
+
+  Scenario Outline: 新建失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I set the parameter "SavedSize" with value "<savedSize>"
+    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+    And I click the "CreateButton" button
+    Then I will see the success message "保存时间 不能为空"
+
+    Examples:
+      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | test |      |           |            |           | 保存时间 不能为空                          |
+
+  Scenario Outline: 新建失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I set the parameter "SavedSize" with value "<savedSize>"
+    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+    And I click the "CreateButton" button
+    Then I will see the success message "切分时间 不能为空"
+
+    Examples:
+      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | test |      | 1         |            |           | 切分时间 不能为空                          |
+
+  Scenario Outline: 新建失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I set the parameter "SavedSize" with value "<savedSize>"
+    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+    And I click the "CreateButton" button
+    Then I will see the success message "切分时间应小于保存时间"
+
+    Examples:
+      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | test |      | 1         | 1          |           | 切分时间应小于保存时间                        |
+
+  Scenario Outline: 新建失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I set the parameter "SavedSize" with value "<savedSize>"
+    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+    And I click the "CreateButton" button
+    Then I will see the success message "保存时间应为正整数"
+
+    Examples:
+      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | test |      | -1        | 1          |           | 保存时间应为正整数                          |
+
+  Scenario Outline: 新建失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I set the parameter "SavedSize" with value "<savedSize>"
+    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+    And I click the "CreateButton" button
+    Then I will see the success message "切分时间应为正整数"
+
+    Examples:
+      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | test |      | 1         | 0.5        |           | 切分时间应为正整数                          |
+
+  Scenario Outline: 新建失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I set the parameter "SavedSize" with value "<savedSize>"
+    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+    And I click the "CreateButton" button
+    Then I will see the success message "保存大小 应为正整数"
+
+    Examples:
+      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | test |      | 2         | 1          | 0.1       | 保存大小 应为正整数                         |
+
+  Scenario Outline: 新建失败正整数失败
+    Given I click the "AddButton" button
+    Then I will see the "index.CreatePage" page
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Desc" with value "<desc>"
+    And I set the parameter "SavedTime" with value "<savedTime>"
+    And I set the parameter "DivideTime" with value "<divideTime>"
+    And I set the parameter "SavedSize" with value "<savedSize>"
+    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
+    And I click the "CreateButton" button
+    Then I will see the success message "保存大小 应为正整数"
+
+    Examples:
+      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | test |      | 2         | 1          | 0         | 保存大小 应为正整数                         |
