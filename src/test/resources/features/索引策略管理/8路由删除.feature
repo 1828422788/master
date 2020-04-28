@@ -17,4 +17,4 @@ Feature: 路由删除（RZY-1482）
       | 3   | AutoAppName          |
       | 3   | AutoTestForsxcSize   |
       | 3   | AutoTestForsxc       |
-#      | 4   | indexerror           |
+      | 3   | AutoTest           |
