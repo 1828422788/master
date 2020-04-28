@@ -26,11 +26,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -78,11 +75,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -137,11 +131,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -168,11 +159,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -216,11 +204,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -257,11 +242,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -295,11 +277,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -334,11 +313,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -369,11 +345,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -400,11 +373,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -447,11 +417,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -487,11 +454,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -532,11 +496,8 @@ Feature: 定时任务保存为
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupComboBox"
 
-    And I set the parameter "Period" with value "30"
-    And I choose the "分钟" from the "ExecuteTime"
-    And I click the "StartTime" button
-    And I set the parameter "StartTimeInput" with value "23:00:00"
-    And I hide the element "TimePanel"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
