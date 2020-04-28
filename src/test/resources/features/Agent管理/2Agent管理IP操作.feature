@@ -14,12 +14,10 @@ Feature: Agent管理ip操作
     And  I wait for loading invisible
     Then I will see the search result contains "{'column':'3','name':'<memory>'}"
 
-
-
 #  @indexSettingSmoke
     Examples: 备注成功
       | memory  |
-      | 中文测试    |
+      | 中文中文    |
       | test    |
       | *A￥,%&^ |
       | 68      |
