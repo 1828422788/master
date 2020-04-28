@@ -4,6 +4,7 @@ Feature: 索引信息新建
   Background:
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
 
+
   @second @indexSettingSmoke
   Scenario Outline: RZY-1474:新建
     Given I click the "AddButton" button
@@ -15,7 +16,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
+    Then I will see the success message "保存成功"
     Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
@@ -73,6 +74,7 @@ Feature: 索引信息新建
     And I set the parameter "DivideTime" with value "<divideTime>"
     And I choose the "小时" from the "DivideTimeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "保存成功"
     Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
     When I click the "AddButton" button
@@ -82,12 +84,14 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "sunxctime"
     And I set the parameter "AppName" with value "sunxctime"
     And I click the "CreateButton" button
-    Then I will see the success message "保存成功"
+    And I wait for "1000" millsecond
+    And I will see the element "Message" name is "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "sunxctime"
     And I set the parameter "Tag" with value "sunxctime"
     And I upload a file with name "/src/test/resources/testdata/log/apache_10.dms"
     And I click the "UploadButton" button
+    And I wait for "1000" millsecond
     And I wait for element "VerifyText" change text to "上传完成"
 
     Examples: 新建成功
@@ -105,6 +109,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "1"
     And I choose the "MB" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "保存成功"
     Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
     When I click the "AddButton" button
@@ -114,12 +119,14 @@ Feature: 索引信息新建
     And I set the parameter "Tag" with value "<name>"
     And I set the parameter "AppName" with value "<name>"
     And I click the "CreateButton" button
-    Then I will see the success message "保存成功"
+    And I wait for "1000" millsecond
+    And I will see the element "Message" name is "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<name>"
     And I set the parameter "Tag" with value "<name>"
     And I upload a file with name "/src/test/resources/testdata/log/h3c.txt"
     And I click the "UploadButton" button
+    And I wait for "1000" millsecond
     And I wait for element "VerifyText" change text to "上传完成"
 
     Examples: 新建成功
@@ -135,6 +142,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedTime" with value "10"
     And I set the parameter "DivideTime" with value "1"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "保存成功"
 
   Scenario Outline: 新建失败
@@ -147,6 +155,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "名称 不能为空"
 
     Examples:
@@ -163,6 +172,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串"
 
     Examples:
@@ -179,6 +189,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "保存时间 不能为空"
 
     Examples:
@@ -195,6 +206,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "切分时间 不能为空"
 
     Examples:
@@ -211,6 +223,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "切分时间应小于保存时间"
 
     Examples:
@@ -227,6 +240,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "保存时间应为正整数"
 
     Examples:
@@ -243,6 +257,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "切分时间应为正整数"
 
     Examples:
@@ -259,6 +274,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "保存大小 应为正整数"
 
     Examples:
@@ -275,6 +291,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     Then I will see the success message "保存大小 应为正整数"
 
     Examples:
