@@ -2,7 +2,6 @@
 Feature: 数据大屏-柱图
 
   Scenario: 新建默认配置的柱图
-#    Given I wait for title change text to "仪表盘"
    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -27,7 +26,7 @@ Feature: 数据大屏-柱图
     And I choose the "count()" from the "Yaxis"
     And I wait for "Save" will be visible
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
   Scenario Outline: 编辑配置
 #    Given I wait for title change text to "仪表盘"
@@ -87,7 +86,7 @@ Feature: 数据大屏-柱图
 #    And I choose the "apache.method" from the "Xaxis"
 #    And I choose the "count()" from the "Yaxis"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
     Examples:
       | name |
@@ -154,7 +153,7 @@ Feature: 数据大屏-柱图
     And I choose the "apache.method" from the "Group"
     And I switch the "Pile" button to "enable"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
     Examples:
       | name |

@@ -31,7 +31,7 @@ Feature: 数据大屏-区间图
     And I choose the "lower95" from the "LowerField"
     And I wait for "Save" will be visible
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
   Scenario Outline: 修改配置
 #    Given I wait for title change text to "仪表盘"
@@ -95,7 +95,7 @@ Feature: 数据大屏-区间图
     And I choose the "upper95" from the "UpperField"
     And I choose the "lower95" from the "LowerField"
     And I click the "Save" button
-    Then I will see the success message "保存成功"
+#    Then I will see the success message "保存成功"
 
     Examples:
       | name |
