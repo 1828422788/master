@@ -39,8 +39,8 @@ Feature: 定时任务标签
     When the data name is "{'column':'2','name':'Tag_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "1000" millsecond
-    And I will see the input element "Describe" value will be "tag testing"
-    And I will see the element "TaskGroupSelected" contains "AutoTest"
+    And I wait for element "SelectedUser" change text to "admin"
+    And I cancel selection "AutoTest" from the "TaskGroup"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button

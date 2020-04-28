@@ -36,6 +36,7 @@ Feature: 定时任务复制
     When the data name is "{'column':'2','name':'copytask'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "1000" millsecond
+    And I wait for element "SelectedUser" change text to "admin"
     And I will see the input element "Number" value will be "20000"
     And I set the parameter "Number" with value "123"
     And I click the "SaveButton" button
@@ -67,12 +68,13 @@ Feature: 定时任务复制
     When the data name is "{'column':'2','name':'copytask(副本)'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
     And I wait for "1500" millsecond
+    And I wait for element "SelectedUser" change text to "admin"
     And I will see the input element "Name" value will be "copytask(副本)"
     And I will see the input element "Describe" value will be "testing"
     And I will see the input element "Number" value will be "123"
     And I will see the element "Resource" contains "(*)"
-    And I will see the element "TaskGroupSelected" contains "AutoTestTag"
-    And I will see the element "TaskAppSelected" contains "无数集app之api全部测试用例"
+    And I cancel selection "AutoTestTag" from the "TaskGroup"
+    And I cancel selection "TrendApp" from the "TaskApp"
     And I will see the input element "Period" value will be "5"
 
   Scenario Outline: delete_copiedTask
