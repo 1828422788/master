@@ -183,6 +183,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='应 用']//ancestor::button)[last()]")
     private WebElement apply;
 
+    @FindBy(className = "value")
+    private List<WebElement> valueList;
+
+    public List<WebElement> getValueList() {
+        return valueList;
+    }
+
     public WebElement getMultiChoice() {
         return super.getButton("多 选");
     }
