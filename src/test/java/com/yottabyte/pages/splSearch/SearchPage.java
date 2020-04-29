@@ -34,6 +34,9 @@ public class SearchPage extends ListPageFactory {
         driver.manage().window().setSize(new Dimension(1200,900));
     }
 
+    @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']/div[1]")
+    private WebElement result;
+
     @FindBy(xpath = "(//label[text()='资源标签'])[last()]/following-sibling::div")
     private WebElement groupComboBox;
 
@@ -122,6 +125,7 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[text()='搜索']/ancestor::button/following-sibling::div//input")
     private WebElement timeRange;
+
 
     public WebElement getTimeRange() {
         return timeRange;
@@ -1508,5 +1512,7 @@ public class SearchPage extends ListPageFactory {
         return scheduleDescribe;
     }
 
-
+    public WebElement getResult() {
+        return result;
+    }
 }
