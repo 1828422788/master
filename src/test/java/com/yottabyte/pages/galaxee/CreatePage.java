@@ -2482,4 +2482,30 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
 
 
 
+//双轴折线图-Y轴1-分割线
+    //宽度
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[12]/div/input")
+    private WebElement y1DividingLineBold;
+    public WebElement  getY1DividingLineBold(){return y1DividingLineBold;}
+    //颜色
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[13]/div")
+    private WebElement y1DividingLineColor;
+    public WebElement getY1DividingLineColor(){return y1DividingLineColor;}
+    //类型
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[14]/div")
+    private WebElement y1DividingLineType;
+    public WebElement getY1DividingLineType(){
+        y1DividingLineType.click();
+        return this.getLastDropdownList();
+    }
+    //轴线
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[17]/div")
+    private WebElement y1LineColor;
+    public WebElement getY1LineColor(){return y1LineColor;}
+
+    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[18]/div/input")
+    private WebElement y1LineBold;
+    public WebElement getY1LineBold(){return y1LineBold;}
+
+
 }
