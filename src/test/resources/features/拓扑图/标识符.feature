@@ -16,6 +16,7 @@ Feature: 拓扑图标识符
   Scenario: RZY-2515：标识前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
+    And I wait for "Message" will be invisible
     And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识前后缀"
@@ -46,6 +47,7 @@ Feature: 拓扑图标识符
   Scenario: RZY-2517：标识分隔符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
+    And I wait for "Message" will be invisible
     And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识分隔符"

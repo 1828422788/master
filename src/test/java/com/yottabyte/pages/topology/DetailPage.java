@@ -150,7 +150,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-bianji1")
     private WebElement edit;
 
-    @FindBy(xpath = "(//button[@class='ant-switch'])[last()]" )
+    @FindBy(xpath = "(//button[@class='ant-switch'])[last()]")
     private WebElement openChart;
 
     @FindBy(xpath = "//input[@placeholder='请选择插图类型']/preceding-sibling::i")
@@ -185,6 +185,62 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "value")
     private List<WebElement> valueList;
+
+    @FindBy(xpath = "//span[text()='添加']")
+    private WebElement addAlert;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[1]")
+    private WebElement higherMin;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[2]")
+    private WebElement MediumMin;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[3]")
+    private WebElement LowerMin;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[1]")
+    private WebElement higherMax;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[2]")
+    private WebElement MediumMax;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[3]")
+    private WebElement LowererMax;
+
+    @FindBy(xpath = "//*[@id='defs_1']/following-sibling::*/*/*/*")
+    private WebElement alertNode;
+
+    public WebElement getAlertNode() {
+        return alertNode;
+    }
+
+    public WebElement getHigherMin() {
+        return higherMin;
+    }
+
+    public WebElement getMediumMin() {
+        return MediumMin;
+    }
+
+    public WebElement getLowerMin() {
+        return LowerMin;
+    }
+
+    public WebElement getHigherMax() {
+        return higherMax;
+    }
+
+    public WebElement getMediumMax() {
+        return MediumMax;
+    }
+
+    public WebElement getLowererMax() {
+        return LowererMax;
+    }
+
+    public WebElement getAddAlert() {
+        return addAlert;
+    }
 
     public List<WebElement> getValueList() {
         return valueList;
