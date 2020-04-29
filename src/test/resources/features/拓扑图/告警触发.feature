@@ -39,7 +39,7 @@ Feature: 拓扑图告警触发
       | min       | max       | attribute |
       | HigherMin | HigherMax | #c20031   |
       | MediumMin | MediumMax | #DC8900   |
-      | LowerMin  | LowerMax  | #162255   |
+      | LowerMin  | LowerMax  | #E2BF00   |
 
   Scenario: 验证高级告警优先级
     When I click the detail which name is "告警触发"
