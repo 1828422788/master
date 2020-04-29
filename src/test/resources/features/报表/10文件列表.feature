@@ -6,7 +6,9 @@ Feature: 报表_文件列表
     Given open the "report.ListPage" page for uri "/reports/"
 
   Scenario: check_table
-    When the data name is "{'column':'1','name':'test_report_PDF'}" then i click the "test_report_PDF" button
+    When I set the parameter "SearchInput" with value "test_report_PDF"
+    And I wait for loading invisible
+    And the data name is "{'column':'1','name':'test_report_PDF'}" then i click the "test_report_PDF" button
     Then I will see the element "FirstColumnTitle" contains "文件名称"
     And I will see the element "SecondColumnTitle" contains "拥有者"
     And I will see the element "ThirdColumnTitle" contains "生成时间"
@@ -19,7 +21,9 @@ Feature: 报表_文件列表
   
   
   Scenario Outline: check_type
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
     Then I will see the element "LastGeneratedReport" contains "<format>"
 
     Examples:
@@ -29,7 +33,9 @@ Feature: 报表_文件列表
       |  test_report_EXCEL    |  .xls      |
 
   Scenario Outline: check_type_dropdown
-    When the data name is "{'column':'1','name':'<name_1>'}" then i click the "<name_1>" button
+    When I set the parameter "SearchInput" with value "<name_1>"
+    And I wait for loading invisible
+    And the data name is "{'column':'1','name':'<name_1>'}" then i click the "<name_1>" button
     Then I will see the element "LastGeneratedReport" contains "<format_1>"
     And I wait for element "SelectedReport" change text to "<name_1>"
     When I choose the "<name_2>" from the "ListOfReports"
@@ -48,14 +54,6 @@ Feature: 报表_文件列表
     And I wait for element "SelectedReport" change text to "全部报表文件"
     And I wait for "LastGeneratedReport" will be visible
 
-  Scenario Outline: search_input
-    When I set the parameter "SearchInput" with value "<search_input>"
-    And I wait for loading invisible
-    Then I will see the element "FirstCreatedReport" contains "test_report_"
-
-  Examples:
-    |  search_input    |
-    | test_report_     |
 
   Scenario: seacrh_tag
     When I choose the "AutoTest" from the "TagDropdown"

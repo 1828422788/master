@@ -76,9 +76,6 @@ Feature: 定时任务新建
    | ThisMonth  | thisMonth | 17        |            |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
    | LastMonth  | lastMonth | 17        |            |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
 
-    #check the results on details page
-  # make for crontab
-  #log resource
 
 
   Scenario Outline: date_interval

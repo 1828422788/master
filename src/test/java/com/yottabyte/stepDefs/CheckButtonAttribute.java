@@ -315,4 +315,10 @@ public class CheckButtonAttribute {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         Assert.assertTrue("enabled".equals(attribute) && element.isEnabled() || "disabled".equals(attribute) && !element.isEnabled());
     }
+
+    @Then("^I will see the element \"([^\"]*)\" attribute \"([^\"]*)\" is \"([^\"]*)\"$")
+    public void iWillSeeTheElementAttributeIs(String elementName, String attribute, String attributeName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        Assert.assertTrue("实际值：" + element.getAttribute(attribute), element.getAttribute(attribute).contains(attributeName));
+    }
 }

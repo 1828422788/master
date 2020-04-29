@@ -17,7 +17,8 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加文本、下拉输入项成功（RZY-1239、RZY-1240）
     And I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
-    And I wait for "1000" millsecond
+    And I wait for "Message" will be invisible
+    And I wait for "AddInputButton" will be visible
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I set the parameter "Token" with value "<token>"
@@ -34,7 +35,8 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加动态菜单输入项失败
     And I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
-    And I wait for "1000" millsecond
+    And I wait for "Message" will be invisible
+    And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "<title>"
     And I set the parameter "Token" with value "<token>"
@@ -55,7 +57,8 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加输入项失败
     And I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
-    And I wait for "1000" millsecond
+    And I wait for "Message" will be invisible
+    And I wait for "AddInputButton" will be visible
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
     Then I click the "EnsureInputButton" button
@@ -72,7 +75,8 @@ Feature: 拓扑图详情页
   Scenario: 验证输入项重名校验
     And I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
-    And I wait for "1000" millsecond
+    And I wait for "Message" will be invisible
+    And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "title"
     And I set the parameter "Token" with value "token"
@@ -120,7 +124,7 @@ Feature: 拓扑图详情页
     Examples:
       | leftValue | dateEditor | date  | message    |
       |           |            |       | 搜索语句不能为空   |
-      | *         | DateEditor | Today | 请输入统计类搜索内容 |
+#      | *         | DateEditor | Today | 请输入统计类搜索内容 |
 
   Scenario Outline: 删除拓扑图
     Given the data name is "<name>" then i click the "删除" button

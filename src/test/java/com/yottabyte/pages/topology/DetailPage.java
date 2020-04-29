@@ -69,10 +69,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[2]")
     private WebElement addInputButton;
 
-    @FindBy(xpath = "//textarea[@placeholder='请输入语句']")
+    @FindBy(xpath = "(//textarea[@placeholder='请输入语句'])[last()]")
     private WebElement textArea;
 
-    @FindBy(xpath = "//input[contains(@class,'ant-input css-pcxrzr')]")
+    @FindBy(xpath = "(//input[contains(@class,'ant-input css-pcxrzr')])[last()]")
     private WebElement dateEditor;
 
     @FindBy(id = "optionValues")
@@ -81,7 +81,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(id = "inputRange")
     private WebElement inputType;
 
-    @FindBy(xpath = "//span[text()='展示字段']/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "(//span[text()='展示字段'])[last()]/ancestor::div/following-sibling::div")
     private WebElement filedInput;
 
     @FindBy(xpath = "//input[@placeholder='请选择展示字段']/preceding-sibling::i")
@@ -150,7 +150,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-bianji1")
     private WebElement edit;
 
-    @FindBy(className = "el-switch__label--right")
+    @FindBy(xpath = "(//button[@class='ant-switch'])[last()]")
     private WebElement openChart;
 
     @FindBy(xpath = "//input[@placeholder='请选择插图类型']/preceding-sibling::i")
@@ -162,7 +162,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='+ 添加值']")
     private WebElement addValue;
 
-    @FindBy(className = "ant-collapse-header")
+    @FindBy(xpath = "(//div[@class='ant-collapse-header'])[last()]")
     private WebElement valueHeader;
 
     @FindBy(className = "ant-message-notice-content")
@@ -173,6 +173,85 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(id = "topo-container")
     private WebElement container;
+
+    @FindBy(xpath = "(//button[text()='今天'])[last()]")
+    private WebElement today;
+
+    @FindBy(xpath = "(//span[text()='搜 索']//ancestor::button)[last()]")
+    private WebElement searchButton;
+
+    @FindBy(xpath = "(//span[text()='应 用']//ancestor::button)[last()]")
+    private WebElement apply;
+
+    @FindBy(className = "value")
+    private List<WebElement> valueList;
+
+    @FindBy(xpath = "//span[text()='添加']")
+    private WebElement addAlert;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[1]")
+    private WebElement higherMin;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[2]")
+    private WebElement MediumMin;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[3]")
+    private WebElement LowerMin;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[1]")
+    private WebElement higherMax;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[2]")
+    private WebElement MediumMax;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[3]")
+    private WebElement lowerMax;
+
+    @FindBy(xpath = "//*[@id='defs_1']/following-sibling::*/*/*/*")
+    private WebElement alertNode;
+
+    @FindBy(xpath = "(//button[@class='ant-btn']/i)[1]/ancestor::button")
+    private WebElement deleteAlert;
+
+    public WebElement getDeleteAlert() {
+        return deleteAlert;
+    }
+
+    public WebElement getAlertNode() {
+        return alertNode;
+    }
+
+    public WebElement getHigherMin() {
+        return higherMin;
+    }
+
+    public WebElement getMediumMin() {
+        return MediumMin;
+    }
+
+    public WebElement getLowerMin() {
+        return LowerMin;
+    }
+
+    public WebElement getHigherMax() {
+        return higherMax;
+    }
+
+    public WebElement getMediumMax() {
+        return MediumMax;
+    }
+
+    public WebElement getLowerMax() {
+        return lowerMax;
+    }
+
+    public WebElement getAddAlert() {
+        return addAlert;
+    }
+
+    public List<WebElement> getValueList() {
+        return valueList;
+    }
 
     public WebElement getMultiChoice() {
         return super.getButton("多 选");
@@ -323,7 +402,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getApply() {
-        return super.getButton("应 用");
+        return apply;
     }
 
     public WebElement getDefaultValue() {
@@ -340,7 +419,7 @@ public class DetailPage extends PageTemplate {
 
     // 获取今天按钮
     public WebElement getToday() {
-        return GetTime.getTime(webDriver, "Today");
+        return today;
     }
 
     // 获取昨天按钮
@@ -443,7 +522,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getSearchButton() {
-        return super.getButton("搜 索");
+        return searchButton;
     }
 
     public WebElement getInputType() {

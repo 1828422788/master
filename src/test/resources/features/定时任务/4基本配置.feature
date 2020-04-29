@@ -21,14 +21,59 @@ Feature: 定时任务_基本配置
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
 
+  Scenario Outline: check_details_period
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
+    When the data name is "{'column':'2','name':'Test_Schedule'}" then i click the "编辑" button
+    And I will see the "timedTask.EditPage" page
+    And I wait for "2000" millsecond
+    And I wait for element "SelectedUser" change text to "admin"
+    And I set the parameter "Name" with value "   "
+    And I set the parameter "Number" with value "    "
+    And I set the value "   " to the textarea "SearchTextarea"
+    And I set the parameter "Period" with value "   "
+    And I set the parameter "Name" with value "<name>"
+    And I set the parameter "Number" with value "<number>"
+    And I set the value "<spl>" to the textarea "SearchTextarea"
+    And I set the parameter "Period" with value "<period>"
+    And I click the "SaveButton" button
+    And I will see the message "<result>"
+
+    Examples:
+    |    name       |   number    |    spl                                        |  period|   result                                |
+    |               |  10         | tag:*\| stats count() by appname \| limit 10  |  5     | 名称 不能为空                            |
+    | Test_Schedule |             | tag:*\| stats count() by appname \| limit 10  |  5     | 请输入正确的搜索条数                     |
+    | Test_Schedule |  10         |                                               |  5     | 搜索内容 不能为空                        |
+    | Test_Schedule |  10         | tag:*\| /stats count() by appname \| limit 10 |  5     | 语法错误: LexerNoViableAltException('/')|
+    | Test_Schedule |  10         | tag:*\| stats count() by appname \| limit 10  |  0     | 定时模式下, 时间间隔不能为零或空          |
+    | Test_Schedule |  10         | tag:*\| stats count() by appname \| limit 10  |  a     | 定时模式下, 时间间隔应该为正整数          |
+
+  Scenario Outline: check_details_crontab
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
+    When the data name is "{'column':'2','name':'Test_Schedule'}" then i click the "编辑" button
+    And I will see the "timedTask.EditPage" page
+    And I wait for "2000" millsecond
+    And I wait for element "SelectedUser" change text to "admin"
+    And I set the parameter "CrontabInput" with value "<crontab>"
+    And I click the "SaveButton" button
+    And I will see the message "<result>"
+
+    Examples:
+      |  crontab     |   result                                |
+      |  0           | crontab模式下, 执行计划不能为零或空       |
+      |0 */57 * * ?  | crontab格式错误！                        |
+
+
   Scenario: modify_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "1000" millsecond
+    And I wait for element "SelectedUser" change text to "admin"
     And I set the parameter "Name" with value "Schedule_Test"
     And I set the parameter "Describe" with value "testing schedule"
     And I set the value "tag:*| stats count() by appname | limit 10" to the textarea "SearchTextarea"
+    And I choose the "AutoTestTag" from the "TaskGroup"
+    And I choose the "TrendApp" from the "TaskApp"
     And I will see the input element "Period" value will be "5"
     And I set the parameter "CrontabInput" with value "0 */57 * * * ?"
     And I click the "SaveButton" button
@@ -38,6 +83,7 @@ Feature: 定时任务_基本配置
 
   Scenario: verify_changes
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    Then I will see the data "{'column':'2','name':'Schedule_Test'}" values "{'column':'7','name':'AutoTestTag'}"
     When the data name is "{'column':'2','name':'Schedule_Test'}" then i click the "Schedule_Test" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "SearchContent" contains "*| stats count() by appname | limit 10"
