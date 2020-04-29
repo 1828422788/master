@@ -17,6 +17,7 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加文本、下拉输入项成功（RZY-1239、RZY-1240）
     And I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
+    And I wait for "Message" will be invisible
     And I wait for "AddInputButton" will be visible
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
@@ -34,6 +35,7 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加动态菜单输入项失败
     And I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
+    And I wait for "Message" will be invisible
     And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "<title>"
@@ -55,6 +57,7 @@ Feature: 拓扑图详情页
   Scenario Outline: 添加输入项失败
     And I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
+    And I wait for "Message" will be invisible
     And I wait for "AddInputButton" will be visible
     Then I click the "AddInputButton" button
     Then I set the parameter "Title" with value "<title>"
@@ -72,6 +75,7 @@ Feature: 拓扑图详情页
   Scenario: 验证输入项重名校验
     And I click the detail which name is "auto_topology样例"
     Then I will see the "topology.DetailPage" page
+    And I wait for "Message" will be invisible
     And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "title"
