@@ -205,10 +205,17 @@ public class DetailPage extends PageTemplate {
     private WebElement MediumMax;
 
     @FindBy(xpath = "(//input[@placeholder='max'])[3]")
-    private WebElement LowererMax;
+    private WebElement lowerMax;
 
     @FindBy(xpath = "//*[@id='defs_1']/following-sibling::*/*/*/*")
     private WebElement alertNode;
+
+    @FindBy(xpath = "(//button[@class='ant-btn']/i)[1]/ancestor::button")
+    private WebElement deleteAlert;
+
+    public WebElement getDeleteAlert() {
+        return deleteAlert;
+    }
 
     public WebElement getAlertNode() {
         return alertNode;
@@ -234,8 +241,8 @@ public class DetailPage extends PageTemplate {
         return MediumMax;
     }
 
-    public WebElement getLowererMax() {
-        return LowererMax;
+    public WebElement getLowerMax() {
+        return lowerMax;
     }
 
     public WebElement getAddAlert() {
