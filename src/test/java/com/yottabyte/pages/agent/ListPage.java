@@ -121,6 +121,11 @@ public class ListPage extends ListPageFactory {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    public WebElement getMoveGroupButton() {
+        String xpath = "//li[@class='_2YNvVzZq0iDG7om4qpUbnZ u2IISjUg-4utuzI7OuxuR']/span[text()='sunxctest']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
     @FindBy(xpath = "//p/span[text()='sunxctest']")
     private WebElement OpenGroupButton;
 

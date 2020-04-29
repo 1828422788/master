@@ -2,6 +2,7 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.Agent;
+import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.ListPageUtils;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -13,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 对复选框的操作
@@ -100,7 +102,17 @@ public class Checkbox {
 
     @When("^the column is \"([^\"]*)\" then i \"([^\"]*)\" the agent label in agent page$")
     public void clickagentLabel(String columnNum, String status) {
-        WebElement tr = listPageUtils.getTrWithoutPaging(this.getAgentIp(columnNum));
+        String json = this.getAgentIp(columnNum);
+        WebElement table = webDriver.findElement(By.xpath("(//tbody)[2]"));
+        Map<String, Object> map = JsonStringPaser.json2Stirng(json);
+        int num = 0;
+        for (WebElement tr : table.findElements(By.xpath("./tr"))) {
+            num++;
+            if (tr.getText().contains(map.get("name").toString())) {
+                break;
+            }
+        }
+        WebElement tr = webDriver.findElement(By.xpath("((//tbody)[2]/tr)[" + num + "]"));
         WebElement label = tr.findElement(By.xpath(".//label"));
         String attribute = label.getAttribute("class");
         if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
