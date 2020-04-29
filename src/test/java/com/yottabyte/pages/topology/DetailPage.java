@@ -222,6 +222,24 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='图标']//ancestor::label")
     private WebElement icon;
 
+    @FindBy(xpath = "(//div[@class='ant-collapse-content-box']//img/ancestor::div)[last()]/following-sibling::div")
+    private WebElement exchangeMachine;
+
+    @FindBy(className = "jiaohuanji")
+    private WebElement exchangeMachineIcon;
+
+    public WebElement getExchangeMachineIcon() {
+        return exchangeMachineIcon;
+    }
+
+    public WebElement getUpdateNode() {
+        return super.getButton("更新节点");
+    }
+
+    public WebElement getExchangeMachine() {
+        return exchangeMachine;
+    }
+
     public WebElement getImgNode() {
         return imgNode;
     }
