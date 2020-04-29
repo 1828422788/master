@@ -13,10 +13,10 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
     private WebElement name;
 
-    @FindBy(xpath = "//label[text()='描述']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='描述']/following-sibling::input")
     private WebElement describe;
 
-    @FindBy(xpath = "//label[text()='搜索条数']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='搜索条数']/following-sibling::input")
     private WebElement number;
 
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div/div/input")
@@ -39,13 +39,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//li[@class='el-select-dropdown__item']/ancestor::ul")
     private WebElement appDropdownList;
 
-    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::div/div/span/span/span")
-    private WebElement taskGroupSelected;
-
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div/span/span/span")
-    private WebElement taskAppSelected;
-
-    @FindBy(xpath = "//div[@class='custom']//input[@placeholder='请输入']")
+    @FindBy(xpath = "//span[text()='执行一次']//preceding-sibling::input[@placeholder='请输入']")
     private WebElement period;
 
     @FindBy(xpath = "//div[@class='custom']//input[@placeholder='请选择时间']")
@@ -99,22 +93,22 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "column-value")
     private List<WebElement> dataMappings;
 
-    @FindBy(xpath = "//button[@class='el-button el-button--default el-button--primary ']")
+    @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensureButton;
 
-    @FindBy(xpath = "//span[text()='crontab']")
+    @FindBy(xpath = "//div[text()='crontab']/ancestor::span")
     private WebElement crontab;
 
-    @FindBy(xpath = "//div[@class='crontab']//input")
+    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div/input")
     private WebElement crontabInput;
 
-    @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::div/textarea")
+    @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::textarea")
     private WebElement textarea;
 
     @FindBy(className = "unit")
     private WebElement unit;
 
-    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
     private WebElement selectedUser;
 
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div")
@@ -220,6 +214,10 @@ public class EditPage extends PageTemplate {
         return super.getMessage();
     }
 
+    public WebElement getMessage() {
+        return super.getMessage();
+    }
+
     public WebElement getSaveButton() {
         return super.getButton("保存");
     }
@@ -257,15 +255,7 @@ public class EditPage extends PageTemplate {
 
     public WebElement getTaskApp() {
         taskApp.click();
-        return appDropdownList;
-    }
-
-    public WebElement getTaskGroupSelected() {
-        return taskGroupSelected;
-    }
-
-    public WebElement getTaskAppSelected() {
-        return taskAppSelected;
+        return super.getLastDropdownList();
     }
 
     public WebElement getPeriod() {
