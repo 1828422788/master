@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeMap
 Feature: 数据大屏-地理分布
 
   Scenario: 地理分布样式-搜索

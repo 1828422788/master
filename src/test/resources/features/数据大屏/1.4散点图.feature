@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeChart
 Feature: 数据大屏-散点图
 
   Scenario: 散点图XY轴-布局-搜索
@@ -84,6 +84,8 @@ Feature: 数据大屏-散点图
     And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
 
@@ -141,6 +143,8 @@ Feature: 数据大屏-散点图
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
       #选择静态数据
@@ -185,6 +189,8 @@ Feature: 数据大屏-散点图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"

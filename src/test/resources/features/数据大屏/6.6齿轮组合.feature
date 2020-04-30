@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeOther
   Feature: 数据大屏-齿轮组合
 
     Scenario: 齿轮组合默认设置

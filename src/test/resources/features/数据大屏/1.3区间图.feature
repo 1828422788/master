@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeChart
 Feature: 数据大屏-区间图
 
   Scenario: 区间图XY轴布局搜索

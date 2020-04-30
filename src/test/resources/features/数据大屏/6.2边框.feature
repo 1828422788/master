@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeOther
 Feature: 数据大屏-边框
 
   Scenario: 边框默认设置样式1

@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeChart
 Feature: 数据大屏-雷达图
 
   Scenario: 雷达图样式-搜索
