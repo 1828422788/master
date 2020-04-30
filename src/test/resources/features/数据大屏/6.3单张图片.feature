@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeOther
 Feature: 数据大屏-单张图片
 
   Scenario: 单张图片
@@ -53,7 +53,7 @@ Feature: 数据大屏-单张图片
 
   Scenario Outline: 删除单张图片大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
     Then I click the "Ensure" button
 
     Examples:

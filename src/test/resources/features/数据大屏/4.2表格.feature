@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeWord
 Feature: 数据大屏-表格
 
   Scenario: 新建默认类型的表格
@@ -286,7 +286,7 @@ Scenario: 表格设置-列配置
 
   Scenario Outline: 删除关于| 表格 |的大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
     Then I click the "Ensure" button
 
     Examples:

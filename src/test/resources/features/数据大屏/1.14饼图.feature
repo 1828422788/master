@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeChart
 Feature: 数据大屏-饼图
 
   Scenario: 饼图-样式搜索
@@ -179,7 +179,7 @@ Feature: 数据大屏-饼图
 
   Scenario Outline: 删除关于| 饼图 |的大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
     Then I click the "Ensure" button
 
     Examples:

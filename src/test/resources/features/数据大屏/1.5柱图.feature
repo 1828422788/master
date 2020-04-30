@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeChart
 Feature: 数据大屏-柱图
 
   Scenario: 柱图-图例-分组-静态数据
@@ -35,6 +35,8 @@ Feature: 数据大屏-柱图
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
       #选择静态数据
@@ -156,6 +158,8 @@ Feature: 数据大屏-柱图
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
 
@@ -189,6 +193,8 @@ Feature: 数据大屏-柱图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -249,7 +255,7 @@ Feature: 数据大屏-柱图
 
   Scenario Outline: 删除关于|柱图|的大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
     Then I click the "Ensure" button
 
     Examples:

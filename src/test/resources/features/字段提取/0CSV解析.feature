@@ -25,6 +25,7 @@ Feature: 字段提取CSV解析
   @second
   Scenario Outline: RZY-3417:多值字段
     Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading invisible
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 | T1/2 down 0 0 0 0 | F2/1 up 0 0 0 0 | F2/2 up 0 0 0 0 | F2/3 down 0 0 0 0 | F2/4 down 0 0 0 0 | F2/5 down 0 0 0 0 | F2/6 down 0 0 0 0 | F2/7 down 0 0 0 0 | F2/8 down 0 0 0 0 |"
@@ -80,19 +81,3 @@ Feature: 字段提取CSV解析
     Examples:
       | appName       | log     |
       | auto_test_csv | csv.log |
-
-  Scenario Outline: 在搜索页验证CSV
-
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag           | result                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-      | auto_test_csv | {'other.portinfo[].1':'other.portinfo[].1：T1/1 T1/2 F2/1 F2/2 F2/3 F2/4 F2/5 F2/6 F2/7 F2/8 ','other.portinfo[].2':'other.portinfo[].2：down down up up down down down down down down ','other.portinfo[].3':'other.portinfo[].3：0 0 0 0 0 0 0 0 0 0 ','other.portinfo[].4':'other.portinfo[].4：0 0 0 0 0 0 0 0 0 0 ','other.portinfo[].5':'other.portinfo[].5：0 0 0 0 0 0 0 0 0 0 ','other.portinfo[].6':'other.portinfo[].6：0 0 0 0 0 0 0 0 0 0 '} |

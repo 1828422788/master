@@ -213,6 +213,45 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//button[@class='ant-btn']/i)[1]/ancestor::button")
     private WebElement deleteAlert;
 
+    @FindBy(xpath = "(//div[@class='ant-collapse-content-box']//img/ancestor::div)[last()]")
+    private WebElement image;
+
+    @FindBy(xpath = "//div[@id='topo-container']//img")
+    private WebElement imgNode;
+
+    @FindBy(xpath = "//span[text()='图标']//ancestor::label")
+    private WebElement icon;
+
+    @FindBy(xpath = "(//div[@class='ant-collapse-content-box']//img/ancestor::div)[last()]/following-sibling::div")
+    private WebElement exchangeMachine;
+
+    @FindBy(className = "jiaohuanji")
+    private WebElement exchangeMachineIcon;
+
+    public WebElement getExchangeMachineIcon() {
+        return exchangeMachineIcon;
+    }
+
+    public WebElement getUpdateNode() {
+        return super.getButton("更新节点");
+    }
+
+    public WebElement getExchangeMachine() {
+        return exchangeMachine;
+    }
+
+    public WebElement getImgNode() {
+        return imgNode;
+    }
+
+    public WebElement getImage() {
+        return image;
+    }
+
+    public WebElement getIcon() {
+        return icon;
+    }
+
     public WebElement getDeleteAlert() {
         return deleteAlert;
     }
@@ -321,6 +360,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getPostfix() {
         return getInput("标识后缀");
+    }
+
+    public WebElement getIconNodeName() {
+        return getInput("节点名称");
     }
 
     public WebElement getDefaultValueDropdown() {
