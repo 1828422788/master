@@ -242,7 +242,7 @@ Feature: 数据大屏-双轴折线图
 
   Scenario Outline: 删除关于双轴折线图的大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
     Then I click the "Ensure" button
 
     Examples:
