@@ -99,6 +99,6 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getLastDropdownList() {
-        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
+        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
     }
 }

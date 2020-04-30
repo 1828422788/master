@@ -82,6 +82,14 @@ public class GroupPage extends ListPageFactory{
         return super.getButton("更多");
     }
 
+    public WebElement getAddgroupinput() {
+        return super.getButton("采集配置");
+    }
+
+    public WebElement getAddgroupinputbutton() {
+        return super.getButton("添加「sunxctest」分组数据源");
+    }
+
     @FindBy(xpath = "//li[text()='删除']")
     private WebElement Delete;
 
