@@ -10,9 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-/**
- * @author sunxj
- */
+
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
