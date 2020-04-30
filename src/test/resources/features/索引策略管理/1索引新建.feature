@@ -20,12 +20,14 @@ Feature: 索引信息新建
     Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
+    And I wait for "2000" millsecond
     When I choose the "<name>" from the "IndexName"
     And I set the parameter "Desc" with value "AutoTest"
     And I set the parameter "Tag" with value "AutoTest"
     And I set the parameter "AppName" with value "AutoTest"
     And I click the "CreateButton" button
-    And I will see the element "Message" name is "保存成功"
+    And I wait for "2000" millsecond
+    And I will see the success message "保存成功"
 
     Examples: 新建成功
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown |
@@ -86,7 +88,7 @@ Feature: 索引信息新建
     And I set the parameter "AppName" with value "sunxctime"
     And I click the "CreateButton" button
     And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存成功"
+    And I will see the success message "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "sunxctime"
     And I set the parameter "Tag" with value "sunxctime"
@@ -115,13 +117,14 @@ Feature: 索引信息新建
     Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
+    And I wait for "1000" millsecond
     When I choose the "<name>" from the "IndexName"
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "Tag" with value "<name>"
     And I set the parameter "AppName" with value "<name>"
     And I click the "CreateButton" button
     And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存成功"
+    And I will see the success message "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<name>"
     And I set the parameter "Tag" with value "<name>"
@@ -145,7 +148,8 @@ Feature: 索引信息新建
     And I click the "CreateButton" button
     And I wait for "1000" millsecond
     And I will see the element "Message" name is "保存成功"
-
+    
+  @second @indexSettingSmoke
   Scenario Outline: 新建失败
     Given I click the "AddButton" button
     Then I will see the "index.CreatePage" page
@@ -156,144 +160,17 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "名称 不能为空"
+    And I will see the element "Message" name is "<message>"
+
 
     Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                            |
-      |      |      |           |            |           | 名称 不能为空                            |
-
-  Scenario Outline: 新建失败
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串"
-
-    Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | name | desc | savedTime | divideTime | savedSize | message                                            |
+      |      |      |           |            |           | 名称不能为空                                            |
       | Test |      |           |            |           | 索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串 |
-
-  Scenario Outline: 新建失败
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存时间 不能为空"
-
-    Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                            |
-      | test |      |           |            |           | 保存时间 不能为空                          |
-
-  Scenario Outline: 新建失败
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "切分时间 不能为空"
-
-    Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                            |
+      | test |      |           |            |           | 保存时间 不能为空                         |
       | test |      | 1         |            |           | 切分时间 不能为空                          |
-
-  Scenario Outline: 新建失败
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "切分时间应小于保存时间"
-
-    Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                            |
       | test |      | 1         | 1          |           | 切分时间应小于保存时间                        |
-
-  Scenario Outline: 新建失败
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存时间应为正整数"
-
-    Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                            |
       | test |      | -1        | 1          |           | 保存时间应为正整数                          |
-
-  Scenario Outline: 新建失败
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "切分时间应为正整数"
-
-    Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                            |
       | test |      | 1         | 0.5        |           | 切分时间应为正整数                          |
-
-  Scenario Outline: 新建失败
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存大小 应为正整数"
-
-    Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                            |
       | test |      | 2         | 1          | 0.1       | 保存大小 应为正整数                         |
-
-  Scenario Outline: 新建失败正整数失败
-    Given I click the "AddButton" button
-    Then I will see the "index.CreatePage" page
-    When I set the parameter "Name" with value "<name>"
-    And I set the parameter "Desc" with value "<desc>"
-    And I set the parameter "SavedTime" with value "<savedTime>"
-    And I set the parameter "DivideTime" with value "<divideTime>"
-    And I set the parameter "SavedSize" with value "<savedSize>"
-    And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
-    And I click the "CreateButton" button
-    And I wait for "1000" millsecond
-    And I will see the element "Message" name is "保存大小 应为正整数"
-    Examples:
-      | name | desc | savedTime | divideTime | savedSize | message                            |
       | test |      | 2         | 1          | 0         | 保存大小 应为正整数                         |

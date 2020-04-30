@@ -40,7 +40,7 @@ public class MatchRuleCreatePage extends PageTemplate {
     }
 
     public WebElement getTopicName() {
-        return getDropdownList("Topic名");
+        return getDropdownList("topic名");
     }
 
     @FindBy(xpath = "//label[text()='描述']/following-sibling::input" )
