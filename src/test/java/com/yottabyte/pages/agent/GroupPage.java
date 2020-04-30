@@ -78,6 +78,23 @@ public class GroupPage extends ListPageFactory{
         return super.getButton("更新");
     }
 
+    public WebElement getMore() {
+        return super.getButton("更多");
+    }
+
+    @FindBy(xpath = "//li[text()='删除']")
+    private WebElement Delete;
+
+    public WebElement getDelete() {
+        return Delete;
+    }
+
+    public WebElement getJump() {
+        return Jump;
+    }
+
+    @FindBy(xpath = "//li[text()='跳转']")
+    private WebElement Jump;
 
     @Override
     public WebElement getSearchInput() {
@@ -86,6 +103,29 @@ public class GroupPage extends ListPageFactory{
 
     @FindBy(xpath = "//p/span[text()='sunxctest']")
     private WebElement OpenGroupButton;
+
+    @FindBy(xpath = "//p/span[text()='中文中文']")
+    private WebElement Deleteone;
+
+    @FindBy(xpath = "//p/span[text()='中文角色']")
+    private WebElement Deletetwo;
+
+    public WebElement getDeletetwo() {
+        return Deletetwo;
+    }
+
+    public WebElement getDeleteone() {
+
+        return Deleteone;
+    }
+
+    public WebElement getDeletethree() {
+
+        return Deletethree;
+    }
+
+    @FindBy(xpath = "//p/span[text()='sunxc_test']")
+    private WebElement Deletethree;
 
     public WebElement getOpenGroupButton() {
         return OpenGroupButton;

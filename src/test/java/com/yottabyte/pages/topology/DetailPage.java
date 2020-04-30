@@ -150,7 +150,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "icon-bianji1")
     private WebElement edit;
 
-    @FindBy(xpath = "(//button[@class='ant-switch'])[last()]" )
+    @FindBy(xpath = "(//button[@class='ant-switch'])[last()]")
     private WebElement openChart;
 
     @FindBy(xpath = "//input[@placeholder='请选择插图类型']/preceding-sibling::i")
@@ -185,6 +185,108 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "value")
     private List<WebElement> valueList;
+
+    @FindBy(xpath = "//span[text()='添加']")
+    private WebElement addAlert;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[1]")
+    private WebElement higherMin;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[2]")
+    private WebElement MediumMin;
+
+    @FindBy(xpath = "(//input[@placeholder='min'])[3]")
+    private WebElement LowerMin;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[1]")
+    private WebElement higherMax;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[2]")
+    private WebElement MediumMax;
+
+    @FindBy(xpath = "(//input[@placeholder='max'])[3]")
+    private WebElement lowerMax;
+
+    @FindBy(xpath = "//*[@id='defs_1']/following-sibling::*/*/*/*")
+    private WebElement alertNode;
+
+    @FindBy(xpath = "(//button[@class='ant-btn']/i)[1]/ancestor::button")
+    private WebElement deleteAlert;
+
+    @FindBy(xpath = "(//div[@class='ant-collapse-content-box']//img/ancestor::div)[last()]")
+    private WebElement image;
+
+    @FindBy(xpath = "//div[@id='topo-container']//img")
+    private WebElement imgNode;
+
+    @FindBy(xpath = "//span[text()='图标']//ancestor::label")
+    private WebElement icon;
+
+    @FindBy(xpath = "(//div[@class='ant-collapse-content-box']//img/ancestor::div)[last()]/following-sibling::div")
+    private WebElement exchangeMachine;
+
+    @FindBy(className = "jiaohuanji")
+    private WebElement exchangeMachineIcon;
+
+    public WebElement getExchangeMachineIcon() {
+        return exchangeMachineIcon;
+    }
+
+    public WebElement getUpdateNode() {
+        return super.getButton("更新节点");
+    }
+
+    public WebElement getExchangeMachine() {
+        return exchangeMachine;
+    }
+
+    public WebElement getImgNode() {
+        return imgNode;
+    }
+
+    public WebElement getImage() {
+        return image;
+    }
+
+    public WebElement getIcon() {
+        return icon;
+    }
+
+    public WebElement getDeleteAlert() {
+        return deleteAlert;
+    }
+
+    public WebElement getAlertNode() {
+        return alertNode;
+    }
+
+    public WebElement getHigherMin() {
+        return higherMin;
+    }
+
+    public WebElement getMediumMin() {
+        return MediumMin;
+    }
+
+    public WebElement getLowerMin() {
+        return LowerMin;
+    }
+
+    public WebElement getHigherMax() {
+        return higherMax;
+    }
+
+    public WebElement getMediumMax() {
+        return MediumMax;
+    }
+
+    public WebElement getLowerMax() {
+        return lowerMax;
+    }
+
+    public WebElement getAddAlert() {
+        return addAlert;
+    }
 
     public List<WebElement> getValueList() {
         return valueList;
@@ -258,6 +360,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getPostfix() {
         return getInput("标识后缀");
+    }
+
+    public WebElement getIconNodeName() {
+        return getInput("节点名称");
     }
 
     public WebElement getDefaultValueDropdown() {
