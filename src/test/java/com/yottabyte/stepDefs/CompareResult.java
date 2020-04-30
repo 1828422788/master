@@ -23,6 +23,7 @@ public class CompareResult {
     private static String clientIp;
     private static String version;
     private static String count;
+    private static String value;
     private List<String> list;
 
     public static String getClientIp() {
@@ -57,6 +58,14 @@ public class CompareResult {
         this.list = list;
     }
 
+    public static String getValue() {
+        return value;
+    }
+
+    public static void setValue(String value) {
+        CompareResult.value = value;
+    }
+
     @And("^I save the result \"([^\"]*)\"$")
     public void saveTheResult(String result) {
         Map<String, Object> map = JsonStringPaser.json2Stirng(result);
@@ -68,7 +77,6 @@ public class CompareResult {
                 Method method = compareResultClass.getMethod(methodName, String.class);
                 WebElement value = GetElementFromPage.getWebElementWithName(map.get(key).toString());
                 method.invoke(compareResultClass.getDeclaredConstructor().newInstance(), value.getText());
-                System.out.println(clientIp + "!!!!!!!!" + version + "!!!!!!" + count);
             }
         } catch (Exception e) {
             e.printStackTrace();
