@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeIndex
 Feature: 数据大屏-状态图
 
   Scenario: 状态图demo

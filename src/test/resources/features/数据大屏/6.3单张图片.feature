@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeOther
 Feature: 数据大屏-单张图片
 
   Scenario: 单张图片

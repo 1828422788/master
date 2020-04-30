@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeMap
 Feature: 数据大屏-世界地图
 
 

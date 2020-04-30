@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeChart
 Feature: 数据大屏-水球图
 
   Scenario: 水球图-样式搜索

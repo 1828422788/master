@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeOther
 Feature: 数据大屏-其他组件
 
   Scenario: 新建其他组件

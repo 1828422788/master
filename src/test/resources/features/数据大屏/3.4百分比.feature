@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeIndex
   Feature: 数据大屏-百分比
 
 

@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeIndex
 Feature: 数据大屏-动态卡片二
 
   Scenario: 动态卡片二样式搜索

@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeWord
 Feature: 数据大屏-表格
 
   Scenario: 新建默认类型的表格

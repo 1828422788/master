@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeMap
 Feature: 数据大屏-攻击地图3D
 
   Scenario: 攻击地图3D样式-搜索

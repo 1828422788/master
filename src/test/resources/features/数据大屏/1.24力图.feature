@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeChart
 Feature: 数据大屏-力图
 
   Scenario: 力图-样式搜索
