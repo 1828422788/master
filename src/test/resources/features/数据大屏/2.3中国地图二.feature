@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeMap
   Feature: 数据大屏-中国地图II
 
 
@@ -50,6 +50,8 @@
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
+    And I click the "DateEditor" button
+    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -129,6 +131,8 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
      #数据设置
       And I click the "Data" button
       And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
+      And I click the "DateEditor" button
+      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -172,6 +176,8 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
       And I click the "Other" button
       And I click the "otherSearch" button
       And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
+      And I click the "DateEditor" button
+      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -225,7 +231,7 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
 
     Scenario Outline: 删除关于中国地图II的大屏
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
       Then I click the "Ensure" button
 
       Examples:

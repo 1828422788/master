@@ -2,9 +2,11 @@ package com.yottabyte.pages.timedTask;
 
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -60,7 +62,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-table__body-wrapper")
     private WebElement table;
 
-    @FindBy(xpath = "(//i[@class='el-input__icon el-icon-arrow-up'])[last()]")
+    @FindBy(xpath = "//span[text()='定时任务']/following-sibling::span/div")
     private WebElement selectName;
 
     @FindBy(xpath = "//*[@placeholder='请选择时间范围']")
@@ -83,6 +85,54 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "(//div[text()='标签'])[last()]/following-sibling::div[1]")
     private WebElement tagField;
+
+    @FindBy(xpath = "//div[text()='创建补采任务']/ancestor::div[2]")
+    private WebElement complementPanel;
+
+    @FindBy(xpath = "//span[text()='时间范围']/following-sibling::span")
+    private WebElement selectInterval;
+
+    @FindBy(xpath = "//div[@class='ant-calendar-panel']//input[@placeholder = '开始日期']")
+    private WebElement start;
+
+    @FindBy(xpath = "//div[@class='ant-calendar-panel']//input[@placeholder = '结束日期']")
+    private WebElement end;
+
+    @FindBy(xpath = "//a[text()='确 定']")
+    private WebElement OK;
+
+    @FindBy(xpath = "//li[@class='ant-select-dropdown-menu-item'][1]")
+    private WebElement li;
+
+    @FindBy(xpath = "//span[text()='是否覆盖已存在定时任务结果']/preceding-sibling::label/span")
+    private WebElement overwrite;
+
+    @FindBy(xpath = "//div[@class='ant-message-notice']//span")
+    private WebElement notice;
+
+    public WebElement getStart() {
+        return start;
+    }
+
+    public WebElement getEnd() {
+        return end;
+    }
+
+    public WebElement getOK() {
+        return OK;
+    }
+
+    public WebElement getSelectInterval() {
+        return selectInterval;
+    }
+
+    public WebElement getOverwrite() {
+        return overwrite;
+    }
+
+    public WebElement getNotice() {
+        return notice;
+    }
 
     public WebElement getSearchInput(){
         return searchInput;
@@ -114,7 +164,12 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getSelectName() {
         selectName.click();
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
         return super.getLastDropdownList();
+    }
+
+    public WebElement getComplement() {
+        return super.getButton("定时任务补采");
     }
 
     public WebElement getCreateComplement() {
@@ -148,6 +203,10 @@ public class ListPage extends ListPageFactory {
     public WebElement getTagField() {
         tagField.click();
         return this.getLastDropdownList();
+    }
+
+    public WebElement getComplementPanel() {
+        return complementPanel;
     }
 
 //    public WebElement getEnsureDelete() {

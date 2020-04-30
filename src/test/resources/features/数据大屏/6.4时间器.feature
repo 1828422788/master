@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeOther
 Feature: 数据大屏-时间器
 
   Scenario: 时间器默认设置
@@ -196,7 +196,7 @@ Feature: 数据大屏-时间器
 
   Scenario Outline: 删除关于时间器的大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
     Then I click the "Ensure" button
 
     Examples:

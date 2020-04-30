@@ -1,4 +1,4 @@
-@galaxee
+@galaxeeOther
 Feature: 数据大屏-全屏
 
   Scenario: 全屏
@@ -47,4 +47,12 @@ Feature: 数据大屏-全屏
       | 全屏|
 
 
+  Scenario Outline: 删除关于全屏的大屏
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
+
+    Examples:
+      |name|
+      | 全屏|
 
