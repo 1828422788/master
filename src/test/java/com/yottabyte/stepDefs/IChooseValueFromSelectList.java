@@ -115,6 +115,8 @@ public class IChooseValueFromSelectList {
     }
 
     public void iChooseTheFromThe(List<String> values, WebElement parentElement) {
+        WebElement ancestor = parentElement.findElement(By.xpath("./ancestor::div[1]/ancestor::div[1]"));
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].classList.remove('ant-select-dropdown-hidden');", ancestor);
         if (parentElement.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", parentElement);
         }
