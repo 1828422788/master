@@ -1,3 +1,4 @@
+@agent @agent_group
 Feature: Agent分组设置
 
   Background:
@@ -86,37 +87,6 @@ Feature: Agent分组设置
     And I wait for "2000" millsecond
     Then I will see the element "DataSourceSwitchStatus" name is "已启用"
 
-  Scenario: 文件目录配置修改文件路径黑名单
-    And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page
-    And switch to another window
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    And I click the "OpenGroupButton" button
-    And I click the "Addgroupinput" button
-    And I will see the "agent.CreatePage" page
-    And I click the "EditAutoFile" button
-    And I set the parameter "BlackList" with value "hekad-daemon\.log"
-    And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-
-
-
-  Scenario: 文件目录配置修改文件换行正则
-    And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page
-    And switch to another window
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    And I click the "OpenGroupButton" button
-    And I click the "Addgroupinput" button
-    And I will see the "agent.CreatePage" page
-    And I click the "EditAutoFile" button
-    And I set the parameter "Regex" with value "\t"
-    And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-
-
 
   Scenario: 文件目录配置修改日志内容白名单
     And I click the "AgentGroupButton" button
@@ -148,6 +118,14 @@ Feature: Agent分组设置
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
   Scenario Outline: 文件目录配置修改最后修改时间
+    And I click the "AgentGroupButton" button
+    And open the "agent.GroupPage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for loading invisible
+    And I click the "OpenGroupButton" button
+    And I click the "Addgroupinput" button
+    And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
     And I set the parameter "LastModifyTime" with value "20"
     When I choose the "<timekind>" from the "TimeKind"
@@ -162,6 +140,14 @@ Feature: Agent分组设置
       | 分钟       |
 
   Scenario Outline: 文件目录配置修改字符集
+    And I click the "AgentGroupButton" button
+    And open the "agent.GroupPage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for loading invisible
+    And I click the "OpenGroupButton" button
+    And I click the "Addgroupinput" button
+    And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
     When I choose the "<characterkind>" from the "CharacterKind"
     And I click the "Ensure" button
@@ -174,6 +160,14 @@ Feature: Agent分组设置
       |    gbk    |
 
   Scenario: 文件目录配置修改tag
+    And I click the "AgentGroupButton" button
+    And open the "agent.GroupPage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for loading invisible
+    And I click the "OpenGroupButton" button
+    And I click the "Addgroupinput" button
+    And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
     And I set the parameter "Tag" with value "Changeautohekafiletag"
     And I click the "Ensure" button
@@ -181,6 +175,14 @@ Feature: Agent分组设置
 
 
   Scenario: 文件目录配置修改appname
+    And I click the "AgentGroupButton" button
+    And open the "agent.GroupPage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for loading invisible
+    And I click the "OpenGroupButton" button
+    And I click the "Addgroupinput" button
+    And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
     And I set the parameter "Appname" with value "Changeautohekafileappname"
     And I click the "Ensure" button
@@ -192,6 +194,31 @@ Feature: Agent分组设置
 
 
   Scenario: 文件目录数据源删除
+    And I click the "AgentGroupButton" button
+    And open the "agent.GroupPage" page
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for loading invisible
+    And I click the "OpenGroupButton" button
+    And I click the "Addgroupinput" button
+    And I will see the "agent.CreatePage" page
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+
+  Scenario Outline: 删除Agent分组
+    And I click the "AgentGroupButton" button
+    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for loading invisible
+    And I click the "<name>" button
+    And I click the "More" button
+    And I click the "Delete" button
+    And I click the "Ensure" button
+    Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
+
+
+    Examples:
+      | name        |
+      | Deletefour   |

@@ -135,6 +135,13 @@ public class GroupPage extends ListPageFactory{
     @FindBy(xpath = "//p/span[text()='sunxc_test']")
     private WebElement Deletethree;
 
+    public WebElement getDeletefour() {
+        return Deletefour;
+    }
+
+    @FindBy(xpath = "//p/span[text()='sunxctest']")
+    private WebElement Deletefour;
+
     public WebElement getOpenGroupButton() {
         return OpenGroupButton;
     }
