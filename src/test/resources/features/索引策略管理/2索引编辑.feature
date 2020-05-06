@@ -40,7 +40,7 @@ Feature: 索引信息编辑（RZY-1477至1480）
       | divideTime | divideTimeDropDown | message     |
       | 1          | 年                  | 切分时间应小于保存时间 |
 
-  Scenario Outline:修改切分时间
+  Scenario Outline:修改切分时间3
     Given the data name is "{'column':'2','name':'AutoTestForsxc'}" then i click the "编辑" button without paging
     Then I will see the "index.CreatePage" page
     And I set the parameter "DivideTime" with value "<divideTime>"

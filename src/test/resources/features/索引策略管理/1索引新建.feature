@@ -16,6 +16,7 @@ Feature: 索引信息新建
     And I set the parameter "SavedSize" with value "<savedSize>"
     And I choose the "<savedSizeDropDown>" from the "SavedSizeDropDown"
     And I click the "CreateButton" button
+    And I wait for "1000" millsecond
     And I will see the element "Message" name is "保存成功"
     Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
     When I click the "AddButton" button
@@ -167,8 +168,8 @@ Feature: 索引信息新建
       | name | desc | savedTime | divideTime | savedSize | message                                            |
       |      |      |           |            |           | 名称不能为空                                            |
       | Test |      |           |            |           | 索引名应为小写字母开头，小写字母及下划线组成的长度小于32位的字符串 |
-      | test |      |           |            |           | 保存时间 不能为空                         |
-      | test |      | 1         |            |           | 切分时间 不能为空                          |
+      | test |      |           |            |           | 保存时间不能为空                         |
+      | test |      | 1         |            |           | 切分时间不能为空                          |
       | test |      | 1         | 1          |           | 切分时间应小于保存时间                        |
       | test |      | -1        | 1          |           | 保存时间应为正整数                          |
       | test |      | 1         | 0.5        |           | 切分时间应为正整数                          |
