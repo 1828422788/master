@@ -11,7 +11,7 @@ Feature: 路由编辑
     And I set the parameter "Tag" with value "<tag>"
     When I choose the "<index>" from the "IndexName"
     And I click the "SavedButton" button
-    And I will see the element "Message" name is "保存成功"
+    And I will see the success message "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "iis1"
     And I set the parameter "Tag" with value "heka"
@@ -26,10 +26,11 @@ Feature: 路由编辑
   Scenario: RZY-2442、2443
     When the data name is "{'column':'3','name':'AutoCreateForSxcTest'}" then i click the "编辑" button
     Then I will see the "index.MatchRuleCreatePage" page
+    And I wait for "2000" millsecond
     And I choose the "topictest" from the "TopicName"
     When I choose the "indexerror" from the "IndexName"
     And I click the "SavedButton" button
-    And I will see the element "Message" name is "保存成功"
+    And I will see the success message "保存成功"
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "sunxctest"
     And I set the parameter "Tag" with value "sunxctest"
@@ -54,4 +55,4 @@ Feature: 路由编辑
     And I set the parameter "AppName" with value "testdisable"
     And I set the parameter "Tag" with value "testdisable"
     And I click the "SavedButton" button
-    And I will see the element "Message" name is "保存成功"
+    And I will see the success message "保存成功"

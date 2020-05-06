@@ -16,7 +16,6 @@ Feature: 拓扑图标识符
   Scenario: RZY-2515：标识前后缀
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
-    And I wait for "Message" will be invisible
     And I wait for "AddInputButton" will be visible
     And I click the "AddInputButton" button
     And I set the parameter "Title" with value "标识前后缀"
@@ -34,15 +33,21 @@ Feature: 拓扑图标识符
     And I click the "AddValue" button
     And I click the "ValueHeader" button
     And I set the parameter "TextArea" with value "${first}"
-    And I click the "DateEditor" button
+    And I click the "FirstDateEditor" button
+    And I wait for "Today" will be visible
     And I click the "Today" button
     And I click the "SearchButton" button
     And I will see the message "搜索成功"
-    And I choose the "avg(apache.resp_len)" from the "FiledInput"
     And I click the "Apply" button
     And I click the "Save" button
+    And I save the result "{'Value':'NodeValue'}"
     And I refresh the website
     And I accept alert window
+
+  Scenario: 验证标识符前后缀值
+    When I click the detail which name is "测试标识符"
+    Then I will see the "topology.DetailPage" page
+    Then I compare with "{'Value':'NodeValue'}"
 
   Scenario: RZY-2517：标识分隔符
     When I click the detail which name is "测试标识符"
@@ -70,15 +75,20 @@ Feature: 拓扑图标识符
     And I click the "AddValue" button
     And I click the "ValueHeader" button
     And I set the parameter "TextArea" with value "${second}"
-    And I click the "DateEditor" button
+    And I click the "FirstDateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "1000" millsecond
-    And I choose the "count()" from the "FiledInput"
     And I click the "Apply" button
     And I click the "Save" button
+    And I save the result "{'Value':'NodeValue'}"
     And I refresh the website
     And I accept alert window
+
+  Scenario: 验证标识分隔符
+    When I click the detail which name is "测试标识符"
+    Then I will see the "topology.DetailPage" page
+    Then I compare with "{'Value':'NodeValue'}"
 
   Scenario: RZY-2519：标识值前后缀
     When I click the detail which name is "测试标识符"
@@ -108,15 +118,21 @@ Feature: 拓扑图标识符
     And I click the "AddValue" button
     And I click the "ValueHeader" button
     And I set the parameter "TextArea" with value "${third}"
-    And I click the "DateEditor" button
+    And I click the "FirstDateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "1000" millsecond
     And I choose the "dc(cnt)" from the "FiledInput"
     And I click the "Apply" button
     And I click the "Save" button
+    And I save the result "{'Value':'NodeValue'}"
     And I refresh the website
     And I accept alert window
+
+  Scenario: 验证标识值前后缀
+    When I click the detail which name is "测试标识符"
+    Then I will see the "topology.DetailPage" page
+    Then I compare with "{'Value':'NodeValue'}"
 
   Scenario Outline: 添加动态菜单输入项成功（RZY-1243）
     And I click the detail which name is "测试标识符"
@@ -130,18 +146,40 @@ Feature: 拓扑图标识符
     Then I set the parameter "DynamicFields" with value "<dynamicFields>"
     Then I set the parameter "SearchInput" with value "<searchInput>"
     Then I click the "TimeRange" button
-    Then I click the "ThisMonth" button
+    Then I click the "Today" button
     Then I click the "SearchButton" button
     Then I will see the message "返回动态字段成功"
     Then I choose the "61" from the "DynamicDefault"
     Then I click the "EnsureInputButton" button
+    And I wait for "Container" will be visible
+    And I click the "Container" button
+    And I click the "AddNode" button
+    And I set the parameter "NodeName" with value "n3"
+    And I set the parameter "NodeGroup" with value "g3"
+    And I click the "AddNodeButton" button
+    And I click the "AddValue" button
+    And I click the "ValueHeader" button
+    And I set the parameter "TextArea" with value "tag:* AND apache.resp_len:>${tag4} |  stats count() as cnt"
+    And I click the "FirstDateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "1000" millsecond
+    And I choose the "61" from the "FiledInput"
+    And I click the "Apply" button
+    And I click the "Save" button
+    And I save the result "{'Value':'NodeValue'}"
     And I refresh the website
     And I accept alert window
 
   @all @smoke @topologySmoke
     Examples:
-      | title  | token | inputType | dynamicFields   | searchInput                    |
-      | 测试动态字段 | tag4  | 动态菜单      | apache.resp_len | tag:* \| top 1 apache.resp_len |
+      | title  | token | inputType | dynamicFields   | searchInput                     |
+      | 测试动态字段 | tag4  | 动态菜单      | apache.resp_len | tag:* \| top 10 apache.resp_len |
+
+  Scenario: 验证动态字段
+    When I click the detail which name is "测试标识符"
+    Then I will see the "topology.DetailPage" page
+    Then I compare with "{'Value':'NodeValue'}"
 
   Scenario Outline: 删除拓扑图
     Given the data name is "<name>" then i click the "删除" button

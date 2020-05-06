@@ -14,13 +14,13 @@ public class MatchRuleCreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(xpath = "//span[text()='appname']/ancestor::button/preceding-sibling::div//input")
+    @FindBy(xpath = "//div[text()='appname']/preceding-sibling::div//input")
     private WebElement appName;
 
-    @FindBy(xpath = "//span[text()='tag']/ancestor::button/preceding-sibling::div//input")
+    @FindBy(xpath = "//div[text()='tag']/preceding-sibling::div//input")
     private WebElement tag;
 
-    @FindBy(xpath = "//span[text()='匹配规则']/ancestor::button/preceding-sibling::div//input")
+    @FindBy(xpath = "//span[text()='匹配规则']/preceding-sibling::input")
     private WebElement rule;
 
     public WebElement getAppName() {
@@ -40,11 +40,14 @@ public class MatchRuleCreatePage extends PageTemplate {
     }
 
     public WebElement getTopicName() {
-        return getDropdownList("Topic名");
+        return getDropdownList("topic名");
     }
 
+    @FindBy(xpath = "//label[text()='描述']/following-sibling::input" )
+    private WebElement Desc;
+
     public WebElement getDesc() {
-        return getInputElement("描述");
+        return Desc;
     }
 
     public WebElement getCreateButton() {
@@ -71,7 +74,7 @@ public class MatchRuleCreatePage extends PageTemplate {
     public WebElement getDropdownList(String name) {
         WebElement icon = webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div"));
         icon.click();
-        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
+        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
     }
 
     public WebElement getInputElement(String name) {

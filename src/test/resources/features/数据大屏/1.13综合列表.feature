@@ -199,7 +199,7 @@ Feature: 数据大屏-综合列表
 
   Scenario Outline: 删除关于综合列表大屏
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
     Then I click the "Ensure" button
 
     Examples:
