@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-旭日图
 
   Scenario: 旭日图-样式搜索

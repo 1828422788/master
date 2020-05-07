@@ -1,4 +1,4 @@
-@galaxeeLast
+@galaxeeLast @galaxee
 Feature: 数据大屏-栅格百分图
 
 

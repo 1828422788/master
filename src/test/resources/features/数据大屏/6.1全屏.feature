@@ -1,4 +1,4 @@
-@galaxeeOther
+@galaxeeOther @galaxee
 Feature: 数据大屏-全屏
 
   Scenario: 全屏

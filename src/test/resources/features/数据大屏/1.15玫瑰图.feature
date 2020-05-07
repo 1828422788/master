@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-玫瑰图
 
   Scenario: 玫瑰图-样式搜索

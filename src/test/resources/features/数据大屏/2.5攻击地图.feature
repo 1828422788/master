@@ -1,4 +1,4 @@
-@galaxeeMap
+@galaxeeMap @galaxee
 Feature: 数据大屏-攻击地图
 
   Scenario: 攻击地图-样式搜索

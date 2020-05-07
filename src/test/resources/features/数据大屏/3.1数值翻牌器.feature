@@ -1,4 +1,4 @@
-@galaxeeIndex
+@galaxeeIndex @galaxee
 Feature: 数据大屏-数值翻牌器
 
 

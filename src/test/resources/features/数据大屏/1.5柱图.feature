@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-柱图
 
   Scenario: 柱图-图例-分组-静态数据

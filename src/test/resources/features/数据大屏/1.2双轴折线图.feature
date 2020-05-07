@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-双轴折线图
 
   Scenario: 双轴折线图-X轴-布局-搜索

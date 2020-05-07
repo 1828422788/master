@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-散点图
 
   Scenario: 散点图XY轴-布局-搜索

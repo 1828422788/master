@@ -1,4 +1,4 @@
-@galaxeeOther
+@galaxeeOther @galaxee
 Feature: 数据大屏-时间器
 
   Scenario: 时间器默认设置

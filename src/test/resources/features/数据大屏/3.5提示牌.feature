@@ -1,4 +1,4 @@
-@galaxeeIndex
+@galaxeeIndex @galaxee
 Feature: 数据大屏-揭示牌
 
 

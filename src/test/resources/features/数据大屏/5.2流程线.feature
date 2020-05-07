@@ -1,4 +1,4 @@
-@galaxeeNet
+@galaxeeNet @galaxee
   Feature: 数据大屏-流程线
 
     Scenario: 流程线默认设置
