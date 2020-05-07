@@ -34,9 +34,10 @@ Feature: 趋势图新建_报表
     And I close all tabs except main tab
     And I wait for loading invisible
     Then I will see the "report.CreatePage" page
+    And I wait for "3000" millsecond
     When I set the parameter "Name" with value "<report_name>"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I will see the element "SelectedUser" contains "admin"
+#    And I will see the element "SelectedUser" contains "admin"
     And I choose the "AutoTest" from the "Tag"
     And I choose the "TrendApp" from the "App"
     And I choose the "PDF" from the "ReportType"

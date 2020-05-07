@@ -38,7 +38,7 @@ public class DropdownUtils {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
         }
         WebElement li = lastDropdownList.findElement(By.xpath(".//li"));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
+//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(li));
         return lastDropdownList;
     }
 

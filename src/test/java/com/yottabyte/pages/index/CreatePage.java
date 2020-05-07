@@ -50,12 +50,18 @@ public class CreatePage extends PageTemplate {
         return super.getContainsTextButton("保存");
     }
 
+    @FindBy(xpath = "//label[text()='名称']/following-sibling::input" )
+    private WebElement Name;
+
     public WebElement getName() {
-        return getInputElement("名称");
+        return Name;
     }
 
+    @FindBy(xpath = "//label[text()='描述']/following-sibling::input" )
+    private WebElement Desc;
+
     public WebElement getDesc() {
-        return getInputElement("描述");
+        return Desc;
     }
 
     public WebElement getSavedTime() {
@@ -99,6 +105,6 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getLastDropdownList() {
-        return webDriver.findElement(By.xpath("(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]"));
+        return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
     }
 }

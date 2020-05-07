@@ -61,3 +61,20 @@ Feature: 定时任务删除
       |  3330_ScatterChart  |
       |  3329_AreaChart     |
       |  3328_LineChart     |
+
+  Scenario Outline: delete_complement
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button
+    And I click the "Ensure" button under some element
+    Then I will see the success message "删除成功"
+    And I click the "Complement" button
+    When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+    And I click the "Ensure" button under some element
+    Then I will see the success message "删除成功"
+
+    Examples:
+      |    name              |
+      | Test_Complement      |
+      | Test_Complement_2    |

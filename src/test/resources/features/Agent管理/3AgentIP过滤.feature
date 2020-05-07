@@ -22,8 +22,6 @@ Feature: AgentIP过滤
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'192.168.1.4'}"
 
-
-
 #  @indexSettingSmoke
     Examples: 高级搜索过滤单个ip成功
       | hostName              | remark       | version       |        type   |

@@ -566,8 +566,8 @@ public class CreatePage extends PageTemplate {
         return getEditAutoScript;
     }
 
-    @FindBy(xpath = "//div[@class='ant-select-selection-selected-value']")
-    private WebElement Frequency;
+//    @FindBy(xpath = "//div[@class='ant-select-selection-selected-value']")
+//    private WebElement Frequency;
 
     public WebElement getGroupName() {
         return this.getContainsInputElement("名称");

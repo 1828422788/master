@@ -75,6 +75,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//input[contains(@class,'ant-input css-pcxrzr')])[last()]")
     private WebElement dateEditor;
 
+    @FindBy(xpath = "//input[contains(@class,'ant-input css-pcxrzr')]")
+    private WebElement firstDateEditor;
+
     @FindBy(id = "optionValues")
     private WebElement defaultValue;
 
@@ -227,6 +230,39 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "jiaohuanji")
     private WebElement exchangeMachineIcon;
+
+    @FindBy(xpath = "//div[text()='无钻取动作']")
+    private WebElement drilldown;
+
+    @FindBy(xpath = "//h5[text()='自定义URL']/following-sibling::textarea")
+    private WebElement URL;
+
+    @FindBy(xpath = "(//div[@class='value'])[last()]")
+    private WebElement nodeValue;
+
+    @FindBy(className = "topology-node-title")
+    private WebElement nodeTitle;
+
+    public WebElement getNodeTitle() {
+        return nodeTitle;
+    }
+
+    public WebElement getNodeValue() {
+        return nodeValue;
+    }
+
+    public WebElement getURL() {
+        return URL;
+    }
+
+    public WebElement getDrilldown() {
+        drilldown.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getFirstDateEditor() {
+        return firstDateEditor;
+    }
 
     public WebElement getExchangeMachineIcon() {
         return exchangeMachineIcon;
