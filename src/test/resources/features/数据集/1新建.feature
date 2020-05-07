@@ -29,7 +29,7 @@ Feature: 数据集-新建
       | name    | alias  | Spl  |
       |JNDTest |jnd     |*     |
 
-
+@dataset123
   Scenario: 新建数据集选择分组和应用
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -38,7 +38,7 @@ Feature: 数据集-新建
     And I set the parameter "Alias" with value "groupApp"
     And I set the parameter "Spl" with value "*"
 
-    And I choose the "TrendApp" from the "appList"
+    And I choose the "AutoTestAppWithAllResources" from the "appList"
     And I choose the "auto_package" from the "resourceGroup"
 
     And I click the "Save" button
@@ -49,7 +49,7 @@ Feature: 数据集-新建
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'2','name':'groupApp'}"
     And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'3','name':'无'}"
-    And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'4','name':'TrendApp'}"
+    And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'4','name':'AutoTestAppWithAllResources'}"
     And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'5','name':'auto_package'}"
     And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'6','name':'admin'}"
 
