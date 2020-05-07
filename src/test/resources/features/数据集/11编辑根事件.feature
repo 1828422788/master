@@ -90,7 +90,7 @@ Feature: 数据集-编辑根事件
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
     When I click the "editEvent" button
-    And I choose the "TrendApp" from the "rootAppList"
+    And I choose the "AutoTestAppWithAllResources" from the "rootAppList"
     And I choose the "auto_package" from the "rootResourceGroup"
     And I click the "rootSave" button
     And I wait for loading invisible
@@ -98,7 +98,7 @@ Feature: 数据集-编辑根事件
     And I click the "backList" button
     Then I will see the "dataset.ListPage" page
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'edit'}" values "{'column':'4','name':'TrendApp'}"
+    Then I will see the data "{'column':'0','name':'edit'}" values "{'column':'4','name':'AutoTestAppWithAllResources'}"
     And I will see the data "{'column':'0','name':'edit'}" values "{'column':'5','name':'auto_package'}"
 
 
