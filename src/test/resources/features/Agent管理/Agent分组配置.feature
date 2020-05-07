@@ -1,5 +1,5 @@
 @agent @agent_group
-Feature: Agent分组设置
+Feature: Agent分组采集
 
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
@@ -82,10 +82,10 @@ Feature: Agent分组设置
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
-    Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
     Then I wait for loading invisible
+    Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
     And I wait for "2000" millsecond
-    Then I will see the element "DataSourceSwitchStatus" name is "已启用"
+#    Then I will see the element "DataSourceSwitchStatus" name is "已启用"
 
 
   Scenario: 文件目录配置修改日志内容白名单
