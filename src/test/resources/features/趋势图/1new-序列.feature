@@ -219,7 +219,7 @@ Feature: 趋势图新建_序列
     And I wait for "ChartView" will be visible
     And I will see the "NoData" doesn't exist
     And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
+    And I wait for "3000" millsecond
     And I will see the element "ChartName" contains "<name>"
     And take part of "ChartView" with name "actual_view/<name>"
     And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
