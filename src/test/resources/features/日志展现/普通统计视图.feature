@@ -158,8 +158,8 @@ Feature: 日志展现_普通统计视图
       | Yesterday | 1        |        | 815_时间直方图/815_1h     |
       | Yesterday | 3600     | 秒     | 815_时间直方图/815_3600s  |
       | Yesterday | 60       | 分钟    | 815_时间直方图/815_60m    |
-      | ThisMonth | 7        | 天     | 2725_时间直方图/2725_7d    |
-      | ThisMonth | 1        | 周     | 2725_时间直方图/2725_1w    |
+      | LastMonth | 7        | 天     | 2725_时间直方图/2725_7d    |
+      | LastMonth | 1        | 周     | 2725_时间直方图/2725_1w    |
 
 
   Scenario Outline: datehistogram(RZY-816)
