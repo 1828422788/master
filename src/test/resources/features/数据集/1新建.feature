@@ -29,7 +29,7 @@ Feature: 数据集-新建
       | name    | alias  | Spl  |
       |JNDTest |jnd     |*     |
 
-
+@dataset123
   Scenario: 新建数据集选择分组和应用
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
