@@ -10,7 +10,6 @@ Feature: Agent编辑性能数据类型数据源
     And I will see the "agent.CreatePage" page
 
   Scenario: 新建性能数据数据源
-#    When I click the detail which name is "<ip>"
     And I click the "Create" button
     And I click the "FuctionType" button
     And I set the parameter "SpecialPort" with value "23"
