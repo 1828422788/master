@@ -354,6 +354,7 @@ Feature: 字典管理
     And I choose the "<firstTag>" from the "Group" in config
     Then I set the parameter "Tag" with value "<secondTag>"
     And I choose the "<secondTag>" from the "Group" in config
+    Then I wait for "2000" millsecond
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
