@@ -43,6 +43,9 @@ public class InstallPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='AutoTestApp']")
     private WebElement resultDataset;
 
+    @FindBy(xpath = "//span[text()='app']")
+    private WebElement resultAppDataset;
+
     @FindBy(className = "ant-input-search-icon")
     private WebElement searchIcon;
 
@@ -63,6 +66,10 @@ public class InstallPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
+
+    public WebElement getResultAppDataset() {
+        return resultAppDataset;
+    }
 
     public WebElement getUpload() {
         return upload;

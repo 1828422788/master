@@ -177,7 +177,7 @@ public class Checkbox {
     @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table which name is \"([^\"]*)\"$")
     public void clickAuthFunction(String status, List<String> functions, String name) {
         String preXpath = ".//span[contains(text(),'";
-        String sufXpath = "')]";
+        String sufXpath = "')]/preceding-sibling::label";
         this.clickAuthButton(status, functions, name, preXpath, sufXpath);
     }
 
@@ -191,22 +191,15 @@ public class Checkbox {
     @When("^I \"([^\"]*)\" function \"([^\"]*)\" from the auth table in group which name is \"([^\"]*)\"$")
     public void clickAuthFunctionInGroup(String status, List<String> functions, String name) {
         String preXpath = "(.//span[contains(text(),'";
-        String sufXpath = "')])[last()]";
+        String sufXpath = "')])[last()]/preceding-sibling::label";
         this.clickAuthButton(status, functions, name, preXpath, sufXpath);
     }
 
     private void clickAuthButton(String status, List<String> functions, String name, String preXpath, String sufXpath) {
-        String url = webDriver.getCurrentUrl();
-        String precedingXpath;
-        if (url.contains("/account/roles/assign/")) {
-            precedingXpath = "./preceding-sibling::span";
-        } else {
-            precedingXpath = "./preceding-sibling::label";
-        }
         WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
         for (String function : functions) {
             WebElement functionButton = tr.findElement(By.xpath(preXpath + function + sufXpath));
-            String functionClass = functionButton.findElement(By.xpath(precedingXpath)).getAttribute("class");
+            String functionClass = functionButton.getAttribute("class");
             if (functionClass.contains("checked") && "unchecked".equals(status) || !functionClass.contains("checked") && "checked".equals(status)) {
                 functionButton.click();
             }

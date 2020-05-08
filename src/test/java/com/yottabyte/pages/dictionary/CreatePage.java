@@ -12,8 +12,11 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
+    @FindBy(className = "ant-select-search__field")
+    private WebElement groupIunput;
+
     public WebElement getGroupInput() {
-        return super.getInputElement("资源标签");
+        return groupIunput;
     }
 
     public WebElement getSaveButton() {
@@ -24,7 +27,7 @@ public class CreatePage extends PageTemplate {
         return super.getButton("确定");
     }
 
-    public WebElement getCancelButton(){
+    public WebElement getCancelButton() {
         return super.getButton("撤销修改");
     }
 
@@ -32,11 +35,11 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getClearIcon1(){
+    public WebElement getClearIcon1() {
         return super.getClearIcon("wymtest1");
     }
 
-    public WebElement getClearIcon2(){
+    public WebElement getClearIcon2() {
         return super.getClearIcon("wymtest2");
     }
 

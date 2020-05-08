@@ -23,12 +23,15 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "ant-select-selection-selected-value")
     private WebElement defaultPage;
 
+    @FindBy(id = "register_description")
+    private WebElement describe;
+
     public WebElement getName() {
         return name;
     }
 
     public WebElement getDescribe() {
-        return getSpanElement("描述");
+        return describe;
     }
 
     public WebElement getDefaultPage() {

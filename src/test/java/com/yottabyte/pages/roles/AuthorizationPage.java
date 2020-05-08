@@ -56,17 +56,24 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='自定义']/ancestor::label)[last()]")
     private WebElement customize;
 
-    @FindBy(xpath = "(//i[@class='el-input__icon el-icon-time'])[last()]")
+    @FindBy(className = "ant-calendar-picker-icon")
     private WebElement dateEditor;
 
-    @FindBy(xpath = "//input[@placeholder='选择时间']")
+    @FindBy(className = "ant-calendar-input ")
     private WebElement timeInput;
 
-    @FindBy(className = "el-picker-panel__btn")
+    @FindBy(className = "ant-calendar-ok-btn")
     private WebElement ensureTime;
 
     @FindBy(xpath = "(//span[@class='el-checkbox__label'][contains(text(),'新建用户')])[1]")
     private WebElement createUser;
+
+    @FindBy(xpath = "(//a[text()='仪表盘'])[last()]")
+    private WebElement dashboard;
+
+    public WebElement getDashboard() {
+        return dashboard;
+    }
 
     public WebElement getResourceName(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']/preceding-sibling::label"));

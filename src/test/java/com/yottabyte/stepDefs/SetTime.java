@@ -55,7 +55,7 @@ public class SetTime {
     public void iSetTheTimeInputToMinutesLater(String elementName, String time) {
         int minutes = Integer.parseInt(time);
         long minutesLater = System.currentTimeMillis() + minutes * 60 * 1000;
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String laterTime = format.format(new Date(minutesLater));
         WebElement inputElement = GetElementFromPage.getWebElementWithName(elementName);
         new SetKeyWithValue().iSetTheParameterWithValue(inputElement, laterTime);
