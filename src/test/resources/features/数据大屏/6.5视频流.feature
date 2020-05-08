@@ -1,4 +1,4 @@
-@galaxeeOther
+@galaxeeOther @galaxee
 Feature: 数据大屏-视频流
 
   Scenario: 视频流

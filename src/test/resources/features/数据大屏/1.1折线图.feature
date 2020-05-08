@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-折线图
 
   Scenario: 折线图-搜索

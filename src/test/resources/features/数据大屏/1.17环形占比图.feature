@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-环形占比图
 
   Scenario: 环形占比图-样式搜索

@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-饼图
 
   Scenario: 饼图-样式搜索

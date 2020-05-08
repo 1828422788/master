@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-弧形柱图
 
   Scenario: 弧形柱图-样式搜索

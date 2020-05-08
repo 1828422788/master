@@ -158,8 +158,8 @@ Feature: 日志展现_普通统计视图
       | Yesterday | 1        |        | 815_时间直方图/815_1h     |
       | Yesterday | 3600     | 秒     | 815_时间直方图/815_3600s  |
       | Yesterday | 60       | 分钟    | 815_时间直方图/815_60m    |
-      | ThisMonth | 7        | 天     | 2725_时间直方图/2725_7d    |
-      | ThisMonth | 1        | 周     | 2725_时间直方图/2725_1w    |
+      | LastMonth | 7        | 天     | 2725_时间直方图/2725_7d    |
+      | LastMonth | 1        | 周     | 2725_时间直方图/2725_1w    |
 
 
   Scenario Outline: datehistogram(RZY-816)
@@ -260,8 +260,8 @@ Feature: 日志展现_普通统计视图
       |Yesterday  |apache.resp_len    |  apache.clientip |  平均值   |  面积图   |   60    |  分钟 |
       |Yesterday  |apache.resp_len    |  apache.clientip |  最大值   |  散点图   |   60    |  分钟 |
       |Yesterday  |apache.resp_len    |  apache.clientip |  最小值   |  柱状图   |  3600   |  秒   |
-      |ThisMonth  |apache.status      |  apache.clientip |  总计     |  曲线图   |   7     | 天   |
-      |ThisMonth  |apache.status      |  apache.clientip |  平均值   |  面积图   |   1     |  周  |
+      |LastMonth  |apache.status      |  apache.clientip |  总计     |  曲线图   |   7     | 天   |
+      |LastMonth  |apache.status      |  apache.clientip |  平均值   |  面积图   |   1     |  周  |
 
 
   Scenario Outline: totalpercent(RZY-819,2730)

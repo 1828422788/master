@@ -1,4 +1,4 @@
-@galaxeeMap
+@galaxeeMap @galaxee
 Feature: 数据大屏-热力地图
 
   Scenario: 热力地图-样式搜索

@@ -1,4 +1,4 @@
-@galaxeeLast
+@galaxeeLast @galaxee
 Feature: 数据大屏-桑基图
 
   Scenario: 桑基图-样式搜索

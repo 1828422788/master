@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-综合列表
 
   Scenario: 综合列表样式-搜索

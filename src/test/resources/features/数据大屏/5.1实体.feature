@@ -1,4 +1,4 @@
-@galaxeeNet
+@galaxeeNet @galaxee
   Feature: 数据大屏-实体
 
     Scenario: 实体数据之搜索值异常

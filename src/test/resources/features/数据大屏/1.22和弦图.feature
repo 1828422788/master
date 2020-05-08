@@ -1,4 +1,4 @@
-@galaxeeChart
+@galaxeeChart @galaxee
 Feature: 数据大屏-和弦图
 
   Scenario: 和弦图-样式搜索

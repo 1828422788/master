@@ -1,4 +1,4 @@
-@galaxeeMap
+@galaxeeMap @galaxee
 Feature: 数据大屏-中国地图
 
   Scenario: 中国地图-样式搜索
