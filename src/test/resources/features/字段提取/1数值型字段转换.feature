@@ -7,8 +7,8 @@ Feature: 字段提取数值型字段转换
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -16,9 +16,9 @@ Feature: 字段提取数值型字段转换
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "数值型字段转换" from the "ParseRule"
-    And I choose the "<field>" from the "SourceField"
-    And I choose the "<decimal>" from the "Decimal"
+    And I choose the "数值型字段转换" from the "ParseRule" in config
+    And I choose the "<field>" from the "SourceField" in config
+    And I choose the "<decimal>" from the "Decimal" in config
     And I click the "<radio>" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -39,8 +39,8 @@ Feature: 字段提取数值型字段转换
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -48,9 +48,9 @@ Feature: 字段提取数值型字段转换
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "数值型字段转换" from the "ParseRule"
-    And I choose the "<field>" from the "SourceField"
-    And I choose the "<decimal>" from the "Decimal"
+    And I choose the "数值型字段转换" from the "ParseRule" in config
+    And I choose the "<field>" from the "SourceField" in config
+    And I choose the "<decimal>" from the "Decimal" in config
     And I click the "<radio>" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -69,8 +69,8 @@ Feature: 字段提取数值型字段转换
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -78,9 +78,9 @@ Feature: 字段提取数值型字段转换
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "数值型字段转换" from the "ParseRule"
-    And I choose the "<field>" from the "SourceField"
-    And I choose the "<decimal>" from the "Decimal"
+    And I choose the "数值型字段转换" from the "ParseRule" in config
+    And I choose the "<field>" from the "SourceField" in config
+    And I choose the "<decimal>" from the "Decimal" in config
     And I click the "IntRadio" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible

@@ -8,15 +8,15 @@ Feature: 字段提取重命名字段
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "字段重命名" from the "ParseRule"
+    And I choose the "字段重命名" from the "ParseRule" in config
     And I set the parameter "SourceFieldInput" with value "a.b.c"
     And I set the parameter "TargetField" with value "c"
     And I click the "EnsureAddParseRule" button
@@ -36,15 +36,15 @@ Feature: 字段提取重命名字段
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "字段重命名" from the "ParseRule"
+    And I choose the "字段重命名" from the "ParseRule" in config
     And I set the parameter "SourceFieldInput" with value "a.*.c"
     And I set the parameter "TargetField" with value "a.*.h"
     And I click the "EnsureAddParseRule" button

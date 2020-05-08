@@ -8,8 +8,8 @@ Feature: 字段提取CSV解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
     And I click the "AddRule" button
-    And I choose the "CSV解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "CSV解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Separate" with value "<separate>"
     And I set the parameter "FieldList" with value "<fieldList>"
     And I click the "EnsureAddParseRule" button
@@ -30,8 +30,8 @@ Feature: 字段提取CSV解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<134> Portinfo(Port,State,rx Kpps,tx Kpps,rx Mbps,tx Mbps): T1/1 down 0 0 0 0 | T1/2 down 0 0 0 0 | F2/1 up 0 0 0 0 | F2/2 up 0 0 0 0 | F2/3 down 0 0 0 0 | F2/4 down 0 0 0 0 | F2/5 down 0 0 0 0 | F2/6 down 0 0 0 0 | F2/7 down 0 0 0 0 | F2/8 down 0 0 0 0 |"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -39,8 +39,8 @@ Feature: 字段提取CSV解析
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "<parseRule>" from the "ParseRule"
-    And I choose the "<sourceField>" from the "SourceField"
+    And I choose the "<parseRule>" from the "ParseRule" in config
+    And I choose the "<sourceField>" from the "SourceField" in config
     And I set the parameter "<inputElement>" with value "<timeFormat>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -48,7 +48,7 @@ Feature: 字段提取CSV解析
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "AddRule" button
-    And I choose the "CSV解析" from the "ParseRule"
+    And I choose the "CSV解析" from the "ParseRule" in config
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "portinfo[]","split_string": "\\s","add_fields": [],"names": ["1","2","3","4","5","6"],"split_option":null}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button

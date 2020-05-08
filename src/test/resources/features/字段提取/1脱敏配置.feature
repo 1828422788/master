@@ -8,8 +8,8 @@ Feature: 字段提取脱敏配置
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "(?<phone>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -17,8 +17,8 @@ Feature: 字段提取脱敏配置
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<regexResult>'}"
     And I click the "AddRule" button
-    And I choose the "脱敏配置" from the "ParseRule"
-    And I choose the "phone" from the "SourceField"
+    And I choose the "脱敏配置" from the "ParseRule" in config
+    And I choose the "phone" from the "SourceField" in config
     And I set the parameter "Regex" with value "(\d{3})(\d{4})(\d{4})"
     And I set the parameter "ReplaceContent" with value "$1****$3"
     And I set the parameter "Prefix" with value "\w+"
@@ -29,8 +29,8 @@ Feature: 字段提取脱敏配置
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "脱敏配置" from the "ParseRule"
-    And I choose the "phone" from the "SourceField"
+    And I choose the "脱敏配置" from the "ParseRule" in config
+    And I choose the "phone" from the "SourceField" in config
     And I set the parameter "Regex" with value "(\d{3})(\d{4})(\d{4})"
     And I set the parameter "ReplaceContent" with value "$1****$3"
     And I set the parameter "Prefix" with value "\s+"

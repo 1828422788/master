@@ -7,8 +7,8 @@ Feature: 字段提取内容替换
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
-    And I choose the "内容替换" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "内容替换" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "(\d+)[a-z]+"
     And I set the parameter "ReplaceContent" with value "$1"
     And I click the "Checkbox" button
@@ -28,8 +28,8 @@ Feature: 字段提取内容替换
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "123abc456qwe"
     And I click the "AddRule" button
-    And I choose the "内容替换" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "内容替换" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "(\d+)[a-z]+"
     And I set the parameter "ReplaceContent" with value "<replaceContent>"
     And I click the "EnsureAddParseRule" button
@@ -55,13 +55,13 @@ Feature: 字段提取内容替换
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "AddRule" button
-    And I choose the "内容替换" from the "ParseRule"
-    And I choose the "@tag" from the "SourceField"
+    And I choose the "内容替换" from the "ParseRule" in config
+    And I choose the "@tag" from the "SourceField" in config
     And I set the parameter "Regex" with value "(.*)"
     And I set the parameter "ReplaceContent" with value "$1,newinfo"
     And I click the "EnsureAddParseRule" button

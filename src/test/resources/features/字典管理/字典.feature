@@ -4,443 +4,713 @@
 @dictionary
 Feature: 字典管理
 
-  Scenario Outline: RZY-4136新建字典
+  Background:
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
+    And I wait for loading invisible
+
+  Scenario Outline: RZY-4136新建字典
+
     When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    And I set the parameter "GroupInput" with value "wymtest1"
-    And I choose the "wymtest1" from the "Group"
+    Then I set the parameter "GroupInput" with value "wymtest1"
+    And I choose the "wymtest1" from the "Group" in config
     And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
-    Then I wait for "2000" millsecond
+    Then I wait for loading invisible
     Then I will see the "TotalItem" result will be "<totalItem>"
-    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
-    Then I will see the element "GroupInput" value is "wymtest1"
+    And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
+    Then I wait for element "ResourceTag" change text to "wymtest1"
     Then I click the "EditOnline" button
-    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
+    Then I will see the element "EditOnlineArea" name is "<editOnlineArea>"
 
     Examples:
-      | dictionaryNameWithOutCsv | dictionaryName | totalItem | editOnlineArea                                                                                         |
-      | wymtest1                 | wymtest1.csv   | 1         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
+      | dictionaryNameWithOutCsv | dictionaryName    | totalItem | editOnlineArea                                                                                         |
+      | wymtestcreate            | wymtestcreate.csv | 1         | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
   Scenario Outline: RZY-4137下载字典
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "下载" button
 
     Examples:
-      | dictionaryName |
-      | wymtest1.csv   |
+      | dictionaryNameWithOutCsv | dictionaryName      |
+      | wymtestdownload          | wymtestdownload.csv |
 
-  Scenario Outline: RZY-4139修改标签(wymtest1->wymtest2)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+  Scenario Outline: RZY-4139修改标签(old->new)
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    Then I set the parameter "GroupInput" with value "<oldTag>"
+    And I choose the "<oldTag>" from the "Group" in config
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
-    Then I click the "ClearIcon1" button
-    Then I set the parameter "GroupInput" with value "wymtest2"
-    And I choose the "wymtest2" from the "Group"
+    And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
+    Then I wait for element "ResourceTag" change text to "<oldTag>"
+    Then I click the "ClearIconOld" button
+    Then I set the parameter "GroupInput" with value "<newTag>"
+    And I choose the "<newTag>" from the "Group" in config
+    Then I wait for element "ResourceTag" change text to "<newTag>"
     Then I click the "SaveButton" button
+    Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName | newTag   |
-      | wymtest1.csv   | wymtest2 |
+      | dictionaryNameWithOutCsv | dictionaryName       | newTag | oldTag |
+      | wymtestchangetag         | wymtestchangetag.csv | new    | old    |
 
-  Scenario Outline: RZY-4156增加标签(wymtest1)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+  Scenario Outline: RZY-4156增加标签(one+more)
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    Then I set the parameter "GroupInput" with value "<oldTag>"
+    And I choose the "<oldTag>" from the "Group" in config
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
-    Then I set the parameter "GroupInput" with value "wymtest1"
-    And I choose the "wymtest1" from the "Group"
+    And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
+    Then I wait for element "ResourceTag" change text to "<oldTag>"
+    Then I set the parameter "GroupInput" with value "<moreTag>"
+    Then I choose the "<moreTag>" from the "Group" in config
     Then I click the "SaveButton" button
+    Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName | newTag             |
-      | wymtest1.csv   | wymtest1, wymtest2 |
+      | dictionaryName    | newTag    | dictionaryNameWithOutCsv | oldTag | moreTag |
+      | wymtestaddtag.csv | one, more | wymtestaddtag            | one    | more    |
 
   Scenario Outline: RZY-4138清空全部标签
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    Then I set the parameter "GroupInput" with value "first"
+    And I choose the "first" from the "Group" in config
+    Then I set the parameter "GroupInput" with value "second"
+    And I choose the "second" from the "Group" in config
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
-    Then I click the "ClearIcon1" button
-    Then I click the "ClearIcon2" button
+    And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
+    Then I click the "ClearIconFirst" button
+    Then I click the "ClearIconSecond" button
+    Then I wait for "1000" millsecond
     Then I click the "SaveButton" button
+    Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName | newTag |
-      | wymtest1.csv   | 无      |
+      | dictionaryName      | newTag | dictionaryNameWithOutCsv |
+      | wymtestcleartag.csv | 无      | wymtestcleartag          |
 
   Scenario Outline: RZY-4140上传非同名文件
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymdoubletest1.csv"
     And I wait for "FileName" will be visible
     Then I click the "SaveButton" button
+    Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
 
     Examples:
-      | dictionaryName | editOnlineArea                                                                                                                                                                                                 |
-      | wymtest1.csv   | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
+      | dictionaryNameWithOutCsv | dictionaryName     | editOnlineArea                                                                                                                                                                                                 |
+      | wymtestdifname           | wymtestdifname.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds\nbubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
-#  Scenario Outline: RZY-4142删除非同名文件
-#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
-#    Then I will see the "dictionary.CreatePage" page
-#    And I upload a file with name "/src/test/resources/testdata/dictionary/wymdoubletest1.csv"
-#    And I wait for "FileName" will be visible
-#    Then I click the "SaveButton" button
-#    Then I will see the message "更新字典文件必须和原字典文件同名"
-#    Then I click the "EnsureButton" button
-#    Then I click the "DeleteIcon1" button
-#    And I click the "SaveButton" button
-#    Then I will see the message "更新字典内容成功"
-#    Then I click the "EnsureButton" button
-#    Then I will see the "dictionary.ListPage" page
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
-#    Then I will see the "dictionary.CreatePage" page
-#    And I wait for "1000" millsecond
-#    Then I click the "EditOnline" button
-#    Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
-#
-#    Examples:
-#      | dictionaryName | editOnlineArea                                                                                         |
-#      | wymtest1.csv   | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu\nbubble.test^archiver.process.fds |
 
   Scenario Outline: RZY-4141上传同名文件
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     And I upload a file with name "/src/test/resources/testdata/dictionary/test/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I click the "SaveButton" button
+    Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
 
+
     Examples:
-      | dictionaryName | editOnlineArea                                                       |
-      | wymtest1.csv   | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu |
+      | dictionaryNameWithOutCsv | dictionaryName      | editOnlineArea                                                       |
+      | wymtestsamename          | wymtestsamename.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu |
 
   Scenario Outline: RZY-4144（在线编辑-撤销修改）
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "EditOnline" button
     Then I set the value "<edited>" to the textarea "EditOnlineArea"
     Then I click the "CancelButton" button
     Then I will see the element "EditOnlineArea" value is "<editOnlineArea>"
 
     Examples:
-      | dictionaryName | editOnlineArea                                                       | edited |
-      | wymtest1.csv   | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu | 123456 |
+      | dictionaryNameWithOutCsv | dictionaryName        | editOnlineArea                                                       | edited |
+      | wymtestcanceledit        | wymtestcanceledit.csv | bubble.test^archiver.process.conns\nbubble.test^archiver.process.cpu | 123456 |
 
   Scenario Outline: RZY-4143（在线编辑-保存修改）
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
+    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I click the "EditOnline" button
     Then I set the value "<edited>" to the textarea "EditOnlineArea"
     Then I click the "SaveEdit" button
-    Then I wait for "2000" millsecond
+    Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
-    Then I wait for "2000" millsecond
+    Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     And I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" value is "<edited>"
 
     Examples:
-      | dictionaryName | edited  |
-      | wymtest1.csv   | rizhiyi |
+      | dictionaryName      | edited  | dictionaryNameWithOutCsv |
+      | wymtestsaveedit.csv | rizhiyi | wymtestsaveedit          |
 
-  Scenario Outline: RZY-4145(列表页首次添加标签)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
-    Then I set the parameter "Tag" with value "wymtest1"
-    And I choose the "wymtest1" from the "Group"
+  Scenario Outline: RZY-4145(列表页添加一个标签)
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
+    Then I wait for "PopUpWindow" will be visible
+    Then I set the parameter "Tag" with value "tag"
+    And I choose the "tag" from the "Group" in config
+    Then I click the "EnsureButton" button
+    Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName | newTag   |
-      | wymtest1.csv   | wymtest1 |
+      | dictionaryName                 | newTag | dictionaryNameWithOutCsv   |
+      | wymtestaddonetagatlistpage.csv | tag    | wymtestaddonetagatlistpage |
 
-  Scenario Outline: RZY-4146(列表页修改标签wymtest1->wymtest2)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
-    Then I wait for "1000" millsecond
-    Then I click the "ClearIcon1" button
-    Then I set the parameter "Tag" with value "wymtest2"
-    And I choose the "wymtest2" from the "Group"
+  Scenario Outline: RZY-4146(列表页修改标签old->new)
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    Then I set the parameter "GroupInput" with value "<oldTag>"
+    And I choose the "<oldTag>" from the "Group" in config
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
+    Then I wait for "PopUpWindow" will be visible
+    Then I click the "ClearIconOld" button
+    Then I set the parameter "Tag" with value "<newTag>"
+    And I choose the "<newTag>" from the "Group" in config
+    Then I click the "EnsureButton" button
+    Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
-    And I wait for "1000" millsecond
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
-
-    Examples:
-      | dictionaryName | newTag   |
-      | wymtest1.csv   | wymtest2 |
-
-  Scenario Outline: RZY-4157(列表页增加标签wymtest1)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
-    Then I set the parameter "Tag" with value "wymtest1"
-    And I choose the "wymtest1" from the "Group"
-    Then I click the "EnsureButton" button
-    And I will see the success message "修改成功"
-    Then I click the "EnsureButton" button
-    And I wait for "2000" millsecond
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
-
-    Examples:
-      | dictionaryName | newTag             |
-      | wymtest1.csv   | wymtest1, wymtest2 |
-
-  Scenario: 按照标签搜索字典
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
     And I wait for loading invisible
-    And I choose the "wymtest1" from the "ResourceDropdown"
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
+
+    Examples:
+      | dictionaryName                 | newTag | dictionaryNameWithOutCsv   | oldTag |
+      | wymtestchangetagatlistpage.csv | new    | wymtestchangetagatlistpage | old    |
+
+  Scenario Outline: RZY-4157(列表页添加两个标签)
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
+    Then I wait for "PopUpWindow" will be visible
+    Then I set the parameter "Tag" with value "<firstTag>"
+    And I choose the "<firstTag>" from the "Group" in config
+    Then I set the parameter "Tag" with value "<secondTag>"
+    And I choose the "<secondTag>" from the "Group" in config
+    Then I click the "EnsureButton" button
+    Then I wait for "Tip" will be visible
+    And I will see the success message "修改成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
+
+    Examples:
+      | dictionaryName                  | newTag | firstTag | secondTag | dictionaryNameWithOutCsv    |
+      | wymtestaddmoretagatlistpage.csv | 1, 2   | 1        | 2         | wymtestaddmoretagatlistpage |
+
+  Scenario Outline: 按照标签搜索字典
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    Then I set the parameter "GroupInput" with value "<dictionaryNameWithOutCsv>"
+    And I choose the "<dictionaryNameWithOutCsv>" from the "Group" in config
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
+    And I choose the "<dictionaryNameWithOutCsv>" from the "ResourceDropdown" in config
     And I wait for loading invisible
-    Then I will see the search result contains "{'column':'0','name':'wymtest1.csv'}"
+    Then I will see the search result contains "{'column':'0','name':'<dictionaryName>'}"
+
+    Examples:
+      | dictionaryName         | dictionaryNameWithOutCsv |
+      | wymtestsearchbytag.csv | wymtestsearchbytag       |
+
 
   Scenario Outline: RZY-4147(列表页清空全部标签)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
-    And I wait for "2000" millsecond
-    Then I click the "ClearIcon1" button
-    Then I click the "ClearIcon2" button
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    Then I set the parameter "GroupInput" with value "first"
+    And I choose the "first" from the "Group" in config
+    Then I set the parameter "GroupInput" with value "second"
+    And I choose the "second" from the "Group" in config
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
+    Then I wait for "PopUpWindow" will be visible
+    Then I click the "ClearIconFirst" button
+    Then I click the "ClearIconSecond" button
+    Then I click the "EnsureButton" button
+    Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName | newTag |
-      | wymtest1.csv   | 无      |
+      | dictionaryName                | newTag | dictionaryNameWithOutCsv  |
+      | wymtestcleartagatlistpage.csv | 无      | wymtestcleartagatlistpage |
+
 
   Scenario Outline: RZY-4151(授权页：添加用户权限-取消)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    And I wait for "PopUpWindow" will be visible
+    And I wait for loading invisible
     Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "2000" millsecond
+    And I wait for loading invisible
     Then I "checked" the label before "<user>" in the dictionary
     Then I click the "AuthCancelButton" button
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "2000" millsecond
+    And I wait for loading invisible
     Then I check the label "unchecked" status before "<user>" in the dictionary
 
+
     Examples:
-      | dictionaryName | user |
-      | wymtest1.csv   | wym  |
+      | dictionaryNameWithOutCsv | dictionaryName             | user |
+      | wymtestauthorizecancel   | wymtestauthorizecancel.csv | wym  |
 
 
   Scenario Outline: RZY-4149(授权页：添加用户权限-保存)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    And I wait for "PopUpWindow" will be visible
+    And I wait for loading invisible
     Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "2000" millsecond
+    And I wait for loading invisible
     Then I "checked" the label before "<user>" in the dictionary
     Then I click the "EnsureButton" button
+    Then I wait for "Tip" will be visible
     Then I will see the success message "保存成功"
     Then I click the "EnsureButton2" button
+    Then I wait for "1000" millsecond
+    Then I check the label "checked" status before "<user>" in the dictionary
+    Then I refresh the website
+    And I wait for loading invisible
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    And I wait for "PopUpWindow" will be visible
+    And I wait for loading invisible
+    Then I set the parameter "UserFilter" with value "<user>"
+    And I wait for loading invisible
     Then I check the label "checked" status before "<user>" in the dictionary
 
     Examples:
-      | dictionaryName | user |
-      | wymtest1.csv   | wym  |
+      | dictionaryName           | user | dictionaryNameWithOutCsv |
+      | wymtestauthorizesave.csv | wym  | wymtestauthorizesave     |
 
 
   Scenario Outline: RZY-4150(授权页：取消用户权限-取消)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    And I wait for "PopUpWindow" will be visible
+    And I wait for loading invisible
     Then I set the parameter "UserFilter" with value "<user>"
+    And I wait for loading invisible
+    Then I "checked" the label before "<user>" in the dictionary
+    Then I click the "EnsureButton" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "保存成功"
+    Then I click the "EnsureButton2" button
+    Then I wait for "1000" millsecond
+    Then I check the label "checked" status before "<user>" in the dictionary
     Then I wait for "2000" millsecond
     Then I "unchecked" the label before "<user>" in the dictionary
     Then I click the "AuthCancelButton" button
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "2000" millsecond
+    Then I wait for loading invisible
     Then I check the label "checked" status before "<user>" in the dictionary
 
     Examples:
-      | dictionaryName | user |
-      | wymtest1.csv   | wym  |
+      | dictionaryName            | user | dictionaryNameWithOutCsv |
+      | wymtestrevokeauthexit.csv | wym  | wymtestrevokeauthexit    |
 
   Scenario Outline: RZY-4152(授权页：取消用户权限-保存)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    And I wait for "PopUpWindow" will be visible
+    And I wait for loading invisible
     Then I set the parameter "UserFilter" with value "<user>"
+    And I wait for loading invisible
+    Then I "checked" the label before "<user>" in the dictionary
+    Then I click the "EnsureButton" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "保存成功"
+    Then I click the "EnsureButton2" button
+    Then I wait for "1000" millsecond
+    Then I check the label "checked" status before "<user>" in the dictionary
     Then I wait for "2000" millsecond
     Then I "unchecked" the label before "<user>" in the dictionary
     Then I click the "EnsureButton" button
+    Then I wait for "Tip" will be visible
     Then I will see the success message "保存成功"
     Then I click the "EnsureButton2" button
+    Then I wait for "1000" millsecond
+    Then I check the label "unchecked" status before "<user>" in the dictionary
+    Then I refresh the website
+    And I wait for loading invisible
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    Then I set the parameter "UserFilter" with value "<user>"
+    Then I wait for loading invisible
     Then I check the label "unchecked" status before "<user>" in the dictionary
 
-    Examples:
-      | dictionaryName | user |
-      | wymtest1.csv   | wym  |
-
-  Scenario Outline: RZY-4160(授权页：自定义有效期-当前日期)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-    Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "2000" millsecond
-    Then I "checked" the label before "<user>" in the dictionary
-    Then I click the "Indefinitely" button
-    Then I click the "Customize" button
-    And I click the "TimeSelector" button
-    Then I click the "DateNow" button
-    And I click the "DateSelectConfirm" button
-    Then I click the "EnsureButton" button
-    Then I will see the success message "请选择合理的有效期限"
-    Then I click the "EnsureButton2" button
-    Then I wait for "1000" millsecond
-    Then I click the "AuthCancelButton" button
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-    Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "2000" millsecond
-    Then I check the label "unchecked" status before "<user>" in the dictionary
-    Then I will see the "DeadLine" result will be "无限期"
 
     Examples:
-      | dictionaryName | user |
-      | wymtest1.csv   | wym  |
+      | dictionaryName            | user | dictionaryNameWithOutCsv |
+      | wymtestrevokeauthsave.csv | wym  | wymtestrevokeauthsave    |
 
-
-  Scenario Outline: RZY-4160(授权页：自定义有效期-当前日期的下一天)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-    Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "2000" millsecond
-    Then I "checked" the label before "<user>" in the dictionary
-    Then I click the "Indefinitely" button
-    Then I click the "Customize" button
-    And I click the "TimeSelector" button
-    Then I click the "DateNext" button
-    And I click the "DateSelectConfirm" button
-    Then I click the "EnsureButton" button
-    Then I will see the success message "保存成功"
-    Then I click the "EnsureButton2" button
-    Then I wait for "1000" millsecond
-    Then I click the "AuthCancelButton" button
-    Then I wait for "1000" millsecond
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-    Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "2000" millsecond
-    Then I check the label "checked" status before "<user>" in the dictionary
-    And I will see the element "DeadLine" contains "<customizeDate>"
-
-
-    Examples:
-      | dictionaryName | user | customizeDate |
-      | wymtest1.csv   | wym  | 2020          |
-
-
-  Scenario Outline: RZY-4162(授权页：自定义有效期-当前日期23时59分59秒)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-    Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "1000" millsecond
-    Then I click the "DeadLine" button
-    Then I wait for "1000" millsecond
-    And I click the "TimeSelector" button
-    Then I click the "DateNow" button
-    Then I click the "SearchTime" button
-    Then I click the "Hour23" button
-    Then I click the "minute59" button
-    Then I click the "second59" button
-    And I click the "TimeSelectConfirm" button
-    Then I click the "EnsureButton" button
-    Then I will see the success message "保存成功"
-    Then I click the "EnsureButton2" button
-    Then I wait for "1000" millsecond
-    Then I click the "AuthCancelButton" button
-    Then I wait for "1000" millsecond
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-    Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "2000" millsecond
-    Then I check the label "checked" status before "<user>" in the dictionary
-    And I will see the element "DeadLine" contains "<customizeDate>"
-
-    Examples:
-      | dictionaryName | user | customizeDate |
-      | wymtest1.csv   | wym  | 23:59:59      |
-
-
-  Scenario Outline: RZY-4161(授权页：自定义改为无限期)
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-    Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "1000" millsecond
-    Then I click the "DeadLine" button
-    Then I wait for "1000" millsecond
-    And I click the "UnCustomize" button
-    Then I click the "EnsureButton" button
-    Then I will see the success message "保存成功"
-    Then I click the "EnsureButton2" button
-    Then I wait for "1000" millsecond
-    Then I click the "AuthCancelButton" button
-    Then I wait for "1000" millsecond
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-    Then I set the parameter "UserFilter" with value "<user>"
-    Then I wait for "1000" millsecond
-    Then I check the label "checked" status before "<user>" in the dictionary
-    Then I will see the "DeadLine" result will be "无限期"
-    Examples:
-      | dictionaryName | user |
-      | wymtest1.csv   | wym  |
+#  Scenario Outline: RZY-4160(授权页：自定义有效期-当前日期)
+#
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+#    Then I set the parameter "UserFilter" with value "<user>"
+#    Then I wait for "2000" millsecond
+#    Then I "checked" the label before "<user>" in the dictionary
+#    Then I click the "Indefinitely" button
+#    Then I click the "Customize" button
+#    And I click the "TimeSelector" button
+#    Then I click the "DateNow" button
+#    And I click the "DateSelectConfirm" button
+#    Then I click the "EnsureButton" button
+#    Then I will see the success message "请选择合理的有效期限"
+#    Then I click the "EnsureButton2" button
+#    Then I wait for "1000" millsecond
+#    Then I click the "AuthCancelButton" button
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+#    Then I set the parameter "UserFilter" with value "<user>"
+#    Then I wait for "2000" millsecond
+#    Then I check the label "unchecked" status before "<user>" in the dictionary
+#    Then I will see the "DeadLine" result will be "无限期"
+#
+#    Examples:
+#      | dictionaryName | user |
+#      | wymtest1.csv   | wym  |
+#
+#
+#  Scenario Outline: RZY-4160(授权页：自定义有效期-当前日期的下一天)
+#
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+#    Then I set the parameter "UserFilter" with value "<user>"
+#    Then I wait for "2000" millsecond
+#    Then I "checked" the label before "<user>" in the dictionary
+#    Then I click the "Indefinitely" button
+#    Then I click the "Customize" button
+#    And I click the "TimeSelector" button
+#    Then I click the "DateNext" button
+#    And I click the "DateSelectConfirm" button
+#    Then I click the "EnsureButton" button
+#    Then I will see the success message "保存成功"
+#    Then I click the "EnsureButton2" button
+#    Then I wait for "1000" millsecond
+#    Then I click the "AuthCancelButton" button
+#    Then I wait for "1000" millsecond
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+#    Then I set the parameter "UserFilter" with value "<user>"
+#    Then I wait for "2000" millsecond
+#    Then I check the label "checked" status before "<user>" in the dictionary
+#    And I will see the element "DeadLine" contains "<customizeDate>"
+#
+#
+#    Examples:
+#      | dictionaryName | user | customizeDate |
+#      | wymtest1.csv   | wym  | 2020          |
+#
+#
+#  Scenario Outline: RZY-4162(授权页：自定义有效期-当前日期23时59分59秒)
+#
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+#    Then I set the parameter "UserFilter" with value "<user>"
+#    Then I wait for "1000" millsecond
+#    Then I click the "DeadLine" button
+#    Then I wait for "1000" millsecond
+#    And I click the "TimeSelector" button
+#    Then I click the "DateNow" button
+#    Then I click the "SearchTime" button
+#    Then I click the "Hour23" button
+#    Then I click the "minute59" button
+#    Then I click the "second59" button
+#    And I click the "TimeSelectConfirm" button
+#    Then I click the "EnsureButton" button
+#    Then I will see the success message "保存成功"
+#    Then I click the "EnsureButton2" button
+#    Then I wait for "1000" millsecond
+#    Then I click the "AuthCancelButton" button
+#    Then I wait for "1000" millsecond
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+#    Then I set the parameter "UserFilter" with value "<user>"
+#    Then I wait for "2000" millsecond
+#    Then I check the label "checked" status before "<user>" in the dictionary
+#    And I will see the element "DeadLine" contains "<customizeDate>"
+#
+#    Examples:
+#      | dictionaryName | user | customizeDate |
+#      | wymtest1.csv   | wym  | 23:59:59      |
+#
+#
+#  Scenario Outline: RZY-4161(授权页：自定义改为无限期)
+#
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+#    Then I set the parameter "UserFilter" with value "<user>"
+#    Then I wait for "1000" millsecond
+#    Then I click the "DeadLine" button
+#    Then I wait for "1000" millsecond
+#    And I click the "UnCustomize" button
+#    Then I click the "EnsureButton" button
+#    Then I will see the success message "保存成功"
+#    Then I click the "EnsureButton2" button
+#    Then I wait for "1000" millsecond
+#    Then I click the "AuthCancelButton" button
+#    Then I wait for "1000" millsecond
+#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+#    Then I set the parameter "UserFilter" with value "<user>"
+#    Then I wait for "1000" millsecond
+#    Then I check the label "checked" status before "<user>" in the dictionary
+#    Then I will see the "DeadLine" result will be "无限期"
+#    Examples:
+#      | dictionaryName | user |
+#      | wymtest1.csv   | wym  |
 
 
   Scenario Outline: RZY-4158删除字典
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
-    Then I wait for "1000" millsecond
+    Then I wait for loading invisible
     Then I will see the "TotalItem" result will be "<totalItem>"
-    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "删除" button
-    Then I will see the success message "确认删除 [wymtest1.csv] ?"
+    Then I will see the success message "确认删除 [<dictionaryName>] ?"
     Then I click the "EnsureButton" button
-    Then I wait for "1000" millsecond
+    Then I wait for "2000" millsecond
     Then I will see the success message "删除成功"
     Then I click the "EnsureButton" button
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
-    Then I wait for "1000" millsecond
+    Then I wait for loading invisible
     Then I will see the message "暂无数据"
 
     Examples:
-      | dictionaryName | totalItem |
-      | wymtest1.csv   | 1         |
+      | dictionaryName                  | totalItem |
+      | wymtestcreate.csv               | 1         |
+      | wymtestdownload.csv             | 1         |
+      | wymtestchangetag.csv            | 1         |
+      | wymtestaddtag.csv               | 1         |
+      | wymtestcleartag.csv             | 1         |
+      | wymtestauthorizecancel.csv      | 1         |
+      | wymtestsearchbytag.csv          | 1         |
+      | wymtestrevokeauthsave.csv       | 1         |
+      | wymtestrevokeauthexit.csv       | 1         |
+      | wymtestdifname.csv              | 1         |
+      | wymtestsamename.csv             | 1         |
+      | wymtestcanceledit.csv           | 1         |
+      | wymtestsaveedit.csv             | 1         |
+      | wymtestaddonetagatlistpage.csv  | 1         |
+      | wymtestchangetagatlistpage.csv  | 1         |
+      | wymtestaddmoretagatlistpage.csv | 1         |
+      | wymtestauthorizesave.csv        | 1         |
+      | wymtestcleartagatlistpage.csv   | 1         |

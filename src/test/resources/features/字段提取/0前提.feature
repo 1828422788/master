@@ -11,13 +11,30 @@ Feature: 字段提取前提条件
 
   Scenario: 新建搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    Then I wait for loading invisible
     And I click the "Create" button
     And I set the parameter "Name" with value "AutoTest搜索权限"
     And I set the parameter "Tag" with value "*"
     And I click the "Ensure" button
+    Then I will see the success message "操作成功"
+    Then I refresh the website
+    Then I wait for loading invisible
+    When the data name is "{'column':'0','name':'AutoTest搜索权限'}" then i click the "删除" button
+    And I click the "Ensure" button
+    Then I wait for "1000" millsecond
+    Then I will see the success message "删除成功"
+
 
   Scenario: 授权搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    Then I wait for loading invisible
+    And I click the "Create" button
+    And I set the parameter "Name" with value "AutoTest搜索权限"
+    And I set the parameter "Tag" with value "*"
+    And I click the "Ensure" button
+    Then I will see the success message "操作成功"
+    Then I refresh the website
+    Then I wait for loading invisible
     When the data name is "{'column':'0','name':'AutoTest搜索权限'}" then i click the "授权" button
     And I wait for "ModalContent" will be visible
     And I "check" the checkbox which name is "wym" in tiny table
@@ -26,9 +43,10 @@ Feature: 字段提取前提条件
 
   Scenario: RZY-2829:设置用户权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
     And the data name is "__user_wym__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I wait for "2000" millsecond
+    Then I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "全选"
@@ -45,43 +63,18 @@ Feature: 字段提取前提条件
 #    And I "checked" the label before "yotta"
 #    Then I click the "SaveButton" button
 
-  Scenario: 选择标签
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "{'column':'1','name':'RZY3417多值字段'}" then i click the "标签" button
-    And I set the parameter "TagInput" with value "自动化测试标签"
-    Then I wait for "1000" millsecond
-    And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button
-    Then I will see the success message "修改成功"
-
-  Scenario: 验证资源搜索是否正确
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I choose the "自动化测试标签" from the "ResourceDropdown"
-    Then I will see the search result contains "{'column':'1','name':'RZY3417多值字段'}"
-
-  Scenario: 取消标签
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "{'column':'1','name':'RZY3417多值字段'}" then i click the "标签" button
-    And I cancel selection "自动化测试标签" from the "TagGroup"
-    And I click the "Ensure" button
-    Then I will see the success message "修改成功"
-
-  Scenario: 验证标签取消成功
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I choose the "自动化测试标签" from the "ResourceDropdown"
-#    Then I will see the search result "{'column':'1','name':'RZY3417多值字段','contains':'no'}"
-    And I will see the "SearchResultIsEmpty" result will be "暂无数据"
 
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading invisible
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
     And I click the "AddRule" button
     Then I wait for "1000" millsecond
-    And I choose the "JSON解析" from the "ParseRule"
+    And I choose the "JSON解析" from the "ParseRule" in config
     Then I wait for "1000" millsecond
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "1000" millsecond
     And I set the parameter "<element>" with value "<path>"
     And I click the "EnsureAddParseRule" button
@@ -102,9 +95,9 @@ Feature: 字段提取前提条件
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<log>"
     And I click the "AddRule" button
-    And I choose the "<rule>" from the "ParseRule"
+    And I choose the "<rule>" from the "ParseRule" in config
     Then I wait for "2000" millsecond
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "raw_message" from the "SourceField" in config
     Then I wait for "2000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -124,8 +117,8 @@ Feature: 字段提取前提条件
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<root><test><a>1</a><a>2</a></test><test>3</test></root>"
     And I click the "AddRule" button
-    And I choose the "XML解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "XML解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button

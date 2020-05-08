@@ -2,15 +2,29 @@ package com.yottabyte.pages.dictionary;
 
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.DropdownUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.security.cert.X509Certificate;
 
 
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
     }
+
+    DropdownUtils dropdownUtils = new DropdownUtils();
+
+    @FindBy(xpath = "//div[text()='提示']")
+    private WebElement tip;
+
+    @FindBy(className = "ant-modal-content")
+    private WebElement popUpWindow;
+
+    @FindBy(xpath = "//span[text()='取消']/ancestor::button")
+    private WebElement cancel;
 
     @FindBy(className = "ant-upload-list-item-name")
     private WebElement fileName;
@@ -129,7 +143,7 @@ public class ListPage extends ListPageFactory {
         return super.getButton("确定");
     }
 
-    public WebElement getAuthCancelButton(){
+    public WebElement getAuthCancelButton() {
         return super.getButton("取消");
     }
 
@@ -145,12 +159,16 @@ public class ListPage extends ListPageFactory {
         return totalItem;
     }
 
-    public WebElement getClearIcon1(){
-        return super.getClearIcon("wymtest1");
+    public WebElement getClearIconOld() {
+        return super.getClearIcon("old");
     }
 
-    public WebElement getClearIcon2(){
-        return super.getClearIcon("wymtest2");
+    public WebElement getClearIconFirst() {
+        return super.getClearIcon("first");
+    }
+
+    public WebElement getClearIconSecond() {
+        return super.getClearIcon("second");
     }
 
     public WebElement getUserFilter() {
@@ -216,5 +234,17 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getUnCustomize() {
         return unCustomize;
+    }
+
+    public WebElement getPopUpWindow() {
+        return popUpWindow;
+    }
+
+    public WebElement getCancel() {
+        return cancel;
+    }
+
+    public WebElement getTip() {
+        return tip;
     }
 }

@@ -12,11 +12,8 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "ant-select-search__field")
-    private WebElement groupIunput;
-
     public WebElement getGroupInput() {
-        return groupIunput;
+        return super.getInputElement("资源标签");
     }
 
     public WebElement getSaveButton() {
@@ -35,12 +32,16 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getClearIcon1() {
-        return super.getClearIcon("wymtest1");
+    public WebElement getClearIconOld() {
+        return super.getClearIcon("old");
     }
 
-    public WebElement getClearIcon2() {
-        return super.getClearIcon("wymtest2");
+    public WebElement getClearIconFirst() {
+        return super.getClearIcon("first");
+    }
+
+    public WebElement getClearIconSecond() {
+        return super.getClearIcon("second");
     }
 
     public WebElement getDeleteIcon1() throws InterruptedException {
@@ -50,6 +51,14 @@ public class CreatePage extends PageTemplate {
         return super.getDeleteIcon("wymdoubletest1.csv");
     }
 
+    @FindBy(xpath = "//div[text()='提示']")
+    private WebElement Tip;
+
+    @FindBy(xpath = "//span[text()='.csv']/preceding-sibling::input[@placeholder='请输入名称']")
+    private WebElement name;
+
+    @FindBy(className = "ant-select-selection__choice__content")
+    private WebElement resourceTag;
 
     @FindBy(xpath = "//div[text()='在线编辑']")
     private WebElement editOnline;
@@ -84,5 +93,17 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSaveEdit() {
         return saveEdit;
+    }
+
+    public WebElement getResourceTag() {
+        return resourceTag;
+    }
+
+    public WebElement getName() {
+        return name;
+    }
+
+    public WebElement getTip() {
+        return Tip;
     }
 }

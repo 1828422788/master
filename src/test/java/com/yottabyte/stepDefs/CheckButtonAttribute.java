@@ -51,6 +51,28 @@ public class CheckButtonAttribute {
     }
 
     /**
+     * 检查元素class是否等于某值
+     * @param buttonNameList
+     * @param attribute
+     */
+    @Then("^I will see the \"([^\"]*)\" equals \"([^\"]*)\"$")
+    public void checkClassEqual(List<String> buttonNameList, String attribute) {
+        if (buttonNameList.size() == 1) {
+            Object element = GetElementFromPage.getWebElementWithName(buttonNameList.get(0));
+            if (element instanceof List) {
+                List<WebElement> elements = (List<WebElement>) element;
+                for (WebElement webElement : elements) {
+                    Assert.assertTrue(webElement.getAttribute("class").equals(attribute));
+                }
+                return;
+            }
+        }
+        for (String buttonName : buttonNameList) {
+            WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
+            Assert.assertTrue(element.getAttribute("class").equals(attribute));
+        }
+    }
+    /**
      * 检查元素style是否包含某值
      *
      * @param buttonNameList 元素名称（支持list）

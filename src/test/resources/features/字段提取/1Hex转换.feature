@@ -7,8 +7,8 @@ Feature: 字段提取Hex转换
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "e5a4a7e9bb91e5b1b1"
     And I click the "AddRule" button
-    And I choose the "hex转换" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "hex转换" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Code" with value "utf-8"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -26,7 +26,7 @@ Feature: 字段提取Hex转换
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "00000000: 696d 706f 7274 2073 7973 0a69 6d70 6f72"
     And I click the "AddRule" button
-    And I choose the "hex转换" from the "ParseRule"
+    And I choose the "hex转换" from the "ParseRule" in config
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","codec_type": "GBK","start_offset":10,"column_bytes":16}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button

@@ -7,8 +7,8 @@ Feature: 字段提取结构体解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "aaa 111"
     And I click the "AddRule" button
-    And I choose the "结构体解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "结构体解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Struct" with value "<struct>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -26,8 +26,8 @@ Feature: 字段提取结构体解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "aaa 111"
     And I click the "AddRule" button
-    And I choose the "结构体解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "结构体解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Struct" with value "<struct>"
     And I click the "Checkbox" button
     And I click the "EnsureAddParseRule" button

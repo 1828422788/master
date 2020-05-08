@@ -7,7 +7,7 @@ Feature: 字段提取自定义配置高级算子
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "http://rizhiyi.com/index.do?id=123"
     And I click the "AddRule" button
-    And I choose the "自定义解析" from the "ParseRule"
+    And I choose the "自定义解析" from the "ParseRule" in config
     And I set the parameter "RuleName" with value "dissect"
     And I set the parameter "{"enable_escape": true,"format": "http://%{domain}/%{url}?%{arg}=%{@arg:i}","source": "raw_message","strict_mode": false}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
@@ -34,15 +34,15 @@ Feature: 字段提取自定义配置高级算子
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "{"fields":["time","count"],"values":[1516189,5664]}"
     And I click the "AddRule" button
-    And I choose the "JSON解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "JSON解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "自定义解析" from the "ParseRule"
+    And I choose the "自定义解析" from the "ParseRule" in config
     And I set the parameter "RuleName" with value "script"
     And I set the parameter "{"script":"source[\"result\"] = todict(mvzip(source[\"fields\"],source[\"values\"]))"}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
@@ -69,8 +69,8 @@ Feature: 字段提取自定义配置高级算子
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "aGVsbG8gYmFzZTY0"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "(?<code>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -78,8 +78,8 @@ Feature: 字段提取自定义配置高级算子
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "base64解析" from the "ParseRule"
-    And I choose the "code" from the "SourceField"
+    And I choose the "base64解析" from the "ParseRule" in config
+    And I choose the "code" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button
@@ -104,8 +104,8 @@ Feature: 字段提取自定义配置高级算子
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "PartyBasicInfoService_\u5ba2\u6237\u57fa\u672c\u4fe1\u606f\u670d\u52a1"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "(?<rr>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -113,7 +113,7 @@ Feature: 字段提取自定义配置高级算子
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "自定义解析" from the "ParseRule"
+    And I choose the "自定义解析" from the "ParseRule" in config
     And I set the parameter "RuleName" with value "codec"
     And I set the parameter "{"source": "rr","codec_type": "unicode_decode"}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
