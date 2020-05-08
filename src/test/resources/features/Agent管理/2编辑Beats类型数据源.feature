@@ -23,11 +23,13 @@ Feature: Agent编辑Beats类型数据源
   Scenario: 修改beats数据源禁用
     Given the data name "192.168.1.139:299" in agent table "BeatsTable" then i click the "close" switch
     Then I wait for loading invisible
+    And I wait for "5000" millsecond
     Then I will see the element "getBeatsSwitchStatus" name is "已禁用"
 
   Scenario: Beats数据源启用
     Given the data name "192.168.1.139:299" in agent table "BeatsTable" then i click the "open" switch
     Then I wait for loading invisible
+    And I wait for "5000" millsecond
     Then I will see the element "getBeatsSwitchStatus" name is "已启用"
 
   Scenario Outline: Beats数据源修改appname成功
