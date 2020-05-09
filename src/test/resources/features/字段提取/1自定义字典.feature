@@ -12,6 +12,7 @@ Feature: 字段提取自定义字典
     And I choose the "字典分组AutoTest" from the "Group" in config
     And I click the "EnsureUpload" button
     Then I will see the success message "创建字典成功"
+    Then I wait for "20000" millsecond
 
   @second @configsSmoke
   Scenario Outline: RZY-2819：配置自定义字典解析规则
@@ -24,19 +25,24 @@ Feature: 字段提取自定义字典
     And I choose the "raw_message" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "1000" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
     And I click the "AddRule" button
     And I choose the "自定义字典" from the "ParseRule" in config
+    Then I wait for "1000" millsecond
     And I choose the "SourceName" from the "SourceField" in config
+    Then I wait for "1000" millsecond
     And I choose the "win_sys_sourcename.csv" from the "Dictionary" in config
+    Then I wait for "1000" millsecond
     And I choose the "sourcename" from the "BaseField" in config
     Then I wait for "1000" millsecond
     And I choose the "level,source" from the "ExtendField" in config
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "1000" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
