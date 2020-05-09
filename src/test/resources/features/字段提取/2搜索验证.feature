@@ -72,39 +72,3 @@ Feature: 字段提取搜索验证
       | appname:script  | {"other.result.count":"other.result.count：5664 ","other.result.time":"other.result.time：1516189 "}        |
       | appname:base64  | {"other.code":"other.code：hello base64 "}                                                                 |
       | appname:unicode | {"other.rr":"other.rr：PartyBasicInfoService_客户基本信息服务 "}                                                   |
-
-
-  Scenario: 登陆新授权搜索权限的用户
-    When open the "configs.ListPage" page for uri "/configs/"
-    Then I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "wym"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "5000" millsecond
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I wait for "60000" millsecond
-    Then I refresh the website
-
-  Scenario: RZY-2830:在搜索页验证是否脱敏
-
-    When open the "configs.ListPage" page for uri "/configs/"
-    Then I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "wym"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "5000" millsecond
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:replacer"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I move the mouse pointer to the "Result"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "{"raw_message":"raw_message：qweqwe159****8361qwe 159****8361 ","replace.phone":"replace.phone：qweqwe159****8361qwe 159****8361  "}"
