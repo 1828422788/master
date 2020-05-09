@@ -36,23 +36,6 @@ Feature: 字段提取搜索验证
       | auto_test_rename                      | {'other.a.b.h':'other.a.b.h：d ','other.a.e.h':'other.a.e.h：g '}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
       | redirect_zhu AND appname:redirect_zhu | {"other.key":"other.key：value "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-  Scenario Outline: RZY-3396、3397
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I move the mouse pointer to the "Result"
-    And I click the "RightIcon" button
-    And I will see the spl search result data "<field>" doesn't exist
-    Then I will see the spl search result "<searchResult>"
-
-    Examples:
-      | tag                | field                                                                                                           | searchResult                                                                                                                                                                                                                                                                                                                                       |
-      | auto_test_dump_key | other.order                                                                                                     | {'other.field':'other.field：tag ','other.page':'other.page：1 ','other.query':'other.query：* ','other.size':'other.size：50 ','other.sourcegroup':'other.sourcegroup：all ','other.sourcegroupCn':'other.sourcegroupCn：%E6%89%80%E6%9C%89%E6%97%A5%E5%BF%97 ','other.time_range':'other.time_range：-2d,now ','other.type':'other.type：fields '} |
-      | auto_test_keep_key | other.field,other.page,other.query,other.size,other.sourcegroup,other.sourcegroupCn,other.time_range,other.type | {'other.order':'other.order：desc '}                                                                                                                                                                                                                                                                                                          |
 
   Scenario Outline: RZY-3418:在搜索页验证自定义配置高级算子
     When open the "splSearch.SearchPage" page for uri "/search/"
@@ -67,7 +50,7 @@ Feature: 字段提取搜索验证
     Then I will see the spl search result "<searchResult>"
 
     Examples:
-      | spl             | searchResult                                                                                                    |
+      | spl             | searchResult                                                                                              |
       | appname:dissect | {"other.id":"other.id：123 ","other.domain":"other.domain：rizhiyi.com ","other.url":"other.url：index.do "} |
       | appname:script  | {"other.result.count":"other.result.count：5664 ","other.result.time":"other.result.time：1516189 "}        |
       | appname:base64  | {"other.code":"other.code：hello base64 "}                                                                 |

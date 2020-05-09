@@ -36,8 +36,8 @@ Feature: 字段提取详情验证
     Examples:
       | name                        | rule1        |
 #      | RZY2826高级模式下start_offset的使用 | hex转换        |
-      | RZY1532丢弃key                | KeyValue分解   |
-      | RZY1533保留key                | KeyValue分解   |
+#      | RZY1532丢弃key                | KeyValue分解   |
+#      | RZY1533保留key                | KeyValue分解   |
       | RZY2798group_regex          | KeyValue正则匹配 |
       | RZY1556内容替换                 | 内容替换         |
       | RZY2802手机号码解析               | 手机号码解析       |

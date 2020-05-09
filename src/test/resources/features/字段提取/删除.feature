@@ -35,7 +35,9 @@ Feature: 字段提取删除
       | RZY1547syslog_pri解析         |
       | RZY2798group_regex          |
       | RZY1535KeyValue正则匹配         |
+      | 保留key详情                     |
       | RZY1533保留key                |
+      | 丢弃key详情                     |
       | RZY1532丢弃key                |
       | RZY1555IP格式转换               |
       | ip格式转换详情                    |
