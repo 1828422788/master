@@ -71,6 +71,13 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//a[text()='仪表盘'])[last()]")
     private WebElement dashboard;
 
+    @FindBy(xpath = "(//a[text()='定时任务'])[last()]")
+    private WebElement schedule;
+
+    public WebElement getSchedule() {
+        return schedule;
+    }
+
     public WebElement getDashboard() {
         return dashboard;
     }

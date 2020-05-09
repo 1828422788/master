@@ -52,7 +52,6 @@ Feature: 拓扑图详情页
       | title           | token | inputType | dynamicFields   | searchInput                                   | message  |
       | apache.resp_len | tag3  | 动态菜单      |                 |                                               | 请填写动态字段！ |
       | apache.resp_len | tag3  | 动态菜单      | apache.resp_len |                                               | 请填写搜索内容！ |
-      | apache.resp_len | tag3  | 动态菜单      | apache.resp_len | tag:"sample04061424" \| top 1 apache.resp_len | 返回动态字段成功 |
 
   Scenario Outline: 添加输入项失败
     And I click the detail which name is "auto_topology样例"

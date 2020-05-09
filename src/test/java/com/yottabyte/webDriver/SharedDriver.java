@@ -60,13 +60,13 @@ public class SharedDriver extends EventFiringWebDriver {
     static {
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
         ConfigManager config = new ConfigManager();
-        File conFile = new File("config/log4j2.xml");
-        try {
-            ConfigurationSource c = new ConfigurationSource(new BufferedInputStream(new FileInputStream(conFile)));
-            Configurator.initialize(null, c);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        File conFile = new File("config/log4j2.xml");
+//        try {
+//            ConfigurationSource c = new ConfigurationSource(new BufferedInputStream(new FileInputStream(conFile)));
+//            Configurator.initialize(null, c);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         DesiredCapabilities browser = null;
         try {
             if ("chrome".equalsIgnoreCase(config.get("browser"))) {
