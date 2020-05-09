@@ -7,62 +7,7 @@ Feature: 字段提取前提条件
     And curl update url "module=logriver&key=log_parser.switch_delete_timestamp&value=false"
     And curl restart url "modulename=logriver"
     And curl restart url "modulename=logparserserver"
-    Then I wait for "60000" millsecond
-
-  Scenario: 新建搜索权限
-    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    Then I wait for loading invisible
-    And I click the "Create" button
-    And I set the parameter "Name" with value "AutoTest搜索权限"
-    And I set the parameter "Tag" with value "*"
-    And I click the "Ensure" button
-    Then I will see the success message "操作成功"
-    Then I refresh the website
-    Then I wait for loading invisible
-    When the data name is "{'column':'0','name':'AutoTest搜索权限'}" then i click the "删除" button
-    And I click the "Ensure" button
-    Then I wait for "1000" millsecond
-    Then I will see the success message "删除成功"
-
-
-  Scenario: 授权搜索权限
-    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    Then I wait for loading invisible
-    And I click the "Create" button
-    And I set the parameter "Name" with value "AutoTest搜索权限"
-    And I set the parameter "Tag" with value "*"
-    And I click the "Ensure" button
-    Then I will see the success message "操作成功"
-    Then I refresh the website
-    Then I wait for loading invisible
-    When the data name is "{'column':'0','name':'AutoTest搜索权限'}" then i click the "授权" button
-    And I wait for "ModalContent" will be visible
-    And I "check" the checkbox which name is "wym" in tiny table
-    And I click the "Ensure" button
-    Then I will see the message "保存成功"
-
-  Scenario: RZY-2829:设置用户权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I wait for loading invisible
-    And the data name is "__user_wym__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I wait for loading invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "可查看敏感内容"
-    Then I click the "SaveButton" button
-
-#  Scenario: 设置索引配置
-#    Given open the "roles.ListPage" page for uri "/account/roles/"
-#    And the data name is "__user_wym__" then i click the "授权" button
-#    And I will see the "roles.AuthorizationPage" page
-#    Then I wait for "2000" millsecond
-#    Then I click the "{'TabButton':'索引配置'}" button
-#    And I wait for "Loading" will be invisible
-#    And I "checked" the label before "yotta"
-#    Then I click the "SaveButton" button
-
+    Then I wait for "180000" millsecond
 
   Scenario Outline: 1542、1543
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -135,4 +80,4 @@ Feature: 字段提取前提条件
     Given curl update url "module=logriver&key=log_parser.xml_parse_extract_limit&value=10"
     And curl restart url "modulename=logriver"
     And curl restart url "modulename=logparserserver"
-    Then I wait for "60000" millsecond
+    Then I wait for "120000" millsecond
