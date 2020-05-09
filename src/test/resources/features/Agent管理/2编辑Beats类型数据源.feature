@@ -39,10 +39,10 @@ Feature: Agent编辑Beats类型数据源
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
     Examples:
-      | appnamekind |
-      |   changebeatsappname    |
-      |   changebeatsappname2    |
-      |   change_beatsappname    |
+      | appnamekind         |
+      | changebeatsappname  |
+      | changebeatsappname2 |
+      | change_beatsappname |
 
 
   Scenario Outline: Beats数据源修改appname失败
@@ -54,8 +54,8 @@ Feature: Agent编辑Beats类型数据源
 
     Examples:
       | appnamekind |
-      |   中文    |
-      |   #.。，   |
+      | 中文          |
+      | #.。，        |
 
   Scenario Outline: Beats数据源修改tag成功
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "编辑" button
@@ -65,10 +65,10 @@ Feature: Agent编辑Beats类型数据源
 
 
     Examples:
-      | tagkind |
-      |   changebeatstag    |
-      |   changebeatstag,changesyslogtag2    |
-      |   change_beatstag                    |
+      | tagkind                         |
+      | changebeatstag                  |
+      | changebeatstag,changesyslogtag2 |
+      | change_beatstag                 |
 
   Scenario Outline: Beats数据源修改tag失败
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "编辑" button
@@ -79,8 +79,8 @@ Feature: Agent编辑Beats类型数据源
 
     Examples:
       | tagkind |
-      |   s，s    |
-      |   #￥%…&*   |
+      | s，s     |
+      | #￥%…&*  |
 
 
   Scenario: Beats数据源删除
