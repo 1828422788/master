@@ -186,6 +186,10 @@ public class CreatePage extends PageTemplate {
         return getTableElement("文件和目录");
     }
 
+    public WebElement getPacketbeatTable() {
+        return getTableElement("PacketbeatInput");
+    }
+
     public WebElement getScriptTable() {
         return getTableElement("脚本");
     }
@@ -300,6 +304,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDataSourceSwitchStatus() {
         return getSwitchStatus("autohekafiletest");
+    }
+
+    public WebElement getPacketbeatSwitchStatus() {
+        return getSwitchStatus("autoPacketbeattest");
     }
 
     public WebElement getDiskQuota() {
