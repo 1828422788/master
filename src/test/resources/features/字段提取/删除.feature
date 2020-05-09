@@ -40,6 +40,7 @@ Feature: 字段提取删除
       | RZY1555IP格式转换               |
       | RZY2826高级模式下start_offset的使用 |
       | RZY1548添加GEO解析              |
+      | GEO解析详情验证                   |
       | 多值字段副本                      |
       | RZY3417多值字段                 |
 

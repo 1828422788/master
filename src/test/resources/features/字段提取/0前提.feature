@@ -80,4 +80,4 @@ Feature: 字段提取前提条件
     Given curl update url "module=logriver&key=log_parser.xml_parse_extract_limit&value=10"
     And curl restart url "modulename=logriver"
     And curl restart url "modulename=logparserserver"
-    Then I wait for "120000" millsecond
+    Then I wait for "180000" millsecond
