@@ -35,7 +35,7 @@ Feature: 字段提取详情验证
 
     Examples:
       | name                        | rule1        |
-      | RZY2826高级模式下start_offset的使用 | hex转换        |
+#      | RZY2826高级模式下start_offset的使用 | hex转换        |
       | RZY1532丢弃key                | KeyValue分解   |
       | RZY1533保留key                | KeyValue分解   |
       | RZY2798group_regex          | KeyValue正则匹配 |

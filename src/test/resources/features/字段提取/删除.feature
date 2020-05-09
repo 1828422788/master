@@ -39,6 +39,7 @@ Feature: 字段提取删除
       | RZY1532丢弃key                |
       | RZY1555IP格式转换               |
       | RZY2826高级模式下start_offset的使用 |
+      | hex详情验证                     |
       | RZY1548添加GEO解析              |
       | GEO解析详情验证                   |
       | 多值字段副本                      |
