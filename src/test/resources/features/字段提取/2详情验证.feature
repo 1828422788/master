@@ -12,7 +12,7 @@ Feature: 字段提取详情验证
       | name                 | rule1        | rule2        |
 #      | RZY3417多值字段          | 正则解析         | CSV解析        |
 #      | RZY1548添加GEO解析       | geo解析        | 正则解析         |
-      | RZY1555IP格式转换        | ip格式转换       | 正则解析         |
+#      | RZY1555IP格式转换        | ip格式转换       | 正则解析         |
       | RZY1535KeyValue正则匹配  | KeyValue正则匹配 | 正则解析         |
       | RZY1547syslog_pri解析  | 正则解析         | syslog_pri解析 |
       | RZY1539添加URL解析       | URL解析        | 正则解析         |

@@ -38,6 +38,7 @@ Feature: 字段提取删除
       | RZY1533保留key                |
       | RZY1532丢弃key                |
       | RZY1555IP格式转换               |
+      | ip格式转换详情                    |
       | RZY2826高级模式下start_offset的使用 |
       | hex详情验证                     |
       | RZY1548添加GEO解析              |
