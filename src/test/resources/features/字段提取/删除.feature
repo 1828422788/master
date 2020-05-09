@@ -34,7 +34,9 @@ Feature: 字段提取删除
       | RZY1539添加URL解析              |
       | RZY1547syslog_pri解析         |
       | RZY2798group_regex          |
+      | group_regex详情验证             |
       | RZY1535KeyValue正则匹配         |
+      | KeyValue正则匹配详情验证            |
       | 保留key详情                     |
       | RZY1533保留key                |
       | 丢弃key详情                     |
