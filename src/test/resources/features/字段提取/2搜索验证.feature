@@ -85,7 +85,8 @@ Feature: 字段提取搜索验证
     And I wait for "5000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I wait for "5000" millsecond
+    Then I wait for "60000" millsecond
+    Then I refresh the website
 
   Scenario: RZY-2830:在搜索页验证是否脱敏
 
