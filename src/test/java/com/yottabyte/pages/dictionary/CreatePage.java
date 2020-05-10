@@ -1,6 +1,7 @@
 package com.yottabyte.pages.dictionary;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.DropdownUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -105,5 +106,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTip() {
         return Tip;
+    }
+
+    public WebElement getTagList(){
+        return super.getDropdownList("标签");
     }
 }
