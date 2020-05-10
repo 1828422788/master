@@ -353,7 +353,7 @@ Feature: 字典管理
 #    Then I set the parameter "Tag" with value "<firstTag>"
     And I choose the "<firstTag>" from the "TagList" in config
 #    Then I set the parameter "Tag" with value "<secondTag>"
-    And I choose the "<secondTag>" from the "TagList" in config
+   # And I choose the "<secondTag>" from the "TagList" in config
     Then I wait for "2000" millsecond
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
@@ -363,8 +363,8 @@ Feature: 字典管理
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName                  | newTag | firstTag | secondTag | dictionaryNameWithOutCsv    |
-      | wymtestaddmoretagatlistpage.csv | one, more   | one        | more         | wymtestaddmoretagatlistpage |
+      | dictionaryName                  | newTag    | firstTag | dictionaryNameWithOutCsv    |
+      | wymtestaddmoretagatlistpage.csv | one, more | one,more | wymtestaddmoretagatlistpage |
 
   Scenario Outline: 按照标签搜索字典
 
