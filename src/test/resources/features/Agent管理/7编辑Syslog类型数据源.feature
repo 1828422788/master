@@ -45,8 +45,6 @@ Feature: Agent编辑Syslog类型数据源
     Then I wait for "1000" millsecond
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-
-
     Examples:
       | characterkind |
       |   utf-8    |
@@ -57,8 +55,6 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEditip" with value "<ipkind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-
-
     Examples:
       | ipkind |
       |   1:2::3    |
@@ -71,7 +67,6 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEditip" with value "<ipkind>"
     And I click the "Ensure" button
     Then I will see the element "PreviewMessage" name is "格式错，192.168.1.60 或 *.*.*.* 或 1:2::3 或 1:2:3:4:0:*:5:6"
-
 
     Examples:
       | ipkind |
