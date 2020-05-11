@@ -50,7 +50,6 @@ Feature: Agent编辑Packetbeat类型数据源
     And I click the "Ensure" button
     Then I will see the element "PreviewMessage" name is "请以字母或数字下划线为元素"
 
-
     Examples:
       | appnamekind |
       | 中文          |
@@ -61,7 +60,6 @@ Feature: Agent编辑Packetbeat类型数据源
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-
 
     Examples:
       | tagkind                         |
