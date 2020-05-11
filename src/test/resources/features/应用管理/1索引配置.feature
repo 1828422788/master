@@ -46,13 +46,13 @@ Feature: 应用索引配置(RZY-2183)
     Then I will see the "index.ListPage" page
     Given I click the "AddButton" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.CreatePage" page
     When I set the parameter "Name" with value "auto_app_create"
     And I set the parameter "SavedTime" with value "2"
     And I set the parameter "DivideTime" with value "1"
     And I click the "CreateButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the message "保存成功"
 
   Scenario: 索引编辑
     When I click the "Index" button
@@ -61,11 +61,11 @@ Feature: 应用索引配置(RZY-2183)
     Then I will see the "index.ListPage" page
     When the data name is "{'column':'1','name':'auto_app_create'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.CreatePage" page
     And I set the parameter "Desc" with value "app测试"
     And I click the "SavedButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the message "保存成功"
 
   Scenario: 索引禁用
     When I click the "Index" button
@@ -88,20 +88,20 @@ Feature: 应用索引配置(RZY-2183)
   Scenario: 路由新建
     When I click the "AddButton" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "AppName" with value "apptest"
     And I click the "CreateButton" button
-    Then I will see the message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario: 路由编辑
     When the data name is "apptest" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "Desc" with value "apptestcreate"
     And I click the "SavedButton" button
-    Then I will see the message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario: 路由删除
     When the data name is "apptest" then i click the "删除" button
