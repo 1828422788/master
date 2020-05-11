@@ -23,7 +23,7 @@ Feature: 数据集-新建
    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'无'}"
    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'无'}"
-   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'admin'}"
+#   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'admin'}"
 
     Examples: 新建成功
       | name    | alias  | Spl  |
@@ -51,7 +51,7 @@ Feature: 数据集-新建
     And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'3','name':'无'}"
     And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'4','name':'无数集app之api全部测试用例'}"
     And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'5','name':'auto_package'}"
-    And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'6','name':'admin'}"
+#    And I will see the data "{'column':'0','name':'分组和应用'}" values "{'column':'6','name':'admin'}"
 
 
 
@@ -80,7 +80,7 @@ Feature: 数据集-新建
     #标签
     And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'5','name':'无'}"
     #创建者
-    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'6','name':'admin'}"
+#    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'6','name':'admin'}"
 
 
 
@@ -109,7 +109,7 @@ Feature: 数据集-新建
     #标签
     And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'5','name':'无'}"
     #创建者
-    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'6','name':'admin'}"
+#    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'6','name':'admin'}"
 
 
 
