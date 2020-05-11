@@ -1,4 +1,4 @@
-@agent_packetbeat
+@agent_packetbeat @agent2
 Feature: Agent编辑Packetbeat类型数据源
 
   Background:
@@ -31,45 +31,58 @@ Feature: Agent编辑Packetbeat类型数据源
     And I wait for "2000" millsecond
     Then I will see the element "PacketbeatSwitchStatus" name is "已启用"
 
-  Scenario:编辑修改可执行文件
-    And I click the "EditAutoScript" button
-    And I set the parameter "ExcuteFile" with value "/bin/ls"
-    And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-    
-  Scenario:编辑修改参数
-    And I click the "EditAutoScript" button
-    And I set the parameter "Param" with value "/opt/rizhiyi/parcels/heka-3.1.0.17/add_on/unix/audit.sh"
+  Scenario Outline: Packetbeat数据源修改appname成功
+    Given the data name "autoPacketbeattest" in table "PacketbeatTable" then i click the "编辑" button
+    And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
+    Examples:
+      | appnamekind         |
+      | changePacketbeatsappname  |
+      | changePacketbeatappname2 |
+      | change_Packetbeatsappname |
 
-  Scenario:编辑修改换行规则
-    And I click the "EditAutoScript" button
-    And I set the parameter "ChangeRowRule" with value "\t"
+
+  Scenario Outline: Packetbeat数据源修改appname失败
+    Given the data name "autoPacketbeattest" in table "PacketbeatTable" then i click the "编辑" button
+    And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element "PreviewMessage" name is "请以字母或数字下划线为元素"
 
 
-  Scenario:编辑修改时间间隔
-    And I click the "EditAutoScript" button
-    And I set the parameter "InternalTime" with value "50"
-    And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Examples:
+      | appnamekind |
+      | 中文          |
+      | #.。，        |
 
-
-  Scenario Outline:编辑修改时间间隔种类
-    And I click the "EditAutoScript" button
-    When I choose the "<Internaltimekind>" from the "InternalTimeKind"
-    Then I wait for "1000" millsecond
+  Scenario Outline: Packetbeat数据源修改tag成功
+    Given the data name "any" in table "PacketbeatTable" then i click the "编辑" button
+    And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
     Examples:
-      | Internaltimekind |
-      | 小时               |
-      | 天                |
-      | 分钟               |
-      | 秒                |
+      | tagkind                         |
+      | changePacketbeattag                  |
+      | changePacketbeattag,changePacketbeattag2 |
+      | change_Packetbeatstag                 |
+
+  Scenario Outline: Packetbeat数据源修改tag失败
+    Given the data name "any" in table "PacketbeatTable" then i click the "编辑" button
+    And I set the parameter "Tag" with value "<tagkind>"
+    And I click the "Ensure" button
+    Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
+
+    Examples:
+      | tagkind |
+      | s，s     |
+      | #￥%…&*  |
+
+  Scenario: Packetbeat数据源删除
+    Given the data name "any" in table "PacketbeatTable" then i click the "删除" button
+    And I click the "Ensure" button
+    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
+
 

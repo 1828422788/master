@@ -76,14 +76,13 @@ Feature: Agent编辑Beats类型数据源
     And I click the "Ensure" button
     Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
 
-
     Examples:
       | tagkind |
       | s，s     |
       | #￥%…&*  |
 
 
-  Scenario: Beats数据源删除
+   Scenario: Beats数据源删除
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
