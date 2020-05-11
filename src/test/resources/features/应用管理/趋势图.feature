@@ -52,6 +52,18 @@ Feature: 应用趋势图
       | appName  |
       | TrendApp |
 
+  Scenario Outline: 验证单个资源的app资源范围是否正确
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I wait for loading invisible
+    And I wait for "EmptyText" will be visible
+    And I will see the element "Title" name is "<name>"
+
+    Examples:
+      | name     |
+      | TrendApp |
+
   Scenario Outline: 新建趋势图并存为报表
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "TrendApp" then i click the "打开" button

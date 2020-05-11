@@ -52,6 +52,18 @@ Feature: 应用拓扑图（RZY-2142）
       | appName     |
       | TopologyApp |
 
+  Scenario Outline: 验证资源正确
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "<name>" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I wait for loading invisible
+    Then I will see the search result "app所选资源"
+    And I will see the element "Title" name is "<name>"
+
+    Examples:
+      | name        |
+      | TopologyApp |
+
   Scenario: 新建拓扑图
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "TopologyApp" then i click the "打开" button
