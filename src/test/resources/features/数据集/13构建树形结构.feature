@@ -45,7 +45,7 @@ Feature: 数据集-构建树形结构
     And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'3','name':'无'}"
     And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'4','name':'无'}"
     And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'5','name':'无'}"
-    And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'6','name':'admin'}"
+#    And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'6','name':'admin'}"
 
 
 
@@ -98,7 +98,7 @@ Feature: 数据集-构建树形结构
       #标签
     And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'5','name':'无'}"
       #创建者
-    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'6','name':'admin'}"
+#    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'6','name':'admin'}"
 
 
 
@@ -151,7 +151,7 @@ Feature: 数据集-构建树形结构
       #标签
     And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'5','name':'无'}"
       #创建者
-    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'6','name':'admin'}"
+#    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'6','name':'admin'}"
 
 
 
