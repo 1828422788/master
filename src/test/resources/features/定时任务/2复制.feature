@@ -15,7 +15,7 @@ Feature: 定时任务复制
     And I set the parameter "Describe" with value "testing"
     And I set the parameter "Describe" with value "testing"
     And I choose the "AutoTestTag" from the "GroupComboBox"
-    And I choose the "TrendApp" from the "AppComboBox"
+    And I choose the "d" from the "AppComboBox"
 
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
@@ -74,7 +74,7 @@ Feature: 定时任务复制
     And I will see the input element "Number" value will be "123"
     And I will see the element "Resource" contains "(*)"
     And I cancel selection "AutoTestTag" from the "TaskGroup"
-    And I cancel selection "TrendApp" from the "TaskApp"
+    And I cancel selection "d" from the "TaskApp"
     And I will see the input element "Period" value will be "5"
 
   Scenario Outline: delete_copiedTask
