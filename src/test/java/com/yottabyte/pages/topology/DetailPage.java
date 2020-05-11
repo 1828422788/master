@@ -240,6 +240,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='value'])[last()]")
     private WebElement nodeValue;
 
+    @FindBy(xpath = "(//div[@class='value'])[2]")
+    private WebElement nodeValue2;
+
+    public WebElement getNodeValue2() {
+        return nodeValue2;
+    }
+
     @FindBy(className = "topology-node-title")
     private WebElement nodeTitle;
 
