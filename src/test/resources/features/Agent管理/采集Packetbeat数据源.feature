@@ -1,4 +1,4 @@
-@agent_packetbeat
+@agent_packetbeat @qgent2
 Feature: Agent编辑Packetbeat类型数据源
 
   Background:
