@@ -160,4 +160,4 @@ Feature: 字段提取格式化处理
     Then I will see the spl search result "{"other.date":"other.date：20180821 ",'other.time':'other.time：17:03:49 ','other.timestampstamp':'other.timestampstamp：20180821 17:03:49 '}"
     Examples:
       | startDate  | endDate    | startTime    | endTime |
-      | 2018-08-01 | 2018-09-01 | 00:00:00.000 |         |
+      | 2018-08-21 | 2018-08-22 | 00:00:00.000 |         |

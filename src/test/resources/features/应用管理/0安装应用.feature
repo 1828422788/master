@@ -31,16 +31,6 @@ Feature: 应用安装（RZY-1988）
     Examples:
       | appName                     |
       | AutoTestAppWithAllResources |
-      | EventApp                    |
-      | ReportApp                   |
-      | DashboardApp                |
-      | AlertApp                    |
-      | TrendApp                    |
-      | SavedsearchesApp            |
-      | KnowledgeApp                |
-      | MacroApp                    |
-      | TopologyApp                 |
-      | ConfigsApp                  |
       | AuthApp                     |
 
   Scenario Outline: 新建测试app

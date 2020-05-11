@@ -12,8 +12,8 @@ Feature: 字段提取详情验证
       | name                 | rule1        | rule2        |
 #      | RZY3417多值字段          | 正则解析         | CSV解析        |
 #      | RZY1548添加GEO解析       | geo解析        | 正则解析         |
-      | RZY1555IP格式转换        | ip格式转换       | 正则解析         |
-      | RZY1535KeyValue正则匹配  | KeyValue正则匹配 | 正则解析         |
+#      | RZY1555IP格式转换        | ip格式转换       | 正则解析         |
+#      | RZY1535KeyValue正则匹配  | KeyValue正则匹配 | 正则解析         |
       | RZY1547syslog_pri解析  | 正则解析         | syslog_pri解析 |
       | RZY1539添加URL解析       | URL解析        | 正则解析         |
       | RZY1540配置UserAgent解析 | 正则解析         | user agent解析 |
@@ -25,7 +25,7 @@ Feature: 字段提取详情验证
       | RZY2877base64解析      | base64解析     | 正则解析         |
       | RZY2883unicode解析     | 自定义解析        | 正则解析         |
       | RZY2865支持通配符         | JSON解析       | 字段重命名        |
-      | 脱敏                   | 脱敏配置         | 正则解析         |
+#      | 脱敏                   | 脱敏配置         | 正则解析         |
 
   Scenario Outline: 验证详情b
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -35,10 +35,10 @@ Feature: 字段提取详情验证
 
     Examples:
       | name                        | rule1        |
-      | RZY2826高级模式下start_offset的使用 | hex转换        |
-      | RZY1532丢弃key                | KeyValue分解   |
-      | RZY1533保留key                | KeyValue分解   |
-      | RZY2798group_regex          | KeyValue正则匹配 |
+#      | RZY2826高级模式下start_offset的使用 | hex转换        |
+#      | RZY1532丢弃key                | KeyValue分解   |
+#      | RZY1533保留key                | KeyValue分解   |
+#      | RZY2798group_regex          | KeyValue正则匹配 |
       | RZY1556内容替换                 | 内容替换         |
       | RZY2802手机号码解析               | 手机号码解析       |
       | RZY2803解析到顶层字段              | 手机号码解析       |

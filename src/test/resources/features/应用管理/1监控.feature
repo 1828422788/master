@@ -1,6 +1,57 @@
 @all @smoke @app @appSmoke
 Feature: 应用监控模块（RZY-2122）
 
+  Scenario Outline: 新建单个资源app
+    Given open the "app.ListPage" page for uri "/app/list/"
+    And I click the "CreateButton" button
+    Then I will see the "app.CreatePage" page
+    Given delete file "/target/download-files/<name>.tar"
+    And I set the parameter "NameInput" with value "<name>"
+    And I click the "AddResource" button
+    And I set the parameter "SearchResourceInput" with value "app所选资源"
+    And I wait for "SearchLoading" will be invisible
+    And I "check" the checkbox which name is "app所选资源" in tiny table
+    And I click the "SaveMenuButton" button
+    And I click the "AddMenuButton" button under some element
+    And I wait for "MenuName" will be visible
+    And I set the parameter "MenuName" with value "<menuName>"
+    And I set the parameter "Url" with value "<url>"
+    And I click the "SaveMenuButton" button
+    And I choose the "<menuName>" from the "DefaultPage"
+    And I click the "CurrentApp" button
+    And I click the "ColorPicker" button
+    And I set the parameter "ColorValue" with value "<color>"
+    And I click the "CreateButton" button under some element
+    And I will see the "app.ListPage" page
+    Then I wait for "CreateButton" will be visible
+
+    Examples:
+      | name     | menuName | url      | color   |
+      | AlertApp | 监控       | /alerts/ | #B8FFEE |
+
+  Scenario Outline: 安装资源成功
+    Given open the "app.ListPage" page for uri "/app/list/"
+    And I click the "InstallButton" button
+    Then I will see the "app.InstallPage" page
+    And I wait for "AddDataset" will be visible
+    When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
+    And I will see the element "VerifyText" name is "上传完成"
+    And I choose the "__admin__" from the "Role"
+    And I click the "AddDataset" button
+    And I set the parameter "SearchInput" with value "AutoTestApp"
+    And I click the "SearchIcon" button
+    And I drag the scroll bar to the element "ResultDataset"
+    And I click the "ResultDataset" button
+    And I click the "Ensure" button
+    And I click the "NextButton" button under some element
+    And I click the "NextButton" button
+    And I wait for "ImportSuccess" will be visible
+    And I will see the element "ImportSuccess" name is "添加成功"
+
+    Examples:
+      | appName  |
+      | AlertApp |
+
   Scenario: 新建监控
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AlertApp" then i click the "打开" button

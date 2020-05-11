@@ -262,15 +262,17 @@ public class IChooseValueFromSelectList {
      */
     @And("^I cancel selection \"([^\"]*)\" from the \"([^\"]*)\" in config$")
     public void iCancelSelectionFromTheInConfig(List<String> values, String selectListName) {
-        WebElement parentElement = GetElementFromPage.getWebElementWithName(selectListName);
-        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", parentElement);
+        WebElement element = GetElementFromPage.getWebElementWithName(selectListName);
+        if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", element);
         }
-        iCancelSelectionFromThe(values, parentElement);
-        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", parentElement);
+        iCancelSelectionFromThe(values, element);
+        if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", element);
         }
     }
+
+
 
 //    public static void main(String args[]) throws InterruptedException {
 //        SharedDriver driver = new SharedDriver();

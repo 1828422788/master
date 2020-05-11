@@ -44,11 +44,12 @@ Feature: 权限-background
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'索引配置'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "yotta"
+    And I "checked" the checkbox which name is "yotta" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
 
 #  @auth
   Scenario: 添加授权验证用户

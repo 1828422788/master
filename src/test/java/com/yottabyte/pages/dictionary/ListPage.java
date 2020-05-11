@@ -247,4 +247,8 @@ public class ListPage extends ListPageFactory {
     public WebElement getTip() {
         return tip;
     }
+
+    public WebElement getTagList(){
+        return dropdownUtils.getDropdownList("标签");
+    }
 }

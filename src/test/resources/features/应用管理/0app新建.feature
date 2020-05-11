@@ -40,42 +40,6 @@ Feature: 应用新建（RZY-1899）
     And I click the "Ensure" button
 
   @smoke @appSmoke
-  Scenario Outline: 新建单个资源app
-    Given delete file "/target/download-files/<name>.tar"
-    And I set the parameter "NameInput" with value "<name>"
-    And I click the "AddResource" button
-    And I set the parameter "SearchResourceInput" with value "app所选资源"
-    And I wait for "SearchLoading" will be invisible
-    And I "check" the checkbox which name is "app所选资源" in tiny table
-    And I click the "SaveMenuButton" button
-    And I click the "AddMenuButton" button under some element
-    And I wait for "MenuName" will be visible
-    And I set the parameter "MenuName" with value "<menuName>"
-    And I set the parameter "Url" with value "<url>"
-    And I click the "SaveMenuButton" button
-    And I choose the "<menuName>" from the "DefaultPage"
-    And I click the "CurrentApp" button
-#    And I click the "ColorPicker" button
-#    And I set the parameter "ColorValue" with value "<color>"
-#    And I click the "EnsureColourButton" button
-    And I click the "CreateButton" button
-    And I will see the "app.ListPage" page
-    Then I wait for "CreateButton" will be visible
-
-    Examples:
-      | name             | menuName | url             | color   |
-      | EventApp         | 事件操作     | /event/action/  | #68E632 |
-      | ReportApp        | 报表       | /reports/       | #84460B |
-      | DashboardApp     | 仪表盘      | /dashboard/     | #C6B8FF |
-      | AlertApp         | 监控       | /alerts/        | #B8FFEE |
-      | TrendApp         | 趋势图      | /trend/         | #E4FFE6 |
-      | SavedsearchesApp | 已存搜索     | /savedsearches/ | #FFE6E4 |
-      | KnowledgeApp     | 知识       | /knowledge/     | #FF6C5C |
-      | MacroApp         | 搜索宏      | /macro/         | #5CFFA0 |
-      | TopologyApp      | 拓扑图      | /topology/      | #06030B |
-      | ConfigsApp       | 字段提取     | /configs/       | #0542F9 |
-
-  @smoke @appSmoke
   Scenario Outline: 新建App
     Given delete file "/target/download-files/<name>.tar"
     When I set the parameter "NameInput" with value "<name>"
@@ -126,10 +90,9 @@ Feature: 应用新建（RZY-1899）
     And I click the "SaveMenuButton" button
     And I choose the "搜索" from the "DefaultPage"
     And I click the "CurrentApp" button
-#    And I click the "ColorPicker" button
-#    And I set the parameter "ColorValue" with value "#68E632"
-#    And I click the "EnsureColourButton" button
-    And I click the "CreateButton" button
+    And I click the "ColorPicker" button
+    And I set the parameter "ColorValue" with value "#68E632"
+    And I click the "CreateButton" button under some element
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible
 
@@ -159,10 +122,9 @@ Feature: 应用新建（RZY-1899）
     And I click the "SaveMenuButton" button
     And I choose the "角色权限" from the "DefaultPage"
     And I click the "CurrentApp" button
-#    And I click the "ColorPicker" button
-#    And I set the parameter "ColorValue" with value "#68E632"
-#    And I click the "EnsureColourButton" button
-    And I click the "CreateButton" button
+    And I click the "ColorPicker" button
+    And I set the parameter "ColorValue" with value "#68E632"
+    And I click the "CreateButton" button under some element
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible
 

@@ -109,4 +109,4 @@ Feature: 字段提取Json、xml解析
     And curl update url "module=logriver&key=log_parser.switch_delete_timestamp&value=false"
     And curl restart url "modulename=logriver"
     And curl restart url "modulename=logparserserver"
-    Then I wait for "60000" millsecond
+    Then I wait for "120000" millsecond

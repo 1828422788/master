@@ -15,8 +15,8 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    Then I set the parameter "GroupInput" with value "wymtest1"
-    And I choose the "wymtest1" from the "Group" in config
+#    Then I set the parameter "GroupInput" with value "wymtest1"
+    And I choose the "wymtest1" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
@@ -61,8 +61,8 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    Then I set the parameter "GroupInput" with value "<oldTag>"
-    And I choose the "<oldTag>" from the "Group" in config
+#    Then I set the parameter "GroupInput" with value "<oldTag>"
+    And I choose the "<oldTag>" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
@@ -73,8 +73,8 @@ Feature: 字典管理
     And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I wait for element "ResourceTag" change text to "<oldTag>"
     Then I click the "ClearIconOld" button
-    Then I set the parameter "GroupInput" with value "<newTag>"
-    And I choose the "<newTag>" from the "Group" in config
+#    Then I set the parameter "GroupInput" with value "<newTag>"
+    And I choose the "<newTag>" from the "TagList" in config
     Then I wait for element "ResourceTag" change text to "<newTag>"
     Then I click the "SaveButton" button
     Then I wait for "Tip" will be visible
@@ -95,8 +95,8 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    Then I set the parameter "GroupInput" with value "<oldTag>"
-    And I choose the "<oldTag>" from the "Group" in config
+#    Then I set the parameter "GroupInput" with value "<oldTag>"
+    And I choose the "<oldTag>" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
@@ -106,8 +106,8 @@ Feature: 字典管理
     Then I will see the "dictionary.CreatePage" page
     And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I wait for element "ResourceTag" change text to "<oldTag>"
-    Then I set the parameter "GroupInput" with value "<moreTag>"
-    Then I choose the "<moreTag>" from the "Group" in config
+#    Then I set the parameter "GroupInput" with value "<moreTag>"
+    Then I choose the "<moreTag>" from the "TagList" in config
     Then I click the "SaveButton" button
     Then I wait for "Tip" will be visible
     Then I will see the message "更新字典内容成功"
@@ -127,10 +127,10 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    Then I set the parameter "GroupInput" with value "first"
-    And I choose the "first" from the "Group" in config
-    Then I set the parameter "GroupInput" with value "second"
-    And I choose the "second" from the "Group" in config
+#    Then I set the parameter "GroupInput" with value "first"
+    And I choose the "first" from the "TagList" in config
+#    Then I set the parameter "GroupInput" with value "second"
+    And I choose the "second" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
@@ -293,8 +293,8 @@ Feature: 字典管理
     Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
-    Then I set the parameter "Tag" with value "tag"
-    And I choose the "tag" from the "Group" in config
+#    Then I set the parameter "Tag" with value "tag"
+    And I choose the "tag" from the "TagList" in config
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
@@ -313,8 +313,8 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    Then I set the parameter "GroupInput" with value "<oldTag>"
-    And I choose the "<oldTag>" from the "Group" in config
+#    Then I set the parameter "GroupInput" with value "<oldTag>"
+    And I choose the "<oldTag>" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
@@ -323,8 +323,8 @@ Feature: 字典管理
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
     Then I click the "ClearIconOld" button
-    Then I set the parameter "Tag" with value "<newTag>"
-    And I choose the "<newTag>" from the "Group" in config
+#    Then I set the parameter "Tag" with value "<newTag>"
+    And I choose the "<newTag>" from the "TagList" in config
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
@@ -350,10 +350,10 @@ Feature: 字典管理
     Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
-    Then I set the parameter "Tag" with value "<firstTag>"
-    And I choose the "<firstTag>" from the "Group" in config
-    Then I set the parameter "Tag" with value "<secondTag>"
-    And I choose the "<secondTag>" from the "Group" in config
+#    Then I set the parameter "Tag" with value "<firstTag>"
+    And I choose the "<firstTag>" from the "TagList" in config
+#    Then I set the parameter "Tag" with value "<secondTag>"
+   # And I choose the "<secondTag>" from the "TagList" in config
     Then I wait for "2000" millsecond
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
@@ -363,8 +363,8 @@ Feature: 字典管理
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName                  | newTag | firstTag | secondTag | dictionaryNameWithOutCsv    |
-      | wymtestaddmoretagatlistpage.csv | 1, 2   | 1        | 2         | wymtestaddmoretagatlistpage |
+      | dictionaryName                  | newTag    | firstTag | dictionaryNameWithOutCsv    |
+      | wymtestaddmoretagatlistpage.csv | one, more | one,more | wymtestaddmoretagatlistpage |
 
   Scenario Outline: 按照标签搜索字典
 
@@ -373,8 +373,8 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    Then I set the parameter "GroupInput" with value "<dictionaryNameWithOutCsv>"
-    And I choose the "<dictionaryNameWithOutCsv>" from the "Group" in config
+#    Then I set the parameter "GroupInput" with value "<dictionaryNameWithOutCsv>"
+    And I choose the "<dictionaryNameWithOutCsv>" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
@@ -396,10 +396,10 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    Then I set the parameter "GroupInput" with value "first"
-    And I choose the "first" from the "Group" in config
-    Then I set the parameter "GroupInput" with value "second"
-    And I choose the "second" from the "Group" in config
+#    Then I set the parameter "GroupInput" with value "first"
+    And I choose the "first" from the "TagList" in config
+#    Then I set the parameter "GroupInput" with value "second"
+    And I choose the "second" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
