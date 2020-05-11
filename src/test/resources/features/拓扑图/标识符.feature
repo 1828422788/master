@@ -4,14 +4,14 @@ Feature: 拓扑图标识符
   Background:
     Given open the "topology.ListPage" page for uri "/topology/"
 
-  Scenario Outline: 新建拓扑图
-    When I click the "Create" button
-    And I set the parameter "NameInput" with value "<name>"
-    And I click the "Ensure" button
-
-    Examples:
-      | name  |
-      | 测试标识符 |
+#  Scenario Outline: 新建拓扑图
+#    When I click the "Create" button
+#    And I set the parameter "NameInput" with value "<name>"
+#    And I click the "Ensure" button
+#
+#    Examples:
+#      | name  |
+#      | 测试标识符 |
 
   Scenario: RZY-2515：标识前后缀
     When I click the detail which name is "测试标识符"
@@ -82,6 +82,7 @@ Feature: 拓扑图标识符
     And I wait for "1000" millsecond
     And I click the "Apply" button
     And I click the "Save" button
+    And I wait for "NodeValue2" will be visible
     And I save the result "{'Value':'NodeValue'}"
     And I refresh the website
     And I accept alert window
