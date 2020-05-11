@@ -169,12 +169,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='图表尺寸']/following-sibling::div//input)[2]")
     private WebElement height;
 
-    //@FindBy(xpath = "(//label[text()='图表位置']/following-sibling::div//input)[1]")
-    @FindBy(xpath = "(//label[text()='图表位移']/following-sibling::div//input)[1]")
+    @FindBy(xpath = "(//label[text()='位置']/following-sibling::div//input)[1]")
+   // @FindBy(xpath = "(//label[text()='图表位移']/following-sibling::div//input)[1]")
     private WebElement chartXaxis;
 
-   // @FindBy(xpath = "(//label[text()='图表位置']/following-sibling::div//input)[2]")
-    @FindBy(xpath = "(//label[text()='图表位移']/following-sibling::div//input)[2]")
+   @FindBy(xpath = "(//label[text()='位置']/following-sibling::div//input)[2]")
+    //@FindBy(xpath = "(//label[text()='图表位移']/following-sibling::div//input)[2]")
     private WebElement chartYaxis;
 
     @FindBy(xpath = "(//div[text()='极坐标系']/following-sibling::div//label[contains(text(),'中心纬度,经度')]/following-sibling::div//input)[2]")

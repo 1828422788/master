@@ -1,4 +1,4 @@
-@all @timedTask @saveAsTimedTask
+@saveAsTimedTask
 Feature: 定时任务保存为
 
 # 26
