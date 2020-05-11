@@ -54,6 +54,7 @@ Feature: Agent添加数据源
     And I click the "DateEditor" button
     And I click the "WholeTime" button
     And I click the "SearchButton" button
+    And I wait for "5000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
 

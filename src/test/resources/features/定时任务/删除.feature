@@ -1,7 +1,7 @@
-@clean @cleanTimedTask @cleanKate
+
 Feature: 定时任务删除
 
-
+  @clean @cleanTimedTask @cleanKate
   Scenario Outline: delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"
@@ -10,6 +10,7 @@ Feature: 定时任务删除
     And I click the "Ensure" button under some element
     Then I will see the success message "删除成功"
 
+    @clean @cleanTimedTask @cleanKate
     Examples:
     |    name            |
     |  sql_server_3358   |
@@ -32,7 +33,7 @@ Feature: 定时任务删除
     |  crontab_7min      |
     |  Test_StartTomorrow|
 
-
+    @cleanSaveAsTimedTask
     Examples:
       |    name             |
       |  3352_Chain         |
@@ -62,6 +63,7 @@ Feature: 定时任务删除
       |  3329_AreaChart     |
       |  3328_LineChart     |
 
+  @clean @cleanTimedTask @cleanKate
   Scenario Outline: delete_complement
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"

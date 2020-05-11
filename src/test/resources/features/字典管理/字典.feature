@@ -128,9 +128,9 @@ Feature: 字典管理
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
 #    Then I set the parameter "GroupInput" with value "first"
-    And I choose the "first" from the "TagList" in config
+    And I choose the "<twoTag>" from the "TagList" in config
 #    Then I set the parameter "GroupInput" with value "second"
-    And I choose the "second" from the "TagList" in config
+#    And I choose the "second" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
@@ -151,8 +151,8 @@ Feature: 字典管理
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName      | newTag | dictionaryNameWithOutCsv |
-      | wymtestcleartag.csv | 无      | wymtestcleartag          |
+      | dictionaryName      | newTag | dictionaryNameWithOutCsv | twoTag       |
+      | wymtestcleartag.csv | 无      | wymtestcleartag          | first,second |
 
   Scenario Outline: RZY-4140上传非同名文件
 
@@ -294,7 +294,7 @@ Feature: 字典管理
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
 #    Then I set the parameter "Tag" with value "tag"
-    And I choose the "tag" from the "TagList" in config
+    And I choose the "<newTag>" from the "TagList" in config
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
@@ -303,8 +303,8 @@ Feature: 字典管理
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName                 | newTag | dictionaryNameWithOutCsv   |
-      | wymtestaddonetagatlistpage.csv | tag    | wymtestaddonetagatlistpage |
+      | dictionaryName                 | newTag   | dictionaryNameWithOutCsv   |
+      | wymtestaddonetagatlistpage.csv | wymtest1 | wymtestaddonetagatlistpage |
 
   Scenario Outline: RZY-4146(列表页修改标签old->new)
 
@@ -351,7 +351,7 @@ Feature: 字典管理
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
 #    Then I set the parameter "Tag" with value "<firstTag>"
-    And I choose the "<firstTag>" from the "TagList" in config
+    And I choose the "<twoTag>" from the "TagList" in config
 #    Then I set the parameter "Tag" with value "<secondTag>"
    # And I choose the "<secondTag>" from the "TagList" in config
     Then I wait for "2000" millsecond
@@ -363,7 +363,7 @@ Feature: 字典管理
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName                  | newTag    | firstTag | dictionaryNameWithOutCsv    |
+      | dictionaryName                  | newTag    | twoTag   | dictionaryNameWithOutCsv    |
       | wymtestaddmoretagatlistpage.csv | one, more | one,more | wymtestaddmoretagatlistpage |
 
   Scenario Outline: 按照标签搜索字典

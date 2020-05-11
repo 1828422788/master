@@ -11,7 +11,7 @@ Feature: 定时任务_结果处理方式
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I wait for element "SelectedUser" change text to "admin"
+    And I wait for element "SelectedUser" change text to "kadmin"
     And I set the parameter "TaskName" with value "<name>_<caseNum>"
     And I set the parameter "Describe" with value "testing"
     And I choose the "AutoTestTag" from the "GroupComboBox"

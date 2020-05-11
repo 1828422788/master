@@ -74,3 +74,9 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Compressed" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+
+  Scenario: 输出配置修改发送速率限制
+    Given the data name "无" in table "OutputTable" then i click the "编辑" button
+    And I click the "Compressed" button
+    And I click the "Ensure" button
+    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"

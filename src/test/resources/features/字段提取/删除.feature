@@ -71,7 +71,7 @@ Feature: 字段提取删除
 
   Scenario: 删除搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    When the data name is "{'column':'0','name':'AutoTest搜索权限'}" then i click the "删除" button
+    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "删除" button
     And I click the "Ensure" button
     Then I wait for "1000" millsecond
     Then I will see the success message "删除成功"
