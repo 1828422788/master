@@ -6,13 +6,13 @@ Feature: 字段提取脱敏配置
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     Then I wait for loading invisible
     And I click the "Create" button
-    And I set the parameter "Name" with value "AutoTest搜索权限"
+    And I set the parameter "Name" with value "wymAutoTest搜索权限"
     And I set the parameter "Tag" with value "*"
     And I click the "Ensure" button
     Then I will see the success message "操作成功"
     Then I refresh the website
     Then I wait for loading invisible
-    When the data name is "{'column':'0','name':'AutoTest搜索权限'}" then i click the "授权" button
+    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "授权" button
     And I wait for "ModalContent" will be visible
     Then I wait for loading invisible
     And I "check" the checkbox which name is "wym" in tiny table
