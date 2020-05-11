@@ -206,7 +206,9 @@ public class CreatePage extends PageTemplate {
         return getTableElement("Beats");
     }
 
-
+    public WebElement getOutputTable() {
+        return getTableElement("输出配置");
+    }
 
     public WebElement getSyslogTable() {
         return getTableElement("Syslog");
@@ -301,6 +303,13 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='清理输出源缓存']//ancestor::li")
     private WebElement CleanOutputCache;
+
+    public WebElement getCompressed() {
+        return Compressed;
+    }
+
+    @FindBy(xpath = "//button[@id='ConfigModify_compressed']")
+    private WebElement Compressed;
 
     public WebElement getDataSourceSwitchStatus() {
         return getSwitchStatus("autohekafiletest");
