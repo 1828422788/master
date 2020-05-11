@@ -7,7 +7,7 @@ Feature: 字段提取正则片段解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-502103: User priv level changed: Uname: enable_15 From: 1 To: 15"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
+    And I choose the "正则解析" from the "ParseRule" in config
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","multiline": false,"extract": [[{"regex": "[Uu]ser\\s[\"|']([^'\"]*)[\"|']","fields": {"user": "$1"},"name": "user_for_cisco"}, {"regex": "\\sUname:\\s(.*?)\\s","fields": {"user": "$1"},"name": "uname_for_cisco"}]],"add_fields": []}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
@@ -26,7 +26,7 @@ Feature: 字段提取正则片段解析
     Then I will see the "configs.CreatePage" page
     And I set the parameter "LogSample" with value "2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-111010: User 'enable_15', running 'CLI' from IP 192.168.1.11, executed 'debug http'"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
+    And I choose the "正则解析" from the "ParseRule" in config
     And I click the "ChangeToJson" button under some element
     And I set the parameter "{"source": "raw_message","multiline": false,"extract": [[{"regex": "[Uu]ser\\s[\"|']([^'\"]*)[\"|']","fields": {"user": "$1"},"name": "user_for_cisco"}, {"regex": "\\sUname:\\s(.*?)\\s","fields": {"user": "$1"},"name": "uname_for_cisco"}]],"add_fields": []}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button

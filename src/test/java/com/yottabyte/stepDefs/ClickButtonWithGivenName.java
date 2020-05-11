@@ -123,7 +123,7 @@ public class ClickButtonWithGivenName {
     @And("^the data name is \"([^\"]*)\" then i will see \"([^\"]*)\" button$")
     public void checkButton(String dataName, String result) {
         WebElement tr = listPageUtils.getTr(dataName);
-        Assert.assertTrue(tr.getText().contains(result));
+        Assert.assertTrue("实际值：" + tr.getText(), tr.getText().contains(result));
     }
 
     /**
@@ -473,5 +473,12 @@ public class ClickButtonWithGivenName {
         if (currentStatus.contains("checked") && "uncheck".equals(status) || !currentStatus.contains("checked") && "check".equals(status)) {
             checkbox.click();
         }
+    }
+
+    @When("^the data name is \"([^\"]*)\" then I click the \"([^\"]*)\" button in auth table$")
+    public void theDataNameIsThenIClickTheButtonInAuthTable(String name, String buttonName) {
+        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
+        WebElement button = tr.findElement(By.xpath(".//span[text()='" + buttonName + "']"));
+        button.click();
     }
 }

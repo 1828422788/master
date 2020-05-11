@@ -23,11 +23,13 @@ Feature: Agent编辑Beats类型数据源
   Scenario: 修改beats数据源禁用
     Given the data name "192.168.1.139:299" in agent table "BeatsTable" then i click the "close" switch
     Then I wait for loading invisible
+    And I wait for "5000" millsecond
     Then I will see the element "getBeatsSwitchStatus" name is "已禁用"
 
   Scenario: Beats数据源启用
     Given the data name "192.168.1.139:299" in agent table "BeatsTable" then i click the "open" switch
     Then I wait for loading invisible
+    And I wait for "5000" millsecond
     Then I will see the element "getBeatsSwitchStatus" name is "已启用"
 
   Scenario Outline: Beats数据源修改appname成功
@@ -37,10 +39,10 @@ Feature: Agent编辑Beats类型数据源
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
     Examples:
-      | appnamekind |
-      |   changebeatsappname    |
-      |   changebeatsappname2    |
-      |   change_beatsappname    |
+      | appnamekind         |
+      | changebeatsappname  |
+      | changebeatsappname2 |
+      | change_beatsappname |
 
 
   Scenario Outline: Beats数据源修改appname失败
@@ -52,8 +54,8 @@ Feature: Agent编辑Beats类型数据源
 
     Examples:
       | appnamekind |
-      |   中文    |
-      |   #.。，   |
+      | 中文          |
+      | #.。，        |
 
   Scenario Outline: Beats数据源修改tag成功
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "编辑" button
@@ -63,10 +65,10 @@ Feature: Agent编辑Beats类型数据源
 
 
     Examples:
-      | tagkind |
-      |   changebeatstag    |
-      |   changebeatstag,changesyslogtag2    |
-      |   change_beatstag                    |
+      | tagkind                         |
+      | changebeatstag                  |
+      | changebeatstag,changesyslogtag2 |
+      | change_beatstag                 |
 
   Scenario Outline: Beats数据源修改tag失败
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "编辑" button
@@ -74,14 +76,13 @@ Feature: Agent编辑Beats类型数据源
     And I click the "Ensure" button
     Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
 
-
     Examples:
       | tagkind |
-      |   s，s    |
-      |   #￥%…&*   |
+      | s，s     |
+      | #￥%…&*  |
 
 
-  Scenario: Beats数据源删除
+   Scenario: Beats数据源删除
     Given the data name "192.168.1.139:299" in table "BeatsTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"

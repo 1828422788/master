@@ -7,8 +7,8 @@ Feature: 字段提取手机号码解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "18840824121"
     And I click the "AddRule" button
-    And I choose the "手机号码解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "手机号码解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I click the "<check>" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible

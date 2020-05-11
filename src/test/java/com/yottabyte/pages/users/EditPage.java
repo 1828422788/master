@@ -46,11 +46,20 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "btn-submit")
     private WebElement saveButton;
 
-    @FindBy(className = "el-message-box__message")
-    private WebElement message;
-
-    @FindBy(xpath = "//label[text()='可管理角色']/following-sibling::div//i")
+    @FindBy(id = "AccountUpdate_authorizationRoles")
     private WebElement manageRole;
+
+    @FindBy(id = "AccountUpdate_roles")
+    private WebElement roles;
+
+    @FindBy(className = "ant-message-success")
+    private WebElement successMessage;
+
+    public WebElement getRoles() {
+        roles.click();
+        return super.getLastDropdownList();
+    }
+
 
     public WebElement getManageRole() {
         manageRole.click();
@@ -104,11 +113,8 @@ public class EditPage extends PageTemplate {
         return saveButton;
     }
 
+    @Override
     public WebElement getSuccessMessage() {
-        return message;
-    }
-
-    public WebElement getErrorMessage() {
-        return message;
+        return successMessage;
     }
 }

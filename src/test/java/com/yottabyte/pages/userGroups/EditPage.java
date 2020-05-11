@@ -32,8 +32,8 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "hoist-list")
     private WebElement selectedList;
 
-    @FindBy(className = "el-message__group")
-    private WebElement suspensionMessage;
+    @FindBy(className = "ant-message-success")
+    private WebElement successMessage;
 
     @FindBy(className = "el-message-box__message")
     private WebElement message;
@@ -67,6 +67,16 @@ public class EditPage extends PageTemplate {
 
     @FindBy(xpath = "//*[contains(text(),'暂无数据')]")
     private WebElement noData;
+
+    @FindBy(xpath = "//a[text()='添加管理员']")
+    private WebElement addAdmin;
+
+    @FindBy(xpath = "(//span[text()='保存'])[last()]/ancestor::button")
+    private WebElement saveAdmin;
+
+    public WebElement getSaveAdmin() {
+        return saveAdmin;
+    }
 
     public WebElement getNoData() {
         return noData;
@@ -140,7 +150,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getSuccessMessage() {
-        return suspensionMessage;
+        return successMessage;
     }
 
     public WebElement getErrorMessage() {
@@ -156,6 +166,6 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getAddAdmin() {
-        return getContainsTextButton("添加管理员");
+        return addAdmin;
     }
 }

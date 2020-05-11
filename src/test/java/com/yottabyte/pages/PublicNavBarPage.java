@@ -66,7 +66,7 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(className = "el-loading-mask")
     private WebElement loadingElement;
 
-    @FindBy(className = "icon-shezhi_icon")
+    @FindBy(xpath = "(//i[contains(@class,'css-ifnfqv ')])[3]")
     private WebElement setting;
 
     @FindBy(xpath = "//span[text()='资源']/ancestor::p//following-sibling::div/a")
@@ -93,7 +93,7 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='权限']/ancestor::p/following-sibling::div")
     private WebElement auth;
 
-    @FindBy(id="yw-nav-system")
+    @FindBy(xpath = "(//i[contains(@class,'css-ifnfqv ')])[2]")
     private WebElement system;
 
     @FindBy(xpath = "//span[text()='数据']/ancestor::p/following-sibling::div")
@@ -114,19 +114,19 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'帮助')]/ancestor::p/following-sibling::div")
     private WebElement helpDocs;
 
-    @FindBy(id = "yw-subnav")
+    @FindBy(className = "ant-layout-header")
     private WebElement subnav;
 
     @FindBy(xpath = "//i[@class='iconfont icon-owner_icon']/following-sibling::span")
     private WebElement loginUser;
 
-    @FindBy(xpath = "//div[@class='el-popover yw-nav-popover' and not(contains(@style,'display'))]")
+    @FindBy(xpath = "(//*[@class='ant-popover-inner-content'])[last()]")
     private WebElement menu;
 
-    @FindBy(id = "yw-nav-help")
+    @FindBy(xpath = "(//i[contains(@class,'css-ifnfqv ')])[4]")
     private WebElement help;
 
-    @FindBy(className = "el-badge")
+    @FindBy(xpath = "(//i[contains(@class,'css-ifnfqv ')])[3]")
     private WebElement news;
 
     @FindBy(id = "yw-nav-app")

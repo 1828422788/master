@@ -5,13 +5,14 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用仪表盘"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -28,11 +29,12 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -52,17 +54,18 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用仪表盘"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    Then I click the "{'TabButton':'仪表盘'}" button
+    And I will see the success message "更新成功"
+    Then I click the "Dashboard" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "仪表盘验证权限1"
-    And I "unchecked" the label before "仪表盘验证权限1"
+    And I "checked" the checkbox which name is "仪表盘验证权限1" in auth table
+    And I "unchecked" the checkbox which name is "仪表盘验证权限1" in auth table
     And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -80,13 +83,14 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "仪表盘验证权限1"
-    And I "unchecked" the label before "仪表盘验证权限1"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "仪表盘验证权限1" in auth table
+    And I "unchecked" the checkbox which name is "仪表盘验证权限1" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -119,12 +123,13 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "转授,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -135,10 +140,9 @@ Feature: 权限-仪表盘
       | 仪表盘验证权限1 |
 
   Scenario Outline: 验证读取+编辑
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+    Given I wait for "2000" millsecond
     And I logout current user
-    And I wait for title change text to "登录"
+    Given I wait for "2000" millsecond
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
@@ -177,16 +181,17 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "仪表盘验证权限1重命名"
-    When the data name is "仪表盘验证权限1重命名" then I click the "无期限" button without total page
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "仪表盘验证权限1重命名" in auth table
+    When the data name is "仪表盘验证权限1重命名" then I click the "无限期" button in auth table
     And I click the "Customize" button
     And I click the "DateEditor" button
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -210,6 +215,7 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -217,9 +223,9 @@ Feature: 权限-仪表盘
 
   Scenario: 验证有效期限生效
     Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+    And I wait for "2000" millsecond
     And I logout current user
-    And I wait for title change text to "登录"
+    And I wait for "2000" millsecond
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
@@ -232,14 +238,15 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for loading invisible
-    When I "checked" the label before "<name>"
-    When I "unchecked" the label before "<name>"
-    When I "checked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
+    And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -275,14 +282,15 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for loading invisible
-    When I "checked" the label before "<name>"
-    When I "unchecked" the label before "<name>"
-    When I "checked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
+    And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -332,12 +340,13 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -345,12 +354,13 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the label before "<name>"
-    When I "unchecked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -395,13 +405,13 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    And I will see the "roles.AuthorizationPage" page
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -409,13 +419,13 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    And I will see the "roles.AuthorizationPage" page
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -477,12 +487,13 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -490,12 +501,13 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the label before "<name>"
-    When I "unchecked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -543,11 +555,9 @@ Feature: 权限-仪表盘
       | 仪表盘验证权限重命名 |
 
   Scenario Outline: 新建仪表盘并设为默认
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
-    And I wait for title change text to "登录"
+    When I wait for "2000" millsecond
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
@@ -580,12 +590,12 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    And I will see the "roles.AuthorizationPage" page
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -593,13 +603,13 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'仪表盘'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Dashboard" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    And I will see the "roles.AuthorizationPage" page
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -677,16 +687,16 @@ Feature: 权限-仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
 
   Scenario Outline: 二次授权读取
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
+    When I wait for "2000" millsecond
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -725,11 +735,9 @@ Feature: 权限-仪表盘
       | 用户       | 验证授权用户   | 读取       | 测试二次授权 |
 
   Scenario Outline: 二次授权读取+编辑
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
-    And I wait for title change text to "登录"
+    When I wait for "2000" millsecond
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"
@@ -782,11 +790,9 @@ Feature: 权限-仪表盘
       | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
 
   Scenario Outline: 二次授权读取+编辑+删除
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
-    And I wait for title change text to "登录"
+    When I wait for "2000" millsecond
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
     And I set the parameter "Password" with value "All#123456"

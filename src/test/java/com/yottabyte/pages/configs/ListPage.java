@@ -11,15 +11,16 @@ import org.openqa.selenium.support.FindBys;
 
 import java.util.List;
 
-/**
- * @author sunxj
- */
+
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
     }
 
     DropdownUtils dropdownUtils = new DropdownUtils();
+
+    @FindBy(className = "ant-spin-dot-spin")
+    private WebElement loading;
 
     @FindBy(className = "ant-modal-content")
     private WebElement content;
@@ -44,6 +45,10 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(className = "ant-empty-description")
     private WebElement searchResultIsEmpty;
+
+    public WebElement getLoading() {
+        return loading;
+    }
 
     public WebElement getTagInput() {
         return tagInput;
@@ -104,4 +109,5 @@ public class ListPage extends ListPageFactory {
     public WebElement getSearchResultIsEmpty() {
         return searchResultIsEmpty;
     }
+
 }

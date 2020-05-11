@@ -8,8 +8,8 @@ Feature: 字段提取UserAgent解析
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "<logSample>"
     And I click the "AddRule" button
-    And I choose the "正则解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
+    And I choose the "正则解析" from the "ParseRule" in config
+    And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
@@ -17,8 +17,8 @@ Feature: 字段提取UserAgent解析
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
     And I click the "AddRule" button
-    And I choose the "<parseRule>" from the "ParseRule"
-    And I choose the "<sourceField>" from the "SourceField"
+    And I choose the "<parseRule>" from the "ParseRule" in config
+    And I choose the "<sourceField>" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
     And I click the "ParseButton" button

@@ -19,6 +19,7 @@ Feature: 字段提取删除
       | RZY2870创建dissect解析          |
       | RZY2819配置自定义字典解析规则          |
       | 脱敏                          |
+      | 脱敏详情                        |
       | RZY2862严格解析                 |
       | RZY2889apache解析优化           |
       | RZY1550格式化处理                |
@@ -33,12 +34,19 @@ Feature: 字段提取删除
       | RZY1539添加URL解析              |
       | RZY1547syslog_pri解析         |
       | RZY2798group_regex          |
+      | group_regex详情验证             |
       | RZY1535KeyValue正则匹配         |
+      | KeyValue正则匹配详情验证            |
+      | 保留key详情                     |
       | RZY1533保留key                |
+      | 丢弃key详情                     |
       | RZY1532丢弃key                |
       | RZY1555IP格式转换               |
+      | ip格式转换详情                    |
       | RZY2826高级模式下start_offset的使用 |
+      | hex详情验证                     |
       | RZY1548添加GEO解析              |
+      | GEO解析详情验证                   |
       | 多值字段副本                      |
       | RZY3417多值字段                 |
 

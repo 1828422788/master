@@ -115,8 +115,6 @@ public class IChooseValueFromSelectList {
     }
 
     public void iChooseTheFromThe(List<String> values, WebElement parentElement) {
-        WebElement ancestor = parentElement.findElement(By.xpath("./ancestor::div[1]/ancestor::div[1]"));
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].classList.remove('ant-select-dropdown-hidden');", ancestor);
         if (parentElement.getAttribute("style").contains("display: none;")) {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", parentElement);
         }
@@ -225,6 +223,56 @@ public class IChooseValueFromSelectList {
             }
         }
     }
+
+
+    /**
+     * 字段提取下拉框失去焦点
+     *
+     * @param values         想要选择的内容，支持list
+     * @param selectListName 下拉框元素名称
+     */
+    @And("^I choose the \"([^\"]*)\" from the \"([^\"]*)\" in config$")
+    public void iChooseTheFromTheInConfig(List<String> values, String selectListName) {
+        if (values.size() == 0) {
+            return;
+        }
+        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+        if (o != null) {
+            if (o instanceof List) {
+                List fatherSelectList = (List) o;
+                iChooseTheFromThe(values, fatherSelectList);
+            } else {
+                WebElement element = (WebElement) o;
+                if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", element);
+                }
+                iChooseTheFromThe(values, element);
+                if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", element);
+                }
+            }
+        }
+    }
+
+    /**
+     * 字段提取下拉框失去焦点
+     *
+     * @param values         待取消的内容
+     * @param selectListName 下拉框元素名称
+     */
+    @And("^I cancel selection \"([^\"]*)\" from the \"([^\"]*)\" in config$")
+    public void iCancelSelectionFromTheInConfig(List<String> values, String selectListName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(selectListName);
+        if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", element);
+        }
+        iCancelSelectionFromThe(values, element);
+        if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", element);
+        }
+    }
+
+
 
 //    public static void main(String args[]) throws InterruptedException {
 //        SharedDriver driver = new SharedDriver();

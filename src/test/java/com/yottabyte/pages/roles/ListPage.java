@@ -64,25 +64,6 @@ public class ListPage extends ListPageFactory {
         return searchInput;
     }
 
-    public WebElement getSearchResult() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        if (!ElementExist.isElementExist(webDriver, noSearchResultMessage)) {
-            return searchResultRows.get(1);
-        } else {
-            if (searchResultRows.size() == 1) {
-                ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(noSearchResultMessage);
-                WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-                return noSearchResultMessage;
-            } else {
-                throw new NoSuchElementException("未找到list: el-table_1_column_1");
-            }
-        }
-    }
-
     public WebElement getSearchResultTable() {
         return searchResultTable;
     }
@@ -105,19 +86,6 @@ public class ListPage extends ListPageFactory {
     public WebElement getTableDeleteButton(int row) {
         WebElement e = getTableRowButtons(row);
         return e.findElement(By.xpath("//button/span[contains(text(),'删除')]"));
-    }
-
-    private boolean searchARole(String roleName) {
-        getSearchInput().sendKeys(Keys.END);
-        getSearchInput().sendKeys(Keys.SHIFT, Keys.HOME);
-        getSearchInput().sendKeys(Keys.BACK_SPACE);
-        getSearchInput().sendKeys(roleName);
-        String text = getSearchResult().getText();
-        if ("暂无数据".equals(text)) {
-            return false;
-        } else {
-            return true;
-        }
     }
 
     private WebElement getTableRowButtons(int row) {

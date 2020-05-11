@@ -1,6 +1,7 @@
 package com.yottabyte.pages.dictionary;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.DropdownUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +25,7 @@ public class CreatePage extends PageTemplate {
         return super.getButton("确定");
     }
 
-    public WebElement getCancelButton(){
+    public WebElement getCancelButton() {
         return super.getButton("撤销修改");
     }
 
@@ -32,12 +33,16 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    public WebElement getClearIcon1(){
-        return super.getClearIcon("wymtest1");
+    public WebElement getClearIconOld() {
+        return super.getClearIcon("old");
     }
 
-    public WebElement getClearIcon2(){
-        return super.getClearIcon("wymtest2");
+    public WebElement getClearIconFirst() {
+        return super.getClearIcon("first");
+    }
+
+    public WebElement getClearIconSecond() {
+        return super.getClearIcon("second");
     }
 
     public WebElement getDeleteIcon1() throws InterruptedException {
@@ -47,6 +52,14 @@ public class CreatePage extends PageTemplate {
         return super.getDeleteIcon("wymdoubletest1.csv");
     }
 
+    @FindBy(xpath = "//div[text()='提示']")
+    private WebElement Tip;
+
+    @FindBy(xpath = "//span[text()='.csv']/preceding-sibling::input[@placeholder='请输入名称']")
+    private WebElement name;
+
+    @FindBy(className = "ant-select-selection__choice__content")
+    private WebElement resourceTag;
 
     @FindBy(xpath = "//div[text()='在线编辑']")
     private WebElement editOnline;
@@ -81,5 +94,21 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSaveEdit() {
         return saveEdit;
+    }
+
+    public WebElement getResourceTag() {
+        return resourceTag;
+    }
+
+    public WebElement getName() {
+        return name;
+    }
+
+    public WebElement getTip() {
+        return Tip;
+    }
+
+    public WebElement getTagList(){
+        return super.getDropdownList("标签");
     }
 }

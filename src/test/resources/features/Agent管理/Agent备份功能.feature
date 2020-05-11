@@ -55,6 +55,7 @@ Feature: Agent备份功能
     And I set the parameter "WhiteList" with value ".*\.log"
     And I set the parameter "BackUPTime" with value "0"
     And I click the "Next" button
+    And I wait for "2000" millsecond
     And I click the "Next" button
     And I click the "CreateDestObject" button
     And I set the parameter "DestObjectName" with value "autotest"

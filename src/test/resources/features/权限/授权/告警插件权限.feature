@@ -6,17 +6,18 @@ Feature: 授权告警插件
     And I wait for loading invisible
     And I click the "Upload" button
     And I upload a file with name "/src/test/resources/testdata/alertPlugins/sendSms.py"
-    And I wait for "VerifyText" will be visible
+#    And I wait for "VerifyText" will be visible
     And I click the "EnsureButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     Then I click the "{'TabButton':'告警插件'}" button
     And I wait for loading invisible
-    And I "checked" the label before "sendsms"
-    And I "unchecked" the label before "sendsms"
+    And I "checked" the checkbox which name is "sendsms" in auth table
+    And I "unchecked" the checkbox which name is "sendsms" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "可查看告警插件,可使用监控"
@@ -40,12 +41,13 @@ Feature: 授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
     Then I click the "{'TabButton':'告警插件'}" button
     And I wait for loading invisible
-    And I "checked" the label before "sendsms"
+    And I "checked" the checkbox which name is "sendsms" in auth table
     When I "unchecked" function "转授" from the auth table which name is "sendsms"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "可查看告警插件,可使用监控"
@@ -66,16 +68,17 @@ Feature: 授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'告警插件'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "sendsms"
-    When the data name is "sendsms" then I click the "无期限" button without total page
+    And I "checked" the checkbox which name is "sendsms" in auth table
+    When the data name is "sendsms" then I click the "无限期" button in auth table
     And I click the "Customize" button
     And I click the "DateEditor" button
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"

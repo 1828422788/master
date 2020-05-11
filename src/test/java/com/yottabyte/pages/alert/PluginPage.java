@@ -16,7 +16,7 @@ public class PluginPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "verify-text")
+    @FindBy(xpath = "//div[text()='验证成功']")
     private WebElement verifyText;
 
     @FindBy(xpath = "//div[@class='el-message-box__btns']//span[contains(text(),'确定')]")

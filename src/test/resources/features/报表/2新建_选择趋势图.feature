@@ -118,6 +118,24 @@ Feature: 报表新建_选择
     And I will see the element "TrendData" contains ""
     And I will see the element "TrendChart" contains "line"
 
+  Scenario Outline: new_report_type_without_trend
+    When I set the parameter "Name" with value "test_no_trends_<type>"
+    And I set the parameter "Describe" with value "AutoCreate"
+    And I choose the "<type>" from the "ReportType"
+    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Minute" with value "00"
+    And I click the "NextButton" button
+    Then I wait for "FinishButton" will be visible
+    When I click the "FinishButton" button
+    Then I will see the message "至少选择一个趋势图"
+
+    Examples:
+      |   type    |
+      |   PDF     |
+      |   URL     |
+      |   EXCEL   |
+      |   WORD    |
+
 
 
 

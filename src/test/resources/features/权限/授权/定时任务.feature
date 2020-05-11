@@ -5,12 +5,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "新建定时任务"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -33,11 +34,12 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -65,12 +67,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "AutoTestCreate"
-    And I "unchecked" the label before "AutoTestCreate"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "AutoTestCreate" in auth table
+    And I "unchecked" the checkbox which name is "AutoTestCreate" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -87,19 +90,18 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "AutoTestCreate"
-    And I "unchecked" the label before "AutoTestCreate"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "AutoTestCreate" in auth table
+    And I "unchecked" the checkbox which name is "AutoTestCreate" in auth table
     When I "checked" function "读取" from the auth table which name is "AutoTestCreate"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -111,7 +113,7 @@ Feature: 权限-定时任务
     Then the data name is "{'column':'2','name':'AutoTestCreate'}" then i will see "查看复制授权" button
     When the data name is "{'column':'2','name':'AutoTestCreate'}" then i click the "查看" button
     And I will see the "timedTask.EditPage" page
-    Then I will see the element "Name" attribute is "disabled"
+    Then I will see the "SaveButton" doesn't exist
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And the data name is "{'column':'2','name':'AutoTestCreate'}" then i click the "复制" button
     Then I will see the success message "复制成功"
@@ -124,19 +126,18 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "新建定时任务"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -170,12 +171,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -220,12 +222,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -243,7 +246,7 @@ Feature: 权限-定时任务
     Then the data name is "{'column':'2','name':'<name>'}" then i will see "查看复制授权删除" button
     When the data name is "{'column':'2','name':'<name>'}" then i click the "查看" button
     And I will see the "timedTask.EditPage" page
-    Then I will see the element "Name" attribute is "disabled"
+    Then I will see the "SaveButton" doesn't exist
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And the data name is "{'column':'2','name':'<name>'}" then i click the "复制" button
     Then I will see the success message "复制成功"
@@ -265,12 +268,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -278,12 +282,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -301,7 +306,7 @@ Feature: 权限-定时任务
     Then the data name is "{'column':'2','name':'<name>'}" then i will see "查看复制授权" button
     When the data name is "{'column':'2','name':'<name>'}" then i click the "查看" button
     And I will see the "timedTask.EditPage" page
-    Then I will see the element "Name" attribute is "disabled"
+    Then I will see the "SaveButton" doesn't exist
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And the data name is "{'column':'2','name':'<name>'}" then i click the "复制" button
     Then I will see the success message "复制成功"
@@ -331,12 +336,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -344,12 +350,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -367,7 +374,7 @@ Feature: 权限-定时任务
     Then the data name is "{'column':'2','name':'<name>'}" then i will see "查看复制授权删除" button
     When the data name is "{'column':'2','name':'<name>'}" then i click the "查看" button
     And I will see the "timedTask.EditPage" page
-    Then I will see the element "Name" attribute is "disabled"
+    Then I will see the "SaveButton" doesn't exist
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And the data name is "{'column':'2','name':'<name>'}" then i click the "授权" button
     And I wait for loading invisible
@@ -398,12 +405,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -411,12 +419,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -471,11 +480,12 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -483,12 +493,13 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'定时任务'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Schedule" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -506,8 +517,6 @@ Feature: 权限-定时任务
     And I wait for loading invisible
     Then the data name is "{'column':'2','name':'<name>'}" then i will see "编辑复制标签授权删除" button
     When the data name is "{'column':'2','name':'<name>'}" then I "close" the switch
-    Then I will see the success message "禁用成功"
-    And I wait for "SuccessMessage" will be invisible
     When the data name is "{'column':'2','name':'<name>'}" then i click the "标签" button
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
@@ -544,20 +553,21 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Then I click the "{'TabButton':'定时任务'}" button
+    Then I click the "Schedule" button
     And I wait for loading invisible
-    And I "checked" the label before "AutoTestEdit"
-    When the data name is "AutoTestEdit" then I click the "无期限" button without total page
+    And I "checked" the checkbox which name is "AutoTestEdit" in auth table
+    When the data name is "AutoTestEdit" then I click the "无限期" button in auth table
     And I click the "Customize" button
     And I click the "DateEditor" button
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
 
   Scenario: 修改定时任务名称
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -569,9 +579,7 @@ Feature: 权限-定时任务
     Then I will see the success message "保存成功"
 
   Scenario: 验证有效期限
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -595,16 +603,15 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
 
   Scenario Outline: 二次授权读取
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -618,9 +625,6 @@ Feature: 权限-定时任务
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -632,7 +636,7 @@ Feature: 权限-定时任务
     Then the data name is "{'column':'2','name':'验证有效期限'}" then i will see "查看复制授权" button
     When the data name is "{'column':'2','name':'验证有效期限'}" then i click the "查看" button
     And I will see the "timedTask.EditPage" page
-    Then I will see the element "Name" attribute is "disabled"
+    Then I will see the "SaveButton" doesn't exist
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And the data name is "{'column':'2','name':'验证有效期限'}" then i click the "授权" button
     And I wait for loading invisible
@@ -643,9 +647,7 @@ Feature: 权限-定时任务
       | 用户       | 验证授权用户   | 读取       |
 
   Scenario Outline: 二次授权读取+编辑
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -660,9 +662,6 @@ Feature: 权限-定时任务
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -694,9 +693,7 @@ Feature: 权限-定时任务
       | 角色       | __user_验证授权用户__ | 编辑       | 验证有效期限 |
 
   Scenario Outline: 二次授权读取+编辑+删除
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -711,9 +708,6 @@ Feature: 权限-定时任务
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"

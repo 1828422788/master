@@ -37,6 +37,7 @@ Feature: 拓扑图标识符
     And I wait for "Today" will be visible
     And I click the "Today" button
     And I click the "SearchButton" button
+    And I wait for "Message" will be visible
     And I will see the message "搜索成功"
     And I click the "Apply" button
     And I click the "Save" button
@@ -81,6 +82,7 @@ Feature: 拓扑图标识符
     And I wait for "1000" millsecond
     And I click the "Apply" button
     And I click the "Save" button
+    And I wait for "NodeValue2" will be visible
     And I save the result "{'Value':'NodeValue'}"
     And I refresh the website
     And I accept alert window
