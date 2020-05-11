@@ -262,47 +262,47 @@ Feature: 应用字段提取（RZY-2129）
     Then I will see the search result contains "{'column':'1','name':'AutoTest'}"
     Then I will see the search result "{'column':'1','name':'AutoTestCopy','contains':'no'}"
 
-  Scenario: 授权字典管理
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "ConfigsApp" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "ConfigsApp"
-    Then I will see the "configs.ListPage" page
-    When I click the "Dictionary" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "ConfigsApp"
-    And I wait for loading invisible
-    Then I will see the "dictionary.ListPage" page
-    When the data name is "字典管理app.csv" then i click the "授权" button
-    And I wait for loading invisible
-    And I "check" the checkbox which name is "AutoTest" in tiny table
-    And I click the "Ensure" button
-    Then I will see the success message "保存成功"
-
-  Scenario: 验证授权成功
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When I click the "Dictionary" button
-    And I wait for loading invisible
-    Then I will see the "dictionary.ListPage" page
-    Then the data name is "{'column':'0','name':'字典管理app.csv'}" then i will see "下载编辑标签删除授权" button
+#  Scenario: 授权字典管理
+#    Given open the "app.ListPage" page for uri "/app/list/"
+#    When the data name is "ConfigsApp" then i click the "打开" button
+#    And I will see the "app.AppPage" page
+#    And I will see the element "Title" name is "ConfigsApp"
+#    Then I will see the "configs.ListPage" page
+#    When I click the "Dictionary" button
+#    And I will see the "app.AppPage" page
+#    And I will see the element "Title" name is "ConfigsApp"
+#    And I wait for loading invisible
+#    Then I will see the "dictionary.ListPage" page
+#    When the data name is "字典管理app.csv" then i click the "授权" button
+#    And I wait for loading invisible
+#    And I "check" the checkbox which name is "AutoTest" in tiny table
+#    And I click the "Ensure" button
+#    Then I will see the success message "保存成功"
+#
+#  Scenario: 验证授权成功
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    And I wait for "Loading" will be invisible
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    And I click the "SaveButton" button
+#    And I will see the success message "更新成功"
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When I click the "Dictionary" button
+#    And I wait for loading invisible
+#    Then I will see the "dictionary.ListPage" page
+#    Then the data name is "{'column':'0','name':'字典管理app.csv'}" then i will see "下载编辑标签删除授权" button
 
   Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
