@@ -20,12 +20,12 @@ Feature: 日志展现_复合
     And I click the "Settings" button
     And I will see the "trend.CreatePage" page
     And I click the "Xaxis" button
-    And I choose the "<xValue>" from the "FieldValue"
+    And I choose the "<xValue>" from the "FieldValue" in config
     And I click the "Yaxis" button
-    And I choose the "<actualValue>" from the "Actual"
-    And I choose the "<predictedValue>" from the "Predict"
-    And I choose the "<upperValue>" from the "TopLimit"
-    And I choose the "<lowerValue>" from the "LowerLimit"
+    And I choose the "<actualValue>" from the "Actual" in config
+    And I choose the "<predictedValue>" from the "Predict" in config
+    And I choose the "<upperValue>" from the "TopLimit" in config
+    And I choose the "<lowerValue>" from the "LowerLimit" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -54,11 +54,11 @@ Feature: 日志展现_复合
 
     And I click the "Settings" button
     And I click the "Xaxis" button
-    And I choose the "apache.resp_len" from the "FieldValue"
+    And I choose the "apache.resp_len" from the "FieldValue" in config
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
-    And I choose the "max(apache.resp_len)" from the "FieldValue"
+    And I choose the "max(apache.resp_len)" from the "FieldValue" in config
     And I choose the "面积图" from the "TypeChartField"
     And I set the parameter "Unit" with value "面"
     And I click the "Smooth" button
@@ -68,7 +68,7 @@ Feature: 日志展现_复合
 
     And I click the "AddField" button
     And I drag the scroll bar to the element "FieldValue"
-    And I choose the "min(apache.resp_len)" from the "FieldValue"
+    And I choose the "min(apache.resp_len)" from the "FieldValue" in config
     And I choose the "柱状图" from the "TypeChartField"
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"
@@ -76,7 +76,7 @@ Feature: 日志展现_复合
 
     And I click the "AddField" button
     And I drag the scroll bar to the element "FieldValue"
-    And I choose the "sum(apache.status)" from the "FieldValue"
+    And I choose the "sum(apache.status)" from the "FieldValue" in config
     And I choose the "散点图" from the "TypeChartField"
     And I set the parameter "Unit" with value "散"
     And I set the parameter "Min" with value ""

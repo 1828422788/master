@@ -75,9 +75,9 @@ Feature: 日志展现_维度
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue"
+    And I choose the "<value>" from the "FieldValue" in config
     And I click the "Divide" button
-    And I choose the "<divValue>" from the "FieldValue"
+    And I choose the "<divValue>" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color1>" button
