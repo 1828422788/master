@@ -1,6 +1,11 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-力图
 
+
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+
   Scenario: 力图-样式搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -35,8 +40,8 @@ Feature: 数据大屏-力图
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart| stats count() by apache.clientip,apache.request_path |limit 10"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -45,7 +50,7 @@ Feature: 数据大屏-力图
     And I choose the "apache.request_path" from the "TargetField"
     And I choose the "count()" from the "WeightField"
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 力图-样式搜索发布页截图
@@ -56,6 +61,10 @@ Feature: 数据大屏-力图
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -78,8 +87,8 @@ Feature: 数据大屏-力图
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart| stats count() by apache.clientip,apache.request_path |limit 10"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -96,7 +105,7 @@ Feature: 数据大屏-力图
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 力图-静态数据发布并截图
@@ -106,6 +115,10 @@ Feature: 数据大屏-力图
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -126,8 +139,8 @@ Feature: 数据大屏-力图
     And I click the "otherSearch" button
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart| stats count() by apache.clientip,apache.request_path |limit 10"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -157,7 +170,7 @@ Feature: 数据大屏-力图
     And I choose the "count()" from the "WeightField"
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 力图-绑定搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -166,19 +179,12 @@ Feature: 数据大屏-力图
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name                |
       |力图-绑定搜索|
 
-
-  Scenario Outline: 删除关于力图的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      | 力图-样式搜索 |
-      |力图-静态数据  |
-      |力图-绑定搜索|

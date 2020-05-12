@@ -1,5 +1,8 @@
 @galaxeeOther @galaxee
 Feature: 数据大屏-视频流
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
 
   Scenario: 视频流
 
@@ -16,7 +19,7 @@ Feature: 数据大屏-视频流
     And I wait for loading invisible
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 视频流发布并截图
@@ -27,6 +30,10 @@ Feature: 数据大屏-视频流
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -64,7 +71,7 @@ Feature: 数据大屏-视频流
     And I set the parameter "globalStyleName" with value "视频流样式"
        #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 视频流样式发布并截图
 
@@ -74,18 +81,13 @@ Feature: 数据大屏-视频流
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
       |视频流样式   |
 
 
-  Scenario Outline: 删除关于视频流的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      |视频流   |
-      |视频流样式   |

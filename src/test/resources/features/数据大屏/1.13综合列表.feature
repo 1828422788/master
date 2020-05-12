@@ -1,6 +1,10 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-综合列表
 
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+
   Scenario: 综合列表样式-搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -67,7 +71,7 @@ Feature: 数据大屏-综合列表
      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 综合列表样式-搜索发布并截图
@@ -77,6 +81,10 @@ Feature: 数据大屏-综合列表
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name              |
@@ -117,7 +125,7 @@ Feature: 数据大屏-综合列表
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 综合列表数据之静态数据发布并截图
@@ -127,6 +135,10 @@ Feature: 数据大屏-综合列表
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -181,7 +193,7 @@ Feature: 数据大屏-综合列表
     And I wait for "3000" millsecond
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 综合列表数据之绑定搜索发布并截图
@@ -191,19 +203,13 @@ Feature: 数据大屏-综合列表
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name              |
       |综合列表数据之绑定搜索 |
 
 
-  Scenario Outline: 删除关于综合列表大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      |综合列表样式-搜索    |
-      |综合列表数据之绑定搜索 |
-      |综合列表数据之静态数据  |

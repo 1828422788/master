@@ -1,5 +1,8 @@
 @galaxeeIndex @galaxee
 Feature: 数据大屏-动态卡片二
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
 
   Scenario: 动态卡片二样式搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -72,8 +75,8 @@ Feature: 数据大屏-动态卡片二
      #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "2"
@@ -83,7 +86,7 @@ Feature: 数据大屏-动态卡片二
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 动态卡片二样式搜索发布并截图
@@ -93,6 +96,10 @@ Feature: 数据大屏-动态卡片二
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -116,8 +123,8 @@ Feature: 数据大屏-动态卡片二
     #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -131,7 +138,7 @@ Feature: 数据大屏-动态卡片二
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 动态卡片二数据之静态数据发布并截图
@@ -141,6 +148,10 @@ Feature: 数据大屏-动态卡片二
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name              |
@@ -160,8 +171,8 @@ Feature: 数据大屏-动态卡片二
     And I click the "Other" button
     And I click the "otherSearch" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -191,7 +202,7 @@ Feature: 数据大屏-动态卡片二
     And I choose the "count()" from the "dynamicCardNumberFiled"
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 动态卡片二数据之绑定搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -200,22 +211,13 @@ Feature: 数据大屏-动态卡片二
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name             |
-      |动态卡片二数据之绑定搜索 |
-
-
-  Scenario Outline: 删除关于动态卡片二的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
     Then I click the "Ensure" button
 
     Examples:
-      |name|
-      |动态卡片二样式搜索   |
-      |动态卡片二数据之静态数据  |
+      |name             |
       |动态卡片二数据之绑定搜索 |
-
 
 

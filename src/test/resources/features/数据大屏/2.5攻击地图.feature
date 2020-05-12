@@ -1,5 +1,8 @@
 @galaxeeMap @galaxee
 Feature: 数据大屏-攻击地图
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
 
   Scenario: 攻击地图-样式搜索
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -41,8 +44,8 @@ Feature: 数据大屏-攻击地图
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -55,7 +58,7 @@ Feature: 数据大屏-攻击地图
     And I choose the "cnt" from the "MeasureValue"
     And I click the "Update" button
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 攻击地图-样式搜索发布页截图
@@ -66,6 +69,10 @@ Feature: 数据大屏-攻击地图
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -90,8 +97,8 @@ Feature: 数据大屏-攻击地图
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -113,7 +120,7 @@ Feature: 数据大屏-攻击地图
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
   Scenario Outline: 攻击地图-静态数据发布并截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -122,6 +129,10 @@ Feature: 数据大屏-攻击地图
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name                    |
@@ -140,8 +151,8 @@ Feature: 数据大屏-攻击地图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -177,7 +188,7 @@ Feature: 数据大屏-攻击地图
     And I click the "Update" button
       #保存
     And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
   Scenario Outline: 攻击地图-绑定搜索发布并截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -186,21 +197,14 @@ Feature: 数据大屏-攻击地图
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
-
-    Examples:
-      |name                    |
-      |攻击地图-绑定搜索|
-
-
-
-
-  Scenario Outline: 删除关于| 攻击地图 |的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
     Then I click the "Ensure" button
 
     Examples:
-      |name|
-      | 攻击地图-样式搜索 |
+      |name      |
       |攻击地图-绑定搜索|
-      |攻击地图-静态数据 |
+
+
+

@@ -1,5 +1,8 @@
 @galaxeeOther @galaxee
 Feature: 数据大屏-时间器
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
 
   Scenario: 时间器默认设置
 
@@ -16,7 +19,7 @@ Feature: 数据大屏-时间器
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 时间器默认设置默认设置发布并截图
@@ -27,6 +30,10 @@ Feature: 数据大屏-时间器
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -75,7 +82,7 @@ Feature: 数据大屏-时间器
     And I set the parameter "globalStyleName" with value "时间器样式修改"
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 时间器样式发布并截图
@@ -86,6 +93,10 @@ Feature: 数据大屏-时间器
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -125,7 +136,7 @@ Feature: 数据大屏-时间器
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 时间器样式2发布并截图
@@ -136,6 +147,10 @@ Feature: 数据大屏-时间器
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -176,7 +191,7 @@ Feature: 数据大屏-时间器
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 时间器样式3发布并截图
@@ -187,6 +202,10 @@ Feature: 数据大屏-时间器
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -194,14 +213,3 @@ Feature: 数据大屏-时间器
 
 
 
-  Scenario Outline: 删除关于时间器的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      |时间器默认设置    |
-      |时间器样式   |
-      |时间器样式2   |
-      |时间器样式3   |
