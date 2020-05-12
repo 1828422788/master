@@ -27,13 +27,13 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I "checked" the label before "采集指标" in the agent
     And I click the "Clean" button
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "位于 192.168.1.139:10001 的 agent 正在 清理缓存"
+    Then I will see the element "ChangeMemo" name is "位于 192.168.1.134:10001 的 agent 正在 清理缓存"
 
   Scenario: 清理输出源缓存
     And I click the "CleanCache" button
     And I click the "CleanOutputCache" button
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "位于 192.168.1.139:10001 的 agent 正在 清理缓存"
+    Then I will see the element "ChangeMemo" name is "位于 192.168.1.134:10001 的 agent 正在 清理缓存"
 
   Scenario: 从Agent具体配置页面返回Agent主页面
     And I click the "BackList" button
@@ -74,9 +74,9 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Compressed" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-
-  Scenario: 输出配置修改发送速率限制
-    Given the data name "无" in table "OutputTable" then i click the "编辑" button
-    And I click the "Compressed" button
-    And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+#
+#  Scenario: 输出配置修改发送速率限制
+#    Given the data name "无" in table "OutputTable" then i click the "编辑" button
+#    And I click the "Compressed" button
+#    And I click the "Ensure" button
+#    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
