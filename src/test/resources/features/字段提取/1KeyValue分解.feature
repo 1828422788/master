@@ -61,7 +61,7 @@ Feature: 字段提取KeyValue分解
     And I upload a file with name "/src/test/resources/testdata/log/KeyValue.log"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "20000" millsecond
+    Then I wait for "40000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "tag:<appName>"
@@ -114,8 +114,9 @@ Feature: 字段提取KeyValue分解
     And I upload a file with name "/src/test/resources/testdata/log/KeyValue.log"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "60000" millsecond
+    Then I wait for "90000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
+    Then I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible
     Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
