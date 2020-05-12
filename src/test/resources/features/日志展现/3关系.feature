@@ -2,15 +2,14 @@
 Feature: 日志展现_关系
 #5
 
-  # tag:sample04061424_chart, auto_sankey should be uploaded for Today
+  # tag:sample04061424_chart should be uploaded for Yesterday
+  # auto_sankey should be uploaded for Today
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: connection(RZY-834,2783,2784)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -27,14 +26,12 @@ Feature: 日志展现_关系
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
-      |    Chord      |    834     |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path  |
-      |    Sankey     |    2783    |  tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
-      |    Force      |    2784    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
+      |    Chord      |    834     |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path  |
+      |    Sankey     |    2783    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
+      |    Force      |    2784    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
   Scenario Outline: Force(RZY-4223)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -55,13 +52,11 @@ Feature: 日志展现_关系
 
     Examples:
       |   chartType   |repValue  |   spl   |
-      |    Force      |    20    |  tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
+      |    Force      |    20    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
 
   Scenario Outline: multistage(RZY-4224)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -85,4 +80,4 @@ Feature: 日志展现_关系
 
     Examples:
       |   chartType   |  button    |   spl   |
-      |    Sankey     | Multistage |  tag:auto_sankey \| stats count() by json.fromstate,json.tostate \| limit 3      |
+      |    Sankey     | Multistage |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:auto_sankey \| stats count() by json.fromstate,json.tostate \| limit 3      |
