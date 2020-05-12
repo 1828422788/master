@@ -24,7 +24,6 @@ Feature: Agent编辑文件目录类型数据源
     And I click the "Next" button
     And I set the parameter "Appname" with value "autohekafiletest"
     And I set the parameter "Tag" with value "autohekafiletest"
-    When I choose the "<charsetKind>" from the "CharsetKind"
     And I click the "Next" button
     And I will see the element "InputKind" name is "文件监视"
     And I will see the element "SourceRoot" name is "/data/rizhiyi/logs/heka"
@@ -97,7 +96,7 @@ Feature: Agent编辑文件目录类型数据源
   Scenario Outline: 文件目录配置修改最后修改时间
     And I click the "EditAutoFile" button
     And I set the parameter "LastModifyTime" with value "20"
-    When I choose the "<timekind>" from the "TimeKind"
+    When I choose the "<timekind>" from the "TimeKind" in config
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
@@ -110,7 +109,7 @@ Feature: Agent编辑文件目录类型数据源
 
   Scenario Outline: 文件目录配置修改字符集
     And I click the "EditAutoFile" button
-    When I choose the "<characterkind>" from the "CharacterKind"
+    When I choose the "<characterkind>" from the "CharacterKind" in config
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
