@@ -1,4 +1,4 @@
-@galaxeeLast @galaxee
+@galaxeeLast
 Feature: 数据大屏-字符云图
   Background:
     Given I will see the "PublicNavBarPage" page
