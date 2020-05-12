@@ -35,8 +35,7 @@ Feature: 日志展现_复合
 
     Examples:
       | xValue | actualValue|  predictedValue| upperValue | lowerValue |   chartType   |   caseNum  |   spl   |
-      |   ts   |   count_   |     count_     |    upper   |     lower  |    Rangeline  |    835_1   | starttime=\"now/d-24h\" endtime=\"now/d\" tag: sample04061424_chart \| bucket timestamp span=3h as ts \| stats count(appname) as count_ by ts \| movingavg count_,5 as ma \| rollingstd count_,5 as rs \| eval lower=ma-3*rs \| eval upper=ma+3*rs \| eval outlier=if(count_>upper \|\|count_<lower, count_, null)  |
-      |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    835_2   | starttime=\"now/d-24h\" endtime=\"now/d\" tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
+      |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    835     | starttime=\"now/d-24h\" endtime=\"now/d\" tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
 
 
   Scenario Outline: manyy(RZY-2785,2786)
