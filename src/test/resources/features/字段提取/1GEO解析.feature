@@ -127,6 +127,7 @@ Feature: 字段提取GEO解析
     And I wait for element "VerifyText" change text to "上传完成"
     Then I wait for "90000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
+    Then I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible
     Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
