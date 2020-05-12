@@ -3,6 +3,7 @@ Feature: 字段提取详情验证
 
   Scenario Outline: 验证详情a
     Given open the "configs.ListPage" page for uri "/configs/"
+    Then I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible
     Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
@@ -14,7 +15,7 @@ Feature: 字段提取详情验证
 #      | RZY1548添加GEO解析       | geo解析        | 正则解析         |
 #      | RZY1555IP格式转换        | ip格式转换       | 正则解析         |
 #      | RZY1535KeyValue正则匹配  | KeyValue正则匹配 | 正则解析         |
-      | RZY1547syslog_pri解析  | 正则解析         | syslog_pri解析 |
+#      | RZY1547syslog_pri解析  | 正则解析         | syslog_pri解析 |
       | RZY1539添加URL解析       | URL解析        | 正则解析         |
       | RZY1540配置UserAgent解析 | 正则解析         | user agent解析 |
       | RZY1559tag替换         | JSON解析       | 内容替换         |

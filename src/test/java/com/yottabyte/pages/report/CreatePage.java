@@ -695,6 +695,12 @@ public class CreatePage extends PageTemplate {
     private WebElement selectWorld;
 //----------------------------------
 
+    @FindBy(xpath = "//label[text()='报表类型']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
+    private WebElement defaultReportType;
+
+    public WebElement getDefaultReportType() {
+        return defaultReportType;
+    }
 
     public WebElement getChosenTag() {
         return chosenTag;

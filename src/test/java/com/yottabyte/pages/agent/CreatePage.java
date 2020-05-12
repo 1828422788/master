@@ -368,7 +368,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBeatsSwitchStatus() {
-        return getSwitchStatus("192.168.1.139:299");
+        return getSwitchStatus("192.168.1.134:299");
     }
 
 
