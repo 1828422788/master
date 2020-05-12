@@ -2,7 +2,7 @@
 Feature: 定时任务新建
 # 26
 
-  #bug
+  #bug RZY-5742
   @startTomorrowTask
   Scenario: test_schedule_time
     Given open the "splSearch.SearchPage" page for uri "/search/"
