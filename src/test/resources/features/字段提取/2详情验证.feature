@@ -16,8 +16,8 @@ Feature: 字段提取详情验证
 #      | RZY1555IP格式转换        | ip格式转换       | 正则解析         |
 #      | RZY1535KeyValue正则匹配  | KeyValue正则匹配 | 正则解析         |
 #      | RZY1547syslog_pri解析  | 正则解析         | syslog_pri解析 |
-      | RZY1539添加URL解析       | URL解析        | 正则解析         |
-      | RZY1540配置UserAgent解析 | 正则解析         | user agent解析 |
+#      | RZY1539添加URL解析       | URL解析        | 正则解析         |
+#      | RZY1540配置UserAgent解析 | 正则解析         | user agent解析 |
       | RZY1559tag替换         | JSON解析       | 内容替换         |
       | RZY1536数值型字段转换       | 数值型字段转换      | 正则解析         |
       | RZY2823时间戳前缀         | 时间戳识别        | 正则解析         |
