@@ -1,14 +1,12 @@
 @all @logDisplay @logDisplayTable
 Feature: 日志展现_表格
 
-  # tag:sample04061424_chart should be uploaded for Today
+  # tag:sample04061424_chart should be uploaded for Yesterday
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
+   And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
 
