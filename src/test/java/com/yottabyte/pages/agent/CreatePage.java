@@ -116,12 +116,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='Syslog 配置修改']/parent::div/following-sibling::div/descendant::tbody/tr/td[5]/descendant::input")
     private WebElement SyslogEditdelete;
 
-    @FindBy(xpath = "(//div[contains(@class,'ant-select-selection--single')])[last()]")
-    private WebElement SyslogChar;
-
     public WebElement getSyslogChar() {
-        SyslogChar.click();
-        return super.getLastDropdownList();
+        DropdownUtils dropdownUtils = new DropdownUtils();
+        WebElement element = webDriver.findElement(By.xpath("(//div[contains(@class,'ant-select-selection--single')])[last()]/span/i"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return dropdownUtils.getLastDropdownList();
     }
 
     @FindBy(xpath = "//label[contains(@title,'appname')]/parent::div/following-sibling::div//input" )
@@ -368,7 +368,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBeatsSwitchStatus() {
-        return getSwitchStatus("192.168.1.139:299");
+        return getSwitchStatus("192.168.1.134:299");
     }
 
 
