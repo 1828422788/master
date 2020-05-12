@@ -30,6 +30,7 @@ Feature: 字段提取详情验证
 
   Scenario Outline: 验证详情b
     Given open the "configs.ListPage" page for uri "/configs/"
+    Then I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "详情" button
     And I wait for loading invisible
     Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
@@ -40,7 +41,7 @@ Feature: 字段提取详情验证
 #      | RZY1532丢弃key                | KeyValue分解   |
 #      | RZY1533保留key                | KeyValue分解   |
 #      | RZY2798group_regex          | KeyValue正则匹配 |
-      | RZY1556内容替换                 | 内容替换         |
+#      | RZY1556内容替换                 | 内容替换         |
       | RZY2802手机号码解析               | 手机号码解析       |
       | RZY2803解析到顶层字段              | 手机号码解析       |
       | RZY2889apache解析优化           | 正则解析         |
@@ -51,7 +52,6 @@ Feature: 字段提取详情验证
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading complete
     When the data name is "{'column':'1','name':'RZY2872正则片段解析'}" then i click the "详情" button
-#    And I wait for "SmallTr" will be visible
     And I wait for loading invisible
     Then I will see the config element "正则解析" value is "正则解析 <result>"
 
