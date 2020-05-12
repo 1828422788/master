@@ -53,7 +53,13 @@ public class IChooseValueFromSelectList {
                 iChooseTheFromThe(values, fatherSelectList);
             } else {
                 WebElement element = (WebElement) o;
+                if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", element);
+                }
                 iChooseTheFromThe(values, element);
+                if (element.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", element);
+                }
             }
         }
     }
