@@ -75,7 +75,7 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "Title" name is "AlertApp"
     And I will see the "alert.CreatePage" page
     When I set the parameter "AlertName" with value "AutoTestAppAlert"
-    And I choose the "admin" from the "AlertUsers"
+    And I choose the "username" from the "AlertUsers" with property
     And I set the parameter "SearchContent" with value "*"
     And I set the parameter "TimeInput" with value "100000"
     And I set the parameter "TriggerInput" with value "10000000"
