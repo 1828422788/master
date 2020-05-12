@@ -183,7 +183,7 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "Title" name is "AlertApp"
     And I will see the "alert.CreatePage" page
     And I wait for "DeleteApp" will be visible
-    And I click the "DeleteApp" button
+    And I click the "DeleteApp" button under some element
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
 
