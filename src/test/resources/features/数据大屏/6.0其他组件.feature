@@ -1,5 +1,8 @@
 @galaxeeOther @galaxee
 Feature: 数据大屏-其他组件
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
 
   Scenario: 新建其他组件
 #    Given I will see the "PublicNavBarPage" page
@@ -47,7 +50,7 @@ Feature: 数据大屏-其他组件
     And I wait for "EnsureColor" will be invisible
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 修改背景颜色
 #    Given I will see the "PublicNavBarPage" page
@@ -64,7 +67,7 @@ Feature: 数据大屏-其他组件
     And I wait for "EnsureColor" will be invisible
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
     Examples:
       | name |
@@ -81,7 +84,7 @@ Feature: 数据大屏-其他组件
     And I upload a file with name "/src/test/resources/testdata/image/bg.jpg"
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
     Examples:
       | name |
@@ -97,17 +100,13 @@ Feature: 数据大屏-其他组件
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
       | 其他组件 |
 
 
-  Scenario Outline: 删除关于其他组件的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      | 其他组件 |

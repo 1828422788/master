@@ -1,5 +1,8 @@
 @galaxeeIndex @galaxee
 Feature: 数据大屏-状态图
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
 
   Scenario: 状态图demo
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -20,6 +23,7 @@ Feature: 数据大屏-状态图
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
+    And I will see the success message "保存成功"
 
   Scenario Outline: 状态图demo发布页截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -29,6 +33,10 @@ Feature: 数据大屏-状态图
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -64,14 +72,14 @@ Feature: 数据大屏-状态图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "err_avg" from the "Type"
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 状态图值异常-搜索发布页截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -81,6 +89,10 @@ Feature: 数据大屏-状态图
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -114,8 +126,8 @@ Feature: 数据大屏-状态图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "err_avg" from the "Type"
@@ -137,7 +149,7 @@ Feature: 数据大屏-状态图
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 状态图值正常-静态数据发布页截图
@@ -148,6 +160,10 @@ Feature: 数据大屏-状态图
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -165,8 +181,8 @@ Feature: 数据大屏-状态图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I set the parameter "SplInput" with value "* | stats avg(apache.status) as err_avg"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -213,7 +229,7 @@ Feature: 数据大屏-状态图
     And I set the parameter "seriousEnd" with value "300"
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 状态图值严重-绑定搜索发布并截图
@@ -223,21 +239,13 @@ Feature: 数据大屏-状态图
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name              |
       |状态图值严重-绑定搜索 |
 
 
-
-  Scenario Outline: 删除关于| 状态图 |的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      |状态图值异常-搜索 |
-      |状态图值严重-绑定搜索 |
-      |状态图值正常-静态数据 |
-      |状态图demo |

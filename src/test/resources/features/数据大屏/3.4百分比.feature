@@ -1,10 +1,11 @@
 @galaxeeIndex @galaxee
   Feature: 数据大屏-百分比
+    Background:
+      Given I will see the "PublicNavBarPage" page
+      And I wait for "Dashboard" will be visible
 
 
     Scenario: 百分比样式-搜索
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -53,7 +54,7 @@
       And I choose the "p" from the "percentageSearchNumber"
        #保存
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 百分比样式-搜索发布并截图
@@ -64,6 +65,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name           |
@@ -101,7 +106,7 @@
     #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 百分比数据之静态数据发布并截图
@@ -112,6 +117,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name              |
@@ -159,7 +168,7 @@
       And I choose the "p" from the "percentageSearchNumber"
       #保存
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
     Scenario Outline: 百分比数据之绑定搜索发布并截图
 
@@ -169,21 +178,13 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
-
-      Examples:
-        |name              |
-        |百分比数据之绑定搜索 |
-
-
-    Scenario Outline: 删除关于top3的大屏
-      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
       Then I click the "Ensure" button
 
       Examples:
-        |name|
-        |百分比样式-搜索       |
-        |百分比数据之静态数据  |
+        |name              |
         |百分比数据之绑定搜索 |
 
 

@@ -1,6 +1,10 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-条形图
 
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+
   Scenario: 条形图-样式搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -42,8 +46,8 @@ Feature: 数据大屏-条形图
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -51,7 +55,7 @@ Feature: 数据大屏-条形图
     And I choose the "count()" from the "DataField"
     And I choose the "apache.clientip" from the "DivideField"
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 条形图-样式搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -60,6 +64,10 @@ Feature: 数据大屏-条形图
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name              |
@@ -86,8 +94,8 @@ Feature: 数据大屏-条形图
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -104,7 +112,7 @@ Feature: 数据大屏-条形图
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 条形图-静态数据发布并截图
@@ -114,6 +122,10 @@ Feature: 数据大屏-条形图
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -133,8 +145,8 @@ Feature: 数据大屏-条形图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -172,7 +184,7 @@ Feature: 数据大屏-条形图
     And I wait for "3000" millsecond
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 条形图-绑定搜索发布并截图
@@ -182,19 +194,12 @@ Feature: 数据大屏-条形图
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name              |
       |条形图-绑定搜索 |
 
-
-  Scenario Outline: 删除关于| 条形图 |的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      |条形图-绑定搜索 |
-      |条形图-静态数据  |
-      |条形图-样式搜索    |

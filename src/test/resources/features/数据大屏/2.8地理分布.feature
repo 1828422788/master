@@ -1,6 +1,10 @@
 @galaxeeMap @galaxee
 Feature: 数据大屏-地理分布
 
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+
   Scenario: 地理分布样式-搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -54,7 +58,7 @@ Feature: 数据大屏-地理分布
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 地理分布样式-搜索发布页截图
@@ -65,6 +69,10 @@ Feature: 数据大屏-地理分布
     And I wait for "Loading" will be invisible
     And I wait for "4000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -107,7 +115,7 @@ Feature: 数据大屏-地理分布
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
   Scenario Outline: 地理分布-静态数据发布并截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -116,6 +124,10 @@ Feature: 数据大屏-地理分布
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name                    |
@@ -167,7 +179,7 @@ Feature: 数据大屏-地理分布
     And I click the "Update" button
       #保存
     And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
   Scenario Outline: 地理分布-绑定搜索发布并截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -176,19 +188,12 @@ Feature: 数据大屏-地理分布
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name                    |
       |地理分布-绑定搜索 |
 
-
-  Scenario Outline: 删除关于地理分布的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      | 地理分布样式-搜索 |
-      |地理分布-绑定搜索 |
-      |地理分布-静态数据 |

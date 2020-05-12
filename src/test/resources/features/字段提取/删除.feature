@@ -32,7 +32,9 @@ Feature: 字段提取删除
       | RZY1556内容替换                 |
       | RZY1540配置UserAgent解析        |
       | RZY1539添加URL解析              |
+      | URL解析详情验证                   |
       | RZY1547syslog_pri解析         |
+      | syslog_pri解析详情验证            |
       | RZY2798group_regex          |
       | group_regex详情验证             |
       | RZY1535KeyValue正则匹配         |

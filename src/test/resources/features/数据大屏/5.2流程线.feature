@@ -1,5 +1,8 @@
 @galaxeeNet @galaxee
   Feature: 数据大屏-流程线
+    Background:
+      Given I will see the "PublicNavBarPage" page
+      And I wait for "Dashboard" will be visible
 
     Scenario: 流程线默认设置
 
@@ -18,7 +21,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 流程线默认设置发布并截图
@@ -29,6 +32,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name            |
@@ -86,7 +93,7 @@
       And I set the parameter "globalStyleName" with value "流程线样式修改"
        #保存
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
     Scenario Outline: 流程线样式发布并截图
 
@@ -96,6 +103,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name           |
@@ -103,12 +114,3 @@
 
 
 
-    Scenario Outline: 删除关于流程线的大屏
-      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-      Then I click the "Ensure" button
-
-      Examples:
-        |name|
-        |流程线样式       |
-        |流程线默认设置      |

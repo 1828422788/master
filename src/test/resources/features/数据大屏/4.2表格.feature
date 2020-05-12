@@ -1,6 +1,10 @@
 @galaxeeWord @galaxee
 Feature: 数据大屏-表格
 
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+
   Scenario: 新建默认类型的表格
 #    Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -24,13 +28,15 @@ Feature: 数据大屏-表格
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample* | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "apache.clientip,ip_count" from the "DataItem"
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I will see the success message "保存成功"
+
 
   Scenario Outline: 修改配置
 #    Given I wait for title change text to "仪表盘"
@@ -97,6 +103,7 @@ Feature: 数据大屏-表格
     #滚动间隔
     And I set the parameter "RowNumber" with value "4"
     And I click the "Save" button
+    And I will see the success message "保存成功"
 
 
     Examples:
@@ -113,6 +120,10 @@ Feature: 数据大屏-表格
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -140,8 +151,8 @@ Scenario: 表格设置-列配置
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() by appname, tag"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "appname,count(),tag" from the "DataItem"
@@ -157,6 +168,7 @@ Scenario: 表格设置-列配置
     And I set the parameter "NumberWidth" with value "1"
     And I choose the "旗标" from the "NumberStyle"
     And I click the "Save" button
+  And I will see the success message "保存成功"
 
   Scenario Outline: 表格列配置发布页截图
 #    Given I will see the "PublicNavBarPage" page
@@ -168,6 +180,10 @@ Scenario: 表格设置-列配置
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -191,8 +207,8 @@ Scenario: 表格设置-列配置
         #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() by appname, tag"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "appname,count(),tag" from the "DataItem"
@@ -205,7 +221,7 @@ Scenario: 表格设置-列配置
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 表格数据之静态数据发布并截图
@@ -217,6 +233,10 @@ Scenario: 表格设置-列配置
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name              |
@@ -238,8 +258,8 @@ Scenario: 表格设置-列配置
     And I click the "Other" button
     And I click the "otherSearch" button
     And I set the parameter "SplInput" with value "* | stats count() by appname, tag"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -267,7 +287,7 @@ Scenario: 表格设置-列配置
     And I choose the "appname,count(),tag" from the "DataItem"
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 表格数据之绑定搜索发布并截图
 #      Given I will see the "PublicNavBarPage" page
@@ -278,20 +298,12 @@ Scenario: 表格设置-列配置
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name             |
       |表格数据之绑定搜索 |
 
-
-  Scenario Outline: 删除关于| 表格 |的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      | 表格   |
-      |表格列配置|
-    | 表格数据之静态数据|
-      |表格数据之绑定搜索 |

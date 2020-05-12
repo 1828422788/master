@@ -137,7 +137,7 @@ Feature: 趋势图新建_关系
     Examples:
       | name                                     |
       | Sankey_Multistage                        |
-      | Force_repulsion                          |
+#      | Force_repulsion                          |
       | Force_2511                               |
       | Sankey_2507                              |
       | Chord_2505                               |

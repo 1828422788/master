@@ -1,6 +1,10 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-水球图
 
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+
   Scenario: 水球图-样式搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -56,15 +60,15 @@ Feature: 数据大屏-水球图
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "p" from the "DataField"
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 水球图-样式搜索发布页截图
@@ -75,6 +79,10 @@ Feature: 数据大屏-水球图
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -97,8 +105,8 @@ Feature: 数据大屏-水球图
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -112,7 +120,7 @@ Feature: 数据大屏-水球图
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 水球图-静态数据发布并截图
@@ -122,6 +130,10 @@ Feature: 数据大屏-水球图
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -141,8 +153,8 @@ Feature: 数据大屏-水球图
     And I click the "otherSearch" button
     And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -170,7 +182,7 @@ Feature: 数据大屏-水球图
     And I choose the "p" from the "DataField"
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 水球图-绑定搜索发布页截图
@@ -181,21 +193,12 @@ Feature: 数据大屏-水球图
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name  |
       | 水球图-绑定搜索 |
 
-  ###############################删除分割线#####################################################
-
-
-  Scenario Outline: 删除关于| 水球图 |的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      | 水球图-绑定搜索 |
-      |水球图-静态数据  |
-      |水球图-样式搜索 |
