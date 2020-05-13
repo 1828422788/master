@@ -1,6 +1,6 @@
 @all @trend @createTrendDimension @createTrend
 Feature: 趋势图新建_维度
-# sample04061424_chart for Today
+# sample04061424_chart for Yesterday
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -9,8 +9,6 @@ Feature: 趋势图新建_维度
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -35,17 +33,15 @@ Feature: 趋势图新建_维度
 
     Examples:
       |   chartType   |   caseNum  |  spl  |
-      |      Pie      |    2503    | tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Rose     |    2858    | tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      |    2676    | tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Sun      |    2850    | tag:sample04061424_chart  \| stats count() by apache.status,apache.geo.province, apache.geo.city|
+      |      Pie      |    2503    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Rose     |    2858    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Bar      |    2676    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Sun      |    2850    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
   Scenario Outline: dimension_labels_bar
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -92,9 +88,7 @@ Feature: 趋势图新建_维度
   Scenario Outline: dimension_labels_options
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button

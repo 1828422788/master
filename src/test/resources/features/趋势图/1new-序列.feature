@@ -1,6 +1,6 @@
 @all @trend @createTrendOrder @createTrend
 Feature: 趋势图新建_序列
-# sample04061424_chart for Today
+# sample04061424_chart for Yesterday
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -8,9 +8,7 @@ Feature: 趋势图新建_序列
   Scenario Outline: order(RZY-2477,2005,2491,2499)
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -34,18 +32,16 @@ Feature: 趋势图新建_序列
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
-    |   chartType   |caseNum  |  spl  |
-    |    LineChart  |  2477   | tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip |
-    |   AreaChart   |  2005   | tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip |
-    |  ScatterChart |  2491   | tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip |
-    |  ColumnChart  |  2499   | tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip |
+    |   chartType   |caseNum  |
+    |    LineChart  |  2477   |
+    |   AreaChart   |  2005   |
+    |  ScatterChart |  2491   |
+    |  ColumnChart  |  2499   |
 
   Scenario Outline: order
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -77,16 +73,14 @@ Feature: 趋势图新建_序列
     And I compare source image "expect/<chartType>_<buttonChoice>" with target image "actual/<chartType>_<buttonChoice>"
 
     Examples:
-      |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
-      |   AreaChart   |    Pile       | Red    | 2767      |  tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
-      |  ColumnChart  |    Pile       | Yellow | 2773      |  tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |   chartType   | buttonChoice  | color  |
+      |   AreaChart   |    Pile       | Red    |
+      |  ColumnChart  |    Pile       | Yellow |
 
   Scenario Outline: order_bubble
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -125,9 +119,7 @@ Feature: 趋势图新建_序列
   Scenario Outline: order_switch
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -169,9 +161,7 @@ Feature: 趋势图新建_序列
   Scenario Outline: order_limit
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
