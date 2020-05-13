@@ -25,13 +25,13 @@ Feature: 定时任务标签
   Scenario: tag_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'Tag_Schedule'}" then i click the "标签" button
-    And I choose the "AutoTest" from the "TagField"
+    And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "Ensure" button
     Then I will see the success message "更新成功"
     And I refresh the website
     And I wait for loading invisible
-    Then I will see the data "{'column':'2','name':'Tag_Schedule'}" values "{'column':'7','name':'AutoTest'}"
+    Then I will see the data "{'column':'2','name':'Tag_Schedule'}" values "{'column':'7','name':'auto_package'}"
 
 
   Scenario: verify_tag
@@ -40,7 +40,7 @@ Feature: 定时任务标签
     And I will see the "timedTask.EditPage" page
     And I wait for "1000" millsecond
     And I wait for element "SelectedUser" change text to "kadmin"
-    And I cancel selection "AutoTest" from the "TaskGroup"
+    And I cancel selection "auto_package" from the "TaskGroup"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button

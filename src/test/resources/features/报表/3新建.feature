@@ -10,7 +10,6 @@ Feature: 报表新建_从趋势图
   Scenario Outline: new_report_trends4
     When I set the parameter "Name" with value "<name>"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Hour" with value "7"
     And I set the parameter "Minute" with value "00"
