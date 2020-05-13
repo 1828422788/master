@@ -15,21 +15,26 @@ Feature: Agent编辑文件目录类型数据源
     And I set the parameter "Document" with value "/data/rizhiyi/logs"
     And I click the "Next" button
     And I click the "Back" button
+    And I wait for loading invisible
     And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
     And I set the parameter "WhiteList" with value "hekad-daemon\.log"
     And I set the parameter "BlackList" with value "hekad\.stderr"
     And I set the parameter "LastChangeTime" with value "10"
     And I click the "Next" button
+    And I wait for loading invisible
     And I click the "ChooseButton" button
     And I click the "Next" button
+    And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekafiletest"
     And I set the parameter "Tag" with value "autohekafiletest"
     And I click the "Next" button
+    And I wait for loading invisible
     And I will see the element "InputKind" name is "文件监视"
     And I will see the element "SourceRoot" name is "/data/rizhiyi/logs/heka"
     And I will see the element "Monitoring" name is "是"
     And I will see the element "CheckAppname" name is "autohekafiletest"
     And I click the "Next" button
+    And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     And I wait for loading invisible
@@ -131,6 +136,7 @@ Feature: Agent编辑文件目录类型数据源
     And I set the parameter "Appname" with value "Changeautohekafileappname"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    And I wait for loading invisible
     Given the data name "Changeautohekafileappname" in table "AppNameTable" then i click the "编辑" button
     And I set the parameter "Appname" with value "autohekafiletest"
     And I click the "Ensure" button

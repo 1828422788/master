@@ -32,6 +32,7 @@ Feature: Agent添加数据源
     And I will see the element "Monitoring" name is "是"
     And I will see the element "CheckAppname" name is "autohekafiletest"
     And I click the "Next" button
+    And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     And I wait for loading invisible
@@ -75,6 +76,7 @@ Feature: Agent添加数据源
     And I click the "Next" button
     And I will see the element "CheckListenaddress" name is "192.168.1.161:514"
     And I click the "Next" button
+    And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
     And I click the "CurrentConfiguration" button
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "删除" button
