@@ -45,7 +45,7 @@ Feature: 数据集-预定义字段列表
      And I set the parameter "thirdFieldName" with value "ip"
 #     And I choose the "字符串" from the "thirdFieldType"
        And I click the "thirdFieldType" button
-       And I click the "strStr" button
+       And I click the "strType" button
 
      And I click the "rootSave" button
      And I wait for loading invisible
