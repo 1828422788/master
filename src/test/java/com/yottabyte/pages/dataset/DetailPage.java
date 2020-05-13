@@ -282,9 +282,21 @@ A（root）
     @FindBy(id = "DatasetDetail_fields[0].type")
     private WebElement child_first_type;
     public WebElement getChild_first_type(){
-        child_first_type.click();
-        return super.getLastDropdownList();
+     //   child_first_type.click();
+      //  return super.getLastDropdownList();
+        return child_first_type;
     }
+    @FindBy(xpath = "//li[contains(text(),'时间')]")
+    private WebElement time;
+    public WebElement getTime(){return time;}
+    @FindBy(xpath = "//li[contains(text(),'数值')]")
+    private WebElement number;
+    public WebElement getNumber(){return number;}
+    @FindBy(xpath = "//li[contains(text(),'字符串')]")
+    private WebElement strType;
+    public WebElement getStrType(){return strType;}
+
+
     //第二个字段名称
     @FindBy(id="DatasetDetail_fields[1].name")
     private WebElement child_second_name;
@@ -293,9 +305,12 @@ A（root）
     @FindBy(id = "DatasetDetail_fields[1].type")
     private WebElement child_second_type;
     public WebElement getChild_second_type(){
-        child_second_type.click();
-        return super.getLastDropdownList();
+       // child_second_type.click();
+       // return super.getLastDropdownList();
+        return child_second_type;
     }
+
+
 
     //第三个字段名称
     @FindBy(id="DatasetDetail_fields[2].name")
@@ -305,8 +320,9 @@ A（root）
     @FindBy(id = "DatasetDetail_fields[2].type")
     private WebElement child_third_type;
     public WebElement getChild_third_type(){
-        child_third_type.click();
-        return super.getLastDropdownList();
+      //  child_third_type.click();
+      //  return super.getLastDropdownList();
+        return child_third_type;
     }
 
     //子节点的第三个删除按钮
@@ -335,9 +351,11 @@ A（root）
     @FindBy(id="EditDatabase_fields[2].type")
     private WebElement thirdFieldType;
     public WebElement getThirdFieldType(){
-        thirdFieldType.click();
-        return super.getLastDropdownList();
+      //  thirdFieldType.click();
+      //  return super.getLastDropdownList();
+        return thirdFieldType;
     }
+
 
     //编辑根事件中第三个字段的删除按钮
     @FindBy(xpath = "//input[@id='EditDatabase_fields[2].name']/ancestor::span/ancestor::span/following-sibling::i")

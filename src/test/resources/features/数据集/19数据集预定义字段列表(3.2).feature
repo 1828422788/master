@@ -11,11 +11,15 @@ Feature: 数据集-预定义字段列表
 
     And I click the "fieldAdd" button
     And I set the parameter "firstFieldName" with value "apache.status"
-    And I choose the "数值" from the "FirstFieldType"
+#    And I choose the "数值" from the "FirstFieldType"
+   And I click the "FirstFieldType" button
+    And I click the "number" button
 
     And I click the "fieldLowAdd" button
     And I set the parameter "secondFieldName" with value "appname"
-    And I choose the "字符串" from the "secondFieldType"
+#    And I choose the "字符串" from the "secondFieldType"
+    And I click the "secondFieldType" button
+    And I click the "strStr" button
 
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
@@ -39,7 +43,9 @@ Feature: 数据集-预定义字段列表
      When I click the "editEvent" button
      And I click the "childFieldAdd" button
      And I set the parameter "thirdFieldName" with value "ip"
-     And I choose the "字符串" from the "thirdFieldType"
+#     And I choose the "字符串" from the "thirdFieldType"
+       And I click the "thirdFieldType" button
+       And I click the "strStr" button
 
      And I click the "rootSave" button
      And I wait for loading invisible
@@ -79,15 +85,23 @@ Feature: 数据集-预定义字段列表
 
      And I click the "childFieldAdd" button
      And I set the parameter "child_first_name" with value "timestamp"
-     And I choose the "时间" from the "child_first_type"
+#     And I choose the "时间" from the "child_first_type"
+     And I click the "child_first_type" button
+     And I click the "time" button
+
 
      And I click the "childFieldAdd" button
      And I set the parameter "child_second_name" with value "apache.resp_len"
-     And I choose the "数值" from the "child_second_type"
+#     And I choose the "数值" from the "child_second_type"
+     And I click the "child_second_type" button
+     And I click the "number" button
 
      And I click the "childFieldAdd" button
      And I set the parameter "child_third_name" with value "hostname"
-     And I choose the "字符串" from the "child_third_type"
+#     And I choose the "字符串" from the "child_third_type"
+     And I click the "child_third_type" button
+     And I click the "strType" button
+
      And I click the "save" button
 
 

@@ -102,16 +102,25 @@ public class ListPage extends ListPageFactory {
 
 //数据集预定义字段列表
     //第1个字段名称
-    @FindBy(id="EditDatabase_fields[0].name")
+  //  @FindBy(id="EditDatabase_fields[0].name")
+    @FindBy(xpath = "//span[@class='css-pcxrzr ant-input-group-wrapper']/span/input[@id='EditDatabase_fields[0].name']")
     private WebElement firstFieldName;
     public WebElement getFirstFieldName(){return firstFieldName;}
     //第1个字段类型
-    @FindBy(id="EditDatabase_fields[0].type")
+   // @FindBy(id="EditDatabase_fields[0].type")
+    @FindBy(xpath = "//span[@class='css-pcxrzr ant-input-group-wrapper']/span/span/div[@id='EditDatabase_fields[0].type']")
     private WebElement firstFieldType;
     public WebElement getFirstFieldType(){
-        firstFieldType.click();
-        return super.getLastDropdownList();
+       // firstFieldType.click();
+       // return super.getLastDropdownList();
+        return firstFieldType;
     }
+    @FindBy(xpath = "//li[contains(text(),'数值')]")
+    private WebElement number;
+    public WebElement getNumber(){return number;}
+
+
+
     //第2个字段名称
     @FindBy(id="EditDatabase_fields[1].name")
     private WebElement secondFieldName;
@@ -120,9 +129,15 @@ public class ListPage extends ListPageFactory {
     @FindBy(id="EditDatabase_fields[1].type")
     private WebElement secondFieldType;
     public WebElement getSecondFieldType(){
-        secondFieldType.click();
-        return super.getLastDropdownList();
+      //  secondFieldType.click();
+      //  return super.getLastDropdownList();
+        return secondFieldType;
     }
+    @FindBy(xpath = "//li[contains(text(),'字符串')]")
+    private WebElement strStr;
+    public WebElement getStrStr(){return strStr;}
+
+
 
     @FindBy(xpath = "//label[@title='字段']/parent::div/following-sibling::div//span[text()='添加']")
     private WebElement fieldAdd;
