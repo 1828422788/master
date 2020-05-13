@@ -41,9 +41,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-message-box__btns")
     private WebElement messageBoxButtons;
 
-    @FindBy(className = "el-message__group")
-    private WebElement suspensionMessage;
-
     @FindBy(className = "el-dialog")
     private WebElement dialog;
 
@@ -55,9 +52,6 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(className = "el-message-box__message")
     private WebElement message;
-
-    @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[2]")
-    private WebElement ensureButton;
 
     @FindBy(xpath = "//span[text()='SuccessEditAutoTest'][@class='runner-banned-name']/following-sibling::span")
     private WebElement userStatus;
@@ -71,7 +65,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()=' __user_AutoTest__ ']")
     private WebElement role;
 
-    @FindBy(xpath = "//span[text()=' __user_AutoTestAuth__ ']")
+    @FindBy(xpath = "//span[text()='__user_AutoTestAuth__']")
     private WebElement roleAuth;
 
     @FindBy(xpath = "//label[text()='所拥有角色']")
@@ -94,7 +88,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getEnsureButton() {
-        return ensureButton;
+        return super.getButton("确定");
     }
 
     public WebElement getSearchInput() {
@@ -176,12 +170,6 @@ public class ListPage extends ListPageFactory {
             }
         }
         return null;
-    }
-
-    public WebElement getSuccessMessage() {
-        ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(suspensionMessage);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        return suspensionMessage;
     }
 
     public WebElement getErrorMessage() {

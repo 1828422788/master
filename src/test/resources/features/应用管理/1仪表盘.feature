@@ -31,6 +31,7 @@ Feature: 应用仪表盘
 
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible

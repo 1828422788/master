@@ -23,14 +23,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[contains(text(),'确定')]/ancestor::button")
     private WebElement messageBoxOKButton;
 
-    @FindBy(className = "el-message__group")
-    private WebElement successMessage;
-
-    @Override
-    public WebElement getSuccessMessage() {
-        return successMessage;
-    }
-
     public WebElement getMessageBoxOKButton() {
         return messageBoxOKButton;
     }

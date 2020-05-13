@@ -65,7 +65,7 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "ant-calendar-ok-btn")
     private WebElement ensureTime;
 
-    @FindBy(xpath = "(//span[@class='el-checkbox__label'][contains(text(),'新建用户')])[1]")
+    @FindBy(xpath = "//span[text()='新建用户']/preceding-sibling::span")
     private WebElement createUser;
 
     @FindBy(xpath = "(//a[text()='仪表盘'])[last()]")
