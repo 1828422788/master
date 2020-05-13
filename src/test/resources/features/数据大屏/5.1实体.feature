@@ -1,5 +1,8 @@
 @galaxeeNet @galaxee
   Feature: 数据大屏-实体
+    Background:
+      Given I will see the "PublicNavBarPage" page
+      And I wait for "Dashboard" will be visible
 
     Scenario: 实体数据之搜索值异常
 #      Given I will see the "PublicNavBarPage" page
@@ -21,8 +24,8 @@
       And I choose the "file" from the "entityStyleSelect"
       #数据设置
       And I click the "Data" button
-      And I click the "DateEditor" button
-      And I click the "RecentSevenDay" button
+#      And I click the "DateEditor" button
+#      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -31,7 +34,7 @@
        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体数据之搜索值异常发布并截图
@@ -43,6 +46,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name           |
@@ -71,8 +78,8 @@
       And I choose the "database" from the "entityStyleSelect"
       #数据设置
       And I click the "Data" button
-      And I click the "DateEditor" button
-      And I click the "RecentSevenDay" button
+#      And I click the "DateEditor" button
+#      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -97,7 +104,7 @@
        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
     Scenario Outline: 实体数据之静态数据值严重发布并截图
 #      Given I will see the "PublicNavBarPage" page
@@ -108,6 +115,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name           |
@@ -129,8 +140,8 @@
       And I click the "Other" button
       And I click the "otherSearch" button
       And I set the parameter "SplInput" with value "* | stats avg(apache.status) as err_avg"
-      And I click the "DateEditor" button
-      And I click the "RecentSevenDay" button
+#      And I click the "DateEditor" button
+#      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -171,7 +182,7 @@
       And I set the parameter "abnormalEnd" with value "400"
       #保存
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 实体数据之绑定搜索发布并截图
@@ -183,20 +194,13 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name              |
         |实体数据之绑定搜索 |
 
 
-
-    Scenario Outline: 删除关于实体的大屏
-      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-      Then I click the "Ensure" button
-
-      Examples:
-        |name|
-        |实体数据之绑定搜索 |
-        |实体数据之静态数据值严重   |
-        |实体数据之搜索值异常   |

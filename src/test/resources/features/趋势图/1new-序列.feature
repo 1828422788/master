@@ -99,7 +99,7 @@ Feature: 趋势图新建_序列
     And I click the "ShowAllLabels" button
     And I click the "Bubble" button
     And I click the "AccordingField" button
-    And I choose the "<bubbleSize>" from the "BubbleSize"
+    And I choose the "<bubbleSize>" from the "BubbleSize" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button

@@ -1,6 +1,10 @@
 @galaxeeMap @galaxee
   Feature: 数据大屏-攻击地图3D II
 
+    Background:
+      Given I will see the "PublicNavBarPage" page
+      And I wait for "Dashboard" will be visible
+
     Scenario: 攻击地图3DII之样式-搜索
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
@@ -49,7 +53,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 攻击地图3DII样式-搜索设置发布并截图
@@ -59,6 +63,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name              |
@@ -101,7 +109,7 @@
       And I wait for "Save" will be visible
       And I wait for "2000" millsecond
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之静态数据发布并截图
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -110,6 +118,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name                    |
@@ -118,8 +130,7 @@
 ######################################无耻的分割线################################
 
     Scenario: 攻击地图3DII之数据设置(数据源类型：绑定搜索)
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
+
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -166,7 +177,7 @@
       And I click the "Update" button
       #保存
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之绑定数据发布并截图
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -175,23 +186,15 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name                    |
         |攻击地图3DII数据之绑定数据 |
 
-
-
-    Scenario Outline: 删除关于攻击地图3D二的大屏
-      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-      Then I click the "Ensure" button
-
-      Examples:
-        |name|
-        |攻击地图3DII样式-搜索    |
-        |攻击地图3DII数据之静态数据 |
-        |攻击地图3DII数据之绑定数据 |
 
 
 

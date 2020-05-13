@@ -1,5 +1,8 @@
 @galaxeeIndex @galaxee
   Feature: 数据大屏-Top3
+    Background:
+      Given I will see the "PublicNavBarPage" page
+      And I wait for "Dashboard" will be visible
 
 
   Scenario: Top3样式-搜索
@@ -51,7 +54,7 @@
     And I choose the "count()" from the "dataSearchNumber"
       #保存
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: Top3样式-搜索发布并截图
@@ -62,6 +65,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name           |
@@ -96,7 +103,7 @@
       #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: Top3数据之静态数据发布并截图 
@@ -107,6 +114,10 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name              |
@@ -155,7 +166,7 @@
       And I choose the "count()" from the "dataSearchNumber"
       #保存
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
     Scenario Outline: Top3数据之绑定搜索发布并截图
 
@@ -165,23 +176,14 @@
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
-
-      Examples:
-        |name             |
-        |Top3数据之绑定搜索 |
-
-
-    Scenario Outline: 删除关于top3的大屏
-      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
       Then I click the "Ensure" button
 
       Examples:
-        |name|
-        |Top3样式-搜索    |
-        |Top3数据之静态数据  |
+        |name             |
         |Top3数据之绑定搜索 |
-
 
 
 

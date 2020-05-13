@@ -71,6 +71,7 @@ Feature: Agent分组采集
     And I will see the "agent.CreatePage" page
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
     Then I wait for loading invisible
+    And I wait for "2000" millsecond
     Then I will see the element "DataSourceSwitchStatus" name is "已禁用"
 
   Scenario: 分组采集数据源启用
@@ -83,12 +84,12 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     Then I wait for loading invisible
-    Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
+    Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "open" switch
     And I wait for "2000" millsecond
-#    Then I will see the element "DataSourceSwitchStatus" name is "已启用"
+    Then I will see the element "DataSourceSwitchStatus" name is "已启用"
 
 
-  Scenario: 文件目录配置修改日志内容白名单
+  Scenario: 分组采集数据修改日志内容白名单
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page
     And switch to another window
@@ -103,7 +104,7 @@ Feature: Agent分组采集
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
-  Scenario: 文件目录配置修改日志内容黑名单
+  Scenario: 分组采集数据修改日志内容黑名单
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page
     And switch to another window
@@ -117,7 +118,7 @@ Feature: Agent分组采集
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
-  Scenario Outline: 文件目录配置修改最后修改时间
+  Scenario Outline: 分组采集数据修改最后修改时间
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page
     And switch to another window
@@ -139,7 +140,7 @@ Feature: Agent分组采集
       | 天        |
       | 分钟       |
 
-  Scenario Outline: 文件目录配置修改字符集
+  Scenario Outline: 分组采集数据配置修改字符集
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page
     And switch to another window
@@ -149,7 +150,9 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
+    And I wait for "3000" millsecond
     When I choose the "<characterkind>" from the "CharacterKind"
+    And I wait for "3000" millsecond
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
@@ -159,7 +162,7 @@ Feature: Agent分组采集
       |   utf-8    |
       |    gbk    |
 
-  Scenario: 文件目录配置修改tag
+  Scenario: 分组采集数据修改tag
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page
     And switch to another window
@@ -174,7 +177,7 @@ Feature: Agent分组采集
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
-  Scenario: 文件目录配置修改appname
+  Scenario: 分组采集数据修改appname
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page
     And switch to another window
@@ -193,7 +196,7 @@ Feature: Agent分组采集
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
-  Scenario: 文件目录数据源删除
+  Scenario: 分组采集数据数据源删除
     And I click the "AgentGroupButton" button
     And open the "agent.GroupPage" page
     And switch to another window

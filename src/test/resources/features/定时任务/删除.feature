@@ -19,6 +19,7 @@ Feature: 定时任务删除
     |  recent1d          |
     |  recent2d          |
     |  recent7d          |
+    |  interval_date     |
     |  today             |
     |  yesterday         |
     |  thisWeek          |

@@ -1,5 +1,8 @@
 @galaxeeMap @galaxee
 Feature: 数据大屏-攻击地图3D
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
 
   Scenario: 攻击地图3D样式-搜索
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -52,7 +55,7 @@ Feature: 数据大屏-攻击地图3D
     And I click the "Update" button
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 攻击地图3D样式-搜索发布页截图
@@ -63,6 +66,10 @@ Feature: 数据大屏-攻击地图3D
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name   |
@@ -107,7 +114,7 @@ Feature: 数据大屏-攻击地图3D
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
   Scenario Outline: 攻击地图3D-静态数据发布并截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -116,6 +123,10 @@ Feature: 数据大屏-攻击地图3D
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name                    |
@@ -169,7 +180,7 @@ Feature: 数据大屏-攻击地图3D
     And I click the "Update" button
       #保存
     And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
   Scenario Outline: 攻击地图3D-绑定搜索发布并截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -178,6 +189,10 @@ Feature: 数据大屏-攻击地图3D
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name                    |
@@ -186,13 +201,3 @@ Feature: 数据大屏-攻击地图3D
 
 
 
-  Scenario Outline: 删除关于| 攻击地图3D |的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      | 攻击地图3D样式-搜索 |
-      |攻击地图3D-静态数据 |
-      |攻击地图3D-绑定搜索|

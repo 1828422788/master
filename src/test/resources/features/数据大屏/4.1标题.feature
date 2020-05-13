@@ -2,7 +2,8 @@
 Feature: 数据大屏-标题
 
   Background:
-#    Given I wait for title change text to "仪表盘"
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
   Scenario: 新建默认类型的标题
@@ -29,6 +30,7 @@ Feature: 数据大屏-标题
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
+    And I will see the success message "保存成功"
 
   Scenario Outline: 修改配置
     When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
@@ -71,6 +73,10 @@ Feature: 数据大屏-标题
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       | name |
@@ -79,11 +85,3 @@ Feature: 数据大屏-标题
 
 
 
-  Scenario Outline: 删除关于| 标题 |的大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      | 标题   |

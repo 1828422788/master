@@ -1207,8 +1207,17 @@ public class CreatePage extends PageTemplate {
         return searchTip;
     }
 
-    public WebElement getSuccessMessage() {
+  /*  public WebElement getSuccessMessage() {
         return super.getErrorMessage();
+    }*/
+
+   // public WebElement getSuccessMessage(){return super.getSuccessMessage();}
+
+    @FindBy(xpath = "//div[@class='el-message-box__message']/p[text()='保存成功']")
+    private WebElement successMessage;
+    @Override
+    public WebElement getSuccessMessage() {
+        return successMessage;
     }
 
     public WebElement getSaveAsTemplate() {
@@ -1345,7 +1354,8 @@ private WebElement dataType;
 
 //author-jnd
     //发布
-    @FindBy(xpath = "//span[text()='发布']")
+   // @FindBy(xpath = "//span[text()='发布']")
+    @FindBy(xpath = "//button[@class='el-button el-button--text']/span[text()='发布']")
     private WebElement fabu;
     public WebElement getFabu(){return fabu;}
     //全局样式

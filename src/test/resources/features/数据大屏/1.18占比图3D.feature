@@ -1,6 +1,10 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-占比图3D
 
+  Background:
+    Given I will see the "PublicNavBarPage" page
+    And I wait for "Dashboard" will be visible
+
 
   Scenario: 占比图3D数据之样式-搜索
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -50,8 +54,8 @@ Feature: 数据大屏-占比图3D
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/2800000"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -69,7 +73,7 @@ Feature: 数据大屏-占比图3D
     And I set the parameter "seriousMax" with value "0.9"
     #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 占比图3D数据之样式-搜索发布并截图
@@ -79,6 +83,10 @@ Feature: 数据大屏-占比图3D
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name               |
@@ -104,8 +112,8 @@ Feature: 数据大屏-占比图3D
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/2800000"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -129,7 +137,7 @@ Feature: 数据大屏-占比图3D
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 占比图3D数据之静态数据发布并截图
@@ -139,6 +147,10 @@ Feature: 数据大屏-占比图3D
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name            |
@@ -158,8 +170,8 @@ Feature: 数据大屏-占比图3D
     And I click the "otherSearch" button
     And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/2800000"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -199,7 +211,7 @@ Feature: 数据大屏-占比图3D
     And I set the parameter "seriousMax" with value "0.6"
       #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 占比图3D数据之绑定搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -208,19 +220,13 @@ Feature: 数据大屏-占比图3D
     And I close all tabs except main tab
     And I wait for loading invisible
     Then take a screenshot with name "galaxee/<name>"
+    #删除
+    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    Then I click the "Ensure" button
 
     Examples:
       |name              |
       |占比图3D数据之绑定搜索 |
 
 
-  Scenario Outline: 删除关于占比图3D大屏
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name|
-      |占比图3D数据之样式-搜索   |
-      |占比图3D数据之静态数据   |
-      |占比图3D数据之绑定搜索 |

@@ -3,9 +3,9 @@ Feature: 租户系统-用户信息
 
 Scenario Outline: 用户信息-修改管理员名称和邮箱
     Given open the "saas.SaasLoginPage" page for uri "/domain/tenant/"
-#    When I set the parameter "Username" with properties "saas_username"
-#    And I set the parameter "Password" with properties "saas_password"
-#    And I click the "LoginButton" button
+    When I set the parameter "Username" with properties "saas_username"
+    And I set the parameter "Password" with properties "saas_password"
+    And I click the "LoginButton" button
     And I will see the "tenant.ListPage" page
 #修改
     And I click the "people" button

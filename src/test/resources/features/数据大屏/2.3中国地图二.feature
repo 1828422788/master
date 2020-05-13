@@ -1,5 +1,8 @@
 @galaxeeMap @galaxee
   Feature: 数据大屏-中国地图II
+    Background:
+      Given I will see the "PublicNavBarPage" page
+      And I wait for "Dashboard" will be visible
 
 
   Scenario: 对中国地图II进行样式-搜索
@@ -50,8 +53,8 @@
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
-    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -61,7 +64,7 @@
     And I choose the "count()" from the "ChineseMapTwoDataSearchValue"
 #保存
     And I click the "Save" button
-#    Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 Scenario Outline: 中国地图II样式-搜索发布并截图
   Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -70,6 +73,10 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
   And I close all tabs except main tab
   And I wait for loading invisible
   Then take a screenshot with name "galaxee/<name>"
+  #删除
+  Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+  When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+  Then I click the "Ensure" button
 
   Examples:
   |name            |
@@ -98,7 +105,7 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
 
       And I wait for "Save" will be visible
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
     Scenario Outline: 中国地图II样式->地图->区域选择无锡发布并截图
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -107,6 +114,10 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name                 |
@@ -131,8 +142,8 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
      #数据设置
       And I click the "Data" button
       And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
-      And I click the "DateEditor" button
-      And I click the "RecentSevenDay" button
+#      And I click the "DateEditor" button
+#      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -148,7 +159,7 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
     #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 中国地图II数据之静态数据发布并截图
@@ -158,6 +169,10 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name            |
@@ -176,8 +191,8 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
       And I click the "Other" button
       And I click the "otherSearch" button
       And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
-      And I click the "DateEditor" button
-      And I click the "RecentSevenDay" button
+#      And I click the "DateEditor" button
+#      And I click the "RecentSevenDay" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -211,7 +226,7 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
       Then take a screenshot with name "galaxee/中国地图II数据之绑定搜索编辑页"
       #保存
       And I click the "Save" button
-#      Then I will see the success message "保存成功"
+      Then I will see the success message "保存成功"
 
 
     Scenario Outline: 中国地图II数据之绑定搜索发布并截图
@@ -221,6 +236,10 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
       And I close all tabs except main tab
       And I wait for loading invisible
       Then take a screenshot with name "galaxee/<name>"
+      #删除
+      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      Then I click the "Ensure" button
 
       Examples:
         |name              |
@@ -228,18 +247,6 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
 
 
 
-
-    Scenario Outline: 删除关于中国地图II的大屏
-      Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
-      Then I click the "Ensure" button
-
-      Examples:
-        |name|
-        |中国地图II样式-搜素    |
-        |中国地图II样式无锡     |
-        |中国地图II数据之静态数据   |
-        |中国地图II数据之绑定搜索 |
 
 
 

@@ -22,6 +22,7 @@ Feature: Agent备份功能
   Scenario: Agent备份，添加备份页面的关闭Agent高级配置
     And I click the "Senior" button
     And I click the "Cancle" button
+    Then I wait for loading invisible
     And I will see the "AgentConfigurationTitle" doesn't exist
 
   Scenario: Agent备份，添加备份
@@ -136,6 +137,7 @@ Feature: Agent备份功能
     Then I will see the element "ChangeMemo" name is "删除目的对象成功。"
 
   Scenario: 备份策略删除
+    Then I wait for loading invisible
     Given the data name "hekabackup" in table "BackUpTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除备份配置成功"
