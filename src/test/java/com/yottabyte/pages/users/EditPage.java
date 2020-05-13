@@ -43,9 +43,6 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='重复密码']//following-sibling::div//input[@type='password']")
     private WebElement repeatPassword;
 
-    @FindBy(className = "btn-submit")
-    private WebElement saveButton;
-
     @FindBy(id = "AccountUpdate_authorizationRoles")
     private WebElement manageRole;
 
@@ -110,7 +107,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getSaveButton() {
-        return saveButton;
+        return super.getButton("保存");
     }
 
     @Override

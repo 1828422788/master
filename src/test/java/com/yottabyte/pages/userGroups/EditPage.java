@@ -38,7 +38,7 @@ public class EditPage extends PageTemplate {
     @FindBy(className = "el-message-box__message")
     private WebElement message;
 
-    @FindBy(xpath = "(//span[contains(text(),'保存')][not(@class)])[last()]")
+    @FindBy(xpath = "(//span[contains(text(),'保存')][not(@class)])[last()]/ancestor::button")
     private WebElement saveButton;
 
     @FindBy(xpath = "//div[text()='AutoTest']/ancestor::td/preceding-sibling::td//label")
@@ -73,6 +73,9 @@ public class EditPage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='保存'])[last()]/ancestor::button")
     private WebElement saveAdmin;
+
+    @FindBy(id = "UserGroupUpdate_name")
+    private WebElement userGroupName;
 
     public WebElement getSaveAdmin() {
         return saveAdmin;
@@ -127,7 +130,7 @@ public class EditPage extends PageTemplate {
     }
 
     public WebElement getUserGroupName() {
-        return inputs.get(0);
+        return userGroupName;
     }
 
     public WebElement getUserGroupDes() {
