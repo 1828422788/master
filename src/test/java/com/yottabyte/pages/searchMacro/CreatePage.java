@@ -29,7 +29,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
     private WebElement lastDropdown;
 
-    @FindBy(className = "el-message-box__message")
+    @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement successMessage;
 
     @Override
@@ -79,6 +79,6 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getInputElement(String name) {
-        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::div/*"));
+        return webDriver.findElement(By.xpath("//label[text()='" + name + "']/following-sibling::*"));
     }
 }
