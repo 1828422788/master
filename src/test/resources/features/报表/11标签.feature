@@ -38,7 +38,7 @@ Feature: 报表标签
   Scenario: verify_tag
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
-    And I wait for "1000" millsecond
+    And I wait for element "SelectedUser" change text to "ctest"
     And I will see the input element "Name" value will be "Test_Tag"
     And I will see the input element "Describe" value will be "AutoCreate"
     And I will see the element "ChosenTag" contains "auto_package"
