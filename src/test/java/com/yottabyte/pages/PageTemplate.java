@@ -62,7 +62,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(className = "ant-select-remove-icon")
     private WebElement deleteApp;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='el-input__icon el-icon-arrow-up']")
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='anticon anticon-down ant-select-arrow-icon']")
     private WebElement app;
 
     @FindBy(className = "ant-message-success")
