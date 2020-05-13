@@ -103,7 +103,7 @@ Feature: 报表新建_选择
     Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
     When I click the "ChosenTrendLast" button
     Then I will see the element "TrendDescription" contains "AutoCreate"
-    And I will see the element "TrendSpl" contains "starttime="now/d-24h" endtime="now/d" tag:sample04061424_chart  | stats count() as cnt by apache.clientip,apache.method  | sort by cnt, apache.clientip "
+    And I will see the element "TrendSpl" contains "starttime="now/d-24h" endtime="now/d" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by cnt, apache.clientip"
     And I will see the element "TrendData" contains ""
     And I will see the element "TrendChart" contains "line"
     When I click the "EditButton" button
@@ -113,7 +113,7 @@ Feature: 报表新建_选择
     And I click the "AreaChart" button
     When I click the "CancelButton" button
     Then I will see the element "TrendDescription" contains "AutoCreate"
-    And I will see the element "TrendSpl" contains "starttime="now/d-24h" endtime="now/d" tag:sample04061424_chart  | stats count() as cnt by apache.clientip,apache.method  | sort by cnt, apache.clientip "
+    And I will see the element "TrendSpl" contains "starttime="now/d-24h" endtime="now/d" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by cnt, apache.clientip"
     And I will see the element "TrendData" contains ""
     And I will see the element "TrendChart" contains "line"
 
