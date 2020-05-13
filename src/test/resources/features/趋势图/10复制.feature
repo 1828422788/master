@@ -19,7 +19,7 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "Settings" button
     And I click the "Bubble" button
     And I click the "AccordingField" button
-    And I choose the "cnt" from the "BubbleSize"
+    And I choose the "cnt" from the "BubbleSize" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
@@ -34,7 +34,7 @@ Feature: 趋势图复制(RZY-1889)
     When I set the parameter "NameInput" with value "Copy_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "AutoTest" from the "GroupField"
-    And I choose the "d" from the "AppField"
+    And I choose the "TrendApp" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
     And I compare source image "expect/ScatterChart_bubbles" with target image "actual/test_original"
@@ -58,7 +58,7 @@ Feature: 趋势图复制(RZY-1889)
     And I click the "NextButton" button
     And I will see the input element "NameInput" value will be "Copy_Test(副本)"
     And I will see the input element "DescribeInput" value will be "AutoCreate"
-    And I cancel selection "d" from the "AppField"
+    And I cancel selection "TrendApp" from the "AppField"
     And I cancel selection "AutoTest" from the "GroupField"
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible

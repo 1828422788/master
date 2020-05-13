@@ -274,37 +274,37 @@ Feature: 趋势图新建_地图
       |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546_white |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
       |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547_white |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
-# white region map and parameters of statistical map displayed not correctly - bug
-  @compareTrend @compareTrendMap
-  Scenario Outline: compare_view
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "<name>"
-    And I wait for loading invisible
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
-    And switch to window "查看趋势图"
-    And I close all tabs except main tab
-    Then I will see the "trend.ViewPage" page
-    And I wait for "ChartName" will be visible
-    And I wait for "ChartView" will be visible
-    And I will see the "NoData" doesn't exist
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "3000" millsecond
-    And I will see the element "ChartName" contains "<name>"
-    And take part of "ChartView" with name "actual_view/<name>"
-    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
-
-    Examples:
-      | name                                     |
-#      | Regionmap_Jiangsu_2547_white             |
-#      | Regionmap_China_2546_white               |
-#      | Regionmap_2545_white                     |
-      | Regionmap_Jiangsu_2547                   |
-      | Regionmap_China_2546                     |
-      | Attackmap_China_2543                     |
-      | Attackmap_World_2542                     |
-      | Regionmap_2545                           |
-      | Heatmap_2539                             |
-#      | Statisticalmap_2098_param                |
-      | Statisticalmap_2098                      |
-#      | Statisticalmap_2797_param                |
-      | Statisticalmap_2797                      |
+## white region map and parameters of statistical map displayed not correctly - bug
+#  @compareTrend @compareTrendMap
+#  Scenario Outline: compare_view
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    When I set the parameter "SearchInput" with value "<name>"
+#    And I wait for loading invisible
+#    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+#    And switch to window "查看趋势图"
+#    And I close all tabs except main tab
+#    Then I will see the "trend.ViewPage" page
+#    And I wait for "ChartName" will be visible
+#    And I wait for "ChartView" will be visible
+#    And I will see the "NoData" doesn't exist
+#    And I drag the scroll bar to the element "ChartView"
+#    And I wait for "3000" millsecond
+#    And I will see the element "ChartName" contains "<name>"
+#    And take part of "ChartView" with name "actual_view/<name>"
+#    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
+#
+#    Examples:
+#      | name                                     |
+##      | Regionmap_Jiangsu_2547_white             |
+##      | Regionmap_China_2546_white               |
+##      | Regionmap_2545_white                     |
+#      | Regionmap_Jiangsu_2547                   |
+#      | Regionmap_China_2546                     |
+#      | Attackmap_China_2543                     |
+#      | Attackmap_World_2542                     |
+#      | Regionmap_2545                           |
+#      | Heatmap_2539                             |
+##      | Statisticalmap_2098_param                |
+#      | Statisticalmap_2098                      |
+##      | Statisticalmap_2797_param                |
+#      | Statisticalmap_2797                      |
