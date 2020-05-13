@@ -196,36 +196,36 @@ Feature: 趋势图新建_序列
       |   ScatterChart |   个       |  2492     |
       |   ColumnChart  |   pcs.     |  2500     |
 
-    @compareTrend @compareTrendOrder
-  Scenario Outline: compare_view
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "<name>"
-    And I wait for loading invisible
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
-    And switch to window "查看趋势图"
-    And I close all tabs except main tab
-    Then I will see the "trend.ViewPage" page
-    And I wait for "ChartName" will be visible
-    And I wait for "ChartView" will be visible
-    And I will see the "NoData" doesn't exist
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "3000" millsecond
-    And I will see the element "ChartName" contains "<name>"
-    And take part of "ChartView" with name "actual_view/<name>"
-    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
-
-    Examples:
-      | name                                     |
-      | ScatterChart_2492_limit                  |
-      | ColumnChart_2500_limit                   |
-      | AreaChart_2483_ConnectEmptyData          |
-      | AreaChart_2483_Smooth                    |
-      | LineChart_2479_ConnectEmptyData          |
-      | LineChart_2479_Smooth                    |
-      | ScatterChart_bubbles                     |
-      | ColumnChart_Pile                         |
-      | AreaChart_Pile                           |
-      | ColumnChart_2499                         |
-      | ScatterChart_2491                        |
-      | AreaChart_2005                           |
-      | LineChart_2477                           |
+#    @compareTrend @compareTrendOrder
+#  Scenario Outline: compare_view
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    When I set the parameter "SearchInput" with value "<name>"
+#    And I wait for loading invisible
+#    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+#    And switch to window "查看趋势图"
+#    And I close all tabs except main tab
+#    Then I will see the "trend.ViewPage" page
+#    And I wait for "ChartName" will be visible
+#    And I wait for "ChartView" will be visible
+#    And I will see the "NoData" doesn't exist
+#    And I drag the scroll bar to the element "ChartView"
+#    And I wait for "3000" millsecond
+#    And I will see the element "ChartName" contains "<name>"
+#    And take part of "ChartView" with name "actual_view/<name>"
+#    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
+#
+#    Examples:
+#      | name                                     |
+#      | ScatterChart_2492_limit                  |
+#      | ColumnChart_2500_limit                   |
+#      | AreaChart_2483_ConnectEmptyData          |
+#      | AreaChart_2483_Smooth                    |
+#      | LineChart_2479_ConnectEmptyData          |
+#      | LineChart_2479_Smooth                    |
+#      | ScatterChart_bubbles                     |
+#      | ColumnChart_Pile                         |
+#      | AreaChart_Pile                           |
+#      | ColumnChart_2499                         |
+#      | ScatterChart_2491                        |
+#      | AreaChart_2005                           |
+#      | LineChart_2477                           |

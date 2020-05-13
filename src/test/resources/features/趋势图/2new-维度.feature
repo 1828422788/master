@@ -128,45 +128,45 @@ Feature: 趋势图新建_维度
       |      Pie      | Orange |展示全部     |
       |     Rose      | Orange |展示全部     |
 
-  @compareTrend @compareTrendDimension
-  Scenario Outline: compare_view
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "<name>"
-    And I wait for loading invisible
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
-    And switch to window "查看趋势图"
-    And I close all tabs except main tab
-    Then I will see the "trend.ViewPage" page
-    And I wait for "ChartName" will be visible
-    And I wait for "ChartView" will be visible
-    And I will see the "NoData" doesn't exist
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "3000" millsecond
-    And I will see the element "ChartName" contains "<name>"
-    And take part of "ChartView" with name "actual_view/<name>"
-    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
-
-    Examples:
-      | name                                     |
-      | Rose_展示全部                            |
-      | Pie_展示全部                             |
-      | Rose_只展示名称                          |
-      | Pie_只展示名称                           |
-      | Bar_不展示                               |
-      | Rose_不展示                              |
-      | Pie_不展示                               |
-      | Bar_展示全部_柱状内靠右侧                 |
-      | Bar_展示全部_柱状内靠左侧                 |
-      | Bar_展示全部_柱状内中央                   |
-      | Bar_展示全部_柱状外右侧                   |
-      | Bar_展示全部_柱状外左侧                   |
-      | Bar_只展示名称_柱状内靠右侧               |
-      | Bar_只展示名称_柱状内靠左侧               |
-      | Bar_只展示名称_柱状内中央                 |
-      | Bar_只展示名称_柱状外右侧                 |
-      | Bar_只展示名称_柱状外左侧                 |
-      | Sun_2850                                 |
-      | Bar_2676                                 |
-      | Rose_2858                                |
-      | Pie_2503                                 |
-
+#  @compareTrend @compareTrendDimension
+#  Scenario Outline: compare_view
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    When I set the parameter "SearchInput" with value "<name>"
+#    And I wait for loading invisible
+#    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+#    And switch to window "查看趋势图"
+#    And I close all tabs except main tab
+#    Then I will see the "trend.ViewPage" page
+#    And I wait for "ChartName" will be visible
+#    And I wait for "ChartView" will be visible
+#    And I will see the "NoData" doesn't exist
+#    And I drag the scroll bar to the element "ChartView"
+#    And I wait for "3000" millsecond
+#    And I will see the element "ChartName" contains "<name>"
+#    And take part of "ChartView" with name "actual_view/<name>"
+#    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
+#
+#    Examples:
+#      | name                                     |
+#      | Rose_展示全部                            |
+#      | Pie_展示全部                             |
+#      | Rose_只展示名称                          |
+#      | Pie_只展示名称                           |
+#      | Bar_不展示                               |
+#      | Rose_不展示                              |
+#      | Pie_不展示                               |
+#      | Bar_展示全部_柱状内靠右侧                 |
+#      | Bar_展示全部_柱状内靠左侧                 |
+#      | Bar_展示全部_柱状内中央                   |
+#      | Bar_展示全部_柱状外右侧                   |
+#      | Bar_展示全部_柱状外左侧                   |
+#      | Bar_只展示名称_柱状内靠右侧               |
+#      | Bar_只展示名称_柱状内靠左侧               |
+#      | Bar_只展示名称_柱状内中央                 |
+#      | Bar_只展示名称_柱状外右侧                 |
+#      | Bar_只展示名称_柱状外左侧                 |
+#      | Sun_2850                                 |
+#      | Bar_2676                                 |
+#      | Rose_2858                                |
+#      | Pie_2503                                 |
+#
