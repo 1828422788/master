@@ -53,8 +53,8 @@ Feature: 报表新建_选择
     And I click the "EnsureButton" button
 
     Examples:
-      |   chart1         |    chart2      |    chart3         |    chart4        |    chart5      |    chart6        |   chart7             |   chart8              |     chart9                     |    chart10            |     chart11                     |
-      | LineChart_2477   | AreaChart_2005 | ScatterChart_2491 | ColumnChart_2499 | AreaChart_Pile | ColumnChart_Pile | ScatterChart_bubbles | LineChart_2479_Smooth | LineChart_2479_ConnectEmptyData| AreaChart_2483_Smooth | AreaChart_2483_ConnectEmptyData |
+      |   chart1      |    chart2      |  chart3   |    chart4   |    chart5    |  chart6     |   chart7        |   chart8      |     chart9      |    chart10   |     chart11     |
+      | table_Order   |table_Dimension | table_Sun | table_Chord | table_Sankey | table_Force | table_Rangeline | table_Heatmap | table_Regionmap | table_Single | table_Wordcloud |
 
   Scenario Outline: new_report_moveTrends
     When I set the parameter "Name" with value "<caseNum>"
@@ -65,15 +65,15 @@ Feature: 报表新建_选择
     And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartListDropdown"
+    When I choose the "table_Order" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
-    When I choose the "AreaChart_2005" from the "ChartListDropdown"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    When I choose the "table_Dimension" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "AreaChart_2005"
-    When I choose the "ScatterChart_2491" from the "ChartListDropdown"
+    Then I will see the element "ChosenTrendLast" contains "table_Dimension"
+    When I choose the "table_Sun" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "ScatterChart_2491"
+    Then I will see the element "ChosenTrendLast" contains "table_Sun"
     When I click the "<button>" button
     Then I will see the element "ChosenTrendFirst" contains "<trendFirst>"
     And I will see the element "ChosenTrendLast" contains "<trendLast>"
@@ -82,13 +82,13 @@ Feature: 报表新建_选择
     And I click the "EnsureButton" button
 
     Examples:
-      |     button           |  trendFirst      |  trendLast        | caseNum             |
-      | LastTrendDelete      |  LineChart_2477  | AreaChart_2005    | test_deleteLast     |
-      | FirstTrendDelete     |  AreaChart_2005  | ScatterChart_2491 | test_deleteFirst    |
-      | LastTrendUpTop       | ScatterChart_2491| AreaChart_2005    | test_upTopLast      |
-      | FirstTrendDownBottom |  AreaChart_2005  | LineChart_2477    | test_downBottomFirst|
-      | LastTrendUp          | LineChart_2477   | AreaChart_2005    | test_upLast         |
-      | FirstTrendDown       | AreaChart_2005   | ScatterChart_2491 | test_downFirst      |
+      |     button           |  trendFirst        |  trendLast       | caseNum             |
+      | LastTrendDelete      |  table_Order       | table_Dimension  | test_deleteLast     |
+      | FirstTrendDelete     |  table_Dimension   | table_Sun        | test_deleteFirst    |
+      | LastTrendUpTop       |  table_Sun         | table_Dimension  | test_upTopLast      |
+      | FirstTrendDownBottom |  table_Dimension   | table_Order      | test_downBottomFirst|
+      | LastTrendUp          |  table_Order       | table_Dimension  | test_upLast         |
+      | FirstTrendDown       |  table_Dimension   | table_Sun        | test_downFirst      |
 
   Scenario: new_report_modifyTrend_cancel
     When I set the parameter "Name" with value "test_modify_cancel"

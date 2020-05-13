@@ -32,9 +32,9 @@ Feature: 报表新建_执行计划
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartList"
+    When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -56,9 +56,9 @@ Feature: 报表新建_执行计划
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartList"
+    When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -92,9 +92,9 @@ Feature: 报表新建_执行计划
     And I set the parameter "Crontab" with value "0 0/15 9 ? * MON-FRI"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartList"
+    When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -124,9 +124,9 @@ Feature: 报表新建_执行计划
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartList"
+    When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
