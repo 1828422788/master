@@ -96,7 +96,7 @@ Feature: Agent编辑文件目录类型数据源
   Scenario Outline: 文件目录配置修改最后修改时间
     And I click the "EditAutoFile" button
     And I set the parameter "LastModifyTime" with value "20"
-    When I choose the "<timekind>" from the "TimeKind" in config
+    When I choose the "<timekind>" from the "TimeKind"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
@@ -109,7 +109,7 @@ Feature: Agent编辑文件目录类型数据源
 
   Scenario Outline: 文件目录配置修改字符集
     And I click the "EditAutoFile" button
-    When I choose the "<characterkind>" from the "CharacterKind" in config
+    When I choose the "<characterkind>" from the "CharacterKind"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
