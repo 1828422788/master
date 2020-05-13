@@ -34,6 +34,17 @@ public class SplSearch {
         }
     }
 
+    @Then("^I will see the spl search result \"([^割]*)\" which is selected$")
+    public void iWillSeeTheSplSearchResultWhichIsSelected(String json) {
+        Map<String, Object> map = JsonStringPaser.json2Stirng(json);
+
+        for (String key : map.keySet()) {
+            WebElement tr = webDriver.findElement(By.xpath("//span[contains(text(),'事件操作')]/ancestor::div[1]/ancestor::div[1]//span[text()='" + key + "']/ancestor::pre[1]"));
+            String actualValue = tr.getText();
+            Assert.assertEquals(map.get(key), actualValue);
+        }
+    }
+
     /**
      * 验证搜索页列表下不包含某个字段
      *
