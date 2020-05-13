@@ -573,6 +573,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-title']")
     private WebElement AgentConfigurationTitle;
 
+    @FindBy(xpath = "(//div[text()='输出配置']/following-sibling::div//tbody/tr/td)[1]")
+    private WebElement CompressStatus;
+
+    public WebElement getCompressStatus() {
+        return CompressStatus;
+    }
+
     public WebElement getChooseButton() {
         return ChooseButton;
     }

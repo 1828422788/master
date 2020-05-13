@@ -67,16 +67,19 @@ Feature: Agent具体配置高级配置及清理缓存操作
     Given the data name "无" in table "OutputTable" then i click the "编辑" button
     And I click the "Compressed" button
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    And I wait for loading invisible
+    And I will see the element "CompressStatus" name is "关闭"
 
   Scenario: 输出配置开启输出压缩
     Given the data name "无" in table "OutputTable" then i click the "编辑" button
     And I click the "Compressed" button
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    And I wait for loading invisible
+    And I will see the element "CompressStatus" name is "开启"
 #
 #  Scenario: 输出配置修改发送速率限制
 #    Given the data name "无" in table "OutputTable" then i click the "编辑" button
-#    And I click the "Compressed" button
+#    And I choose the "<string>" from the "<string>"
 #    And I click the "Ensure" button
-#    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+#    And I wait for loading invisible
+#    And I will see the element "<string>" name is "关闭"
