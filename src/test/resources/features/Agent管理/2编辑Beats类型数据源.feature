@@ -10,7 +10,6 @@ Feature: Agent编辑Beats类型数据源
     And I will see the "agent.CreatePage" page
 
   Scenario: 新增Beats类型数据源
-#    When I click the detail which name is "<ip>"
     And I click the "Create" button
     And I click the "BeatsType" button
     And I set the parameter "Listenaddress" with value "192.168.1.134:299"

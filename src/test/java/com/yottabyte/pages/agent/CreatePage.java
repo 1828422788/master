@@ -493,8 +493,7 @@ public class CreatePage extends PageTemplate {
     }
 
     @FindBy(xpath ="//span[text()='autotestmysql139']")
-    private WebElement MysqlDatabase139
-            ;
+    private WebElement MysqlDatabase139;
 
     public WebElement getBackUpObject() {
         return BackUpObject;
@@ -519,7 +518,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getLastChangeTime() {
         return LastChangeTime;
     }
-
 
     public WebElement getInputKind() {
         return InputKind;
