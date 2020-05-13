@@ -87,7 +87,7 @@ Feature: 报表新建_选择
       | LastTrendUpTop       |  table_Sun         | table_Dimension  | test_upTopLast      |
       | FirstTrendDownBottom |  table_Dimension   | table_Order      | test_downBottomFirst|
       | LastTrendUp          |  table_Order       | table_Dimension  | test_upLast         |
-      | FirstTrendDown       |  table_Dimension   | table_Sun        |c test_downFirst      |
+      | FirstTrendDown       |  table_Dimension   | table_Sun        | test_downFirst      |
 
   Scenario: new_report_modifyTrend_cancel
     When I set the parameter "Name" with value "test_modify_cancel"
