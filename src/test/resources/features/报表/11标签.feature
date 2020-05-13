@@ -43,7 +43,7 @@ Feature: 报表标签
     And I will see the input element "Describe" value will be "AutoCreate"
     And I will see the element "ChosenTag" contains "AutoTest"
     And I click the "NextButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
