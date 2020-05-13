@@ -44,7 +44,7 @@ Feature: 字段提取UserAgent解析
     Then I wait for "40000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
+    And I set the parameter "SearchInput" with value "tag:<appName>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
