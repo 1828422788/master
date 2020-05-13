@@ -30,7 +30,9 @@ Feature: 字段提取删除
       | RZY2802手机号码解析               |
       | RZY1559tag替换                |
       | RZY1556内容替换                 |
+      | 内容替换详情验证                    |
       | RZY1540配置UserAgent解析        |
+      | UserAgent解析详情验证             |
       | RZY1539添加URL解析              |
       | URL解析详情验证                   |
       | RZY1547syslog_pri解析         |

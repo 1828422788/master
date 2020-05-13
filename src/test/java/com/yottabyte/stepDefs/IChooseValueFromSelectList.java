@@ -115,8 +115,9 @@ public class IChooseValueFromSelectList {
     }
 
     public void iChooseTheFromThe(List<String> values, WebElement parentElement) {
-        if (parentElement.getAttribute("style").contains("display: none;")) {
-            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", parentElement);
+
+        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='block';", parentElement);
         }
         List<WebElement> elements = parentElement.findElements(By.tagName("li"));
         for (String value : values) {
@@ -130,15 +131,18 @@ public class IChooseValueFromSelectList {
                 }
             }
         }
-        try {
-            if (parentElement.isDisplayed()) {
-                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
-                ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(parentElement);
-                WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-            }
-        } catch (Exception e) {
-//            return;
+        if (parentElement.getAttribute("class").contains("ant-select-dropdown-menu-root")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", parentElement);
         }
+//        try {
+//            if (parentElement.isDisplayed()) {
+//                ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", parentElement);
+//                ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(parentElement);
+//                WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+//            }
+//        } catch (Exception e) {
+////            return;
+//        }
     }
 
     /**
@@ -271,7 +275,6 @@ public class IChooseValueFromSelectList {
             ((JavascriptExecutor) webDriver).executeScript("arguments[0].parentNode.parentNode.style.display='none';", element);
         }
     }
-
 
 
 //    public static void main(String args[]) throws InterruptedException {

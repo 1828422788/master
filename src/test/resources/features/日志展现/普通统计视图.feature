@@ -8,9 +8,7 @@ Feature: 日志展现_普通统计视图
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: count(RZY-807,808,809,810)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -35,9 +33,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: count_independent(RZY-2718)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -62,9 +58,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
     #When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "ThisMonth" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/M\" endtime=\"now\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -93,19 +87,17 @@ Feature: 日志展现_普通统计视图
     Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
     Examples:
-      | fieldValue               | statisticType | startDate   |    startTime  |endDate       | endTime | caseNum            |
-      | apache.resp_len          |计数            | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 812_时间分段_计数  |
-      | apache.resp_len          |独立数          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 813_时间分段_独立数 |
-      | apache.resp_len          |总计            | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2721_时间分段_总计  |
-      | apache.resp_len          |平均值          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2722_时间分段_平均值 |
-      | apache.resp_len          |最大值          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2723_时间分段_最大值 |
-      | apache.resp_len          |最小值          | 2020-02-11  | 00:00:00      | 2020-02-11   |23:59:59 | 2724_时间分段_最小值 |
+      | fieldValue               | statisticType |    startTime  | endTime | caseNum            |
+      | apache.resp_len          |计数           | 00:00:00      |23:59:59 | 812_时间分段_计数  |
+      | apache.resp_len          |独立数         | 00:00:00      |23:59:59 | 813_时间分段_独立数 |
+      | apache.resp_len          |总计           | 00:00:00      |23:59:59 | 2721_时间分段_总计  |
+      | apache.resp_len          |平均值         | 00:00:00      |23:59:59 | 2722_时间分段_平均值 |
+      | apache.resp_len          |最大值         | 00:00:00      |23:59:59 | 2723_时间分段_最大值 |
+      | apache.resp_len          |最小值         | 00:00:00      |23:59:59 | 2724_时间分段_最小值 |
 
 
   Scenario Outline: dataslice(RZY-814,3137)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -135,9 +127,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: timehistogram(RZY-815,2725)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "<period>" button
+    When I set the parameter "SearchInput" with value "<period> tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -154,18 +144,17 @@ Feature: 日志展现_普通统计视图
     Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
     Examples:
-      | period    | timeSpan | time   | caseNum              |
-      | Yesterday | 1        |        | 815_时间直方图/815_1h     |
-      | Yesterday | 3600     | 秒     | 815_时间直方图/815_3600s  |
-      | Yesterday | 60       | 分钟    | 815_时间直方图/815_60m    |
-      | LastMonth | 7        | 天     | 2725_时间直方图/2725_7d    |
-      | LastMonth | 1        | 周     | 2725_时间直方图/2725_1w    |
+      | period                                    | timeSpan | time   | caseNum              |
+      | starttime=\"now/d-24h\" endtime=\"now/d\" | 1        |        | 815_时间直方图/815_1h     |
+      | starttime=\"now/d-24h\" endtime=\"now/d\" | 3600     | 秒     | 815_时间直方图/815_3600s  |
+      | starttime=\"now/d-24h\" endtime=\"now/d\" | 60       | 分钟   | 815_时间直方图/815_60m    |
+      #lastMonth
+      | starttime=\"-1M/M\" endtime=\"now/M\"     | 7        | 天     | 2725_时间直方图/2725_7d    |
+      | starttime=\"-1M/M\" endtime=\"now/M\"     | 1        | 周     | 2725_时间直方图/2725_1w    |
 
 
   Scenario Outline: datehistogram(RZY-816)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -187,9 +176,7 @@ Feature: 日志展现_普通统计视图
 
 # can not compare, because of same values
   Scenario Outline: classifyfieldvalue(RZY-817)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -233,9 +220,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: fieldnumber(RZY-2727)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "<period>" button
+    When I set the parameter "SearchInput" with value "<period> tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -255,19 +240,17 @@ Feature: 日志展现_普通统计视图
     Then I compare source image "expect/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
 
     Examples:
-      |period     | yFieldValue       |  groupBy         | statType  | chart   | timeSpan| time |
-      |Yesterday  |apache.resp_len    |  apache.clientip |  总计     |  曲线图   |   1     | 小时  |
-      |Yesterday  |apache.resp_len    |  apache.clientip |  平均值   |  面积图   |   60    |  分钟 |
-      |Yesterday  |apache.resp_len    |  apache.clientip |  最大值   |  散点图   |   60    |  分钟 |
-      |Yesterday  |apache.resp_len    |  apache.clientip |  最小值   |  柱状图   |  3600   |  秒   |
-      |LastMonth  |apache.status      |  apache.clientip |  总计     |  曲线图   |   7     | 天   |
-      |LastMonth  |apache.status      |  apache.clientip |  平均值   |  面积图   |   1     |  周  |
+      |period                                     | yFieldValue       |  groupBy         | statType  | chart   | timeSpan| time |
+      |starttime=\"now/d-24h\" endtime=\"now/d\"  |apache.resp_len    |  apache.clientip |  总计     |  曲线图   |   1     | 小时  |
+      |starttime=\"now/d-24h\" endtime=\"now/d\"  |apache.resp_len    |  apache.clientip |  平均值   |  面积图   |   60    |  分钟 |
+      |starttime=\"now/d-24h\" endtime=\"now/d\"  |apache.resp_len    |  apache.clientip |  最大值   |  散点图   |   60    |  分钟 |
+      |starttime=\"now/d-24h\" endtime=\"now/d\"  |apache.resp_len    |  apache.clientip |  最小值   |  柱状图   |  3600   |  秒   |
+      |starttime=\"-1M/M\" endtime=\"now/M\"      |apache.status      |  apache.clientip |  总计     |  曲线图   |   7     | 天   |
+      |starttime=\"-1M/M\" endtime=\"now/M\"      |apache.status      |  apache.clientip |  平均值   |  面积图   |   1     |  周  |
 
 
   Scenario Outline: totalpercent(RZY-819,2730)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -291,9 +274,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: percentdegree(RZY-821, 3136)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -316,9 +297,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: multilevelstats(RZY-822)
     # types of chart
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -370,9 +349,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario:geogrdistr(RZY-825)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button

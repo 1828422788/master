@@ -1,7 +1,7 @@
 @all @trend @createTrendCompound @createTrend
 Feature: 趋势图新建_复合
 # sample04061424_chart for yesterday
-# sample04061424_display for today
+# sample04061424_display for yesterday
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -10,8 +10,6 @@ Feature: 趋势图新建_复合
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Yesterday" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -23,12 +21,12 @@ Feature: 趋势图新建_复合
     And I click the "Settings" button
     And I will see the "trend.CreatePage" page
     And I click the "Xaxis" button
-    And I choose the "<xValue>" from the "FieldValue"
+    And I choose the "<xValue>" from the "FieldValue" in config
     And I click the "Yaxis" button
-    And I choose the "<actualValue>" from the "Actual"
-    And I choose the "<predictedValue>" from the "Predict"
-    And I choose the "<upperValue>" from the "TopLimit"
-    And I choose the "<lowerValue>" from the "LowerLimit"
+    And I choose the "<actualValue>" from the "Actual" in config
+    And I choose the "<predictedValue>" from the "Predict" in config
+    And I choose the "<upperValue>" from the "TopLimit" in config
+    And I choose the "<lowerValue>" from the "LowerLimit" in config
     And I click the "Generate" button
 
     And I wait for "Chart" will be visible
@@ -46,15 +44,13 @@ Feature: 趋势图新建_复合
 
     Examples:
       | xValue | actualValue|  predictedValue| upperValue | lowerValue |   chartType   |   caseNum  |   spl   |
-      |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    2516    | tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
+      |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    2516    | starttime=\"now/d-24h\" endtime=\"now/d\" tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
 
 
   Scenario Outline: compound_manyY(rzy-2523)
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "tag: sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag: sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -66,11 +62,11 @@ Feature: 趋势图新建_复合
 
     And I click the "Settings" button
     And I click the "Xaxis" button
-    And I choose the "apache.resp_len" from the "FieldValue"
+    And I choose the "apache.resp_len" from the "FieldValue" in config
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
     And I click the "Yaxis" button
-    And I choose the "max(apache.resp_len)" from the "FieldValue"
+    And I choose the "max(apache.resp_len)" from the "FieldValue" in config
     And I choose the "面积图" from the "TypeChartField"
     And I set the parameter "Unit" with value "面"
     And I click the "Smooth" button
@@ -80,7 +76,7 @@ Feature: 趋势图新建_复合
 
     And I click the "AddField" button
     And I drag the scroll bar to the element "FieldValue"
-    And I choose the "min(apache.resp_len)" from the "FieldValue"
+    And I choose the "min(apache.resp_len)" from the "FieldValue" in config
     And I choose the "柱状图" from the "TypeChartField"
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"
@@ -88,7 +84,7 @@ Feature: 趋势图新建_复合
 
     And I click the "AddField" button
     And I drag the scroll bar to the element "FieldValue"
-    And I choose the "sum(apache.status)" from the "FieldValue"
+    And I choose the "sum(apache.status)" from the "FieldValue" in config
     And I choose the "散点图" from the "TypeChartField"
     And I set the parameter "Unit" with value "散"
     And I set the parameter "Min" with value ""

@@ -1,15 +1,13 @@
 @all @logDisplay @logDisplayOther
 Feature: 日志展现_其他_单值
 
-  # tag:sample04061424_chart should be uploaded for Today
+  # tag:sample04061424_chart should be uploaded for Yesterday
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: others(RZY-2303)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -26,13 +24,11 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |caseNum  |   spl   |
-      |   Single      | 2303    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      | 2303    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
 
   Scenario Outline: icon(RZY-2799)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -44,7 +40,7 @@ Feature: 日志展现_其他_单值
     And I set the parameter "FontSize" with value "100"
     And I click the "Icon" button
     And I click the "AccordingField" button
-    And I choose the "<iconValue>" from the "FieldValue"
+    And I choose the "<iconValue>" from the "FieldValue" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -56,13 +52,11 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |   iconValue  |  caseNum  |   spl   |
-      |   Single      |    icon      |   2799    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      |    cnt       |   2799    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |    icon      |   2799    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |    cnt       |   2799    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: font(RZY-2799)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -86,13 +80,11 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |   fontValue       |  caseNum  |   spl   |
-      |   Single      | font-awesome-flag |   2799    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      | font-awesome      |   2799    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      | font-awesome-flag |   2799    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      | font-awesome      |   2799    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: background(RZY-2800)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -114,12 +106,10 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
-      |   Single      |   2800    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |   2800    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: trend(RZY-1369)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -130,7 +120,7 @@ Feature: 日志展现_其他_单值
     And I click the "Exhibition" button
     And I click the "AccordingTrend" button
     And I set the parameter "FontSize" with value "150"
-    And I choose the "<timeValue>" from the "ContrastTime"
+    And I choose the "<timeValue>" from the "ContrastTime" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -142,13 +132,11 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |  caseNum  | timeValue    |   spl   |
-      |   Single      |   1369    | 一天前        |tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |   1369    | 一天前        |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
 
   Scenario Outline: backgr(RZY-1370)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -180,13 +168,11 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |  caseNum  | minVal1 | maxVal1  |  color1  | minVal2 | maxVal2  |  color2  | colorFill     |   spl   |
-      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Font         |tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Background   |tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Font         |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Background   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: simple_number_view(RZY-4193,4194,4195,4196,4197)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -194,8 +180,8 @@ Feature: 日志展现_其他_单值
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "data" from the "NumericField"
-    And I choose the "name" from the "DisplayField"
+    And I choose the "data" from the "NumericField" in config
+    And I choose the "name" from the "DisplayField" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "100"
     And I click the "AddColor" button
@@ -216,13 +202,11 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    | precision |  unitPosition       |  buttonSwitch     |  caseNum                |   spl   |
-      |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
-      |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |  tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
   Scenario Outline: second_title
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -236,7 +220,7 @@ Feature: 日志展现_其他_单值
     And I click the "Purple" button
     And I click the "Icon" button
     And I click the "AccordingField" button
-    And I choose the "<iconValue>" from the "FieldValue"
+    And I choose the "<iconValue>" from the "FieldValue" in config
     And I click the "SecondTitle" button
     And I set the parameter "TitleName" with value "二级title"
     And I click the "Generate" button
@@ -250,4 +234,4 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |   iconValue  |  caseNum         |   spl   |
-      |   Single      |    icon      |   secondTitle    | tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |    icon      |   secondTitle    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |

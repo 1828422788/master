@@ -218,6 +218,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='触发告警级别']/following-sibling::div//input")
     private WebElement triggerLevel;
 
+    @FindBy(className = "anticon-loading")
+    private WebElement loading;
+
+    public WebElement getLoading() {
+        return loading;
+    }
+
     public WebElement getTriggerLevel() {
         return triggerLevel;
     }

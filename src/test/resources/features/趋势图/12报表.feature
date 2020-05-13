@@ -6,9 +6,7 @@ Feature: 趋势图新建_报表
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button

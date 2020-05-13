@@ -1,6 +1,6 @@
 @all @trend @createTrendConnection @createTrend
 Feature: 趋势图新建_关系
-# sample04061424_chart for Today
+# sample04061424_chart for Yesterday
 # auto_sankey  Today
 
   Background:
@@ -10,8 +10,6 @@ Feature: 趋势图新建_关系
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -36,16 +34,14 @@ Feature: 趋势图新建_关系
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
-      |    Chord      |    2505    |  tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
-      |    Sankey     |    2507    |  tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
-      |    Force      |    2511    |  tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path \|limit 10      |
+      |    Chord      |    2505    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
+      |    Sankey     |    2507    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
+      |    Force      |    2511    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
   Scenario Outline: connection_force_repulsion
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -76,14 +72,12 @@ Feature: 趋势图新建_关系
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
-      |    Force      |    2505    |  tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
+      |    Force      |    2505    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
 
   Scenario Outline: connection_sankey_multistage
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -114,7 +108,7 @@ Feature: 趋势图新建_关系
 
     Examples:
       |   chartType   |  button    |   spl   |
-      |    Sankey     | Multistage |  tag:auto_sankey \| stats count() by json.fromstate,json.tostate \| limit 3      |
+      |    Sankey     | Multistage |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:auto_sankey \| stats count() by json.fromstate,json.tostate \| limit 3      |
 
   @compareTrend @compareTrendConnection
   Scenario Outline: compare_view

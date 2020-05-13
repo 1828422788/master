@@ -159,6 +159,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
+    And I wait for "Create" will be visible
     When I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
@@ -181,6 +182,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
+    And I wait for "Create" will be visible
     When I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
@@ -197,6 +199,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
+    And I wait for "Create" will be visible
     When I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
@@ -215,6 +218,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
+    And I wait for "Create" will be visible
     When I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
@@ -233,6 +237,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
+    And I wait for "Create" will be visible
     When I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
@@ -323,6 +328,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "configs.ListPage" page
+    And I wait for "Create" will be visible
     When I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"

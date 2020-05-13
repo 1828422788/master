@@ -2,7 +2,7 @@
 Feature: 日志展现_维度
 #11
 
-  # tag:sample04061424_chart should be uploaded for Today
+  # tag:sample04061424_chart should be uploaded for Yesterday
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -10,8 +10,6 @@ Feature: 日志展现_维度
 
   Scenario Outline: dimension(RZY-833,2776,2778,2782)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -28,15 +26,13 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |   caseNum  |  spl   |
-      |      Pie      |     833    | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Rose     |     2776   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      |     2778   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Sun      |     2782   | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
+      |      Pie      |     833    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Rose     |     2776   | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Bar      |     2778   | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Sun      |     2782   | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
   Scenario Outline: dimension_sun(RZY-2781)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -65,8 +61,6 @@ Feature: 日志展现_维度
 
   Scenario Outline: dimension_pie（RZY-2774)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -75,9 +69,9 @@ Feature: 日志展现_维度
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue"
+    And I choose the "<value>" from the "FieldValue" in config
     And I click the "Divide" button
-    And I choose the "<divValue>" from the "FieldValue"
+    And I choose the "<divValue>" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color1>" button
@@ -92,12 +86,10 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  value      |     divValue   | color1   |caseNum  | spl   |
-      |      Pie      |  count      | apache.clientip| Red      |2774     |  tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Pie      |  count      | apache.clientip| Red      |2774     | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
 
   Scenario Outline: label(RZY-4205,4208,4211,4206,4209,4212,4207,4210)
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -108,52 +100,31 @@ Feature: 日志展现_维度
     And I click the "Settings" button
     And I click the "Exhibition" button
     And I wait for "1000" millsecond
-    And I choose the "<option1>" from the "ShowLabel"
+    And I choose the "<option>" from the "ShowLabel" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option1>_nolabel"
-    Then I compare source image "expect/高级搜索视图/2维度/label/<chartType>_<option1>_nolabel" with target image "actual/高级搜索视图/2维度/label/<chartType>_<option1>_nolabel"
-
-    When I click the "Settings" button
-    And I click the "Exhibition" button
-    And I wait for "1000" millsecond
-    And I choose the "<option2>" from the "ShowLabel"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option2>_full"
-    Then I compare source image "expect/高级搜索视图/2维度/label/<chartType>_<option2>_full" with target image "actual/高级搜索视图/2维度/label/<chartType>_<option2>_full"
-
-    When I click the "Settings" button
-    And I click the "Exhibition" button
-    And I wait for "1000" millsecond
-    And I choose the "<option3>" from the "ShowLabel"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option3>_name"
-    Then I compare source image "expect/高级搜索视图/2维度/label/<chartType>_<option3>_name" with target image "actual/高级搜索视图/2维度/label/<chartType>_<option3>_name"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
+    Then I compare source image "expect/高级搜索视图/2维度/label/<chartType>_<option>_<descr>" with target image "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
 
     Examples:
-      |   chartType   |  option1   | option2   | option3    | spl   |
-      |      Pie      |  不展示     | 展示全部   | 只展示名称  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Rose     |  不展示     | 展示全部   | 只展示名称  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      |  不展示     | 展示全部   | 只展示名称  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |   chartType   |  option     | descr      |
+      |      Pie      |  不展示     | nolabel    |
+      |      Pie      |  展示全部   | full       |
+      |      Pie      | 只展示名称  | name       |
+      |      Rose     |  不展示     | nolabel    |
+      |      Rose     |  展示全部   | full       |
+      |      Rose     | 只展示名称  | name       |
+      |      Bar      |  不展示     | nolabel    |
+      |      Bar      |  展示全部   | full       |
+      |      Bar      | 只展示名称  | name       |
+
 
   Scenario Outline: label_location(RZY-4213,4214,4215,4216,4217,4218,4219,4220,4221,4222)
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -166,70 +137,27 @@ Feature: 日志展现_维度
     And I click the "AddColor" button
     And I click the "<color>" button
     And I wait for "1000" millsecond
-    And I choose the "<typeInfo>" from the "ShowLabel"
-    And I choose the "<option1>" from the "LabelLocation"
+    And I choose the "<typeInfo>" from the "ShowLabel" in config
+    And I choose the "<option>" from the "LabelLocation" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option1>_out_left"
-    Then I compare source image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option1>_out_left" with target image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option1>_out_left"
+    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
+    Then I compare source image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>" with target image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
 
-    When I click the "Settings" button
-    And I click the "Exhibition" button
-    And I wait for "1000" millsecond
-    And I choose the "<option2>" from the "LabelLocation"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option2>_out_right"
-    Then I compare source image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option2>_out_right" with target image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option2>_out_right"
-
-    When I click the "Settings" button
-    And I click the "Exhibition" button
-    And I wait for "1000" millsecond
-    And I choose the "<option3>" from the "LabelLocation"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option3>_middle"
-    Then I compare source image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option3>_middle" with target image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option3>_middle"
-
-    When I click the "Settings" button
-    And I click the "Exhibition" button
-    And I wait for "1000" millsecond
-    And I choose the "<option4>" from the "LabelLocation"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option4>_in_left"
-    Then I compare source image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option4>_in_left" with target image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option4>_in_left"
-
-    When I click the "Settings" button
-    And I click the "Exhibition" button
-    And I wait for "1000" millsecond
-    And I choose the "<option5>" from the "LabelLocation"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option5>_in_right"
-    Then I compare source image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option5>_in_right" with target image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option5>_in_right"
 
     Examples:
-      |   chartType   | color  |typeInfo | option1   | option2   | option3    | option4     | option5    | spl   |
-      |      Bar      | Red    |只展示名称|柱状外左侧   | 柱状外右侧 | 柱状内中央  | 柱状内靠左侧  |柱状内靠右侧  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      | Yellow |展示全部  |柱状外左侧   | 柱状外右侧 | 柱状内中央  | 柱状内靠左侧  |柱状内靠右侧  |tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |   chartType   | color   |typeInfo  | option      |   descr  |
+      |      Bar      | Red     |只展示名称| 柱状外左侧  | out_left |
+      |      Bar      | Red     |只展示名称| 柱状外右侧 | out_right |
+      |      Bar      | Red     |只展示名称| 柱状内中央 | middle    |
+      |      Bar      | Red     |只展示名称|柱状内靠左侧 | in_left  |
+      |      Bar      | Red     |只展示名称|柱状内靠右侧 | in_right |
+      |      Bar      | Yellow  |展示全部  |柱状外左侧   | out_left |
+      |      Bar      | Yellow  |展示全部  |柱状外右侧   | out_right|
+      |      Bar      | Yellow  |展示全部  |柱状内中央   | middle   |
+      |      Bar      | Yellow  |展示全部  |柱状内靠左侧 | in_left   |
+      |      Bar      | Yellow  |展示全部  |柱状内靠右侧 | in_right  |

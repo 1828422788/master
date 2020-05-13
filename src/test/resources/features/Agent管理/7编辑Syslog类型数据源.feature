@@ -41,7 +41,7 @@ Feature: Agent编辑Syslog类型数据源
 
   Scenario Outline: 修改Syslog数据源charset
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "编辑" button
-    When I choose the "<characterkind>" from the "SyslogChar"
+    And I choose the "<characterkind>" from the "SyslogChar"
     Then I wait for "1000" millsecond
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"

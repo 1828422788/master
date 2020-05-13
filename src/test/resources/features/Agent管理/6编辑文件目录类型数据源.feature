@@ -24,7 +24,6 @@ Feature: Agent编辑文件目录类型数据源
     And I click the "Next" button
     And I set the parameter "Appname" with value "autohekafiletest"
     And I set the parameter "Tag" with value "autohekafiletest"
-    When I choose the "<charsetKind>" from the "CharsetKind"
     And I click the "Next" button
     And I will see the element "InputKind" name is "文件监视"
     And I will see the element "SourceRoot" name is "/data/rizhiyi/logs/heka"
