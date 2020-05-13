@@ -13,8 +13,8 @@ Feature: 报表_文件列表
     And I will see the element "SecondColumnTitle" contains "拥有者"
     And I will see the element "ThirdColumnTitle" contains "生成时间"
     And I will see the element "FourthColumnTitle" contains "操作"
-    And the data name is "{'column':'1','name':'admin'}" then i click the "下载" button
-    When the data name is "{'column':'1','name':'admin'}" then i click the "删除" button
+    And the data name is "{'column':'1','name':'ctest'}" then i click the "下载" button
+    When the data name is "{'column':'1','name':'ctest'}" then i click the "删除" button
     And I will see the element "Message" contains "此操作将删除「"
     And I will see the element "Message" contains ".pdf」, 是否继续?"
     Then I click the "Cancel" button
@@ -58,7 +58,7 @@ Feature: 报表_文件列表
   Scenario: seacrh_tag
     When I choose the "AutoTest" from the "TagDropdown"
     And I wait for loading invisible
-    Then I will see the data "{'column':'2','name':'admin'}" values "{'column':'6','name':'AutoTest'}"
+    Then I will see the data "{'column':'2','name':'ctest'}" values "{'column':'6','name':'AutoTest'}"
 
 
 

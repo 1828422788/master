@@ -7,7 +7,7 @@ Feature: 报表禁用/启用
   Scenario: create_report
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to "admin"
+    And I wait for element "SelectedUser" change text to "ctest"
     When I set the parameter "Name" with value "Test_Switch"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"

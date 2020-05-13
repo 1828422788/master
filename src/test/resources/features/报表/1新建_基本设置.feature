@@ -5,7 +5,7 @@ Feature: 报表新建_执行计划
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to "admin"
+    And I wait for element "SelectedUser" change text to "ctest"
 
   Scenario Outline: new_report_error_message
     When I set the parameter "Name" with value "<name>"
@@ -104,7 +104,7 @@ Feature: 报表新建_执行计划
   Scenario: new_report_fields
     When I set the parameter "Name" with value "test_report"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I will see the element "SelectedUser" contains "admin"
+    And I will see the element "SelectedUser" contains "ctest"
     And I choose the "AutoTest" from the "Tag"
     And I choose the "TrendApp" from the "App"
     And I choose the "PDF" from the "ReportType"

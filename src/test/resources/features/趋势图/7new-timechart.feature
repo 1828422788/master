@@ -1,4 +1,4 @@
-@all @trend @createTrendOTimechart @createTrend
+@all @trend @createTrendTimechart @createTrend
 Feature: 趋势图新建-timechart
 # sample04061424_chart for Yesterday
 
