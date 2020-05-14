@@ -1,24 +1,24 @@
-#@compareTrend
-Feature: 趋势图比较
+@trendView
+Feature: 展示趋势图
 
-  Scenario Outline: compare
+  Scenario Outline: compare_view
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
     And I wait for loading invisible
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "编辑" button
-    Then I will see the "trend.CreatePage" page
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the "NoData" doesn't exist
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "3000" millsecond
+    And I will see the element "ChartName" contains "<name>"
+    And take part of "ChartView" with name "actual_view/<name>"
+    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
 
-    And I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "aftersave/<name>"
-    Then I compare source image "expect/<name>" with target image "aftersave/<name>"
-    And I click the "NextButton" button
-    And I click the "NextButton" button
-    Then I wait for "SuccessUpdate" will be visible
-
-#    @compareTrendOrder
+    @compareTrendOrder
     Examples:
       | name                                     |
       | ScatterChart_2492_limit                  |
@@ -35,8 +35,7 @@ Feature: 趋势图比较
       | AreaChart_2005                           |
       | LineChart_2477                           |
 
-
-#    @compareTrendDimension
+    @compareTrendDimension
     Examples:
       | name                                     |
       | Rose_展示全部                            |
@@ -62,22 +61,22 @@ Feature: 趋势图比较
       | Pie_2503                                 |
 
 
-#    @compareTrendConnection
+    @compareTrendConnection
     Examples:
       | name                                     |
       | Sankey_Multistage                        |
-      | Force_repulsion                          |
-      | Force_2511                               |
+#      | Force_repulsion                          |
+#      | Force_2511                               |
       | Sankey_2507                              |
       | Chord_2505                               |
 
-#    @compareTrendCompound
+    @compareTrendCompound
     Examples:
       | name                                     |
       | Multiaxis_2523                           |
       | Rangeline_2516                           |
 
-#    @compareTrendMap
+    @compareTrendMap
     Examples:
       | name                                     |
       | Regionmap_Jiangsu_2547_white             |
@@ -89,8 +88,50 @@ Feature: 趋势图比较
       | Attackmap_World_2542                     |
       | Regionmap_2545                           |
       | Heatmap_2539                             |
+#  parameters of statistical map displayed not correctly - bug
+#      | Statisticalmap_2098_param                |
+      | Statisticalmap_2098                      |
+#      | Statisticalmap_2797_param                |
+      | Statisticalmap_2797                      |
 
-#    @compareTrendTimechart
+
+    @compareTrendOther
+    Examples:
+      | name                            |
+      | Chain_2831_tree                 |
+      | Chain_2982_tree                 |
+      | Table_Test                      |
+      | Sequence_2805                   |
+      | Chain_2982                      |
+      | Chain_2831                      |
+      | Matrixheatmap_2661              |
+      | Matrixheatmap_2660              |
+      | Funnel_2858                     |
+      | Radar_2635                      |
+      | Liquidfill_percent              |
+      | Ring_table_1r_3c_colors         |
+      | Ring_table_1r_4c                |
+      | Ring_table_3r_2c                |
+      | Ring_twofields                  |
+      #RZY - 5938
+#      | Ring_onefield                   |
+      | Single_secondTitle              |
+      | Single_prec2_1000off_back_after |
+      | Single_prec1_1000on__before     |
+      | Single_rangeB                   |
+      | Single_rangeF                   |
+      | Single_trend                    |
+      | Single_backgr                   |
+      | Single_font2                    |
+      | Single_font1                    |
+      | Single_cnt                      |
+      | Single_icon                     |
+      | Funnel_2654                     |
+      | Radar_2633                      |
+#      | Wordcloud_2625                  |
+      | Single_2549                     |
+
+    @compareTrendTimechart
     Examples:
       | name                                     |
       | timechart_3250_column                    |
@@ -106,65 +147,8 @@ Feature: 趋势图比较
       | timechart_3093_line                      |
       | timechart_3092_line                      |
 
-  Scenario Outline: compare_others
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "<name>"
-    And I wait for loading invisible
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "编辑" button
-    Then I will see the "trend.CreatePage" page
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
 
-    And I wait for "StatisticalChart" will be visible
-    And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "aftersave/<name>"
-    Then I compare source image "expect/<name>" with target image "aftersave/<name>"
-    And I click the "NextButton" button
-    And I click the "NextButton" button
-    Then I wait for "SuccessUpdate" will be visible
 
-#    @compareTrendOther
-    Examples:
-      | name                                     |
-      | Chain_2831_tree                          |
-      | Chain_2982_tree                          |
-      | Table_Test                               |
-      | Sequence_2805                            |
-      | Chain_2982                               |
-      | Chain_2831                               |
-      | Matrixheatmap_2661                       |
-      | Matrixheatmap_2660                       |
-      | Funnel_2858                              |
-      | Radar_2635                               |
-      | Liquidfill_percent                       |
-      | Ring_table_1r_3c_colors                  |
-      | Ring_table_1r_4c                         |
-      | Ring_table_3r_2c                         |
-      | Ring_twofields                           |
-      | Ring_onefield                            |
-      | Single_secondTitle                       |
-      | Single_prec2_1000off_back_after          |
-      | Single_prec1_1000on__before              |
-      | Single_rangeB                            |
-      | Single_rangeF                            |
-      | Single_trend                             |
-      | Single_backgr                            |
-      | Single_font2                             |
-      | Single_font1                             |
-      | Single_cnt                               |
-      | Single_icon                              |
-      | Funnel_2654                              |
-      | Radar_2633                               |
-      | Wordcloud_2625                           |
-      | Single_2549                              |
-
-#    @compareTrendMap
-    Examples:
-      | name                                     |
-      | Statisticalmap_2098_param                |
-      | Statisticalmap_2098                      |
-      | Statisticalmap_2797_param                |
-      | Statisticalmap_2797                      |
 
 
 
