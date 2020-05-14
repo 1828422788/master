@@ -5,13 +5,14 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用知识库"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -29,11 +30,12 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -47,22 +49,23 @@ Feature: 权限-知识
     And I wait for loading invisible
     And I click the "Create" button
     Then I will see the "knowledge.CreatePage" page
-    And I wait for loading invisible
-    When I set the parameter "EventCode" with value "AutoTestUserCreate"
-    And I set the parameter "Describe" with value "test"
-    And I click the "Save" button
-    And I wait for loading invisible
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "AutoTestUserCreate"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
 
   Scenario: 取消读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'知识'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "AutoTestUserCreate"
-    And I "unchecked" the label before "AutoTestUserCreate"
+    Then I click the "Knowledge" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "AutoTestUserCreate" in auth table
+    And I "unchecked" the checkbox which name is "AutoTestUserCreate" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -84,13 +87,14 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'知识'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Knowledge" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -114,7 +118,10 @@ Feature: 权限-知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "查看" button
     Then I will see the "knowledge.CreatePage" page
-    Then I will see the element "EventCode" attribute is "disabled"
+    And I click the "Next" button
+    And I click the "Next" button
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加失败"
 
     Examples:
       | name               |
@@ -124,12 +131,13 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'知识'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Knowledge" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -157,9 +165,11 @@ Feature: 权限-知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "编辑" button
     Then I will see the "knowledge.CreatePage" page
-    When I set the parameter "EventCode" with value "AutoTestRename"
-    And I click the "Save" button
-    And I wait for loading invisible
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "AutoTestRename"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
 
     Examples:
       | name               |
@@ -169,12 +179,13 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'知识'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Knowledge" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -200,12 +211,14 @@ Feature: 权限-知识
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
-    And the data name is "{'column':'1','name':'AutoTestRename'}" then i click the "编辑" button
+    And the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "knowledge.CreatePage" page
-    When I set the parameter "EventCode" with value "AutoTestRename"
-    And I click the "Save" button
-    And I wait for loading invisible
-    Then I will see the "knowledge.ListPage" page
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "AutoTestRename"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除知识成功"
@@ -219,20 +232,21 @@ Feature: 权限-知识
     And I wait for loading invisible
     And I click the "Create" button
     Then I will see the "knowledge.CreatePage" page
-    And I wait for loading invisible
-    When I set the parameter "EventCode" with value "<name>"
-    And I set the parameter "Describe" with value "test"
-    And I click the "Save" button
-    And I wait for loading invisible
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "<name>"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'知识'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Knowledge" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -251,7 +265,10 @@ Feature: 权限-知识
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看删除授权" button
     And the data name is "<name>" then i click the "查看" button
     Then I will see the "knowledge.CreatePage" page
-    Then I will see the element "EventCode" attribute is "disabled"
+    And I click the "Next" button
+    And I click the "Next" button
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加失败"
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -271,21 +288,22 @@ Feature: 权限-知识
     And I wait for loading invisible
     And I click the "Create" button
     Then I will see the "knowledge.CreatePage" page
-    And I wait for loading invisible
-    When I set the parameter "EventCode" with value "<name>"
-    And I set the parameter "Describe" with value "test"
-    And I click the "Save" button
-    And I wait for loading invisible
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "<name>"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
-    Then I click the "{'TabButton':'知识'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Knowledge" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -312,7 +330,10 @@ Feature: 权限-知识
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看授权" button
     And the data name is "<name>" then i click the "查看" button
     Then I will see the "knowledge.CreatePage" page
-    Then I will see the element "EventCode" attribute is "disabled"
+    And I click the "Next" button
+    And I click the "Next" button
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加失败"
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "授权" button
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -332,7 +353,10 @@ Feature: 权限-知识
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看授权" button
     And the data name is "<name>" then i click the "查看" button
     Then I will see the "knowledge.CreatePage" page
-    Then I will see the element "EventCode" attribute is "disabled"
+    And I click the "Next" button
+    And I click the "Next" button
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加失败"
 
     Examples:
       | name         |
@@ -343,12 +367,12 @@ Feature: 权限-知识
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
-    Then I click the "{'TabButton':'知识'}" button
+    Then I click the "Knowledge" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -381,16 +405,16 @@ Feature: 权限-知识
     And I wait for loading invisible
     And the data name is "<name>" then i click the "编辑" button
     Then I will see the "knowledge.CreatePage" page
-    When I set the parameter "EventCode" with value "AutoTestRename"
-    And I click the "Save" button
-    And I wait for loading invisible
-    Then I will see the "knowledge.ListPage" page
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "AutoTestRename"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "授权" button
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -410,31 +434,32 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Then I click the "{'TabButton':'知识'}" button
+    Then I click the "Knowledge" button
     And I wait for loading invisible
-    And I "checked" the label before "AutoTestAuth"
-    When the data name is "AutoTestAuth" then I click the "无期限" button without total page
+    And I "checked" the checkbox which name is "AutoTestAuth" in auth table
+    When the data name is "AutoTestAuth" then I click the "无限期" button in auth table
     And I click the "Customize" button
     And I click the "DateEditor" button
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
 
   Scenario: 新建知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And I wait for loading invisible
     And I click the "Create" button
     Then I will see the "knowledge.CreatePage" page
-    And I wait for loading invisible
-    When I set the parameter "EventCode" with value "AutoTest"
-    And I set the parameter "Describe" with value "test"
-    And I click the "Save" button
-    And I wait for loading invisible
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "AutoTest"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
 
   Scenario: 验证有效期限
     Given I will see the "PublicNavBarPage" page
@@ -456,14 +481,12 @@ Feature: 权限-知识
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
-    Then I click the "{'TabButton':'知识'}" button
+    Then I click the "Knowledge" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
-    And I "checked" the label before "<name>"
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -472,12 +495,12 @@ Feature: 权限-知识
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'知识'}" button
+    Then I click the "Knowledge" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -496,14 +519,15 @@ Feature: 权限-知识
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "查看删除授权" button
     And the data name is "<name>" then i click the "查看" button
     Then I will see the "knowledge.CreatePage" page
-    Then I will see the element "EventCode" attribute is "disabled"
+    And I click the "Next" button
+    And I click the "Next" button
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加失败"
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "授权" button
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -528,11 +552,11 @@ Feature: 权限-知识
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for loading invisible
-    Then I click the "{'TabButton':'知识'}" button
+    Then I click the "Knowledge" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -565,10 +589,12 @@ Feature: 权限-知识
     And I wait for loading invisible
     And the data name is "<name>" then i click the "编辑" button
     Then I will see the "knowledge.CreatePage" page
-    When I set the parameter "EventCode" with value "AutoTestRename"
-    And I click the "Save" button
-    And I wait for loading invisible
-    Then I will see the "knowledge.ListPage" page
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "AutoTestRename"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "授权" button
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
@@ -599,11 +625,11 @@ Feature: 权限-知识
     And I wait for loading invisible
     And I click the "Create" button
     Then I will see the "knowledge.CreatePage" page
-    And I wait for loading invisible
-    When I set the parameter "EventCode" with value "测试二次授权"
-    And I set the parameter "Describe" with value "test"
-    And I click the "Save" button
-    And I wait for loading invisible
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "测试二次授权"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
 
   Scenario: 给AutoTest用户授权
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
@@ -615,15 +641,14 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
 
   Scenario Outline: 二次授权读取
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -638,9 +663,6 @@ Feature: 权限-知识
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -658,16 +680,17 @@ Feature: 权限-知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "查看" button
     Then I will see the "knowledge.CreatePage" page
-    Then I will see the element "EventCode" attribute is "disabled"
+    And I click the "Next" button
+    And I click the "Next" button
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加失败"
 
     Examples:
       | authRole | authName | function | name   |
       | 用户       | 验证授权用户   | 读取       | 测试二次授权 |
 
   Scenario Outline: 二次授权读取+编辑
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -683,9 +706,6 @@ Feature: 权限-知识
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -707,18 +727,18 @@ Feature: 权限-知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "编辑" button
     Then I will see the "knowledge.CreatePage" page
-    When I set the parameter "EventCode" with value "AutoTestRename"
-    And I click the "Save" button
-    And I wait for loading invisible
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "AutoTestRename"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
 
     Examples:
       | authRole | authName        | function | name   |
       | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
 
   Scenario Outline: 二次授权读取+编辑+删除
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -734,9 +754,6 @@ Feature: 权限-知识
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -758,11 +775,14 @@ Feature: 权限-知识
     Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "{'column':'1','name':'AutoTestRename'}" then i click the "编辑" button
     Then I will see the "knowledge.CreatePage" page
-    When I set the parameter "EventCode" with value "AutoTestRename"
-    And I click the "Save" button
-    And I wait for loading invisible
-    Then I will see the "knowledge.ListPage" page
+    And I click the "Next" button
+    And I click the "Next" button
+    And I set the parameter "EventCode" with value "AutoTestRename"
+    And I click the "Next" button
+    Then I will see the element "SuccessAdd" name is "添加成功"
+    Given open the "knowledge.ListPage" page for uri "/knowledge/"
     And the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除知识成功"
 
