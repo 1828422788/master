@@ -122,35 +122,35 @@ Feature: 趋势图新建-timechart
       | 3097_scatter| 0      |200   | Green      | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype=\"scatter\"  count() min(apache.resp_len) by apache.status |
       | 3099_column | 1      |160   | Red        | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype=\"column\" count() min(apache.resp_len) by apache.status |
 
-#  @compareTrend @compareTrendTimechart
-#  Scenario Outline: compare_view
-#    Given open the "trend.ListPage" page for uri "/trend/"
-#    When I set the parameter "SearchInput" with value "<name>"
-#    And I wait for loading invisible
-#    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
-#    And switch to window "查看趋势图"
-#    And I close all tabs except main tab
-#    Then I will see the "trend.ViewPage" page
-#    And I wait for "ChartName" will be visible
-#    And I wait for "ChartView" will be visible
-#    And I will see the "NoData" doesn't exist
-#    And I drag the scroll bar to the element "ChartView"
-#    And I wait for "3000" millsecond
-#    And I will see the element "ChartName" contains "<name>"
-#    And take part of "ChartView" with name "actual_view/<name>"
-#    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
-#
-#    Examples:
-#      | name                                     |
-#      | timechart_3250_column                    |
-#      | timechart_3249_scatter                   |
-#      | timechart_3248_area                      |
-#      | timechart_3247_line                      |
-#      | timechart_3099_column                    |
-#      | timechart_3098_column                    |
-#      | timechart_3097_scatter                   |
-#      | timechart_3096_scatter                   |
-#      | timechart_3095_area                      |
-#      | timechart_3094_area                      |
-#      | timechart_3093_line                      |
-#      | timechart_3092_line                      |
+  @compareTrend @compareTrendTimechart
+  Scenario Outline: compare_view
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I will see the "NoData" doesn't exist
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "3000" millsecond
+    And I will see the element "ChartName" contains "<name>"
+    And take part of "ChartView" with name "actual_view/<name>"
+    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
+
+    Examples:
+      | name                                     |
+      | timechart_3250_column                    |
+      | timechart_3249_scatter                   |
+      | timechart_3248_area                      |
+      | timechart_3247_line                      |
+      | timechart_3099_column                    |
+      | timechart_3098_column                    |
+      | timechart_3097_scatter                   |
+      | timechart_3096_scatter                   |
+      | timechart_3095_area                      |
+      | timechart_3094_area                      |
+      | timechart_3093_line                      |
+      | timechart_3092_line                      |

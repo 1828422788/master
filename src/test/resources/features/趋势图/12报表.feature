@@ -34,7 +34,7 @@ Feature: 趋势图新建_报表
     When I set the parameter "Name" with value "<report_name>"
     And I set the parameter "Describe" with value "AutoCreate"
 #    And I will see the element "SelectedUser" contains "admin"
-    And I choose the "AutoTest" from the "Tag"
+    And I choose the "auto_package" from the "Tag"
     And I choose the "TrendApp" from the "App"
     And I choose the "PDF" from the "ReportType"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
