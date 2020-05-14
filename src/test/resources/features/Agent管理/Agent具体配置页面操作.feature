@@ -101,7 +101,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     Examples:
       | loglength | loglengthstatus |
       | 10000      | 10000 Byte       |
-      | 8193      |  8193 Byte       |
+      | 65536      |  65536 Byte       |
 
 
 
