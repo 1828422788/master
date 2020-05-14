@@ -43,6 +43,7 @@ Feature: 趋势图复制(RZY-1889)
     When the data name is "Copy_Test" then i click the "复制" button
     Then I will see the message "复制成功"
     When I click the "EnsureButton" button
+    And I wait for "3000" millsecond
     Then I will see the search result contains "{'column':'0','name':'Copy_Test(副本)'}"
 
 

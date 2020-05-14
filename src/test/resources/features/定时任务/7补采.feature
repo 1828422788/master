@@ -94,7 +94,3 @@ Feature:定时任务补采
     And I click the "Ensure" button
     Then I will see the element "Notice" contains "非法时间范围"
 
-  Scenario: create_complement_overwrite
-    Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When I click the "Complement" button
-    Then I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'6','name':'运行中'}"
