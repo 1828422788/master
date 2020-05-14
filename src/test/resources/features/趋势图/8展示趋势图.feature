@@ -15,10 +15,10 @@ Feature: 展示趋势图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "3000" millsecond
     And I will see the element "ChartName" contains "<name>"
-    And take part of "ChartView" with name "actual_view/<name>"
-    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
+    And take part of "ChartView" with name "actual/<name>"
+    And I compare source image "expect/<name>" with target image "actual/<name>"
 
-    @compareTrendOrder
+    @viewTrendOrder
     Examples:
       | name                                     |
       | ScatterChart_2492_limit                  |
@@ -35,7 +35,7 @@ Feature: 展示趋势图
       | AreaChart_2005                           |
       | LineChart_2477                           |
 
-    @compareTrendDimension
+    @viewTrendDimension
     Examples:
       | name                                     |
       | Rose_展示全部                            |
@@ -61,7 +61,7 @@ Feature: 展示趋势图
       | Pie_2503                                 |
 
 
-    @compareTrendConnection
+    @viewTrendConnection
     Examples:
       | name                                     |
       | Sankey_Multistage                        |
@@ -70,13 +70,13 @@ Feature: 展示趋势图
       | Sankey_2507                              |
       | Chord_2505                               |
 
-    @compareTrendCompound
+    @viewTrendCompound
     Examples:
       | name                                     |
       | Multiaxis_2523                           |
       | Rangeline_2516                           |
 
-    @compareTrendMap
+    @viewTrendMap
     Examples:
       | name                                     |
       | Regionmap_Jiangsu_2547_white             |
@@ -95,7 +95,7 @@ Feature: 展示趋势图
       | Statisticalmap_2797                      |
 
 
-    @compareTrendOther
+    @viewTrendOther
     Examples:
       | name                            |
       | Chain_2831_tree                 |
@@ -131,7 +131,7 @@ Feature: 展示趋势图
 #      | Wordcloud_2625                  |
       | Single_2549                     |
 
-    @compareTrendTimechart
+    @viewTrendTimechart
     Examples:
       | name                                     |
       | timechart_3250_column                    |
