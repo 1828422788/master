@@ -73,7 +73,7 @@ Feature: 应用搜索宏（RZY-2126）
     Then I will see the "searchMacro.ListPage" page
     When I click the "Create" button
     And I will see the "app.AppPage" page
-    Then I will see the element "OldTitle" name is "MacroApp"
+    Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.CreatePage" page
     When I set the parameter "Name" with value "AutoTestApp"
     And I click the "Save" button
@@ -87,7 +87,7 @@ Feature: 应用搜索宏（RZY-2126）
     Then I will see the "searchMacro.ListPage" page
     When the data name is "AutoTestApp" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    Then I will see the element "OldTitle" name is "MacroApp"
+    Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.CreatePage" page
     When I set the parameter "Name" with value "AutoApp"
     And I click the "Save" button
