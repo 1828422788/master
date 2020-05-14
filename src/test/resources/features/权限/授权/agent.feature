@@ -9,7 +9,7 @@ Feature: 权限-agent
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "新建 Agent 分组"
+    When I "unchecked" the checkbox which name is "新建 Agent"
     And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
