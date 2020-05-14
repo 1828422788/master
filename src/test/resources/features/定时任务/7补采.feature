@@ -60,8 +60,6 @@ Feature:定时任务补采
     And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'6','name':'停止'}"
     When the data name is "{'column':'0','name':'Test_Complement'}" then i click the "恢复" button
     Then I will see the success message "恢复成功"
-    And I refresh the website
-    And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'6','name':'准备执行'}"
 
 
   Scenario: create_complement_checkfields_name
