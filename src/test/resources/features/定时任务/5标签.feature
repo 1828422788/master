@@ -11,7 +11,7 @@ Feature: 定时任务标签
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I wait for element "SelectedUser" change text to "kadmin"
+    And I wait for element "SelectedUser" change text to "ctest"
     And I set the parameter "TaskName" with value "Tag_Schedule"
     And I set the parameter "Describe" with value "tag testing"
     And I set the parameter "Period" with value "5"
@@ -38,8 +38,8 @@ Feature: 定时任务标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'Tag_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "1000" millsecond
-    And I wait for element "SelectedUser" change text to "kadmin"
+    And I wait for "5000" millsecond
+    And I wait for element "SelectedUser" change text to "ctest"
     And I cancel selection "auto_package" from the "TaskGroup"
     And I click the "SaveButton" button
     And I will see the success message "保存成功"
