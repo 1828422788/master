@@ -14,7 +14,7 @@ Feature: 定时任务新建
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I wait for element "SelectedUser" change text to "kadmin"
+    And I wait for element "SelectedUser" change text to "ctest"
     And I set the parameter "TaskName" with value "Test_StartTomorrow"
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "ExecuteTime"
@@ -50,10 +50,9 @@ Feature: 定时任务新建
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I wait for element "SelectedUser" change text to "kadmin"
+    And I wait for element "SelectedUser" change text to "ctest"
     And I set the parameter "TaskName" with value "<taskName>"
     And I set the parameter "Describe" with value "testing"
-    And I choose the "AutoTestTag" from the "GroupComboBox"
 
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
@@ -93,10 +92,9 @@ Feature: 定时任务新建
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I wait for element "SelectedUser" change text to "kadmin"
+    And I wait for element "SelectedUser" change text to "ctest"
     And I set the parameter "TaskName" with value "<taskName>"
     And I set the parameter "Describe" with value "testing"
-    And I choose the "AutoTestTag" from the "GroupComboBox"
 
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
@@ -123,10 +121,9 @@ Feature: 定时任务新建
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I wait for element "SelectedUser" change text to "kadmin"
+    And I wait for element "SelectedUser" change text to "ctest"
     And I set the parameter "TaskName" with value "<taskName>"
     And I set the parameter "Describe" with value "testing"
-    And I choose the "AutoTestTag" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "<crontab>"
@@ -152,10 +149,9 @@ Feature: 定时任务新建
       And I wait for element "SearchStatus" change text to "搜索完成!"
       And I click the "SaveAsOther" button
       And I click the "TimedTask" button
-      And I wait for element "SelectedUser" change text to "kadmin"
+      And I wait for element "SelectedUser" change text to "ctest"
       And I set the parameter "TaskName" with value "<taskName>"
       And I set the parameter "Describe" with value "testing"
-      And I choose the "AutoTestTag" from the "GroupComboBox"
       And I click the "Crontab" button
       And I set the parameter "CrontabInput" with value "<crontab>"
       And I click the "EnsureButton" button
@@ -177,7 +173,7 @@ Feature: 定时任务新建
         And I wait for element "SearchStatus" change text to "搜索完成!"
         Then I click the "SaveAsOther" button
         Then I click the "TimedTask" button
-        And I wait for element "SelectedUser" change text to "kadmin"
+        And I wait for element "SelectedUser" change text to "ctest"
         And I set the parameter "TaskName" with value "<name>"
         Then I set the parameter "Describe" with value "<describe>"
         Then I set the parameter "Period" with value "<period>"
