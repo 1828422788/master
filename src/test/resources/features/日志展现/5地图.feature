@@ -37,15 +37,15 @@ Feature: 日志展现_地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Source" button
-    And I choose the "<source>" from the "FieldValue" in config
-    And I choose the "<sourceLon>" from the "FieldLongitude" in config
-    And I choose the "<sourceLat>" from the "FieldLatitude" in config
+    And I choose the "<source>" from the "FieldValue"
+    And I choose the "<sourceLon>" from the "FieldLongitude"
+    And I choose the "<sourceLat>" from the "FieldLatitude"
     And I click the "Target" button
-    And I choose the "<target>" from the "FieldValue" in config
-    And I choose the "<targetLon>" from the "FieldLongitude" in config
-    And I choose the "<targetLat>" from the "FieldLatitude" in config
+    And I choose the "<target>" from the "FieldValue"
+    And I choose the "<targetLon>" from the "FieldLongitude"
+    And I choose the "<targetLat>" from the "FieldLatitude"
     And I click the "Weight" button
-    And I choose the "<weight>" from the "FieldValue" in config
+    And I choose the "<weight>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<regionBut>" button
     And I click the "Generate" button
@@ -92,14 +92,14 @@ Feature: 日志展现_地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
+    And I choose the "<value>" from the "FieldValue"
     And I click the "Divide" button
-    And I choose the "<divideField>" from the "FieldValue" in config
+    And I choose the "<divideField>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
-    And I choose the "<cityDrilldown>" from the "City" in config
+    And I choose the "<provinceDrilldown>" from the "Province"
+    And I choose the "<cityDrilldown>" from the "City"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -125,14 +125,14 @@ Feature: 日志展现_地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
+    And I choose the "<value>" from the "FieldValue"
     And I click the "Divide" button
-    And I choose the "<divideField>" from the "FieldValue" in config
+    And I choose the "<divideField>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
-    And I choose the "<cityDrilldown>" from the "City" in config
+    And I choose the "<provinceDrilldown>" from the "Province"
+    And I choose the "<cityDrilldown>" from the "City"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -244,17 +244,17 @@ Feature: 日志展现_地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
+    And I choose the "<value>" from the "FieldValue"
     And I click the "Divide" button
-    And I choose the "<divideField>" from the "FieldValue" in config
+    And I choose the "<divideField>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "Exhibition" button
     # Switch to white map
     And I click the "ShowBubbles" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
-    And I choose the "<cityDrilldown>" from the "City" in config
+    And I choose the "<provinceDrilldown>" from the "Province"
+    And I choose the "<cityDrilldown>" from the "City"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -279,16 +279,16 @@ Feature: 日志展现_地图
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<value>" from the "FieldValue" in config
+    And I choose the "<value>" from the "FieldValue"
     And I click the "Divide" button
-    And I choose the "<divideField>" from the "FieldValue" in config
+    And I choose the "<divideField>" from the "FieldValue"
     And I click the "Region" button
     And I click the "Select<region>" button
     And I click the "Exhibition" button
     # Switch to white map
     And I click the "ShowBubbles" button
     And I click the "GoingDown" button
-    And I choose the "<provinceDrilldown>" from the "Province" in config
+    And I choose the "<provinceDrilldown>" from the "Province"
     And I choose the "<cityDrilldown>" from the "City"
     And I click the "Generate" button
 

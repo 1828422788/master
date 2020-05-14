@@ -20,13 +20,13 @@ Feature: 趋势图标签
 
   Scenario: tag_trend
     When the data name is "Tag_Test" then i click the "标签" button
-    And I choose the "AutoTest" from the "TagField"
+    And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
     Then I will see the success message "更新成功"
     And I refresh the website
     #column 2 is user, column 3 is tag
-    Then I will see the data "Tag_Test" values "{'column':'3','name':'AutoTest'}"
+    Then I will see the data "Tag_Test" values "{'column':'3','name':'auto_package'}"
 
 
   Scenario: verify_tag
@@ -38,7 +38,7 @@ Feature: 趋势图标签
     And I click the "NextButton" button
     And I will see the input element "NameInput" value will be "Tag_Test"
     And I will see the input element "DescribeInput" value will be "AutoCreate"
-    And I cancel selection "AutoTest" from the "GroupField"
+    And I cancel selection "auto_package" from the "GroupField"
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
     When open the "trend.ListPage" page for uri "/trend/"

@@ -24,7 +24,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -73,7 +72,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -129,7 +127,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -157,7 +154,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -202,7 +198,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -240,7 +235,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -275,7 +269,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -311,7 +304,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -343,7 +335,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -371,7 +362,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -415,7 +405,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -452,7 +441,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
@@ -494,7 +482,6 @@ Feature: 定时任务保存为
     And I click the "SaveAsSchedule" button
     And I will see the "splSearch.SearchPage" page
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "GroupComboBox"
 
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"

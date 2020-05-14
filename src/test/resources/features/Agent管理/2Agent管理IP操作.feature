@@ -8,6 +8,7 @@ Feature: Agent管理ip操作
 
   Scenario Outline: 修改备注成功
     Then the column is "1" then i click the "更多" button in agent page
+    And I wait for loading invisible
     And I click the "MemoButton" button
     And I set the parameter "Memo" with value "<memory>"
     And I click the "Ensure" button
@@ -24,6 +25,7 @@ Feature: Agent管理ip操作
 
   Scenario Outline: 修改备注失败
     Then the column is "1" then i click the "更多" button in agent page
+    And I wait for loading invisible
     And I click the "MemoButton" button
     And I set the parameter "Memo" with value "<memory>"
     And  I wait for loading invisible

@@ -25,25 +25,25 @@ Feature: 报表标签
   Scenario: tag_report
     When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'无'}"
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "标签" button
-    And I choose the "AutoTest" from the "TagField"
+    And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
     Then I will see the message "修改成功"
     And I click the "EnsureButton" button
     And I refresh the website
     #column 6 is a tag
-    Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'AutoTest'}"
+    Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'auto_package'}"
 
 
   Scenario: verify_tag
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
-    And I wait for "1000" millsecond
+    And I wait for element "SelectedUser" change text to "ctest"
     And I will see the input element "Name" value will be "Test_Tag"
     And I will see the input element "Describe" value will be "AutoCreate"
-    And I will see the element "ChosenTag" contains "AutoTest"
+    And I will see the element "ChosenTag" contains "auto_package"
     And I click the "NextButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button

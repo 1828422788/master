@@ -20,6 +20,7 @@ Feature: Agent页面跳转
     And I click the "Next" button
     And I will see the element "CheckListenaddress" name is "192.168.1.160:514"
     And I click the "Next" button
+    And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
 
@@ -27,6 +28,7 @@ Feature: Agent页面跳转
     And I click the "CurrentConfiguration" button
     Then the page's title will be "Agent 具体配置"
     Then the data name "192.168.1.160:514" in table "SyslogTable" then i click the "删除" button
+    And I wait for loading invisible
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
@@ -37,6 +39,7 @@ Feature: Agent页面跳转
     And I click the "Backup" button
     And I wait for loading invisible
     Then the data name "192.168.1.160:514" in table "SyslogTable" then i click the "删除" button
+    And I wait for loading invisible
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
@@ -47,6 +50,7 @@ Feature: Agent页面跳转
     And I click the "Cancle" button
     And I click the "CurrentConfiguration" button
     Then the data name "192.168.1.160:514" in table "SyslogTable" then i click the "删除" button
+    And I wait for loading invisible
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
@@ -61,5 +65,6 @@ Feature: Agent页面跳转
     And I close all tabs except main tab
     And I will see the "agent.CreatePage" page
     Given the data name "192.168.1.160:514" in table "SyslogTable" then i click the "删除" button
+    And I wait for loading invisible
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"

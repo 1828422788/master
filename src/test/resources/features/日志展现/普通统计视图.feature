@@ -41,8 +41,6 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I choose the "<chart>" from the "PresentType"
     And I choose the "<value1>" from the "FieldValue"
-    And I click the "AddButton" button
-    And I choose the "<value2>" from the "FieldValue"
     And I click the "IndependentStats" button
     And I click the "AddButton" button
     And I wait for "1000" millsecond
@@ -52,8 +50,8 @@ Feature: 日志展现_普通统计视图
     Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
     Examples:
-      | chart   | value1                | value2           |     caseNum            |
-      | 曲线图   | apache.clientip       | appname          | 2718_事件计数_独立数统计 |
+      | chart   | value1                |     caseNum              |
+      | 曲线图   | apache.clientip      | 2718_事件计数_独立数统计 |
 
 
   Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)

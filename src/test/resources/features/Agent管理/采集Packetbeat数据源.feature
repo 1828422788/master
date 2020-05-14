@@ -7,10 +7,10 @@ Feature: Agent编辑Packetbeat类型数据源
     When I click the detail which column is "1" in agent page
     And switch to another window
     And I close all tabs except main tab
+    And I wait for loading invisible
     And I will see the "agent.CreatePage" page
 
   Scenario:新建Packetbeat类型数据源
-    And I wait for loading invisible
     And I click the "Create" button
     And I click the "PacketbeatType" button
     And I set the parameter "BeatsAppname" with value "autoPacketbeattest"
@@ -80,6 +80,7 @@ Feature: Agent编辑Packetbeat类型数据源
 
   Scenario: Packetbeat数据源删除
     Given the data name "any" in table "PacketbeatTable" then i click the "删除" button
+    And I wait for loading invisible
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 

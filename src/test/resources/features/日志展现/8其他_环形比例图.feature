@@ -16,7 +16,7 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
@@ -42,10 +42,10 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Compare" button
     And I click the "AddField" button
-    And I choose the "count2_perc" from the "FieldValue" in config
+    And I choose the "count2_perc" from the "FieldValue"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -68,13 +68,13 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Compare" button
     And I click the "AddField" button
-    And I choose the "count2_perc" from the "FieldValue" in config
+    And I choose the "count2_perc" from the "FieldValue"
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "apache.clientip" from the "FieldValue"
     And I set the parameter "RowNum" with value "<rows>"
     And I set the parameter "ColumnNum" with value "<columns>"
     And I click the "Generate" button
@@ -101,13 +101,13 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Compare" button
     And I click the "AddField" button
-    And I choose the "count2_perc" from the "FieldValue" in config
+    And I choose the "count2_perc" from the "FieldValue"
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "apache.clientip" from the "FieldValue"
     And I set the parameter "RowNum" with value "<rows>"
     And I set the parameter "ColumnNum" with value "<columns>"
     And I click the "Exhibition" button
@@ -144,7 +144,7 @@ Feature: 日志展现_其它_环形比例图
       |   Ring        | table_1r_3c_colors  |  1      |   3       | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline:  ringchart_precision(RZY-4203)
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/51 \| eval count2_perc=ip_count/204 \| limit 6 "
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -152,52 +152,28 @@ Feature: 日志展现_其它_环形比例图
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue" in config
+    And I choose the "count_perc" from the "FieldValue"
     And I click the "Compare" button
     And I click the "AddField" button
-    And I choose the "count2_perc" from the "FieldValue" in config
+    And I choose the "count2_perc" from the "FieldValue"
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I choose the "apache.clientip" from the "FieldValue"
     And I set the parameter "RowNum" with value "2"
     And I set the parameter "ColumnNum" with value "3"
     And I click the "Exhibition" button
-    And I choose the "1" from the "Precision"
+    And I choose the "<num>" from the "Precision"
     And I click the "Generate" button
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>1"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>1" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>1"
-
-
-    And I click the "Settings" button
-    And I click the "Exhibition" button
-    And I choose the "2" from the "Precision"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>2"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>2" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>2"
-
-
-    And I click the "Settings" button
-    And I click the "Exhibition" button
-    And I choose the "3" from the "Precision"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>3"
-   Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>3" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>3"
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum><num>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum><num>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum><num>"
 
     Examples:
-      |  chartType    |    caseNum       |   spl   |
-      |   Ring        |     Precision    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/51 \| eval count2_perc=ip_count/204 \| limit 6 |
+      |  chartType    |  num |   caseNum       |
+      |   Ring        |  1   |    Precision    |
+      |   Ring        |  2   |    Precision    |
+      |   Ring        |  3   |    Precision    |
