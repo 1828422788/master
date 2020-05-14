@@ -7,6 +7,7 @@ Feature: Agent添加数据源校验
     When I click the detail which column is "1" in agent page
     And switch to another window
     And I close all tabs except main tab
+    And I wait for loading invisible
     And I will see the "agent.CreatePage" page
 
   Scenario: 添加文件目录类型数据源校验

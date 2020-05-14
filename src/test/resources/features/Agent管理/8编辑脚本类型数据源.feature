@@ -101,6 +101,7 @@ Feature: Agent编辑脚本类型数据源
     And I set the parameter "Appname" with value "Changeautohekascripttest"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    And I wait for loading invisible
     Given the data name "Changeautohekascripttest" in table "ScriptTable" then i click the "编辑" button
     And I set the parameter "Appname" with value "autohekascripttest"
     And I click the "Ensure" button

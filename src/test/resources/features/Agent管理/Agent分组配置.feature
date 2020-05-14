@@ -99,6 +99,7 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
+    And I wait for loading invisible
     And I set the parameter "ContextWhiteList" with value "error"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
@@ -114,6 +115,7 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
+    And I wait for loading invisible
     And I set the parameter "ContextBlackList" with value "false"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
@@ -128,6 +130,7 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
+    And I wait for loading invisible
     And I set the parameter "LastModifyTime" with value "20"
     When I choose the "<timekind>" from the "TimeKind"
     And I click the "Ensure" button
@@ -172,6 +175,7 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
+    And I wait for loading invisible
     And I set the parameter "Tag" with value "Changeautohekafiletag"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
@@ -187,10 +191,13 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     And I click the "EditAutoFile" button
+    And I wait for loading invisible
     And I set the parameter "Appname" with value "Changeautohekafileappname"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    And I wait for loading invisible
     Given the data name "Changeautohekafileappname" in table "AppNameTable" then i click the "编辑" button
+    And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekafiletest"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
@@ -205,6 +212,7 @@ Feature: Agent分组采集
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
+    And I wait for loading invisible
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
