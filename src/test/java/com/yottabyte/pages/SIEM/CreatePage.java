@@ -93,6 +93,14 @@ public class CreatePage extends PageTemplate {
     public WebElement getProtocol(){
         return getInputAppElement(4);
     }
+
+    public WebElement getFailureMessage() {
+        return FailureMessage;
+    }
+
+    @FindBy(xpath ="//div[@class='el-message-box__message']/p" )
+    private WebElement FailureMessage;
+
     @FindBy(xpath = "//div[@class='el-notification__content']" )
     private WebElement CompletaMessage;
 
