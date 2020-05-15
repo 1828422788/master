@@ -98,7 +98,8 @@ public class CreatePage extends PageTemplate {
     private WebElement splInput;
 
     @FindBy(xpath = "//div[text()='样式']")
-    private WebElement style;
+  //   @FindBy(xpath = "//div[@class='el-tabs__nav']/div[text()='样式']")
+     private WebElement style;
 
     @FindBy(xpath = "//div[text()='图表尺寸位置']")
     private WebElement position;

@@ -1,4 +1,4 @@
-@galaxeeLast
+@galaxeeChart3
 Feature: 数据大屏-栅格百分图
   Background:
     Given I will see the "PublicNavBarPage" page
@@ -12,15 +12,14 @@ Feature: 数据大屏-栅格百分图
     When I click the "Create" button
     And I set the parameter "Name" with value "栅格百分图样式-搜索"
     And I click the "Ensure" button
-      #选择上方的图表
-    And I click the "Chart" button
       #选择栅格百分图
-    And I drag the scroll bar to the element "gridPercentChart"
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "gridPercentChart" will be visible
     And I click the "gridPercentChart" button
-    And I hide the element "chartDropdown"
+    And I click the "Style" button
  #设置样式
    # 1 设置图表尺寸位置
-    And I click the "Style" button
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "850"
     And I set the parameter "Height" with value "460"
@@ -73,7 +72,7 @@ Feature: 数据大屏-栅格百分图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -90,12 +89,11 @@ Feature: 数据大屏-栅格百分图
     When I click the "Create" button
     And I set the parameter "Name" with value "栅格百分图数据之静态数据"
     And I click the "Ensure" button
-      #选择上方的图表
-    And I click the "Chart" button
       #选择栅格百分图
-    And I drag the scroll bar to the element "gridPercentChart"
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "gridPercentChart" will be visible
     And I click the "gridPercentChart" button
-    And I hide the element "chartDropdown"
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
@@ -127,7 +125,7 @@ Feature: 数据大屏-栅格百分图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -153,13 +151,11 @@ Feature: 数据大屏-栅格百分图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      #添加一个栅格百分图控件
-        #选择上方的图表
+       #选择栅格百分图
     And I click the "Chart" button
-      #选择栅格百分图
-    And I drag the scroll bar to the element "gridPercentChart"
+    And I wait for "1000" millsecond
+    And I wait for "gridPercentChart" will be visible
     And I click the "gridPercentChart" button
-    And I hide the element "chartDropdown"
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
@@ -190,7 +186,7 @@ Feature: 数据大屏-栅格百分图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

@@ -115,7 +115,7 @@ public class DetailPage extends PageTemplate {
     }
 
     //编辑根事件的分组
-    @FindBy(xpath = "//label[text()='分组']/ancestor::div/following-sibling::div")
+    @FindBy(xpath = "//label[text()='资源标签']/ancestor::div/following-sibling::div")
     private WebElement rootResourceGroup;
     public WebElement getRootResourceGroup()
     {

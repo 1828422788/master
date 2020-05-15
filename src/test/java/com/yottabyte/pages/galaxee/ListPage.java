@@ -14,7 +14,8 @@ public class ListPage extends PageTemplate {
     public ListPage(WebDriver driver) {
         super(driver);
 //        driver.manage().window().setPosition(new Point(0,0));
-//        driver.manage().window().setSize(new Dimension(1400,1000));
+//        driver.manage().window().setSize(new Dimension(1915,1045));
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "big-v-create-button")
@@ -34,17 +35,19 @@ public class ListPage extends PageTemplate {
         return create;
     }
 
-    public WebElement getEnsure() {
-        return super.getContainsTextButton("确定");
-    }
+//    public WebElement getEnsure() {
+//        return super.getContainsTextButton("确定");
+//    }
 
     public WebElement getLoading() {
         return loading;
     }
 
 
-
-
+//@FindBy(xpath = "//div[@class='el-dialog__footer']/span/button[1]/span[contains(text(),'确定')]")
+@FindBy(xpath = "//*[@id=\"big_v_manager\"]/div[2]/div[4]/div/div[3]/span/button[1]/span")
+private WebElement ensure;
+public WebElement getEnsure(){return ensure;}
 
 
 }

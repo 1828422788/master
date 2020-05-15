@@ -14,6 +14,8 @@ Feature: 数据大屏-折线图
     And I click the "Ensure" button
     #折线图
     And I click the "Chart" button
+    And I wait for "2000" millsecond
+#    And I wait for "Line" will be visible
     And I click the "Line" button
     And I click the "Style" button
  # x轴
@@ -93,10 +95,12 @@ Feature: 数据大屏-折线图
     And I wait for "SearchTip" will be invisible
 
     And I choose the "ts" from the "Xaxis"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
 
-    And I click the "Save" button
+    And I wait for "Save" will be visible
     And I wait for "1000" millsecond
+    And I click the "Save" button
     Then I will see the success message "保存成功"
 
 
@@ -110,7 +114,7 @@ Feature: 数据大屏-折线图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -128,6 +132,8 @@ Feature: 数据大屏-折线图
     And I click the "Ensure" button
     #折线图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Line" will be visible
     And I click the "Line" button
     And I click the "Style" button
     #图例
@@ -160,6 +166,7 @@ Feature: 数据大屏-折线图
 
 
     And I choose the "ts" from the "Xaxis"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
 
     And I click the "AddGroup" button
@@ -179,7 +186,7 @@ Feature: 数据大屏-折线图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
 
@@ -199,12 +206,15 @@ Feature: 数据大屏-折线图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
    #折线图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Line" will be visible
     And I click the "Line" button
     And I click the "Style" button
     #尺寸
@@ -230,8 +240,11 @@ Feature: 数据大屏-折线图
     And I wait for "3000" millsecond
 
     And I choose the "ts" from the "Xaxis"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
+    And I wait for "1000" millsecond
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -245,7 +258,7 @@ Feature: 数据大屏-折线图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

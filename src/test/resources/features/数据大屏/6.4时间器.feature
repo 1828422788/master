@@ -5,25 +5,25 @@ Feature: 数据大屏-时间器
     And I wait for "Dashboard" will be visible
 
   Scenario: 时间器默认设置
-
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
     And I set the parameter "Name" with value "时间器默认设置"
     And I click the "Ensure" button
-      #选择上方的其他
-    And I click the "Other" button
       #选择时间器
+    And I click the "Other" button
+    And I wait for "1000" millsecond
+    And I wait for "Clock" will be visible
     And I click the "Clock" button
       #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
 
   Scenario Outline: 时间器默认设置默认设置发布并截图
-
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -32,7 +32,7 @@ Feature: 数据大屏-时间器
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -49,12 +49,14 @@ Feature: 数据大屏-时间器
     When I click the "Create" button
     And I set the parameter "Name" with value "时间器样式"
     And I click the "Ensure" button
-      #选择上方的其他
-    And I click the "Other" button
       #选择时间器
+    And I click the "Other" button
+    And I wait for "1000" millsecond
+    And I wait for "Clock" will be visible
     And I click the "Clock" button
 #设置样式
       #1 设置图表尺寸位置
+    And I wait for "2000" millsecond
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
@@ -81,6 +83,8 @@ Feature: 数据大屏-时间器
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "时间器样式修改"
       #保存
+    And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -95,7 +99,7 @@ Feature: 数据大屏-时间器
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -112,11 +116,13 @@ Feature: 数据大屏-时间器
     When I click the "Create" button
     And I set the parameter "Name" with value "时间器样式2"
     And I click the "Ensure" button
-      #选择上方的其他
-    And I click the "Other" button
       #选择时间器
+    And I click the "Other" button
+    And I wait for "1000" millsecond
+    And I wait for "Clock" will be visible
     And I click the "Clock" button
 #设置样式
+    And I wait for "2000" millsecond
     And I click the "Style" button
      #1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
@@ -135,6 +141,7 @@ Feature: 数据大屏-时间器
     And I choose the "yyyy-MM-dd hh:mm:ss" from the "timeFormat"
       #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -149,7 +156,7 @@ Feature: 数据大屏-时间器
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -166,11 +173,13 @@ Feature: 数据大屏-时间器
     When I click the "Create" button
     And I set the parameter "Name" with value "时间器样式3"
     And I click the "Ensure" button
-      #选择上方的其他
-    And I click the "Other" button
       #选择时间器
+    And I click the "Other" button
+    And I wait for "1000" millsecond
+    And I wait for "Clock" will be visible
     And I click the "Clock" button
 #设置样式
+    And I wait for "2000" millsecond
     And I click the "Style" button
      #1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
@@ -188,8 +197,9 @@ Feature: 数据大屏-时间器
     #时间格式
     And I choose the "yyyy/MM/dd hh:mm:ss" from the "timeFormat"
 
-      #保存
+       #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -204,7 +214,7 @@ Feature: 数据大屏-时间器
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

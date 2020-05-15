@@ -14,7 +14,8 @@ Feature: 数据大屏-旭日图
     And I click the "Ensure" button
     #旭日图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Sunburst"
+    And I wait for "1000" millsecond
+    And I wait for "Sunburst" will be visible
     And I click the "Sunburst" button
     #样式
     And I click the "Style" button
@@ -63,7 +64,7 @@ Feature: 数据大屏-旭日图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -81,7 +82,8 @@ Feature: 数据大屏-旭日图
     And I click the "Ensure" button
     #旭日图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Sunburst"
+    And I wait for "1000" millsecond
+    And I wait for "Sunburst" will be visible
     And I click the "Sunburst" button
     And I click the "Style" button
      #数据设置
@@ -115,7 +117,7 @@ Feature: 数据大屏-旭日图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -141,9 +143,10 @@ Feature: 数据大屏-旭日图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-     #旭日图
+    #旭日图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Sunburst"
+    And I wait for "1000" millsecond
+    And I wait for "Sunburst" will be visible
     And I click the "Sunburst" button
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
@@ -182,7 +185,7 @@ Feature: 数据大屏-旭日图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

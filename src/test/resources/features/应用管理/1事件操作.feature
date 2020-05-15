@@ -53,13 +53,13 @@ Feature: 应用事件操作（RZY-2141）
       | appName  |
       | EventApp |
 
-
   Scenario: 新建事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "EventApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page
+    And I wait for "Create" will be visible
     When I click the "Create" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"

@@ -1,7 +1,5 @@
-
 Feature: 定时任务删除
 
-  @clean @cleanTimedTask @cleanKate
   Scenario Outline: delete
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"

@@ -14,6 +14,8 @@ Feature: 数据大屏-双轴折线图
     And I click the "Ensure" button
     #双轴折线图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Line2y" will be visible
     And I click the "Line2y" button
     And I click the "Style" button
     #数据
@@ -23,8 +25,11 @@ Feature: 数据大屏-双轴折线图
     And I wait for "SearchTip" will be invisible
 
     And I choose the "appname" from the "Xaxis"
+    And I wait for "1000" millsecond
     And I choose the "count(appname)" from the "FirstYaxis"
+    And I wait for "1000" millsecond
     And I choose the "dc(appname)" from the "SecondYaxis"
+    And I wait for "1000" millsecond
      #样式-尺寸
     And I click the "Style" button
     And I click the "ChartPosition" button
@@ -112,7 +117,7 @@ Feature: 数据大屏-双轴折线图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
 
@@ -132,18 +137,20 @@ Feature: 数据大屏-双轴折线图
     And I click the "Ensure" button
     #双轴折线图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Line2y" will be visible
     And I click the "Line2y" button
     And I click the "Style" button
-    #图例
-    And I click the "Example" button
-    And I set the parameter "ExampleWordSize" with value "20"
-    And I click the "ExampleColor" button
-    And I set the parameter "ColorInput" with value "#D73535"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
-    And I choose the "bolder" from the "ExampleWordBold"
-    And I choose the "居中" from the "ExampleHorizontal"
-    And I choose the "顶部" from the "ExampleVertical"
+#    #图例
+#    And I click the "Example" button
+#    And I set the parameter "ExampleWordSize" with value "20"
+#    And I click the "ExampleColor" button
+#    And I set the parameter "ColorInput" with value "#D73535"
+#    And I click the "EnsureColor" button
+#    And I wait for "EnsureColor" will be invisible
+#    And I choose the "bolder" from the "ExampleWordBold"
+#    And I choose the "居中" from the "ExampleHorizontal"
+#    And I choose the "顶部" from the "ExampleVertical"
     #尺寸
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1500"
@@ -160,7 +167,6 @@ Feature: 数据大屏-双轴折线图
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I wait for "6000" millsecond
-
 
     And I choose the "appname" from the "Xaxis"
     And I choose the "count(appname)" from the "FirstYaxis"
@@ -183,7 +189,7 @@ Feature: 数据大屏-双轴折线图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -209,6 +215,8 @@ Feature: 数据大屏-双轴折线图
     And I set the parameter "updateFrequency" with value "0.1"
    #双轴折线图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Line2y" will be visible
     And I click the "Line2y" button
     And I click the "Style" button
     #尺寸
@@ -235,8 +243,11 @@ Feature: 数据大屏-双轴折线图
     And I wait for "3000" millsecond
 
     And I choose the "appname" from the "Xaxis"
-    And I choose the "count(appname)" from the "FirstYaxis"
-    And I choose the "dc(appname)" from the "SecondYaxis"
+
+    And I choose the "dc(appname)" from the "FirstYaxis"
+
+    And I choose the "count(appname)" from the "SecondYaxis"
+
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -251,7 +262,7 @@ Feature: 数据大屏-双轴折线图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

@@ -11,7 +11,7 @@ Feature: 定时任务_基本配置
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I wait for element "SelectedUser" change text to "ctest"
+    And I wait for element "SelectedUser" change text to username
     And I set the parameter "TaskName" with value "Test_Schedule"
     And I set the parameter "Period" with value "5"
     And I choose the "分钟" from the "ExecuteTime"
@@ -26,7 +26,7 @@ Feature: 定时任务_基本配置
     When the data name is "{'column':'2','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "5000" millsecond
-    And I wait for element "SelectedUser" change text to "ctest"
+    And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "   "
     And I set the parameter "Number" with value "    "
     And I set the value "   " to the textarea "SearchTextarea"
@@ -52,7 +52,7 @@ Feature: 定时任务_基本配置
     When the data name is "{'column':'2','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "5000" millsecond
-    And I wait for element "SelectedUser" change text to "ctest"
+    And I wait for element "SelectedUser" change text to username
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "SaveButton" button
     And I will see the message "<result>"
@@ -68,7 +68,7 @@ Feature: 定时任务_基本配置
     When the data name is "{'column':'2','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "5000" millsecond
-    And I wait for element "SelectedUser" change text to "ctest"
+    And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "Schedule_Test"
     And I set the parameter "Describe" with value "testing schedule"
     And I set the value "tag:*| stats count() by appname | limit 10" to the textarea "SearchTextarea"
