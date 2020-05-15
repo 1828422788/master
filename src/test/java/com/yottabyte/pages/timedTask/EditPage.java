@@ -120,7 +120,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='percent']/following-sibling::input")
     private WebElement percent;
 
-    @FindBy(xpath = "//label[text()='resplen']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='percent']/ancestor::div/following-sibling::div/input")
     private WebElement resplen;
 
     public WebElement getCount() {
