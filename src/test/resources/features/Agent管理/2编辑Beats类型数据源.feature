@@ -7,10 +7,10 @@ Feature: Agent编辑Beats类型数据源
     When I click the detail which column is "1" in agent page
     And switch to another window
     And I close all tabs except main tab
+    And I wait for loading invisible
     And I will see the "agent.CreatePage" page
 
   Scenario: 新增Beats类型数据源
-#    When I click the detail which name is "<ip>"
     And I click the "Create" button
     And I click the "BeatsType" button
     And I set the parameter "Listenaddress" with value "192.168.1.134:299"
@@ -18,6 +18,7 @@ Feature: Agent编辑Beats类型数据源
     And I set the parameter "BeatsTag" with value "autoBeatstest"
     And I click the "Next" button
     And I click the "Next" button
+    And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
   Scenario: 修改beats数据源禁用
@@ -34,6 +35,7 @@ Feature: Agent编辑Beats类型数据源
 
   Scenario Outline: Beats数据源修改appname成功
     Given the data name "192.168.1.134:299" in table "BeatsTable" then i click the "编辑" button
+    And I wait for loading invisible
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
@@ -47,6 +49,7 @@ Feature: Agent编辑Beats类型数据源
 
   Scenario Outline: Beats数据源修改appname失败
     Given the data name "192.168.1.134:299" in table "BeatsTable" then i click the "编辑" button
+    And I wait for loading invisible
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     Then I will see the element "PreviewMessage" name is "请以字母或数字下划线为元素"
@@ -59,6 +62,7 @@ Feature: Agent编辑Beats类型数据源
 
   Scenario Outline: Beats数据源修改tag成功
     Given the data name "192.168.1.134:299" in table "BeatsTable" then i click the "编辑" button
+    And I wait for loading invisible
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
@@ -72,6 +76,7 @@ Feature: Agent编辑Beats类型数据源
 
   Scenario Outline: Beats数据源修改tag失败
     Given the data name "192.168.1.134:299" in table "BeatsTable" then i click the "编辑" button
+    And I wait for loading invisible
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
@@ -82,8 +87,9 @@ Feature: Agent编辑Beats类型数据源
       | #￥%…&*  |
 
 
-   Scenario: Beats数据源删除
+  Scenario: Beats数据源删除
     Given the data name "192.168.1.134:299" in table "BeatsTable" then i click the "删除" button
+    And I wait for loading invisible
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 

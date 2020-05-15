@@ -5,12 +5,13 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "新建用户分组"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     Given I logout current user
@@ -27,11 +28,12 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     Given I logout current user
@@ -52,11 +54,14 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'用户分组'}" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -86,15 +91,16 @@ Feature: 权限-用户分组
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "{'TabButton':'用户分组'}" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     Given I logout current user
@@ -106,12 +112,17 @@ Feature: 权限-用户分组
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑 申请加入" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑授权申请加入" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
+    And I wait for loading invisible
+    Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
+    And I wait for "Loading" will be invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     And I will see the "userGroups.EditPage" page
     And I wait for "UserGroupName" will be visible
     And I set the parameter "UserGroupName" with value "AutoTest用户修改"
-    And I click the "BasicSaveButton" button
+    And I click the "SaveButton" button
     Then I will see the success message "更新成功"
 
     Examples:
@@ -122,20 +133,21 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
     Then I click the "{'TabButton':'用户分组'}" button
     And I wait for loading invisible
-    And I "checked" the label before "AutoTest用户修改"
-    When the data name is "AutoTest用户修改" then I click the "无期限" button without total page
+    And I "checked" the checkbox which name is "AutoTest用户修改" in auth table
+    When the data name is "AutoTest用户修改" then I click the "无限期" button in auth table
     And I click the "Customize" button
     And I click the "DateEditor" button
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
 
   Scenario: 新建用户分组
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
@@ -146,8 +158,7 @@ Feature: 权限-用户分组
     Then I will see the success message "创建成功"
 
   Scenario: 验证有效期限
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+    When I wait for "2000" millsecond
     Given I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -159,19 +170,19 @@ Feature: 权限-用户分组
     And I wait for "Loading" will be invisible
     When I click the detail which name is "{'column':'1','name':'AutoTest用户修改'}"
     And I will see the "userGroups.EditPage" page
-    Then I will see the element "BasicSaveButton" attribute is "disabled"
+    Then I will see the element "SaveButton" attribute is "disabled"
 
   Scenario Outline: 授权读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
-    And I "checked" the label before "<name>"
+    Then I click the "{'TabButton':'用户分组'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -187,11 +198,11 @@ Feature: 权限-用户分组
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑 删除 申请加入" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑删除授权申请加入" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     And I will see the "userGroups.EditPage" page
     And I set the parameter "UserGroupName" with value "AutoTest测试"
-    And I click the "BasicSaveButton" button
+    And I click the "SaveButton" button
     Then I will see the success message "更新成功"
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible
@@ -207,10 +218,13 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I "checked" the label before "<name>"
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'用户分组'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    Then I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -226,7 +240,7 @@ Feature: 权限-用户分组
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "删除 申请加入" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "删除授权申请加入" button
     When I click the detail which name is "{'column':'1','name':'<name>'}"
     Then I will see the "userGroups.CreatePage" page
     Then I will see the element "UserGroupName" attribute is "disabled"

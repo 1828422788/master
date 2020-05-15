@@ -5,12 +5,13 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "新建趋势图"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -27,11 +28,12 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -54,19 +56,20 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoTest"
-    And I click the "Complete" button
+    And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
 
   Scenario Outline: 不授予任何权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for loading invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Trend" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -92,13 +95,14 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for loading invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Trend" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -122,7 +126,7 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoTest"
-    Then I will see the element "Complete" attribute is "disabled"
+    Then I will see the element "NextButton" attribute is "disabled"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -139,19 +143,19 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "Trend" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
+    When I "checked" function "读取" from the auth table which name is "<name>"
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "新建趋势图"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
-    Then I click the "{'TabButton':'趋势图'}" button
-    And I wait for loading invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
-    When I "checked" function "读取" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -171,7 +175,7 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoTest"
-    Then I will see the element "Complete" attribute is "disabled"
+    Then I will see the element "NextButton" attribute is "disabled"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -185,13 +189,14 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for loading invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
+    Then I click the "Trend" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取,编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -226,7 +231,7 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I set the parameter "NameInput" with value "AutoEditCopy"
-    And I click the "Complete" button
+    And I click the "NextButton" button
     And I wait for "SuccessUpdate" will be visible
     And I click the "Report" button
     And switch to another window
@@ -241,18 +246,20 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Trend" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
-    And I "checked" the label before "AutoTest"
-    When the data name is "AutoTest" then I click the "无期限" button without total page
+    And I "checked" the checkbox which name is "AutoTest" in auth table
+    When the data name is "AutoTest" then I click the "无限期" button in auth table
     And I click the "Customize" button
     And I click the "DateEditor" button
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -274,6 +281,7 @@ Feature: 权限-趋势图
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -287,7 +295,7 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I set the parameter "NameInput" with value "AutoEditCopy"
-    And I click the "Complete" button
+    And I click the "NextButton" button
     And I wait for "SuccessUpdate" will be visible
     And I click the "Report" button
     And switch to another window
@@ -299,11 +307,13 @@ Feature: 权限-趋势图
     And I set the parameter "Minute" with value "11"
     And I click the "NextButton" button
     And I wait for "TopoTitle" will be visible
-    And I will see the element "TopoTitle" name is "<name>"
+    And I will see the element "TopoTitle" name is "1<name>"
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
     And open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "AutoEdit" then i click the "删除" button
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
 
@@ -312,9 +322,7 @@ Feature: 权限-趋势图
       | AutoEditCopy |
 
   Scenario: 验证有效期限生效
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -330,14 +338,13 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for loading invisible
-    And I "checked" the label before "<name>"
-    And I "unchecked" the label before "<name>"
-    And I "checked" the label before "<name>"
+    Then I click the "Trend" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -363,7 +370,7 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoTest"
-    Then I will see the element "Complete" attribute is "disabled"
+    Then I will see the element "NextButton" attribute is "disabled"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -382,12 +389,13 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for loading invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Trend" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -395,11 +403,11 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -411,7 +419,7 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "查看复制授权" button
+    Then the data name is "<name>" then i will see "查看复制展示趋势图授权" button
     When the data name is "<name>" then i click the "查看" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Header" will be visible
@@ -419,7 +427,7 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoTest"
-    Then I will see the element "Complete" attribute is "disabled"
+    Then I will see the element "NextButton" attribute is "disabled"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -436,7 +444,7 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "查看复制授权" button
+    Then the data name is "<name>" then i will see "查看复制展示趋势图授权" button
     When the data name is "<name>" then i click the "复制" button
     Then I will see the message "复制成功"
 
@@ -448,12 +456,13 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "AutoTest(副本)(副本)"
+    Then I click the "Trend" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "AutoTest(副本)(副本)" in auth table
     When I "unchecked" function "删除" from the auth table which name is "AutoTest(副本)(副本)"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -461,12 +470,12 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
+    Then I click the "Trend" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "AutoTest(副本)(副本)"
-    And I "unchecked" the label before "AutoTest(副本)(副本)"
+    And I "checked" the checkbox which name is "AutoTest(副本)(副本)" in auth table
+    And I "checked" the checkbox which name is "AutoTest(副本)(副本)" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -482,7 +491,7 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "AutoTest(副本)(副本)" then i will see "编辑复制标签授权" button
+    Then the data name is "AutoTest(副本)(副本)" then i will see "编辑复制标签展示趋势图授权" button
     When the data name is "AutoTest(副本)(副本)" then i click the "标签" button
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
@@ -496,7 +505,7 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I set the parameter "NameInput" with value "<name>"
-    And I click the "Complete" button
+    And I click the "NextButton" button
     And I wait for "SuccessUpdate" will be visible
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
@@ -514,7 +523,7 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑复制标签授权" button
+    Then the data name is "<name>" then i will see "编辑复制标签展示趋势图授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
@@ -529,12 +538,13 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for "Loading" will be invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Trend" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -542,11 +552,17 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "Trend" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -558,7 +574,7 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "查看复制删除授权" button
+    Then the data name is "<name>" then i will see "查看复制删除展示趋势图授权" button
     When the data name is "<name>" then i click the "查看" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Header" will be visible
@@ -566,7 +582,7 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoTest"
-    Then I will see the element "Complete" attribute is "disabled"
+    Then I will see the element "NextButton" attribute is "disabled"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
     And I "check" the checkbox which name is "验证授权用户" in tiny table
@@ -583,7 +599,7 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "查看复制删除授权" button
+    Then the data name is "<name>" then i will see "查看复制删除展示趋势图授权" button
     When the data name is "<name>" then i click the "复制" button
     Then I will see the message "复制成功"
     And open the "trend.ListPage" page for uri "/trend/"
@@ -600,11 +616,12 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'趋势图'}" button
     And I wait for loading invisible
-    And I "checked" the label before "<name>"
+    Then I click the "Trend" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -612,11 +629,12 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "保存成功"
+    And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -628,7 +646,7 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑复制标签删除授权" button
+    Then the data name is "<name>" then i will see "编辑复制标签删除展示趋势图授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
@@ -642,7 +660,7 @@ Feature: 权限-趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I set the parameter "NameInput" with value "AutoEditCopy"
-    And I click the "Complete" button
+    And I click the "NextButton" button
     And I wait for "SuccessUpdate" will be visible
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<newName>" then i click the "授权" button
@@ -660,8 +678,9 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<newName>" then i will see "编辑复制标签删除授权" button
+    Then the data name is "<newName>" then i will see "编辑复制标签删除展示趋势图授权" button
     When the data name is "<newName>" then i click the "复制" button
+    And I wait for "Message" will be visible
     Then I will see the message "复制成功"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<newName>" then i click the "删除" button
@@ -678,7 +697,7 @@ Feature: 权限-趋势图
     And the data name is "{'column':'1','name':'AutoTestCreate'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "删除成功"
+    Then I wait for element "Message" change text to "删除成功"
 
   Scenario: 给AutoTest用户授权
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -690,21 +709,20 @@ Feature: 权限-趋势图
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "Trend" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "AutoEditCopy(副本)" in auth table
+    And I "unchecked" the checkbox which name is "AutoEditCopy(副本)" in auth table
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Then I click the "{'TabButton':'趋势图'}" button
-    And I wait for loading invisible
-    And I "checked" the label before "AutoEditCopy(副本)"
-    And I "unchecked" the label before "AutoEditCopy(副本)"
-    And I click the "SaveButton" button
-    And I will see the success message "保存成功"
 
   Scenario Outline: 二次授权读取
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -718,10 +736,8 @@ Feature: 权限-趋势图
     And I choose the "<authRole>" from the "AuthDropdown"
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -734,12 +750,11 @@ Feature: 权限-趋势图
     Then the data name is "<name>" then i will see "查看复制授权" button
     When the data name is "<name>" then i click the "查看" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Header" will be visible
+    And I wait for "Loading" will be invisible
     And I click the "NextButton" button
-    And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoTest"
-    Then I will see the element "Complete" attribute is "disabled"
+    Then I will see the element "NextButton" attribute is "disabled"
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -750,9 +765,7 @@ Feature: 权限-趋势图
       | 用户       | 验证授权用户   | 读取       | AutoEditCopy(副本) |
 
   Scenario Outline: 二次授权读取+编辑
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -768,9 +781,6 @@ Feature: 权限-趋势图
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -780,7 +790,7 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑标签授权" button
+    Then the data name is "<name>" then i will see "编辑复制标签授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
@@ -792,13 +802,11 @@ Feature: 权限-趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
-    And I wait for loading invisible
-    And I wait for "Header" will be visible
+    And I wait for "Loading" will be invisible
     And I click the "NextButton" button
-    And I wait for "Header" will be visible
     And I click the "NextButton" button
     And I set the parameter "NameInput" with value "AutoEditCopy"
-    And I click the "Complete" button
+    And I click the "NextButton" button
     And I wait for "SuccessUpdate" will be visible
 
     Examples:
@@ -806,9 +814,7 @@ Feature: 权限-趋势图
       | 角色       | __user_验证授权用户__ | 编辑       | AutoEditCopy(副本) |
 
   Scenario Outline: 二次授权读取+编辑+删除
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -824,9 +830,6 @@ Feature: 权限-趋势图
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -836,7 +839,7 @@ Feature: 权限-趋势图
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
-    Then the data name is "<name>" then i will see "编辑标签删除授权" button
+    Then the data name is "<name>" then i will see "编辑复制标签删除授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
@@ -848,13 +851,11 @@ Feature: 权限-趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
-    And I wait for loading invisible
-    And I wait for "Header" will be visible
+    And I wait for "Loading" will be invisible
     And I click the "NextButton" button
-    And I wait for "Header" will be visible
     And I click the "NextButton" button
-    And I set the parameter "NameInput" with value "AutoEditCopy"
-    And I click the "Complete" button
+    And I wait for "1000" millsecond
+    And I click the "NextButton" button
     And I wait for "SuccessUpdate" will be visible
     And I click the "Report" button
     And switch to another window
@@ -866,11 +867,11 @@ Feature: 权限-趋势图
     And I set the parameter "Minute" with value "11"
     And I click the "NextButton" button
     And I wait for "TopoTitle" will be visible
-    And I will see the element "TopoTitle" name is "<name>"
+    And I will see the element "TopoTitle" name is "1<name>"
     And I click the "Save" button
     Then I will see the success message "保存成功"
     And open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "AutoEdit" then i click the "删除" button
+    When the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
 

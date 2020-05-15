@@ -842,7 +842,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='max']/following-sibling::div")
     private WebElement rangeColor;
 
+    @FindBy(className = "ant-spin-text")
+    private WebElement loading;
 
+    public WebElement getLoading() {
+        return loading;
+    }
 
     public WebElement getType() {
         return type;

@@ -181,6 +181,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//tbody")
     private WebElement BackUpTable;
 
+    @FindBy(xpath = "//div[text()='输出配置']/following-sibling::div//tbody//tr//span")
+    private WebElement OutputEdit;
+
+    public WebElement getOutputEdit() {
+        return OutputEdit;
+    }
 
     public WebElement getAppNameTable() {
         return getTableElement("文件和目录");
@@ -493,8 +499,7 @@ public class CreatePage extends PageTemplate {
     }
 
     @FindBy(xpath ="//span[text()='autotestmysql139']")
-    private WebElement MysqlDatabase139
-            ;
+    private WebElement MysqlDatabase139;
 
     public WebElement getBackUpObject() {
         return BackUpObject;
@@ -519,7 +524,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getLastChangeTime() {
         return LastChangeTime;
     }
-
 
     public WebElement getInputKind() {
         return InputKind;
@@ -574,6 +578,25 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='ant-modal-title']")
     private WebElement AgentConfigurationTitle;
+
+    @FindBy(xpath = "(//div[text()='输出配置']/following-sibling::div//tbody/tr/td)[1]")
+    private WebElement CompressStatus;
+
+    public WebElement getCompressStatus() {
+        return CompressStatus;
+    }
+    @FindBy(xpath = "(//div[text()='输出配置']/following-sibling::div//tbody/tr/td)[2]")
+    private WebElement SendSpeedStatus;
+
+    public WebElement getSendSpeedStatus() {
+        return SendSpeedStatus;
+    }
+    @FindBy(xpath = "(//div[text()='输出配置']/following-sibling::div//tbody/tr/td)[3]")
+    private WebElement LogLengthStatus;
+
+    public WebElement getLogLengthStatus() {
+        return LogLengthStatus;
+    }
 
     public WebElement getChooseButton() {
         return ChooseButton;
@@ -773,9 +796,19 @@ public class CreatePage extends PageTemplate {
     public WebElement getServerAddress(){
         return getInputElement("服务器地址");
     }
+
     public WebElement getTimeOut(){
         return getInputElement("超时秒数");
     }
+
+    public WebElement getSendSpeedLimit(){
+        return getInputElement("发送速率限制");
+    }
+
+    public WebElement getLogLength(){
+        return getInputElement("单行日志最大长度");
+    }
+
     public WebElement getDestObjectKind(){
         return getInputElement("对象类型");
     }
@@ -794,6 +827,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSpecialPort() {
         return getInputElement("采集特定端口");
+    }
+
+    public WebElement getSendSpeed(){
+        return getDropDownListElement("发送速率限制");
     }
 
     public WebElement getTimeKind(){

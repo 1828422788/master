@@ -31,6 +31,7 @@ Feature: 应用搜索宏（RZY-2126）
 
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
@@ -72,7 +73,7 @@ Feature: 应用搜索宏（RZY-2126）
     Then I will see the "searchMacro.ListPage" page
     When I click the "Create" button
     And I will see the "app.AppPage" page
-    Then I will see the element "OldTitle" name is "MacroApp"
+    Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.CreatePage" page
     When I set the parameter "Name" with value "AutoTestApp"
     And I click the "Save" button
@@ -86,7 +87,7 @@ Feature: 应用搜索宏（RZY-2126）
     Then I will see the "searchMacro.ListPage" page
     When the data name is "AutoTestApp" then i click the "编辑" button
     And I will see the "app.AppPage" page
-    Then I will see the element "OldTitle" name is "MacroApp"
+    Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.CreatePage" page
     When I set the parameter "Name" with value "AutoApp"
     And I click the "Save" button

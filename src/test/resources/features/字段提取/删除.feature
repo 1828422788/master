@@ -31,6 +31,7 @@ Feature: 字段提取删除
       | RZY1559tag替换                |
       | RZY1556内容替换                 |
       | 内容替换详情验证                    |
+      | tag替换详情验证                   |
       | RZY1540配置UserAgent解析        |
       | UserAgent解析详情验证             |
       | RZY1539添加URL解析              |
@@ -63,15 +64,15 @@ Feature: 字段提取删除
       | name                   |
       | win_sys_sourcename.csv |
 
-  Scenario: 删除owner下的agent配置
-
-    Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
-#    When I click the detail with properties "{'column':'1','name':'rizhiyi_server_host'}"
-    Then I click the detail which column is "1" in agent page
-    And switch to window "Agent 具体配置"
-    When the data name is "auto_test_format" then i click the "删除" button without paging
-    And I click the "Ensure" button
-    Then I will see the success message "删除 Agent 配置成功。"
+#  Scenario: 删除owner下的agent配置
+#
+#    Given open the "agent.CreatePage" page for uri "/sources/input/agent/"
+##    When I click the detail with properties "{'column':'1','name':'rizhiyi_server_host'}"
+#    Then I click the detail which column is "1" in agent page
+#    And switch to window "Agent 具体配置"
+#    When the data name is "auto_test_format" then i click the "删除" button without paging
+#    And I click the "Ensure" button
+#    Then I will see the success message "删除 Agent 配置成功。"
 
   Scenario: 删除搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"

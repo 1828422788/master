@@ -5,7 +5,8 @@ Feature: 报表新建_执行计划
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to "admin"
+    And I wait for "2000" millsecond
+    And I wait for element "SelectedUser" change text to username
 
   Scenario Outline: new_report_error_message
     When I set the parameter "Name" with value "<name>"
@@ -25,16 +26,16 @@ Feature: 报表新建_执行计划
   Scenario Outline: new_report_success_day
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "Tag"
+    And I choose the "auto_package" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I choose the "<period>" from the "Period"
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartList"
+    When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -48,7 +49,7 @@ Feature: 报表新建_执行计划
   Scenario Outline: new_report_success_period
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "Tag"
+    And I choose the "auto_package" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I choose the "<period>" from the "Period"
     And I choose the "<day>" from the "Day"
@@ -56,9 +57,9 @@ Feature: 报表新建_执行计划
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartList"
+    When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -87,14 +88,14 @@ Feature: 报表新建_执行计划
   Scenario: new_report_success_crontab
     When I set the parameter "Name" with value "test_report_crontab"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "AutoTest" from the "Tag"
+    And I choose the "auto_package" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Crontab" with value "0 0/15 9 ? * MON-FRI"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartList"
+    When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -104,8 +105,7 @@ Feature: 报表新建_执行计划
   Scenario: new_report_fields
     When I set the parameter "Name" with value "test_report"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I will see the element "SelectedUser" contains "admin"
-    And I choose the "AutoTest" from the "Tag"
+    And I choose the "auto_package" from the "Tag"
     And I choose the "TrendApp" from the "App"
     And I choose the "PDF" from the "ReportType"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
@@ -124,9 +124,9 @@ Feature: 报表新建_执行计划
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartList"
+    When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button

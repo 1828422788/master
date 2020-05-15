@@ -65,7 +65,7 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "ant-calendar-ok-btn")
     private WebElement ensureTime;
 
-    @FindBy(xpath = "(//span[@class='el-checkbox__label'][contains(text(),'新建用户')])[1]")
+    @FindBy(xpath = "//span[text()='新建用户']/preceding-sibling::span")
     private WebElement createUser;
 
     @FindBy(xpath = "(//a[text()='仪表盘'])[last()]")
@@ -79,6 +79,20 @@ public class AuthorizationPage extends PageTemplate {
 
     @FindBy(xpath = "(//a[text()='报表'])[last()]")
     private WebElement report;
+
+    @FindBy(xpath = "(//a[text()='监控'])[last()]")
+    private WebElement alert;
+
+    @FindBy(xpath = "(//a[text()='知识'])[last()]")
+    private WebElement knowledge;
+
+    public WebElement getKnowledge() {
+        return knowledge;
+    }
+
+    public WebElement getAlert() {
+        return alert;
+    }
 
     public WebElement getReport() {
         return report;

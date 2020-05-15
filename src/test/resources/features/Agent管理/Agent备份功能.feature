@@ -7,6 +7,7 @@ Feature: Agent备份功能
     When I click the detail which column is "1" in agent page
     And switch to another window
     And I close all tabs except main tab
+    And I wait for loading invisible
     And I will see the "agent.CreatePage" page
     And I click the "BackUp" button
 
@@ -38,6 +39,7 @@ Feature: Agent备份功能
     And I set the parameter "BackUpTimeout" with value "1"
     And I click the "Next" button
     And I click the "Next" button
+    And I wait for loading invisible
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
   Scenario: 备份策略禁用

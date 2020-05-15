@@ -5,20 +5,19 @@ Feature: 报表新建_选择
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to "admin"
+    And I wait for element "SelectedUser" change text to username
 
   Scenario Outline: new_report_10_trends
     When I set the parameter "Name" with value "test_10trends"
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "00"
-    And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-#    Then I will see the element "ChosenTrendLast" contains "<chart1>"
+    Then I will see the element "ChosenTrendLast" contains "<chart1>"
     When I choose the "<chart2>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart2>"
@@ -53,8 +52,8 @@ Feature: 报表新建_选择
     And I click the "EnsureButton" button
 
     Examples:
-      |   chart1         |    chart2      |    chart3         |    chart4        |    chart5      |    chart6        |   chart7             |   chart8              |     chart9                     |    chart10            |     chart11                     |
-      | LineChart_2477   | AreaChart_2005 | ScatterChart_2491 | ColumnChart_2499 | AreaChart_Pile | ColumnChart_Pile | ScatterChart_bubbles | LineChart_2479_Smooth | LineChart_2479_ConnectEmptyData| AreaChart_2483_Smooth | AreaChart_2483_ConnectEmptyData |
+      |   chart1      |    chart2      |  chart3   |    chart4   |    chart5    |  chart6     |   chart7        |   chart8      |     chart9      |    chart10   |     chart11     |
+      | table_Order   |table_Dimension | table_Sun | table_Chord | table_Sankey | table_Force | table_Rangeline | table_Heatmap | table_Regionmap | table_Single | table_Wordcloud |
 
   Scenario Outline: new_report_moveTrends
     When I set the parameter "Name" with value "<caseNum>"
@@ -65,15 +64,15 @@ Feature: 报表新建_选择
     And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
-    When I choose the "LineChart_2477" from the "ChartListDropdown"
+    When I choose the "table_Order" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
-    When I choose the "AreaChart_2005" from the "ChartListDropdown"
+    Then I will see the element "ChosenTrendLast" contains "table_Order"
+    When I choose the "table_Dimension" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "AreaChart_2005"
-    When I choose the "ScatterChart_2491" from the "ChartListDropdown"
+    Then I will see the element "ChosenTrendLast" contains "table_Dimension"
+    When I choose the "table_Sun" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "ScatterChart_2491"
+    Then I will see the element "ChosenTrendLast" contains "table_Sun"
     When I click the "<button>" button
     Then I will see the element "ChosenTrendFirst" contains "<trendFirst>"
     And I will see the element "ChosenTrendLast" contains "<trendLast>"
@@ -82,13 +81,13 @@ Feature: 报表新建_选择
     And I click the "EnsureButton" button
 
     Examples:
-      |     button           |  trendFirst      |  trendLast        | caseNum             |
-      | LastTrendDelete      |  LineChart_2477  | AreaChart_2005    | test_deleteLast     |
-      | FirstTrendDelete     |  AreaChart_2005  | ScatterChart_2491 | test_deleteFirst    |
-      | LastTrendUpTop       | ScatterChart_2491| AreaChart_2005    | test_upTopLast      |
-      | FirstTrendDownBottom |  AreaChart_2005  | LineChart_2477    | test_downBottomFirst|
-      | LastTrendUp          | LineChart_2477   | AreaChart_2005    | test_upLast         |
-      | FirstTrendDown       | AreaChart_2005   | ScatterChart_2491 | test_downFirst      |
+      |     button           |  trendFirst        |  trendLast       | caseNum             |
+      | LastTrendDelete      |  table_Order       | table_Dimension  | test_deleteLast     |
+      | FirstTrendDelete     |  table_Dimension   | table_Sun        | test_deleteFirst    |
+      | LastTrendUpTop       |  table_Sun         | table_Dimension  | test_upTopLast      |
+      | FirstTrendDownBottom |  table_Dimension   | table_Order      | test_downBottomFirst|
+      | LastTrendUp          |  table_Order       | table_Dimension  | test_upLast         |
+      | FirstTrendDown       |  table_Dimension   | table_Sun        | test_downFirst      |
 
   Scenario: new_report_modifyTrend_cancel
     When I set the parameter "Name" with value "test_modify_cancel"
@@ -104,7 +103,7 @@ Feature: 报表新建_选择
     Then I will see the element "ChosenTrendLast" contains "LineChart_2477"
     When I click the "ChosenTrendLast" button
     Then I will see the element "TrendDescription" contains "AutoCreate"
-    And I will see the element "TrendSpl" contains "tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by cnt, apache.clientip"
+    And I will see the element "TrendSpl" contains "starttime="now/d-24h" endtime="now/d" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by cnt, apache.clientip"
     And I will see the element "TrendData" contains ""
     And I will see the element "TrendChart" contains "line"
     When I click the "EditButton" button
@@ -114,7 +113,7 @@ Feature: 报表新建_选择
     And I click the "AreaChart" button
     When I click the "CancelButton" button
     Then I will see the element "TrendDescription" contains "AutoCreate"
-    And I will see the element "TrendSpl" contains "tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by cnt, apache.clientip"
+    And I will see the element "TrendSpl" contains "starttime="now/d-24h" endtime="now/d" tag:sample04061424_chart | stats count() as cnt by apache.clientip,apache.method | sort by cnt, apache.clientip"
     And I will see the element "TrendData" contains ""
     And I will see the element "TrendChart" contains "line"
 

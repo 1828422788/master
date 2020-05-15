@@ -6,7 +6,7 @@ Feature: 报表新建_编辑_其他
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to "admin"
+    And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameter "Hour" with value "06"
     And I set the parameter "Minute" with value "00"

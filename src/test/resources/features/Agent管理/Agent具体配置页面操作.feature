@@ -64,19 +64,45 @@ Feature: Agent具体配置高级配置及清理缓存操作
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
   Scenario: 输出配置关闭输出压缩
-    Given the data name "无" in table "OutputTable" then i click the "编辑" button
+    And I click the "OutputEdit" button
     And I click the "Compressed" button
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    And I wait for loading invisible
+    And I will see the element "CompressStatus" name is "关闭"
 
   Scenario: 输出配置开启输出压缩
-    Given the data name "无" in table "OutputTable" then i click the "编辑" button
+    And I click the "OutputEdit" button
     And I click the "Compressed" button
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
-#
-#  Scenario: 输出配置修改发送速率限制
-#    Given the data name "无" in table "OutputTable" then i click the "编辑" button
-#    And I click the "Compressed" button
-#    And I click the "Ensure" button
-#    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    And I wait for loading invisible
+    And I will see the element "CompressStatus" name is "开启"
+
+  Scenario Outline: 输出配置修改发送速率限制
+    And I click the "OutputEdit" button
+    And I set the parameter "SendSpeedLimit" with value "10"
+    And I choose the "<sendspeed>" from the "SendSpeed"
+    And I click the "Ensure" button
+    And I wait for loading invisible
+    And I will see the element "SendSpeedStatus" name is "<sendspeedstatus>"
+
+    Examples:
+      | sendspeed | sendspeedstatus |
+      | KB/S      | 10.00 KB/s       |
+      | B/S       | 10 B/s          |
+      | MB/S      | 10.00 MB/s      |
+
+  Scenario Outline: 输出配置修改单行日志最大长度
+    And I click the "OutputEdit" button
+    And I set the parameter "LogLength" with value "<loglength>"
+    And I click the "Ensure" button
+    And I wait for loading invisible
+    And I will see the element "LogLengthStatus" name is "<loglengthstatus>"
+
+    Examples:
+      | loglength | loglengthstatus |
+      | 10000      | 10000 Byte       |
+      | 65536      |  65536 Byte       |
+
+
+
+

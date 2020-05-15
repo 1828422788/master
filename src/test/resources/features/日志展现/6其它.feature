@@ -61,9 +61,9 @@ Feature: 日志展现_其它
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Divide" button
-    And I choose the "<divField>" from the "FieldValue" in config
+    And I choose the "<divField>" from the "FieldValue"
     And I click the "Indicator" button
-    And I choose the "<divField>" from the "FieldValue" in config
+    And I choose the "<divField>" from the "FieldValue"
     And I click the "UnifyMetric" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -91,9 +91,9 @@ Feature: 日志展现_其它
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<countValue>" from the "FieldValue" in config
+    And I choose the "<countValue>" from the "FieldValue"
     And I click the "Divide" button
-    And I choose the "<divValue>" from the "FieldValue" in config
+    And I choose the "<divValue>" from the "FieldValue"
     And I click the "Example" button
     And I click the "FirstPosition" button
     And I click the "Exhibition" button
@@ -123,9 +123,9 @@ Feature: 日志展现_其它
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Xaxis" button
-    And I choose the "<xValue>" from the "FieldValue" in config
+    And I choose the "<xValue>" from the "FieldValue"
     And I click the "Yaxis" button
-    And I choose the "<yValue>" from the "FieldValue" in config
+    And I choose the "<yValue>" from the "FieldValue"
     And I set the parameter "Segments" with value "<segNum>"
     And I click the "Generate" button
 
@@ -150,16 +150,16 @@ Feature: 日志展现_其它
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "<function>" from the "Function" in config
-    And I choose the "<parentIDvalue>" from the "ParentId" in config
-    And I choose the "<childIDvalue>" from the "ChildId" in config
+    And I choose the "<function>" from the "Function"
+    And I choose the "<parentIDvalue>" from the "ParentId"
+    And I choose the "<childIDvalue>" from the "ChildId"
     And I click the "Time" button
-    And I choose the "<starttime>" from the "StartTime" in config
-    And I choose the "<duration>" from the "KeepTime" in config
+    And I choose the "<starttime>" from the "StartTime"
+    And I choose the "<duration>" from the "KeepTime"
     And I click the "Divide" button
-    And I choose the "<childIDvalue>" from the "FieldValue" in config
+    And I choose the "<childIDvalue>" from the "FieldValue"
     And I click the "Info" button
-    And I choose the "<infoValue>" from the "InfoField" in config
+    And I choose the "<infoValue>" from the "InfoField"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -175,8 +175,8 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
-      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp|
-      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp|
+      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp|
+      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp|
 
   Scenario Outline: sequence(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -188,15 +188,15 @@ Feature: 日志展现_其它
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "TimeSequence" button
-    And I choose the "<timeSeq>" from the "FieldValue" in config
+    And I choose the "<timeSeq>" from the "FieldValue"
     And I click the "Source" button
-    And I choose the "<source>" from the "FieldValue" in config
+    And I choose the "<source>" from the "FieldValue"
     And I click the "Target" button
-    And I choose the "<target>" from the "FieldValue" in config
+    And I choose the "<target>" from the "FieldValue"
     And I click the "Divide" button
-    And I choose the "<segmentation>" from the "FieldValue" in config
+    And I choose the "<segmentation>" from the "FieldValue"
     And I click the "Mark" button
-    And I choose the "<mark>" from the "FieldValue" in config
+    And I choose the "<mark>" from the "FieldValue"
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -221,16 +221,16 @@ Feature: 日志展现_其它
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "<function>" from the "Function" in config
-    And I choose the "<parentIDvalue>" from the "ParentId" in config
-    And I choose the "<childIDvalue>" from the "ChildId" in config
+    And I choose the "<function>" from the "Function"
+    And I choose the "<parentIDvalue>" from the "ParentId"
+    And I choose the "<childIDvalue>" from the "ChildId"
     And I click the "Time" button
-    And I choose the "<starttime>" from the "StartTime" in config
-    And I choose the "<duration>" from the "KeepTime" in config
+    And I choose the "<starttime>" from the "StartTime"
+    And I choose the "<duration>" from the "KeepTime"
     And I click the "Divide" button
-    And I choose the "<childIDvalue>" from the "FieldValue" in config
+    And I choose the "<childIDvalue>" from the "FieldValue"
     And I click the "Info" button
-    And I choose the "<infoValue>" from the "InfoField" in config
+    And I choose the "<infoValue>" from the "InfoField"
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -247,5 +247,5 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum   |   spl   |
-      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812_tree |starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp|
-      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |collector_recv_timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree |starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, collector_recv_timestamp|
+      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812_tree |starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp|
+      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree |starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp|

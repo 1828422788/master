@@ -31,6 +31,7 @@ Feature: 应用监控模块（RZY-2122）
 
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
@@ -183,7 +184,7 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "Title" name is "AlertApp"
     And I will see the "alert.CreatePage" page
     And I wait for "Loading" will be invisible
-    And I choose the "EventAppForAuth" from the "App"
+    And I choose the "AlertApp" from the "App"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
 
