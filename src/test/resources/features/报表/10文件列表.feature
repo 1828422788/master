@@ -52,14 +52,10 @@ Feature: 报表_文件列表
     When I click the "ReportListButton" button
     Then I wait for "SelectedReport" will be visible
     And I wait for element "SelectedReport" change text to "全部报表文件"
-    And I wait for "3000" millsecond
+    And I wait for "5000" millsecond
     And I wait for "LastGeneratedReport" will be visible
 
 
-  Scenario: seacrh_tag
-    When I choose the "auto_package" from the "TagDropdown"
-    And I wait for loading invisible
-    Then I will see the data "{'column':'2','name':'ctest'}" values "{'column':'6','name':'auto_package'}"
 
 
 

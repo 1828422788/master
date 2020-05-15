@@ -7,7 +7,7 @@ Feature: 报表标签
   Scenario: create_report
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to "ctest"
+    And I wait for element "SelectedUser" change text to username
     When I set the parameter "Name" with value "Test_Tag"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
@@ -38,7 +38,7 @@ Feature: 报表标签
   Scenario: verify_tag
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "编辑" button
     Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to "ctest"
+    And I wait for element "SelectedUser" change text to username
     And I will see the input element "Name" value will be "Test_Tag"
     And I will see the input element "Describe" value will be "AutoCreate"
     And I will see the element "ChosenTag" contains "auto_package"
@@ -47,6 +47,7 @@ Feature: 报表标签
     When I click the "FinishButton" button
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
+
 
 
   Scenario: delete_report

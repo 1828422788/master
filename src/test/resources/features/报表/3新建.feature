@@ -5,7 +5,7 @@ Feature: 报表新建_从趋势图
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to "ctest"
+    And I wait for element "SelectedUser" change text to username
 
   Scenario Outline: new_report_trends4
     When I set the parameter "Name" with value "<name>"
