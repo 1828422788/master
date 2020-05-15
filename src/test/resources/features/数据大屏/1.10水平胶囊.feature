@@ -4,21 +4,24 @@ Feature: 数据大屏-水平胶囊
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
 
+
   Scenario: 水平胶囊样式-搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+
     When I click the "Create" button
+
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
     And I set the parameter "Name" with value "水平胶囊样式-搜索"
     And I click the "Ensure" button
-     #选择上方的图表
-    And I click the "Chart" button
       #选择水平胶囊
+    And I click the "Chart" button
+    And I wait for "2000" millsecond
+#    And I wait for "horizontalCapsule" will be visible
     And I click the "horizontalCapsule" button
-    And I hide the element "ChartDropdown"
+    And I click the "Style" button
 #修改样式
     # 1 设置图表尺寸位置
-    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "800"
@@ -56,7 +59,7 @@ Feature: 数据大屏-水平胶囊
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
 #    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -78,7 +81,7 @@ Feature: 数据大屏-水平胶囊
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -94,17 +97,17 @@ Feature: 数据大屏-水平胶囊
     When I click the "Create" button
     And I set the parameter "Name" with value "水平胶囊数据之静态数据"
     And I click the "Ensure" button
-     #选择上方的图表
-    And I click the "Chart" button
       #选择水平胶囊
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "horizontalCapsule" will be visible
     And I click the "horizontalCapsule" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
 #    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -132,7 +135,7 @@ Feature: 数据大屏-水平胶囊
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -154,16 +157,15 @@ Feature: 数据大屏-水平胶囊
     And I click the "otherSearch" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
 #    And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      #添加一个水平胶囊控件
-     #选择上方的图表
+       #选择水平胶囊
     And I click the "Chart" button
-      #选择水平胶囊
+    And I wait for "1000" millsecond
+    And I wait for "horizontalCapsule" will be visible
     And I click the "horizontalCapsule" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
@@ -174,12 +176,12 @@ Feature: 数据大屏-水平胶囊
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button
-#    And I click the "pictureOne" button
+
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
      #对水平胶囊的参数进行设置
     And I click the "pictureOne" button
-#    And I click the "pictureTwo" button
+
     And I click the "Data" button
     And I wait for "3000" millsecond
     And I choose the "apache.clientip" from the "scrollBarSearchName"
@@ -199,7 +201,7 @@ Feature: 数据大屏-水平胶囊
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

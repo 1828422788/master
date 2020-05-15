@@ -12,11 +12,12 @@ Feature: 数据大屏-滚动柱形图
     When I click the "Create" button
     And I set the parameter "Name" with value "滚动柱形图样式-搜索"
     And I click the "Ensure" button
-     #选择上方的图表
-    And I click the "Chart" button
       #选择滚动柱形图
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
-    And I hide the element "ChartDropdown"
+    And I click the "Style" button
 #修改样式
     # 1 设置图表尺寸位置
     And I click the "Style" button
@@ -83,7 +84,7 @@ Feature: 数据大屏-滚动柱形图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -99,11 +100,11 @@ Feature: 数据大屏-滚动柱形图
     When I click the "Create" button
     And I set the parameter "Name" with value "滚动柱形图数据之静态数据"
     And I click the "Ensure" button
-     #选择上方的图表
+     #选择滚动柱形图
     And I click the "Chart" button
-      #选择滚动柱形图
+    And I wait for "1000" millsecond
+    And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
@@ -137,7 +138,7 @@ Feature: 数据大屏-滚动柱形图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -163,12 +164,11 @@ Feature: 数据大屏-滚动柱形图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      #添加一个滚动柱形图控件
-    #选择上方的图表
-    And I click the "Chart" button
       #选择滚动柱形图
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
@@ -179,12 +179,10 @@ Feature: 数据大屏-滚动柱形图
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button
-#    And I click the "pictureOne" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
      #对滚动柱形图的参数进行设置
     And I click the "pictureOne" button
-#    And I click the "pictureTwo" button
     And I click the "Data" button
     And I wait for "3000" millsecond
     And I choose the "apache.clientip" from the "scrollBarSearchName"
@@ -204,7 +202,7 @@ Feature: 数据大屏-滚动柱形图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

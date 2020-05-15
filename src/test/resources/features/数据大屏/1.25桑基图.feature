@@ -1,4 +1,4 @@
-@galaxeeLast
+@galaxeeChart1
 Feature: 数据大屏-桑基图
   Background:
     Given I will see the "PublicNavBarPage" page
@@ -14,10 +14,11 @@ Feature: 数据大屏-桑基图
     And I click the "Ensure" button
     #桑吉图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Sankey"
+    And I wait for "1000" millsecond
+    And I wait for "Sankey" will be visible
     And I click the "Sankey" button
-    #样式
     And I click the "Style" button
+
     And I wait for "ChartTag" will be visible
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
@@ -61,7 +62,7 @@ Feature: 数据大屏-桑基图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -77,9 +78,10 @@ Feature: 数据大屏-桑基图
     When I click the "Create" button
     And I set the parameter "Name" with value "桑基图-静态数据"
     And I click the "Ensure" button
-    #桑吉图
+       #桑吉图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Sankey"
+    And I wait for "1000" millsecond
+    And I wait for "Sankey" will be visible
     And I click the "Sankey" button
     And I click the "Style" button
      #数据设置
@@ -115,7 +117,7 @@ Feature: 数据大屏-桑基图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -142,9 +144,10 @@ Feature: 数据大屏-桑基图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      #桑吉图
+          #桑吉图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Sankey"
+    And I wait for "1000" millsecond
+    And I wait for "Sankey" will be visible
     And I click the "Sankey" button
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
@@ -179,7 +182,7 @@ Feature: 数据大屏-桑基图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

@@ -12,11 +12,12 @@ Feature: 数据大屏-综合列表
     When I click the "Create" button
     And I set the parameter "Name" with value "综合列表样式-搜索"
     And I click the "Ensure" button
-      #选择上方的图表
-    And I click the "Chart" button
       #选择综合列表
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "comprehensiveList" will be visible
     And I click the "comprehensiveList" button
-    And I hide the element "ChartDropdown"
+    And I click the "Style" button
 #修改样式
     # 1 设置图表尺寸位置
     And I click the "Style" button
@@ -83,7 +84,7 @@ Feature: 数据大屏-综合列表
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -99,11 +100,11 @@ Feature: 数据大屏-综合列表
     When I click the "Create" button
     And I set the parameter "Name" with value "综合列表数据之静态数据"
     And I click the "Ensure" button
-       #选择上方的图表
+          #选择综合列表
     And I click the "Chart" button
-      #选择综合列表
+    And I wait for "1000" millsecond
+    And I wait for "comprehensiveList" will be visible
     And I click the "comprehensiveList" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
@@ -137,7 +138,7 @@ Feature: 数据大屏-综合列表
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -162,12 +163,11 @@ Feature: 数据大屏-综合列表
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      #添加一个综合列表的控件
-      #选择上方的图表
+            #选择综合列表
     And I click the "Chart" button
-      #选择综合列表
+    And I wait for "1000" millsecond
+    And I wait for "comprehensiveList" will be visible
     And I click the "comprehensiveList" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
 
       #在数据源类型中选择绑定搜索
@@ -205,7 +205,7 @@ Feature: 数据大屏-综合列表
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

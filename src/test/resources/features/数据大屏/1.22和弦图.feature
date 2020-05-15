@@ -14,10 +14,11 @@ Feature: 数据大屏-和弦图
     And I click the "Ensure" button
     #和弦图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Chord"
+    And I wait for "1000" millsecond
+    And I wait for "Chord" will be visible
     And I click the "Chord" button
-    #样式
     And I click the "Style" button
+    #样式
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
     And I click the "Red" button
@@ -59,7 +60,7 @@ Feature: 数据大屏-和弦图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -77,9 +78,9 @@ Feature: 数据大屏-和弦图
     And I click the "Ensure" button
 #和弦图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Chord"
+    And I wait for "1000" millsecond
+    And I wait for "Chord" will be visible
     And I click the "Chord" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
@@ -113,7 +114,7 @@ Feature: 数据大屏-和弦图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -139,11 +140,11 @@ Feature: 数据大屏-和弦图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-    #和弦图
+   #和弦图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Chord"
+    And I wait for "1000" millsecond
+    And I wait for "Chord" will be visible
     And I click the "Chord" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
@@ -178,7 +179,7 @@ Feature: 数据大屏-和弦图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

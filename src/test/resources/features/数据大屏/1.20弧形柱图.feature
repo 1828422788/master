@@ -14,9 +14,9 @@ Feature: 数据大屏-弧形柱图
     And I click the "Ensure" button
     #弧形柱图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "ArcBar"
+    And I wait for "1000" millsecond
+    And I wait for "ArcBar" will be visible
     And I click the "ArcBar" button
-    #样式
     And I click the "Style" button
     #半径轴
     And I wait for "RadiusAxis" will be visible
@@ -83,7 +83,7 @@ Feature: 数据大屏-弧形柱图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -99,11 +99,13 @@ Feature: 数据大屏-弧形柱图
     When I click the "Create" button
     And I set the parameter "Name" with value "弧形柱图-静态数据"
     And I click the "Ensure" button
-   #弧形柱图
+    #弧形柱图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "ArcBar"
+    And I wait for "1000" millsecond
+    And I wait for "ArcBar" will be visible
     And I click the "ArcBar" button
     And I click the "Style" button
+
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "510"
     And I set the parameter "Height" with value "378"
@@ -140,7 +142,7 @@ Feature: 数据大屏-弧形柱图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -167,10 +169,13 @@ Feature: 数据大屏-弧形柱图
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
       #弧形柱图
+     #弧形柱图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "ArcBar"
+    And I wait for "1000" millsecond
+    And I wait for "ArcBar" will be visible
     And I click the "ArcBar" button
     And I click the "Style" button
+
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "510"
     And I set the parameter "Height" with value "378"
@@ -213,7 +218,7 @@ Feature: 数据大屏-弧形柱图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

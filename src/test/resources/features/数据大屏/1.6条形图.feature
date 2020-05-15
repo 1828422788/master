@@ -14,7 +14,10 @@ Feature: 数据大屏-条形图
     And I click the "Ensure" button
     #条形图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "BarHorizontal" will be visible
     And I click the "BarHorizontal" button
+    And I click the "Style" button
     #样式
     And I click the "Style" button
     #标签
@@ -66,7 +69,7 @@ Feature: 数据大屏-条形图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -81,8 +84,10 @@ Feature: 数据大屏-条形图
     When I click the "Create" button
     And I set the parameter "Name" with value "条形图-静态数据"
     And I click the "Ensure" button
-    #条形图
-     And I click the "Chart" button
+   #条形图
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "BarHorizontal" will be visible
     And I click the "BarHorizontal" button
     And I click the "Style" button
     #尺寸
@@ -124,7 +129,7 @@ Feature: 数据大屏-条形图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -152,6 +157,8 @@ Feature: 数据大屏-条形图
     And I set the parameter "updateFrequency" with value "0.1"
     #条形图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "BarHorizontal" will be visible
     And I click the "BarHorizontal" button
     And I click the "Style" button
     #尺寸
@@ -196,7 +203,7 @@ Feature: 数据大屏-条形图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

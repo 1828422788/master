@@ -5,8 +5,6 @@ Feature: 数据大屏-其他组件
     And I wait for "Dashboard" will be visible
 
   Scenario: 新建其他组件
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -52,47 +50,42 @@ Feature: 数据大屏-其他组件
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
-  Scenario Outline: 修改背景颜色
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    Then I will see the "galaxee.CreatePage" page
-    And I wait for "TableHeaderBgColor" will be visible
-    And I click the "TableHeaderBgColor" button
-    And I set the parameter "ColorInput" with value "#37064F"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
-    And I wait for "Save" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-    Examples:
-      | name |
-      | 其他组件 |
-
-  Scenario Outline: 更换背景图片
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    Then I will see the "galaxee.CreatePage" page
-    And I upload a file with name "/src/test/resources/testdata/image/bg.jpg"
-    And I wait for "Save" will be visible
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
-
-    Examples:
-      | name |
-      | 其他组件 |
+#  Scenario Outline: 修改背景颜色
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-bianji" edit button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    Then I will see the "galaxee.CreatePage" page
+#    And I wait for "TableHeaderBgColor" will be visible
+#    And I click the "TableHeaderBgColor" button
+#    And I set the parameter "ColorInput" with value "#37064F"
+#    And I click the "EnsureColor" button
+#    And I wait for "EnsureColor" will be invisible
+#    And I wait for "Save" will be visible
+#    And I click the "Save" button
+#    Then I will see the success message "保存成功"
+#
+#    Examples:
+#      | name |
+#      | 其他组件 |
+#
+#  Scenario Outline: 更换背景图片
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-bianji" edit button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    Then I will see the "galaxee.CreatePage" page
+#    And I upload a file with name "/src/test/resources/testdata/image/bg.jpg"
+#    And I wait for "Save" will be visible
+#    And I click the "Save" button
+#    Then I will see the success message "保存成功"
+#
+#    Examples:
+#      | name |
+#      | 其他组件 |
 
   Scenario Outline: 发布页截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
+
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
@@ -102,7 +95,7 @@ Feature: 数据大屏-其他组件
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

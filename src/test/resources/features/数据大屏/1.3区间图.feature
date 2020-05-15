@@ -14,7 +14,26 @@ Feature: 数据大屏-区间图
     And I click the "Ensure" button
     #区间图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Range" will be visible
     And I click the "Range" button
+    #数据
+    And I click the "Data" button
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
+    And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
+
+    And I choose the "ts" from the "XaxisField"
+    And I wait for "1000" millsecond
+    And I choose the "c" from the "ActualField"
+    And I wait for "1000" millsecond
+    And I choose the "_predict_c" from the "ForecastField"
+    And I wait for "1000" millsecond
+    And I choose the "upper95" from the "UpperField"
+    And I wait for "1000" millsecond
+    And I choose the "lower95" from the "LowerField"
+    And I wait for "1000" millsecond
     And I click the "Style" button
  # x轴
     And I wait for "XaxisHeader" will be visible
@@ -87,17 +106,7 @@ Feature: 数据大屏-区间图
     And I set the parameter "ChartXaxis" with value "60"
     And I set the parameter "ChartYaxis" with value "240"
 
-    And I click the "Data" button
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
 
-    And I choose the "ts" from the "XaxisField"
-    And I choose the "c" from the "ActualField"
-    And I choose the "_predict_c" from the "ForecastField"
-    And I choose the "upper95" from the "UpperField"
-    And I choose the "lower95" from the "LowerField"
     And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -113,7 +122,7 @@ Feature: 数据大屏-区间图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -131,8 +140,10 @@ Feature: 数据大屏-区间图
     And I click the "Ensure" button
     #区间图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Range" will be visible
     And I click the "Range" button
-    #尺寸
+
     And I click the "Style" button
     #图例
     And I click the "Example" button
@@ -165,9 +176,13 @@ Feature: 数据大屏-区间图
 
 
     And I choose the "ts" from the "XaxisField"
+    And I wait for "1000" millsecond
     And I choose the "c" from the "ActualField"
+    And I wait for "1000" millsecond
     And I choose the "_predict_c" from the "ForecastField"
+    And I wait for "1000" millsecond
     And I choose the "upper95" from the "UpperField"
+    And I wait for "1000" millsecond
     And I choose the "lower95" from the "LowerField"
     #保存
     And I wait for "Save" will be visible
@@ -184,7 +199,7 @@ Feature: 数据大屏-区间图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -202,6 +217,7 @@ Feature: 数据大屏-区间图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "* | bucket timestamp span=1h as ts | stats count() as c by ts | esma c timefield = ts"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -210,6 +226,8 @@ Feature: 数据大屏-区间图
     And I set the parameter "updateFrequency" with value "0.1"
     #区间图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Range" will be visible
     And I click the "Range" button
     And I click the "Style" button
     #尺寸
@@ -235,10 +253,16 @@ Feature: 数据大屏-区间图
     And I wait for "3000" millsecond
 
     And I choose the "ts" from the "XaxisField"
-    And I choose the "c" from the "ActualField"
+    And I wait for "1000" millsecond
+
     And I choose the "_predict_c" from the "ForecastField"
-    And I choose the "upper95" from the "UpperField"
+    And I wait for "1000" millsecond
+    And I choose the "c" from the "ActualField"
+    And I wait for "1000" millsecond
     And I choose the "lower95" from the "LowerField"
+    And I wait for "1000" millsecond
+    And I choose the "upper95" from the "UpperField"
+
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -253,7 +277,7 @@ Feature: 数据大屏-区间图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

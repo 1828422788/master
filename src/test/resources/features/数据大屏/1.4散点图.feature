@@ -14,7 +14,23 @@ Feature: 数据大屏-散点图
     And I click the "Ensure" button
     #散点图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Scatter" will be visible
     And I click the "Scatter" button
+    #数据
+    And I wait for "Data" will be visible
+    And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
+    And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
+
+    And I choose the "count()" from the "Yaxis"
+    And I wait for "1000" millsecond
+    And I choose the "apache.clientip" from the "Xaxis"
+
+    And I click the "Style" button
   # x轴
     And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
@@ -85,17 +101,6 @@ Feature: 数据大屏-散点图
     And I set the parameter "ChartXaxis" with value "86"
     And I set the parameter "ChartYaxis" with value "142"
 
-    And I wait for "Data" will be visible
-    And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-
-    And I choose the "apache.clientip" from the "Xaxis"
-    And I choose the "count()" from the "Yaxis"
-
 
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -110,7 +115,7 @@ Feature: 数据大屏-散点图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -126,21 +131,23 @@ Feature: 数据大屏-散点图
     When I click the "Create" button
     And I set the parameter "Name" with value "散点图-图例-分组-静态数据"
     And I click the "Ensure" button
-    #散点图
+     #散点图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Scatter" will be visible
     And I click the "Scatter" button
-    #尺寸
+
     And I click the "Style" button
-    #图例
-    And I click the "Example" button
-    And I set the parameter "ExampleWordSize" with value "20"
-    And I click the "ExampleColor" button
-    And I set the parameter "ColorInput" with value "#D73535"
-    And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
-    And I choose the "bolder" from the "ExampleWordBold"
-    And I choose the "居中" from the "ExampleHorizontal"
-    And I choose the "顶部" from the "ExampleVertical"
+#    #图例
+#    And I click the "Example" button
+#    And I set the parameter "ExampleWordSize" with value "20"
+#    And I click the "ExampleColor" button
+#    And I set the parameter "ColorInput" with value "#D73535"
+#    And I click the "EnsureColor" button
+#    And I wait for "EnsureColor" will be invisible
+#    And I choose the "bolder" from the "ExampleWordBold"
+#    And I choose the "居中" from the "ExampleHorizontal"
+#    And I choose the "顶部" from the "ExampleVertical"
     #尺寸
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
@@ -161,8 +168,10 @@ Feature: 数据大屏-散点图
     And I click the "Ensure" button
     And I wait for "6000" millsecond
 
-    And I choose the "apache.clientip" from the "Xaxis"
     And I choose the "count()" from the "Yaxis"
+    And I wait for "1000" millsecond
+    And I choose the "apache.clientip" from the "Xaxis"
+
     #添加分组
     And I click the "AddGroup" button
     And I choose the "apache.method" from the "Group"
@@ -182,7 +191,7 @@ Feature: 数据大屏-散点图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -200,6 +209,7 @@ Feature: 数据大屏-散点图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -208,6 +218,8 @@ Feature: 数据大屏-散点图
     And I set the parameter "updateFrequency" with value "0.1"
      #散点图
     And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "Scatter" will be visible
     And I click the "Scatter" button
     And I click the "Style" button
     #尺寸
@@ -233,8 +245,11 @@ Feature: 数据大屏-散点图
     And I wait for "3000" millsecond
 
     And I choose the "apache.clientip" from the "Xaxis"
+    And I wait for "1000" millsecond
     And I choose the "count()" from the "Yaxis"
+    And I wait for "2000" millsecond
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -248,7 +263,7 @@ Feature: 数据大屏-散点图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

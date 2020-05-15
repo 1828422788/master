@@ -68,7 +68,7 @@ Feature: 数据大屏-揭示牌
       Then take a screenshot with name "galaxee/<name>"
       #删除
       Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
       Then I click the "Ensure" button
 
       Examples:
@@ -132,7 +132,7 @@ Feature: 数据大屏-揭示牌
       Then take a screenshot with name "galaxee/<name>"
       #删除
       Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
       Then I click the "Ensure" button
 
       Examples:
@@ -206,7 +206,7 @@ Feature: 数据大屏-揭示牌
       Then take a screenshot with name "galaxee/<name>"
       #删除
       Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
       Then I click the "Ensure" button
 
       Examples:

@@ -13,11 +13,12 @@ Feature: 数据大屏-滚动列表三
     When I click the "Create" button
     And I set the parameter "Name" with value "滚动列表3样式-搜索"
     And I click the "Ensure" button
-    #选择上方的图表
-    And I click the "Chart" button
       #选择滚动列表三
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "rollList3" will be visible
     And I click the "rollList3" button
-    And I hide the element "ChartDropdown"
+    And I click the "Style" button
 #修改样式
     And I click the "Style" button
     # 1 设置图表尺寸位置
@@ -69,7 +70,7 @@ Feature: 数据大屏-滚动列表三
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -85,13 +86,13 @@ Feature: 数据大屏-滚动列表三
     When I click the "Create" button
     And I set the parameter "Name" with value "滚动列表3数据之静态数据"
     And I click the "Ensure" button
-       #选择上方的图表
-    And I click the "Chart" button
       #选择滚动列表三
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "rollList3" will be visible
     And I click the "rollList3" button
-    And I hide the element "ChartDropdown"
-    # 设置图表尺寸位置
     And I click the "Style" button
+    # 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "971"
@@ -131,7 +132,7 @@ Feature: 数据大屏-滚动列表三
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -158,15 +159,14 @@ Feature: 数据大屏-滚动列表三
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      #添加一个滚动列表3控件
-      #选择上方的图表
+#选择滚动列表三
     And I click the "Chart" button
-      #选择滚动列表三
+    And I wait for "1000" millsecond
+    And I wait for "rollList3" will be visible
     And I click the "rollList3" button
-    And I hide the element "ChartDropdown"
+    And I click the "Style" button
 
     # 设置图表尺寸位置
-    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "971"
@@ -209,7 +209,7 @@ Feature: 数据大屏-滚动列表三
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
