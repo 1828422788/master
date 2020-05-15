@@ -132,7 +132,7 @@ Feature: 趋势图新建_地图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
     And I click the "SearchButton" button
-    And I wait for "6000" millsecond
+    And I wait for "15000" millsecond
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -165,7 +165,7 @@ Feature: 趋势图新建_地图
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
     And I click the "SearchButton" button
-    And I wait for "6000" millsecond
+    And I wait for "15000" millsecond
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
