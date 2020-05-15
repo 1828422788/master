@@ -3,6 +3,7 @@ Feature: 字段提取删除
 
   Scenario Outline:
     Given open the "configs.ListPage" page for uri "/configs/"
+    Then I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
