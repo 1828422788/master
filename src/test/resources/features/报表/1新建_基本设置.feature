@@ -5,6 +5,7 @@ Feature: 报表新建_执行计划
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
+    And I wait for "2000" millsecond
     And I wait for element "SelectedUser" change text to username
 
   Scenario Outline: new_report_error_message
