@@ -23,6 +23,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath =  "//li[text()='快速新增']")
     private WebElement Quickadd;
 
+    public WebElement getCompleteadd() {
+        return Completeadd;
+    }
+
+    @FindBy(xpath =  "//li[text()='完全创建']")
+    private WebElement Completeadd;
 
     public WebElement getQuickadd() {
         return Quickadd;
@@ -51,8 +57,11 @@ public class CreatePage extends PageTemplate {
     private WebElement IpName;
 
     public WebElement getSave() {
-        return super.getContainsTextButton("保存");
+        return Save;
     }
+
+    @FindBy(xpath = "(//span[contains(text(),'保存')][not(@class)]/ancestor::button)[1]")
+    private WebElement Save;
 
     public WebElement getMessage() {
         return Message;
@@ -61,7 +70,42 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-notification']")
     private WebElement Message;
 
+    public WebElement getAssetNameComplete(){
+        return getInputElement("资产名称");
+    }
 
+    public WebElement getIpComplete(){
+        return getInputElement("IP地址");
+    }
 
+    public WebElement getAppname(){
+        return getInputAppElement(1);
+    }
+
+    public WebElement getVersion(){
+        return getInputAppElement(2);
+    }
+
+    public WebElement getPort(){
+        return getInputAppElement(3);
+    }
+
+    public WebElement getProtocol(){
+        return getInputAppElement(4);
+    }
+    @FindBy(xpath = "//div[@class='el-notification__content']" )
+    private WebElement CompletaMessage;
+
+    public WebElement getCompletaMessage() {
+        return CompletaMessage;
+    }
+
+    public WebElement getInputElement(String text) {
+        return webDriver.findElement(By.xpath("//span[text()='" + text + "']/following-sibling::div//input"));
+    }
+
+    public WebElement getInputAppElement(int num) {
+        return webDriver.findElement(By.xpath("(//span[text()='应用']/following-sibling::div//input)[" + num + "]"));
+    }
 
 }
