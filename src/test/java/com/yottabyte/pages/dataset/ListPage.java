@@ -49,7 +49,7 @@ public class ListPage extends ListPageFactory {
     }
 
 
-    @FindBy(xpath = "//label[@title='分组']/parent::div/following-sibling::div")
+    @FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div")
     private WebElement resourceGroup; //分组
     public WebElement getResourceGroup()
     {
