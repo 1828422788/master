@@ -22,6 +22,8 @@ Feature: 数据集-在定时任务编辑页
 
     And I set the parameter "CrontabInput" with value "<crontab>"
 
+    And I set the parameter "TaskName" with value "<taskName>"
+
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
     And I click the "timeTaskEnsure" button
@@ -32,6 +34,7 @@ Feature: 数据集-在定时任务编辑页
     When the data name is "{'column':'2','name':'无'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "3000" millsecond
+    And I wait for "dataSet" will be visible
     Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
@@ -68,6 +71,7 @@ Feature: 数据集-在定时任务编辑页
     And I will see the "timedTask.EditPage" page
 
     And I wait for "3000" millsecond
+    And I wait for "dataSet" will be visible
     Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
@@ -107,6 +111,7 @@ Feature: 数据集-在定时任务编辑页
     And I will see the "timedTask.EditPage" page
 
     And I wait for "3000" millsecond
+    And I wait for "dataSet" will be visible
     Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
