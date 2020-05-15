@@ -36,7 +36,7 @@ Feature: 数据集-在定时任务编辑页
 
     Examples:
       |spl                         |taskName |describe               | crontab      |dataSetResult|
-      |*\| stats count() by appname|无       |选择了父子行为为无的数据集 |0 */57 * * * ?|(tag:sample*)   |
+      |*\| stats count() by appname|父子行为无       |选择了父子行为为无的数据集 |0 */57 * * * ?|(tag:sample*)   |
 
 
 
@@ -72,7 +72,7 @@ Feature: 数据集-在定时任务编辑页
 
     Examples:
       |spl                         |taskName|describe               | crontab      | dataSetResult|
-      |*\| stats count() by appname|汇聚     |选择了父子行为为汇聚的数据集|0 */57 * * * ?|(* AND tag:sample* AND (tag:beyond4 OR appname:apache))|
+      |*\| stats count() by appname|父子行为汇聚     |选择了父子行为为汇聚的数据集|0 */57 * * * ?|(* AND tag:sample* AND (tag:beyond4 OR appname:apache))|
 
 
 
@@ -111,4 +111,4 @@ Feature: 数据集-在定时任务编辑页
 
     Examples:
       |spl                         |taskName |describe               | crontab       | dataSetResult|
-      |*\| stats count() by appname|继承      |选择了父子行为为继承的数据集|0 */57 * * * ?|(* AND tag:sample*)|
+      |*\| stats count() by appname|父子行为继承      |选择了父子行为为继承的数据集|0 */57 * * * ?|(* AND tag:sample*)|
