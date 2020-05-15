@@ -130,7 +130,9 @@ Feature: 趋势图新建_地图
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "2000" millsecond
     And I click the "SearchButton" button
+    And I wait for "6000" millsecond
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -161,7 +163,9 @@ Feature: 趋势图新建_地图
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "2000" millsecond
     And I click the "SearchButton" button
+    And I wait for "6000" millsecond
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
