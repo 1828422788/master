@@ -45,8 +45,7 @@ public class GroupPage extends ListPageFactory{
     }
 
     public WebElement getCreateAgentGroupButton(){
-        String xpath = "//span[text()='新建 Agent 分组']/ancestor::button";
-        return webDriver.findElement(By.xpath(xpath));
+        return super.getButton("新建 Agent 分组");
     }
 
     public WebElement getRole(){
