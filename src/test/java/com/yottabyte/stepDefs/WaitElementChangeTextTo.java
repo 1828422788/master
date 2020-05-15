@@ -1,5 +1,6 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.config.ConfigManager;
 import com.yottabyte.constants.WebDriverConst;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.WaitForElement;
@@ -95,5 +96,27 @@ public class WaitElementChangeTextTo {
 
         this.waitForElementWithExpectedCondition(webDriver, expectedCondition);
 
+    }
+
+    /**
+     * 验证元素的text变为用户名称
+     *
+     * @param elementName 元素名称
+     */
+    @And("^I wait for element \"([^\"]*)\" change text to username$")
+    public void waitUntilTextChangeToUser(String elementName) {
+        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+        WebElement element = getWebElementWithName(elementName);
+        ConfigManager config = new ConfigManager();
+        String username = config.get("username");
+        ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
+            @Override
+            public Boolean apply(WebDriver driver) {
+                Boolean flag = element.getText().contains(username);
+                return flag;
+            }
+        };
+
+        this.waitForElementWithExpectedCondition(webDriver, expectedCondition);
     }
 }
