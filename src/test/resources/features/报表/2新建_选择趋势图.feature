@@ -17,7 +17,7 @@ Feature: 报表新建_选择
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-#    Then I will see the element "ChosenTrendLast" contains "<chart1>"
+    Then I will see the element "ChosenTrendLast" contains "<chart1>"
     When I choose the "<chart2>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart2>"
