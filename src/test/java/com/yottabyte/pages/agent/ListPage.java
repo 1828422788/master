@@ -43,6 +43,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='验证组内权限']")
     private WebElement auth;
 
+    @FindBy(xpath = "(//span[text()='验证组内权限'])[2]")
+    private WebElement authButton;
+
+    public WebElement getAuthButton() {
+        return authButton;
+    }
+
     public WebElement getAuth() {
         return auth;
     }
