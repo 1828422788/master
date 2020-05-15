@@ -69,3 +69,35 @@ Feature: 新建资产管理
     And I click the "Save" button
     Then I will see the element value in json "{'CompletaMessage':'host already exists, [192.168.1.203]'}"
 
+  Scenario: 完全创建资产缺少名称-新建失败
+    And I click the "AddAsset" button
+    And I click the "Completeadd" button
+    And I will see the url contains "/app/siem/assets/edit"
+    When I set the parameter "IpComplete" with value "192.168.1.203"
+    When I set the parameter "Appname" with value "ssh"
+    When I set the parameter "Version" with value "2.2"
+    When I set the parameter "Port" with value "22"
+    When I set the parameter "Protocol" with value "TCP"
+    And I click the "Save" button
+    And I will see the element "FailureMessage" name is "请检查输入项，确保正确后再提交。"
+
+  Scenario: 完全创建资产缺少ip-新建失败
+    And I click the "AddAsset" button
+    And I click the "Completeadd" button
+    And I will see the url contains "/app/siem/assets/edit"
+    When I set the parameter "AssetNameComplete" with value "AutotestCompleteadd"
+    When I set the parameter "Appname" with value "ssh"
+    When I set the parameter "Version" with value "2.2"
+    When I set the parameter "Port" with value "22"
+    When I set the parameter "Protocol" with value "TCP"
+    And I click the "Save" button
+    Then I will see the element value in json "{'FailureMessage':'请检查输入项，确保正确后再提交。'}"
+
+  Scenario: 完全创建资产缺少应用-新建失败
+    And I click the "AddAsset" button
+    And I click the "Completeadd" button
+    And I will see the url contains "/app/siem/assets/edit"
+    When I set the parameter "AssetNameComplete" with value "AutotestCompleteadd"
+    When I set the parameter "IpComplete" with value "192.168.1.203"
+    And I click the "Save" button
+    Then I will see the element value in json "{'FailureMessage':'请检查输入项，确保正确后再提交。'}"
