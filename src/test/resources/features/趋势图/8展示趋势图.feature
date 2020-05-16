@@ -64,7 +64,7 @@ Feature: 展示趋势图
     @viewTrendConnection
     Examples:
       | name                                     |
-      | Sankey_Multistage                        |
+#      | Sankey_Multistage                        |
 #      | Force_repulsion                          |
 #      | Force_2511                               |
       | Sankey_2507                              |
@@ -84,8 +84,8 @@ Feature: 展示趋势图
       | Regionmap_2545_white                     |
       | Regionmap_Jiangsu_2547                   |
       | Regionmap_China_2546                     |
-      | Attackmap_China_2543                     |
-      | Attackmap_World_2542                     |
+#      | Attackmap_China_2543                     |
+#      | Attackmap_World_2542                     |
       | Regionmap_2545                           |
       | Heatmap_2539                             |
 #  parameters of statistical map displayed not correctly - bug
