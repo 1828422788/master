@@ -7,7 +7,7 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;虮
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
