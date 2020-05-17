@@ -57,7 +57,7 @@ public class ListPageUtils {
             name = map.get("name").toString();
         }
         String nextPageXpath = "//li[@class=' ant-pagination-next']";
-        String trListXpath = "//div[@class='ant-modal-body']//tbody//tr";
+        String trListXpath = "//div[@class='ant-modal-body']//tr";
         return this.clickNextPage(trListXpath, nextPageXpath, name);
     }
 
@@ -154,7 +154,7 @@ public class ListPageUtils {
                 trList = webDriver.findElements(By.xpath(trListXpath));
             }
             for (WebElement tr : trList) {
-                if (tr.findElements(By.tagName("td")).get(0).getText().equals(name)) {
+                if (tr.getText().contains(name)) {
                     return tr;
                 }
             }
