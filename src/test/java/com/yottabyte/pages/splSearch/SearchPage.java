@@ -7,7 +7,8 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.*;
 import com.yottabyte.webDriver.SharedDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Dimension;虮
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -31,7 +32,9 @@ public class SearchPage extends ListPageFactory {
 
     public SearchPage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setSize(new Dimension(1200,900));
+        driver.manage().window().setPosition(new Point(0, 0));
+        driver.manage().window().setSize(new Dimension(1800,970));
+//        driver.manage().window().setSize(new Dimension(1200,900));
     }
 
     @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']/div[1]")
@@ -1516,11 +1519,10 @@ public class SearchPage extends ListPageFactory {
         return result;
     }
 
-
-    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1']")
-    private WebElement splRetView;
-    public WebElement getSplRetView() {
-        return splRetView;
+    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
+    private WebElement splStatsRetView;
+    public WebElement getSplStatsRetView() {
+        return splStatsRetView;
     }
 
     @FindBy(xpath = "//div[@class='eua4mwMYB7k125sVmyyzn']")

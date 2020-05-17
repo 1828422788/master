@@ -15,10 +15,10 @@ Feature: SPL eval
     And I wait for element "SearchStatus" change text to "搜索完成!"
     #And I wait for "4000" millsecond
     #Then take a screenshot with name "<splcasename>"
-    And I wait for "SplRetView" will be visible
-    And I drag the scroll bar to the element "SplRetView"
+    And I wait for "SplStatsRetView" will be visible
+    And I drag the scroll bar to the element "SplStatsRetView"
     And I wait for "2000" millsecond
-    And take part of "SplRetView" with name "actual/<splcasename>"
+    And take part of "SplStatsRetView" with name "actual/<splcasename>"
     Then I compare source image "expect/<splcasename>" with target image "actual/<splcasename>"
 
     Examples:
