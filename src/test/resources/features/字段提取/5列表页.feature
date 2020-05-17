@@ -10,8 +10,8 @@ Feature: 字段提取列表页
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'脱敏'}"
 
-  Scenario: 验证运行统计是否自动关闭
-    Then I will see the "SwitchButton" equals "ant-switch-small ant-switch"
+#  Scenario: 验证运行统计是否自动关闭
+#    Then I will see the "SwitchButton" equals "ant-switch-small ant-switch"
 
   Scenario: 选择标签并按照标签过滤
     When the data name is "{'column':'1','name':'RZY3417多值字段'}" then i click the "标签" button
