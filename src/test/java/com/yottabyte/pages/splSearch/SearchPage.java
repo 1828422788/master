@@ -1515,4 +1515,24 @@ public class SearchPage extends ListPageFactory {
     public WebElement getResult() {
         return result;
     }
+
+
+    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1']")
+    private WebElement splRetView;
+    public WebElement getSplRetView() {
+        return splRetView;
+    }
+
+    @FindBy(xpath = "//div[@class='eua4mwMYB7k125sVmyyzn']")
+    private WebElement splChartRetView;
+    public WebElement getSplChartRetView() {
+        return splChartRetView;
+    }
+
+    @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']")
+    private WebElement splTransactionView;
+    public WebElement getSplTransactionView() {
+        return splTransactionView;
+    }
+
 }

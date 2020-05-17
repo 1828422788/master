@@ -1,0 +1,77 @@
+Feature: SPL stats
+
+  Background:
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+
+  @v33stats
+  Scenario Outline: SPL_STATS
+    Given I set the parameter "SearchInput" with value "<splQuery>"
+    #When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 2"
+    #And I wait for "1000" millsecond
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    #And I wait for "4000" millsecond
+    #Then take a screenshot with name "<splcasename>"
+    And I wait for "SplRetView" will be visible
+    And I drag the scroll bar to the element "SplRetView"
+    And I wait for "2000" millsecond
+    And take part of "SplRetView" with name "actual/<splcasename>"
+    Then I compare source image "expect/<splcasename>" with target image "actual/<splcasename>"
+
+    Examples:
+      |splcasename| splQuery|
+      | stats_math_sort_limit_eval | (logtype:apache AND tag:\"sample04061424\") \| stats count(tag) as event_count,sum(apache.resp_len) as sum_len,max(apache.resp_len) as max_len,min(apache.resp_len) as min_len by apache.clientip\|sort by sum_len \| limit 5 \| eval agv_len=if(event_time==0,0,sum_len/event_time) |
+      | stats_count_eval | tag:\"sample04061424\" \| stats count() as count_ by appname, logtype \| eval test_eval=appname |
+      | stats_extend_stat | tag:\"sample04061424\" \| stats extend_stat(apache.resp_len) |
+      | stats_arith_by_city | tag:\"sample04061424\" \| stats count(apache.status), max(apache.status), min(apache.resp_len), sum(apache.status), avg(apache.status) by apache.clientip \| sort by apache.clientip |
+      | stats_top | tag:\"sample04061424\" \| stats top(apache.status,3) |
+      | stats_hg | tag:\"sample04061424\" \| stats hg(apache.status,10) |
+      | stats_pct | tag:\"sample04061424\"\| stats pct(raw_message_length,1,5,25,50,75,95,99) |
+      | stats_math_1 | tag:\"sample04061424\" \| stats count(apache.status) as cnt, min(apache.status),max(apache.status),avg(apache.status),sum(apache.status), es(apache.status) by apache.clientip \| sort by cnt, apache.clientip |
+      | stats_math_2 | tag:\"sample04061424\" \| stats count(apache.status) as cnt, min(apache.status),max(apache.status),avg(apache.status),sum(apache.status), extend_stat(apache.status) by apache.clientip \| sort by cnt, apache.clientip |
+      | stats_count | tag:\"sample04061424\" \| stats count() as cnt by apache.status |
+      | stats_min_timestamp_formatdate | tag:\"sample04061424_chart\" \| stats min(timestamp) as min_time by apache.status \| eval t_min_time = typeof(min_time) \| eval long_min_time = tolong(min_time) \| eval f_min_time = formatdate(log_min_time,\"HH:mm:ss\") \| sort by +apache.status |
+      | stats_sort | tag:\"sample04061424\" \| sort by +apache.status,+apache.resp_len\| table apache.status, apache.resp_len |
+      | stats_sort_fail | tag:\"sample04061424\" \| stats avg(apache.resp_len) as avg_length by apache.clientip \| sort by +avg_length, apache.clientip \| eval eval_length = avg_length + 200 |
+      | stats_sort_true | tag:\"sample04061424\" \| stats avg(apache.resp_len) as avg_length by apache.status \| eval eval_length = avg_length + 200 \| sort by eval_length |
+      | stats_avg_count_sort | tag:\"sample04061424\" \| stats avg(apache.resp_len) as avg_length, count(apache.clientip) as ip_count by apache.status \| sort by ip_count, apache.status |
+      | stats_stats_avg | tag:\"sample04061424\" \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| stats avg(cnt) by  r_max |
+      | stats_stats_top | tag:\"sample04061424\" \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| top 3 cnt |
+      | top_1_resp_len | tag:\"sample04061424\" \| top 50 apache.resp_len \| sort by count, apache.resp_len |
+      | top_2_clientip_by_path | tag:\"sample04061424\" \| top 20 apache.clientip by apache.request_path \| sort by count, apache.request_path, apache.clientip |
+      | top_count_percent | tag:\"sample04061424\" \| top 20 apache.clientip  countfield=clientip_count  percentfield=clientip_percent |
+      | top_groupby | tag:\"sample04061424\"  \| top 3 apache.clientip by apache.resp_len \| sort by count, apache.resp_len, apache.clientip |
+      | command_limit_mul_stats | tag:\"sample04061424\" \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| stats max(cnt),max(r_max) |
+      | command_limit_mul_top | tag:\"sample04061424\" \| stats count() as cnt, max(apache.status) as r_max_status by apache.clientip \| top 3 r_max_status |
+      | bucket_1h_stats_count | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
+      | bucket_stats_eval_where | starttime=\"now/d\" endtime=\"now/d+7h\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=10m as ts\|stats count(appname) as count_app by ts\|eval time=formatdate(ts,\"HH:mm:ss\") \| autoregress count_app p=6\|eval rate=if(empty(count_app_p6),0,abs(count_app_p6-count_app)) \| eval result=if(empty(count_app_p6),0,1) \|where result>0\|fields count_app,time,count_app_p6,rate |
+      | bucket_movingavg_rollingstd_eval | starttime=\"now/d\" endtime=\"now/d+7h\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=1h as ts\| stats count(appname) as count_ by ts\| movingavg count_,5 as ma\| rollingstd count_,5 as rs\| eval lower=ma-1*rs\| eval upper=ma+1*rs\| eval outlier=if(count_>upper\|\|count_<lower, count_, 0) |
+      | bucket_timeranges_24h | starttime=\"now/d\" endtime=\"now\" tag:sample04061424_apachesample_dawn \| bucket timestamp timeranges=((MIN,-48h),(-48h,-24h),(-24h,MAX)) as ret_timeranges \| table ret_timeranges |
+      | bucket_timeranges_count | starttime=\"now/d\" endtime=\"now\" tag:\"sample04061424\" \| bucket timestamp timeranges=((-2d, -1d),(-1d, MAX),(2017-02-17:00:00:00, 2018-02-23:00:00:00)) as tr \| stats count(appname) as ct by tr |
+      | where_dc | tag:\"sample04061424\" \| where apache.status>400 \| stats dc(apache.status) |
+      | where_es | tag:\"sample04061424\" \| where apache.status>400 \| stats es(apache.status) |
+      | where_logic_and | tag:\"sample04061424\" \| where  apache.status > 200 && apache.status < 400 \| table apache.status |
+      | fields_sample | starttime=\"now/d\" endtime=\"now\" tag:\"sample04061424\" \| stats count() as count_res by appname,apache.clientip \| fields apache.clientip, count_res \| sort by count_res, apache.clientip |
+      | save_stats_avg_ip | tag:\"sample04061424\" \| stats avg(apache.resp_len) as avg_len,count(apache.resp_len) by apache.clientip \| sort by +apache.clientip \| save /data/rizhiyi/spldata/save_stats_avg_ip.csv |
+      | rollingstd | starttime=\"now/d\" endtime=\"now/d+13h\" tag:sample04061424_apachesample_dawn\| bucket timestamp span=1h as ts \| stats avg(apache.resp_len) as avg_resp_len by ts  \| rollingstd avg_resp_len,10 as resp_len_rolling_std |
+      | autoregress_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=30m as ts \| stats count(appname) as count_app by ts \| eval time=formatdate(ts,\"HH:mm:ss\") \| autoregress count_app p=6 |
+      | autoregress1 | starttime=\"now/d\" endtime=\"now/d+13h\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=10m as ts \| stats count(appname) as count_app by ts\|eval time=formatdate(ts,\"HH:mm:ss\") \| autoregress count_app p=6\|eval rate=if(empty(count_app_p6),0,abs(count_app_p6-count_app)) \| eval result=if(empty(count_app_p6),0,1) \| where result>0\|fields count_app,time,count_app_p6,rate |
+      | autoregress_2 | tag:\"sample04061424\" \| eval  avg_resp_len = apache.resp_len \| autoregress avg_resp_len p=1-2 \| eval res_avg = (avg_resp_len + avg_resp_len_p2 + avg_resp_len_p1) / 3 \| top 3 res_avg |
+      | bucket_ts_stats_sum_eval | (logtype:apache AND tag:\"sample04061424_chart\") \| bucket timestamp span=1m as ts \| stats sum(apache.resp_len) as sum_len by ts,apache.status \| eval time=formatdate(ts,\"HH:mm:ss\") |
+      | starttime_bucket_ts_sum_eval | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_chart\" \| bucket timestamp span=1h as ts \| stats sum(apache.resp_len) as sum_len by ts \| eval time=formatdate(ts,\"HH:mm:ss\") |
+      | starttime_bucket_ts_count_eval_formatdate | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_chart\" \| bucket timestamp span=1h as ts \| stats count(apache.resp_len) as sum_len by ts \| eval time=formatdate(ts,\"HH:mm:ss\") |
+      | bucket_ranges_status_count | (logtype:apache AND tag:\"sample04061424\") \| bucket apache.status ranges=((0, 200), (200, 300), (300, MAX)) as rs \| stats count(apache.status) as count_status by rs |
+      | bucket_stats_es | starttime=\"now/d\" endtime=\"now/d+7h\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=1h as ts \| stats es(apache.status) by ts |
+      | bucket_stats_eval_movingavg | starttime=\"now/d\" endtime=\"now/d+24h\"  tag:\"sample04061424_chart\"\| bucket timestamp span=1m as ts \| stats sum(apache.resp_len) as sum_resp_len by ts \| eval time=formatdate(ts,\"HH:mm:ss\") \| movingavg sum_resp_len,3 as moving_avg_resp_len |
+      | bucket_stats_autoregress_eval_where_fields | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_chart\" \| bucket timestamp span=1h as ts \| stats count(appname) as count_app by ts \| eval time=formatdate(ts,\"HH:mm:ss\") \| autoregress count_app p=6 \| eval rate=if(empty(count_app_p6),0,abs(count_app_p6-count_app)) \| eval result=if(empty(count_app_p6),0,1) \| where result>0 \| fields count_app,time,count_app_p6,rate,result |
+      | bucket_stats_autoregress | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_chart\" \| bucket timestamp span=1h as ts \| stats count() as count_app by ts \| eval time=formatdate(ts,\"HH:mm:ss\") \| autoregress count_app p=3 |
+      | stats_save | tag:\"sample04061424\" \| stats avg(apache.status) by hostname \| save /data/rizhiyi/spldata/apache_latency.csv |
+      | start_time_para_day | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| stats count(apache.resp_len) as event_count, max(apache.resp_len) as max_len, avg(apache.resp_len) as avg_status |
+      | index_task_search | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts |
+      | tran_with_stats_fromstate_tostate | tag:\"t_with\" \| transaction json.sid with states a, b, c in json.module results by flow \| stats count() by fromstate, tostate |
+      | bug_tran_bucket_stats | index=* tag:\"sample04061424\" \| transaction apache.status maxevents=10 \| bucket apache.status span=100 as ts \| stats avg(apache.status) as base_len, count() as base_count, es(apache.status) by ts |
+      | tran_count_apachelen | tag:\"sample04061424\" \| transaction apache.resp_len \| stats count(apache.resp_len) |
+      | tran_stats_cmd_limit | tag:\"sample04061424\" \| transaction apache.status, apache.method \| stats count() as cnt |
