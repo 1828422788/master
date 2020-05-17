@@ -9,7 +9,7 @@ Feature: 应用数据集
     And I set the parameter "NameInput" with value "<name>"
     And I click the "AddResource" button
     And I set the parameter "SearchResourceInput" with value "app所选资源"
-    And I wait for "SearchLoading" will be invisible
+   # And I wait for "SearchLoading" will be invisible
     And I "check" the checkbox which name is "app所选资源" in tiny table
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
