@@ -4,8 +4,8 @@ Feature: 验证SPL搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @v33spl
-  Scenario Outline: 验证事件数
+  @v33events
+  Scenario Outline: 验证事件个数
     Given I set the parameter "SearchInput" with value "<splQuery>"
     #Given I set the parameter "SearchInput" with value "tag:sample04061424 | where apache.status>400 | stats dc(apache.status) as ret_dc"
     And I click the "DateEditor" button
@@ -13,13 +13,30 @@ Feature: 验证SPL搜索
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "2000" millsecond
-    Then I will see the number of log is "<eventsum>" when search "<splQuery>"
+#   Then I will see the number of log is "<eventsum>" when search "<splQuery>"
+    And I wait for element "splStatsNum" change text to "<eventsum>"
 
     Examples:
       | eventsum | splQuery|
-      | 17    | tag:sample04061424 AND logtype:apache AND (NOT apache.request_query:*) \|dedup appname,apache.request_query  keepempty = true |
-      | 72    | tag:sample04061424 \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| stats max(cnt) as max_cnt by r_max \| sort by r_max |
-      | 72    | tag:sample04061424 \| where apache.status>400 \| stats dc(apache.status)    |
+      | 12    | tag:sample04061424 AND logtype:apache AND (NOT apache.request_query:*) \|dedup appname,apache.request_query  keepempty = true |
+  
+  @v33spls
+  Scenario Outline: 验证事件个数,统计表格行数
+    Given I set the parameter "SearchInput" with value "<splQuery>"
+    #Given I set the parameter "SearchInput" with value "tag:sample04061424 | where apache.status>400 | stats dc(apache.status) as ret_dc"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "2000" millsecond
+#   Then I will see the number of log is "<eventsum>" when search "<splQuery>"
+    And I wait for element "splStatsNum" change text to "<splStatsNum>"
+    And I wait for element "splEventNum" change text to "<splEventNum>"
+
+    Examples:
+      | splEventNum | splStatsNum | splQuery|
+      | 12 | 6    | tag:sample04061424 \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| stats max(cnt) as max_cnt by r_max \| sort by r_max |
+      | 12 | 1    | tag:sample04061424 \| where apache.status>400 \| stats dc(apache.status) |
 
   @v33spl0
   Scenario Outline:样例1
