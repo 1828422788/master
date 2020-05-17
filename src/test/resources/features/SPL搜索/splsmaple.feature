@@ -102,17 +102,12 @@ Feature: 验证SPL搜索
 
     Examples:
       | splQuery                                                                                                                       | num |
-      | tag:sample04061424 AND logtype:apache AND (NOT apache.request_query:*) \|dedup appname,apache.request_query  keepempty = true  | 17  |
       | tag:sample04061424 AND logtype:apache AND (NOT apache.request_query:*) \| dedup appname,apache.request_query keepempty = false | 17  |
       | tag:sample04061424 \| transaction apache.resp_len \| where _count==4                                                           | 2   |
-      | tag:sample04061424 \| transaction apache.resp_len \| where _duration==1                                                        | 4   |
-      | tag:sample04061424 \| transaction apache.clientip endswith=eval(apache.status == 200) maxevents=10 contains="Dalvik"           | 4   |
+      | tag:sample04061424 \| transaction apache.resp_len \| sort by apache.resp_len                                                   | 29  |
       | tag:sample04061424 AND logtype:apache AND (NOT apache.request_query:*) \|dedup appname,apache.request_query  keepempty = true  | 17  |
-      | tag:sample04061424 AND logtype:apache AND (NOT apache.request_query:*) \| dedup appname,apache.request_query keepempty = false | 17  |
       | tag:sample04061424 \| dedup 3 apache.status,appname keepevents = false \|sort by timestamp                                     | 14  |
       | tag:sample04061424\| limit 10                                                                                                  | 10  |
-      | tag:sample04061424 \| transaction apache.resp_len \| sort by apache.resp_len                                                   | 29  |
-
 
   Scenario Outline: 判断是否排序
     Given I set the parameter "SearchInput" with value "<splQuery>"
