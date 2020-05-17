@@ -1,18 +1,18 @@
 @configsSmoke
 Feature: 字段提取自定义字典
 
-  @second @configsSmoke
-  Scenario: RZY-2818：新建字典
-    Given open the "dictionary.ListPage" page for uri "/dictionary/"
-    When I click the "UploadButton" button
-    And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
-    And I wait for "FileName" will be visible
-    Then I set the parameter "Name" with value "win_sys_sourcename"
-    And I set the parameter "GroupInput" with value "字典分组AutoTest"
-    And I choose the "字典分组AutoTest" from the "Group" in config
-    And I click the "EnsureUpload" button
-    Then I will see the success message "创建字典成功"
-    Then I wait for "20000" millsecond
+#  @second @configsSmoke
+#  Scenario: RZY-2818：新建字典
+#    Given open the "dictionary.ListPage" page for uri "/dictionary/"
+#    When I click the "UploadButton" button
+#    And I upload a file with name "/src/test/resources/testdata/dictionary/win_sys_sourcename.csv"
+#    And I wait for "FileName" will be visible
+#    Then I set the parameter "Name" with value "win_sys_sourcename"
+#    And I set the parameter "GroupInput" with value "字典分组AutoTest"
+#    And I choose the "字典分组AutoTest" from the "Group" in config
+#    And I click the "EnsureUpload" button
+#    Then I will see the success message "创建字典成功"
+#    Then I wait for "20000" millsecond
 
   @second @configsSmoke
   Scenario Outline: RZY-2819：配置自定义字典解析规则
