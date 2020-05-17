@@ -1,4 +1,4 @@
-@second @configsSmoke
+ @second @configsSmoke
 Feature: 字段提取搜索验证
 
   Scenario Outline: 在搜索页验证

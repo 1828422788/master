@@ -1,6 +1,7 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
+import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -62,4 +63,21 @@ public class SplSearch {
             new CheckButtonAttribute().ifExist(element);
         }
     }
+
+
+    @Then("^I will see the number of log is \"([^\"]*)\" when search \"([^割]*)\"$")
+    public void checkLogNum(String logNum, String spl) {
+        //class="_284Y6gRNbLs9PP8RvGX76B Fqdex4rec8vrc91HwX3oB"
+        WebElement table = GetElementFromPage.getWebElementWithName("SearchTable");
+        int totalLogNum = Integer.parseInt(logNum);
+        List<WebElement> pages = webDriver.findElements(By.className("number"));
+        pages.get(pages.size() - 1).click();
+        int totalPage = Integer.parseInt(pages.get(pages.size() - 1).getText());
+        int realTotalLogNum = 20 * (totalPage - 1) + table.findElements(By.tagName("tr")).size();
+        if (realTotalLogNum != totalLogNum) {
+//            logger.error("\n搜索语句：" + spl + "\n期望日志条数：" + logNum + "\n实际日志条数：" + realTotalLogNum);
+            Assert.assertTrue(false);
+        }
+    }
+
 }
