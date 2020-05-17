@@ -105,12 +105,12 @@ Feature: 验证SPL搜索
     Then I will see the result order by "<columnName>" when search "<splQuery>"
 
     Examples:
-      | splQuery                                                                                                                                   | columnName                      |
+      | splQuery                                                                                                                                 | columnName                      |
       | tag:sample04061424 \| sort by +apache.status,+apache.resp_len\| table apache.status, apache.resp_len                                     | +apache.status,+apache.resp_len |
       | tag:sample04061424 \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| top 3 cnt                                  | +cnt                            |
       | tag:sample04061424 \| stats avg(apache.resp_len) as avg_length, count(apache.clientip) as ip_count by apache.status \| sort by ip_count  | -ip                             |
-      | index=* starttime="-50h" endtime="now" * \| top 10 appname \| limit 10 \|sort by count                                                     | +count                          |
-      | index=* starttime="-50h" endtime="now" * \| stats count() as ct by appname \| limit 10 \| sort by +ct                                      | +ct                             |
+      | index=* starttime="-50h" endtime="now" * \| top 10 appname \| limit 10 \|sort by count                                                   | +count                          |
+      | index=* starttime="-50h" endtime="now" * \| stats count() as ct by appname \| limit 10 \| sort by +ct                                    | +ct                             |
 
 #  @all @apl @smoke
   Scenario Outline: 查询无结果

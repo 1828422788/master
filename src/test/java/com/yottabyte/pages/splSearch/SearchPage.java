@@ -34,7 +34,7 @@ public class SearchPage extends ListPageFactory {
         super(driver);
         driver.manage().window().setPosition(new Point(0, 0));
         driver.manage().window().setSize(new Dimension(1800,970));
-//        driver.manage().window().setSize(new Dimension(1200,900));
+//      driver.manage().window().setSize(new Dimension(1200,900));
     }
 
     @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']/div[1]")
