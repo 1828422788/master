@@ -109,3 +109,17 @@ Feature: 新建资产管理
 #    When I set the parameter "IpComplete" with value "192.168.1.203"
     And I click the "Save" button
     And I will see the element "CompletaMessage" name is "修改资产成功，即将返回上一页"
+
+  Scenario Outline: 编辑资产-修改资产类型
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I will see the url contains "/app/siem/assets/edit"
+    And I choose the "<assetkind>" from the "AssetKind"
+#    When I set the parameter "IpComplete" with value "192.168.1.203"
+    And I click the "Save" button
+    And I will see the element "CompletaMessage" name is "修改资产成功，即将返回上一页"
+
+    Examples:
+      | assetkind |
+      | 服务器       |
+      | 交换机       |
+      | 路由器       |
