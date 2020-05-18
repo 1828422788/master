@@ -1520,9 +1520,9 @@ public class SearchPage extends ListPageFactory {
     }
 
     @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
-    private WebElement splStatsRetView;
-    public WebElement getSplStatsRetView() {
-        return splStatsRetView;
+    private WebElement splStatsRetTable;
+    public WebElement getSplStatsRetTable() {
+        return splStatsRetTable;
     }
 
     @FindBy(xpath = "//div[@class='eua4mwMYB7k125sVmyyzn']")
