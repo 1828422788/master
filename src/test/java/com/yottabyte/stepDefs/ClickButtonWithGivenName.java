@@ -134,7 +134,7 @@ public class ClickButtonWithGivenName {
      */
     private void click(String buttonName, WebElement tr) {
         String xpath;
-        if (pagingInfo.checkUrl() || webDriver.getCurrentUrl().contains("/app/list/")) {
+        if (pagingInfo.checkUrl() || webDriver.getCurrentUrl().contains("/app/list/")|| webDriver.getCurrentUrl().contains("/app/siem/assets/")) {
             xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
@@ -189,7 +189,20 @@ public class ClickButtonWithGivenName {
         tr.findElement(By.xpath("(./td)[" + num + "]")).click();
     }
 
-
+    /**
+     * siem资产管理页面寻找对应的操作按钮并点击
+     *
+     * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
+     * @param buttonName 按钮名称
+     */
+    @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button in siem page$")
+    public void clickDetailNameInSiemPage(String dataName, String buttonName) {
+        WebElement table = webDriver.findElement(By.xpath("//tbody"));
+        Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
+        WebElement tr = listPageUtils.getRowWithoutPaging(map.get("name").toString(), table);
+//        int num = Integer.parseInt(columnNum) + 1;
+        this.click(buttonName, tr);
+    }
     /**
      * 读取配置文件获取名称并点击详情
      *
