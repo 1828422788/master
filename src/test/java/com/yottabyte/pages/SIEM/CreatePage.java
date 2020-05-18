@@ -56,6 +56,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'IP地址')]/following-sibling::div//input")
     private WebElement IpName;
 
+    @FindBy(xpath = "//span[text()='资产类型']/following-sibling::div//div[@class='el-input']/input")
+    private WebElement AssetKindValue;
+
+    public WebElement getAssetKindValue() {
+        return AssetKindValue;
+    }
+
     public WebElement getSave() {
         return Save;
     }
@@ -121,7 +128,7 @@ public class CreatePage extends PageTemplate {
     }
     public WebElement getDropDownListElement(String name) {
         DropdownUtils dropdownUtils = new DropdownUtils();
-        WebElement element = webDriver.findElement(By.xpath("//span[text()=' " + name + " ']/following-sibling::div//div[@class='el-input']/i"));
+        WebElement element = webDriver.findElement(By.xpath("//span[text()='" + name + "']/following-sibling::div//div[@class='el-input']/i"));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return dropdownUtils.getLastDropdownList();
