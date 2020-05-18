@@ -42,9 +42,10 @@ public class Paging {
             numbersPerPageElementXpath = "(//div[@class='ant-select-selection-selected-value'])[last()]";
             nextPageClass = "ant-pagination-next";
             tableListClass = "ant-table-tbody";
-        } else {
+        }
+        else{
             totalNumberElementXpath = "//span[@class='el-pagination__total']";
-            numbersPerPageElementXpath = "//li[@class='el-select-dropdown__item selected']";
+            numbersPerPageElementXpath = "(//li[@class='el-select-dropdown__item selected'])[last()]";
             nextPageClass = "el-icon-arrow-right";
             tableListClass = "el-table__body";
         }
@@ -61,7 +62,7 @@ public class Paging {
      */
     public boolean checkUrl() {
         String currentUrl = webDriver.getCurrentUrl();
-        String[] vueUrl = {"/sources/input/agent/group/"};
+        String[] vueUrl = {"/app/siem/assets/"};
         for (String url : vueUrl) {
             if (currentUrl.contains(url)) {
                 return true;

@@ -199,8 +199,9 @@ public class ClickButtonWithGivenName {
     public void clickDetailNameInSiemPage(String dataName, String buttonName) {
         WebElement table = webDriver.findElement(By.xpath("//tbody"));
         Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
-        WebElement tr = listPageUtils.getRowWithoutPaging(map.get("name").toString(), table);
-//        int num = Integer.parseInt(columnNum) + 1;
+        String name = map.get("name").toString();
+        int columnNum = Integer.parseInt(map.get("column").toString());
+        WebElement tr = listPageUtils.getRowWithColumnNum(name, columnNum, table);
         this.click(buttonName, tr);
     }
     /**
