@@ -14,6 +14,7 @@ Feature: 字段提取删除
       | RZY2868redirect主规则          |
       | RZY2867redirect副规则          |
       | RZY2865支持通配符                |
+      | 重命名字段支持通配符详情验证              |
       | RZY2883unicode解析            |
       | RZY2877base64解析             |
       | RZY2875script解析             |
