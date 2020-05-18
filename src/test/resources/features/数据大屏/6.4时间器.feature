@@ -109,7 +109,6 @@ Feature: 数据大屏-时间器
 ######################################无耻的分割线################################
 
   Scenario: 时间器样式2
-
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

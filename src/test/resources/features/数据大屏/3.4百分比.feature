@@ -139,6 +139,7 @@
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
       And I click the "otherSearch" button
+     And I wait for "SplInput" will be visible
       And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
