@@ -64,7 +64,7 @@ Feature: 展示趋势图
     @viewTrendConnection
     Examples:
       | name                                     |
-#      | Sankey_Multistage                        |
+      | Sankey_Multistage                        |
 #      | Force_repulsion                          |
 #      | Force_2511                               |
       | Sankey_2507                              |
@@ -113,8 +113,7 @@ Feature: 展示趋势图
       | Ring_table_1r_4c                |
       | Ring_table_3r_2c                |
       | Ring_twofields                  |
-      #RZY - 5938
-#      | Ring_onefield                   |
+      | Ring_onefield                   |
       | Single_secondTitle              |
       | Single_prec2_1000off_back_after |
       | Single_prec1_1000on__before     |
