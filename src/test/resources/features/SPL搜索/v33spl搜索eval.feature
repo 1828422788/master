@@ -15,10 +15,10 @@ Feature: SPL eval
     And I wait for element "SearchStatus" change text to "搜索完成!"
     #And I wait for "4000" millsecond
     #Then take a screenshot with name "<splcasename>"
-    And I wait for "SplStatsRetView" will be visible
-    And I drag the scroll bar to the element "SplStatsRetView"
+    And I wait for "SplStatsRetTable" will be visible
+    And I drag the scroll bar to the element "SplStatsRetTable"
     And I wait for "2000" millsecond
-    And take part of "SplStatsRetView" with name "actual/<splcasename>"
+    And take part of "SplStatsRetTable" with name "actual/<splcasename>"
     Then I compare source image "expect/<splcasename>" with target image "actual/<splcasename>"
 
     Examples:
@@ -56,11 +56,12 @@ Feature: SPL eval
       | eval_case_param | tag:sample04061424 OR  tag:sample04061424_json_sdyd_41 \| eval r_len=case(logtype==\"json\", json.cpuTime, logtype==\"apache\", apache.resp_len) \| sort by r_len \| table r_len |
       | eval_upper_lower | tag:\"sample04061424\" AND apache.request_path:* \| eval r_upper=upper(apache.request_path) \| eval r_lower=lower(apache.request_path) \| table r_upper, r_lower, apache.x_forward \| sort by  apache.x_forward |
       | eval_match_clientip1 | tag:\"sample04061424\" \| eval ret_match = match(apache.clientip, \"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$\") \| table apache.clientip, ret_match, apache.x_forward \| sort by  apache.x_forward |
-      | eval_match_query | tag:\"sample04061424\" AND apache.request_query:* \| eval r_match1 = match(apache.request_query, \"b.*e\") \| eval r_match2 = match(apache.request_query, \"^bcd\") \| table apache.request_query, r_match1, r_match2, apache.x_forward \| sort by  apache.x_forward |
+      | eval_match_sample_query | tag:\"sample04061424\" AND apache.request_query:* \| eval r_match1 = match(apache.request_query, \"b.*e\") \| eval r_match2 = match(apache.request_query, \"^bcd\") \| table r_match1, r_match2, apache.x_forward \| sort by  apache.x_forward |
       | eval_substring_trim | tag:\"sample04061424\" AND apache.referer_domain:* \| eval r_subdomain= substring(apache.referer_domain,0,len(apache.referer_domain)) \| eval r_trim=trim(\"中文 \") \| eval r_eng=trim(\" \"+apache.referer_domain + \" \") \| table r_subdomain, r_eng, r_trim, apache.x_forward \| sort by  apache.x_forward |
       | eval_str_tolong | tag:\"sample04061424\" \| eval res_to_str=tolong(\"123\")\| eval res_to_long=tolong(20.3) \| table res_to_str, res_to_long, apache.x_forward \| sort by  apache.x_forward |
       | eval_todouble | tag:\"sample04061424\" \| eval r_frm_str=todouble(\"123.1\")  \| eval r_frm_long = todouble(20) \| eval res=r_frm_str+20\| eval t_frm_str = typeof(r_frm_str) \| eval t_frm_long = typeof(r_frm_long) \| eval t_res = typeof(res) \| table r_frm_str, t_frm_str, r_frm_long,t_frm_long, res,t_res, apache.x_forward \| sort by  apache.x_forward |
-      | eval_typeof_1 | tag:sample04061424_json_sdyd_41 \| eval t_cputime = typeof(json.cpuTime) \| eval t_actionName=typeof(json.actionName) \| eval t_failed=typeof(json.failed) \| eval t_agent_timestamp=typeof(agent_send_timestamp)  \| eval t_dimensions_ip=typeof(json.dimensions.IP) \| eval t_dimensions = typeof(json.dimensions) \| table json.cpuTime, t_cputime, json.actionName, t_actionName, json.failed, t_failed, json.agent_send_timestamp, t_agent_timestamp, json.dimensions.IP, t_dimensions_ip, t_dimensions, json.purePathId \| sort by json.purePathId |
+      | eval_typeof_json_string | tag:sample04061424_json_sdyd_41 \| eval t_actionName=typeof(json.actionName) \| eval t_dimensions_ip=typeof(json.dimensions.IP) \| table json.actionName, t_actionName, json.dimensions.IP, t_dimensions_ip \| sort by json.purePathId |
+      | eval_typeof_1 | tag:sample04061424_json_sdyd_41 \| eval t_cputime = typeof(json.cpuTime) \| eval t_failed=typeof(json.failed) \| eval t_agent_timestamp=typeof(agent_send_timestamp) \| eval t_dimensions = typeof(json.dimensions) \| table json.cpuTime, t_cputime, json.failed, t_failed, json.agent_send_timestamp, t_agent_timestamp, t_dimensions, json.purePathId \| sort by json.purePathId |
       | eval_typeof_2 | tag:sample04061424 \| eval t_timestamp = typeof(timestamp) \| eval t_context_id = typeof(context_id) \| eval t_x_forward = typeof(apache.x_forward) \| eval t_latitude = typeof(apache.geo.latitude) \| eval t_resp_len = typeof(apache.resp_len) \| eval t_status = typeof(apache.status) \| table t_timestamp,t_context_id,t_x_forward,t_latitude,t_resp_len, t_status, apache.x_forward \| sort by  apache.x_forward |
       | eval_tostring | tag:\"sample04061424\" \| eval t = \"logtype:\" + logtype \| where tostring(t) == \"logtype:apache\" && tostring(apache.clientip) == \"23.166.125.53\" && tostring(appname) == \"apache\" \| table apache.clientip, appname, t, apache.x_forward \| sort by  apache.x_forward |
       | eval_parsedate | tag:\"sample04061424\" apache.method:GET \| eval x = parsedate(\"28/04/2016:12:01:01\",\"dd/MM/yyyy:HH:mm:ss\") \| eval y = parsedate(\"28/04/2016\",\"dd/MM/yyyy\") \| table x,y, apache.x_forward \| sort by  apache.x_forward |
@@ -69,7 +70,7 @@ Feature: SPL eval
       | parsedate_limit | tag:\"sample04061424\" AND 'apache.resp_len':5049 \| limit 10 \| eval f_start_time = \"2014-08-02 10:52:22.000\" \| eval f_end_time = \"2046-12-29 10:52:22.000\" \| eval mill_start_time=parsedate(f_start_time,\"yyyy-MM-dd HH:mm:ss.SSS\") \| eval mill_end_time = parsedate(f_end_time,\"yyyy-MM-dd HH:mm:ss.SSS\") \| table f_start_time, f_end_time, mill_start_time, mill_end_time, apache.x_forward \| sort by  apache.x_forward |
       | format | tag:\"sample04061424\" \| eval x_format = format(\"%s, %s => %s\", logtype, tag, apache.clientip) \| table x_format, apache.x_forward \| sort by  apache.x_forward |
       | eval_isnum_isstr | tag:\"sample04061424\" \| eval r_isnum = isnum(apache.status) \| eval r_isstr = isstr(apache.method) \| table r_isnum, r_isstr, apache.x_forward \| sort by  apache.x_forward |
-      | relative_time_timestamp_data_math | tag:\"sample04061424\" \| eval r_relative = relative_time(timestamp, \"-1d/d\") \| eval r_format_relative = formatdate(r_relative, \"HH:mm:ss:SSS MM/dd/yyyy\") \| eval r_format_timestamp = formatdate(timestamp, \"HH:mm:ss:SSS MM/dd/yyyy\") \| table r_relative, r_format_relative, apache.x_forward \| sort by  apache.x_forward |
+      | relative_time_timestamp_data_math | tag:\"sample04061424\" \| eval cur_timestamp=1589212800000 \| eval r_relative = relative_time(cur_timestamp, \"-1d/d\") \| eval r_format_relative = formatdate(r_relative, \"HH:mm:ss:SSS MM/dd/yyyy\") \| eval r_format_timestamp = formatdate(cur_timestamp, \"HH:mm:ss:SSS MM/dd/yyyy\") \| table r_relative, r_format_relative, apache.x_forward \| sort by  apache.x_forward |
       | cidrmatch | tag:\"sample04061424\" \| eval r_m130 = cidrmatch(\"192.168.1.130/25\", \"192.168.1.129\") \| eval r_m128 = cidrmatch(\"192.168.1.128/25\", \"192.168.1.129\") \| eval r_m255 = cidrmatch(\"192.168.1.255/25\", \"192.168.1.129\") \| table r_m130, r_m128, r_m255, apache.x_forward \| sort by  apache.x_forward |
       | eval_urldecode | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_urldecode_apache_10 AND apache.request_query:* \| eval r_decode = urldecode(apache.request_query) \| table apache.request_query,r_decode, apache.x_forward \| sort by  apache.x_forward |
       | eval_stats1 | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| eval method = apache.method \| stats count() as count1, avg(apache.resp_len) as avg_len by method, apache.status \| sort by -avg_len |
@@ -81,7 +82,7 @@ Feature: SPL eval
       | parse_message2ip_count2tag | tag:\"sample04061424\" \| parse \"^(?<ip_addr>\d+\.\d+\.\d+\.\d+)\" \| eval ip_str = \"ip:\" + ip_addr \| stats count(tag) as app_cnt by ip_str \| sort by app_cnt,ip_str |
       | parse_clientip_stats | tag:\"sample04061424\" \| parse field=apache.clientip \"(?<ip_addr>\d+\.\d+\.\d+\.\d+)\" \| eval ip_str = \"ip:\" + ip_addr \| stats count(appname) as app_cnt by ip_str \| sort by app_cnt,ip_str |
       | parse_request_path_stats | tag:\"sample04061424\" \| parse field=apache.request_path \"^(?<outer_path>/[^/]*)\" \| stats count(appname) by outer_path |
-      | parse_sample_to_table | tag:sample04061424 \| parse \"(?<digital_list>\d+)\" max_match=5 \| table digital_list, apache.x_forward \| sort by  apache.x_forward |
+      | parse_sample_to_table | tag:sample04061424 AND apache.x_forward:7* \| parse \"(?<digital_list>\d+)\" max_match=5 \| table digital_list, apache.x_forward \| sort by  apache.x_forward |
       | parse_digital_max_match15 | tag:sample04061424 AND  apache.x_forward:1\| parse \"(?<digital_list>\d+)\" max_match=15 \|  table digital_list, apache.x_forward |
       | parse_digital_match_default | tag:sample04061424 \| parse \"(?<digital>\d+)\" \| eval ret_str = \"digital:\" + digital  \| table ret_str, apache.x_forward \| sort by  apache.x_forward |
       | parse_request_path_stats_count_by | tag:\"sample04061424\" \| parse field=apache.request_path \"^(?<outer_path>/[^/]*)\" \| stats count(appname) by outer_path |
@@ -96,5 +97,5 @@ Feature: SPL eval
       | rename_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| rename apache.resp_len as resp_len, apache.status as status, apache.clientip as clientip \| table resp_len, status, clientip \| sort by resp_len, clientip, status |
       | rename_apache_limit_avg | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rename apache.* as * \| limit 5 \| stats avg(resp_len) as avg_len by status |
       | rename_apache_avg_bystatusip_sort | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rename apache.* as * \| stats avg(resp_len) as avg_len by status, clientip \| sort by avg_len, status, clientip |
-      | rename_apache_bucket_span1h_count | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rename apache.* as * \| bucket timestamp span=1h as ts \| stats count(clientip) as c_ip by ts |
+      | rename_apache_formatdate_bucket_span1_count | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display \| rename apache.c* as * \| eval f_timestamp = formatdate(timestamp,\"HH\")\| eval u_hour=tolong(f_timestamp) \| bucket u_hour span=1 as ts \| stats count(lientip) as c_ip by ts |
       | rename_multi_fields_apache_plus | tag:sample04061424 \| rename apache.geo.* as *, apache.r* as r* \| table referer_domain, apache.clientip, resp_len, request_path, apache.x_forward \| sort by apache.x_forward |
