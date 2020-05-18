@@ -98,6 +98,10 @@ public class CreatePage extends PageTemplate {
         return FailureMessage;
     }
 
+    public WebElement getAssetKind(){
+        return getDropDownListElement("资产类型");
+    }
+
     @FindBy(xpath ="//div[@class='el-message-box__message']/p" )
     private WebElement FailureMessage;
 
@@ -115,5 +119,11 @@ public class CreatePage extends PageTemplate {
     public WebElement getInputAppElement(int num) {
         return webDriver.findElement(By.xpath("(//span[text()='应用']/following-sibling::div//input)[" + num + "]"));
     }
-
+    public WebElement getDropDownListElement(String name) {
+        DropdownUtils dropdownUtils = new DropdownUtils();
+        WebElement element = webDriver.findElement(By.xpath("//span[text()=' " + name + " ']/following-sibling::div//div[@class='el-input']/i"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return dropdownUtils.getLastDropdownList();
+    }
 }
