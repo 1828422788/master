@@ -103,7 +103,7 @@ Feature: 新建资产管理
     Then I will see the element value in json "{'FailureMessage':'请检查输入项，确保正确后再提交。'}"
 
   Scenario: 编辑资产-修改资产名称
-    When the data name is "{'column':'1','name':'防病毒网关'}" then i click the "编辑" button in siem page
+    When the data name is "{'column':'1','name':'AutotestCompleteadd'}" then i click the "编辑" button in siem page
     And I will see the url contains "/app/siem/assets/edit"
     When I set the parameter "AssetNameComplete" with value "AutotestCompleteadd2"
 #    When I set the parameter "IpComplete" with value "192.168.1.203"
