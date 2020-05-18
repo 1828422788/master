@@ -51,6 +51,7 @@
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
     And I choose the "appname" from the "dataSearchName"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "dataSearchNumber"
       #保存
       And I click the "Save" button
@@ -98,6 +99,7 @@
       And I click the "Ensure" button
       And I wait for "3000" millsecond
       And I choose the "name" from the "dataSearchName"
+      And I wait for "2000" millsecond
       And I choose the "value" from the "dataSearchNumber"
       And I wait for "1000" millsecond
       #保存
@@ -136,7 +138,8 @@
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
       And I click the "otherSearch" button
-      And I set the parameter "SplInput" with value "* | stats count() by appname"
+      And I wait for "SplInput" will be visible
+      And I set the parameter "SplInput" with value "tag:sample* | stats count() by appname"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -163,6 +166,7 @@
       And I click the "Data" button
       And I wait for "2000" millsecond
       And I choose the "appname" from the "dataSearchName"
+      And I wait for "2000" millsecond
       And I choose the "count()" from the "dataSearchNumber"
       #保存
       And I click the "Save" button
