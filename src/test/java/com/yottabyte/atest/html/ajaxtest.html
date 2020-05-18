@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="jQuery.min.js"></script>
+    <script type="text/javascript">
+        function f() {
+            $.ajax({
+                url: "https://cf5d04ce-1018-4fb8-a7ff-9a6184a4ba28.mock.pstmn.io/test",
+                type: "get",
+                contentType: "application/json;charset=utf-8",
+                // dataType: "json",
+                beforeSend: function () {
+                    alert("before");
+
+                },
+                dataFilter: function (data) {
+                    alert(data.name);
+                    // return data;
+                },
+                success: function (data) {
+                    alert(data.name);
+                },
+                error: function (ttt) {
+                    alert(ttt.status + ttt.statusText)
+                },
+                complete: function () {
+
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+
+<button onclick="f()">click</button>
+</body>
+</html>
