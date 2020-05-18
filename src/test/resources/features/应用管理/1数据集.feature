@@ -19,9 +19,9 @@ Feature: 应用数据集
     And I click the "SaveMenuButton" button
     And I choose the "<menuName>" from the "DefaultPage"
     And I click the "CurrentApp" button
-    And I click the "ColorPicker" button
-    And I set the parameter "ColorValue" with value "<color>"
-    And I click the "EnsureColourButton" button
+#    And I click the "ColorPicker" button
+#    And I set the parameter "ColorValue" with value "<color>"
+#    And I click the "EnsureColourButton" button
     And I click the "CreateButton" button
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible

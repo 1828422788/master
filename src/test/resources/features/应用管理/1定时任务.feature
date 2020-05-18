@@ -25,7 +25,7 @@ Feature: 应用定时任务(RZY-2123)
       | spl                                                                                                      | time  | taskName |
       | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts | Today | AutoApp  |
 
-  Scenario: 编辑定时任务
+  Scenario Outline: 编辑定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
     Then I will see the "app.AppPage" page
@@ -34,9 +34,16 @@ Feature: 应用定时任务(RZY-2123)
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     And I will see the "timedTask.EditPage" page
+    And I wait for element "Textarea" change text to "<spl>"
     And I set the parameter "Name" with value "AutoCreateApp"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
+    Examples:
+      | spl                                                                                                      |
+      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
+
 
   Scenario: 禁用定时任务
     Given open the "app.ListPage" page for uri "/app/list/"
