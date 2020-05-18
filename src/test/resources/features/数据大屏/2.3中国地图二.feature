@@ -1,8 +1,8 @@
 @galaxeeMap @galaxee
   Feature: 数据大屏-中国地图II
-    Background:
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#    Background:
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
 
 
   Scenario: 对中国地图II进行样式-搜索
@@ -104,6 +104,7 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
       And I choose the "无锡" from the "MapArea"
 
       And I wait for "Save" will be visible
+      And I wait for "1000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -190,6 +191,7 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
       And I click the "otherSearch" button
+      And I wait for "SplInput" will be visible
       And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
 #      And I click the "DateEditor" button
 #      And I click the "RecentSevenDay" button

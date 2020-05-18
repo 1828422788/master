@@ -1,9 +1,9 @@
 @galaxeeMap @galaxee
   Feature: 数据大屏-攻击地图3D II
 
-    Background:
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#    Background:
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
 
     Scenario: 攻击地图3DII之样式-搜索
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -140,6 +140,7 @@
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
       And I click the "otherSearch" button
+      And I wait for "SplInput" will be visible
       And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
@@ -148,6 +149,7 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
+      And I wait for "2000" millsecond
       And I click the "Style" button
       #开启背景动画
       And I click the "globalStyle" button

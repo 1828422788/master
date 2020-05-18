@@ -1,9 +1,9 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-占比图3D
 
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
 
   Scenario: 占比图3D数据之样式-搜索

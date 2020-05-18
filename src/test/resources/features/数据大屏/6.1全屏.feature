@@ -1,8 +1,8 @@
 @galaxeeOther @galaxee
 Feature: 数据大屏-全屏
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
   Scenario: 全屏
 

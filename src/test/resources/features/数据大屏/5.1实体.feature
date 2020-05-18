@@ -1,8 +1,8 @@
 @galaxeeNet @galaxee
   Feature: 数据大屏-实体
-    Background:
-      Given I will see the "PublicNavBarPage" page
-      And I wait for "Dashboard" will be visible
+#    Background:
+#      Given I will see the "PublicNavBarPage" page
+#      And I wait for "Dashboard" will be visible
 
     Scenario: 实体数据之搜索值异常
 #      Given I will see the "PublicNavBarPage" page

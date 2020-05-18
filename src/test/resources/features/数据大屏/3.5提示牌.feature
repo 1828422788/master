@@ -1,8 +1,8 @@
 @galaxeeIndex @galaxee
 Feature: 数据大屏-揭示牌
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
     Scenario: 揭示牌样式搜索
 

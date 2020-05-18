@@ -1,8 +1,8 @@
 @galaxeeChart3
 Feature: 数据大屏-栅格百分图
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
 
   Scenario: 栅格百分图样式-搜索

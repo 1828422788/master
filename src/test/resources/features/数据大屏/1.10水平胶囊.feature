@@ -1,8 +1,8 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-水平胶囊
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
 
   Scenario: 水平胶囊样式-搜索
