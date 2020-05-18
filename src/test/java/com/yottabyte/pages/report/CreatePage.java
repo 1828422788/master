@@ -72,8 +72,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='趋势图列表']/following-sibling::div/button")
     private WebElement chartList;
 
-//    @FindBy(className = "el-dropdown-menu")
-    @FindBy(xpath = "//li[@class='ant-dropdown-menu-item']/ancestor::ul")
+    @FindBy(className = "ant-dropdown-menu")
+//    @FindBy(xpath = "//li[@class='ant-dropdown-menu-item']/ancestor::ul")
     private WebElement chartDropdownList;
 
     @FindBy(xpath = "//span[text()='crontab']")
