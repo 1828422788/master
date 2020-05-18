@@ -1532,21 +1532,21 @@ public class SearchPage extends ListPageFactory {
     }
 
     @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']")
-    private WebElement splTransactionView;
-    public WebElement getSplTransactionView() {
-        return splTransactionView;
+    private WebElement splTransactionRetView;
+    public WebElement getSplTransactionRetView() {
+        return splTransactionRetView;
     }
 
     @FindBy(xpath = "//div[@class='_284Y6gRNbLs9PP8RvGX76B Fqdex4rec8vrc91HwX3oB']/span")
-    private WebElement splStatsNum;
-    public WebElement getSplStatsNum() {
-        return splStatsNum;
+    private WebElement splStatsRetNum;
+    public WebElement getSplStatsRetNum() {
+        return splStatsRetNum;
     }
 
     @FindBy(xpath = "//div[@class='_284Y6gRNbLs9PP8RvGX76B']/span")
-    private WebElement splEventNum;
-    public WebElement getSplEventNum() {
-        return splEventNum;
+    private WebElement splEventRetNum;
+    public WebElement getSplEventRetNum() {
+        return splEventRetNum;
     }
 
 }
