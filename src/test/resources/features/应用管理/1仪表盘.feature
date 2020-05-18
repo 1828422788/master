@@ -218,6 +218,7 @@ Feature: 应用仪表盘
     Then I will see the "dashboard.ListPage" page
     Given the data name is "仪表盘验证App" then i click the "删除" button
     Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
 
   Scenario Outline: 修改app资源范围
@@ -227,6 +228,7 @@ Feature: 应用仪表盘
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:
@@ -242,4 +244,5 @@ Feature: 应用仪表盘
     Then I will see the "dashboard.ListPage" page
     Given the data name is "仪表盘验证无app" then i click the "删除" button
     Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"

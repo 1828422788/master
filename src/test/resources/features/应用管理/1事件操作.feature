@@ -67,6 +67,7 @@ Feature: 应用事件操作（RZY-2141）
     And I set the parameter "Name" with value "AutoTestApp"
     And I set the parameter "Url" with value "https://www.baidu.com"
     And I click the "CreateButton" button
+    And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
   Scenario: 编辑事件操作
@@ -81,6 +82,7 @@ Feature: 应用事件操作（RZY-2141）
     Then I will see the "event.CreatePage" page
     And I set the parameter "Name" with value "AutoApp"
     And I click the "CreateButton" button
+    And I wait for "Message" will be visible
     Then I will see the message "提交事件操作成功"
 
   Scenario Outline: 搜索事件操作

@@ -19,6 +19,7 @@ Feature: 应用定时任务(RZY-2123)
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
     And I click the "EnsureCrontab" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -37,6 +38,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for element "Textarea" change text to "<spl>"
     And I set the parameter "Name" with value "AutoCreateApp"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
@@ -178,6 +180,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button under some element
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:
@@ -193,6 +196,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     And I click the "CurrentApp" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:
