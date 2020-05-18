@@ -19,6 +19,7 @@ Feature: 字段提取删除
       | RZY2875script解析             |
       | RZY2870创建dissect解析          |
       | RZY2819配置自定义字典解析规则          |
+      | 自定义字典详情验证                   |
       | 脱敏                          |
       | 脱敏详情                        |
       | RZY2862严格解析                 |
@@ -62,8 +63,9 @@ Feature: 字段提取删除
     And I click the "EnsureDelete" button
 
     Examples:
-      | name                   |
-      | win_sys_sourcename.csv |
+      | name                    |
+      | win_sys_sourcename.csv  |
+      | win_sys_sourcename1.csv |
 
 #  Scenario: 删除owner下的agent配置
 #

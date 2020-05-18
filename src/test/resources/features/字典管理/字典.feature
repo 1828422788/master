@@ -15,7 +15,6 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-#    Then I set the parameter "GroupInput" with value "wymtest1"
     And I choose the "wymtest1" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
