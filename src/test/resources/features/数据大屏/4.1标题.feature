@@ -33,7 +33,7 @@ Feature: 数据大屏-标题
     And I will see the success message "保存成功"
 
   Scenario Outline: 修改配置
-    When the galaxee name is "<name>" then I click the "el-button el-button--text" edit button
+    When the galaxee name is "<name>" then I click the "iconfont icon-bianji" edit button
     And switch to window "<name>"
     And I close all tabs except main tab
     Then I will see the "galaxee.CreatePage" page
@@ -75,7 +75,7 @@ Feature: 数据大屏-标题
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

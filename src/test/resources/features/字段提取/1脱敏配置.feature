@@ -35,7 +35,7 @@ Feature: 字段提取脱敏配置
     When I set the parameter "LogSample" with value "qweqwe15998418361qwe 15998418361"
     And I click the "AddRule" button
     And I choose the "正则解析" from the "ParseRule" in config
-    Then I wait for "1000" millsecondI
+    Then I wait for "1000" millsecond
     And I choose the "raw_message" from the "SourceField" in config
     And I set the parameter "Regex" with value "(?<phone>.*)"
     And I click the "EnsureAddParseRule" button
@@ -95,17 +95,9 @@ Feature: 字段提取脱敏配置
     And I wait for "5000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I wait for "60000" millsecond
     Then I refresh the website
-    Then I wait for loading invisible
-    Then I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "wym"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "5000" millsecond
-    When open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I refresh the website
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "tag:replacer"
     And I click the "DateEditor" button

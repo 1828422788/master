@@ -13,8 +13,8 @@ Feature: 报表_文件列表
     And I will see the element "SecondColumnTitle" contains "拥有者"
     And I will see the element "ThirdColumnTitle" contains "生成时间"
     And I will see the element "FourthColumnTitle" contains "操作"
-    And the data name is "{'column':'1','name':'ctest'}" then i click the "下载" button
-    When the data name is "{'column':'1','name':'ctest'}" then i click the "删除" button
+    And the data name is "{'column':'1','name':'katetest'}" then i click the "下载" button
+    When the data name is "{'column':'1','name':'katetest'}" then i click the "删除" button
     And I will see the element "Message" contains "此操作将删除「"
     And I will see the element "Message" contains ".pdf」, 是否继续?"
     Then I click the "Cancel" button
@@ -52,14 +52,10 @@ Feature: 报表_文件列表
     When I click the "ReportListButton" button
     Then I wait for "SelectedReport" will be visible
     And I wait for element "SelectedReport" change text to "全部报表文件"
-    And I wait for "3000" millsecond
+    And I wait for "5000" millsecond
     And I wait for "LastGeneratedReport" will be visible
 
 
-  Scenario: seacrh_tag
-    When I choose the "auto_package" from the "TagDropdown"
-    And I wait for loading invisible
-    Then I will see the data "{'column':'2','name':'ctest'}" values "{'column':'6','name':'auto_package'}"
 
 
 

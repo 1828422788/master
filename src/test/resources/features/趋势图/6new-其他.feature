@@ -717,8 +717,8 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
-      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp |
-      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id | collector_recv_timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp |
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
 
 
   Scenario Outline: sequence
@@ -826,60 +826,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum   | spl                                                                                                                                                                                                                                                       |
-      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp |
-      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id | collector_recv_timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, collector_recv_timestamp |
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
 
-
-  @compareTrend @compareTrendOther
-  Scenario Outline: compare_view
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When I set the parameter "SearchInput" with value "<name>"
-    And I wait for loading invisible
-    And the data name is "{'column':'0','name':'<name>'}" then i click the "展示趋势图" button
-    And switch to window "查看趋势图"
-    And I close all tabs except main tab
-    Then I will see the "trend.ViewPage" page
-    And I wait for "ChartName" will be visible
-    And I wait for "ChartView" will be visible
-    And I will see the "NoData" doesn't exist
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "3000" millsecond
-    And I will see the element "ChartName" contains "<name>"
-    And take part of "ChartView" with name "actual_view/<name>"
-    And I compare source image "expect_view/<name>" with target image "actual_view/<name>"
-
-    Examples:
-      | name                            |
-      | Chain_2831_tree                 |
-      | Chain_2982_tree                 |
-      | Table_Test                      |
-      | Sequence_2805                   |
-      | Chain_2982                      |
-      | Chain_2831                      |
-      | Matrixheatmap_2661              |
-      | Matrixheatmap_2660              |
-      | Funnel_2858                     |
-      | Radar_2635                      |
-      | Liquidfill_percent              |
-      | Ring_table_1r_3c_colors         |
-      | Ring_table_1r_4c                |
-      | Ring_table_3r_2c                |
-      | Ring_twofields                  |
-      #RZY - 5938
-#      | Ring_onefield                   |
-      | Single_secondTitle              |
-      | Single_prec2_1000off_back_after |
-      | Single_prec1_1000on__before     |
-      | Single_rangeB                   |
-      | Single_rangeF                   |
-      | Single_trend                    |
-      | Single_backgr                   |
-      | Single_font2                    |
-      | Single_font1                    |
-      | Single_cnt                      |
-      | Single_icon                     |
-      | Funnel_2654                     |
-      | Radar_2633                      |
-      | Wordcloud_2625                  |
-      | Single_2549                     |
 

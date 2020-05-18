@@ -114,6 +114,27 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div/div")
     private WebElement appDropdown;
 
+    @FindBy(xpath = "//label[text()='count']/following-sibling::input")
+    private WebElement count;
+
+    @FindBy(xpath = "//label[text()='percent']/following-sibling::input")
+    private WebElement percent;
+
+    @FindBy(xpath = "//label[text()='percent']/ancestor::div/following-sibling::div/input")
+    private WebElement resplen;
+
+    public WebElement getCount() {
+        return count;
+    }
+
+    public WebElement getPercent() {
+        return percent;
+    }
+
+    public WebElement getResplen() {
+        return resplen;
+    }
+
     public WebElement getAppDropdown() {
         appDropdown.click();
         return super.getLastDropdownList();

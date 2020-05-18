@@ -5,19 +5,21 @@ Feature: 数据大屏-视频流
     And I wait for "Dashboard" will be visible
 
   Scenario: 视频流
-
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
     And I set the parameter "Name" with value "视频流"
     And I click the "Ensure" button
-      #选择上方的其他
-    And I click the "Other" button
       #选择视频流
+    And I click the "Other" button
+    And I wait for "1000" millsecond
+    And I wait for "videoFlow" will be visible
     And I click the "videoFlow" button
     And I wait for loading invisible
       #保存
+    And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -32,7 +34,7 @@ Feature: 数据大屏-视频流
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -43,18 +45,20 @@ Feature: 数据大屏-视频流
  ######################################无耻的分割线################################
 
   Scenario: 视频流样式
-
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
     And I set the parameter "Name" with value "视频流样式"
     And I click the "Ensure" button
-      #选择上方的其他
-    And I click the "Other" button
       #选择视频流
+    And I click the "Other" button
+    And I wait for "1000" millsecond
+    And I wait for "videoFlow" will be visible
     And I click the "videoFlow" button
+    And I wait for loading invisible
 #设置样式
+    And I click the "Style" button
       #1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
@@ -69,7 +73,9 @@ Feature: 数据大屏-视频流
     And I click the "globalStyle" button
     And I wait for loading invisible
     And I set the parameter "globalStyleName" with value "视频流样式"
-       #保存
+     #保存
+    And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -83,7 +89,7 @@ Feature: 数据大屏-视频流
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

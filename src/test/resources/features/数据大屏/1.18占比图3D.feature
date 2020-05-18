@@ -13,12 +13,11 @@ Feature: 数据大屏-占比图3D
     When I click the "Create" button
     And I set the parameter "Name" with value "占比图3D数据之样式-搜索"
     And I click the "Ensure" button
-       #选择上方的图表
-    And I click the "Chart" button
-    And I drag the scroll bar to the element "percent3dChart"
       #选择占比图3D
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "percent3dChart" will be visible
     And I click the "percent3dChart" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
     #设置样式
    # 1 设置图表尺寸位置
@@ -85,7 +84,7 @@ Feature: 数据大屏-占比图3D
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -102,12 +101,11 @@ Feature: 数据大屏-占比图3D
     When I click the "Create" button
     And I set the parameter "Name" with value "占比图3D数据之静态数据"
     And I click the "Ensure" button
-     #选择上方的图表
+           #选择占比图3D
     And I click the "Chart" button
-    And I drag the scroll bar to the element "percent3dChart"
-      #选择占比图3D
+    And I wait for "1000" millsecond
+    And I wait for "percent3dChart" will be visible
     And I click the "percent3dChart" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
@@ -149,7 +147,7 @@ Feature: 数据大屏-占比图3D
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -175,13 +173,11 @@ Feature: 数据大屏-占比图3D
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      #添加一个占比图3D控件
-     #选择上方的图表
+           #选择占比图3D
     And I click the "Chart" button
-    And I drag the scroll bar to the element "percent3dChart"
-      #选择占比图3D
+    And I wait for "1000" millsecond
+    And I wait for "percent3dChart" will be visible
     And I click the "percent3dChart" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
@@ -222,7 +218,7 @@ Feature: 数据大屏-占比图3D
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

@@ -35,6 +35,9 @@ public class LoadingPage {
     @Given("^open the \"([^\"]*)\" page for uri \"([^\"]*)\"$")
     public void openThePageForURI(String pageName, String uri) {
         webDriver.get(baseURL + uri);
+        while (!webDriver.getCurrentUrl().contains(uri)) {
+            webDriver.get(baseURL + uri);
+        }
         ConstructPageFactoryWithName c = new ConstructPageFactoryWithName();
         c.constructPageFactoryWithName(pageName);
     }

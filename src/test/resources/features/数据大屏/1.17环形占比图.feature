@@ -14,9 +14,9 @@ Feature: 数据大屏-环形占比图
     And I click the "Ensure" button
     # 环形占比图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Percent"
+    And I wait for "1000" millsecond
+    And I wait for "Percent" will be visible
     And I click the "Percent" button
-    #样式
     And I click the "Style" button
     #标题
     And I click the "Title" button
@@ -65,7 +65,7 @@ Feature: 数据大屏-环形占比图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -83,9 +83,10 @@ Feature: 数据大屏-环形占比图
     When I click the "Create" button
     And I set the parameter "Name" with value "环形占比图-静态数据"
     And I click the "Ensure" button
-     # 环形占比图
+    # 环形占比图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Percent"
+    And I wait for "1000" millsecond
+    And I wait for "Percent" will be visible
     And I click the "Percent" button
     And I click the "Style" button
      #数据设置
@@ -118,7 +119,7 @@ Feature: 数据大屏-环形占比图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -144,9 +145,10 @@ Feature: 数据大屏-环形占比图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      # 环形占比图
+        # 环形占比图
     And I click the "Chart" button
-    And I drag the scroll bar to the element "Percent"
+    And I wait for "1000" millsecond
+    And I wait for "Percent" will be visible
     And I click the "Percent" button
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
@@ -178,7 +180,7 @@ Feature: 数据大屏-环形占比图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

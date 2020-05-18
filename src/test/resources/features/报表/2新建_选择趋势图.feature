@@ -5,7 +5,7 @@ Feature: 报表新建_选择
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "NewReportButton" button
     Then I will see the "report.CreatePage" page
-    And I wait for element "SelectedUser" change text to "ctest"
+    And I wait for element "SelectedUser" change text to username
 
   Scenario Outline: new_report_10_trends
     When I set the parameter "Name" with value "test_10trends"
@@ -17,7 +17,7 @@ Feature: 报表新建_选择
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
-#    Then I will see the element "ChosenTrendLast" contains "<chart1>"
+    Then I will see the element "ChosenTrendLast" contains "<chart1>"
     When I choose the "<chart2>" from the "ChartListDropdown"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart2>"

@@ -11,11 +11,12 @@ Feature: 数据大屏-环形柱图
     When I click the "Create" button
     And I set the parameter "Name" with value "环形柱图样式-搜索"
     And I click the "Ensure" button
-     #选择上方的图表
-    And I click the "Chart" button
       #选择环形柱图
+    And I click the "Chart" button
+    And I wait for "1000" millsecond
+    And I wait for "circularCylinderChart" will be visible
     And I click the "circularCylinderChart" button
-    And I hide the element "ChartDropdown"
+    And I click the "Style" button
 # #设置样式
 #   # 1 设置图表尺寸位置
     And I click the "Style" button
@@ -83,7 +84,7 @@ Feature: 数据大屏-环形柱图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -100,12 +101,13 @@ Feature: 数据大屏-环形柱图
     When I click the "Create" button
     And I set the parameter "Name" with value "环形柱图数据之静态数据"
     And I click the "Ensure" button
-    #选择上方的图表
+          #选择环形柱图
     And I click the "Chart" button
-      #选择环形柱图
+    And I wait for "1000" millsecond
+    And I wait for "circularCylinderChart" will be visible
     And I click the "circularCylinderChart" button
-    And I hide the element "ChartDropdown"
     And I click the "Style" button
+
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "884"
     And I set the parameter "Height" with value "680"
@@ -144,7 +146,7 @@ Feature: 数据大屏-环形柱图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:
@@ -170,13 +172,13 @@ Feature: 数据大屏-环形柱图
      And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-      #添加一个环形柱图控件
-    #选择上方的图表
-    And I click the "Chart" button
-      #选择环形柱图
-    And I click the "circularCylinderChart" button
-    And I hide the element "ChartDropdown"
+            #选择环形柱图
+     And I click the "Chart" button
+     And I wait for "1000" millsecond
+     And I wait for "circularCylinderChart" will be visible
+     And I click the "circularCylinderChart" button
      And I click the "Style" button
+
      And I click the "ChartPosition" button
      And I set the parameter "Width" with value "884"
      And I set the parameter "Height" with value "680"
@@ -213,7 +215,7 @@ Feature: 数据大屏-环形柱图
     Then take a screenshot with name "galaxee/<name>"
     #删除
     Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchu1" delete button
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 
     Examples:

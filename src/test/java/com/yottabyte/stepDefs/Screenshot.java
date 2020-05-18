@@ -73,10 +73,11 @@ public class Screenshot {
         String system = System.getProperty("os.name");
         String filePath = null;
         if (system.toLowerCase().contains("linux")) {
-//            filePath = "/var/lib/jenkins/caseScreenshots/";
+//          filePath = "/var/lib/jenkins/caseScreenshots/";
             filePath = "";
         } else if (system.contains("Mac")) {
-            filePath = "target/cucumber-html-reports/embeddings/actual_img/";
+//          filePath = "target/cucumber-html-reports/embeddings/actual_img/";
+            filePath = System.getProperty("user.dir")+"/";
         } else if (system.contains("Windows")) {
             filePath = "";
         }

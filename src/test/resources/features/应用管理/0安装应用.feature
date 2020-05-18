@@ -34,6 +34,7 @@ Feature: 应用安装（RZY-1988）
       | AutoTestAppWithAllResources |
       | AuthApp                     |
 
+  @test
   Scenario Outline: 新建测试app
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "CreateButton" button
@@ -91,6 +92,7 @@ Feature: 应用安装（RZY-1988）
     And I click the "NextButton" button
     Then I will see the message "请勿导入空资源包！"
 
+  @test
   Scenario: 验证不允许重复资源的安装
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for "CreateButton" will be visible
