@@ -8,6 +8,7 @@ import cucumber.api.java.en.Then;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.internal.WrapsDriver;
 
 import javax.imageio.ImageIO;
@@ -56,6 +57,8 @@ public class Screenshot {
         WebDriver webdriver = LoginBeforeAllTests.getWebDriver();
         WrapsDriver driver = (WrapsDriver) webdriver;
 
+        Actions action = new Actions(webdriver);
+        action.moveByOffset(0,0).build().perform();
         File screen = ((TakesScreenshot) driver.getWrappedDriver()).getScreenshotAs(OutputType.FILE);
         BufferedImage img = ImageIO.read(screen);
 
