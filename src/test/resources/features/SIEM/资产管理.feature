@@ -1,3 +1,4 @@
+@siem
 Feature: 新建资产管理
 
   Background:
