@@ -1,12 +1,9 @@
 @dataset
 Feature: 数据集-在定时任务编辑页
 
-  Background:
+  Scenario Outline: 新建数据集父子行为无的定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-
-
-  Scenario Outline: 数据集父子行为无
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为无的数据集
     And I click the "fatherChildNull" button
@@ -26,26 +23,31 @@ Feature: 数据集-在定时任务编辑页
 
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
-    And I click the "timeTaskEnsure" button
+
+    Examples:
+      |spl                         |taskName |describe               | crontab      |
+      |*\| stats count() by appname|父子行为无       |选择了父子行为为无的数据集 |0 */57 * * * ?|
+
+
+  Scenario Outline: 定时任务编辑页面验证数据集（无）
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
         #验证数据集在定时任务中的显示
-    And I click the "schedule" button
-    Then I will see the "timedTask.ListPage" page
-    And I wait for loading invisible
-    When the data name is "{'column':'2','name':'无'}" then i click the "编辑" button
+    When the data name is "{'column':'2','name':'<taskName>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "3000" millsecond
+    And I wait for "5000" millsecond
     And I wait for "dataSet" will be visible
     Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
-      |spl                         |taskName |describe               | crontab      |dataSetResult|
-      |*\| stats count() by appname|父子行为无       |选择了父子行为为无的数据集 |0 */57 * * * ?|(tag:sample*)   |
+     |taskName  |dataSetResult|
+     |父子行为无  |(tag:sample*) |
 
 
+##################################无耻的分割线###############################
 
-
-
-  Scenario Outline: 数据集父子行为汇聚
+  Scenario Outline: 新建数据集父子行为汇聚的定时任务
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为汇聚的数据集
     And I click the "huiJu" button
@@ -59,29 +61,36 @@ Feature: 数据集-在定时任务编辑页
     And I set the parameter "TaskName" with value "<taskName>"
     And I set the parameter "scheduleDescribe" with value "<describe>"
     And I set the parameter "CrontabInput" with value "<crontab>"
+
+    And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
-    And I click the "timeTaskEnsure" button
+
+
+    Examples:
+      |spl                         |taskName|describe               | crontab      |
+      |*\| stats count() by appname|父子行为汇聚     |选择了父子行为为汇聚的数据集|0 */57 * * * ?|
+
+
+
+  Scenario Outline: 定时任务编辑页面验证数据集（汇聚）
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
         #验证数据集在定时任务中的显示
-    And I click the "schedule" button
-    Then I will see the "timedTask.ListPage" page
-    And I wait for loading invisible
-
-    When the data name is "{'column':'2','name':'汇聚'}" then i click the "编辑" button
+    When the data name is "{'column':'2','name':'<taskName>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-
-    And I wait for "3000" millsecond
+    And I wait for "5000" millsecond
     And I wait for "dataSet" will be visible
     Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
-      |spl                         |taskName|describe               | crontab      | dataSetResult|
-      |*\| stats count() by appname|父子行为汇聚     |选择了父子行为为汇聚的数据集|0 */57 * * * ?|(* AND tag:sample* AND (tag:beyond4 OR appname:apache))|
+    |taskName     | dataSetResult|
+    |父子行为汇聚   |(* AND tag:sample* AND (tag:beyond4 OR appname:apache))|
 
-
-
+##################################无耻的分割线###############################
 
   Scenario Outline: 数据集父子行为继承
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为继承的数据集
     And I click the "jiCheng" button
@@ -93,27 +102,28 @@ Feature: 数据集-在定时任务编辑页
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "<taskName>"
-
     And I set the parameter "scheduleDescribe" with value "<describe>"
-
-
     And I set the parameter "CrontabInput" with value "<crontab>"
+
+    And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureCrontab" button
     Then I will see the success message "保存成功"
-    And I click the "timeTaskEnsure" button
+
+    Examples:
+      |spl                         |taskName |describe               | crontab       |
+      |*\| stats count() by appname|父子行为继承      |选择了父子行为为继承的数据集|0 */57 * * * ?|
+
+
+
+  Scenario Outline: 定时任务编辑页面验证数据集（继承）
+    Given open the "timedTask.ListPage" page for uri "/schedule/"
         #验证数据集在定时任务中的显示
-    And I click the "schedule" button
-    Then I will see the "timedTask.ListPage" page
-    And I wait for loading invisible
-
-    When the data name is "{'column':'2','name':'继承'}" then i click the "编辑" button
-
+    When the data name is "{'column':'2','name':'<taskName>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-
-    And I wait for "3000" millsecond
+    And I wait for "5000" millsecond
     And I wait for "dataSet" will be visible
     Then I will see the "dataSet" result will be "<dataSetResult>"
 
     Examples:
-      |spl                         |taskName |describe               | crontab       | dataSetResult|
-      |*\| stats count() by appname|父子行为继承      |选择了父子行为为继承的数据集|0 */57 * * * ?|(* AND tag:sample*)|
+       |taskName  | dataSetResult|
+       |父子行为继承    |(* AND tag:sample*)|
