@@ -84,8 +84,8 @@ Feature: 展示趋势图
       | Regionmap_2545_white                     |
       | Regionmap_Jiangsu_2547                   |
       | Regionmap_China_2546                     |
-#      | Attackmap_China_2543                     |
-#      | Attackmap_World_2542                     |
+      | Attackmap_China_2543                     |
+      | Attackmap_World_2542                     |
       | Regionmap_2545                           |
       | Heatmap_2539                             |
 #  parameters of statistical map displayed not correctly - bug
