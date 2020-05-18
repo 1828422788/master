@@ -75,6 +75,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I set the parameter "OfflineTaskName" with value "AutoApp"
     And I choose the "SavedsearchesApp" from the "AppDropdown"
     And I click the "EnsureCreateSavedSearch" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario: 存为趋势图
@@ -184,6 +185,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:
@@ -198,6 +200,7 @@ Feature: 应用已存搜索（RZY-2125）
     Then I will see the "splSearch.SavedSearchPage" page
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:
