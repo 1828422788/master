@@ -1,9 +1,9 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-双轴折线图
 
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
   Scenario: 双轴折线图-X轴-布局-搜索
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

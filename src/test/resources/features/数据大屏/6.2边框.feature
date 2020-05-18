@@ -1,8 +1,8 @@
 @galaxeeOther @galaxee
 Feature: 数据大屏-边框
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
   Scenario: 边框默认设置样式1
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

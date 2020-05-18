@@ -1,8 +1,8 @@
 @galaxeeChart2
 Feature: 数据大屏-字符云图
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
 
   Scenario: 字符云图样式-搜索

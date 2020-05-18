@@ -1,9 +1,9 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-滚动条形图
 
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
   Scenario: 滚动条形图样式-搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

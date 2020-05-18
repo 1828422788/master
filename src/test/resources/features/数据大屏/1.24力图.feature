@@ -2,9 +2,9 @@
 Feature: 数据大屏-力图
 
 
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
   Scenario: 力图-样式搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -102,6 +102,7 @@ Feature: 数据大屏-力图
 
     And I choose the "apache.clientip" from the "SourceField"
     And I choose the "apache.request_path" from the "TargetField"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "WeightField"
 
     #保存
@@ -149,7 +150,7 @@ Feature: 数据大屏-力图
        #力图
     And I click the "Chart" button
     And I wait for "1000" millsecond
-    And I wait for "Force" will be visible
+#    And I wait for "Force" will be visible
     And I click the "Force" button
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
@@ -169,7 +170,9 @@ Feature: 数据大屏-力图
     And I wait for "3000" millsecond
 
     And I choose the "apache.clientip" from the "SourceField"
+    And I wait for "2000" millsecond
     And I choose the "apache.request_path" from the "TargetField"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "WeightField"
       #保存
     And I click the "Save" button

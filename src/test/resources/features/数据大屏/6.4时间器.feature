@@ -1,8 +1,8 @@
 @galaxeeOther @galaxee
 Feature: 数据大屏-时间器
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
   Scenario: 时间器默认设置
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

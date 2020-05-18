@@ -1,9 +1,9 @@
 @galaxeeChart @galaxee
 Feature: 数据大屏-滚动列表三
 
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
 
   Scenario: 滚动列表3样式-搜索

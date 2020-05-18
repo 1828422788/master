@@ -1,8 +1,8 @@
 @galaxeeMap @galaxee
 Feature: 数据大屏-世界地图
-  Background:
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
+#  Background:
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
 
 
   Scenario: 世界地图-样式搜索
@@ -134,6 +134,7 @@ Feature: 数据大屏-世界地图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "* | stats count() by apache.geo.country"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
