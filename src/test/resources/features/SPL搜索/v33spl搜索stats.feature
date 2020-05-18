@@ -71,7 +71,20 @@ Feature: SPL stats
       | stats_save | tag:\"sample04061424\" \| stats avg(apache.status) by hostname \| save /data/rizhiyi/spldata/apache_latency.csv |
       | start_time_para_day | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| stats count(apache.resp_len) as event_count, max(apache.resp_len) as max_len, avg(apache.resp_len) as avg_status |
       | index_task_search | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts |
-      | tran_with_stats_fromstate_tostate | tag:\"t_with\" \| transaction json.sid with states a, b, c in json.module results by flow \| stats count() by fromstate, tostate |
-      | bug_tran_bucket_stats | index=* tag:\"sample04061424\" \| transaction apache.status maxevents=10 \| bucket apache.status span=100 as ts \| stats avg(apache.status) as base_len, count() as base_count, es(apache.status) by ts |
       | tran_count_apachelen | tag:\"sample04061424\" \| transaction apache.resp_len \| stats count(apache.resp_len) |
       | tran_stats_cmd_limit | tag:\"sample04061424\" \| transaction apache.status, apache.method \| stats count() as cnt |
+      | tran_with_stats_fromstate_tostate | tag:\"t_with\" \| transaction json.sid with states a, b, c in json.module results by flow \| stats count() by fromstate, tostate |
+      | bug_tran_bucket_stats | index=* tag:\"sample04061424\" \| transaction apache.status maxevents=10 \| bucket apache.status span=100 as ts \| stats avg(apache.status) as base_len, count() as base_count, es(apache.status) by ts |
+      | subs3 | logtype:apache AND (tag:sample04061424_display OR tag:\"sample04061424_chart\") AND [[ tag:\"sample04061424\" \| stats count(apache.method) as method_count by apache.method \|  sort by method_count \| limit 1 \| fields apache.method]] \| table apache.x_forward, apache.request_path \| sort by apache.x_forward |
+      | mindex_append_stats | index=* starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| stats count(apache.clientip)  \| append [[ index=* starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_chart\" \| stats count(apache.clientip) ]] |
+      | first_top_resp_len | tag:\"sample04061424\" \| top 50 apache.resp_len by apache.status \| stats first(apache.resp_len) |
+      | last_sort_resp_len | tag:\"sample04061424\" AND apache.resp_len:* \| sort by +apache.status,+apache.resp_len \| table apache.status, apache.resp_len \| stats last(apache.resp_len) |
+      | first_limit_fields | tag:\"sample04061424\"\| limit 10 \| fields apache.resp_len \| stats first(apache.resp_len) |
+      | last_count_field | tag:\"sample04061424\" \| stats count() as count_res by appname,apache.clientip \| fields apache.clientip, count_res  \| stats last(apache.clientip) |
+      | first_sub_inner_ip | [[ tag:\"sample04061424\"\| stats count(apache.clientip) by apache.clientip, apache.method \| limit 2 \| fields apache.clientip apache.method ]] |
+      | first_split | tag:\"sample04061424\" \| eval m_ips=split(apache.clientip, \".\") \| eval m_paths=split(apache.request_path, \"/\") \| table m_ips \| stats first(m_ips) |
+      | last_name_mvappend | tag:\"sample04061424\" \| eval fullName=mvappend(apache.clientip, \"middle value\", apache.method) \| table apache.clientip, apache.method,fullName \| stats last(fullName) |
+      | last_split_ip_mvsort | tag:\"sample04061424\" \| eval m_ips=split(apache.clientip, \".\") \| eval r_mvsort=mvsort(m_ips) \| table r_mvsort \| stats last(r_mvsort) |
+      | first_sub_mvzip | tag:\"sample04061424\" \| eval m_ips=split(apache.clientip, \".\") \| eval m_paths=split(apache.request_path, \"/\") \| eval r_zips = mvzip(m_ips,m_paths) \| eval zips_count = mvcount(r_zips) \| table m_ips, m_paths, r_zips, zips_count \| limit 1 \| stats first(r_zips) |
+      | first_mvrange_base | tag:\"sample04061424\" \| eval base=mvrange(1,6) \| table base \| stats first(base) |
+      | first_resp_len_in_map | tag:\"sample04061424\" \|  map \" tag:\"sample04061424\" \| stats first(apache.resp_len) \" |
