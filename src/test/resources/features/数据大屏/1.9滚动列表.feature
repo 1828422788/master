@@ -165,6 +165,7 @@ Feature: 数据大屏-滚动列表
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button

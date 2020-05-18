@@ -48,6 +48,7 @@ Feature: 数据大屏-旭日图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "count()" from the "DataField"
+    And I wait for "2000" millsecond
     And I choose the "apache.geo.city" from the "DivideField"
 
     And I wait for "Save" will be visible
@@ -101,6 +102,7 @@ Feature: 数据大屏-旭日图
     And I wait for "6000" millsecond
 
     And I choose the "count()" from the "DataField"
+    And I wait for "2000" millsecond
     And I choose the "apache.geo.city" from the "DivideField"
     #保存
     And I wait for "Save" will be visible

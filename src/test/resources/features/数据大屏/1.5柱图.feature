@@ -51,6 +51,7 @@ Feature: 数据大屏-柱图
     And I wait for "6000" millsecond
 
     And I choose the "apache.clientip" from the "Xaxis"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
     #添加分组
     And I click the "AddGroup" button
@@ -176,6 +177,7 @@ Feature: 数据大屏-柱图
     And I wait for "SearchTip" will be invisible
 
     And I choose the "apache.clientip" from the "Xaxis"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -208,6 +210,7 @@ Feature: 数据大屏-柱图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -247,6 +250,7 @@ Feature: 数据大屏-柱图
     And I wait for "3000" millsecond
 
     And I choose the "apache.clientip" from the "Xaxis"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
     #添加Line
     And I click the "AddLine" button
