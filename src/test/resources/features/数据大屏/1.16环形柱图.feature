@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee
+@galaxeeChart2 @galaxee @galaxee1
 Feature: 数据大屏-环形柱图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

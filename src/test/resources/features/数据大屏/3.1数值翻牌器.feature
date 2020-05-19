@@ -1,4 +1,4 @@
-@galaxeeIndex @galaxee
+@galaxeeIndex @galaxee  @galaxee2
 Feature: 数据大屏-数值翻牌器
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
