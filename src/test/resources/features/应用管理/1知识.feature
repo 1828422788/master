@@ -123,6 +123,7 @@ Feature: 应用知识
     And I set the parameter "Tag" with value "AutoTag"
     And I choose the "AutoTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
 
   Scenario: 标签搜索
@@ -163,6 +164,7 @@ Feature: 应用知识
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:
@@ -179,6 +181,7 @@ Feature: 应用知识
     Given the data name is "{'column':'0','name':'<Name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     When I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "删除知识成功"
 
     Examples:

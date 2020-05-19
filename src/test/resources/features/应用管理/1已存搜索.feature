@@ -93,6 +93,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I click the "Trend" button
     And I set the parameter "TaskName" with value "AutoCreateApp"
     And I click the "EnsureCreateTrend" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario: 新建无所属app的已存搜索
@@ -100,6 +101,7 @@ Feature: 应用已存搜索（RZY-2125）
     When I click the "SavedSearch" button
     And I set the parameter "OfflineTaskName" with value "验证无App"
     And I click the "EnsureCreateSavedSearch" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario: 按应用搜索已存搜索
@@ -132,6 +134,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 根据标签搜索

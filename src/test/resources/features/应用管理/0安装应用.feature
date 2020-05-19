@@ -90,6 +90,7 @@ Feature: 应用安装（RZY-1988）
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
     And I click the "NextButton" button
+    And I wait for "Message" will be visible
     Then I will see the message "请勿导入空资源包！"
 
   @test
@@ -118,6 +119,7 @@ Feature: 应用安装（RZY-1988）
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     When I upload a file with name "/src/test/resources/testdata/alertPlugins/hengshuiyinhang_socket.py"
+    And I wait for "ErrorMessage" will be visible
     Then I will see the error message "仅支持 .tar 格式文件"
 
   Scenario: 上传APP包失败（上传内容校验）
@@ -125,6 +127,7 @@ Feature: 应用安装（RZY-1988）
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     When I upload a file with name "/src/test/resources/testdata/resourceGroups/success.tar"
+    And I wait for "ErrorMessage" will be visible
     Then I will see the error message "上传失败: 读取资源包异常！"
 
 

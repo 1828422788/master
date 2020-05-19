@@ -98,6 +98,7 @@ Feature: 应用趋势图
     And I wait for "TrendTitle" will be visible
     And I will see the element "TrendTitle" name is "1<name>"
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -109,6 +110,7 @@ Feature: 应用趋势图
     When the data name is "TrendApp" then i click the "打开" button
     Then I will see the "trend.ListPage" page
     When the data name is "<name>" then i click the "复制" button
+    And I wait for "Message" will be visible
     Then I will see the message "复制成功"
 
     Examples:
@@ -134,6 +136,7 @@ Feature: 应用趋势图
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 按照标签搜索
@@ -178,6 +181,7 @@ Feature: 应用趋势图
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario Outline: 趋势图删除

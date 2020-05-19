@@ -77,6 +77,7 @@ Feature: 应用搜索宏（RZY-2126）
     Then I will see the "searchMacro.CreatePage" page
     When I set the parameter "Name" with value "AutoTestApp"
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario: 编辑搜索宏
@@ -91,6 +92,7 @@ Feature: 应用搜索宏（RZY-2126）
     Then I will see the "searchMacro.CreatePage" page
     When I set the parameter "Name" with value "AutoApp"
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario: 搜索宏标签
@@ -139,6 +141,7 @@ Feature: 应用搜索宏（RZY-2126）
     Then I will see the "searchMacro.CreatePage" page
     When I set the parameter "Name" with value "无app"
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario: 验证应用搜索
@@ -156,6 +159,7 @@ Feature: 应用搜索宏（RZY-2126）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:

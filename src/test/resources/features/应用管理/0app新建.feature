@@ -9,6 +9,7 @@ Feature: 应用新建（RZY-1899）
   Scenario Outline: 新建失败（为空校验）
     When I set the parameter "NameInput" with value "<name>"
     And I click the "CreateButton" button
+    And I wait for "ErrorMessage" will be visible
     Then I will see the error message "<message>"
 
     Examples:
@@ -31,6 +32,7 @@ Feature: 应用新建（RZY-1899）
 
   Scenario: 新建失败（上传logo失败）
     When I upload a file "LogoInput" with name "/src/test/resources/testdata/resourceGroups/testLogo.jpg"
+    And I wait for "ErrorMessage" will be visible
     Then I will see the error message "文件过大"
 
   Scenario: 新建拓扑图资源

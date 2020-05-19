@@ -14,6 +14,7 @@ Feature: 应用角色权限（RZY-2144）
     And I will see the "roles.CreatePage" page
     And I set the parameter "RoleName" with value "AutoTestApp"
     And I click the "CreateButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario: 编辑角色
@@ -23,6 +24,7 @@ Feature: 应用角色权限（RZY-2144）
     And I will see the "roles.CreatePage" page
     And I set the parameter "RoleName" with value "AutoApp"
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 角色复制
@@ -31,6 +33,7 @@ Feature: 应用角色权限（RZY-2144）
     And I will see the element "Title" name is "AuthApp"
     And I will see the "roles.CreatePage" page
     And I click the "Copy" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "复制成功"
 
   Scenario: 角色授权
