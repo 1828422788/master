@@ -76,6 +76,7 @@ Feature: 应用拓扑图（RZY-2142）
     And I set the parameter "TagInput" with value "AutoTest"
     And I choose the "AutoTest" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "TopologyApp"
@@ -89,6 +90,7 @@ Feature: 应用拓扑图（RZY-2142）
     When the data name is "AutoTestApp" then i click the "重命名" button
     Then I set the parameter "NameInput" with value "AutoApp"
     Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "TopologyApp"
@@ -102,6 +104,7 @@ Feature: 应用拓扑图（RZY-2142）
     When I click the "Create" button
     And I set the parameter "NameInput" with value "无标签"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario Outline: 根据标签搜索（RZY-355）
@@ -153,6 +156,7 @@ Feature: 应用拓扑图（RZY-2142）
     And I click the "Create" button
     And I set the parameter "NameInput" with value "无app"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario: 在app外搜索
@@ -170,6 +174,7 @@ Feature: 应用拓扑图（RZY-2142）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:
@@ -184,6 +189,7 @@ Feature: 应用拓扑图（RZY-2142）
     Then I will see the "topology.ListPage" page
     When the data name is "<name>" then i click the "删除" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:

@@ -15,4 +15,5 @@ Feature: 应用本地上传日志（RZY-2148）
     And I set the parameter "Tag" with value "AutoAppTag"
     And I upload a file with name "/src/test/resources/testdata/log/rename.log"
     And I click the "UploadButton" button
+    And I wait for "VerifyText" will be visible
     Then I will see the element "VerifyText" name is "上传完成"

@@ -17,6 +17,7 @@ Feature: 应用索引配置(RZY-2183)
     When I click the "CreateButton" button
     And I set the parameter "Name" with value "AutoApp"
     And I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario: 编辑topic
@@ -27,6 +28,7 @@ Feature: 应用索引配置(RZY-2183)
     When the data name is "AutoApp" then i click the "编辑" button
     And I set the parameter "Describe" with value "app测试"
     And I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 删除topic
@@ -52,6 +54,7 @@ Feature: 应用索引配置(RZY-2183)
     And I set the parameter "SavedTime" with value "2"
     And I set the parameter "DivideTime" with value "1"
     And I click the "CreateButton" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
 
   Scenario: 索引编辑
@@ -65,6 +68,7 @@ Feature: 应用索引配置(RZY-2183)
     Then I will see the "index.CreatePage" page
     And I set the parameter "Desc" with value "app测试"
     And I click the "SavedButton" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
 
   Scenario: 索引禁用
@@ -73,6 +77,7 @@ Feature: 应用索引配置(RZY-2183)
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     And I will see the "index.ListPage" page
     Then the data name is "{'column':'1','name':'auto_app_create'}" then I "close" the switch
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
 
   Scenario: 删除索引
@@ -92,6 +97,7 @@ Feature: 应用索引配置(RZY-2183)
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "AppName" with value "apptest"
     And I click the "CreateButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario: 路由编辑
@@ -101,6 +107,7 @@ Feature: 应用索引配置(RZY-2183)
     Then I will see the "index.MatchRuleCreatePage" page
     And I set the parameter "Desc" with value "apptestcreate"
     And I click the "SavedButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario: 路由删除

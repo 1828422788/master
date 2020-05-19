@@ -82,6 +82,7 @@ Feature: 应用监控模块（RZY-2122）
     And I set the parameter "TriggerInput" with value "10000000"
     And I set the parameter "TriggerLevel" with value "1000000000"
     And I click the "CreateButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario: 编辑监控
@@ -98,6 +99,7 @@ Feature: 应用监控模块（RZY-2122）
     When I set the parameter "AlertName" with value "AutoTestAppAlertChangeName"
     And I set the parameter "TimeInput" with value "30"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario Outline: 复制监控
@@ -143,6 +145,7 @@ Feature: 应用监控模块（RZY-2122）
     And I set the parameter "Tag" with value "AutoTag"
     And I choose the "AutoTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
 
   Scenario: 根据标签搜索
@@ -186,6 +189,7 @@ Feature: 应用监控模块（RZY-2122）
     And I wait for "Loading" will be invisible
     And I choose the "AlertApp" from the "App"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 验证应用搜索
@@ -203,6 +207,7 @@ Feature: 应用监控模块（RZY-2122）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:

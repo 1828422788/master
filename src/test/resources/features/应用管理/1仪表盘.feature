@@ -74,6 +74,7 @@ Feature: 应用仪表盘
     Given I click the "Create" button
     Then I set the parameter "DashBoardName" with value "AutoApp"
     Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
   Scenario Outline: 仪表盘详情页
@@ -101,6 +102,7 @@ Feature: 应用仪表盘
     And I set the parameter "DashBoardName" with value "仪表盘验证App"
     And I choose the "DashboardApp" from the "BelongedApp"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
   Scenario: 在app外新建无应用的仪表盘
@@ -108,6 +110,7 @@ Feature: 应用仪表盘
     And I click the "Create" button
     And I set the parameter "DashBoardName" with value "仪表盘验证无app"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
   Scenario: 在app外按照应用搜索
@@ -141,6 +144,7 @@ Feature: 应用仪表盘
     When the data name is "AutoApp" then i click the "重命名" button
     And I set the parameter "DashBoardName" with value "仪表盘重命名"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "重命名仪表盘成功"
 
   Scenario: 仪表盘标签
@@ -153,6 +157,7 @@ Feature: 应用仪表盘
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
 
 #  Scenario: 仪表盘授权
@@ -218,6 +223,7 @@ Feature: 应用仪表盘
     Then I will see the "dashboard.ListPage" page
     Given the data name is "仪表盘验证App" then i click the "删除" button
     Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
 
   Scenario Outline: 修改app资源范围
@@ -227,6 +233,7 @@ Feature: 应用仪表盘
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:
@@ -242,4 +249,5 @@ Feature: 应用仪表盘
     Then I will see the "dashboard.ListPage" page
     Given the data name is "仪表盘验证无app" then i click the "删除" button
     Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"

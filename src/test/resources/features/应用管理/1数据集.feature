@@ -19,16 +19,13 @@ Feature: 应用数据集
     And I click the "SaveMenuButton" button
     And I choose the "<menuName>" from the "DefaultPage"
     And I click the "CurrentApp" button
-    And I click the "ColorPicker" button
-    And I set the parameter "ColorValue" with value "<color>"
-    And I click the "EnsureColourButton" button
     And I click the "CreateButton" button
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible
 
     Examples:
-      | name       | menuName | url       | color   |
-      | DatasetApp | 数据集      | /dataset/ | #A28C9D |
+      | name       | menuName | url       |
+      | DatasetApp | 数据集      | /dataset/ |
 
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -155,6 +152,7 @@ Feature: 应用数据集
     Then I will see the "dataset.DetailPage" page
     And I click the "Save" button
     Then I will see the "dataset.ListPage" page
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
 
   Scenario: 按照应用搜索
@@ -172,6 +170,7 @@ Feature: 应用数据集
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:

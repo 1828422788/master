@@ -105,6 +105,7 @@ Feature: 应用报表（RZY-2127）
     And I choose the "AutoTestForReport" from the "ChartList"
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "ReportApp"
@@ -116,6 +117,7 @@ Feature: 应用报表（RZY-2127）
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
     When the data name is "{'column':'1','name':'AutoAppReport'}" then I "close" the switch
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "ReportApp"
@@ -133,6 +135,7 @@ Feature: 应用报表（RZY-2127）
     And I set the parameter "Name" with value "AutoAppForReport"
     And I click the "NextButton" button
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 报表标签
@@ -145,6 +148,7 @@ Feature: 应用报表（RZY-2127）
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "LastDropdownList"
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "修改成功"
 
     Examples:
@@ -190,6 +194,7 @@ Feature: 应用报表（RZY-2127）
     And I choose the "AutoTestForReport" from the "ChartList"
     And I wait for "TopoTitle" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario: 验证应用搜索
@@ -207,6 +212,7 @@ Feature: 应用报表（RZY-2127）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:
@@ -233,4 +239,5 @@ Feature: 应用报表（RZY-2127）
     When the data name is "AutoTestForReport" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
