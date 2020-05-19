@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /**
  * 退出登录
  */
@@ -24,7 +27,16 @@ public class LogOut {
             e.printStackTrace();
         }
         webDriver.manage().deleteAllCookies();
-        webDriver.navigate().refresh();
+
+        try {
+            URL url = new URL(webDriver.getCurrentUrl());
+            String loginUrl =String.format("%s://%s:%s/auth/login/",
+                    url.getProtocol(), url.getHost(), url.getPort() > 0 ? url.getPort() : url.getDefaultPort());
+            webDriver.get(loginUrl);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
         String currentUrl = webDriver.getCurrentUrl();
         while (!currentUrl.contains("/auth/login/")) {
             webDriver.manage().deleteAllCookies();

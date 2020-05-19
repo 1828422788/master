@@ -59,6 +59,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='资产类型']/following-sibling::div//div[@class='el-input']/input")
     private WebElement AssetKindValue;
 
+    public WebElement getOsKindValue() {
+        return OsKindValue;
+    }
+
+    @FindBy(xpath = "//span[text()='系统类型']/following-sibling::div//div[@class='el-input']/input")
+    private WebElement OsKindValue;
+
+
     public WebElement getAssetKindValue() {
         return AssetKindValue;
     }
@@ -80,6 +88,15 @@ public class CreatePage extends PageTemplate {
     public WebElement getAssetNameComplete(){
         return getInputElement("资产名称");
     }
+
+    public WebElement getAssetDescription(){
+        return getInputElement("描述");
+    }
+
+    public WebElement getAssetOwner(){
+        return getInputElement("责任人");
+    }
+
 
     public WebElement getIpComplete(){
         return getInputElement("IP地址");
@@ -107,6 +124,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAssetKind(){
         return getDropDownListElement("资产类型");
+    }
+
+    public WebElement getOsKind(){
+        return getDropDownListElement("系统类型");
     }
 
     @FindBy(xpath ="//div[@class='el-message-box__message']/p" )

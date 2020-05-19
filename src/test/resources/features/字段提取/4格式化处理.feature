@@ -94,8 +94,6 @@ Feature: 字段提取格式化处理
     And I choose the "时间戳识别" from the "ParseRule" in config
     And I choose the "timestampstamp" from the "sourceField" in config
     And I set the parameter "TimeFormat" with value "yyyyMMdd HH:mm:ss"
-#    And I choose the "Asia/Shanghai" from the "TimeZone" in config
-#    And I choose the "en" from the "Language" in config
     And I click the "EnsureAddParseRule" button
     Then I wait for "1000" millsecond
     And I wait for "ParseButton" will be visible

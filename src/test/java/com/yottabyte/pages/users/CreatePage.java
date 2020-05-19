@@ -53,6 +53,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-select-selection__rendered")
     private WebElement userGroup;
 
+    @FindBy(className = "ant-form-explain")
+    private WebElement explainMessage;
+
+    public WebElement getEditButton() {
+        return super.getButton("修改信息");
+    }
+
+    public WebElement getExplainMessage() {
+        return explainMessage;
+    }
+
     public WebElement getUserName() {
         return userName;
     }
@@ -88,10 +99,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getOKButton() {
         return OKButton;
-    }
-
-    public WebElement getSuccessMessage() {
-        return super.getErrorMessage();
     }
 
     public WebElement getErrorMessage() {

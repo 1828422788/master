@@ -17,19 +17,17 @@ Feature: 日志展现_普通统计视图
     And I choose the "<chart>" from the "PresentType"
     And I choose the "<value1>" from the "FieldValue"
     And I click the "AddButton" button
-    And I choose the "<value2>" from the "FieldValue"
-    And I click the "AddButton" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
     Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
     Examples:
-      | chart   | value1                | value2               | caseNum            |
-      | 曲线图   | logtype               | apache.clientip      | 807_事件计数_曲线图 |
-      | 面积图   | apache.geo.city       | tag                  | 808_事件计数_面积图 |
-      | 散点图   | apache.x_forward      | apache.geo.latitude  | 810_事件计数_散点图 |
-      | 柱状图   | apache.referer_domain | apache.resp_len      | 809_事件计数_柱状图 |
+      | chart   | value1                | caseNum            |
+      | 曲线图   | logtype               | 807_事件计数_曲线图 |
+      | 面积图   | apache.geo.city       | 808_事件计数_面积图 |
+      | 散点图   | apache.x_forward      | 810_事件计数_散点图 |
+      | 柱状图   | apache.referer_domain | 809_事件计数_柱状图 |
 
 
   Scenario Outline: count_independent(RZY-2718)
@@ -181,40 +179,20 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "ClassifyFieldValue" button
     And I wait for "1000" millsecond
-    And I choose the "<fieldValue>" from the "FieldValue"
-    And I choose the "<charttype>" from the "PresentType"
-    And I choose the "<value1>" from the "TopElement"
+    And I choose the "<fieldValue>" from the "FieldValue" in config
+    And I choose the "<charttype>" from the "PresentType" in config
+    And I choose the "<value1>" from the "TopElement" in config
     And I click the "Generate" button
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
-#    Then I compare source image "expect/普通统计视图/817_字段值分类/<screenName>_<value1>" with target image "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
-
-    When I choose the "<value2>" from the "TopElement"
-    And I click the "Generate" button
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value2>"
-#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value2>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value2>.png"
-
-    When I choose the "<value3>" from the "TopElement"
-    And I click the "Generate" button
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value3>"
-#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value3>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value3>.png"
-
-    When I choose the "<value4>" from the "TopElement"
-    And I click the "Generate" button
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value4>"
-#    Then I compare source image "src/test/resources/expect/日志展现/普通统计视图/817_字段值分类/<screenName>_<value4>.png" with target image "target/cucumber-html-reports/embeddings/actual_img/日志展现/普通统计视图/817_字段值分类/<screenName>_<value4>.png"
 
     Examples:
-      | fieldValue       |  charttype  | value1 | value2 | value3 | value4 | screenName |
-      | apache.clientip  |    饼图      |  5    |   10   |  20    |   50   | 817_饼图    |
-      | apache.clientip  |    条形图    |  5    |   10   |  20    |   50   | 817_条形图    |
+      | fieldValue       |  charttype   | value1 | screenName |
+      | apache.clientip  |    饼图      |  5    | 817_饼图    |
+      | apache.clientip  |    饼图      |  20   | 817_饼图    |
+      | apache.clientip  |    条形图    |  10   | 817_条形图    |
+      | apache.clientip  |    条形图    |  50   | 817_条形图    |
 
 
   Scenario Outline: fieldnumber(RZY-2727)

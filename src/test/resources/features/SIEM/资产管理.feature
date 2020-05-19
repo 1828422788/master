@@ -109,7 +109,8 @@ Feature: 新建资产管理
     When I set the parameter "AssetNameComplete" with value "AutotestCompleteadd2"
 #    When I set the parameter "IpComplete" with value "192.168.1.203"
     And I click the "Save" button
-    And I will see the element "CompletaMessage" name is "修改资产成功，即将返回上一页"
+    And I wait for element "AssetNameComplete" value change text to "AutotestCompleteadd2"
+    Then I will see the element "AssetNameComplete" attribute "value" is "AutotestCompleteadd2" in siem
 
   Scenario Outline: 编辑资产-修改资产类型
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
@@ -118,7 +119,6 @@ Feature: 新建资产管理
     And I choose the "<assetkind>" from the "AssetKind" in config
     And I click the "Save" button
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
-    Then I will see the element value in json "{'Message':'修改资产成功，即将返回上一页'}"
     And I wait for element "AssetKindValue" value change text to "<assetkind>"
     Then I will see the element "AssetKindValue" attribute "value" is "<assetkind>" in siem
 
@@ -140,3 +140,58 @@ Feature: 新建资产管理
       | 堡垒机         |
       | 数据库审计系统     |
       | 其他          |
+
+  Scenario Outline: 编辑资产-修改系统类型
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I will see the url contains "/app/siem/assets/edit"
+    And I wait for loading invisible
+    And I choose the "<oskind>" from the "OsKind" in config
+    And I click the "Save" button
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I wait for element "OsKindValue" value change text to "<oskind>"
+    Then I will see the element "OsKindValue" attribute "value" is "<oskind>" in siem
+
+    Examples:
+      | oskind   |
+      | LINUX         |
+      | 未知         |
+      | LINUX         |
+      | WINDOWS         |
+      | MACOS         |
+
+  Scenario: 编辑资产-修改资产描述
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I will see the url contains "/app/siem/assets/edit"
+    When I set the parameter "AssetDescription" with value "完全创建描述test"
+    And I click the "Save" button
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I wait for element "AssetDescription" value change text to "完全创建描述test"
+    Then I will see the element "AssetDescription" attribute "value" is "完全创建描述test" in siem
+
+  Scenario: 编辑资产-修改资产责任人
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I will see the url contains "/app/siem/assets/edit"
+    When I set the parameter "AssetOwner" with value "sunxc"
+    And I click the "Save" button
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I wait for element "AssetOwner" value change text to "sunxc"
+    Then I will see the element "AssetOwner" attribute "value" is "sunxc" in siem
+
+  Scenario: 编辑资产-勾选资产为重要资产
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I will see the url contains "/app/siem/assets/edit"
+    When I set the parameter "AssetOwner" with value "sunxc"
+    And I click the "Save" button
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I wait for element "AssetOwner" value change text to "sunxc"
+    Then I will see the element "AssetOwner" attribute "value" is "sunxc" in siem
+
+  Scenario: 编辑资产-取消勾选为重要资产
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I will see the url contains "/app/siem/assets/edit"
+    When I set the parameter "AssetOwner" with value "sunxc"
+    And I click the "Save" button
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I wait for element "AssetOwner" value change text to "sunxc"
+    Then I will see the element "AssetOwner" attribute "value" is "sunxc" in siem
+

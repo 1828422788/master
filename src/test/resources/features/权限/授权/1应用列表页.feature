@@ -1,14 +1,6 @@
 @auth
 Feature: 权限-应用列表页
 
-  Scenario: 新建应用所需数据集
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I click the "Create" button
-    And I set the parameter "Name" with value "AutoTestForApp"
-    And I set the parameter "Alias" with value "app"
-    And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
-
   Scenario: 授权可使用应用功能,可新建应用,可使用数据集,数据集操作权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -17,15 +9,11 @@ Feature: 权限-应用列表页
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
   Scenario Outline: 验证可新建应用
-    Given I will see the "PublicNavBarPage" page
-    And I wait for loading invisible
-    And I logout current user
+    Given I logout current user
     And I wait for "2000" millsecond
     And open the "LoginPage" page for uri "/auth/login/"
     When I set the parameter "Username" with value "AutoTest"
@@ -33,6 +21,7 @@ Feature: 权限-应用列表页
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "topology.ListPage" page for uri "/topology/"
+    And I wait for "Create" will be visible
     When I click the "Create" button
     And I set the parameter "NameInput" with value "app权限应用所需资源"
     And I click the "Ensure" button
@@ -68,14 +57,9 @@ Feature: 权限-应用列表页
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集"
+    And I "unchecked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'数据集'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "AutoTestForApp" in auth table
-    And I click the "SaveButton" button
 
   Scenario: 无新建权限
     Given I will see the "PublicNavBarPage" page
@@ -100,19 +84,14 @@ Feature: 权限-应用列表页
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'数据集'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "AutoTestForApp" in auth table
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
+    And I will see the success message "更新成功"
 
   Scenario: 安装应用
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "2000" millsecond
+    When I wait for "2000" millsecond
     And I logout current user
     And I wait for "2000" millsecond
     And open the "LoginPage" page for uri "/auth/login/"
@@ -127,11 +106,6 @@ Feature: 权限-应用列表页
     When I upload a file with name "/target/download-files/EventAppForAuth.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__user_AutoTest__" from the "Role"
-    And I click the "AddDataset" button
-    And I set the parameter "SearchInput" with value "app"
-    And I click the "SearchIcon" button
-    And I click the "ResultAppDataset" button
-    And I click the "Ensure" button
     And I click the "NextButton" button under some element
     And I click the "NextButton" button
     And I wait for "ImportSuccess" will be visible
@@ -166,11 +140,6 @@ Feature: 权限-应用列表页
     When I upload a file with name "/target/download-files/EventAppForAuth.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__user_AutoTest__" from the "Role"
-    And I click the "AddDataset" button
-    And I set the parameter "SearchInput" with value "app"
-    And I click the "SearchIcon" button
-    And I click the "ResultAppDataset" button
-    And I click the "Ensure" button
     And I click the "NextButton" button under some element
     And I click the "NextButton" button
     And I wait for "ImportSuccess" will be visible
@@ -219,11 +188,6 @@ Feature: 权限-应用列表页
     When I upload a file with name "/target/download-files/AutoTestForAuth.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__user_AutoTest__" from the "Role"
-    And I click the "AddDataset" button
-    And I set the parameter "SearchInput" with value "app"
-    And I click the "SearchIcon" button
-    And I click the "ResultDataset" button
-    And I click the "Ensure" button
     And I click the "NextButton" button under some element
     And I click the "NextButton" button
     And I wait for "ImportSuccess" will be visible
@@ -414,9 +378,10 @@ Feature: 权限-应用列表页
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
-    Then I will see the message "导出成功，请等待下载完成"
-    Given open the "app.ListPage" page for uri "/app/list/"
+    And I will see the "app.ListPage" page
+    Then I wait for "CreateButton" will be visible
     And the data name is "<name>" then i click the "查看" button
+    And I will see the "app.DetailPage" page
     And I wait for loading invisible
     Then I will see the input element "Name" value will contains "<name>"
 
@@ -425,8 +390,7 @@ Feature: 权限-应用列表页
       | EventAppForAuth |
 
   Scenario: 验证有效期限生效
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "2000" millsecond
+    Given I wait for "2000" millsecond
     And I logout current user
     And I wait for "2000" millsecond
     And open the "LoginPage" page for uri "/auth/login/"
@@ -477,8 +441,8 @@ Feature: 权限-应用列表页
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
-    Then I will see the message "导出成功，请等待下载完成"
-    Given open the "app.ListPage" page for uri "/app/list/"
+    And I will see the "app.ListPage" page
+    Then I wait for "CreateButton" will be visible
     And the data name is "<name>" then i click the "查看" button
     And I wait for loading invisible
     And I will see the "app.DetailPage" page
@@ -538,8 +502,8 @@ Feature: 权限-应用列表页
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
-    Then I will see the success message "导出成功，请等待下载完成"
-    Given open the "app.ListPage" page for uri "/app/list/"
+    And I will see the "app.ListPage" page
+    Then I wait for "CreateButton" will be visible
     And the data name is "<name>" then i click the "查看" button
     And I will see the "app.DetailPage" page
     And I wait for loading invisible
@@ -590,8 +554,8 @@ Feature: 权限-应用列表页
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
-    Then I will see the message "导出成功，请等待下载完成"
-    Given open the "app.ListPage" page for uri "/app/list/"
+    And I will see the "app.ListPage" page
+    Then I wait for "CreateButton" will be visible
     And the data name is "<name>" then i click the "查看" button
     And I wait for loading invisible
     And I will see the "app.DetailPage" page
@@ -693,17 +657,19 @@ Feature: 权限-应用列表页
     Then I will see the "app.CreatePage" page
     And I set the parameter "DescribeInput" with value "testDescribe"
     And I click the "SaveButton" button
-    Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "更新成功"
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "导出" button
     And I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "ExportButton" button
-    Then I will see the message "导出成功，请等待下载完成"
-    Given open the "app.ListPage" page for uri "/app/list/"
+    And I will see the "app.ListPage" page
+    Then I wait for "CreateButton" will be visible
     And the data name is "<name>" then i click the "查看" button
     And I wait for loading invisible
-    Then I will see the input element "Describe" value will contains "desc"
+    And I will see the "app.DetailPage" page
+    Then I will see the input element "Describe" value will contains "testDescribe"
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
@@ -713,11 +679,3 @@ Feature: 权限-应用列表页
     Examples:
       | name            |
       | EventAppForAuth |
-
-  Scenario: 删除数据集
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for loading invisible
-    When the data name is "AutoTestForApp" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除数据集成功"
