@@ -346,7 +346,10 @@ public class CheckButtonAttribute {
 
     @Then("^I will see the element \"([^\"]*)\" attribute \"([^\"]*)\" is \"([^\"]*)\" in siem$")
     public void iWillSeeTheElementAttributeIsSiem(String elementName, String attribute, String attributeName) {
+
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String actualText = element.getAttribute(attribute);
-        Assert.assertEquals(attributeName, actualText);}
+//        Assert.assertTrue(element.getAttribute(attribute).contains(attributeName));
+        Assert.assertEquals(attributeName, actualText);
+    }
 }

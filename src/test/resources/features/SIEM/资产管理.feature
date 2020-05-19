@@ -116,27 +116,27 @@ Feature: 新建资产管理
     And I will see the url contains "/app/siem/assets/edit"
     And I wait for loading invisible
     And I choose the "<assetkind>" from the "AssetKind" in config
-#    When I set the parameter "IpComplete" with value "192.168.1.203"
     And I click the "Save" button
-    And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
-#    Then I will see the element "AssetKindValue" attribute "value" is "<assetkind>"
+    Then I will see the element value in json "{'Message':'修改资产成功，即将返回上一页'}"
+    And I wait for element "AssetKindValue" value change text to "<assetkind>"
+    Then I will see the element "AssetKindValue" attribute "value" is "<assetkind>" in siem
 
     Examples:
-      | assetkind |
-      | 服务器       |
-      | 交换机       |
-      | 路由器       |
-      | 防火墙       |
-      | 路由器       |
-      | VPN       |
-      | Web防火墙       |
-      | 入侵防御系统(IPS)       |
-      | 入侵检测系统(IDS)       |
-      | 网络准入系统       |
+      | assetkind   |
+      | 服务器         |
+      | 交换机         |
+      | 路由器         |
+      | 防火墙         |
+      | 路由器         |
+      | VPN         |
+      | Web防火墙      |
+      | 入侵防御系统(IPS) |
+      | 入侵检测系统(IDS) |
+      | 网络准入系统      |
       | 防病毒网关       |
-      | 流量检测设备       |
-      | 数据防泄密系统       |
-      | 堡垒机       |
-      | 数据库审计系统       |
-      | 其他       |
+      | 流量检测设备      |
+      | 数据防泄密系统     |
+      | 堡垒机         |
+      | 数据库审计系统     |
+      | 其他          |
