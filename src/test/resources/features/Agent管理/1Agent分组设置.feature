@@ -1,4 +1,4 @@
-@agent_group @agent
+@agent_group @agent2
 Feature: Agent分组设置
 
   Background:
