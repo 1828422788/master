@@ -1,4 +1,4 @@
-@galaxeeChart @galaxee
+@galaxeeChart1 @galaxee
 Feature: 数据大屏-柱图
 
 #  Background:
