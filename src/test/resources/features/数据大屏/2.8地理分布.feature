@@ -1,4 +1,4 @@
-@galaxeeMap @galaxee
+@galaxeeMap @galaxee  @galaxee2
 Feature: 数据大屏-地理分布
 
 #  Background:
