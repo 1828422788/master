@@ -68,6 +68,7 @@ Feature: 数据大屏-滚动柱形图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
+    And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
      #保存
     And I wait for "Save" will be visible
@@ -121,6 +122,7 @@ Feature: 数据大屏-滚动柱形图
     And I wait for "6000" millsecond
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
+    And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
     And I wait for "3000" millsecond
     #保存
@@ -158,6 +160,7 @@ Feature: 数据大屏-滚动柱形图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button

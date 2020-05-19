@@ -68,6 +68,7 @@ Feature: 数据大屏-综合列表
 
 
     And I choose the "hostname" from the "scrollBarSearchName"
+    And I wait for "2000" millsecond
     And I choose the "spk" from the "ScrollBarSearchNumber"
      #保存
     And I wait for "Save" will be visible
@@ -121,6 +122,7 @@ Feature: 数据大屏-综合列表
     And I wait for "6000" millsecond
 
     And I choose the "hostname" from the "scrollBarSearchName"
+    And I wait for "2000" millsecond
     And I choose the "spk" from the "ScrollBarSearchNumber"
     And I wait for "3000" millsecond
     #保存
@@ -157,6 +159,7 @@ Feature: 数据大屏-综合列表
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "* | stats sparkline(count(), 1m) as spk by hostname"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -189,6 +192,7 @@ Feature: 数据大屏-综合列表
     And I wait for "3000" millsecond
 
     And I choose the "hostname" from the "scrollBarSearchName"
+    And I wait for "2000" millsecond
     And I choose the "spk" from the "ScrollBarSearchNumber"
     And I wait for "3000" millsecond
       #保存

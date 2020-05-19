@@ -141,6 +141,7 @@ Feature: 应用字段提取（RZY-2129）
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "修改成功"
 
   Scenario: 按照标签搜索
@@ -170,6 +171,7 @@ Feature: 应用字段提取（RZY-2129）
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<name>"
     And I click the "EnsureUpload" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建字典成功"
 
     Examples:
@@ -192,6 +194,7 @@ Feature: 应用字段提取（RZY-2129）
     Then I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "Group"
     Then I click the "EnsureButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "修改成功"
 
   Scenario: 根据标签搜索字典
@@ -250,6 +253,7 @@ Feature: 应用字段提取（RZY-2129）
     Then I will see the "dictionary.CreatePage" page
     And I click the "DeleteApp" button
     Then I click the "SaveButton" button
+    And I wait for "Message" will be visible
     Then I will see the message "更新字典内容成功"
 
   Scenario: 根据app搜索应用
@@ -317,6 +321,7 @@ Feature: 应用字段提取（RZY-2129）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:
@@ -352,6 +357,7 @@ Feature: 应用字段提取（RZY-2129）
     Then I will see the "configs.ListPage" page
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:

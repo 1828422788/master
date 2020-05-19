@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * @author jnd
+ * @author jiangnd
  */
 public class ListPage extends PageTemplate {
     public ListPage(WebDriver driver) {

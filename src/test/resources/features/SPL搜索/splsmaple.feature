@@ -14,7 +14,7 @@ Feature: 验证SPL搜索
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "2000" millsecond
 #   Then I will see the number of log is "<eventsum>" when search "<splQuery>"
-    And I wait for element "splStatsNum" change text to "<eventsum>"
+    And I wait for element "splStatsRetNum" change text to "<eventsum>"
 
     Examples:
       | eventsum | splQuery|
@@ -30,8 +30,8 @@ Feature: 验证SPL搜索
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "2000" millsecond
 #   Then I will see the number of log is "<eventsum>" when search "<splQuery>"
-    And I wait for element "splStatsNum" change text to "<splStatsNum>"
-    And I wait for element "splEventNum" change text to "<splEventNum>"
+    And I wait for element "splStatsRetNum" change text to "<splStatsNum>"
+    And I wait for element "splEventRetNum" change text to "<splEventNum>"
 
     Examples:
       | splEventNum | splStatsNum | splQuery|

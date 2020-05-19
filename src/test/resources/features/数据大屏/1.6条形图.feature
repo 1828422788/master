@@ -56,6 +56,7 @@ Feature: 数据大屏-条形图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "count()" from the "DataField"
+    And I wait for "2000" millsecond
     And I choose the "apache.clientip" from the "DivideField"
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -111,6 +112,7 @@ Feature: 数据大屏-条形图
     And I wait for "6000" millsecond
 
     And I choose the "count()" from the "DataField"
+    And I wait for "2000" millsecond
     And I choose the "apache.clientip" from the "DivideField"
 
     And I wait for "3000" millsecond
@@ -149,6 +151,7 @@ Feature: 数据大屏-条形图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I wait for "2000" millsecond
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -184,6 +187,7 @@ Feature: 数据大屏-条形图
     And I wait for "3000" millsecond
 
     And I choose the "count()" from the "DataField"
+    And I wait for "2000" millsecond
     And I choose the "apache.clientip" from the "DivideField"
     #切分字段
     And I click the "Add" button

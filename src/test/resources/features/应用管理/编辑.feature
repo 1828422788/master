@@ -23,6 +23,7 @@ Feature: 应用编辑
     And I wait for "SaveMenuButton" will be invisible
     And I choose the "知识" from the "DefaultPage"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 跳转外部链接

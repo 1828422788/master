@@ -67,6 +67,7 @@ Feature: 数据大屏-弧形柱图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.clientip" from the "RadialAxis"
+    And I wait for "2000" will be visible
     And I choose the "count()" from the "AngleAxis"
 
     And I wait for "Save" will be visible
@@ -126,6 +127,7 @@ Feature: 数据大屏-弧形柱图
     And I wait for "6000" millsecond
 
     And I choose the "apache.clientip" from the "RadialAxis"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "AngleAxis"
     #保存
     And I wait for "Save" will be visible
@@ -198,6 +200,7 @@ Feature: 数据大屏-弧形柱图
     And I wait for "3000" millsecond
 
     And I choose the "apache.clientip" from the "RadialAxis"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "AngleAxis"
     #添加分组
     And I click the "AddGroup" button

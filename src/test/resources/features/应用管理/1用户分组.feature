@@ -16,6 +16,7 @@ Feature: 应用用户分组（RZY-2146）
     Then I will see the "userGroups.CreatePage" page
     When I set the parameter "UserGroupName" with value "AutoAppRole"
     And I click the "CreateButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
   Scenario: 编辑用户分组
@@ -26,6 +27,7 @@ Feature: 应用用户分组（RZY-2146）
     And I wait for loading invisible
     When I set the parameter "UserGroupName" with value "AutoAppRoleName"
     And I click the "BasicSaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 搜索用户分组
