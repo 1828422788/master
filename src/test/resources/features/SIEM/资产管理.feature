@@ -34,7 +34,7 @@ Feature: 新建资产管理
     When I set the parameter "AssetName" with value "AutotestQuickadd"
     When I set the parameter "IpName" with value "192.168.1.200"
     And I click the "Save" button
-    Then I will see the element value in json "{'Message':'{0} host already exists, [192.168.1.200]'}"
+    Then I will see the element value in json "{'Message':'host already exists, [192.168.1.200]'}"
 
   Scenario: 快速创建多个资产成功
     And I click the "AddAsset" button
@@ -115,7 +115,7 @@ Feature: 新建资产管理
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
     And I will see the url contains "/app/siem/assets/edit"
     And I wait for loading invisible
-    And I choose the "<assetkind>" from the "AssetKind"
+    And I choose the "<assetkind>" from the "AssetKind" in config
 #    When I set the parameter "IpComplete" with value "192.168.1.203"
     And I click the "Save" button
     And I wait for loading invisible

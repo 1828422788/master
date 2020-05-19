@@ -74,7 +74,7 @@ public class CreatePage extends PageTemplate {
         return Message;
     }
 
-    @FindBy(xpath = "//div[@class='el-notification']")
+    @FindBy(xpath = "//div[@class='el-notification__content']")
     private WebElement Message;
 
     public WebElement getAssetNameComplete(){
