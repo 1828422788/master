@@ -86,8 +86,6 @@ Feature: Agent添加数据源
     And I click the "Ensure" button
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
-
-
   Scenario Outline: Agent添加数据源-脚本采集
     And I wait for loading invisible
     And I click the "Create" button
@@ -115,9 +113,6 @@ Feature: Agent添加数据源
     Given the data name "/sbin/service" in table "ScriptTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
-#    Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
-
-
 
     Examples:
       | charsetKind |
