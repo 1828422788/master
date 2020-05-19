@@ -18,7 +18,9 @@ Feature: 数据大屏-区间图
     And I wait for "Range" will be visible
     And I click the "Range" button
     #数据
+    And I click the "Style" button
     And I click the "Data" button
+    And I wait for "1000" millsecond
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button

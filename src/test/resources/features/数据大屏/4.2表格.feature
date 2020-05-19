@@ -81,12 +81,12 @@ Feature: 数据大屏-表格
     And I set the parameter "RowNumber" with value "4"
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample* | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count"
+    And I set the parameter "SplInput" with value "tag:sample04061424 AND apache.x_forward:*1 | stats count() by apache.status,apache.clientip"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
-    And I choose the "apache.clientip,ip_count" from the "DataItem"
+    And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
     And I wait for "Save" will be visible
     And I click the "Save" button
     And I will see the success message "保存成功"
@@ -132,12 +132,12 @@ Scenario: 表格设置-列配置
   And I set the parameter "ChartYaxis" with value "100"
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() by appname, tag"
+  And I set the parameter "SplInput" with value "tag:sample04061424 AND apache.x_forward:*1 | stats count() by apache.status,apache.clientip"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
-    And I choose the "appname,count(),tag" from the "DataItem"
+  And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
 #    列配置
     And I click the "Style" button
     And I click the "ColumnConfig" button
@@ -188,12 +188,12 @@ Scenario: 表格设置-列配置
     And I click the "Style" button
         #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() by appname, tag"
+    And I set the parameter "SplInput" with value "tag:sample04061424 AND apache.x_forward:*1 | stats count() by apache.status,apache.clientip"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
-    And I choose the "appname,count(),tag" from the "DataItem"
+    And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
       #选择静态数据
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
@@ -240,7 +240,7 @@ Scenario: 表格设置-列配置
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "* | stats count() by appname, tag"
+    And I set the parameter "SplInput" with value "tag:sample04061424 AND apache.x_forward:*1 | stats count() by apache.status,apache.clientip"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -267,7 +267,7 @@ Scenario: 表格设置-列配置
     And I click the "pictureOne" button
     And I click the "Data" button
     And I wait for "2000" millsecond
-    And I choose the "appname,count(),tag" from the "DataItem"
+    And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
