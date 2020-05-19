@@ -5,26 +5,78 @@ Feature: 字段提取列表页
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
 
-  Scenario: 按名称过滤
-    When I set the parameter "SearchInput" with value "脱敏"
+  Scenario Outline: 按名称过滤
+    And I click the "Create" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
+    And I click the "AddRule" button
+    Then I wait for "500" millsecond
+    And I choose the "JSON解析" from the "ParseRule" in config
+    Then I wait for "500" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
+    Then I wait for "500" millsecond
+    And I click the "NextButton" button under some element
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Logtype" with value "other"
+    And I set the parameter "AppName" with value "<appName>"
+    And I set the parameter "Tag" with value "<appName>"
+    And I click the "Done" button
+    Then I wait for "ConfigDone" will be visible
+    Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
-    Then I will see the search result "{'column':'1','name':'脱敏'}"
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'1','name':'<name>'}"
+    Examples:
+      | name     | appName   |
+      | wym按名称过滤 | filtByName |
 
 
-  Scenario: 选择标签并按照标签过滤
-    When the data name is "{'column':'1','name':'RZY3417多值字段'}" then i click the "标签" button
+  Scenario Outline: 选择标签并按照标签过滤
+    And I click the "Create" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
+    And I click the "AddRule" button
+    Then I wait for "500" millsecond
+    And I choose the "JSON解析" from the "ParseRule" in config
+    Then I wait for "500" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    And I click the "EnsureAddParseRule" button
+    And I wait for "ParseButton" will be visible
+    Then I wait for "500" millsecond
+    And I click the "NextButton" button under some element
+    When I set the parameter "Name" with value "<name>"
+    And I set the parameter "Logtype" with value "other"
+    And I set the parameter "AppName" with value "<appName>"
+    And I set the parameter "Tag" with value "<appName>"
+    And I click the "Done" button
+    Then I wait for "ConfigDone" will be visible
+    Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for loading invisible
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'1','name':'<name>'}"
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I choose the "wymtest1" from the "TagGroup" in config
     And I click the "Ensure" button
     Then I wait for loading invisible
+    Then I refresh the website
+    And I wait for loading invisible
     And I choose the "wymtest1" from the "ResourceDropdown" in config
     And I wait for loading invisible
-    Then I will see the search result contains "{'column':'1','name':'RZY3417多值字段'}"
-    When the data name is "{'column':'1','name':'RZY3417多值字段'}" then i click the "标签" button
+    Then I will see the search result contains "{'column':'1','name':'<name>'}"
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I cancel selection "wymtest1" from the "TagGroup" in config
     And I click the "Ensure" button
     Then I wait for loading invisible
     And I will see the "SearchResultIsEmpty" result will be "暂无数据"
 
+
+    Examples:
+      | name     | appName   |
+      | wym按标签过滤 | filtByTag |
 
   Scenario: 验证运行统计是否自动关闭
     Then I will see the "SwitchButton" equals "ant-switch-small ant-switch"

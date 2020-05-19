@@ -11,6 +11,8 @@ Feature: 字段提取删除
 
     Examples:
       | name                        |
+      | wym按标签过滤                    |
+      | wym按名称过滤                    |
       | RZY2868redirect主规则          |
       | RZY2867redirect副规则          |
       | RZY2865支持通配符                |
