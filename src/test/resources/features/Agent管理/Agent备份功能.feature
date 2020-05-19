@@ -1,4 +1,4 @@
-@agent_backup @agent
+@agent_backup @agent2
 Feature: Agent备份功能
 
   Background:

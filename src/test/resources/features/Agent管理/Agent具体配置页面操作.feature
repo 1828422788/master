@@ -1,4 +1,4 @@
-@agent @agent_senior
+@agent2 @agent_senior
 Feature: Agent具体配置高级配置及清理缓存操作
 
   Background:
