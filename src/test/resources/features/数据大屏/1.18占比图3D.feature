@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee
+@galaxeeChart2 @galaxee @galaxee1
 Feature: 数据大屏-占比图3D
 
 #  Background:
