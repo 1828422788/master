@@ -1,4 +1,4 @@
-@galaxeeChart @galaxee
+@galaxeeChart2 @galaxee
 Feature: 数据大屏-环形占比图
 
 #  Background:
