@@ -14,8 +14,7 @@ Feature: Agent备份功能
   Scenario: Agent备份，添加备份页面的修改&重启Agent高级配置
     And I click the "Senior" button
     And I click the "ChangeConfiguration" button
-    And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "提交修改 Agent 配置成功，正在尝试重启。"
+#    Then I will see the element "ChangeMemo" name is "提交修改 Agent 配置成功，正在尝试重启。"
 
   Scenario: Agent备份，添加备份页面的下载Agent高级配置
     And I click the "Senior" button
@@ -68,7 +67,6 @@ Feature: Agent备份功能
     And I set the parameter "ServerAddress" with value "192.168.1.2:10001"
     And I set the parameter "TimeOut" with value "30"
     And I click the "Save" button
-    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "保存成功"
 
 
