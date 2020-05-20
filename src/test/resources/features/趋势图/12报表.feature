@@ -28,8 +28,9 @@ Feature: 趋势图新建_报表
 
     And switch to window "编辑报表"
     And I close all tabs except main tab
-    And I wait for loading invisible
     Then I will see the "report.CreatePage" page
+    And I wait for "3000" millsecond
+    And I wait for element "SelectedUser" change text to username
     And I wait for "3000" millsecond
     When I set the parameter "Name" with value "<report_name>"
     And I set the parameter "Describe" with value "AutoCreate"
