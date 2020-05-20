@@ -33,14 +33,40 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-select-dropdown")
     private List<WebElement> selectors;
 
-    @FindBy(xpath = "//*[@class='el-message-box__btns']//span[contains(text(),'确定')]")
-    private WebElement OKButton;
-
     @FindBy(className = "el-input__icon")
     private WebElement dropdownIcon;
 
     @FindBy(className = "el-scrollbar__view")
     private WebElement dropdownList;
+
+    @FindBy(className = "ant-form-explain")
+    private WebElement explainMessage;
+
+    @FindBy(xpath = "(//span[text()='保存']/ancestor::button)[last()]")
+    private WebElement saveMember;
+
+    @FindBy(partialLinkText = "添加管理员")
+    private WebElement addAdmin;
+
+    public WebElement getMessage() {
+        return super.getSuccessMessage();
+    }
+
+    public WebElement getEnsure() {
+        return super.getButton("确定");
+    }
+
+    public WebElement getAddAdmin() {
+        return addAdmin;
+    }
+
+    public WebElement getSaveMember() {
+        return saveMember;
+    }
+
+    public WebElement getExplainMessage() {
+        return explainMessage;
+    }
 
     public WebElement getUserGroupName() {
         return userGroupName;
@@ -69,10 +95,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getErrorMessage() {
         return super.getMessage();
-    }
-
-    public WebElement getOKButton() {
-        return OKButton;
     }
 
     private List<WebElement> getSelectorElements(WebElement e) {
