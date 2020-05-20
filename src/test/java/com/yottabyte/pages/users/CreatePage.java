@@ -101,6 +101,10 @@ public class CreatePage extends PageTemplate {
         return OKButton;
     }
 
+    public WebElement getSuccessMessage() {
+        return super.getErrorMessage();
+    }
+
     public WebElement getErrorMessage() {
         return message;
     }
