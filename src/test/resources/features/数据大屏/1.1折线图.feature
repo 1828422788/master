@@ -199,6 +199,7 @@ Feature: 数据大屏-折线图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
+    And  I wait for "Create" will be visible
     When I click the "Create" button
     And I set the parameter "Name" with value "折线图-绑定搜索"
     And I click the "Ensure" button
