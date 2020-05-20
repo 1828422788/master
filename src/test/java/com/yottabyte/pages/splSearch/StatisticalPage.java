@@ -92,6 +92,9 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-time-picker-panel-inner']/ancestor::div[1]")
     private WebElement timePanel;
 
+    @FindBy(className = "_1_m_DyhFaFqqMWBfXY4Evv")
+    private WebElement hideElement;
+
 // 数值分段
 
     @FindBy(xpath = "//span[text()='数值分段']")
@@ -407,6 +410,10 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getTimePanel() {
         return timePanel;
+    }
+
+    public WebElement getHideElement() {
+        return hideElement;
     }
 
     public WebElement getAddNum() {
