@@ -15,7 +15,7 @@ Feature: 字段提取数值型字段转换
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -26,7 +26,7 @@ Feature: 字段提取数值型字段转换
     And I click the "<radio>" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
@@ -47,7 +47,7 @@ Feature: 字段提取数值型字段转换
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -58,7 +58,7 @@ Feature: 字段提取数值型字段转换
     And I click the "<radio>" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "FailedMessage" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
@@ -78,7 +78,7 @@ Feature: 字段提取数值型字段转换
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -89,7 +89,7 @@ Feature: 字段提取数值型字段转换
     And I click the "IntRadio" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
@@ -133,7 +133,7 @@ Feature: 字段提取数值型字段转换
     And I set the parameter "Regex" with value "<regex>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -144,7 +144,7 @@ Feature: 字段提取数值型字段转换
     And I click the "IntRadio" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "500" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"

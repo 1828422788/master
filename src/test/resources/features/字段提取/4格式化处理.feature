@@ -14,6 +14,7 @@ Feature: 字段提取格式化处理
     And I set the parameter "Regex" with value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -23,6 +24,7 @@ Feature: 字段提取格式化处理
     And I set the parameter "Regex" with value "/var/log/(?<date>\d{8})/website"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
@@ -33,7 +35,7 @@ Feature: 字段提取格式化处理
     And I set the parameter "TargetField" with value "timestamp"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
@@ -42,7 +44,7 @@ Feature: 字段提取格式化处理
     And I choose the "date" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess4" will be visible
     And I wait for "2000" millsecond
@@ -66,6 +68,7 @@ Feature: 字段提取格式化处理
     And I set the parameter "Regex" with value "(?<clientip>\S+) - - \[\d+/\w+/\d+:(?<time>\S+) \+0800\](?<msg>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -75,7 +78,7 @@ Feature: 字段提取格式化处理
     And I set the parameter "Regex" with value "/var/log/(?<date>\d{8})/website"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
@@ -86,7 +89,7 @@ Feature: 字段提取格式化处理
     And I set the parameter "TargetField" with value "timestampstamp"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result2>'}"
@@ -95,8 +98,8 @@ Feature: 字段提取格式化处理
     And I choose the "timestampstamp" from the "sourceField" in config
     And I set the parameter "TimeFormat" with value "yyyyMMdd HH:mm:ss"
     And I click the "EnsureAddParseRule" button
-    Then I wait for "1000" millsecond
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess4" will be visible
     Then I will see the element value in json "{'Result':'<result3>'}"

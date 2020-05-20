@@ -12,6 +12,7 @@ Feature: 字段提取正则解析
     And I set the parameter "Regex" with value "%{ApcClientIP} %{ApcIdent} %{ApcUser} %{ApcTimestamp} %{ApcRequest} %{ApcStatus} %{ApcRespLen} %{ApcReferer} %{ApcUa}"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -31,6 +32,7 @@ Feature: 字段提取正则解析
     And I set the parameter "Regex" with value "%{ApacheAccess1Fast}"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"

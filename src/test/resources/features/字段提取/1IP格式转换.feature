@@ -16,7 +16,7 @@ Feature: 字段提取IP格式转换
     And I set the parameter "Regex" with value "(?<ip>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -25,7 +25,7 @@ Feature: 字段提取IP格式转换
     And I choose the "ip" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
@@ -71,7 +71,7 @@ Feature: 字段提取IP格式转换
     And I set the parameter "Regex" with value "(?<ip>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -80,7 +80,7 @@ Feature: 字段提取IP格式转换
     And I choose the "ip" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
