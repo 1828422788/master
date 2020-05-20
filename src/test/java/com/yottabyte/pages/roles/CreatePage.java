@@ -29,14 +29,18 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "RoleUpdate_name")
     private WebElement roleName;
 
-//    @FindBy(className = "el-message-box__message")
-//    private WebElement message;
-
     @FindBy(xpath = "//*[@class='el-message-box__btns']//span[contains(text(),'确定')]")
     private WebElement OKButton;
 
     @FindBy(id = "RoleUpdate_memo")
     private WebElement roleDes;
+
+    @FindBy(className = "ant-form-explain")
+    private WebElement explainMessage;
+
+    public WebElement getExplainMessage() {
+        return explainMessage;
+    }
 
     public WebElement getRoleName() {
         return roleName;
