@@ -21,12 +21,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "el-loading-mask")
     private WebElement loadingElement;
 
-    @FindBys({
-            @FindBy(className = "yw-table-group__basic"),
-            @FindBy(className = "el-input__inner")
-    })
-    private WebElement searchInput;
-
     @FindBy(className = "el-table__body")
     private WebElement searchResultTable;
 
@@ -45,9 +39,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//div[@class='yw-nav-popover-items'])[10]")
     private WebElement source;
 
-    @FindBy(className = "el-icon-search")
-    private WebElement searchIcon;
-
     public WebElement getLoadingElement() {
         return loadingElement;
     }
@@ -58,10 +49,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getEnsureButton() {
         return super.getContainsTextButton("确定");
-    }
-
-    public WebElement getSearchInput() {
-        return searchInput;
     }
 
     public WebElement getSearchResultTable() {
@@ -91,9 +78,5 @@ public class ListPage extends ListPageFactory {
     private WebElement getTableRowButtons(int row) {
         WebElement table = searchResultTable;
         return table.findElements(By.className("el-table_1_column_3")).get(row - 1);
-    }
-
-    public WebElement getSearchIcon() {
-        return searchIcon;
     }
 }

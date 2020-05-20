@@ -116,7 +116,7 @@ Feature: 数据大屏-水平胶囊
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I wait for "6000" millsecond
+    And I click the "tips" button
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond

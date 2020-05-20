@@ -8,9 +8,10 @@ Feature: 角色复制
     Given the data name is "<property>" then i click the "复制" button
     And I will see the "roles.CreatePage" page
     And I set the parameter "RoleName" with value "<newName>"
-    When I click the "CreateButton" button
-    Then I will see the success message "创建成功"
+    When I click the "Copy" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "复制成功"
 
     Examples:
-      | property | newName      |
-      | RoleTest | AutoTestCopy |
+      | property     | newName      |
+      | AutoTestEdit | AutoTestCopy |

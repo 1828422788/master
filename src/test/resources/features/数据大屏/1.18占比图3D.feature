@@ -119,7 +119,8 @@ Feature: 数据大屏-占比图3D
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I wait for "6000" millsecond
+    And I click the "tips" button
+
     And I choose the "p" from the "percent3dDataSearchCategory"
      #值范围使其处于异常范围
     #正常

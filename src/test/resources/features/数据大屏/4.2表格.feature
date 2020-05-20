@@ -111,67 +111,6 @@ Feature: 数据大屏-表格
       | name |
       | 表格   |
 
-Scenario: 表格设置-列配置
-  Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-  When I click the "Create" button
-  Then I will see the "galaxee.CreatePage" page
-  And I click the "Create" button
-  And I set the parameter "Name" with value "表格列配置"
-  And I click the "Ensure" button
-    #选择表格控件
-  And I click the "Word" button
-  And I click the "Table" button
-  And I hide the element "wordDropdown"
-    #样式
-  And I click the "Style" button
-  And I wait for "ChartPosition" will be visible
-  And I click the "ChartPosition" button
-  And I set the parameter "Width" with value "551"
-  And I set the parameter "Height" with value "500"
-  And I set the parameter "ChartXaxis" with value "100"
-  And I set the parameter "ChartYaxis" with value "100"
-    #数据
-    And I click the "Data" button
-  And I set the parameter "SplInput" with value "tag:sample04061424 AND apache.x_forward:*1 | stats count() by apache.status,apache.clientip"
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-  And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
-#    列配置
-    And I click the "Style" button
-    And I click the "ColumnConfig" button
-    And I set the parameter "FieldWidth1" with value "40"
-    And I click the "Count" button
-    And I choose the "梯度" from the "CountColor"
-    And I click the "CountColorSetting" button
-    And I click the "Color1" button
-    And I click the "OrderNum" button
-    And I set the parameter "NumberWidth" with value "1"
-    And I choose the "旗标" from the "NumberStyle"
-    And I click the "Save" button
-  And I will see the success message "保存成功"
-
-  Scenario Outline: 表格列配置发布页截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      | name |
-      | 表格列配置   |
-
-
 ######################################无耻的分割线################################
 
   Scenario: 表格数据之静态数据
@@ -198,7 +137,8 @@ Scenario: 表格设置-列配置
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I wait for "6000" millsecond
+    And I click the "tips" button
+
     And I choose the "appname,count(),tag" from the "DataItem"
       #保存
     And I wait for "Save" will be visible

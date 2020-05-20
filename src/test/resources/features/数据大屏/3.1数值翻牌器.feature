@@ -48,7 +48,7 @@ Feature: 数据大屏-数值翻牌器
     And I set the parameter "ChartYaxis" with value "350"
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.clientip,apache.method,apache.resp_len"
+    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.resp_len"
     And I click the "DataSearch" button
     And I wait for "SearchTip" will be invisible
 
@@ -75,7 +75,7 @@ Feature: 数据大屏-数值翻牌器
       |数值翻牌器-样式搜索 |
 
 #############################无耻的分割线################################
-
+@ceshi
   Scenario: 数值翻牌器-静态数据
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -93,7 +93,7 @@ Feature: 数据大屏-数值翻牌器
     And I choose the "HENB" from the "FlipWord"
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.clientip,apache.method,apache.resp_len"
+    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.resp_len"
     And I click the "DataSearch" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -101,13 +101,13 @@ Feature: 数据大屏-数值翻牌器
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I wait for "6000" millsecond
+    And I click the "tips" button
 
     And I choose the "count()" from the "Type"
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-      Then I will see the success message "保存成功"
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 数值翻牌器-静态数据发布并截图
@@ -140,7 +140,7 @@ Feature: 数据大屏-数值翻牌器
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.clientip,apache.method,apache.resp_len"
+    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.resp_len"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"

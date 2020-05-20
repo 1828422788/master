@@ -105,7 +105,8 @@ Feature: 数据大屏-揭示牌
       And I click the "dataSourceType" button
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I wait for "1000" millsecond
+      And I click the "tips" button
+
       And I choose the "num" from the "tipsCardNumber"
       #设置阈值以及显示值
       And I set the parameter "thresholdOne" with value "6"

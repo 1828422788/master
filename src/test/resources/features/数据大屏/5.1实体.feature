@@ -89,7 +89,8 @@
       And I click the "dataSourceType" button
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I wait for "2000" millsecond
+      And I click the "tips" button
+
       And I choose the "err_avg" from the "entitySearchCategory"
       #设置值范围
       And I set the parameter "normalStart" with value "0"

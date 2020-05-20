@@ -102,7 +102,7 @@ Feature: 数据大屏-饼图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I wait for "6000" millsecond
+    And I click the "tips" button
 
     And I choose the "ip_count" from the "DataField"
     And I choose the "apache.clientip" from the "DivideField"
