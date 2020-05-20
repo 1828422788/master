@@ -53,6 +53,7 @@ Feature: 数据大屏-热力地图
     And I set the parameter "ChartYaxis" with value "315"
     #数据
     And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.geo.province"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -60,6 +61,7 @@ Feature: 数据大屏-热力地图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.geo.province" from the "NameField"
+    And I wait for "1000" millsecond
     And I choose the "count()" from the "DataField"
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -96,7 +98,7 @@ Feature: 数据大屏-热力地图
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.geo.province"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -109,6 +111,7 @@ Feature: 数据大屏-热力地图
     And I click the "tips" button
 
     And I choose the "apache.geo.province" from the "NameField"
+    And I wait for "1000" millsecond
     And I choose the "count()" from the "DataField"
     #保存
     And I wait for "Save" will be visible
@@ -144,7 +147,7 @@ Feature: 数据大屏-热力地图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "*|stats count() by apache.geo.province"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.geo.province"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -172,6 +175,7 @@ Feature: 数据大屏-热力地图
     And I wait for "3000" millsecond
 
     And I choose the "apache.geo.province" from the "NameField"
+    And I wait for "1000" millsecond
     And I choose the "count()" from the "DataField"
       #保存
     And I click the "Save" button
