@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee @galaxee1
+@galaxeeChart2 @galaxee @galaxee0   @1.23
 Feature: 数据大屏-雷达图
 
 #  Background:

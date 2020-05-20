@@ -1,4 +1,4 @@
-@galaxeeMap @galaxee  @galaxee2
+@galaxeeMap @galaxee  @galaxee1   @2.4
 Feature: 数据大屏-世界地图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

@@ -1,4 +1,4 @@
-@galaxeeChart1 @galaxee @galaxee1
+@1.12 @galaxeeChart1 @galaxee @galaxee0
 Feature: 数据大屏-滚动列表三
 
 #  Background:

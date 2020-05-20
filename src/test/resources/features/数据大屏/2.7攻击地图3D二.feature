@@ -1,4 +1,4 @@
-@galaxeeMap @galaxee  @galaxee2
+@galaxeeMap @galaxee  @galaxee1   @2.7
   Feature: 数据大屏-攻击地图3D II
 
 #    Background:
