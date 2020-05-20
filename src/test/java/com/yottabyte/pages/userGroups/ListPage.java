@@ -11,33 +11,11 @@ public class ListPage extends ListPageFactory {
         super(driver);
     }
 
-    @FindBy(className = "el-input__inner")
-    private WebElement searchInput;
-
     @FindBy(className = "el-loading-mask")
     private WebElement loading;
-
-    @FindBy(className = "el-icon-search")
-    private WebElement searchIcon;
-
-    @FindBy(xpath = "//span[contains(text(),'确定')]/ancestor::button")
-    private WebElement messageBoxOKButton;
-
-    public WebElement getMessageBoxOKButton() {
-        return messageBoxOKButton;
-    }
-
-    @Override
-    public WebElement getSearchIcon() {
-        return searchIcon;
-    }
 
     public WebElement getLoading() {
         return loading;
     }
 
-    @Override
-    public WebElement getSearchInput() {
-        return searchInput;
-    }
 }

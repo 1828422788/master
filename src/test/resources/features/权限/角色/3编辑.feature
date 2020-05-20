@@ -6,19 +6,18 @@ Feature: 角色编辑（RZY-522）
   @role
   Scenario Outline: 编辑角色
     Given the data name is "<OldName>" then i click the "编辑" button
-    And I will see the "roles.EditPage" page
+    And I will see the "roles.CreatePage" page
     When I set the parameter "RoleName" with value "<RoleName>"
     And I set the parameter "RoleDes" with value "<RoleDes>"
-    And I click the "UpdateButton" button
+    And I click the "Save" button
     Then I will see the <Result>
 
   @roleSmoke
     Examples: 编辑成功
       | OldName      | RoleName     | RoleDes | Result                 |
-      | AutoTestEdit | AutoTest     |         | success message "保存成功" |
-      | AutoTest     | AutoTestEdit | 无       | success message "保存成功" |
+      | AutoTestEdit | AutoTest     |         | success message "更新成功" |
+      | AutoTest     | AutoTestEdit | 无       | success message "更新成功" |
 
     Examples: 编辑失败
-      | OldName      | RoleName | RoleDes | Result                                     |
-      | AutoTestEdit |          |         | error message "填写角色名称"                     |
-      | AutoTestEdit | RoleTest |         | error message "保存失败: 角色名称已经在\n错误码: FE_590" |
+      | OldName      | RoleName     | RoleDes | Result                                            |
+      | AutoTestEdit | AutoTestCopy |         | error message "更新失败: role_name: AutoTestCopy 已存在" |

@@ -66,8 +66,9 @@ public class SetKeyWithValue {
     }
 
     public void iSetTheParameterWithValue(WebElement element, String value) {
-        boolean flag = true;
-        while (flag) {
+//        boolean flag = true;
+        int times = 0;
+        while (!element.getAttribute("value").equals(value) && times < 11) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -80,10 +81,11 @@ public class SetKeyWithValue {
 //            element.sendKeys(Keys.BACK_SPACE);
             element.clear();
 //            if (element.getText().equalsIgnoreCase("")) {
-                flag = false;
+//                flag = false;
 //            }
+            element.sendKeys(value);
+            times++;
         }
-        element.sendKeys(value);
     }
 
     @And("^I set the parameter \"([^\"]*)\" with properties \"([^\"]*)\"$")
