@@ -97,7 +97,8 @@
       #选择静态数据
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I wait for "3000" millsecond
+      And I click the "tips" button
+
       And I choose the "name" from the "dataSearchName"
       And I wait for "2000" millsecond
       And I choose the "value" from the "dataSearchNumber"

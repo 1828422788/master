@@ -105,7 +105,8 @@ Feature: 数据大屏-地理分布
       #选择静态数据
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I wait for "3000" millsecond
+    And I click the "tips" button
+
     And I choose the "client_lat" from the "SourceLatitude"
     And I choose the "client_lon" from the "SourceLongitude"
     And I choose the "apache.clientip" from the "MapName"

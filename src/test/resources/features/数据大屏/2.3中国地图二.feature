@@ -152,7 +152,7 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
       And I click the "dataSourceType" button
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I wait for "6000" millsecond
+      And I click the "tips" button
      #类别
       And I choose the "apache.geo.province" from the "ChineseMapTwoDataSearchCategory"
       #值

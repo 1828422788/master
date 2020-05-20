@@ -198,7 +198,8 @@ Scenario: 表格设置-列配置
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I wait for "6000" millsecond
+    And I click the "tips" button
+
     And I choose the "appname,count(),tag" from the "DataItem"
       #保存
     And I wait for "Save" will be visible
