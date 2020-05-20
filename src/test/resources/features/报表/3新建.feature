@@ -28,6 +28,7 @@ Feature: 报表新建_从趋势图
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart4>"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
@@ -104,6 +105,7 @@ Feature: 报表新建_从趋势图
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart5>"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 

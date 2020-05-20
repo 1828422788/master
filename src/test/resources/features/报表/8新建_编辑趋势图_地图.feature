@@ -39,6 +39,7 @@ Feature: 报表新建_编辑_地图
     Then I click the "EnsureButton" button
 
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
@@ -86,6 +87,7 @@ Feature: 报表新建_编辑_地图
     Then I click the "EnsureButton" button
 
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
@@ -133,6 +135,7 @@ Feature: 报表新建_编辑_地图
     Then I click the "EnsureButton" button
 
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 

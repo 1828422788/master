@@ -19,6 +19,7 @@ Feature: 报表禁用/启用
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
     And I will see the "report.ListPage" page
@@ -26,6 +27,7 @@ Feature: 报表禁用/启用
 
   Scenario Outline: switch_off_on
     And the data name is "{'column':'1','name':'Test_Switch'}" then I "<action>" the switch
+    And I wait for "100" millsecond
     Then I will see the success message "<result>"
 
     Examples:
