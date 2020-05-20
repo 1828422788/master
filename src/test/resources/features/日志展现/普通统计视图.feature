@@ -67,16 +67,16 @@ Feature: 日志展现_普通统计视图
     # Set Time Parameters
     And I click the "StartDate" button
     And I set the parameter "DateInput" with value "2020-05-02"
-    And I hide the element "DatePanel"
+    And I click the "HideElement" button
     And I click the "StartTime" button
     And I set the parameter "TimeInput" with value "<startTime>"
-    And I hide the element "TimePanel"
+    And I click the "HideElement" button
     And I click the "EndDate" button
     And I set the parameter "DateInput" with value "2020-05-02"
-    And I hide the element "DatePanel"
+    And I click the "HideElement" button
     And I click the "EndTime" button
     And I set the parameter "TimeInput" with value "<endTime>"
-    And I hide the element "TimePanel"
+    And I click the "HideElement" button
     And I click the "GenerateTime" button under some element
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
