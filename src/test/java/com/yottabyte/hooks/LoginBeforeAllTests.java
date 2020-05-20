@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Constructor;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -133,10 +135,17 @@ public class LoginBeforeAllTests {
     }
 
     private static boolean isValidCookie(Cookie cookie, WebDriver webDriver) {
+        try {
+            String url = new URL(webDriver.getCurrentUrl()).getHost();
+            if (url != baseURL) {
+                webDriver.get(baseURL);
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         if (cookie == null) {
             return false;
         }
-
         Cookie webCookie = webDriver.manage().getCookieNamed(cookie.getName());
         return cookie.equals(webCookie) && new Date().before(webCookie.getExpiry());
     }
