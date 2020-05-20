@@ -21,20 +21,19 @@ Feature: Agent编辑Packetbeat类型数据源
 
   Scenario: Packetbeat数据源禁用
     Given the data name "autoPacketbeattest" in agent table "PacketbeatTable" then i click the "close" switch
-    Then I wait for loading invisible
-    And I wait for "2000" millsecond
+    And I wait for "PacketbeatSwitchStatus" will be visible
     Then I will see the element "PacketbeatSwitchStatus" name is "已禁用"
 
   Scenario: Packetbeat数据源启用
     Given the data name "autoPacketbeattest" in agent table "PacketbeatTable" then i click the "open" switch
-    Then I wait for loading invisible
-    And I wait for "2000" millsecond
+    And I wait for "PacketbeatSwitchStatus" will be visible
     Then I will see the element "PacketbeatSwitchStatus" name is "已启用"
 
   Scenario Outline: Packetbeat数据源修改appname成功
     Given the data name "autoPacketbeattest" in table "PacketbeatTable" then i click the "编辑" button
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
     Examples:
@@ -48,6 +47,7 @@ Feature: Agent编辑Packetbeat类型数据源
     Given the data name "autoPacketbeattest" in table "PacketbeatTable" then i click the "编辑" button
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
+    And I wait for "PreviewMessage" will be visible
     Then I will see the element "PreviewMessage" name is "请以字母或数字下划线为元素"
 
     Examples:
@@ -59,6 +59,7 @@ Feature: Agent编辑Packetbeat类型数据源
     Given the data name "any" in table "PacketbeatTable" then i click the "编辑" button
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
     Examples:
@@ -71,6 +72,7 @@ Feature: Agent编辑Packetbeat类型数据源
     Given the data name "any" in table "PacketbeatTable" then i click the "编辑" button
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
+    And I wait for "PreviewMessage" will be visible
     Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
 
     Examples:
@@ -82,6 +84,7 @@ Feature: Agent编辑Packetbeat类型数据源
     Given the data name "any" in table "PacketbeatTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
 

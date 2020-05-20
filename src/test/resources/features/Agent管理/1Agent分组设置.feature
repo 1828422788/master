@@ -154,6 +154,7 @@ Feature: Agent分组设置
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
     And I click the "Update" button
+    And I wait for "Addsuccessmsg" will be visible
     Then I will see the element "Addsuccessmsg" name is "<updatemessage>"
 
 
@@ -174,6 +175,7 @@ Feature: Agent分组设置
     And I click the "More" button
     And I click the "Delete" button
     And I click the "Ensure" button
+    And I wait for "Addsuccessmsg" will be visible
     Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
 
 

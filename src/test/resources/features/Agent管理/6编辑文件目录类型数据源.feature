@@ -42,6 +42,7 @@ Feature: Agent编辑文件目录类型数据源
     And I click the "EditAutoFile" button
     And I set the parameter "WhiteList" with value "hekad\.stderr"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -65,6 +66,7 @@ Feature: Agent编辑文件目录类型数据源
     And I wait for loading invisible
     And I set the parameter "BlackList" with value "hekad-daemon\.log"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -74,6 +76,7 @@ Feature: Agent编辑文件目录类型数据源
     And I wait for loading invisible
     And I set the parameter "Regex" with value "\t"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -83,6 +86,7 @@ Feature: Agent编辑文件目录类型数据源
     And I wait for loading invisible
     And I set the parameter "ContextWhiteList" with value "error"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -91,6 +95,7 @@ Feature: Agent编辑文件目录类型数据源
     And I wait for loading invisible
     And I set the parameter "ContextBlackList" with value "false"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 

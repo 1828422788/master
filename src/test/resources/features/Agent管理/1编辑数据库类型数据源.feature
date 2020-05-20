@@ -20,6 +20,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Host" with value "192.168.1.134"
     And I set the parameter "DataBaseName" with value "rizhiyi_system"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "保存成功"
     And I wait for loading invisible
     And I click the "MysqlDatabase" button
@@ -53,6 +54,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "EditSql" with value "Select * from AgentGroup"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -61,6 +63,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "EidtFrequency" with value "0 * * * * 1"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -69,6 +72,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "IncreaseData" with value "id"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -77,6 +81,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "IncreaseSymbol" with value ">="
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
   Scenario:编辑每轮采集记录条数
@@ -84,6 +89,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "RecordNumber" with value "1"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
   Scenario Outline: 数据库数据源修改appname成功
@@ -91,6 +97,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
     Examples:
@@ -116,6 +123,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
     Examples:
@@ -140,6 +148,7 @@ Feature: Agent编辑数据库数据类型数据源
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
 
@@ -151,6 +160,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 编辑mysql数据库类型数据库名
@@ -162,6 +172,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "DataBaseName" with value "rizhiyi_yottaweb"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 编辑mysql数据库类型端口
@@ -174,6 +185,8 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "MysqlPort" with value "3307"
     And I set the parameter "DataBaseName" with value "mysql"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
+    Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 编辑mysql数据库类型最大连接数
     And I click the "Create" button
@@ -184,6 +197,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "MaxLink" with value "5"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 复制mysql数据库类型
@@ -195,6 +209,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "LinkName" with value "autotestmysql139"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "保存成功"
 
   Scenario: 删除mysql数据库类型
@@ -209,4 +224,5 @@ Feature: Agent编辑数据库数据类型数据源
     And I click the "DeleteMysql139" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除连接成功。"

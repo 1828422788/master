@@ -30,6 +30,7 @@ Feature: Agent页面跳转
     Then the data name "192.168.1.160:514" in table "SyslogTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
 
@@ -41,6 +42,7 @@ Feature: Agent页面跳转
     Then the data name "192.168.1.160:514" in table "SyslogTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
 
@@ -52,6 +54,7 @@ Feature: Agent页面跳转
     Then the data name "192.168.1.160:514" in table "SyslogTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
 
@@ -67,4 +70,5 @@ Feature: Agent页面跳转
     Given the data name "192.168.1.160:514" in table "SyslogTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"

@@ -14,6 +14,7 @@ Feature: Agent备份功能
   Scenario: Agent备份，添加备份页面的修改&重启Agent高级配置
     And I click the "Senior" button
     And I click the "ChangeConfiguration" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "提交修改 Agent 配置成功，正在尝试重启。"
 
   Scenario: Agent备份，添加备份页面的下载Agent高级配置
@@ -39,17 +40,18 @@ Feature: Agent备份功能
     And I set the parameter "BackUpTimeout" with value "1"
     And I click the "Next" button
     And I click the "Next" button
-    And I wait for loading invisible
+    And I wait for "Addsuccessmsg" will be visible
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
   Scenario: 备份策略禁用
     Given the data name "hekabackup" in agent table "BackUpTable" then i click the "close" switch
     Then I wait for loading invisible
+    And I wait for "BackUpSwitchStatus" will be visible
     Then I will see the element "BackUpSwitchStatus" name is "已禁用"
 
   Scenario: 备份策略启用
     Given the data name "hekabackup" in agent table "BackUpTable" then i click the "open" switch
-    Then I wait for loading invisible
+    And I wait for "BackUpSwitchStatus" will be visible
     Then I will see the element "BackUpSwitchStatus" name is "已启用"
 
   Scenario: 备份策略新建目的对象
@@ -66,6 +68,7 @@ Feature: Agent备份功能
     And I set the parameter "ServerAddress" with value "192.168.1.2:10001"
     And I set the parameter "TimeOut" with value "30"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "保存成功"
 
 
@@ -80,6 +83,7 @@ Feature: Agent备份功能
     And I click the "EditBackUpObject" button
     And I click the "SecuritySwitchStatus" button
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 备份策略编辑目的对象处理线程数
@@ -93,6 +97,7 @@ Feature: Agent备份功能
     And I click the "EditBackUpObject" button
     And I set the parameter "ThreadNum" with value "1"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario Outline: 备份策略编辑目的对象服务器地址
@@ -106,6 +111,7 @@ Feature: Agent备份功能
     And I click the "EditBackUpObject" button
     And I set the parameter "ServerAddress" with value "<serveraddress>"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
 
   Examples:
@@ -124,6 +130,7 @@ Feature: Agent备份功能
     And I click the "EditBackUpObject" button
     And I set the parameter "TimeOut" with value "20"
     And I click the "Save" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 备份策略编辑目的对象删除
@@ -136,12 +143,14 @@ Feature: Agent备份功能
     And I click the "BackUpObject" button
     And I click the "DeleteBackUpObject" button
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除目的对象成功。"
 
   Scenario: 备份策略删除
     Then I wait for loading invisible
     Given the data name "hekabackup" in table "BackUpTable" then i click the "删除" button
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除备份配置成功"
 
 

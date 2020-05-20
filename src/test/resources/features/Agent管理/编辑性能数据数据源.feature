@@ -41,6 +41,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -56,6 +57,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
+    And I wait for "PreviewMessage" will be visible
     Then I will see the element "PreviewMessage" name is "请以字母或数字下划线为元素"
 
 
@@ -68,6 +70,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -82,6 +85,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
+    And I wait for "PreviewMessage" will be visible
     Then I will see the element value in json "{'PreviewMessage':'请以字母、数字、中文或下划线为元素,tags 之间可用 "," 分隔。'}"
 
 
@@ -95,6 +99,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     When I choose the "<frequencykind>" from the "Frequency"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -110,6 +115,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     And I set the parameter "SpecialPort" with value "24"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -118,6 +124,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     And I click the "DiskQuota" button
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -133,6 +140,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     And I click the "SystemQuota" button
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -155,6 +163,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     And I click the "ProcessQuota" button
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -163,6 +172,7 @@ Feature: Agent编辑性能数据类型数据源
     And I wait for loading invisible
     And I set the parameter "ProcessWhiteList" with value "./log.*"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -170,6 +180,7 @@ Feature: Agent编辑性能数据类型数据源
     Given the data name "./log.*" in table "FuctionTypeTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
 

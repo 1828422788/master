@@ -46,6 +46,7 @@ Feature: Agent编辑Syslog类型数据源
     And I choose the "<characterkind>" from the "SyslogChar"
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
     Examples:
       | characterkind |
@@ -57,6 +58,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEditip" with value "<ipkind>"
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
     Examples:
       | ipkind |
@@ -83,6 +85,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEditappname" with value "<appnamekind>"
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -111,6 +114,7 @@ Feature: Agent编辑Syslog类型数据源
     And I set the parameter "SyslogEdittag" with value "<tagkind>"
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -138,5 +142,6 @@ Feature: Agent编辑Syslog类型数据源
     Given the data name "192.168.1.161:514" in table "SyslogTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
