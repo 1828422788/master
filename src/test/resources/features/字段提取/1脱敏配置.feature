@@ -1,33 +1,34 @@
 @configsSmoke
 Feature: 字段提取脱敏配置
 
+  @logout
   Scenario Outline: RZY-2827：新建脱敏配置规则
 
-    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    Then I wait for loading invisible
-    And I click the "Create" button
-    And I set the parameter "Name" with value "wymAutoTest搜索权限"
-    And I set the parameter "Tag" with value "*"
-    And I click the "Ensure" button
-    Then I will see the success message "操作成功"
-    Then I refresh the website
-    Then I wait for loading invisible
-    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "授权" button
-    And I wait for "ModalContent" will be visible
-    Then I wait for loading invisible
-    And I "check" the checkbox which name is "wym" in tiny table
-    And I click the "Ensure" button
-    Then I will see the message "保存成功"
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I wait for loading invisible
-    And the data name is "__user_wym__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    Then I wait for loading invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "可查看敏感内容"
-    Then I click the "SaveButton" button
+#    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+#    Then I wait for loading invisible
+#    And I click the "Create" button
+#    And I set the parameter "Name" with value "wymAutoTest搜索权限"
+#    And I set the parameter "Tag" with value "*"
+#    And I click the "Ensure" button
+#    Then I will see the success message "操作成功"
+#    Then I refresh the website
+#    Then I wait for loading invisible
+#    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "授权" button
+#    And I wait for "ModalContent" will be visible
+#    Then I wait for loading invisible
+#    And I "check" the checkbox which name is "wym" in tiny table
+#    And I click the "Ensure" button
+#    Then I will see the message "保存成功"
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And I wait for loading invisible
+#    And the data name is "__user_wym__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    Then I wait for loading invisible
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    And I "checked" the checkbox which name is "全选"
+#    And I "unchecked" the checkbox which name is "可查看敏感内容"
+#    Then I click the "SaveButton" button
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
@@ -85,19 +86,14 @@ Feature: 字段提取脱敏配置
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "1000" millsecond
-    Then I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
+    Then I wait for "40000" millsecond
+    And I logout current user
+    And I will see the "LoginPage" page
     When I set the parameter "Username" with value "wym"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
     And I wait for "5000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I refresh the website
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I refresh the website
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "tag:replacer"
     And I click the "DateEditor" button

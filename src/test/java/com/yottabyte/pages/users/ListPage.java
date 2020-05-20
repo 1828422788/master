@@ -56,7 +56,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='SuccessEditAutoTest'][@class='runner-banned-name']/following-sibling::span")
     private WebElement userStatus;
 
-    @FindBy(xpath = "//div[@class='el-select group-modal-select']//i")
+    @FindBy(xpath = "//div[text()='分组']/following-sibling::div")
     private WebElement groupIcon;
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
@@ -149,7 +149,7 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getUserGroups() {
         groupIcon.click();
-        return ul;
+        return super.getLastDropdownList();
     }
 
     public WebElement getConfirmButton() {

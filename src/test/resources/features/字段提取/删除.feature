@@ -11,14 +11,18 @@ Feature: 字段提取删除
 
     Examples:
       | name                        |
+      | wym按标签过滤                    |
+      | wym按名称过滤                    |
       | RZY2868redirect主规则          |
       | RZY2867redirect副规则          |
       | RZY2865支持通配符                |
+      | 重命名字段支持通配符详情验证              |
       | RZY2883unicode解析            |
       | RZY2877base64解析             |
       | RZY2875script解析             |
       | RZY2870创建dissect解析          |
       | RZY2819配置自定义字典解析规则          |
+      | 自定义字典详情验证                   |
       | 脱敏                          |
       | 脱敏详情                        |
       | RZY2862严格解析                 |
@@ -62,8 +66,9 @@ Feature: 字段提取删除
     And I click the "EnsureDelete" button
 
     Examples:
-      | name                   |
-      | win_sys_sourcename.csv |
+      | name                    |
+      | win_sys_sourcename.csv  |
+      | win_sys_sourcename1.csv |
 
 #  Scenario: 删除owner下的agent配置
 #
@@ -75,9 +80,9 @@ Feature: 字段提取删除
 #    And I click the "Ensure" button
 #    Then I will see the success message "删除 Agent 配置成功。"
 
-  Scenario: 删除搜索权限
-    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "删除" button
-    And I click the "Ensure" button
-    Then I wait for "1000" millsecond
-    Then I will see the success message "删除成功"
+#  Scenario: 删除搜索权限
+#    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+#    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "删除" button
+#    And I click the "Ensure" button
+#    Then I wait for "1000" millsecond
+#    Then I will see the success message "删除成功"

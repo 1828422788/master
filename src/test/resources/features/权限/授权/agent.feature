@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-agent
 
   Scenario: 不勾选新建agent权限
@@ -233,6 +233,16 @@ Feature: 权限-agent
     And I click the "Save" button
     And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"
 
+  Scenario: 新建
+    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
+    And I wait for loading invisible
+    And I click the "CreateAgentGroupButton" button
+    And I set the parameter "Name" with value "验证组内权限"
+    When I set the parameter "Description" with value "验证组内权限"
+    And I choose the "__admin__" from the "Role"
+    And I click the "Save" button
+    And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"
+
   Scenario: 验证有效期限生效
     Given open the "LoginPage" page for uri "/dashboard/"
     And I wait for title change text to "仪表盘"
@@ -366,16 +376,6 @@ Feature: 权限-agent
     Examples:
       | name    | message                      |
       | 权限自动化测试 | 获取 Agent 数据失败，原因：没有相关功能权限 `` |
-
-  Scenario: 新建
-    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
-    And I wait for loading invisible
-    And I click the "CreateAgentGroupButton" button
-    And I set the parameter "Name" with value "验证组内权限"
-    When I set the parameter "Description" with value "验证组内权限"
-    And I choose the "__admin__" from the "Role"
-    And I click the "Save" button
-    And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"
 
   Scenario Outline: 授权组内读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"

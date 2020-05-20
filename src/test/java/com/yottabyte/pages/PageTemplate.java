@@ -101,7 +101,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return message;
     }
 
-    protected WebElement getSuccessMessage() {
+    public WebElement getSuccessMessage() {
         return successMessage;
     }
 

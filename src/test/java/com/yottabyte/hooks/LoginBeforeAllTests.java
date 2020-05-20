@@ -6,6 +6,7 @@ import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.pages.manager.ManagerLoginPage;
 import com.yottabyte.pages.saas.SaasLoginPage;
 import com.yottabyte.webDriver.SharedDriver;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -34,26 +35,19 @@ public class LoginBeforeAllTests {
 
     @Before
     public void beforeScenario() {
-        System.out.println("Login Before Test!");
-        webDriver.manage().deleteAllCookies();
-        String url = baseURL+loginURL;
-        webDriver.get(url);
-        if (cookie == null) {
+        if (!isValidCookie(cookie, webDriver)) {
+            System.out.println("Login Before Test!");
+            webDriver.manage().deleteAllCookies();
+            String url = baseURL + loginURL;
+            webDriver.get(url);
             login();
-        } else {
-            webDriver.get(url);
-            Date exDate = cookie.getExpiry();
-            if (exDate.before(new Date())) {
-                Calendar calendar = new GregorianCalendar();
-                calendar.setTime(exDate);
-                calendar.add(Calendar.DATE, 7);
-                exDate = calendar.getTime();
-                cookie = new Cookie(cookie.getName(), cookie.getValue(), cookie.getDomain(), cookie.getPath(), exDate);
-            }
-            webDriver.manage().addCookie(cookie);
-            webDriver.get(url);
+            setPageFactory("PublicNavBarPage");
         }
-        setPageFactory("PublicNavBarPage");
+    }
+
+    @After("@logout")
+    public void logoutAfterScenario() {
+        webDriver.manage().deleteAllCookies();
     }
 
     public static void login() {
@@ -136,5 +130,14 @@ public class LoginBeforeAllTests {
 
     public static ConfigManager getConfig() {
         return config;
+    }
+
+    private static boolean isValidCookie(Cookie cookie, WebDriver webDriver) {
+        if (cookie == null) {
+            return false;
+        }
+
+        Cookie webCookie = webDriver.manage().getCookieNamed(cookie.getName());
+        return cookie.equals(webCookie) && new Date().before(webCookie.getExpiry());
     }
 }
