@@ -27,12 +27,14 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I "checked" the label before "采集指标" in the agent
     And I click the "Clean" button
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "位于 192.168.1.134:10001 的 agent 正在 清理缓存"
 
   Scenario: 清理输出源缓存
     And I click the "CleanCache" button
     And I click the "CleanOutputCache" button
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "位于 192.168.1.134:10001 的 agent 正在 清理缓存"
 
   Scenario: 从Agent具体配置页面返回Agent主页面
@@ -47,7 +49,8 @@ Feature: Agent具体配置高级配置及清理缓存操作
   Scenario: 修改&重启Agent高级配置
     And I click the "Senior" button
     And I click the "ChangeConfiguration" button
-#    Then I will see the element "ChangeMemo" name is "提交修改 Agent 配置成功，正在尝试重启。"
+    And I wait for "ChangeMemo" will be visible
+    Then I will see the element "ChangeMemo" name is "提交修改 Agent 配置成功，正在尝试重启。"
 
   Scenario: 下载Agent高级配置
     And I click the "Senior" button
@@ -61,20 +64,21 @@ Feature: Agent具体配置高级配置及清理缓存操作
   Scenario: 性能数据源删除
     Given the data name ".*" in table "FuctionTypeTable" then i click the "删除" button
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
   Scenario: 输出配置关闭输出压缩
     And I click the "OutputEdit" button
     And I click the "Compressed" button
     And I click the "Ensure" button
-    And I wait for loading invisible
+    And I wait for "CompressStatus" will be visible
     And I will see the element "CompressStatus" name is "关闭"
 
   Scenario: 输出配置开启输出压缩
     And I click the "OutputEdit" button
     And I click the "Compressed" button
     And I click the "Ensure" button
-    And I wait for loading invisible
+    And I wait for "CompressStatus" will be visible
     And I will see the element "CompressStatus" name is "开启"
 
   Scenario Outline: 输出配置修改发送速率限制
@@ -83,6 +87,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I choose the "<sendspeed>" from the "SendSpeed"
     And I click the "Ensure" button
     And I wait for loading invisible
+    And I wait for "SendSpeedStatus" will be visible
     And I will see the element "SendSpeedStatus" name is "<sendspeedstatus>"
 
     Examples:
@@ -96,7 +101,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "OutputEdit" button
     And I set the parameter "LogLength" with value "<loglength>"
     And I click the "Ensure" button
-    And I wait for loading invisible
+    And I wait for "LogLengthStatus" will be visible
     And I will see the element "LogLengthStatus" name is "<loglengthstatus>"
 
     Examples:

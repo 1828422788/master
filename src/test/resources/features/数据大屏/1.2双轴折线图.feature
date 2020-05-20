@@ -20,7 +20,7 @@ Feature: 数据大屏-双轴折线图
     And I click the "Style" button
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
+    And I set the parameter "SplInput" with value "tag:sample*| bucket timestamp span=2h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
 
@@ -159,7 +159,7 @@ Feature: 数据大屏-双轴折线图
     And I set the parameter "ChartYaxis" with value "170"
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
+    And I set the parameter "SplInput" with value "tag:sample*| bucket timestamp span=2h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
       #选择静态数据
@@ -209,7 +209,7 @@ Feature: 数据大屏-双轴折线图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "2000" millsecond
-    And I set the parameter "SplInput" with value "*| bucket timestamp span=72h as ts|stats count(appname),dc(appname) by appname"
+    And I set the parameter "SplInput" with value "tag:sample*| bucket timestamp span=2h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"

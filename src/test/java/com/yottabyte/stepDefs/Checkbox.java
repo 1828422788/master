@@ -140,7 +140,7 @@ public class Checkbox {
     @And("^I \"([^\"]*)\" the label before \"([^\"]*)\" in the dictionary$")
     public void clickCheckLabeldic(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "//span[contains(text(),'" + name + "')]/ancestor::td//label";
+            String xpath = "//span[text()='" + name + "']/ancestor::td//label";
             WebElement label = webDriver.findElement(By.xpath(xpath));
             WebElement span = label.findElement(By.xpath(".//span"));
             String attribute = span.getAttribute("class");
@@ -151,7 +151,7 @@ public class Checkbox {
     }
 
     /**
-     * 判断checkbox的勾选状态
+     * 字典授权页面判断checkbox的勾选状态
      *
      * @param status   判断状态，checked/unchecked
      * @param nameList 判断名称（支持传入list）
@@ -159,7 +159,7 @@ public class Checkbox {
     @And("^I check the label \"([^\"]*)\" status before \"([^\"]*)\" in the dictionary$")
     public void iCheckLabeldic(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "//span[contains(text(),'" + name + "')]/ancestor::td//label";
+            String xpath = "//span[text()='" + name + "']/ancestor::td//label";
             WebElement label = webDriver.findElement(By.xpath(xpath));
             String attribute = label.getAttribute("class");
             Assert.assertTrue((attribute.contains("checked") && "checked".equals(status))

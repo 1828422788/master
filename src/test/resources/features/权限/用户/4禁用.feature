@@ -6,4 +6,4 @@ Feature: 用户禁用（RZY-1165）
 
   Scenario: 禁用一个用户成功
     When the data name is "{'column':'1','name':'AutoTestForEdit'}" then i click the "禁用" button
-    And I wait for "2000" millsecond
+    Then I wait for "SuccessMessage" will be visible

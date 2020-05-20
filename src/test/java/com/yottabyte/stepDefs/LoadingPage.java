@@ -28,7 +28,7 @@ public class LoadingPage {
     }
 
     /**
-     * 打开指定页面  参数由feature提供
+     * 打开指定页面  参数由feature            提供
      *
      * @param pageName
      */

@@ -1,6 +1,7 @@
 @all @users @usersSmoke
 Feature: 用户登陆（RZY-1152、RZY-1153）
 
+  @logout
   Scenario Outline: 登陆失败
     Given I logout current user
     And I wait for title change text to "登录"
@@ -21,4 +22,4 @@ Feature: 用户登陆（RZY-1152、RZY-1153）
   Scenario: 启用账号
     Given open the "users.ListPage" page for uri "/account/users/"
     When the data name is "{'column':'1','name':'AutoTestForEdit\n已禁用'}" then i click the "启用" button
-    And I wait for "2000" millsecond
+    Then I wait for "SuccessMessage" will be visible

@@ -17,6 +17,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<chart>" from the "PresentType"
     And I choose the "<value1>" from the "FieldValue"
     And I click the "AddButton" button
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
@@ -41,7 +42,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<value1>" from the "FieldValue"
     And I click the "IndependentStats" button
     And I click the "AddButton" button
-    And I wait for "1000" millsecond
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
@@ -77,6 +78,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "TimeInput" with value "<endTime>"
     And I hide the element "TimePanel"
     And I click the "GenerateTime" button under some element
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
@@ -111,6 +113,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "EndDataValue" with value "<end3>"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
@@ -134,6 +137,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<time>" from the "Time"
     And I click the "Generate" button
     And I wait for "Loading" will be invisible
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
@@ -160,6 +164,7 @@ Feature: 日志展现_普通统计视图
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "DataSpan" with value "<number>"
     And I click the "Generate" button
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/816_数值直方图/<caseNum>"
@@ -183,6 +188,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<charttype>" from the "PresentType" in config
     And I choose the "<value1>" from the "TopElement" in config
     And I click the "Generate" button
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/817_字段值分类/<screenName>_<value1>"
@@ -210,6 +216,7 @@ Feature: 日志展现_普通统计视图
     When I set the parameter "TimeSpan" with value "<timeSpan>"
     And I choose the "<time>" from the "Time"
     And I click the "Generate" button
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
@@ -238,6 +245,7 @@ Feature: 日志展现_普通统计视图
     And I click the "AddPercent" button
     And I set the parameter "PercentInput" with value "<percent1>"
     And I click the "Generate" button
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<screenName>"
@@ -260,6 +268,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "GoalValue" with value "<value1>"
     And I click the "Generate" button
+    And I wait for "ChartPecrent" will be visible
     And I drag the scroll bar to the element "ChartPercent"
     And I wait for "2000" millsecond
     And take part of "ChartPercent" with name "actual/普通统计视图/<screenName>"
@@ -286,6 +295,7 @@ Feature: 日志展现_普通统计视图
     And I click the "StatisticsGram" button
     And I choose the "<chartType>" from the "PresentType"
     And I click the "Generate" button
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1"
@@ -300,6 +310,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "Loading" will be invisible
     And I click the "StatisticsGram" button
     And I click the "Generate" button
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2"
@@ -314,6 +325,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "Loading" will be invisible
     And I click the "StatisticsGram" button
     And I click the "Generate" button
+    And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3"
@@ -334,16 +346,19 @@ Feature: 日志展现_普通统计视图
     And I wait for "1000" millsecond
     And I choose the "apache.geo.country" from the "FieldValue"
     And I click the "Generate" button
+    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_world"
     Then I compare source image "expect/普通统计视图/825_地理分布/825_world" with target image "actual/普通统计视图/825_地理分布/825_world"
 
     When I click the "CountryChina" button
+    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_china"
     Then I compare source image "expect/普通统计视图/825_地理分布/825_china" with target image "actual/普通统计视图/825_地理分布/825_china"
 
     When I click the "ProvinceSichuan" button
+    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_sichuan"
     Then I compare source image "expect/普通统计视图/825_地理分布/825_sichuan" with target image "actual/普通统计视图/825_地理分布/825_sichuan"
