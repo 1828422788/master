@@ -38,6 +38,7 @@ Feature: Agent编辑Beats类型数据源
     And I wait for loading invisible
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
     Examples:
@@ -65,6 +66,7 @@ Feature: Agent编辑Beats类型数据源
     And I wait for loading invisible
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -91,5 +93,6 @@ Feature: Agent编辑Beats类型数据源
     Given the data name "192.168.1.134:299" in table "BeatsTable" then i click the "删除" button
     And I wait for loading invisible
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 

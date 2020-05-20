@@ -395,10 +395,7 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-#    Then I set the parameter "GroupInput" with value "first"
-    And I choose the "first" from the "TagList" in config
-#    Then I set the parameter "GroupInput" with value "second"
-    And I choose the "second" from the "TagList" in config
+    And I choose the "<twoTag>" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
@@ -416,8 +413,8 @@ Feature: 字典管理
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName                | newTag | dictionaryNameWithOutCsv  |
-      | wymtestcleartagatlistpage.csv | 无      | wymtestcleartagatlistpage |
+      | dictionaryName                | newTag | dictionaryNameWithOutCsv  |twoTag|
+      | wymtestcleartagatlistpage.csv | 无      | wymtestcleartagatlistpage |  first,second    |
 
 
   Scenario Outline: RZY-4151(授权页：添加用户权限-取消)

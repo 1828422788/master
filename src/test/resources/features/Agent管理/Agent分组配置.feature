@@ -70,8 +70,7 @@ Feature: Agent分组采集
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
-    Then I wait for loading invisible
-    And I wait for "2000" millsecond
+    Then I wait for "DataSourceSwitchStatus" will be visible
     Then I will see the element "DataSourceSwitchStatus" name is "已禁用"
 
   Scenario: 分组采集数据源启用
@@ -85,7 +84,7 @@ Feature: Agent分组采集
     And I will see the "agent.CreatePage" page
     Then I wait for loading invisible
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "open" switch
-    And I wait for "2000" millsecond
+    Then I wait for "DataSourceSwitchStatus" will be visible
     Then I will see the element "DataSourceSwitchStatus" name is "已启用"
 
 
@@ -102,6 +101,7 @@ Feature: Agent分组采集
     And I wait for loading invisible
     And I set the parameter "ContextWhiteList" with value "error"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -118,6 +118,7 @@ Feature: Agent分组采集
     And I wait for loading invisible
     And I set the parameter "ContextBlackList" with value "false"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
   Scenario Outline: 分组采集数据修改最后修改时间
@@ -134,6 +135,7 @@ Feature: Agent分组采集
     And I set the parameter "LastModifyTime" with value "20"
     When I choose the "<timekind>" from the "TimeKind"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -157,6 +159,7 @@ Feature: Agent分组采集
     When I choose the "<characterkind>" from the "CharacterKind"
     And I wait for "3000" millsecond
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -178,6 +181,7 @@ Feature: Agent分组采集
     And I wait for loading invisible
     And I set the parameter "Tag" with value "Changeautohekafiletag"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -200,6 +204,7 @@ Feature: Agent分组采集
     And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekafiletest"
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
 
 
@@ -215,6 +220,7 @@ Feature: Agent分组采集
     And I wait for loading invisible
     Given the data name "autohekafiletest" in table "AppNameTable" then i click the "删除" button
     And I click the "Ensure" button
+    And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
   Scenario Outline: 删除Agent分组
@@ -227,6 +233,7 @@ Feature: Agent分组采集
     And I click the "More" button
     And I click the "Delete" button
     And I click the "Ensure" button
+    And I wait for "Addsuccessmsg" will be visible
     Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
 
 
