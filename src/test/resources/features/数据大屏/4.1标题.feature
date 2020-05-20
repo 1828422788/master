@@ -1,4 +1,4 @@
-@galaxeeWord @galaxee  @galaxee2
+@galaxeeWord @galaxee  @galaxee1  @4.1
 Feature: 数据大屏-标题
 
   Background:

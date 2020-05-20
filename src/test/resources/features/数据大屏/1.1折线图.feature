@@ -1,4 +1,4 @@
-@galaxeeChart1 @galaxee  @galaxee1
+@1.1   @galaxeeChart1 @galaxee  @galaxee0
 Feature: 数据大屏-折线图
 
 #  Background:
@@ -90,7 +90,7 @@ Feature: 数据大屏-折线图
     And I set the parameter "ChartYaxis" with value "240"
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
+    And I set the parameter "SplInput" with value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | bucket timestamp span=2000s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
 
@@ -155,7 +155,7 @@ Feature: 数据大屏-折线图
     And I set the parameter "ChartYaxis" with value "142"
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
+    And I set the parameter "SplInput" with value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | bucket timestamp span=2000s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
       #选择静态数据
@@ -207,7 +207,7 @@ Feature: 数据大屏-折线图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "2000" millsecond
-    And I set the parameter "SplInput" with value "* | bucket timestamp span=450s as ts| stats count() by ts | sort by +ts"
+    And I set the parameter "SplInput" with value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | bucket timestamp span=2000s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"

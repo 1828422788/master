@@ -1,4 +1,4 @@
- @galaxeeLast
+ @galaxeeLast   @1.27
 Feature: 数据大屏-栅格百分图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

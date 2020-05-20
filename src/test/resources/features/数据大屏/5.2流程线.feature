@@ -1,4 +1,4 @@
-@galaxeeNet @galaxee  @galaxee2
+@galaxeeNet @galaxee  @galaxee1   @5.2
   Feature: 数据大屏-流程线
 #    Background:
 #      Given I will see the "PublicNavBarPage" page

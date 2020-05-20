@@ -1,4 +1,4 @@
-@galaxeeChart1 @galaxee @galaxee1
+@1.4  @galaxeeChart1 @galaxee @galaxee0
 Feature: 数据大屏-散点图
 
 #  Background:
@@ -19,7 +19,9 @@ Feature: 数据大屏-散点图
     And I click the "Scatter" button
     #数据
     And I wait for "Data" will be visible
+    And I wait for "1000" millsecond
     And I click the "Data" button
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button

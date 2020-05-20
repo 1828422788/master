@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee @galaxee1
+@galaxeeChart2 @galaxee @galaxee0 @1.16
 Feature: 数据大屏-环形柱图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -60,7 +60,7 @@ Feature: 数据大屏-环形柱图
     And I click the "backgroundAuto" button
    #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -116,7 +116,7 @@ Feature: 数据大屏-环形柱图
     And I set the parameter "ChartYaxis" with value "188"
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip  | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -168,7 +168,7 @@ Feature: 数据大屏-环形柱图
     And I click the "Other" button
     And I click the "otherSearch" button
      And I wait for "2000" millsecond
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip  | limit 10"
 #     And I click the "DateEditor" button
 #     And I click the "RecentSevenDay" button
      And I click the "Search" button
