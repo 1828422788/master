@@ -16,7 +16,6 @@ Feature: SPL event
 
     Examples:
       |splcasename| splQuery|
-      | search_all | starttime=\"now/d\" endtime=\"now/d+24h\" * |
       | search_verify_chart_log | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart |
       | search_generall | tag:sample04061424 |
       | index_yotta_tag | index=* tag:sample04061424 |
