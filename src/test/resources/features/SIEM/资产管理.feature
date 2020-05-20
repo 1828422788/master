@@ -98,7 +98,7 @@ Feature: 新建资产管理
     And I click the "AddAsset" button
     And I click the "Completeadd" button
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetNameComplete" with value "AutotestCompleteadd"
+    When I set the parameter "AssetNameComplete2" with value "AutotestCompleteadd"
     When I set the parameter "IpComplete" with value "192.168.1.203"
     And I click the "Save" button
     Then I will see the element value in json "{'FailureMessage':'请检查输入项，确保正确后再提交。'}"
@@ -106,10 +106,10 @@ Feature: 新建资产管理
   Scenario: 编辑资产-修改资产名称
     When the data name is "{'column':'1','name':'AutotestCompleteadd'}" then i click the "编辑" button in siem page
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetNameComplete" with value "AutotestCompleteadd2"
+    When I set the parameter "AssetNameComplete2" with value "AutotestCompleteadd2"
 #    When I set the parameter "IpComplete" with value "192.168.1.203"
     And I click the "Save" button
-    And I wait for element "AssetNameComplete" value change text to "AutotestCompleteadd2"
+    And I wait for element "AssetNameComplete2" value change text to "AutotestCompleteadd2"
     Then I will see the element "AssetNameComplete" attribute "value" is "AutotestCompleteadd2" in siem
 
   Scenario Outline: 编辑资产-修改资产类型
