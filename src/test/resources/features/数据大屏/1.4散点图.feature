@@ -17,20 +17,6 @@ Feature: 数据大屏-散点图
     And I wait for "1000" millsecond
     And I wait for "Scatter" will be visible
     And I click the "Scatter" button
-    #数据
-    And I wait for "Data" will be visible
-    And I wait for "1000" millsecond
-    And I click the "Data" button
-    And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-
-    And I choose the "count()" from the "Yaxis"
-    And I wait for "1000" millsecond
-    And I choose the "apache.clientip" from the "Xaxis"
 
     And I click the "Style" button
   # x轴
@@ -102,6 +88,20 @@ Feature: 数据大屏-散点图
     And I set the parameter "Height" with value "739"
     And I set the parameter "ChartXaxis" with value "86"
     And I set the parameter "ChartYaxis" with value "142"
+
+      #数据
+    And I click the "Data" button
+    And I wait for "2000" millsecond
+    And I wait for "SplInput" will be visible
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+#    And I click the "DateEditor" button
+#    And I click the "RecentSevenDay" button
+    And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
+
+    And I choose the "count()" from the "Yaxis"
+    And I wait for "1000" millsecond
+    And I choose the "apache.clientip" from the "Xaxis"
 
 
     And I wait for "Save" will be visible
