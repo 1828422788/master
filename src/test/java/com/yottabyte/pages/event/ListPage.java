@@ -17,16 +17,8 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//input[@placeholder='请输入名称']")
     private WebElement searchInput;
 
-    @FindBy(className = "el-message__group")
-    private WebElement successMessage;
-
     public WebElement getCreate() {
         return super.getButton("新 建");
-    }
-
-    @Override
-    public WebElement getSuccessMessage() {
-        return successMessage;
     }
 
     @Override
