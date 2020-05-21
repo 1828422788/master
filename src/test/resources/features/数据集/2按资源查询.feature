@@ -1,6 +1,6 @@
 
-@dataset("priority=2")
-Feature: 数据集-按资源查询
+@dataset
+Feature: 数据集-2按资源查询
 
 
   Scenario Outline: 按资源查询

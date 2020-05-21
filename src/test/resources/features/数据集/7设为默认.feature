@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集-设为默认
+Feature: 数据集-7设为默认
 
   Scenario: 设为默认
     Given open the "dataset.ListPage" page for uri "/dataset/"

@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集-对节点的操作
+Feature: 数据集-12对节点的操作
 
     Scenario: 新建一个数据集修改【数据集中根有一个子节点】
     Given open the "dataset.ListPage" page for uri "/dataset/"

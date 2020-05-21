@@ -1,6 +1,6 @@
 
-@dataset("priority=1")
-Feature: 数据集-新建
+@dataset
+Feature: 数据集-1新建
 
 
   Scenario Outline: 新建数据集必填项测试【父子行为无】
