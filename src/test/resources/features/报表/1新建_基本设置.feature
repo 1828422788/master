@@ -77,7 +77,6 @@ Feature: 报表新建_执行计划
 
   Scenario Outline: new_report_error_message_crontab
     When I set the parameter "Name" with value "<name>"
-    And I click the "CrontabButton" button
     And I set the parameter "Crontab" with value "<crontab>"
     And I click the "NextButton" button
     And I wait for "EnsureButton" will be visible

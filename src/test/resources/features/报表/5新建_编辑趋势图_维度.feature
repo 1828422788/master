@@ -11,7 +11,7 @@ Feature: 报表新建_编辑_维度
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "20"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
-    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
+#    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
   Scenario Outline: new_report_trend_Dimension
     When I set the parameter "Name" with value "<name>_<reportType>"
@@ -152,10 +152,10 @@ Feature: 报表新建_编辑_维度
     Examples:
       |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
       |  PDF        |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
-      |  PDF        |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Blue     |
+      |  PDF        |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Green    |
 
     @reportChartsEXCEL
     Examples:
       |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
       |  EXCEL      |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
-      |  EXCEL      |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Blue     |
+      |  EXCEL      |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Green    |
