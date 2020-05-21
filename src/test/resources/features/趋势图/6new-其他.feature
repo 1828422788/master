@@ -85,7 +85,7 @@ Feature: 趋势图新建-其他
     And I click the "Settings" button
     And I click the "Icon" button
     And I click the "AccordingField" button
-    And I choose the "<iconValue>" from the "FieldValue"
+    And I choose the "<iconValue>" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "100"
     And I click the "Generate" button
@@ -197,7 +197,7 @@ Feature: 趋势图新建-其他
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "100"
     And I click the "AccordingTrend" button
-    And I choose the "<timeValue>" from the "ContrastTime"
+    And I choose the "<timeValue>" from the "ContrastTime" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -273,12 +273,12 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "data" from the "NumericField"
-    And I choose the "name" from the "DisplayField"
+    And I choose the "data" from the "NumericField" in config
+    And I choose the "name" from the "DisplayField" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
-    And I choose the "<precision>" from the "Precision"
+    And I choose the "<precision>" from the "Precision" in config
     # Button ThousandSeparator or Background
     And I click the "<buttonSwitch>" button
     And I set the parameter "Unit" with value "个"
@@ -322,7 +322,7 @@ Feature: 趋势图新建-其他
     And I click the "Purple" button
     And I click the "Icon" button
     And I click the "AccordingField" button
-    And I choose the "<iconValue>" from the "FieldValue"
+    And I choose the "<iconValue>" from the "FieldValue" in config
     And I click the "SecondTitle" button
     And I set the parameter "TitleName" with value "二级title"
     And I click the "Generate" button
@@ -357,7 +357,7 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue"
+    And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
@@ -392,10 +392,10 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue"
+    And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
     And I click the "AddField" button
-    And I choose the "count2_perc" from the "FieldValue"
+    And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -427,13 +427,13 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue"
+    And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
     And I click the "AddField" button
-    And I choose the "count2_perc" from the "FieldValue"
+    And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.clientip" from the "FieldValue"
+    And I choose the "apache.clientip" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "<rows>"
     And I set the parameter "ColumnNum" with value "<columns>"
     And I click the "Generate" button
@@ -469,13 +469,13 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "count_perc" from the "FieldValue"
+    And I choose the "count_perc" from the "FieldValue" in config
     And I click the "Compare" button
     And I click the "AddField" button
-    And I choose the "count2_perc" from the "FieldValue"
+    And I choose the "count2_perc" from the "FieldValue" in config
     And I click the "Facet" button
     And I click the "AddField" button
-    And I choose the "apache.clientip" from the "FieldValue"
+    And I choose the "apache.clientip" from the "FieldValue" in config
     And I set the parameter "RowNum" with value "<rows>"
     And I set the parameter "ColumnNum" with value "<columns>"
     And I click the "Exhibition" button
@@ -530,11 +530,11 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "cnt_perc" from the "FieldValue"
+    And I choose the "cnt_perc" from the "FieldValue" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "Orange" button
-    And I choose the "1" from the "Precision"
+    And I choose the "1" from the "Precision" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -568,9 +568,9 @@ Feature: 趋势图新建-其他
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Divide" button
-    And I choose the "<divField>" from the "FieldValue"
+    And I choose the "<divField>" from the "FieldValue" in config
     And I click the "Indicator" button
-    And I choose the "<divField>" from the "FieldValue"
+    And I choose the "<divField>" from the "FieldValue" in config
     And I click the "UnifyMetric" button
     And I click the "Exhibition" button
     And I click the "AddColor" button
@@ -609,9 +609,9 @@ Feature: 趋势图新建-其他
     And I wait for "1000" millsecond
     And I click the "Settings" button
     And I click the "Value" button
-    And I choose the "<countValue>" from the "FieldValue"
+    And I choose the "<countValue>" from the "FieldValue" in config
     And I click the "Divide" button
-    And I choose the "<divValue>" from the "FieldValue"
+    And I choose the "<divValue>" from the "FieldValue" in config
     And I click the "Example" button
     And I click the "FirstPosition" button
     And I click the "Exhibition" button
@@ -649,9 +649,9 @@ Feature: 趋势图新建-其他
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "Xaxis" button
-    And I choose the "<xValue>" from the "FieldValue"
+    And I choose the "<xValue>" from the "FieldValue" in config
     And I click the "Yaxis" button
-    And I choose the "<yValue>" from the "FieldValue"
+    And I choose the "<yValue>" from the "FieldValue" in config
     And I set the parameter "Segments" with value "<segNum>"
     And I click the "Generate" button
 
@@ -686,20 +686,20 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "<function>" from the "Function"
-    And I choose the "<parentIDvalue>" from the "ParentId"
-    And I choose the "<childIDvalue>" from the "ChildId"
+    And I choose the "<function>" from the "Function" in config
+    And I choose the "<parentIDvalue>" from the "ParentId" in config
+    And I choose the "<childIDvalue>" from the "ChildId" in config
     And I click the "Time" button
-    And I choose the "<starttime>" from the "StartTime"
-    And I choose the "<duration>" from the "KeepTime"
+    And I choose the "<starttime>" from the "StartTime" in config
+    And I choose the "<duration>" from the "KeepTime" in config
     And I click the "Divide" button
-    And I choose the "<childIDvalue>" from the "FieldValue"
+    And I choose the "<childIDvalue>" from the "FieldValue" in config
     And I click the "Info" button
-    And I choose the "<infoValue>" from the "InfoField"
+    And I choose the "<infoValue>" from the "InfoField" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
-    And I choose the "<precision>" from the "Precision"
+    And I choose the "<precision>" from the "Precision" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -734,15 +734,15 @@ Feature: 趋势图新建-其他
     And I click the "<chartType>" button
     And I click the "Settings" button
     And I click the "TimeSequence" button
-    And I choose the "<timeSeq>" from the "FieldValue"
+    And I choose the "<timeSeq>" from the "FieldValue" in config
     And I click the "Source" button
-    And I choose the "<source>" from the "FieldValue"
+    And I choose the "<source>" from the "FieldValue" in config
     And I click the "Target" button
-    And I choose the "<target>" from the "FieldValue"
+    And I choose the "<target>" from the "FieldValue" in config
     And I click the "Divide" button
-    And I choose the "<segmentation>" from the "FieldValue"
+    And I choose the "<segmentation>" from the "FieldValue" in config
     And I click the "Mark" button
-    And I choose the "<mark>" from the "FieldValue"
+    And I choose the "<mark>" from the "FieldValue" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -794,21 +794,21 @@ Feature: 趋势图新建-其他
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "<function>" from the "Function"
-    And I choose the "<parentIDvalue>" from the "ParentId"
-    And I choose the "<childIDvalue>" from the "ChildId"
+    And I choose the "<function>" from the "Function" in config
+    And I choose the "<parentIDvalue>" from the "ParentId" in config
+    And I choose the "<childIDvalue>" from the "ChildId" in config
     And I click the "Time" button
-    And I choose the "<starttime>" from the "StartTime"
-    And I choose the "<duration>" from the "KeepTime"
+    And I choose the "<starttime>" from the "StartTime" in config
+    And I choose the "<duration>" from the "KeepTime" in config
     And I click the "Divide" button
-    And I choose the "<childIDvalue>" from the "FieldValue"
+    And I choose the "<childIDvalue>" from the "FieldValue" in config
     And I click the "Info" button
-    And I choose the "<infoValue>" from the "InfoField"
+    And I choose the "<infoValue>" from the "InfoField" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
-    And I choose the "<precision>" from the "Precision"
-    And I choose the "tree" from the "TracingType"
+    And I choose the "<precision>" from the "Precision" in config
+    And I choose the "tree" from the "TracingType" in config
     And I click the "Generate" button
 
     And I click the "Settings" button

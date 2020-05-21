@@ -28,7 +28,7 @@ Feature: 仪表盘通用配置
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-    And I choose the "添加事件列表" from the "EventList"
+    And I click the "AddEvent" button
     And I set the parameter "EventName" with value "测试高级编辑"
     And I set the parameter "Spl" with value "*"
     And I click the "DateEditor" button

@@ -31,7 +31,7 @@ Feature: 仪表盘过滤项
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-    And I choose the "添加事件列表" from the "EventList"
+    And I click the "AddEvent" button
     And I set the parameter "EventName" with value "测试过滤项"
     And I set the parameter "Spl" with value "*"
     And I click the "DateEditor" button
@@ -44,7 +44,7 @@ Feature: 仪表盘过滤项
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "<eventList>" from the "EventList"
+    And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "<title>"
     And I set the parameter "FilterToken" with value "<token>"
     And I set the parameter "FilterField" with value "<field>"
@@ -61,8 +61,8 @@ Feature: 仪表盘过滤项
     Then I wait for "FilterName" will be visible
 
     Examples:
-      | eventList | title  | token  | field           | inputType | choiceValue |
-      | 添加过滤项     | filter | filter | apache.geo.city | 下拉菜单      | 南京市         |
+      | title  | token  | field           | inputType | choiceValue |
+      | filter | filter | apache.geo.city | 下拉菜单      | 南京市         |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 验证下拉过滤项
@@ -124,7 +124,7 @@ Feature: 仪表盘过滤项
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加过滤项" from the "EventList"
+    And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterField" with value "apache.geo.city"
@@ -209,7 +209,7 @@ Feature: 仪表盘过滤项
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加过滤项" from the "EventList"
+    And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterField" with value "apache.geo.city"
@@ -284,7 +284,7 @@ Feature: 仪表盘过滤项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     When I click the "AddEventButton" button
-    And I choose the "添加过滤项" from the "EventList"
+    And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterField" with value "apache.status"
@@ -328,7 +328,8 @@ Feature: 仪表盘过滤项
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
     And I "checked" the checkbox which name is "测试仪表盘eval"
     And I click the "Ensure" button
 
