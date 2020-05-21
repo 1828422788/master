@@ -1,5 +1,5 @@
 
-@dataset
+@dataset("priority=2")
 Feature: 数据集-按资源查询
 
 

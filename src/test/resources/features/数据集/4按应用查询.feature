@@ -1,4 +1,4 @@
-@dataset
+@dataset("priority=4")
 Feature: 数据集-按应用查询
 
 

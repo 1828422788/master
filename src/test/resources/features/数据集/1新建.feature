@@ -1,5 +1,5 @@
 
-@dataset
+@dataset("priority=1")
 Feature: 数据集-新建
 
 
