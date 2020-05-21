@@ -90,6 +90,7 @@ Feature: 数据集-10编辑根事件
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
     When I click the "editEvent" button
+    And I set the parameter "editYuJu" with value "tag:heka"
     And I choose the "无数集app之api全部测试用例" from the "rootAppList"
     And I choose the "auto_package" from the "rootResourceGroup"
     And I click the "rootSave" button
