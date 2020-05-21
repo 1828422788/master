@@ -19,6 +19,7 @@ Feature: 定时任务_基本配置
     And I set the parameter "StartTimeInput" with value "23:59:10"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: check_details_period
@@ -36,6 +37,7 @@ Feature: 定时任务_基本配置
     And I set the value "<spl>" to the textarea "SearchTextarea"
     And I set the parameter "Period" with value "<period>"
     And I click the "SaveButton" button
+    And I wait for "EnsureButton" will be visible
     And I will see the message "<result>"
 
     Examples:
@@ -55,6 +57,7 @@ Feature: 定时任务_基本配置
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "SaveButton" button
+    And I wait for "EnsureButton" will be visible
     And I will see the message "<result>"
 
     Examples:
@@ -77,6 +80,7 @@ Feature: 定时任务_基本配置
     And I will see the input element "Period" value will be "5"
     And I set the parameter "CrontabInput" with value "0 */57 * * * ?"
     And I click the "SaveButton" button
+    And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button
     Then I will see the "timedTask.ListPage" page

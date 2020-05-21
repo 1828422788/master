@@ -24,6 +24,7 @@ Feature: 定时任务复制
     And I hide the element "TimePanel"
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -40,6 +41,7 @@ Feature: 定时任务复制
     And I will see the input element "Number" value will be "20000"
     And I set the parameter "Number" with value "123"
     And I click the "SaveButton" button
+    And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button
     Then I will see the "timedTask.ListPage" page
