@@ -331,6 +331,9 @@ public class CreatePage extends PageTemplate {
     private WebElement statisticalmap;
 
     //其他 -------------
+    @FindBy(xpath = "(//div[contains(text(),'统计表')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement table;
+
     @FindBy(xpath = "(//div[contains(text(),'单值')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement single;
 
@@ -1124,6 +1127,9 @@ public class CreatePage extends PageTemplate {
         return statisticalmap;
     }
 
+    public WebElement getTable() {
+        return table;
+    }
 
     public WebElement getSingle() {
         return single;

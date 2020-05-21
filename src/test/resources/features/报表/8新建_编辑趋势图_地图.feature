@@ -11,7 +11,7 @@ Feature: 报表新建_编辑_地图
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "50"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
-    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
+#    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
 
   Scenario Outline: new_report_trend_heatmap
