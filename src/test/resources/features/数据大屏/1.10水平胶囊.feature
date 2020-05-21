@@ -16,7 +16,7 @@ Feature: 数据大屏-水平胶囊
     And I click the "Ensure" button
       #选择水平胶囊
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
 #    And I wait for "horizontalCapsule" will be visible
     And I click the "horizontalCapsule" button
     And I click the "Style" button
@@ -37,6 +37,7 @@ Feature: 数据大屏-水平胶囊
     And I set the parameter "CapsuleWordSize" with value "28"
     #字体颜色
     And I click the "capsuleFontColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#C23535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -46,6 +47,7 @@ Feature: 数据大屏-水平胶囊
     And I set the parameter "aspectRatio" with value "0.2"
     #条颜色
     And I click the "aspectColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CCE42C"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -169,6 +171,7 @@ Feature: 数据大屏-水平胶囊
     And I wait for "1000" millsecond
     And I wait for "horizontalCapsule" will be visible
     And I click the "horizontalCapsule" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button

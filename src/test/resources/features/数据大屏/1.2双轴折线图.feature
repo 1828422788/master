@@ -141,16 +141,16 @@ Feature: 数据大屏-双轴折线图
     And I wait for "Line2y" will be visible
     And I click the "Line2y" button
     And I click the "Style" button
-#    #图例
-#    And I click the "Example" button
-#    And I set the parameter "ExampleWordSize" with value "20"
-#    And I click the "ExampleColor" button
-#    And I set the parameter "ColorInput" with value "#D73535"
-#    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-#    And I choose the "bolder" from the "ExampleWordBold"
-#    And I choose the "居中" from the "ExampleHorizontal"
-#    And I choose the "顶部" from the "ExampleVertical"
+    #图例
+    And I click the "Example" button
+    And I set the parameter "ExampleWordSize" with value "20"
+    And I click the "ExampleColor" button
+    And I set the parameter "ColorInput" with value "#D73535"
+    And I click the "EnsureColor" button
+    And I wait for "EnsureColor" will be invisible
+    And I choose the "bolder" from the "ExampleWordBold"
+    And I choose the "居中" from the "ExampleHorizontal"
+    And I choose the "顶部" from the "ExampleVertical"
     #尺寸
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1500"
@@ -166,11 +166,16 @@ Feature: 数据大屏-双轴折线图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
+    And I wait for "tipsText" will be visible
     And I click the "tips" button
 
+    And I wait for "1000" millsecond
     And I choose the "appname" from the "Xaxis"
+    And I wait for "1000" millsecond
     And I choose the "count(appname)" from the "FirstYaxis"
+    And I wait for "1000" millsecond
     And I choose the "dc(appname)" from the "SecondYaxis"
+    And I wait for "1000" millsecond
    #分组
     And I click the "AddGroup" button
     And I choose the "appname" from the "Group"
@@ -240,7 +245,7 @@ Feature: 数据大屏-双轴折线图
      #对滚动条形图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
 
     And I choose the "appname" from the "Xaxis"
 

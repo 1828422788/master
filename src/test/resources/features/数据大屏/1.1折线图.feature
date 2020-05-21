@@ -86,7 +86,7 @@ Feature: 数据大屏-折线图
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1200"
     And I set the parameter "Height" with value "636"
-    And I set the parameter "ChartXaxis" with value "60"
+    And I set the parameter "ChartXaxis" with value "300"
     And I set the parameter "ChartYaxis" with value "240"
     #数据
     And I click the "Data" button
@@ -94,9 +94,11 @@ Feature: 数据大屏-折线图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
 
-    And I choose the "ts" from the "Xaxis"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
+    And I wait for "2000" millsecond
+    And I choose the "ts" from the "Xaxis"
+
+
 
     And I wait for "Save" will be visible
     And I wait for "1000" millsecond
@@ -133,7 +135,7 @@ Feature: 数据大屏-折线图
     #折线图
     And I click the "Chart" button
     And I wait for "1000" millsecond
-    And I wait for "Line" will be visible
+#    And I wait for "Line" will be visible
     And I click the "Line" button
     And I click the "Style" button
     #图例
@@ -151,7 +153,7 @@ Feature: 数据大屏-折线图
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1637"
     And I set the parameter "Height" with value "739"
-    And I set the parameter "ChartXaxis" with value "86"
+    And I set the parameter "ChartXaxis" with value "300"
     And I set the parameter "ChartYaxis" with value "142"
     #数据
     And I click the "Data" button
@@ -164,9 +166,11 @@ Feature: 数据大屏-折线图
     And I click the "Ensure" button
     And I click the "tips" button
 
-    And I choose the "ts" from the "Xaxis"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
+    And I wait for "2000" millsecond
+    And I choose the "ts" from the "Xaxis"
+
+
 
     And I click the "AddGroup" button
     And I choose the "count()" from the "Group"
@@ -221,7 +225,7 @@ Feature: 数据大屏-折线图
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "1637"
     And I set the parameter "Height" with value "739"
-    And I set the parameter "ChartXaxis" with value "86"
+    And I set the parameter "ChartXaxis" with value "300"
     And I set the parameter "ChartYaxis" with value "142"
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
@@ -237,12 +241,12 @@ Feature: 数据大屏-折线图
      #对滚动条形图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
-    And I choose the "ts" from the "Xaxis"
-    And I wait for "2000" millsecond
+
     And I choose the "count()" from the "Yaxis"
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
+    And I choose the "ts" from the "Xaxis"
+
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
