@@ -13,6 +13,7 @@ Feature: Agent编辑数据库数据类型数据源
   Scenario: 新建mysql数据库类型数据源
     And I click the "Create" button
     And I click the "DatabaseType" button
+    And I wait for loading invisible
     And I click the "CreateLink" button
     And I set the parameter "LinkName" with value "autotestmysql"
     And I set the parameter "Username" with value "root"
@@ -184,6 +185,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "MysqlPort" with value "3307"
     And I set the parameter "DataBaseName" with value "mysql"
+    And I wait for loading invisible
     And I click the "Save" button
     And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
@@ -196,6 +198,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "MaxLink" with value "5"
+    And I wait for loading invisible
     And I click the "Save" button
     And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
@@ -208,6 +211,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I wait for loading invisible
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "LinkName" with value "autotestmysql139"
+    And I wait for loading invisible
     And I click the "Save" button
     And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "保存成功"
