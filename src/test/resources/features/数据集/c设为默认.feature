@@ -12,3 +12,10 @@ Feature: 数据集-7设为默认
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "zhanKai" button
     Then I will see the "dataSetPosition" result will be "*"
+
+
+
+  Scenario: 取消默认
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+    Given the data name is "JNDTest" then i click the "取消默认" button
+    Then I will see the success message "取消默认数据集成功"
