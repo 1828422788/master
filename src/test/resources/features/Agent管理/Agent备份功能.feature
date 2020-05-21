@@ -142,8 +142,10 @@ Feature: Agent备份功能
     And I set the parameter "BackUPTime" with value "0"
     And I click the "Next" button
     And I click the "Next" button
+    And I wait for loading invisible
     And I click the "BackUpObject" button
     And I click the "DeleteBackUpObject" button
+    And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除目的对象成功。"
