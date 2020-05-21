@@ -29,6 +29,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -77,6 +78,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -132,6 +134,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -159,6 +162,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -203,6 +207,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -240,6 +245,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -274,6 +280,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -309,6 +316,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -340,6 +348,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -367,6 +376,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -410,6 +420,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -446,6 +457,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -487,6 +499,7 @@ Feature: 定时任务保存为
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I set the parameter "TaskName" with value "<caseNum>_<chartType>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:

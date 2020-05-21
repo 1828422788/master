@@ -20,6 +20,7 @@ Feature: 定时任务标签
     And I set the parameter "StartTimeInput" with value "23:59:00"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
   Scenario: tag_schedule
@@ -42,6 +43,7 @@ Feature: 定时任务标签
     And I wait for element "SelectedUser" change text to username
     And I cancel selection "auto_package" from the "TaskGroup"
     And I click the "SaveButton" button
+    And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button
     Then I will see the "timedTask.ListPage" page

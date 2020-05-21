@@ -16,6 +16,7 @@ Feature:定时任务补采
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:

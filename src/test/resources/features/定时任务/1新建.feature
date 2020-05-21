@@ -28,12 +28,15 @@ Feature: 定时任务新建
     And I hide the element "TimePanel"
     And I will see the element "WhenToStart" contains "明天开始"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "明天开始，是否继续"
     When I click the "Cancel" button
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     And I will see the success message "明天开始，是否继续"
     And I click the "TimeTaskEnsure" button
     And I wait for "1500" millsecond
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
     When open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
@@ -61,6 +64,7 @@ Feature: 定时任务新建
     And I set the parameter "StartTimeInput" with value "23:58:10"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -102,6 +106,7 @@ Feature: 定时任务新建
     And I set the parameter "StartTimeInput" with value "23:58:10"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -127,6 +132,7 @@ Feature: 定时任务新建
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -154,6 +160,7 @@ Feature: 定时任务新建
       And I click the "Crontab" button
       And I set the parameter "CrontabInput" with value "<crontab>"
       And I click the "EnsureButton" button
+      And I wait for "TimeTaskEnsure" will be visible
       Then I will see the success message "<message>"
 
       Examples:
@@ -177,6 +184,7 @@ Feature: 定时任务新建
         Then I set the parameter "Describe" with value "<describe>"
         Then I set the parameter "Period" with value "<period>"
         Then I click the "EnsureButton" button
+        And I wait for "TimeTaskEnsure" will be visible
         Then I will see the success message "<message>"
 
         Examples:
