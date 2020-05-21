@@ -2520,6 +2520,12 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
 
 
 
+
+
+    @FindBy(xpath = "//div[text()='静态数据确认，接下来请配置展示字段']")
+    private WebElement tipsText;
+    public WebElement getTipsText(){return tipsText;}
+
     @FindBy(xpath = "//div[text()='静态数据确认，接下来请配置展示字段']/following-sibling::div")
     private WebElement tips;
     public WebElement getTips(){return tips;}

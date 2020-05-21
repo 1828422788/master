@@ -140,16 +140,16 @@ Feature: 数据大屏-散点图
     And I click the "Scatter" button
 
     And I click the "Style" button
-#    #图例
-#    And I click the "Example" button
-#    And I set the parameter "ExampleWordSize" with value "20"
-#    And I click the "ExampleColor" button
-#    And I set the parameter "ColorInput" with value "#D73535"
-#    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-#    And I choose the "bolder" from the "ExampleWordBold"
-#    And I choose the "居中" from the "ExampleHorizontal"
-#    And I choose the "顶部" from the "ExampleVertical"
+    #图例
+    And I click the "Example" button
+    And I set the parameter "ExampleWordSize" with value "20"
+    And I click the "ExampleColor" button
+    And I set the parameter "ColorInput" with value "#D73535"
+    And I click the "EnsureColor" button
+    And I wait for "EnsureColor" will be invisible
+    And I choose the "bolder" from the "ExampleWordBold"
+    And I choose the "居中" from the "ExampleHorizontal"
+    And I choose the "顶部" from the "ExampleVertical"
     #尺寸
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
@@ -168,6 +168,7 @@ Feature: 数据大屏-散点图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
+    And I wait for "tipsText" will be visible
     And I click the "tips" button
 
     And I choose the "count()" from the "Yaxis"
