@@ -26,6 +26,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "register_apply")
     private WebElement field;
 
+    @FindBy(id = "register_alias")
+    private WebElement alias;
+
     public WebElement getSave() {
         return super.getButton("保 存");
     }
@@ -35,7 +38,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getAlias() {
-        return getInputElement("别名");
+        return alias;
     }
 
     public WebElement getField() {
