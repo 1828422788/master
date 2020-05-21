@@ -112,7 +112,6 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "StartDataValue" with value "<start3>"
     And I set the parameter "EndDataValue" with value "<end3>"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -136,7 +135,6 @@ Feature: 日志展现_普通统计视图
     When I set the parameter "TimeSpan" with value "<timeSpan>"
     And I choose the "<time>" from the "Time"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -291,7 +289,6 @@ Feature: 日志展现_普通统计视图
     And I wait for "1000" millsecond
     And I choose the "<fieldValue1>" from the "FieldValue"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
     And I click the "StatisticsGram" button
     And I choose the "<chartType>" from the "PresentType"
     And I click the "Generate" button
@@ -307,7 +304,6 @@ Feature: 日志展现_普通统计视图
     And I choose the "<fieldValue2>" from the "FieldValue"
     And I choose the "计数" from the "StatisticType"
     And I click the "Generate1" button
-    And I wait for "Loading" will be invisible
     And I click the "StatisticsGram" button
     And I click the "Generate" button
     And I wait for "Chart" will be visible
@@ -322,7 +318,6 @@ Feature: 日志展现_普通统计视图
     And I choose the "<fieldValue3>" from the "FieldValue"
     And I choose the "计数" from the "StatisticType"
     And I click the "Generate1" button
-    And I wait for "Loading" will be invisible
     And I click the "StatisticsGram" button
     And I click the "Generate" button
     And I wait for "Chart" will be visible

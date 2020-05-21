@@ -212,8 +212,6 @@ Feature: 日志展现_其它
 
   Scenario Outline: chain_tree(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
