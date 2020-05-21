@@ -12,6 +12,7 @@ Feature: 趋势图新建_地图
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -44,6 +45,7 @@ Feature: 趋势图新建_地图
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 <spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -89,6 +91,7 @@ Feature: 趋势图新建_地图
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -205,6 +208,7 @@ Feature: 趋势图新建_地图
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -241,6 +245,7 @@ Feature: 趋势图新建_地图
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 

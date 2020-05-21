@@ -11,6 +11,7 @@ Feature: 趋势图新建_复合
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -52,6 +53,7 @@ Feature: 趋势图新建_复合
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag: sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
