@@ -146,7 +146,6 @@ Feature: 应用监控模块（RZY-2122）
     And I choose the "AutoTag" from the "TagDropdown"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "修改成功"
 
   Scenario: 根据标签搜索
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -167,6 +166,7 @@ Feature: 应用监控模块（RZY-2122）
     And I will see the element "Title" name is "AlertApp"
     Then I will see the "alert.ListPage" page
     When the data name is "{'column':'1','name':'AutoTestAppAlertChangeName'}" then I "<status>" the switch
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "<message>"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AlertApp"
