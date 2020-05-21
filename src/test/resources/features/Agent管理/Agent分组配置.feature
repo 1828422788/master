@@ -16,7 +16,9 @@ Feature: Agent分组采集
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
     And I choose the "<role>" from the "Role"
+    And I wait for loading invisible
     And I click the "Save" button
+    And I wait for "Addsuccessmsg" will be visible
     And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"
 
 #  @indexSettingSmoke
