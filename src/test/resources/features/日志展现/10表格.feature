@@ -143,6 +143,7 @@ Feature: 日志展现_表格
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
 
+    And I wait for "AutoColor" will be visible
     And I click the "AutoColor" button
     And I click the "CreateEnsureButton" button
 
@@ -161,6 +162,7 @@ Feature: 日志展现_表格
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
+    And I wait for "CustomColor" will be visible
     And I click the "CustomColor" button
     And I click the "AddValue" button
     And I set the parameter "InputValue" with value "5"

@@ -75,7 +75,6 @@ Feature: 应用仪表盘
     Then I set the parameter "DashBoardName" with value "AutoApp"
     Then I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "新建仪表盘成功"
 
   Scenario Outline: 仪表盘详情页
     Given open the "app.ListPage" page for uri "/app/list/"

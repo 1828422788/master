@@ -1256,43 +1256,40 @@ public class SearchPage extends ListPageFactory {
 
     // 获取今天按钮
     public WebElement getToday() {
-        return GetTime.getTime(webDriver, "Today");
+        return (new DateEditorPage(webDriver)).getToday();
     }
 
     public WebElement getThisWeek() {
-        return GetTime.getTime(webDriver, "ThisWeek");
+        return (new DateEditorPage(webDriver)).getThisWeek();
     }
 
     public WebElement getThisMonth() {
-        return GetTime.getTime(webDriver, "ThisMonth");
+        return (new DateEditorPage(webDriver)).getThisMonth();
     }
 
     public WebElement getLastWeek() {
-        return GetTime.getTime(webDriver, "LastWeek");
+        return (new DateEditorPage(webDriver)).getLastWeek();
     }
 
     public WebElement getLastMonth() {
-        return GetTime.getTime(webDriver, "LastMonth");
+        return (new DateEditorPage(webDriver)).getLastMonth();
     }
 
     public WebElement getOneDay() {
-        return GetTime.getTime(webDriver, "OneDay");
+        return (new DateEditorPage(webDriver)).getOneDay();
     }
 
     public WebElement getTwoDays() {
-        return GetTime.getTime(webDriver, "TwoDays");
+        return (new DateEditorPage(webDriver)).getTwoDays();
     }
 
     public WebElement getSevenDays() {
-        return GetTime.getTime(webDriver, "SevenDays");
+        return (new DateEditorPage(webDriver)).getSevenDays();
     }
 
     // 获取昨天按钮
     public WebElement getYesterday() {
-        DateEditorPage dateEditorPage = new DateEditorPage(webDriver);
-        LoginBeforeAllTests.setPageFactory(dateEditorPage);
-        WebElement webElement = dateEditorPage.getYesterday();
-        return webElement;
+        return (new DateEditorPage(webDriver)).getYesterday();
     }
 
     public WebElement getSearchTable() {
