@@ -1,4 +1,4 @@
-@galaxeeOther @galaxee  @galaxee1  @6.4
+@galaxeeOther @galaxee  @galaxee2  @6.4
 Feature: 数据大屏-时间器
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

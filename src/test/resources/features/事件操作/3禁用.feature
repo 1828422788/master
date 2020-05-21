@@ -29,3 +29,4 @@ Feature: 事件操作启用禁用
     And I click the "RightIcon" button
     And I click the "EventOperate" button
     Then I click the "Context" button
+    And I close all tabs except main tab

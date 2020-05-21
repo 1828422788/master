@@ -13,6 +13,7 @@ Feature: Agent编辑数据库数据类型数据源
   Scenario: 新建mysql数据库类型数据源
     And I click the "Create" button
     And I click the "DatabaseType" button
+    And I wait for loading invisible
     And I click the "CreateLink" button
     And I set the parameter "LinkName" with value "autotestmysql"
     And I set the parameter "Username" with value "root"

@@ -54,7 +54,8 @@ Feature: 仪表盘矩阵热力图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
     And I "checked" the checkbox which name is "仪表盘矩阵热力图"
     And I click the "Ensure" button
 

@@ -485,7 +485,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='x']/ancestor::td/following-sibling::td/span")
     private WebElement xValue;
 
-    @FindBy(className = "icon-fanyeqishangjiantou")
+    @FindBy(className = "ant-dropdown-trigger")
     private WebElement eventOperate;
 
     @FindBy(xpath = "//li[text()='配置字段提取']")
@@ -524,22 +524,22 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//li[text()='AutoTest'])[last()]")
     private WebElement eventOperatorAutoTest;
 
-    @FindBy(xpath = "//span[contains(text(),'raw_message')][@class='yw-search-event-json-key-item']")
+    @FindBy(xpath = "//span[text()='raw_message']/following-sibling::i")
     private WebElement rawMessage;
 
     @FindBy(xpath = "(//li[text()='查看上下文sample'])[last()]")
     private WebElement contextSample;
 
-    @FindBy(xpath = "//span[text()='71.221.121.107']")
+    @FindBy(xpath = "//span[text()='hostname']/following-sibling::pre")
     private WebElement clientip;
 
-    @FindBy(xpath = "//span[text()='sample04061424'][@class='yw-search-event-json-value-item']")
+    @FindBy(xpath = "//span[text()='tag']/following-sibling::pre")
     private WebElement tag;
 
-    @FindBy(xpath = "//li[text()='添加到搜索']")
+    @FindBy(xpath = "//div[text()='添加到搜索']")
     private WebElement addToSearch;
 
-    @FindBy(xpath = "//li[text()='从搜索删除']")
+    @FindBy(xpath = "//div[text()='从搜索删除']")
     private WebElement removeFromSearch;
 
     @FindBy(xpath = "//span[text()='执行一次']/preceding-sibling::div")

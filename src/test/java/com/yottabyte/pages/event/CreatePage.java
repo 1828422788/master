@@ -20,22 +20,29 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "register_url")
     private WebElement url;
 
-    @FindBy(xpath = "//label[contains(text(),'搜索语句')]/following-sibling::div//textarea")
+    @FindBy(id = "register_query")
     private WebElement spl;
 
-    @FindBy(xpath = "//*[@class='yw-btn']//span")
-    private WebElement saveButton;
+    @FindBy(id = "register_apply")
+    private WebElement field;
+
+    @FindBy(id = "register_alias")
+    private WebElement alias;
+
+    public WebElement getSave() {
+        return super.getButton("保 存");
+    }
 
     public WebElement getName() {
         return name;
     }
 
     public WebElement getAlias() {
-        return getInputElement("别名");
+        return alias;
     }
 
     public WebElement getField() {
-        return getInputElement("应用字段");
+        return field;
     }
 
     public WebElement getDisplay() {
@@ -52,10 +59,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getEnsureButton() {
         return getContainsTextButton("确定");
-    }
-
-    public WebElement getSaveButton() {
-        return saveButton;
     }
 
     public WebElement getDisplayMethod() {
@@ -79,7 +82,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDropdownList(String name) {
-        String xpath = "//label[text()='" + name + "']//following-sibling::div//i";
+        String xpath = "//label[text()='" + name + "']/ancestor::div/following-sibling::div";
         webDriver.findElement(By.xpath(xpath)).click();
         return super.getLastDropdownList();
     }
