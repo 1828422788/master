@@ -1,4 +1,4 @@
-@galaxeeWord @galaxee  @galaxee1  @4.2
+@galaxeeWord @galaxee  @galaxee2  @4.2
 Feature: 数据大屏-表格
 
 #  Background:

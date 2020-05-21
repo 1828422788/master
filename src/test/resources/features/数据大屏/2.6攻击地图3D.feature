@@ -156,6 +156,7 @@ Feature: 数据大屏-攻击地图3D
      #攻击地图3D
     And I click the "Map" button
     And I click the "Attack3d" button
+    And I wait for "1000" millsecond
       #开启背景动画
     And I click the "Style" button
     And I click the "globalStyle" button
