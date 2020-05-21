@@ -25,7 +25,7 @@ Feature: Agent备份功能
     And I click the "Senior" button
     And I click the "Cancle" button
     Then I wait for loading invisible
-    And I will see the "AgentConfigurationTitle" doesn't exist
+#    And I will see the "AgentConfigurationTitle" doesn't exist
 
   Scenario: Agent备份，添加备份
     And I click the "AddBackUP" button
