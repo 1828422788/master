@@ -93,6 +93,7 @@ Feature: 数据集-在趋势图中的应用
     And I set the parameter "trendName" with value "<trendName>"
 
     And I click the "EnsureCrontab" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "创建成功"
     And I click the "trendEnsureAfterEnsure" button
       #趋势图中的验证数据集
