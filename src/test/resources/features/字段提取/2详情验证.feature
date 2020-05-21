@@ -48,13 +48,13 @@ Feature: 字段提取详情验证
       | RZY2862严格解析                 | 结构体解析        |
       | RZY2870创建dissect解析          | 自定义解析        |
 
-  Scenario Outline: 验证详情c
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading complete
-    When the data name is "{'column':'1','name':'RZY2872正则片段解析'}" then i click the "详情" button
-    And I wait for loading invisible
-    Then I will see the config element "正则解析" value is "正则解析 <result>"
-
-    Examples:
-      | result    |
-      | 2 2 0 0 0 |
+#  Scenario Outline: 验证详情c
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    And I wait for loading complete
+#    When the data name is "{'column':'1','name':'RZY2872正则片段解析'}" then i click the "详情" button
+#    And I wait for loading invisible
+#    Then I will see the config element "正则解析" value is "正则解析 <result>"
+#
+#    Examples:
+#      | result    |
+#      | 2 2 0 0 0 |
