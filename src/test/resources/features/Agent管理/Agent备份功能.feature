@@ -127,6 +127,7 @@ Feature: Agent备份功能
     And I click the "BackUpObject" button
     And I click the "EditBackUpObject" button
     And I set the parameter "TimeOut" with value "20"
+    And I wait for loading invisible
     And I click the "Save" button
     And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "修改成功"
