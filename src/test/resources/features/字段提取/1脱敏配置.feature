@@ -29,6 +29,7 @@ Feature: 字段提取脱敏配置
 #    And I "checked" the checkbox which name is "全选"
 #    And I "unchecked" the checkbox which name is "可查看敏感内容"
 #    Then I click the "SaveButton" button
+
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
@@ -94,6 +95,9 @@ Feature: 字段提取脱敏配置
     And I click the "LoginButton" button
     And I wait for "5000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "60000" millsecond
+    And I refresh the website
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "tag:replacer"
     And I click the "DateEditor" button
