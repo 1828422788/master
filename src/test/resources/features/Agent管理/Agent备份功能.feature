@@ -148,6 +148,7 @@ Feature: Agent备份功能
   Scenario: 备份策略删除
     Then I wait for loading invisible
     Given the data name "hekabackup" in table "BackUpTable" then i click the "删除" button
+    And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
     Then I will see the element "ChangeMemo" name is "删除备份配置成功"
