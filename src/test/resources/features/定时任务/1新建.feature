@@ -2,7 +2,7 @@
 Feature: 定时任务新建
 # 26
 
-  #bug RZY-5742
+
   @startTomorrowTask
   Scenario: test_schedule_time
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -37,6 +37,7 @@ Feature: 定时任务新建
     Then I will see the success message "保存成功"
     When open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    #bug RZY-5742
     # check that there was no executions
     # Then I will see the data "{'column':'2','name':'Test_StartTomorrow'}" values "{'column':'6','name':''}"
 
@@ -58,7 +59,6 @@ Feature: 定时任务新建
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:58:10"
-#    And I set the parameter "StartTimeInput" with value "CurrentTime5min"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -100,7 +100,6 @@ Feature: 定时任务新建
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:58:10"
-#    And I set the parameter "StartTimeInput" with value "CurrentTime5min"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
     Then I will see the success message "保存成功"
@@ -201,6 +200,7 @@ Feature: 定时任务新建
 
     Examples:
       | time                                      | taskName     |
+      #RZY-5018
 #      | 2020-04-01 00:00:00 ~ 2020-04-09 00:00:00 | interval_date|
       | -1M/M ~ now/M                             | lastMonth         |
       | now/M ~ now                               | thisMonth         |

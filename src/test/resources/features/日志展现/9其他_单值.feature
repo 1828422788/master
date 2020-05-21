@@ -40,7 +40,7 @@ Feature: 日志展现_其他_单值
     And I set the parameter "FontSize" with value "100"
     And I click the "Icon" button
     And I click the "AccordingField" button
-    And I choose the "<iconValue>" from the "FieldValue"
+    And I choose the "<iconValue>" from the "FieldValue" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -120,7 +120,7 @@ Feature: 日志展现_其他_单值
     And I click the "Exhibition" button
     And I click the "AccordingTrend" button
     And I set the parameter "FontSize" with value "150"
-    And I choose the "<timeValue>" from the "ContrastTime"
+    And I choose the "<timeValue>" from the "ContrastTime" in config
     And I click the "Generate" button
 
     And I click the "Settings" button
@@ -180,13 +180,13 @@ Feature: 日志展现_其他_单值
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I choose the "data" from the "NumericField"
-    And I choose the "name" from the "DisplayField"
+    And I choose the "data" from the "NumericField" in config
+    And I choose the "name" from the "DisplayField" in config
     And I click the "Exhibition" button
     And I set the parameter "FontSize" with value "100"
     And I click the "AddColor" button
     And I click the "Orange" button
-    And I choose the "<precision>" from the "Precision"
+    And I choose the "<precision>" from the "Precision" in config
     # Button ThousandSeparator or Background
     And I click the "<buttonSwitch>" button
     And I set the parameter "Unit" with value "个"
@@ -220,7 +220,7 @@ Feature: 日志展现_其他_单值
     And I click the "Purple" button
     And I click the "Icon" button
     And I click the "AccordingField" button
-    And I choose the "<iconValue>" from the "FieldValue"
+    And I choose the "<iconValue>" from the "FieldValue" in config
     And I click the "SecondTitle" button
     And I set the parameter "TitleName" with value "二级title"
     And I click the "Generate" button
