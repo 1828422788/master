@@ -66,26 +66,29 @@ public class SetKeyWithValue {
     }
 
     public void iSetTheParameterWithValue(WebElement element, String value) {
-//        boolean flag = true;
         int times = 0;
-        while (!element.getAttribute("value").equals(value) && times < 11) {
+        sendKeys(element, value);
+        // 富文本框获取到的value为空，这里不会再次尝试输入
+        while (element.getAttribute("value") != null && !element.getAttribute("value").equals(value) && times < 11) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            element.click();
-            //element.sendKeys(Keys.CONTROL + "a");
+            sendKeys(element, value);
+            times++;
+        }
+    }
+
+    private void sendKeys(WebElement element, String value) {
+        element.click();
+        //element.sendKeys(Keys.CONTROL + "a");
 //            element.sendKeys(Keys.END);
 //            element.sendKeys(Keys.SHIFT, Keys.HOME);
 //            element.sendKeys(Keys.BACK_SPACE);
-            element.clear();
-//            if (element.getText().equalsIgnoreCase("")) {
-//                flag = false;
-//            }
-            element.sendKeys(value);
-            times++;
-        }
+        element.clear();
+        element.sendKeys(value);
+
     }
 
     @And("^I set the parameter \"([^\"]*)\" with properties \"([^\"]*)\"$")

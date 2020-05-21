@@ -142,6 +142,7 @@ Feature: 应用知识
     And I wait for loading invisible
     And I click the "Create" button
     Then I will see the "knowledge.CreatePage" page
+    And I wait for "RichEditor" will be visible
     And I set the parameter "RichEditor" with value "若该知识没被删除，则证明app全局资源有问题"
     And I click the "Next" button
     And I click the "Next" button
