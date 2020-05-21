@@ -1,7 +1,6 @@
 @dataset
 Feature: 数据集-4按应用查询
 
-
   Scenario: 按应用查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
