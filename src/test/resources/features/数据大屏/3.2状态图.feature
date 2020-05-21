@@ -72,6 +72,7 @@ Feature: 数据大屏-状态图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_display  | stats avg(apache.status) as err_avg"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -126,6 +127,7 @@ Feature: 数据大屏-状态图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_display  | stats avg(apache.status) as err_avg"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -182,7 +184,7 @@ Feature: 数据大屏-状态图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "* | stats avg(apache.status) as err_avg"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats avg(apache.status) as err_avg"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button

@@ -104,6 +104,7 @@ Feature: 数据大屏-攻击地图3D
       #选择静态数据
     And I click the "statisticsData" button
     And I click the "Ensure" button
+    And I wait for "tipsText" will be visible
     And I click the "tips" button
 
     And I choose the "client_lat" from the "SourceLatitude"

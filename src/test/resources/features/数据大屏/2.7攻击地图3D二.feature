@@ -96,6 +96,7 @@
       #选择静态数据
       And I click the "statisticsData" button
       And I click the "Ensure" button
+      And I wait for "tipsText" will be visible
       And I click the "tips" button
 
       And I choose the "start_lat" from the "SourceLatitude"
