@@ -14,6 +14,7 @@ Feature: 字段提取Json、xml解析
     Then I wait for "1000" millsecond
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -34,6 +35,7 @@ Feature: 字段提取Json、xml解析
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :200}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -54,6 +56,7 @@ Feature: 字段提取Json、xml解析
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :0}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -74,6 +77,7 @@ Feature: 字段提取Json、xml解析
     And I set the parameter "{"source": "raw_message","paths": [],"add_fields": [],"extract_limit" :-1}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -94,6 +98,7 @@ Feature: 字段提取Json、xml解析
     And I set the parameter "PathInput" with value "dimensions"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"

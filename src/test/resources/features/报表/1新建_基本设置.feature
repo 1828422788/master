@@ -13,6 +13,7 @@ Feature: 报表新建_执行计划
     And I set the parameter "Hour" with value "<hour>"
     And I set the parameter "Minute" with value "<minute>"
     And I click the "NextButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the message "<message_text>"
 
     Examples:
@@ -37,6 +38,7 @@ Feature: 报表新建_执行计划
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
     And I will see the "report.ListPage" page
@@ -61,6 +63,7 @@ Feature: 报表新建_执行计划
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
     And I will see the "report.ListPage" page
@@ -77,6 +80,7 @@ Feature: 报表新建_执行计划
     And I click the "CrontabButton" button
     And I set the parameter "Crontab" with value "<crontab>"
     And I click the "NextButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the message "<message_text>"
 
     Examples:
@@ -97,6 +101,7 @@ Feature: 报表新建_执行计划
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
     And I will see the "report.ListPage" page
@@ -128,6 +133,7 @@ Feature: 报表新建_执行计划
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 

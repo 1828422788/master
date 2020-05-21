@@ -48,6 +48,7 @@ Feature: 报表新建_选择
     When I choose the "<chart11>" from the "ChartListDropdown"
     Then I will see the error message "每个用户最多保存十个趋势图"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
@@ -77,6 +78,7 @@ Feature: 报表新建_选择
     Then I will see the element "ChosenTrendFirst" contains "<trendFirst>"
     And I will see the element "ChosenTrendLast" contains "<trendLast>"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
@@ -126,6 +128,7 @@ Feature: 报表新建_选择
     And I click the "NextButton" button
     Then I wait for "FinishButton" will be visible
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the message "至少选择一个趋势图"
 
     Examples:

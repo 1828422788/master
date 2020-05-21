@@ -12,6 +12,7 @@ Feature: 字段提取结构体解析
     And I set the parameter "Struct" with value "<struct>"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -32,6 +33,7 @@ Feature: 字段提取结构体解析
     And I click the "Checkbox" button
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"

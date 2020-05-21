@@ -19,6 +19,7 @@ Feature: 报表标签
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
@@ -28,6 +29,7 @@ Feature: 报表标签
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "EnsureButton" button
+    And I wait for "100" millsecond
     Then I will see the message "修改成功"
     And I click the "EnsureButton" button
     And I refresh the website
@@ -45,6 +47,7 @@ Feature: 报表标签
     And I click the "NextButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
