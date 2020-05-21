@@ -1,4 +1,4 @@
-@galaxeeIndex @galaxee  @galaxee1  @3.4
+@galaxeeIndex @galaxee  @galaxee2  @3.4
   Feature: 数据大屏-百分比
 #    Background:
 #      Given I will see the "PublicNavBarPage" page

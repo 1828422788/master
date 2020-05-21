@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee @galaxee0  @1.21
+@galaxeeChart2 @galaxee @galaxee1  @1.21
 Feature: 数据大屏-旭日图
 
 #  Background:
