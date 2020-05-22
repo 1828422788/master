@@ -1,5 +1,5 @@
 @galaxeeOther @galaxee  @galaxee2  @6.1
-Feature: 数据大屏-全屏
+Feature: 数据大屏-l全屏
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

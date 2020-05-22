@@ -1,5 +1,5 @@
 @galaxeeIndex @galaxee  @galaxee2   @3.1
-Feature: 数据大屏-数值翻牌器
+Feature: 数据大屏-a数值翻牌器
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

@@ -1,5 +1,5 @@
 @galaxeeMap @galaxee  @galaxee1   @2.8
-Feature: 数据大屏-地理分布
+Feature: 数据大屏-p地理分布
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

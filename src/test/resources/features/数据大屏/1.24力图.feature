@@ -1,5 +1,5 @@
 @galaxeeChart2 @galaxee @galaxee1   @1.24
-Feature: 数据大屏-力图
+Feature: 数据大屏-e力图
 
 
 #  Background:

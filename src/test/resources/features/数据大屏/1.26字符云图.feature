@@ -1,5 +1,5 @@
  @galaxeeLast   @1.26  @galaxee1
-Feature: 数据大屏-字符云图
+Feature: 数据大屏-g字符云图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

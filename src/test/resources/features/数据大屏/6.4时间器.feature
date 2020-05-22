@@ -1,5 +1,5 @@
 @galaxeeOther @galaxee  @galaxee2  @6.4
-Feature: 数据大屏-时间器
+Feature: 数据大屏-o时间器
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

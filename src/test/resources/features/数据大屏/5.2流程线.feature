@@ -1,5 +1,5 @@
 @galaxeeNet @galaxee  @galaxee2   @5.2
-  Feature: 数据大屏-流程线
+  Feature: 数据大屏-k流程线
 #    Background:
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible

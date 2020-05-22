@@ -1,5 +1,5 @@
 @galaxeeMap @galaxee  @galaxee1   @2.2
-Feature: 数据大屏-热力地图
+Feature: 数据大屏-j热力地图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

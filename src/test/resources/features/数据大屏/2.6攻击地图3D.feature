@@ -1,5 +1,5 @@
 @galaxeeMap @galaxee @slow  @galaxee1   @2.6
-Feature: 数据大屏-攻击地图3D
+Feature: 数据大屏-n攻击地图3D
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

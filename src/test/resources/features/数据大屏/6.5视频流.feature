@@ -1,5 +1,5 @@
 @galaxeeOther @galaxee @galaxee2  @6.5
-Feature: 数据大屏-视频流
+Feature: 数据大屏-p视频流
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

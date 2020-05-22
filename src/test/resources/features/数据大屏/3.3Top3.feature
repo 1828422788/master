@@ -1,5 +1,5 @@
 @galaxeeIndex @galaxee  @galaxee2   @3.3
-  Feature: 数据大屏-Top3
+  Feature: 数据大屏-cTop3
 #    Background:
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible

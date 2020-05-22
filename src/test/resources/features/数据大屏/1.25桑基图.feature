@@ -1,5 +1,5 @@
 @galaxeeLast   @1.25   @galaxee1
-Feature: 数据大屏-桑基图
+Feature: 数据大屏-f桑基图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

@@ -1,5 +1,5 @@
 @galaxeeNet @galaxee  @galaxee2  @5.1
-  Feature: 数据大屏-实体
+  Feature: 数据大屏-j实体
 #    Background:
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible

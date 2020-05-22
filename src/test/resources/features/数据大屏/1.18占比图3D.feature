@@ -1,5 +1,5 @@
 @galaxeeChart2 @galaxee @galaxee0   @1.18
-Feature: 数据大屏-占比图3D
+Feature: 数据大屏-r占比图3D
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

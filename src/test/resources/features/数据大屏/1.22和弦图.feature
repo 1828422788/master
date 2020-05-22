@@ -1,5 +1,5 @@
 @galaxeeChart2 @galaxee @galaxee1  @1.22
-Feature: 数据大屏-和弦图
+Feature: 数据大屏-c和弦图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

@@ -1,5 +1,5 @@
 @galaxeeOther @galaxee @galaxee2  @6.6
-  Feature: 数据大屏-齿轮组合
+  Feature: 数据大屏-q齿轮组合
 #    Background:
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible

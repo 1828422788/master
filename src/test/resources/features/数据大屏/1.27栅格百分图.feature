@@ -1,5 +1,5 @@
  @galaxeeLast   @1.27  @galaxee1
-Feature: 数据大屏-栅格百分图
+Feature: 数据大屏-h栅格百分图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

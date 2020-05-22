@@ -1,5 +1,5 @@
 @galaxeeChart2 @galaxee @galaxee1  @1.21
-Feature: 数据大屏-旭日图
+Feature: 数据大屏-b旭日图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

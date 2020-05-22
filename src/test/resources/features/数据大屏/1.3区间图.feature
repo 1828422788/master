@@ -1,5 +1,5 @@
 @1.3  @galaxeeChart1 @galaxee @galaxee0
-Feature: 数据大屏-区间图
+Feature: 数据大屏-c区间图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

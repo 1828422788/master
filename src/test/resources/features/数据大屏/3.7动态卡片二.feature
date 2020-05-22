@@ -1,5 +1,5 @@
 @galaxeeIndex @galaxee  @galaxee2  @3.7
-Feature: 数据大屏-动态卡片二
+Feature: 数据大屏-g动态卡片二
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

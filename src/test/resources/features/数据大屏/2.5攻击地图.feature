@@ -1,5 +1,5 @@
 @galaxeeMap @galaxee @galaxee1   @2.5
-Feature: 数据大屏-攻击地图
+Feature: 数据大屏-m攻击地图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible

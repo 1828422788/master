@@ -1,5 +1,5 @@
 @1.1   @galaxeeChart1 @galaxee  @galaxee0
-Feature: 数据大屏-折线图
+Feature: 数据大屏-a折线图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

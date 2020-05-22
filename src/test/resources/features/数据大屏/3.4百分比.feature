@@ -1,5 +1,5 @@
 @galaxeeIndex @galaxee  @galaxee2  @3.4
-  Feature: 数据大屏-百分比
+  Feature: 数据大屏-d百分比
 #    Background:
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible

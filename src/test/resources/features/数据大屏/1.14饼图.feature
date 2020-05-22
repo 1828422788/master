@@ -1,5 +1,5 @@
 @galaxeeChart2 @galaxee @galaxee0  @1.14
-Feature: 数据大屏-饼图
+Feature: 数据大屏-n饼图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

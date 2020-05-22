@@ -1,5 +1,5 @@
 @1.7  @galaxeeChart1 @galaxee @galaxee0
-Feature: 数据大屏-滚动条形图
+Feature: 数据大屏-g滚动条形图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

@@ -1,5 +1,5 @@
 @galaxeeChart2 @galaxee @galaxee0   @1.17
-Feature: 数据大屏-环形占比图
+Feature: 数据大屏-q环形占比图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
