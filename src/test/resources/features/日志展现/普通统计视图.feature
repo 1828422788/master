@@ -17,6 +17,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<chart>" from the "PresentType"
     And I choose the "<value1>" from the "FieldValue"
     And I click the "AddButton" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -42,6 +43,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<value1>" from the "FieldValue"
     And I click the "IndependentStats" button
     And I click the "AddButton" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -78,6 +80,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "TimeInput" with value "<endTime>"
     And I click the "HideElement" button
     And I click the "GenerateTime" button under some element
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -112,6 +115,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "StartDataValue" with value "<start3>"
     And I set the parameter "EndDataValue" with value "<end3>"
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -135,6 +139,7 @@ Feature: 日志展现_普通统计视图
     When I set the parameter "TimeSpan" with value "<timeSpan>"
     And I choose the "<time>" from the "Time"
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -162,6 +167,7 @@ Feature: 日志展现_普通统计视图
     When I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "DataSpan" with value "<number>"
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -186,6 +192,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<charttype>" from the "PresentType" in config
     And I choose the "<value1>" from the "TopElement" in config
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -214,6 +221,7 @@ Feature: 日志展现_普通统计视图
     When I set the parameter "TimeSpan" with value "<timeSpan>"
     And I choose the "<time>" from the "Time"
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -243,6 +251,7 @@ Feature: 日志展现_普通统计视图
     And I click the "AddPercent" button
     And I set the parameter "PercentInput" with value "<percent1>"
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -266,6 +275,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<fieldValue>" from the "FieldValue"
     And I set the parameter "GoalValue" with value "<value1>"
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "ChartPecrent" will be visible
     And I drag the scroll bar to the element "ChartPercent"
     And I wait for "2000" millsecond
@@ -292,6 +302,7 @@ Feature: 日志展现_普通统计视图
     And I click the "StatisticsGram" button
     And I choose the "<chartType>" from the "PresentType"
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -306,6 +317,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate1" button
     And I click the "StatisticsGram" button
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -320,6 +332,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate1" button
     And I click the "StatisticsGram" button
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -341,6 +354,7 @@ Feature: 日志展现_普通统计视图
     And I wait for "1000" millsecond
     And I choose the "apache.geo.country" from the "FieldValue"
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_world"

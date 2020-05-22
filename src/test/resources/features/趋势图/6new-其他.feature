@@ -11,6 +11,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -45,6 +46,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -76,6 +78,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") "
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -114,6 +117,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\"  tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -151,6 +155,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -187,6 +192,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -222,6 +228,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -266,6 +273,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -308,6 +316,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -350,6 +359,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -385,6 +395,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -420,6 +431,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -462,6 +474,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -523,6 +536,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -560,6 +574,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -599,6 +614,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -641,6 +657,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -678,6 +695,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -726,6 +744,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -767,6 +786,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city | limit 5"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -786,6 +806,7 @@ Feature: 趋势图新建-其他
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
