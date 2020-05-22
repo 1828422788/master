@@ -176,7 +176,7 @@ Feature: 仪表盘钻取配置
     And I set the parameter "Url" with value "<url>"
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
-    Then I will see the success message "配置保存成功"
+    And I wait for "Jiangsu" will be visible
     And I click the "Jiangsu" button
     And switch to another window
     Then the page's title will be "<title>"
@@ -211,7 +211,7 @@ Feature: 仪表盘钻取配置
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
+    And I click the "AddChart" button
     And I "checked" the checkbox which name is "测试标签钻取"
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
@@ -222,7 +222,7 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "钻取跳转"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<filter>"
     And I set the parameter "FilterToken" with value "<filter>"
     And I set the parameter "FilterDefaultValue" with value "<defaultValue>"
@@ -262,7 +262,8 @@ Feature: 仪表盘钻取配置
     And I click the "ClickValue" button
     And I click the "Ensure" button
     And I click the "Nanjing" button
-    And I wait for title change text to "钻取跳转 | 仪表盘"
+    And switch to another window
+    And I close all tabs except main tab
     And I wait for "Progress" will be invisible
     Then I will see the "GeoCity" result will be "南京市"
 

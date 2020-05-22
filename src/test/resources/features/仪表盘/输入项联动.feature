@@ -88,6 +88,7 @@ Feature: 仪表盘输入项联动
     And I wait for "OpenInSearch" will be visible
     And I click the "OpenInSearch" button
     And switch to another window
+    And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "logtype:json AND hostname:192.168.1.26"
 
@@ -126,6 +127,7 @@ Feature: 仪表盘输入项联动
     And I wait for "OpenInSearch" will be visible
     And I click the "OpenInSearch" button
     And switch to another window
+    And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "a\+b"
 

@@ -218,7 +218,7 @@ Feature: 仪表盘高级编辑
     Then I wait for title change text to "搜索"
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 江苏"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
   @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-query及timeRange
@@ -259,7 +259,7 @@ Feature: 仪表盘高级编辑
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     Then I click the "Ensure" button

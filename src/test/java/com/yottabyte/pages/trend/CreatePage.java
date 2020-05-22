@@ -485,7 +485,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'条形图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement bar;
 
-    @FindBy(xpath = "(//div[@class='img sunburst'])[last()]")
+    @FindBy(xpath = "(//div[contains(text(),'旭日图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement sunburst;
 
     @FindBy(className = "tracing")
@@ -842,8 +842,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='max']/following-sibling::div")
     private WebElement rangeColor;
 
-    @FindBy(xpath = "//*[@class='anticon-spin']")
+    @FindBy(xpath = "(//*[@class='anticon-spin'])[2]")
     private WebElement loading;
+
+    @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement typeDropdown;
+
+    public WebElement getTypeDropdown() {
+        typeDropdown.click();
+        return getLastDropdownList();
+    }
 
     public WebElement getLoading() {
         return loading;

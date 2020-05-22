@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -174,24 +175,38 @@ public class CompareResult {
     }
 
     /**
-     * 比较两个图片是否相似
+     * 比较两个图片是否相似，如果不相似，会把sourceImage和targetImage绑定在测试报告中
      *
      * @param sourceImage 源文件路径名称
      * @param targetImage 目标文件路径名称
      */
     @And("^I compare source image \"([^\"]*)\" with target image \"([^\"]*)\"$")
     public void compareImage(String sourceImage, String targetImage) {
-        String sourceFingerPrint = null;
-        String targetFingerPrint = null;
         try {
-            System.out.println(System.getProperty("user.dir"));
-            System.out.println("sourceImage = [" + sourceImage + "], targetImage = [" + targetImage + "]");
-            sourceFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(sourceImage + ".png")));
-            targetFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(targetImage + ".png")));
+            String sourceFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(sourceImage + ".png")));
+            String targetFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(targetImage + ".png")));
+            int difference = ImageComparison.hammingDistance(sourceFingerPrint, targetFingerPrint);
+            if (difference > 5) {
+                this.embedImage(targetImage);
+                Assert.fail();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int difference = ImageComparison.hammingDistance(sourceFingerPrint, targetFingerPrint);
-        Assert.assertTrue(difference <= 5);
+    }
+
+    /**
+     * 在测试报告中绑定图表
+     *
+     * @param imagePath 图片路径
+     * @return
+     * @throws IOException
+     */
+    private byte[] embedImage(String imagePath) throws IOException {
+        FileInputStream inputStream = new FileInputStream(imagePath);
+        byte[] imageBytes = new byte[inputStream.available()];
+        inputStream.read(imageBytes);
+        inputStream.close();
+        return imageBytes;
     }
 }
