@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集-6删除
+Feature: 数据集-b删除
 
   Background:
     #新建一个数据集再删除

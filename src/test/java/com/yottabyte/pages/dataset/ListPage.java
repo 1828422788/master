@@ -20,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(id = "EditDatabase_name")

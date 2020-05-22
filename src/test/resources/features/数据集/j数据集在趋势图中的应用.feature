@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集-16在趋势图中的应用
+Feature: 数据集-j在趋势图中的应用
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -36,7 +36,7 @@ Feature: 数据集-16在趋势图中的应用
 
     Examples:
       |spl                         |trendName|dataSetResult|
-      |tag:"sample04061424" \| stats count() by apache.status|父子无    |tag:sample* |
+      |tag:sample04061424 \| stats count() by apache.status|父子无    |tag:sample* |
 
 
 
@@ -74,7 +74,7 @@ Feature: 数据集-16在趋势图中的应用
 
     Examples:
       |spl                         |trendName  |dataSetResult|
-      |tag:"sample04061424" \| stats count() by apache.status|父子汇聚    |* AND tag:sample* AND (tag:beyond4 OR appname:apache)|
+      |tag:sample04061424 \| stats count() by apache.status|父子汇聚    |* AND tag:sample* AND (tag:beyond4 OR appname:apache)|
 
 
 
@@ -110,4 +110,4 @@ Feature: 数据集-16在趋势图中的应用
 
     Examples:
       |spl                         |trendName|dataSetResult|
-      |tag:"sample04061424" \| stats count() by apache.status|父子继承  |* AND tag:sample*|
+      |tag:sample04061424 \| stats count() by apache.status|父子继承  |* AND tag:sample*|

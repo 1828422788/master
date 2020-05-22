@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集-1新建
+Feature: 数据集-a新建
 
 
   Scenario Outline: 新建数据集（父子行为无）
@@ -50,6 +50,8 @@ Feature: 数据集-1新建
 
 
   Scenario Outline: 按名称查询
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I wait for loading invisible
     When I set the parameter "SearchInput" with value "<name>"
     And I click the "Search" button
     And I wait for loading invisible
