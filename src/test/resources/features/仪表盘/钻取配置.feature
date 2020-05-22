@@ -262,7 +262,8 @@ Feature: 仪表盘钻取配置
     And I click the "ClickValue" button
     And I click the "Ensure" button
     And I click the "Nanjing" button
-    And I wait for title change text to "钻取跳转 | 仪表盘"
+    And switch to another window
+    And I close all tabs except main tab
     And I wait for "Progress" will be invisible
     Then I will see the "GeoCity" result will be "南京市"
 
