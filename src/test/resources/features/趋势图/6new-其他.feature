@@ -570,13 +570,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    Then I wait for "SuccessCreate" will be visible
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    Then I wait for "SuccessCreate" will be visible
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
