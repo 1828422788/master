@@ -285,3 +285,20 @@ Feature: 趋势图新建_地图
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum     |   spl   |
       |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546_white |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
       |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547_white |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+
+  @statmap
+  Scenario Outline: delete
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When I set the parameter "SearchInput" with value "<name>"
+    And I wait for "Loading" will be invisible
+    And the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
+    Then I will see the message "确认删除 [<name>] ?"
+    When I click the "EnsureButton" button
+    Then I will see the success message "删除成功"
+
+  Examples:
+    | name                                     |
+    | Statisticalmap_2098_param                |
+    | Statisticalmap_2098                      |
+    | Statisticalmap_2797_param                |
+    | Statisticalmap_2797                      |
