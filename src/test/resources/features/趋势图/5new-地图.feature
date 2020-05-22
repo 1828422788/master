@@ -128,14 +128,14 @@ Feature: 趋势图新建_地图
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
       |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
       |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
-
+@statmap
   Scenario Outline: statistical_map
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
     And I click the "SearchButton" button
-    And I wait for "15000" millsecond
+#    And I wait for "15000" millsecond
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -162,14 +162,14 @@ Feature: 趋势图新建_地图
       |chartType      |caseNum  |   spl   |
       |Statisticalmap | 2098    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
       |Statisticalmap | 2797    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince|
-
+  @statmap
   Scenario Outline: statistical_map_parameters
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "2000" millsecond
     And I click the "SearchButton" button
-    And I wait for "15000" millsecond
+#    And I wait for "15000" millsecond
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
