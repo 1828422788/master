@@ -1,4 +1,4 @@
-@authtest
+#@authtest
 Feature: 权限-应用列表页
 
   Scenario: 授权可使用应用功能,可新建应用,可使用数据集,数据集操作权限
@@ -10,7 +10,6 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
 
   Scenario Outline: 验证可新建应用
     Given I logout current user
@@ -219,6 +218,7 @@ Feature: 权限-应用列表页
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
     When I upload a file with name "/target/download-files/AutoTestForAuth.tar"
+    And I wait for "Message" will be visible
     Then I will see the message "上传失败: 没有相关资源权限"
 
   Scenario Outline: 授权读取
@@ -232,6 +232,7 @@ Feature: 权限-应用列表页
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用应用功能,可使用数据集"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
@@ -274,6 +275,7 @@ Feature: 权限-应用列表页
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用应用功能,可使用数据集,可使用入库优先级"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
@@ -308,6 +310,7 @@ Feature: 权限-应用列表页
     And I set the parameter "Url" with value "/download/"
     And I click the "SaveMenuButton" button
     And I click the "SaveButton" button under some element
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
     Examples:
@@ -334,6 +337,7 @@ Feature: 权限-应用列表页
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
 
     Examples:
@@ -352,6 +356,7 @@ Feature: 权限-应用列表页
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集,可使用事件操作"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
@@ -389,6 +394,7 @@ Feature: 权限-应用列表页
       | name            |
       | EventAppForAuth |
 
+  @logout
   Scenario: 验证有效期限生效
     Given I wait for "2000" millsecond
     And I logout current user
@@ -414,6 +420,7 @@ Feature: 权限-应用列表页
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
@@ -452,6 +459,7 @@ Feature: 权限-应用列表页
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "删除成功"
 
     Examples:
@@ -470,6 +478,7 @@ Feature: 权限-应用列表页
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集,可使用事件操作"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
@@ -496,6 +505,7 @@ Feature: 权限-应用列表页
     Then I will see the "app.CreatePage" page
     And I set the parameter "DescribeInput" with value "testDescribe"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "导出" button
@@ -523,6 +533,7 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
@@ -548,6 +559,7 @@ Feature: 权限-应用列表页
     Then I will see the "app.CreatePage" page
     And I set the parameter "DescribeInput" with value "desc"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "导出" button
@@ -572,6 +584,7 @@ Feature: 权限-应用列表页
     And I will see the "roles.CreatePage" page
     And I set the parameter "RoleName" with value "<RoleName>"
     And I click the "CreateButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
 
     Examples:
@@ -587,6 +600,7 @@ Feature: 权限-应用列表页
     And I wait for "2000" millsecond
     And I choose the "关联权限测试用户" from the "Roles"
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 增加AutoTest的可管理角色
@@ -598,6 +612,7 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Given open the "users.ListPage" page for uri "/account/users/"
     And I click the detail which name is "{'column':'1','name':'AutoTest'}"
@@ -607,6 +622,7 @@ Feature: 权限-应用列表页
     And I wait for "2000" millsecond
     And I choose the "关联权限测试用户" from the "ManageRole"
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario: 增加用户分组管理员
@@ -617,6 +633,7 @@ Feature: 权限-应用列表页
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "EnsureButton" button
     And I click the "SaveAdmin" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
   Scenario Outline: 验证授权权限
@@ -636,6 +653,7 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -674,8 +692,33 @@ Feature: 权限-应用列表页
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "删除成功"
 
     Examples:
       | name            |
       | EventAppForAuth |
+
+  @cleanAuth
+  Scenario Outline: 删除角色
+    Given the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+
+    Examples:
+      | name         |
+      | AutoTestCopy |
+
+  @cleanAuth
+  Scenario Outline: 清理
+    Given open the "topology.ListPage" page for uri "/topology/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name        |
+      | app权限应用所需资源 |
+      | app权限应用所需资源 |
