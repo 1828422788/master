@@ -24,6 +24,7 @@ Feature: 数据大屏-a折线图
       #文本
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CF3131"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -37,6 +38,7 @@ Feature: 数据大屏-a折线图
     And I set the parameter "XDividingLineBold" with value "3"
 
     And I click the "XDividingLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CD9080"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -44,6 +46,7 @@ Feature: 数据大屏-a折线图
     And I choose the "dotted" from the "XDividingLineType"
      # 轴线
     And I click the "xLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#26CC55"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -53,6 +56,7 @@ Feature: 数据大屏-a折线图
      #文本
     And I set the parameter "YaxisWordSize" with value "20"
     And I click the "YaxisWordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#19B535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -65,6 +69,7 @@ Feature: 数据大屏-a折线图
     And I set the parameter "YDividingLineBold" with value "2"
 
     And I click the "YDividingLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#BBB80B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -72,12 +77,14 @@ Feature: 数据大屏-a折线图
     And I choose the "dashed" from the "YDividingLineType"
     # 轴线
     And I click the "YLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CBD50D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I set the parameter "YLineBold" with value "4"
 #布局
     And I click the "Layout" button
+    And I wait for "LayoutBottom" will be visible
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
@@ -142,6 +149,7 @@ Feature: 数据大屏-a折线图
     And I click the "Example" button
     And I set the parameter "ExampleWordSize" with value "20"
     And I click the "ExampleColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#D73535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible

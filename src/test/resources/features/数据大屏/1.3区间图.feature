@@ -92,6 +92,8 @@ Feature: 数据大屏-c区间图
  #数据
 
     And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count() as c by ts | esma c timefield = ts"
+#    And I click the "DateEditor" button
     And I wait for "1000" millsecond
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -165,6 +167,7 @@ Feature: 数据大屏-c区间图
     And I set the parameter "ChartYaxis" with value "142"
     #数据
     And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count() as c by ts | esma c timefield = ts"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -219,7 +222,7 @@ Feature: 数据大屏-c区间图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "2000" millsecond
-    And I set the parameter "SplInput" with value "* | bucket timestamp span=1h as ts | stats count() as c by ts | esma c timefield = ts"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count() as c by ts | esma c timefield = ts"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
