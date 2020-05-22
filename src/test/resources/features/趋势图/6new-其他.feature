@@ -10,6 +10,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -26,13 +27,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | caseNum | spl                                                                                                          |
@@ -45,6 +46,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -61,13 +63,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+#    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-#    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | caseNum | spl                                                                                                          |
@@ -77,6 +79,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") "
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -98,13 +101,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | iconValue | caseNum |
@@ -116,6 +119,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\"  tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -137,13 +141,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | fontValue         | caseNum |
@@ -154,6 +158,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -175,13 +180,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | caseNum | spl                                                                                                              |
@@ -191,6 +196,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -211,13 +217,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | caseNum | timeValue | spl                                                                                                              |
@@ -227,6 +233,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -255,13 +262,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | caseNum | minVal1 | maxVal1 | color1 | minVal2 | maxVal2 | color2 | colorFill  | spl                                                                                                                               |
@@ -272,6 +279,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -298,13 +306,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | precision | unitPosition       | buttonSwitch      | caseNum                  | spl                                                                                                        |
@@ -315,6 +323,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -341,13 +350,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | iconValue | caseNum     | spl                                                                                                              |
@@ -358,6 +367,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -378,13 +388,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | caseNum  | spl                                                                                                                                                                                   |
@@ -394,6 +404,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -414,13 +425,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | caseNum   | spl                                                                                                                                                                                   |
@@ -430,6 +441,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -455,13 +467,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | caseNum     | rows | columns | spl                                                                                                                                                                                   |
@@ -473,6 +485,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -518,13 +531,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | caseNum            | rows | columns | spl                                                                                                                                                                                   |
@@ -535,6 +548,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -556,12 +570,12 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    Then I wait for "SuccessCreate" will be visible
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
-    Then I wait for "SuccessCreate" will be visible
     And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
@@ -573,6 +587,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -597,13 +612,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | divField        | color1   | caseNum | spl                                                                        |
@@ -613,6 +628,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -640,13 +656,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | countValue | divValue        | color1     | caseNum | spl                                                                      |
@@ -656,6 +672,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -677,13 +694,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType     | xValue          | yValue        | segNum | caseNum | spl                                                                        |
@@ -694,6 +711,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -725,13 +743,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
@@ -743,6 +761,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -769,13 +788,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | timeSeq  | source          | target   | segmentation    | mark    | caseNum | spl                                                                             |
@@ -785,6 +804,7 @@ Feature: 趋势图新建-其他
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city | limit 5"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -793,18 +813,19 @@ Feature: 趋势图新建-其他
     And I wait for "StatisticalChart" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/Table_Test"
+    And I compare source image "expect/Table_Test" with target image "actual/Table_Test"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "Table_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/Table_Test" with target image "actual/Table_Test"
 
   Scenario Outline: chain_tree
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -837,13 +858,13 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum   | spl                                                                                                                                                                                                                                                       |
