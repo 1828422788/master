@@ -54,7 +54,7 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<filter>"
     And I set the parameter "FilterToken" with value "<filter>"
     And I set the parameter "FilterDefaultValue" with value "<defaultValue>"

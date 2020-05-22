@@ -3,6 +3,10 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.ImageComparison;
 import com.yottabyte.utils.JsonStringPaser;
+import com.yottabyte.utils.TakeScreenShot;
+import com.yottabyte.webDriver.SharedDriver;
+import cucumber.api.Scenario;
+import cucumber.api.java.cs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -192,6 +196,10 @@ public class CompareResult {
             e.printStackTrace();
         }
         int difference = ImageComparison.hammingDistance(sourceFingerPrint, targetFingerPrint);
-        Assert.assertTrue(difference <= 5);
+        if (difference > 5) {
+            TakeScreenShot takeScreenShot = new TakeScreenShot();
+            takeScreenShot.generateImage(targetImage);
+            Assert.fail();
+        }
     }
 }
