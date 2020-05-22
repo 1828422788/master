@@ -223,7 +223,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I click the "DeleteMysql" button
     And I wait for loading invisible
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "删除连接成功。"
+    And I wait for "ChangeMemo" will be visible
     And I wait for loading invisible
     And I click the "MysqlDatabase139" button
     And I wait for loading invisible
