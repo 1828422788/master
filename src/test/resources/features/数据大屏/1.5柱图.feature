@@ -22,6 +22,7 @@ Feature: 数据大屏-e柱图
     And I click the "Example" button
     And I set the parameter "ExampleWordSize" with value "20"
     And I click the "ExampleColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#D73535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -33,6 +34,7 @@ Feature: 数据大屏-e柱图
     #尺寸
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1637"
     And I set the parameter "Height" with value "739"
     And I set the parameter "ChartXaxis" with value "86"
@@ -57,7 +59,7 @@ Feature: 数据大屏-e柱图
     And I click the "AddGroup" button
     And I choose the "apache.method" from the "Group"
     And I switch the "Pile" button to "enable"
-    And I wait for "3000" millsecond
+
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -100,6 +102,7 @@ Feature: 数据大屏-e柱图
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1637"
     And I set the parameter "Height" with value "739"
     And I set the parameter "ChartXaxis" with value "86"
@@ -110,6 +113,7 @@ Feature: 数据大屏-e柱图
       #文本
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CF3131"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -123,6 +127,7 @@ Feature: 数据大屏-e柱图
        And I set the parameter "XDividingLineBold" with value "3"
 
        And I click the "XDividingLineColor" button
+       And I wait for "ColorInput" will be visible
        And I set the parameter "ColorInput" with value "#CD9080"
        And I click the "EnsureColor" button
        And I wait for "EnsureColor" will be invisible
@@ -130,6 +135,7 @@ Feature: 数据大屏-e柱图
        And I choose the "dotted" from the "XDividingLineType"
      # 轴线
     And I click the "xLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#26CC55"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -139,6 +145,7 @@ Feature: 数据大屏-e柱图
      #文本
     And I set the parameter "YaxisWordSize" with value "20"
     And I click the "YaxisWordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#19B535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -152,6 +159,7 @@ Feature: 数据大屏-e柱图
     And I set the parameter "YDividingLineBold" with value "2"
 
     And I click the "YDividingLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#BBB80B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -159,12 +167,14 @@ Feature: 数据大屏-e柱图
     And I choose the "dashed" from the "YDividingLineType"
     # 轴线
     And I click the "YLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CBD50D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I set the parameter "YLineBold" with value "4"
     #布局
     And I click the "Layout" button
+    And I wait for "LayoutBottom" will be visible
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
@@ -179,6 +189,8 @@ Feature: 数据大屏-e柱图
     And I choose the "apache.clientip" from the "Xaxis"
     And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
+
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

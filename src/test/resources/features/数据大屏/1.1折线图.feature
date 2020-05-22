@@ -141,8 +141,8 @@ Feature: 数据大屏-a折线图
     And I click the "Ensure" button
     #折线图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
-#    And I wait for "Line" will be visible
+#    And I wait for "1000" millsecond
+    And I wait for "Line" will be visible
     And I click the "Line" button
     And I click the "Style" button
     #图例

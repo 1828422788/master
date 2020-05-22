@@ -25,6 +25,7 @@ Feature: 数据大屏-c区间图
       #文本
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CF3131"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -38,6 +39,7 @@ Feature: 数据大屏-c区间图
     And I set the parameter "XDividingLineBold" with value "3"
 
     And I click the "XDividingLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CD9080"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -45,6 +47,7 @@ Feature: 数据大屏-c区间图
     And I choose the "dotted" from the "XDividingLineType"
      # 轴线
     And I click the "xLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#26CC55"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -54,6 +57,7 @@ Feature: 数据大屏-c区间图
      #文本
     And I set the parameter "YaxisWordSize" with value "20"
     And I click the "YaxisWordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#19B535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -66,6 +70,7 @@ Feature: 数据大屏-c区间图
     And I set the parameter "YDividingLineBold" with value "2"
 
     And I click the "YDividingLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#BBB80B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -73,18 +78,21 @@ Feature: 数据大屏-c区间图
     And I choose the "dashed" from the "YDividingLineType"
     # 轴线
     And I click the "YLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CBD50D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I set the parameter "YLineBold" with value "4"
 #布局
     And I click the "Layout" button
+    And I wait for "LayoutBottom" will be visible
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
 
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1200"
     And I set the parameter "Height" with value "636"
     And I set the parameter "ChartXaxis" with value "60"
@@ -93,8 +101,7 @@ Feature: 数据大屏-c区间图
 
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count() as c by ts | esma c timefield = ts"
-#    And I click the "DateEditor" button
-    And I wait for "1000" millsecond
+
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -152,6 +159,7 @@ Feature: 数据大屏-c区间图
     And I click the "Example" button
     And I set the parameter "ExampleWordSize" with value "20"
     And I click the "ExampleColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#D73535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -161,6 +169,7 @@ Feature: 数据大屏-c区间图
     #尺寸
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1637"
     And I set the parameter "Height" with value "739"
     And I set the parameter "ChartXaxis" with value "86"
@@ -221,7 +230,7 @@ Feature: 数据大屏-c区间图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count() as c by ts | esma c timefield = ts"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -236,6 +245,7 @@ Feature: 数据大屏-c区间图
     And I click the "Style" button
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1637"
     And I set the parameter "Height" with value "739"
     And I set the parameter "ChartXaxis" with value "86"
