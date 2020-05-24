@@ -173,8 +173,8 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "DataBaseName" with value "rizhiyi_yottaweb"
     And I click the "Save" button
-    And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改成功"
+#    And I wait for "ChangeMemo" will be visible
+#    Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario: 编辑mysql数据库类型端口
     And I click the "Create" button
