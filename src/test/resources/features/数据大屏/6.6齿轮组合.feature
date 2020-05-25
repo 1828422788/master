@@ -13,12 +13,10 @@
       And I click the "Ensure" button
       #选择齿轮组合
       And I click the "Other" button
-      And I wait for "1000" millsecond
       And I wait for "gearCombination" will be visible
       And I click the "gearCombination" button
       #保存
       And I wait for "Save" will be visible
-      And I wait for "2000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -50,15 +48,15 @@
       And I click the "Ensure" button
       #选择齿轮组合
       And I click the "Other" button
-      And I wait for "1000" millsecond
       And I wait for "gearCombination" will be visible
       And I click the "gearCombination" button
 #设置样式
-      And I wait for "2000" millsecond
+      And I wait for "Style" will be visible
       And I click the "Style" button
       #1 设置图表尺寸位置
       And I wait for "ChartPosition" will be visible
       And I click the "ChartPosition" button
+      And I wait for "Width" will be visible
       And I set the parameter "Width" with value "400"
       And I set the parameter "Height" with value "400"
       And I set the parameter "ChartXaxis" with value "750"
@@ -67,11 +65,13 @@
       And I click the "styleGearCombination" button
       #光环颜色
      And I click the "haloColor" button
+      And I wait for "ColorInput" will be visible
      And I set the parameter "ColorInput" with value "#E8EB1B"
      And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       #背景颜色
       And I click the "backgroundColor" button
+      And I wait for "ColorInput" will be visible
      And I set the parameter "ColorInput" with value "#C120C4"
      And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible

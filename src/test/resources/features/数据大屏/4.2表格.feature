@@ -21,6 +21,7 @@ Feature: 数据大屏-i表格
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "551"
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "100"
@@ -31,6 +32,7 @@ Feature: 数据大屏-i表格
     And I set the parameter "TableHeaderWordSize" with value "20"
     #颜色
     And I click the "color" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#783737"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -38,6 +40,7 @@ Feature: 数据大屏-i表格
     And I choose the "bolder" from the "TableHeaderBold"
     #背景颜色
     And I click the "TableHeaderBgColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#D8DA44"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -45,6 +48,7 @@ Feature: 数据大屏-i表格
     And I set the parameter "TableHeadFrameBold" with value "6"
     #边框颜色
     And I click the "borderColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#C279DD"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -56,6 +60,7 @@ Feature: 数据大屏-i表格
     And I set the parameter "CellWordSize" with value "20"
     #颜色
     And I click the "tableColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#787A13"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -63,6 +68,7 @@ Feature: 数据大屏-i表格
     And I choose the "lighter" from the "CellBold"
     #背景颜色
     And I click the "tableBgColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#9BC577"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -70,6 +76,7 @@ Feature: 数据大屏-i表格
     And I set the parameter "CellFrameBold" with value "2"
     #边框颜色
     And I click the "tableFrameColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#00CC96"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -132,14 +139,13 @@ Feature: 数据大屏-i表格
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
-    And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
       #选择静态数据
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I click the "tips" button
 
-    And I choose the "appname,count(),tag" from the "DataItem"
+    And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -200,13 +206,12 @@ Feature: 数据大屏-i表格
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button
-
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "2000" millsecond
+
     And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
       #保存
     And I click the "Save" button

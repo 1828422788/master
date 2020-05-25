@@ -20,6 +20,7 @@ Feature: 数据大屏-f动态卡片
       #1 设置图表尺寸位置
     And I click the "Style" button
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1000"
     And I set the parameter "Height" with value "1000"
     And I set the parameter "ChartXaxis" with value "600"
@@ -32,11 +33,13 @@ Feature: 数据大屏-f动态卡片
     And I choose the "bold" from the "DynamicCardWordBold"
     #名称颜色
     And I click the "nameColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#ED3939"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
    #背景颜色
     And I click the "backColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#00FF84"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -46,6 +49,7 @@ Feature: 数据大屏-f动态卡片
    And I choose the "lighter" from the "ValueFontWordBold"
   #值颜色
     And I click the "valueColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#C843BD"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -55,6 +59,7 @@ Feature: 数据大屏-f动态卡片
 
     #线颜色
     And I click the "lineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#DDFF00"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -62,6 +67,7 @@ Feature: 数据大屏-f动态卡片
     And I set the parameter "bordWidth" with value "3"
     #边框颜色
     And I click the "bordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#EC31EF"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -85,9 +91,9 @@ Feature: 数据大屏-f动态卡片
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "2"
 
-    And I choose the "apache.clientip" from the "dynamicCardName"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "dynamicCardNumberFiled"
+    And I choose the "apache.clientip" from the "dynamicCardName"
+
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -139,9 +145,10 @@ Feature: 数据大屏-f动态卡片
     And I click the "Ensure" button
     And I click the "tips" button
 
-    And I choose the "apache.clientip" from the "dynamicCardName"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "dynamicCardNumberFiled"
+    And I choose the "apache.clientip" from the "dynamicCardName"
+
+
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -208,10 +215,11 @@ Feature: 数据大屏-f动态卡片
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "2000" millsecond
-    And I choose the "apache.clientip" from the "dynamicCardName"
-    And I wait for "2000" millsecond
+
     And I choose the "count()" from the "dynamicCardNumberFiled"
+    And I choose the "apache.clientip" from the "dynamicCardName"
+
+
 
       #保存
     And I click the "Save" button

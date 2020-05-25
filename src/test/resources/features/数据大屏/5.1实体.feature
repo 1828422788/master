@@ -168,14 +168,11 @@
       And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
       And I click the "pictureTwo" button
-#      And I click the "pictureOne" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
      #对实体的参数进行设置
       And I click the "pictureOne" button
-#      And I click the "pictureTwo" button
       And I click the "Data" button
-      And I wait for "3000" millsecond
 
       And I choose the "err_avg" from the "entitySearchCategory"
       #设置值范围

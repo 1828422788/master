@@ -19,6 +19,7 @@ Feature: 数据大屏-h标题
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "560"
     And I set the parameter "Height" with value "280"
     And I set the parameter "ChartXaxis" with value "434"
@@ -28,6 +29,7 @@ Feature: 数据大屏-h标题
     And I set the parameter "WordSize" with value "62"
     #字体颜色
     And I click the "ColorInner" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -44,7 +46,6 @@ Feature: 数据大屏-h标题
     And I set the parameter "Content" with value "数据模块"
  #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
     And I will see the success message "保存成功"
 

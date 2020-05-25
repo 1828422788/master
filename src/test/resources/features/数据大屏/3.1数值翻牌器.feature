@@ -15,7 +15,6 @@ Feature: 数据大屏-a数值翻牌器
     #选择数值翻牌器
     And I click the "Index" button
     And I click the "FlipNumber" button
-    And I hide the element "IndexDropdown"
     #样式
     And I click the "Style" button
     And I click the "Flip" button
@@ -25,6 +24,7 @@ Feature: 数据大屏-a数值翻牌器
     And I set the parameter "FlipWordSize" with value "62"
     #字体颜色
     And I click the "numberFontColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#D74B7A"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -42,6 +42,7 @@ Feature: 数据大屏-a数值翻牌器
     #样式尺寸
     And I click the "Style" button
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "760"
     And I set the parameter "Height" with value "370"
     And I set the parameter "ChartXaxis" with value "360"
@@ -163,7 +164,7 @@ Feature: 数据大屏-a数值翻牌器
      #对Top3的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "2000" millsecond
+
 
     And I choose the "count()" from the "Type"
       #保存

@@ -13,15 +13,15 @@ Feature: 数据大屏-n单张图片
     And I click the "Ensure" button
             #选择图片
     And I click the "Other" button
-    And I wait for "1000" millsecond
     And I wait for "Picture" will be visible
     And I click the "Picture" button
 #设置样式
-    And I wait for "2000" millsecond
+   And I wait for "Style" will be visible
  #设置图表尺寸位置
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1140"
     And I set the parameter "Height" with value "890"
     And I set the parameter "ChartXaxis" with value "300"
@@ -35,7 +35,6 @@ Feature: 数据大屏-n单张图片
 
       #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

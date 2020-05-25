@@ -21,7 +21,6 @@ Feature: 数据大屏-b状态图
     And I click the "backgroundAuto" button
     #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
     And I will see the success message "保存成功"
 
@@ -61,6 +60,7 @@ Feature: 数据大屏-b状态图
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "300"
     And I set the parameter "Height" with value "200"
     And I set the parameter "ChartXaxis" with value "546"
@@ -116,6 +116,7 @@ Feature: 数据大屏-b状态图
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "300"
     And I set the parameter "Height" with value "200"
     And I set the parameter "ChartXaxis" with value "546"
@@ -198,6 +199,7 @@ Feature: 数据大屏-b状态图
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "300"
     And I set the parameter "Height" with value "200"
     And I set the parameter "ChartXaxis" with value "546"
@@ -220,7 +222,7 @@ Feature: 数据大屏-b状态图
      #对实体的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I choose the "err_avg" from the "Type"
     #设置值范围
     And I set the parameter "normalStart" with value "0"
