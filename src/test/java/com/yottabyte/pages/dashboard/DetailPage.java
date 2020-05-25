@@ -109,7 +109,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加事件列表']")
     private WebElement addEvent;
 
-    @FindBy(xpath = "//span[text()='添加事件列表']")
+    @FindBy(xpath = "//span[text()='添加过滤项']")
     private WebElement addFilter;
 
     @FindBy(xpath = "//span[text()='添加输入项']")
