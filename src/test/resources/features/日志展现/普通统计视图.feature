@@ -82,10 +82,10 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "TimeInput" with value "<endTime>"
     And I click the "HideElement" button
     And I click the "GenerateTime" button under some element
-    And I wait for "2000" millsecond
+    And I wait for "6000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
-    And I wait for "5000" millsecond
+    And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
     Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
