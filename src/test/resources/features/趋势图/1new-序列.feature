@@ -9,6 +9,7 @@ Feature: 趋势图新建_序列
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -24,13 +25,14 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+
 
     Examples:
     |   chartType   |caseNum  |
@@ -43,6 +45,7 @@ Feature: 趋势图新建_序列
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -66,13 +69,13 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<buttonChoice>"
+    And I compare source image "expect/<chartType>_<buttonChoice>" with target image "actual/<chartType>_<buttonChoice>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<buttonChoice>" with target image "actual/<chartType>_<buttonChoice>"
 
     Examples:
       |   chartType   | buttonChoice  | color  |
@@ -83,6 +86,7 @@ Feature: 趋势图新建_序列
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -107,13 +111,13 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
 
     Examples:
       |   chartType   |   bubbleSize |caseNum  |
@@ -123,6 +127,7 @@ Feature: 趋势图新建_序列
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -146,13 +151,13 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>_<buttonChoice>"
+    And I compare source image "expect/<chartType>_<caseNum>_<buttonChoice>" with target image "actual/<chartType>_<caseNum>_<buttonChoice>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<buttonChoice>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>_<buttonChoice>" with target image "actual/<chartType>_<caseNum>_<buttonChoice>"
 
     Examples:
       |   chartType   | unitValue  | buttonChoice      |  caseNum  |
@@ -166,6 +171,7 @@ Feature: 趋势图新建_序列
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -188,13 +194,13 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>_limit"
+    And I compare source image "expect/<chartType>_<caseNum>_limit" with target image "actual/<chartType>_<caseNum>_limit"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_limit"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<caseNum>_limit" with target image "actual/<chartType>_<caseNum>_limit"
 
     Examples:
       |   chartType    | unitValue  |  caseNum  |

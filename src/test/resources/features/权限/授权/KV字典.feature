@@ -1,4 +1,4 @@
-@authtest
+#@auth
 Feature: 权限-KV字典
 
   Scenario: 新建拓扑图

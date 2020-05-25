@@ -64,8 +64,10 @@ Feature: 字段提取删除
       | hex详情验证                     |
       | RZY1548添加GEO解析              |
       | GEO解析详情验证                   |
-      | 多值字段副本                      |
+      | wym复制和编辑                    |
+      | wym复制和编辑的副本                 |
       | RZY3417多值字段                 |
+      | 禁用和启用                       |
 
   Scenario Outline: 删除字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
