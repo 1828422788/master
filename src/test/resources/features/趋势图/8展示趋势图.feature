@@ -114,6 +114,7 @@ Feature: 展示趋势图
       | Ring_table_3r_2c                |
       | Ring_twofields                  |
       | Ring_onefield                   |
+      | Single_Sparkline_分面           |
       | Single_Sparkline_Font           |
       | Single_Sparkline_Background     |
       | Single_secondTitle              |
