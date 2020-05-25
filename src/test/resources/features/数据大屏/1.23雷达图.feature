@@ -14,7 +14,6 @@ Feature: 数据大屏-d雷达图
     And I click the "Ensure" button
       #选择雷达图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "radarChart" will be visible
     And I click the "radarChart" button
  #设置样式
@@ -22,6 +21,7 @@ Feature: 数据大屏-d雷达图
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "660"
     And I set the parameter "Height" with value "476"
     And I set the parameter "ChartXaxis" with value "405"
@@ -32,6 +32,7 @@ Feature: 数据大屏-d雷达图
     And I set the parameter "radarFontSize" with value "20"
     #颜色
     And I click the "radarColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#EAEE0E"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -39,21 +40,25 @@ Feature: 数据大屏-d雷达图
     And I choose the "bold" from the "RadarWordBold"
      #区域边框颜色
     And I click the "areaBorderColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#DB13ED"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
      #区域颜色
      And I click the "radarAreaColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#A1A937"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #辐射线颜色
     And I click the "radarLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#EE2415"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
      #分割线颜色
     And I click the "splitLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#32CC49"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -72,9 +77,10 @@ Feature: 数据大屏-d雷达图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-    And I choose the "apache.clientip" from the "radarNameFile"
-    And I wait for "2000" millsecond
+
     And I choose the "count()" from the "radarNumberFile"
+    And I choose the "apache.clientip" from the "radarNameFile"
+
      #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -110,6 +116,14 @@ Feature: 数据大屏-d雷达图
     And I wait for "radarChart" will be visible
     And I click the "radarChart" button
     And I click the "Style" button
+
+    And I wait for "ChartPosition" will be visible
+    And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
+    And I set the parameter "Width" with value "660"
+    And I set the parameter "Height" with value "476"
+    And I set the parameter "ChartXaxis" with value "405"
+    And I set the parameter "ChartYaxis" with value "215"
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 10"
@@ -124,9 +138,8 @@ Feature: 数据大屏-d雷达图
     And I click the "Ensure" button
     And I click the "tips" button
 
-    And I choose the "apache.clientip" from the "radarNameFile"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "radarNumberFile"
+    And I choose the "apache.clientip" from the "radarNameFile"
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -170,7 +183,7 @@ Feature: 数据大屏-d雷达图
     And I set the parameter "updateFrequency" with value "0.1"
            #选择雷达图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "radarChart" will be visible
     And I click the "radarChart" button
     And I click the "Style" button
@@ -188,11 +201,10 @@ Feature: 数据大屏-d雷达图
      #对雷达图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
-    And I choose the "apache.clientip" from the "radarNameFile"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "radarNumberFile"
+    And I choose the "apache.clientip" from the "radarNameFile"
+
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"

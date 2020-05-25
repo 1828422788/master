@@ -22,21 +22,25 @@ Feature: 数据大屏-q环形占比图
     And I click the "Title" button
     And I set the parameter "TitleSize" with value "38"
     And I click the "TitleColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#00A9F0"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #单环颜色
     And I click the "Monocycle" button
     And I click the "MonocycleColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#00A9F0"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #半径
     And I click the "Radius" button
+    And I wait for "InnerRadius" will be visible
     And I set the parameter "InnerRadius" with value "60%"
     And I set the parameter "OuterRadius" with value "80%"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1000"
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "476"
@@ -138,7 +142,7 @@ Feature: 数据大屏-q环形占比图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+   And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -165,7 +169,7 @@ Feature: 数据大屏-q环形占比图
      #对占比图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I choose the "p" from the "DataField"
       #保存
     And I click the "Save" button
