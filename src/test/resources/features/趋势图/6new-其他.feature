@@ -406,6 +406,62 @@ Feature: 趋势图新建-其他
       |   Single      | Background   | Sparkline   |
       |   Single      | Font         | Sparkline   |
 
+  @sparklineChartFacet
+  Scenario Outline: sparkline_facet
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "cnt_2" from the "NumericField"
+    And I choose the "time" from the "DisplayField"
+    And I click the "Sparkline" button
+    And I choose the "ts" from the "SparklineField"
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Exhibition" button
+    And I click the "AccordingArea" button
+    And I set the parameter "FontSize" with value "80"
+    And I set the parameter "MinRange" with value "1"
+    And I set the parameter "MaxRange" with value "7"
+    And I click the "AddColor" button
+    And I click the "Red" button
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "7"
+    And I set the parameter "MaxRange" with value "10"
+    And I click the "AddColor" button
+    And I click the "Green" button
+    And I click the "Background" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "4000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType    | caseNum          |
+      |   Single      | Sparkline_分面   |
+
   Scenario Outline: ring_onefield
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
