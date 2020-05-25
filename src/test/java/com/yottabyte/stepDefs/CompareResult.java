@@ -187,7 +187,7 @@ public class CompareResult {
             String targetFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(targetImage + ".png")));
             int difference = ImageComparison.hammingDistance(sourceFingerPrint, targetFingerPrint);
             if (difference > 5) {
-                this.embedImage(targetImage);
+                this.embedImage(targetImage + ".png");
                 Assert.fail();
             }
         } catch (IOException e) {
