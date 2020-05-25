@@ -366,7 +366,7 @@ Feature: 趋势图新建-其他
   Scenario Outline: sparkline
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=25m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 6 "
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
