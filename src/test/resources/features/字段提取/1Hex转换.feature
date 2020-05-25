@@ -66,7 +66,7 @@ Feature: 字段提取Hex转换
 
     Examples:
       | appName       | log     | result                                 | searchResult                                    |
-      | auto_test_hex | hex.log | Object\nraw_message:"import sys impor" | {'raw_message':'raw_message：import sys\nimpor'} |
+      | wym_test_hex | hex.log | Object\nraw_message:"import sys impor" | {'raw_message':'raw_message：import sys\nimpor'} |
 
 
   Scenario Outline: hex详情验证
