@@ -19,11 +19,13 @@ Feature: 数据大屏-i中国地图
     And I click the "MapHeader" button
      #区域颜色
     And I click the "AreaColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边界颜色
     And I click the "BoundaryColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#0E0E0E"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -35,6 +37,7 @@ Feature: 数据大屏-i中国地图
     And I set the parameter "MapWordSize" with value "20"
     #字体颜色
     And I click the "WordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#F5CACA"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -42,6 +45,7 @@ Feature: 数据大屏-i中国地图
     And I choose the "bolder" from the "MapWordBold"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "618"
     And I set the parameter "Height" with value "406"
     And I set the parameter "ChartXaxis" with value "768"
@@ -55,8 +59,9 @@ Feature: 数据大屏-i中国地图
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
 
-    And I choose the "apache.geo.province" from the "NameField"
     And I choose the "count()" from the "DataField"
+    And I choose the "apache.geo.province" from the "NameField"
+
      #设置值范围
     And I set the parameter "normalMin" with value "0"
     And I set the parameter "normalMax" with value "3"
@@ -182,10 +187,10 @@ Feature: 数据大屏-i中国地图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
-    And I choose the "apache.geo.city" from the "NameField"
     And I choose the "count()" from the "DataField"
+    And I choose the "apache.geo.city" from the "NameField"
+
       #保存
     And I click the "Save" button
       Then I will see the success message "保存成功"

@@ -16,9 +16,11 @@ Feature: 数据大屏-p地理分布
     And I click the "Map" button
     And I click the "Globelabel" button
     #样式尺寸
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "900"
     And I set the parameter "Height" with value "900"
     And I set the parameter "ChartXaxis" with value "120"
@@ -27,16 +29,19 @@ Feature: 数据大屏-p地理分布
     And I click the "GlobelabelMapHeader" button
     #区域颜色
     And I click the "AreaColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#AA5353"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #标注颜色
     And I click the "MarkColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#6CF26A"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #文本颜色
     And I click the "textColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#7F3F9F"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -50,9 +55,13 @@ Feature: 数据大屏-p地理分布
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
+
     And I choose the "client_lat" from the "SourceLatitude"
+    And I wait for "1000" millsecond
     And I choose the "client_lon" from the "SourceLongitude"
+    And I wait for "1000" millsecond
     And I choose the "apache.clientip" from the "MapName"
+    And I wait for "1000" millsecond
     And I choose the "cnt" from the "MeasureValue"
     And I click the "Update" button
     #保存
@@ -91,10 +100,8 @@ Feature: 数据大屏-p地理分布
     #选择地理分布
     And I click the "Map" button
     And I click the "Globelabel" button
-      #开启背景动画
+
     And I click the "Style" button
-    And I click the "globalStyle" button
-    And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
@@ -109,13 +116,15 @@ Feature: 数据大屏-p地理分布
     And I click the "tips" button
 
     And I choose the "client_lat" from the "SourceLatitude"
+    And I wait for "1000" millsecond
     And I choose the "client_lon" from the "SourceLongitude"
+    And I wait for "1000" millsecond
     And I choose the "apache.clientip" from the "MapName"
+    And I wait for "1000" millsecond
     And I choose the "cnt" from the "MeasureValue"
     And I click the "Update" button
       #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -173,11 +182,14 @@ Feature: 数据大屏-p地理分布
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
 
     And I choose the "client_lat" from the "SourceLatitude"
+    And I wait for "1000" millsecond
     And I choose the "client_lon" from the "SourceLongitude"
+    And I wait for "1000" millsecond
     And I choose the "apache.clientip" from the "MapName"
+    And I wait for "1000" millsecond
     And I choose the "cnt" from the "MeasureValue"
     And I click the "Update" button
       #保存

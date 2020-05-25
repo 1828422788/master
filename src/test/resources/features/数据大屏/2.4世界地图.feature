@@ -21,21 +21,25 @@ Feature: 数据大屏-l世界地图
     And I click the "MapHeader" button
     #区域颜色
     And I click the "AreaColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
    #边界颜色
     And I click the "BoundaryColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#0E0E0E"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #标注颜色
     And I click the "MarkColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#F5CACA"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "800"
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "70"
@@ -103,7 +107,6 @@ Feature: 数据大屏-l世界地图
     And I click the "Update" button
       #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -162,7 +165,7 @@ Feature: 数据大屏-l世界地图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I click the "Update" button
       #保存
     And I click the "Save" button
