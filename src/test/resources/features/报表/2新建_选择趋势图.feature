@@ -15,37 +15,37 @@ Feature: 报表新建_选择
     And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
-    When I choose the "<chart1>" from the "ChartListDropdown"
+    When I choose the "<chart1>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart1>"
-    When I choose the "<chart2>" from the "ChartListDropdown"
+    When I choose the "<chart2>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart2>"
-    When I choose the "<chart3>" from the "ChartListDropdown"
+    When I choose the "<chart3>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart3>"
-    When I choose the "<chart4>" from the "ChartListDropdown"
+    When I choose the "<chart4>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart4>"
-    When I choose the "<chart5>" from the "ChartListDropdown"
+    When I choose the "<chart5>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart5>"
-    When I choose the "<chart6>" from the "ChartListDropdown"
+    When I choose the "<chart6>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart6>"
-    When I choose the "<chart7>" from the "ChartListDropdown"
+    When I choose the "<chart7>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart7>"
-    When I choose the "<chart8>" from the "ChartListDropdown"
+    When I choose the "<chart8>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart8>"
-    When I choose the "<chart9>" from the "ChartListDropdown"
+    When I choose the "<chart9>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart9>"
-    When I choose the "<chart10>" from the "ChartListDropdown"
+    When I choose the "<chart10>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart10>"
-    When I choose the "<chart11>" from the "ChartListDropdown"
+    When I choose the "<chart11>" from the "ChartList"
     Then I will see the error message "每个用户最多保存十个趋势图"
     When I click the "FinishButton" button
     And I wait for "EnsureButton" will be visible
@@ -65,13 +65,13 @@ Feature: 报表新建_选择
     And I click the "NextButton" button
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Order" from the "ChartListDropdown"
+    When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
-    When I choose the "table_Dimension" from the "ChartListDropdown"
+    When I choose the "table_Dimension" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Dimension"
-    When I choose the "table_Sun" from the "ChartListDropdown"
+    When I choose the "table_Sun" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Sun"
     When I click the "<button>" button
