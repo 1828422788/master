@@ -26,6 +26,9 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//p[text()='字段值'])[last()]/following-sibling::div")
     private WebElement fieldValue;
 
+    @FindBy(xpath = "(//p[text()='字段值'])[last()]/following-sibling::div//input")
+    private WebElement fieldValueInput;
+
     @FindBy(xpath = "(//span[text()='生成']/ancestor::button)[last()]")
     private WebElement generate;
 
@@ -768,6 +771,11 @@ public class StatisticalPage extends PageTemplate {
         wait.until(ExpectedConditions.elementToBeClickable(fieldValue));
         fieldValue.click();
         return this.getLastDropdownList();
+    }
+
+    public WebElement getFieldValueInput() {
+        fieldValue.click();
+        return fieldValueInput;
     }
 
     public WebElement getTopElement() {
