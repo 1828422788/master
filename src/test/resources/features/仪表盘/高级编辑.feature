@@ -201,7 +201,7 @@ Feature: 仪表盘高级编辑
     Then I wait for title change text to "搜索"
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 江苏"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
   @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-blank
