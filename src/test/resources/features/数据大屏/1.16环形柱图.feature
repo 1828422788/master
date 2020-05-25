@@ -16,12 +16,12 @@ Feature: 数据大屏-p环形柱图
     And I wait for "1000" millsecond
     And I wait for "circularCylinderChart" will be visible
     And I click the "circularCylinderChart" button
-    And I click the "Style" button
 # #设置样式
 #   # 1 设置图表尺寸位置
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And  I wait for "Width" will be visible
     And I set the parameter "Width" with value "884"
     And I set the parameter "Height" with value "680"
     And I set the parameter "ChartXaxis" with value "440"
@@ -32,6 +32,7 @@ Feature: 数据大屏-p环形柱图
     And I set the parameter "textFontSize" with value "20"
   #文本字体颜色
     And I click the "textFontColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#E0CD41"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -39,23 +40,25 @@ Feature: 数据大屏-p环形柱图
     And I choose the "bolder" from the "TextWordBold"
   #环柱渐变色1
     And I click the "gradation1" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#D931DC"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
   #环柱渐变色2
     And I click the "gradation2" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#8CD927"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
   #环柱渐变色3
     And I click the "gradation3" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#D75541"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #3 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "环形柱图样式修改"
-    And I wait for "1000" millsecond
     #开启背景动画
     And I click the "backgroundAuto" button
    #数据设置（数据源类型默认：搜索）
@@ -68,10 +71,10 @@ Feature: 数据大屏-p环形柱图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.clientip" from the "dataSearchLabel"
-    And I wait for "2000" millsecond
+    And I wait for "dataSearchValue" will be visible
     And I choose the "ip_count" from the "dataSearchValue"
        #保存
-    And I wait for "2000" millsecond
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -110,6 +113,7 @@ Feature: 数据大屏-p环形柱图
     And I click the "Style" button
 
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "884"
     And I set the parameter "Height" with value "680"
     And I set the parameter "ChartXaxis" with value "440"
@@ -129,7 +133,7 @@ Feature: 数据大屏-p环形柱图
     And I click the "tips" button
 
     And I choose the "apache.clientip" from the "dataSearchLabel"
-    And I wait for "2000" millsecond
+    And I wait for "dataSearchValue" will be visible
     And I choose the "ip_count" from the "dataSearchValue"
 
     #保存
@@ -167,7 +171,7 @@ Feature: 数据大屏-p环形柱图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-     And I wait for "2000" millsecond
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip  | limit 10"
 #     And I click the "DateEditor" button
 #     And I click the "RecentSevenDay" button
@@ -182,6 +186,7 @@ Feature: 数据大屏-p环形柱图
      And I click the "Style" button
 
      And I click the "ChartPosition" button
+     And I wait for "Width" will be visible
      And I set the parameter "Width" with value "884"
      And I set the parameter "Height" with value "680"
      And I set the parameter "ChartXaxis" with value "440"
@@ -200,9 +205,9 @@ Feature: 数据大屏-p环形柱图
      #对占比图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I choose the "apache.clientip" from the "dataSearchLabel"
-     And I wait for "2000" millsecond
+     And I wait for "dataSearchValue" will be visible
     And I choose the "ip_count" from the "dataSearchValue"
       #保存
     And I click the "Save" button
