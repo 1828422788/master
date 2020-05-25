@@ -2065,4 +2065,22 @@ public class CreatePage extends PageTemplate {
         return titleName;
     }
 
+    //Sparkline
+    @FindBy(xpath = "(//span[text()='使用Sparkline'])[last()]/ancestor::div/following-sibling::button")
+    private WebElement sparkline;
+
+    @FindBy(xpath = "(//span[text()='Sparkline x轴字段'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement sparklineField;
+
+    public WebElement getSparkline() {
+        return sparkline;
+    }
+
+    public WebElement getSparklineField() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(sparklineField));
+        sparklineField.click();
+        return super.getLastDropdownList();
+    }
+
 }
