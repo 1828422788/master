@@ -13,7 +13,6 @@ Feature: 数据大屏-o玫瑰图
     And I click the "Ensure" button
     #玫瑰图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Rose" will be visible
     And I click the "Rose" button
     And I click the "Style" button
@@ -89,7 +88,6 @@ Feature: 数据大屏-o玫瑰图
     And I click the "Ensure" button
       #玫瑰图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Rose" will be visible
     And I click the "Rose" button
     And I click the "Style" button
@@ -105,7 +103,8 @@ Feature: 数据大屏-o玫瑰图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+
+    And I wait for "tipsText" will be invisible
 
     And I choose the "ip_count" from the "DataField"
     And I wait for "2000" millsecond
@@ -154,7 +153,6 @@ Feature: 数据大屏-o玫瑰图
     And I set the parameter "updateFrequency" with value "0.1"
        #玫瑰图
     And I click the "Chart" button
-#    And I wait for "1000" millsecond
     And I wait for "Rose" will be visible
     And I click the "Rose" button
     And I click the "Style" button

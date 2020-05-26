@@ -14,7 +14,6 @@ Feature: 数据大屏-b双轴折线图
     And I click the "Ensure" button
     #双轴折线图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Line2y" will be visible
     And I click the "Line2y" button
     And I click the "Style" button
@@ -144,7 +143,6 @@ Feature: 数据大屏-b双轴折线图
     And I click the "Ensure" button
     #双轴折线图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Line2y" will be visible
     And I click the "Line2y" button
     And I click the "Style" button
@@ -175,8 +173,8 @@ Feature: 数据大屏-b双轴折线图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I wait for "tipsText" will be visible
-    And I click the "tips" button
+
+    And I wait for "tipsText" will be invisible
 
     And I choose the "appname" from the "Xaxis"
     And I wait for "1000" millsecond
@@ -228,7 +226,6 @@ Feature: 数据大屏-b双轴折线图
     And I set the parameter "updateFrequency" with value "0.1"
    #双轴折线图
     And I click the "Chart" button
-#    And I wait for "1000" millsecond
     And I wait for "Line2y" will be visible
     And I click the "Line2y" button
     And I click the "Style" button

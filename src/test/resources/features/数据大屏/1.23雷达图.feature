@@ -136,7 +136,7 @@ Feature: 数据大屏-d雷达图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "count()" from the "radarNumberFile"
     And I choose the "apache.clientip" from the "radarNameFile"

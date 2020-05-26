@@ -15,7 +15,6 @@ Feature: 数据大屏-l滚动列表三
     And I click the "Ensure" button
       #选择滚动列表三
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "rollList3" will be visible
     And I click the "rollList3" button
     And I click the "Style" button
@@ -89,7 +88,6 @@ Feature: 数据大屏-l滚动列表三
     And I click the "Ensure" button
       #选择滚动列表三
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "rollList3" will be visible
     And I click the "rollList3" button
     And I click the "Style" button
@@ -112,7 +110,7 @@ Feature: 数据大屏-l滚动列表三
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond

@@ -14,7 +14,6 @@ Feature: 数据大屏-g滚动条形图
     And I click the "Ensure" button
       #选择滚动条形图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "scrollBar" will be visible
     And I click the "scrollBar" button
 #修改样式
@@ -92,7 +91,6 @@ Feature: 数据大屏-g滚动条形图
     And I click the "Ensure" button
       #选择滚动条形图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "scrollBar" will be visible
     And I click the "scrollBar" button
     And I click the "Style" button
@@ -108,12 +106,12 @@ Feature: 数据大屏-g滚动条形图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-    And I wait for "3000" millsecond
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -160,7 +158,6 @@ Feature: 数据大屏-g滚动条形图
       #添加一个滚动条形图控件
        #选择滚动条形图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "scrollBar" will be visible
     And I click the "scrollBar" button
     And I click the "Style" button
@@ -182,7 +179,6 @@ Feature: 数据大屏-g滚动条形图
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-    And I wait for "3000" millsecond
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"

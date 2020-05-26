@@ -14,7 +14,6 @@ Feature: 数据大屏-h滚动柱形图
     And I click the "Ensure" button
       #选择滚动柱形图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
 #修改样式
@@ -106,7 +105,6 @@ Feature: 数据大屏-h滚动柱形图
     And I click the "Ensure" button
      #选择滚动柱形图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
     And I click the "Style" button
@@ -122,7 +120,7 @@ Feature: 数据大屏-h滚动柱形图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
@@ -172,7 +170,6 @@ Feature: 数据大屏-h滚动柱形图
     And I set the parameter "updateFrequency" with value "0.1"
       #选择滚动柱形图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
     And I click the "Style" button

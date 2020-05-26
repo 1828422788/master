@@ -21,10 +21,10 @@ Feature: 数据大屏-f动态卡片
     And I click the "Style" button
     And I click the "ChartPosition" button
     And I wait for "Width" will be visible
-    And I set the parameter "Width" with value "1000"
-    And I set the parameter "Height" with value "1000"
-    And I set the parameter "ChartXaxis" with value "600"
-    And I set the parameter "ChartYaxis" with value "100"
+    And I set the parameter "Width" with value "770"
+    And I set the parameter "Height" with value "432"
+    And I set the parameter "ChartXaxis" with value "305"
+    And I set the parameter "ChartYaxis" with value "214"
     #设置样式
     And I click the "styleDynamicCard" button
 #  名称字体大小
@@ -89,14 +89,14 @@ Feature: 数据大屏-f动态卡片
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
-    And I set the parameter "updateFrequency" with value "2"
 
     And I choose the "count()" from the "dynamicCardNumberFiled"
     And I choose the "apache.clientip" from the "dynamicCardName"
 
+    And I set the parameter "updateFrequency" with value "0.1"
     #保存
-    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -143,7 +143,7 @@ Feature: 数据大屏-f动态卡片
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "count()" from the "dynamicCardNumberFiled"
     And I choose the "apache.clientip" from the "dynamicCardName"
@@ -152,6 +152,7 @@ Feature: 数据大屏-f动态卡片
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -218,11 +219,10 @@ Feature: 数据大屏-f动态卡片
 
     And I choose the "count()" from the "dynamicCardNumberFiled"
     And I choose the "apache.clientip" from the "dynamicCardName"
-
-
-
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 动态卡片数据之绑定搜索发布并截图

@@ -14,10 +14,8 @@ Feature: 数据大屏-c区间图
     And I click the "Ensure" button
     #区间图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Range" will be visible
     And I click the "Range" button
-
     And I click the "Style" button
  # x轴
     And I wait for "XaxisHeader" will be visible
@@ -150,7 +148,6 @@ Feature: 数据大屏-c区间图
     And I click the "Ensure" button
     #区间图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Range" will be visible
     And I click the "Range" button
 
@@ -185,8 +182,7 @@ Feature: 数据大屏-c区间图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
-
+    And I wait for "tipsText" will be invisible
 
     And I choose the "ts" from the "XaxisField"
     And I wait for "1000" millsecond
@@ -239,7 +235,6 @@ Feature: 数据大屏-c区间图
     And I set the parameter "updateFrequency" with value "0.1"
     #区间图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Range" will be visible
     And I click the "Range" button
     And I click the "Style" button
@@ -264,11 +259,9 @@ Feature: 数据大屏-c区间图
      #对滚动条形图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "ts" from the "XaxisField"
     And I wait for "1000" millsecond
-
     And I choose the "_predict_c" from the "ForecastField"
     And I wait for "1000" millsecond
     And I choose the "c" from the "ActualField"

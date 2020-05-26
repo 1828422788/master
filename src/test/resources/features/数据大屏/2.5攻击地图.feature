@@ -117,7 +117,7 @@ Feature: 数据大屏-m攻击地图
       #选择静态数据
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "client_lat" from the "SourceLatitude"
     And I wait for "1000" millsecond

@@ -14,10 +14,8 @@ Feature: 数据大屏-i滚动列表
     And I click the "Ensure" button
       #选择滚动列表
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "listOfTurns" will be visible
     And I click the "listOfTurns" button
-    And I click the "Style" button
 #修改样式
     # 1 设置图表尺寸位置
     And I click the "Style" button
@@ -104,10 +102,8 @@ Feature: 数据大屏-i滚动列表
     And I click the "Ensure" button
          #选择滚动列表
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "listOfTurns" will be visible
     And I click the "listOfTurns" button
-    And I click the "Style" button
     #  设置图表尺寸位置
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
@@ -129,7 +125,8 @@ Feature: 数据大屏-i滚动列表
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
 
@@ -178,7 +175,6 @@ Feature: 数据大屏-i滚动列表
     And I set the parameter "updateFrequency" with value "0.1"
           #选择滚动列表
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "listOfTurns" will be visible
     And I click the "listOfTurns" button
 

@@ -107,7 +107,7 @@ Feature: 数据大屏-e揭示牌
       And I click the "dataSourceType" button
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I click the "tips" button
+      And I wait for "tipsText" will be invisible
 
       And I choose the "num" from the "tipsCardNumber"
       #设置阈值以及显示值

@@ -14,7 +14,6 @@ Feature: 数据大屏-n饼图
     And I click the "Ensure" button
     #饼图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Pie" will be visible
     And I click the "Pie" button
     And I click the "Style" button
@@ -88,7 +87,6 @@ Feature: 数据大屏-n饼图
     And I click the "Ensure" button
     #饼图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Pie" will be visible
     And I click the "Pie" button
     And I click the "Style" button
@@ -104,7 +102,7 @@ Feature: 数据大屏-n饼图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "ip_count" from the "DataField"
     And I wait for "1000" millsecond
@@ -153,7 +151,6 @@ Feature: 数据大屏-n饼图
     And I set the parameter "updateFrequency" with value "0.1"
          #饼图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Pie" will be visible
     And I click the "Pie" button
     And I click the "Style" button

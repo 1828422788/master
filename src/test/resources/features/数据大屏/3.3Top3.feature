@@ -100,7 +100,7 @@
       #选择静态数据
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I click the "tips" button
+      And I wait for "tipsText" will be invisible
 
       And I choose the "value" from the "dataSearchNumber"
       And I choose the "name" from the "dataSearchName"

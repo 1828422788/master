@@ -14,7 +14,6 @@ Feature: 数据大屏-e柱图
     And I click the "Ensure" button
     #柱图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Bar" will be visible
     And I click the "Bar" button
     And I click the "Style" button
@@ -50,7 +49,8 @@ Feature: 数据大屏-e柱图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "Xaxis"
     And I wait for "2000" millsecond
@@ -94,12 +94,10 @@ Feature: 数据大屏-e柱图
     And I click the "Ensure" button
     #柱图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Bar" will be visible
     And I click the "Bar" button
     And I click the "Style" button
     #样式
-    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I wait for "Width" will be visible
@@ -153,7 +151,6 @@ Feature: 数据大屏-e柱图
      # 轴标签
     And I set the parameter "YaxisShift" with value "10"
     And I choose the "倾斜" from the "YaxisAngle"
-#    And I switch the "YaxisSeparator" button to "disable"
      #分割线
     #分割线的设置
     And I set the parameter "YDividingLineBold" with value "2"
@@ -222,7 +219,7 @@ Feature: 数据大屏-e柱图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -231,7 +228,6 @@ Feature: 数据大屏-e柱图
     And I set the parameter "updateFrequency" with value "0.1"
     #柱图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Bar" will be visible
     And I click the "Bar" button
     And I click the "Style" button
@@ -259,7 +255,6 @@ Feature: 数据大屏-e柱图
      #对滚动条形图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "apache.clientip" from the "Xaxis"
     And I wait for "2000" millsecond

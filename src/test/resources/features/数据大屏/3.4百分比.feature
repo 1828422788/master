@@ -103,7 +103,7 @@
       And I click the "dataSourceType" button
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I click the "tips" button
+      And I wait for "tipsText" will be invisible
 
       And I choose the "p" from the "percentageSearchNumber"
 

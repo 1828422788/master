@@ -14,10 +14,8 @@ Feature: 数据大屏-d散点图
     And I click the "Ensure" button
     #散点图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Scatter" will be visible
     And I click the "Scatter" button
-
     And I click the "Style" button
   # x轴
     And I wait for "XaxisHeader" will be visible
@@ -142,7 +140,6 @@ Feature: 数据大屏-d散点图
     And I click the "Ensure" button
      #散点图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Scatter" will be visible
     And I click the "Scatter" button
 
@@ -177,8 +174,8 @@ Feature: 数据大屏-d散点图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I wait for "tipsText" will be visible
-    And I click the "tips" button
+
+    And I wait for "tipsText" will be invisible
 
     And I choose the "count()" from the "Yaxis"
     And I wait for "1000" millsecond
@@ -187,7 +184,7 @@ Feature: 数据大屏-d散点图
     #添加分组
     And I click the "AddGroup" button
     And I choose the "apache.method" from the "Group"
-    And I wait for "3000" millsecond
+
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -230,7 +227,6 @@ Feature: 数据大屏-d散点图
     And I set the parameter "updateFrequency" with value "0.1"
      #散点图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Scatter" will be visible
     And I click the "Scatter" button
     And I click the "Style" button
@@ -256,11 +252,9 @@ Feature: 数据大屏-d散点图
     And I click the "pictureOne" button
     And I click the "Data" button
 
-
     And I choose the "apache.clientip" from the "Xaxis"
     And I wait for "1000" millsecond
     And I choose the "count()" from the "Yaxis"
-    And I wait for "2000" millsecond
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button

@@ -15,7 +15,6 @@ Feature: 数据大屏-r占比图3D
     And I click the "Ensure" button
       #选择占比图3D
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "percent3dChart" will be visible
     And I click the "percent3dChart" button
     And I click the "Style" button
@@ -106,7 +105,6 @@ Feature: 数据大屏-r占比图3D
     And I click the "Ensure" button
            #选择占比图3D
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "percent3dChart" will be visible
     And I click the "percent3dChart" button
     And I click the "Style" button
@@ -122,7 +120,8 @@ Feature: 数据大屏-r占比图3D
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+
+    And I wait for "tipsText" will be invisible
 
     And I choose the "p" from the "percent3dDataSearchCategory"
      #值范围使其处于异常范围

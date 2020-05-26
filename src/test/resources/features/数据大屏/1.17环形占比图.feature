@@ -14,7 +14,6 @@ Feature: 数据大屏-q环形占比图
     And I click the "Ensure" button
     # 环形占比图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Percent" will be visible
     And I click the "Percent" button
     And I click the "Style" button
@@ -89,7 +88,6 @@ Feature: 数据大屏-q环形占比图
     And I click the "Ensure" button
     # 环形占比图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Percent" will be visible
     And I click the "Percent" button
     And I click the "Style" button
@@ -105,7 +103,7 @@ Feature: 数据大屏-q环形占比图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "p" from the "DataField"
     #保存
@@ -151,7 +149,6 @@ Feature: 数据大屏-q环形占比图
     And I set the parameter "updateFrequency" with value "0.1"
         # 环形占比图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Percent" will be visible
     And I click the "Percent" button
     And I click the "Style" button
