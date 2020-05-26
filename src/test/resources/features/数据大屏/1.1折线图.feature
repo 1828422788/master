@@ -1,4 +1,4 @@
-@1.1   @galaxeeChart1 @galaxee  @galaxee0
+@1.1   @galaxeeChart1 @galaxee  @galaxee2
 Feature: 数据大屏-a折线图
 
 #  Background:
@@ -90,6 +90,7 @@ Feature: 数据大屏-a折线图
 
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1200"
     And I set the parameter "Height" with value "636"
     And I set the parameter "ChartXaxis" with value "300"
@@ -100,9 +101,10 @@ Feature: 数据大屏-a折线图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
 
-    And I choose the "count()" from the "Yaxis"
-    And I wait for "2000" millsecond
+
     And I choose the "ts" from the "Xaxis"
+#    And I wait for "Yaxis" will be visible
+    And I choose the "count()" from the "Yaxis"
 
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -170,9 +172,9 @@ Feature: 数据大屏-a折线图
 
     And I wait for "tipsText" will be invisible
 
-    And I choose the "count()" from the "Yaxis"
-    And I wait for "2000" millsecond
     And I choose the "ts" from the "Xaxis"
+#    And I wait for "Yaxis" will be visible
+    And I choose the "count()" from the "Yaxis"
 
     And I click the "AddGroup" button
     And I choose the "count()" from the "Group"
@@ -243,10 +245,9 @@ Feature: 数据大屏-a折线图
     And I click the "pictureOne" button
     And I click the "Data" button
 
-    And I choose the "count()" from the "Yaxis"
-    And I wait for "2000" millsecond
     And I choose the "ts" from the "Xaxis"
-
+#    And I wait for "Yaxis" will be visible
+    And I choose the "count()" from the "Yaxis"
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button

@@ -1,4 +1,4 @@
-@1.2 @galaxeeChart1 @galaxee @galaxee0
+@1.2 @galaxeeChart1 @galaxee @galaxee2
 Feature: 数据大屏-b双轴折线图
 
 #  Background:
@@ -28,7 +28,7 @@ Feature: 数据大屏-b双轴折线图
     And I choose the "count(appname)" from the "FirstYaxis"
     And I wait for "1000" millsecond
     And I choose the "dc(appname)" from the "SecondYaxis"
-    And I wait for "1000" millsecond
+
      #样式-尺寸
     And I click the "Style" button
     And I click the "ChartPosition" button
@@ -181,7 +181,7 @@ Feature: 数据大屏-b双轴折线图
     And I choose the "count(appname)" from the "FirstYaxis"
     And I wait for "1000" millsecond
     And I choose the "dc(appname)" from the "SecondYaxis"
-    And I wait for "1000" millsecond
+
    #分组
     And I click the "AddGroup" button
     And I choose the "appname" from the "Group"
@@ -257,7 +257,7 @@ Feature: 数据大屏-b双轴折线图
     And I choose the "count(appname)" from the "FirstYaxis"
     And I wait for "1000" millsecond
     And I choose the "dc(appname)" from the "SecondYaxis"
-    And I wait for "1000" millsecond
+
 
       #保存
     And I click the "Save" button
