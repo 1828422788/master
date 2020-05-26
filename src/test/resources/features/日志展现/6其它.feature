@@ -29,6 +29,66 @@ Feature: 日志展现_其它
       |  chartType    |caseNum  |   spl   |
       |   Wordcloud   | 2804    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
+  Scenario Outline: liquidfill
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "cnt_perc" from the "FieldValue" in config
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "Orange" button
+    And I choose the "1" from the "Precision" in config
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "ChartView" will be visible
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>_<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
+
+    Examples:
+      | chartType  | caseNum | spl                                                                       |
+      | Liquidfill | percent | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
+
+  @facet
+  Scenario Outline: liquidfill_facet
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "cnt" from the "FieldValue" in config
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "Red" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
+    Then I compare source image "expect/高级搜索视图/6其它/<chartType>_<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
+
+    Examples:
+      | chartType  | caseNum | spl                                                                       |
+      | Liquidfill | 分面    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10|
+
+
   Scenario Outline: others(RZY-2807,2449)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
