@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集-在搜索页
+Feature: 数据集-g在搜索页
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

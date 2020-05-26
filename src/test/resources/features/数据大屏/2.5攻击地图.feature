@@ -1,5 +1,5 @@
 @galaxeeMap @galaxee @galaxee1   @2.5
-Feature: 数据大屏-攻击地图
+Feature: 数据大屏-m攻击地图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -20,16 +20,19 @@ Feature: 数据大屏-攻击地图
     And I click the "MapHeader" button
     #边界颜色
     And I click the "BoundaryColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#00EEFF"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #区域颜色
     And I click the "AreaColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#AA5353"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #事件颜色
     And I click the "EventColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#F2321D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -37,6 +40,7 @@ Feature: 数据大屏-攻击地图
     And I set the parameter "Scaling" with value "1"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1200"
     And I set the parameter "Height" with value "900"
     And I set the parameter "ChartXaxis" with value "111"
@@ -51,11 +55,17 @@ Feature: 数据大屏-攻击地图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "client_lat" from the "SourceLatitude"
+    And I wait for "1000" millsecond
     And I choose the "client_lon" from the "SourceLongitude"
+    And I wait for "1000" millsecond
     And I choose the "gw_lat" from the "TargetLatitude"
+    And I wait for "1000" millsecond
     And I choose the "gw_lon" from the "TargetLongitude"
+    And I wait for "1000" millsecond
     And I choose the "ts" from the "Time"
+    And I wait for "1000" millsecond
     And I choose the "cnt" from the "MeasureValue"
+
     And I click the "Update" button
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -110,15 +120,19 @@ Feature: 数据大屏-攻击地图
     And I click the "tips" button
 
     And I choose the "client_lat" from the "SourceLatitude"
+    And I wait for "1000" millsecond
     And I choose the "client_lon" from the "SourceLongitude"
+    And I wait for "1000" millsecond
     And I choose the "gw_lat" from the "TargetLatitude"
+    And I wait for "1000" millsecond
     And I choose the "gw_lon" from the "TargetLongitude"
+    And I wait for "1000" millsecond
     And I choose the "ts" from the "Time"
+    And I wait for "1000" millsecond
     And I choose the "cnt" from the "MeasureValue"
     And I click the "Update" button
       #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -178,14 +192,17 @@ Feature: 数据大屏-攻击地图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "client_lat" from the "SourceLatitude"
+    And I wait for "1000" millsecond
     And I choose the "client_lon" from the "SourceLongitude"
+    And I wait for "1000" millsecond
     And I choose the "gw_lat" from the "TargetLatitude"
+    And I wait for "1000" millsecond
     And I choose the "gw_lon" from the "TargetLongitude"
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
     And I choose the "ts" from the "Time"
+    And I wait for "1000" millsecond
     And I choose the "cnt" from the "MeasureValue"
     And I click the "Update" button
       #保存

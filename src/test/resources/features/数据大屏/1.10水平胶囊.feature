@@ -1,5 +1,5 @@
 @1.10 @galaxeeChart1 @galaxee @galaxee0
-Feature: 数据大屏-水平胶囊
+Feature: 数据大屏-g水平胶囊
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -16,7 +16,7 @@ Feature: 数据大屏-水平胶囊
     And I click the "Ensure" button
       #选择水平胶囊
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
 #    And I wait for "horizontalCapsule" will be visible
     And I click the "horizontalCapsule" button
     And I click the "Style" button
@@ -37,6 +37,7 @@ Feature: 数据大屏-水平胶囊
     And I set the parameter "CapsuleWordSize" with value "28"
     #字体颜色
     And I click the "capsuleFontColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#C23535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -46,13 +47,13 @@ Feature: 数据大屏-水平胶囊
     And I set the parameter "aspectRatio" with value "0.2"
     #条颜色
     And I click the "aspectColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CCE42C"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #4 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "水平胶囊样式修改"
-    And I wait for "3000" millsecond
      #开启背景动画
     And I click the "backgroundAuto" button
 #数据设置（数据源类型默认：搜索）
@@ -65,7 +66,7 @@ Feature: 数据大屏-水平胶囊
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
-    And I wait for "2000" millsecond
+    And I wait for "1000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
      #保存
     And I wait for "Save" will be visible
@@ -121,7 +122,7 @@ Feature: 数据大屏-水平胶囊
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-    And I wait for "3000" millsecond
+
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -157,7 +158,7 @@ Feature: 数据大屏-水平胶囊
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+  And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -169,6 +170,7 @@ Feature: 数据大屏-水平胶囊
     And I wait for "1000" millsecond
     And I wait for "horizontalCapsule" will be visible
     And I click the "horizontalCapsule" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
@@ -184,14 +186,14 @@ Feature: 数据大屏-水平胶囊
     And I wait for "SearchTip" will be invisible
      #对水平胶囊的参数进行设置
     And I click the "pictureOne" button
-
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-    And I wait for "3000" millsecond
+
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

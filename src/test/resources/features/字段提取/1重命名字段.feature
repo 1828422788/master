@@ -15,7 +15,7 @@ Feature: 字段提取重命名字段
     And I choose the "raw_message" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    And I wait for "1000" millsecond
+    And I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -25,7 +25,7 @@ Feature: 字段提取重命名字段
     And I set the parameter "TargetField" with value "c"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
@@ -44,7 +44,7 @@ Feature: 字段提取重命名字段
     And I choose the "raw_message" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    And I wait for "1000" millsecond
+    And I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -54,7 +54,7 @@ Feature: 字段提取重命名字段
     And I set the parameter "TargetField" with value "a.*.h"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
@@ -98,7 +98,7 @@ Feature: 字段提取重命名字段
     And I choose the "raw_message" from the "SourceField" in config
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    And I wait for "1000" millsecond
+    And I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -108,7 +108,7 @@ Feature: 字段提取重命名字段
     And I set the parameter "TargetField" with value "a.*.h"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"

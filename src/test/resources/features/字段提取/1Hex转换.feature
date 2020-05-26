@@ -13,7 +13,7 @@ Feature: 字段提取Hex转换
     And I set the parameter "Code" with value "utf-8"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -34,7 +34,7 @@ Feature: 字段提取Hex转换
     And I set the parameter "{"source": "raw_message","codec_type": "GBK","start_offset":10,"column_bytes":16}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -66,7 +66,7 @@ Feature: 字段提取Hex转换
 
     Examples:
       | appName       | log     | result                                 | searchResult                                    |
-      | auto_test_hex | hex.log | Object\nraw_message:"import sys impor" | {'raw_message':'raw_message：import sys\nimpor'} |
+      | wym_test_hex | hex.log | Object\nraw_message:"import sys impor" | {'raw_message':'raw_message：import sys\nimpor'} |
 
 
   Scenario Outline: hex详情验证
@@ -81,7 +81,7 @@ Feature: 字段提取Hex转换
     And I set the parameter "{"source": "raw_message","codec_type": "GBK","start_offset":10,"column_bytes":16}" to json editor in field parsing
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"

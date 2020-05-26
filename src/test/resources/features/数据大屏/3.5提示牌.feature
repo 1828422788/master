@@ -1,5 +1,5 @@
-@galaxeeIndex @galaxee  @galaxee1  @3.5
-Feature: 数据大屏-揭示牌
+@galaxeeIndex @galaxee  @galaxee2  @3.5
+Feature: 数据大屏-e揭示牌
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -21,6 +21,7 @@ Feature: 数据大屏-揭示牌
       #1 设置图表尺寸位置
       And I click the "Style" button
       And I click the "ChartPosition" button
+      And I wait for "Width" will be visible
       And I set the parameter "Width" with value "1000"
       And I set the parameter "Height" with value "1000"
       And I set the parameter "ChartXaxis" with value "600"
@@ -37,7 +38,7 @@ Feature: 数据大屏-揭示牌
       And I click the "backgroundAuto" button
      #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
-      And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #      And I click the "DateEditor" button
 #      And I click the "RecentSevenDay" button
       And I click the "Search" button
@@ -56,6 +57,7 @@ Feature: 数据大屏-揭示牌
     #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 
@@ -95,7 +97,7 @@ Feature: 数据大屏-揭示牌
       And I click the "Style" button
      #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
-      And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #      And I click the "DateEditor" button
 #      And I click the "RecentSevenDay" button
       And I click the "Search" button
@@ -154,7 +156,7 @@ Feature: 数据大屏-揭示牌
       And I click the "Other" button
       And I click the "otherSearch" button
       And I wait for "SplInput" will be visible
-      And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #      And I click the "DateEditor" button
 #      And I click the "RecentSevenDay" button
       And I click the "Search" button
@@ -176,13 +178,11 @@ Feature: 数据大屏-揭示牌
       And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
       And I click the "pictureTwo" button
-#      And I click the "pictureOne" button
+
       And I click the "Search" button
      #设置阈值以及显示值
       And I click the "pictureOne" button
-#      And I click the "pictureTwo" button
       And I click the "Data" button
-      And I wait for "3000" millsecond
       And I choose the "num" from the "tipsCardNumber"
       And I set the parameter "thresholdOne" with value "6"
       And I set the parameter "displayOne" with value "6亿"
@@ -192,7 +192,6 @@ Feature: 数据大屏-揭示牌
       And I set the parameter "displayTwo" with value "250亿"
       And I set the parameter "tipsTwo" with value "同比上涨350%"
 
-      Then take a screenshot with name "galaxee/揭示牌数据之绑定搜索编辑页"
       #保存
       And I wait for "Save" will be visible
       And I click the "Save" button

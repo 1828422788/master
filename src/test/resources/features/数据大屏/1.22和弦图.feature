@@ -1,5 +1,5 @@
-@galaxeeChart2 @galaxee @galaxee0  @1.22
-Feature: 数据大屏-和弦图
+@galaxeeChart2 @galaxee @galaxee1  @1.22
+Feature: 数据大屏-c和弦图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -14,7 +14,7 @@ Feature: 数据大屏-和弦图
     And I click the "Ensure" button
     #和弦图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+
     And I wait for "Chord" will be visible
     And I click the "Chord" button
     And I click the "Style" button
@@ -22,13 +22,15 @@ Feature: 数据大屏-和弦图
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
     And I click the "Red" button
+    And I wait for "ChartWordSize" will be visible
     And I set the parameter "ChartWordSize" with value "20"
    #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "683"
     And I set the parameter "Height" with value "543"
     And I set the parameter "ChartXaxis" with value "626"
-    And I set the parameter "ChartYaxis" with value "1"
+    And I set the parameter "ChartYaxis" with value "10"
     #3 全局样式修改名称
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "和弦图-样式搜索"
@@ -44,9 +46,10 @@ Feature: 数据大屏-和弦图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.clientip" from the "SourceField"
-    And I choose the "apache.request_path" from the "TargetField"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "WeightField"
+    And I choose the "apache.request_path" from the "TargetField"
+
+
     And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -79,10 +82,16 @@ Feature: 数据大屏-和弦图
     And I click the "Ensure" button
 #和弦图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Chord" will be visible
     And I click the "Chord" button
     And I click the "Style" button
+       #尺寸
+    And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
+    And I set the parameter "Width" with value "683"
+    And I set the parameter "Height" with value "543"
+    And I set the parameter "ChartXaxis" with value "626"
+    And I set the parameter "ChartYaxis" with value "10"
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.request_path"
@@ -97,10 +106,12 @@ Feature: 数据大屏-和弦图
     And I click the "Ensure" button
     And I click the "tips" button
 
+
     And I choose the "apache.clientip" from the "SourceField"
-    And I choose the "apache.request_path" from the "TargetField"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "WeightField"
+    And I choose the "apache.request_path" from the "TargetField"
+
+
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -144,10 +155,16 @@ Feature: 数据大屏-和弦图
     And I set the parameter "updateFrequency" with value "0.1"
    #和弦图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Chord" will be visible
     And I click the "Chord" button
     And I click the "Style" button
+       #尺寸
+    And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
+    And I set the parameter "Width" with value "683"
+    And I set the parameter "Height" with value "543"
+    And I set the parameter "ChartXaxis" with value "626"
+    And I set the parameter "ChartYaxis" with value "10"
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
@@ -162,12 +179,11 @@ Feature: 数据大屏-和弦图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "apache.clientip" from the "SourceField"
-    And I choose the "apache.request_path" from the "TargetField"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "WeightField"
+    And I choose the "apache.request_path" from the "TargetField"
+
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"

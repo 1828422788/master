@@ -1,5 +1,5 @@
 @galaxeeMap @galaxee  @galaxee1   @2.4
-Feature: 数据大屏-世界地图
+Feature: 数据大屏-l世界地图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -21,21 +21,25 @@ Feature: 数据大屏-世界地图
     And I click the "MapHeader" button
     #区域颜色
     And I click the "AreaColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
    #边界颜色
     And I click the "BoundaryColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#0E0E0E"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #标注颜色
     And I click the "MarkColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#F5CACA"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "800"
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "70"
@@ -90,7 +94,7 @@ Feature: 数据大屏-世界地图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() by apache.geo.country"
+    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.geo.country"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -98,11 +102,11 @@ Feature: 数据大屏-世界地图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
+
     And I click the "Update" button
       #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -135,7 +139,7 @@ Feature: 数据大屏-世界地图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "* | stats count() by apache.geo.country"
+    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.geo.country"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -161,7 +165,7 @@ Feature: 数据大屏-世界地图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I click the "Update" button
       #保存
     And I click the "Save" button

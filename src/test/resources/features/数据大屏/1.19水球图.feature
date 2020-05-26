@@ -1,5 +1,5 @@
 @galaxeeChart2 @galaxee @galaxee0  @1.19
-Feature: 数据大屏-水球图
+Feature: 数据大屏-s水球图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -14,7 +14,7 @@ Feature: 数据大屏-水球图
     And I click the "Ensure" button
     #水球图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+
     And I wait for "Liquidfill" will be visible
     And I click the "Liquidfill" button
     And I click the "Style" button
@@ -32,25 +32,29 @@ Feature: 数据大屏-水球图
     And I click the "Tag" button
     And I set the parameter "TagWordSize" with value "70"
     And I click the "TagColorInWaterWave" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#F87272"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 
     And I click the "TagColorOutWaterWave" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#010206"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #水波颜色
     And I click the "WaterWaveColorHeader" button
     And I click the "WaterWaveColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#ECF492"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "500"
     And I set the parameter "height" with value "600"
-    And I set the parameter "ChartXaxis" with value "0"
+    And I set the parameter "ChartXaxis" with value "100"
     And I set the parameter "ChartYaxis" with value "200"
     #3 全局样式修改名称
     And I click the "globalStyle" button
@@ -59,7 +63,7 @@ Feature: 数据大屏-水球图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -105,7 +109,7 @@ Feature: 数据大屏-水球图
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -152,8 +156,8 @@ Feature: 数据大屏-水球图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
-    And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+    And I wait for "SplInput" will be visible
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -179,7 +183,6 @@ Feature: 数据大屏-水球图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "p" from the "DataField"
       #保存

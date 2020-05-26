@@ -8,6 +8,7 @@ Feature: 趋势图新建_报表
     Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
@@ -28,8 +29,9 @@ Feature: 趋势图新建_报表
 
     And switch to window "编辑报表"
     And I close all tabs except main tab
-    And I wait for loading invisible
     Then I will see the "report.CreatePage" page
+    And I wait for "3000" millsecond
+    And I wait for element "SelectedUser" change text to username
     And I wait for "3000" millsecond
     When I set the parameter "Name" with value "<report_name>"
     And I set the parameter "Describe" with value "AutoCreate"

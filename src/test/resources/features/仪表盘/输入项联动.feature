@@ -26,7 +26,7 @@ Feature: 仪表盘输入项联动
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<name>"
     And I set the parameter "FilterToken" with value "<name>"
     And I choose the "下拉菜单" from the "InputType"
@@ -50,7 +50,7 @@ Feature: 仪表盘输入项联动
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "f2"
     And I set the parameter "FilterToken" with value "f2"
     And I choose the "动态菜单" from the "InputType"
@@ -69,7 +69,7 @@ Feature: 仪表盘输入项联动
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-    And I choose the "添加事件列表" from the "EventList"
+    And I click the "AddEvent" button
     And I set the parameter "EventName" with value "测试输入项联动"
     And I set the parameter "Spl" with value "logtype:${f1} AND hostname:${f2}"
     And I click the "DateEditor" button
@@ -88,6 +88,7 @@ Feature: 仪表盘输入项联动
     And I wait for "OpenInSearch" will be visible
     And I click the "OpenInSearch" button
     And switch to another window
+    And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "logtype:json AND hostname:192.168.1.26"
 
@@ -97,7 +98,7 @@ Feature: 仪表盘输入项联动
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     Then I click the "Ensure" button
@@ -126,6 +127,7 @@ Feature: 仪表盘输入项联动
     And I wait for "OpenInSearch" will be visible
     And I click the "OpenInSearch" button
     And switch to another window
+    And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "a\+b"
 

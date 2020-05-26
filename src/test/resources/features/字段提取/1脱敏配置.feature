@@ -29,6 +29,7 @@ Feature: 字段提取脱敏配置
 #    And I "checked" the checkbox which name is "全选"
 #    And I "unchecked" the checkbox which name is "可查看敏感内容"
 #    Then I click the "SaveButton" button
+
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
@@ -41,7 +42,7 @@ Feature: 字段提取脱敏配置
     And I set the parameter "Regex" with value "(?<phone>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<regexResult>'}"
@@ -55,7 +56,7 @@ Feature: 字段提取脱敏配置
     And I set the parameter "Postfix" with value "\S+"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -68,7 +69,7 @@ Feature: 字段提取脱敏配置
     And I set the parameter "Prefix" with value "\s+"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"
@@ -94,6 +95,9 @@ Feature: 字段提取脱敏配置
     And I click the "LoginButton" button
     And I wait for "5000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I wait for "60000" millsecond
+    And I refresh the website
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "tag:replacer"
     And I click the "DateEditor" button
@@ -125,7 +129,7 @@ Feature: 字段提取脱敏配置
     And I set the parameter "Regex" with value "(?<phone>.*)"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess" will be visible
     Then I will see the element value in json "{'Result':'<regexResult>'}"
@@ -139,7 +143,7 @@ Feature: 字段提取脱敏配置
     And I set the parameter "Postfix" with value "\S+"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess2" will be visible
     Then I will see the element value in json "{'Result':'<result>'}"
@@ -152,7 +156,7 @@ Feature: 字段提取脱敏配置
     And I set the parameter "Prefix" with value "\s+"
     And I click the "EnsureAddParseRule" button
     And I wait for "ParseButton" will be visible
-    Then I wait for "1000" millsecond
+    Then I wait for "100" millsecond
     And I click the "ParseButton" button
     And I wait for "CheckSuccess3" will be visible
     Then I will see the element value in json "{'Result':'<result1>'}"

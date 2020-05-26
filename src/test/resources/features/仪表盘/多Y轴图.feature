@@ -54,7 +54,8 @@ Feature: 仪表盘多Y轴图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
     And I "checked" the checkbox which name is "<name>"
     And I click the "Ensure" button
 
@@ -80,18 +81,18 @@ Feature: 仪表盘多Y轴图
     And I click the "Yaxis" button
     And I click the "AddField" button
     And I choose the "max(apache.resp_len)" from the "DataValue"
-    And I choose the "面积图" from the "Type"
+    And I choose the "面积图" from the "TypeDropdown"
     And I set the parameter "Unit" with value "面"
     And I click the "Smooth" button
     And I click the "ConnectEmptyData" button
     And I click the "AddField" button
     And I choose the "max(apache.resp_len)" from the "DataValue"
-    And I choose the "柱状图" from the "Type"
+    And I choose the "柱状图" from the "TypeDropdown"
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"
     And I click the "AddField" button
     And I choose the "sum(apache.status)" from the "DataValue"
-    And I choose the "散点图" from the "Type"
+    And I choose the "散点图" from the "TypeDropdown"
     And I set the parameter "Unit" with value "散"
     And I set the parameter "Max" with value "49000"
     And I click the "Group" button

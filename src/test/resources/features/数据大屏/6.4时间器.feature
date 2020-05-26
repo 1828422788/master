@@ -1,5 +1,5 @@
-@galaxeeOther @galaxee  @galaxee1  @6.4
-Feature: 数据大屏-时间器
+@galaxeeOther @galaxee  @galaxee2  @6.4
+Feature: 数据大屏-o时间器
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -13,12 +13,10 @@ Feature: 数据大屏-时间器
     And I click the "Ensure" button
       #选择时间器
     And I click the "Other" button
-    And I wait for "1000" millsecond
     And I wait for "Clock" will be visible
     And I click the "Clock" button
       #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -51,15 +49,15 @@ Feature: 数据大屏-时间器
     And I click the "Ensure" button
       #选择时间器
     And I click the "Other" button
-    And I wait for "1000" millsecond
     And I wait for "Clock" will be visible
     And I click the "Clock" button
 #设置样式
       #1 设置图表尺寸位置
-    And I wait for "2000" millsecond
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1000"
     And I set the parameter "Height" with value "250"
     And I set the parameter "ChartXaxis" with value "100"
@@ -70,6 +68,7 @@ Feature: 数据大屏-时间器
     And I set the parameter "ClockWordSize" with value "40"
     #字体颜色
      And I click the "clockFontColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#E8EB1B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -84,7 +83,6 @@ Feature: 数据大屏-时间器
     And I set the parameter "globalStyleName" with value "时间器样式修改"
       #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -117,15 +115,15 @@ Feature: 数据大屏-时间器
     And I click the "Ensure" button
       #选择时间器
     And I click the "Other" button
-    And I wait for "1000" millsecond
     And I wait for "Clock" will be visible
     And I click the "Clock" button
 #设置样式
-    And I wait for "2000" millsecond
+    And I wait for "Style" will be visible
     And I click the "Style" button
      #1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1000"
     And I set the parameter "Height" with value "250"
     And I set the parameter "ChartXaxis" with value "100"
@@ -140,8 +138,8 @@ Feature: 数据大屏-时间器
     And I choose the "yyyy-MM-dd hh:mm:ss" from the "timeFormat"
       #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
+    And I wait for "SuccessMessge" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -174,15 +172,15 @@ Feature: 数据大屏-时间器
     And I click the "Ensure" button
       #选择时间器
     And I click the "Other" button
-    And I wait for "1000" millsecond
     And I wait for "Clock" will be visible
     And I click the "Clock" button
 #设置样式
-    And I wait for "2000" millsecond
+    And I wait for "Style" will be visible
     And I click the "Style" button
      #1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1000"
     And I set the parameter "Height" with value "250"
     And I set the parameter "ChartXaxis" with value "100"
@@ -198,7 +196,6 @@ Feature: 数据大屏-时间器
 
        #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

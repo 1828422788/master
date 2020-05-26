@@ -19,19 +19,29 @@ Feature: 字段提取删除
       | 重命名字段支持通配符详情验证              |
       | RZY2883unicode解析            |
       | RZY2877base64解析             |
+      | base64解析详情                  |
       | RZY2875script解析             |
+      | script解析详情                  |
       | RZY2870创建dissect解析          |
+      | dissect解析详情                 |
       | RZY2819配置自定义字典解析规则          |
       | 自定义字典详情验证                   |
       | 脱敏                          |
       | 脱敏详情                        |
       | RZY2862严格解析                 |
+      | 严格解析详情验证                    |
       | RZY2889apache解析优化           |
+      | apache解析优化详情验证              |
       | RZY1550格式化处理                |
-      | RZY2872正则片段解析               |
+#      | RZY2872正则片段解析               |
+      | RZY2872正则片段解析2              |
       | RZY2823时间戳前缀                |
+      | 时间戳前缀详情验证                   |
       | RZY1536数值型字段转换              |
+      | 数值型字段转换详情验证                 |
       | RZY2803解析到顶层字段              |
+      | 解析到顶层字段详情验证                 |
+      | 手机号码解析详情验证                  |
       | RZY2802手机号码解析               |
       | RZY1559tag替换                |
       | RZY1556内容替换                 |
@@ -57,8 +67,10 @@ Feature: 字段提取删除
       | hex详情验证                     |
       | RZY1548添加GEO解析              |
       | GEO解析详情验证                   |
-      | 多值字段副本                      |
+      | wym复制和编辑                    |
+      | wym复制和编辑的副本                 |
       | RZY3417多值字段                 |
+      | 禁用和启用                       |
 
   Scenario Outline: 删除字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"

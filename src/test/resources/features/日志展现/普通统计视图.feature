@@ -14,9 +14,10 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
-    And I choose the "<chart>" from the "PresentType"
-    And I choose the "<value1>" from the "FieldValue"
+    And I choose the "<chart>" from the "PresentType" in config
+    And I choose the "<value1>" from the "FieldValue" in config
     And I click the "AddButton" button
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -38,10 +39,13 @@ Feature: 日志展现_普通统计视图
     And I click the "CountButton" button
     And I wait for "1000" millsecond
     And I will see the "splSearch.StatisticalPage" page
-    And I choose the "<chart>" from the "PresentType"
-    And I choose the "<value1>" from the "FieldValue"
+    And I choose the "<chart>" from the "PresentType" in config
+    And I choose the "<value1>" from the "FieldValue" in config
+    And I click the "AddButton" button
+    And I set the parameter "FieldValueInput" with value "<value2>"
     And I click the "IndependentStats" button
     And I click the "AddButton" button
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -49,8 +53,8 @@ Feature: 日志展现_普通统计视图
     Then I compare source image "expect/普通统计视图/<caseNum>" with target image "actual/普通统计视图/<caseNum>"
 
     Examples:
-      | chart   | value1                |     caseNum              |
-      | 曲线图   | apache.clientip      | 2718_事件计数_独立数统计 |
+      | chart   | value1                |     value2    |     caseNum              |
+      | 曲线图   | apache.clientip      | appname       |2718_事件计数_独立数统计 |
 
 
   Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
@@ -62,22 +66,23 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "TimeSlice" button
     And I wait for "1000" millsecond
-    Then I choose the "<fieldValue>" from the "FieldValue"
-    Then I choose the "<statisticType>" from the "StatisticType"
+    Then I choose the "<fieldValue>" from the "FieldValue" in config
+    Then I choose the "<statisticType>" from the "StatisticType" in config
     # Set Time Parameters
     And I click the "StartDate" button
     And I set the parameter "DateInput" with value "2020-05-02"
-    And I hide the element "DatePanel"
+    And I click the "HideElement" button
     And I click the "StartTime" button
     And I set the parameter "TimeInput" with value "<startTime>"
-    And I hide the element "TimePanel"
+    And I click the "HideElement" button
     And I click the "EndDate" button
     And I set the parameter "DateInput" with value "2020-05-02"
-    And I hide the element "DatePanel"
+    And I click the "HideElement" button
     And I click the "EndTime" button
     And I set the parameter "TimeInput" with value "<endTime>"
-    And I hide the element "TimePanel"
+    And I click the "HideElement" button
     And I click the "GenerateTime" button under some element
+    And I wait for "6000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -102,7 +107,7 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "DataSlice" button
     And I wait for "1000" millsecond
-    When I choose the "<fieldValue>" from the "FieldValue"
+    When I choose the "<fieldValue>" from the "FieldValue" in config
     And I set the parameter "StartDataValue" with value "<start1>"
     And I set the parameter "EndDataValue" with value "<end1>"
     And I click the "AddNum" button
@@ -112,7 +117,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "StartDataValue" with value "<start3>"
     And I set the parameter "EndDataValue" with value "<end3>"
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -134,9 +139,9 @@ Feature: 日志展现_普通统计视图
     Given I click the "TimeHistogram" button
     And I wait for "1000" millsecond
     When I set the parameter "TimeSpan" with value "<timeSpan>"
-    And I choose the "<time>" from the "Time"
+    And I choose the "<time>" from the "Time" in config
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -161,9 +166,10 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     Given I click the "DataHistogram" button
     And I wait for "1000" millsecond
-    When I choose the "<fieldValue>" from the "FieldValue"
+    When I choose the "<fieldValue>" from the "FieldValue" in config
     And I set the parameter "DataSpan" with value "<number>"
     And I click the "Generate" button
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -188,6 +194,7 @@ Feature: 日志展现_普通统计视图
     And I choose the "<charttype>" from the "PresentType" in config
     And I choose the "<value1>" from the "TopElement" in config
     And I click the "Generate" button
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -209,13 +216,14 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "FieldNumber" button
     And I wait for "1000" millsecond
-    And I choose the "<yFieldValue>" from the "YAxis"
-    And I choose the "<groupBy>" from the "GroupField"
-    Then I choose the "<statType>" from the "StatisticType"
-    And I choose the "<chart>" from the "PresentType"
+    And I choose the "<yFieldValue>" from the "YAxis" in config
+    And I choose the "<groupBy>" from the "GroupField" in config
+    Then I choose the "<statType>" from the "StatisticType" in config
+    And I choose the "<chart>" from the "PresentType" in config
     When I set the parameter "TimeSpan" with value "<timeSpan>"
-    And I choose the "<time>" from the "Time"
+    And I choose the "<time>" from the "Time" in config
     And I click the "Generate" button
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -240,11 +248,12 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "TotalPercent" button
     And I wait for "1000" millsecond
-    And I choose the "<fieldValue>" from the "FieldValue"
+    And I choose the "<fieldValue>" from the "FieldValue" in config
     And I click the "ClosePercent<percent2>" button
     And I click the "AddPercent" button
     And I set the parameter "PercentInput" with value "<percent1>"
     And I click the "Generate" button
+    And I wait for "4000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -265,9 +274,10 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "PercentDegree" button
     And I wait for "1000" millsecond
-    And I choose the "<fieldValue>" from the "FieldValue"
+    And I choose the "<fieldValue>" from the "FieldValue" in config
     And I set the parameter "GoalValue" with value "<value1>"
     And I click the "Generate" button
+    And I wait for "4000" millsecond
     And I wait for "ChartPecrent" will be visible
     And I drag the scroll bar to the element "ChartPercent"
     And I wait for "2000" millsecond
@@ -289,12 +299,12 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "MultilevelStatistics" button
     And I wait for "1000" millsecond
-    And I choose the "<fieldValue1>" from the "FieldValue"
+    And I choose the "<fieldValue1>" from the "FieldValue" in config
     And I click the "Generate" button
-    And I wait for "Loading" will be invisible
     And I click the "StatisticsGram" button
-    And I choose the "<chartType>" from the "PresentType"
+    And I choose the "<chartType>" from the "PresentType" in config
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -304,12 +314,12 @@ Feature: 日志展现_普通统计视图
     # Click checkbox with 200
     When I click the "Field" button
     And I click the "NextStep" button
-    And I choose the "<fieldValue2>" from the "FieldValue"
-    And I choose the "计数" from the "StatisticType"
+    And I choose the "<fieldValue2>" from the "FieldValue" in config
+    And I choose the "计数" from the "StatisticType" in config
     And I click the "Generate1" button
-    And I wait for "Loading" will be invisible
     And I click the "StatisticsGram" button
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -319,12 +329,12 @@ Feature: 日志展现_普通统计视图
     # Select the whole table
     When I click the "WholeField" button
     And I click the "NextStep" button
-    And I choose the "<fieldValue3>" from the "FieldValue"
-    And I choose the "计数" from the "StatisticType"
+    And I choose the "<fieldValue3>" from the "FieldValue" in config
+    And I choose the "计数" from the "StatisticType" in config
     And I click the "Generate1" button
-    And I wait for "Loading" will be invisible
     And I click the "StatisticsGram" button
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
@@ -344,8 +354,9 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "GeographicalDistribution" button
     And I wait for "1000" millsecond
-    And I choose the "apache.geo.country" from the "FieldValue"
+    And I choose the "apache.geo.country" from the "FieldValue" in config
     And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/825_地理分布/825_world"

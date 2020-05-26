@@ -1,5 +1,5 @@
- @galaxeeLast   @1.27
-Feature: 数据大屏-栅格百分图
+ @galaxeeLast   @1.27  @galaxee1
+Feature: 数据大屏-h栅格百分图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -14,13 +14,14 @@ Feature: 数据大屏-栅格百分图
     And I click the "Ensure" button
       #选择栅格百分图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "gridPercentChart" will be visible
     And I click the "gridPercentChart" button
     And I click the "Style" button
  #设置样式
    # 1 设置图表尺寸位置
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "850"
     And I set the parameter "Height" with value "460"
     And I set the parameter "ChartXaxis" with value "440"
@@ -33,6 +34,7 @@ Feature: 数据大屏-栅格百分图
     And I set the parameter "rowHeight" with value "2"
     #字体颜色
     And I click the "gridFontColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#E333E0"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -40,6 +42,7 @@ Feature: 数据大屏-栅格百分图
     And I set the parameter "gridClearance" with value "10"
     #栅格颜色
     And I click the "gridColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#42C87E"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -52,13 +55,13 @@ Feature: 数据大屏-栅格百分图
     And I click the "backgroundAuto" button
      #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-    And I choose the "p" from the "gridDataSearchCategory"
+    And I choose the "num" from the "gridDataSearchCategory"
        #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -91,13 +94,13 @@ Feature: 数据大屏-栅格百分图
     And I click the "Ensure" button
       #选择栅格百分图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "gridPercentChart" will be visible
     And I click the "gridPercentChart" button
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -145,7 +148,7 @@ Feature: 数据大屏-栅格百分图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -153,9 +156,11 @@ Feature: 数据大屏-栅格百分图
     And I set the parameter "updateFrequency" with value "0.1"
        #选择栅格百分图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "gridPercentChart" will be visible
     And I click the "gridPercentChart" button
+
+    And I wait for "Style" will be visible
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
@@ -171,7 +176,7 @@ Feature: 数据大屏-栅格百分图
      #对栅格百分图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I choose the "num" from the "gridDataSearchCategory"
       #保存
     And I click the "Save" button

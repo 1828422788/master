@@ -18,6 +18,7 @@ Feature: 定时任务_结果处理方式
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -81,6 +82,7 @@ Feature: 定时任务_结果处理方式
     And I set the parameter "Percent" with value "percent"
     And I set the parameter "Resplen" with value "apache.resp_len"
     And I click the "Save" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
 
 

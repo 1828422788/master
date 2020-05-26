@@ -1,5 +1,5 @@
-@galaxeeChart2 @galaxee @galaxee0  @1.21
-Feature: 数据大屏-旭日图
+@galaxeeChart2 @galaxee @galaxee1  @1.21
+Feature: 数据大屏-b旭日图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -14,7 +14,7 @@ Feature: 数据大屏-旭日图
     And I click the "Ensure" button
     #旭日图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Sunburst" will be visible
     And I click the "Sunburst" button
     #样式
@@ -23,12 +23,15 @@ Feature: 数据大屏-旭日图
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
     And I click the "Green" button
+    And I wait for "ChartWordSize" will be visible
     And I set the parameter "ChartWordSize" with value "20"
     And I click the "Radius" button
+   And I wait for "InnerRadius" will be visible
     And I set the parameter "InnerRadius" with value "20%"
     And I set the parameter "OuterRadius" with value "80%"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1000"
     And I set the parameter "Height" with value "375"
     And I set the parameter "ChartXaxis" with value "393"
@@ -83,7 +86,7 @@ Feature: 数据大屏-旭日图
     And I click the "Ensure" button
     #旭日图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Sunburst" will be visible
     And I click the "Sunburst" button
     And I click the "Style" button
@@ -138,7 +141,7 @@ Feature: 数据大屏-旭日图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -147,10 +150,17 @@ Feature: 数据大屏-旭日图
     And I set the parameter "updateFrequency" with value "0.1"
     #旭日图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Sunburst" will be visible
     And I click the "Sunburst" button
+
     And I click the "Style" button
+    And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
+    And I set the parameter "Width" with value "1000"
+    And I set the parameter "Height" with value "375"
+    And I set the parameter "ChartXaxis" with value "393"
+    And I set the parameter "ChartYaxis" with value "30"
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
@@ -165,9 +175,9 @@ Feature: 数据大屏-旭日图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "count()" from the "DataField"
+    And I wait for "DivideField" will be visible
     And I choose the "apache.geo.city" from the "DivideField"
     #添加切分字段
     And I click the "Add" button

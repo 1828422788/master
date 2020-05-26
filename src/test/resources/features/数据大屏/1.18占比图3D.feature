@@ -1,5 +1,5 @@
 @galaxeeChart2 @galaxee @galaxee0   @1.18
-Feature: 数据大屏-占比图3D
+Feature: 数据大屏-r占比图3D
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -23,6 +23,7 @@ Feature: 数据大屏-占比图3D
    # 1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "640"
     And I set the parameter "Height" with value "300"
     And I set the parameter "ChartXaxis" with value "500"
@@ -35,6 +36,7 @@ Feature: 数据大屏-占比图3D
     And I set the parameter "percent3dNameFontSize" with value "20"
     #名称颜色
     And I click the "percent3dNameColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#8EE1D1"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -42,6 +44,7 @@ Feature: 数据大屏-占比图3D
     And I set the parameter "numberFontSize" with value "40"
     #数值颜色
     And I click the "numberColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#C11C6C"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -52,7 +55,7 @@ Feature: 数据大屏-占比图3D
     And I click the "backgroundAuto" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/2800000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -109,7 +112,7 @@ Feature: 数据大屏-占比图3D
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/2800000"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -167,8 +170,8 @@ Feature: 数据大屏-占比图3D
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
-    And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/2800000"
+    And I wait for "SplInput" will be visible
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -176,7 +179,7 @@ Feature: 数据大屏-占比图3D
     And I set the parameter "updateFrequency" with value "0.1"
            #选择占比图3D
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+
     And I wait for "percent3dChart" will be visible
     And I click the "percent3dChart" button
     And I click the "Style" button
@@ -194,7 +197,7 @@ Feature: 数据大屏-占比图3D
      #对占比图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I choose the "p" from the "percent3dDataSearchCategory"
      #值范围使其处于严重范围
     #正常

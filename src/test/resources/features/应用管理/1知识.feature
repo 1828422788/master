@@ -120,6 +120,7 @@ Feature: 应用知识
     And I will see the element "Title" name is "KnowledgeApp"
     Then I will see the "knowledge.ListPage" page
     When the data name is "知识app" then i click the "标签" button
+    And I wait for "AutoTag" will be visible
     And I set the parameter "Tag" with value "AutoTag"
     And I choose the "AutoTag" from the "TagDropdown"
     And I click the "Ensure" button
@@ -142,6 +143,7 @@ Feature: 应用知识
     And I wait for loading invisible
     And I click the "Create" button
     Then I will see the "knowledge.CreatePage" page
+    And I wait for "RichEditor" will be visible
     And I set the parameter "RichEditor" with value "若该知识没被删除，则证明app全局资源有问题"
     And I click the "Next" button
     And I click the "Next" button

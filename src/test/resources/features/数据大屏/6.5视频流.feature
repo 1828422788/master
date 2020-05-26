@@ -1,5 +1,5 @@
-@galaxeeOther @galaxee @galaxee1  @6.5
-Feature: 数据大屏-视频流
+@galaxeeOther @galaxee @galaxee2  @6.5
+Feature: 数据大屏-p视频流
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -13,13 +13,11 @@ Feature: 数据大屏-视频流
     And I click the "Ensure" button
       #选择视频流
     And I click the "Other" button
-    And I wait for "1000" millsecond
     And I wait for "videoFlow" will be visible
     And I click the "videoFlow" button
     And I wait for loading invisible
       #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -54,7 +52,6 @@ Feature: 数据大屏-视频流
     And I click the "Ensure" button
       #选择视频流
     And I click the "Other" button
-    And I wait for "1000" millsecond
     And I wait for "videoFlow" will be visible
     And I click the "videoFlow" button
     And I wait for loading invisible
@@ -63,6 +60,7 @@ Feature: 数据大屏-视频流
       #1 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "700"
     And I set the parameter "Height" with value "400"
     And I set the parameter "ChartXaxis" with value "550"
@@ -76,7 +74,6 @@ Feature: 数据大屏-视频流
     And I set the parameter "globalStyleName" with value "视频流样式"
      #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

@@ -1,5 +1,5 @@
-@galaxeeIndex @galaxee  @galaxee1  @3.4
-  Feature: 数据大屏-百分比
+@galaxeeIndex @galaxee  @galaxee2  @3.4
+  Feature: 数据大屏-d百分比
 #    Background:
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible
@@ -21,6 +21,7 @@
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
+      And I wait for "Width" will be visible
       And I set the parameter "Width" with value "400"
       And I set the parameter "Height" with value "100"
       And I set the parameter "ChartXaxis" with value "600"
@@ -30,12 +31,14 @@
       #文本
       And I set the parameter "text_fontSize" with value "30"
       And I click the "text_fontColor" button
+      And I wait for "ColorInput" will be visible
       And I set the parameter "ColorInput" with value "#9FF50B"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       And I choose the "bold" from the "PercentageWordBold"
       #图表
       And I click the "chartColor" button
+      And I wait for "ColorInput" will be visible
       And I set the parameter "ColorInput" with value "#55B11F"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
@@ -47,7 +50,7 @@
       And I click the "backgroundAuto" button
        #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
-      And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() as num | eval p = num/28000"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -92,7 +95,7 @@
       And I click the "Style" button
  #数据设置
       And I click the "Data" button
-      And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() as num | eval p = num/28000"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -141,7 +144,7 @@
       And I click the "Other" button
       And I click the "otherSearch" button
      And I wait for "SplInput" will be visible
-      And I set the parameter "SplInput" with value "* | stats count() as num | eval p = num/28000"
+      And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() as num | eval p = num/28000"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -166,7 +169,7 @@
      #参数进行设置
       And I click the "pictureOne" button
       And I click the "Data" button
-      And I wait for "3000" millsecond
+
       And I choose the "p" from the "percentageSearchNumber"
       #保存
       And I click the "Save" button

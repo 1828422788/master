@@ -1,5 +1,5 @@
 @galaxeeChart2 @galaxee @galaxee0  @1.13
-Feature: 数据大屏-综合列表
+Feature: 数据大屏-m综合列表
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -20,7 +20,6 @@ Feature: 数据大屏-综合列表
     And I click the "Style" button
 #修改样式
     # 1 设置图表尺寸位置
-    And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
     And I set the parameter "Width" with value "770"
@@ -35,16 +34,19 @@ Feature: 数据大屏-综合列表
 
     #标题颜色
     And I click the "listTitleColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#DEE119"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #数值颜色
     And I click the "numberColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#58DA29"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #条颜色
     And I click the "aspectColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#E047FF"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -59,7 +61,7 @@ Feature: 数据大屏-综合列表
     And I click the "backgroundAuto" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats sparkline(count(), 1m) as spk by hostname"
+    And I set the parameter "SplInput" with value "tag:sample* | stats sparkline(count(), 1m) as spk by appname"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -67,8 +69,8 @@ Feature: 数据大屏-综合列表
     And I set the parameter "updateFrequency" with value "0.1"
 
 
-    And I choose the "hostname" from the "scrollBarSearchName"
-    And I wait for "2000" millsecond
+    And I choose the "appname" from the "scrollBarSearchName"
+    And I wait for "1000" millsecond
     And I choose the "spk" from the "ScrollBarSearchNumber"
      #保存
     And I wait for "Save" will be visible
@@ -103,13 +105,12 @@ Feature: 数据大屏-综合列表
     And I click the "Ensure" button
           #选择综合列表
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "comprehensiveList" will be visible
     And I click the "comprehensiveList" button
     And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats sparkline(count(), 1m) as spk by hostname"
+    And I set the parameter "SplInput" with value "tag:sample* | stats sparkline(count(), 1m) as spk by appname"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -119,12 +120,13 @@ Feature: 数据大屏-综合列表
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
+    And I wait for "tipsText" will be visible
     And I click the "tips" button
 
-    And I choose the "hostname" from the "scrollBarSearchName"
-    And I wait for "2000" millsecond
+    And I choose the "appname" from the "scrollBarSearchName"
+    And I wait for "1000" millsecond
     And I choose the "spk" from the "ScrollBarSearchNumber"
-    And I wait for "3000" millsecond
+
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -159,8 +161,8 @@ Feature: 数据大屏-综合列表
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
-    And I set the parameter "SplInput" with value "* | stats sparkline(count(), 1m) as spk by hostname"
+    And I wait for "SplInput" will be visible
+    And I set the parameter "SplInput" with value "tag:sample* | stats sparkline(count(), 1m) as spk by appname"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -182,20 +184,17 @@ Feature: 数据大屏-综合列表
     And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
     And I click the "pictureTwo" button
-#    And I click the "pictureOne" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
      #对综合列表的参数进行设置
     And I click the "pictureOne" button
-#    And I click the "pictureTwo" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
-    And I choose the "hostname" from the "scrollBarSearchName"
-    And I wait for "2000" millsecond
+    And I choose the "appname" from the "scrollBarSearchName"
+    And I wait for "1000" millsecond
     And I choose the "spk" from the "ScrollBarSearchNumber"
-    And I wait for "3000" millsecond
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

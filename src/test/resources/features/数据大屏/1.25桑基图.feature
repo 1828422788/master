@@ -1,9 +1,8 @@
-@galaxeeLast   @1.25
-Feature: 数据大屏-桑基图
+@galaxeeLast   @1.25   @galaxee1
+Feature: 数据大屏-f桑基图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
-
 
   Scenario: 桑基图-样式搜索
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -14,7 +13,7 @@ Feature: 数据大屏-桑基图
     And I click the "Ensure" button
     #桑吉图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
     And I click the "Sankey" button
     And I click the "Style" button
@@ -23,9 +22,11 @@ Feature: 数据大屏-桑基图
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
     And I click the "Red" button
+    And I wait for "ChartWordSize" will be visible
     And I set the parameter "ChartWordSize" with value "20"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "610"
     And I set the parameter "Height" with value "645"
     And I set the parameter "ChartXaxis" with value "155"
@@ -45,8 +46,10 @@ Feature: 数据大屏-桑基图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.clientip" from the "SourceField"
-    And I choose the "apache.method" from the "TargetField"
     And I choose the "count()" from the "WeightField"
+    And I choose the "apache.method" from the "TargetField"
+
+
     And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -80,7 +83,7 @@ Feature: 数据大屏-桑基图
     And I click the "Ensure" button
        #桑吉图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
     And I click the "Sankey" button
     And I click the "Style" button
@@ -99,9 +102,8 @@ Feature: 数据大屏-桑基图
     And I click the "tips" button
 
     And I choose the "apache.clientip" from the "SourceField"
-    And I choose the "apache.method" from the "TargetField"
     And I choose the "count()" from the "WeightField"
-
+    And I choose the "apache.method" from the "TargetField"
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -146,7 +148,7 @@ Feature: 数据大屏-桑基图
     And I set the parameter "updateFrequency" with value "0.1"
           #桑吉图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
     And I click the "Sankey" button
     And I click the "Style" button
@@ -164,11 +166,11 @@ Feature: 数据大屏-桑基图
      #参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "apache.clientip" from the "SourceField"
-    And I choose the "apache.method" from the "TargetField"
     And I choose the "count()" from the "WeightField"
+    And I choose the "apache.method" from the "TargetField"
+
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"

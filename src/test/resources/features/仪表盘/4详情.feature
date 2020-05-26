@@ -14,17 +14,24 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I click the "OpenEdit" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "编辑功能已禁用"
 
-  Scenario: 验证关闭编辑（少一个自动刷新后的switch button未验证）
+  Scenario: 验证关闭编辑
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "SettingIcon" will be visible
+    And I click the "SettingIcon" button
+    Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "disabled"
+
+  Scenario: 验证关闭编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "AddEventButton" button
     Then I will see the "LiList" is "disabled"
     And I hide the element "EventList"
-    And I click the "SettingIcon" button
-    Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "disabled"
 
   Scenario: 新建标签页，验证搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -79,7 +86,7 @@ Feature: 仪表盘详情页
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
+    And I click the "AddChart" button
     And I "checked" the checkbox which name is "验证仪表盘全局时间"
     And I click the "Ensure" button
 
@@ -104,7 +111,6 @@ Feature: 仪表盘详情页
     And I click the "SaveAsReport" button
     And switch to another window
     And I close all tabs except main tab
-
     Then I will see the "report.CreatePage" page
     And I set the parameter "Name" with value "仪表盘保存为报表"
     And I choose the "PDF" from the "ReportType"
@@ -114,4 +120,19 @@ Feature: 仪表盘详情页
     And I click the "NextButton" button
     Then I will see the "TopoTitle" result will be "1验证仪表盘全局时间"
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
+  Scenario Outline: 删除报表
+    When open the "report.ListPage" page for uri "/reports/"
+    And I set the parameter "SearchInput" with value "<name>"
+    And I wait for loading invisible
+    And the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I wait for "EnsureButton" will be visible
+    When I click the "EnsureButton" button
+    And I wait for "Message" will be visible
+    Then I wait for element "Message" change text to "删除成功"
+
+    Examples:
+      | name     |
+      | 仪表盘保存为报表 |

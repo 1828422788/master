@@ -11,7 +11,7 @@ Feature: 报表新建_编辑_序列
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "10"
  #   And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
-    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
+#    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
   Scenario Outline: new_report_trend_Order_button
     When I set the parameter "Name" with value "<name>_<reportType>"
@@ -50,6 +50,7 @@ Feature: 报表新建_编辑_序列
     Then I click the "EnsureButton" button
 
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
@@ -107,6 +108,7 @@ Feature: 报表新建_编辑_序列
     And I click the "EnsureButton" button
     ###
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
@@ -159,6 +161,7 @@ Feature: 报表新建_编辑_序列
     Then I click the "EnsureButton" button
 
     When I click the "FinishButton" button
+    And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 

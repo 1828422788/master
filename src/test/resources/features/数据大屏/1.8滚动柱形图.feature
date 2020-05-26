@@ -1,5 +1,5 @@
 @1.8  @galaxeeChart1 @galaxee @galaxee0
-Feature: 数据大屏-滚动柱形图
+Feature: 数据大屏-h滚动柱形图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -17,12 +17,12 @@ Feature: 数据大屏-滚动柱形图
     And I wait for "1000" millsecond
     And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
-    And I click the "Style" button
 #修改样式
     # 1 设置图表尺寸位置
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "665"
     And I set the parameter "Height" with value "550"
     And I set the parameter "ChartXaxis" with value "543"
@@ -37,6 +37,7 @@ Feature: 数据大屏-滚动柱形图
     And I set the parameter "RollHistWordSize" with value "28"
     #字体颜色
     And I click the "rollHistFontColor" button
+    And  I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#DD6D6D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -44,18 +45,20 @@ Feature: 数据大屏-滚动柱形图
     And I choose the "bold" from the "RollHistWordBold"
     #图表颜色1
     And I click the "chartColor1" button
+    And  I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#EA90E8"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #图表颜色2
     And I click the "chartColor2" button
+    And  I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#FFEA00"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #4 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "滚动柱形图样式修改"
-    And I wait for "3000" millsecond
+
      #开启背景动画
     And I click the "backgroundAuto" button
      #数据设置（数据源类型默认：搜索）
@@ -124,7 +127,7 @@ Feature: 数据大屏-滚动柱形图
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-    And I wait for "3000" millsecond
+
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -160,7 +163,7 @@ Feature: 数据大屏-滚动柱形图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -187,11 +190,13 @@ Feature: 数据大屏-滚动柱形图
      #对滚动柱形图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I choose the "apache.clientip" from the "scrollBarSearchName"
+    And I wait for "1000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-    And I wait for "3000" millsecond
+
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

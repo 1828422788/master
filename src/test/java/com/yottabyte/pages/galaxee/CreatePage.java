@@ -184,7 +184,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "chinamap2d")
     private WebElement chinaMap;
 
-    @FindBy(xpath = "//label[contains(text(),'区域颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    //@FindBy(xpath = "//label[contains(text(),'区域颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
+    @FindBy(xpath = "//label[contains(text(),'区域颜色')]/following-sibling::div")
     private WebElement areaColor;
 
     @FindBy(xpath = "//label[contains(text(),'文本颜色')]/following-sibling::div//span[@class='el-color-picker__color-inner']")
@@ -224,6 +225,7 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "worldmap2d")
     private WebElement world;
+
 
     @FindBy(className = "heatmap")
     private WebElement heatmap;
@@ -2520,9 +2522,22 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
 
 
 
+
+
+    @FindBy(xpath = "//div[text()='静态数据确认，接下来请配置展示字段']")
+    private WebElement tipsText;
+    public WebElement getTipsText(){return tipsText;}
+
     @FindBy(xpath = "//div[text()='静态数据确认，接下来请配置展示字段']/following-sibling::div")
     private WebElement tips;
     public WebElement getTips(){return tips;}
+
+
+
+//世界地图
+    @FindBy(xpath = "//li[text()='世界地图']")
+    private WebElement worldMap;
+    public WebElement getWorldMap(){return worldMap;}
 
 
 }

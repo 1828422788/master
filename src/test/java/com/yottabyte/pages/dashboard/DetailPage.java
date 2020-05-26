@@ -103,6 +103,18 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加']")
     private WebElement addChoiceValueButton;
 
+    @FindBy(xpath = "//span[text()='添加图表']")
+    private WebElement addChart;
+
+    @FindBy(xpath = "//span[text()='添加事件列表']")
+    private WebElement addEvent;
+
+    @FindBy(xpath = "//span[text()='添加过滤项']")
+    private WebElement addFilter;
+
+    @FindBy(xpath = "//span[text()='添加输入项']")
+    private WebElement addInput;
+
     @FindBy(xpath = "//div[@class='el-form-item dynamic-search-btn']//span")
     private WebElement searchInputButton;
 
@@ -371,7 +383,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//th[text()='EPORT_ID']/ancestor::table")
     private WebElement returnList;
 
-    @FindBy(xpath = "//span[contains(text(),'仪表盘workflow')]/ancestor::div[@class='widget-control-panel']/following-sibling::div//*[@class='yw-table-head' or @class='table-body-td']")
+    @FindBy(xpath = "//div[contains(text(),'仪表盘workflow')]/following-sibling::div//table")
     private List<WebElement> workflowList;
 
     @FindBy(xpath = "//span[text()='在搜索中打开']")
@@ -481,6 +493,22 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "ace_text-layer")
     private WebElement textLayer;
+
+    public WebElement getAddFilter() {
+        return addFilter;
+    }
+
+    public WebElement getAddInput() {
+        return addInput;
+    }
+
+    public WebElement getAddEvent() {
+        return addEvent;
+    }
+
+    public WebElement getAddChart() {
+        return addChart;
+    }
 
     public WebElement getTextLayer() {
         return textLayer;

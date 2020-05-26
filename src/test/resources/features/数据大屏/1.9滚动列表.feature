@@ -1,5 +1,5 @@
 @1.9 @galaxeeChart1 @galaxee @galaxee0
-Feature: 数据大屏-滚动列表
+Feature: 数据大屏-i滚动列表
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -23,6 +23,7 @@ Feature: 数据大屏-滚动列表
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "997"
     And I set the parameter "Height" with value "526"
     And I set the parameter "ChartXaxis" with value "352"
@@ -36,16 +37,19 @@ Feature: 数据大屏-滚动列表
     And I set the parameter "ListOfTurnsWordSize" with value "28"
     #序号颜色
     And I click the "serialNumberColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#B42F2F"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #背景颜色
     And I click the "listOfTurnsBackgroundColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#D7D55F"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
    #内容颜色
     And I click the "contentColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#EE4CE1"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -108,6 +112,7 @@ Feature: 数据大屏-滚动列表
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "997"
     And I set the parameter "Height" with value "526"
     And I set the parameter "ChartXaxis" with value "352"
@@ -128,7 +133,6 @@ Feature: 数据大屏-滚动列表
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
 
-    And I wait for "3000" millsecond
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -165,7 +169,7 @@ Feature: 数据大屏-滚动列表
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -177,11 +181,13 @@ Feature: 数据大屏-滚动列表
     And I wait for "1000" millsecond
     And I wait for "listOfTurns" will be visible
     And I click the "listOfTurns" button
-    And I click the "Style" button
+
     #  设置图表尺寸位置
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "997"
     And I set the parameter "Height" with value "526"
     And I set the parameter "ChartXaxis" with value "352"
@@ -201,14 +207,11 @@ Feature: 数据大屏-滚动列表
     And I wait for "SearchTip" will be invisible
      #对滚动列表2的参数进行设置
     And I click the "pictureOne" button
-
     And I click the "Data" button
-    And I wait for "3000" millsecond
-
     And I choose the "apache.clientip" from the "scrollBarSearchName"
 
-    And I wait for "3000" millsecond
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

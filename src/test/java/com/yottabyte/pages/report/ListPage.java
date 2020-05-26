@@ -67,6 +67,13 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='报表列表']/ancestor::div/div/div[2]/div")
     private WebElement tagDropdown;
 
+    @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
+    private WebElement loading;
+
+    public WebElement getLoading() {
+        return loading;
+    }
+
     public WebElement getReportListButton() {
         return super.getButton("已生成报表");
     }

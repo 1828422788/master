@@ -93,7 +93,7 @@ Feature: 仪表盘关联搜索
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
+    And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I "checked" the checkbox which name is "仪表盘message,仪表盘return,仪表盘workflow"
     And I click the "Ensure" button
@@ -106,6 +106,7 @@ Feature: 仪表盘关联搜索
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I click the "OpenDrilldown" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "钻取功能已启用"
 
   @dashboard @dashboardSmoke
@@ -143,7 +144,7 @@ Feature: 仪表盘关联搜索
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<name>"
     And I set the parameter "FilterToken" with value "<name>"
     And I choose the "下拉菜单" from the "InputType"
@@ -199,7 +200,7 @@ Feature: 仪表盘关联搜索
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Then I will see the success message "删除仪表盘成功"
 
     Examples:
       | name    |

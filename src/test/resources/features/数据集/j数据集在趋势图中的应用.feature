@@ -1,14 +1,10 @@
 @dataset
-Feature: 数据集-在趋势图中的应用
+Feature: 数据集-j在趋势图中的应用
 
-  Background:
+
+  Scenario Outline: 父子行为无的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-
-
-
-
-  Scenario Outline: 父子行为无
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为无的数据集
     And I click the "fatherChildNull" button
@@ -21,10 +17,14 @@ Feature: 数据集-在趋势图中的应用
     And I set the parameter "trendName" with value "<trendName>"
     And I click the "EnsureCrontab" button
     And I will see the success message "创建成功"
-    And I click the "trendEnsureAfterEnsure" button
-      #趋势图中的验证数据集
-    And I click the "upperTrend" button
-    And I will see the "trend.ListPage" page
+
+    Examples:
+      |spl                                                 |trendName|
+      |tag:sample04061424 \| stats count() by apache.status|父子无    |
+
+
+    Scenario Outline: 趋势图中的验证数据集（无）
+    Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     When the data name is "<trendName>" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
@@ -32,19 +32,15 @@ Feature: 数据集-在趋势图中的应用
     And I click the "zhanKai" button
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
 
-
-
     Examples:
-      |spl                         |trendName|dataSetResult|
-      |*\| stats count() by appname|父子无    |tag:sample* |
+      |trendName|dataSetResult|
+      |父子无    |tag:sample* |
 
 
 
-
-
-
-
-  Scenario Outline: 父子行为汇聚
+  Scenario Outline: 父子行为汇聚的趋势图
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为汇聚的数据集
     And I click the "huiJu" button
@@ -58,10 +54,13 @@ Feature: 数据集-在趋势图中的应用
 
     And I click the "EnsureCrontab" button
     And I will see the success message "创建成功"
-    And I click the "trendEnsureAfterEnsure" button
-      #趋势图中的验证数据集
-    And I click the "upperTrend" button
-    And I will see the "trend.ListPage" page
+
+    Examples:
+      |spl                         |trendName  |
+      |tag:sample04061424 \| stats count() by apache.status|父子汇聚|
+
+    Scenario Outline: 趋势图中的验证数据集(汇聚)
+      Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     When the data name is "<trendName>" then i click the "编辑" button
     Then I will see the "trend.CreatePage" page
@@ -73,14 +72,16 @@ Feature: 数据集-在趋势图中的应用
 
 
     Examples:
-      |spl                         |trendName  |dataSetResult|
-      |*\| stats count() by appname|父子汇聚    |* AND tag:sample* AND (tag:beyond4 OR appname:apache)|
+      |trendName  |dataSetResult|
+      |父子汇聚    |* AND tag:sample* AND (tag:beyond4 OR appname:apache)|
 
 
 
 
 
-  Scenario Outline: 父子行为继承
+  Scenario Outline: 父子行为继承的趋势图
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为继承的数据集
     And I click the "jiCheng" button
@@ -93,10 +94,16 @@ Feature: 数据集-在趋势图中的应用
     And I set the parameter "trendName" with value "<trendName>"
 
     And I click the "EnsureCrontab" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "创建成功"
-    And I click the "trendEnsureAfterEnsure" button
-      #趋势图中的验证数据集
-    And I click the "upperTrend" button
+
+    Examples:
+      |spl                         |trendName|
+      |tag:sample04061424 \| stats count() by apache.status|父子继承  |
+
+
+    Scenario Outline: 趋势图中的验证数据集（继承）
+      Given open the "trend.ListPage" page for uri "/trend/"
     And I will see the "trend.ListPage" page
     And I wait for loading invisible
     When the data name is "<trendName>" then i click the "编辑" button
@@ -108,5 +115,5 @@ Feature: 数据集-在趋势图中的应用
 
 
     Examples:
-      |spl                         |trendName|dataSetResult|
-      |*\| stats count() by appname|父子继承  |* AND tag:sample*|
+   |trendName|dataSetResult|
+    |父子继承  |* AND tag:sample*|

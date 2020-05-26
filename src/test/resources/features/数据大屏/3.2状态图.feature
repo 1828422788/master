@@ -1,5 +1,5 @@
-@galaxeeIndex @galaxee  @galaxee1  @3.2
-Feature: 数据大屏-状态图
+@galaxeeIndex @galaxee  @galaxee2  @3.2
+Feature: 数据大屏-b状态图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -21,7 +21,6 @@ Feature: 数据大屏-状态图
     And I click the "backgroundAuto" button
     #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
     And I will see the success message "保存成功"
 
@@ -61,6 +60,7 @@ Feature: 数据大屏-状态图
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "300"
     And I set the parameter "Height" with value "200"
     And I set the parameter "ChartXaxis" with value "546"
@@ -72,6 +72,7 @@ Feature: 数据大屏-状态图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_display  | stats avg(apache.status) as err_avg"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -115,6 +116,7 @@ Feature: 数据大屏-状态图
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "300"
     And I set the parameter "Height" with value "200"
     And I set the parameter "ChartXaxis" with value "546"
@@ -126,6 +128,7 @@ Feature: 数据大屏-状态图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_display  | stats avg(apache.status) as err_avg"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -182,7 +185,7 @@ Feature: 数据大屏-状态图
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "* | stats avg(apache.status) as err_avg"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats avg(apache.status) as err_avg"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -196,6 +199,7 @@ Feature: 数据大屏-状态图
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "300"
     And I set the parameter "Height" with value "200"
     And I set the parameter "ChartXaxis" with value "546"
@@ -218,7 +222,7 @@ Feature: 数据大屏-状态图
      #对实体的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
     And I choose the "err_avg" from the "Type"
     #设置值范围
     And I set the parameter "normalStart" with value "0"

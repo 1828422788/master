@@ -43,7 +43,7 @@ public class TakeScreenShot {
         this.generateImage(actualImgFilePath);
     }
 
-    private void generateImage(String actualImgFilePath) {
+    public void generateImage(String actualImgFilePath) {
         File screenShotFile = new File(actualImgFilePath);
         Scenario scenario = SharedDriver.getScenario();
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();

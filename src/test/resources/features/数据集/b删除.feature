@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集-删除
+Feature: 数据集-b删除
 
   Background:
     #新建一个数据集再删除
@@ -14,6 +14,7 @@ Feature: 数据集-删除
    #返回列表页
     And I click the "BackList" button
     And I wait for loading invisible
+
 
   Scenario Outline: 删除数据集
     Given the data name is "<name>" then i click the "删除" button

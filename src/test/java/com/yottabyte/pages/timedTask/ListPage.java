@@ -110,6 +110,12 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='ant-message-notice']//span")
     private WebElement notice;
 
+    @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
+    private WebElement loading;
+
+    public WebElement getLoading() {
+        return loading;
+    }
     public WebElement getStart() {
         return start;
     }

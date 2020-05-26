@@ -1,5 +1,5 @@
 @datasetDeleteAll
-  Feature: 数据集-删除所有
+  Feature: 数据集-z删除所有
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
 
@@ -17,7 +17,6 @@
       |JNDTest       |
       |node_op_jnd    |
       |rootname       |
-      |分组和应用       |
       |父子无tree        |
       |父子汇聚           |
       |父子汇聚tree       |

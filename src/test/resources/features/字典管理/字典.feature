@@ -20,7 +20,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+#    Then I wait for loading invisible
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     Then I wait for loading invisible
     Then I will see the "TotalItem" result will be "<totalItem>"
@@ -682,13 +682,13 @@ Feature: 字典管理
     Then I wait for loading invisible
     Then I will see the "TotalItem" result will be "<totalItem>"
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "删除" button
+    Then I wait for "500" millsecond
     Then I will see the success message "确认删除 [<dictionaryName>] ?"
     Then I click the "EnsureButton" button
-    Then I wait for "2000" millsecond
+    Then I wait for "1500" millsecond
     Then I will see the success message "删除成功"
     Then I click the "EnsureButton" button
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
-    Then I wait for loading invisible
     Then I will see the message "暂无数据"
 
     Examples:

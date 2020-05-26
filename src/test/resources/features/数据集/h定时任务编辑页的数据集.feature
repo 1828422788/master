@@ -1,5 +1,5 @@
 @dataset
-Feature: 数据集-在定时任务编辑页
+Feature: 数据集-h在定时任务编辑页
 
   Scenario Outline: 新建数据集父子行为无的定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -26,7 +26,8 @@ Feature: 数据集-在定时任务编辑页
 
     Examples:
       |spl                         |taskName |describe               | crontab      |
-      |*\| stats count() by appname|父子行为无       |选择了父子行为为无的数据集 |0 */57 * * * ?|
+      |tag:sample04061424 \| stats count() by apache.status|父子行为无       |选择了父子行为为无的数据集 |0 */57 * * * ?|
+
 
 
   Scenario Outline: 定时任务编辑页面验证数据集（无）
@@ -69,7 +70,7 @@ Feature: 数据集-在定时任务编辑页
 
     Examples:
       |spl                         |taskName|describe               | crontab      |
-      |*\| stats count() by appname|父子行为汇聚     |选择了父子行为为汇聚的数据集|0 */57 * * * ?|
+      |tag:sample04061424 \| stats count() by apache.status|父子行为汇聚     |选择了父子行为为汇聚的数据集|0 */57 * * * ?|
 
 
 
@@ -111,7 +112,7 @@ Feature: 数据集-在定时任务编辑页
 
     Examples:
       |spl                         |taskName |describe               | crontab       |
-      |*\| stats count() by appname|父子行为继承      |选择了父子行为为继承的数据集|0 */57 * * * ?|
+      |tag:sample04061424 \| stats count() by apache.status|父子行为继承      |选择了父子行为为继承的数据集|0 */57 * * * ?|
 
 
 

@@ -1,5 +1,5 @@
 @galaxeeMap @galaxee  @galaxee1   @2.7
-  Feature: 数据大屏-攻击地图3D II
+  Feature: 数据大屏-o攻击地图3D II
 
 #    Background:
 #      Given I will see the "PublicNavBarPage" page
@@ -16,10 +16,12 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
+      And I wait for "Style" will be visible
       And I click the "Style" button
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
+      And I wait for "Width" will be visible
       And I set the parameter "Width" with value "700"
       And I set the parameter "Height" with value "500"
       And I set the parameter "ChartXaxis" with value "600"
@@ -27,6 +29,7 @@
       #2 设置地图->事件颜色
       And I click the "GlobelabelMapHeader" button
       And I click the "EventColor" button
+      And I wait for "ColorInput" will be visible
       And I set the parameter "ColorInput" with value "#F2321D"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
@@ -42,16 +45,22 @@
       And I wait for "SearchTip" will be invisible
       #修改更新频率为"0.1",这样容易看出变化来
       And I set the parameter "updateFrequency" with value "0.1"
+
       And I choose the "client_lat" from the "SourceLatitude"
+      And I wait for "1000" millsecond
       And I choose the "client_lon" from the "SourceLongitude"
+      And I wait for "1000" millsecond
       And I choose the "gw_lat" from the "TargetLatitude"
+      And I wait for "1000" millsecond
       And I choose the "gw_lon" from the "TargetLongitude"
+      And I wait for "1000" millsecond
       And I choose the "ts" from the "Time"
+      And I wait for "1000" millsecond
       And I choose the "cnt" from the "MeasureValue"
+
       And I click the "Update" button
       #保存
       And I wait for "Save" will be visible
-      And I wait for "2000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -87,27 +96,29 @@
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
       And I click the "Style" button
-      #开启背景动画
-      And I click the "globalStyle" button
-      And I click the "backgroundAuto" button
       #数据设置
       And I click the "Data" button
       And I click the "dataSourceType" button
       #选择静态数据
       And I click the "statisticsData" button
       And I click the "Ensure" button
+      And I wait for "tipsText" will be visible
       And I click the "tips" button
 
       And I choose the "start_lat" from the "SourceLatitude"
+      And I wait for "1000" millsecond
       And I choose the "start_lon" from the "SourceLongitude"
+      And I wait for "1000" millsecond
       And I choose the "target_lat" from the "TargetLatitude"
+      And I wait for "1000" millsecond
       And I choose the "target_lon" from the "TargetLongitude"
+      And I wait for "1000" millsecond
       And I choose the "timestamp" from the "Time"
+      And I wait for "1000" millsecond
       And I choose the "count" from the "MeasureValue"
       And I click the "Update" button
       #保存
       And I wait for "Save" will be visible
-      And I wait for "2000" millsecond
       And I click the "Save" button
       Then I will see the success message "保存成功"
 
@@ -149,11 +160,8 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
-      And I wait for "2000" millsecond
+      And I wait for "Style" will be visible
       And I click the "Style" button
-      #开启背景动画
-      And I click the "globalStyle" button
-      And I click the "backgroundAuto" button
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button
@@ -168,14 +176,19 @@
      #对中国地图二的参数进行设置
       And I click the "pictureOne" button
       And I click the "Data" button
-      And I wait for "3000" millsecond
 
       And I choose the "client_lat" from the "SourceLatitude"
+      And I wait for "1000" millsecond
       And I choose the "client_lon" from the "SourceLongitude"
+      And I wait for "1000" millsecond
       And I choose the "gw_lat" from the "TargetLatitude"
+      And I wait for "1000" millsecond
       And I choose the "gw_lon" from the "TargetLongitude"
+      And I wait for "1000" millsecond
       And I choose the "ts" from the "Time"
+      And I wait for "1000" millsecond
       And I choose the "cnt" from the "MeasureValue"
+
       And I click the "Update" button
       #保存
       And I click the "Save" button

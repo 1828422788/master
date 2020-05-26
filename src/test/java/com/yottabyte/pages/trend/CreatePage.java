@@ -485,7 +485,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'条形图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement bar;
 
-    @FindBy(xpath = "(//div[@class='img sunburst'])[last()]")
+    @FindBy(xpath = "(//div[contains(text(),'旭日图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement sunburst;
 
     @FindBy(className = "tracing")
@@ -842,8 +842,16 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='max']/following-sibling::div")
     private WebElement rangeColor;
 
-    @FindBy(className = "ant-spin-text")
+    @FindBy(xpath = "(//*[@class='anticon-spin'])[2]")
     private WebElement loading;
+
+    @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement typeDropdown;
+
+    public WebElement getTypeDropdown() {
+        typeDropdown.click();
+        return getLastDropdownList();
+    }
 
     public WebElement getLoading() {
         return loading;
@@ -2055,6 +2063,24 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTitleName() {
         return titleName;
+    }
+
+    //Sparkline
+    @FindBy(xpath = "(//span[text()='使用Sparkline'])[last()]/ancestor::div/following-sibling::button")
+    private WebElement sparkline;
+
+    @FindBy(xpath = "(//span[text()='Sparkline x轴字段'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement sparklineField;
+
+    public WebElement getSparkline() {
+        return sparkline;
+    }
+
+    public WebElement getSparklineField() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(sparklineField));
+        sparklineField.click();
+        return super.getLastDropdownList();
     }
 
 }

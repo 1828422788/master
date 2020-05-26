@@ -1,5 +1,5 @@
- @galaxeeLast   @1.26
-Feature: 数据大屏-字符云图
+ @galaxeeLast   @1.26  @galaxee1
+Feature: 数据大屏-g字符云图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -14,13 +14,14 @@ Feature: 数据大屏-字符云图
     And I click the "Ensure" button
       #选择字符云图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
     And I click the "characterCloudChart" button
     And I click the "Style" button
  #设置样式
    # 1 设置图表尺寸位置
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "660"
     And I set the parameter "Height" with value "450"
     And I set the parameter "ChartXaxis" with value "520"
@@ -30,8 +31,6 @@ Feature: 数据大屏-字符云图
     #图表起始颜色
     And I click the "chartStartColor" button
     And I click the "red" button
-    #字体类型
-    And I choose the "cursive" from the "fontType"
     #最大字号
     And I set the parameter "maxFont" with value "50"
     #3 全局样式修改名成
@@ -45,10 +44,9 @@ Feature: 数据大屏-字符云图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-    #数值字段
-    And I choose the "count()" from the "cloudDataSearchNumber"
-    #切分字段
+
     And I choose the "apache.clientip" from the "cloudDataSearchSegmentation"
+    And I choose the "count()" from the "cloudDataSearchNumber"
        #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"
@@ -81,13 +79,10 @@ Feature: 数据大屏-字符云图
     And I click the "Ensure" button
     #选择字符云图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
     And I click the "characterCloudChart" button
     And I click the "Style" button
-     #选择字体类型serif
-    And I click the "styleCloudChart" button
-    And I choose the "serif" from the "fontType"
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
@@ -101,10 +96,9 @@ Feature: 数据大屏-字符云图
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I click the "tips" button
-    #数值字段
-    And I choose the "count()" from the "cloudDataSearchNumber"
-    #切分字段
+
     And I choose the "apache.clientip" from the "cloudDataSearchSegmentation"
+    And I choose the "count()" from the "cloudDataSearchNumber"
 
     #保存
     And I wait for "Save" will be visible
@@ -150,13 +144,10 @@ Feature: 数据大屏-字符云图
     And I set the parameter "updateFrequency" with value "0.1"
        #选择字符云图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
     And I click the "characterCloudChart" button
     And I click the "Style" button
-    #选择字体类型monospace
-    And I click the "styleCloudChart" button
-    And I choose the "monospace" from the "fontType"
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
@@ -171,11 +162,10 @@ Feature: 数据大屏-字符云图
      #参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
-    #数值字段
-    And I choose the "count()" from the "cloudDataSearchNumber"
-    #切分字段
+
+
     And I choose the "apache.clientip" from the "cloudDataSearchSegmentation"
+    And I choose the "count()" from the "cloudDataSearchNumber"
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"

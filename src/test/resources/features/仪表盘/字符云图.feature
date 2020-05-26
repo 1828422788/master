@@ -54,7 +54,8 @@ Feature: 仪表盘字符云图
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
     And I "checked" the checkbox which name is "<name>"
     And I click the "Ensure" button
 
@@ -106,7 +107,7 @@ Feature: 仪表盘字符云图
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘字符云图 | {\n  "title": "仪表盘字符云图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424* \| stats count() by hostname,apache.clientip \|limit 5",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "wordcloud",\n    "field": "count()",\n    "category": "apache.clientip"\n  }\n} |
+      | 仪表盘字符云图 | {\n  "title": "仪表盘字符云图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:*display \| stats count() by apache.clientip \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "wordcloud",\n    "field": "count()",\n    "category": "apache.clientip"\n  }\n} |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

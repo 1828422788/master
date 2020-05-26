@@ -1,6 +1,7 @@
-@auth
+@authtest
 Feature: 权限-仪表盘
 
+  @logout
   Scenario: 验证无新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -12,7 +13,7 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用仪表盘"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -25,6 +26,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the "Create" doesn't exist
 
+  @logout
   Scenario: 授权新建仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -34,7 +36,7 @@ Feature: 权限-仪表盘
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     And I logout current user
@@ -48,8 +50,10 @@ Feature: 权限-仪表盘
     And I click the "Create" button under some element
     And I set the parameter "DashBoardName" with value "仪表盘验证权限1"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
+  @logout
   Scenario: 验证无读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -61,7 +65,7 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用仪表盘"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "Dashboard" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "仪表盘验证权限1" in auth table
@@ -79,6 +83,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the search result "{'column':'0','name':'仪表盘验证权限1','contains':'no'}"
 
+   @logout
   Scenario Outline: 授权读取（RZY-615）
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -90,7 +95,7 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "仪表盘验证权限1" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -129,7 +134,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "转授,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -139,6 +144,7 @@ Feature: 权限-仪表盘
       | name     |
       | 仪表盘验证权限1 |
 
+  @logout
   Scenario Outline: 验证读取+编辑
     Given I wait for "2000" millsecond
     And I logout current user
@@ -154,6 +160,7 @@ Feature: 权限-仪表盘
     And I set the parameter "Tag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     When the data name is "<name>" then i click the "重命名" button
@@ -191,6 +198,7 @@ Feature: 权限-仪表盘
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -204,6 +212,7 @@ Feature: 权限-仪表盘
     And I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -221,6 +230,7 @@ Feature: 权限-仪表盘
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
 
+   @logout
   Scenario: 验证有效期限生效
     Given I will see the "PublicNavBarPage" page
     And I wait for "2000" millsecond
@@ -234,6 +244,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I will see the search result "{'column':'0','name':'仪表盘验证权限1重命名','contains':'no'}"
 
+  @logout
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -246,7 +257,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -272,12 +283,14 @@ Feature: 权限-仪表盘
     And the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
       | name        |
       | 仪表盘验证权限1重命名 |
 
+  @logout
   Scenario Outline: 授权读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -290,7 +303,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -314,11 +327,13 @@ Feature: 权限-仪表盘
     And I set the parameter "Tag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     When the data name is "<name>" then i click the "重命名" button
     And I set the parameter "DashBoardName" with value "<name>重命名"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "重命名仪表盘成功"
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
@@ -330,12 +345,14 @@ Feature: 权限-仪表盘
     And the data name is "<name>重命名" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
       | name               |
       | AutoTestUserCreate |
 
+  @logout
   Scenario Outline: 授权读取+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -346,7 +363,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -360,7 +377,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -401,6 +418,8 @@ Feature: 权限-仪表盘
       | name    |
       | 仪表盘验证权限 |
 
+
+  @logout
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -411,7 +430,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -425,6 +444,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -445,11 +465,13 @@ Feature: 权限-仪表盘
     And I set the parameter "Tag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     When the data name is "<name>" then i click the "重命名" button
     And I set the parameter "DashBoardName" with value "<name>重命名"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "重命名仪表盘成功"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -457,6 +479,7 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -483,6 +506,8 @@ Feature: 权限-仪表盘
       | name    |
       | 仪表盘验证权限 |
 
+
+  @logout
   Scenario Outline: 授权读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -493,7 +518,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -507,6 +532,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
@@ -527,6 +553,7 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -548,12 +575,15 @@ Feature: 权限-仪表盘
     And the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
       | name       |
       | 仪表盘验证权限重命名 |
 
+
+  @logout
   Scenario Outline: 新建仪表盘并设为默认
     When I wait for "2000" millsecond
     And I logout current user
@@ -586,6 +616,7 @@ Feature: 权限-仪表盘
       | name     | title           |
       | AutoAuth | AutoAuth \| 仪表盘 |
 
+  @logout
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -595,7 +626,7 @@ Feature: 权限-仪表盘
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -609,7 +640,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
+    And I wait for "SuccessMessage" will be visible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
@@ -629,11 +660,13 @@ Feature: 权限-仪表盘
     And I set the parameter "Tag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     When the data name is "<name>" then i click the "重命名" button
     And I set the parameter "DashBoardName" with value "<name>重命名"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "重命名仪表盘成功"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -641,6 +674,7 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -665,6 +699,7 @@ Feature: 权限-仪表盘
     And the data name is "<name>重命名" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
@@ -683,6 +718,7 @@ Feature: 权限-仪表盘
     When the data name is "测试二次授权" then i click the "授权" button
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
@@ -693,6 +729,8 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
 
+
+  @logout
   Scenario Outline: 二次授权读取
     When I wait for "2000" millsecond
     And I logout current user
@@ -708,6 +746,7 @@ Feature: 权限-仪表盘
     And I choose the "<authRole>" from the "AuthDropdown"
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -734,6 +773,7 @@ Feature: 权限-仪表盘
       | authRole | authName | function | name   |
       | 用户       | 验证授权用户   | 读取       | 测试二次授权 |
 
+  @logout
   Scenario Outline: 二次授权读取+编辑
     When I wait for "2000" millsecond
     And I logout current user
@@ -749,6 +789,7 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -766,11 +807,13 @@ Feature: 权限-仪表盘
     And I set the parameter "Tag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     When the data name is "<name>" then i click the "重命名" button
     And I set the parameter "DashBoardName" with value "<name>重命名"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "重命名仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     And I click the detail which name is "<name>重命名"
@@ -789,6 +832,8 @@ Feature: 权限-仪表盘
       | authRole | authName        | function | name   |
       | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
 
+
+  @logout
   Scenario Outline: 二次授权读取+编辑+删除
     When I wait for "2000" millsecond
     And I logout current user
@@ -804,6 +849,7 @@ Feature: 权限-仪表盘
     And I wait for loading invisible
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
+    And I wait for "Message" will be visible
     Then I will see the message "保存成功"
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -822,14 +868,17 @@ Feature: 权限-仪表盘
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTestTag"
     And I choose the "AutoTestTag" from the "TagDropdown"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     When the data name is "<name>" then i click the "重命名" button
     And I set the parameter "DashBoardName" with value "<name>重命名"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "重命名仪表盘成功"
     And I click the detail which name is "<name>重命名"
     Then I will see the "dashboard.DetailPage" page
@@ -839,6 +888,7 @@ Feature: 权限-仪表盘
     And the data name is "<name>重命名" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
 
     Examples:

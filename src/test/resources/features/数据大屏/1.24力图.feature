@@ -1,5 +1,5 @@
-@galaxeeChart2 @galaxee @galaxee0   @1.24
-Feature: 数据大屏-力图
+@galaxeeChart2 @galaxee @galaxee1   @1.24
+Feature: 数据大屏-e力图
 
 
 #  Background:
@@ -15,7 +15,7 @@ Feature: 数据大屏-力图
     And I click the "Ensure" button
     #力图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Force" will be visible
     And I click the "Force" button
     And I click the "Style" button
@@ -24,11 +24,14 @@ Feature: 数据大屏-力图
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
     And I click the "Red" button
+
+    And I wait for "ChartWordSize" will be visible
     And I set the parameter "ChartWordSize" with value "20"
     And I click the "RepulsionFactorHeader" button
     And I set the parameter "RepulsionFactor" with value "10"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "611"
     And I set the parameter "Height" with value "618"
     And I set the parameter "ChartXaxis" with value "506"
@@ -48,8 +51,10 @@ Feature: 数据大屏-力图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.clientip" from the "SourceField"
-    And I choose the "apache.request_path" from the "TargetField"
     And I choose the "count()" from the "WeightField"
+    And I choose the "apache.request_path" from the "TargetField"
+
+
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -82,7 +87,7 @@ Feature: 数据大屏-力图
     And I click the "Ensure" button
       #力图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Force" will be visible
     And I click the "Force" button
     And I click the "Style" button
@@ -101,9 +106,8 @@ Feature: 数据大屏-力图
     And I click the "tips" button
 
     And I choose the "apache.clientip" from the "SourceField"
-    And I choose the "apache.request_path" from the "TargetField"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "WeightField"
+    And I choose the "apache.request_path" from the "TargetField"
 
     #保存
     And I wait for "Save" will be visible
@@ -149,8 +153,8 @@ Feature: 数据大屏-力图
     And I set the parameter "updateFrequency" with value "0.1"
        #力图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
-#    And I wait for "Force" will be visible
+    And I wait for "2000" millsecond
+    And I wait for "Force" will be visible
     And I click the "Force" button
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
@@ -167,13 +171,10 @@ Feature: 数据大屏-力图
      #参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "apache.clientip" from the "SourceField"
-    And I wait for "2000" millsecond
-    And I choose the "apache.request_path" from the "TargetField"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "WeightField"
+    And I choose the "apache.request_path" from the "TargetField"
       #保存
     And I click the "Save" button
     Then I will see the success message "保存成功"

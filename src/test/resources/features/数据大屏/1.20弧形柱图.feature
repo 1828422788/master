@@ -1,5 +1,5 @@
-@galaxeeChart2 @galaxee @galaxee0   @1.20
-Feature: 数据大屏-弧形柱图
+@galaxeeChart2 @galaxee @galaxee1   @1.20
+Feature: 数据大屏-a弧形柱图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -14,7 +14,7 @@ Feature: 数据大屏-弧形柱图
     And I click the "Ensure" button
     #弧形柱图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+
     And I wait for "ArcBar" will be visible
     And I click the "ArcBar" button
     And I click the "Style" button
@@ -22,7 +22,9 @@ Feature: 数据大屏-弧形柱图
     And I wait for "RadiusAxis" will be visible
     And I click the "RadiusAxis" button
     And I set the parameter "RadiusAxisSize" with value "20"
+
     And I click the "RadiusAxisColor" button
+    And  I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#41F1F1"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -32,12 +34,14 @@ Feature: 数据大屏-弧形柱图
     And I click the "AngleAxisHeader" button
     And I set the parameter "AngleAxisSize" with value "20"
     And I click the "AngleAxisColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#E3A6F2"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "AngleAxisBold"
     #极坐标系
     And I click the "PolarCoordinates" button
+    And I wait for "PolarXaxis" will be visible
     And I set the parameter "PolarXaxis" with value "40%"
     And I set the parameter "PolarYaxis" with value "60%"
     And I set the parameter "PolarRadius" with value "70%"
@@ -45,6 +49,7 @@ Feature: 数据大屏-弧形柱图
     And I click the "Example" button
     And I set the parameter "ExampleWordSize" with value "20"
     And I click the "ExampleColor" button
+    And  I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#D73535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -53,6 +58,7 @@ Feature: 数据大屏-弧形柱图
     And I choose the "顶部" from the "ExampleVertical"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "510"
     And I set the parameter "Height" with value "378"
     And I set the parameter "ChartXaxis" with value "527"
@@ -66,9 +72,11 @@ Feature: 数据大屏-弧形柱图
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
 
-    And I choose the "apache.clientip" from the "RadialAxis"
-    And I wait for "2000" will be visible
     And I choose the "count()" from the "AngleAxis"
+    And I wait for "2000" millsecond
+    And I choose the "apache.clientip" from the "RadialAxis"
+
+
 
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -108,6 +116,7 @@ Feature: 数据大屏-弧形柱图
     And I click the "Style" button
 
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "510"
     And I set the parameter "Height" with value "378"
     And I set the parameter "ChartXaxis" with value "527"
@@ -126,9 +135,10 @@ Feature: 数据大屏-弧形柱图
     And I click the "Ensure" button
     And I click the "tips" button
 
-    And I choose the "apache.clientip" from the "RadialAxis"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "AngleAxis"
+    And I wait for "2000" millsecond
+    And I choose the "apache.clientip" from the "RadialAxis"
+
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -163,7 +173,7 @@ Feature: 数据大屏-弧形柱图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -179,6 +189,7 @@ Feature: 数据大屏-弧形柱图
     And I click the "Style" button
 
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "510"
     And I set the parameter "Height" with value "378"
     And I set the parameter "ChartXaxis" with value "527"
@@ -197,11 +208,10 @@ Feature: 数据大屏-弧形柱图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
-    And I choose the "apache.clientip" from the "RadialAxis"
-    And I wait for "2000" millsecond
     And I choose the "count()" from the "AngleAxis"
+    And I wait for "2000" millsecond
+    And I choose the "apache.clientip" from the "RadialAxis"
     #添加分组
     And I click the "AddGroup" button
     And I choose the "apache.method" from the "Group"

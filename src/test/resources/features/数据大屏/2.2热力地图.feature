@@ -1,5 +1,5 @@
 @galaxeeMap @galaxee  @galaxee1   @2.2
-Feature: 数据大屏-热力地图
+Feature: 数据大屏-j热力地图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
@@ -21,26 +21,31 @@ Feature: 数据大屏-热力地图
 #    And I choose the "山东" from the "MapArea"
     #区域颜色
     And I click the "AreaColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#253D58"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边界颜色
     And I click the "BoundaryColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#85DEDE"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 #  标注色(起)
     And I click the "markColor1" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#C11970"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 #  标注色(中)
     And I click the "markColor2" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#EAEBB3"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 #  标注色(止)
     And I click the "markColor3" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#53B11D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -48,6 +53,7 @@ Feature: 数据大屏-热力地图
     And I set the parameter "Scaling" with value "1.5"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Height" will be visible
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "242"
     And I set the parameter "ChartYaxis" with value "315"
@@ -60,9 +66,9 @@ Feature: 数据大屏-热力地图
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
 
-    And I choose the "apache.geo.province" from the "NameField"
-    And I wait for "1000" millsecond
     And I choose the "count()" from the "DataField"
+    And I choose the "apache.geo.province" from the "NameField"
+
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -110,9 +116,9 @@ Feature: 数据大屏-热力地图
     And I click the "Ensure" button
     And I click the "tips" button
 
-    And I choose the "apache.geo.province" from the "NameField"
-    And I wait for "1000" millsecond
     And I choose the "count()" from the "DataField"
+    And I choose the "apache.geo.province" from the "NameField"
+
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -172,11 +178,12 @@ Feature: 数据大屏-热力地图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
-    And I choose the "apache.geo.province" from the "NameField"
-    And I wait for "1000" millsecond
+
     And I choose the "count()" from the "DataField"
+    And I choose the "apache.geo.province" from the "NameField"
+
+
       #保存
     And I click the "Save" button
       Then I will see the success message "保存成功"

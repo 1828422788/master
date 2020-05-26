@@ -4,8 +4,7 @@ Feature: 趋势图删除（RZY-1891）
   Scenario Outline: delete
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
-    And I wait for "2000" millsecond
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     And the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "EnsureButton" button
@@ -104,6 +103,9 @@ Feature: 趋势图删除（RZY-1891）
       | Ring_table_3r_2c                         |
       | Ring_twofields                           |
       | Ring_onefield                            |
+      | Single_Sparkline_分面                    |
+      | Single_Sparkline_Font                    |
+      | Single_Sparkline_Background              |
       | Single_secondTitle                       |
       | Single_prec2_1000off_back_after          |
       | Single_prec1_1000on__before              |

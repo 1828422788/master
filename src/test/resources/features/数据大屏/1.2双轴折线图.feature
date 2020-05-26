@@ -1,5 +1,5 @@
 @1.2 @galaxeeChart1 @galaxee @galaxee0
-Feature: 数据大屏-双轴折线图
+Feature: 数据大屏-b双轴折线图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -43,6 +43,7 @@ Feature: 数据大屏-双轴折线图
       #文本
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CF3131"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -56,6 +57,7 @@ Feature: 数据大屏-双轴折线图
     And I set the parameter "XDividingLineBold" with value "3"
 
     And I click the "XDividingLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CD9080"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -63,6 +65,7 @@ Feature: 数据大屏-双轴折线图
     And I choose the "dotted" from the "XDividingLineType"
      # 轴线
     And I click the "xLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#26CC55"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -72,6 +75,7 @@ Feature: 数据大屏-双轴折线图
      #文本
     And I set the parameter "YaxisWordSize" with value "20"
     And I click the "YaxisWordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#19B535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -84,6 +88,7 @@ Feature: 数据大屏-双轴折线图
     And I set the parameter "Y1DividingLineBold" with value "2"
 
     And I click the "Y1DividingLineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#BBB80B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -91,6 +96,7 @@ Feature: 数据大屏-双轴折线图
     And I choose the "dashed" from the "Y1DividingLineType"
     # 轴线
     And I click the "Y1LineColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#CBD50D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -98,6 +104,7 @@ Feature: 数据大屏-双轴折线图
 
 #布局
     And I click the "Layout" button
+    And I wait for "LayoutBottom" will be visible
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
@@ -141,18 +148,20 @@ Feature: 数据大屏-双轴折线图
     And I wait for "Line2y" will be visible
     And I click the "Line2y" button
     And I click the "Style" button
-#    #图例
-#    And I click the "Example" button
-#    And I set the parameter "ExampleWordSize" with value "20"
-#    And I click the "ExampleColor" button
-#    And I set the parameter "ColorInput" with value "#D73535"
-#    And I click the "EnsureColor" button
-#    And I wait for "EnsureColor" will be invisible
-#    And I choose the "bolder" from the "ExampleWordBold"
-#    And I choose the "居中" from the "ExampleHorizontal"
-#    And I choose the "顶部" from the "ExampleVertical"
+    #图例
+    And I click the "Example" button
+    And I set the parameter "ExampleWordSize" with value "20"
+    And I click the "ExampleColor" button
+    And I wait for "ColorInput" will be visible
+    And I set the parameter "ColorInput" with value "#D73535"
+    And I click the "EnsureColor" button
+    And I wait for "EnsureColor" will be invisible
+    And I choose the "bolder" from the "ExampleWordBold"
+    And I choose the "居中" from the "ExampleHorizontal"
+    And I choose the "顶部" from the "ExampleVertical"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1500"
     And I set the parameter "Height" with value "635"
     And I set the parameter "ChartXaxis" with value "90"
@@ -166,11 +175,15 @@ Feature: 数据大屏-双轴折线图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
+    And I wait for "tipsText" will be visible
     And I click the "tips" button
 
     And I choose the "appname" from the "Xaxis"
+    And I wait for "1000" millsecond
     And I choose the "count(appname)" from the "FirstYaxis"
+    And I wait for "1000" millsecond
     And I choose the "dc(appname)" from the "SecondYaxis"
+    And I wait for "1000" millsecond
    #分组
     And I click the "AddGroup" button
     And I choose the "appname" from the "Group"
@@ -208,19 +221,20 @@ Feature: 数据大屏-双轴折线图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample*| bucket timestamp span=2h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
    #双轴折线图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+#    And I wait for "1000" millsecond
     And I wait for "Line2y" will be visible
     And I click the "Line2y" button
     And I click the "Style" button
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1500"
     And I set the parameter "Height" with value "635"
     And I set the parameter "ChartXaxis" with value "90"
@@ -240,13 +254,13 @@ Feature: 数据大屏-双轴折线图
      #对滚动条形图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "appname" from the "Xaxis"
-
-    And I choose the "dc(appname)" from the "FirstYaxis"
-
-    And I choose the "count(appname)" from the "SecondYaxis"
+    And I wait for "1000" millsecond
+    And I choose the "count(appname)" from the "FirstYaxis"
+    And I wait for "1000" millsecond
+    And I choose the "dc(appname)" from the "SecondYaxis"
+    And I wait for "1000" millsecond
 
       #保存
     And I click the "Save" button

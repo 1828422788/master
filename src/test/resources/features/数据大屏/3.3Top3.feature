@@ -1,5 +1,5 @@
-@galaxeeIndex @galaxee  @galaxee1   @3.3
-  Feature: 数据大屏-Top3
+@galaxeeIndex @galaxee  @galaxee2   @3.3
+  Feature: 数据大屏-cTop3
 #    Background:
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible
@@ -21,6 +21,7 @@
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
+      And I wait for "Width" will be visible
       And I set the parameter "Width" with value "700"
       And I set the parameter "Height" with value "500"
       And I set the parameter "ChartXaxis" with value "600"
@@ -32,6 +33,7 @@
      And I set the parameter "numberTypefaceSize" with value "40"
 
      And I click the "Top3numberTypefaceColor" button
+     And I wait for "ColorInput" will be visible
      And I set the parameter "ColorInput" with value "#9FF50B"
      And I click the "EnsureColor" button
      And I wait for "EnsureColor" will be invisible
@@ -46,13 +48,14 @@
        And I click the "backgroundAuto" button
 #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "* | stats count() by appname"
+    And I set the parameter "SplInput" with value "tag:sample* | stats count() by appname"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-    And I choose the "appname" from the "dataSearchName"
-    And I wait for "2000" millsecond
+
     And I choose the "count()" from the "dataSearchNumber"
+    And I choose the "appname" from the "dataSearchName"
+
       #保存
       And I click the "Save" button
       Then I will see the success message "保存成功"
@@ -99,10 +102,9 @@
       And I click the "Ensure" button
       And I click the "tips" button
 
-      And I choose the "name" from the "dataSearchName"
-      And I wait for "2000" millsecond
       And I choose the "value" from the "dataSearchNumber"
-      And I wait for "1000" millsecond
+      And I choose the "name" from the "dataSearchName"
+
       #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
@@ -165,9 +167,9 @@
      #对Top3的参数进行设置
       And I click the "pictureOne" button
       And I click the "Data" button
-      And I wait for "2000" millsecond
+
       And I choose the "appname" from the "dataSearchName"
-      And I wait for "2000" millsecond
+
       And I choose the "count()" from the "dataSearchNumber"
       #保存
       And I click the "Save" button

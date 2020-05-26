@@ -1,5 +1,5 @@
 @1.6  @galaxeeChart1 @galaxee @galaxee0
-Feature: 数据大屏-条形图
+Feature: 数据大屏-f条形图
 
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -25,17 +25,20 @@ Feature: 数据大屏-条形图
     And I click the "Tag" button
     And I set the parameter "TagWordSize" with value "20"
     And I click the "TagWordColor" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#DFFE19"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "TagBold"
     #布局
     And I click the "Layout" button
+    And I wait for "LayoutBottom" will be visible
     And I set the parameter "LayoutBottom" with value "20"
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "703"
     And I set the parameter "height" with value "567"
     And I set the parameter "ChartXaxis" with value "516"
@@ -43,11 +46,11 @@ Feature: 数据大屏-条形图
      #4 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "条形图-样式搜索"
-    And I wait for "3000" millsecond
      #开启背景动画
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -58,6 +61,7 @@ Feature: 数据大屏-条形图
     And I choose the "count()" from the "DataField"
     And I wait for "2000" millsecond
     And I choose the "apache.clientip" from the "DivideField"
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 
@@ -93,6 +97,7 @@ Feature: 数据大屏-条形图
     And I click the "Style" button
     #尺寸
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "703"
     And I set the parameter "height" with value "567"
     And I set the parameter "ChartXaxis" with value "516"
@@ -115,7 +120,6 @@ Feature: 数据大屏-条形图
     And I wait for "2000" millsecond
     And I choose the "apache.clientip" from the "DivideField"
 
-    And I wait for "3000" millsecond
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -151,7 +155,7 @@ Feature: 数据大屏-条形图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
@@ -184,7 +188,7 @@ Feature: 数据大屏-条形图
      #对滚动条形图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
+
 
     And I choose the "count()" from the "DataField"
     And I wait for "2000" millsecond
@@ -192,8 +196,9 @@ Feature: 数据大屏-条形图
     #切分字段
     And I click the "Add" button
     And I choose the "apache.method" from the "LastDivideField"
-    And I wait for "3000" millsecond
+
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     Then I will see the success message "保存成功"
 

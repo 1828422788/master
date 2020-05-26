@@ -54,7 +54,7 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<filter>"
     And I set the parameter "FilterToken" with value "<filter>"
     And I set the parameter "FilterDefaultValue" with value "<defaultValue>"
@@ -71,7 +71,8 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
     And I "checked" the checkbox which name is "仪表盘所用趋势图"
     And I click the "Ensure" button
 
@@ -110,7 +111,7 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<filter>"
     And I set the parameter "FilterToken" with value "<filter>"
     And I set the parameter "FilterDefaultValue" with value "<defaultValue>"
@@ -159,7 +160,7 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I set the parameter "FilterDefaultValue" with value "apache.geo.city"
@@ -239,7 +240,7 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I choose the "下拉菜单" from the "InputType"
@@ -398,7 +399,7 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I choose the "下拉菜单" from the "InputType"
@@ -453,7 +454,7 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I choose the "动态菜单" from the "InputType"
@@ -535,7 +536,7 @@ Feature: 仪表盘输入项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I choose the "动态菜单" from the "InputType"
@@ -601,7 +602,7 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加输入项" from the "EventList"
+    And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     Then I click the "Ensure" button

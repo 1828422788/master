@@ -2,7 +2,7 @@
 Feature: 定时任务新建
 # 26
 
-  #bug RZY-5742
+
   @startTomorrowTask
   Scenario: test_schedule_time
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -28,15 +28,19 @@ Feature: 定时任务新建
     And I hide the element "TimePanel"
     And I will see the element "WhenToStart" contains "明天开始"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "明天开始，是否继续"
     When I click the "Cancel" button
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     And I will see the success message "明天开始，是否继续"
     And I click the "TimeTaskEnsure" button
     And I wait for "1500" millsecond
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
     When open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
+    #bug RZY-5742
     # check that there was no executions
     # Then I will see the data "{'column':'2','name':'Test_StartTomorrow'}" values "{'column':'6','name':''}"
 
@@ -58,9 +62,9 @@ Feature: 定时任务新建
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:58:10"
-#    And I set the parameter "StartTimeInput" with value "CurrentTime5min"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -100,9 +104,9 @@ Feature: 定时任务新建
     And I choose the "<periodTime>" from the "ExecuteTime"
     And I click the "StartTime" button
     And I set the parameter "StartTimeInput" with value "23:58:10"
-#    And I set the parameter "StartTimeInput" with value "CurrentTime5min"
     And I hide the element "TimePanel"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -128,6 +132,7 @@ Feature: 定时任务新建
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -155,6 +160,7 @@ Feature: 定时任务新建
       And I click the "Crontab" button
       And I set the parameter "CrontabInput" with value "<crontab>"
       And I click the "EnsureButton" button
+      And I wait for "TimeTaskEnsure" will be visible
       Then I will see the success message "<message>"
 
       Examples:
@@ -178,6 +184,7 @@ Feature: 定时任务新建
         Then I set the parameter "Describe" with value "<describe>"
         Then I set the parameter "Period" with value "<period>"
         Then I click the "EnsureButton" button
+        And I wait for "TimeTaskEnsure" will be visible
         Then I will see the success message "<message>"
 
         Examples:
@@ -194,13 +201,14 @@ Feature: 定时任务新建
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading complete
     And I set the parameter "SearchInput" with value "<taskName>"
-    And I wait for loading invisible
+    And I wait for "Loading" will be invisible
     When the data name is "{'column':'2','name':'<taskName>'}" then i click the "<taskName>" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "TimePeriod" contains "<time>"
 
     Examples:
       | time                                      | taskName     |
+      #RZY-5018
 #      | 2020-04-01 00:00:00 ~ 2020-04-09 00:00:00 | interval_date|
       | -1M/M ~ now/M                             | lastMonth         |
       | now/M ~ now                               | thisMonth         |

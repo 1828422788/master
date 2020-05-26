@@ -1,11 +1,9 @@
 @all @smoke @configs @configsSmoke
-Feature: 字段提取禁用/启用
+Feature: 字段提取复制、编辑
 
-  Background:
+  Scenario Outline:
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
-
-  Scenario Outline: 单个规则禁用、启用
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
     When I set the parameter "LogSample" with value "{"Name": "John Smith ", "Age": 23, "Employed": true, "Address": {"Street": "324 Chrome St", "City": "Portland, New York,Los Angeles ", "Country": "United States"}}"
@@ -26,26 +24,23 @@ Feature: 字段提取禁用/启用
     Then I wait for "ConfigDone" will be visible
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
-
-    When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
-    And I wait for loading invisible
-    Then I will see the element "{'column':'1','name':'<name>'}" is "open"
-    Then I refresh the website
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'<name>'}" then I "close" the switch
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button
+    And I refresh the website
+    Then I will see the search result contains "{'column':'1','name':'<name>(副本)'}"
+    When the data name is "{'column':'1','name':'<name>(副本)'}" then i click the "编辑" button
+    Then I will see the "configs.CreatePage" page
+    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
+    Then I wait for "2000" millsecond
+    And I click the "NextButton" button
+    When I set the parameter "Name" with value "<name>的副本"
+    And I click the "Done" button
+    And I wait for "ConfigDone" will be visible
+    Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
-    Then I will see the element "{'column':'1','name':'<name>'}" is "close"
-
+    Then I will see the search result contains "{'column':'1','name':'<name>的副本'}"
 
     Examples:
-      | name  | appName |
-      | 禁用和启用 | wym_disable |
+      | name  | appName       |
+      | wym复制和编辑 | wym_copy_edit |
 
 
-  Scenario: RZY-1874:开启运行统计
-    When I click the "SwitchButton" button
-    And I wait for "1000" millsecond
-    And I refresh the website
-    And I wait for loading invisible
-    Then I wait for "500" millsecond
-    Then I will see the "SwitchButton" is "ant-switch-disabled"
