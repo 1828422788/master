@@ -15,7 +15,7 @@ Feature: 数据大屏-e力图
     And I click the "Ensure" button
     #力图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "Force" will be visible
     And I click the "Force" button
     And I click the "Style" button
@@ -87,7 +87,7 @@ Feature: 数据大屏-e力图
     And I click the "Ensure" button
       #力图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "Force" will be visible
     And I click the "Force" button
     And I click the "Style" button
@@ -153,7 +153,7 @@ Feature: 数据大屏-e力图
     And I set the parameter "updateFrequency" with value "0.1"
        #力图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "Force" will be visible
     And I click the "Force" button
     And I click the "Style" button

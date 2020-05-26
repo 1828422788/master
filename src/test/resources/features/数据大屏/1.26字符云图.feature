@@ -14,7 +14,7 @@ Feature: 数据大屏-g字符云图
     And I click the "Ensure" button
       #选择字符云图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
     And I click the "characterCloudChart" button
     And I click the "Style" button
@@ -29,6 +29,7 @@ Feature: 数据大屏-g字符云图
    #2修改样式
     And I click the "styleCloudChart" button
     #图表起始颜色
+    And I wait for "chartStartColor" will be visible
     And I click the "chartStartColor" button
     And I click the "red" button
     #最大字号
@@ -79,7 +80,7 @@ Feature: 数据大屏-g字符云图
     And I click the "Ensure" button
     #选择字符云图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
     And I click the "characterCloudChart" button
     And I click the "Style" button
@@ -144,7 +145,7 @@ Feature: 数据大屏-g字符云图
     And I set the parameter "updateFrequency" with value "0.1"
        #选择字符云图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
     And I click the "characterCloudChart" button
     And I click the "Style" button

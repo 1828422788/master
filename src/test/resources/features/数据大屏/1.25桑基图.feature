@@ -13,7 +13,7 @@ Feature: 数据大屏-f桑基图
     And I click the "Ensure" button
     #桑吉图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
     And I click the "Sankey" button
     And I click the "Style" button
@@ -83,7 +83,7 @@ Feature: 数据大屏-f桑基图
     And I click the "Ensure" button
        #桑吉图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
     And I click the "Sankey" button
     And I click the "Style" button
@@ -148,7 +148,7 @@ Feature: 数据大屏-f桑基图
     And I set the parameter "updateFrequency" with value "0.1"
           #桑吉图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
     And I click the "Sankey" button
     And I click the "Style" button

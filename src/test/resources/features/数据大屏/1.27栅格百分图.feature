@@ -14,7 +14,7 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Ensure" button
       #选择栅格百分图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "gridPercentChart" will be visible
     And I click the "gridPercentChart" button
     And I click the "Style" button
@@ -94,7 +94,7 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Ensure" button
       #选择栅格百分图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "gridPercentChart" will be visible
     And I click the "gridPercentChart" button
     And I click the "Style" button
@@ -156,7 +156,7 @@ Feature: 数据大屏-h栅格百分图
     And I set the parameter "updateFrequency" with value "0.1"
        #选择栅格百分图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "gridPercentChart" will be visible
     And I click the "gridPercentChart" button
 
