@@ -167,13 +167,13 @@ Feature: 趋势图新建_维度
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>_分面"
+    And I compare source image "expect/<chartType>_<typeInfo>_分面" with target image "actual/<chartType>_<typeInfo>_分面"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>_分面"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
-    And I compare source image "expect/<chartType>_<typeInfo>_分面" with target image "actual/<chartType>_<typeInfo>_分面"
 
     Examples:
       |   chartType   |  color  |  typeInfo    |  spl   |
