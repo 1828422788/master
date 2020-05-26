@@ -34,7 +34,7 @@ Feature: Agent编辑Packetbeat类型数据源
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
     Examples:
       | appnamekind         |
@@ -60,7 +60,7 @@ Feature: Agent编辑Packetbeat类型数据源
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
     Examples:
       | tagkind                         |

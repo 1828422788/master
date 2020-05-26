@@ -42,7 +42,7 @@ Feature: Agent编辑性能数据类型数据源
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -71,7 +71,7 @@ Feature: Agent编辑性能数据类型数据源
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -100,7 +100,7 @@ Feature: Agent编辑性能数据类型数据源
     When I choose the "<frequencykind>" from the "Frequency"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -116,7 +116,7 @@ Feature: Agent编辑性能数据类型数据源
     And I set the parameter "SpecialPort" with value "24"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 性能数据源修改采集磁盘指标（采集->不采集）
@@ -125,14 +125,16 @@ Feature: Agent编辑性能数据类型数据源
     And I click the "DiskQuota" button
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
+
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
 #  Scenario: 性能数据源修改采集磁盘IO（采集->不采集）
 #    Given the data name ".*" in table "FuctionTypeTable" then i click the "编辑" button
 #    And I click the "DiskIO" button
 #    And I click the "Ensure" button
-#    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 #
 
   Scenario: 性能数据源修改采集系统指标（采集->不采集）
@@ -141,21 +143,21 @@ Feature: Agent编辑性能数据类型数据源
     And I click the "SystemQuota" button
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
 #  Scenario: 性能数据源修改采集单个cpu指标（不采集->采集）
 #    Given the data name ".*" in table "FuctionTypeTable" then i click the "编辑" button
 #    And I click the "CPUQuota" button
 #    And I click the "Ensure" button
-#    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 #
 
 #  Scenario: 性能数据源修改采集单个 net 指标（不采集->采集）
 #    Given the data name ".*" in table "FuctionTypeTable" then i click the "编辑" button
 #    And I click the "NetQuota" button
 #    And I click the "Ensure" button
-#    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+#    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 性能数据源修改采集进程指标（不采集->采集）
@@ -164,7 +166,7 @@ Feature: Agent编辑性能数据类型数据源
     And I click the "ProcessQuota" button
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 性能数据源修改进程采集白名单
@@ -173,7 +175,7 @@ Feature: Agent编辑性能数据类型数据源
     And I set the parameter "ProcessWhiteList" with value "./log.*"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 性能数据源删除

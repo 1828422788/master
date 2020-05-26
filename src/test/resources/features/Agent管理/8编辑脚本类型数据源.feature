@@ -44,28 +44,28 @@ Feature: Agent编辑脚本类型数据源
     And I set the parameter "ExcuteFile" with value "/bin/ls"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario:编辑修改参数
     And I click the "EditAutoScript" button
     And I set the parameter "Param" with value "/opt/rizhiyi/parcels/heka-3.1.0.17/add_on/unix/audit.sh"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario:编辑修改换行规则
     And I click the "EditAutoScript" button
     And I set the parameter "ChangeRowRule" with value "\t"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario:编辑修改时间间隔
     And I click the "EditAutoScript" button
     And I set the parameter "InternalTime" with value "50"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario Outline:编辑修改时间间隔种类
     And I click the "EditAutoScript" button
@@ -73,7 +73,7 @@ Feature: Agent编辑脚本类型数据源
     Then I wait for "1000" millsecond
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -89,7 +89,7 @@ Feature: Agent编辑脚本类型数据源
     Then I wait for "1000" millsecond
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
     Examples:
       | characterkind |
@@ -101,20 +101,20 @@ Feature: Agent编辑脚本类型数据源
     And I set the parameter "Tag" with value "ChangeautohekaSyslogtag"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario: 文件目录配置修改appname
     And I click the "EditAutoScript" button
     And I set the parameter "Appname" with value "Changeautohekascripttest"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
     And I wait for loading invisible
     Given the data name "Changeautohekascripttest" in table "ScriptTable" then i click the "编辑" button
     And I set the parameter "Appname" with value "autohekascripttest"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario: 脚本类型数据源删除
     Given the data name "autohekascripttest" in table "ScriptTable" then i click the "删除" button
