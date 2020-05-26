@@ -49,7 +49,7 @@ Feature: 数据大屏-a数值翻牌器
     And I set the parameter "ChartYaxis" with value "350"
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.resp_len"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display  | stats count() by apache.resp_len"
     And I click the "DataSearch" button
     And I wait for "SearchTip" will be invisible
 
@@ -94,7 +94,7 @@ Feature: 数据大屏-a数值翻牌器
     And I choose the "HENB" from the "FlipWord"
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.resp_len"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display  | stats count() by apache.resp_len"
     And I click the "DataSearch" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -141,7 +141,7 @@ Feature: 数据大屏-a数值翻牌器
     And I click the "Other" button
     And I click the "otherSearch" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.resp_len"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.resp_len"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"

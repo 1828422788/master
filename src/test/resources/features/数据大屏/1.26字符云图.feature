@@ -31,9 +31,6 @@ Feature: 数据大屏-g字符云图
     #图表起始颜色
     And I click the "chartStartColor" button
     And I click the "red" button
-    #字体类型
-    And I wait for "fontType" will be visible
-    And I choose the "cursive" from the "fontType"
     #最大字号
     And I set the parameter "maxFont" with value "50"
     #3 全局样式修改名成
@@ -86,10 +83,6 @@ Feature: 数据大屏-g字符云图
     And I wait for "characterCloudChart" will be visible
     And I click the "characterCloudChart" button
     And I click the "Style" button
-     #选择字体类型serif
-    And I click the "styleCloudChart" button
-    And I wait for "fontType" will be visible
-    And I choose the "serif" from the "fontType"
      #数据设置
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
@@ -155,9 +148,6 @@ Feature: 数据大屏-g字符云图
     And I wait for "characterCloudChart" will be visible
     And I click the "characterCloudChart" button
     And I click the "Style" button
-    #选择字体类型monospace
-    And I click the "styleCloudChart" button
-    And I choose the "monospace" from the "fontType"
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button

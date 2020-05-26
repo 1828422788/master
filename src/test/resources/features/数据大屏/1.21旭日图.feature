@@ -14,7 +14,7 @@ Feature: 数据大屏-b旭日图
     And I click the "Ensure" button
     #旭日图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Sunburst" will be visible
     And I click the "Sunburst" button
     #样式
@@ -86,7 +86,7 @@ Feature: 数据大屏-b旭日图
     And I click the "Ensure" button
     #旭日图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Sunburst" will be visible
     And I click the "Sunburst" button
     And I click the "Style" button
@@ -150,7 +150,7 @@ Feature: 数据大屏-b旭日图
     And I set the parameter "updateFrequency" with value "0.1"
     #旭日图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "Sunburst" will be visible
     And I click the "Sunburst" button
 
