@@ -272,7 +272,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "*|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+200"}]}}" to json editor
+    And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+200"}]}}" to json editor
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
@@ -284,7 +284,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "CountNum" button
-    Then I will see the input element "FilterInput" value will contains "289"
+    Then I will see the input element "FilterInput" value will contains "224"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

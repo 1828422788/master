@@ -54,7 +54,6 @@ Feature: 仪表盘钻取配置
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
-    And I wait for "SpinDot" will be invisible
     And I "checked" the checkbox which name is "仪表盘钻取配置"
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
