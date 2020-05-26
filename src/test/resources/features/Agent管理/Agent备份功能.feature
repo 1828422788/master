@@ -71,7 +71,7 @@ Feature: Agent备份功能
     Then I wait for loading invisible
     And I wait for "Save" will be visible
     And I click the "Save" button
-    Then I will see the element "ChangeMemo" name is "保存成功"
+    And I will see the success message "保存成功"
 
 
   Scenario: 备份策略编辑目的对象安全链接
@@ -100,7 +100,8 @@ Feature: Agent备份功能
     And I set the parameter "ThreadNum" with value "1"
     And I click the "Save" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改成功"
+    And I will see the success message "修改成功"
+#    Then I will see the element "ChangeMemo" name is "修改成功"
 
   Scenario Outline: 备份策略编辑目的对象服务器地址
     And I click the "AddBackUP" button
