@@ -195,7 +195,7 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  color  |  typeInfo    |  spl   |
-      |      Pie      | Red     | 展示全部     |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 8 |
-      |      Rose     | Green   | 只展示名称   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 8 |
-      |      Bar      | Orange  | 展示全部     |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 8 |
+      |      Pie      | Red     | 展示全部     |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |      Rose     | Green   | 只展示名称   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |      Bar      | Orange  | 展示全部     |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
 #      |      Sun      | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
