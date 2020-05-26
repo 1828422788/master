@@ -3,6 +3,8 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.ImageComparison;
 import com.yottabyte.utils.JsonStringPaser;
+import com.yottabyte.webDriver.SharedDriver;
+import cucumber.api.Scenario;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -206,6 +208,8 @@ public class CompareResult {
         FileInputStream inputStream = new FileInputStream(imagePath);
         byte[] imageBytes = new byte[inputStream.available()];
         inputStream.read(imageBytes);
+        Scenario scenario = SharedDriver.getScenario();
+        scenario.embed(imageBytes, "image/png");
         inputStream.close();
         return imageBytes;
     }
