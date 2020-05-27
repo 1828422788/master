@@ -7,8 +7,6 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import net.lightbody.bmp.BrowserMobProxyServer;
-import org.apache.logging.log4j.core.config.ConfigurationSource;
-import org.apache.logging.log4j.core.config.Configurator;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -26,10 +24,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
@@ -60,13 +55,6 @@ public class SharedDriver extends EventFiringWebDriver {
     static {
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
         ConfigManager config = new ConfigManager();
-//        File conFile = new File("config/log4j2.xml");
-//        try {
-//            ConfigurationSource c = new ConfigurationSource(new BufferedInputStream(new FileInputStream(conFile)));
-//            Configurator.initialize(null, c);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         DesiredCapabilities browser = null;
         try {
             if ("chrome".equalsIgnoreCase(config.get("browser"))) {
@@ -77,11 +65,9 @@ public class SharedDriver extends EventFiringWebDriver {
             }
             EventListener eventListener = new EventListener();
 
-            LoggingPreferences logPrefs = new LoggingPreferences();
-            logPrefs.enable(LogType.BROWSER, Level.ALL);
             BrowserMobProxyService.startBrowserMobProxy();
             browserMobProxy = BrowserMobProxyService.getBrowserMobProxyServer();
-            browser.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
+            browser.setCapability(CapabilityType.LOGGING_PREFS, getLogPreferences());
             String ServerHOst;
             ServerHOst = config.get("selenium_server_host");
             GetLogger.getLogger().info("ServerHOst: {}", ServerHOst);
@@ -99,16 +85,10 @@ public class SharedDriver extends EventFiringWebDriver {
                 judgingBrowserType(config, browser);
             }
             EventListener eventListener = new EventListener();
-            LoggingPreferences logPrefs = new LoggingPreferences();
-//            logPrefs.enable(LogType.BROWSER, Level.ALL);
-            logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
-            logPrefs.enable(LogType.BROWSER, Level.ALL);
-            logPrefs.enable(LogType.CLIENT, Level.ALL);
-            logPrefs.enable(LogType.DRIVER, Level.ALL);
-            logPrefs.enable(LogType.SERVER, Level.ALL);
+
             BrowserMobProxyService.startBrowserMobProxy();
             browserMobProxy = BrowserMobProxyService.getBrowserMobProxyServer();
-            browser.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
+            browser.setCapability(CapabilityType.LOGGING_PREFS, getLogPreferences());
             LocalChromeDriverService.createAndStartService();
             service = LocalChromeDriverService.getService();
             REAL_DRIVER = new RemoteWebDriver(service.getUrl(), browser);
@@ -181,9 +161,6 @@ public class SharedDriver extends EventFiringWebDriver {
             // 设置为文件下载路径
             chromePrefs.put("download.default_directory", downloadFilepath);
             System.out.println("设置下载路径-----" + downloadFilepath);
-            LoggingPreferences loggingPreferences = new LoggingPreferences();
-
-            loggingPreferences.enable(LogType.BROWSER, Level.ALL);
             options.setExperimentalOption("prefs", chromePrefs);
             options.addArguments("test-type", "start-maximized");
 //            options.addArguments("--trace-to-console", "--auto-open-devtools-for-tabs");  // 浏览器启动时自动打开开发者工具
@@ -191,7 +168,7 @@ public class SharedDriver extends EventFiringWebDriver {
             DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
             desiredCapabilities.setBrowserName("chrome");
             desiredCapabilities.setJavascriptEnabled(true);
-            desiredCapabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingPreferences);
+            desiredCapabilities.setCapability(CapabilityType.LOGGING_PREFS, getLogPreferences());
             desiredCapabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
             desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
             return desiredCapabilities;
@@ -218,9 +195,6 @@ public class SharedDriver extends EventFiringWebDriver {
             // 设置为文件下载路径
             chromePrefs.put("download.default_directory", downloadFilepath);
 
-            LoggingPreferences loggingPreferences = new LoggingPreferences();
-
-            loggingPreferences.enable(LogType.BROWSER, Level.ALL);
             options.setExperimentalOption("prefs", chromePrefs);
             options.addArguments("test-type", "start-maximized");
 //            options.addArguments("--trace-to-console", "--auto-open-devtools-for-tabs");  // 浏览器启动时自动打开开发者工具
@@ -228,7 +202,7 @@ public class SharedDriver extends EventFiringWebDriver {
             DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
             desiredCapabilities.setBrowserName("chrome");
             desiredCapabilities.setJavascriptEnabled(true);
-            desiredCapabilities.setCapability(CapabilityType.LOGGING_PREFS, loggingPreferences);
+            desiredCapabilities.setCapability(CapabilityType.LOGGING_PREFS, getLogPreferences());
             desiredCapabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
             desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
             return desiredCapabilities;
@@ -290,5 +264,15 @@ public class SharedDriver extends EventFiringWebDriver {
         } else {
             System.out.println("没有找到对应浏览器类型");
         }
+    }
+
+    private static LoggingPreferences getLogPreferences() {
+        LoggingPreferences logPrefs = new LoggingPreferences();
+        logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
+        logPrefs.enable(LogType.BROWSER, Level.ALL);
+        logPrefs.enable(LogType.CLIENT, Level.ALL);
+        logPrefs.enable(LogType.DRIVER, Level.ALL);
+        logPrefs.enable(LogType.SERVER, Level.ALL);
+        return logPrefs;
     }
 }
