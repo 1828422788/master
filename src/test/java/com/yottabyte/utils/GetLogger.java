@@ -9,6 +9,8 @@ import org.openqa.selenium.logging.LogEntry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Set;
+
 
 public class GetLogger {
 
@@ -27,7 +29,10 @@ public class GetLogger {
      */
     public static void getTraceIdFromRequest(WebDriver webDriver) {
 //        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
-        System.out.println("logEntries:" + webDriver.manage().logs().getAvailableLogTypes());
+        Set availableLogTypes = webDriver.manage().logs().getAvailableLogTypes();
+        System.out.println("logEntries:" + availableLogTypes);
+        if (!availableLogTypes.contains("performance"))
+            return;
         LogEntries logEntries = webDriver.manage().logs().get("performance");
         for (LogEntry log : logEntries) {
             if (log.getMessage().contains("traceid")) {
