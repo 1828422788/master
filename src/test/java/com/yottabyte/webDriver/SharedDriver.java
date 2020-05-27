@@ -271,9 +271,10 @@ public class SharedDriver extends EventFiringWebDriver {
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
         logPrefs.enable(LogType.BROWSER, Level.ALL);
-        logPrefs.enable(LogType.CLIENT, Level.ALL);
+        System.out.println("测试是否经过");
+//        logPrefs.enable(LogType.CLIENT, Level.ALL);
         logPrefs.enable(LogType.DRIVER, Level.ALL);
-        logPrefs.enable(LogType.SERVER, Level.ALL);
+//        logPrefs.enable(LogType.SERVER, Level.ALL);
         return logPrefs;
     }
 }
