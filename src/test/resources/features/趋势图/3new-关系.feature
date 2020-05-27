@@ -26,7 +26,7 @@ Feature: 趋势图新建_关系
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -66,7 +66,7 @@ Feature: 趋势图新建_关系
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_repulsion"
-#    And I compare source image "expect/<chartType>_repulsion" with target image "actual/<chartType>_repulsion"
+#    And I compare source image "actual/<chartType>_repulsion" with target image "expect/<chartType>_repulsion"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_repulsion"
@@ -104,7 +104,7 @@ Feature: 趋势图新建_关系
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<button>"
-    And I compare source image "expect/<chartType>_<button>" with target image "actual/<chartType>_<button>"
+    And I compare source image "actual/<chartType>_<button>" with target image "expect/<chartType>_<button>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<button>"
