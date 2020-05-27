@@ -100,7 +100,12 @@ public class SharedDriver extends EventFiringWebDriver {
             }
             EventListener eventListener = new EventListener();
             LoggingPreferences logPrefs = new LoggingPreferences();
+//            logPrefs.enable(LogType.BROWSER, Level.ALL);
+            logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
             logPrefs.enable(LogType.BROWSER, Level.ALL);
+            logPrefs.enable(LogType.CLIENT, Level.ALL);
+            logPrefs.enable(LogType.DRIVER, Level.ALL);
+            logPrefs.enable(LogType.SERVER, Level.ALL);
             BrowserMobProxyService.startBrowserMobProxy();
             browserMobProxy = BrowserMobProxyService.getBrowserMobProxyServer();
             browser.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
@@ -137,13 +142,14 @@ public class SharedDriver extends EventFiringWebDriver {
 
     @After
     public void embedScreenshot(Scenario scenario) {
+        GetLogger.getTraceIdFromRequest();
         try {
             LogEntries logEntries = REAL_DRIVER.manage().logs().get(LogType.BROWSER);
             System.out.println("=============================浏览器控制台日志================================");
             for (LogEntry entry : logEntries) {
-                if (entry.getLevel().toString().contains("INFO") || entry.getLevel().toString().contains("WARNING"))
-                    break;
-                System.out.println(entry);
+                if (!(entry.getLevel().toString().contains("INFO") || entry.getLevel().toString().contains("WARNING"))) {
+                    System.out.println(entry);
+                }
             }
             System.out.println("=============================测试结束================================");
             System.out.println("进行截图时页面当前的url：" + REAL_DRIVER.getCurrentUrl());
