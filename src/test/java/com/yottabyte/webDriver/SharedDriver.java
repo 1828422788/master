@@ -69,8 +69,8 @@ public class SharedDriver extends EventFiringWebDriver {
             BrowserMobProxyService.startBrowserMobProxy();
             browserMobProxy = BrowserMobProxyService.getBrowserMobProxyServer();
             browser.setCapability(CapabilityType.LOGGING_PREFS, getLogPreferences());
-            Set availableLogTypes = REAL_DRIVER.manage().logs().getAvailableLogTypes();
-            System.out.println("logEntries:" + availableLogTypes);
+//            Set availableLogTypes = REAL_DRIVER.manage().logs().getAvailableLogTypes();
+//            System.out.println("logEntries:" + availableLogTypes);
             String ServerHOst;
             ServerHOst = config.get("selenium_server_host");
             GetLogger.getLogger().info("ServerHOst: {}", ServerHOst);
