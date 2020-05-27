@@ -27,6 +27,7 @@ public class GetLogger {
      */
     public static void getTraceIdFromRequest() {
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+        System.out.println("logEntries:" + webDriver.manage().logs().getAvailableLogTypes());
         LogEntries logEntries = webDriver.manage().logs().get("performance");
         for (LogEntry log : logEntries) {
             if (log.getMessage().contains("traceid")) {
