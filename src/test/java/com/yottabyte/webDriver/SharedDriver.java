@@ -163,7 +163,7 @@ public class SharedDriver extends EventFiringWebDriver {
             System.out.println("设置下载路径-----" + downloadFilepath);
             options.setExperimentalOption("prefs", chromePrefs);
             options.addArguments("test-type", "start-maximized");
-            options.setCapability("goog:loggingPrefs", getLogPreferences());
+//            options.setCapability("goog:loggingPrefs", getLogPreferences());
 //            options.addArguments("--trace-to-console", "--auto-open-devtools-for-tabs");  // 浏览器启动时自动打开开发者工具
 //            options.addArguments("--headless", "--disable-gpu"); //使用chromeheadless模式
             DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
