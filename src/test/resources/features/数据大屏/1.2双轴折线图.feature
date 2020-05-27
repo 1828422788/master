@@ -219,6 +219,7 @@ Feature: 数据大屏-b双轴折线图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample*| bucket timestamp span=2h as ts|stats count(appname),dc(appname) by appname"
     And I click the "Search" button
