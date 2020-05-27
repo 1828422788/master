@@ -28,6 +28,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
@@ -68,6 +69,8 @@ public class SharedDriver extends EventFiringWebDriver {
             BrowserMobProxyService.startBrowserMobProxy();
             browserMobProxy = BrowserMobProxyService.getBrowserMobProxyServer();
             browser.setCapability(CapabilityType.LOGGING_PREFS, getLogPreferences());
+            Set availableLogTypes = REAL_DRIVER.manage().logs().getAvailableLogTypes();
+            System.out.println("logEntries:" + availableLogTypes);
             String ServerHOst;
             ServerHOst = config.get("selenium_server_host");
             GetLogger.getLogger().info("ServerHOst: {}", ServerHOst);
