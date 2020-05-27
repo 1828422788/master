@@ -15,6 +15,8 @@ Feature: 数据集-h在定时任务编辑页
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "<taskName>"
+    And I click the "Crontab" button
+    And I wait for "CrontabInput" will be visible
     And I set the parameter "scheduleDescribe" with value "<describe>"
 
     And I set the parameter "CrontabInput" with value "<crontab>"
@@ -25,8 +27,8 @@ Feature: 数据集-h在定时任务编辑页
     Then I will see the success message "保存成功"
 
     Examples:
-      |spl                         |taskName |describe               | crontab      |
-      |tag:sample04061424 \| stats count() by apache.status|父子行为无       |选择了父子行为为无的数据集 |0 */57 * * * ?|
+      |spl                                                 |taskName       |describe               | crontab      |
+      |tag:sample04061424 \| stats count() by apache.status|父子行为无       |选择了父子行为为无的数据集  |0 */57 * * * ?|
 
 
 
@@ -61,6 +63,8 @@ Feature: 数据集-h在定时任务编辑页
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "<taskName>"
     And I set the parameter "scheduleDescribe" with value "<describe>"
+    And I click the "Crontab" button
+    And I wait for "CrontabInput" will be visible
     And I set the parameter "CrontabInput" with value "<crontab>"
 
     And I set the parameter "TaskName" with value "<taskName>"
@@ -104,6 +108,8 @@ Feature: 数据集-h在定时任务编辑页
     And I click the "TimedTask" button
     And I set the parameter "TaskName" with value "<taskName>"
     And I set the parameter "scheduleDescribe" with value "<describe>"
+    And I click the "Crontab" button
+    And I wait for "CrontabInput" will be visible
     And I set the parameter "CrontabInput" with value "<crontab>"
 
     And I set the parameter "TaskName" with value "<taskName>"
