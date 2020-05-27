@@ -278,7 +278,7 @@ Feature: 日志展现_普通统计视图
     And I set the parameter "GoalValue" with value "<value1>"
     And I click the "Generate" button
     And I wait for "4000" millsecond
-    And I wait for "ChartPecrent" will be visible
+    And I wait for "ChartPercent" will be visible
     And I drag the scroll bar to the element "ChartPercent"
     And I wait for "2000" millsecond
     And take part of "ChartPercent" with name "actual/普通统计视图/<screenName>"
