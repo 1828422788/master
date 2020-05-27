@@ -25,8 +25,8 @@ public class GetLogger {
     /**
      * 截取包含traceid的第一段request，嵌入至报告里
      */
-    public static void getTraceIdFromRequest() {
-        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+    public static void getTraceIdFromRequest(WebDriver webDriver) {
+//        WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         System.out.println("logEntries:" + webDriver.manage().logs().getAvailableLogTypes());
         LogEntries logEntries = webDriver.manage().logs().get("performance");
         for (LogEntry log : logEntries) {

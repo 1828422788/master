@@ -125,7 +125,7 @@ public class SharedDriver extends EventFiringWebDriver {
         try {
             LogEntries logEntries = REAL_DRIVER.manage().logs().get(LogType.BROWSER);
             System.out.println("=============================浏览器控制台日志================================");
-            GetLogger.getTraceIdFromRequest();
+            GetLogger.getTraceIdFromRequest(REAL_DRIVER);
             for (LogEntry entry : logEntries) {
                 if (!(entry.getLevel().toString().contains("INFO") || entry.getLevel().toString().contains("WARNING"))) {
                     System.out.println(entry);
