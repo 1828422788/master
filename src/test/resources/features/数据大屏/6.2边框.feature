@@ -15,6 +15,7 @@ Feature: 数据大屏-m边框
     And I click the "Other" button
     And I wait for "frame" will be visible
     And I click the "frame" button
+    And I hide the element "otherDropdown"
 
       #保存
     And I wait for "Save" will be visible

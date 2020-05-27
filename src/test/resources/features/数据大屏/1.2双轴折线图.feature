@@ -40,6 +40,7 @@ Feature: 数据大屏-b双轴折线图
     And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
       #文本
+    And I wait for "XaxisWordSize" will be visible
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
     And I wait for "ColorInput" will be visible

@@ -15,6 +15,7 @@ Feature: 数据大屏-p视频流
     And I click the "Other" button
     And I wait for "videoFlow" will be visible
     And I click the "videoFlow" button
+    And I hide the element "otherDropdown"
     And I wait for loading invisible
       #保存
     And I wait for "Save" will be visible
@@ -54,6 +55,7 @@ Feature: 数据大屏-p视频流
     And I click the "Other" button
     And I wait for "videoFlow" will be visible
     And I click the "videoFlow" button
+    And I hide the element "otherDropdown"
     And I wait for loading invisible
 #设置样式
     And I click the "Style" button

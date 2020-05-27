@@ -16,6 +16,7 @@ Feature: 数据大屏-l全屏
     And I click the "Other" button
     And I wait for "Fullscreen" will be visible
     And I click the "Fullscreen" button
+    And I hide the element "otherDropdown"
 
  #设置图表尺寸位置
     And I wait for "Style" will be visible

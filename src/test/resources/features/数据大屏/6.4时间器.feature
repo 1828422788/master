@@ -15,6 +15,7 @@ Feature: 数据大屏-o时间器
     And I click the "Other" button
     And I wait for "Clock" will be visible
     And I click the "Clock" button
+    And I hide the element "otherDropdown"
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -51,6 +52,7 @@ Feature: 数据大屏-o时间器
     And I click the "Other" button
     And I wait for "Clock" will be visible
     And I click the "Clock" button
+    And I hide the element "otherDropdown"
 #设置样式
       #1 设置图表尺寸位置
     And I wait for "Style" will be visible
@@ -117,6 +119,7 @@ Feature: 数据大屏-o时间器
     And I click the "Other" button
     And I wait for "Clock" will be visible
     And I click the "Clock" button
+    And I hide the element "otherDropdown"
 #设置样式
     And I wait for "Style" will be visible
     And I click the "Style" button
@@ -174,6 +177,7 @@ Feature: 数据大屏-o时间器
     And I click the "Other" button
     And I wait for "Clock" will be visible
     And I click the "Clock" button
+    And I hide the element "otherDropdown"
 #设置样式
     And I wait for "Style" will be visible
     And I click the "Style" button

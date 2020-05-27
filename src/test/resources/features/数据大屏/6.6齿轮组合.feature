@@ -15,6 +15,7 @@
       And I click the "Other" button
       And I wait for "gearCombination" will be visible
       And I click the "gearCombination" button
+      And I hide the element "otherDropdown"
       #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
@@ -50,6 +51,7 @@
       And I click the "Other" button
       And I wait for "gearCombination" will be visible
       And I click the "gearCombination" button
+      And I hide the element "otherDropdown"
 #设置样式
       And I wait for "Style" will be visible
       And I click the "Style" button

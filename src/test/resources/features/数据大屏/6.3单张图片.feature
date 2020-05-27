@@ -15,6 +15,7 @@ Feature: 数据大屏-n单张图片
     And I click the "Other" button
     And I wait for "Picture" will be visible
     And I click the "Picture" button
+    And I hide the element "otherDropdown"
 #设置样式
    And I wait for "Style" will be visible
  #设置图表尺寸位置
