@@ -110,7 +110,7 @@ Feature: 应用安装（RZY-1988）
     And I click the "NextButton" button under some element
     And I click the "NextButton" button
     And I wait for "ImportSuccess" will be visible
-    And I will see the element "ImportSuccess" name is "添加失败"
+    And I wait for element "ImportSuccess" change text to "添加失败"
 
   Scenario: 上传APP包失败（上传格式校验）
     Given open the "app.ListPage" page for uri "/app/list/"
