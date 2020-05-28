@@ -2,8 +2,7 @@
 Feature: 日志展现_关系
 #5
 
-  # tag:sample04061424_chart should be uploaded for Yesterday
-  # auto_sankey should be uploaded for Today
+  # tag:sample04061424_chart,t_with should be uploaded for Yesterday
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -80,4 +79,4 @@ Feature: 日志展现_关系
 
     Examples:
       |   chartType   |  button    |   spl   |
-      |    Sankey     | Multistage |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:auto_sankey \| stats count() by json.fromstate,json.tostate \| limit 3      |
+      |    Sankey     | Multistage |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:t_with \|transaction json.sid with states a,b,c in json.module results by flow \| stats count() by fromstate,tostate \| limit 3      |

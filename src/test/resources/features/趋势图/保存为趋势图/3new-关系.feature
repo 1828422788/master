@@ -2,7 +2,7 @@
 Feature: 保存为趋势图_关系
 # 5
 # sample04061424_chart for Today
-# auto_sankey  Today
+# t_with  Today
 # uncomment comparison
 
   Background:
@@ -117,5 +117,5 @@ Feature: 保存为趋势图_关系
 
     Examples:
       |   chartType   |  button    |   spl   |
-      |    Sankey     | Multistage |  tag:auto_sankey \| stats count() by json.fromstate,json.tostate \| limit 3      |
+      |    Sankey     | Multistage |  tag:t_with \|transaction json.sid with states a,b,c in json.module results by flow \| stats count() by fromstate,tostate \| limit 3       |
 
