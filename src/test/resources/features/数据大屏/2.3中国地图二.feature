@@ -66,8 +66,10 @@
     And I choose the "apache.geo.province" from the "ChineseMapTwoDataSearchCategory"
     And I choose the "count()" from the "ChineseMapTwoDataSearchValue"
 
-#保存
+   #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 Scenario Outline: 中国地图II样式-搜索发布并截图
@@ -120,11 +122,10 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
 
       And I choose the "count()" from the "ChineseMapTwoDataSearchValue"
       And I choose the "apache.geo.province" from the "ChineseMapTwoDataSearchCategory"
-
-
-    #保存
+   #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 
@@ -188,11 +189,11 @@ Scenario Outline: 中国地图II样式-搜索发布并截图
 
       And I choose the "count()" from the "ChineseMapTwoDataSearchValue"
       And I choose the "apache.geo.province" from the "ChineseMapTwoDataSearchCategory"
-
-      #保存
+   #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
-
 
     Scenario Outline: 中国地图II数据之绑定搜索发布并截图
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

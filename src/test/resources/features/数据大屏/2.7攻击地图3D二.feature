@@ -59,9 +59,10 @@
       And I choose the "cnt" from the "MeasureValue"
 
       And I click the "Update" button
-      #保存
+        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 
@@ -116,9 +117,10 @@
       And I wait for "1000" millsecond
       And I choose the "count" from the "MeasureValue"
       And I click the "Update" button
-      #保存
+         #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之静态数据发布并截图
@@ -190,8 +192,10 @@
       And I choose the "cnt" from the "MeasureValue"
 
       And I click the "Update" button
-      #保存
+        #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之绑定数据发布并截图

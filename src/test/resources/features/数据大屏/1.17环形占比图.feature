@@ -54,7 +54,11 @@ Feature: 数据大屏-q环形占比图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "num" from the "DataField"
+
+      #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -106,9 +110,10 @@ Feature: 数据大屏-q环形占比图
     And I wait for "tipsText" will be invisible
 
     And I choose the "p" from the "DataField"
-    #保存
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -169,8 +174,10 @@ Feature: 数据大屏-q环形占比图
     And I click the "Data" button
 
     And I choose the "p" from the "DataField"
-      #保存
+        #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 环形占比图-绑定搜索发布并截图

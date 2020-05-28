@@ -71,7 +71,10 @@ Feature: 数据大屏-s水球图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "p" from the "DataField"
+       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -121,11 +124,11 @@ Feature: 数据大屏-s水球图
     And I wait for "tipsText" will be invisible
 
     And I choose the "p" from the "DataField"
-    #保存
+      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
-
 
   Scenario Outline: 水球图-静态数据发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -184,8 +187,10 @@ Feature: 数据大屏-s水球图
     And I click the "Data" button
 
     And I choose the "p" from the "DataField"
-      #保存
+        #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 

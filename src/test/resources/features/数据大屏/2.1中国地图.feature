@@ -71,7 +71,10 @@ Feature: 数据大屏-i中国地图
 
     And I set the parameter "seriousMin" with value "6"
     And I set the parameter "seriousMax" with value "100"
+     #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -125,7 +128,10 @@ Feature: 数据大屏-i中国地图
 
     And I choose the "apache.geo.city" from the "NameField"
     And I choose the "count()" from the "DataField"
+      #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -191,10 +197,11 @@ Feature: 数据大屏-i中国地图
 
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.city" from the "NameField"
-
-      #保存
+   #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
-      Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 中国地图四川-绑定搜索发布并截图

@@ -44,11 +44,11 @@ Feature: 数据大屏-h标题
     #数据
     And I click the "Data" button
     And I set the parameter "Content" with value "数据模块"
- #保存
+  #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-    And I will see the success message "保存成功"
-
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 发布页截图
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button

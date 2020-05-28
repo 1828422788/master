@@ -55,11 +55,11 @@ Feature: 数据大屏-l滚动列表三
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-     #保存
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
-
 
   Scenario Outline: 滚动列表3样式-搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -115,9 +115,10 @@ Feature: 数据大屏-l滚动列表三
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-    #保存
+      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -190,9 +191,10 @@ Feature: 数据大屏-l滚动列表三
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-      #保存
+        #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 

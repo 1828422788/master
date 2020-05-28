@@ -56,9 +56,11 @@
     And I choose the "count()" from the "dataSearchNumber"
     And I choose the "appname" from the "dataSearchName"
 
-      #保存
-      And I click the "Save" button
-      Then I will see the success message "保存成功"
+        #保存
+    And I wait for "Save" will be visible
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
 
     Scenario Outline: Top3样式-搜索发布并截图
@@ -105,9 +107,10 @@
       And I choose the "value" from the "dataSearchNumber"
       And I choose the "name" from the "dataSearchName"
 
-      #保存
+        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 
@@ -172,8 +175,10 @@
       And I choose the "appname" from the "dataSearchName"
 
       And I choose the "count()" from the "dataSearchNumber"
-      #保存
+         #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
     Scenario Outline: Top3数据之绑定搜索发布并截图

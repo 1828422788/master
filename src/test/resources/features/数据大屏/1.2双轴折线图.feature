@@ -111,6 +111,7 @@ Feature: 数据大屏-b双轴折线图
 
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -189,6 +190,7 @@ Feature: 数据大屏-b双轴折线图
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -262,9 +264,10 @@ Feature: 数据大屏-b双轴折线图
 
 
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
-
 
   Scenario Outline: 双轴折线图-绑定搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

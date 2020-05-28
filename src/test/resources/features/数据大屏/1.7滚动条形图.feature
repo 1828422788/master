@@ -60,10 +60,10 @@ Feature: 数据大屏-g滚动条形图
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
      #保存
-   And I wait for "Save" will be visible
+    And I wait for "Save" will be visible
     And I click the "Save" button
-   Then I will see the success message "保存成功"
-
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 滚动条形图样式-搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -112,11 +112,11 @@ Feature: 数据大屏-g滚动条形图
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-    #保存
+      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
-
 
 
   Scenario Outline: 滚动条形图数据之静态数据发布并截图
@@ -180,10 +180,11 @@ Feature: 数据大屏-g滚动条形图
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-      #保存
+        #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
-
 
   Scenario Outline: 滚动条形图数据之绑定搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

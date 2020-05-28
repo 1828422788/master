@@ -16,10 +16,12 @@ Feature: 数据大屏-o时间器
     And I wait for "Clock" will be visible
     And I click the "Clock" button
     And I hide the element "otherDropdown"
-      #保存
+     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
 
 
   Scenario Outline: 时间器默认设置默认设置发布并截图
@@ -83,10 +85,12 @@ Feature: 数据大屏-o时间器
       #3 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "时间器样式修改"
-      #保存
+     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
 
 
   Scenario Outline: 时间器样式发布并截图
@@ -139,11 +143,12 @@ Feature: 数据大屏-o时间器
     And I choose the "居右" from the "ClockHorizontal"
     #时间格式
     And I choose the "yyyy-MM-dd hh:mm:ss" from the "timeFormat"
-      #保存
+     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-    And I wait for "SuccessMessge" will be visible
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
 
 
   Scenario Outline: 时间器样式2发布并截图
@@ -197,11 +202,12 @@ Feature: 数据大屏-o时间器
     And I choose the "居中" from the "ClockHorizontal"
     #时间格式
     And I choose the "yyyy/MM/dd hh:mm:ss" from the "timeFormat"
-
-       #保存
+#保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
 
 
   Scenario Outline: 时间器样式3发布并截图

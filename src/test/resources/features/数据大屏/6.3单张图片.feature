@@ -33,11 +33,12 @@ Feature: 数据大屏-n单张图片
    #全局样式修改名称
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "单张图片修改"
-
-      #保存
+#保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
 
 
   Scenario Outline: 单张图片发布并截图

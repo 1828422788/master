@@ -72,11 +72,11 @@ Feature: 数据大屏-p环形柱图
     And I choose the "apache.clientip" from the "dataSearchLabel"
     And I wait for "dataSearchValue" will be visible
     And I choose the "ip_count" from the "dataSearchValue"
-       #保存
+          #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
-
 
   Scenario Outline: 环形柱图数据之样式搜索发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -134,9 +134,10 @@ Feature: 数据大屏-p环形柱图
     And I wait for "dataSearchValue" will be visible
     And I choose the "ip_count" from the "dataSearchValue"
 
-    #保存
+      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -207,9 +208,11 @@ Feature: 数据大屏-p环形柱图
     And I choose the "apache.clientip" from the "dataSearchLabel"
      And I wait for "dataSearchValue" will be visible
     And I choose the "ip_count" from the "dataSearchValue"
-      #保存
-    And I click the "Save" button
-    Then I will see the success message "保存成功"
+        #保存
+     And I wait for "Save" will be visible
+     And I click the "Save" button
+     And I wait for "SuccessMessage" will be visible
+     Then I will see the success message "保存成功"
 
 
   Scenario Outline: 环形柱图数据之绑定搜索发布并截图

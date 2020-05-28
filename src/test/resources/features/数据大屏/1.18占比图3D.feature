@@ -72,8 +72,10 @@ Feature: 数据大屏-r占比图3D
     #严重
     And I set the parameter "seriousMin" with value "0.8"
     And I set the parameter "seriousMax" with value "0.9"
-    #保存
+       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -135,9 +137,10 @@ Feature: 数据大屏-r占比图3D
     And I set the parameter "seriousMin" with value "0.7"
     And I set the parameter "seriousMax" with value "0.8"
 
-    #保存
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -209,8 +212,10 @@ Feature: 数据大屏-r占比图3D
     #严重
     And I set the parameter "seriousMin" with value "0.5"
     And I set the parameter "seriousMax" with value "0.6"
-      #保存
+        #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 占比图3D数据之绑定搜索发布并截图

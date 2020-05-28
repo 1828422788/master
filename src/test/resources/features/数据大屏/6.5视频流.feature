@@ -17,11 +17,12 @@ Feature: 数据大屏-p视频流
     And I click the "videoFlow" button
     And I hide the element "otherDropdown"
     And I wait for loading invisible
-      #保存
+    #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
 
 
   Scenario Outline: 视频流发布并截图
@@ -77,7 +78,9 @@ Feature: 数据大屏-p视频流
      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
 
   Scenario Outline: 视频流样式发布并截图
 

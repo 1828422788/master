@@ -93,6 +93,7 @@ Feature: 数据大屏-g动态卡片二
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -144,10 +145,10 @@ Feature: 数据大屏-g动态卡片二
     And I choose the "count()" from the "dynamicCardNumberFiled"
     And I choose the "apache.clientip" from the "dynamicCardNameTwo"
 
-
-      #保存
+ #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -213,9 +214,10 @@ Feature: 数据大屏-g动态卡片二
     And I choose the "count()" from the "dynamicCardNumberFiled"
     And I choose the "apache.clientip" from the "dynamicCardNameTwo"
 
-
-      #保存
+ #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 动态卡片二数据之绑定搜索发布并截图

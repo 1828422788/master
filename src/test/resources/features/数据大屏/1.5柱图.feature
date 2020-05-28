@@ -60,11 +60,11 @@ Feature: 数据大屏-e柱图
     And I choose the "apache.method" from the "Group"
     And I switch the "Pile" button to "enable"
 
-    #保存
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
-
 
   Scenario Outline: 柱图-图例-分组-静态数据发布并截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -187,8 +187,10 @@ Feature: 数据大屏-e柱图
     And I wait for "2000" millsecond
     And I choose the "count()" from the "Yaxis"
 
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: X轴Y轴布局设置-搜索发布并截图
@@ -263,8 +265,10 @@ Feature: 数据大屏-e柱图
     #添加Line
     And I click the "AddLine" button
     And I choose the "count()" from the "LineYaxis"
-      #保存
+        #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 

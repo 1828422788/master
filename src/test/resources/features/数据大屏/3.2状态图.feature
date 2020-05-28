@@ -19,10 +19,12 @@ Feature: 数据大屏-b状态图
     And I click the "Style" button
     And I click the "globalStyle" button
     And I click the "backgroundAuto" button
-    #保存
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-    And I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
+
 
   Scenario Outline: 状态图demo发布页截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -78,8 +80,10 @@ Feature: 数据大屏-b状态图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "err_avg" from the "Type"
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 状态图值异常-搜索发布页截图
@@ -150,9 +154,10 @@ Feature: 数据大屏-b状态图
 
     And I set the parameter "seriousStart" with value "400"
     And I set the parameter "seriousEnd" with value "500"
-    #保存
+      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -234,8 +239,10 @@ Feature: 数据大屏-b状态图
 
     And I set the parameter "seriousStart" with value "200"
     And I set the parameter "seriousEnd" with value "300"
-      #保存
+       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 

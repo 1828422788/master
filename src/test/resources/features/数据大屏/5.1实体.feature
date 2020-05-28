@@ -32,10 +32,12 @@
       And I set the parameter "updateFrequency" with value "0.1"
       And I choose the "err_avg" from the "entitySearchCategory"
 
-       #保存
+      #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
+
 
 
     Scenario Outline: 实体数据之搜索值异常发布并截图
@@ -103,11 +105,12 @@
 
       And I set the parameter "seriousStart" with value "200"
       And I set the parameter "seriousEnd" with value "300"
-
-       #保存
+#保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
+
 
     Scenario Outline: 实体数据之静态数据值严重发布并截图
 #      Given I will see the "PublicNavBarPage" page
@@ -183,7 +186,9 @@
       And I set the parameter "abnormalStart" with value "300"
       And I set the parameter "abnormalEnd" with value "400"
       #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 

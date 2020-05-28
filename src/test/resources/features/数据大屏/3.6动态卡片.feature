@@ -94,7 +94,8 @@ Feature: 数据大屏-f动态卡片
     And I choose the "apache.clientip" from the "dynamicCardName"
 
     And I set the parameter "updateFrequency" with value "0.1"
-    #保存
+     #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"

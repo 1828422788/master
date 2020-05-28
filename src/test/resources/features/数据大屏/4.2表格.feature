@@ -94,9 +94,11 @@ Feature: 数据大屏-i表格
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
+    #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-    And I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 发布页截图
@@ -146,9 +148,10 @@ Feature: 数据大屏-i表格
     And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
-      #保存
+     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -215,8 +218,11 @@ Feature: 数据大屏-i表格
 
     And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
 
   Scenario Outline: 表格数据之绑定搜索发布并截图
 #      Given I will see the "PublicNavBarPage" page

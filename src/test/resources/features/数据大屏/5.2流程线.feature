@@ -20,6 +20,7 @@
        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 
@@ -93,9 +94,12 @@
        #3 全局样式修改名成
       And I click the "globalStyle" button
       And I set the parameter "globalStyleName" with value "流程线样式修改"
-       #保存
+      #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
+
 
     Scenario Outline: 流程线样式发布并截图
 

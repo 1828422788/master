@@ -109,8 +109,10 @@ Feature: 数据大屏-d散点图
     And I choose the "apache.clientip" from the "Xaxis"
 
 
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 散点图XY轴-布局-搜索发布并截图
@@ -185,9 +187,10 @@ Feature: 数据大屏-d散点图
     And I click the "AddGroup" button
     And I choose the "apache.method" from the "Group"
 
-    #保存
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -256,9 +259,10 @@ Feature: 数据大屏-d散点图
     And I choose the "apache.clientip" from the "Xaxis"
     And I wait for "1000" millsecond
     And I choose the "count()" from the "Yaxis"
-      #保存
+         #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
