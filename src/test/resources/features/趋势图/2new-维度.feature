@@ -25,7 +25,7 @@ Feature: 趋势图新建_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -67,7 +67,7 @@ Feature: 趋势图新建_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<typeInfo>_<option>"
-    And I compare source image "expect/<chartType>_<typeInfo>_<option>" with target image "actual/<chartType>_<typeInfo>_<option>"
+    And I compare source image "actual/<chartType>_<typeInfo>_<option>" with target image "expect/<chartType>_<typeInfo>_<option>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>_<option>"
@@ -115,7 +115,7 @@ Feature: 趋势图新建_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<typeInfo>"
-    And I compare source image "expect/<chartType>_<typeInfo>" with target image "actual/<chartType>_<typeInfo>"
+    And I compare source image "actual/<chartType>_<typeInfo>" with target image "expect/<chartType>_<typeInfo>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>"
@@ -134,7 +134,6 @@ Feature: 趋势图新建_维度
       |     Rose      | Orange |展示全部     |
 
     #BUG RZY-6018
-  @facet
   Scenario Outline: dimension_facet
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -167,7 +166,7 @@ Feature: 趋势图新建_维度
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<typeInfo>_分面"
-    And I compare source image "expect/<chartType>_<typeInfo>_分面" with target image "actual/<chartType>_<typeInfo>_分面"
+    And I compare source image "actual/<chartType>_<typeInfo>_分面" with target image "expect/<chartType>_<typeInfo>_分面"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>_分面"

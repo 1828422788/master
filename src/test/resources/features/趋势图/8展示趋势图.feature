@@ -16,7 +16,7 @@ Feature: 展示趋势图
     And I wait for "3000" millsecond
     And I will see the element "ChartName" contains "<name>"
     And take part of "ChartView" with name "actual/<name>"
-    And I compare source image "expect/<name>" with target image "actual/<name>"
+    And I compare source image "actual/<name>" with target image "expect/<name>"
 
     @viewTrendOrder
     Examples:

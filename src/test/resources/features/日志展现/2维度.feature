@@ -22,7 +22,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |  spl   |
@@ -53,7 +53,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   | color1   |  caseNum  |
@@ -82,7 +82,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |  value      |     divValue   | color1   |caseNum  | spl   |
@@ -108,7 +108,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
-    Then I compare source image "expect/高级搜索视图/2维度/label/<chartType>_<option>_<descr>" with target image "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
+    Then I compare source image "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
 
     Examples:
       |   chartType   |  option     | descr      |
@@ -146,7 +146,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
-    Then I compare source image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>" with target image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
+    Then I compare source image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
 
 
     Examples:
@@ -163,7 +163,6 @@ Feature: 日志展现_维度
       |      Bar      | Yellow  |展示全部  |柱状内靠右侧 | in_right  |
 
     #BUG RZY-6018
-  @facet
   Scenario Outline: dimension_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -191,7 +190,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
-    Then I compare source image "expect/高级搜索视图/2维度/<chartType>_<typeInfo>_分面" with target image "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
+    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
 
     Examples:
       |   chartType   |  color  |  typeInfo    |  spl   |

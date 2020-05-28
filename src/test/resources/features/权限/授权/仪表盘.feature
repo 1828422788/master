@@ -83,7 +83,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the search result "{'column':'0','name':'仪表盘验证权限1','contains':'no'}"
 
-   @logout
+  @logout
   Scenario Outline: 授权读取（RZY-615）
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -230,7 +230,7 @@ Feature: 权限-仪表盘
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
 
-   @logout
+  @logout
   Scenario: 验证有效期限生效
     Given I will see the "PublicNavBarPage" page
     And I wait for "2000" millsecond

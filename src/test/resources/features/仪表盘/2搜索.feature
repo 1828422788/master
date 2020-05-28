@@ -5,6 +5,7 @@ Feature: 仪表盘搜索（RZY-216）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
 
+    @test
   Scenario Outline: 按照名称搜索
     Given I set the parameter "SearchInput" with value "<name>"
     And I click the "SearchIcon" button

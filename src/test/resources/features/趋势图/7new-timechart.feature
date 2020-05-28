@@ -18,7 +18,7 @@ Feature: 趋势图新建-timechart
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/timechart_<caseNum>"
-    And I compare source image "expect/timechart_<caseNum>" with target image "actual/timechart_<caseNum>"
+    And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
@@ -71,7 +71,7 @@ Feature: 趋势图新建-timechart
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/timechart_<caseNum>"
-    And I compare source image "expect/timechart_<caseNum>" with target image "actual/timechart_<caseNum>"
+    And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
@@ -115,7 +115,7 @@ Feature: 趋势图新建-timechart
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/timechart_<caseNum>"
-    And I compare source image "expect/timechart_<caseNum>" with target image "actual/timechart_<caseNum>"
+    And I compare source image "actual/timechart_<caseNum>" with target image "expect/timechart_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "timechart_<caseNum>"
