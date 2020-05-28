@@ -16,16 +16,16 @@ Feature: 报表新建_从趋势图
     And I set the parameter "Minute" with value "10"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "<chart1>" from the "ChartListDropdown"
+    When I choose the "<chart1>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart1>"
-    When I choose the "<chart2>" from the "ChartListDropdown"
+    When I choose the "<chart2>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart2>"
-    When I choose the "<chart3>" from the "ChartListDropdown"
+    When I choose the "<chart3>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart3>"
-    When I choose the "<chart4>" from the "ChartListDropdown"
+    When I choose the "<chart4>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart4>"
     When I click the "FinishButton" button
@@ -98,19 +98,19 @@ Feature: 报表新建_从趋势图
     And I set the parameter "Minute" with value "20"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
-    When I choose the "<chart1>" from the "ChartListDropdown"
+    When I choose the "<chart1>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart1>"
-    When I choose the "<chart2>" from the "ChartListDropdown"
+    When I choose the "<chart2>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart2>"
-    When I choose the "<chart3>" from the "ChartListDropdown"
+    When I choose the "<chart3>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart3>"
-    When I choose the "<chart4>" from the "ChartListDropdown"
+    When I choose the "<chart4>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart4>"
-    When I choose the "<chart5>" from the "ChartListDropdown"
+    When I choose the "<chart5>" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart5>"
     When I click the "FinishButton" button
