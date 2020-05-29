@@ -494,6 +494,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "ace_text-layer")
     private WebElement textLayer;
 
+    @FindBy(xpath = "//div[@class='ant-modal-body']//input[@class='ant-input']")
+    private WebElement searchChartInput;
+
+    public WebElement getSearchChartInput() {
+        return searchChartInput;
+    }
+
     public WebElement getAddFilter() {
         return addFilter;
     }

@@ -73,6 +73,7 @@ Feature: 仪表盘输入项
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "仪表盘所用趋势图"
     And I "checked" the checkbox which name is "仪表盘所用趋势图"
     And I click the "Ensure" button
 
@@ -128,7 +129,9 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "仪表盘1669所用趋势图"
     And I "checked" the checkbox which name is "仪表盘1669所用趋势图"
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
