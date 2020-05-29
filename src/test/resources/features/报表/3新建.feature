@@ -166,6 +166,7 @@ Feature: 报表新建_从趋势图
       | test其他_Other_ring            |
       | test其他_Other_Single_1        |
       | test其他_Other_Single_2        |
+      | test其他_Other_chain           |
       | test其他_Other_liquid          |
       | test其他_Other_sparkline       |
       | test_timechart_1               |
