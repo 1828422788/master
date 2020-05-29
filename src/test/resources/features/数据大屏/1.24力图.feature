@@ -28,7 +28,9 @@ Feature: 数据大屏-e力图
 
     And I wait for "ChartWordSize" will be visible
     And I set the parameter "ChartWordSize" with value "20"
+
     And I click the "RepulsionFactorHeader" button
+    And I wait for "RepulsionFactor" will be visible
     And I set the parameter "RepulsionFactor" with value "10"
     #尺寸
     And I click the "ChartPosition" button
