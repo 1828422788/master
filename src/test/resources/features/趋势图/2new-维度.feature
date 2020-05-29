@@ -133,7 +133,7 @@ Feature: 趋势图新建_维度
       |      Pie      | Orange |展示全部     |
       |     Rose      | Orange |展示全部     |
 
-    #BUG RZY-6018
+
   Scenario Outline: dimension_facet
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -179,6 +179,50 @@ Feature: 趋势图新建_维度
       |      Pie      | Red     | 展示全部     |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
       |      Rose     | Green   | 只展示名称   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
       |      Bar      | Orange  | 展示全部     |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
-#      |      Sun      |    2850    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() by apache.status,apache.geo.province, apache.geo.city|
+
+  @suntest
+  Scenario Outline: dimension_facet_sun
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Divide" button
+    And I click the "DeleteFirst" button
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.status" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_分面"
+    And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_分面"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |   chartType   |  color   |  spl   |
+      |      Sun      | DarkBlue |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
 

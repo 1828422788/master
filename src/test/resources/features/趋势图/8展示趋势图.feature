@@ -38,6 +38,7 @@ Feature: 展示趋势图
     @viewTrendDimension
     Examples:
       | name                                     |
+      | Sun_分面                                 |
       | Bar_展示全部_分面                        |
       | Rose_只展示名称_分面                     |
       | Pie_展示全部_分面                        |

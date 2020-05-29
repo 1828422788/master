@@ -1,7 +1,6 @@
 @all @trend @createTrendConnection @createTrend
 Feature: 趋势图新建_关系
-# sample04061424_chart for Yesterday
-# auto_sankey  Today
+# sample04061424_chart,t_with for Yesterday
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -114,5 +113,5 @@ Feature: 趋势图新建_关系
 
     Examples:
       |   chartType   |  button    |   spl   |
-      |    Sankey     | Multistage |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:auto_sankey \| stats count() by json.fromstate,json.tostate \| limit 3      |
+      |    Sankey     | Multistage |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:t_with \|transaction json.sid with states a,b,c in json.module results by flow \| stats count() by fromstate,tostate \| limit 3      |
 
