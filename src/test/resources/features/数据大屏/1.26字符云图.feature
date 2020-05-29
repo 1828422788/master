@@ -14,9 +14,10 @@ Feature: 数据大屏-g字符云图
     And I click the "Ensure" button
       #选择字符云图
     And I click the "Chart" button
-#    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
+    And I drag the scroll bar to the element "characterCloudChart"
     And I click the "characterCloudChart" button
+
     And I click the "Style" button
  #设置样式
    # 1 设置图表尺寸位置
@@ -80,11 +81,12 @@ Feature: 数据大屏-g字符云图
     When I click the "Create" button
     And I set the parameter "Name" with value "字符云图数据之静态数据"
     And I click the "Ensure" button
-    #选择字符云图
+      #选择字符云图
     And I click the "Chart" button
-#    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
+    And I drag the scroll bar to the element "characterCloudChart"
     And I click the "characterCloudChart" button
+
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
@@ -146,10 +148,10 @@ Feature: 数据大屏-g字符云图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-       #选择字符云图
+      #选择字符云图
     And I click the "Chart" button
-#    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
+    And I drag the scroll bar to the element "characterCloudChart"
     And I click the "characterCloudChart" button
     And I click the "Style" button
       #在数据源类型中选择绑定搜索

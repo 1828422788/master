@@ -14,9 +14,10 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Ensure" button
       #选择栅格百分图
     And I click the "Chart" button
-#    And I wait for "2000" millsecond
     And I wait for "gridPercentChart" will be visible
+    And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
+
     And I click the "Style" button
  #设置样式
    # 1 设置图表尺寸位置
@@ -96,9 +97,10 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Ensure" button
       #选择栅格百分图
     And I click the "Chart" button
-#    And I wait for "2000" millsecond
     And I wait for "gridPercentChart" will be visible
+    And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
+
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
@@ -157,10 +159,10 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-       #选择栅格百分图
+      #选择栅格百分图
     And I click the "Chart" button
-#    And I wait for "2000" millsecond
     And I wait for "gridPercentChart" will be visible
+    And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
 
     And I wait for "Style" will be visible

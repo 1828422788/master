@@ -14,9 +14,10 @@ Feature: 数据大屏-f桑基图
     #桑吉图
     And I click the "Chart" button
     And I wait for "Sankey" will be visible
+    And I drag the scroll bar to the element "Sankey"
     And I click the "Sankey" button
-    And I click the "Style" button
 
+    And I click the "Style" button
     And I wait for "ChartTag" will be visible
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
@@ -81,11 +82,12 @@ Feature: 数据大屏-f桑基图
     When I click the "Create" button
     And I set the parameter "Name" with value "桑基图-静态数据"
     And I click the "Ensure" button
-       #桑吉图
+    #桑吉图
     And I click the "Chart" button
-#    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
+    And I drag the scroll bar to the element "Sankey"
     And I click the "Sankey" button
+
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
@@ -148,11 +150,12 @@ Feature: 数据大屏-f桑基图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-          #桑吉图
+    #桑吉图
     And I click the "Chart" button
-#    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
+    And I drag the scroll bar to the element "Sankey"
     And I click the "Sankey" button
+
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
