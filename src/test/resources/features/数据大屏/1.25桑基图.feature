@@ -1,4 +1,4 @@
-@galaxeeLast   @1.25
+@galaxeeLast   @1.25  @galaxee1
 Feature: 数据大屏-f桑基图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -13,7 +13,6 @@ Feature: 数据大屏-f桑基图
     And I click the "Ensure" button
     #桑吉图
     And I click the "Chart" button
-#    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
     And I click the "Sankey" button
     And I click the "Style" button
