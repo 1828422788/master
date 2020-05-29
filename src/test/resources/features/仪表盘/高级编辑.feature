@@ -48,6 +48,7 @@ Feature: 仪表盘高级编辑
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "仪表盘所有"
     And I "checked" the checkbox which name is "仪表盘所有"
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
