@@ -22,6 +22,7 @@ public class DetailPage extends PageTemplate {
 
     public DetailPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "//button[@class='ant-btn _3aTYSyOZTloazTQBYnBoxo css-hz5ttt _21LKt7HF-If1PyLtDxaI77']/span[text()='返回列表']")

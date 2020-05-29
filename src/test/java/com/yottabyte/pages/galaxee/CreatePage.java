@@ -20,6 +20,7 @@ import java.util.List;
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "el-input__inner")
