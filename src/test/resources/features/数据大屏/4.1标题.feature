@@ -1,12 +1,13 @@
 @galaxeeWord @galaxee  @galaxee2  @4.1
 Feature: 数据大屏-h标题
 
-  Background:
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#  Background:
+#     Given I will see the "PublicNavBarPage" page
+#     And I wait for "Dashboard" will be visible
+
 
   Scenario: 标题
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
@@ -51,6 +52,7 @@ Feature: 数据大屏-h标题
     Then I will see the success message "保存成功"
 
   Scenario Outline: 发布页截图
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I close all tabs except main tab
@@ -65,7 +67,6 @@ Feature: 数据大屏-h标题
     Examples:
       | name |
       | 标题   |
-
 
 
 
