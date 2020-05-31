@@ -93,7 +93,7 @@ Feature: 字段提取脱敏配置
     When I set the parameter "Username" with value "wym"
     And I set the parameter "Password" with value "All#123456"
     And I click the "LoginButton" button
-    And I wait for "5000" millsecond
+    And I wait for "2000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I wait for "60000" millsecond
@@ -181,9 +181,6 @@ Feature: 字段提取脱敏配置
     And I wait for loading invisible
     Then I will see the config element "<rule1>" value is "<rule1> 1 1 0 0 0"
     Then I will see the config element "<rule2>" value is "<rule2> 1 1 0 0 0"
-
-
-
 
     Examples:
       | name | rule1 | rule2 | log          | appName       | regexResult                                                                                      | result                                                                                                                                             | result1                                                                                                                                            |
