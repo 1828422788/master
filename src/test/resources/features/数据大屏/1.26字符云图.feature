@@ -40,7 +40,7 @@ Feature: 数据大屏-g字符云图
     And I set the parameter "globalStyleName" with value "字符云图样式修改"
 #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 5"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -90,7 +90,7 @@ Feature: 数据大屏-g字符云图
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 5"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -142,7 +142,7 @@ Feature: 数据大屏-g字符云图
     And I click the "otherSearch" button
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 5"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button

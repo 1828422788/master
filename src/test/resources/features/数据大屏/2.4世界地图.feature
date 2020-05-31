@@ -49,6 +49,7 @@ Feature: 数据大屏-l世界地图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.geo.country"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -97,7 +98,7 @@ Feature: 数据大屏-l世界地图
     And I click the "backgroundAuto" button
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.geo.country"
+    And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.geo.country"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -144,7 +145,7 @@ Feature: 数据大屏-l世界地图
     And I click the "otherSearch" button
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by apache.geo.country"
+    And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.geo.country"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"

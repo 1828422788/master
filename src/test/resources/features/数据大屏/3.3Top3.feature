@@ -48,7 +48,7 @@
        And I click the "backgroundAuto" button
 #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by appname"
+    And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.status"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -96,10 +96,15 @@
       And I click the "Top3" button
       And I hide the element "IndexDropdown"
       And I click the "Style" button
-      #数据设置
+
+      #数据
       And I click the "Data" button
-      And I click the "dataSourceType" button
+      And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.status"
+      And I click the "Search" button
+      And I wait for "SearchTip" will be invisible
+      And I set the parameter "updateFrequency" with value "0.1"
       #选择静态数据
+      And I click the "dataSourceType" button
       And I click the "statisticsData" button
       And I click the "Ensure" button
       And I wait for "tipsText" will be invisible
@@ -146,7 +151,7 @@
       And I click the "otherSearch" button
       And I hide the element "otherDropdown"
       And I wait for "SplInput" will be visible
-      And I set the parameter "SplInput" with value "tag:sample* | stats count() by appname"
+      And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.status"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"

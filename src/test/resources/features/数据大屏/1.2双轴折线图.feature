@@ -19,7 +19,7 @@ Feature: 数据大屏-b双轴折线图
     And I click the "Style" button
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample*| bucket timestamp span=2h as ts|stats count(appname),dc(appname) by appname"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=2h as ts |stats count(apache.status),dc(apache.status) by apache.status"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
 
@@ -168,7 +168,7 @@ Feature: 数据大屏-b双轴折线图
     And I set the parameter "ChartYaxis" with value "170"
     #数据
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample*| bucket timestamp span=2h as ts|stats count(appname),dc(appname) by appname"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=2h as ts |stats count(apache.status),dc(apache.status) by apache.status"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
       #选择静态数据
@@ -224,7 +224,7 @@ Feature: 数据大屏-b双轴折线图
     And I click the "otherSearch" button
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample*| bucket timestamp span=2h as ts|stats count(appname),dc(appname) by appname"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=2h as ts |stats count(apache.status),dc(apache.status) by apache.status"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
