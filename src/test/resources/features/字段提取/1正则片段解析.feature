@@ -21,8 +21,8 @@ Feature: 字段提取正则片段解析
     Then I will see the element value in json "{'Result':'<result>'}"
 
     Examples:
-      | result                                                                                                                                                                   | result1                                                                                                                                                                                           |
-      | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-502103: User priv level changed: Uname: enable_15 From: 1 To: 15" | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-111010: User \'enable_15\', running \'CLI\' from IP 192.168.1.11, executed \'debug http\'" |
+      | result                                                                                                                                                                   |
+      | Object\nuser:"enable_15"\nraw_message:"2014-11-07 11:18:33 192.168.1.1 FW-LZQ-MGJZZS-ASA5505-01 %ASA-5-502103: User priv level changed: Uname: enable_15 From: 1 To: 15" |
 
   Scenario Outline: RZY-2872:建立正则片段解析规则
     And I click the "Create" button

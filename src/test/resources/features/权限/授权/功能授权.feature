@@ -1,6 +1,7 @@
 @auth
 Feature: 权限-功能（URL校验）
 
+  @logout
   Scenario Outline: 验证无任何权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -108,6 +109,7 @@ Feature: 权限-功能（URL校验）
       | alerts                | plugins               | payments              | ingestpriority        | queryscopes           | search                | agent                 | accountUsage          | dictionary            | macro                 | usage                 | reports               | trend                 | schedule              | backup                | sourcesInput          | roles                 | users                 | knowledge             | dashboard             | usergroups            | galaxee               | machine_learning      | lynxee                | topology              | configs               | tokens                | docs                  | savedsearches         | resource              | dataset               | apikey                | settingMenu | systemMenu     | helpMenu  |
       | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 您暂无设置权限。    | 运行 (系统版本: 3.3) | 帮助\n联系日志易 |
 
+  @logout
   Scenario Outline: 验证其他权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -235,6 +237,7 @@ Feature: 权限-功能（URL校验）
       | 可使用结算管理,可查看告警插件,可使用入库优先级,已存搜索,可使用搜索权限,可使用路由配置,可使用 Agent 管理,可查看域使用额度,可使用字典管理,可使用搜索宏           | 403 Permission Denied | 告警插件    | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.3)\n使用限额 结算管理      | 帮助\n联系日志易 |
       | 可使用结算管理,可查看告警插件,可使用入库优先级,已存搜索,可使用搜索权限,可使用路由配置,可使用 Agent 管理,可查看域使用额度,可使用字典管理,可使用搜索宏,可查看用户搜索用量 | 403 Permission Denied | 告警插件    | 结算管理                  | 入库优先级                 | 搜索权限                  | 403 Permission Denied | Agent 管理              | 使用限额                  | 字典列表                  | 搜索宏                   | 搜索用量                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 已存搜索                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 路由配置                  | 403 Permission Denied | 资源\n已存搜索搜索宏\n数据\nAgent 管理路由配置入库优先级\n权限\n搜索权限 | 运行 (系统版本: 3.3)\n使用限额 结算管理 搜索用量 | 帮助\n联系日志易 |
 
+  @logout
   Scenario Outline: 验证权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -357,6 +360,7 @@ Feature: 权限-功能（URL校验）
       | 可使用结算管理,可查看告警插件,可使用入库优先级,已存搜索,可使用搜索权限,可使用路由配置,可使用 Agent 管理,可查看域使用额度,可使用字典管理,可使用搜索宏,可查看用户搜索用量,可使用报表,可使用趋势图,可使用定时任务,可使用备份,可使用本地上传,可查看角色页,可查看用户页,可使用知识库,可使用仪表盘,可查看用户分组,可使用拓扑图,可使用字段提取,可查看域标识,可使用监控,可查看帮助文档,可查看资源列表,可使用数据集,可使用 ApiKey 认证        | 监控                    | 告警插件    | 仪表盘\n监控\n定时任务\n报表\n趋势图\n知识     | 结算管理     | 入库优先级          | 搜索权限        | 403 Permission Denied | Agent 管理 | 使用限额         | 字典列表       | 搜索宏   | 搜索用量  | 报表      | 趋势图                   | 定时任务                  | 备份                    | 本地上传                  | 角色权限                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 域标识                   | 帮助                    | 已存搜索          | 资源列表                  | 数据集                   | Apikey Management     | 路由配置  | 403 Permission Denied | 资源\n仪表盘\n监控\n定时任务\n报表\n趋势图\n知识库\n已存搜索\n搜索宏\n字段提取\n拓扑图\n数据集\n数据\nAgent 管理\n路由配置\n入库优先级\n本地上传\n备份策略\n权限\n角色权限\n用户分组\n用户管理\n资源列表\n搜索权限\n系统\n文件夹 | 运行 (系统版本: 3.3)\n使用限额\n域标识\n结算管理\n搜索用量\nAPI密钥\n语言和地区 | 帮助\n帮助文档\n联系日志易 |
       | 可使用结算管理,可查看告警插件,可使用入库优先级,已存搜索,可使用搜索权限,可使用路由配置,可使用 Agent 管理,可查看域使用额度,可使用字典管理,可使用搜索宏,可查看用户搜索用量,可使用报表,可使用趋势图,可使用定时任务,可使用备份,可使用本地上传,可查看角色页,可查看用户页,可使用知识库,可使用仪表盘,可查看用户分组,可使用拓扑图,可使用字段提取,可查看域标识,可使用监控,可查看帮助文档,可查看资源列表,可使用数据集,可使用 ApiKey 认证,可使用搜索页 | 监控                    | 告警插件    | 仪表盘\n搜索\n监控\n定时任务\n报表\n趋势图\n知识 | 结算管理     | 入库优先级          | 搜索权限        | 搜索                    | Agent 管理 | 使用限额         | 字典列表       | 搜索宏   | 搜索用量  | 报表      | 趋势图                   | 定时任务                  | 备份                    | 本地上传                  | 角色权限                  | 用户管理                  | 知识                    | 仪表盘                   | 用户分组                  | 403 Permission Denied | 403 Permission Denied | 403 Permission Denied | 拓扑图                   | 字段提取                  | 域标识                   | 帮助                    | 已存搜索          | 资源列表                  | 数据集                   | Apikey Management     | 路由配置  | 搜索                    | 资源\n仪表盘\n监控\n定时任务\n报表\n趋势图\n知识库\n已存搜索\n搜索宏\n字段提取\n拓扑图\n数据集\n数据\nAgent 管理\n路由配置\n入库优先级\n本地上传\n备份策略\n权限\n角色权限\n用户分组\n用户管理\n资源列表\n搜索权限\n系统\n文件夹 | 运行 (系统版本: 3.3)\n使用限额\n域标识\n结算管理\n搜索用量\nAPI密钥\n语言和地区 | 帮助\n帮助文档\n联系日志易 |
 
+  @logout
   Scenario: 授权可接受消息提醒
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -381,6 +385,7 @@ Feature: 权限-功能（URL校验）
     And open the "PublicNavBarPage" page for uri "/plugins/"
     Then I wait for "News" will be visible
 
+  @logout
   Scenario Outline: 应用权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button

@@ -69,7 +69,10 @@ Feature: 数据大屏-j热力地图
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.province" from the "NameField"
 
+      #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 热力地图-样式搜索发布页截图
@@ -114,15 +117,16 @@ Feature: 数据大屏-j热力地图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.province" from the "NameField"
 
-    #保存
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
-      Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 热力地图-静态数据发布并截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -152,6 +156,7 @@ Feature: 数据大屏-j热力地图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.geo.province"
 #    And I click the "DateEditor" button
@@ -182,12 +187,11 @@ Feature: 数据大屏-j热力地图
 
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.province" from the "NameField"
-
-
-      #保存
+   #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
-      Then I will see the success message "保存成功"
-
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 热力地图-绑定搜索发布并截图
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

@@ -1,12 +1,13 @@
 @galaxeeWord @galaxee  @galaxee2  @4.1
 Feature: 数据大屏-h标题
 
-  Background:
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#  Background:
+#     Given I will see the "PublicNavBarPage" page
+#     And I wait for "Dashboard" will be visible
+
 
   Scenario: 标题
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
@@ -19,6 +20,7 @@ Feature: 数据大屏-h标题
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "560"
     And I set the parameter "Height" with value "280"
     And I set the parameter "ChartXaxis" with value "434"
@@ -28,6 +30,7 @@ Feature: 数据大屏-h标题
     And I set the parameter "WordSize" with value "62"
     #字体颜色
     And I click the "ColorInner" button
+    And I wait for "ColorInput" will be visible
     And I set the parameter "ColorInput" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
@@ -42,14 +45,14 @@ Feature: 数据大屏-h标题
     #数据
     And I click the "Data" button
     And I set the parameter "Content" with value "数据模块"
- #保存
+  #保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
-    And I will see the success message "保存成功"
-
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
   Scenario Outline: 发布页截图
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I close all tabs except main tab
@@ -64,7 +67,6 @@ Feature: 数据大屏-h标题
     Examples:
       | name |
       | 标题   |
-
 
 
 

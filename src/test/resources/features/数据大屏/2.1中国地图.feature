@@ -71,7 +71,10 @@ Feature: 数据大屏-i中国地图
 
     And I set the parameter "seriousMin" with value "6"
     And I set the parameter "seriousMax" with value "100"
+     #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -121,11 +124,14 @@ Feature: 数据大屏-i中国地图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.geo.city" from the "NameField"
     And I choose the "count()" from the "DataField"
+      #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -158,6 +164,7 @@ Feature: 数据大屏-i中国地图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_display AND apache.geo.province:四川 | stats count() by apache.geo.city"
 #    And I click the "DateEditor" button
@@ -190,10 +197,11 @@ Feature: 数据大屏-i中国地图
 
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.city" from the "NameField"
-
-      #保存
+   #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
-      Then I will see the success message "保存成功"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
 
   Scenario Outline: 中国地图四川-绑定搜索发布并截图

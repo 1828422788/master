@@ -22,7 +22,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |  spl   |
@@ -53,7 +53,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   | color1   |  caseNum  |
@@ -82,7 +82,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "actual/高级搜索视图/2维度/<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/2维度/<caseNum>_<chartType>" with target image "expect/高级搜索视图/2维度/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |  value      |     divValue   | color1   |caseNum  | spl   |
@@ -108,7 +108,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
-    Then I compare source image "expect/高级搜索视图/2维度/label/<chartType>_<option>_<descr>" with target image "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
+    Then I compare source image "actual/高级搜索视图/2维度/label/<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度/label/<chartType>_<option>_<descr>"
 
     Examples:
       |   chartType   |  option     | descr      |
@@ -146,7 +146,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
-    Then I compare source image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>" with target image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
+    Then I compare source image "actual/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>" with target image "expect/高级搜索视图/2维度/label_location/<typeInfo>/<chartType>_<option>_<descr>"
 
 
     Examples:
@@ -161,3 +161,73 @@ Feature: 日志展现_维度
       |      Bar      | Yellow  |展示全部  |柱状内中央   | middle   |
       |      Bar      | Yellow  |展示全部  |柱状内靠左侧 | in_left   |
       |      Bar      | Yellow  |展示全部  |柱状内靠右侧 | in_right  |
+
+
+  Scenario Outline: dimension_facet
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I wait for "1000" millsecond
+    And I choose the "<typeInfo>" from the "ShowLabel"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
+    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
+
+    Examples:
+      |   chartType   |  color  |  typeInfo    |  spl   |
+      |      Pie      | Red     | 展示全部     |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |      Rose     | Green   | 只展示名称   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |      Bar      | Orange  | 展示全部     |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+
+  @suntest
+  Scenario Outline: dimension_facet_sun
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Divide" button
+    And I click the "DeleteFirst" button
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.status" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/高级搜索视图/2维度/<chartType>_分面"
+    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_分面"
+
+    Examples:
+      |   chartType   |  color   |  spl   |
+      |      Sun      | DarkBlue |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|

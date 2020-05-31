@@ -14,9 +14,10 @@ Feature: 数据大屏-g字符云图
     And I click the "Ensure" button
       #选择字符云图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
     And I wait for "characterCloudChart" will be visible
+    And I drag the scroll bar to the element "characterCloudChart"
     And I click the "characterCloudChart" button
+
     And I click the "Style" button
  #设置样式
    # 1 设置图表尺寸位置
@@ -29,11 +30,9 @@ Feature: 数据大屏-g字符云图
    #2修改样式
     And I click the "styleCloudChart" button
     #图表起始颜色
+    And I wait for "chartStartColor" will be visible
     And I click the "chartStartColor" button
     And I click the "red" button
-    #字体类型
-    And I wait for "fontType" will be visible
-    And I choose the "cursive" from the "fontType"
     #最大字号
     And I set the parameter "maxFont" with value "50"
     #3 全局样式修改名成
@@ -41,7 +40,7 @@ Feature: 数据大屏-g字符云图
     And I set the parameter "globalStyleName" with value "字符云图样式修改"
 #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 5"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -50,8 +49,10 @@ Feature: 数据大屏-g字符云图
 
     And I choose the "apache.clientip" from the "cloudDataSearchSegmentation"
     And I choose the "count()" from the "cloudDataSearchNumber"
-       #保存
+         #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 字符云图样式-搜索发布并截图
@@ -80,19 +81,16 @@ Feature: 数据大屏-g字符云图
     When I click the "Create" button
     And I set the parameter "Name" with value "字符云图数据之静态数据"
     And I click the "Ensure" button
-    #选择字符云图
+      #选择字符云图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "characterCloudChart" will be visible
+    And I drag the scroll bar to the element "characterCloudChart"
     And I click the "characterCloudChart" button
+
     And I click the "Style" button
-     #选择字体类型serif
-    And I click the "styleCloudChart" button
-    And I wait for "fontType" will be visible
-    And I choose the "serif" from the "fontType"
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 5"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -102,14 +100,14 @@ Feature: 数据大屏-g字符云图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "cloudDataSearchSegmentation"
     And I choose the "count()" from the "cloudDataSearchNumber"
-
-    #保存
+   #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -142,22 +140,20 @@ Feature: 数据大屏-g字符云图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 5"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 5"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-       #选择字符云图
+      #选择字符云图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "characterCloudChart" will be visible
+    And I drag the scroll bar to the element "characterCloudChart"
     And I click the "characterCloudChart" button
     And I click the "Style" button
-    #选择字体类型monospace
-    And I click the "styleCloudChart" button
-    And I choose the "monospace" from the "fontType"
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
@@ -176,8 +172,10 @@ Feature: 数据大屏-g字符云图
 
     And I choose the "apache.clientip" from the "cloudDataSearchSegmentation"
     And I choose the "count()" from the "cloudDataSearchNumber"
-      #保存
+        #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 字符云图数据之绑定搜索发布并截图

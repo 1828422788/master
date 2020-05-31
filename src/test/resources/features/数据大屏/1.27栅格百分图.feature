@@ -14,9 +14,10 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Ensure" button
       #选择栅格百分图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "gridPercentChart" will be visible
+    And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
+
     And I click the "Style" button
  #设置样式
    # 1 设置图表尺寸位置
@@ -62,8 +63,10 @@ Feature: 数据大屏-h栅格百分图
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
     And I choose the "num" from the "gridDataSearchCategory"
-       #保存
+        #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 栅格百分图样式-搜索发布并截图
@@ -94,9 +97,10 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Ensure" button
       #选择栅格百分图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "gridPercentChart" will be visible
+    And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
+
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
@@ -110,12 +114,12 @@ Feature: 数据大屏-h栅格百分图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
     And I choose the "num" from the "gridDataSearchCategory"
-
-    #保存
+   #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -147,6 +151,7 @@ Feature: 数据大屏-h栅格百分图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"
 #    And I click the "DateEditor" button
@@ -154,10 +159,10 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-       #选择栅格百分图
+      #选择栅格百分图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "gridPercentChart" will be visible
+    And I drag the scroll bar to the element "gridPercentChart"
     And I click the "gridPercentChart" button
 
     And I wait for "Style" will be visible
@@ -178,8 +183,10 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Data" button
 
     And I choose the "num" from the "gridDataSearchCategory"
-      #保存
+   #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 栅格百分图数据之绑定搜索发布并截图

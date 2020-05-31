@@ -14,7 +14,6 @@ Feature: 数据大屏-h滚动柱形图
     And I click the "Ensure" button
       #选择滚动柱形图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
 #修改样式
@@ -73,9 +72,10 @@ Feature: 数据大屏-h滚动柱形图
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
-     #保存
+        #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -106,7 +106,6 @@ Feature: 数据大屏-h滚动柱形图
     And I click the "Ensure" button
      #选择滚动柱形图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
     And I click the "Style" button
@@ -122,15 +121,16 @@ Feature: 数据大屏-h滚动柱形图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "scrollBarSearchName"
     And I wait for "2000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
 
-    #保存
+      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -163,6 +163,7 @@ Feature: 数据大屏-h滚动柱形图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
 #    And I click the "DateEditor" button
@@ -172,7 +173,6 @@ Feature: 数据大屏-h滚动柱形图
     And I set the parameter "updateFrequency" with value "0.1"
       #选择滚动柱形图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "rollHistogram" will be visible
     And I click the "rollHistogram" button
     And I click the "Style" button
@@ -195,9 +195,10 @@ Feature: 数据大屏-h滚动柱形图
     And I wait for "1000" millsecond
     And I choose the "ip_count" from the "ScrollBarSearchNumber"
 
-      #保存
+        #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 

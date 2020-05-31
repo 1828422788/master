@@ -20,7 +20,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |caseNum  |   spl   |
@@ -48,7 +48,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
 
     Examples:
       |  chartType    |   iconValue  |  caseNum  |   spl   |
@@ -76,7 +76,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<fontValue>"
 
     Examples:
       |  chartType    |   fontValue       |  caseNum  |   spl   |
@@ -102,7 +102,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
@@ -128,7 +128,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    |  caseNum  | timeValue    |   spl   |
@@ -164,7 +164,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
 
     Examples:
       |  chartType    |  caseNum  | minVal1 | maxVal1  |  color1  | minVal2 | maxVal2  |  color2  | colorFill     |   spl   |
@@ -198,7 +198,7 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
 
     Examples:
       |  chartType    | precision |  unitPosition       |  buttonSwitch     |  caseNum                |   spl   |
@@ -230,13 +230,13 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
 
     Examples:
       |  chartType    |   iconValue  |  caseNum         |   spl   |
       |   Single      |    icon      |   secondTitle    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
-  @sparklineChart
+
   Scenario Outline: sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button
@@ -262,9 +262,54 @@ Feature: 日志展现_其他_单值
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
-    Then I compare source image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
 
     Examples:
       |  chartType    | colorFill    | caseNum     |
       |   Single      | Background   | Sparkline   |
       |   Single      | Font         | Sparkline   |
+
+
+  Scenario Outline: sparkline_facet
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "cnt_2" from the "NumericField"
+    And I choose the "time" from the "DisplayField"
+    And I click the "Sparkline" button
+    And I choose the "ts" from the "SparklineField"
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Exhibition" button
+    And I click the "AccordingArea" button
+    And I set the parameter "FontSize" with value "80"
+    And I set the parameter "MinRange" with value "1"
+    And I set the parameter "MaxRange" with value "7"
+    And I click the "AddColor" button
+    And I click the "Red" button
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "7"
+    And I set the parameter "MaxRange" with value "10"
+    And I click the "AddColor" button
+    And I click the "Green" button
+    And I click the "Background" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "ChartView" will be visible
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "3000" millsecond
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>"
+
+    Examples:
+      |  chartType    | caseNum          |
+      |   Single      | Sparkline_分面   |

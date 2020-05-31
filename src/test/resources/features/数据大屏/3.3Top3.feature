@@ -21,6 +21,7 @@
 #设置样式
       #1 设置图表尺寸位置
       And I click the "ChartPosition" button
+      And I wait for "Width" will be visible
       And I set the parameter "Width" with value "700"
       And I set the parameter "Height" with value "500"
       And I set the parameter "ChartXaxis" with value "600"
@@ -32,6 +33,7 @@
      And I set the parameter "numberTypefaceSize" with value "40"
 
      And I click the "Top3numberTypefaceColor" button
+     And I wait for "ColorInput" will be visible
      And I set the parameter "ColorInput" with value "#9FF50B"
      And I click the "EnsureColor" button
      And I wait for "EnsureColor" will be invisible
@@ -46,16 +48,19 @@
        And I click the "backgroundAuto" button
 #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample* | stats count() by appname"
+    And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.status"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-    And I choose the "appname" from the "dataSearchName"
-    And I wait for "2000" millsecond
+
     And I choose the "count()" from the "dataSearchNumber"
-      #保存
-      And I click the "Save" button
-      Then I will see the success message "保存成功"
+    And I choose the "appname" from the "dataSearchName"
+
+        #保存
+    And I wait for "Save" will be visible
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "保存成功"
 
 
     Scenario Outline: Top3样式-搜索发布并截图
@@ -91,21 +96,26 @@
       And I click the "Top3" button
       And I hide the element "IndexDropdown"
       And I click the "Style" button
-      #数据设置
+
+      #数据
       And I click the "Data" button
-      And I click the "dataSourceType" button
+      And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.status"
+      And I click the "Search" button
+      And I wait for "SearchTip" will be invisible
+      And I set the parameter "updateFrequency" with value "0.1"
       #选择静态数据
+      And I click the "dataSourceType" button
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I click the "tips" button
+      And I wait for "tipsText" will be invisible
 
-      And I choose the "name" from the "dataSearchName"
-      And I wait for "2000" millsecond
       And I choose the "value" from the "dataSearchNumber"
-      And I wait for "1000" millsecond
-      #保存
+      And I choose the "name" from the "dataSearchName"
+
+        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 
@@ -139,8 +149,9 @@
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
       And I click the "otherSearch" button
+      And I hide the element "otherDropdown"
       And I wait for "SplInput" will be visible
-      And I set the parameter "SplInput" with value "tag:sample* | stats count() by appname"
+      And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.status"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -165,12 +176,14 @@
      #对Top3的参数进行设置
       And I click the "pictureOne" button
       And I click the "Data" button
-      And I wait for "2000" millsecond
+
       And I choose the "appname" from the "dataSearchName"
-      And I wait for "2000" millsecond
+
       And I choose the "count()" from the "dataSearchNumber"
-      #保存
+         #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
     Scenario Outline: Top3数据之绑定搜索发布并截图

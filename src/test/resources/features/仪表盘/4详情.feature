@@ -87,6 +87,7 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I click the "AddChart" button
+    And I set the parameter "SearchChartInput" with value "仪表盘所用趋势图"
     And I "checked" the checkbox which name is "验证仪表盘全局时间"
     And I click the "Ensure" button
 

@@ -71,7 +71,7 @@ Feature: 数据大屏-d雷达图
     And I click the "backgroundAuto" button
 #数据-搜索
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 10"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -80,9 +80,10 @@ Feature: 数据大屏-d雷达图
 
     And I choose the "count()" from the "radarNumberFile"
     And I choose the "apache.clientip" from the "radarNameFile"
-
-     #保存
+   #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -112,7 +113,7 @@ Feature: 数据大屏-d雷达图
     And I click the "Ensure" button
             #选择雷达图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
+#    And I wait for "1000" millsecond
     And I wait for "radarChart" will be visible
     And I click the "radarChart" button
     And I click the "Style" button
@@ -126,7 +127,7 @@ Feature: 数据大屏-d雷达图
     And I set the parameter "ChartYaxis" with value "215"
      #数据设置
     And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 10"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -136,13 +137,14 @@ Feature: 数据大屏-d雷达图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "count()" from the "radarNumberFile"
     And I choose the "apache.clientip" from the "radarNameFile"
-    #保存
+      #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -174,8 +176,9 @@ Feature: 数据大屏-d雷达图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:*display | stats count() by apache.clientip | limit 10"
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
@@ -183,7 +186,7 @@ Feature: 数据大屏-d雷达图
     And I set the parameter "updateFrequency" with value "0.1"
            #选择雷达图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
+#    And I wait for "2000" millsecond
     And I wait for "radarChart" will be visible
     And I click the "radarChart" button
     And I click the "Style" button
@@ -204,9 +207,10 @@ Feature: 数据大屏-d雷达图
 
     And I choose the "count()" from the "radarNumberFile"
     And I choose the "apache.clientip" from the "radarNameFile"
-
-      #保存
+   #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 

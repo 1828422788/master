@@ -1,7 +1,7 @@
 @authtest
 Feature: 权限-仪表盘
 
-
+  @logout
   Scenario: 验证无新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -26,7 +26,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the "Create" doesn't exist
 
-
+  @logout
   Scenario: 授权新建仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -53,7 +53,7 @@ Feature: 权限-仪表盘
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
 
-
+  @logout
   Scenario: 验证无读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -83,7 +83,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the search result "{'column':'0','name':'仪表盘验证权限1','contains':'no'}"
 
-
+  @logout
   Scenario Outline: 授权读取（RZY-615）
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -144,7 +144,7 @@ Feature: 权限-仪表盘
       | name     |
       | 仪表盘验证权限1 |
 
-
+  @logout
   Scenario Outline: 验证读取+编辑
     Given I wait for "2000" millsecond
     And I logout current user
@@ -230,7 +230,7 @@ Feature: 权限-仪表盘
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
 
-
+  @logout
   Scenario: 验证有效期限生效
     Given I will see the "PublicNavBarPage" page
     And I wait for "2000" millsecond
@@ -244,7 +244,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I will see the search result "{'column':'0','name':'仪表盘验证权限1重命名','contains':'no'}"
 
-
+  @logout
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -290,7 +290,7 @@ Feature: 权限-仪表盘
       | name        |
       | 仪表盘验证权限1重命名 |
 
-
+  @logout
   Scenario Outline: 授权读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -352,7 +352,7 @@ Feature: 权限-仪表盘
       | name               |
       | AutoTestUserCreate |
 
-
+  @logout
   Scenario Outline: 授权读取+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -419,7 +419,7 @@ Feature: 权限-仪表盘
       | 仪表盘验证权限 |
 
 
-
+  @logout
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -507,7 +507,7 @@ Feature: 权限-仪表盘
       | 仪表盘验证权限 |
 
 
-
+  @logout
   Scenario Outline: 授权读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -583,7 +583,7 @@ Feature: 权限-仪表盘
       | 仪表盘验证权限重命名 |
 
 
-
+  @logout
   Scenario Outline: 新建仪表盘并设为默认
     When I wait for "2000" millsecond
     And I logout current user
@@ -616,7 +616,7 @@ Feature: 权限-仪表盘
       | name     | title           |
       | AutoAuth | AutoAuth \| 仪表盘 |
 
-
+  @logout
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -730,7 +730,7 @@ Feature: 权限-仪表盘
     And I click the "SaveButton" button
 
 
-
+  @logout
   Scenario Outline: 二次授权读取
     When I wait for "2000" millsecond
     And I logout current user
@@ -773,7 +773,7 @@ Feature: 权限-仪表盘
       | authRole | authName | function | name   |
       | 用户       | 验证授权用户   | 读取       | 测试二次授权 |
 
-
+  @logout
   Scenario Outline: 二次授权读取+编辑
     When I wait for "2000" millsecond
     And I logout current user
@@ -833,7 +833,7 @@ Feature: 权限-仪表盘
       | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
 
 
-
+  @logout
   Scenario Outline: 二次授权读取+编辑+删除
     When I wait for "2000" millsecond
     And I logout current user

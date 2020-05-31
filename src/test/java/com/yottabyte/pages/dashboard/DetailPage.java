@@ -109,7 +109,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加事件列表']")
     private WebElement addEvent;
 
-    @FindBy(xpath = "//span[text()='添加事件列表']")
+    @FindBy(xpath = "//span[text()='添加过滤项']")
     private WebElement addFilter;
 
     @FindBy(xpath = "//span[text()='添加输入项']")
@@ -389,7 +389,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='在搜索中打开']")
     private WebElement openInSearch;
 
-    @FindBy(xpath = "//span[text()='89']")
+    @FindBy(xpath = "//span[text()='24']")
     private WebElement countNum;
 
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div")
@@ -493,6 +493,13 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "ace_text-layer")
     private WebElement textLayer;
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']//input[@class='ant-input']")
+    private WebElement searchChartInput;
+
+    public WebElement getSearchChartInput() {
+        return searchChartInput;
+    }
 
     public WebElement getAddFilter() {
         return addFilter;

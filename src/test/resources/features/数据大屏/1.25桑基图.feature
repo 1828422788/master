@@ -1,4 +1,4 @@
-@galaxeeLast   @1.25   @galaxee1
+@galaxeeLast   @1.25  @galaxee1
 Feature: 数据大屏-f桑基图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
@@ -13,11 +13,11 @@ Feature: 数据大屏-f桑基图
     And I click the "Ensure" button
     #桑吉图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
+    And I drag the scroll bar to the element "Sankey"
     And I click the "Sankey" button
-    And I click the "Style" button
 
+    And I click the "Style" button
     And I wait for "ChartTag" will be visible
     And I click the "ChartTag" button
     And I click the "ColorSelector" button
@@ -49,9 +49,10 @@ Feature: 数据大屏-f桑基图
     And I choose the "count()" from the "WeightField"
     And I choose the "apache.method" from the "TargetField"
 
-
+   #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -81,11 +82,12 @@ Feature: 数据大屏-f桑基图
     When I click the "Create" button
     And I set the parameter "Name" with value "桑基图-静态数据"
     And I click the "Ensure" button
-       #桑吉图
+    #桑吉图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
+    And I drag the scroll bar to the element "Sankey"
     And I click the "Sankey" button
+
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
@@ -99,14 +101,15 @@ Feature: 数据大屏-f桑基图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "SourceField"
     And I choose the "count()" from the "WeightField"
     And I choose the "apache.method" from the "TargetField"
-    #保存
+       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -139,6 +142,7 @@ Feature: 数据大屏-f桑基图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart AND NOT apache.clientip:221.226.97.92 | stats count() by apache.clientip,apache.resp_len,apache.method | limit 10"
 #    And I click the "DateEditor" button
@@ -146,11 +150,12 @@ Feature: 数据大屏-f桑基图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
-          #桑吉图
+    #桑吉图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
     And I wait for "Sankey" will be visible
+    And I drag the scroll bar to the element "Sankey"
     And I click the "Sankey" button
+
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
@@ -170,9 +175,10 @@ Feature: 数据大屏-f桑基图
     And I choose the "apache.clientip" from the "SourceField"
     And I choose the "count()" from the "WeightField"
     And I choose the "apache.method" from the "TargetField"
-
-      #保存
+   #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 字符云图数据之绑定搜索发布并截图

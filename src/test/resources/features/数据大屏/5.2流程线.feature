@@ -19,8 +19,8 @@
       And I hide the element "netDropdown"
        #保存
       And I wait for "Save" will be visible
-      And I wait for "2000" millsecond
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 
@@ -62,6 +62,7 @@
       #1 设置图表尺寸位置
 
       And I click the "ChartPosition" button
+      And I wait for "Width" will be visible
       And I set the parameter "Width" with value "400"
       And I set the parameter "Height" with value "400"
       And I set the parameter "ChartXaxis" with value "800"
@@ -74,6 +75,7 @@
       And I set the parameter "flowLineCoarseness" with value "10"
       #流程线颜色
       And I click the "flowLineColor" button
+      And I wait for "ColorInput" will be visible
       And I set the parameter "ColorInput" with value "#9FF50B"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
@@ -81,6 +83,7 @@
       And I set the parameter "angle" with value "90"
       #标注颜色
       And I click the "taggingColor" button
+      And I wait for "ColorInput" will be visible
       And I set the parameter "ColorInput" with value "#55B11F"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
@@ -91,9 +94,12 @@
        #3 全局样式修改名成
       And I click the "globalStyle" button
       And I set the parameter "globalStyleName" with value "流程线样式修改"
-       #保存
+      #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
+
 
     Scenario Outline: 流程线样式发布并截图
 

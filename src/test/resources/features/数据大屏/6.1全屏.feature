@@ -14,15 +14,16 @@ Feature: 数据大屏-l全屏
     And I click the "Ensure" button
       #选择全屏
     And I click the "Other" button
-    And I wait for "1000" millsecond
     And I wait for "Fullscreen" will be visible
     And I click the "Fullscreen" button
-#设置样式
-    And I wait for "2000" millsecond
+    And I hide the element "otherDropdown"
+
  #设置图表尺寸位置
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "560"
     And I set the parameter "Height" with value "560"
     And I set the parameter "ChartXaxis" with value "400"
@@ -31,12 +32,12 @@ Feature: 数据大屏-l全屏
    #全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "全屏修改"
-
-      #保存
+#保存
     And I wait for "Save" will be visible
-    And I wait for "2000" millsecond
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
 
 
   Scenario Outline: 全屏发布并截图

@@ -32,10 +32,12 @@
       And I set the parameter "updateFrequency" with value "0.1"
       And I choose the "err_avg" from the "entitySearchCategory"
 
-       #保存
+      #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
+
 
 
     Scenario Outline: 实体数据之搜索值异常发布并截图
@@ -91,7 +93,7 @@
       And I click the "dataSourceType" button
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I click the "tips" button
+      And I wait for "tipsText" will be invisible
 
       And I choose the "err_avg" from the "entitySearchCategory"
       #设置值范围
@@ -103,11 +105,12 @@
 
       And I set the parameter "seriousStart" with value "200"
       And I set the parameter "seriousEnd" with value "300"
-
-       #保存
+#保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
+
 
     Scenario Outline: 实体数据之静态数据值严重发布并截图
 #      Given I will see the "PublicNavBarPage" page
@@ -142,6 +145,7 @@
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
       And I click the "otherSearch" button
+      And I hide the element "otherDropdown"
       And I wait for "SplInput" will be visible
       And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats avg(apache.status) as err_avg"
 #      And I click the "DateEditor" button
@@ -168,14 +172,11 @@
       And I click the "search_widget" button
       #再次点击搜索控件中的【搜索按钮】
       And I click the "pictureTwo" button
-#      And I click the "pictureOne" button
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
      #对实体的参数进行设置
       And I click the "pictureOne" button
-#      And I click the "pictureTwo" button
       And I click the "Data" button
-      And I wait for "3000" millsecond
 
       And I choose the "err_avg" from the "entitySearchCategory"
       #设置值范围
@@ -185,7 +186,9 @@
       And I set the parameter "abnormalStart" with value "300"
       And I set the parameter "abnormalEnd" with value "400"
       #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 

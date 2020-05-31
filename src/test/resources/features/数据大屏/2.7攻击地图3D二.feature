@@ -59,9 +59,10 @@
       And I choose the "cnt" from the "MeasureValue"
 
       And I click the "Update" button
-      #保存
+        #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
 
@@ -102,8 +103,7 @@
       #选择静态数据
       And I click the "statisticsData" button
       And I click the "Ensure" button
-      And I wait for "tipsText" will be visible
-      And I click the "tips" button
+      And I wait for "tipsText" will be invisible
 
       And I choose the "start_lat" from the "SourceLatitude"
       And I wait for "1000" millsecond
@@ -117,9 +117,10 @@
       And I wait for "1000" millsecond
       And I choose the "count" from the "MeasureValue"
       And I click the "Update" button
-      #保存
+         #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之静态数据发布并截图
@@ -151,6 +152,7 @@
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
       And I click the "otherSearch" button
+      And I hide the element "otherDropdown"
       And I wait for "SplInput" will be visible
       And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
       And I click the "Search" button
@@ -190,8 +192,10 @@
       And I choose the "cnt" from the "MeasureValue"
 
       And I click the "Update" button
-      #保存
+        #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
     Scenario Outline: 攻击地图3DII数据之绑定数据发布并截图

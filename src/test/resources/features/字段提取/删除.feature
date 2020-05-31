@@ -19,8 +19,11 @@ Feature: 字段提取删除
       | 重命名字段支持通配符详情验证              |
       | RZY2883unicode解析            |
       | RZY2877base64解析             |
+      | base64解析详情                  |
       | RZY2875script解析             |
+      | script解析详情                  |
       | RZY2870创建dissect解析          |
+      | dissect解析详情                 |
       | RZY2819配置自定义字典解析规则          |
       | 自定义字典详情验证                   |
       | 脱敏                          |

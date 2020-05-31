@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee @galaxee1   @1.24
+@galaxeeLast  @galaxee1   @1.24
 Feature: 数据大屏-e力图
 
 
@@ -15,9 +15,10 @@ Feature: 数据大屏-e力图
     And I click the "Ensure" button
     #力图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
     And I wait for "Force" will be visible
+    And I drag the scroll bar to the element "Force"
     And I click the "Force" button
+
     And I click the "Style" button
     #样式
     And I wait for "ChartTag" will be visible
@@ -27,7 +28,9 @@ Feature: 数据大屏-e力图
 
     And I wait for "ChartWordSize" will be visible
     And I set the parameter "ChartWordSize" with value "20"
+
     And I click the "RepulsionFactorHeader" button
+    And I wait for "RepulsionFactor" will be visible
     And I set the parameter "RepulsionFactor" with value "10"
     #尺寸
     And I click the "ChartPosition" button
@@ -54,10 +57,11 @@ Feature: 数据大屏-e力图
     And I choose the "count()" from the "WeightField"
     And I choose the "apache.request_path" from the "TargetField"
 
-
+   #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
-
 
   Scenario Outline: 力图-样式搜索发布页截图
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -87,8 +91,8 @@ Feature: 数据大屏-e力图
     And I click the "Ensure" button
       #力图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
     And I wait for "Force" will be visible
+    And I drag the scroll bar to the element "Force"
     And I click the "Force" button
     And I click the "Style" button
     #数据
@@ -103,15 +107,15 @@ Feature: 数据大屏-e力图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
+    And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "SourceField"
     And I choose the "count()" from the "WeightField"
     And I choose the "apache.request_path" from the "TargetField"
-
-    #保存
+   #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -144,6 +148,7 @@ Feature: 数据大屏-e力图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart| stats count() by apache.clientip,apache.request_path |limit 10"
 #    And I click the "DateEditor" button
@@ -153,8 +158,8 @@ Feature: 数据大屏-e力图
     And I set the parameter "updateFrequency" with value "0.1"
        #力图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
     And I wait for "Force" will be visible
+    And I drag the scroll bar to the element "Force"
     And I click the "Force" button
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
@@ -175,8 +180,10 @@ Feature: 数据大屏-e力图
     And I choose the "apache.clientip" from the "SourceField"
     And I choose the "count()" from the "WeightField"
     And I choose the "apache.request_path" from the "TargetField"
-      #保存
+        #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
   Scenario Outline: 力图-绑定搜索发布并截图

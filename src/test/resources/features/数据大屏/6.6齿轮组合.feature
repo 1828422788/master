@@ -13,14 +13,15 @@
       And I click the "Ensure" button
       #选择齿轮组合
       And I click the "Other" button
-      And I wait for "1000" millsecond
       And I wait for "gearCombination" will be visible
       And I click the "gearCombination" button
-      #保存
+      And I hide the element "otherDropdown"
+     #保存
       And I wait for "Save" will be visible
-      And I wait for "2000" millsecond
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
+
 
 
     Scenario Outline: 齿轮组合默认设置发布并截图
@@ -50,15 +51,16 @@
       And I click the "Ensure" button
       #选择齿轮组合
       And I click the "Other" button
-      And I wait for "1000" millsecond
       And I wait for "gearCombination" will be visible
       And I click the "gearCombination" button
+      And I hide the element "otherDropdown"
 #设置样式
-      And I wait for "2000" millsecond
+      And I wait for "Style" will be visible
       And I click the "Style" button
       #1 设置图表尺寸位置
       And I wait for "ChartPosition" will be visible
       And I click the "ChartPosition" button
+      And I wait for "Width" will be visible
       And I set the parameter "Width" with value "400"
       And I set the parameter "Height" with value "400"
       And I set the parameter "ChartXaxis" with value "750"
@@ -67,11 +69,13 @@
       And I click the "styleGearCombination" button
       #光环颜色
      And I click the "haloColor" button
+      And I wait for "ColorInput" will be visible
      And I set the parameter "ColorInput" with value "#E8EB1B"
      And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       #背景颜色
       And I click the "backgroundColor" button
+      And I wait for "ColorInput" will be visible
      And I set the parameter "ColorInput" with value "#C120C4"
      And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
@@ -85,8 +89,10 @@
        #3 全局样式修改名成
       And I click the "globalStyle" button
       And I set the parameter "globalStyleName" with value "齿轮组合样式修改"
-       #保存
+      #保存
+      And I wait for "Save" will be visible
       And I click the "Save" button
+      And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
     Scenario Outline: 齿轮组合样式发布并截图

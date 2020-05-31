@@ -23,10 +23,9 @@ Feature: 授权告警插件
     And I "checked" the checkbox which name is "可查看告警插件,可使用监控"
     And I click the "SaveButton" button
 
+  @logout
   Scenario: 验证无读取权限
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
+    Given I wait for "2000" millsecond
     And I logout current user
     And I wait for title change text to "登录"
     And open the "LoginPage" page for uri "/auth/login/"
@@ -37,6 +36,7 @@ Feature: 授权告警插件
     Given open the "alert.PluginPage" page for uri "/plugins/"
     Then I will see the search result "{'column':'0','name':'sendsms','contains':'no'}"
 
+  @logout
   Scenario: 授权读取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button

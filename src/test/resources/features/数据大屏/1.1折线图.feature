@@ -1,4 +1,4 @@
-@1.1   @galaxeeChart1 @galaxee  @galaxee0
+@1.1   @galaxeeChart1 @galaxee  @galaxee2
 Feature: 数据大屏-a折线图
 
 #  Background:
@@ -14,8 +14,7 @@ Feature: 数据大屏-a折线图
     And I click the "Ensure" button
     #折线图
     And I click the "Chart" button
-    And I wait for "2000" millsecond
-#    And I wait for "Line" will be visible
+    And I wait for "Line" will be visible
     And I click the "Line" button
     And I click the "Style" button
  # x轴
@@ -91,6 +90,7 @@ Feature: 数据大屏-a折线图
 
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
+    And I wait for "Width" will be visible
     And I set the parameter "Width" with value "1200"
     And I set the parameter "Height" with value "636"
     And I set the parameter "ChartXaxis" with value "300"
@@ -101,15 +101,14 @@ Feature: 数据大屏-a折线图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
 
-    And I choose the "count()" from the "Yaxis"
-    And I wait for "2000" millsecond
+
     And I choose the "ts" from the "Xaxis"
-
-
+#    And I wait for "Yaxis" will be visible
+    And I choose the "count()" from the "Yaxis"
 
     And I wait for "Save" will be visible
-    And I wait for "1000" millsecond
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -141,7 +140,6 @@ Feature: 数据大屏-a折线图
     And I click the "Ensure" button
     #折线图
     And I click the "Chart" button
-#    And I wait for "1000" millsecond
     And I wait for "Line" will be visible
     And I click the "Line" button
     And I click the "Style" button
@@ -172,19 +170,19 @@ Feature: 数据大屏-a折线图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
 
-    And I choose the "count()" from the "Yaxis"
-    And I wait for "2000" millsecond
+    And I wait for "tipsText" will be invisible
+
     And I choose the "ts" from the "Xaxis"
-
-
+#    And I wait for "Yaxis" will be visible
+    And I choose the "count()" from the "Yaxis"
 
     And I click the "AddGroup" button
     And I choose the "count()" from the "Group"
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -218,14 +216,14 @@ Feature: 数据大屏-a折线图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
-    And I wait for "2000" millsecond
+    And I hide the element "otherDropdown"
+    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | bucket timestamp span=2000s as ts| stats count() by ts | sort by +ts"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
    #折线图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Line" will be visible
     And I click the "Line" button
     And I click the "Style" button
@@ -250,14 +248,13 @@ Feature: 数据大屏-a折线图
     And I click the "pictureOne" button
     And I click the "Data" button
 
-
-    And I choose the "count()" from the "Yaxis"
-    And I wait for "2000" millsecond
     And I choose the "ts" from the "Xaxis"
-
+#    And I wait for "Yaxis" will be visible
+    And I choose the "count()" from the "Yaxis"
       #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 

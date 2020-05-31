@@ -25,7 +25,7 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -69,7 +69,7 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<buttonChoice>"
-    And I compare source image "expect/<chartType>_<buttonChoice>" with target image "actual/<chartType>_<buttonChoice>"
+    And I compare source image "actual/<chartType>_<buttonChoice>" with target image "expect/<chartType>_<buttonChoice>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<buttonChoice>"
@@ -111,7 +111,7 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -151,7 +151,7 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>_<buttonChoice>"
-    And I compare source image "expect/<chartType>_<caseNum>_<buttonChoice>" with target image "actual/<chartType>_<caseNum>_<buttonChoice>"
+    And I compare source image "actual/<chartType>_<caseNum>_<buttonChoice>" with target image "expect/<chartType>_<caseNum>_<buttonChoice>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<buttonChoice>"
@@ -194,7 +194,7 @@ Feature: 趋势图新建_序列
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>_limit"
-    And I compare source image "expect/<chartType>_<caseNum>_limit" with target image "actual/<chartType>_<caseNum>_limit"
+    And I compare source image "actual/<chartType>_<caseNum>_limit" with target image "expect/<chartType>_<caseNum>_limit"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_limit"

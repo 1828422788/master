@@ -1,4 +1,4 @@
-@1.3  @galaxeeChart1 @galaxee @galaxee0
+@1.3  @galaxeeChart1 @galaxee @galaxee2
 Feature: 数据大屏-c区间图
 
 #  Background:
@@ -14,15 +14,14 @@ Feature: 数据大屏-c区间图
     And I click the "Ensure" button
     #区间图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Range" will be visible
     And I click the "Range" button
-
     And I click the "Style" button
  # x轴
     And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
       #文本
+    And  I wait for "XaxisWordSize" will be visible
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
     And I wait for "ColorInput" will be visible
@@ -55,6 +54,7 @@ Feature: 数据大屏-c区间图
 #Y轴
     And I click the "YaxisHeader" button
      #文本
+    And I wait for "YaxisWordSize" will be visible
     And I set the parameter "YaxisWordSize" with value "20"
     And I click the "YaxisWordColor" button
     And I wait for "ColorInput" will be visible
@@ -116,9 +116,11 @@ Feature: 数据大屏-c区间图
     And I choose the "upper95" from the "UpperField"
     And I wait for "1000" millsecond
     And I choose the "lower95" from the "LowerField"
-    And I wait for "1000" millsecond
+
+
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -150,13 +152,13 @@ Feature: 数据大屏-c区间图
     And I click the "Ensure" button
     #区间图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Range" will be visible
     And I click the "Range" button
 
     And I click the "Style" button
     #图例
     And I click the "Example" button
+    And I wait for "ExampleWordSize" will be visible
     And I set the parameter "ExampleWordSize" with value "20"
     And I click the "ExampleColor" button
     And I wait for "ColorInput" will be visible
@@ -185,8 +187,7 @@ Feature: 数据大屏-c区间图
     And I click the "dataSourceType" button
     And I click the "statisticsData" button
     And I click the "Ensure" button
-    And I click the "tips" button
-
+    And I wait for "tipsText" will be invisible
 
     And I choose the "ts" from the "XaxisField"
     And I wait for "1000" millsecond
@@ -200,6 +201,7 @@ Feature: 数据大屏-c区间图
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
@@ -230,6 +232,7 @@ Feature: 数据大屏-c区间图
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
     And I click the "otherSearch" button
+    And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count() as c by ts | esma c timefield = ts"
 #    And I click the "DateEditor" button
@@ -239,7 +242,6 @@ Feature: 数据大屏-c区间图
     And I set the parameter "updateFrequency" with value "0.1"
     #区间图
     And I click the "Chart" button
-    And I wait for "1000" millsecond
     And I wait for "Range" will be visible
     And I click the "Range" button
     And I click the "Style" button
@@ -264,11 +266,9 @@ Feature: 数据大屏-c区间图
      #对滚动条形图的参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
-    And I wait for "3000" millsecond
 
     And I choose the "ts" from the "XaxisField"
     And I wait for "1000" millsecond
-
     And I choose the "_predict_c" from the "ForecastField"
     And I wait for "1000" millsecond
     And I choose the "c" from the "ActualField"
@@ -277,8 +277,10 @@ Feature: 数据大屏-c区间图
     And I wait for "1000" millsecond
     And I choose the "upper95" from the "UpperField"
 
-      #保存
+       #保存
+    And I wait for "Save" will be visible
     And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
 
