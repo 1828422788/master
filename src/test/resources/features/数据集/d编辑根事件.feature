@@ -16,8 +16,7 @@ Feature: 数据集-d编辑根事件
       Then I wait for title change text to "数据集详情"
 
 
-  Scenario: 修改根别名
-
+  Scenario: RZY-4122:修改别名
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -29,7 +28,7 @@ Feature: 数据集-d编辑根事件
     Then I will see the "afterAlias" result will be "rootalias"
 
 
-  Scenario: 修改约束语句
+  Scenario: RZY-4123:修改约束语句
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -42,7 +41,7 @@ Feature: 数据集-d编辑根事件
 
 
 
-  Scenario: 修改父子行为为汇聚
+  Scenario: 修改父子行为为汇聚-RZY-4125:修改父子行为
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -58,7 +57,7 @@ Feature: 数据集-d编辑根事件
 
 
 
-  Scenario: 修改父子行为为继承
+  Scenario: 修改父子行为为继承-RZY-4125:修改父子行为
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -71,7 +70,7 @@ Feature: 数据集-d编辑根事件
     And I will see the "AfterFatherChild" result will be "继承"
 
 
-  Scenario: 修改父子行为为无
+  Scenario: 修改父子行为为无-RZY-4125:修改父子行为
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -85,7 +84,7 @@ Feature: 数据集-d编辑根事件
 
 
 
-  Scenario: 修改应用和分组
+  Scenario: RZY-4124:修改所属应用和分组
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
@@ -105,7 +104,7 @@ Feature: 数据集-d编辑根事件
 
 
 
-  Scenario: 修改根名称(最后测试修改名称)
+  Scenario: RZY-4121:修改名称(最后测试修改名称)
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible

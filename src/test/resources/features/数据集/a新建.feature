@@ -2,7 +2,7 @@
 Feature: 数据集-a新建
 
 
-  Scenario Outline: 新建数据集（父子行为无）
+  Scenario Outline: RZY-4082:新建数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
 
@@ -35,7 +35,7 @@ Feature: 数据集-a新建
 
 # # ################################## 插播几条查询的case，依赖与上一条case的新建
 
-  Scenario Outline: 按资源查询
+  Scenario Outline: RZY-4075:按资源查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
     When I choose the "<GroupList>" from the "ResourceDropdown"
@@ -49,7 +49,7 @@ Feature: 数据集-a新建
 
 
 
-  Scenario Outline: 按名称查询
+  Scenario Outline: RZY-4076:按名称查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
     When I set the parameter "SearchInput" with value "<name>"
@@ -62,7 +62,7 @@ Feature: 数据集-a新建
       |JNDTest|
 
 
-  Scenario: 按应用查询
+  Scenario: RZY-4074:按应用查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
     And I choose the "无数集app之api全部测试用例" from the "appSearch"
@@ -71,7 +71,7 @@ Feature: 数据集-a新建
     Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'无数集app之api全部测试用例'}"
 
 
-  Scenario Outline: 修改标签
+  Scenario Outline: RZY-4078:标签
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
     Given the data name is "<name>" then i click the "标签" button
@@ -89,66 +89,7 @@ Feature: 数据集-a新建
  ####################插播完毕#######继续新建
 
 
-  Scenario: 父子行为为汇聚
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    When I click the "Create" button
-    And I set the parameter "Name" with value "父子汇聚"
-    And I set the parameter "Alias" with value "汇聚"
-
-    And I click the "HuiJu" button
-
-    And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
-    Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
-     #以下步骤为验证
-    And I click the "BackList" button
-    And I wait for loading invisible
-    #别名
-    Then I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'2','name':'汇聚'}"
-    #父子行为
-    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'3','name':'汇聚'}"
-   #所属应用
-    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'4','name':'无'}"
-    #标签
-    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'5','name':'无'}"
-    #创建者
-#    And I will see the data "{'column':'0','name':'父子汇聚'}" values "{'column':'6','name':'admin'}"
-
-
-
-
-  Scenario: 父子行为为继承
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    When I click the "Create" button
-    And I set the parameter "Name" with value "父子继承"
-    And I set the parameter "Alias" with value "继承"
-
-    And I click the "inherit" button
-
-    And I set the parameter "Spl" with value "*"
-    And I click the "Save" button
-    Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
-     #以下步骤为验证
-    And I click the "BackList" button
-    And I wait for loading invisible
-    #别名
-    Then I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'2','name':'继承'}"
-    #父子行为
-    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'3','name':'继承'}"
-    #所属应用
-    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'4','name':'无'}"
-    #标签
-    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'5','name':'无'}"
-    #创建者
-#    And I will see the data "{'column':'0','name':'父子继承'}" values "{'column':'6','name':'admin'}"
-
-
-
-
-
-  Scenario: 新建数据集失败0
+  Scenario: 新建数据集失败-RZY-4086:3个提示
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
 
@@ -162,7 +103,7 @@ Feature: 数据集-a新建
 
 
 
-  Scenario: 新建数据集失败1
+  Scenario: 新建数据集失败-RZY-4087:2个提示
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
 
@@ -176,7 +117,7 @@ Feature: 数据集-a新建
 
 
 
-  Scenario: 新建数据集失败2
+  Scenario: 新建数据集失败-RZY-4088:1个提示
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
 

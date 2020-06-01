@@ -2,7 +2,7 @@
 Feature: 数据集-j在趋势图中的应用
 
 
-  Scenario Outline: 父子行为无的趋势图
+  Scenario Outline: 新建父子行为无的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "<spl>"
@@ -23,7 +23,7 @@ Feature: 数据集-j在趋势图中的应用
       |tag:sample04061424 \| stats count() by apache.status|父子无    |
 
 
-    Scenario Outline: 趋势图中的验证数据集（无）
+    Scenario Outline: RZY-4127:趋势图-父子行为无
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     When the data name is "<trendName>" then i click the "编辑" button
@@ -36,9 +36,9 @@ Feature: 数据集-j在趋势图中的应用
       |trendName|dataSetResult|
       |父子无    |tag:sample* |
 
+##################################无耻的分割线###############################
 
-
-  Scenario Outline: 父子行为汇聚的趋势图
+  Scenario Outline: 新建父子行为汇聚的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "<spl>"
@@ -59,7 +59,7 @@ Feature: 数据集-j在趋势图中的应用
       |spl                         |trendName  |
       |tag:sample04061424 \| stats count() by apache.status|父子汇聚|
 
-    Scenario Outline: 趋势图中的验证数据集(汇聚)
+    Scenario Outline:  RZY-4131:趋势图-父子行为汇聚
       Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
     When the data name is "<trendName>" then i click the "编辑" button
@@ -69,17 +69,15 @@ Feature: 数据集-j在趋势图中的应用
     And I click the "zhanKai" button
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
 
-
-
     Examples:
       |trendName  |dataSetResult|
       |父子汇聚    |* AND tag:sample* AND (tag:beyond4 OR appname:apache)|
 
 
+##################################无耻的分割线###############################
 
 
-
-  Scenario Outline: 父子行为继承的趋势图
+  Scenario Outline: 新建父子行为继承的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Given I set the parameter "SearchInput" with value "<spl>"
@@ -102,7 +100,7 @@ Feature: 数据集-j在趋势图中的应用
       |tag:sample04061424 \| stats count() by apache.status|父子继承  |
 
 
-    Scenario Outline: 趋势图中的验证数据集（继承）
+    Scenario Outline: RZY-4132:趋势图-父子行为继承
       Given open the "trend.ListPage" page for uri "/trend/"
     And I will see the "trend.ListPage" page
     And I wait for loading invisible

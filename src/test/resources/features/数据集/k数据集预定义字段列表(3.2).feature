@@ -2,7 +2,7 @@
 Feature: 数据集-k预定义字段列表
 
 
-  Scenario Outline: 新建数据集，对根事件添加字段 RZY-4291
+  Scenario Outline: RZY-4291:新建数据集，对根事件添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
     And I set the parameter "Name" with value "<name>"
@@ -34,7 +34,7 @@ Feature: 数据集-k预定义字段列表
 
 
 
-     Scenario: 在编辑根事件中添加字段
+     Scenario: RZY-4491:在编辑根事件中添加字段
      Given open the "dataset.ListPage" page for uri "/dataset/"
      When the data name is "have_root_field" then i click the "编辑" button
      Then I will see the "dataset.DetailPage" page
@@ -53,7 +53,7 @@ Feature: 数据集-k预定义字段列表
 
 
 
-  Scenario: 在编辑根事件中删除字段
+  Scenario: RZY-4492:在编辑根事件中删除字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
@@ -69,7 +69,7 @@ Feature: 数据集-k预定义字段列表
 
 
 
-   Scenario: 对子节点添加字段RZY-4292
+   Scenario: RZY-4292:新建数据集，对子节点添加字段
      Given open the "dataset.ListPage" page for uri "/dataset/"
      When the data name is "have_root_field" then i click the "编辑" button
      Then I will see the "dataset.DetailPage" page
@@ -106,7 +106,7 @@ Feature: 数据集-k预定义字段列表
 
 
 
-     Scenario: 删除第三个子节点的字段
+     Scenario: RZY-4293:对子节点字段的操作-删除第三个子节点的字段
        Given open the "dataset.ListPage" page for uri "/dataset/"
        When the data name is "have_root_field" then i click the "编辑" button
        Then I will see the "dataset.DetailPage" page
@@ -118,7 +118,7 @@ Feature: 数据集-k预定义字段列表
 
 
 
-  Scenario: 批量删除子节点的字段
+  Scenario: RZY-4293:对子节点字段的操作-批量删除子节点的字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
