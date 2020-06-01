@@ -82,7 +82,7 @@ Feature: 仪表盘事件列表
     And I click the "Event" button
     And switch to another window
     And I close all tabs except main tab
-    Then the page's title will be "搜索"
+    Then the page's title will be "趋势图"
 
   @dashboard @dashboardSmoke
   Scenario: 验证事件操作显示于两者
@@ -97,7 +97,7 @@ Feature: 仪表盘事件列表
     And I click the "Event" button
     And switch to another window
     And I close all tabs except main tab
-    Then the page's title will be "搜索"
+    Then the page's title will be "趋势图"
 
   @dashboard @dashboardSmoke
   Scenario: 修改事件操作显示于字段
@@ -135,7 +135,7 @@ Feature: 仪表盘事件列表
     And I click the "Event" button
     And switch to another window
     And I close all tabs except main tab
-    Then the page's title will be "搜索"
+    Then the page's title will be "趋势图"
 
   @dashboard @dashboardSmoke
   Scenario: 修改事件操作动作类型为搜索

@@ -16,7 +16,6 @@ Feature: SPL other
 
     Examples:
       |splcasename| splQuery|
-      | first_sub_inner_ip | [[ tag:\"sample04061424\"\| stats count(apache.clientip) by apache.clientip, apache.method \| limit 2 \| fields apache.clientip apache.method ]] |
       | chart_sample_noparam | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| chart max(apache.status) as ma count() as cnt |
       | chart_sample_over_status | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| chart count() as cnt over apache.status span=\"50\" |
       | chart_sample_over_resp_len | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| chart count() over apache.resp_len span=\"500\" by apache.method |
@@ -37,6 +36,7 @@ Feature: SPL other
       | chart_bins10_span30m_startindex4_endindex7 | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| chart count() max(apache.resp_len) over timestamp bins=10 span=\"1h\" startindex=4 endindex=7 |
       | chart_bins10_span30m_startindex4_endindex7_bystatus | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| chart count() max(apache.resp_len) over timestamp bins=10 span=\"1h\" startindex=4 endindex=7 by apache.status |
       | chart_limit_one_field | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| chart limit=5 count() max(apache.resp_len) over timestamp span=\"1h\" by apache.status |
+      | chart_limit_two_field | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| chart limit=5 count() max(apache.resp_len) over timestamp span=\"1h\"  by apache.status, apache.method |
       | chart_multi_params_by_clientip | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| chart sep=\"-sep分格-\" format=\"$AGG\|format分格\|$VAL\" limit=5 cont=false count() as cnt max(apache.resp_len) over timestamp span=\"1h\" bins=4 startindex=1 endindex=4 by apache.clientip bins=3 |
       | chart_multi_params_by_status_bins1 | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| chart sep=\"-sep分格-\" format=\"$AGG\|format分格\|$VAL\" limit=5 cont=false count() as cnt max(apache.resp_len) over timestamp span=\"1h\" bins=4 startindex=1 endindex=4 by apache.status bins=1 |
       | chart_multi_params_by_resplen_bins3 | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| chart sep=\"-sep分格-\" format=\"$AGG\|format分格\|$VAL\" limit=5 cont=false count() as cnt max(apache.status) over timestamp span=\"1h\" bins=4 startindex=1 endindex=4 by apache.resp_len bins=3 |
@@ -77,6 +77,26 @@ Feature: SPL other
       | append_bucket_bucket | starttime=\"now/d\" endtime=\"now/d+12h\" tag:\"sample04061424_display\" \| bucket timestamp span=1h as ts \| stats max(apache.resp_len) as count_1 by ts \| eval time=formatdate(ts, \"HH:mm:ss.SSS\") \| eval line=\"max_line\" \| append [[starttime=\"now/d\" endtime=\"now/d+12h\" tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.resp_len) as count_2 by ts \| eval time=formatdate(ts, \"HH:mm:ss.SSS\") \| eval line=\"count_line\" ]] |
       | sub_where_count_big5 | (apache.resp_len:69 AND tag:\"sample04061424\") AND [[tag:\"sample04061424\" \| stats count(apache.clientip) as count_ by apache.clientip,apache.method \| where count_>5 \| fields apache.clientip,apache.method ]] |
       | append_bucket_stats_mathematical | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_chart\" \| bucket timestamp span=1h as ts \| stats avg(apache.resp_len) as stats_resplen by ts \| eval time=formatdate(ts,\"HH\") \| eval line=\"avg_line\" \| append [[starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats max(apache.resp_len) as stats_resplen by ts \| eval time=formatdate(ts,\"HH\") \| eval line=\"max_line\"]] \| append [[starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats min(apache.resp_len) as stats_resplen by ts \| eval time=formatdate(ts,\"HH\") \| eval line=\"min_line\" ]] |
+      | bucket_ts_stats_sum_eval | (logtype:apache AND tag:\"sample04061424_chart\") \| bucket timestamp span=1m as ts \| stats sum(apache.resp_len) as sum_len by ts,apache.status \| eval time=formatdate(ts,\"HH:mm:ss\") |
+      | bucket_stats_eval_movingavg | starttime=\"now/d\" endtime=\"now/d+24h\"  tag:\"sample04061424_chart\"\| bucket timestamp span=1m as ts \| stats sum(apache.resp_len) as sum_resp_len by ts \| eval time=formatdate(ts,\"HH:mm:ss\") \| movingavg sum_resp_len,3 as moving_avg_resp_len |
+      | bucket_1h_stats_count | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
+      | autoregress_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=30m as ts \| stats count(appname) as count_app by ts \| eval time=formatdate(ts,\"HH:mm:ss\") \| autoregress count_app p=6 |
+      | starttime_bucket_ts_sum_eval | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_chart\" \| bucket timestamp span=1h as ts \| stats sum(apache.resp_len) as sum_len by ts \| eval time=formatdate(ts,\"HH:mm:ss\") |
+      | starttime_bucket_ts_count_eval_formatdate | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_chart\" \| bucket timestamp span=1h as ts \| stats count(apache.resp_len) as sum_len by ts \| eval time=formatdate(ts,\"HH:mm:ss\") |
+      | bucket_stats_autoregress | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_chart\" \| bucket timestamp span=1h as ts \| stats count() as count_app by ts \| eval time=formatdate(ts,\"HH:mm:ss\") \| autoregress count_app p=3 |
+      | schedule_append_bucket_count_geoisp | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=1h as ts \| stats count(apache.geo.isp) as count_ by apache.geo.isp, ts \| eval date_hour=tolong(formatdate(ts,\"HH\")) \| rename apache.geo.isp as group_line \| sort by +date_hour, +group_line \| append [[index=schedule starttime=\"-2d\" endtime=\"-d/d\" schedule_name:pip_task\|stats avg(ip_count) as count_ by date_hour\|eval group_line=\"base_line\"\|sort by +date_hour,+group_line]] |
+      | earliest_timestamp | tag:sample04061424_apachesample_dawn \| stats earliest(timestamp) as earliest_time \| eval f_earliest_time=formatdate(earliest_time,\"HH:mm:SS\") |
+      | earliest_timestamp_by_ip | tag:sample04061424_apachesample_dawn \| stats earliest(timestamp) as earliest_time by apache.clientip \| eval f_earliest_time=formatdate(earliest_time,\"HH:mm:SS\") \| sort by apache.clientip |
+      | latest_timestamp | tag:sample04061424_apachesample_dawn \| stats latest(timestamp) as latest_time \| eval f_latest_time =formatdate(latest_time) |
+      | latest_timestamp_by_ip | tag:sample04061424_apachesample_dawn \| stats latest(timestamp) as latest_time by apache.clientip \| eval f_latest_time =formatdate(latest_time) |
+      | first_timestamp | tag:sample04061424_apachesample_dawn \| stats first(timestamp) as first_time \| eval f_first_time =formatdate(first_time) |
+      | first_timestamp_by_ip | tag:sample04061424_apachesample_dawn \| stats first(timestamp) as first_time by apache.clientip \| eval f_first_time =formatdate(first_time) |
+      | last_timestamp | tag:sample04061424_apachesample_dawn \| stats last(timestamp) as last_time \| eval f_last_time =formatdate(last_time) |
+      | last_timestamp_by_ip | tag:sample04061424_apachesample_dawn \| stats last(timestamp) as last_time by apache.clientip \| eval f_last_time=formatdate(last_time) |
+      | first_bucket_count_ip | tag:sample04061424_apachesample_dawn \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts \| stats first(c_ip) |
+      | earliest_bucket_count_ip | tag:sample04061424_apachesample_dawn \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts \| stats earliest(c_ip) |
+      | bucket_stats_es | starttime=\"now/d\" endtime=\"now/d+7h\" tag:sample04061424_apachesample_dawn \| bucket timestamp span=1h as ts \| stats es(apache.status) by ts |
+      | index_task_search | index=schedule schedule_name:bar_resp_len \| bucket timestamp span=1h as ts \| stats max(max_resp_len) as max_resp_len_hour by ts |
       | bug_onetag_sort_timestamp1 | index=* starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* AND logtype:apache  \| sort by timestamp \| table tag, apache.clientip |
       | bug_onetag_sort_timestamp2 | index=* starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* AND logtype:apache  \| sort by +timestamp \| table tag, apache.clientip |
       | bug_top_limit_sort1_Mindex | index=* starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424*  \| top 10 appname \| limit 10 |
@@ -111,6 +131,7 @@ Feature: SPL other
       | timechart_format | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display \| timechart sep=\"-sep分格-\" format=\"$VAL\|分格2\|$AGG\" span=1h count() as cnt by apache.status |
       | timechart_format1 | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display \| timechart sep=\"-sep分格-\" format=\"$VAL\|分格2\|$AGG\" span=1h count() as cnt max(apache.resp_len) as ma by apache.status |
       | timechart_limit_by_one | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| timechart span=1h limit=5 count() max(apache.resp_len) by apache.status |
+      | timechart_limit_by_two | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| timechart span=1h limit=5 count() max(apache.resp_len) by apache.status, apache.method |
       | timechart_bins_sample | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424_display\" \| timechart bins=10 span=30m count() |
       | timechart_span30m_bins3 | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display \| timechart span=30m bins=3 count() max(apache.resp_len) by apache.status |
       | timechart_minspan2h_bins40 | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display \| timechart minspan=2h bins=40 count() |
@@ -139,3 +160,46 @@ Feature: SPL other
       | timechart_span12h_timewrap_1d | starttime=\"now-7d\" endtime=\"now/d+24h\" tag:sample04061424_display \| timechart span=12h count() as cnt  \| timewrap 1d |
       | timechart_span1h_timewrap_1d | starttime=\"now-3d\" endtime=\"now/d+24h\" tag:sample04061424_display \| timechart span=1h count() as cnt \| timewrap 1d |
       | timechart_span1h_timewrap_3d | starttime=\"now-7d\" endtime=\"now/d+24h\" tag:sample04061424_display \| timechart span=1h count() as cnt max(apache.resp_len) as max_len by apache.status \| timewrap 3d |
+      | 防火墙_hillstone事件趋势图 | starttime=\"-1d/d\" endtime=\"now/d\" * appname:firewall tag:hillstone\|bucket timestamp span=30m as ts \| stats count() as total by ts |
+      | 防火墙_hillstone不同模块日志数量 | starttime=\"-1d/d\" endtime=\"now/d\" * appname:firewall tag:hillstone\| stats count() as total by firewall.module \| rename firewall.module as \"模块\",total as\"数量\" |
+      | 防火墙_hillstone不同级别日志数量 | starttime=\"-1d/d\" endtime=\"now/d\" * appname:firewall tag:hillstone\| stats count() as total by firewall.level \| rename firewall.level as \"级别\",total as\"数量\" |
+      | 策略拒绝事件趋势图 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone AND policy\ deny \|bucket timestamp span=5m as ts \| stats count() as total by ts |
+      | 拒绝策略事件占比 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone AND policy\ deny \| stats count() as total by firewall.flow.policy\| rename total as \"事件数量\",firewall.flow.policy as \"拒绝策略\" |
+      | 被策略拒绝源IP TOP10 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone AND policy\ deny \|top 10 firewall.flow.src_ip \|rename firewall.flow.src_ip as \"被策略拒绝源IP\" |
+      | 策略拒绝连接协议占比 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone AND policy\ deny \|stats count() as total by firewall.flow.proto \| rename total as \"事件数量\",firewall.flow.proto as \"协议\" |
+      | 策略拒绝连接接口占比 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone AND policy\ deny \|stats count() as total by firewall.flow.interface \| rename total as \"事件数量\",firewall.flow.interface as \"接口\" |
+      | 策略拒绝访问目的城市TOP10 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone AND policy\ deny \|top 10 firewall.flow.geo.city \|rename firewall.flow.geo.city as \"目的城市\" |
+      | 策略拒绝主要源IP的引力图 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone AND policy\ deny \|stats count() as total by firewall.flow.src_ip,firewall.flow.dest_ip \| limit 50 |
+      | 连接关闭原因分析 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone session end \|stats count() as total by firewall.flow.reason |
+      | 连接接收字节数趋势 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone session end \| bucket timestamp span=30m as ts \|eval rcv_=tolong(firewall.flow.rcvbyte) \|stats sum(rcv_) as rcvbyte by hostname,ts  \| rename rcvbyte as \"接收字节数\" |
+      | 连接发送字节数趋势 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone session end \| bucket timestamp span=30m as ts \|eval sbyte_=tolong(firewall.flow.sbyte) \|stats sum(sbyte_) as sendbyte by hostname,ts  \| rename sendbyte as \"发送字节数\" |
+      | 连接应用事件数量TOP10 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone session end \|stats count() as total by firewall.flow.application \|limit 10 \|rename firewall.flow.application as \"应用\",total as \"事件数量\" |
+      | 连接协议分析 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone session end \|stats count() as total by firewall.flow.proto |
+      | 放行策略命中数排名 | starttime=\"-1d/d\" endtime=\"now/d\" tag:hillstone session end \|stats count() as total by firewall.flow.policy |
+      | 连接目的城市分布 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone session end) AND tag:hillstone \|stats count() as total by firewall.flow.geo.city |
+      | 转换目的地址对比 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone NAT) AND tag:hillstone \|stats count() by firewall.flow.snat_ip |
+      | NAT连接城市词云图 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone session end) AND tag:hillstone\|stats count() as total by firewall.flow.geo.city |
+      | NAT协议统计 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone NAT) AND tag:hillstone \|stats count() as total by firewall.flow.proto |
+      | NAT规则命中数 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone NAT) AND tag:hillstone \|stats count() as total by firewall.flow.rule |
+      | 事件数最多应用接收字节趋势图 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone session end) AND tag:hillstone \|eval rcv_=tolong(firewall.flow.rcvbyte) \| stats sparkline(sum(rcv_),30m) as rcv_byte_trend,count() as count_ by firewall.flow.application \|rename firewall.flow.application as \"应用\",rcv_byte_trend as \"接收字节趋势\",count_ as \"事件数量\"\|limit 10 |
+      | 接收字节最多应用事件趋势图 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone session end) AND tag:hillstone \|eval rcv_=tolong(firewall.flow.rcvbyte) \| stats sparkline(count(),30m) as count_,sum(rcv_) as rcvbyte by firewall.flow.application \|sort by rcvbyte  \|rename firewall.flow.application as \"应用\",rcvbyte as \"接收字节\",count_ as \"事件数量\"\| limit 10 |
+      | AAA认证模块 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone AAA 结果) AND tag:hillstone \|parse field=firewall.flow \"回复(?<AAA_module>\w+)模块\S+(?<AAA_user>\S+)认证请求，结果：(?<AAA_result>.*)\" \|stats count() by AAA_module |
+      | AAA认证结果 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone AAA 结果) AND tag:hillstone \|parse field=firewall.flow \"回复(?<AAA_module>\w+)模块\S+(?<AAA_user>\S+)认证请求，结果：(?<AAA_result>.*)\" \|stats count() as total by AAA_result\|rename AAA_result as \"认证结果\",total as  \"事件数量\" |
+      | AAA认证失败日志列表 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone AAA 结果 失败) AND tag:hillstone \|parse field=firewall.flow \"回复(?<AAA_module>\w+)模块\S+(?<AAA_user>\S+)认证请求，结果：(?<AAA_result>.*)\" \|table AAA_module,AAA_user,AAA_result |
+      | 过去一天添加用户组数量 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone AAA 添加用户组) AND tag:hillstone \|stats count() as total |
+      | 最近一天VPN登录地点次数列表 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone VPN 登录) AND tag:hillstone \|stats count() as count_ by firewall.flow.clientip.geo.province,firewall.flow.clientip.geo.city\|rename firewall.flow.clientip.geo.province as \"省份\", firewall.flow.clientip.geo.city as \"城市\",count_ as \"登录次数\" |
+      | IPS威胁类型 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|stats count() as total by 'firewall.flow.kvs.威胁类型' |
+      | IPS攻击应用 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|stats count() as total by 'firewall.flow.kvs.应用/协议' |
+      | IPS攻击子类型 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|stats count() as total by 'firewall.flow.kvs.威胁子类型' |
+      | IPS威胁策略命中数 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|stats count() as total by 'firewall.flow.kvs.策略号' |
+      | IPS攻击变化趋势 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|bucket timestamp span=30m as ts \| stats count() as count_ by  ts |
+      | 源IP事件数排名 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \| top 10 firewall.flow.attack_ip |
+      | 攻击事件来源端口 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|stats count() as total by firewall.flow.attack_interface |
+      | 攻击事件目的端口 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|stats count() as total by firewall.flow.victim_interface |
+      | 威胁TOP10 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|stats count() as total by 'firewall.flow.kvs.威胁名称' \| limit 10 |
+      | 不同攻击的变化趋势 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|bucket timestamp span=30m as ts \| stats count() as count_ by ts,'firewall.flow.kvs.威胁子类型' |
+      | 不同级别攻击趋势图 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone \|bucket timestamp span=30m as ts \| stats count() as count_ by ts,'firewall.flow.kvs.威胁级别' |
+      | 被攻击最多国家攻击趋势图 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone IPS) AND tag:hillstone [[(* IPS) AND tag:hillstone\|top 10 firewall.flow.victim_ip.geo.country\| fields firewall.flow.victim_ip.geo.country]] \|bucket timestamp span=30m as ts \| stats count() by ts, firewall.flow.victim_ip.geo.country |
+      | VPN登录趋势图 | starttime=\"-1d/d\" endtime=\"now/d\" (tag:hillstone VPN 登录) AND tag:hillstone \|bucket timestamp span=30m as ts \|stats count() as total by ts |
+      | TOP10源IP攻击情况 | starttime=\"-1d/d\" endtime=\"now/d\" appname:firewall AND tag:hillstone IPS [[appname:firewall AND tag:hillstone IPS \| top 10 firewall.flow.attack_ip\| fields firewall.flow.attack_ip]] \|stats count() as total by firewall.flow.attack_ip,firewall.flow.victim_ip.geo.ip |
+      | 日志不同优先级分析 | starttime=\"-1d/d\" endtime=\"now/d\" appname:firewall AND tag:hillstone \|stats count() as total by firewall.severity |
