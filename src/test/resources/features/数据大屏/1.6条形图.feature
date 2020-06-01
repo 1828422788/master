@@ -1,4 +1,4 @@
-@1.6  @galaxeeChart1 @galaxee @galaxee0
+@1.6  @galaxee @galaxee0
 Feature: 数据大屏-f条形图
 
 #  Background:

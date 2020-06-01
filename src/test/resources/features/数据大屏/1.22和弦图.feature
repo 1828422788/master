@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee @galaxee1  @1.22
+ @galaxee @galaxee1  @1.22
 Feature: 数据大屏-c和弦图
 
 #  Background:

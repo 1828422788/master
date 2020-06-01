@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee @galaxee0  @1.15
+@galaxee @galaxee0  @1.15
 Feature: 数据大屏-o玫瑰图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

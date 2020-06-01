@@ -1,4 +1,4 @@
-@galaxeeOther @galaxee  @galaxee2  @6.3
+ @galaxee  @galaxee2  @6.3
 Feature: 数据大屏-n单张图片
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

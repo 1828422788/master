@@ -1,4 +1,4 @@
-@1.10 @galaxeeChart1 @galaxee @galaxee0
+@1.10  @galaxee @galaxee0
 Feature: 数据大屏-g水平胶囊
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

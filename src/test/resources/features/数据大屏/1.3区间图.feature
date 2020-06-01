@@ -1,4 +1,4 @@
-@1.3  @galaxeeChart1 @galaxee @galaxee2
+@1.3   @galaxee @galaxee2
 Feature: 数据大屏-c区间图
 
 #  Background:

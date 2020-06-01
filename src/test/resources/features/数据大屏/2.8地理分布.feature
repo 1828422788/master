@@ -1,4 +1,4 @@
-@galaxeeMap @galaxee  @galaxee1   @2.8
+ @galaxee  @galaxee1   @2.8
 Feature: 数据大屏-p地理分布
 
 #  Background:

@@ -1,4 +1,4 @@
-@1.1   @galaxeeChart1 @galaxee  @galaxee2
+@1.1   @galaxee  @galaxee2
 Feature: 数据大屏-a折线图
 
 #  Background:

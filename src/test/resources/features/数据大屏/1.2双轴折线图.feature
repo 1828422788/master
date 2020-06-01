@@ -1,4 +1,4 @@
-@1.2 @galaxeeChart1 @galaxee @galaxee2
+@1.2  @galaxee @galaxee2
 Feature: 数据大屏-b双轴折线图
 
 #  Background:

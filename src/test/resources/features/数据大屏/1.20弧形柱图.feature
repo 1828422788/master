@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee @galaxee1   @1.20
+ @galaxee @galaxee1   @1.20
 Feature: 数据大屏-a弧形柱图
 
 #  Background:

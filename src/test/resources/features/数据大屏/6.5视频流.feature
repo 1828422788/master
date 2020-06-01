@@ -1,4 +1,4 @@
-@galaxeeOther @galaxee @galaxee2  @6.5
+@galaxee @galaxee2  @6.5
 Feature: 数据大屏-p视频流
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

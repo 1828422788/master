@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee @galaxee0  @1.14
+@galaxee @galaxee0  @1.14
 Feature: 数据大屏-n饼图
 
 #  Background:

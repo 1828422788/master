@@ -1,4 +1,4 @@
-@galaxeeOther @galaxee  @galaxee2  @6.2
+@galaxee  @galaxee2  @6.2
 Feature: 数据大屏-m边框
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

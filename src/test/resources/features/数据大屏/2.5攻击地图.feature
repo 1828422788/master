@@ -1,4 +1,4 @@
-@galaxeeMap @galaxee @galaxee1   @2.5
+ @galaxee @galaxee1   @2.5
 Feature: 数据大屏-m攻击地图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

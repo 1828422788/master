@@ -1,4 +1,4 @@
-@1.4  @galaxeeChart1 @galaxee @galaxee0
+@1.4   @galaxee @galaxee0
 Feature: 数据大屏-d散点图
 
 #  Background:

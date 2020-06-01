@@ -1,4 +1,4 @@
-@galaxeeMap @galaxee  @galaxee1   @2.2
+@galaxee  @galaxee1   @2.2
 Feature: 数据大屏-j热力地图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page

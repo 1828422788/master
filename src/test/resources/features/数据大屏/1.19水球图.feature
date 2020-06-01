@@ -1,4 +1,4 @@
-@galaxeeChart2 @galaxee @galaxee0  @1.19
+@galaxee @galaxee0  @1.19
 Feature: 数据大屏-s水球图
 
 #  Background:

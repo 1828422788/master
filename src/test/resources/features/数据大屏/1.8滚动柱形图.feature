@@ -1,4 +1,4 @@
-@1.8  @galaxeeChart1 @galaxee @galaxee0
+@1.8   @galaxee @galaxee0
 Feature: 数据大屏-h滚动柱形图
 
 #  Background:
