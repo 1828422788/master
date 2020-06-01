@@ -1,4 +1,4 @@
-@galaxeeLast   @1.25  @galaxee1
+@galaxeeLast   @1.25  #@galaxee1
 Feature: 数据大屏-f桑基图
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
