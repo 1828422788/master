@@ -57,7 +57,8 @@ Feature: 仪表盘力图
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "<name>"
-    And I "checked" the checkbox which name is "<name>"
+    And I wait for "SpinDot" will be invisible
+    And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
 
     Examples:
