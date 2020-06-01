@@ -58,8 +58,14 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
-    #When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    When I set the parameter "SearchInput" with value "starttime=\"now/M\" endtime=\"now\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "CustomTimeTab" button
+    And I set the parameter "StartDateField" with value "2020-05-01"
+    And I set the parameter "EndDateField" with value "2020-05-03"
+    And I click the "StartTimeField" button
+    And I click the "ApplyCustomTime" button
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -130,8 +136,8 @@ Feature: 日志展现_普通统计视图
       | apache.geo.latitude  |0       | 22.5   | 22.5    | 32.05  |32.05   | 39.90| 3137_数值分段_实数 |
 
 
-  Scenario Outline: timehistogram(RZY-815,2725)
-    When I set the parameter "SearchInput" with value "<period> tag:sample04061424_display"
+  Scenario Outline: timehistogram(RZY-815)
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -149,13 +155,41 @@ Feature: 日志展现_普通统计视图
     Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
 
     Examples:
-      | period                                    | timeSpan | time   | caseNum              |
-      | starttime=\"now/d-24h\" endtime=\"now/d\" | 1        |        | 815_时间直方图/815_1h     |
-      | starttime=\"now/d-24h\" endtime=\"now/d\" | 3600     | 秒     | 815_时间直方图/815_3600s  |
-      | starttime=\"now/d-24h\" endtime=\"now/d\" | 60       | 分钟   | 815_时间直方图/815_60m    |
-      #lastMonth
-      | starttime=\"-1M/M\" endtime=\"now/M\"     | 7        | 天     | 2725_时间直方图/2725_7d    |
-      | starttime=\"-1M/M\" endtime=\"now/M\"     | 1        | 周     | 2725_时间直方图/2725_1w    |
+      | timeSpan | time   | caseNum              |
+      | 1        |        | 815_时间直方图/815_1h     |
+      | 3600     | 秒     | 815_时间直方图/815_3600s  |
+      | 60       | 分钟   | 815_时间直方图/815_60m    |
+
+  Scenario Outline: timehistogram(RZY-2725)
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "CustomTimeTab" button
+    And I set the parameter "StartDateField" with value "2020-05-01"
+    And I set the parameter "EndDateField" with value "2020-05-31"
+    And I click the "StartTimeField" button
+    And I click the "ApplyCustomTime" button
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    Given I click the "TimeHistogram" button
+    And I wait for "1000" millsecond
+    When I set the parameter "TimeSpan" with value "<timeSpan>"
+    And I choose the "<time>" from the "Time" in config
+    And I click the "Generate" button
+    And I wait for "4000" millsecond
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/<caseNum>"
+    Then I compare source image "actual/普通统计视图/<caseNum>" with target image "expect/普通统计视图/<caseNum>"
+
+    Examples:
+      | timeSpan | time   | caseNum              |
+      | 7        | 天     | 2725_时间直方图/2725_7d    |
+      | 1        | 周     | 2725_时间直方图/2725_1w    |
+
 
 
   Scenario Outline: datehistogram(RZY-816)
@@ -208,7 +242,7 @@ Feature: 日志展现_普通统计视图
       | apache.clientip  |    条形图    |  50   | 817_条形图    |
 
 
-  Scenario Outline: fieldnumber(RZY-2727)
+  Scenario Outline: fieldnumber1(RZY-2727)
     When I set the parameter "SearchInput" with value "<period> tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -236,8 +270,40 @@ Feature: 日志展现_普通统计视图
       |starttime=\"now/d-24h\" endtime=\"now/d\"  |apache.resp_len    |  apache.clientip |  平均值   |  面积图   |   60    |  分钟 |
       |starttime=\"now/d-24h\" endtime=\"now/d\"  |apache.resp_len    |  apache.clientip |  最大值   |  散点图   |   60    |  分钟 |
       |starttime=\"now/d-24h\" endtime=\"now/d\"  |apache.resp_len    |  apache.clientip |  最小值   |  柱状图   |  3600   |  秒   |
-      |starttime=\"-1M/M\" endtime=\"now/M\"      |apache.status      |  apache.clientip |  总计     |  曲线图   |   7     | 天   |
-      |starttime=\"-1M/M\" endtime=\"now/M\"      |apache.status      |  apache.clientip |  平均值   |  面积图   |   1     |  周  |
+
+  Scenario Outline: fieldnumber2(RZY-2727)
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "CustomTimeTab" button
+    And I set the parameter "StartDateField" with value "2020-05-01"
+    And I set the parameter "EndDateField" with value "2020-05-31"
+    And I click the "StartTimeField" button
+    And I click the "ApplyCustomTime" button
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "FieldNumber" button
+    And I wait for "1000" millsecond
+    And I choose the "<yFieldValue>" from the "YAxis" in config
+    And I choose the "<groupBy>" from the "GroupField" in config
+    Then I choose the "<statType>" from the "StatisticType" in config
+    And I choose the "<chart>" from the "PresentType" in config
+    When I set the parameter "TimeSpan" with value "<timeSpan>"
+    And I choose the "<time>" from the "Time" in config
+    And I click the "Generate" button
+    And I wait for "4000" millsecond
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+    Then I compare source image "actual/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>" with target image "expect/普通统计视图/2727_字段数值/2727_<statType>_<chart>_<timeSpan><time>"
+
+    Examples:
+      | yFieldValue       |  groupBy         | statType  | chart   | timeSpan| time |
+      |apache.status      |  apache.clientip |  总计     |  曲线图   |   7     | 天   |
+      |apache.status      |  apache.clientip |  平均值   |  面积图   |   1     |  周  |
 
 
   Scenario Outline: totalpercent(RZY-819,2730)
