@@ -716,6 +716,7 @@ Feature: 权限-仪表盘
   Scenario: 给用户授权所有权限
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "测试二次授权" then i click the "授权" button
+    And I wait for loading invisible
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     And I wait for "Message" will be visible

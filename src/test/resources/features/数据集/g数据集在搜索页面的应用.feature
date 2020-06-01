@@ -4,10 +4,10 @@ Feature: 数据集-g在搜索页
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    #And I wait element "SearchStatus" change text to "搜索完成!"
 
 
-  Scenario: 父子行为无
+
+  Scenario: RZY-4085:父子行为-无
     And I click the "fatherChildNull" button
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
@@ -24,7 +24,7 @@ Feature: 数据集-g在搜索页
 
 
 
-  Scenario: 父子行为汇聚
+  Scenario: RZY-4083:父子行为-汇聚
     When I click the "huiJu" button
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button
@@ -41,7 +41,7 @@ Feature: 数据集-g在搜索页
 
 
 
-  Scenario: 父子行为为：继承
+  Scenario: RZY-4084:父子行为-继承
     When I click the "jiCheng" button
     And I click the "DateEditor" button
     And I click the "RecentSevenDay" button

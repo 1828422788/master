@@ -155,7 +155,7 @@ public class SharedDriver extends EventFiringWebDriver {
             String downloadFilepath = config.get("ftp_base_path") + "\\" + "target" + "\\" + "download-files";
             ChromeOptions options = new ChromeOptions();
             System.out.println("测试系统：" + System.getProperty("os.name"));
-            options.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
+            options.setBinary("C:\\Users\\rizhiyi\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe");
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
             // 设置为禁止弹出下载窗口
             chromePrefs.put("profile.default_content_settings.popups", 0);

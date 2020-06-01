@@ -1,7 +1,7 @@
 @dataset
 Feature: 数据集-e对节点的操作
 
-    Scenario: 新建一个数据集修改【数据集中根有一个子节点】
+    Scenario: RZY-4493:新建一个数据集修改【数据集中根有一个子节点】
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
     And I set the parameter "Name" with value "node_op_jnd"
@@ -20,7 +20,7 @@ Feature: 数据集-e对节点的操作
     And I wait for loading invisible
 
 
-  Scenario: 修改节点名称
+  Scenario: RZY-4119:修改节点名称
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "node_op_jnd" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
@@ -35,7 +35,7 @@ Feature: 数据集-e对节点的操作
 
 
   @dataset
-  Scenario: 修改节点的约束语句
+  Scenario: RZY-4494:修改节点的约束语句
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "node_op_jnd" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
@@ -53,7 +53,7 @@ Feature: 数据集-e对节点的操作
 
 
   @dataset @Override
-  Scenario: 删除节点
+  Scenario: RZY-4495:删除节点
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "node_op_jnd" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page

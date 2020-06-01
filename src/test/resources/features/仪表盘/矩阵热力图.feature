@@ -57,7 +57,7 @@ Feature: 仪表盘矩阵热力图
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "<name>"
-    And I "checked" the checkbox which name is "仪表盘矩阵热力图"
+    And I click the "{'Checkbox':'仪表盘矩阵热力图'}" button
     And I click the "Ensure" button
 
   @dashboard

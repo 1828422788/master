@@ -230,4 +230,4 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  color   |  spl   |
-      |      Sun      | DarkBlue |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
+      |      Sun      | DarkBlue |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.province:贵州 AND NOT apache.status:304 AND NOT apache.status:499 \| stats count() by apache.status,apache.geo.province, apache.geo.city|

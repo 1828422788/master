@@ -71,7 +71,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='数据']")
     private WebElement data;
 
-    @FindBy(xpath = "(//span[contains(text(),'搜索')][not(@class)])[last()]")
+   // @FindBy(xpath = "(//span[contains(text(),'搜索')][not(@class)])[last()]")
+   @FindBy(xpath = "//button[@class='el-button yw-searchbar__append el-button--default']/span[contains(text(),'搜索')]")
     private WebElement search;
 
     @FindBy(xpath = "(//span[contains(text(),'更新')][not(@class)])[last()]")

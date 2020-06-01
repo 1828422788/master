@@ -497,6 +497,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//input[@class='ant-input']")
     private WebElement searchChartInput;
 
+    public WebElement getCheckbox(String name) {
+        return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::label"));
+    }
+
     public WebElement getSearchChartInput() {
         return searchChartInput;
     }
