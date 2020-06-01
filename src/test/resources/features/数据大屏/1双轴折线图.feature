@@ -186,7 +186,7 @@ Feature: 数据大屏-b双轴折线图
 
    #分组
     And I click the "AddGroup" button
-    And I choose the "appname" from the "Group"
+    And I choose the "apache.status" from the "Group"
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
