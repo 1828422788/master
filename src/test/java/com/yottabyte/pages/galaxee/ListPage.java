@@ -50,4 +50,18 @@ private WebElement ensure;
 public WebElement getEnsure(){return ensure;}
 
 
+    @FindBy(xpath = "//div[@class='el-input']/input[@class='el-input__inner']")
+    private WebElement searchInput;
+    public WebElement getSearchInput(){return searchInput;}
+
+    @FindBy(xpath = "//div[@class='big-v-search']/i[@class='iconfont icon-search']")
+    private WebElement searchName;
+    public WebElement getSearchName(){return searchName;}
+
+
+
+
+
+
+
 }
