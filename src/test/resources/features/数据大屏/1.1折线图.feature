@@ -103,7 +103,7 @@ Feature: 数据大屏-a折线图
 
 
     And I choose the "ts" from the "Xaxis"
-#    And I wait for "Yaxis" will be visible
+    And I wait for "1000" millsecond
     And I choose the "count()" from the "Yaxis"
 
     And I wait for "Save" will be visible
@@ -174,7 +174,7 @@ Feature: 数据大屏-a折线图
     And I wait for "tipsText" will be invisible
 
     And I choose the "ts" from the "Xaxis"
-#    And I wait for "Yaxis" will be visible
+    And I wait for "1000" millsecond
     And I choose the "count()" from the "Yaxis"
 
     And I click the "AddGroup" button
@@ -249,7 +249,7 @@ Feature: 数据大屏-a折线图
     And I click the "Data" button
 
     And I choose the "ts" from the "Xaxis"
-#    And I wait for "Yaxis" will be visible
+    And I wait for "1000" millsecond
     And I choose the "count()" from the "Yaxis"
       #保存
     And I wait for "Save" will be visible
