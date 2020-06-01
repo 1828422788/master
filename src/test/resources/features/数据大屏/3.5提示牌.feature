@@ -61,21 +61,21 @@ Feature: 数据大屏-e揭示牌
       Then I will see the success message "保存成功"
 
 
-    Scenario Outline: 揭示牌数据之搜索发布并截图
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-      And switch to window "<name>"
-      And I close all tabs except main tab
-      And I wait for loading invisible
-      Then take a screenshot with name "galaxee/<name>"
-      #删除
-      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-      Then I click the "Ensure" button
-
-      Examples:
-        |name            |
-        |揭示牌样式搜索   |
+#    Scenario Outline: 揭示牌数据之搜索发布并截图
+#      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#      And switch to window "<name>"
+#      And I close all tabs except main tab
+#      And I wait for loading invisible
+#      Then take a screenshot with name "galaxee/<name>"
+#      #删除
+#      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#      Then I click the "Ensure" button
+#
+#      Examples:
+#        |name            |
+#        |揭示牌样式搜索   |
 
 
 
@@ -126,22 +126,22 @@ Feature: 数据大屏-e揭示牌
       Then I will see the success message "保存成功"
 
 
-    Scenario Outline: 揭示牌数据之静态数据发布并截图
-
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-      And switch to window "<name>"
-      And I close all tabs except main tab
-      And I wait for loading invisible
-      Then take a screenshot with name "galaxee/<name>"
-      #删除
-      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-      Then I click the "Ensure" button
-
-      Examples:
-        |name            |
-        |揭示牌数据之静态数据   |
+#    Scenario Outline: 揭示牌数据之静态数据发布并截图
+#
+#      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#      And switch to window "<name>"
+#      And I close all tabs except main tab
+#      And I wait for loading invisible
+#      Then take a screenshot with name "galaxee/<name>"
+#      #删除
+#      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#      Then I click the "Ensure" button
+#
+#      Examples:
+#        |name            |
+#        |揭示牌数据之静态数据   |
 
 ######################################无耻的分割线################################
 
@@ -200,22 +200,22 @@ Feature: 数据大屏-e揭示牌
       And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
 
-    Scenario Outline: 揭示牌数据之绑定搜索发布并截图
-
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-      And switch to window "<name>"
-      And I close all tabs except main tab
-      And I wait for loading invisible
-      Then take a screenshot with name "galaxee/<name>"
-      #删除
-      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-      Then I click the "Ensure" button
-
-      Examples:
-        |name              |
-        |揭示牌数据之绑定搜索 |
+#    Scenario Outline: 揭示牌数据之绑定搜索发布并截图
+#
+#      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#      And switch to window "<name>"
+#      And I close all tabs except main tab
+#      And I wait for loading invisible
+#      Then take a screenshot with name "galaxee/<name>"
+#      #删除
+#      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#      Then I click the "Ensure" button
+#
+#      Examples:
+#        |name              |
+#        |揭示牌数据之绑定搜索 |
 
 
 

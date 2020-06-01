@@ -51,22 +51,22 @@ Feature: 数据大屏-h标题
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-  Scenario Outline: 发布页截图
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      | name |
-      | 标题   |
+#  Scenario Outline: 发布页截图
+#    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for "Loading" will be invisible
+#    And I wait for "1000" millsecond
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      | name |
+#      | 标题   |
 
 
 

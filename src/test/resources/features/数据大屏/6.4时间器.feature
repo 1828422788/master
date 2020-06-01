@@ -24,21 +24,21 @@ Feature: 数据大屏-o时间器
 
 
 
-  Scenario Outline: 时间器默认设置默认设置发布并截图
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name            |
-      |时间器默认设置    |
+#  Scenario Outline: 时间器默认设置默认设置发布并截图
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name            |
+#      |时间器默认设置    |
 
 ######################################无耻的分割线################################
 
@@ -93,22 +93,22 @@ Feature: 数据大屏-o时间器
 
 
 
-  Scenario Outline: 时间器样式发布并截图
-
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name            |
-      |时间器样式   |
+#  Scenario Outline: 时间器样式发布并截图
+#
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name            |
+#      |时间器样式   |
 
 ######################################无耻的分割线################################
 
@@ -150,23 +150,23 @@ Feature: 数据大屏-o时间器
     Then I will see the success message "保存成功"
 
 
-
-  Scenario Outline: 时间器样式2发布并截图
-
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name            |
-      |时间器样式2   |
+#
+#  Scenario Outline: 时间器样式2发布并截图
+#
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name            |
+#      |时间器样式2   |
 
     ######################################无耻的分割线################################
 
@@ -209,23 +209,23 @@ Feature: 数据大屏-o时间器
     Then I will see the success message "保存成功"
 
 
-
-  Scenario Outline: 时间器样式3发布并截图
-
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name            |
-      |时间器样式3   |
+#
+#  Scenario Outline: 时间器样式3发布并截图
+#
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name            |
+#      |时间器样式3   |
 
 
 

@@ -24,21 +24,21 @@
 
 
 
-    Scenario Outline: 齿轮组合默认设置发布并截图
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-      And switch to window "<name>"
-      And I close all tabs except main tab
-      And I wait for loading invisible
-      Then take a screenshot with name "galaxee/<name>"
-      #删除
-      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-      Then I click the "Ensure" button
-
-      Examples:
-        |name            |
-        |齿轮组合默认设置    |
+#    Scenario Outline: 齿轮组合默认设置发布并截图
+#      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#      And switch to window "<name>"
+#      And I close all tabs except main tab
+#      And I wait for loading invisible
+#      Then take a screenshot with name "galaxee/<name>"
+#      #删除
+#      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#      Then I click the "Ensure" button
+#
+#      Examples:
+#        |name            |
+#        |齿轮组合默认设置    |
 
 ######################################无耻的分割线################################
 
@@ -94,23 +94,23 @@
       And I click the "Save" button
       And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
-
-    Scenario Outline: 齿轮组合样式发布并截图
-
-      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-      And switch to window "<name>"
-      And I close all tabs except main tab
-      And I wait for loading invisible
-      Then take a screenshot with name "galaxee/<name>"
-      #删除
-      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-      Then I click the "Ensure" button
-
-      Examples:
-        |name           |
-        |齿轮组合样式      |
+#
+#    Scenario Outline: 齿轮组合样式发布并截图
+#
+#      And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#      And switch to window "<name>"
+#      And I close all tabs except main tab
+#      And I wait for loading invisible
+#      Then take a screenshot with name "galaxee/<name>"
+#      #删除
+#      Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#      When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#      Then I click the "Ensure" button
+#
+#      Examples:
+#        |name           |
+#        |齿轮组合样式      |
 
 
 

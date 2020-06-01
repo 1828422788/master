@@ -41,20 +41,20 @@ Feature: 数据大屏-n单张图片
 
 
 
-  Scenario Outline: 单张图片发布并截图
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name  |
-      | 单张图片|
-
-
+#  Scenario Outline: 单张图片发布并截图
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name  |
+#      | 单张图片|
+#
+#

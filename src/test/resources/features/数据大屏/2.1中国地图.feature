@@ -78,21 +78,21 @@ Feature: 数据大屏-i中国地图
     Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 中国地图-样式搜索发布并截图
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name            |
-      |中国地图-样式搜索   |
+#  Scenario Outline: 中国地图-样式搜索发布并截图
+#    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name            |
+#      |中国地图-样式搜索   |
 
 #####################################无耻的分割线################################
 
@@ -135,22 +135,22 @@ Feature: 数据大屏-i中国地图
     Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 中国地图四川-静态数据发布页截图
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      | name |
-      | 中国地图四川-静态数据 |
+#  Scenario Outline: 中国地图四川-静态数据发布页截图
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for "Loading" will be invisible
+#    And I wait for "1000" millsecond
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      | name |
+#      | 中国地图四川-静态数据 |
 
 ######################################无耻的分割线################################
 
@@ -203,20 +203,20 @@ Feature: 数据大屏-i中国地图
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-
-  Scenario Outline: 中国地图四川-绑定搜索发布并截图
-    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name              |
-      |中国地图四川-绑定搜索|
+#
+#  Scenario Outline: 中国地图四川-绑定搜索发布并截图
+#    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name              |
+#      |中国地图四川-绑定搜索|
 

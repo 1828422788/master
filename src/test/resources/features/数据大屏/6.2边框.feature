@@ -24,21 +24,21 @@ Feature: 数据大屏-m边框
     Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 边框默认设置样式1发布并截图
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name            |
-      | 边框默认设置样式1 |
+#  Scenario Outline: 边框默认设置样式1发布并截图
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name            |
+#      | 边框默认设置样式1 |
 
 
  ######################################无耻的分割线################################
@@ -79,21 +79,21 @@ Feature: 数据大屏-m边框
     Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 边框样式2发布并截图
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name            |
-      | 边框样式2 |
+#  Scenario Outline: 边框样式2发布并截图
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name            |
+#      | 边框样式2 |
 
 ######################################无耻的分割线################################
 
@@ -123,19 +123,19 @@ Feature: 数据大屏-m边框
     Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 边框样式3发布并截图
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name      |
-      | 边框样式3 |
+#  Scenario Outline: 边框样式3发布并截图
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name      |
+#      | 边框样式3 |
 

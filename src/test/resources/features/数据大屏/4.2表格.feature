@@ -101,24 +101,24 @@ Feature: 数据大屏-i表格
     Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 发布页截图
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      | name |
-      | 表格   |
+#  Scenario Outline: 发布页截图
+##    Given I will see the "PublicNavBarPage" page
+##    And I wait for "Dashboard" will be visible
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for "Loading" will be invisible
+#    And I wait for "1000" millsecond
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      | name |
+#      | 表格   |
 
 ######################################无耻的分割线################################
 
@@ -155,23 +155,23 @@ Feature: 数据大屏-i表格
     Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 表格数据之静态数据发布并截图
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name              |
-      |表格数据之静态数据  |
+#  Scenario Outline: 表格数据之静态数据发布并截图
+##      Given I will see the "PublicNavBarPage" page
+##      And I wait for "Dashboard" will be visible
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name              |
+#      |表格数据之静态数据  |
 
  ######################################无耻的分割线################################
 
@@ -224,21 +224,21 @@ Feature: 数据大屏-i表格
     Then I will see the success message "保存成功"
 
 
-  Scenario Outline: 表格数据之绑定搜索发布并截图
-#      Given I will see the "PublicNavBarPage" page
-#      And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for loading invisible
-    Then take a screenshot with name "galaxee/<name>"
-    #删除
-    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
-
-    Examples:
-      |name             |
-      |表格数据之绑定搜索 |
+#  Scenario Outline: 表格数据之绑定搜索发布并截图
+##      Given I will see the "PublicNavBarPage" page
+##      And I wait for "Dashboard" will be visible
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
+#    And switch to window "<name>"
+#    And I close all tabs except main tab
+#    And I wait for loading invisible
+#    Then take a screenshot with name "galaxee/<name>"
+#    #删除
+#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
+#
+#    Examples:
+#      |name             |
+#      |表格数据之绑定搜索 |
 
