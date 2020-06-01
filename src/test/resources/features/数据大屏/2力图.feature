@@ -1,4 +1,4 @@
-@galaxeeLast     @1.24   #@galaxee1
+@galaxeeLast     @1.24   @galaxee
 Feature: 数据大屏-e力图
 
 
