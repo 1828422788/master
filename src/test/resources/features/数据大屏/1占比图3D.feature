@@ -182,7 +182,6 @@ Feature: 数据大屏-r占比图3D
     And I set the parameter "updateFrequency" with value "0.1"
            #选择占比图3D
     And I click the "Chart" button
-
     And I wait for "percent3dChart" will be visible
     And I click the "percent3dChart" button
     And I click the "Style" button
