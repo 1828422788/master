@@ -1413,7 +1413,7 @@ public class SearchPage extends ListPageFactory {
         return apply;
     }
 
-    //author_jnd
+//author_jnd about dataset
 
     //数据集父子行为是无的根节点的子节点
     @FindBy(xpath = "//span[text()='无1']")
@@ -1437,6 +1437,19 @@ public class SearchPage extends ListPageFactory {
     public WebElement getHuiJu() {
         return huiJu;
     }
+
+    //有字段的数据集
+    @FindBy(xpath = "//span[text()='hrfield']")
+    private WebElement hrField;
+   public WebElement getHrField(){return hrField;}
+   //验证字段列表
+    @FindBy(xpath = "//span[text()='#']/following-sibling::span")
+    private WebElement fieldOne;
+    public WebElement getFieldOne(){return fieldOne;}
+
+    @FindBy(xpath = "//span[text()='a']/following-sibling::span")
+    private WebElement fieldTwo;
+    public WebElement getFieldTwo(){return fieldTwo;}
 
     //数据集的展开按钮
     @FindBy(xpath = "//a[text()='展开']")
@@ -1545,5 +1558,7 @@ public class SearchPage extends ListPageFactory {
     public WebElement getSplEventRetNum() {
         return splEventRetNum;
     }
+
+
 
 }
