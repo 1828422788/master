@@ -1,4 +1,4 @@
-@galaxeeR
+@galaxeeR   @galaxee
 Feature: 数据大屏-所有控件发布
 
 Scenario Outline: 数据大屏-所有控件发布
