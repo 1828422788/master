@@ -3,6 +3,8 @@ Feature: 数据大屏-所有控件删除和发布
 
 Scenario Outline: 折线图-搜索发布页截图
 Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+  And I set the parameter "SearchInput" with value "<name>"
+#And I click the "searchName" button
 When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
 And switch to window "<name>"
 And I close all tabs except main tab

@@ -330,7 +330,8 @@ Feature: 仪表盘过滤项
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
-    And I "checked" the checkbox which name is "测试仪表盘eval"
+    And I set the parameter "SearchChartInput" with value "测试仪表盘eval"
+    And I click the "{'Checkbox':'测试仪表盘eval'}" button
     And I click the "Ensure" button
 
   @dashboard @dashboardSmoke

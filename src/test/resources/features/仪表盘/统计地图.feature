@@ -41,7 +41,7 @@ Feature: 仪表盘统计地图
 
     Examples:
       | spl                                                                                                                                                                                                                                                                                  | name    |
-      | appname:geostats \| parse "^(?<raw>.*)$" \| eval array=split(raw, ",") \| eval lon=todouble(mvindex(array, 3)) \| eval lat=todouble(mvindex(array, 4)) \| eval cnt=tolong(mvindex(array, 2)) \| eval group=mvindex(array, 7) \| geostats latfield=lat longfield=lon count() by group | 仪表盘统计地图 |
+      | appname:geostats \| parse \"^(?<raw>.*)$\" \| eval array=split(raw, \",\") \| eval lon=todouble(mvindex(array, 3)) \| eval lat=todouble(mvindex(array, 4)) \| eval cnt=tolong(mvindex(array, 2)) \| eval group=mvindex(array, 7) \| geostats latfield=lat longfield=lon count() by group | 仪表盘统计地图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页

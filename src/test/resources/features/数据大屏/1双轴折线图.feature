@@ -23,11 +23,11 @@ Feature: 数据大屏-b双轴折线图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
 
-    And I choose the "appname" from the "Xaxis"
+    And I choose the "apache.status" from the "Xaxis"
     And I wait for "1000" millsecond
-    And I choose the "count(appname)" from the "FirstYaxis"
+    And I choose the "count(apache.status)" from the "FirstYaxis"
     And I wait for "1000" millsecond
-    And I choose the "dc(appname)" from the "SecondYaxis"
+    And I choose the "dc(apache.status)" from the "SecondYaxis"
 
      #样式-尺寸
     And I click the "Style" button
@@ -178,15 +178,15 @@ Feature: 数据大屏-b双轴折线图
 
     And I wait for "tipsText" will be invisible
 
-    And I choose the "appname" from the "Xaxis"
+    And I choose the "apache.status" from the "Xaxis"
     And I wait for "1000" millsecond
-    And I choose the "count(appname)" from the "FirstYaxis"
+    And I choose the "count(apache.status)" from the "FirstYaxis"
     And I wait for "1000" millsecond
-    And I choose the "dc(appname)" from the "SecondYaxis"
+    And I choose the "dc(apache.status)" from the "SecondYaxis"
 
    #分组
     And I click the "AddGroup" button
-    And I choose the "appname" from the "Group"
+    And I choose the "apache.status" from the "Group"
     #保存
     And I wait for "Save" will be visible
     And I click the "Save" button
@@ -256,11 +256,11 @@ Feature: 数据大屏-b双轴折线图
     And I click the "pictureOne" button
     And I click the "Data" button
 
-    And I choose the "appname" from the "Xaxis"
+    And I choose the "apache.status" from the "Xaxis"
     And I wait for "1000" millsecond
-    And I choose the "count(appname)" from the "FirstYaxis"
+    And I choose the "count(apache.status)" from the "FirstYaxis"
     And I wait for "1000" millsecond
-    And I choose the "dc(appname)" from the "SecondYaxis"
+    And I choose the "dc(apache.status)" from the "SecondYaxis"
 
 
       #保存

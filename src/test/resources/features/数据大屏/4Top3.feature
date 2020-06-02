@@ -54,7 +54,7 @@
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "count()" from the "dataSearchNumber"
-    And I choose the "appname" from the "dataSearchName"
+    And I choose the "apache.status" from the "dataSearchName"
 
         #保存
     And I wait for "Save" will be visible
@@ -109,8 +109,8 @@
       And I click the "Ensure" button
       And I wait for "tipsText" will be invisible
 
-      And I choose the "value" from the "dataSearchNumber"
-      And I choose the "name" from the "dataSearchName"
+      And I choose the "count()" from the "dataSearchNumber"
+      And I choose the "apache.status" from the "dataSearchName"
 
         #保存
       And I wait for "Save" will be visible
@@ -177,9 +177,8 @@
       And I click the "pictureOne" button
       And I click the "Data" button
 
-      And I choose the "appname" from the "dataSearchName"
-
       And I choose the "count()" from the "dataSearchNumber"
+      And I choose the "apache.status" from the "dataSearchName"
          #保存
       And I wait for "Save" will be visible
       And I click the "Save" button
