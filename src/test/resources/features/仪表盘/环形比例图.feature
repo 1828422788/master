@@ -135,7 +135,7 @@ Feature: 仪表盘环形比例图
 
     Examples:
       | name     |
-      | 仪表盘矩阵热力图 |
+      | 仪表盘环形比例图 |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
@@ -147,4 +147,4 @@ Feature: 仪表盘环形比例图
 
     Examples:
       | name     |
-      | 仪表盘矩阵热力图 |
+      | 仪表盘环形比例图 |
