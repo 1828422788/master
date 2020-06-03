@@ -31,8 +31,8 @@ Feature: 仪表盘环形比例图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                             | name     |
-      | * \| stats count() as num \| eval p = num/28000 | 仪表盘环形比例图 |
+      | spl                                                          | name     |
+      | appname:huawei \| stats count() as num \| eval p = num/28000 | 仪表盘环形比例图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页

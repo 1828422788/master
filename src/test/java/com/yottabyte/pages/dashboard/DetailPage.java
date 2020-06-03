@@ -335,7 +335,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='${click.value2}']")
     private WebElement clickValue;
 
-    @FindBy(xpath = "//td[@data-col-name='apache.geo.city']")
+    @FindBy(xpath = "//div[contains(@class,'yw-filter-container')]//input[@class='ant-input']")
     private WebElement geoCity;
 
     @FindBy(xpath = "(//i[contains(@class,'ant-dropdown-trigger')][contains(@class,'anticon css-ifnfqv')])[4]")
