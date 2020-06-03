@@ -1,4 +1,4 @@
-@datasetDeleteAll
+@datasetDeleteAll   @dataset
   Feature: 数据集-z删除所有
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -18,7 +18,5 @@
       |node_op_jnd    |
       |rootname       |
       |父子无tree        |
-      |父子汇聚           |
       |父子汇聚tree       |
-      |父子继承           |
       |父子继承tree       |

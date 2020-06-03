@@ -31,7 +31,7 @@ Feature: 趋势图复制(RZY-1889)
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/test_original"
-    And I compare source image "expect/ScatterChart_bubbles" with target image "actual/test_original"
+    And I compare source image "actual/test_original" with target image "expect/ScatterChart_bubbles"
     And I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "Copy_Test"
@@ -58,7 +58,7 @@ Feature: 趋势图复制(RZY-1889)
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/test_copy"
-    And I compare source image "expect/ScatterChart_bubbles" with target image "actual/test_copy"
+    And I compare source image "actual/test_copy" with target image "expect/ScatterChart_bubbles"
     And I click the "NextButton" button
 
     And I will see the input element "NameInput" value will be "Copy_Test(副本)"

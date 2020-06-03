@@ -6,7 +6,7 @@ Feature: 下载列表查看并下载
 
   Scenario Outline:
     Given the data name is "<name>" then i click the "下载" button
-    Then I embedding the file "<name>" into report
+#    Then I embedding the text file "<name>" into report
 
     Examples:
       | name           |

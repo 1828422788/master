@@ -56,7 +56,8 @@ Feature: 仪表盘区间图
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
-    And I "checked" the checkbox which name is "<name>"
+    And I set the parameter "SearchChartInput" with value "<name>"
+    And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
 
     Examples:

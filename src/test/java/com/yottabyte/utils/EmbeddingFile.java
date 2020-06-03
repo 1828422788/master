@@ -4,10 +4,7 @@ import com.yottabyte.config.ConfigManager;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.Scenario;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.List;
 
 public class EmbeddingFile {
@@ -46,8 +43,40 @@ public class EmbeddingFile {
         return in;
     }
 
-    public static void main(String args[]) {
-        String fileName = "1122.pdf";
-        new EmbeddingFile().embeddingPdfToscenario(fileName);
+    /**
+     * 在测试报告中绑定图表
+     *
+     * @param imagePath 图片路径
+     * @return
+     * @throws IOException
+     */
+    public static byte[] embedImage(String imagePath) throws IOException {
+        FileInputStream inputStream = new FileInputStream(imagePath);
+        byte[] imageBytes = new byte[inputStream.available()];
+        inputStream.read(imageBytes);
+        Scenario scenario = SharedDriver.getScenario();
+        scenario.embed(imageBytes, "image/png");
+        inputStream.close();
+        return imageBytes;
+    }
+
+
+    public static byte[] readContent(final InputStream in) throws IOException {
+        ByteArrayOutputStream bout = new ByteArrayOutputStream();
+        byte[] buf = new byte[1024];
+        int c = 0;
+        int b;
+        while ((c < buf.length) && (b = in.read(buf, c, buf.length - c)) >= 0) {
+            c += b;
+            if (c == 1024) {
+                bout.write(buf);
+                buf = new byte[1024];
+                c = 0;
+            }
+        }
+        if (c != 0) {
+            bout.write(buf, 0, c);
+        }
+        return bout.toByteArray();
     }
 }

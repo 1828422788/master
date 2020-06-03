@@ -1,5 +1,14 @@
 Feature: 仪表盘统计地图
 
+  Scenario: 上传日志
+    Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
+    When I set the parameter "AppName" with value "geostats"
+    And I set the parameter "Tag" with value "geostats"
+    And I upload a file with name "/src/test/resources/testdata/log/geostats.csv"
+    And I click the "UploadButton" button
+    And I wait for "VerifyText" will be visible
+    Then I wait for element "VerifyText" change text to "上传完成"
+
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -31,8 +40,8 @@ Feature: 仪表盘统计地图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                                                          | name    |
-      | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt | 仪表盘统计地图 |
+      | spl                                                                                                                                                                                                                                                                                  | name    |
+      | appname:geostats \| parse \"^(?<raw>.*)$\" \| eval array=split(raw, \",\") \| eval lon=todouble(mvindex(array, 3)) \| eval lat=todouble(mvindex(array, 4)) \| eval cnt=tolong(mvindex(array, 2)) \| eval group=mvindex(array, 7) \| geostats latfield=lat longfield=lon count() by group | 仪表盘统计地图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -56,7 +65,8 @@ Feature: 仪表盘统计地图
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
-    And I "checked" the checkbox which name is "<name>"
+    And I set the parameter "SearchChartInput" with value "<name>"
+    And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
 
     Examples:
@@ -94,7 +104,7 @@ Feature: 仪表盘统计地图
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
-      | name     |
+      | name    |
       | 仪表盘统计地图 |
 
   @cleanDashboard
@@ -106,5 +116,5 @@ Feature: 仪表盘统计地图
     And I will see the success message "删除成功"
 
     Examples:
-      | name     |
+      | name    |
       | 仪表盘统计地图 |

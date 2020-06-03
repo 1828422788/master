@@ -56,7 +56,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "EditSql" with value "Select * from AgentGroup"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario:编辑采集频率
@@ -65,7 +65,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "EidtFrequency" with value "0 * * * * 1"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario:编辑增量字段
@@ -74,7 +74,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "IncreaseData" with value "id"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario:编辑增量操作符
@@ -83,7 +83,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "IncreaseSymbol" with value ">="
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario:编辑每轮采集记录条数
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
@@ -91,7 +91,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "RecordNumber" with value "1"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario Outline: 数据库数据源修改appname成功
     Given the data name "autotestmysql" in table "DatabaseTypeTable" then i click the "编辑" button
@@ -99,7 +99,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Appname" with value "<appnamekind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
     Examples:
       | appnamekind |
@@ -125,7 +125,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Tag" with value "<tagkind>"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
     Examples:
       | tagkind |

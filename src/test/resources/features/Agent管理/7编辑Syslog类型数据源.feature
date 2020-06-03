@@ -47,7 +47,7 @@ Feature: Agent编辑Syslog类型数据源
     And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
     Examples:
       | characterkind |
       |   utf-8    |
@@ -59,7 +59,7 @@ Feature: Agent编辑Syslog类型数据源
     And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
     Examples:
       | ipkind |
       |   1:2::3    |
@@ -86,7 +86,7 @@ Feature: Agent编辑Syslog类型数据源
     And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -115,7 +115,7 @@ Feature: Agent编辑Syslog类型数据源
     And I wait for loading invisible
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:

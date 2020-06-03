@@ -2,7 +2,7 @@
 Feature: 数据集-f构建树形结构
 
 
-  Scenario: 父子行为无RZY-4085
+  Scenario: RZY-4085:父子行为-无
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -49,7 +49,7 @@ Feature: 数据集-f构建树形结构
 
 
 
-  Scenario: 父子行为汇聚RZY-4083
+  Scenario: RZY-4083:父子行为-汇聚
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -102,7 +102,7 @@ Feature: 数据集-f构建树形结构
 
 
 
-  Scenario: 父子行为继承RZY-4084
+  Scenario: RZY-4084:父子行为-继承
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button

@@ -110,7 +110,7 @@ Feature: Agent分组采集
     And I set the parameter "ContextWhiteList" with value "error"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 分组采集数据修改日志内容黑名单
@@ -127,7 +127,7 @@ Feature: Agent分组采集
     And I set the parameter "ContextBlackList" with value "false"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario Outline: 分组采集数据修改最后修改时间
     And I click the "AgentGroupButton" button
@@ -144,7 +144,7 @@ Feature: Agent分组采集
     When I choose the "<timekind>" from the "TimeKind"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -168,7 +168,7 @@ Feature: Agent分组采集
     And I wait for "3000" millsecond
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
     Examples:
@@ -190,7 +190,7 @@ Feature: Agent分组采集
     And I set the parameter "Tag" with value "Changeautohekafiletag"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 分组采集数据修改appname
@@ -206,14 +206,14 @@ Feature: Agent分组采集
     And I wait for loading invisible
     And I set the parameter "Appname" with value "Changeautohekafileappname"
     And I click the "Ensure" button
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
     And I wait for loading invisible
     Given the data name "Changeautohekafileappname" in table "AppNameTable" then i click the "编辑" button
     And I wait for loading invisible
     And I set the parameter "Appname" with value "autohekafiletest"
     And I click the "Ensure" button
     And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "修改 Agent 配置成功。"
+    Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
 
   Scenario: 分组采集数据数据源删除

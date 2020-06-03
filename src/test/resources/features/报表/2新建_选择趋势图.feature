@@ -46,7 +46,7 @@ Feature: 报表新建_选择
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "<chart10>"
     When I choose the "<chart11>" from the "ChartList"
-    Then I will see the error message "每个用户最多保存十个趋势图"
+    Then I will see the error message "每个报表最多保存10个趋势图"
     When I click the "FinishButton" button
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"

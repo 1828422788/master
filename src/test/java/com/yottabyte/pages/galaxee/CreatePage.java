@@ -6,6 +6,7 @@ import com.yottabyte.utils.WaitForElement;
 import org.assertj.core.internal.cglib.asm.$ClassReader;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +21,8 @@ import java.util.List;
 public class CreatePage extends PageTemplate {
     public CreatePage(WebDriver driver) {
         super(driver);
+//        driver.manage().window().setPosition(new Point(0,0));
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "el-input__inner")
@@ -70,7 +73,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='数据']")
     private WebElement data;
 
-    @FindBy(xpath = "(//span[contains(text(),'搜索')][not(@class)])[last()]")
+   // @FindBy(xpath = "(//span[contains(text(),'搜索')][not(@class)])[last()]")
+   @FindBy(xpath = "//button[@class='el-button yw-searchbar__append el-button--default']/span[contains(text(),'搜索')]")
     private WebElement search;
 
     @FindBy(xpath = "(//span[contains(text(),'更新')][not(@class)])[last()]")

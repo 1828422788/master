@@ -73,6 +73,7 @@ Feature: 仪表盘输入项
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "仪表盘所用趋势图"
     And I "checked" the checkbox which name is "仪表盘所用趋势图"
     And I click the "Ensure" button
 
@@ -84,6 +85,7 @@ Feature: 仪表盘输入项
     And I set value with element "TableList"
     When the chart title is "仪表盘所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "* | stats count() by ${filter|s}"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -128,8 +130,10 @@ Feature: 仪表盘输入项
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
-    And I choose the "添加图表" from the "EventList"
-    And I "checked" the checkbox which name is "仪表盘1669所用趋势图"
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "仪表盘1669所用趋势图"
+    And I click the "{'Checkbox':'仪表盘1669所用趋势图'}" button
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
@@ -141,6 +145,7 @@ Feature: 仪表盘输入项
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "(appname:${filter|d}) |bucket timestamp span=6h as ts |stats count('tag') as 'tag' by ts"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -176,12 +181,14 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "* | stats count() by apache.geo.city |limit 5"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "* | stats count() ${filter}"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -230,6 +237,7 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
@@ -264,6 +272,7 @@ Feature: 仪表盘输入项
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:北京市 | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -277,12 +286,14 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:济南市 | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
@@ -309,12 +320,14 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:济南市 | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I choose the "济南市" from the "FilterDropdown"
@@ -338,12 +351,13 @@ Feature: 仪表盘输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
-    And I choose the "济南市,南京市" from the "FilterDropdown"
+    And I choose the "北京市,济南市,南京市" from the "FilterDropdown"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:北京市 OR apache.geo.city:济南市 OR apache.geo.city:南京市 | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -357,8 +371,8 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I set the parameter "Prefix" with value "appname:* AND "
-    And I set the parameter "Suffix" with value " ,appname"
+    And I set the parameter "Prefix" with value "appname:* AND apache.geo.city:"
+    And I set the parameter "Suffix" with value " AND tag:* "
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
@@ -368,15 +382,18 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "appname:* AND apache.geo.city:北京市 OR apache.geo.city: 南京市 AND tag:* | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
-    And I choose the "南京市" from the "FilterDropdown"
+    And I choose the "北京市,南京市" from the "FilterDropdown"
+    And I click the "Update" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
@@ -389,6 +406,7 @@ Feature: 仪表盘输入项
     And I click the "DeleteTag" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "${filter} apache.geo.city:成都市 | stats count() by apache.geo.city"
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
@@ -430,6 +448,7 @@ Feature: 仪表盘输入项
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:北京市 OR apache.geo.city:济南市 OR apache.geo.city:南京市 OR apache.geo.city:成都市 | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -444,6 +463,7 @@ Feature: 仪表盘输入项
     And I click the "DeleteTag" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.resp_len:>${filter}| table apache.resp_len"
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
@@ -455,6 +475,7 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I click the "AddInput" button
+    And I wait for loading invisible
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I choose the "动态菜单" from the "InputType"
@@ -478,6 +499,7 @@ Feature: 仪表盘输入项
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.resp_len:>1441| table apache.resp_len"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -490,16 +512,18 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.resp_len:>${filter}| table apache.resp_len"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
-    And I choose the "3589.4" from the "FilterDropdown"
+    And I choose the "5049" from the "FilterDropdown"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
-    And I set the parameter "Spl" with value "apache.resp_len:>3589.4| table apache.resp_len"
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "apache.resp_len:>5049 | table apache.resp_len"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
@@ -517,12 +541,14 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "${filter}table apache.resp_len"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.resp_len:>1441| table apache.resp_len"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -537,9 +563,11 @@ Feature: 仪表盘输入项
     And I click the "DeleteTag" button
     When I click the "AddEventButton" button
     And I click the "AddInput" button
+    And I wait for loading invisible
     And I set the parameter "FilterTitle" with value "filter"
     And I set the parameter "FilterToken" with value "filter"
     And I choose the "动态菜单" from the "InputType"
+    And I click the "MultiSelect" button
     And I set the parameter "DynamicField" with value "apache.geo.city"
     And I set the parameter "Spl" with value "apache.geo.city:* | stats count() by apache.geo.city"
     And I click the "DateEditor" button
@@ -560,6 +588,7 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -569,6 +598,7 @@ Feature: 仪表盘输入项
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:北京市 AND tag:sample* OR apache.geo.city:深圳市 AND tag:sample* | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -582,12 +612,13 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be visible
     And I click the "FilterName" button
     And I click the "FilterSetting" button
-    And I "checked" the checkbox which name is "当输入项值改变时自动搜索"
+    And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
     Then I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
@@ -596,30 +627,30 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-  @dashboard @dashboardSmoke
-  Scenario: 添加输入项
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "测试输入项"
-    Then I will see the "dashboard.DetailPage" page
-    When I click the "AddEventButton" button
-    And I click the "AddInput" button
-    And I set the parameter "FilterTitle" with value "filter"
-    And I set the parameter "FilterToken" with value "filter"
-    Then I click the "Ensure" button
-    Then I wait for "FilterName" will be visible
-
-  @dashboard @dashboardSmoke
-  Scenario: RZY-1834:输入值支持eval（未完成·）
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the detail which name is "测试输入项"
-    Then I will see the "dashboard.DetailPage" page
-    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Edit" button
-    And I set the parameter "{"title": "仪表盘1669所用趋势图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "*|stats count() by appname","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+2000"}]}}" to json editor
-    And I click the "Check" button
-    Then I will see the success message "校验通过"
-    And I click the "Ensure" button
-    And I wait for "Progress" will be invisible
+#  @dashboard @dashboardSmoke
+#  Scenario: 添加输入项
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I click the detail which name is "测试输入项"
+#    Then I will see the "dashboard.DetailPage" page
+#    When I click the "AddEventButton" button
+#    And I click the "AddInput" button
+#    And I set the parameter "FilterTitle" with value "filter"
+#    And I set the parameter "FilterToken" with value "filter"
+#    Then I click the "Ensure" button
+#    Then I wait for "FilterName" will be visible
+#
+#  @dashboard @dashboardSmoke
+#  Scenario: RZY-1834:输入值支持eval（未完成·）
+#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+#    And I click the detail which name is "测试输入项"
+#    Then I will see the "dashboard.DetailPage" page
+#    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+#    And I click the "Edit" button
+#    And I set the parameter "{"title": "仪表盘1669所用趋势图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "*|stats count() by appname","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+2000"}]}}" to json editor
+#    And I click the "Check" button
+#    Then I will see the success message "校验通过"
+#    And I click the "Ensure" button
+#    And I wait for "Progress" will be invisible
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
@@ -640,7 +671,7 @@ Feature: 仪表盘输入项
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Then I will see the success message "删除仪表盘成功"
 
     Examples:
       | name  |

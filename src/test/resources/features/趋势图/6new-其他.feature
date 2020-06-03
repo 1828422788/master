@@ -1,7 +1,6 @@
 @all @trend @createTrendOther @createTrend
 Feature: 趋势图新建-其他
 # sample04061424_chart for Yesterday
-# dapper_auto for Today
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -27,7 +26,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -63,7 +62,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-#    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+#    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -85,6 +84,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -101,7 +101,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -125,6 +125,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -141,7 +142,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -164,6 +165,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -180,7 +182,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -202,6 +204,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -217,7 +220,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -239,6 +242,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -262,7 +266,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -285,6 +289,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -306,7 +311,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -350,7 +355,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -362,7 +367,6 @@ Feature: 趋势图新建-其他
       | chartType | iconValue | caseNum     | spl                                                                                                              |
       | Single    | icon      | secondTitle | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
-  @sparklineChart
   Scenario Outline: sparkline
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -393,7 +397,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>_<colorFill>"
-    And I compare source image "expect/<chartType>_<caseNum>_<colorFill>" with target image "actual/<chartType>_<caseNum>_<colorFill>"
+    And I compare source image "actual/<chartType>_<caseNum>_<colorFill>" with target image "expect/<chartType>_<caseNum>_<colorFill>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<colorFill>"
@@ -406,7 +410,7 @@ Feature: 趋势图新建-其他
       |   Single      | Background   | Sparkline   |
       |   Single      | Font         | Sparkline   |
 
-  @sparklineChartFacet
+
   Scenario Outline: sparkline_facet
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -450,7 +454,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "4000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -472,6 +476,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -487,7 +492,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -509,6 +514,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -524,7 +530,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -546,6 +552,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -566,7 +573,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -590,6 +597,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -630,7 +638,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -653,6 +661,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -669,7 +678,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -680,6 +689,49 @@ Feature: 趋势图新建-其他
     Examples:
       | chartType  | caseNum | spl                                                                       |
       | Liquidfill | percent | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
+
+  @facet
+  Scenario Outline: liquidfill_facet
+    And I click the "NewTrendButton" button
+    Then I will see the "trend.CreatePage" page
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "cnt" from the "FieldValue" in config
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "Red" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      | chartType  | caseNum | spl                                                                       |
+      | Liquidfill | 分面    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10|
 
 
   Scenario Outline: radar
@@ -692,6 +744,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -711,7 +764,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -755,7 +808,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -777,6 +830,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -793,7 +847,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -842,7 +896,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -852,8 +906,8 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
-      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
-      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
 
 
   Scenario Outline: sequence
@@ -866,6 +920,7 @@ Feature: 趋势图新建-其他
     And I wait for "Header" will be visible
     And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
@@ -887,7 +942,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -912,7 +967,7 @@ Feature: 趋势图新建-其他
     And I wait for "StatisticalChart" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/Table_Test"
-    And I compare source image "expect/Table_Test" with target image "actual/Table_Test"
+    And I compare source image "actual/Table_Test" with target image "expect/Table_Test"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "Table_Test"
@@ -957,7 +1012,7 @@ Feature: 趋势图新建-其他
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -967,7 +1022,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum   | spl                                                                                                                                                                                                                                                       |
-      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
-      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:dapper_auto AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
 
 

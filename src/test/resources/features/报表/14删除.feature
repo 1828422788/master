@@ -4,7 +4,7 @@ Feature: 报表_删除
   Scenario Outline: delete_report
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>"
-    And I wait for "Loading" will be invisible
+    And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [<name>], 是否继续？"
     When I click the "EnsureButton" button
@@ -34,58 +34,38 @@ Feature: 报表_删除
       |  test_deleteLast      |
       |  test_10trends        |
 
-    @cleanReportFromTrend @cleanReportTimechart
+    @cleanReportFromTrend 
     Examples:
-      |    name               |
-      | test_timechart_1      |
-      | test_timechart_2      |
-      | test_timechart_3      |
-
-
-    @cleanReportFromTrend @cleanReportOther
-    Examples:
-      |    name               |
-      |test其他_Other_Single_2|
-      |test其他_Other_Single_1|
-      | test其他_Other_ring   |
-      | test其他_Other_3      |
-      | test其他_Other_2      |
-      | test其他_Other_1      |
-
-    @cleanReportFromTrend @cleanReportMap
-    Examples:
-      |    name               |
-      | test地图_Map_3        |
-      | test地图_Map_2        |
-      | test地图_Map_1        |
-
-    @cleanReportFromTrend @cleanReportCompound
-    Examples:
-      |    name               |
-      | test复合_Compound_1   |
-
-    @cleanReportFromTrend @cleanReportConnection
-    Examples:
-      |    name               |
-      | test关系_Connection_2 |
-      | test关系_Connection_1 |
-
-    @cleanReportFromTrend @cleanReportOrder
-    Examples:
-      |    name               |
-      | test序列_Order_4      |
-      | test序列_Order_3      |
-      | test序列_Order_2      |
-      | test序列_Order_1      |
-
-    @cleanReportFromTrend @cleanReportDimension
-    Examples:
-      |    name               |
-      | test维度_Dimension_5  |
-      | test维度_Dimension_4  |
-      | test维度_Dimension_3  |
-      | test维度_Dimension_2  |
-      | test维度_Dimension_1  |
+      |          name                  |
+      | test序列_Order_1               |
+      | test序列_Order_2               |
+      | test序列_Order_3               |
+      | test序列_Order_4               |
+      | test维度_Dimension_1           |
+      | test维度_Dimension_2           |
+      | test维度_Dimension_3           |
+      | test维度_Dimension_4           |
+      | test维度_Dimension_5           |
+      | test维度_Dimension_6_分面      |
+      | test关系_Connection_1          |
+      | test关系_Connection_2          |
+      | test复合_Compound_1            |
+      | test地图_Map_1                 |
+      | test地图_Map_2                 |
+      | test地图_Map_3_n               |
+      | test地图_Map_white             |
+      | test其他_Other_1               |
+      | test其他_Other_2               |
+      | test其他_Other_3               |
+      | test其他_Other_ring            |
+      | test其他_Other_Single_1        |
+      | test其他_Other_Single_2        |
+      | test其他_Other_chain           |
+      | test其他_Other_liquid          |
+      | test其他_Other_sparkline       |
+      | test_timechart_1               |
+      | test_timechart_2               |
+      | test_timechart_3               |
 
 
 
@@ -93,7 +73,7 @@ Feature: 报表_删除
   Scenario Outline: delete_report_charts_pdf
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>_PDF"
-    And I wait for "Loading" will be invisible
+    And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<name>_PDF'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [<name>_PDF], 是否继续？"
     When I click the "EnsureButton" button
@@ -141,7 +121,7 @@ Feature: 报表_删除
   Scenario Outline: delete_report_charts_excel
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>_EXCEL"
-    And I wait for loading invisible
+    And I wait for "2000" millsecond
     And the data name is "{'column':'1','name':'<name>_EXCEL'}" then i click the "删除" button
     Then I will see the message "此操作将删除 [<name>_EXCEL], 是否继续？"
     When I click the "EnsureButton" button
@@ -189,7 +169,7 @@ Feature: 报表_删除
   Scenario Outline: delete
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
-    And I wait for loading invisible
+    And I wait for "2000" millsecond
     And the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "EnsureButton" button

@@ -60,6 +60,7 @@ Feature: 仪表盘输入项联动
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "Search" button under some element
+    And I wait for loading invisible
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
@@ -81,7 +82,7 @@ Feature: 仪表盘输入项联动
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
-    And I choose the "192.168.1.26" from the "FilterDropdown"
+    And I choose the "192.168.1.171" from the "LastFilter"
     And I click the "Update" button
     When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
@@ -90,7 +91,7 @@ Feature: 仪表盘输入项联动
     And switch to another window
     And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
-    Then I will see the element "SearchInput" name is "logtype:json AND hostname:192.168.1.26"
+    Then I will see the element "SearchInput" name is "logtype:json AND hostname:192.168.1.171"
 
   @dashboard @dashboardSmoke
   Scenario: 添加输入项

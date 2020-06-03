@@ -1,5 +1,6 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.utils.EmbeddingFile;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.ImageComparison;
 import com.yottabyte.utils.JsonStringPaser;
@@ -10,7 +11,6 @@ import org.openqa.selenium.WebElement;
 
 import javax.imageio.ImageIO;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -187,26 +187,11 @@ public class CompareResult {
             String targetFingerPrint = ImageComparison.toPhash(ImageIO.read(new File(targetImage + ".png")));
             int difference = ImageComparison.hammingDistance(sourceFingerPrint, targetFingerPrint);
             if (difference > 5) {
-                this.embedImage(targetImage + ".png");
+                EmbeddingFile.embedImage(targetImage + ".png");
                 Assert.fail();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * 在测试报告中绑定图表
-     *
-     * @param imagePath 图片路径
-     * @return
-     * @throws IOException
-     */
-    private byte[] embedImage(String imagePath) throws IOException {
-        FileInputStream inputStream = new FileInputStream(imagePath);
-        byte[] imageBytes = new byte[inputStream.available()];
-        inputStream.read(imageBytes);
-        inputStream.close();
-        return imageBytes;
     }
 }

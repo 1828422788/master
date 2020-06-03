@@ -2,8 +2,7 @@
 Feature: 日志展现_关系
 #5
 
-  # tag:sample04061424_chart should be uploaded for Yesterday
-  # auto_sankey should be uploaded for Today
+  # tag:sample04061424_chart,t_with should be uploaded for Yesterday
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -22,7 +21,7 @@ Feature: 日志展现_关系
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/3关系/<caseNum>_<chartType>"
-    Then I compare source image "expect/高级搜索视图/3关系/<caseNum>_<chartType>" with target image "actual/高级搜索视图/3关系/<caseNum>_<chartType>"
+    Then I compare source image "actual/高级搜索视图/3关系/<caseNum>_<chartType>" with target image "expect/高级搜索视图/3关系/<caseNum>_<chartType>"
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
@@ -48,7 +47,7 @@ Feature: 日志展现_关系
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/3关系/<chartType>_repulsion"
-    Then I compare source image "expect/高级搜索视图/3关系/<chartType>_repulsion" with target image "actual/高级搜索视图/3关系/<chartType>_repulsion"
+    Then I compare source image "actual/高级搜索视图/3关系/<chartType>_repulsion" with target image "expect/高级搜索视图/3关系/<chartType>_repulsion"
 
     Examples:
       |   chartType   |repValue  |   spl   |
@@ -75,9 +74,9 @@ Feature: 日志展现_关系
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/3关系/<chartType>_<button>"
-    Then I compare source image "expect/高级搜索视图/3关系/<chartType>_<button>" with target image "actual/高级搜索视图/3关系/<chartType>_<button>"
+    Then I compare source image "actual/高级搜索视图/3关系/<chartType>_<button>" with target image "expect/高级搜索视图/3关系/<chartType>_<button>"
 
 
     Examples:
       |   chartType   |  button    |   spl   |
-      |    Sankey     | Multistage |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:auto_sankey \| stats count() by json.fromstate,json.tostate \| limit 3      |
+      |    Sankey     | Multistage |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:t_with \|transaction json.sid with states a,b,c in json.module results by flow \| stats count() by fromstate,tostate \| limit 3      |

@@ -57,6 +57,7 @@ Feature: 仪表盘事件列表
     And I click the "EventOperate" button
     And I click the "Event" button
     And switch to another window
+    And I close all tabs except main tab
     Then the page's title will be "趋势图"
 
   @dashboard @dashboardSmoke
@@ -80,6 +81,7 @@ Feature: 仪表盘事件列表
     And I click the "EventOperate" button
     And I click the "Event" button
     And switch to another window
+    And I close all tabs except main tab
     Then the page's title will be "趋势图"
 
   @dashboard @dashboardSmoke
@@ -94,6 +96,7 @@ Feature: 仪表盘事件列表
     And I click the "EventAppname" button
     And I click the "Event" button
     And switch to another window
+    And I close all tabs except main tab
     Then the page's title will be "趋势图"
 
   @dashboard @dashboardSmoke
@@ -131,6 +134,7 @@ Feature: 仪表盘事件列表
     And I click the "EventAppname" button
     And I click the "Event" button
     And switch to another window
+    And I close all tabs except main tab
     Then the page's title will be "趋势图"
 
   @dashboard @dashboardSmoke

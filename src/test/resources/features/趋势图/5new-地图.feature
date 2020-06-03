@@ -27,7 +27,7 @@ Feature: 趋势图新建_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -75,7 +75,7 @@ Feature: 趋势图新建_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<regionBut>_<caseNum>"
-    And I compare source image "expect/<chartType>_<regionBut>_<caseNum>" with target image "actual/<chartType>_<regionBut>_<caseNum>"
+    And I compare source image "actual/<chartType>_<regionBut>_<caseNum>" with target image "expect/<chartType>_<regionBut>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<regionBut>_<caseNum>"
@@ -119,7 +119,7 @@ Feature: 趋势图新建_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<region>_<caseNum>"
-    And I compare source image "expect/<chartType>_<region>_<caseNum>" with target image "actual/<chartType>_<region>_<caseNum>"
+    And I compare source image "actual/<chartType>_<region>_<caseNum>" with target image "expect/<chartType>_<region>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<region>_<caseNum>"
@@ -140,7 +140,7 @@ Feature: 趋势图新建_地图
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
     And I click the "SearchButton" button
-    And I wait for "20000" millsecond
+    And I wait for "40000" millsecond
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -155,7 +155,7 @@ Feature: 趋势图新建_地图
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-#    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+#    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -176,7 +176,7 @@ Feature: 趋势图新建_地图
     And I click the "SearchButton" button
     And I wait for "2000" millsecond
     And I click the "SearchButton" button
-    And I wait for "20000" millsecond
+    And I wait for "40000" millsecond
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -197,7 +197,7 @@ Feature: 趋势图新建_地图
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-#    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+#    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -236,7 +236,7 @@ Feature: 趋势图新建_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "expect/<chartType>_<caseNum>" with target image "actual/<chartType>_<caseNum>"
+    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
@@ -282,7 +282,7 @@ Feature: 趋势图新建_地图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<region>_<caseNum>"
-    And I compare source image "expect/<chartType>_<region>_<caseNum>" with target image "actual/<chartType>_<region>_<caseNum>"
+    And I compare source image "actual/<chartType>_<region>_<caseNum>" with target image "expect/<chartType>_<region>_<caseNum>"
     Then I click the "NextButton" button
 
     When I set the parameter "NameInput" with value "<chartType>_<region>_<caseNum>"
