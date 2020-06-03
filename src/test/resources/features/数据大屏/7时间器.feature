@@ -4,6 +4,7 @@ Feature: 数据大屏-o时间器
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
+  @v33gs
   Scenario: 时间器默认设置
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -18,6 +19,7 @@ Feature: 数据大屏-o时间器
     And I hide the element "otherDropdown"
      #保存
     And I wait for "Save" will be visible
+    And  I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -42,6 +44,7 @@ Feature: 数据大屏-o时间器
 
 ######################################无耻的分割线################################
 
+  @v33gs
   Scenario: 时间器样式
 
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -77,6 +80,7 @@ Feature: 数据大屏-o时间器
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
+    And I wait for "ClockWordBold" will be visible
     And I choose the "bold" from the "ClockWordBold"
     #对齐方式
     And I choose the "居左" from the "ClockHorizontal"
@@ -87,6 +91,7 @@ Feature: 数据大屏-o时间器
     And I set the parameter "globalStyleName" with value "时间器样式修改"
      #保存
     And I wait for "Save" will be visible
+    And  I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -111,7 +116,7 @@ Feature: 数据大屏-o时间器
 #      |时间器样式   |
 
 ######################################无耻的分割线################################
-
+  @v33gs
   Scenario: 时间器样式2
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -138,6 +143,7 @@ Feature: 数据大屏-o时间器
       #2设置齿轮组合外观
     And I click the "styleClock" button
     #字体粗细
+    And I wait for "ClockWordBold" will be visible
     And I choose the "bolder" from the "ClockWordBold"
     #对齐方式
     And I choose the "居右" from the "ClockHorizontal"
@@ -145,6 +151,7 @@ Feature: 数据大屏-o时间器
     And I choose the "yyyy-MM-dd hh:mm:ss" from the "timeFormat"
      #保存
     And I wait for "Save" will be visible
+    And  I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -169,7 +176,7 @@ Feature: 数据大屏-o时间器
 #      |时间器样式2   |
 
     ######################################无耻的分割线################################
-
+  @v33gs
   Scenario: 时间器样式3
 
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -197,6 +204,7 @@ Feature: 数据大屏-o时间器
       #2设置齿轮组合外观
     And I click the "styleClock" button
     #字体粗细
+    And I wait for "ClockWordBold" will be visible
     And I choose the "lighter" from the "ClockWordBold"
     #对齐方式
     And I choose the "居中" from the "ClockHorizontal"
@@ -204,6 +212,7 @@ Feature: 数据大屏-o时间器
     And I choose the "yyyy/MM/dd hh:mm:ss" from the "timeFormat"
 #保存
     And I wait for "Save" will be visible
+    And  I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"

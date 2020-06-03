@@ -4,6 +4,7 @@
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible
 
+    @v33gs
     Scenario: 流程线默认设置
 
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
@@ -19,6 +20,7 @@
       And I hide the element "netDropdown"
        #保存
       And I wait for "Save" will be visible
+      And  I wait for "2000" millsecond
       And I click the "Save" button
       And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"
@@ -96,6 +98,7 @@
       And I set the parameter "globalStyleName" with value "流程线样式修改"
       #保存
       And I wait for "Save" will be visible
+      And I wait for "2000" millsecond
       And I click the "Save" button
       And I wait for "SuccessMessage" will be visible
       Then I will see the success message "保存成功"

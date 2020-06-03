@@ -62,6 +62,7 @@ Feature: 数据大屏-f条形图
 
       #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -123,6 +124,7 @@ Feature: 数据大屏-f条形图
 
       #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -201,6 +203,7 @@ Feature: 数据大屏-f条形图
 
         #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
