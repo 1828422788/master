@@ -13,14 +13,13 @@ Feature: 新建资产管理
     When I set the parameter "AssetName" with value "AutotestQuickadd"
     When I set the parameter "IpName" with value "192.168.1.200"
     And I click the "Save" button
-    And I will see the element "Message" name is "快速新增资产成功"
+    Then I will see the element value in json "{'Message':'快速新增资产成功'}"
 
   Scenario: 快速创建资产无名称失败
     And I click the "AddAsset" button
     And I click the "Quickadd" button
     And I click the "Save" button
     Then I will see the element value in json "{'Message':'请务必填写资产名称'}"
-
 
   Scenario: 快速创建资产无地址失败
     And I click the "AddAsset" button
@@ -41,7 +40,7 @@ Feature: 新建资产管理
     And I click the "AddAsset" button
     And I click the "Quickadd" button
     When I set the parameter "AssetName" with value "AutotestQuickaddmulti"
-    When I set the parameter "IpName" with value "192.168.1.201,192.168.1.202"
+    And I set the value "192.168.1.201,192.168.1.202" to the textarea "IpName"
     And I click the "Save" button
     Then I will see the element value in json "{'Message':'快速新增资产成功'}"
 
@@ -49,7 +48,7 @@ Feature: 新建资产管理
     And I click the "AddAsset" button
     And I click the "Completeadd" button
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetNameComplete" with value "AutotestCompleteadd"
+    And I set the value "AutotestCompleteadd" to the textarea "AssetNameComplete"
     When I set the parameter "IpComplete" with value "192.168.1.203"
     When I set the parameter "Appname" with value "ssh"
     When I set the parameter "Version" with value "2.2"
@@ -62,7 +61,7 @@ Feature: 新建资产管理
     And I click the "AddAsset" button
     And I click the "Completeadd" button
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetNameComplete" with value "AutotestCompleteadd"
+    And I set the value "AutotestCompleteadd" to the textarea "AssetNameComplete"
     When I set the parameter "IpComplete" with value "192.168.1.203"
     When I set the parameter "Appname" with value "ssh"
     When I set the parameter "Version" with value "2.2"
@@ -75,19 +74,19 @@ Feature: 新建资产管理
     And I click the "AddAsset" button
     And I click the "Completeadd" button
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "IpComplete" with value "192.168.1.203"
+    And I set the value "192.168.1.203" to the textarea "IpComplete"
     When I set the parameter "Appname" with value "ssh"
     When I set the parameter "Version" with value "2.2"
     When I set the parameter "Port" with value "22"
     When I set the parameter "Protocol" with value "TCP"
     And I click the "Save" button
-    And I will see the element "FailureMessage" name is "请检查输入项，确保正确后再提交。"
+    Then I will see the element value in json "{'FailureMessage':'请检查输入项，确保正确后再提交。'}"
 
   Scenario: 完全创建资产缺少ip-新建失败
     And I click the "AddAsset" button
     And I click the "Completeadd" button
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetNameComplete" with value "AutotestCompleteadd"
+    And I set the value "AutotestCompleteadd" to the textarea "AssetNameComplete"
     When I set the parameter "Appname" with value "ssh"
     When I set the parameter "Version" with value "2.2"
     When I set the parameter "Port" with value "22"
@@ -99,18 +98,17 @@ Feature: 新建资产管理
     And I click the "AddAsset" button
     And I click the "Completeadd" button
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetNameComplete2" with value "AutotestCompleteadd"
-    When I set the parameter "IpComplete" with value "192.168.1.203"
+    And I set the value "AutotestCompleteadd" to the textarea "AssetNameComplete"
+    And I set the value "192.168.1.203" to the textarea "IpComplete"
     And I click the "Save" button
     Then I will see the element value in json "{'FailureMessage':'请检查输入项，确保正确后再提交。'}"
 
   Scenario: 编辑资产-修改资产名称
     When the data name is "{'column':'1','name':'AutotestCompleteadd'}" then i click the "编辑" button in siem page
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetNameComplete2" with value "AutotestCompleteadd2"
-#    When I set the parameter "IpComplete" with value "192.168.1.203"
+    And I set the value "AutotestCompleteadd2" to the textarea "AssetNameComplete"
     And I click the "Save" button
-    And I wait for element "AssetNameComplete2" value change text to "AutotestCompleteadd2"
+#    And I wait for element "AssetNameComplete2" value change text to "AutotestCompleteadd2"
     Then I will see the element "AssetNameComplete" attribute "value" is "AutotestCompleteadd2" in siem
 
   Scenario Outline: 编辑资产-修改资产类型
@@ -133,11 +131,11 @@ Feature: 新建资产管理
       | VPN         |
       | Web防火墙      |
       | 入侵防御系统(IPS) |
-      | 入侵检测系统(IDS) |
+#      | 入侵检测系统(IDS) |
       | 网络准入系统      |
       | 防病毒网关       |
       | 流量检测设备      |
-      | 数据防泄密系统     |
+#      | 数据防泄密系统     |
       | 堡垒机         |
       | 数据库审计系统     |
       | 其他          |

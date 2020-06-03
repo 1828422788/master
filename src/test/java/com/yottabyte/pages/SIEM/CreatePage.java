@@ -39,7 +39,7 @@ public class CreatePage extends PageTemplate {
         return AddAsset;
     }
 
-    @FindBy(xpath =  "//div[text()='新增资产']")
+    @FindBy(xpath =  "//span[text()='新增资产']")
     private WebElement AddAsset;
 
     public WebElement getAssetName() {
