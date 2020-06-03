@@ -244,7 +244,7 @@ public class CreatePage extends PageTemplate {
     private WebElement attack3d;
 
 //    @FindBy(className = "flipNumber")
-    @FindBy(xpath = "//li[text()='数值翻牌器']")
+    @FindBy(xpath = "//li[text()='数值翻牌器']/i")
     private WebElement flipNumber;
 
     @FindBy(className = "status")
@@ -1378,7 +1378,7 @@ private WebElement dataType;
     private WebElement backgroundAuto;
     public WebElement getBackgroundAuto(){return backgroundAuto;}
     //中国地图二
-    @FindBy(xpath = "//li[text()='中国地图II']")
+    @FindBy(xpath = "//li[text()='中国地图II']/i")
     private WebElement ChineseMapTwo;
     public WebElement getChineseMapTwo(){return ChineseMapTwo;}
     //中国地图二->样式->名称颜色
@@ -1415,7 +1415,7 @@ private WebElement dataType;
 
 
     //攻击图3D II
-    @FindBy(xpath = "//li[text()='攻击图3D II']")
+    @FindBy(xpath = "//li[text()='攻击图3D II']/i")
     private WebElement attackMapThreeDTwo;
     public WebElement getAttackMapThreeDTwo(){return attackMapThreeDTwo;}
 
@@ -1463,7 +1463,7 @@ private WebElement dataType;
     public WebElement getPictureTwo(){return pictureTwo;}
 
     //指标中的top3
-    @FindBy(xpath ="//li[text()='Top3']")
+    @FindBy(xpath ="//li[text()='Top3']/i")
     private WebElement Top3;
     public WebElement getTop3(){return Top3;}
     //样式-top3
@@ -1514,7 +1514,7 @@ private WebElement dataType;
 
 //百分比
     //指标中的百分比
-    @FindBy(xpath = "//li[text()='百分比']")
+    @FindBy(xpath = "//li[text()='百分比']/i")
     private WebElement percentage;
     public WebElement getPercentage(){return percentage;}
     //百分比的样式
@@ -1554,7 +1554,7 @@ private WebElement dataType;
 
 //揭示牌
     //指标-揭示牌
-      @FindBy(xpath = "//li[text()='提示牌']")
+      @FindBy(xpath = "//li[text()='提示牌']/i")
       private WebElement tipsCard;
       public WebElement getTipsCard(){return tipsCard;}
       //样式-提示牌
@@ -1612,7 +1612,7 @@ private WebElement dataType;
       public WebElement getNet(){return net;}
 
     //网络中的实体
-      @FindBy(xpath = "//li[text()='实体']")
+      @FindBy(xpath = "//li[text()='实体']/i")
       private WebElement entity;
       public WebElement getEntity(){return entity;}
       //样式中的实体
@@ -1662,7 +1662,7 @@ private WebElement dataType;
 
 //流程线
     //网络中的流程线
-    @FindBy(xpath = "//li[text()='流程线']")
+    @FindBy(xpath = "//li[text()='流程线']/i")
     private WebElement flowLine;
      public WebElement getFlowLine(){return flowLine;}
 
@@ -1706,7 +1706,7 @@ private WebElement dataType;
 
 //齿轮组合
     //其他中的齿轮组合
-    @FindBy(xpath = "//li[text()='齿轮组合']")
+    @FindBy(xpath = "//li[text()='齿轮组合']/i")
     private WebElement gearCombination;
    public WebElement getGearCombination(){return gearCombination;}
    //样式中的齿轮组合
@@ -1738,7 +1738,7 @@ private WebElement dataType;
 
 //时间器
     //其他中的时间器
-    @FindBy(xpath = "//li[text()='时间器']")
+    @FindBy(xpath = "//li[text()='时间器']/i")
     private WebElement clock;
       public WebElement getClock(){return clock;}
     //样式中的时间器
@@ -1769,7 +1769,7 @@ private WebElement dataType;
 
 //视频流
     //其他中的视频流
-    @FindBy(xpath = "//li[text()='视频流']")
+    @FindBy(xpath = "//li[text()='视频流']/i")
     private WebElement videoFlow;
       public WebElement getVideoFlow(){return videoFlow;}
       //样式中的视频流
@@ -1797,7 +1797,7 @@ private WebElement dataType;
 
 //栅格百分图
     //图表中的栅格百分比
-    @FindBy(xpath = "//li[text()='栅格百分图']")
+    @FindBy(xpath = "//li[text()='栅格百分图']/i")
     private WebElement gridPercentChart;
       public WebElement getGridPercentChart(){return gridPercentChart;}
 
@@ -1890,7 +1890,7 @@ private WebElement dataType;
 
 //雷达图
     //图表中的雷达图
-      @FindBy(xpath = "//li[text()='雷达图']")
+      @FindBy(xpath = "//li[text()='雷达图']/i")
       private WebElement radarChart;
       public WebElement getRadarChart(){return radarChart;}
 
@@ -1952,7 +1952,7 @@ private WebElement dataType;
 
 //占比图3D
     //图表中的占比图
-    @FindBy(xpath = "//li[text()='占比图3D']")
+    @FindBy(xpath = "//li[text()='占比图3D']/i")
     private WebElement percent3dChart;
       public WebElement getPercent3dChart(){return percent3dChart;}
 
@@ -2017,7 +2017,7 @@ private WebElement dataType;
       public WebElement getSeriousMax(){return seriousMax;}
 
 //环形柱图
-    @FindBy(xpath = "//li[text()='环形柱图']")
+    @FindBy(xpath = "//li[text()='环形柱图']/i")
     private WebElement circularCylinderChart;
       public WebElement getCircularCylinderChart(){return circularCylinderChart;}
      //样式中的图表
@@ -2067,7 +2067,7 @@ private WebElement dataType;
 
 //滚动条形图
      //图表中的滚动条形图
-     @FindBy(xpath = "//li[text()='滚动条形图']")
+     @FindBy(xpath = "//li[text()='滚动条形图']/i")
     private WebElement scrollBar;
       public WebElement getScrollBar(){return scrollBar;}
       //样式-滚动条形图
@@ -2107,7 +2107,7 @@ private WebElement dataType;
 
 //滚动柱形图
     //图表中滚动柱形图
-    @FindBy(xpath = "//li[text()='滚动柱形图']")
+    @FindBy(xpath = "//li[text()='滚动柱形图']/i")
     private WebElement rollHistogram;
       public WebElement getRollHistogram(){return rollHistogram;}
       //样式中的滚动柱状图
@@ -2138,7 +2138,7 @@ private WebElement dataType;
 
 
 //滚动列表
-    @FindBy(xpath = "//li[text()='滚动列表']")
+    @FindBy(xpath = "//li[text()='滚动列表']/i")
    private WebElement listOfTurns;
       public WebElement getListOfTurns(){return listOfTurns;}
       //样式中的轮播列表
@@ -2168,7 +2168,7 @@ private WebElement dataType;
 
 
 //水平胶囊
-    @FindBy(xpath = "//li[text()='水平胶囊']")
+    @FindBy(xpath = "//li[text()='水平胶囊']/i")
     private WebElement horizontalCapsule;
       public WebElement getHorizontalCapsule(){return horizontalCapsule;}
 
@@ -2196,7 +2196,7 @@ private WebElement dataType;
       public WebElement getAspectColor(){return aspectColor;}
 
 //综合列表
-    @FindBy(xpath = "//li[text()='综合列表']")
+    @FindBy(xpath = "//li[text()='综合列表']/i")
     private WebElement comprehensiveList;
       public WebElement getComprehensiveList(){return comprehensiveList;}
       //样式中的综合列表
@@ -2218,7 +2218,7 @@ private WebElement dataType;
 
 
 //滚动列表二
-    @FindBy(xpath = "//li[text()='滚动列表II']")
+    @FindBy(xpath = "//li[text()='滚动列表II']/i")
     private WebElement rollList2;
       public WebElement getRollList2(){return rollList2;}
 
@@ -2246,7 +2246,7 @@ private WebElement dataType;
       public WebElement getBackgroundColor3(){return backgroundColor3;}
 
 //滚动列表三
-    @FindBy(xpath = "//li[text()='滚动列表III']")
+    @FindBy(xpath = "//li[text()='滚动列表III']/i")
     private WebElement rollList3;
       public WebElement getRollList3(){return rollList3;}
     //样式中的滚动列表3
@@ -2286,7 +2286,7 @@ private WebElement dataType;
     public WebElement getOtherDropdown(){return otherDropdown;}
 
 //动态卡片
-    @FindBy(xpath = "//li[text()='动态卡片']")
+    @FindBy(xpath = "//li[text()='动态卡片']/i")
     private WebElement dynamicCard;
     public WebElement getDynamicCard(){return dynamicCard;}
 
@@ -2365,7 +2365,7 @@ private WebElement dataType;
     }
 
 //动态卡片二
-    @FindBy(xpath = "//li[text()='动态卡片II']")
+    @FindBy(xpath = "//li[text()='动态卡片II']/i")
     private WebElement dynamicCardTwo;
     public WebElement getDynamicCardTwo(){return dynamicCardTwo;}
 
@@ -2537,11 +2537,6 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
     public WebElement getTips(){return tips;}
 
 
-
-//世界地图
-    @FindBy(xpath = "//li[text()='世界地图']")
-    private WebElement worldMap;
-    public WebElement getWorldMap(){return worldMap;}
 
 
 }
