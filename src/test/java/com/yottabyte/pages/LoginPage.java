@@ -36,7 +36,7 @@ public class LoginPage extends PageTemplate {
     }
 
     public WebElement getLoginButton() {
-        return super.getButton("登录");
+        return super.getButton("登 录");
     }
 
     public String getTitle() {
