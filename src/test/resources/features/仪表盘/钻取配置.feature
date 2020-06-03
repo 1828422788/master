@@ -266,7 +266,7 @@ Feature: 仪表盘钻取配置
     And switch to another window
     And I close all tabs except main tab
     And I wait for "Progress" will be invisible
-    Then I will see the "GeoCity" result will be "南京市"
+    Then I will see the element "GeoCity" attribute "Value" is "南京市"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
