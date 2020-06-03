@@ -31,8 +31,8 @@ Feature: 仪表盘桑基图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                                                                                                                                                            | name   |
-      | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | 仪表盘桑基图 |
+      | spl                                                                                                                                                                                                                                                       | name   |
+      | tag:sample04061424_display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 \| sort by +apache.x_forward | 仪表盘桑基图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页

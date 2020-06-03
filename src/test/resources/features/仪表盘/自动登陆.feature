@@ -1,4 +1,4 @@
-@dashboard @dashboardSmoke
+#@dashboard @dashboardSmoke
 Feature: 仪表盘自动登陆
 
   Scenario: 勾选仪表盘支持自动登录

@@ -31,8 +31,8 @@ Feature: 仪表盘循序图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                        | name   |
-      | tag:sample04061424* \| stats count() by hostname,apache.clientip \|limit 5 | 仪表盘循序图 |
+      | spl                                                                                                  | name   |
+      | tag:sample04061424* \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5 | 仪表盘循序图 |
 
   @dashboard
   Scenario Outline: 新建标签页
@@ -96,8 +96,8 @@ Feature: 仪表盘循序图
     Then I compare source image "dashboard/<name>" with target image "dashboard/<image>"
 
     Examples:
-      | name   |image|
-      | 仪表盘循序图 |Sequence|
+      | name   | image    |
+      | 仪表盘循序图 | Sequence |
 
   @dashboard
   Scenario Outline: 验证配置是否在高级编辑中体现
@@ -129,7 +129,7 @@ Feature: 仪表盘循序图
     Then I compare source image "dashboard/<name>1365" with target image "dashboard/Sequence1365"
 
     Examples:
-      | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+      | name   | json                                                                                                                                                                                                                                                                                                                                                                          |
       | 仪表盘循序图 | {"title": "仪表盘循序图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424* \| stats count() by hostname,apache.clientip \|limit 5","startTime": "now/d","endTime": "now"},"chart": {"chartType": "sequence","field": "hostname","fromField": "hostname","toField": "hostname","labelField": "apache.clientip","category": "apache.clientip"}} |
 
   @cleanDashboard
