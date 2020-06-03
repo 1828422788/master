@@ -1,4 +1,4 @@
-#@authtest
+@authtest
 Feature: 权限-应用列表页
 
   Scenario: 授权可使用应用功能,可新建应用,可使用数据集,数据集操作权限
@@ -636,79 +636,80 @@ Feature: 权限-应用列表页
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新成功"
 
-  Scenario Outline: 验证授权权限
-    Given delete file "/target/download-files/<name>.tar"
-    And I logout current user
-    And I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "关联权限测试用户" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'应用'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "app.ListPage" page for uri "/app/list/"
-    And I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<name>'}" then i will see "打开导出编辑查看删除" button
-    When the data name is "<name>" then i click the "打开" button
-    Then the page's title will be "事件操作"
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "<name>" then i click the "编辑" button
-    And I wait for loading invisible
-    Then I will see the "app.CreatePage" page
-    And I set the parameter "DescribeInput" with value "testDescribe"
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "<name>" then i click the "导出" button
-    And I will see the "app.CreatePage" page
-    And I wait for loading invisible
-    And I click the "ExportButton" button
-    And I will see the "app.ListPage" page
-    Then I wait for "CreateButton" will be visible
-    And the data name is "<name>" then i click the "查看" button
-    And I wait for loading invisible
-    And I will see the "app.DetailPage" page
-    Then I will see the input element "Describe" value will contains "testDescribe"
-    Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name            |
-      | EventAppForAuth |
+#  Scenario Outline: 验证授权权限
+#    Given delete file "/target/download-files/<name>.tar"
+#    And I logout current user
+#    And I wait for "2000" millsecond
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "关联权限测试用户" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    And I wait for "Loading" will be invisible
+#    Then I click the "{'TabButton':'应用'}" button
+#    And I wait for "Loading" will be invisible
+#    And I "checked" the checkbox which name is "<name>" in auth table
+#    And I click the "SaveButton" button
+#    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "更新成功"
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "验证授权用户"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "app.ListPage" page for uri "/app/list/"
+#    And I wait for loading invisible
+#    Then the data name is "{'column':'0','name':'<name>'}" then i will see "打开导出编辑查看删除" button
+#    When the data name is "<name>" then i click the "打开" button
+#    Then the page's title will be "事件操作"
+#    Given open the "app.ListPage" page for uri "/app/list/"
+#    When the data name is "<name>" then i click the "编辑" button
+#    And I wait for loading invisible
+#    Then I will see the "app.CreatePage" page
+#    And I set the parameter "DescribeInput" with value "testDescribe"
+#    And I click the "SaveButton" button
+#    And I wait for "SuccessMessage" will be visible
+#    Then I will see the success message "更新成功"
+#    Given open the "app.ListPage" page for uri "/app/list/"
+#    When the data name is "<name>" then i click the "导出" button
+#    And I will see the "app.CreatePage" page
+#    And I wait for loading invisible
+#    And I click the "ExportButton" button
+#    And I will see the "app.ListPage" page
+#    Then I wait for "CreateButton" will be visible
+#    And the data name is "<name>" then i click the "查看" button
+#    And I wait for loading invisible
+#    And I will see the "app.DetailPage" page
+#    Then I will see the input element "Describe" value will contains "testDescribe"
+#    Given open the "app.ListPage" page for uri "/app/list/"
+#    When the data name is "<name>" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "删除成功"
+#
+#    Examples:
+#      | name            |
+#      | EventAppForAuth |
 
   @cleanAuth
   Scenario Outline: 删除角色
+    Given open the "roles.ListPage" page for uri "/account/roles/"
     Given the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
 
     Examples:
-      | name         |
-      | AutoTestCopy |
+      | name     |
+      | 关联权限测试用户 |
 
   @cleanAuth
   Scenario Outline: 清理
