@@ -131,11 +131,11 @@ Feature: 新建资产管理
       | VPN         |
       | Web防火墙      |
       | 入侵防御系统(IPS) |
-#      | 入侵检测系统(IDS) |
+      | 入侵检测系统(IDS) |
       | 网络准入系统      |
       | 防病毒网关       |
       | 流量检测设备      |
-#      | 数据防泄密系统     |
+      | 数据防泄密系统     |
       | 堡垒机         |
       | 数据库审计系统     |
       | 其他          |
@@ -161,7 +161,7 @@ Feature: 新建资产管理
   Scenario: 编辑资产-修改资产描述
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetDescription" with value "完全创建描述test"
+    And I set the value "完全创建描述test" to the textarea "AssetDescription"
     And I click the "Save" button
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
     And I wait for element "AssetDescription" value change text to "完全创建描述test"
@@ -170,7 +170,7 @@ Feature: 新建资产管理
   Scenario: 编辑资产-修改资产责任人
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
     And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetOwner" with value "sunxc"
+    And I set the value "sunxc" to the textarea "AssetOwner"
     And I click the "Save" button
     When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
     And I wait for element "AssetOwner" value change text to "sunxc"
