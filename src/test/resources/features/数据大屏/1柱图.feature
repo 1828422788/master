@@ -19,6 +19,7 @@ Feature: 数据大屏-e柱图
     And I click the "Style" button
     #图例
     And I click the "Example" button
+    And I wait for "ExampleWordSize" will be visible
     And I set the parameter "ExampleWordSize" with value "20"
     And I click the "ExampleColor" button
     And I wait for "ColorInput" will be visible
@@ -110,6 +111,7 @@ Feature: 数据大屏-e柱图
     And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
       #文本
+    And I wait for "XaxisWordSize" will be visible
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
     And I wait for "ColorInput" will be visible
