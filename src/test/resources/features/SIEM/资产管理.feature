@@ -176,21 +176,21 @@ Feature: 新建资产管理
     And I wait for element "AssetOwner" value change text to "sunxc"
     Then I will see the element "AssetOwner" attribute "value" is "sunxc" in siem
 
-  Scenario: 编辑资产-勾选资产为重要资产
-    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
-    And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetOwner" with value "sunxc"
-    And I click the "Save" button
-    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
-    And I wait for element "AssetOwner" value change text to "sunxc"
-    Then I will see the element "AssetOwner" attribute "value" is "sunxc" in siem
-
-  Scenario: 编辑资产-取消勾选为重要资产
-    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
-    And I will see the url contains "/app/siem/assets/edit"
-    When I set the parameter "AssetOwner" with value "sunxc"
-    And I click the "Save" button
-    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
-    And I wait for element "AssetOwner" value change text to "sunxc"
-    Then I will see the element "AssetOwner" attribute "value" is "sunxc" in siem
+#  Scenario: 编辑资产-勾选资产为重要资产
+#    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+#    And I will see the url contains "/app/siem/assets/edit"
+#    And the data name is "<string>" then I "<string>" the switch
+#    And I click the "Save" button
+#    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+#    And I wait for element "AssetOwner" value change text to "sunxc"
+#    Then I will see the element "AssetOwner" attribute "value" is "sunxc" in siem
+#
+#  Scenario: 编辑资产-取消勾选为重要资产
+#    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+#    And I will see the url contains "/app/siem/assets/edit"
+#    When I set the parameter "AssetOwner" with value "sunxc"
+#    And I click the "Save" button
+#    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+#    And I wait for element "AssetOwner" value change text to "sunxc"
+#    Then I will see the element "AssetOwner" attribute "value" is "sunxc" in siem
 

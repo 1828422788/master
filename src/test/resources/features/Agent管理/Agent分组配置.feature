@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 @agent @agent_group2
-=======
-@agent2 @agent_group
->>>>>>> f391b4af6dd1ccea4d941768c3a29ef48901008a
-Feature: Agent分组采集
 
+Feature: Agent分组采集
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
