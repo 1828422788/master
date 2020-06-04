@@ -85,6 +85,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-notification__content']")
     private WebElement Message;
 
+    @FindBy(xpath = "(//span[text()='AutotestCompleteadd2']/ancestor::td/following-sibling::td)[5]/div")
+    private WebElement IsImportantAssest;
+
+    public WebElement getIsImportantAssest() {
+        return IsImportantAssest;
+    }
+
     public WebElement getAssetNameComplete(){
         return getInputElement("资产名称");
     }
