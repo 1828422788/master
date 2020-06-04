@@ -191,3 +191,32 @@ Feature: 新建资产管理
     And I click the "Save" button
     And I wait for element "IsImportantAssest" change text to "否"
 
+  Scenario: 编辑资产-修改资产MAC地址
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I will see the url contains "/app/siem/assets/edit"
+    And I set the value "8c:85:90:b3:22:50" to the textarea "AssetMacAddress"
+    And I click the "Save" button
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I wait for element "AssetMacAddress" value change text to "8c:85:90:b3:22:50"
+    Then I will see the element "AssetMacAddress" attribute "value" is "8c:85:90:b3:22:50" in siem
+
+  Scenario: 编辑资产-修改资产区域
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I will see the url contains "/app/siem/assets/edit"
+    And I set the value "DNS区" to the textarea "AssetZone"
+    And I click the "Save" button
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I wait for element "AssetZone" value change text to "DNS区"
+    Then I will see the element "AssetZone" attribute "value" is "DNS区" in siem
+
+  Scenario: 编辑资产-添加应用
+    When the data name is "{'column':'1','name':'AutotestCompleteadd2'}" then i click the "编辑" button in siem page
+    And I will see the url contains "/app/siem/assets/edit"
+    And I click the "AddApp" button
+    When I set the parameter "Appname2" with value "mysqld"
+    When I set the parameter "Version2" with value "5.5"
+    When I set the parameter "Port2" with value "33"
+    When I set the parameter "Protocol2" with value "UDP"
+    And I click the "Save" button
+    Then I will see the element value in json "{'CompletaMessage':'修改资产成功，即将返回上一页'}"
+

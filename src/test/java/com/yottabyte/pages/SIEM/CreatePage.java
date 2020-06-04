@@ -88,6 +88,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='AutotestCompleteadd2']/ancestor::td/following-sibling::td)[5]/div")
     private WebElement IsImportantAssest;
 
+    @FindBy(xpath = "//div[contains(text(),'添加应用')]")
+    private WebElement AddApp;
+
+    public WebElement getAddApp() {
+        return AddApp;
+    }
+
     public WebElement getIsImportantAssest() {
         return IsImportantAssest;
     }
@@ -100,13 +107,36 @@ public class CreatePage extends PageTemplate {
         return getInputElement("描述");
     }
 
+    public WebElement getAssetMacAddress(){
+        return getInputElement("MAC地址");
+    }
+
     public WebElement getAssetOwner(){
         return getInputElement("责任人");
     }
 
+    public WebElement getAssetZone(){
+        return getInputElement("资产区域");
+    }
 
     public WebElement getIpComplete(){
         return getInputElement("IP地址");
+    }
+
+    public WebElement getAppname2(){
+        return getInputAppElement(5);
+    }
+
+    public WebElement getVersion2(){
+        return getInputAppElement(6);
+    }
+
+    public WebElement getPort2(){
+        return getInputAppElement(7);
+    }
+
+    public WebElement getProtocol2(){
+        return getInputAppElement(8);
     }
 
     public WebElement getAppname(){
@@ -124,7 +154,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getProtocol(){
         return getInputAppElement(4);
     }
-
     public WebElement getFailureMessage() {
         return FailureMessage;
     }
