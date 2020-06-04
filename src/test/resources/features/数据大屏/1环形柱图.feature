@@ -70,7 +70,7 @@ Feature: 数据大屏-p环形柱图
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.clientip" from the "dataSearchLabel"
-    And I wait for "dataSearchValue" will be visible
+    And I wait for "1000" millsecond
     And I choose the "ip_count" from the "dataSearchValue"
           #保存
     And I wait for "Save" will be visible
@@ -132,7 +132,7 @@ Feature: 数据大屏-p环形柱图
     And I wait for "tipsText" will be invisible
 
     And I choose the "apache.clientip" from the "dataSearchLabel"
-    And I wait for "dataSearchValue" will be visible
+    And I wait for "1000" millsecond
     And I choose the "ip_count" from the "dataSearchValue"
 
       #保存
@@ -208,7 +208,7 @@ Feature: 数据大屏-p环形柱图
     And I click the "Data" button
 
     And I choose the "apache.clientip" from the "dataSearchLabel"
-     And I wait for "dataSearchValue" will be visible
+     And I wait for "1000" millsecond
     And I choose the "ip_count" from the "dataSearchValue"
         #保存
      And I wait for "Save" will be visible
