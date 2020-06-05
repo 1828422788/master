@@ -21,6 +21,7 @@ Feature: 数据大屏-a折线图
     And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
       #文本
+    And I wait for "XaxisWordSize" will be visible
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
     And I wait for "ColorInput" will be visible
@@ -107,6 +108,7 @@ Feature: 数据大屏-a折线图
     And I choose the "count()" from the "Yaxis"
 
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -181,6 +183,7 @@ Feature: 数据大屏-a折线图
     And I choose the "count()" from the "Group"
     #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -253,6 +256,7 @@ Feature: 数据大屏-a折线图
     And I choose the "count()" from the "Yaxis"
       #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"

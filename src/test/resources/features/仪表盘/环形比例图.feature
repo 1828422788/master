@@ -31,8 +31,8 @@ Feature: 仪表盘环形比例图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                             | name     |
-      | * \| stats count() as num \| eval p = num/28000 | 仪表盘环形比例图 |
+      | spl                                                          | name     |
+      | appname:huawei \| stats count() as num \| eval p = num/28000 | 仪表盘环形比例图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -135,7 +135,7 @@ Feature: 仪表盘环形比例图
 
     Examples:
       | name     |
-      | 仪表盘矩阵热力图 |
+      | 仪表盘环形比例图 |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
@@ -147,4 +147,4 @@ Feature: 仪表盘环形比例图
 
     Examples:
       | name     |
-      | 仪表盘矩阵热力图 |
+      | 仪表盘环形比例图 |

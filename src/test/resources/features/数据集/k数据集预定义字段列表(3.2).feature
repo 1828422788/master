@@ -130,3 +130,16 @@ Feature: 数据集-k预定义字段列表
     And I click the "allDelete" button
     And I click the "save" button
 
+Scenario: RZY-4496:数据集字段在搜索页面的应用
+  Given open the "splSearch.SearchPage" page for uri "/search/"
+  And I wait for element "SearchStatus" change text to "搜索完成!"
+
+  And I click the "hrField" button
+
+  And I click the "DateEditor" button
+  And I click the "RecentSevenDay" button
+  And I click the "SearchButton" button
+  And I wait for element "SearchStatus" change text to "搜索完成!"
+  #验证字段
+  Then I will see the "fieldOne" result will be "apache.status"
+  Then I will see the "fieldTwo" result will be "appname"

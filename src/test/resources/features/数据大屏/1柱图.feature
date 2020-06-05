@@ -19,6 +19,7 @@ Feature: 数据大屏-e柱图
     And I click the "Style" button
     #图例
     And I click the "Example" button
+    And I wait for "ExampleWordSize" will be visible
     And I set the parameter "ExampleWordSize" with value "20"
     And I click the "ExampleColor" button
     And I wait for "ColorInput" will be visible
@@ -62,6 +63,7 @@ Feature: 数据大屏-e柱图
 
        #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -109,6 +111,7 @@ Feature: 数据大屏-e柱图
     And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
       #文本
+    And I wait for "XaxisWordSize" will be visible
     And I set the parameter "XaxisWordSize" with value "20"
     And I click the "XaxisWordColor" button
     And I wait for "ColorInput" will be visible
@@ -189,6 +192,7 @@ Feature: 数据大屏-e柱图
 
        #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -267,6 +271,7 @@ Feature: 数据大屏-e柱图
     And I choose the "count()" from the "LineYaxis"
         #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"

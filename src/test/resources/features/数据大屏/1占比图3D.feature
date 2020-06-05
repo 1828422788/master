@@ -1,4 +1,4 @@
-@galaxee @galaxee0   @1.18
+@galaxee @galaxee0   @1.18 @v33g1
 Feature: 数据大屏-r占比图3D
 
 #  Background:
@@ -74,6 +74,7 @@ Feature: 数据大屏-r占比图3D
     And I set the parameter "seriousMax" with value "0.9"
        #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -139,6 +140,7 @@ Feature: 数据大屏-r占比图3D
 
        #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -182,7 +184,6 @@ Feature: 数据大屏-r占比图3D
     And I set the parameter "updateFrequency" with value "0.1"
            #选择占比图3D
     And I click the "Chart" button
-
     And I wait for "percent3dChart" will be visible
     And I click the "percent3dChart" button
     And I click the "Style" button
@@ -214,6 +215,7 @@ Feature: 数据大屏-r占比图3D
     And I set the parameter "seriousMax" with value "0.6"
         #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"

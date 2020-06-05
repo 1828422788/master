@@ -4,6 +4,7 @@ Feature: 数据大屏-m边框
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
+  @v33gs
   Scenario: 边框默认设置样式1
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -19,6 +20,7 @@ Feature: 数据大屏-m边框
 
      #保存
     And I wait for "Save" will be visible
+    And  I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -74,6 +76,7 @@ Feature: 数据大屏-m边框
     And I set the parameter "globalStyleName" with value "边框样式2"
      #保存
     And I wait for "Save" will be visible
+    And I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -118,6 +121,7 @@ Feature: 数据大屏-m边框
     And I choose the "样式3" from the "styleFrameSelect"
      #保存
     And I wait for "Save" will be visible
+    And  I wait for "2000" millsecond
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"

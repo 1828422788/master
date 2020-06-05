@@ -1,6 +1,6 @@
-@agent2 @agent_group
-Feature: Agent分组采集
+@agent @agent_group2
 
+Feature: Agent分组采集
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
