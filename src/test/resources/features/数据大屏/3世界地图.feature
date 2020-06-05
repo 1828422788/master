@@ -53,6 +53,10 @@ Feature: 数据大屏-l世界地图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
+
+    And I choose the "count()" from the "DataField"
+    And I choose the "apache.geo.country" from the "NameField"
+
     And I click the "Update" button
       #保存
     And I wait for "Save" will be visible
@@ -108,6 +112,9 @@ Feature: 数据大屏-l世界地图
     And I click the "statisticsData" button
     And I click the "Ensure" button
     And I wait for "tipsText" will be invisible
+
+    And I choose the "count()" from the "DataField"
+    And I choose the "apache.geo.country" from the "NameField"
 
     And I click the "Update" button
         #保存
@@ -173,6 +180,9 @@ Feature: 数据大屏-l世界地图
      #对参数进行设置
     And I click the "pictureOne" button
     And I click the "Data" button
+
+    And I choose the "count()" from the "DataField"
+    And I choose the "apache.geo.country" from the "NameField"
 
     And I click the "Update" button
         #保存
