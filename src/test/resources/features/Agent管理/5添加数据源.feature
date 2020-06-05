@@ -1,4 +1,4 @@
-@agent @agent_addfile
+@agent2 @agent_addfile
 Feature: Agent添加数据源
 
   Background:
