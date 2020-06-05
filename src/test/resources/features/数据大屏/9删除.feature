@@ -3,7 +3,7 @@ Feature: 数据大屏-所有控件删除
 
   Scenario Outline: 数据大屏-所有控件删除
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    And I wait for "6000" millsecond
+    And I wait for "7000" millsecond
     When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
     Then I click the "Ensure" button
 

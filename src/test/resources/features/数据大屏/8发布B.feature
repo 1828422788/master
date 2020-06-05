@@ -3,7 +3,7 @@ Feature: 数据大屏-所有控件发布
 
   Scenario Outline: 数据大屏-所有控件发布
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    And I wait for "6000" millsecond
+    And I wait for "7000" millsecond
     When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
     And switch to window "<name>"
     And I close all tabs except main tab
