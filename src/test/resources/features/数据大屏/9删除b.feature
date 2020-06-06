@@ -1,4 +1,4 @@
-@galaxeeD
+@galaxeeD1
 Feature: 数据大屏-所有控件删除
 
   Scenario Outline: 数据大屏-所有控件删除
