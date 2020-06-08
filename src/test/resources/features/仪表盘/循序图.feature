@@ -110,7 +110,7 @@ Feature: 仪表盘循序图
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-      | 仪表盘循序图 | {\n  "title": "仪表盘循序图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424* \| sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
+      | 仪表盘循序图 | {\n  "title": "仪表盘循序图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424* \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
 
   @dashboard
   Scenario Outline: RZY-1365:两个字段为同一个值
