@@ -1,4 +1,4 @@
-@auth
+@authtest
 Feature: 授权告警插件
 
   Scenario: 上传告警插件
@@ -20,6 +20,8 @@ Feature: 授权告警插件
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for loading invisible
+    When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可查看告警插件,可使用监控"
     And I click the "SaveButton" button
 

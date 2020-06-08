@@ -108,7 +108,6 @@ Feature: 仪表盘关联搜索
     And I click the "SettingIcon" button
     And I click the "OpenDrilldown" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "钻取功能已启用"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 修改仪表盘配置

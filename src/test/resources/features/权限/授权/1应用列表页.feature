@@ -1,4 +1,4 @@
-@authtest
+#@authtest
 Feature: 权限-应用列表页
 
   Scenario: 授权可使用应用功能,可新建应用,可使用数据集,数据集操作权限
@@ -76,6 +76,7 @@ Feature: 权限-应用列表页
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
     When I upload a file with name "/target/download-files/EventAppForAuth.tar"
+    And I wait for "Message" will be visible
     Then I will see the message "上传失败: 没有相关功能权限 `可新建应用`"
 
   Scenario: 授权新建权限
