@@ -4,7 +4,7 @@ Feature: 趋势图新建-其他
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-
+@funnel
   Scenario Outline: others
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -38,7 +38,7 @@ Feature: 趋势图新建-其他
       | chartType | caseNum | spl                                                                                                          |
       | Single    | 2549    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>300,\"thumbs-down\",\"thumbs-up\"\) |
       | Radar     | 2633    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                   |
-      | Funnel    | 2654    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.clientip \| limit 5                                      |
+      | Funnel    | 2654    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt by apache.clientip \| sort by cnt, apache.clientip \|limit 5 |
 
 
   Scenario Outline: others2
@@ -775,7 +775,7 @@ Feature: 趋势图新建-其他
     Examples:
       | chartType | divField        | color1   | caseNum | spl                                                                        |
       | Radar     | apache.geo.city | DarkBlue | 2635    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-
+@funnel
   Scenario Outline: funnel
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -818,7 +818,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | countValue | divValue        | color1     | caseNum | spl                                                                      |
-      | Funnel    | count()    | apache.clientip | LightGreen | 2858    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \|  stats count() by apache.clientip \| limit 5 |
+      | Funnel    | cnt        | apache.clientip | LightGreen | 2858    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
 
   Scenario Outline: matrixheatmap
     And I click the "NewTrendButton" button
