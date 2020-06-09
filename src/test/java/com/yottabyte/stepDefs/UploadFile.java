@@ -112,7 +112,7 @@ public class UploadFile {
                     uploadFileToSeleniumServer(fileNameWithPath);
                     File tmpFile = new File(fileNameWithPath);
                     String fileName = tmpFile.getName();
-                    String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
+                    String path = tmpFile.getPath().split("resources")[1].replace("/", "\\").split(fileName)[0];
                     courseFile = courseFile + path;
                     System.out.println("路径：" + courseFile);
                     fileNameWithPath = fileName;
