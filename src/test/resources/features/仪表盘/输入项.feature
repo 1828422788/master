@@ -74,6 +74,7 @@ Feature: 仪表盘输入项
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "仪表盘所用趋势图"
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "仪表盘所用趋势图"
     And I click the "Ensure" button
 
@@ -133,6 +134,7 @@ Feature: 仪表盘输入项
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "仪表盘1669所用趋势图"
+    And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘1669所用趋势图'}" button
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"

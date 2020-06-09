@@ -57,6 +57,7 @@ Feature: 仪表盘桑基图
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "<name>"
+    And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
 
