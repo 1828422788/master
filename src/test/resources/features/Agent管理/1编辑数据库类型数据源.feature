@@ -18,7 +18,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "LinkName" with value "autotestmysql"
     And I set the parameter "Username" with value "root"
     And I set the parameter "Password" with value "rizhiyi&2014"
-    And I set the parameter "Host" with value "192.168.1.134"
+    And I set the parameter "Host" with value "192.168.1.139"
     And I set the parameter "DataBaseName" with value "rizhiyi_system"
     And I click the "Save" button
     And I wait for "ChangeMemo" will be visible

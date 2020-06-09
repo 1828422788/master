@@ -14,7 +14,7 @@ Feature: Agent页面跳转
     And I set the parameter "Listenaddress" with value "192.168.1.160:514"
     And I click the "Next" button
     And I click the "AddNewMap" button
-    And I set the parameter "Syslogip" with value "192.168.1.134"
+    And I set the parameter "Syslogip" with value "192.168.1.139"
     And I set the parameter "Syslogappname" with value "autotestjump"
     And I set the parameter "Syslogtag" with value "autotestjump"
     And I click the "Next" button

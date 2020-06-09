@@ -238,7 +238,7 @@ public class AuthorizationPage extends PageTemplate {
 //        LoginBeforeAllTests login = new LoginBeforeAllTests(driver, c);
 //        login.beforeScenario();
 //        Thread.sleep(3000);
-//        driver.get("http://192.168.1.134/account/roles/assign/1/");
+//        driver.get("http://192.168.1.139/account/roles/assign/1/");
 //        LoginBeforeAllTests.setPageFactory("roles.AuthorizationPage");
 //        ICheckValuesFromCheckBox checkBox = new ICheckValuesFromCheckBox();
 //        List<String> list = new ArrayList<>();

@@ -17,7 +17,7 @@ Feature: Agent编辑Syslog类型数据源
     And I click the "Next" button
     And I wait for loading invisible
     And I click the "AddNewMap" button
-    And I set the parameter "Syslogip" with value "192.168.1.134"
+    And I set the parameter "Syslogip" with value "192.168.1.139"
     And I set the parameter "Syslogappname" with value "autohekaSyslog"
     And I set the parameter "Syslogtag" with value "autohekaSyslog"
     And I click the "Next" button

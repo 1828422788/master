@@ -74,7 +74,7 @@ Feature: Agent添加数据源
     And I will see the element "MemoMessage" name is "请至少添加一个映射。"
     And I click the "Ensure" button
     And I click the "AddNewMap" button
-    And I set the parameter "Syslogip" with value "192.168.1.134"
+    And I set the parameter "Syslogip" with value "192.168.1.139"
     And I set the parameter "Syslogappname" with value "autohekaSyslog"
     And I set the parameter "Syslogtag" with value "autohekaSyslog"
     And I click the "Next" button
