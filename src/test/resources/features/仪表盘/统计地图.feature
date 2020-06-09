@@ -5,7 +5,7 @@ Feature: 仪表盘统计地图
     Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
     When I set the parameter "AppName" with value "geostats"
     And I set the parameter "Tag" with value "geostats"
-    And I upload a file with name "/src/test/resources/testdata/log/geostats.csv"
+    And I upload a file with name "/src/test/resources/testdata/log/geostats.txt"
     And I click the "UploadButton" button
     And I wait for "VerifyText" will be visible
     Then I wait for element "VerifyText" change text to "上传完成"
