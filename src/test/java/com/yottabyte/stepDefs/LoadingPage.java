@@ -7,6 +7,7 @@ import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.WebDriver;
+import sun.security.provider.MD5;
 
 /**
  * 对页面的操作
@@ -42,6 +43,12 @@ public class LoadingPage {
         }
         ConstructPageFactoryWithName c = new ConstructPageFactoryWithName();
         c.constructPageFactoryWithName(pageName);
+        if (pageName.contains("LoginPage")) {
+
+        }
+    }
+
+    private void switchAccount() {
     }
 
     /**

@@ -9,6 +9,8 @@ Feature: 权限-应用列表页
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用拓扑图,新建拓扑图"
     And I click the "SaveButton" button
 
   Scenario Outline: 验证可新建应用
@@ -56,7 +58,8 @@ Feature: 权限-应用列表页
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "可新建应用"
+    When I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -87,6 +90,8 @@ Feature: 权限-应用列表页
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集,可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -100,6 +105,7 @@ Feature: 权限-应用列表页
     And I click the "LoginButton" button
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for "Create" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
