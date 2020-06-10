@@ -86,7 +86,6 @@ Feature: 仪表盘统计地图
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "Geostatsmap" button
-    And I hide the element "Content"
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
