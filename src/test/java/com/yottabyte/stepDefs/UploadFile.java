@@ -112,12 +112,11 @@ public class UploadFile {
                     uploadFileToSeleniumServer(fileNameWithPath);
                     File tmpFile = new File(fileNameWithPath);
                     String fileName = tmpFile.getName();
-                    String path = tmpFile.getPath().split("resources")[1].replace("\\", "/").split(fileName)[0];
-                    courseFile = courseFile + "/" + path;
+                    String path = tmpFile.getPath().split("resources")[1].replace("/", "\\").split(fileName)[0];
+                    courseFile = courseFile + path;
                     System.out.println("路径：" + courseFile);
                     fileNameWithPath = fileName;
-                }
-                else {
+                } else {
                     courseFile = directory.getCanonicalPath();
                     System.out.println("路径：" + courseFile);
                 }
@@ -142,7 +141,7 @@ public class UploadFile {
                 } else {
                     courseFile = directory.getCanonicalPath();
                 }
-                this.upload(uploadInput,fileNameWithPath,courseFile);
+                this.upload(uploadInput, fileNameWithPath, courseFile);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -162,10 +161,10 @@ public class UploadFile {
                 return;
             }
         } else {
-            System.out.println("courseFile!!!!! : " + courseFile + s + fileNameWithPath);
+            System.out.println("courseFile!!!!! : " + courseFile + fileNameWithPath);
             try {
 
-                uploadInput.sendKeys(courseFile + s + fileNameWithPath);
+                uploadInput.sendKeys(courseFile + fileNameWithPath);
             } catch (Exception e) {
                 return;
             }

@@ -49,6 +49,7 @@ Feature: 仪表盘高级编辑
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "仪表盘所有"
+    And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘所有'}" button
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"

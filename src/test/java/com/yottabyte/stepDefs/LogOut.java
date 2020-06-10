@@ -2,6 +2,7 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.WaitForElement;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,7 +31,7 @@ public class LogOut {
 
         try {
             URL url = new URL(webDriver.getCurrentUrl());
-            String loginUrl =String.format("%s://%s:%s/auth/login/",
+            String loginUrl = String.format("%s://%s:%s/auth/login/",
                     url.getProtocol(), url.getHost(), url.getPort() > 0 ? url.getPort() : url.getDefaultPort());
             webDriver.get(loginUrl);
         } catch (MalformedURLException e) {
@@ -41,5 +42,16 @@ public class LogOut {
         while (!currentUrl.contains("/auth/login/")) {
             webDriver.manage().deleteAllCookies();
         }
+    }
+
+    /**
+     * 登录用户，根据MD5加密进行URL登录
+     *
+     * @param username
+     * @param password
+     */
+    @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\"$")
+    public void userLogin(String username, String password) {
+
     }
 }

@@ -86,7 +86,7 @@ Feature: 日志展现_其它
       | chartType  | caseNum | spl                                                                       |
       | Liquidfill | 分面    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10|
 
-
+@funnel
   Scenario Outline: others(RZY-2807,2449)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -106,7 +106,7 @@ Feature: 日志展现_其它
     Examples:
       |  chartType    |caseNum  |   spl   |
       |   Radar       | 2807    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-      |   Funnel      | 2449    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.clientip \| limit 5 |
+      |   Funnel      | 2449    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt by apache.clientip \| sort by cnt, apache.clientip \|limit 5 |
 
 
   Scenario Outline: radar(RZY-2808)
@@ -139,6 +139,7 @@ Feature: 日志展现_其它
       |  chartType    | divField       | color1   | caseNum  |   spl   |
       |   Radar       | apache.geo.city| DarkBlue | 2808    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
+    @funnel
   Scenario Outline: funnel(RZY-2809)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -169,7 +170,7 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
-      |   Funnel      |  count()   | apache.geo.city|LightGreen |2809    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |   Funnel      |  cnt       | apache.geo.city|LightGreen |2809    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
 
   Scenario Outline: matrixheatmap(RZY-2810,2811)
     When I set the parameter "SearchInput" with value "<spl>"

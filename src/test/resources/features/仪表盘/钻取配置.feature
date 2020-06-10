@@ -55,6 +55,7 @@ Feature: 仪表盘钻取配置
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "仪表盘钻取配置"
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "仪表盘钻取配置"
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
@@ -213,6 +214,7 @@ Feature: 仪表盘钻取配置
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I set the parameter "SearchChartInput" with value "测试标签钻取"
+    And I wait for loading invisible
     And I click the "{'Checkbox':'测试标签钻取'}" button
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"

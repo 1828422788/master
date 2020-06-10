@@ -1337,7 +1337,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getOpenDrilldown() {
-        return getSwitchButton("是否启用钻取");
+        return getSwitchButton("启用钻取");
     }
 
     public WebElement getEnsureAddTrend() {

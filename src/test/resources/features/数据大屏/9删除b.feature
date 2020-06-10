@@ -1,15 +1,11 @@
-@galaxeeRB   @galaxee @galaxeeR
-Feature: 数据大屏-所有控件发布
+@galaxeeD1
+Feature: 数据大屏-所有控件删除
 
-  Scenario Outline: 数据大屏-所有控件发布
+  Scenario Outline: 数据大屏-所有控件删除
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     And I wait for "7000" millsecond
-    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-    And switch to window "<name>"
-    And I close all tabs except main tab
-    And I wait for "Loading" will be invisible
-    And I wait for "1000" millsecond
-    Then take a screenshot with name "galaxee/<name>"
+    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+    Then I click the "Ensure" button
 
 
     Examples:
@@ -30,21 +26,21 @@ Feature: 数据大屏-所有控件发布
       |雷达图数据之静态数据   |
       |雷达图数据之绑定搜索 |
 
-| 力图-样式搜索 |
-|力图-静态数据  |
-|力图-绑定搜索|
+      | 力图-样式搜索 |
+      |力图-静态数据  |
+      |力图-绑定搜索|
 
-| 桑基图-样式搜索  |
-|桑基图-静态数据  |
-|桑基图-绑定搜索 |
+      | 桑基图-样式搜索  |
+      |桑基图-静态数据  |
+      |桑基图-绑定搜索 |
 
-|字符云图样式-搜索    |
-|字符云图数据之静态数据  |
-|字符云图数据之绑定搜索 |
+      |字符云图样式-搜索    |
+      |字符云图数据之静态数据  |
+      |字符云图数据之绑定搜索 |
 
-|栅格百分图样式-搜索    |
-|栅格百分图数据之静态数据   |
-|栅格百分图数据之绑定搜索 |
+      |栅格百分图样式-搜索    |
+      |栅格百分图数据之静态数据   |
+      |栅格百分图数据之绑定搜索 |
 
 
       |中国地图-样式搜索   |
@@ -78,10 +74,6 @@ Feature: 数据大屏-所有控件发布
       | 地理分布样式-搜索 |
       |地理分布-静态数据 |
       |地理分布-绑定搜索 |
-
-
-
-
 
 
 

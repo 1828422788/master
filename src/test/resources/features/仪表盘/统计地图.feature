@@ -1,11 +1,11 @@
 Feature: 仪表盘统计地图
 
-  @dashboard @dashboardSmoke
+  @dashboard @dashboardSmoke @test
   Scenario: 上传日志
     Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
     When I set the parameter "AppName" with value "geostats"
     And I set the parameter "Tag" with value "geostats"
-    And I upload a file with name "/src/test/resources/testdata/log/geostats.csv"
+    And I upload a file with name "/src/test/resources/testdata/log/geostats.txt"
     And I click the "UploadButton" button
     And I wait for "VerifyText" will be visible
     Then I wait for element "VerifyText" change text to "上传完成"
@@ -67,6 +67,7 @@ Feature: 仪表盘统计地图
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "<name>"
+    And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
     And I click the "Ensure" button
 
@@ -85,7 +86,6 @@ Feature: 仪表盘统计地图
     And I wait for "Map" will be visible
     And I click the "Map" button
     And I click the "Geostatsmap" button
-    And I hide the element "Content"
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button

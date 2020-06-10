@@ -331,6 +331,7 @@ Feature: 仪表盘过滤项
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "测试仪表盘eval"
+    And I wait for loading invisible
     And I click the "{'Checkbox':'测试仪表盘eval'}" button
     And I click the "Ensure" button
 

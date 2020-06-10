@@ -96,6 +96,7 @@ Feature: 仪表盘关联搜索
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "仪表盘"
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "仪表盘message,仪表盘return,仪表盘workflow"
     And I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "添加成功"
@@ -106,9 +107,9 @@ Feature: 仪表盘关联搜索
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
+    And I wait for "OpenDrilldown" will be visible
     And I click the "OpenDrilldown" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "钻取功能已启用"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 修改仪表盘配置
@@ -135,6 +136,7 @@ Feature: 仪表盘关联搜索
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘workflow" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:${workflow} | table tag,workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"
     Then I click the "Ensure" button
     Then I will see the success message "配置成功"

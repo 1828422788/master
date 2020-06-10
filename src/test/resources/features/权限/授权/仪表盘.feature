@@ -166,6 +166,7 @@ Feature: 权限-仪表盘
     When the data name is "<name>" then i click the "重命名" button
     And I set the parameter "DashBoardName" with value "<name>重命名"
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "重命名仪表盘成功"
     And I wait for "SuccessMessage" will be invisible
     And I click the detail which name is "<name>重命名"
