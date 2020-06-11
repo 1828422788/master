@@ -1,24 +1,23 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
-import com.yottabyte.utils.WaitForElement;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import org.openqa.selenium.By;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * 退出登录
+ * @author sunxj
  */
-public class LogOut {
+public class LogInAndOut {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     /**
      * 登出当前用户
+     * author wangyueming
      */
     @And("^I logout current user$")
     public void iLogoutCurrentUser() {
@@ -52,6 +51,11 @@ public class LogOut {
      */
     @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\"$")
     public void userLogin(String username, String password) {
-
+        String passwordMD5 = DigestUtils.md5Hex(password);
+        String finalMD5 = DigestUtils.md5Hex(username + passwordMD5);
+        ConfigManager manager = new ConfigManager();
+        String url = "http://"+manager.get("rizhiyi_server_host") + "/dashboard/login/" + username + "/" + passwordMD5 + "/" + finalMD5 + "/";
+        System.out.println(url);
+        webDriver.get(url);
     }
 }

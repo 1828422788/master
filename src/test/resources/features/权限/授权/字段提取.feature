@@ -1,184 +1,190 @@
 @auth
 Feature: 权限-字段提取
 
-  Scenario: 验证无新建权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "新建字段提取"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
-    Then I will see the "CreateButton" doesn't exist
+#  @logout
+#  Scenario: 验证无新建权限
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    And I wait for "Loading" will be invisible
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    And I "unchecked" the checkbox which name is "新建字段提取"
+#    And I click the "SaveButton" button
+#    And I will see the success message "更新成功"
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    And I wait for loading invisible
+#    Then I will see the "CreateButton" doesn't exist
+#
+#  @logout
+#  Scenario: 验证有新建权限
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    And I wait for "Loading" will be invisible
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    When I "unchecked" the checkbox which name is "全选"
+#    And I "checked" the checkbox which name is "可使用字段提取,新建字段提取,可查看角色页,可使用应用功能"
+#    And I click the "SaveButton" button
+#    And I will see the success message "更新成功"
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    And I wait for loading invisible
+#    And I click the "Create" button
+#    Then I will see the "configs.CreatePage" page
+#    And I click the "AddRule" button
+#    And I choose the "CSV解析" from the "ParseRule"
+#    And I choose the "raw_message" from the "SourceField"
+#    And I set the parameter "Separate" with value ","
+#    And I set the parameter "FieldList" with value "1,2,3,4,5"
+#    And I click the "EnsureAddParseRule" button
+#    And I click the "NextButton" button under some element
+#    And I click the "SwitchButton" button
+#    When I set the parameter "Name" with value "AutoTestUserCreate"
+#    And I set the parameter "Logtype" with value "other"
+#    And I click the "Done" button
+#    Then I wait for "ConfigDone" will be visible
+#
+#  @logout
+#  Scenario: 取消读取权限
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    And I wait for "Loading" will be invisible
+#    Then I click the "{'TabButton':'字段提取'}" button
+#    And I wait for "Loading" will be invisible
+#    And I "checked" the checkbox which name is "AutoTestUserCreate" in auth table
+#    And I "unchecked" the checkbox which name is "AutoTestUserCreate" in auth table
+#    And I click the "SaveButton" button
+#    And I will see the success message "更新成功"
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    Then I will see the search result "{'column':'0','name':'AutoTestUserCreate','contains':'no'}"
+#
+#  @logout
+#  Scenario Outline: 授权读取权限
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    And I wait for "Loading" will be invisible
+#    Then I click the "{'TabButton':'字段提取'}" button
+#    And I wait for "Loading" will be invisible
+#    And I "checked" the checkbox which name is "<name>" in auth table
+#    And I "unchecked" the checkbox which name is "<name>" in auth table
+#    When I "checked" function "读取" from the auth table which name is "<name>"
+#    And I click the "SaveButton" button
+#    And I will see the success message "更新成功"
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    When I "unchecked" the checkbox which name is "全选"
+#    And I "checked" the checkbox which name is "可使用字段提取,可查看角色页,可使用应用功能"
+#    And I click the "SaveButton" button
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权" button
+#    Then I will see the checkbox in list before "{'column':'1','name':'<name>'}" is "disabled"
+#    When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
+#    Then I will see the "configs.CreatePage" page
+#    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
+#    And I click the "NextButton" button
+#    Then I will see the message "没有编辑权限"
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
+#    And I wait for loading invisible
+#    Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+#
+#    Examples:
+#      | name               |
+#      | AutoTestUserCreate |
+#
+#  @logout
+#  Scenario: 授权读取+编辑权限
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_AutoTest__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    And I wait for "Loading" will be invisible
+#    Then I click the "{'TabButton':'字段提取'}" button
+#    And I wait for "Loading" will be invisible
+#    And I "checked" the checkbox which name is "AutoTestUserCreate" in auth table
+#    When I "unchecked" function "删除,转授" from the auth table which name is "AutoTestUserCreate"
+#    And I click the "SaveButton" button
+#    And I will see the success message "更新成功"
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    When I "unchecked" the checkbox which name is "全选"
+#    And I "checked" the checkbox which name is "可使用字段提取,新建字段提取,可查看角色页,可使用应用功能"
+#    And I click the "SaveButton" button
+#    And I will see the success message "更新成功"
+#    Given I will see the "PublicNavBarPage" page
+#    And I wait for "Dashboard" will be visible
+#    And I logout current user
+#    And I wait for title change text to "登录"
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+#    And I click the "LoginButton" button
+#    And I wait for "2000" millsecond
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    Then the data name is "{'column':'1','name':'AutoTestUserCreate'}" then i will see "编辑标签复制授权" button
+#    Then I will see the checkbox in list before "{'column':'1','name':'AutoTestUserCreate'}" is "enabled"
+#    When the data name is "{'column':'1','name':'AutoTestUserCreate'}" then i click the "复制" button
+#    Then I will see the success message "复制成功"
+#    When the data name is "{'column':'1','name':'AutoTestUserCreate'}" then i click the "编辑" button
+#    Then I will see the "configs.CreatePage" page
+#    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
+#    And I click the "NextButton" button under some element
+#    When I set the parameter "Name" with value "AutoTestUserRename"
+#    And I click the "Done" button
+#    Then I wait for "ConfigDone" will be visible
+#    Given open the "configs.ListPage" page for uri "/configs/"
+#    When the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "标签" button
+#    And I set the parameter "TagInput" with value "自动化测试标签"
+#    And I choose the "自动化测试标签" from the "Group"
+#    And I click the "Ensure" button
+#    Then I will see the success message "修改成功"
+#    And the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "授权" button
+#    And I wait for loading invisible
+#    Then I will see the checkbox in tiny table before "验证授权用户" is disabled
 
-  Scenario: 验证有新建权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用字段提取,新建字段提取,可查看角色页,可使用应用功能"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And I wait for loading invisible
-    And I click the "Create" button
-    Then I will see the "configs.CreatePage" page
-    And I click the "AddRule" button
-    And I choose the "CSV解析" from the "ParseRule"
-    And I choose the "raw_message" from the "SourceField"
-    And I set the parameter "Separate" with value ","
-    And I set the parameter "FieldList" with value "1,2,3,4,5"
-    And I click the "EnsureAddParseRule" button
-    And I click the "NextButton" button under some element
-    And I click the "SwitchButton" button
-    When I set the parameter "Name" with value "AutoTestUserCreate"
-    And I set the parameter "Logtype" with value "other"
-    And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
-
-  Scenario: 取消读取权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'字段提取'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "AutoTestUserCreate" in auth table
-    And I "unchecked" the checkbox which name is "AutoTestUserCreate" in auth table
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I will see the search result "{'column':'0','name':'AutoTestUserCreate','contains':'no'}"
-
-  Scenario Outline: 授权读取权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'字段提取'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    And I "unchecked" the checkbox which name is "<name>" in auth table
-    When I "checked" function "读取" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用字段提取,可查看角色页,可使用应用功能"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权" button
-    Then I will see the checkbox in list before "{'column':'1','name':'<name>'}" is "disabled"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
-    Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
-    And I click the "NextButton" button
-    Then I will see the message "没有编辑权限"
-    Given open the "configs.ListPage" page for uri "/configs/"
-    And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
-    And I wait for loading invisible
-    Then I will see the checkbox in tiny table before "验证授权用户" is disabled
-
-    Examples:
-      | name               |
-      | AutoTestUserCreate |
-
-  Scenario: 授权读取+编辑权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'字段提取'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "AutoTestUserCreate" in auth table
-    When I "unchecked" function "删除,转授" from the auth table which name is "AutoTestUserCreate"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用字段提取,新建字段提取,可查看角色页,可使用应用功能"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then the data name is "{'column':'1','name':'AutoTestUserCreate'}" then i will see "编辑标签复制授权" button
-    Then I will see the checkbox in list before "{'column':'1','name':'AutoTestUserCreate'}" is "enabled"
-    When the data name is "{'column':'1','name':'AutoTestUserCreate'}" then i click the "复制" button
-    Then I will see the success message "复制成功"
-    When the data name is "{'column':'1','name':'AutoTestUserCreate'}" then i click the "编辑" button
-    Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
-    And I click the "NextButton" button under some element
-    When I set the parameter "Name" with value "AutoTestUserRename"
-    And I click the "Done" button
-    Then I wait for "ConfigDone" will be visible
-    Given open the "configs.ListPage" page for uri "/configs/"
-    When the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "标签" button
-    And I set the parameter "TagInput" with value "自动化测试标签"
-    And I choose the "自动化测试标签" from the "Group"
-    And I click the "Ensure" button
-    Then I will see the success message "修改成功"
-    And the data name is "{'column':'1','name':'AutoTestUserRename'}" then i click the "授权" button
-    And I wait for loading invisible
-    Then I will see the checkbox in tiny table before "验证授权用户" is disabled
-
+  @logout
   Scenario Outline: 授权读取+编辑+删除权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -209,6 +215,7 @@ Feature: 权限-字段提取
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权" button
     Then I will see the checkbox in list before "{'column':'1','name':'<name>'}" is "enabled"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "复制" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "复制成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
@@ -238,6 +245,7 @@ Feature: 权限-字段提取
       | name                   |
       | AutoTestUserCreate(副本) |
 
+  @logout
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -281,6 +289,7 @@ Feature: 权限-字段提取
       | name                       |
       | AutoTestUserCreate(副本)(副本) |
 
+  @logout
   Scenario: 授权读取+删除
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -297,6 +306,7 @@ Feature: 权限-字段提取
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
 
+  @logout
   Scenario Outline: 授权读取+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -358,6 +368,7 @@ Feature: 权限-字段提取
       | name               |
       | AutoTestUserRename |
 
+  @logout
   Scenario Outline: 授权读取+编辑+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -435,6 +446,7 @@ Feature: 权限-字段提取
       | name               |
       | AutoTestUserRename |
 
+  @logout
   Scenario Outline: 授权读取+删除+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -508,6 +520,7 @@ Feature: 权限-字段提取
       | name   |
       | Auto副本 |
 
+  @logout
   Scenario: 新建字段提取测试所有权限
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
@@ -526,6 +539,7 @@ Feature: 权限-字段提取
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
+  @logout
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -600,6 +614,7 @@ Feature: 权限-字段提取
       | name   |
       | 副本(副本) |
 
+  @logout
   Scenario: 有效期限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -620,6 +635,7 @@ Feature: 权限-字段提取
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
+  @logout
   Scenario: 上传字典
     When I wait for "2000" millsecond
     And I logout current user
@@ -637,6 +653,7 @@ Feature: 权限-字段提取
     And I click the "EnsureUpload" button
     Then I will see the success message "创建字典成功"
 
+  @logout
   Scenario Outline: 修改字段提取名称
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
@@ -651,6 +668,7 @@ Feature: 权限-字段提取
       | name |
       | 副本   |
 
+  @logout
   Scenario: 验证有效期限生效
     When I wait for "2000" millsecond
     And I logout current user
@@ -663,6 +681,7 @@ Feature: 权限-字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I will see the search result "{'column':'1','name':'测试有效期限','contains':'no'}"
 
+  @logout
   Scenario Outline: 新建字段提取关联字典
     When I wait for "2000" millsecond
     And I logout current user
@@ -708,6 +727,7 @@ Feature: 权限-字段提取
       | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | result1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
       | Object\nCategory:""\nComputerName:"WIN-999OGBVAHMI"\nEventCode:7036\nEventIdentifier:1073748860\nEventType:3\nLogfile:"System"\nMessage:"Application Experience 服务处于 正在运行 状态。"\nRecordNumber:108343\nSourceName:"Service Control Manager"\nTimeGenerated:"2015-01-04T20:45:09+08:00"\nUser:""\nlevel:"2"\nsource:"sys"\nraw_message:"{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}" | Object\nCategory:""\nComputerName:"WIN-999OGBVAHMI"\nEventCode:7036\nEventIdentifier:1073748860\nEventType:3\nLogfile:"System"\nMessage:"Application Experience 服务处于 正在运行 状态。"\nRecordNumber:108343\nSourceName:"Service Control Manager"\nTimeGenerated:"2015-01-04T20:45:09+08:00"\nUser:""\nraw_message:"{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}" |
 
+  @logout
   Scenario Outline: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "<appName>"
@@ -720,6 +740,7 @@ Feature: 权限-字段提取
       | appName        | log            |
       | auto_test_auth | dictionary.log |
 
+  @logout
   Scenario Outline: RZY-3418:在搜索页验证
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -735,6 +756,7 @@ Feature: 权限-字段提取
       | tag            | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
       | auto_test_auth | {'json.Category':'json.Category： ','json.ComputerName':'json.ComputerName：WIN-999OGBVAHMI ','json.EventCode':'json.EventCode：7036 ','json.EventIdentifier':'json.EventIdentifier：1073748860 ','json.EventType':'json.EventType：3 ','json.Logfile':'json.Logfile：System ','json.Message':'json.Message：Application Experience 服务处于 正在运行 状态。 ','json.RecordNumber':'json.RecordNumber：108343 ','json.SourceName':'json.SourceName：Service Control Manager ','json.TimeGenerated':'json.TimeGenerated：2015-01-04T20:45:09+08:00 ','json.level':'json.level：2 ','json.source':'json.source：sys '} |
 
+  @logout
   Scenario Outline: 验证二次授权读取
     When I wait for "2000" millsecond
     And I logout current user
@@ -773,6 +795,7 @@ Feature: 权限-字段提取
       | authRole | authName | function | name     |
       | 用户       | 验证授权用户   | 读取       | 测试Auth相关 |
 
+  @logout
   Scenario Outline: 验证二次授权读取+编辑
     When I wait for "2000" millsecond
     And I logout current user
@@ -818,6 +841,7 @@ Feature: 权限-字段提取
       | authRole | authName        | function | name     |
       | 角色       | __user_验证授权用户__ | 编辑       | 测试Auth相关 |
 
+  @logout
   Scenario Outline: 验证二次授权读取+编辑+删除
     When I wait for "2000" millsecond
     And I logout current user
@@ -874,6 +898,7 @@ Feature: 权限-字段提取
       | authRole | authName | function | name         |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试AuthRename |
 
+  @logout
   Scenario Outline: 删除字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
@@ -885,6 +910,7 @@ Feature: 权限-字段提取
       | name   |
       | 测试有效期限 |
 
+  @logout
   Scenario: 删除字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "TestAuth.csv" then i click the "删除" button
