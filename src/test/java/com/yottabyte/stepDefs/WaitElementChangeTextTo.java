@@ -108,7 +108,7 @@ public class WaitElementChangeTextTo {
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         WebElement element = getWebElementWithName(elementName);
         ConfigManager config = new ConfigManager();
-        String username = config.get("username");
+        String username = config.get("username").split("@")[0];
         ExpectedCondition expectedCondition = new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {

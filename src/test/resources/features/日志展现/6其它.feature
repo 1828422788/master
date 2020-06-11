@@ -86,7 +86,7 @@ Feature: 日志展现_其它
       | chartType  | caseNum | spl                                                                       |
       | Liquidfill | 分面    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10|
 
-@funnel
+
   Scenario Outline: others(RZY-2807,2449)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -139,7 +139,7 @@ Feature: 日志展现_其它
       |  chartType    | divField       | color1   | caseNum  |   spl   |
       |   Radar       | apache.geo.city| DarkBlue | 2808    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-    @funnel
+
   Scenario Outline: funnel(RZY-2809)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button

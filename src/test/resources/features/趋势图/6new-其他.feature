@@ -4,7 +4,7 @@ Feature: 趋势图新建-其他
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-@funnel
+
   Scenario Outline: others
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -690,7 +690,6 @@ Feature: 趋势图新建-其他
       | chartType  | caseNum | spl                                                                       |
       | Liquidfill | percent | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
 
-  @facet
   Scenario Outline: liquidfill_facet
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
@@ -775,7 +774,7 @@ Feature: 趋势图新建-其他
     Examples:
       | chartType | divField        | color1   | caseNum | spl                                                                        |
       | Radar     | apache.geo.city | DarkBlue | 2635    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-@funnel
+
   Scenario Outline: funnel
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page

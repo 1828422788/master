@@ -180,7 +180,7 @@ Feature: 趋势图新建_维度
       |      Rose     | Green   | 只展示名称   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
       |      Bar      | Orange  | 展示全部     |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
 
-  @suntest
+
   Scenario Outline: dimension_facet_sun
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page

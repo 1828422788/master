@@ -60,6 +60,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='接收邮箱']/following-sibling::div/div")
     private WebElement emailInput;
 
+    @FindBy(xpath = "//label[text()='接收邮箱']/following-sibling::div//input")
+    private WebElement emailField;
+
+    public WebElement getEmailField(){
+        emailInput.click();
+        return emailField;
+    }
+
     @FindBy(xpath = "(//div[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
 

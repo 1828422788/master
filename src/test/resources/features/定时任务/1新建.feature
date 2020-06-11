@@ -80,7 +80,7 @@ Feature: 定时任务新建
    | LastMonth  | lastMonth | 17        |            |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
 
 
-@interval
+
   Scenario Outline: date_interval
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -206,13 +206,9 @@ Feature: 定时任务新建
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "TimePeriod" contains "<time>"
 
-    @interval
     Examples:
       | time                                      | taskName          |
       | 2020-06-01 08:00:00 ~ 2020-06-09 08:00:00 | interval_date     |
-
-    Examples:
-      | time                                      | taskName          |
       | -1M/M ~ now/M                             | lastMonth         |
       | now/M ~ now                               | thisMonth         |
       | -1w/w ~ now/w                             | lastWeek          |

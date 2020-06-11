@@ -400,7 +400,7 @@ Feature: 日志展现_普通统计视图
     And I click the "Generate1" button
     And I click the "StatisticsGram" button
     And I click the "Generate" button
-    And I wait for "2000" millsecond
+    And I wait for "6000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
