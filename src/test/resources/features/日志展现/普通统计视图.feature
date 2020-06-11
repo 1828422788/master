@@ -399,6 +399,8 @@ Feature: 日志展现_普通统计视图
     And I choose the "计数" from the "StatisticType" in config
     And I click the "Generate1" button
     And I click the "StatisticsGram" button
+    And I click the "StatisticsGram" button
+    And I click the "Generate" button
     And I click the "Generate" button
     And I wait for "6000" millsecond
     And I wait for "Chart" will be visible
