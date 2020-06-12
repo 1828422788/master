@@ -621,8 +621,7 @@ Feature: 字典管理
     Then I wait for "1500" millsecond
     Then I will see the success message "删除成功"
     Then I click the "EnsureButton" button
-    Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
-    Then I will see the message "暂无数据"
+
 
     Examples:
       | dictionaryName                  | totalItem |
@@ -642,3 +641,4 @@ Feature: 字典管理
       | wymtestaddmoretagatlistpage.csv | 1         |
       | wymtestauthorizesave.csv        | 1         |
       | wymtestcleartagatlistpage.csv   | 1         |
+      | wymtest.csv                     | 1         |
