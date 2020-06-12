@@ -15,19 +15,20 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    And I choose the "wymtest1" from the "TagList" in config
+    Then I set the parameter "GroupInput" with value "wymtest"
+    And I choose the "wymtest" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-#    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then I set the parameter "DictionaryFilter" with value "<dictionaryName>"
     Then I wait for loading invisible
     Then I will see the "TotalItem" result will be "<totalItem>"
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-    Then I wait for element "ResourceTag" change text to "wymtest1"
+    Then I wait for element "ResourceTag" change text to "wymtest"
     Then I click the "EditOnline" button
     Then I will see the element "EditOnlineArea" name is "<editOnlineArea>"
 
@@ -60,7 +61,7 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-#    Then I set the parameter "GroupInput" with value "<oldTag>"
+    Then I set the parameter "GroupInput" with value "<oldTag>"
     And I choose the "<oldTag>" from the "TagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
@@ -72,7 +73,7 @@ Feature: 字典管理
     And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
     Then I wait for element "ResourceTag" change text to "<oldTag>"
     Then I click the "ClearIconOld" button
-#    Then I set the parameter "GroupInput" with value "<newTag>"
+    Then I set the parameter "GroupInput" with value "<newTag>"
     And I choose the "<newTag>" from the "TagList" in config
     Then I wait for element "ResourceTag" change text to "<newTag>"
     Then I click the "SaveButton" button
@@ -87,71 +88,6 @@ Feature: 字典管理
       | dictionaryNameWithOutCsv | dictionaryName       | newTag | oldTag |
       | wymtestchangetag         | wymtestchangetag.csv | new    | old    |
 
-  Scenario Outline: RZY-4156增加标签(one+more)
-
-    When I click the "UploadButton" button
-    Then I wait for "PopUpWindow" will be visible
-    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
-    And I wait for "FileName" will be visible
-    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-#    Then I set the parameter "GroupInput" with value "<oldTag>"
-    And I choose the "<oldTag>" from the "TagList" in config
-    And I click the "EnsureUpload" button
-    Then I wait for "Tip" will be visible
-    Then I will see the success message "创建字典成功"
-    Then I click the "EnsureButton" button
-    Then I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
-    Then I will see the "dictionary.CreatePage" page
-    And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-    Then I wait for element "ResourceTag" change text to "<oldTag>"
-#    Then I set the parameter "GroupInput" with value "<moreTag>"
-    Then I choose the "<moreTag>" from the "TagList" in config
-    Then I click the "SaveButton" button
-    Then I wait for "Tip" will be visible
-    Then I will see the message "更新字典内容成功"
-    Then I click the "EnsureButton" button
-    Then I wait for loading invisible
-    Then I will see the "dictionary.ListPage" page
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
-
-    Examples:
-      | dictionaryName    | newTag    | dictionaryNameWithOutCsv | oldTag | moreTag |
-      | wymtestaddtag.csv | one, more | wymtestaddtag            | one    | more    |
-
-  Scenario Outline: RZY-4138清空全部标签
-
-    When I click the "UploadButton" button
-    Then I wait for "PopUpWindow" will be visible
-    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
-    And I wait for "FileName" will be visible
-    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-#    Then I set the parameter "GroupInput" with value "first"
-    And I choose the "<twoTag>" from the "TagList" in config
-#    Then I set the parameter "GroupInput" with value "second"
-#    And I choose the "second" from the "TagList" in config
-    And I click the "EnsureUpload" button
-    Then I wait for "Tip" will be visible
-    Then I will see the success message "创建字典成功"
-    Then I click the "EnsureButton" button
-    Then I wait for loading invisible
-    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
-    Then I will see the "dictionary.CreatePage" page
-    And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
-    Then I click the "ClearIconFirst" button
-    Then I click the "ClearIconSecond" button
-    Then I wait for "1000" millsecond
-    Then I click the "SaveButton" button
-    Then I wait for "Tip" will be visible
-    Then I will see the message "更新字典内容成功"
-    Then I click the "EnsureButton" button
-    Then I wait for loading invisible
-    Then I will see the "dictionary.ListPage" page
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
-
-    Examples:
-      | dictionaryName      | newTag | dictionaryNameWithOutCsv | twoTag       |
-      | wymtestcleartag.csv | 无      | wymtestcleartag          | first,second |
 
   Scenario Outline: RZY-4140上传非同名文件
 
@@ -696,8 +632,6 @@ Feature: 字典管理
       | wymtestcreate.csv               | 1         |
       | wymtestdownload.csv             | 1         |
       | wymtestchangetag.csv            | 1         |
-      | wymtestaddtag.csv               | 1         |
-      | wymtestcleartag.csv             | 1         |
       | wymtestauthorizecancel.csv      | 1         |
       | wymtestsearchbytag.csv          | 1         |
       | wymtestrevokeauthsave.csv       | 1         |
