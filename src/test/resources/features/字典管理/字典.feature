@@ -336,8 +336,8 @@ Feature: 字典管理
     Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
-    Then I click the "ClearIconFirst" button
-    Then I click the "ClearIconSecond" button
+    Then I click the "ClearIconOld" button
+    Then I click the "ClearIconNew" button
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
@@ -629,7 +629,6 @@ Feature: 字典管理
       | wymtestdownload.csv             | 1         |
       | wymtestchangetag.csv            | 1         |
       | wymtestauthorizecancel.csv      | 1         |
-      | wymtestsearchbytag.csv          | 1         |
       | wymtestrevokeauthsave.csv       | 1         |
       | wymtestrevokeauthexit.csv       | 1         |
       | wymtestdifname.csv              | 1         |
