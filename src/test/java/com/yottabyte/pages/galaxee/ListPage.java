@@ -15,7 +15,7 @@ public class ListPage extends PageTemplate {
         super(driver);
 //        driver.manage().window().setPosition(new Point(0,0));
 //        driver.manage().window().setSize(new Dimension(1915,1045));
-//        driver.manage().window().fullscreen();
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "big-v-create-button")

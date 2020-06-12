@@ -18,6 +18,7 @@ public class LoginPage extends PageTemplate {
     public LoginPage(WebDriver driver) {
         super(driver);
         webDriver = driver;
+        webDriver.manage().window().fullscreen();
         parentPageName = "";
     }
 
