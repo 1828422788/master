@@ -45,6 +45,8 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         this.webDriver = driver;
         PageFactory.initElements(driver, this);
         parentPageName = LoginBeforeAllTests.getPageFactory() == null ? "" : LoginBeforeAllTests.getPageFactory().getClass().getSimpleName();
+        this.webDriver.manage().window().fullscreen();
+
     }
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")

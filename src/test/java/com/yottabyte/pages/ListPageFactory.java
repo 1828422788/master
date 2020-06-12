@@ -82,6 +82,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public ListPageFactory(WebDriver driver) {
         this.webDriver = driver;
+        this.webDriver.manage().window().fullscreen();
         PageFactory.initElements(driver, this);
     }
 
