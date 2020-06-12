@@ -238,8 +238,8 @@ Feature: 字典管理
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName                 | newTag   | dictionaryNameWithOutCsv   |
-      | wymtestaddonetagatlistpage.csv | wymtest1 | wymtestaddonetagatlistpage |
+      | dictionaryName                 | newTag  | dictionaryNameWithOutCsv   |
+      | wymtestaddonetagatlistpage.csv | wymtest | wymtestaddonetagatlistpage |
 
   Scenario Outline: RZY-4146(列表页修改标签old->new)
 
@@ -285,10 +285,7 @@ Feature: 字典管理
     Then I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
-#    Then I set the parameter "Tag" with value "<firstTag>"
     And I choose the "<twoTag>" from the "TagList" in config
-#    Then I set the parameter "Tag" with value "<secondTag>"
-   # And I choose the "<secondTag>" from the "TagList" in config
     Then I wait for "2000" millsecond
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
@@ -298,8 +295,8 @@ Feature: 字典管理
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName                  | newTag    | twoTag   | dictionaryNameWithOutCsv    |
-      | wymtestaddmoretagatlistpage.csv | one, more | one,more | wymtestaddmoretagatlistpage |
+      | dictionaryName                  | newTag   | twoTag  | dictionaryNameWithOutCsv    |
+      | wymtestaddmoretagatlistpage.csv | old, new | old,new | wymtestaddmoretagatlistpage |
 
   Scenario Outline: 按照标签搜索字典
 
@@ -320,8 +317,8 @@ Feature: 字典管理
     Then I will see the search result contains "{'column':'0','name':'<dictionaryName>'}"
 
     Examples:
-      | dictionaryName         | dictionaryNameWithOutCsv |
-      | wymtestsearchbytag.csv | wymtestsearchbytag       |
+      | dictionaryName | dictionaryNameWithOutCsv |
+      | wymtest.csv    | wymtest                  |
 
 
   Scenario Outline: RZY-4147(列表页清空全部标签)
@@ -349,8 +346,8 @@ Feature: 字典管理
     And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
 
     Examples:
-      | dictionaryName                | newTag | dictionaryNameWithOutCsv  |twoTag|
-      | wymtestcleartagatlistpage.csv | 无      | wymtestcleartagatlistpage |  first,second    |
+      | dictionaryName                | newTag | dictionaryNameWithOutCsv  | twoTag  |
+      | wymtestcleartagatlistpage.csv | 无      | wymtestcleartagatlistpage | old,new |
 
 
   Scenario Outline: RZY-4151(授权页：添加用户权限-取消)
