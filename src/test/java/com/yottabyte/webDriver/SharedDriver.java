@@ -101,6 +101,7 @@ public class SharedDriver extends EventFiringWebDriver {
     public SharedDriver() {
         super(REAL_DRIVER);
 //        REAL_DRIVER.manage().window().maximize();
+        REAL_DRIVER.manage().window().fullscreen();
         REAL_DRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         REAL_DRIVER.manage().timeouts().pageLoadTimeout(5, TimeUnit.MINUTES);
     }
@@ -164,6 +165,7 @@ public class SharedDriver extends EventFiringWebDriver {
             chromePrefs.put("download.default_directory", downloadFilepath);
             System.out.println("设置下载路径-----" + downloadFilepath);
             options.setExperimentalOption("prefs", chromePrefs);
+            options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});  //隐藏"Chrome正在受到自动软件的控制"
             options.addArguments("test-type", "start-maximized");
 //            options.setCapability("goog:loggingPrefs", getLogPreferences());
 //            options.addArguments("--trace-to-console", "--auto-open-devtools-for-tabs");  // 浏览器启动时自动打开开发者工具
@@ -199,6 +201,7 @@ public class SharedDriver extends EventFiringWebDriver {
             chromePrefs.put("download.default_directory", downloadFilepath);
 
             options.setExperimentalOption("prefs", chromePrefs);
+            options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});  //隐藏"Chrome正在受到自动软件的控制"
             options.addArguments("test-type", "start-maximized");
 //            options.addArguments("--trace-to-console", "--auto-open-devtools-for-tabs");  // 浏览器启动时自动打开开发者工具
 //            options.addArguments("--headless", "--disable-gpu"); //使用chromeheadless模式
