@@ -1,4 +1,4 @@
-@datasetDeleteAll   @dataset
+@datasetDeleteAll
   Feature: 数据集-z删除所有
   Background:
     Given open the "dataset.ListPage" page for uri "/dataset/"
