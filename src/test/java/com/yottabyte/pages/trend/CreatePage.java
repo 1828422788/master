@@ -370,7 +370,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='left']")
     private WebElement left;
 
-    @FindBy(xpath = "//input[@value='right']")
+    @FindBy(xpath = "//input[@value='right']/ancestor::label")
     private WebElement right;
 
     @FindBy(xpath = "//input[@value='vertical']")
@@ -635,10 +635,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='气泡大小']/ancestor::div/following-sibling::div//input)[last()]")
     private WebElement bubbleSizeInput;
 
-    @FindBy(xpath = "(//div[text()='降序'])[last()]")
+    @FindBy(xpath = "(//div[text()='降序'])[last()]/ancestor::label")
     private WebElement descendingOrder;
 
-    @FindBy(xpath = "(//div[text()='升序'])[last()]")
+    @FindBy(xpath = "(//div[text()='升序'])[last()]/ancestor::label")
     private WebElement ascending;
 
     @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(161, 20, 249);')])[last()] | (//span[contains(@style,'background-color: rgb(156, 39, 176);')])[last()]")
@@ -1556,7 +1556,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRight() {
-        return radioButtonList.get(2);
+        return right;
     }
 
     public WebElement getVertical() {
