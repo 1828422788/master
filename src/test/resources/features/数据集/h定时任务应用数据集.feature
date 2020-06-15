@@ -8,7 +8,8 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
         #选择父子行为为无的数据集
     And I click the "fatherChildNull" button
     And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+    #And I click the "RecentSevenDay" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
@@ -71,7 +72,8 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
         #选择父子行为为汇聚的数据集
     And I click the "huiJu" button
     And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+    #And I click the "RecentSevenDay" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
@@ -132,7 +134,8 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
         #选择父子行为为继承的数据集
     And I click the "jiCheng" button
     And I click the "DateEditor" button
-    And I click the "RecentSevenDay" button
+    #And I click the "RecentSevenDay" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
 

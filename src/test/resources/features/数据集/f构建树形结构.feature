@@ -1,4 +1,4 @@
-@dataset
+@dataset @datasetf
 Feature: 数据集-f构建树形结构
 
 

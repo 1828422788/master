@@ -1,4 +1,4 @@
-@dataset
+@dataset @datasetc
 Feature: 数据集-c设为默认
 
   Scenario: 设为默认-RZY-4077:设为默认

@@ -1,4 +1,4 @@
-@dataset
+@dataset @dataseta
 Feature: 数据集-a新建
 
 
@@ -70,7 +70,7 @@ Feature: 数据集-a新建
 #    Then I will see the search result contains "{'column':'0','name':'分组和应用'}"
     Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'无数集app之api全部测试用例'}"
 
-
+  @d4078
   Scenario Outline: RZY-4078:标签
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -80,7 +80,7 @@ Feature: 数据集-a新建
     And I click the "Ensure" button
 #    Then I will see the success message "修改成功"
     And I wait for loading invisible
-    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'auto_package,1pre_package'}"
+    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'1pre_package,auto_package'}"
 
     Examples:
       |name    |Type        |

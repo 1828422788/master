@@ -1,4 +1,4 @@
-@dataset
+@dataset @datasetd
 Feature: 数据集-d编辑根事件
 
   Background:
