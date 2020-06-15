@@ -137,7 +137,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: timehistogram(RZY-815)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d-19h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -398,9 +398,9 @@ Feature: 日志展现_普通统计视图
     And I choose the "<fieldValue3>" from the "FieldValue" in config
     And I choose the "计数" from the "StatisticType" in config
     And I click the "Generate1" button
+    And I wait for "2000" millsecond
     And I click the "StatisticsGram" button
-    And I click the "StatisticsGram" button
-    And I click the "Generate" button
+    And I wait for "2000" millsecond
     And I click the "Generate" button
     And I wait for "6000" millsecond
     And I wait for "Chart" will be visible
