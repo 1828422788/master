@@ -101,14 +101,7 @@ Feature: 权限-拓扑图
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    And I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "授权" button
@@ -217,13 +210,16 @@ Feature: 权限-拓扑图
     And I click the detail which name is "<name>"
     Then I will see the "topology.DetailPage" page
     And I wait for "2000" millsecond
+    And I wait for "AddNode" will be visible
     And I click the "AddNode" button
+    And I wait for "NodeName" will be visible
     And I set the parameter "NodeName" with value "node2"
     And I set the parameter "NodeGroup" with value "测试组2"
     And I click the "AddNodeButton" button
-    And I click the "Save" button
-    And open the "topology.ListPage" page for uri "/topology/"
+    And I click the "Update" button
+    And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
@@ -254,6 +250,8 @@ Feature: 权限-拓扑图
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用拓扑图"
     And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -287,6 +285,7 @@ Feature: 权限-拓扑图
       | name     |
       | AutoTest |
 
+  @logout
   Scenario Outline: 授权读取+转授
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
@@ -304,10 +303,6 @@ Feature: 权限-拓扑图
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -321,6 +316,8 @@ Feature: 权限-拓扑图
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用拓扑图"
     And I click the "SaveButton" button
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
@@ -339,14 +336,7 @@ Feature: 权限-拓扑图
     And I click the "Ensure" button
     Then I will see the message "保存成功"
     And open the "topology.ListPage" page for uri "/topology/"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    And I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "授权" button
@@ -356,6 +346,7 @@ Feature: 权限-拓扑图
     And I click the "Save" button
     And I wait for "Message" will be visible
     Then I will see the message "保存失败"
+    And I logout current user
 
     Examples:
       | name     |
@@ -437,7 +428,7 @@ Feature: 权限-拓扑图
     And I click the "AddNodeButton" button
     And I click the "Save" button
     Then I will see the element "Alert" value is "保存成功"
-    And open the "topology.ListPage" page for uri "/topology/"
+    And I refresh the website
     And I accept alert window
 
     Examples:
@@ -484,6 +475,7 @@ Feature: 权限-拓扑图
     And open the "topology.ListPage" page for uri "/topology/"
     Then I will see the search result "{'column':'0','name':'AutoRename','contains':'no'}"
 
+  @logout
   Scenario Outline: 授权读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -513,14 +505,7 @@ Feature: 权限-拓扑图
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    And I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "删除授权" button
@@ -530,14 +515,7 @@ Feature: 权限-拓扑图
     And I click the "Ensure" button
     Then I will see the message "保存成功"
     And open the "topology.ListPage" page for uri "/topology/"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    And I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "删除授权" button
@@ -553,11 +531,13 @@ Feature: 权限-拓扑图
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    And I logout current user
 
     Examples:
       | name       |
       | AutoRename |
 
+  @logout
   Scenario Outline: 授权所有权限
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
@@ -592,14 +572,7 @@ Feature: 权限-拓扑图
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名删除授权" button
@@ -615,14 +588,7 @@ Feature: 权限-拓扑图
     And I click the "Ensure" button
     Then I will see the message "保存成功"
     And open the "topology.ListPage" page for uri "/topology/"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "topology.ListPage" page for uri "/topology/"
     Then the data name is "<name>" then i will see "标签重命名删除授权" button
@@ -639,13 +605,15 @@ Feature: 权限-拓扑图
     And I click the "AddNodeButton" button
     And I click the "Update" button
     And I click the "Save" button
-    And open the "topology.ListPage" page for uri "/topology/"
+    And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
     And I wait for "2000" millsecond
     When the data name is "AutoRename" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
+    And I logout current user
 
     Examples:
       | name     |
@@ -765,7 +733,7 @@ Feature: 权限-拓扑图
     And I click the "AddNodeButton" button
     And I click the "Update" button
     Then I click the "Save" button
-    And open the "topology.ListPage" page for uri "/topology/"
+    And I refresh the website
     And I accept alert window
 
     Examples:
@@ -820,8 +788,9 @@ Feature: 权限-拓扑图
     And I click the "AddNodeButton" button
     And I click the "Update" button
     And I click the "Save" button
-    And open the "topology.ListPage" page for uri "/topology/"
+    And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
