@@ -242,6 +242,7 @@ Feature: 仪表盘钻取配置
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "测试标签钻取" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:sample04061424_chart AND apache.geo.city:${city}| stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
     And I click the "Ensure" button
     Then I will see the success message "配置成功"
@@ -276,7 +277,7 @@ Feature: 仪表盘钻取配置
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Then I will see the success message "删除仪表盘成功"
 
     Examples:
       | name   |

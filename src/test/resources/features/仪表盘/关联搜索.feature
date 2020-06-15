@@ -33,6 +33,7 @@ Feature: 仪表盘关联搜索
     And I set the parameter "Tag" with value "<appName>"
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
+    And I wait for "VerifyText" will be visible
     And I wait for element "VerifyText" change text to "上传完成"
 
     Examples:
