@@ -19,6 +19,7 @@ public class PublicNavBarPage extends PageTemplate {
 
     public PublicNavBarPage(WebDriver driver) {
         super(driver);
+        webDriver.manage().window().fullscreen();
     }
 
     @FindBy(partialLinkText = "搜索")

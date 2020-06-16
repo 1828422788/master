@@ -14,17 +14,12 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "可使用仪表盘"
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    And I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
     And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     Then I will see the "Create" doesn't exist
+    And I logout current user
 
   @logout
   Scenario: 授权新建仪表盘
@@ -35,23 +30,21 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
+    Then I will see the "dashboard.ListPage" page
     And I click the "Create" button under some element
     And I set the parameter "DashBoardName" with value "仪表盘验证权限1"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
+    And I logout current user
 
   @logout
   Scenario: 验证无读取权限
@@ -71,17 +64,12 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "仪表盘验证权限1" in auth table
     And I "unchecked" the checkbox which name is "仪表盘验证权限1" in auth table
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'仪表盘验证权限1','contains':'no'}"
+    And I logout current user
 
   @logout
   Scenario Outline: 授权读取（RZY-615）
@@ -99,17 +87,13 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -119,6 +103,7 @@ Feature: 权限-仪表盘
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     Then I will see the "AddTag" doesn't exist
+    And I logout current user
 
     Examples:
       | name     |
@@ -138,6 +123,8 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
 
     Examples:
@@ -146,15 +133,10 @@ Feature: 权限-仪表盘
 
   @logout
   Scenario Outline: 验证读取+编辑
-    Given I wait for "2000" millsecond
     And I logout current user
-    Given I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTestTag"
@@ -180,6 +162,7 @@ Feature: 权限-仪表盘
     When the data name is "<name>重命名" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    And I logout current user
 
     Examples:
       | name     |
@@ -205,7 +188,7 @@ Feature: 权限-仪表盘
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
 
   Scenario Outline: 新建权限仪表盘
@@ -229,21 +212,17 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
 
   @logout
   Scenario: 验证有效期限生效
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "2000" millsecond
     And I logout current user
-    And I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    And I wait for loading invisible
     And I will see the search result "{'column':'0','name':'仪表盘验证权限1重命名','contains':'no'}"
+    And I logout current user
 
   @logout
   Scenario Outline: 授权读取+删除
@@ -262,17 +241,13 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认授权删除" button
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -286,6 +261,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
+    And I logout current user
 
     Examples:
       | name        |
@@ -308,17 +284,13 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权删除" button
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -348,6 +320,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
+    And I logout current user
 
     Examples:
       | name               |
@@ -368,6 +341,8 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
@@ -382,38 +357,29 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "验证授权用户" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     Then I will see the "AddTag" doesn't exist
+    And I logout current user
 
     Examples:
       | name    |
@@ -435,6 +401,8 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
@@ -450,17 +418,13 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTestTag"
@@ -482,16 +446,9 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>重命名'}" then i will see "设为默认重命名标签授权" button
     And I click the detail which name is "<name>重命名"
@@ -502,13 +459,12 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
+    And I logout current user
 
     Examples:
       | name    |
       | 仪表盘验证权限 |
 
-
-  @logout
   Scenario Outline: 授权读取+删除+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -523,6 +479,8 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
@@ -538,17 +496,13 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权删除" button
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -556,16 +510,10 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "验证授权用户" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -583,39 +531,19 @@ Feature: 权限-仪表盘
       | name       |
       | 仪表盘验证权限重命名 |
 
-
   @logout
-  Scenario Outline: 新建仪表盘并设为默认
-    When I wait for "2000" millsecond
-    And I logout current user
-    When I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
+  Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
-#    And I wait for "SuccessMessage" will be invisible
-#    When the data name is "<name>" then i click the "设为默认" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    Then I will see the success message "设置默认仪表盘成功"
-#    And I refresh the website
-#    And I wait for title change text to "<title>"
-#    And I click the "ReturnList" button under some element
-#    And I wait for loading invisible
-#    When the data name is "<name>" then i click the "取消默认" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    Then I will see the success message "取消默认仪表盘成功"
+    And I logout current user
 
     Examples:
-      | name     | title           |
-      | AutoAuth | AutoAuth \| 仪表盘 |
+      | name     |
+      | AutoAuth |
 
   @logout
   Scenario Outline: 授权所有权限
@@ -631,6 +559,8 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
@@ -645,17 +575,13 @@ Feature: 权限-仪表盘
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权删除" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTestTag"
@@ -677,16 +603,9 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "验证授权用户" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>重命名'}" then i will see "设为默认重命名标签授权删除" button
     And I click the detail which name is "<name>重命名"
@@ -702,6 +621,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
+    And I logout current user
 
     Examples:
       | name     |
@@ -734,33 +654,19 @@ Feature: 权限-仪表盘
 
   @logout
   Scenario Outline: 二次授权读取
-    When I wait for "2000" millsecond
     And I logout current user
-    When I wait for "2000" millsecond
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     When the data name is "测试二次授权" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "验证授权用户" with password "All#123456"
+    And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -770,6 +676,7 @@ Feature: 权限-仪表盘
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     Then I will see the "AddTag" doesn't exist
+    And I logout current user
 
     Examples:
       | authRole | authName | function | name   |
@@ -777,15 +684,10 @@ Feature: 权限-仪表盘
 
   @logout
   Scenario Outline: 二次授权读取+编辑
-    When I wait for "2000" millsecond
     And I logout current user
-    When I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     When the data name is "测试二次授权" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
@@ -793,17 +695,10 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "验证授权用户" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权" button
     When the data name is "<name>" then i click the "标签" button
     And I set the parameter "Tag" with value "AutoTestTag"
@@ -829,23 +724,18 @@ Feature: 权限-仪表盘
     When the data name is "<name>重命名" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    And I logout current user
 
     Examples:
       | authRole | authName        | function | name   |
       | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
 
-
   @logout
   Scenario Outline: 二次授权读取+编辑+删除
-    When I wait for "2000" millsecond
     And I logout current user
-    When I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "AutoTest" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
     And I wait for loading invisible
@@ -853,17 +743,10 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    Given I login user "验证授权用户" with password "All#123456"
+    Then I will see the "dashboard.ListPage" page
+    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权删除" button
     And the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
@@ -892,6 +775,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
+    And I logout current user
 
     Examples:
       | authRole | authName | function | name      |

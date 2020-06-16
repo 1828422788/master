@@ -111,7 +111,7 @@ Feature: 定时任务新建
 
     Examples:
       | taskName      | start_d     | end_d       | periodNum | periodTime |spl                                                                                                      |
-      | interval_date | 2020-04-01  | 2020-04-09  | 5         |  分钟      |* \| stats count() by tag|
+      | interval_date | 2020-06-01  | 2020-06-09  | 5         |  分钟      |* \| stats count() by tag|
 
 
 
@@ -202,14 +202,14 @@ Feature: 定时任务新建
     And I wait for loading complete
     And I set the parameter "SearchInput" with value "<taskName>"
     And I wait for "Loading" will be invisible
+    And I wait for "1000" millsecond
     When the data name is "{'column':'2','name':'<taskName>'}" then i click the "<taskName>" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "TimePeriod" contains "<time>"
 
     Examples:
-      | time                                      | taskName     |
-      #RZY-5018
-#      | 2020-04-01 00:00:00 ~ 2020-04-09 00:00:00 | interval_date|
+      | time                                      | taskName          |
+      | 2020-06-01 08:00:00 ~ 2020-06-09 08:00:00 | interval_date     |
       | -1M/M ~ now/M                             | lastMonth         |
       | now/M ~ now                               | thisMonth         |
       | -1w/w ~ now/w                             | lastWeek          |

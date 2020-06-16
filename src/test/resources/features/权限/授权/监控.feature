@@ -194,7 +194,6 @@ Feature: 权限-监控
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
     When the data name is "{'column':'1','name':'<name>'}" then I "close" the switch
-#    Then I will see the success message "禁用成功"
     And I wait for "SuccessMessage" will be invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "Tag" with value "test"
@@ -208,6 +207,7 @@ Feature: 权限-监控
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
     And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
     And I set the parameter "TimeInput" with value "20"
     And I click the "SaveButton" button
@@ -291,6 +291,7 @@ Feature: 权限-监控
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
     And I set the parameter "AlertName" with value "AutoTestAuth"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
@@ -346,6 +347,7 @@ Feature: 权限-监控
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     And I wait for "LoadingElement" will be invisible
     Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
     Then I will see the element "AlertName" attribute is "disabled"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -405,6 +407,7 @@ Feature: 权限-监控
     Then I will see the switch button before "{'column':'1','name':'<name>'}" is disabled
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
     And I wait for "AlertName" will be visible
     Then I will see the element "AlertName" attribute is "disabled"
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -475,6 +478,7 @@ Feature: 权限-监控
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
     And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
@@ -536,6 +540,7 @@ Feature: 权限-监控
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     And I wait for "LoadingElement" will be invisible
     Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
     Then I will see the element "AlertName" attribute is "disabled"
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -627,6 +632,7 @@ Feature: 权限-监控
     Then I will see the success message "修改成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
     And I set the parameter "AlertName" with value "AutoTest权限验证修改名称"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
@@ -660,6 +666,7 @@ Feature: 权限-监控
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
     And I set the parameter "AlertName" with value "未删除则证明有bug"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
@@ -689,6 +696,7 @@ Feature: 权限-监控
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I click the "CreateAlert" button
     Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
     And I set the parameter "AlertName" with value "测试二次授权"
     And I choose the "username" from the "AlertUsers" with property
     And I set the parameter "SearchContent" with value "*"

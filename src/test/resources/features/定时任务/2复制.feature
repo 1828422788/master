@@ -12,7 +12,7 @@ Feature: 定时任务复制
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
-    And I set the parameter "Describe" with value "testing"
+    And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "testing"
     And I choose the "auto_package" from the "GroupComboBox"
     And I choose the "TrendApp" from the "AppComboBox"

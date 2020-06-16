@@ -14,7 +14,7 @@ public class ListPage extends PageTemplate {
         super(driver);
     }
 
-    @FindBy(className = "verify-text")
+    @FindBy(xpath = "//span[@class='ant-progress-text']/ancestor::div/following-sibling::span")
     private WebElement verifyText;
 
     public WebElement getVerifyText() {

@@ -5,10 +5,10 @@ Feature: 趋势图新建_复合
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-
-  Scenario Outline: compound_rangeline(rzy-2516)
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+
+  Scenario Outline: compound_rangeline(rzy-2516)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -21,7 +21,6 @@ Feature: 趋势图新建_复合
     And I click the "Compound" button
     And I click the "<chartType>" button
     And I click the "Settings" button
-    And I will see the "trend.CreatePage" page
     And I click the "Xaxis" button
     And I choose the "<xValue>" from the "FieldValue" in config
     And I click the "Yaxis" button
@@ -50,8 +49,6 @@ Feature: 趋势图新建_复合
 
 
   Scenario Outline: compound_manyY(rzy-2523)
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag: sample04061424_display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button

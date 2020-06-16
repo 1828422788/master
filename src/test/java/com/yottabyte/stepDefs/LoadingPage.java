@@ -2,8 +2,6 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.ConstructPageFactoryWithName;
-import com.yottabyte.utils.TakeScreenShot;
-import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.WebDriver;

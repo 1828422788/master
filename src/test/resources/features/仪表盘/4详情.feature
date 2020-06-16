@@ -57,6 +57,7 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     And I click the "DashboardIcon" button
     And I set the parameter "SearchTagInput" with value "UIautotest"
+    And I wait for loading invisible
     Then I will see the "FirstAutoTest" doesn't exist
     Then I click the "UIAutoTest" button
 

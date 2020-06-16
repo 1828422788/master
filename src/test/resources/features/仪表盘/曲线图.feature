@@ -1,14 +1,4 @@
-Feature: 仪表盘统计地图
-
-  @dashboard @dashboardSmoke @test
-  Scenario: 上传日志
-    Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
-    When I set the parameter "AppName" with value "geostats"
-    And I set the parameter "Tag" with value "geostats"
-    And I upload a file with name "/src/test/resources/testdata/log/geostats.txt"
-    And I click the "UploadButton" button
-    And I wait for "VerifyText" will be visible
-    Then I wait for element "VerifyText" change text to "上传完成"
+Feature: 仪表盘曲线图
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
@@ -19,8 +9,8 @@ Feature: 仪表盘统计地图
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
-      | name    |
-      | 仪表盘统计地图 |
+      | name   |
+      | 仪表盘曲线图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
@@ -41,8 +31,8 @@ Feature: 仪表盘统计地图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                                                                                                                                                                                                                                  | name    |
-      | appname:geostats \| parse \"^(?<raw>.*)$\" \| eval array=split(raw, \",\") \| eval lon=todouble(mvindex(array, 3)) \| eval lat=todouble(mvindex(array, 4)) \| eval cnt=tolong(mvindex(array, 2)) \| eval group=mvindex(array, 7) \| geostats latfield=lat longfield=lon count() by group | 仪表盘统计地图 |
+      | spl                                                              | name   |
+      | tag:*display \| stats count() by apache.clientip,apache.resp_len | 仪表盘曲线图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
@@ -55,7 +45,7 @@ Feature: 仪表盘统计地图
 
     Examples:
       | name |
-      | 统计地图 |
+      | 曲线图  |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
@@ -72,29 +62,52 @@ Feature: 仪表盘统计地图
     And I click the "Ensure" button
 
     Examples:
-      | name    |
-      | 仪表盘统计地图 |
+      | name   |
+      | 仪表盘曲线图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为统计地图
+  Scenario Outline: 修改为曲线图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
-    And I wait for "Map" will be visible
-    And I click the "Map" button
-    And I click the "Geostatsmap" button
+    And I wait for "Order" will be visible
+    And I click the "Order" button
+    And I click the "<targetName>" button
+    And I hide the element "Content"
+    And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
+    And I choose the "apache.clientip" from the "DataValue"
+    And I click the "Right" button
+    And I click the "AscendingOrder" button
+    And I click the "ShowAllLabels" button
+    And I click the "Yaxis" button
+    And I choose the "count()" from the "DataValue"
+    And I set the parameter "Unit" with value "个"
+    And I click the "Smooth" button
+    And I click the "ConnectEmptyData" button
+    And I click the "Group" button
+    And I click the "AddField" button
+    And I choose the "apache.resp_len" from the "DataValue"
+    And I click the "Example" button
+    And I click the "RightPosition" button
+    And I click the "Exhibition" button
+    And I click the "StartColour" button
+    And I click the "Orange" button
+    Then I click the "Generate" button
+    And I wait for "1000" millsecond
+    Then I hide the element "SettingContent"
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
-    Then I compare source image "dashboard/<name>" with target image "dashboard/Geostatsmap"
+    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
-      | name    |
-      | 仪表盘统计地图 |
+      | name   | targetName |
+      | 仪表盘曲线图 | AreaChart  |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
@@ -105,8 +118,8 @@ Feature: 仪表盘统计地图
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
-      | name    |
-      | 仪表盘统计地图 |
+      | name   |
+      | 仪表盘曲线图 |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
@@ -117,5 +130,5 @@ Feature: 仪表盘统计地图
     And I will see the success message "删除成功"
 
     Examples:
-      | name    |
-      | 仪表盘统计地图 |
+      | name   |
+      | 仪表盘曲线图 |

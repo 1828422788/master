@@ -202,7 +202,7 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='wcTVQUfowuZQBokIvdP_3']/div)[last()]")
     private WebElement tableChart;
 
-    @FindBy(xpath = "(//div[@class='ant-table-selection'])[last()]")
+    @FindBy(xpath = "//p[text()='Step2']/following-sibling::div//div[@class='ant-table-selection']")
     private WebElement wholeField;
 
 // 地理分布
@@ -292,7 +292,7 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//p[text()='展现方式']/following-sibling::div/button")
     private WebElement generateWithoutTimeBucket;
 
-    @FindBy(xpath = "//span[text()='下一步']")
+    @FindBy(xpath = "(//span[text()='下一步']/ancestor::button)[last()]")
     private WebElement nextButton;
 
     @FindBy(xpath = "//div[@class='el-select yw-search-stats-select']")

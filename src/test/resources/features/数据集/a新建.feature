@@ -1,4 +1,4 @@
-@dataset
+@dataset @dataseta @dataset1
 Feature: 数据集-a新建
 
 
@@ -10,7 +10,7 @@ Feature: 数据集-a新建
     And I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Spl" with value "<Spl>"
 
-    And I choose the "无数集app之api全部测试用例" from the "appList"
+    And I choose the "app之api全部用例" from the "appList"
     And I choose the "auto_package" from the "resourceGroup"
 
     And I click the "Save" button
@@ -23,13 +23,13 @@ Feature: 数据集-a新建
    And I wait for loading invisible
    Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'2','name':'jnd'}"
    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'3','name':'无'}"
-   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'无数集app之api全部测试用例'}"
+   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'app之api全部用例'}"
    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'auto_package'}"
 #   And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'admin'}"
 
     Examples: 新建成功
       | name    | alias  | Spl  |
-      |JNDTest |jnd     |*     |
+      |JNDTest  |jnd     | * |
 
 
 
@@ -65,12 +65,12 @@ Feature: 数据集-a新建
   Scenario: RZY-4074:按应用查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
-    And I choose the "无数集app之api全部测试用例" from the "appSearch"
+    And I choose the "app之api全部用例" from the "appSearch"
     And I wait for loading invisible
 #    Then I will see the search result contains "{'column':'0','name':'分组和应用'}"
-    Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'无数集app之api全部测试用例'}"
+    Then I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'4','name':'app之api全部用例'}"
 
-
+  @d4078
   Scenario Outline: RZY-4078:标签
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -80,7 +80,7 @@ Feature: 数据集-a新建
     And I click the "Ensure" button
 #    Then I will see the success message "修改成功"
     And I wait for loading invisible
-    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'auto_package,1pre_package'}"
+    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'5','name':'1pre_package,auto_package'}"
 
     Examples:
       |name    |Type        |
@@ -93,7 +93,7 @@ Feature: 数据集-a新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
 
-
+    #And I wait for "2000" millsecond
     And I click the "Save" button
     Then I will see the element "tipsName" name is "请输入数据集名称"
     Then I will see the element "tipsAlias" name is "请输入别名"

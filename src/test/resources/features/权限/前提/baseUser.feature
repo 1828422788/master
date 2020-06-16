@@ -5,6 +5,7 @@ Feature: 基础用户创建
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I click the "Create" button
     Then I will see the "userGroups.CreatePage" page
+    And I wait for "UserGroupName" will be visible
     When I set the parameter "UserGroupName" with value "<groupProperty>"
     When I set the parameter "UserGroupDes" with value "<UserGroupDes>"
     And I click the "CreateButton" button
@@ -19,6 +20,7 @@ Feature: 基础用户创建
     Given open the "users.ListPage" page for uri "/account/users/"
     And I click the "CreateUser" button
     And I will see the "users.CreatePage" page
+    And I wait for "UserName" will be visible
     When I set the parameter "UserName" with value "<name>"
     And I set the parameter "Email" with value "<email>"
     And I set the parameter "Password" with value "All#123456"
@@ -47,6 +49,7 @@ Feature: 基础用户创建
     And I click the "Ensure" button
     Then I will see the message "保存成功"
 
+  @test
   Scenario: 授权索引配置
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button

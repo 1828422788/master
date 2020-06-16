@@ -27,6 +27,7 @@ Feature: 仪表盘标签操作
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I click the "MoveoutTag" button
+    And I wait for loading invisible
     And I "checked" the checkbox which name is "接收标签页"
     And I click the "Ensure" button
 

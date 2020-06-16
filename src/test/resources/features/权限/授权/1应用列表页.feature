@@ -9,15 +9,13 @@ Feature: 权限-应用列表页
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用拓扑图,新建拓扑图"
     And I click the "SaveButton" button
 
+  @logout
   Scenario Outline: 验证可新建应用
-    Given I logout current user
-    And I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "topology.ListPage" page for uri "/topology/"
     And I wait for "Create" will be visible
@@ -56,19 +54,14 @@ Feature: 权限-应用列表页
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "可新建应用"
+    When I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
+  @logout
   Scenario: 无新建权限
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "2000" millsecond
-    And I logout current user
-    And I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     Then I will see the "CreateButton" doesn't exist
@@ -87,19 +80,23 @@ Feature: 权限-应用列表页
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集,可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
+  @logout
   Scenario: 安装应用
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+#    When I wait for "2000" millsecond
+#    And I logout current user
+#    And I wait for "2000" millsecond
+#    And open the "LoginPage" page for uri "/auth/login/"
+#    When I set the parameter "Username" with value "AutoTest"
+#    And I set the parameter "Password" with value "All#123456"
+    And I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
@@ -111,6 +108,7 @@ Feature: 权限-应用列表页
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
+  @logout
   Scenario: 验证无新建权限下安装包
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -124,14 +122,7 @@ Feature: 权限-应用列表页
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     And I wait for "Loading" will be invisible
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "InstallButton" button
@@ -193,6 +184,7 @@ Feature: 权限-应用列表页
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
+  @logout
   Scenario: 在AutoTest用户安装无更新权限的app
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -204,15 +196,7 @@ Feature: 权限-应用列表页
     And I "unchecked" the checkbox which name is "AutoTestForAuth" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I wait for loading invisible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I click the "InstallButton" button
@@ -222,6 +206,7 @@ Feature: 权限-应用列表页
     And I wait for "Message" will be visible
     Then I will see the message "上传失败: 没有相关资源权限"
 
+  @logout
   Scenario Outline: 授权读取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -241,14 +226,7 @@ Feature: 权限-应用列表页
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -265,6 +243,7 @@ Feature: 权限-应用列表页
       | name            |
       | AutoTestForAuth |
 
+    @logout
   Scenario Outline: 授权读取+编辑
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -283,14 +262,7 @@ Feature: 权限-应用列表页
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -365,14 +337,7 @@ Feature: 权限-应用列表页
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -395,7 +360,6 @@ Feature: 权限-应用列表页
       | name            |
       | EventAppForAuth |
 
-  @logout
   Scenario: 验证有效期限生效
     Given I wait for "2000" millsecond
     And I logout current user

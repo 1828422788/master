@@ -176,8 +176,6 @@ public class ListPageUtils {
      * @return tr
      */
     public WebElement getTableRow(String name, WebElement table) {
-        WebElement nextPage = webDriver.findElement(By.className(" ant-pagination-next"));
-        String buttonAttribute = nextPage.getAttribute("aria-disabled");
 
         List<WebElement> trList = this.getTableRowList(table);
         for (WebElement tr : trList) {
@@ -185,6 +183,8 @@ public class ListPageUtils {
                 return tr;
             }
         }
+        WebElement nextPage = webDriver.findElement(By.className(" ant-pagination-next"));
+        String buttonAttribute = nextPage.getAttribute("aria-disabled");
         while (buttonAttribute.equals("false")) {
             nextPage.click();
             WaitForElement.waitUntilLoadingDisappear();

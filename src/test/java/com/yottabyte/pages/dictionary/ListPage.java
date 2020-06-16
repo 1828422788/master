@@ -163,8 +163,8 @@ public class ListPage extends ListPageFactory {
         return super.getClearIcon("old");
     }
 
-    public WebElement getClearIconFirst() {
-        return super.getClearIcon("first");
+    public WebElement getClearIconNew() {
+        return super.getClearIcon("new");
     }
 
     public WebElement getClearIconSecond() {

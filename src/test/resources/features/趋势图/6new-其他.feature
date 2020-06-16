@@ -4,10 +4,10 @@ Feature: 趋势图新建-其他
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-@funnel
-  Scenario Outline: others
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+
+  Scenario Outline: others
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -42,8 +42,6 @@ Feature: 趋势图新建-其他
 
 
   Scenario Outline: others2
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -75,8 +73,6 @@ Feature: 趋势图新建-其他
       | Wordcloud | 2625    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city  |
 
   Scenario Outline: single_icon
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") "
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -116,8 +112,6 @@ Feature: 趋势图新建-其他
 
 
   Scenario Outline: single_font
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\"  tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -156,8 +150,6 @@ Feature: 趋势图新建-其他
       | Single    | font-awesome      | font2   |
 
   Scenario Outline: single_background
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -195,8 +187,6 @@ Feature: 趋势图新建-其他
       | Single    | backgr  | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
   Scenario Outline: single_trend
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -233,8 +223,6 @@ Feature: 趋势图新建-其他
       | Single    | trend   | 一天前       | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
   Scenario Outline: single_range
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -280,8 +268,6 @@ Feature: 趋势图新建-其他
       | Single    | rangeB  | 0       | 100     | Green  | 100     | 1000    | Red    | Background | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: single_1000separator
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -325,8 +311,6 @@ Feature: 趋势图新建-其他
       | Single    | 2         | UnitPositionAfter  | Background        | prec2_1000off_back_after | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
   Scenario Outline: second_title
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -368,8 +352,6 @@ Feature: 趋势图新建-其他
       | Single    | icon      | secondTitle | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: sparkline
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
@@ -412,8 +394,6 @@ Feature: 趋势图新建-其他
 
 
   Scenario Outline: sparkline_facet
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
@@ -467,8 +447,6 @@ Feature: 趋势图新建-其他
       |   Single      | Sparkline_分面   |
 
   Scenario Outline: ring_onefield
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -505,8 +483,6 @@ Feature: 趋势图新建-其他
       | Ring      | onefield | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline: ring_twofields
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -543,8 +519,6 @@ Feature: 趋势图新建-其他
       | Ring      | twofields | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline: ring_table
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -588,8 +562,6 @@ Feature: 趋势图新建-其他
 
 
   Scenario Outline: ring_colors
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -652,8 +624,6 @@ Feature: 趋势图新建-其他
 
 
   Scenario Outline: liquidfill
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -690,10 +660,7 @@ Feature: 趋势图新建-其他
       | chartType  | caseNum | spl                                                                       |
       | Liquidfill | percent | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
 
-  @facet
   Scenario Outline: liquidfill_facet
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
@@ -735,8 +702,6 @@ Feature: 趋势图新建-其他
 
 
   Scenario Outline: radar
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -775,10 +740,8 @@ Feature: 趋势图新建-其他
     Examples:
       | chartType | divField        | color1   | caseNum | spl                                                                        |
       | Radar     | apache.geo.city | DarkBlue | 2635    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-@funnel
+
   Scenario Outline: funnel
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -821,8 +784,6 @@ Feature: 趋势图新建-其他
       | Funnel    | cnt        | apache.clientip | LightGreen | 2858    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
 
   Scenario Outline: matrixheatmap
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -860,9 +821,8 @@ Feature: 趋势图新建-其他
       | Matrixheatmap | count()         | apache.status | 10     | 2660    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       | Matrixheatmap | apache.geo.city | count()       | 5      | 2661    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
+  @chain
   Scenario Outline: chain
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -906,13 +866,11 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
-      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
-      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
 
 
   Scenario Outline: sequence
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -955,8 +913,6 @@ Feature: 趋势图新建-其他
       | Sequence  | hostname | apache.clientip | hostname | apache.clientip | count() | 2805    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 3 |
 
   Scenario: table
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city | limit 5"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -975,9 +931,8 @@ Feature: 趋势图新建-其他
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
+  @chain
   Scenario Outline: chain_tree
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -1022,7 +977,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum   | spl                                                                                                                                                                                                                                                       |
-      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
-      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp |
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
 
 

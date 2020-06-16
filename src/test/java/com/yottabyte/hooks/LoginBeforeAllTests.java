@@ -9,16 +9,14 @@ import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.reflect.Constructor;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class LoginBeforeAllTests {
     private static WebDriver webDriver;
@@ -37,19 +35,20 @@ public class LoginBeforeAllTests {
 
     @Before
     public void beforeScenario() {
-        if (!isValidCookie(cookie, webDriver)) {
-            System.out.println("Login Before Test!");
-            webDriver.manage().deleteAllCookies();
-            String url = baseURL + loginURL;
-            webDriver.get(url);
-            login();
-            setPageFactory("PublicNavBarPage");
+        if (isValidCookie()) {
+            return;
         }
+
+        System.out.println("Login Before Test!");
+        deleteAllCookies();
+        webDriver.get(baseURL + loginURL);
+        login();
+        setPageFactory("PublicNavBarPage");
     }
 
     @After("@logout")
     public void logoutAfterScenario() {
-        webDriver.manage().deleteAllCookies();
+        deleteAllCookies();
     }
 
     public static void login() {
@@ -80,15 +79,7 @@ public class LoginBeforeAllTests {
         loginPage.getLoginButton().click();
 
         WebDriverWait wait = new WebDriverWait(webDriver, 10, 1000);
-        wait.until(new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver driver) {
-                while (driver.manage().getCookieNamed(cookieName) == null) {
-                    return false;
-                }
-                return true;
-            }
-        });
+        wait.until(driver -> driver.manage().getCookieNamed(cookieName) != null);
         cookie = webDriver.manage().getCookieNamed(cookieName);
     }
 
@@ -120,9 +111,8 @@ public class LoginBeforeAllTests {
         if (!pageFactoryName.startsWith("com.yottabyte.pages.")) {
             pageFactoryName = "com.yottabyte.pages." + pageFactoryName;
         }
-        Constructor c;
         try {
-            c = Class.forName(pageFactoryName).getDeclaredConstructor(WebDriver.class);
+            Constructor<?> c = Class.forName(pageFactoryName).getDeclaredConstructor(WebDriver.class);
             c.setAccessible(true);
             pageFactory = c.newInstance(webDriver);
         } catch (Exception e) {
@@ -134,10 +124,10 @@ public class LoginBeforeAllTests {
         return config;
     }
 
-    private static boolean isValidCookie(Cookie cookie, WebDriver webDriver) {
+    private static boolean isValidCookie() {
         try {
-            String url = new URL(webDriver.getCurrentUrl()).getHost();
-            if (url != baseURL) {
+            String host = new URL(webDriver.getCurrentUrl()).getHost();
+            if (!baseURL.contains(host)) {
                 webDriver.get(baseURL);
             }
         } catch (MalformedURLException e) {
@@ -148,5 +138,14 @@ public class LoginBeforeAllTests {
         }
         Cookie webCookie = webDriver.manage().getCookieNamed(cookie.getName());
         return cookie.equals(webCookie) && new Date().before(webCookie.getExpiry());
+    }
+
+    private static void deleteAllCookies() {
+        WebDriverWait wait = new WebDriverWait(webDriver, 20);
+        wait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+        wait.until(driver -> {
+            webDriver.manage().deleteAllCookies();
+            return driver.manage().getCookies().size() == 0;
+        });
     }
 }

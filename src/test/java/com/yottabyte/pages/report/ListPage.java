@@ -153,4 +153,20 @@ public class ListPage extends ListPageFactory {
         return super.getButton("已生成报表");
     }
 
+    //download the last generated report
+    @FindBy(xpath = "(//a[text()='下载'])[1]")
+    private WebElement download;
+
+    public WebElement getDownload() {
+        return download;
+    }
+
+    //delete the last generated report
+    @FindBy(xpath = "(//a[text()='删除'])[1]")
+    private WebElement delete;
+
+    public WebElement getDelete() {
+        return delete;
+    }
+
 }

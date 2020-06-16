@@ -1,4 +1,4 @@
-@dataset
+@dataset @datasetb @dataset1
 Feature: 数据集-b删除
 
   Background:
