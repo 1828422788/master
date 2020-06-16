@@ -4,10 +4,10 @@ Feature: 趋势图新建-timechart
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-
-  Scenario Outline: timechart1
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+
+  Scenario Outline: timechart1
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -38,8 +38,6 @@ Feature: 趋势图新建-timechart
       | 3250_column |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| timechart sep=\"-sep分格-\" format=\"$VAL-分格2-$AGG\" cont=true span=30m bins=100 startindex=1 endindex=8 limit=5 rendertype=\"column\" count() min(apache.resp_len) by apache.status |
 
   Scenario Outline: timechart2
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
@@ -86,8 +84,6 @@ Feature: 趋势图新建-timechart
 
 
   Scenario Outline: timechart3
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button

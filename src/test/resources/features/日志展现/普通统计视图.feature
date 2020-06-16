@@ -356,7 +356,7 @@ Feature: 日志展现_普通统计视图
       |  1262.50    |  3136_百分位等级_1262-50   |
 
 
-  Scenario Outline: multilevelstats(RZY-822)
+  Scenario: multilevelstats_step1(RZY-822)
     # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
     And I click the "SearchButton" button
@@ -365,53 +365,81 @@ Feature: 日志展现_普通统计视图
     And I will see the "splSearch.StatisticalPage" page
     And I click the "MultilevelStatistics" button
     And I wait for "1000" millsecond
-    And I choose the "<fieldValue1>" from the "FieldValue" in config
+    And I choose the "apache.status" from the "FieldValue" in config
     And I click the "Generate" button
     And I click the "StatisticsGram" button
-    And I choose the "<chartType>" from the "PresentType" in config
+    And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1"
-    Then I compare source image "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1" with target image "expect/普通统计视图/<screenName>_多级统计/<screenName>_chart_step1"
+    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step1"
+    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step1" with target image "expect/普通统计视图/822_多级统计/822_chart_step1"
+
+  Scenario: multilevelstats_step2(RZY-822)
+    # types of chart
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "MultilevelStatistics" button
+    And I wait for "1000" millsecond
+    And I choose the "apache.status" from the "FieldValue" in config
+    And I click the "Generate" button
 
     # Click checkbox with 200
     When I click the "Field" button
     And I click the "NextStep" button
-    And I choose the "<fieldValue2>" from the "FieldValue" in config
+    And I choose the "apache.clientip" from the "FieldValue" in config
     And I choose the "计数" from the "StatisticType" in config
-    And I click the "Generate1" button
+    And I click the "Generate" button
     And I click the "StatisticsGram" button
+    And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2"
-    Then I compare source image "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2" with target image "expect/普通统计视图/<screenName>_多级统计/<screenName>_chart_step2"
+    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step2"
+    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step2" with target image "expect/普通统计视图/822_多级统计/822_chart_step2"
+
+  Scenario: multilevelstats_step3(RZY-822)
+    # types of chart
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "MultilevelStatistics" button
+    And I wait for "1000" millsecond
+    And I choose the "apache.status" from the "FieldValue" in config
+    And I click the "Generate" button
+
+    # Click checkbox with 200
+    When I click the "Field" button
+    And I click the "NextStep" button
+    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I click the "Generate" button
 
     # Select the whole table
     When I click the "WholeField" button
     And I click the "NextStep" button
-    And I choose the "<fieldValue3>" from the "FieldValue" in config
+    And I choose the "apache.resp_len" from the "FieldValue" in config
     And I choose the "计数" from the "StatisticType" in config
-    And I click the "Generate1" button
+    And I click the "Generate" button
     And I wait for "2000" millsecond
     And I click the "StatisticsGram" button
-    And I wait for "2000" millsecond
+    And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
-    And I wait for "6000" millsecond
-    And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
-    And I wait for "2000" millsecond
-    And take part of "Chart" with name "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3"
-    Then I compare source image "actual/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3" with target image "expect/普通统计视图/<screenName>_多级统计/<screenName>_chart_step3"
-
-    Examples:
-      |  fieldValue1   | chartType |  fieldValue2   | chartType2 |    fieldValue3   | chartType3 | screenName |
-      | apache.status  |    饼图    |apache.clientip |    曲线图   |  apache.resp_len |    饼图    |  822       |
+    # RZY-6164
+#    And I wait for "2000" millsecond
+#    And I wait for "Chart" will be visible
+#    And I drag the scroll bar to the element "Chart"
+#    And I wait for "2000" millsecond
+#    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step3"
+#    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step3" with target image "expect/普通统计视图/822_多级统计/822_chart_step3"
 
 
   Scenario:geogrdistr(RZY-825)

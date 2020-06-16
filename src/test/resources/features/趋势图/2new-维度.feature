@@ -4,10 +4,10 @@ Feature: 趋势图新建_维度
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-
-  Scenario Outline: dimension_default(RZY-2503,2858,2676,2850)
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+
+  Scenario Outline: dimension_default(RZY-2503,2858,2676,2850)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -40,8 +40,6 @@ Feature: 趋势图新建_维度
       |      Sun      |    2850    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
   Scenario Outline: dimension_labels_bar
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -89,8 +87,6 @@ Feature: 趋势图新建_维度
       |      Bar      | Green  |展示全部  | 柱状内靠右侧 |
 
   Scenario Outline: dimension_labels_options
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 5"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -135,8 +131,6 @@ Feature: 趋势图新建_维度
 
 
   Scenario Outline: dimension_facet
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
@@ -182,8 +176,6 @@ Feature: 趋势图新建_维度
 
 
   Scenario Outline: dimension_facet_sun
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
