@@ -1,4 +1,4 @@
-@dataset @datasetd
+@dataset @datasetd @dataset1
 Feature: 数据集-d编辑根事件
 
   Background:
@@ -90,7 +90,7 @@ Feature: 数据集-d编辑根事件
     And I wait for loading invisible
     When I click the "editEvent" button
     And I set the parameter "editYuJu" with value "tag:heka"
-    And I choose the "无数集app之api全部测试用例" from the "rootAppList"
+    And I choose the "app之api全部用例" from the "rootAppList"
     And I choose the "auto_package" from the "rootResourceGroup"
     And I click the "rootSave" button
     And I wait for loading invisible
@@ -98,7 +98,7 @@ Feature: 数据集-d编辑根事件
     And I click the "backList" button
     Then I will see the "dataset.ListPage" page
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'edit'}" values "{'column':'4','name':'无数集app之api全部测试用例'}"
+    Then I will see the data "{'column':'0','name':'edit'}" values "{'column':'4','name':'app之api全部用例'}"
     And I will see the data "{'column':'0','name':'edit'}" values "{'column':'5','name':'auto_package'}"
 
 

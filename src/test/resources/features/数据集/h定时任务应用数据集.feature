@@ -1,4 +1,4 @@
-@dataset
+@dataset @dataseth @dataset2
 Feature: 数据集-h在定时任务应用-编辑页面&详情页
 
   Scenario Outline: 新建数据集父子行为无的定时任务
@@ -146,6 +146,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     And I click the "Crontab" button
     And I wait for "CrontabInput" will be visible
     And I set the parameter "CrontabInput" with value "<crontab>"
+    And I wait for element "SelectedUser" change text to username
 
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureCrontab" button

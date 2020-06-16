@@ -1,4 +1,4 @@
-@dataset @datasetg
+@dataset @datasetg @dataset2
 Feature: 数据集-g在搜索页
 
   Background:

@@ -1,4 +1,4 @@
-@dataset @datasete
+@dataset @datasete @dataset1
 Feature: 数据集-e对节点的操作
 
     Scenario: RZY-4493:新建一个数据集修改【数据集中根有一个子节点】

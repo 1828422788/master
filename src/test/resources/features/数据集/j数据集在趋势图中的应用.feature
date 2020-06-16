@@ -1,4 +1,4 @@
-@dataset
+@dataset @datasetj @dataset2
 Feature: 数据集-j在趋势图中的应用
 
 
