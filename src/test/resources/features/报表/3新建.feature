@@ -138,7 +138,7 @@ Feature: 报表新建_从趋势图
     When I set the parameter "SearchInput" with value "<name>"
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'<name>'}" then i click the "<name>" button
-    And the data name is "{'column':'1','name':'katetest'}" then i click the "下载" button
+    And I click the "Download" button
     Then I will see the element "LastGeneratedReport" contains ".pdf"
 
     Examples:
@@ -172,4 +172,11 @@ Feature: 报表新建_从趋势图
       | test_timechart_1               |
       | test_timechart_2               |
       | test_timechart_3               |
-      
+
+  @downloadReportTrend
+  Scenario: report_list_button
+    When I click the "ReportListButton" button
+    Then I wait for "SelectedReport" will be visible
+    And I wait for element "SelectedReport" change text to "全部报表文件"
+    And I wait for "5000" millsecond
+    And I wait for "LastGeneratedReport" will be visible
