@@ -200,6 +200,7 @@ Feature: 日志展现_其它
       |  Matrixheatmap |  count()        | apache.status |  10    |2810    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       |  Matrixheatmap | apache.geo.city |    count()    |  5     |2811    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
+  @chain
   Scenario Outline: chain(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -234,8 +235,8 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
-      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp|
-      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp|
+      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
 
   Scenario Outline: sequence(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -269,6 +270,7 @@ Feature: 日志展现_其它
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
       |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 4|
 
+    @chain
   Scenario Outline: chain_tree(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -304,5 +306,5 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum   |   spl   |
-      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812_tree |starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp|
-      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree |starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp|
+      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812_tree |starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree |starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|

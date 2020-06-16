@@ -4,10 +4,10 @@ Feature: 趋势图新建_关系
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-
-  Scenario Outline: connection(RZY-2505,2507,2511)
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+
+  Scenario Outline: connection(RZY-2505,2507,2511)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -40,8 +40,6 @@ Feature: 趋势图新建_关系
       |    Force      |    2511    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
   Scenario Outline: connection_force_repulsion
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -78,8 +76,6 @@ Feature: 趋势图新建_关系
       |    Force      |    2505    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
 
   Scenario Outline: connection_sankey_multistage
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button

@@ -4,10 +4,10 @@ Feature: 趋势图新建_序列
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
-
-  Scenario Outline: order(RZY-2477,2005,2491,2499)
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+
+  Scenario Outline: order(RZY-2477,2005,2491,2499)
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -42,8 +42,6 @@ Feature: 趋势图新建_序列
     |  ColumnChart  |  2499   |
 
   Scenario Outline: order
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -83,8 +81,6 @@ Feature: 趋势图新建_序列
       |  ColumnChart  |    Pile       | Yellow |
 
   Scenario Outline: order_bubble
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -124,8 +120,6 @@ Feature: 趋势图新建_序列
       |  ScatterChart |    cnt       | bubbles   |
 
   Scenario Outline: order_switch
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -168,8 +162,6 @@ Feature: 趋势图新建_序列
 
 
   Scenario Outline: order_limit
-    And I click the "NewTrendButton" button
-    Then I will see the "trend.CreatePage" page
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button

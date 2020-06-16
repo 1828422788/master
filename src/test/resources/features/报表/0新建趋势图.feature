@@ -1,6 +1,6 @@
 @reportCreateData
 Feature: 报表_新建趋势图_表格
-# 20
+# 21
 # sample04061424_chart for Today and Yesterday
 # sample04061424_display for Today and Yesterday
 # t_with for Today and Yesterday
@@ -50,3 +50,31 @@ Feature: 报表_新建趋势图_表格
     | table_Funnel           |  tag:sample04061424_chart \| stats count() by apache.clientip \| limit 5|
     | table_Single_Range     |  tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\)|
     | table_Liquidfill       |  tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000|
+
+
+  Scenario Outline: linechart
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
+
+    And I click the "Type" button
+    And I wait for "Chart" will be visible
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+
+    Examples:
+      |   chartType   |caseNum  |
+      |    LineChart  |  2477   |
