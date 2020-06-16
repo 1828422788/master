@@ -49,6 +49,7 @@ Feature: 基础用户创建
     And I click the "Ensure" button
     Then I will see the message "保存成功"
 
+  @test
   Scenario: 授权索引配置
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
