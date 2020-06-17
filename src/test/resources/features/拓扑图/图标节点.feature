@@ -1,3 +1,4 @@
+@topology
 Feature: 拓扑图图标节点
 
   Background:
@@ -12,7 +13,6 @@ Feature: 拓扑图图标节点
       | name |
       | 图标节点 |
 
-  @test
   Scenario: 上传自定义图标
     When I click the detail which name is "图标节点"
     And I will see the "topology.DetailPage" page
@@ -34,8 +34,9 @@ Feature: 拓扑图图标节点
   Scenario: 更新图标节点
     When I click the detail which name is "图标节点"
     And I will see the "topology.DetailPage" page
-    And I wait for "AddInputButton" will be visible
-    And I click the "AddInputButton" button
+    And I wait for "EditNode" will be visible
+    And I click the "EditNode" button
+    And I wait for "ExchangeMachine" will be visible
     And I click the "ExchangeMachine" button
     And I click the "UpdateNode" button
     And I click the "Save" button
