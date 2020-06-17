@@ -4,7 +4,7 @@ Feature: 定时任务复制
   Scenario Outline: create_new
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
     And I click the "ResourceAll" button
     And I click the "DateEditor" button
     And I click the "<time>" button
@@ -28,8 +28,8 @@ Feature: 定时任务复制
     Then I will see the success message "保存成功"
 
     Examples:
-      | time       | taskName     | periodNum | periodTime | spl                                                                                                      |
-      | OneDay     | copytask     | 5        |   分钟     | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
+      | time       | taskName     | periodNum | periodTime |
+      | OneDay     | copytask     | 5        |   分钟     |
 
 
   Scenario: copy_schedule
@@ -59,7 +59,7 @@ Feature: 定时任务复制
     When the data name is "{'column':'2','name':'copytask(副本)'}" then i click the "copytask(副本)" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "DetailDataSet" contains "(*)"
-    And I will see the element "SearchContent" contains "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count(apache.clientip) as c_ip by ts"
+    And I will see the element "SearchContent" contains "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
     And I will see the element "TimePeriod" contains "-1d ~ now"
     And I will see the element "Description" contains "testing"
     And I will see the element "ExecutionPeriod" contains "5 分钟"
