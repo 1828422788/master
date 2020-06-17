@@ -1,6 +1,6 @@
 Feature: 仪表盘统计地图
 
-  @dashboard @dashboardSmoke @test
+  @dashboard @dashboardSmoke
   Scenario: 上传日志
     Given open the "localUpload.ListPage" page for uri "/sources/input/os/"
     When I set the parameter "AppName" with value "geostats"
