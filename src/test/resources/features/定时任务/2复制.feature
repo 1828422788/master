@@ -15,7 +15,7 @@ Feature: 定时任务复制
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "testing"
     And I choose the "auto_package" from the "GroupComboBox"
-    And I choose the "TrendApp" from the "AppComboBox"
+    And I choose the "test_app" from the "AppComboBox"
 
     And I set the parameter "Period" with value "<periodNum>"
     And I choose the "<periodTime>" from the "ExecuteTime"
@@ -76,7 +76,7 @@ Feature: 定时任务复制
     And I will see the input element "Number" value will be "123"
     And I will see the element "Resource" contains "(*)"
     And I cancel selection "auto_package" from the "TaskGroup"
-    And I cancel selection "TrendApp" from the "TaskApp"
+    And I cancel selection "test_app" from the "TaskApp"
     And I will see the input element "Period" value will be "5"
 
   Scenario Outline: delete_copiedTask

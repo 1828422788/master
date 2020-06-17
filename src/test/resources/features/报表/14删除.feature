@@ -165,7 +165,7 @@ Feature: 报表_删除
       |   AreaChart          |
       |   LineChart          |
 
-  @cleanReportData @clean
+  @cleanReportData @clean @cleanEssentialData
   Scenario Outline: delete
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
