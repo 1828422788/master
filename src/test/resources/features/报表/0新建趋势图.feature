@@ -47,9 +47,11 @@ Feature: 报表_新建趋势图_表格
     | table_Single_Range     |  tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\)|
     | table_Liquidfill       |  tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000|
 
-
+@linecharttest
   Scenario Outline: linechart
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
+    And I click the "DateEditor" button
+    And I click the "Today" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
