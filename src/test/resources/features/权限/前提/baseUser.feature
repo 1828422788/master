@@ -32,6 +32,7 @@ Feature: 基础用户创建
       | name     | email                     | group         |
       | AutoTest | autoFullName@yottabyte.cn | AutoTestGroup |
       | 验证授权用户   | testAuthGroup@autotest.cn | 验证授权用户分组      |
+      | wym      | 123@rizhiyi.com           | 脱敏用户          |
 
   Scenario: 新建搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
