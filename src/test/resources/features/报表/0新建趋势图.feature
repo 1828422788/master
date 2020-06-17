@@ -16,8 +16,8 @@ Feature: 报表_新建趋势图_表格
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
-    And I set the parameter "DescribeInput" with value "AutoCreate"
     And I set the parameter "TagInput" with value "auto_package"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
 #    And I choose the "auto_package" from the "GroupField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
