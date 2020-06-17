@@ -37,9 +37,9 @@ Feature: 拓扑图告警触发
 
     Examples:
       | min       | max       | attribute |
-      | HigherMin | HigherMax | #c20031   |
-      | MediumMin | MediumMax | #DC8900   |
-      | LowerMin  | LowerMax  | #E2BF00   |
+      | HigherMin | HigherMax | #FF3434   |
+      | MediumMin | MediumMax | #FF9F02   |
+      | LowerMin  | LowerMax  | #FFD700   |
 
   Scenario: 验证高级告警优先级
     When I click the detail which name is "告警触发"
@@ -63,7 +63,7 @@ Feature: 拓扑图告警触发
     And I set the parameter "LowerMin" with value "0"
     And I set the parameter "LowerMax" with value "10000"
     And I click the "Apply" button
-    Then I will see the element "AlertNode" attribute "fill" is "#c20031"
+    Then I will see the element "AlertNode" attribute "fill" is "#FF3434"
     And I refresh the website
     And I accept alert window
 
@@ -87,7 +87,7 @@ Feature: 拓扑图告警触发
     And I set the parameter "LowerMin" with value "0"
     And I set the parameter "LowerMax" with value "10000"
     And I click the "Apply" button
-    Then I will see the element "AlertNode" attribute "fill" is "#DC8900"
+    Then I will see the element "AlertNode" attribute "fill" is "#FF9F02"
     And I refresh the website
     And I accept alert window
 
@@ -116,7 +116,7 @@ Feature: 拓扑图告警触发
     And I click the "ValueHeader" button
     And I click the "DeleteAlert" button
     And I click the "Apply" button
-    Then I will see the element "AlertNode" attribute "fill" is "#DC8900"
+    Then I will see the element "AlertNode" attribute "fill" is "#FF9F02"
     And I refresh the website
     And I accept alert window
 
