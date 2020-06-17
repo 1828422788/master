@@ -1,7 +1,7 @@
 @all @logDisplay @logDisplayOther
 Feature: 日志展现_其他_单值
 
-  # tag:sample04061424_chart should be uploaded for Yesterday
+
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -24,7 +24,7 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |caseNum  |   spl   |
-      |   Single      | 2303    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      | 2303    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
 
   Scenario Outline: icon(RZY-2799)
@@ -52,8 +52,8 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |   iconValue  |  caseNum  |   spl   |
-      |   Single      |    icon      |   2799    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      |    cnt       |   2799    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |    icon      |   2799    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |    cnt       |   2799    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: font(RZY-2799)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -80,8 +80,8 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |   fontValue       |  caseNum  |   spl   |
-      |   Single      | font-awesome-flag |   2799    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      | font-awesome      |   2799    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      | font-awesome-flag |   2799    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      | font-awesome      |   2799    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: background(RZY-2800)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -106,7 +106,7 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |  caseNum  |   spl   |
-      |   Single      |   2800    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |   2800    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: trend(RZY-1369)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -132,7 +132,7 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |  caseNum  | timeValue    |   spl   |
-      |   Single      |   1369    | 一天前        |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |   1369    | 一天前        |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
 
   Scenario Outline: backgr(RZY-1370)
@@ -168,8 +168,8 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |  caseNum  | minVal1 | maxVal1  |  color1  | minVal2 | maxVal2  |  color2  | colorFill     |   spl   |
-      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Font         |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
-      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Background   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Font         |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |   1370    | 0       |  100     |   Green  |  100    |   1000   |    Red   |  Background   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: simple_number_view(RZY-4193,4194,4195,4196,4197)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -202,8 +202,8 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    | precision |  unitPosition       |  buttonSwitch     |  caseNum                |   spl   |
-      |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
-      |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
   Scenario Outline: second_title
     When I set the parameter "SearchInput" with value "<spl>"
@@ -234,11 +234,11 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |   iconValue  |  caseNum         |   spl   |
-      |   Single      |    icon      |   secondTitle    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      |   Single      |    icon      |   secondTitle    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
 
   Scenario Outline: sparkline
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -271,7 +271,7 @@ Feature: 日志展现_其他_单值
 
 
   Scenario Outline: sparkline_facet
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page

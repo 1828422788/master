@@ -1,9 +1,5 @@
-@reportCreateData
+@reportCreateData @createEssentialData
 Feature: 报表_新建趋势图_表格
-# 21
-# sample04061424_chart for Today and Yesterday
-# sample04061424_display for Today and Yesterday
-# t_with for Today and Yesterday
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -21,8 +17,9 @@ Feature: 报表_新建趋势图_表格
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "auto_package" from the "GroupField"
     And I choose the "TrendApp" from the "AppField"
+    And I set the parameter "TagInput" with value "auto_package"
+#    And I choose the "auto_package" from the "GroupField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -53,7 +50,7 @@ Feature: 报表_新建趋势图_表格
 
 
   Scenario Outline: linechart
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
@@ -69,12 +66,12 @@ Feature: 报表_新建趋势图_表格
     And I wait for "Chart" will be visible
     Then I click the "NextButton" button
 
-    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+    When I set the parameter "NameInput" with value "<chartType>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
 
     Examples:
-      |   chartType   |caseNum  |
-      |    LineChart  |  2477   |
+      |   chartType   |
+      |    LineChart  |

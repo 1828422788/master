@@ -1,9 +1,8 @@
 @all @logDisplay @logDisplayMap
 Feature: 日志展现_地图
-#10
 
-  # tag:sample04061424_chart should be uploaded for Yesterday
-  # tag:vendors_461 should be uploaded for Yesterday
+
+
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -26,11 +25,11 @@ Feature: 日志展现_地图
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
-      |   Heatmap     |    1229    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |   Heatmap     |    1229    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
 
   Scenario Outline: attackMap(RZY-2302)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317"
     And I click the "SearchButton" button
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -81,7 +80,7 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|caseNum  |   spl   |
-      |Regionmap| 2790    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| 2790    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
   Scenario Outline: regionMap(RZY-2793,2794)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -112,8 +111,8 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
 
   Scenario Outline: regionMap_click(RZY-2792)
@@ -159,7 +158,7 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
   Scenario Outline: statMap(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -180,8 +179,8 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType      |caseNum  |   spl   |
-      |Statisticalmap | 2795    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
-      |Statisticalmap | 2797    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
+      |Statisticalmap | 2795    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap | 2797    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince |
 
 
   Scenario Outline: statMap(RZY-2796)
@@ -209,7 +208,7 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType      |   tranparencyValue  | minRadiusValue | maxRadiusValue  | caseNum  |   spl   |
-      |Statisticalmap |        0.5          |     10         |      50         |  2796    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap |        0.5          |     10         |      50         |  2796    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
 
   Scenario Outline: regionmap(RZY-2790white)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -235,7 +234,7 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|caseNum        |   spl   |
-      |Regionmap| 2790_white    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| 2790_white    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
   Scenario Outline: regionMap(RZY-2793,2794white)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -269,8 +268,8 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum      |   spl   |
-      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793_white  |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794_white  |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793_white  |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794_white  |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
   Scenario Outline: regionMap_click(RZY-2792_white)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -318,4 +317,4 @@ Feature: 日志展现_地图
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |

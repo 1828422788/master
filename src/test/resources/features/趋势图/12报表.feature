@@ -6,7 +6,7 @@ Feature: 趋势图新建_报表
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -35,7 +35,6 @@ Feature: 趋势图新建_报表
     And I wait for "3000" millsecond
     When I set the parameter "Name" with value "<report_name>"
     And I set the parameter "Describe" with value "AutoCreate"
-#    And I will see the element "SelectedUser" contains "admin"
     And I choose the "auto_package" from the "Tag"
     And I choose the "TrendApp" from the "App"
     And I choose the "PDF" from the "ReportType"

@@ -1,14 +1,13 @@
 @all @logDisplay @logDisplayOrder
 Feature: 日志展现_序列
-#8
-#BUG RZY-5905 wrong charts
-  # tag:sample04061424_chart should be uploaded for Yesterday
+
+
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: order(RZY-2770,2771,2769,2768)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -55,8 +54,8 @@ Feature: 日志展现_序列
 
     Examples:
       |   chartType   | unitValue  | buttonChoice      |  caseNum  |   spl|
-      |   LineChart   |   个       | Smooth            | 832       |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
-      |   LineChart   |   个       | ConnectEmptyData  | 832       |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |   LineChart   |   个       | Smooth            | 832       |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |   LineChart   |   个       | ConnectEmptyData  | 832       |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
 
   Scenario Outline: pile(RZY-2767,2773)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -83,11 +82,11 @@ Feature: 日志展现_序列
 
     Examples:
       |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
-      |   AreaChart   |    Pile       | Red    | 2767      |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
-      |  ColumnChart  |    Pile       | Yellow | 2773      |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |   AreaChart   |    Pile       | Red    | 2767      |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |  ColumnChart  |    Pile       | Yellow | 2773      |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
 
   Scenario Outline: scatter_bubble (RZY-4204)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page

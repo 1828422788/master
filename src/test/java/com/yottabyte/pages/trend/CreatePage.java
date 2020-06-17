@@ -2083,4 +2083,12 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]//input")
+    private WebElement tagInput;
+
+    public WebElement getTagInput() {
+        groupField.click();
+        return tagInput;
+    }
+
 }
