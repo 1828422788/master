@@ -1,4 +1,4 @@
-@reportCreateData @createEssentialData
+@reportCreateData @createEssentialData @baseUser
 Feature: 报表_新建趋势图_表格
 
   Background:

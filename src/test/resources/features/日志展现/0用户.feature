@@ -1,4 +1,4 @@
-@createEssentialData
+@createEssentialData @baseUser
 Feature: 新建用户
 
   Background:
