@@ -7,7 +7,7 @@ Feature: 定时任务新建
   Scenario: test_schedule_time
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count() by tag"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count()"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -219,5 +219,4 @@ Feature: 定时任务新建
       | -7d ~ now                                 | recent7d          |
       | -2d ~ now                                 | recent2d          |
       | -1d ~ now                                 | recent1d          |
-      | now/d ~ now                               |Test_StartTomorrow |
 
