@@ -18,7 +18,6 @@ Feature: 用户新建（RZY-1164）
     Examples:
       | UserName        | FullName         | Email                        | Password   | Result                 |
       | AutoTestForEdit | autoTestFullName | autoTestForEdit@yottabyte.cn | All#123456 | success message "创建成功" |
-      | wym             | wym              | 123@rizhiyi.com              | All#123456 | success message "创建成功" |
 
   Scenario Outline: 添加普通用户失败
     And I click the "CreateUser" button

@@ -110,7 +110,7 @@ Feature: 报表新建_执行计划
     When I set the parameter "Name" with value "test_report"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "auto_package" from the "Tag"
-    And I choose the "TrendApp" from the "App"
+    And I choose the "test_app" from the "App"
     And I choose the "PDF" from the "ReportType"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"

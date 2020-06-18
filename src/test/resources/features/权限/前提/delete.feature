@@ -11,6 +11,7 @@ Feature: 删除基本用户
       | name          |
       | AutoTestGroup |
       | 验证授权用户分组      |
+      | 脱敏用户          |
 
   Scenario Outline: 删除用户
     Given open the "users.ListPage" page for uri "/account/users/"
@@ -23,6 +24,7 @@ Feature: 删除基本用户
       | name     |
       | AutoTest |
       | 验证授权用户   |
+      | wym      |
 
   Scenario: 删除搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"

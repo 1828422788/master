@@ -31,8 +31,6 @@ Feature: 保存为趋势图_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTestTag" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "CreateEnsureButton" button
     Then I will see the success message "创建成功"
 
@@ -73,8 +71,6 @@ Feature: 保存为趋势图_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>_<option>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTestTag" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "CreateEnsureButton" button
     Then I will see the success message "创建成功"
 
@@ -120,8 +116,6 @@ Feature: 保存为趋势图_维度
 
     When I set the parameter "NameInput" with value "<chartType>_<typeInfo>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I choose the "AutoTestTag" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
     And I click the "CreateEnsureButton" button
     Then I will see the success message "创建成功"
 

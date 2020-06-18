@@ -4,32 +4,34 @@ Feature: 字段提取脱敏配置
   @logout
   Scenario Outline: RZY-2827：新建脱敏配置规则
 
-#    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
-#    Then I wait for loading invisible
-#    And I click the "Create" button
-#    And I set the parameter "Name" with value "wymAutoTest搜索权限"
-#    And I set the parameter "Tag" with value "*"
-#    And I click the "Ensure" button
-#    Then I will see the success message "操作成功"
-#    Then I refresh the website
-#    Then I wait for loading invisible
-#    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "授权" button
-#    And I wait for "ModalContent" will be visible
-#    Then I wait for loading invisible
-#    And I "check" the checkbox which name is "wym" in tiny table
-#    And I click the "Ensure" button
-#    Then I will see the message "保存成功"
-#    Given open the "roles.ListPage" page for uri "/account/roles/"
-#    And I wait for loading invisible
-#    And the data name is "__user_wym__" then i click the "授权" button
-#    And I will see the "roles.AuthorizationPage" page
-#    Then I wait for loading invisible
-#    Then I click the "{'TabButton':'功能'}" button
-#    And I wait for "Loading" will be invisible
-#    And I "checked" the checkbox which name is "全选"
-#    And I "unchecked" the checkbox which name is "可查看敏感内容"
-#    Then I click the "SaveButton" button
-
+    Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
+    Then I wait for loading invisible
+    And I click the "Create" button
+    And I set the parameter "Name" with value "wymAutoTest搜索权限"
+    And I set the parameter "Tag" with value "*"
+    And I click the "Ensure" button
+    Then I will see the success message "操作成功"
+    Then I refresh the website
+    Then I wait for loading invisible
+    When the data name is "{'column':'0','name':'wymAutoTest搜索权限'}" then i click the "授权" button
+    And I wait for "ModalContent" will be visible
+    Then I wait for loading invisible
+    And I "check" the checkbox which name is "wym" in tiny table
+    And I click the "Ensure" button
+    Then I will see the message "保存成功"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
+    And the data name is "__user_wym__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    Then I wait for loading invisible
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "可查看敏感内容"
+    Then I click the "{'TabButton':'索引配置'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "yotta" in auth table
+    Then I click the "SaveButton" button
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button

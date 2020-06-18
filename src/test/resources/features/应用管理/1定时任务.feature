@@ -15,7 +15,7 @@ Feature: 应用定时任务(RZY-2123)
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I wait for element "SearchContent" change text to "<spl>"
-    And I wait for element "SelectedUser" change text to "sunxj"
+    And I wait for element "SelectedUser" change text to username
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "Crontab" button
     And I set the parameter "CrontabInput" with value "0 0 0/10 * * ?"
@@ -126,7 +126,7 @@ Feature: 应用定时任务(RZY-2123)
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I wait for element "SearchContent" change text to "tag:sample04061424_chart | bucket timestamp span=1h as ts | stats count(apache.clientip) as c_ip by ts"
-    And I wait for element "SelectedUser" change text to "sunxj"
+    And I wait for element "SelectedUser" change text to username
     And I set the parameter "TaskName" with value "AutoTestCreate"
     And I click the "Crontab" button
     And I wait for "CrontabInput" will be visible

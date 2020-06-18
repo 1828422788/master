@@ -8,7 +8,7 @@ Feature: 趋势图复制(RZY-1889)
   Scenario: create_trend
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -37,7 +37,7 @@ Feature: 趋势图复制(RZY-1889)
     When I set the parameter "NameInput" with value "Copy_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
     And I choose the "auto_package" from the "GroupField"
-    And I choose the "TrendApp" from the "AppField"
+    And I choose the "test_app" from the "AppField"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -63,7 +63,7 @@ Feature: 趋势图复制(RZY-1889)
 
     And I will see the input element "NameInput" value will be "Copy_Test(副本)"
     And I will see the input element "DescribeInput" value will be "AutoCreate"
-    And I cancel selection "TrendApp" from the "AppField"
+    And I cancel selection "test_app" from the "AppField"
     And I cancel selection "auto_package" from the "GroupField"
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible

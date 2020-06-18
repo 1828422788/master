@@ -47,7 +47,7 @@ Feature: 定时任务新建
   Scenario Outline: sample(RZY-396,397,403,404,2695,2696,2698)
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt>1000000,1,0)"
     And I click the "DateEditor" button
     And I click the "<time>" button
     And I click the "SearchButton" button
@@ -68,23 +68,23 @@ Feature: 定时任务新建
     Then I will see the success message "保存成功"
 
     Examples:
-   | time       | taskName  | periodNum | periodTime | startTime   | spl                                                                                                      |
-   | OneDay     | recent1d  | 17        |   分钟     |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
-   | TwoDays    | recent2d  | 3         |   小时     |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
-   | SevenDays  | recent7d  | 1         |    天      |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
-   | Today      | today     | 17        |            |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
-   | Yesterday  | yesterday | 57        |    分钟    |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
-   | ThisWeek   | thisWeek  | 7         |    小时    |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
-   | LastWeek   | lastWeek  | 2         |     天     |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
-   | ThisMonth  | thisMonth | 17        |            |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
-   | LastMonth  | lastMonth | 17        |            |5            | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts |
+   | time       | taskName  | periodNum | periodTime |
+   | OneDay     | recent1d  | 17        |   分钟     |
+   | TwoDays    | recent2d  | 3         |   小时     |
+   | SevenDays  | recent7d  | 1         |    天      |
+   | Today      | today     | 17        |            |
+   | Yesterday  | yesterday | 57        |    分钟    |
+   | ThisWeek   | thisWeek  | 7         |    小时    |
+   | LastWeek   | lastWeek  | 2         |     天     |
+   | ThisMonth  | thisMonth | 17        |            |
+   | LastMonth  | lastMonth | 17        |            |
 
 
 
   Scenario Outline: date_interval
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with value "<start_d>"
@@ -110,17 +110,17 @@ Feature: 定时任务新建
     Then I will see the success message "保存成功"
 
     Examples:
-      | taskName      | start_d     | end_d       | periodNum | periodTime |spl                                                                                                      |
-      | interval_date | 2020-06-01  | 2020-06-09  | 5         |  分钟      |* \| stats count() by tag|
+      | taskName      | start_d     | end_d       | periodNum | periodTime |
+      | interval_date | 2020-06-01  | 2020-06-09  | 5         |  分钟      |
 
 
 
   Scenario Outline: sample_crontab(RZY-2699,2700,2702,2703,2704,2705)
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts"
     And I click the "DateEditor" button
-    And I click the "<time>" button
+    And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
@@ -136,13 +136,13 @@ Feature: 定时任务新建
     Then I will see the success message "保存成功"
 
     Examples:
-      | time       | taskName          |   crontab             | spl      |
-      |OneDay      | crontab_every15th |   0 5 9 15/3 * ?      | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts|
-      |OneDay      | crontab_9_930     |  0 0-30/10 9 * * ?    | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts|
-      |OneDay      | crontab_mon_fri   | 0 0/15 9 ? * MON-FRI  | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts|
-      |OneDay      | crontab_5h        | 0 0 */5 * * ?         | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts|
-      |OneDay      | crontab_57min     | 0 */57 * * * ?        | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts|
-      |OneDay      | crontab_7min      | 0 */7 * * * ?         | tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count(apache.clientip) as c_ip by ts|
+      | taskName          |   crontab             |
+      | crontab_every15th |   0 5 9 15/3 * ?      |
+      | crontab_9_930     |  0 0-30/10 9 * * ?    |
+      | crontab_mon_fri   | 0 0/15 9 ? * MON-FRI  |
+      | crontab_5h        | 0 0 */5 * * ?         |
+      | crontab_57min     | 0 */57 * * * ?        |
+      | crontab_7min      | 0 */7 * * * ?         |
 
     Scenario Outline:  crontab_message_error
       Given open the "splSearch.SearchPage" page for uri "/search/"

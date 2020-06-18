@@ -110,7 +110,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getDropdownList(String name) {
-        String xpath = "//label[text()='" + name + "']/following-sibling::div//i";
+        String xpath = "//label[text()='" + name + "']/ancestor::div[1]/following-sibling::div//span/div[1]";
         webDriver.findElement(By.xpath(xpath)).click();
         return this.getLastDropdownList();
     }

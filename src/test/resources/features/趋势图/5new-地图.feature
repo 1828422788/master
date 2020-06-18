@@ -37,12 +37,12 @@ Feature: 趋势图新建_地图
 
     Examples:
       |   chartType   |   caseNum  |   spl   |
-      |   Heatmap     |    2539    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
-      |   Regionmap   |    2545    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |   Heatmap     |    2539    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |   Regionmap   |    2545    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
 
   Scenario Outline: attackmap
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 <spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 <spl>"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
@@ -125,8 +125,8 @@ Feature: 趋势图新建_地图
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
-      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
   Scenario Outline: statistical_map
     When I set the parameter "SearchInput" with value "<spl>"
@@ -159,8 +159,8 @@ Feature: 趋势图新建_地图
 
     Examples:
       |chartType      |caseNum  |   spl   |
-      |Statisticalmap | 2098    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
-      |Statisticalmap | 2797    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince|
+      |Statisticalmap | 2098    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap | 2797    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince|
 
   Scenario Outline: statistical_map_parameters
     When I set the parameter "SearchInput" with value "<spl>"
@@ -199,8 +199,8 @@ Feature: 趋势图新建_地图
 
     Examples:
       |chartType      |   tranparencyValue  | minRadiusValue | maxRadiusValue  | caseNum        |   spl   |
-      |Statisticalmap |        0.5          |     10         |      50         |  2098_param    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
-      |Statisticalmap |        0.5          |     10         |      50         |  2797_param    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince|
+      |Statisticalmap |        0.5          |     10         |      50         |  2098_param    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
+      |Statisticalmap |        0.5          |     10         |      50         |  2797_param    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince|
 
   Scenario Outline: regionmap_world_white
     When I set the parameter "SearchInput" with value "<spl>"
@@ -236,7 +236,7 @@ Feature: 趋势图新建_地图
 
     Examples:
       |   chartType   |   caseNum        |   spl   |
-      |   Regionmap   |    2545_white    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |   Regionmap   |    2545_white    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
   Scenario Outline: regionmap_white
     When I set the parameter "SearchInput" with value "<spl>"
@@ -280,6 +280,6 @@ Feature: 趋势图新建_地图
 
     Examples:
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum     |   spl   |
-      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546_white |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
-      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547_white |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
+      |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 

@@ -1,4 +1,4 @@
-@clean
+
 Feature: 报表_删除
 
   Scenario Outline: delete_report
@@ -12,7 +12,7 @@ Feature: 报表_删除
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 
-    @cleanReport @cleanKate
+    @cleanReport @cleanKate @clean
     Examples:
       |   name                |
       |  test_report_EXCEL    |
@@ -23,7 +23,7 @@ Feature: 报表_删除
       |  test_report_每周     |
       |  test_report_每天     |
 
-    @cleanReport @cleanKate
+    @cleanReport @cleanKate @clean
     Examples:
       |   name                |
       |  test_downFirst       |
@@ -34,7 +34,7 @@ Feature: 报表_删除
       |  test_deleteLast      |
       |  test_10trends        |
 
-    @cleanReportFromTrend 
+    @cleanReportFromTrend
     Examples:
       |          name                  |
       | test序列_Order_1               |
@@ -69,7 +69,7 @@ Feature: 报表_删除
 
 
 
-  @cleanReport @cleanReportPDF @cleanReportCharts @cleanKate
+  @cleanReport @cleanReportPDF @cleanReportCharts @cleanKate @clean
   Scenario Outline: delete_report_charts_pdf
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>_PDF"
@@ -165,7 +165,7 @@ Feature: 报表_删除
       |   AreaChart          |
       |   LineChart          |
 
-  @cleanReportData
+  @cleanReportData @clean @cleanEssentialData
   Scenario Outline: delete
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
@@ -177,6 +177,7 @@ Feature: 报表_删除
 
     Examples:
       |   name                 |
+      | LineChart              |
       | table_Order            |
       | table_Dimension        |
       | table_Sun              |

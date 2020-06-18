@@ -1,3 +1,4 @@
+@topology
 Feature: 拓扑图图标节点
 
   Background:
@@ -18,7 +19,7 @@ Feature: 拓扑图图标节点
     And I wait for "Icon" will be visible
     And I click the "Icon" button
     And I set the parameter "IconNodeName" with value "node"
-    And I upload a file with name "src/test/resources/testdata/image/smallRobbot.png"
+    And I upload a file with name "/src/test/resources/testdata/image/smallRobbot.png"
     And I click the "Image" button
     And I click the "AddNodeButton" button
     And I click the "Save" button
@@ -33,8 +34,9 @@ Feature: 拓扑图图标节点
   Scenario: 更新图标节点
     When I click the detail which name is "图标节点"
     And I will see the "topology.DetailPage" page
-    And I wait for "AddInputButton" will be visible
-    And I click the "AddInputButton" button
+    And I wait for "EditNode" will be visible
+    And I click the "EditNode" button
+    And I wait for "ExchangeMachine" will be visible
     And I click the "ExchangeMachine" button
     And I click the "UpdateNode" button
     And I click the "Save" button

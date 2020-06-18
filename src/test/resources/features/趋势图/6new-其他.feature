@@ -36,9 +36,9 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | caseNum | spl                                                                                                          |
-      | Single    | 2549    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>300,\"thumbs-down\",\"thumbs-up\"\) |
-      | Radar     | 2633    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                   |
-      | Funnel    | 2654    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt by apache.clientip \| sort by cnt, apache.clientip \|limit 5 |
+      | Single    | 2549    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>300,\"thumbs-down\",\"thumbs-up\"\) |
+      | Radar     | 2633    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city                                   |
+      | Funnel    | 2654    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.clientip \| sort by cnt, apache.clientip \|limit 5 |
 
 
   Scenario Outline: others2
@@ -70,10 +70,10 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | caseNum | spl                                                                                                          |
-      | Wordcloud | 2625    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city  |
+      | Wordcloud | 2625    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city  |
 
   Scenario Outline: single_icon
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") "
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") "
     And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
@@ -112,7 +112,7 @@ Feature: 趋势图新建-其他
 
 
   Scenario Outline: single_font
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\"  tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\"  tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\")"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
@@ -184,7 +184,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | caseNum | spl                                                                                                              |
-      | Single    | backgr  | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
+      | Single    | backgr  | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
   Scenario Outline: single_trend
     When I set the parameter "SearchInput" with value "<spl>"
@@ -220,7 +220,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | caseNum | timeValue | spl                                                                                                              |
-      | Single    | trend   | 一天前       | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
+      | Single    | trend   | 一天前       | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
   Scenario Outline: single_range
     When I set the parameter "SearchInput" with value "<spl>"
@@ -264,8 +264,8 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | caseNum | minVal1 | maxVal1 | color1 | minVal2 | maxVal2 | color2 | colorFill  | spl                                                                                                                               |
-      | Single    | rangeF  | 0       | 100     | Green  | 100     | 1000    | Red    | Font       | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\)                  |
-      | Single    | rangeB  | 0       | 100     | Green  | 100     | 1000    | Red    | Background | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | Single    | rangeF  | 0       | 100     | Green  | 100     | 1000    | Red    | Font       | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\)                  |
+      | Single    | rangeB  | 0       | 100     | Green  | 100     | 1000    | Red    | Background | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval cnt = 99 \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: single_1000separator
     When I set the parameter "SearchInput" with value "<spl>"
@@ -307,8 +307,8 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | precision | unitPosition       | buttonSwitch      | caseNum                  | spl                                                                                                        |
-      | Single    | 1         | UnitPositionBefore | ThousandSeparator | prec1_1000on__before     | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
-      | Single    | 2         | UnitPositionAfter  | Background        | prec2_1000off_back_after | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      | Single    | 1         | UnitPositionBefore | ThousandSeparator | prec1_1000on__before     | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
+      | Single    | 2         | UnitPositionAfter  | Background        | prec2_1000off_back_after | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
   Scenario Outline: second_title
     When I set the parameter "SearchInput" with value "<spl>"
@@ -349,10 +349,10 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | iconValue | caseNum     | spl                                                                                                              |
-      | Single    | icon      | secondTitle | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
+      | Single    | icon      | secondTitle | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: sparkline
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -394,7 +394,7 @@ Feature: 趋势图新建-其他
 
 
   Scenario Outline: sparkline_facet
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
@@ -480,7 +480,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | caseNum  | spl                                                                                                                                                                                   |
-      | Ring      | onefield | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | Ring      | onefield | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline: ring_twofields
     When I set the parameter "SearchInput" with value "<spl>"
@@ -516,7 +516,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | caseNum   | spl                                                                                                                                                                                   |
-      | Ring      | twofields | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | Ring      | twofields | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
   Scenario Outline: ring_table
     When I set the parameter "SearchInput" with value "<spl>"
@@ -557,8 +557,8 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | caseNum     | rows | columns | spl                                                                                                                                                                                   |
-      | Ring      | table_3r_2c | 3    | 2       | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
-      | Ring      | table_1r_4c | 1    | 4       | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | Ring      | table_3r_2c | 3    | 2       | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | Ring      | table_1r_4c | 1    | 4       | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
 
   Scenario Outline: ring_colors
@@ -620,7 +620,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | caseNum            | rows | columns | spl                                                                                                                                                                                   |
-      | Ring      | table_1r_3c_colors | 1    | 3       | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
+      | Ring      | table_1r_3c_colors | 1    | 3       | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/50 \| eval count2_perc=ip_count/200 \| limit 6 |
 
 
   Scenario Outline: liquidfill
@@ -658,7 +658,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
-      | Liquidfill | percent | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
+      | Liquidfill | percent | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
 
   Scenario Outline: liquidfill_facet
     When I set the parameter "SearchInput" with value "<spl>"
@@ -698,7 +698,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
-      | Liquidfill | 分面    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10|
+      | Liquidfill | 分面    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10|
 
 
   Scenario Outline: radar
@@ -739,7 +739,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | divField        | color1   | caseNum | spl                                                                        |
-      | Radar     | apache.geo.city | DarkBlue | 2635    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      | Radar     | apache.geo.city | DarkBlue | 2635    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
   Scenario Outline: funnel
     When I set the parameter "SearchInput" with value "<spl>"
@@ -781,7 +781,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | countValue | divValue        | color1     | caseNum | spl                                                                      |
-      | Funnel    | cnt        | apache.clientip | LightGreen | 2858    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
+      | Funnel    | cnt        | apache.clientip | LightGreen | 2858    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
 
   Scenario Outline: matrixheatmap
     When I set the parameter "SearchInput" with value "<spl>"
@@ -818,8 +818,8 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType     | xValue          | yValue        | segNum | caseNum | spl                                                                        |
-      | Matrixheatmap | count()         | apache.status | 10     | 2660    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-      | Matrixheatmap | apache.geo.city | count()       | 5      | 2661    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      | Matrixheatmap | count()         | apache.status | 10     | 2660    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      | Matrixheatmap | apache.geo.city | count()       | 5      | 2661    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
   @chain
   Scenario Outline: chain
@@ -866,8 +866,8 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum | spl                                                                                                                                                                                                                                                       |
-      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
-      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
 
 
   Scenario Outline: sequence
@@ -910,10 +910,10 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | timeSeq  | source          | target   | segmentation    | mark    | caseNum | spl                                                                             |
-      | Sequence  | hostname | apache.clientip | hostname | apache.clientip | count() | 2805    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 3 |
+      | Sequence  | hostname | apache.clientip | hostname | apache.clientip | count() | 2805    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 3 |
 
   Scenario: table
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city | limit 5"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city | limit 5"
     And I wait for "500" millsecond
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
@@ -977,7 +977,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType | color | precision | function     | parentIDvalue       | childIDvalue  | starttime                | duration            | infoValue                            | caseNum   | spl                                                                                                                                                                                                                                                       |
-      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
-      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d-24h\" endtime=\"now/d\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
+      | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
+      | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
 
 
