@@ -7,6 +7,7 @@ Feature: 趋势图新建_关系
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
 
+    @testchart
   Scenario Outline: connection(RZY-2505,2507,2511)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
@@ -36,7 +37,7 @@ Feature: 趋势图新建_关系
     Examples:
       |   chartType   |   caseNum  |   spl   |
       |    Chord      |    2505    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
-      |    Sankey     |    2507    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
+      |    Sankey     |    2507    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND  apache.clientip:183.14.126.214  OR ( apache.clientip:1.207.60.51 AND apache.resp_len:87) \| stats count() by apache.clientip,apache.resp_len,apache.method \| sort by apache.resp_len |
       |    Force      |    2511    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
   Scenario Outline: connection_force_repulsion

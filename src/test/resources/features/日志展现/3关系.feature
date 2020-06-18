@@ -7,6 +7,7 @@ Feature: 日志展现_关系
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
+    @testchart
   Scenario Outline: connection(RZY-834,2783,2784)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -26,7 +27,7 @@ Feature: 日志展现_关系
     Examples:
       |   chartType   |   caseNum  |   spl   |
       |    Chord      |    834     |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path  |
-      |    Sankey     |    2783    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
+      |    Sankey     |    2783    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND  apache.clientip:183.14.126.214  OR ( apache.clientip:1.207.60.51 AND apache.resp_len:87) \| stats count() by apache.clientip,apache.resp_len,apache.method \| sort by apache.resp_len |
       |    Force      |    2784    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
   Scenario Outline: Force(RZY-4223)
