@@ -114,6 +114,16 @@ public class ClickButtonWithGivenName {
         this.click(buttonName, tr);
     }
 
+    @Given("^the data name in beats table \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
+    public void clickBeatsButtonWithGivenName(String tableName, String buttonName) {
+        Agent agent = new Agent();
+        String ip = agent.getIp();
+        String dataName = ip+":"+"299";
+        WebElement table = GetElementFromPage.getWebElementWithName(tableName);
+        WebElement tr = listPageUtils.getRowWithoutPaging(dataName, table);
+        this.click(buttonName, tr);
+    }
+
     /**
      * 判断列表页行的操作选项都有哪些
      *
@@ -329,6 +339,22 @@ public class ClickButtonWithGivenName {
             label.click();
         }
     }
+
+
+    @Given("^the data name in agent beats table \"([^\"]*)\" then i click the \"([^\"]*)\" switch")
+    public void BeatsoperateSwitch(String tableName, String status) {
+        Agent agent = new Agent();
+        String ip = agent.getIp();
+        String dataName = ip+":"+"299";
+        WebElement table = GetElementFromPage.getWebElementWithName(tableName);
+        WebElement tr = listPageUtils.getRowWithoutPaging(dataName, table);
+        WebElement label = tr.findElement(By.xpath(".//button"));
+        String labelAttribute = label.getAttribute("aria-checked");
+        if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
+            label.click();
+        }
+    }
+
 
     /**
      * 关闭或开启禁用agent数据源开关

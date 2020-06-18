@@ -38,13 +38,14 @@ public class SetKeyWithValue {
      *
      * @param elementName 输入框元素名称
      */
-    @And("^I set the agent parameter \"([^\"]*)\" with running ip$")
+    @And("^I set the agent parameter \"([^\"]*)\" with running ip in beats$")
     public void setParamInAgent(String elementName) {
         Agent agent = new Agent();
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         String ip = agent.getIp();
         Assert.assertNotNull("无正在运行中的Agent！", ip);
-        iSetTheParameterWithValue(element, ip);
+        String dataName = ip +":"+"299";
+        iSetTheParameterWithValue(element, dataName);
     }
 
     /**

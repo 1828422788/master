@@ -57,6 +57,7 @@ public class ListPage extends ListPageFactory {
     public WebElement getAgentGroupButton(){
         return super.getButton("分组设置");
     }
+
     public WebElement getAgentMultiButton(){
         return super.getButton("批量操作");
     }
