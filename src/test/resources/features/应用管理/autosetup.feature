@@ -34,7 +34,7 @@ Feature: 新建数据集all_、安装app
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
     And I click the "AddDataset" button
-    And I set the parameter "SearchInput" with value "AutoTestApp"
+    And I set the parameter "SearchInput" with value "all_"
     And I click the "SearchIcon" button
     And I drag the scroll bar to the element "ResultDataset"
     And I click the "ResultDataset" button
