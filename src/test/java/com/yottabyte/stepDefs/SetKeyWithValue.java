@@ -9,6 +9,9 @@ import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class SetKeyWithValue {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
@@ -46,6 +49,21 @@ public class SetKeyWithValue {
         Assert.assertNotNull("无正在运行中的Agent！", ip);
         String dataName = ip +":"+"299";
         iSetTheParameterWithValue(element, dataName);
+    }
+
+
+    /**
+     * 为指定变量elementName赋值当前日期
+     *
+     * @param elementName 输入框元素名称
+     */
+    @And("^I set the parameter \"([^\"]*)\" with current date$")
+    public void seParamWithCurrentDate(String elementName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date(System.currentTimeMillis());
+        String current_date = formatter.format(date);
+        iSetTheParameterWithValue(element, current_date);
     }
 
     /**

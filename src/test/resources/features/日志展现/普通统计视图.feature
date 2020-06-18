@@ -58,13 +58,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
-    And I click the "DateEditor" button
-    And I click the "CustomTimeTab" button
-    And I set the parameter "StartDateField" with value "2020-05-01"
-    And I set the parameter "EndDateField" with value "2020-05-03"
-    And I click the "StartTimeField" button
-    And I click the "ApplyCustomTime" button
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\"tag:sample04061424_display"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -76,13 +70,13 @@ Feature: 日志展现_普通统计视图
     Then I choose the "<statisticType>" from the "StatisticType" in config
     # Set Time Parameters
     And I click the "StartDate" button
-    And I set the parameter "DateInput" with value "2020-05-02"
+    And I set the parameter "DateInput" with current date
     And I click the "HideElement" button
     And I click the "StartTime" button
     And I set the parameter "TimeInput" with value "00:00:00"
     And I click the "HideElement" button
     And I click the "EndDate" button
-    And I set the parameter "DateInput" with value "2020-05-02"
+    And I set the parameter "DateInput" with current date
     And I click the "HideElement" button
     And I click the "EndTime" button
     And I set the parameter "TimeInput" with value "23:59:59"
