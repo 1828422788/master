@@ -30,22 +30,16 @@ Feature: 新建数据集all_、安装app
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
-    When I upload a file "Upload" with name "/target/download-files/<appName>.tar"
+    When I upload a file "Upload" with name "/src/test/resources/testdata/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
-    And I click the "AddDataset" button
-    And I set the parameter "SearchInput" with value "all_"
-    And I click the "SearchIcon" button
-    And I drag the scroll bar to the element "ResultDataset"
-    And I click the "ResultDataset" button
-    And I click the "Ensure" button
     And I click the "NextButton" button under some element
     And I click the "NextButton" button
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
     Examples:
-      | appName                     |
+      | appName          |
       | app之api全部用例 |
 
 

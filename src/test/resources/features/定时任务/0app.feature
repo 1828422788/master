@@ -3,6 +3,7 @@ Feature:新建应用
 
   Scenario: upload_app
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
