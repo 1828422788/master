@@ -30,9 +30,9 @@ Feature: Agent分组设置
 
   Scenario: Agent分组重名新建失败
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
     And I close all tabs except main tab
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest"
@@ -43,9 +43,9 @@ Feature: Agent分组设置
 
   Scenario: Agent分组未填写名称新建失败
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
     And I close all tabs except main tab
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
 #    When I set the parameter "Description" with value "<description>"
@@ -55,9 +55,9 @@ Feature: Agent分组设置
 
   Scenario: Agent分组未填写角色新建失败
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
     And I close all tabs except main tab
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest2"
@@ -81,9 +81,9 @@ Feature: Agent分组设置
 
   Scenario Outline: Agent从分组设置页面跳转
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
     And I close all tabs except main tab
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "More" button
@@ -148,9 +148,9 @@ Feature: Agent分组设置
 
   Scenario Outline: 编辑Agent资源分组
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
     And I close all tabs except main tab
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I set the parameter "Name" with value "<name>"
@@ -169,9 +169,9 @@ Feature: Agent分组设置
 
   Scenario Outline: 删除Agent分组
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
     And I close all tabs except main tab
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "<name>" button
     And I click the "More" button

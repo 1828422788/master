@@ -8,9 +8,9 @@ Feature: Agent分组采集
 
   Scenario Outline: 新建Agent分组设置
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
     And I close all tabs except main tab
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "<name>"
@@ -94,9 +94,9 @@ Feature: Agent分组采集
 
   Scenario: 分组采集数据修改日志内容白名单
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page
     And switch to another window
     And I close all tabs except main tab
+    And open the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -111,9 +111,9 @@ Feature: Agent分组采集
 
   Scenario: 分组采集数据修改日志内容黑名单
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page
     And switch to another window
     And I close all tabs except main tab
+    And open the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -127,9 +127,9 @@ Feature: Agent分组采集
 
   Scenario Outline: 分组采集数据修改最后修改时间
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page
     And switch to another window
     And I close all tabs except main tab
+    And open the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -151,9 +151,9 @@ Feature: Agent分组采集
 
   Scenario Outline: 分组采集数据配置修改字符集
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page
     And switch to another window
     And I close all tabs except main tab
+    And open the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -174,9 +174,9 @@ Feature: Agent分组采集
 
   Scenario: 分组采集数据修改tag
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page
     And switch to another window
     And I close all tabs except main tab
+    And open the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -191,9 +191,9 @@ Feature: Agent分组采集
 
   Scenario: 分组采集数据修改appname
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page
     And switch to another window
     And I close all tabs except main tab
+    And open the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -214,9 +214,9 @@ Feature: Agent分组采集
 
   Scenario: 分组采集数据数据源删除
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page
     And switch to another window
     And I close all tabs except main tab
+    And open the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -230,9 +230,9 @@ Feature: Agent分组采集
 
   Scenario Outline: 删除Agent分组
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/sources/input/agent/group/"
     And switch to another window
     And I close all tabs except main tab
+    And open the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "<name>" button
     And I click the "More" button
