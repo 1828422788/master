@@ -6,26 +6,29 @@ Feature: 应用KV字典
     And I click the "CreateButton" button
     Then I will see the "app.CreatePage" page
     Given delete file "/target/download-files/<name>.tar"
-    And I set the parameter "NameInput" with value "<name>"
+    When I set the parameter "NameInput" with value "<name>"
     And I click the "AddResource" button
     And I set the parameter "SearchResourceInput" with value "app所选资源"
     And I wait for "SearchLoading" will be invisible
     And I "check" the checkbox which name is "app所选资源" in tiny table
     And I click the "SaveMenuButton" button
     And I click the "AddMenuButton" button under some element
-    And I wait for "MenuName" will be visible
-    And I set the parameter "MenuName" with value "<menuName>"
-    And I set the parameter "Url" with value "<url>"
+    And I set the parameter "MenuName" with value "搜索"
+    And I set the parameter "Url" with value "/search/"
     And I click the "SaveMenuButton" button
-    And I choose the "<menuName>" from the "DefaultPage"
+    And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "仪表盘"
+    And I set the parameter "Url" with value "/dashboard/"
+    And I click the "SaveMenuButton" button
+    And I choose the "搜索" from the "DefaultPage"
     And I click the "CurrentApp" button
     And I click the "CreateButton" button under some element
     And I will see the "app.ListPage" page
     Then I wait for "CreateButton" will be visible
 
     Examples:
-      | name  | menuName | url        |
-      | KVApp | KV字典     | /kvstores/ |
+      | name  |
+      | KVApp |
 
   Scenario Outline: 安装资源成功
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -45,14 +48,13 @@ Feature: 应用KV字典
       | appName |
       | KVApp   |
 
-  Scenario Outline: 验证单个资源的app资源范围是否正确
+  Scenario: 添加KV字典
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "<name>" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    And I wait for loading invisible
-    And I wait for "EmptyText" will be visible
-    And I will see the element "Title" name is "<name>"
-
-    Examples:
-      | name  |
-      | KVApp |
+    When the data name is "KVApp" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I click the "AddKVStore" button
+    And I set the parameter "KVName" with value "AutoTestForKVStore"
+    And I set the parameter "KVFieldInput" with value "city"
+    And I click the "AddKVField" button
+    And I set the parameter "KVFieldInput" with value "cnt"
+    And I click the "CreateKVStore" button

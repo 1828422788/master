@@ -9,7 +9,7 @@ Feature: 应用本地上传日志（RZY-2148）
   Scenario: 上传日志
     When I click the "Upload" button
     And I will see the "app.AppPage" page
-    And I will see the element "OldTitle" name is "AutoTest...pWithAllResources"
+    And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "localUpload.ListPage" page
     When I set the parameter "AppName" with value "AutoAppAppname"
     And I set the parameter "Tag" with value "AutoAppTag"

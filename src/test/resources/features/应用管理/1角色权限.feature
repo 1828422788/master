@@ -18,7 +18,7 @@ Feature: 应用角色权限（RZY-2144）
     Then I will see the success message "创建成功"
 
   Scenario: 编辑角色
-    When the data name is "AutoTestApp" then i click the "编辑" button
+    When the data name is "AutoApp" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AuthApp"
     And I will see the "roles.CreatePage" page

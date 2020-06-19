@@ -120,6 +120,38 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='事件操作']")
     private WebElement event;
 
+    @FindBy(xpath = "//a[text()='添加']")
+    private WebElement addKVStore;
+
+    @FindBy(xpath = "(//label[text()='名称'])[last()]/following-sibling::input")
+    private WebElement KVName;
+
+    @FindBy(xpath = "(//label[text()='字段列表']/following-sibling::div//input)[last()]")
+    private WebElement KVFieldInput;
+
+    @FindBy(xpath = "//a[text()='添加字段']")
+    private WebElement addKVField;
+
+    public WebElement getCreateKVStore() {
+        return super.getButton("创建");
+    }
+
+    public WebElement getAddKVField() {
+        return addKVField;
+    }
+
+    public WebElement getKVFieldInput() {
+        return KVFieldInput;
+    }
+
+    public WebElement getKVName() {
+        return KVName;
+    }
+
+    public WebElement getAddKVStore() {
+        return addKVStore;
+    }
+
     public WebElement getEvent() {
         return event;
     }

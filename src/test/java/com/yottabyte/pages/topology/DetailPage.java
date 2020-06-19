@@ -69,6 +69,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[2]")
     private WebElement addInputButton;
 
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])[3]")
+    private WebElement editNode;
+
     @FindBy(xpath = "(//textarea[@placeholder='请输入语句'])[last()]")
     private WebElement textArea;
 
@@ -249,6 +252,10 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(className = "topology-node-title")
     private WebElement nodeTitle;
+
+    public WebElement getEditNode() {
+        return editNode;
+    }
 
     public WebElement getNodeTitle() {
         return nodeTitle;
