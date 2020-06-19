@@ -42,7 +42,6 @@ Feature: 拓扑图钻取跳转
     And I click the "NodeValue" button
     And I accept alert window
     Then I wait for title change text to "应用管理"
-    And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: 修改跳转方式
     When I click the detail which name is "钻取跳转"
@@ -64,10 +63,10 @@ Feature: 拓扑图钻取跳转
     Then I will see the "topology.DetailPage" page
     And I wait for "Message" will be invisible
     And I click the "NodeValue" button
+    And I accept alert window
     And switch to another window
     And I close all tabs except main tab
     Then I wait for title change text to "应用管理"
-    And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: 修改跳转URL
     When I click the detail which name is "钻取跳转"
@@ -88,10 +87,10 @@ Feature: 拓扑图钻取跳转
     Then I will see the "topology.DetailPage" page
     And I wait for "Message" will be invisible
     And I click the "NodeValue" button
+    And I accept alert window
     And switch to another window
     And I close all tabs except main tab
     Then I wait for title change text to "百度一下，你就知道"
-    And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: 修改为当前标签页跳转
     When I click the detail which name is "钻取跳转"
@@ -113,6 +112,7 @@ Feature: 拓扑图钻取跳转
     Then I will see the "topology.DetailPage" page
     And I wait for "Message" will be invisible
     And I click the "NodeValue" button
+    And I accept alert window
     And I accept alert window
     Then I wait for title change text to "百度一下，你就知道"
     And open the "topology.ListPage" page for uri "/topology/"

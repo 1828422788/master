@@ -50,6 +50,8 @@ Feature: 拓扑图标识符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
     Then I compare with "{'Value':'NodeValue'}"
+    And I refresh the website
+    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: RZY-2517：标识分隔符
@@ -94,6 +96,8 @@ Feature: 拓扑图标识符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
     Then I compare with "{'Value':'NodeValue'}"
+    And I refresh the website
+    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: RZY-2519：标识值前后缀
@@ -140,6 +144,8 @@ Feature: 拓扑图标识符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
     Then I compare with "{'Value':'NodeValue'}"
+    And I refresh the website
+    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline: 添加动态菜单输入项成功（RZY-1243）
@@ -189,6 +195,8 @@ Feature: 拓扑图标识符
     When I click the detail which name is "测试标识符"
     Then I will see the "topology.DetailPage" page
     Then I compare with "{'Value':'NodeValue'}"
+    And I refresh the website
+    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline: 删除拓扑图
