@@ -8,7 +8,7 @@ Feature: Agent分组设置
 
   Scenario Outline: 新建Agent分组设置成功
     And I click the "AgentGroupButton" button
-    And open the "agent.GroupPage" page for uri "/agent/agentgroup/"
+    And I will see the "agent.GroupPage" page
     And switch to another window
     And I close all tabs except main tab
     And I wait for loading invisible
