@@ -26,6 +26,7 @@ Feature: 拓扑图详情页
     Then I click the "EnsureInputButton" button
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
     Examples:
       | title           | token | inputType |
@@ -47,6 +48,7 @@ Feature: 拓扑图详情页
     And I will see the message "<message>"
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
     Examples:
       | title           | token | inputType | dynamicFields   | searchInput                                   | message  |
@@ -64,6 +66,7 @@ Feature: 拓扑图详情页
     Then I will see the message "<message>"
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
   @all
     Examples:
@@ -87,6 +90,7 @@ Feature: 拓扑图详情页
     Then I will see the message "该标识符已经存在，请重新输入！"
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline: 节点配置失败提示
     And I click the detail which name is "auto_topology样例"
@@ -96,6 +100,7 @@ Feature: 拓扑图详情页
     Then I will see the message "<message>"
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
   @all
     Examples:
@@ -118,6 +123,7 @@ Feature: 拓扑图详情页
     Then I will see the message "<message>"
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
   @all
     Examples:

@@ -62,12 +62,14 @@ Feature: 拓扑图插图功能
     And I click the "Save" button
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: 查看节点值是否正确
     When I click the detail which name is "插图"
     Then I will see the "topology.DetailPage" page
     And I wait for "AddInputButton" will be visible
     Then I will see the element "ValueList" value contains "28,61,2,1222"
+    And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline: 删除拓扑图
     Given the data name is "<name>" then i click the "删除" button

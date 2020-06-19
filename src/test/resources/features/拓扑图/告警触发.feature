@@ -67,6 +67,7 @@ Feature: 拓扑图告警触发
     Then I will see the element "AlertNode" attribute "fill" is "#FF3434"
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: 验证中级告警优先级
     When I click the detail which name is "告警触发"
@@ -91,6 +92,7 @@ Feature: 拓扑图告警触发
     Then I will see the element "AlertNode" attribute "fill" is "#FF9F02"
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: 验证告警删除
     When I click the detail which name is "告警触发"
@@ -120,6 +122,7 @@ Feature: 拓扑图告警触发
     Then I will see the element "AlertNode" attribute "fill" is "#FF9F02"
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline: 删除拓扑图
     Given the data name is "<name>" then i click the "删除" button
