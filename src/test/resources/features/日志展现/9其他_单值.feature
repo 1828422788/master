@@ -233,7 +233,7 @@ Feature: 日志展现_其他_单值
 
     Examples:
       |  chartType    |   iconValue  |  caseNum         |   spl   |
-      |   Single      |    icon      |   secondTitle    | starttime=\"now/d-24h\" endtime=\"now/d\"" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
+      |   Single      |    icon      |   secondTitle    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
 
 
   Scenario Outline: sparkline
