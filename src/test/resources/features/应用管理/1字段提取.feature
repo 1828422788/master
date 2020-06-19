@@ -155,7 +155,6 @@ Feature: 应用字段提取（RZY-2129）
     Then I will see the search result contains "{'column':'1','name':'AutoTest'}"
     Then I will see the search result "{'column':'1','name':'AutoTest(副本)','contains':'no'}"
 
-  @test
   Scenario Outline: 上传字典管理
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "ConfigsApp" then i click the "打开" button
