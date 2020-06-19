@@ -58,7 +58,13 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: timeslice(RZY-812,813,2721,2722,2723,2724)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\"tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    And I click the "DateEditor" button
+    And I click the "CustomTimeTab" button
+    And I set the parameter "StartDateField" with yesterday date
+    And I set the parameter "EndDateField" with current date
+    And I click the "StartTimeField" button
+    And I click the "ApplyCustomTime" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -397,7 +403,7 @@ Feature: 日志展现_普通统计视图
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step2"
-    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step2" with target image "expect/普通统计视图/822_多级统计/822_chart_step2"
+#    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step2" with target image "expect/普通统计视图/822_多级统计/822_chart_step2"
 
   Scenario: multilevelstats_step3(RZY-822)
     # types of chart
