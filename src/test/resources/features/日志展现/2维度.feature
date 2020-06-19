@@ -196,6 +196,7 @@ Feature: 日志展现_维度
       |      Rose     | Green   | 只展示名称   |
       |      Bar      | Orange  | 展示全部     |
 
+    @sunfacet
   Scenario Outline: dimension_facet_sun
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -227,4 +228,4 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  color   |  spl   |
-      |      Sun      | DarkBlue |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.province:贵州 AND NOT apache.status:304 AND NOT apache.status:499 \| stats count() by apache.status,apache.geo.province, apache.geo.city|
+      |      Sun      | DarkBlue |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.province:贵州 AND NOT apache.status:304 AND NOT apache.status:499 \| stats count() by apache.status,apache.geo.province, apache.geo.city \| sort by cnt,apache.geo.city|
