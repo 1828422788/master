@@ -30,7 +30,7 @@ Feature: 新建数据集all_、安装app
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
-    When I upload a file "Upload" with name "/src/test/resources/testdata/<appName>.tar"
+    When I upload a file "Upload" with name "/src/test/resources/testdata/app/<appName>.tar"
     And I will see the element "VerifyText" name is "上传完成"
     And I choose the "__admin__" from the "Role"
     And I click the "NextButton" button under some element
