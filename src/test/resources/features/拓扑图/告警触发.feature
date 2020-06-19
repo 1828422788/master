@@ -34,6 +34,7 @@ Feature: 拓扑图告警触发
     Then I will see the element "AlertNode" attribute "fill" is "<attribute>"
     And I refresh the website
     And I accept alert window
+    And open the "topology.ListPage" page for uri "/topology/"
 
     Examples:
       | min       | max       | attribute |
