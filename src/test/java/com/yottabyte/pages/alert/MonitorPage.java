@@ -17,6 +17,7 @@ import java.util.List;
 public class MonitorPage extends PageTemplate {
     public MonitorPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @Override

@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class PluginPage extends PageTemplate {
     public PluginPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "//div[text()='验证成功']")

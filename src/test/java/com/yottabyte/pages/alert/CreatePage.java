@@ -18,6 +18,7 @@ public class CreatePage extends PageTemplate {
 
     public CreatePage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     CheckSelectedFromDropdownList check = new CheckSelectedFromDropdownList();
