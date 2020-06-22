@@ -899,10 +899,6 @@ public class SearchPage extends ListPageFactory {
         return saveAsReport;
     }
 
-    public WebElement getThirtySeconds() {
-        return GetTime.getTime(webDriver, "ThirtySeconds");
-    }
-
     public List<WebElement> getNodeList() {
         return nodeList;
     }
@@ -1285,6 +1281,10 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getSevenDays() {
         return (new DateEditorPage(webDriver)).getSevenDays();
+    }
+
+    public WebElement getThirtySeconds() {
+        return (new DateEditorPage(webDriver)).getThirtySeconds();
     }
 
     // 获取昨天按钮
