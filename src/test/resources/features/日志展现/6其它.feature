@@ -82,7 +82,7 @@ Feature: 日志展现_其它
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
-      | Liquidfill | 分面    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10|
+      | Liquidfill | 分面    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10 \| sort by cnt|
 
 
   Scenario Outline: others(RZY-2807,2449)
