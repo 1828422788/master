@@ -16,7 +16,7 @@ Feature: 日志展现_地图
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -50,7 +50,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "3000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<regionBut>_<chartType>"
@@ -71,7 +71,7 @@ Feature: 日志展现_地图
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -102,7 +102,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
@@ -135,21 +135,21 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World"
 
     When I click the "CountryChina" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China"
 
     When I click the "ProvinceJiangsu" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu"
@@ -170,7 +170,7 @@ Feature: 日志展现_地图
 
     And I click the "Type" button
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+#    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 #    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -199,7 +199,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
+#    And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "3000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
 #    Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -225,7 +225,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>"
@@ -259,7 +259,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>_<region>" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>_<region>"
@@ -294,21 +294,21 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/World_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/World_white"
 
     When I click the "OpenChina" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/China_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/China_white"
 
     When I click the "OpenJiangsu" button
     And I wait for "Chart" will be visible
-    And I drag the scroll bar to the element "Chart"
+#    And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white"
     Then I compare source image "actual/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white" with target image "expect/高级搜索视图/5地图/<caseNum>_<chartType>/Jiangsu_white"
