@@ -767,15 +767,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//*[local-name()='g' and @class='vx-group']/ancestor::div[1]")
     private WebElement chart;
 
-    @FindBy(id = "timestamp")
-    private WebElement dragText;
-
-    @FindBy(id = "xField")
-    private WebElement xField;
-
-    @FindBy(id = "yFields")
-    private WebElement yField;
-
     @FindBy(className = "yw-chart-config")
     private WebElement container;
 
@@ -1018,18 +1009,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getContainer() {
         return container;
-    }
-
-    public WebElement getXField() {
-        return xField;
-    }
-
-    public WebElement getYField() {
-        return yField;
-    }
-
-    public WebElement getDragText() {
-        return dragText;
     }
 
     public WebElement getChart() {
