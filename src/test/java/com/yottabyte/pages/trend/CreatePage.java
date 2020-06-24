@@ -136,8 +136,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement fieldValue;
 
-    //@FindBy(xpath = "(//span[text()='类型'][last()])/ancestor::div/following-sibling::div[1]")
-    //@FindBy(className = "_60Zb-B7E6TtmTcIJHF1wy ant-select ant-select-enabled")
     @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement typeChartField;
 
@@ -173,16 +171,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//label[text()='所属应用'][last()])/following-sibling::div[1]")
     private WebElement appField;
-//---------------------------------
-//Colors --------------------------
-
-
-
-//---------------------------------
-//Switches ------------------------
-
-
-
 
     @FindBy(xpath = "//span[text()='统一度量']/ancestor::div/following-sibling::button")
     private WebElement unifyMetric;
@@ -192,9 +180,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='使用千分隔符']/ancestor::div/following-sibling::button")
     private WebElement thousandSeparator;
-
-//---------------------------------
-//Buttons -------------------------
 
     @FindBy(xpath = "//span[text()='生 成']/ancestor::button")
     private WebElement generate;
@@ -214,7 +199,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='后面']")
     private WebElement unitPositionAfter;
 
-
 // Labels
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[1]")
     private WebElement firstLabel;
@@ -228,18 +212,6 @@ public class CreatePage extends PageTemplate {
     @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::div/label[4]")
     private WebElement forthLabel;
 
-//Orders
-
-
-
-//---------------------------------
-// text - button ------------------
-
-
-//---------------------------------
-
-//check-box ------------------------
-
     @FindBy(xpath = "(//div[text()='中国'])/ancestor::span")
     private WebElement selectChina;
 
@@ -248,9 +220,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[text()='世界'])/ancestor::span")
     private WebElement selectWorld;
-//----------------------------------
-
-// Drag and drop -------------------------
 
     @FindBy(className = "_1pGh3cs00Rp1iccZrcDgHU")
     private WebElement listOfFields;
@@ -314,8 +283,6 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='max']//ancestor::div/preceding-sibling::div[1]/i")
     private WebElement deleteLastInterval;
 
-
-
     @FindBy(xpath = "//span[text()='自 动']/ancestor::button")
     private WebElement autoColor;
 
@@ -330,7 +297,6 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='值']/following-sibling::i)[last()]")
     private WebElement deleteLastValue;
-
 
 //----------------------------------------------------
 // other ----------------------------
@@ -641,6 +607,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='升序'])[last()]/ancestor::label")
     private WebElement ascending;
 
+//Colors ------------------------------------------------------------------
     @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(161, 20, 249);')])[last()] | (//span[contains(@style,'background-color: rgb(156, 39, 176);')])[last()]")
     private WebElement purple;
 
@@ -661,6 +628,7 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[contains(@style,'background-color: rgb(72, 87, 175);')])[last()] | (//span[contains(@style,'background-color: rgb(63, 81, 181);')])[last()]")
     private WebElement darkBlue;
+//----------------------------------------------------------------------------
 
     @FindBy(xpath = "(//span[text()='实际值'])[last()]/ancestor::div/following-sibling::div//input")
     private WebElement actualValueInput;
@@ -896,9 +864,6 @@ public class CreatePage extends PageTemplate {
         return divideSide;
     }
 
-//------------------------------------------------------------------
-
-
     public WebElement getFirstLabel() {
         return firstLabel;
     }
@@ -1129,7 +1094,6 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getUnitPositionAfter() {
         return unitPositionAfter;
-
     }
 
     public WebElement getDelete() {
@@ -1219,7 +1183,6 @@ public class CreatePage extends PageTemplate {
         return darkBlue;
     }
 
-
     public WebElement getMinRange() {
         return minRange;
     }
@@ -1239,10 +1202,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getLongitudeInput() {
         return longitudeInput;
     }
-
-//    public WebElement getLongitudeInput() {
-//        return longitudeInput;
-//    }
 
     public WebElement getLatitudeInput() {
         return latitudeInput;
@@ -1283,11 +1242,6 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-//    public WebElement getLongitude() {
-//        longitude.click();
-//        return super.getLastDropdownList();
-//    }
-//
     public WebElement getLatitude() {
         latitude.click();
         return super.getLastDropdownList();
@@ -1300,11 +1254,6 @@ public class CreatePage extends PageTemplate {
     public WebElement getGeneral() {
         return general;
     }
-
-//    public WebElement getWorld() {
-//        return world;
-//    }
-
 
     public WebElement getActualValueInput() {
         return actualValueInput;
@@ -1339,7 +1288,6 @@ public class CreatePage extends PageTemplate {
         filedValueList.get(4).click();
         return super.getLastDropdownList();
     }
-
 
     public WebElement getFieldValue2() {
         fieldValueList.get(2).click();
@@ -1492,7 +1440,6 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSetting() {
-//        ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='none';", chartTypePopover);
         return setting;
     }
 
@@ -1934,6 +1881,8 @@ public class CreatePage extends PageTemplate {
         return upperLimitValue;
     }
 
+//-----------------------------------------------------------
+
     private WebElement getChartButton(String chartName) {
         String xpath = "((//div[text()='" + chartName + "'])[last()]/ancestor::div/preceding-sibling::div)[last()]";
         return webDriver.findElement(By.xpath(xpath));
@@ -2008,7 +1957,6 @@ public class CreatePage extends PageTemplate {
         return deleteLastValue;
     }
 //-----------------------------------------------------
-
 
 
     @FindBy(xpath = "(//span[text()='展示气泡'])[last()]/ancestor::div/following-sibling::button")
