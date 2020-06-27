@@ -15,20 +15,6 @@ Feature: 监控删除
 
     Examples:
       | name |
-      |3593|
-      |today|
-      |yesterday|
-      |thisweek|
-      |left|
-      |topleft|
-      |full|
-      |test_3|
-      |test_2|
-      |table|
-      |show%|
-      |                              12             |
-      |pdf|
-      |pdf_empty|
       |word_empty|
       |topic|
       |tab|
