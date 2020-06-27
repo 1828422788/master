@@ -1,7 +1,7 @@
 @cleanuicase @cleanalerts
 Feature: 监控删除
 
-  @dellagacy
+  @dellagacytask
   Scenario Outline: 删除冗余定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"
@@ -15,8 +15,6 @@ Feature: 监控删除
 #    And I click the "AlertListDeleteButton" button
 #    And I wait for "ConfirmDelAlertButton" will be visible
 #    And I click the "ConfirmDelAlertButton" button
-
-
 
     Examples:
       | name |
