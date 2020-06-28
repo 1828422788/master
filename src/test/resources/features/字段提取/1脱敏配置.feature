@@ -29,7 +29,7 @@ Feature: 字段提取脱敏配置
     And I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "可查看敏感内容"
     Then I click the "SaveButton" button
-    Then I click the "{'TabButton':'索引配置'}" button
+    Then I click the "{'TabButton':'索引'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "yotta" in auth table
     Then I click the "SaveButton" button
