@@ -1,7 +1,6 @@
-@cleanuicase @cleanalerts
-Feature: 监控删除
+@dellagacyreport
+Feature: 删除冗余报表
 
-  @dellagacyreport
   Scenario Outline: 删除冗余报表
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>"
