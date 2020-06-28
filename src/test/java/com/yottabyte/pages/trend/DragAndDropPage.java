@@ -30,8 +30,20 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//div[@id='values']/span/span/span")
     private WebElement elementInValues;
 
+    @FindBy(xpath = "//i[@title='同环比']")
+    private WebElement compareButton;
+
+    @FindBy(xpath = "//label[text()='同环比']/following-sibling::span/span")
+    private WebElement compareField;
+
     @FindBy(xpath = "//span[text()='分桶粒度']/ancestor::div/following-sibling::input")
     private WebElement span;
+
+    @FindBy(xpath = "//span[text()='最小分桶粒度']/ancestor::div/following-sibling::input")
+    private WebElement minSpan;
+
+    @FindBy(xpath = "//span[text()='分桶个数']/ancestor::div/following-sibling::input")
+    private WebElement bins;
 
 
     //Charts --------------------------------------------------------------------------
@@ -102,23 +114,22 @@ public class DragAndDropPage extends CreatePage {
     public WebElement Table() {
         return getElementByTitle("统计表");
     }
-    //--------------------------------------------------------------------------------
-    public WebElement getElementInDimensions() {
-        return elementInDimensions;
-    }
 
-    public WebElement getElementInValues() {
-        return elementInValues;
-    }
-
-
-   //Objects to drag and drop -------------------------------------------------------------------
+    //Objects to drag and drop -------------------------------------------------------------------
     public WebElement getDimensions() {
         return getElementById("dimensions");
     }
 
     public WebElement getValues() {
         return getElementById("values");
+    }
+
+    public WebElement getCompareBy() {
+        return getElementById("byFields");
+    }
+
+    public WebElement getBubbles() {
+        return getElementById("bubbleField");
     }
 
     public WebElement getTimestamp() {
@@ -150,14 +161,24 @@ public class DragAndDropPage extends CreatePage {
     }
 
     //-------------------------------------------------------------------------------------
-
-    private WebElement getElementById(String name){
-        return webDriver.findElement(By.id(name));
+    public WebElement getElementInDimensions() {
+        return elementInDimensions;
     }
 
-    private WebElement getElementByTitle(String name) {
-        return webDriver.findElement(By.xpath("//div[@title='" + name+ "']"));
+    public WebElement getElementInValues() {
+        return elementInValues;
     }
+
+    public WebElement getCompareButton() {
+        return compareButton;
+    }
+
+    public WebElement getCompareField() {
+        compareField.click();
+        return super.getLastDropdownList();
+    }
+
+
 
     //--------------------------------------------------------------------------------------
 
@@ -181,5 +202,22 @@ public class DragAndDropPage extends CreatePage {
         return span;
     }
 
+    public WebElement getMinSpan() {
+        return minSpan;
+    }
+
+    public WebElement getBins() {
+        return bins;
+    }
+
+    //--------------------------------------------------------------------------------
+
+    private WebElement getElementById(String name){
+        return webDriver.findElement(By.id(name));
+    }
+
+    private WebElement getElementByTitle(String name) {
+        return webDriver.findElement(By.xpath("//div[@title='" + name+ "']"));
+    }
 
 }
