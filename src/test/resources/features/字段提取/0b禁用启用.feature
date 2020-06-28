@@ -42,10 +42,10 @@ Feature: 字段提取禁用/启用
       | 禁用和启用 | wym_disable |
 
 
-  Scenario: RZY-1874:开启运行统计
-    Then I wait for "1000" millsecond
-    When I click the "SwitchButton" button
-    And I refresh the website
-    And I wait for loading invisible
-    Then I wait for "1000" millsecond
-    Then I will see the "SwitchButton" is "ant-switch-disabled"
+#  Scenario: RZY-1874:开启运行统计
+#    Then I wait for "1000" millsecond
+#    When I click the "SwitchButton" button
+#    And I refresh the website
+#    And I wait for loading invisible
+#    Then I wait for "1000" millsecond
+#    Then I will see the "SwitchButton" is "ant-switch-disabled"

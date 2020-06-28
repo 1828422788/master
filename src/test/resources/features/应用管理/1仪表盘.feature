@@ -153,6 +153,7 @@ Feature: 应用仪表盘
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
     When the data name is "仪表盘重命名" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button

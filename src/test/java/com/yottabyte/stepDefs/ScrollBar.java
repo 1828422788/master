@@ -60,16 +60,43 @@ public class ScrollBar {
      * @param target 目标元素名称
      */
     @And("^I drag the element \"([^\"]*)\" to the \"([^\"]*)\"$")
-    public void dragElement(String source, String target) {
-        WebElement element = webDriver.findElement(By.className("yw-drag-icon"));
+    public void JavascriptDragAndDrop(String source, String target) {
         WebElement sourceElement = GetElementFromPage.getWebElementWithName(source);
         WebElement targetElement = GetElementFromPage.getWebElementWithName(target);
-        Actions actions = (new Actions(webDriver));
-
-        sourceElement.click();
-        actions.dragAndDrop(element, targetElement).perform();
-        actions.release();
-
-        System.out.println();
+        String js = "function createEvent(typeOfEvent) {\n" +
+                "    var event = document.createEvent(\"CustomEvent\");\n" +
+                "    event.initCustomEvent(typeOfEvent, true, true, null);\n" +
+                "    event.dataTransfer = {\n" +
+                "        data: {},\n" +
+                "        setData: function (key, value) {\n" +
+                "            this.data[key] = value;\n" +
+                "        },\n" +
+                "        getData: function (key) {\n" +
+                "            return this.data[key];\n" +
+                "        }\n" +
+                "    };\n" +
+                "    return event;\n" +
+                "}\n" +
+                "function dispatchEvent(element, event, transferData) {\n" +
+                "    if (transferData !== undefined) {\n" +
+                "        event.dataTransfer = transferData;\n" +
+                "    }\n" +
+                "    if (element.dispatchEvent) {\n" +
+                "        element.dispatchEvent(event);\n" +
+                "    } else if (element.fireEvent) {\n" +
+                "        element.fireEvent(\"on\" + event.type, event);\n" +
+                "    }\n" +
+                "}\n" +
+                "function simulateDragAndDrop(element, target) {\n" +
+                "    var dragStartEvent = createEvent('dragstart');\n" +
+                "    dispatchEvent(element, dragStartEvent);\n" +
+                "    var dropEvent = createEvent('drop');\n" +
+                "    dispatchEvent(target, dropEvent, dragStartEvent.dataTransfer);\n" +
+                "    var dragEndEvent = createEvent('dragend');\n" +
+                "    dispatchEvent(element, dragEndEvent, dropEvent.dataTransfer);\n" +
+                "}\n";
+        js += "simulateDragAndDrop(arguments[0], arguments[1])";
+        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        executor.executeScript(js, sourceElement, targetElement);
     }
 }

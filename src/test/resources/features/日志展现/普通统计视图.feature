@@ -160,8 +160,9 @@ Feature: 日志展现_普通统计视图
       | 3600     | 秒     | 815_时间直方图/815_3600s  |
       | 60       | 分钟   | 815_时间直方图/815_60m    |
 
+    @test_month
   Scenario Outline: timehistogram(RZY-2725)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "tag:display_may"
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with value "2020-05-01"
@@ -271,8 +272,9 @@ Feature: 日志展现_普通统计视图
       |  最大值   |  散点图   |   60    |  分钟 |
       |  最小值   |  柱状图   |  3600   |  秒   |
 
+    @test_month
   Scenario Outline: fieldnumber2(RZY-2727)
-    When I set the parameter "SearchInput" with value "tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "tag:display_may"
     And I click the "DateEditor" button
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with value "2020-05-01"

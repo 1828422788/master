@@ -221,4 +221,24 @@ public class Checkbox {
             button.click();
         }
     }
+
+    /**
+     * 勾选或取消勾选名称前面的checkbox
+     *
+     * @param status   想要将复选框置为的状态，checked/unchecked
+     * @param nameList 想要勾选/取消勾选的名称（支持传入list）
+     *                 仅用于趋势图搜索页的checkbox
+     */
+    @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in trend page$")
+    public void clickCheckboxWithGivenNameInTrend(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "(//span[contains(text(),'" + name + "')])[1]";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
+            String attribute = span.getAttribute("class");
+            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                label.findElement(By.xpath(".//ancestor::label")).click();
+            }
+        }
+    }
 }

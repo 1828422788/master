@@ -11,44 +11,44 @@ Feature: 监控删除
 
     Examples:
       | name |
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
-      |	api	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+      |	_	|
+
 
   @delalertbyname
   Scenario Outline: 按名字删除监控
