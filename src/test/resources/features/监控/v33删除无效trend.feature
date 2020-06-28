@@ -12,56 +12,8 @@ Feature: 删除冗余趋势图
 
     Examples:
       | name                                     |
-      |最近10分钟logtype的趋势图|
-      |最近10分钟logtype的趋势图withdataset|
-      |noresult|
-      |汇聚|
-      |3080|
-      |3593|
-      |today|
-      |yesterday|
-      |thisweek|
-      |thisweek(副本)|
-      |热力|
-      |testhhhhh|
-      |pie|
-      |bars|
-      |line|
-      |scatter|
       |table|
-      |timechart|
-      |chart_test|
-      |chart_pie|
-      |new_chart|
-      |line|
-      |area|
-      |scatter|
-      |bars|
-      |connections|
-      |sankey|
-      |powermap|
-      |connections copy|
-      |interval|
-      |manyY|
-      |attackmap|
-      |zonemap|
-      |singlevalue|
-      |wordcloud|
       |sequence|
-      |radar|
-      |funnel|
-      |heatgraph|
-      |piediagram|
-      |rosediagram|
-      |bardiagram1|
-      |bardiagram2|
-      |bardiagram3|
-      |bardiagram4|
-      |bardiagram5|
-      |bardiagramDefaultColorOutside|
-      |bardiagramDefaultColorInside|
-      |bardiagramDefaultColorOutside2|
-      |bardiagramColorOutside|
       |sundiagram|
       |sundiagramcolor|
       |chain|
@@ -78,7 +30,6 @@ Feature: 删除冗余趋势图
       |attackmap(副本)|
       |lim|
       |12333333|
-      |sequence|
       |12|
       |数据集无|
       |数据集汇聚|
@@ -496,7 +447,6 @@ Feature: 删除冗余趋势图
       |仪表盘热力地图|
       |bin-pie-rendertype|
       |bin-sunburst-rendertype|
-      |table|
       |123|
       |1234|
       |traceTableTest|
