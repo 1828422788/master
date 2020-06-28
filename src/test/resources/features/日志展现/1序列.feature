@@ -1,13 +1,12 @@
 @all @logDisplay @logDisplayOrder
 Feature: 日志展现_序列
 
-
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: order(RZY-2770,2771,2769,2768)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -30,7 +29,7 @@ Feature: 日志展现_序列
       |  ColumnChart  |     2768   |
 
   Scenario Outline: line(RZY-832)
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -53,12 +52,12 @@ Feature: 日志展现_序列
     Then I compare source image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>" with target image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_<buttonChoice>"
 
     Examples:
-      |   chartType   | unitValue  | buttonChoice      |  caseNum  |   spl|
-      |   LineChart   |   个       | Smooth            | 832       |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
-      |   LineChart   |   个       | ConnectEmptyData  | 832       |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |   chartType   | unitValue  | buttonChoice      |  caseNum  |
+      |   LineChart   |   个       | Smooth            | 832       |
+      |   LineChart   |   个       | ConnectEmptyData  | 832       |
 
   Scenario Outline: pile(RZY-2767,2773)
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip "
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -81,12 +80,12 @@ Feature: 日志展现_序列
     Then I compare source image "actual/高级搜索视图/1序列/<caseNum>_<chartType>_Pile" with target image "expect/高级搜索视图/1序列/<caseNum>_<chartType>_Pile"
 
     Examples:
-      |   chartType   | buttonChoice  | color  |  caseNum  |   spl|
-      |   AreaChart   |    Pile       | Red    | 2767      |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
-      |  ColumnChart  |    Pile       | Yellow | 2773      |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip  |
+      |   chartType   | buttonChoice  | color  |  caseNum  |
+      |   AreaChart   |    Pile       | Red    | 2767      |
+      |  ColumnChart  |    Pile       | Yellow | 2773      |
 
   Scenario Outline: scatter_bubble (RZY-4204)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page

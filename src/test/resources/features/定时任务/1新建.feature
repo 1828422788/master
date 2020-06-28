@@ -169,6 +169,29 @@ Feature: 定时任务新建
         | test     | test    | crontab格式错误！                   |
         | test     | 0*      | crontab格式错误！                   |
 
+  Scenario Outline: schedule_message_error_realtime
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    When I set the parameter "SearchInput" with value "* | stats count()"
+    And I click the "DateEditor" button
+    And I click the "ThirtySeconds" button
+    And I click the "SearchButton" button
+    And I wait for "SaveAsOther" will be visible
+    Then I click the "SaveAsOther" button
+    Then I click the "TimedTask" button
+    And I wait for element "SelectedUser" change text to username
+    And I set the parameter "TaskName" with value "<name>"
+    Then I set the parameter "Describe" with value "<describe>"
+    And I click the "Crontab" button
+    And I set the parameter "CrontabInput" with value "0 */30 * * * ?"
+    Then I click the "EnsureButton" button
+    And I wait for "TimeTaskEnsure" will be visible
+    Then I will see the success message "<message>"
+
+    Examples:
+      | name | describe | message           |
+      | test | autotest | 实时窗口搜索模式无法进行该操作!|
+
       Scenario Outline: schedule_message_error
         Given open the "splSearch.SearchPage" page for uri "/search/"
         And I wait for element "SearchStatus" change text to "搜索完成!"

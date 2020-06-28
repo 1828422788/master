@@ -67,6 +67,20 @@ public class SetKeyWithValue {
     }
 
     /**
+     * 为指定变量elementName赋值昨天日期
+     *
+     * @param elementName 输入框元素名称
+     */
+    @And("^I set the parameter \"([^\"]*)\" with yesterday date$")
+    public void seParamWithYesterdayDate(String elementName) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date(System.currentTimeMillis()-24*60*60*1000);
+        String current_date = formatter.format(date);
+        iSetTheParameterWithValue(element, current_date);
+    }
+
+    /**
      * 给搜索框传值
      *
      * @param name 搜索内容

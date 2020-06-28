@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class MaintenancePage extends PageTemplate {
     public MaintenancePage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(xpath = "//input[@placeholder='开始时间']")

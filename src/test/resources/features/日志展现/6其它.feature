@@ -1,8 +1,6 @@
 @all @logDisplay @logDisplayOther
 Feature: 日志展现_其它
 
-
-
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -26,7 +24,7 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    |caseNum  |   spl   |
-      |   Wordcloud   | 2804    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |   Wordcloud   | 2804    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
   Scenario Outline: liquidfill
     When I set the parameter "SearchInput" with value "<spl>"
@@ -53,7 +51,7 @@ Feature: 日志展现_其它
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
-      | Liquidfill | percent | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
+      | Liquidfill | percent | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
 
   Scenario Outline: liquidfill_facet
     When I set the parameter "SearchInput" with value "<spl>"
@@ -84,11 +82,11 @@ Feature: 日志展现_其它
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
-      | Liquidfill | 分面    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10|
+      | Liquidfill | 分面    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10 \| sort by cnt|
 
 
   Scenario Outline: others(RZY-2807,2449)
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" <spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -105,8 +103,8 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    |caseNum  |   spl   |
-      |   Radar       | 2807    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-      |   Funnel      | 2449    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.clientip \| sort by cnt, apache.clientip \|limit 5 |
+      |   Radar       | 2807    |  tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |   Funnel      | 2449    |  tag:sample04061424_chart \| stats count() as cnt by apache.clientip \| sort by cnt, apache.clientip \|limit 5 |
 
 
   Scenario Outline: radar(RZY-2808)
@@ -137,7 +135,7 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    | divField       | color1   | caseNum  |   spl   |
-      |   Radar       | apache.geo.city| DarkBlue | 2808    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |   Radar       | apache.geo.city| DarkBlue | 2808    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
 
   Scenario Outline: funnel(RZY-2809)
@@ -170,10 +168,10 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
-      |   Funnel      |  cnt       | apache.geo.city|LightGreen |2809    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
+      |   Funnel      |  cnt       | apache.geo.city|LightGreen |2809    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
 
   Scenario Outline: matrixheatmap(RZY-2810,2811)
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" <spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -197,12 +195,12 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType     |  xValue         |  yValue       | segNum |caseNum  |   spl   |
-      |  Matrixheatmap |  count()        | apache.status |  10    |2810    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
-      |  Matrixheatmap | apache.geo.city |    count()    |  5     |2811    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |  Matrixheatmap |  count()        | apache.status |  10    |2810    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |  Matrixheatmap | apache.geo.city |    count()    |  5     |2811    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-  @chain
+
   Scenario Outline: chain(RZY-2812,2814)
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -235,8 +233,8 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
-      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
-      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    |starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
 
   Scenario Outline: sequence(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"
@@ -268,11 +266,11 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
-      |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 4|
+      |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 4|
 
-    @chain
+
   Scenario Outline: chain_tree(RZY-2812,2814)
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -306,5 +304,5 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum   |   spl   |
-      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812_tree |starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
-      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree |starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812_tree | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|

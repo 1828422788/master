@@ -658,7 +658,7 @@ Feature: 趋势图新建-其他
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
-      | Liquidfill | percent | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
+      | Liquidfill | percent | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 \| sort by +cnt|
 
   Scenario Outline: liquidfill_facet
     When I set the parameter "SearchInput" with value "<spl>"

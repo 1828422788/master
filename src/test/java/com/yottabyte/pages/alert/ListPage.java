@@ -19,8 +19,9 @@ public class ListPage extends ListPageFactory {
 
     public ListPage(WebDriver driver) {
         super(driver);
-        driver.manage().window().setPosition(new Point(0, 0));
-        driver.manage().window().setSize(new Dimension(2100,1100));
+        driver.manage().window().fullscreen();
+//        driver.manage().window().setPosition(new Point(0, 0));
+//        driver.manage().window().setSize(new Dimension(2100,1100));
     }
 
     @FindBy(className = "el-loading-mask")

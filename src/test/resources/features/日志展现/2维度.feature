@@ -1,7 +1,5 @@
 @all @logDisplay @logDisplayDimension
 Feature: 日志展现_维度
-#11
-
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -9,7 +7,7 @@ Feature: 日志展现_维度
 
 
   Scenario Outline: dimension(RZY-833,2776,2778,2782)
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" <spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -26,13 +24,13 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |   caseNum  |  spl   |
-      |      Pie      |     833    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Rose     |     2776   | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Bar      |     2778   | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
-      |      Sun      |     2782   | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
+      |      Pie      |     833    | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Rose     |     2776   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Bar      |     2778   | tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Sun      |     2782   | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
   Scenario Outline: dimension_sun(RZY-2781)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.province, apache.geo.city"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -86,10 +84,10 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  value      |     divValue   | color1   |caseNum  | spl   |
-      |      Pie      |  count      | apache.clientip| Red      |2774     | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
+      |      Pie      |  count      | apache.clientip| Red      |2774     | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5 |
 
   Scenario Outline: label(RZY-4205,4208,4211,4206,4209,4212,4207,4210)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -124,7 +122,7 @@ Feature: 日志展现_维度
 
 
   Scenario Outline: label_location(RZY-4213,4214,4215,4216,4217,4218,4219,4220,4221,4222)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \| limit 5"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -164,7 +162,7 @@ Feature: 日志展现_维度
 
 
   Scenario Outline: dimension_facet
-    When I set the parameter "SearchInput" with value "<spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 "
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -193,11 +191,12 @@ Feature: 日志展现_维度
     Then I compare source image "actual/高级搜索视图/2维度/<chartType>_<typeInfo>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_<typeInfo>_分面"
 
     Examples:
-      |   chartType   |  color  |  typeInfo    |  spl   |
-      |      Pie      | Red     | 展示全部     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
-      |      Rose     | Green   | 只展示名称   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
-      |      Bar      | Orange  | 展示全部     |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.city:\"黔东南苗族侗族自治州\" \| stats count(apache.clientip) as ip_count by apache.geo.city, apache.method \| sort by apache.geo.city \| limit 8 |
+      |   chartType   |  color  |  typeInfo    |
+      |      Pie      | Red     | 只展示名称   |
+      |      Rose     | Green   | 只展示名称   |
+      |      Bar      | Orange  | 展示全部     |
 
+    @sunfacet
   Scenario Outline: dimension_facet_sun
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -229,4 +228,4 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  color   |  spl   |
-      |      Sun      | DarkBlue |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.province:贵州 AND NOT apache.status:304 AND NOT apache.status:499 \| stats count() by apache.status,apache.geo.province, apache.geo.city|
+      |      Sun      | DarkBlue |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.province:贵州 AND NOT apache.status:304 AND NOT apache.status:499 \| stats count() by apache.status,apache.geo.province, apache.geo.city \| sort by cnt,apache.geo.city|

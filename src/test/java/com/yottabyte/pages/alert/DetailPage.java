@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 public class DetailPage extends PageTemplate {
     public DetailPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "el-icon-arrow-up")
