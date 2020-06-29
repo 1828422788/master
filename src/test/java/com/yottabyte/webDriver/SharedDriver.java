@@ -28,7 +28,6 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
@@ -103,7 +102,7 @@ public class SharedDriver extends EventFiringWebDriver {
     public SharedDriver() {
         super(REAL_DRIVER);
 //        REAL_DRIVER.manage().window().maximize();
-        REAL_DRIVER.manage().window().fullscreen();
+//        REAL_DRIVER.manage().window().fullscreen();
         REAL_DRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         REAL_DRIVER.manage().timeouts().pageLoadTimeout(5, TimeUnit.MINUTES);
     }
