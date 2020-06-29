@@ -1,10 +1,12 @@
 package com.yottabyte.pages.trend;
 
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DragAndDropPage extends CreatePage {
     public DragAndDropPage(WebDriver driver) {
@@ -44,6 +46,9 @@ public class DragAndDropPage extends CreatePage {
 
     @FindBy(xpath = "//span[text()='分桶个数']/ancestor::div/following-sibling::input")
     private WebElement bins;
+
+    @FindBy(xpath = "//span[contains(@class, 'ant-select-tree-switcher')]/i")
+    private WebElement iconDown;
 
 
     //Charts --------------------------------------------------------------------------
@@ -174,8 +179,7 @@ public class DragAndDropPage extends CreatePage {
     }
 
     public WebElement getCompareField() {
-        compareField.click();
-        return super.getLastDropdownList();
+        return compareField;
     }
 
 
@@ -212,12 +216,44 @@ public class DragAndDropPage extends CreatePage {
 
     //--------------------------------------------------------------------------------
 
+    public WebElement getYesterday() {
+        return getElementSpanByTitle("环比");
+    }
+
+    public WebElement getLastTradeDay() {
+        iconDown.click();
+        return getElementSpanByTitle("同比上一个交易日");
+    }
+
+    public WebElement getLastYear() {
+        iconDown.click();
+        return getElementSpanByTitle("去年同比值");
+    }
+
+    public WebElement getLastMonth() {
+        iconDown.click();
+        return getElementSpanByTitle("上月同比值");
+    }
+
+    public WebElement getLastWeek() {
+        iconDown.click();
+        return getElementSpanByTitle("上周同比值");
+    }
+
+    //---------------------------------------------------------------------------------
+
     private WebElement getElementById(String name){
         return webDriver.findElement(By.id(name));
     }
 
     private WebElement getElementByTitle(String name) {
         return webDriver.findElement(By.xpath("//div[@title='" + name+ "']"));
+    }
+
+    private WebElement getElementSpanByTitle(String name) {
+        WebElement element = webDriver.findElement(By.xpath("//span[@title='" + name+ "']/preceding-sibling::span/span"));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(element));
+        return element;
     }
 
 }
