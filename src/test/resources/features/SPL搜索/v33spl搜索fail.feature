@@ -18,16 +18,14 @@ Feature: Test spl fail cases
     #Then take a screenshot with name "<splcasename>"
     And I wait for "SplStatsRetTable" will be visible
     And I drag the scroll bar to the element "SplStatsRetTable"
-    And I wait for "2000" millsecond
+    And I wait for "5000" millsecond
     And take part of "SplStatsRetTable" with name "actual/<splcasename>"
     Then I compare source image "expect/<splcasename>" with target image "actual/<splcasename>"
 
     Examples:
       |splcasename| splQuery|
       | where_in_null_resp_len | tag:sample04061424 \| table apache.resp_len, apache.x_forward \| where apache.resp_len in () |
-      | eval_in_list_foat_v_float_sample | tag:traceip_list_3 \| eval is_in=in(4.993,4.993) \| table is_in |
-      | eval_in_list_foat_v_null | tag:traceip_list_3 \| eval is_in=in(json.cost) \| table json.cost, is_in |
-      | eval_in_status_v_null | tag:sample04061424 \| eval is_in=in(apache.status) \| table apache.status, is_in,apache.x_forward \| sort by apache.x_forward \| limit 10 |
+      | eval_in_status_v_null_limit | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval is_in=in(apache.status) \| table apache.status, is_in,apache.x_forward |
       | dbxoutput_output_sample | tag:sample04061424_chart \| sort by apache.x_forward \| limit 10 \| table apache.x_forward, apache.resp_len, apache.referer_domain, apache.geo.city \| dbxoutput output=\"outsample\" |
       | dbxoutput_output_u_sample | tag:sample04061424_chart \| sort by apache.x_forward \| limit 10 \| table apache.x_forward, apache.resp_len, apache.referer_domain, apache.geo.city \| dbxoutput output=\"outsample_u\" |
       | dbxoutput_limit_output_sample | tag:sample04061424_chart \| eval int_x_forward= tolong(apache.x_forward) \| sort by +int_x_forward\| limit 10 \| table apache.x_forward, apache.resp_len \| dbxlookup file_name connection=\"v33dbx\" query=\"SELECT * FROM v33dbx.lookupsample\" on apache.x_forward=domain_id |
@@ -43,7 +41,7 @@ Feature: Test spl fail cases
       | eval_in_refererdomain_v_params | tag:sample04061424 \| eval is_in=in(apache.referer_domain, apache.referer_domain) \| table apache.resp_len, is_in, apache.referer_domain \| sort by apache.referer_domain \| limit 10 |
       | eval_in_resp_len_v_params_where | tag:sample04061424 \| eval is_in=in(apache.resp_len, apache.status,4653, 2017, 2020) \| where is_in==true \| table apache.status, apache.resp_len, is_in, apache.x_forward \| sort by apache.x_forward |
       | eval_in_resp_len_v_list | tag:sample04061424 \| eval is_in=in(apache.resp_len, apache.status,4653, 2017, 2020) \| where is_in==true \| table apache.status, apache.resp_len, is_in, apache.x_forward \| sort by apache.x_forward |
-      | eval_in_data_list_v_data_list | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval list123_1=mvappend(1,2,3) \| eval list123_2=mvappend(1,2,3) \| eval is_in=in(list123_1, list123_2) \| table list123_1,is_in |
+      | eval_in_data_list_v_data_list | tag:sample04061424 \| sort by apache.x_forward \| limit 3 \| eval list123_1=mvappend(1,2,3) \| eval list123_2=mvappend(1,2,3) \| eval is_in=in(list123_1, list123_2) \| table list123_1,is_in |
       | eval_in_string_list_v_string_list | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval citylist=mvappend(\"beijing\", \"tianjin\", \"Shanghai\") \| eval is_in=in(citylist, citylist) \| table citylist, is_in |
       | eval_in_string_list_v_string_list_false | tag:jpath_mvzip_1 \| eval citylist=mvappend(\"beijing1\", \"tianjin1\", \"Shanghai1\") \| eval is_in=in(json.a[].city, citylist) \| table citylist, json.a[].city, is_in |
       | kvstore_sample_stats_rename_outputlookup_csv | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| eval int_x_forward= tolong(apache.x_forward) \| sort by +int_x_forward \| limit 10 \| stats count() as cnt by apache.clientip, apache.status \| outputlookup cnt_ip_status.csv |
@@ -56,12 +54,13 @@ Feature: Test spl fail cases
       | newfields_remove_tagappname_table_tagstatus | tag:sample04061424 \| sort by apache.x_forward \| fields - appname, tag \| table tag, apache.status |
       | newfields_remove_tag_keep_tag_table | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields - tag \| fields + tag \| table tag |
       | newfields_batch_keep_apache_limit_count_byip | tag:sample04061424 \| sort by apache.x_forward \| fields + apache.* \| limit 13 \| stats count() by apache.clientip |
-      | newfields_keep_noexistfield | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields + noexistfield1, noexistfield2 |
+      | newfields_keep_noexistfield | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields + noexistfield1, noexistfield2 \| table noexistfield1, noexistfield2, tag |
       | newfields_remove_noexistfield | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields - noexistfield1, noexistfield2 \| table apache.x_forward, apache.resp_len, apache.referer_domain, apache.clientip |
       | newfields_batch_remove_spacesplit_table | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields - apache.* raw_message  \| table tag, apache.x_forward |
-      | newfields_batch_remove_apache_sample | tag:sample04061424 \| sort by apache.x_forward \| fields - apache.*, raw_message \| limit 10 |
+      | newfields_batch_remove_apache_sample | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields - apache.*, raw_message \| table tag, apache.status |
       | newfields_keep_ipstatus_limit_sample | tag:sample04061424 \| sort by apache.x_forward \| sort by apache.x_forward \| limit 10 \| fields + apache.status, apache.clientip \| table apache.status, apache.clientip, tag |
       | limit_newfields_batch_keep_apache_count_byip | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields + apache.* \| stats count() by apache.clientip |
+
 
 #      | geostats_sample_count | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt \| limit 15 |
 #      | geostats_outputlatfield_outputlongfield_count | tag:vendors_461 \| geostats outputlatfield=res_latfield outputlongfield=res_longfield latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt \| limit 15 |
