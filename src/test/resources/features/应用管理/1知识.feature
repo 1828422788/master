@@ -121,6 +121,7 @@ Feature: 应用知识
     Then I will see the "knowledge.ListPage" page
     When the data name is "知识app" then i click the "标签" button
     And I wait for "AutoTag" will be visible
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoTag"
     And I choose the "AutoTag" from the "TagDropdown"
     And I click the "Ensure" button

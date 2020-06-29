@@ -145,6 +145,7 @@ Feature: 应用报表（RZY-2127）
     And I will see the element "Title" name is "ReportApp"
     Then I will see the "report.ListPage" page
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "LastDropdownList"
     And I click the "Ensure" button

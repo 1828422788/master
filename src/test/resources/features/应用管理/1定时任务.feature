@@ -78,6 +78,7 @@ Feature: 应用定时任务(RZY-2123)
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
     When the data name is "{'column':'2','name':'AutoCreateApp'}" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
     And I click the "Ensure" button

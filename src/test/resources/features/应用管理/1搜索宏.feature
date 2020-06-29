@@ -102,6 +102,7 @@ Feature: 应用搜索宏（RZY-2126）
     Then I will see the element "Title" name is "MacroApp"
     Then I will see the "searchMacro.ListPage" page
     When the data name is "AutoApp" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
     And I click the "Ensure" button

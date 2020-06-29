@@ -133,6 +133,7 @@ Feature: 应用趋势图
     When the data name is "TrendApp" then i click the "打开" button
     Then I will see the "trend.ListPage" page
     When the data name is "AutoApp(副本)" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button

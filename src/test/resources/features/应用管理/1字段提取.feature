@@ -84,6 +84,7 @@ Feature: 应用字段提取（RZY-2129）
     When I set the parameter "Name" with value "AutoTest"
     And I set the parameter "Logtype" with value "other"
     And I set the parameter "AppName" with value "auto_test_csv"
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "auto_test_csv"
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
@@ -138,6 +139,7 @@ Feature: 应用字段提取（RZY-2129）
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'1','name':'AutoTest(副本)'}"
     When the data name is "{'column':'1','name':'AutoTest'}" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button

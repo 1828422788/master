@@ -88,6 +88,7 @@ Feature: 应用数据集
     Then I will see the element "Title" name is "DatasetApp"
     Then I will see the "dataset.ListPage" page
     When the data name is "DatasetApp内新建" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "AutoApp"
     And I choose the "AutoApp" from the "TagDropdown"
     And I click the "Ensure" button

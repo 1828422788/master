@@ -213,10 +213,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='请输入']")
     private WebElement timeInput;
 
-    @FindBy(xpath = "//span[text()='条件']/following-sibling::div//input")
+    @FindBy(xpath = "//label[text()='触发条件时告警']/following-sibling::div//input")
     private WebElement triggerInput;
 
-    @FindBy(xpath = "//span[text()='触发告警级别']/following-sibling::div//input")
+    @FindBy(xpath = "(//label[text()='触发条件时告警']/following-sibling::div//input)[2]")
     private WebElement triggerLevel;
 
     @FindBy(className = "anticon-loading")

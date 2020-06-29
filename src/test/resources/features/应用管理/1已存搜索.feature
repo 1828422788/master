@@ -131,6 +131,7 @@ Feature: 应用已存搜索（RZY-2125）
     And I will see the element "Title" name is "SavedsearchesApp"
     Then I will see the "splSearch.SavedSearchPage" page
     When the data name is "{'column':'1','name':'AutoApp'}" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "testTag"
     And I choose the "testTag" from the "TagDropdown"
     And I click the "Ensure" button
