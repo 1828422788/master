@@ -25,8 +25,6 @@ Feature: Test spl fail cases
     Examples:
       |splcasename| splQuery|
       | where_in_null_resp_len | tag:sample04061424 \| table apache.resp_len, apache.x_forward \| where apache.resp_len in () |
-      | eval_in_list_foat_v_float_sample | tag:traceip_list_3 \| eval is_in=in(4.993,4.993) \| table is_in |
-      | eval_in_status_v_null | tag:sample04061424 \| eval is_in=in(apache.status) \| table apache.status, is_in,apache.x_forward \| sort by apache.x_forward \| limit 10 |
       | eval_in_status_v_null_limit | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval is_in=in(apache.status) \| table apache.status, is_in,apache.x_forward |
       | dbxoutput_output_sample | tag:sample04061424_chart \| sort by apache.x_forward \| limit 10 \| table apache.x_forward, apache.resp_len, apache.referer_domain, apache.geo.city \| dbxoutput output=\"outsample\" |
       | dbxoutput_output_u_sample | tag:sample04061424_chart \| sort by apache.x_forward \| limit 10 \| table apache.x_forward, apache.resp_len, apache.referer_domain, apache.geo.city \| dbxoutput output=\"outsample_u\" |
