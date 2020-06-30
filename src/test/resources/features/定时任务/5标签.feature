@@ -39,6 +39,8 @@ Feature: 定时任务标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'Tag_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
+    And I wait for "ResultHandling" will be visible
+    And I refresh the website
     And I wait for "5000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I cancel selection "auto_package" from the "TaskGroup"
