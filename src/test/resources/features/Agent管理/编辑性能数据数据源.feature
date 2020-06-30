@@ -1,4 +1,4 @@
-@agent @agent_fuction
+@agent3 @agent_fuction
 Feature: Agent编辑性能数据类型数据源
 
   Background:

@@ -1,4 +1,4 @@
-@agent_packetbeat @agent
+@agent_packetbeat @agent3
 Feature: Agent编辑Packetbeat类型数据源
 
   Background:
