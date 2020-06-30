@@ -374,7 +374,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getBeatsSwitchStatus() {
-        return getSwitchStatus("getBeatsSwitchStatus");
+        return getSwitchStatus("autoBeatstest");
     }
 
 
