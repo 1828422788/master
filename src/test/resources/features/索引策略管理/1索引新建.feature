@@ -34,7 +34,7 @@ Feature: 索引信息新建
       | name       | desc     | savedTime | divideTime | savedSize | savedSizeDropDown |
       | indexerror | AutoTest | 2         | 1          | 100       | MB                |
 
-  @second @indexSettingSmoke @test
+  @second @indexSettingSmoke
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "AutoTest"
