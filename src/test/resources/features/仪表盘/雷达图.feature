@@ -84,7 +84,6 @@ Feature: 仪表盘雷达图
     And I choose the "apache.clientip" from the "DataValue"
     And I click the "UnifiedMetric" button
     And I click the "Divide" button
-    And I click the "AddField" button
     And I choose the "apache.clientip" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond

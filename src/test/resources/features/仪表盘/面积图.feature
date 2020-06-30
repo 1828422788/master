@@ -90,7 +90,6 @@ Feature: 仪表盘面积图
     And I set the parameter "Min" with value "10"
     And I set the parameter "Max" with value "220"
     And I click the "Group" button
-    And I click the "AddField" button
     And I choose the "apache.status" from the "DataValue"
     And I click the "Pile" button
     And I click the "Exhibition" button

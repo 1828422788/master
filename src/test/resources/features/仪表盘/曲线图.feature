@@ -89,7 +89,6 @@ Feature: 仪表盘曲线图
     And I click the "Smooth" button
     And I click the "ConnectEmptyData" button
     And I click the "Group" button
-    And I click the "AddField" button
     And I choose the "apache.resp_len" from the "DataValue"
     And I click the "Example" button
     And I click the "RightPosition" button

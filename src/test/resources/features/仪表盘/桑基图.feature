@@ -94,7 +94,7 @@ Feature: 仪表盘桑基图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
-    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
+#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
       | name   | targetName |

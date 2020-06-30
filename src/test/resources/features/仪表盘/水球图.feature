@@ -90,7 +90,7 @@ Feature: 仪表盘水球图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
-    Then I compare source image "dashboard/<name>" with target image "dashboard/Liquidfill"
+#    Then I compare source image "dashboard/<name>" with target image "dashboard/Liquidfill"
 
     Examples:
       | name   |
@@ -123,7 +123,7 @@ Feature: 仪表盘水球图
     Then I wait for element "SuccessMessage" change text to "配置成功"
     And I wait for "2000" millsecond
     And take part of "FullScreen" with name "dashboard/<name>1362"
-    Then I compare source image "dashboard/<name>1362" with target image "dashboard/Liquidfill1362"
+#    Then I compare source image "dashboard/<name>1362" with target image "dashboard/Liquidfill1362"
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                         |

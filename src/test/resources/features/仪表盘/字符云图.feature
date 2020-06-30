@@ -92,7 +92,7 @@ Feature: 仪表盘字符云图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
-    Then I compare source image "dashboard/<name>" with target image "dashboard/<image>"
+#    Then I compare source image "dashboard/<name>" with target image "dashboard/<image>"
 
     Examples:
       | name    | image     |
