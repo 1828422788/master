@@ -57,7 +57,7 @@ Feature: 定时任务_基本配置
     And I will see the "timedTask.EditPage" page
     And I wait for "ResultHandling" will be visible
     And I refresh the website
-    And I wait for "5000" millsecond
+    And I wait for "10000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "CrontabInput" with value "<crontab>"
     And I click the "SaveButton" button
@@ -76,7 +76,7 @@ Feature: 定时任务_基本配置
     And I will see the "timedTask.EditPage" page
     And I wait for "ResultHandling" will be visible
     And I refresh the website
-    And I wait for "5000" millsecond
+    And I wait for "10000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "Schedule_Test"
     And I set the parameter "Describe" with value "testing schedule"

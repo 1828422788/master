@@ -31,6 +31,7 @@ Feature: 定时任务_结果处理方式
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'oracle_3301'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
+    And I wait for "5000" millsecond
     When I click the "ResultHandling" button
     And I click the "AddJDBC" button
     And I click the "Jdbc" button
@@ -62,6 +63,7 @@ Feature: 定时任务_结果处理方式
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'<name>_<caseNum>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
+    And I wait for "5000" millsecond
     When I click the "ResultHandling" button
     And I click the "AddJDBC" button
     And I click the "Jdbc" button

@@ -36,9 +36,7 @@ Feature: 定时任务复制
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'copytask'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
-    And I wait for "ResultHandling" will be visible
-    And I refresh the website
-    And I wait for "5000" millsecond
+    And I wait for "10000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I will see the input element "Number" value will be "20000"
     And I set the parameter "Number" with value "123"
@@ -71,9 +69,7 @@ Feature: 定时任务复制
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'2','name':'copytask(副本)'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
-    And I wait for "ResultHandling" will be visible
-    And I refresh the website
-    And I wait for "5000" millsecond
+    And I wait for "10000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I will see the input element "Name" value will be "copytask(副本)"
     And I will see the input element "Describe" value will be "testing"
