@@ -1,12 +1,12 @@
 @v33new
-Feature: Test spl fail cases
+Feature: v3.3 spl cases
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   @v33fail
-  Scenario Outline: spl fail
+  Scenario Outline: v3.3版本新增用例
     Given I set the parameter "SearchInput" with value "<splQuery>"
     #When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 2"
     #And I wait for "1000" millsecond
@@ -60,6 +60,24 @@ Feature: Test spl fail cases
       | newfields_batch_remove_apache_sample | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields - apache.*, raw_message \| table tag, apache.status |
       | newfields_keep_ipstatus_limit_sample | tag:sample04061424 \| sort by apache.x_forward \| sort by apache.x_forward \| limit 10 \| fields + apache.status, apache.clientip \| table apache.status, apache.clientip, tag |
       | limit_newfields_batch_keep_apache_count_byip | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields + apache.* \| stats count() by apache.clientip |
+      | fillnull_string_to_null_resplen_sample | tag:sample04061424 AND NOT apache.resp_len:* \| fillnull value=\"66\" apache.resp_len \| eval type_apache.resp_len = typeof(apache.resp_len) \| table apache.resp_len, type_apache.resp_len, apache.x_forward \| sort by apache.x_forward |
+      | fillnull_string_to_resplen_sample | tag:sample04061424 AND apache.resp_len:* \| sort by apache.x_forward \| limit 10 \| fillnull value=\"66\" apache.resp_len \| eval t_apache.resp_len = typeof(apache.resp_len) \| table apache.resp_len, t_apache.resp_len, apache.x_forward |
+      | fillnull_string_to_domain | tag:sample04061424 AND NOT apache.referer_domain:*  \| sort by apache.x_forward \| limit 10 \| fillnull value=\"fillnull_source\" apache.referer_domain \| eval type_referer_domain = typeof(apache.referer_domain) \| table apache.referer_domain, apache.referer_domain,type_referer_domain, apache.x_forward |
+      | fillnull_fill_data_to_datavalue | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval cur_param1=null, cur_param2=0 \| fillnull value=\"1234567\" cur_param1 \| fillnull value=\"789\" cur_param2 \|  eval t_cur_param1=typeof(cur_param1), t_cur_param2=typeof(cur_param2) \| table apache.x_forward, cur_param1, cur_param2, t_cur_param1, t_cur_param2 |
+      | fillnull_fill_string_to_noexitparam | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fillnull value=\"1234567\" cur_param \|  eval t_cur_param=typeof(cur_param) \| table cur_param, t_cur_param |
+      | fillnull_fill_string_to_string | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval cur_param=\"tmp_string\" \| fillnull value=\"1234567\" cur_param \|  eval t_cur_param=typeof(cur_param) \| table cur_param, t_cur_param |
+      | eventstats_sample_cnt | tag:sample04061424 \| sort by apache.x_forward \| limit 10  \| eventstats  count() as cnt \| fields cnt \| table cnt |
+      | eventstats_sample_avglen | tag:sample04061424  \| where apache.resp_len > 100 &&  apache.resp_len < 500 \| eventstats  avg(apache.resp_len) as avglen \| table apache.resp_len, avglen |
+      | round_printf_tonumber_sample | tag:sample04061424 \| limit 1 \| eval a=1010.10, b=round(a), c=tonumber(b,2), d=printf(\"%X\",c) \| table a, b, c |
+      | tonumber_hex_trim_sample | tag:sample04061424 \| limit 1 \| eval ret1=tonumber(\"123.45\")  \| eval ret2=tonumber(\"0A4\",16) \| eval ret3=tonumber(trim(\"                234.123     \")) \| table ret1, ret2, ret3 |
+      | appendcols_override_false_sample | tag:sample04061424_display \| stats count() as cnt  \| appendcols override=false maxout=10 [[ tag:sample04061424 \| stats count() as cnt]] |
+      | appendcols_override_true_sample | tag:sample04061424_display \| stats count() as cnt \| appendcols override=true maxout=10 [[ tag:sample04061424 \| stats count() as cnt]] |
+      | appendcols_override_index1 | tag:sample04061424 \| stats count(apache.clientip)  \| appendcols [[ index=*  tag:sample04061424_display \| stats count(apache.clientip) ]] |
+      | appendcols_override_index2 | tag:sample04061424 \| stats count(apache.clientip)  \| appendcols override=true  [[ index=*  tag:sample04061424_display \| stats count(apache.clientip) ]] |
+      | eval_printf_1 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"%04d\",1) \| table aa |
+      | eval_printf_2 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"%+4d\",1) \| table aa |
+      | eval_printf_3 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"%#x\", 1) \| table aa |
+      | eval_printf_4 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"100%%\")  \| table aa |
 
 
 #      | geostats_sample_count | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt \| limit 15 |
