@@ -1,4 +1,4 @@
-#@authtest
+@authtest
 Feature: 权限-应用列表页
 
   Scenario: 授权可使用应用功能,可新建应用,可使用数据集,数据集操作权限
