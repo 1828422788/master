@@ -28,7 +28,7 @@ Feature: Agent编辑Beats类型数据源
     Then I will see the element "getBeatsSwitchStatus" name is "已禁用"
 
   Scenario: Beats数据源启用
-    GGiven the data name in agent beats table "BeatsTable" then i click the "open" switch
+    Given the data name in agent beats table "BeatsTable" then i click the "open" switch
     Then I wait for loading invisible
     And I wait for "5000" millsecond
     Then I will see the element "getBeatsSwitchStatus" name is "已启用"
