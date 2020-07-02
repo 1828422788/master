@@ -89,7 +89,7 @@ Feature: 仪表盘玫瑰图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
-    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
+#    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
       | name   | targetName |
@@ -115,7 +115,7 @@ Feature: 仪表盘玫瑰图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>不展示标签"
-    Then I compare source image "dashboard/<name>不展示标签" with target image "dashboard/<targetName>WithoutTag"
+#    Then I compare source image "dashboard/<name>不展示标签" with target image "dashboard/<targetName>WithoutTag"
 
     Examples:
       | name   | targetName |
@@ -142,7 +142,7 @@ Feature: 仪表盘玫瑰图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>展示全部"
-    Then I compare source image "dashboard/<name>展示全部" with target image "dashboard/<targetName>WithAllTag"
+#    Then I compare source image "dashboard/<name>展示全部" with target image "dashboard/<targetName>WithAllTag"
 
     Examples:
       | name   | targetName |

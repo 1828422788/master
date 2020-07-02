@@ -127,7 +127,7 @@ Feature: 仪表盘循序图
     Then I wait for element "SuccessMessage" change text to "配置成功"
     And I wait for "2000" millsecond
     And take part of "FullScreen" with name "dashboard/<name>1365"
-    Then I compare source image "dashboard/<name>1365" with target image "dashboard/Sequence1365"
+#    Then I compare source image "dashboard/<name>1365" with target image "dashboard/Sequence1365"
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                          |

@@ -77,7 +77,7 @@ Feature: 仪表盘单值
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/仪表盘单值"
-    Then I compare source image "dashboard/仪表盘单值" with target image "dashboard/single"
+#    Then I compare source image "dashboard/仪表盘单值" with target image "dashboard/single"
 
   Scenario Outline: 验证单值图的fontSize
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

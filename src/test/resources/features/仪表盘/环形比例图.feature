@@ -96,7 +96,7 @@ Feature: 仪表盘环形比例图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/仪表盘环形比例图"
-    Then I compare source image "dashboard/仪表盘环形比例图" with target image "dashboard/Annular"
+#    Then I compare source image "dashboard/仪表盘环形比例图" with target image "dashboard/Annular"
 
   @dashboard @dashboardSmoke
   Scenario: 修改展示
@@ -124,7 +124,7 @@ Feature: 仪表盘环形比例图
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/仪表盘环形比例图修改展示区间"
-    Then I compare source image "dashboard/仪表盘环形比例图修改展示区间" with target image "dashboard/AnnularChangeRange"
+#    Then I compare source image "dashboard/仪表盘环形比例图修改展示区间" with target image "dashboard/AnnularChangeRange"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
