@@ -83,7 +83,6 @@ Feature: 仪表盘散点图
     And I click the "Yaxis" button
     And I choose the "count()" from the "DataValue"
     And I click the "Group" button
-    And I click the "AddField" button
     And I choose the "apache.resp_len" from the "DataValue"
     And I click the "Bubble" button
     And I click the "AccordingField" button
