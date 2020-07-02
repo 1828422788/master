@@ -153,10 +153,11 @@ Feature: 拖拽生成趋势图_序列
     And I drag the element "Clientip" to the "Values"
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
-    Then I wait for "Chart" will be visible
-    And I wait for "2000" millsecond
     And I drag the element "Method" to the "CompareBy"
     And I drag the element "Clientip" to the "Bubbles"
+    And I wait for "2000" millsecond
+    Then I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     When I click the "ElementInDimensions" button
     And I click the "<button_dim>" button
     And I hide the element "Panel"
