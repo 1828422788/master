@@ -10,7 +10,7 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可使用应用功能,可使用仪表盘,可新建应用,可使用拓扑图,新建拓扑图"
+    When I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用拓扑图,新建拓扑图"
     And I click the "SaveButton" button
 
   @logout
@@ -81,18 +81,12 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集,可新建应用"
+    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集,新建拓扑图,可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
   @logout
   Scenario: 安装应用
-#    When I wait for "2000" millsecond
-#    And I logout current user
-#    And I wait for "2000" millsecond
-#    And open the "LoginPage" page for uri "/auth/login/"
-#    When I set the parameter "Username" with value "AutoTest"
-#    And I set the parameter "Password" with value "All#123456"
     And I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -542,64 +536,64 @@ Feature: 权限-应用列表页
       | name            |
       | EventAppForAuth |
 
-  Scenario Outline: 创建角色
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I wait for loading invisible
-    Given I click the "Create" button
-    And I will see the "roles.CreatePage" page
-    And I set the parameter "RoleName" with value "<RoleName>"
-    And I click the "CreateButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "创建成功"
-
-    Examples:
-      | RoleName |
-      | 关联权限测试用户 |
-
-  Scenario: 验证授权用户关联角色
-    Given open the "users.ListPage" page for uri "/account/users/"
-    And I click the detail which name is "{'column':'1','name':'验证授权用户'}"
-    Then I will see the "users.EditPage" page
-    And I wait for "EditInfoButton" will be visible
-    And I click the "EditInfoButton" button
-    And I wait for "2000" millsecond
-    And I choose the "关联权限测试用户" from the "Roles"
-    And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
-
-  Scenario: 增加AutoTest的可管理角色
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "更新成功"
-    Given open the "users.ListPage" page for uri "/account/users/"
-    And I click the detail which name is "{'column':'1','name':'AutoTest'}"
-    Then I will see the "users.EditPage" page
-    And  I wait for "EditInfoButton" will be visible
-    And I click the "EditInfoButton" button
-    And I wait for "2000" millsecond
-    And I choose the "关联权限测试用户" from the "ManageRole"
-    And I click the "Save" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
-
-  Scenario: 增加用户分组管理员
-    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
-    When the data name is "{'column':'1','name':'验证授权用户分组'}" then i click the "编辑" button
-    And I will see the "userGroups.EditPage" page
-    And I click the "AddAdmin" button
-    And I "check" the checkbox which name is "AutoTest" in tiny table
-    And I click the "EnsureButton" button
-    And I click the "SaveAdmin" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
+#  Scenario Outline: 创建角色
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And I wait for loading invisible
+#    Given I click the "Create" button
+#    And I will see the "roles.CreatePage" page
+#    And I set the parameter "RoleName" with value "<RoleName>"
+#    And I click the "CreateButton" button
+#    And I wait for "SuccessMessage" will be visible
+#    Then I will see the success message "创建成功"
+#
+#    Examples:
+#      | RoleName |
+#      | 关联权限测试用户 |
+#
+#  Scenario: 验证授权用户关联角色
+#    Given open the "users.ListPage" page for uri "/account/users/"
+#    And I click the detail which name is "{'column':'1','name':'验证授权用户'}"
+#    Then I will see the "users.EditPage" page
+#    And I wait for "EditInfoButton" will be visible
+#    And I click the "EditInfoButton" button
+#    And I wait for "2000" millsecond
+#    And I choose the "关联权限测试用户" from the "Roles"
+#    And I click the "Save" button
+#    And I wait for "SuccessMessage" will be visible
+#    Then I will see the success message "更新成功"
+#
+#  Scenario: 增加AutoTest的可管理角色
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    And the data name is "__user_验证授权用户__" then i click the "授权" button
+#    And I will see the "roles.AuthorizationPage" page
+#    And I wait for "Loading" will be invisible
+#    Then I click the "{'TabButton':'功能'}" button
+#    And I wait for "Loading" will be invisible
+#    When I "checked" the checkbox which name is "全选"
+#    And I click the "SaveButton" button
+#    And I wait for "SuccessMessage" will be visible
+#    And I will see the success message "更新成功"
+#    Given open the "users.ListPage" page for uri "/account/users/"
+#    And I click the detail which name is "{'column':'1','name':'AutoTest'}"
+#    Then I will see the "users.EditPage" page
+#    And  I wait for "EditInfoButton" will be visible
+#    And I click the "EditInfoButton" button
+#    And I wait for "2000" millsecond
+#    And I choose the "关联权限测试用户" from the "ManageRole"
+#    And I click the "Save" button
+#    And I wait for "SuccessMessage" will be visible
+#    Then I will see the success message "更新成功"
+#
+#  Scenario: 增加用户分组管理员
+#    Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
+#    When the data name is "{'column':'1','name':'验证授权用户分组'}" then i click the "编辑" button
+#    And I will see the "userGroups.EditPage" page
+#    And I click the "AddAdmin" button
+#    And I "check" the checkbox which name is "AutoTest" in tiny table
+#    And I click the "EnsureButton" button
+#    And I click the "SaveAdmin" button
+#    And I wait for "SuccessMessage" will be visible
+#    Then I will see the success message "更新成功"
 
 #  Scenario Outline: 验证授权权限
 #    Given delete file "/target/download-files/<name>.tar"
@@ -664,27 +658,27 @@ Feature: 权限-应用列表页
 #      | name            |
 #      | EventAppForAuth |
 
-  @cleanAuth
-  Scenario Outline: 删除角色
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    Given the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "SuccessMessage" will be visible
+#  @cleanAuth
+#  Scenario Outline: 删除角色
+#    Given open the "roles.ListPage" page for uri "/account/roles/"
+#    Given the data name is "<name>" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I wait for "SuccessMessage" will be visible
+#
+#    Examples:
+#      | name     |
+#      | 关联权限测试用户 |
 
-    Examples:
-      | name     |
-      | 关联权限测试用户 |
-
-  @cleanAuth
-  Scenario Outline: 清理
-    Given open the "topology.ListPage" page for uri "/topology/"
-    When the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除成功"
-
-    Examples:
-      | name        |
-      | app权限应用所需资源 |
-      | app权限应用所需资源 |
+#  @cleanAuth
+#  Scenario Outline: 清理
+#    Given open the "topology.ListPage" page for uri "/topology/"
+#    When the data name is "<name>" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    Then I will see the success message "删除成功"
+#
+#    Examples:
+#      | name        |
+#      | app权限应用所需资源 |
+#      | app权限应用所需资源 |
