@@ -237,7 +237,7 @@ Feature: 权限-应用列表页
       | name            |
       | AutoTestForAuth |
 
-    @logout
+  @logout
   Scenario Outline: 授权读取+编辑
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -311,6 +311,7 @@ Feature: 权限-应用列表页
       | name            |
       | AutoTestForAuth |
 
+  @logout
   Scenario Outline: 授权读取+新建
     Given delete file "/target/download-files/<name>.tar"
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -354,6 +355,7 @@ Feature: 权限-应用列表页
       | name            |
       | EventAppForAuth |
 
+  @logout
   Scenario: 验证有效期限生效
     Given I wait for "2000" millsecond
     And I logout current user
@@ -367,6 +369,7 @@ Feature: 权限-应用列表页
     And I wait for loading invisible
     And I will see the search result "{'column':'0','name':'AutoTestForAuth','contains':'no'}"
 
+  @logout
   Scenario Outline: 读取+删除
     Given delete file "/target/download-files/<name>.tar"
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -425,6 +428,7 @@ Feature: 权限-应用列表页
       | name            |
       | AutoTestForAuth |
 
+  @logout
   Scenario Outline: 授权读取+编辑+删除
     Given delete file "/target/download-files/<name>.tar"
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -482,6 +486,7 @@ Feature: 权限-应用列表页
       | name            |
       | EventAppForAuth |
 
+  @logout
   Scenario Outline: 授权所有权限
     Given delete file "/target/download-files/<name>.tar"
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -536,31 +541,103 @@ Feature: 权限-应用列表页
       | name            |
       | EventAppForAuth |
 
-#  Scenario Outline: 创建角色
-#    Given open the "roles.ListPage" page for uri "/account/roles/"
-#    And I wait for loading invisible
-#    Given I click the "Create" button
-#    And I will see the "roles.CreatePage" page
-#    And I set the parameter "RoleName" with value "<RoleName>"
-#    And I click the "CreateButton" button
-#    And I wait for "SuccessMessage" will be visible
-#    Then I will see the success message "创建成功"
-#
-#    Examples:
-#      | RoleName |
-#      | 关联权限测试用户 |
-#
-#  Scenario: 验证授权用户关联角色
-#    Given open the "users.ListPage" page for uri "/account/users/"
-#    And I click the detail which name is "{'column':'1','name':'验证授权用户'}"
-#    Then I will see the "users.EditPage" page
-#    And I wait for "EditInfoButton" will be visible
-#    And I click the "EditInfoButton" button
-#    And I wait for "2000" millsecond
-#    And I choose the "关联权限测试用户" from the "Roles"
-#    And I click the "Save" button
-#    And I wait for "SuccessMessage" will be visible
-#    Then I will see the success message "更新成功"
+  Scenario Outline: 创建角色
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
+    Given I click the "Create" button
+    And I will see the "roles.CreatePage" page
+    And I set the parameter "RoleName" with value "<RoleName>"
+    And I click the "CreateButton" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "创建成功"
+
+    Examples:
+      | RoleName |
+      | 关联权限测试用户 |
+
+  Scenario: 【AutoTest】管理【关联角色】
+    Given open the "users.ListPage" page for uri "/account/users/"
+    And I click the detail which name is "{'column':'1','name':'AutoTest'}"
+    Then I will see the "users.EditPage" page
+    And I wait for "EditInfoButton" will be visible
+    And I click the "EditInfoButton" button
+    And I wait for "2000" millsecond
+    And I choose the "关联权限测试用户" from the "ManageRole"
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "更新成功"
+
+  Scenario: 验证授权用户加入关联角色分组
+    Given open the "users.ListPage" page for uri "/account/users/"
+    And I click the detail which name is "{'column':'1','name':'验证授权用户'}"
+    Then I will see the "users.EditPage" page
+    And I wait for "EditInfoButton" will be visible
+    And I click the "EditInfoButton" button
+    And I wait for "2000" millsecond
+    And I choose the "关联权限测试用户" from the "Roles"
+    And I click the "Save" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "更新成功"
+
+  Scenario Outline: 修改app权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the success message "更新成功"
+    Then I click the "{'TabButton':'应用'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I click the "SaveButton" button
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "关联权限测试用户" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the success message "更新成功"
+    Then I click the "{'TabButton':'应用'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
+
+    Examples:
+      | name            |
+      | EventAppForAuth |
+
+  Scenario Outline: 验证授权权限
+    Given I login user "AutoTest" with password "All#123456"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "关联权限测试用户" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'应用'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" function "读取,删除" from the auth table which name is "<name>"
+    And I click the "SaveButton" button
+    Given I login user "验证授权用户" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name            |
+      | EventAppForAuth |
+
+
 #
 #  Scenario: 增加AutoTest的可管理角色
 #    Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -658,27 +735,27 @@ Feature: 权限-应用列表页
 #      | name            |
 #      | EventAppForAuth |
 
-#  @cleanAuth
-#  Scenario Outline: 删除角色
-#    Given open the "roles.ListPage" page for uri "/account/roles/"
-#    Given the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I wait for "SuccessMessage" will be visible
-#
-#    Examples:
-#      | name     |
-#      | 关联权限测试用户 |
+  @cleanAuth
+  Scenario Outline: 删除角色
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    Given the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
 
-#  @cleanAuth
-#  Scenario Outline: 清理
-#    Given open the "topology.ListPage" page for uri "/topology/"
-#    When the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    Then I will see the success message "删除成功"
-#
-#    Examples:
-#      | name        |
-#      | app权限应用所需资源 |
-#      | app权限应用所需资源 |
+    Examples:
+      | name     |
+      | 关联权限测试用户 |
+
+  @cleanAuth
+  Scenario Outline: 清理
+    Given open the "topology.ListPage" page for uri "/topology/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name        |
+      | app权限应用所需资源 |
+      | app权限应用所需资源 |
