@@ -30,7 +30,7 @@ Feature: 报表_新建趋势图_表格
     | table_Chord            |  tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path  |
     | table_Sankey           |  tag:sample04061424_chart  AND NOT apache.clientip:221.226.97.92 AND NOT apache.clientip:117.136.79.162 \| stats count() by apache.clientip,apache.resp_len,apache.method \| limit 4 |
     | table_Force            |  tag:sample04061424_chart  \| stats count() by apache.clientip,apache.request_path \|limit 10      |
-    | table_Sankey_Mult      |  tag:t_with \|transaction json.sid with states a,b,c in json.module results by flow \| stats count() by fromstate,tostate \| limit 3 |
+    | table_Sankey_Mult      |  tag:t_with \|transaction json.sid keepevicted=true with states a,b,c in json.module results by flow \| stats count() by fromstate,tostate \| limit 3 |
     | table_Rangeline        |  tag:sample04061424_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
     | table_Multiaxis        |  tag:sample04061424_display \| stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status \| limit 10|
     | table_Heatmap          |  tag:sample04061424_chart \| stats count() by apache.geo.city                                                                                                                        |

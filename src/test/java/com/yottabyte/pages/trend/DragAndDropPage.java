@@ -32,6 +32,9 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//div[@id='values']/span/span/span")
     private WebElement elementInValues;
 
+    @FindBy(xpath = "//div[@id='byFields']/span/span/span")
+    private WebElement elementInCompare;
+
     @FindBy(xpath = "//i[@title='同环比']")
     private WebElement compareButton;
 
@@ -49,6 +52,22 @@ public class DragAndDropPage extends CreatePage {
 
     @FindBy(xpath = "//span[contains(@class, 'ant-select-tree-switcher')]/i")
     private WebElement iconDown;
+
+    // Labels
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[1]")
+    private WebElement firstLabel;
+
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[2]")
+    private WebElement secondLabel;
+
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[3]")
+    private WebElement thirdLabel;
+
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[4]")
+    private WebElement forthLabel;
+
+    @FindBy(xpath = "(//div[text()='柱状外右侧'])[last()]")
+    private WebElement rightPosition;
 
 
     //Charts --------------------------------------------------------------------------
@@ -174,6 +193,10 @@ public class DragAndDropPage extends CreatePage {
         return elementInValues;
     }
 
+    public WebElement getElementInCompare() {
+        return elementInCompare;
+    }
+
     public WebElement getCompareButton() {
         return compareButton;
     }
@@ -241,6 +264,27 @@ public class DragAndDropPage extends CreatePage {
     }
 
     //---------------------------------------------------------------------------------
+
+    public WebElement getFirstLabel() {
+        return firstLabel;
+    }
+
+    public WebElement getSecondLabel() {
+        return secondLabel;
+    }
+
+    public WebElement getThirdLabel() {
+        return thirdLabel;
+    }
+
+    public WebElement getForthLabel() {
+        return forthLabel;
+    }
+
+    public WebElement getRightPosition() {
+        return rightPosition;
+    }
+
 
     private WebElement getElementById(String name){
         return webDriver.findElement(By.id(name));

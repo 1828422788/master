@@ -1,5 +1,5 @@
 @dragAndDrop @dragAndDropTimechart
-Feature: 拖拽生成趋势图图表类型
+Feature: 拖拽生成趋势图_timechart
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -7,7 +7,7 @@ Feature: 拖拽生成趋势图图表类型
     Then I will see the "trend.CreatePage" page
 
 
-  Scenario Outline: drag_and_drop_timechart_area
+  Scenario Outline: drag_and_drop_timechart
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "DateEditor" button
     And I click the "Today" button
