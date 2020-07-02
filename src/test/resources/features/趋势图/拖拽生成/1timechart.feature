@@ -39,14 +39,13 @@ Feature: 拖拽生成趋势图_timechart
     And I wait for "Chart" will be visible
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
-    And I click the "CompareField" button
-    And I click the "<comparePeriod>" button
-    And I click the "CompareField" button
     And I wait for "Min" will be visible
     And I click the "<button>" button
     And I set the parameter "Unit" with value "<unit>"
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
+    And I click the "CompareField" button
+    And I click the "<comparePeriod>" button
     And I click the "Timestamp" button
 
     And I wait for "1500" millsecond
