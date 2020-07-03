@@ -16,6 +16,8 @@ Feature: 拖拽生成趋势图_其他
     And I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.geo.city" in trend page
     And I wait for "CheckBox" will be visible
+    And I "checked" the checkbox which name is "apache.status" in trend page
+    And I wait for "CheckBox" will be visible
     Then I click the "NextButton" button
 
     When I will see the "trend.DragAndDropPage" page
@@ -143,3 +145,72 @@ Feature: 拖拽生成趋势图_其他
       |  chartType |  color  |  button        |
       |  Wordcloud |  Purple |                |
       |  Funnel    |  Orange | RightPosition  |
+
+  Scenario Outline: drag_and_drop_radar
+    And I drag the element "Status" to the "Values"
+    And I drag the element "Status" to the "Dimensions"
+    And I click the "<chartType>" button
+    And I wait for "CompareBy" will be visible
+    And I drag the element "GeoCity" to the "CompareBy"
+    Then I wait for "OtherChart" will be visible
+    And I click the "<button>" button
+    And I wait for "AddColor" will be visible
+    And I click the "AddColor" button
+    And I wait for "<color>" will be visible
+    And I click the "<color>" button
+
+    And I click the "CheckSPL" button
+    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.status) by apache.status,apache.geo.city"
+    When I click the "CloseSPL" button
+    And I wait for "2000" millsecond
+    Then take part of "OtherChart" with name "actual/<chartType>"
+    And I click the "NextButton" button
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>"
+    And I set the parameter "DescribeInput" with value "<color>_<button>"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType |  color    |  button        |
+      |  Radar     |  DarkBlue | RightPosition  |
+
+  Scenario Outline: drag_and_drop_radar_compare
+    And I drag the element "Status" to the "Values"
+    And I drag the element "Status" to the "Dimensions"
+    And I click the "<chartType>" button
+    And I click the "CompareButton" button
+    And I wait for "2000" millsecond
+    Then I wait for "OtherChart" will be visible
+    And I wait for "ElementInValues" will be visible
+    When I click the "ElementInValues" button
+    And I wait for "CompareField" will be visible
+    And I click the "CompareField" button
+    And I click the "Yesterday" button
+    And I click the "LastWeek" button
+    And I click the "Clientip" button
+    And I wait for "2000" millsecond
+    Then I wait for "OtherChart" will be visible
+    And I click the "<button>" button
+    And I wait for "AddColor" will be visible
+    And I click the "AddColor" button
+    And I wait for "<color>" will be visible
+    And I click the "<color>" button
+
+    And I click the "CheckSPL" button
+    And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.status) by apache.status | eval _compare="当前" | append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart|stats count(apache.status) by apache.status | eval _compare="环比" ]] | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.status) by apache.status | eval _compare="同比一周" ]]"
+    When I click the "CloseSPL" button
+    And I wait for "2000" millsecond
+    Then take part of "OtherChart" with name "actual/<chartType>_对比"
+    And I click the "NextButton" button
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_对比"
+    And I set the parameter "DescribeInput" with value "<color>_<button>"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType |  color    |  button        |
+      |  Radar     |  DarkBlue | RightPosition  |

@@ -65,7 +65,7 @@ Feature: 拖拽生成趋势图_timechart
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_timechart"
-    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I set the parameter "DescribeInput" with value "<comparePeriod>_<button>_<unit>_<min>_<max>_<color>"
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
@@ -73,5 +73,5 @@ Feature: 拖拽生成趋势图_timechart
       |  chartType | span  |  minspan | bins | comparePeriod | button           | unit | min | max | color  | SPLcheck |
       |  Line      | 1h    |  20m     | 24   | Yesterday     | Smooth           |  个  | 0.5 | 80  | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=1h minspan=20m bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="当前" \| append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart \| timechart span=1h minspan=20m bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="环比" ]] |
       |  Area      | 20m   |          |      | LastWeek      | ConnectEmptyData | pcs. |     | 28  | Yellow | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=20m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="当前" \| append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart \| timechart span=20m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="同比一周" ]] |
-      |  Scatter   | 40m   |          |      | LastMonth     |                  |      |     |     | Yellow | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="同比一月" ]] |
+      |  Scatter   | 40m   |          |      | LastMonth     |                  |      |     |     | Red    | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart \| timechart span=40m count(apache.clientip)\| eval minute=formatdate(_time, "hh:mm")\| eval _compare="同比一月" ]] |
       |  Column    | 1h    |  1h      | 24   | LastYear      |                  | r.   | 1   |     | Orange | starttime="now/d" endtime="now" tag:sample04061424_chart \| timechart span=1h minspan=1h bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="当前" \| append [[ starttime="now/d-1y" endtime="now-1y" tag:sample04061424_chart \| timechart span=1h minspan=1h bins=24 count(apache.clientip)\| eval hour=formatdate(_time, "dd-hh")\| eval _compare="同比一年" ]] |

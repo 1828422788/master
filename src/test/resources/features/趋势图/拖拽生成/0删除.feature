@@ -12,6 +12,8 @@ Feature: 趋势图删除
 
     Examples:
       | name                     |
+      | 拖拽_Radar_对比          |
+      | 拖拽_Radar               |
       | 拖拽_Funnel              |
       | 拖拽_Wordcloud           |
       | 拖拽_Single_area         |
@@ -21,6 +23,9 @@ Feature: 趋势图删除
       | 拖拽_Bar                 |
       | 拖拽_Rose                |
       | 拖拽_Pie                 |
+      | 拖拽_Column_对比         |
+      | 拖拽_Area_对比           |
+      | 拖拽_Line_对比           |
       | 拖拽_Column_Pile         |
       | 拖拽_Scatter             |
       | 拖拽_Area_Pile           |
