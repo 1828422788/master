@@ -121,6 +121,7 @@ Feature: 拖拽生成趋势图_其他
     And I click the "<chartType>" button
     And I wait for "CompareByField" will be visible
     And I drag the element "GeoCity" to the "CompareByField"
+    And I wait for "2000" millsecond
     Then I wait for "OtherChart" will be visible
     And I click the "<button>" button
     And I wait for "AddColor" will be visible
