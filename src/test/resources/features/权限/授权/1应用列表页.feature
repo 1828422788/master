@@ -286,7 +286,6 @@ Feature: 权限-应用列表页
       | name            |
       | AutoTestForAuth |
 
-  @test
   Scenario Outline: 有效期限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -313,8 +312,7 @@ Feature: 权限-应用列表页
 
     Examples:
       | name  |
-#      | AutoTestForAuth |
-      | KVApp |
+      | AutoTestForAuth |
 
   @logout
   Scenario Outline: 授权读取+新建
