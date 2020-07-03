@@ -102,6 +102,7 @@ Feature: 拖拽生成趋势图_序列
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
     And I click the "<color>" button
+    And I wait for "1500" millsecond
     And I click the "ElementInCompare" button
     And I click the "Pile" button
     And I wait for "3000" millsecond
