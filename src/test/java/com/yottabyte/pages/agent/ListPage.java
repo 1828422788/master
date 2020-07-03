@@ -125,7 +125,7 @@ public class ListPage extends ListPageFactory {
 
 
     public WebElement getGroupButton() {
-        String xpath = "//li[@class='_2YNvVzZq0iDG7om4qpUbnZ']/span[text()='sunxctest']";
+        String xpath = "//ul[@class='_2FuqHHfRc-c7BJzf3RvYta']//span[text()='sunxctest']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
