@@ -14,9 +14,8 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "可使用仪表盘"
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
-    And I logout current user
     And I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
     Then I will see the "Create" doesn't exist
     And I logout current user
@@ -34,11 +33,9 @@ Feature: 权限-仪表盘
     When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
-    And I logout current user
     And I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    Then I will see the "dashboard.ListPage" page
     And I click the "Create" button under some element
     And I set the parameter "DashBoardName" with value "仪表盘验证权限1"
     And I click the "Ensure" button
@@ -64,9 +61,8 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "仪表盘验证权限1" in auth table
     And I "unchecked" the checkbox which name is "仪表盘验证权限1" in auth table
     And I click the "SaveButton" button
-    And I logout current user
     And I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'仪表盘验证权限1','contains':'no'}"
     And I logout current user
@@ -90,9 +86,8 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    And I logout current user
     And I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -133,9 +128,8 @@ Feature: 权限-仪表盘
 
   @logout
   Scenario Outline: 验证读取+编辑
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -179,6 +173,7 @@ Feature: 权限-仪表盘
     When the data name is "仪表盘验证权限1重命名" then I click the "无限期" button in auth table
     And I click the "Customize" button
     And I click the "DateEditor" button
+    And I wait for "TimeInput" will be visible
     And I set the time input "TimeInput" to "1" minutes later
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
@@ -220,6 +215,7 @@ Feature: 权限-仪表盘
   Scenario: 验证有效期限生效
     And I logout current user
     Given I login user "AutoTest" with password "All#123456"
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I will see the search result "{'column':'0','name':'仪表盘验证权限1重命名','contains':'no'}"
     And I logout current user
@@ -244,9 +240,8 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认授权删除" button
     And the data name is "<name>" then i click the "授权" button
@@ -287,9 +282,8 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权删除" button
     And the data name is "<name>" then i click the "授权" button
@@ -360,9 +354,8 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -370,9 +363,8 @@ Feature: 权限-仪表盘
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    And I logout current user
     Given I login user "验证授权用户" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     And I wait for loading invisible
@@ -421,9 +413,8 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -446,9 +437,8 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>重命名'}" then i will see "设为默认重命名标签授权" button
     And I click the detail which name is "<name>重命名"
@@ -499,9 +489,8 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权删除" button
     When the data name is "<name>" then i click the "授权" button
@@ -512,7 +501,7 @@ Feature: 权限-仪表盘
     Then I will see the message "保存成功"
     And I logout current user
     Given I login user "验证授权用户" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     And I wait for loading invisible
@@ -578,9 +567,8 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
     And I click the "SaveButton" button
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权删除" button
     When the data name is "<name>" then i click the "标签" button
@@ -603,9 +591,8 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    And I logout current user
     Given I login user "验证授权用户" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>重命名'}" then i will see "设为默认重命名标签授权删除" button
     And I click the detail which name is "<name>重命名"
@@ -654,9 +641,8 @@ Feature: 权限-仪表盘
 
   @logout
   Scenario Outline: 二次授权读取
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When the data name is "测试二次授权" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -664,8 +650,8 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    And I logout current user
     Given I login user "验证授权用户" with password "All#123456"
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "<name>" then i will see "设为默认授权" button
     When the data name is "<name>" then i click the "授权" button
@@ -684,9 +670,8 @@ Feature: 权限-仪表盘
 
   @logout
   Scenario Outline: 二次授权读取+编辑
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When the data name is "测试二次授权" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -695,9 +680,8 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    And I logout current user
     Given I login user "验证授权用户" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权" button
     When the data name is "<name>" then i click the "标签" button
@@ -732,9 +716,8 @@ Feature: 权限-仪表盘
 
   @logout
   Scenario Outline: 二次授权读取+编辑+删除
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When the data name is "<name>" then i click the "授权" button
     And I choose the "<authRole>" from the "AuthDropdown"
@@ -743,9 +726,8 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    And I logout current user
     Given I login user "验证授权用户" with password "All#123456"
-    Then I will see the "dashboard.ListPage" page
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认重命名标签授权删除" button
     And the data name is "<name>" then i click the "授权" button

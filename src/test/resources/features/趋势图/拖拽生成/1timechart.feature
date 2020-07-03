@@ -1,5 +1,5 @@
 @dragAndDrop @dragAndDropTimechart
-Feature: 拖拽生成趋势图图表类型
+Feature: 拖拽生成趋势图_timechart
 
   Background:
     Given open the "trend.ListPage" page for uri "/trend/"
@@ -7,7 +7,7 @@ Feature: 拖拽生成趋势图图表类型
     Then I will see the "trend.CreatePage" page
 
 
-  Scenario Outline: drag_and_drop_timechart_area
+  Scenario Outline: drag_and_drop_timechart
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "DateEditor" button
     And I click the "Today" button
@@ -39,14 +39,13 @@ Feature: 拖拽生成趋势图图表类型
     And I wait for "Chart" will be visible
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
-    And I click the "CompareField" button
-    And I click the "<comparePeriod>" button
-    And I click the "CompareField" button
     And I wait for "Min" will be visible
     And I click the "<button>" button
     And I set the parameter "Unit" with value "<unit>"
     And I set the parameter "Min" with value "<min>"
     And I set the parameter "Max" with value "<max>"
+    And I click the "CompareField" button
+    And I click the "<comparePeriod>" button
     And I click the "Timestamp" button
 
     And I wait for "1500" millsecond
@@ -61,8 +60,7 @@ Feature: 拖拽生成趋势图图表类型
     And I will see the element "SPL" contains "<SPLcheck>"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "trend_拖拽/<chartType>_timechart"
-    And I wait for "2000" millsecond
+    Then take part of "Chart" with name "actual/<chartType>_timechart"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page

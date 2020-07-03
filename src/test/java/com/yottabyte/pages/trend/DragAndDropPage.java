@@ -32,6 +32,9 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//div[@id='values']/span/span/span")
     private WebElement elementInValues;
 
+    @FindBy(xpath = "//div[@id='byFields']/span/span/span")
+    private WebElement elementInCompare;
+
     @FindBy(xpath = "//i[@title='同环比']")
     private WebElement compareButton;
 
@@ -49,6 +52,25 @@ public class DragAndDropPage extends CreatePage {
 
     @FindBy(xpath = "//span[contains(@class, 'ant-select-tree-switcher')]/i")
     private WebElement iconDown;
+
+    // Labels
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[1]")
+    private WebElement firstLabel;
+
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[2]")
+    private WebElement secondLabel;
+
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[3]")
+    private WebElement thirdLabel;
+
+    @FindBy (xpath = "//span[text()='标签']/ancestor::div/following-sibling::span//label[4]")
+    private WebElement forthLabel;
+
+    @FindBy(xpath = "(//div[text()='柱状外右侧'])[last()]")
+    private WebElement rightPosition;
+
+    @FindBy(xpath = "(//div[@class='_2YOOafB8A7ZfHBScD1QcRz']/div/div)[1]")
+    private WebElement otherChart;
 
 
     //Charts --------------------------------------------------------------------------
@@ -68,55 +90,55 @@ public class DragAndDropPage extends CreatePage {
         return getElementByTitle("柱状图");
     }
 
-    public WebElement Pie() {
+    public WebElement getPie() {
         return getElementByTitle("饼状图");
     }
 
-    public WebElement Rose() {
+    public WebElement getRose() {
         return getElementByTitle("玫瑰图");
     }
 
-    public WebElement Bar() {
+    public WebElement getBar() {
         return getElementByTitle("条形图");
     }
 
-    public WebElement Chord() {
+    public WebElement getChord() {
         return getElementByTitle("和弦图");
     }
 
-    public WebElement Sankey() {
+    public WebElement getSankey() {
         return getElementByTitle("桑基图");
     }
 
-    public WebElement Force() {
+    public WebElement getForce() {
         return getElementByTitle("力图");
     }
 
-    public WebElement Multiaxis() {
+    public WebElement getMultiaxis() {
         return getElementByTitle("多y轴图");
     }
 
-    public WebElement Heatmap() {
+    public WebElement getHeatmap() {
         return getElementByTitle("热力地图");
     }
 
-    public WebElement Single() {
+    public WebElement getSingle() {
         return getElementByTitle("单值");
     }
 
-    public WebElement Wordcloud() {
+    public WebElement getWordcloud() {
         return getElementByTitle("字符云图");
     }
 
-    public WebElement Radar() {
+    public WebElement getRadar() {
         return getElementByTitle("雷达图");
     }
 
-    public WebElement Funnel() {
+    public WebElement getFunnel() {
         return getElementByTitle("漏斗图");
     }
 
-    public WebElement Table() {
+    public WebElement getTable() {
         return getElementByTitle("统计表");
     }
 
@@ -131,6 +153,10 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getCompareBy() {
         return getElementById("byFields");
+    }
+
+    public WebElement getCompareByField() {
+        return getElementById("byField");
     }
 
     public WebElement getBubbles() {
@@ -172,6 +198,10 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getElementInValues() {
         return elementInValues;
+    }
+
+    public WebElement getElementInCompare() {
+        return elementInCompare;
     }
 
     public WebElement getCompareButton() {
@@ -241,6 +271,33 @@ public class DragAndDropPage extends CreatePage {
     }
 
     //---------------------------------------------------------------------------------
+
+    public WebElement getFirstLabel() {
+        return firstLabel;
+    }
+
+    public WebElement getSecondLabel() {
+        return secondLabel;
+    }
+
+    public WebElement getThirdLabel() {
+        return thirdLabel;
+    }
+
+    public WebElement getForthLabel() {
+        return forthLabel;
+    }
+
+    public WebElement getRightPosition() {
+        return rightPosition;
+    }
+
+    //----------------------------------------------------------------------------------
+
+    public WebElement getOtherChart() {
+        return otherChart;
+    }
+
 
     private WebElement getElementById(String name){
         return webDriver.findElement(By.id(name));
