@@ -59,7 +59,7 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "ant-calendar-picker-icon")
     private WebElement dateEditor;
 
-    @FindBy(className = "ant-calendar-input ")
+    @FindBy(className = "ant-calendar-input")
     private WebElement timeInput;
 
     @FindBy(className = "ant-calendar-ok-btn")
