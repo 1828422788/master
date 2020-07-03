@@ -109,7 +109,6 @@ Feature: 仪表盘环形比例图
     And I click the "Setting" button under some element
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
-    And I click the "AddRange" button
     And I wait for "MinRange" will be visible
     And I set the parameter "MinRange" with value "0.1"
     And I wait for "MaxRange" will be visible
