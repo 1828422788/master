@@ -167,6 +167,7 @@ Feature: 权限-应用列表页
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
@@ -193,6 +194,7 @@ Feature: 权限-应用列表页
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for "CreateButton" will be visible
     And I click the "InstallButton" button
     Then I will see the "app.InstallPage" page
     And I wait for "AddDataset" will be visible
@@ -284,6 +286,7 @@ Feature: 权限-应用列表页
       | name            |
       | AutoTestForAuth |
 
+  @test
   Scenario Outline: 有效期限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -309,8 +312,9 @@ Feature: 权限-应用列表页
     And I will see the success message "更新成功"
 
     Examples:
-      | name            |
-      | AutoTestForAuth |
+      | name  |
+#      | AutoTestForAuth |
+      | KVApp |
 
   @logout
   Scenario Outline: 授权读取+新建
