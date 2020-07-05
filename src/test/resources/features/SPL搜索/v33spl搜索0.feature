@@ -51,7 +51,6 @@ Feature: v3.3 spl cases
       | newfields_keep_ipstatus_table_tagmethod | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields + apache.status, apache.clientip \| table tag, apache.method, apache.status |
       | limit_newfields_batch_keep_apache_remove_apacher_table | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields + apache.* \| fields - apache.g*, apache.r*, apache.timestamp,apache.ua \| table apache.* |
       | newfields_remove_tagappname_table_tagstatus | tag:sample04061424 \| sort by apache.x_forward \| fields - appname, tag \| table tag, apache.status |
-      | newfields_remove_tag_keep_tag_table | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields - tag \| fields + tag \| table tag |
       | newfields_batch_keep_apache_limit_count_byip | tag:sample04061424 \| sort by apache.x_forward \| fields + apache.* \| limit 13 \| stats count() by apache.clientip |
       | newfields_keep_noexistfield | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields + noexistfield1, noexistfield2 \| table noexistfield1, noexistfield2, tag |
       | newfields_remove_noexistfield | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields - noexistfield1, noexistfield2 \| table apache.x_forward, apache.resp_len, apache.referer_domain, apache.clientip |
@@ -75,8 +74,8 @@ Feature: v3.3 spl cases
       | kvextract_h3c_parse_msg_maxchars_50 | tag:sample04061424_h3c_kv_1 \| parse field=raw_message \"(?<message>DEV_TYPE[\S+\s+]+)\" \| fields message \| kvextract message maxchars=50 pairdelim=\";\" kvdelim=\"=\" \| fields -message \| table * |
       | kvextract_h3c_parse_msg_mv_add_true | tag:sample04061424_h3c_kv_1 \| eval message=\"a:[1,1,1]\" \| kvextract message mv_add=true pairdelim=\";\" kvdelim=\":\"  \| table a |
       | eval_addinfo_sample | tag:sample04061424 \| sort by apache.x_forward \| limit 5 \| addinfo \| table info* |
-      | eval_path_xml_body | tag:x1 \| xpath input=raw_message output=xmlbody path=\"/note/body\" \| table xmlbody |
-      | eval_path_xml_heading_sample | tag:x1 \| xpath input=raw_message output=xmlheading path=\"/note/heading\" \| table xmlheading |
+      | eval_path_xml_body | tag:xml_sample_1 \| xpath input=raw_message output=xmlbody path=\"/note/body\" \| table xmlbody |
+      | eval_path_xml_heading_sample | tag:xml_sample_1 \| xpath input=raw_message output=xmlheading path=\"/note/heading\" \| table xmlheading |
 
 
   @v33tran1
@@ -97,7 +96,7 @@ Feature: v3.3 spl cases
       | transaction_status_sortfield_clientip | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.status keepevicted=true sortfield=apache.clientip \| limit 2 |
       | transaction_clientip_sortfield_resplen_xforward | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.clientip keepevicted=true sortfield=apache.resp_len,apache.x_forward \| limit 2 |
       | transaction_clientip_sortfield_resplen | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.clientip keepevicted=true sortfield=+apache.resp_len \| limit 2 |
-
+      | newfields_remove_tag_keep_tag_table | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields - tag \| fields + tag \| table tag |
 
 
 #      | geostats_sample_count | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt \| limit 15 |
