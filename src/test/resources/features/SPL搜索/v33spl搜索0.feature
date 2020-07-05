@@ -6,7 +6,7 @@ Feature: v3.3 spl cases
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   @v33fail
-  Scenario Outline: v3.3版本新增用例
+  Scenario Outline: v3.3版本用例
     Given I set the parameter "SearchInput" with value "<splQuery>"
     #When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 2"
     #And I wait for "1000" millsecond
@@ -25,7 +25,6 @@ Feature: v3.3 spl cases
     Examples:
       |splcasename| splQuery|
       | where_in_null_resp_len | tag:sample04061424 \| table apache.resp_len, apache.x_forward \| where apache.resp_len in () |
-      | eval_in_status_v_null_limit | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval is_in=in(apache.status) \| table apache.status, is_in,apache.x_forward |
       | dbxoutput_output_sample | tag:sample04061424_chart \| sort by apache.x_forward \| limit 10 \| table apache.x_forward, apache.resp_len, apache.referer_domain, apache.geo.city \| dbxoutput output=\"outsample\" |
       | dbxoutput_output_u_sample | tag:sample04061424_chart \| sort by apache.x_forward \| limit 10 \| table apache.x_forward, apache.resp_len, apache.referer_domain, apache.geo.city \| dbxoutput output=\"outsample_u\" |
       | dbxoutput_limit_output_sample | tag:sample04061424_chart \| eval int_x_forward= tolong(apache.x_forward) \| sort by +int_x_forward\| limit 10 \| table apache.x_forward, apache.resp_len \| dbxlookup file_name connection=\"v33dbx\" query=\"SELECT * FROM v33dbx.lookupsample\" on apache.x_forward=domain_id |
@@ -60,24 +59,45 @@ Feature: v3.3 spl cases
       | newfields_batch_remove_apache_sample | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields - apache.*, raw_message \| table tag, apache.status |
       | newfields_keep_ipstatus_limit_sample | tag:sample04061424 \| sort by apache.x_forward \| sort by apache.x_forward \| limit 10 \| fields + apache.status, apache.clientip \| table apache.status, apache.clientip, tag |
       | limit_newfields_batch_keep_apache_count_byip | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fields + apache.* \| stats count() by apache.clientip |
-      | fillnull_string_to_null_resplen_sample | tag:sample04061424 AND NOT apache.resp_len:* \| fillnull value=\"66\" apache.resp_len \| eval type_apache.resp_len = typeof(apache.resp_len) \| table apache.resp_len, type_apache.resp_len, apache.x_forward \| sort by apache.x_forward |
-      | fillnull_string_to_resplen_sample | tag:sample04061424 AND apache.resp_len:* \| sort by apache.x_forward \| limit 10 \| fillnull value=\"66\" apache.resp_len \| eval t_apache.resp_len = typeof(apache.resp_len) \| table apache.resp_len, t_apache.resp_len, apache.x_forward |
-      | fillnull_string_to_domain | tag:sample04061424 AND NOT apache.referer_domain:*  \| sort by apache.x_forward \| limit 10 \| fillnull value=\"fillnull_source\" apache.referer_domain \| eval type_referer_domain = typeof(apache.referer_domain) \| table apache.referer_domain, apache.referer_domain,type_referer_domain, apache.x_forward |
-      | fillnull_fill_data_to_datavalue | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval cur_param1=null, cur_param2=0 \| fillnull value=\"1234567\" cur_param1 \| fillnull value=\"789\" cur_param2 \|  eval t_cur_param1=typeof(cur_param1), t_cur_param2=typeof(cur_param2) \| table apache.x_forward, cur_param1, cur_param2, t_cur_param1, t_cur_param2 |
-      | fillnull_fill_string_to_noexitparam | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| fillnull value=\"1234567\" cur_param \|  eval t_cur_param=typeof(cur_param) \| table cur_param, t_cur_param |
-      | fillnull_fill_string_to_string | tag:sample04061424 \| sort by apache.x_forward \| limit 10 \| eval cur_param=\"tmp_string\" \| fillnull value=\"1234567\" cur_param \|  eval t_cur_param=typeof(cur_param) \| table cur_param, t_cur_param |
-      | eventstats_sample_cnt | tag:sample04061424 \| sort by apache.x_forward \| limit 10  \| eventstats  count() as cnt \| fields cnt \| table cnt |
-      | eventstats_sample_avglen | tag:sample04061424  \| where apache.resp_len > 100 &&  apache.resp_len < 500 \| eventstats  avg(apache.resp_len) as avglen \| table apache.resp_len, avglen |
-      | round_printf_tonumber_sample | tag:sample04061424 \| limit 1 \| eval a=1010.10, b=round(a), c=tonumber(b,2), d=printf(\"%X\",c) \| table a, b, c |
-      | tonumber_hex_trim_sample | tag:sample04061424 \| limit 1 \| eval ret1=tonumber(\"123.45\")  \| eval ret2=tonumber(\"0A4\",16) \| eval ret3=tonumber(trim(\"                234.123     \")) \| table ret1, ret2, ret3 |
-      | appendcols_override_false_sample | tag:sample04061424_display \| stats count() as cnt  \| appendcols override=false maxout=10 [[ tag:sample04061424 \| stats count() as cnt]] |
-      | appendcols_override_true_sample | tag:sample04061424_display \| stats count() as cnt \| appendcols override=true maxout=10 [[ tag:sample04061424 \| stats count() as cnt]] |
-      | appendcols_override_index1 | tag:sample04061424 \| stats count(apache.clientip)  \| appendcols [[ index=*  tag:sample04061424_display \| stats count(apache.clientip) ]] |
-      | appendcols_override_index2 | tag:sample04061424 \| stats count(apache.clientip)  \| appendcols override=true  [[ index=*  tag:sample04061424_display \| stats count(apache.clientip) ]] |
       | eval_printf_1 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"%04d\",1) \| table aa |
       | eval_printf_2 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"%+4d\",1) \| table aa |
       | eval_printf_3 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"%#x\", 1) \| table aa |
       | eval_printf_4 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"100%%\")  \| table aa |
+      | eval_printf_5 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"%o\",255) \| table aa |
+      | eval_printf_6 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"%f.2f\", 123.123) \| table aa |
+      | eval_printf_7 | tag:sample04061424 \| sort by apache.x_forward \| limit 1 \| eval aa=printf(\"%04d\",1) \| table aa |
+      | kvextract_request_query_sample | tag:sample04061424 \| sort by -apache.x_forward \| limit 3 \| kvextract apache.request_query clean_keys=true pairdelim=\"&\" kvdelim=\"=\" \| table gw_address, gw_id, gw_port, mac, url |
+      | kvextract_request_query_table | tag:sample04061424 \| sort by -apache.x_forward \| limit 10 \| kvextract apache.request_query pairdelim=\"&\" kvdelim=\"=\" \| table apache.status, apache.resp_len, gw_address, gw_port |
+      | kvextract_xiaomi_jsonurl | tag:sample04061424_xiaomi_3 \| kvextract json.url pairdelim=\"&\" kvdelim=\"=\" \| table stamp, props |
+      | kvextract_h3c_parse_msg | tag:sample04061424_h3c_kv_1 \| parse field=raw_message \"(?<message>DEV_TYPE[\S+\s+]+)rule_ID(?<message1>[\S+\s+]+)\" \| fields message \| kvextract message pairdelim=\";\" kvdelim=\"=\" \| fields -message \| table * |
+      | kvextract_h3c_parse_msg_clean_keys_true | tag:sample04061424_h3c_kv_1 \| parse field=raw_message \"(?<message>DEV_TYPE[\S+\s+]+)rule_ID(?<message1>[\S+\s+]+)\" \| fields message \| kvextract message clean_keys=true pairdelim=\";\" kvdelim=\"=\" \| fields -message \| table * |
+      | kvextract_h3c_parse_msg_limit3 | tag:sample04061424_h3c_kv_1 \| parse field=raw_message \"(?<message>DEV_TYPE[\S+\s+]+)\" \| fields message \| kvextract message pairdelim=\";\" kvdelim=\"=\" limit=3 \| fields -message \| table * |
+      | kvextract_h3c_parse_msg_maxchars_50 | tag:sample04061424_h3c_kv_1 \| parse field=raw_message \"(?<message>DEV_TYPE[\S+\s+]+)\" \| fields message \| kvextract message maxchars=50 pairdelim=\";\" kvdelim=\"=\" \| fields -message \| table * |
+      | kvextract_h3c_parse_msg_mv_add_true | tag:sample04061424_h3c_kv_1 \| eval message=\"a:[1,1,1]\" \| kvextract message mv_add=true pairdelim=\";\" kvdelim=\":\"  \| table a |
+      | eval_addinfo_sample | tag:sample04061424 \| sort by apache.x_forward \| limit 5 \| addinfo \| table info* |
+      | eval_path_xml_body | tag:x1 \| xpath input=raw_message output=xmlbody path=\"/note/body\" \| table xmlbody |
+      | eval_path_xml_heading_sample | tag:x1 \| xpath input=raw_message output=xmlheading path=\"/note/heading\" \| table xmlheading |
+
+
+  @v33tran1
+  Scenario Outline: SPL_其它
+    Given I set the parameter "SearchInput" with value "<splQuery>"
+    #And I wait for "1000" millsecond
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then take a screenshot with name "<splcasename>"
+
+    Examples:
+      |splcasename| splQuery|
+      | transaction_status_sortfield_sample | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.status keepevicted=true sortfield=apache.x_forward \| limit 2 |
+      | transaction_status_sortfield_forward_desc | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.status keepevicted=true sortfield=-apache.x_forward \| limit 2 |
+      | transaction_status_sortfield_forward_asc | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.status keepevicted=true sortfield=+apache.x_forward \| limit 2 |
+      | transaction_status_sortfield_clientip | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.status keepevicted=true sortfield=apache.clientip \| limit 2 |
+      | transaction_clientip_sortfield_resplen_xforward | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.clientip keepevicted=true sortfield=apache.resp_len,apache.x_forward \| limit 2 |
+      | transaction_clientip_sortfield_resplen | tag:sample04061424 AND (NOT apache.status:499 AND NOT apache.status:206) \| transaction apache.clientip keepevicted=true sortfield=+apache.resp_len \| limit 2 |
+
 
 
 #      | geostats_sample_count | tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt \| limit 15 |
