@@ -52,6 +52,7 @@ Feature: 拖拽生成趋势图_序列
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
+    And I wait for "1500" millsecond
     And I click the "<color>" button
     And I wait for "3000" millsecond
     And I wait for "Chart" will be visible
@@ -103,6 +104,7 @@ Feature: 拖拽生成趋势图_序列
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
+    And I wait for "1500" millsecond
     And I click the "<color>" button
     And I wait for "1500" millsecond
     And I click the "ElementInCompare" button
@@ -156,6 +158,7 @@ Feature: 拖拽生成趋势图_序列
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
+    And I wait for "1500" millsecond
     And I click the "<color>" button
     And I click the "RightPosition" button
     And I wait for "3000" millsecond
@@ -205,6 +208,7 @@ Feature: 拖拽生成趋势图_序列
     And I wait for "AddColor" will be visible
     And I click the "AddColor" button
     And I wait for "<color>" will be visible
+    And I wait for "1500" millsecond
     And I click the "<color>" button
     And I wait for "3000" millsecond
     And I wait for "Chart" will be visible
