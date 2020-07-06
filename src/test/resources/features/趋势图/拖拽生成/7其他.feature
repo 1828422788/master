@@ -215,3 +215,60 @@ Feature: 拖拽生成趋势图_其他
     Examples:
       |  chartType |  color    |  button        |
       |  Radar     |  DarkBlue | RightPosition  |
+
+  Scenario Outline: drag_and_drop_order_table
+    And I drag the element "Clientip" to the "Values"
+    And I click the "<chartType>" button
+    And I wait for "3000" millsecond
+    And I wait for "OtherChart" will be visible
+
+    And I click the "CheckSPL" button
+    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip)"
+    When I click the "CloseSPL" button
+    And I wait for "2000" millsecond
+    Then take part of "OtherChart" with name "actual/<chartType>_2"
+    And I click the "NextButton" button
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_2"
+    And I set the parameter "DescribeInput" with value "Table"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType |
+      |  Table     |
+
+  Scenario Outline: drag_and_drop_order_table_compare
+    And I drag the element "Clientip" to the "Values"
+    And I click the "<chartType>" button
+    And I wait for "3000" millsecond
+    And I wait for "OtherChart" will be visible
+    And I wait for "1000" millsecond
+    And I click the "CompareButton" button
+    And I wait for "1000" millsecond
+    And I wait for "ElementInValues" will be visible
+    When I click the "ElementInValues" button
+    And I wait for "CompareField" will be visible
+    And I click the "CompareField" button
+    And I click the "LastWeek" button
+    And I click the "Clientip" button
+    And I wait for "2000" millsecond
+    And I wait for "OtherChart" will be visible
+
+    And I click the "CheckSPL" button
+    And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.clientip) | eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.clientip) | eval _compare="同比一周" ]]"
+    When I click the "CloseSPL" button
+    And I wait for "2000" millsecond
+    Then take part of "OtherChart" with name "actual/<chartType>_对比_2"
+    And I click the "NextButton" button
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_对比_2"
+    And I set the parameter "DescribeInput" with value "Table"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType |
+      |  Table     |

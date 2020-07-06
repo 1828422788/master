@@ -20,6 +20,8 @@ Feature: 展示趋势图
 
     Examples:
       | name                     |
+      | 拖拽_Table_对比_2        |
+      | 拖拽_Table_2             |
       | 拖拽_Radar_对比          |
       | 拖拽_Radar               |
       | 拖拽_Funnel              |
@@ -31,6 +33,9 @@ Feature: 展示趋势图
       | 拖拽_Bar                 |
       | 拖拽_Rose                |
       | 拖拽_Pie                 |
+      | 拖拽_Table_对比_1        |
+      | 拖拽_Table_1             |
+      | 拖拽_Area_无数值         |
       | 拖拽_Column_对比         |
       | 拖拽_Area_对比           |
       | 拖拽_Line_对比           |

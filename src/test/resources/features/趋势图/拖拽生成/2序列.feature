@@ -20,11 +20,11 @@ Feature: 拖拽生成趋势图_序列
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
-    And I drag the element "Clientip" to the "Dimensions"
-    And I drag the element "Clientip" to the "Values"
 
 
   Scenario Outline: drag_and_drop_order_line
+    And I drag the element "Clientip" to the "Dimensions"
+    And I drag the element "Clientip" to the "Values"
     And I click the "<chartType>" button
     And I wait for "1500" millsecond
     Then I wait for "Chart" will be visible
@@ -74,6 +74,8 @@ Feature: 拖拽生成趋势图_序列
       |  Line      |  AscendingOrder  | ConnectEmptyData |  个  |  1  | 28  | Orange |
 
   Scenario Outline: drag_and_drop_order_pile
+    And I drag the element "Clientip" to the "Dimensions"
+    And I drag the element "Clientip" to the "Values"
     And I click the "<chartType>" button
     And I wait for "1500" millsecond
     Then I wait for "Chart" will be visible
@@ -127,6 +129,8 @@ Feature: 拖拽生成趋势图_序列
       |  Column    |  FirstLabel      |                  | r.   | 1   |     | Orange |
 
   Scenario Outline: drag_and_drop_order_scatter
+    And I drag the element "Clientip" to the "Dimensions"
+    And I drag the element "Clientip" to the "Values"
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     And I drag the element "Method" to the "CompareBy"
@@ -175,6 +179,8 @@ Feature: 拖拽生成趋势图_序列
       |  Scatter   |  FirstLabel      |  个  | 0.5 |  10 | Yellow |
 
   Scenario Outline: drag_and_drop_compare
+    And I drag the element "Clientip" to the "Dimensions"
+    And I drag the element "Clientip" to the "Values"
     And I click the "<chartType>" button
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
@@ -223,5 +229,94 @@ Feature: 拖拽生成趋势图_序列
       |  Column    | LastMonth     |                  | r.   | 1   |     | Green  | starttime="now/d" endtime="now" tag:sample04061424_chart\|stats count(apache.clientip) by apache.clientip \| eval _compare="当前" \| append [[ starttime="now/d-1M" endtime="now-1M" tag:sample04061424_chart\|stats count(apache.clientip) by apache.clientip \| eval _compare="同比一月" ]]        |
       # There is no Compare button for Scatter chart
 
+  Scenario Outline: drag_and_drop_order_area_no_val
+    And I drag the element "Clientip" to the "Dimensions"
+    And I click the "<chartType>" button
+    And I wait for "1500" millsecond
+    Then I wait for "Chart" will be visible
+    And I wait for "1500" millsecond
+    And I drag the element "Method" to the "CompareBy"
+    And I wait for "2000" millsecond
+    Then I wait for "Chart" will be visible
+    When I click the "ElementInDimensions" button
+    And I click the "<button_dim>" button
+    And I click the "<label>" button
+    And I hide the element "Panel"
+    And I wait for "3000" millsecond
+    And I wait for "Chart" will be visible
+    And I click the "<position>" button
 
+    And I click the "CheckSPL" button
+    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count() by apache.clientip,apache.method"
+    When I click the "CloseSPL" button
+    And I wait for "2000" millsecond
+    Then take part of "Chart" with name "actual/<chartType>"
+    And I click the "NextButton" button
 
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_无数值"
+    And I set the parameter "DescribeInput" with value "<button_dim>_<label>_<position>"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType | button_dim         |  label         | position        |
+      |  Area      | DescendingOrder    |  FirstLabel    | RightPosition   |
+
+  Scenario Outline: drag_and_drop_order_table
+    And I drag the element "Clientip" to the "Dimensions"
+    And I click the "<chartType>" button
+    And I wait for "3000" millsecond
+    And I wait for "OtherChart" will be visible
+
+    And I click the "CheckSPL" button
+    And I will see the element "SPL" contains "tag:sample04061424_chart|stats count() by apache.clientip"
+    When I click the "CloseSPL" button
+    And I wait for "2000" millsecond
+    Then take part of "OtherChart" with name "actual/<chartType>_1"
+    And I click the "NextButton" button
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_1"
+    And I set the parameter "DescribeInput" with value "Table"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType |
+      |  Table     |
+
+  Scenario Outline: drag_and_drop_order_table_compare
+    And I drag the element "Method" to the "Dimensions"
+    And I drag the element "Method" to the "Values"
+    And I click the "<chartType>" button
+    And I wait for "3000" millsecond
+    And I wait for "OtherChart" will be visible
+    And I wait for "1000" millsecond
+    And I click the "CompareButton" button
+    And I wait for "1000" millsecond
+    And I wait for "ElementInValues" will be visible
+    When I click the "ElementInValues" button
+    And I wait for "CompareField" will be visible
+    And I click the "CompareField" button
+    And I click the "LastWeek" button
+    And I click the "Clientip" button
+    And I wait for "2000" millsecond
+    And I wait for "OtherChart" will be visible
+
+    And I click the "CheckSPL" button
+    And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.method) by apache.method | eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.method) by apache.method | eval _compare="同比一周" ]]"
+    When I click the "CloseSPL" button
+    And I wait for "2000" millsecond
+    Then take part of "OtherChart" with name "actual/<chartType>_对比_1"
+    And I click the "NextButton" button
+
+    When I will see the "trend.CreatePage" page
+    And I set the parameter "NameInput" with value "拖拽_<chartType>_对比_1"
+    And I set the parameter "DescribeInput" with value "Table"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType |
+      |  Table     |
