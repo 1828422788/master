@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropMap
+@dragAndDrop @dragAndDropMap @dragAndDropCreate
 Feature: 拖拽生成趋势图_地图
 
   Background:
@@ -32,6 +32,7 @@ Feature: 拖拽生成趋势图_地图
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/<chartType>"
+    And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page

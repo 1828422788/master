@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropOther
+@dragAndDrop @dragAndDropOther @dragAndDropCreate
 Feature: 拖拽生成趋势图_其他
 
   Background:
@@ -41,6 +41,7 @@ Feature: 拖拽生成趋势图_其他
     Then I wait for "OtherChart" will be visible
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/<chartType>_<button>"
+    And I compare source image "actual/<chartType>_<button>" with target image "expect/<chartType>_<button>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -68,6 +69,7 @@ Feature: 拖拽生成趋势图_其他
     Then I wait for "OtherChart" will be visible
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/<chartType>_trend"
+    And I compare source image "actual/<chartType>_trend" with target image "expect/<chartType>_trend"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -104,6 +106,7 @@ Feature: 拖拽生成趋势图_其他
     Then I wait for "OtherChart" will be visible
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/<chartType>_area"
+    And I compare source image "actual/<chartType>_area" with target image "expect/<chartType>_area"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -135,6 +138,7 @@ Feature: 拖拽生成趋势图_其他
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/<chartType>"
+    And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -167,6 +171,7 @@ Feature: 拖拽生成趋势图_其他
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/<chartType>"
+    And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -207,6 +212,7 @@ Feature: 拖拽生成趋势图_其他
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/<chartType>_对比"
+    And I compare source image "actual/<chartType>_对比" with target image "expect/<chartType>_对比"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -230,6 +236,7 @@ Feature: 拖拽生成趋势图_其他
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/<chartType>_2"
+    And I compare source image "actual/<chartType>_2" with target image "expect/<chartType>_2"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -264,6 +271,7 @@ Feature: 拖拽生成趋势图_其他
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/<chartType>_对比_2"
+    And I compare source image "actual/<chartType>_对比_2" with target image "expect/<chartType>_对比_2"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
