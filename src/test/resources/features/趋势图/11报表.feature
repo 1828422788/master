@@ -35,7 +35,6 @@ Feature: 趋势图新建_报表
     And I wait for "3000" millsecond
     When I set the parameter "Name" with value "<report_name>"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "auto_package" from the "Tag"
     And I choose the "test_app" from the "App"
     And I choose the "PDF" from the "ReportType"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"

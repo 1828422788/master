@@ -60,7 +60,6 @@ Feature: 报表新建_选择
     When I set the parameter "Name" with value "<caseNum>"
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "00"
-    And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
     And I wait for "2000" millsecond
@@ -95,7 +94,6 @@ Feature: 报表新建_选择
     When I set the parameter "Name" with value "test_modify_cancel"
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "00"
-    And I choose the "AutoTest" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
     And I wait for "2000" millsecond

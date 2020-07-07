@@ -27,7 +27,6 @@ Feature: 报表新建_执行计划
   Scenario Outline: new_report_success_day
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "auto_package" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I choose the "<period>" from the "Period"
     And I set the parameter "Hour" with value "<hour>"
@@ -51,7 +50,6 @@ Feature: 报表新建_执行计划
   Scenario Outline: new_report_success_period
     When I set the parameter "Name" with value "test_report_<period>"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "auto_package" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I choose the "<period>" from the "Period"
     And I choose the "<day>" from the "Day"
@@ -91,7 +89,6 @@ Feature: 报表新建_执行计划
   Scenario: new_report_success_crontab
     When I set the parameter "Name" with value "test_report_crontab"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "auto_package" from the "Tag"
     And I choose the "PDF" from the "ReportType"
     And I set the parameter "Crontab" with value "0 0/15 9 ? * MON-FRI"
     And I click the "NextButton" button
@@ -109,7 +106,6 @@ Feature: 报表新建_执行计划
   Scenario: new_report_fields
     When I set the parameter "Name" with value "test_report"
     And I set the parameter "Describe" with value "AutoCreate"
-    And I choose the "auto_package" from the "Tag"
     And I choose the "test_app" from the "App"
     And I choose the "PDF" from the "ReportType"
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"

@@ -87,7 +87,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='crontab']")
     private WebElement crontabButton;
 
-    @FindBy(xpath = "//span[text()='crontab']/ancestor::span/following-sibling::div/input")
+    @FindBy(xpath = "//span[text()='crontab']/ancestor::span/following-sibling::div//input")
     private WebElement crontab;
 
     // 下一步

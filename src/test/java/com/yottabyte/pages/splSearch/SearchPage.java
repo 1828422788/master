@@ -39,7 +39,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']/div[1]")
     private WebElement result;
 
-    @FindBy(xpath = "(//label[text()='资源标签'])[last()]/following-sibling::div")
+    @FindBy(xpath = "((//label[text()='资源标签']/ancestor::div[1])//div)[1]")
     private WebElement groupComboBox;
 
     @FindBy(xpath = "(//label[text()='所属应用'])[last()]/following-sibling::div")
@@ -282,7 +282,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='运行用户']/following-sibling::div//div[@class='ant-select-selection-selected-value']")
     private WebElement selectedUser;
 
-    @FindBy(xpath = "//input[@class='_11DWHviyrYqinGKO4nRa5o']")
+    @FindBy(xpath = "(//div[@class='_1dTlfekkLz0KXhi5auNtu8']//input)[1]")
     private WebElement period;
 
     @FindBy(className = "el-input__inner")
@@ -541,7 +541,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='从搜索删除']")
     private WebElement removeFromSearch;
 
-    @FindBy(xpath = "//span[text()='执行一次']/preceding-sibling::div")
+    @FindBy(xpath = "(//div[@class='_1dTlfekkLz0KXhi5auNtu8']//input)[1]/following-sibling::div")
     private WebElement executeTime;
 
     @FindBy(xpath = "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[last()]")
@@ -550,7 +550,7 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='crontab']")
     private WebElement crontab;
 
-    @FindBy(className = "_11DWHviyrYqinGKO4nRa5o")
+    @FindBy(xpath = "//div[@class='_2ykhgJUyltzlxzTbumVZDP']//input")
     private WebElement crontabInput;
 
     @FindBy(xpath = "//span[text()='test.date']/ancestor::td/following-sibling::td")
@@ -604,6 +604,8 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all']) | (//div[@class='_1KryJcLeSypo0Qh_wW6fOw']//span[text()='all_']) ")
     private WebElement resourceAll;
 
+    @FindBy(xpath = "(//label[text()='资源标签']/ancestor::div[1])//input")
+    private WebElement tagInput;
 
 
     public WebElement getResourceAll() {
@@ -613,6 +615,11 @@ public class SearchPage extends ListPageFactory {
     public WebElement getGroupComboBox() {
         groupComboBox.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getTagInput() {
+        groupComboBox.click();
+        return tagInput;
     }
 
     public WebElement getAppComboBox() {

@@ -13,8 +13,9 @@ Feature: 定时任务复制
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
     And I wait for element "SelectedUser" change text to username
+    And I set the parameter "TagInput" with value "auto_package"
     And I set the parameter "Describe" with value "testing"
-    And I choose the "auto_package" from the "GroupComboBox"
+#    And I choose the "auto_package" from the "GroupComboBox"
     And I choose the "test_app" from the "AppComboBox"
 
     And I set the parameter "Period" with value "<periodNum>"
