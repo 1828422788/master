@@ -74,14 +74,14 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for loading invisible
-    And I will see the element "CompressStatus" name is "关闭"
+    And I will see the element "CompressStatus" name is "开启"
 
   Scenario: 输出配置开启输出压缩
     And I click the "OutputEdit" button
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for loading invisible
-    And I will see the element "CompressStatus" name is "开启"
+    And I will see the element "CompressStatus" name is "关闭"
 
   Scenario Outline: 输出配置修改发送速率限制
     And I click the "OutputEdit" button
