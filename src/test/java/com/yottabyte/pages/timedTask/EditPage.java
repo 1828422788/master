@@ -51,7 +51,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='结果处理方式']")
     private WebElement resultHandling;
 
-    @FindBy(xpath = "//label[text()='添加jdbc']")
+    @FindBy(xpath = "//label[text()='添加JDBC']")
     private WebElement addJDBC;
 
     @FindBy(xpath = "(//div[text()='JDBC'])[last()]")
