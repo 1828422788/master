@@ -247,9 +247,9 @@ Feature: 拖拽生成趋势图_其他
     And I click the "<chartType>" button
     And I wait for "3000" millsecond
     And I wait for "OtherChart" will be visible
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I click the "CompareButton" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "CompareField" will be visible

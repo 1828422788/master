@@ -26,18 +26,18 @@ Feature: 拖拽生成趋势图_序列
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Clientip" to the "Values"
     And I click the "<chartType>" button
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     And I drag the element "Method" to the "CompareBy"
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
-    And I wait for "500" millsecond
+    And I wait for "2000 millsecond
     When I click the "ElementInDimensions" button
     And I click the "<button_dim>" button
     And I hide the element "Panel"
     And I wait for "Chart" will be visible
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "Min" will be visible
@@ -78,18 +78,18 @@ Feature: 拖拽生成趋势图_序列
     And I drag the element "Clientip" to the "Dimensions"
     And I drag the element "Clientip" to the "Values"
     And I click the "<chartType>" button
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     And I drag the element "Method" to the "CompareBy"
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     When I click the "ElementInDimensions" button
     And I click the "<button_dim>" button
     And I hide the element "Panel"
     And I wait for "Chart" will be visible
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "Min" will be visible
@@ -144,7 +144,7 @@ Feature: 拖拽生成趋势图_序列
     And I click the "<button_dim>" button
     And I hide the element "Panel"
     And I wait for "Chart" will be visible
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "Min" will be visible
@@ -236,9 +236,9 @@ Feature: 拖拽生成趋势图_序列
   Scenario Outline: drag_and_drop_order_area_no_val
     And I drag the element "Clientip" to the "Dimensions"
     And I click the "<chartType>" button
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     And I drag the element "Method" to the "CompareBy"
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
@@ -296,9 +296,9 @@ Feature: 拖拽生成趋势图_序列
     And I click the "<chartType>" button
     And I wait for "3000" millsecond
     And I wait for "OtherChart" will be visible
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I click the "CompareButton" button
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "CompareField" will be visible
