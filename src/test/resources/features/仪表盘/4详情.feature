@@ -99,6 +99,7 @@ Feature: 仪表盘详情页
     And I set the parameter "SearchChartInput" with value "验证仪表盘全局时间"
     And I click the "{'Checkbox':'验证仪表盘全局时间'}" button
     And I click the "Ensure" button
+    And I wait for "1000" millsecond
 
   Scenario: 验证全局时间生效
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
