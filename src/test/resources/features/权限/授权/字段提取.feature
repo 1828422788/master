@@ -108,22 +108,20 @@ Feature: 权限-字段提取
     When I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用字段提取,可查看角色页,可使用应用功能"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权" button
     Then I will see the checkbox in list before "{'column':'1','name':'<name>'}" is "disabled"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
-    And I click the "NextButton" button
+    And I click the "AddRule" button
+    And I choose the "JSON解析" from the "ParseRule" in config
+    Then I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I click the "EnsureAddParseRule" button
+    And I click the "NextButton" button under some element
     Then I will see the message "没有编辑权限"
     Given open the "configs.ListPage" page for uri "/configs/"
     And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
@@ -153,14 +151,7 @@ Feature: 权限-字段提取
     And I "checked" the checkbox which name is "可使用字段提取,新建字段提取,可查看角色页,可使用应用功能"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'AutoTestUserCreate'}" then i will see "编辑标签复制授权" button
@@ -169,7 +160,12 @@ Feature: 权限-字段提取
     Then I will see the success message "复制成功"
     When the data name is "{'column':'1','name':'AutoTestUserCreate'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
+    And I click the "AddRule" button
+    And I choose the "JSON解析" from the "ParseRule" in config
+    Then I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "AutoTestUserRename"
     And I click the "Done" button
@@ -202,14 +198,7 @@ Feature: 权限-字段提取
     When I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用字段提取,新建字段提取,可查看角色页,可使用应用功能"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权" button
@@ -219,7 +208,12 @@ Feature: 权限-字段提取
     Then I will see the success message "复制成功"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
+    And I click the "AddRule" button
+    And I choose the "JSON解析" from the "ParseRule" in config
+    Then I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "副本"
     And I click the "Done" button
@@ -263,14 +257,7 @@ Feature: 权限-字段提取
     When I "unchecked" the checkbox which name is "全选"
     And I "checked" the checkbox which name is "可使用字段提取,可查看角色页,可使用应用功能"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看删除授权" button
@@ -281,8 +268,13 @@ Feature: 权限-字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
-    And I click the "NextButton" button
+    And I click the "AddRule" button
+    And I choose the "JSON解析" from the "ParseRule" in config
+    Then I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I click the "EnsureAddParseRule" button
+    And I click the "NextButton" button under some element
     Then I will see the message "没有编辑权限"
 
     Examples:
@@ -290,15 +282,8 @@ Feature: 权限-字段提取
       | AutoTestUserCreate(副本)(副本) |
 
   @logout
-  Scenario: 授权读取+删除
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+  Scenario: 读取+删除
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'AutoTestUserCreate(副本)(副本)'}" then i click the "删除" button
@@ -336,14 +321,7 @@ Feature: 权限-字段提取
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
@@ -354,12 +332,7 @@ Feature: 权限-字段提取
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the error message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制授权" button
@@ -398,14 +371,7 @@ Feature: 权限-字段提取
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制授权" button
@@ -423,20 +389,18 @@ Feature: 权限-字段提取
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the error message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制授权" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "192.168.1.200,xmxm,rzy,13800000000"
+    And I click the "AddRule" button
+    And I choose the "JSON解析" from the "ParseRule" in config
+    Then I wait for "1000" millsecond
+    And I choose the "raw_message" from the "SourceField" in config
+    Then I wait for "1000" millsecond
+    And I click the "EnsureAddParseRule" button
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "Auto副本"
     And I click the "Done" button

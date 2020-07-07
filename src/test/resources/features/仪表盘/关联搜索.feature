@@ -53,6 +53,7 @@ Feature: 仪表盘关联搜索
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "关联搜索"
@@ -90,6 +91,7 @@ Feature: 仪表盘关联搜索
   @dashboard @dashboardSmoke
   Scenario: 在仪表盘中添加趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -105,6 +107,7 @@ Feature: 仪表盘关联搜索
   @dashboard @dashboardSmoke
   Scenario: 开启钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
@@ -115,6 +118,7 @@ Feature: 仪表盘关联搜索
   @dashboard @dashboardSmoke
   Scenario Outline: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -145,6 +149,7 @@ Feature: 仪表盘关联搜索
   @dashboard @dashboardSmoke
   Scenario Outline: 添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -172,6 +177,7 @@ Feature: 仪表盘关联搜索
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I set value with element "TableList"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
@@ -191,6 +197,7 @@ Feature: 仪表盘关联搜索
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I set value with element "TableList"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond

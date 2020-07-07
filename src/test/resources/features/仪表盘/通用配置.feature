@@ -15,6 +15,7 @@ Feature: 仪表盘通用配置
   @dashboard @dashboardSmoke
   Scenario: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "chart"
@@ -24,6 +25,7 @@ Feature: 仪表盘通用配置
   @dashboard @dashboardSmoke
   Scenario: 添加事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -38,6 +40,7 @@ Feature: 仪表盘通用配置
   @dashboard @dashboardSmoke
   Scenario: 修改图表标题
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "测试高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -51,6 +54,7 @@ Feature: 仪表盘通用配置
   @dashboard @dashboardSmoke
   Scenario: 修改spl
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "测试通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -70,6 +74,7 @@ Feature: 仪表盘通用配置
   @dashboard @dashboardSmoke
   Scenario: 修改图表描述
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "测试通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard

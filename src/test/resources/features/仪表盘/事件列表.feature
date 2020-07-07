@@ -11,6 +11,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "事件操作"
@@ -24,6 +25,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 添加事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -49,6 +51,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 验证事件操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -74,6 +77,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 验证事件操作显示于两者
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "HoverElement" will be visible
@@ -87,6 +91,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 验证事件操作显示于两者
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -113,6 +118,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 验证事件操作显示于字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -125,6 +131,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 验证事件操作显示于字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -152,6 +159,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario Outline: 验证事件操作动作类型为搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -172,6 +180,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 实时查看
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -187,6 +196,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 配置字段提取
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -211,6 +221,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 添加到知识库
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible

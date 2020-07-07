@@ -34,6 +34,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "chart"
@@ -48,6 +49,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -63,6 +65,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario: 开启钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
@@ -72,6 +75,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario: 在当前页面跳转到搜索页-自动
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -88,6 +92,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario: 在新标签页跳转到搜索页-自动
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -104,6 +109,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario: 在当前页面跳转到搜索页-自定义
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -126,6 +132,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario: 在新标签页跳转到搜索页-自定义
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -148,6 +155,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario Outline: 在当前页面跳转到自定义URL
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -168,6 +176,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario Outline: 在新标签跳转到自定义URL
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -208,6 +217,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario: 仪表盘添加钻取趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -222,6 +232,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario Outline: 仪表盘添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -238,6 +249,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "钻取跳转"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "测试标签钻取" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -250,6 +262,7 @@ Feature: 仪表盘钻取配置
   @dashboard @dashboardSmoke
   Scenario: 跳转到标签页(后三步待验证)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible

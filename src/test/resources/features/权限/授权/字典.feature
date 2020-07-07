@@ -1,4 +1,4 @@
-#@authtest
+@authtest
 Feature: 权限-字典
 
   @logout
@@ -27,13 +27,8 @@ Feature: 权限-字典
 
   @logout
   Scenario: 验证告警插件有效期限生效
-    When I wait for "2000" millsecond
     And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.PluginPage" page for uri "/plugins/"
     Then I will see the search result "{'column':'0','name':'sendsms','contains':'no'}"
