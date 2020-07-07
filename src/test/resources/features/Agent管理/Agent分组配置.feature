@@ -1,4 +1,4 @@
-@agent @agent_group2
+@agent3 @agent_group2
 
 Feature: Agent分组采集
   Background:

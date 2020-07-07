@@ -11,7 +11,7 @@ Feature: Agent管理ip操作
     And I wait for loading invisible
     And I click the "MemoButton" button
     And I set the parameter "Memo" with value "<memory>"
-    And I click the "Ensure" button
+    And I click the "MemoEnsure" button
     And  I wait for loading invisible
     Then I will see the search result contains "{'column':'3','name':'<memory>'}"
 

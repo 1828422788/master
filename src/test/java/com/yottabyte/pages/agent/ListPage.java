@@ -134,6 +134,13 @@ public class ListPage extends ListPageFactory {
         return webDriver.findElement(By.xpath(xpath));
     }
 
+    @FindBy(xpath = "//div[@class='Yt5JX-42Xe_Kz4p92ocJI']//span[text()='确定']//ancestor::button")
+    private WebElement MemoEnsure;
+
+    public WebElement getMemoEnsure() {
+        return MemoEnsure;
+    }
+
     @FindBy(xpath = "//p/span[text()='sunxctest']")
     private WebElement OpenGroupButton;
 
