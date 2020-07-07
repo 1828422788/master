@@ -15,6 +15,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "过滤项"
@@ -51,6 +52,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario Outline: RZY-1668添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -68,6 +70,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -81,6 +84,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I set value with element "TableList"
@@ -95,6 +99,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 删除图表单引号包裹
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "DeleteChart" button
@@ -103,6 +108,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 删除单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
@@ -111,6 +117,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario Outline: RZY-1669添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -128,6 +135,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: RZY-1669:添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -142,6 +150,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I set value with element "TableList"
@@ -156,6 +165,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 删除双引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
@@ -164,6 +174,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 增加标识前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -179,6 +190,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证标识前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -199,6 +211,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 修改标识值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterInput" will be visible
@@ -210,6 +223,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 修改为自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible
@@ -226,6 +240,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 删除文本输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
@@ -235,6 +250,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 修改图表搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -247,6 +263,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 添加下拉菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -268,6 +285,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证下拉菜单默认输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -283,6 +301,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证下拉菜单搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -307,6 +326,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 修改下拉菜单为自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible
@@ -318,6 +338,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证下拉菜单为自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -339,6 +360,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 修改为多选并填入分割符
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible
@@ -351,6 +373,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证多选生效
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I choose the "北京市,济南市,南京市" from the "FilterDropdown"
@@ -368,6 +391,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 增加前后缀值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible
@@ -380,6 +404,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证前后缀生效
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -402,6 +427,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 修改通用配置搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
@@ -416,6 +442,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 增加标识值前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -441,6 +468,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证标识符前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -459,6 +487,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 删除下拉菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
@@ -473,6 +502,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 添加动态菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -495,6 +525,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证动态菜单默认值结果
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -510,6 +541,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 切换动态菜单值并验证结果
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -533,6 +565,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 增加动态菜单标识符前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible
@@ -559,6 +592,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 增加动态菜单多选及标识值前后缀
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
@@ -586,6 +620,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证多选
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -609,6 +644,7 @@ Feature: 仪表盘输入项
   @dashboard @dashboardSmoke
   Scenario: 验证修改值自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
     Then I wait for "FilterName" will be visible

@@ -15,6 +15,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "过滤项"
@@ -27,6 +28,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 添加事件操作
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -41,6 +43,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario Outline: 添加下拉菜单类型的过滤项（RZY-1869）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -67,6 +70,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario Outline: 验证下拉过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I choose the "<city>" from the "FilterDropdown"
@@ -85,6 +89,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 修改为过滤项发生变化自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for loading invisible
@@ -96,6 +101,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario Outline: 验证过滤项发生变化自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I choose the "<city>" from the "FilterDropdown"
@@ -113,6 +119,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 删除下拉过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
@@ -121,6 +128,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 添加动态菜单
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -143,6 +151,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 验证动态菜单绑定图表生效
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -154,6 +163,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario Outline: 切换动态值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I choose the "<city>" from the "FilterDropdown"
@@ -171,6 +181,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 设置动态菜单自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for loading invisible
@@ -182,6 +193,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario Outline: 验证动态菜单自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I choose the "<city>" from the "FilterDropdown"
@@ -198,6 +210,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 删除动态菜单过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
@@ -206,6 +219,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 添加文本过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -221,6 +235,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 验证文本过滤绑定成功
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -232,6 +247,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario Outline: 验证修改文本值搜索内容是否正确
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for loading invisible
@@ -251,6 +267,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 修改文本过滤为自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I wait for loading invisible
@@ -262,6 +279,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario Outline: 验证文本过滤自动搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I set the parameter "FilterInput" with value "<city>"
@@ -279,6 +297,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 添加eval过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
@@ -317,6 +336,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 删除趋势图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "测试过滤项" then I click the button which classname is "anticon css-ifnfqv" in dashboard
@@ -325,6 +345,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -338,6 +359,7 @@ Feature: 仪表盘过滤项
   @dashboard @dashboardSmoke
   Scenario: 验证eval(undone)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "测试仪表盘eval" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard

@@ -3,6 +3,7 @@ Feature: 仪表盘详情页
 
   Scenario: 新建第一个tag
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "first"
@@ -10,6 +11,7 @@ Feature: 仪表盘详情页
 
   Scenario: 关闭编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
@@ -19,6 +21,7 @@ Feature: 仪表盘详情页
 
   Scenario: 验证关闭编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "SettingIcon" will be visible
@@ -27,6 +30,7 @@ Feature: 仪表盘详情页
 
   Scenario: 验证关闭编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "AddEventButton" button
@@ -35,6 +39,7 @@ Feature: 仪表盘详情页
 
   Scenario: 新建标签页，验证搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "TagIcon" button
@@ -44,6 +49,7 @@ Feature: 仪表盘详情页
 
   Scenario: 验证标签搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "TagIcon" button
@@ -53,6 +59,7 @@ Feature: 仪表盘详情页
 
   Scenario: 仪表盘搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "DashboardIcon" button
@@ -84,6 +91,7 @@ Feature: 仪表盘详情页
 
   Scenario: 添加趋势图至仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -94,6 +102,7 @@ Feature: 仪表盘详情页
 
   Scenario: 验证全局时间生效
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
@@ -106,6 +115,7 @@ Feature: 仪表盘详情页
 
   Scenario: 存为报表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button

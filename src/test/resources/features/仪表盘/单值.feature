@@ -35,6 +35,7 @@ Feature: 仪表盘单值
 
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
@@ -47,6 +48,7 @@ Feature: 仪表盘单值
 
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -57,6 +59,7 @@ Feature: 仪表盘单值
 
   Scenario: 修改为单值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I click the "ChartType" button
@@ -81,6 +84,7 @@ Feature: 仪表盘单值
 
   Scenario Outline: 验证单值图的fontSize
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -99,6 +103,7 @@ Feature: 仪表盘单值
 
   Scenario Outline: 验证单值图的color
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -114,6 +119,7 @@ Feature: 仪表盘单值
 
   Scenario Outline: 验证单值图的展示字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -128,6 +134,7 @@ Feature: 仪表盘单值
 
   Scenario Outline: 单值图按趋势展示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -142,6 +149,7 @@ Feature: 仪表盘单值
 
   Scenario Outline: 单值图按区间展示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -158,6 +166,7 @@ Feature: 仪表盘单值
     ###########
   Scenario: 添加图表并验证单值结果是否正确
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "SingleChartFieldA" will be visible
@@ -177,6 +186,7 @@ Feature: 仪表盘单值
 
   Scenario: 单值背景色
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Setting" will be visible
@@ -195,6 +205,7 @@ Feature: 仪表盘单值
 
   Scenario: 单值字体色
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -208,6 +219,7 @@ Feature: 仪表盘单值
 
   Scenario: 恢复至初始
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible

@@ -33,6 +33,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "chart"
@@ -42,6 +43,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -57,6 +59,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 修改query字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -73,6 +76,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 修改开始时间
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -89,6 +93,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario Outline: 校验开始时间和结束时间
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -105,6 +110,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario Outline: 校验row和column
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -125,6 +131,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 验证title字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -138,6 +145,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 验证备注字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -153,6 +161,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 验证清空JSON
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -166,6 +175,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 验证重置JSON
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -181,6 +191,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 开启钻取配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
@@ -190,6 +201,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-type
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -208,6 +220,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-blank
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -225,6 +238,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 高级搜索钻取-query及timeRange
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -242,6 +256,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario Outline: 高级搜索钻取修改校验
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -258,6 +273,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 新建输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -270,6 +286,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 修改仪表盘配置
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -282,6 +299,7 @@ Feature: 仪表盘高级编辑
   @dashboard @dashboardSmoke
   Scenario: 验证输入值支持eval
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible

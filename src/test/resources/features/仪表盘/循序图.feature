@@ -37,6 +37,7 @@ Feature: 仪表盘循序图
   @dashboard
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "<name>"
@@ -50,6 +51,7 @@ Feature: 仪表盘循序图
   @dashboard
   Scenario Outline: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -68,6 +70,7 @@ Feature: 仪表盘循序图
   @dashboard
   Scenario Outline: 修改为循序图
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
@@ -103,6 +106,7 @@ Feature: 仪表盘循序图
   @dashboard
   Scenario Outline: 验证配置是否在高级编辑中体现
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -116,6 +120,7 @@ Feature: 仪表盘循序图
   @dashboard
   Scenario Outline: RZY-1365:两个字段为同一个值
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard

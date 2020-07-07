@@ -11,6 +11,7 @@ Feature: 仪表盘输入项联动
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "输入项联动"
@@ -23,6 +24,7 @@ Feature: 仪表盘输入项联动
   @dashboard @dashboardSmoke
   Scenario Outline: 添加下拉菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -47,6 +49,7 @@ Feature: 仪表盘输入项联动
   @dashboard @dashboardSmoke
   Scenario: 添加动态菜单输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -66,6 +69,7 @@ Feature: 仪表盘输入项联动
   @dashboard @dashboardSmoke
   Scenario: 添加事件列表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "AddEventButton" will be visible
@@ -80,6 +84,7 @@ Feature: 仪表盘输入项联动
   @dashboard @dashboardSmoke
   Scenario: 验证
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     And I choose the "192.168.1.171" from the "LastFilter"
@@ -96,6 +101,7 @@ Feature: 仪表盘输入项联动
   @dashboard @dashboardSmoke
   Scenario: 添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
@@ -108,6 +114,7 @@ Feature: 仪表盘输入项联动
   @dashboard @dashboardSmoke
   Scenario: 修改搜索语句
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -119,6 +126,7 @@ Feature: 仪表盘输入项联动
   @dashboard @dashboardSmoke
   Scenario: 验证支持token filter
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
     And I set the parameter "FilterInput" with value "a+b"

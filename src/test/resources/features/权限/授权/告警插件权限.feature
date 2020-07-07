@@ -1,4 +1,4 @@
-#@authtest
+@authtest
 Feature: 授权告警插件
 
   Scenario: 上传告警插件
@@ -6,7 +6,6 @@ Feature: 授权告警插件
     And I wait for loading invisible
     And I click the "Upload" button
     And I upload a file with name "/src/test/resources/testdata/alertPlugins/sendSms.py"
-#    And I wait for "VerifyText" will be visible
     And I click the "EnsureButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
