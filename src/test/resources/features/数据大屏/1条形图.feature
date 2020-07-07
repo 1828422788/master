@@ -17,6 +17,7 @@ Feature: 数据大屏-f条形图
     And I wait for "BarHorizontal" will be visible
     And I click the "BarHorizontal" button
     #样式
+    And I wait for "Style" will be visible
     And I click the "Style" button
     #标签
     And I wait for "Tag" will be visible
@@ -95,6 +96,7 @@ Feature: 数据大屏-f条形图
     And I click the "Chart" button
     And I wait for "BarHorizontal" will be visible
     And I click the "BarHorizontal" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
     #尺寸
     And I click the "ChartPosition" button
@@ -125,7 +127,7 @@ Feature: 数据大屏-f条形图
       #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
-    And I click the "Save" button
+    And I click the "Save" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
@@ -171,6 +173,7 @@ Feature: 数据大屏-f条形图
     And I click the "Chart" button
     And I wait for "BarHorizontal" will be visible
     And I click the "BarHorizontal" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
     #尺寸
     And I click the "ChartPosition" button

@@ -18,6 +18,7 @@ Feature: 数据大屏-i滚动列表
     And I click the "listOfTurns" button
 #修改样式
     # 1 设置图表尺寸位置
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
@@ -107,6 +108,7 @@ Feature: 数据大屏-i滚动列表
     And I wait for "listOfTurns" will be visible
     And I click the "listOfTurns" button
     #  设置图表尺寸位置
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
@@ -135,7 +137,7 @@ Feature: 数据大屏-i滚动列表
       #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
-    And I click the "Save" button
+    And I click the "Save" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 

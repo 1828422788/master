@@ -17,6 +17,7 @@ Feature: 数据大屏-l滚动列表三
     And I click the "Chart" button
     And I wait for "rollList3" will be visible
     And I click the "rollList3" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
 #修改样式
     # 1 设置图表尺寸位置
@@ -91,6 +92,7 @@ Feature: 数据大屏-l滚动列表三
     And I click the "Chart" button
     And I wait for "rollList3" will be visible
     And I click the "rollList3" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
     # 设置图表尺寸位置
     And I wait for "ChartPosition" will be visible
@@ -119,7 +121,7 @@ Feature: 数据大屏-l滚动列表三
       #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
-    And I click the "Save" button
+    And I click the "Save" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
@@ -167,6 +169,7 @@ Feature: 数据大屏-l滚动列表三
 
     And I wait for "rollList3" will be visible
     And I click the "rollList3" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
 
     # 设置图表尺寸位置

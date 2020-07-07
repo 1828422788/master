@@ -17,6 +17,7 @@ Feature: 数据大屏-s水球图
 
     And I wait for "Liquidfill" will be visible
     And I click the "Liquidfill" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
      # 水波动画
     And I wait for "WaterWavePainting" will be visible
@@ -26,6 +27,7 @@ Feature: 数据大屏-s水球图
     And I click the "LiquidShapeHeader" button
     And I choose the "pin" from the "LiquidShape"
     #外边框
+    And I wait for "OuterFrame" will be visible
     And I click the "OuterFrame" button
     And I switch the "OuterFrameSwitch" button to "disable"
     #标签
@@ -109,6 +111,7 @@ Feature: 数据大屏-s水球图
     And I click the "Chart" button
     And I wait for "Liquidfill" will be visible
     And I click the "Liquidfill" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
      #数据设置
     And I click the "Data" button
@@ -128,7 +131,7 @@ Feature: 数据大屏-s水球图
       #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
-    And I click the "Save" button
+    And I click the "Save" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
@@ -172,6 +175,7 @@ Feature: 数据大屏-s水球图
     And I click the "Chart" button
     And I wait for "Liquidfill" will be visible
     And I click the "Liquidfill" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button

@@ -18,6 +18,7 @@ Feature: 数据大屏-g滚动条形图
     And I click the "scrollBar" button
 #修改样式
     # 1 设置图表尺寸位置
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
@@ -94,6 +95,7 @@ Feature: 数据大屏-g滚动条形图
     And I click the "Chart" button
     And I wait for "scrollBar" will be visible
     And I click the "scrollBar" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
     #数据设置（数据源类型默认：搜索）
     And I click the "Data" button
@@ -116,7 +118,7 @@ Feature: 数据大屏-g滚动条形图
       #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
-    And I click the "Save" button
+    And I click the "Save" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
@@ -163,6 +165,7 @@ Feature: 数据大屏-g滚动条形图
     And I click the "Chart" button
     And I wait for "scrollBar" will be visible
     And I click the "scrollBar" button
+    And I wait for "Style" will be visible
     And I click the "Style" button
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
