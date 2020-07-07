@@ -35,12 +35,12 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I click the "Addgroupinputbutton" button
-    And open the "agent.CreatePage" page
+    And I will see the "agent.CreatePage" page
     And I set the parameter "Document" with value "/data/rizhiyi/logs/heka"
     And I set the parameter "WhiteList" with value "hekad-daemon\.log"
     And I set the parameter "BlackList" with value "hekad\.stderr"
@@ -66,7 +66,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -80,7 +80,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -96,7 +96,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -113,7 +113,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -129,7 +129,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -153,7 +153,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -176,7 +176,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -193,7 +193,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -216,7 +216,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
@@ -232,7 +232,7 @@ Feature: Agent分组采集
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
-    And open the "agent.GroupPage" page
+    And I will see the "agent.GroupPage" page
     And I wait for loading invisible
     And I click the "<name>" button
     And I click the "More" button
