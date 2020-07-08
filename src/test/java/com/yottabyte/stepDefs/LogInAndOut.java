@@ -53,14 +53,28 @@ public class LogInAndOut {
      */
     @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\"$")
     public void userLogin(String username, String password) throws InterruptedException {
-        this.logout();
-        webDriver.navigate().refresh();
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.getUsername().clear();
-        loginPage.getUsername().sendKeys(username);
-        loginPage.getPassword().clear();
-        loginPage.getPassword().sendKeys(password);
-        loginPage.getLoginButton().click();
-        Thread.sleep(2000);
+        int time = 0;
+        while (webDriver.manage().getCookies().size() != 0) {
+            this.logout();
+            webDriver.navigate().refresh();
+            if (time < 10)
+                time++;
+            else
+                break;
+        }
+
+        while (webDriver.manage().getCookies().size() == 0) {
+            LoginPage loginPage = new LoginPage(webDriver);
+            loginPage.getUsername().clear();
+            loginPage.getUsername().sendKeys(username);
+            loginPage.getPassword().clear();
+            loginPage.getPassword().sendKeys(password);
+            loginPage.getLoginButton().click();
+            if (time < 20)
+                time++;
+            else
+                break;
+        }
+
     }
 }
