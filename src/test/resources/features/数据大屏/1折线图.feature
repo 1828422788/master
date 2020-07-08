@@ -178,7 +178,7 @@ Feature: 数据大屏-a折线图
     And I choose the "ts" from the "Xaxis"
     And I wait for "1000" millsecond
     And I choose the "count()" from the "Yaxis"
-
+    And I wait for "1000" millsecond
     And I click the "AddGroup" button
     And I choose the "count()" from the "Group"
     #保存
