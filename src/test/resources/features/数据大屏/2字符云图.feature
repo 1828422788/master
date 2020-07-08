@@ -31,7 +31,7 @@ Feature: 数据大屏-g字符云图
     And I click the "styleCloudChart" button
     #图表起始颜色
     And I wait for "chartStartColor" will be visible
-    And I click the "chartStartColor" button
+    And I click the "chartStartColor" button under some element
     And I click the "red" button
     #最大字号
     And I set the parameter "maxFont" with value "50"
@@ -108,7 +108,7 @@ Feature: 数据大屏-g字符云图
    #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
-    And I click the "Save" button
+    And I click the "Save" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 

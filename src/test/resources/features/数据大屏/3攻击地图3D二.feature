@@ -97,6 +97,7 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
+      And I wait for "Style" will be visible
       And I click the "Style" button
       #数据设置
       And I click the "Data" button
