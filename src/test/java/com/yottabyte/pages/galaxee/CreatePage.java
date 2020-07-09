@@ -250,7 +250,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "status")
     private WebElement status;
 
-    @FindBy(className = "title")
+//    @FindBy(className = "title")
+    @FindBy(xpath = "//li[contains(text(),'标题')]")
     private WebElement title;
 
     @FindBy(className = "el-color-picker__color-inner")
