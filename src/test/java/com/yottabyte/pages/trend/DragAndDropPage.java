@@ -72,6 +72,9 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "(//div[@class='_2YOOafB8A7ZfHBScD1QcRz']/div/div)[1]")
     private WebElement otherChart;
 
+    @FindBy(xpath = "//span[text()='展示字号']/ancestor::div[1]/following-sibling::span//input")
+    private WebElement fontSize;
+
 
     //Charts --------------------------------------------------------------------------
     public WebElement getLine() {
@@ -296,6 +299,10 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getOtherChart() {
         return otherChart;
+    }
+
+    public WebElement getFontSize() {
+        return fontSize;
     }
 
 
