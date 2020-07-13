@@ -15,7 +15,6 @@ Feature: 定时任务复制
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "TagInput" with value "auto_package"
     And I set the parameter "Describe" with value "testing"
-#    And I choose the "auto_package" from the "GroupComboBox"
     And I choose the "test_app" from the "AppComboBox"
 
     And I set the parameter "Period" with value "<periodNum>"
@@ -35,7 +34,7 @@ Feature: 定时任务复制
 
   Scenario: copy_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'copytask'}" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'copytask'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "10000" millsecond
     And I wait for element "SelectedUser" change text to username
@@ -47,17 +46,19 @@ Feature: 定时任务复制
     And I click the "EnsureButton" button
     Then I will see the "timedTask.ListPage" page
 
-    When the data name is "{'column':'2','name':'copytask'}" then i click the "复制" button
+    When the data name is "{'column':'1','name':'copytask'}" then i click the "复制" button
     Then I will see the success message "复制成功"
     And I wait for "SuccessMessage" will be invisible
-    And I will see the search result contains "{'column':'2','name':'copytask(副本)'}"
-    And the data name is "{'column':'2','name':'copytask(副本)'}" then I "open" the switch
+    And I will see the search result contains "{'column':'1','name':'copytask(副本)'}"
+    And the data name is "{'column':'1','name':'copytask(副本)'}" then I "open" the switch
+    And I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'8','name':'auto_package'}"
+    And I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'7','name':'test_app'}"
     Then I will see the success message "开启成功"
 
 
   Scenario: copy_schedule_detailpage
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'copytask(副本)'}" then i click the "copytask(副本)" button
+    When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "copytask(副本)" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "DetailDataSet" contains "(*)"
     And I will see the element "SearchContent" contains "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
@@ -68,7 +69,7 @@ Feature: 定时任务复制
 
   Scenario: copy_schedule_editpage
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'copytask(副本)'}" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
     And I wait for "10000" millsecond
     And I wait for element "SelectedUser" change text to username
@@ -76,13 +77,13 @@ Feature: 定时任务复制
     And I will see the input element "Describe" value will be "testing"
     And I will see the input element "Number" value will be "123"
     And I will see the element "Resource" contains "(*)"
-    And I cancel selection "auto_package" from the "TaskGroup"
+    And I will see the element "SelectedGroup" contains "auto_package"
     And I cancel selection "test_app" from the "TaskApp"
     And I will see the input element "Period" value will be "5"
 
   Scenario Outline: delete_copiedTask
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button under some element
     Then I will see the success message "删除成功"
 
