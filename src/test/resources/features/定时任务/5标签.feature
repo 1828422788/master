@@ -25,25 +25,25 @@ Feature: 定时任务标签
 
   Scenario: tag_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'Tag_Schedule'}" then i click the "标签" button
+    When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "标签" button
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
     And I click the "Ensure" button
     Then I will see the success message "更新成功"
     And I refresh the website
     And I wait for loading invisible
-    Then I will see the data "{'column':'2','name':'Tag_Schedule'}" values "{'column':'7','name':'auto_package'}"
+    Then I will see the data "{'column':'1','name':'Tag_Schedule'}" values "{'column':'8','name':'auto_package'}"
 
 
   Scenario: verify_tag
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'Tag_Schedule'}" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "ResultHandling" will be visible
     And I refresh the website
     And I wait for "10000" millsecond
     And I wait for element "SelectedUser" change text to username
-    And I cancel selection "auto_package" from the "TaskGroup"
+    And I will see the element "SelectedGroup" contains "auto_package"
     And I click the "SaveButton" button
     And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
@@ -54,7 +54,7 @@ Feature: 定时任务标签
 
   Scenario: delete_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'Tag_Schedule'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "删除" button
     And I click the "Ensure" button under some element
     Then I will see the success message "删除成功"
 
