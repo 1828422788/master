@@ -11,6 +11,7 @@ Feature: 报表标签
     When I set the parameter "Name" with value "Test_Tag"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "PDF" from the "ReportType"
+    And I choose the "test_app" from the "App"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "50"
     And I click the "NextButton" button
@@ -24,7 +25,8 @@ Feature: 报表标签
     And I click the "EnsureButton" button
 
   Scenario: tag_report
-    When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'无'}"
+    When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'7','name':'无'}"
+    When I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'test_app'}"
     When the data name is "{'column':'1','name':'Test_Tag'}" then i click the "标签" button
     And I choose the "auto_package" from the "TagField"
     And I click the "TagPanel" button
@@ -33,8 +35,8 @@ Feature: 报表标签
     Then I will see the message "修改成功"
     And I click the "EnsureButton" button
     And I refresh the website
-    #column 6 is a tag
-    Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'6','name':'auto_package'}"
+    #column 7 is a tag
+    Then I will see the data "{'column':'1','name':'Test_Tag'}" values "{'column':'7','name':'auto_package'}"
 
 
   Scenario: verify_tag
