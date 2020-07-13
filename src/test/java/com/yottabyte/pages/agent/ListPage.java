@@ -82,7 +82,7 @@ public class ListPage extends ListPageFactory {
         return webDriver.findElement(By.xpath(xpath));
     }
     public WebElement getEnsureButton() {
-        String xpath = "//span[text()='确定']/ancestor::button";
+        String xpath = "(//span[text()='确定']/ancestor::button)[last()]";
         return webDriver.findElement(By.xpath(xpath));
     }
 
