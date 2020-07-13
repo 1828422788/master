@@ -145,7 +145,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return webDriver.findElement(By.xpath(xpath));
     }
     public WebElement getClearIcon(String text){
-        String xpath = "//li[@title='" + text + "']//span/i[@aria-label='图标: close']";
+        String xpath = "//div[contains(text(),'"+ text + "')]/following-sibling::span/i[@aria-label='图标: close']";
         return webDriver.findElement(By.xpath(xpath));
     }
     public WebElement getDeleteIcon(String text){

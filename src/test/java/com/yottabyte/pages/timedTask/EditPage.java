@@ -33,13 +33,19 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]")
     private WebElement taskGroup;
 
+    @FindBy(xpath = "//label[text()='资源标签']/following-sibling::span//div[@class = 'ant-select-selection__choice__content']")
+    private WebElement selectedGroup;
+
+    @FindBy(xpath = "(//label[text()='资源标签']/ancestor::div[1])//input")
+    private WebElement taskGroupInput;
+
     @FindBy(xpath = "(//label[text()='所属应用'][last()])/following-sibling::div[1]")
     private WebElement taskApp;
 
     @FindBy(xpath = "//li[@class='el-select-dropdown__item']/ancestor::ul")
     private WebElement appDropdownList;
 
-    @FindBy(xpath = "//span[text()='执行一次']//preceding-sibling::input[@placeholder='请输入']")
+    @FindBy(xpath = "//span[text()='执行一次']//preceding-sibling::span/input[@placeholder='请输入']")
     private WebElement period;
 
     @FindBy(xpath = "//div[@class='custom']//input[@placeholder='请选择时间']")
@@ -99,7 +105,7 @@ public class EditPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='crontab']/ancestor::span")
     private WebElement crontab;
 
-    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div/input")
+    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div//input")
     private WebElement crontabInput;
 
     @FindBy(xpath = "//label[text()='搜索内容']/following-sibling::textarea")
@@ -268,6 +274,13 @@ public class EditPage extends PageTemplate {
         return resource;
     }
 
+    public WebElement getSelectedGroup() {
+        return selectedGroup;
+    }
+
+    public WebElement getTaskGroupInput() {
+        return taskGroupInput;
+    }
 
     public WebElement getTaskGroup() {
         taskGroup.click();

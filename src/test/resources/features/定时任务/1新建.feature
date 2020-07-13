@@ -226,7 +226,7 @@ Feature: 定时任务新建
     And I set the parameter "SearchInput" with value "<taskName>"
     And I wait for "Loading" will be invisible
     And I wait for "1000" millsecond
-    When the data name is "{'column':'2','name':'<taskName>'}" then i click the "<taskName>" button
+    When the data name is "{'column':'1','name':'<taskName>'}" then i click the "<taskName>" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "TimePeriod" contains "<time>"
 

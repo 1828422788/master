@@ -16,7 +16,7 @@ Feature: 字典管理
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     Then I set the parameter "GroupInput" with value "wymtest"
-    And I choose the "wymtest" from the "TagList" in config
+    And I choose the "wymtest" from the "DictionaryTagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
@@ -47,7 +47,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "下载" button
 
     Examples:
@@ -62,12 +62,12 @@ Feature: 字典管理
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
     Then I set the parameter "GroupInput" with value "<oldTag>"
-    And I choose the "<oldTag>" from the "TagList" in config
+    And I choose the "<oldTag>" from the "DictionaryTagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     And I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -82,7 +82,8 @@ Feature: 字典管理
     Then I click the "EnsureButton" button
     Then I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
+    Then I wait for "500" millsecond
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
 
     Examples:
       | dictionaryNameWithOutCsv | dictionaryName       | newTag | oldTag |
@@ -100,7 +101,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -134,7 +135,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -168,7 +169,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -192,7 +193,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "编辑" button
     Then I will see the "dictionary.CreatePage" page
     Then I wait for element "Name" value change text to "<dictionaryNameWithOutCsv>"
@@ -225,7 +226,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
 #    Then I set the parameter "Tag" with value "tag"
@@ -234,8 +235,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
+    Then I wait for "1000" millsecond
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
 
     Examples:
       | dictionaryName                 | newTag  | dictionaryNameWithOutCsv   |
@@ -249,12 +250,12 @@ Feature: 字典管理
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
 #    Then I set the parameter "GroupInput" with value "<oldTag>"
-    And I choose the "<oldTag>" from the "TagList" in config
+    And I choose the "<oldTag>" from the "DictionaryTagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
     Then I click the "ClearIconOld" button
@@ -264,8 +265,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
-    And I wait for loading invisible
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
+    And I wait for "1000" millsecond
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
 
     Examples:
       | dictionaryName                 | newTag | dictionaryNameWithOutCsv   | oldTag |
@@ -282,7 +283,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
     And I choose the "<twoTag>" from the "TagList" in config
@@ -291,8 +292,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
+    Then I wait for "1000" millsecond
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
 
     Examples:
       | dictionaryName                  | newTag   | twoTag  | dictionaryNameWithOutCsv    |
@@ -306,12 +307,12 @@ Feature: 字典管理
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
 #    Then I set the parameter "GroupInput" with value "<dictionaryNameWithOutCsv>"
-    And I choose the "<dictionaryNameWithOutCsv>" from the "TagList" in config
+    And I choose the "<dictionaryNameWithOutCsv>" from the "DictionaryTagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     And I choose the "<dictionaryNameWithOutCsv>" from the "ResourceDropdown" in config
     And I wait for loading invisible
     Then I will see the search result contains "{'column':'0','name':'<dictionaryName>'}"
@@ -328,12 +329,12 @@ Feature: 字典管理
     And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
-    And I choose the "<twoTag>" from the "TagList" in config
+    And I choose the "<twoTag>" from the "DictionaryTagList" in config
     And I click the "EnsureUpload" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "标签" button
     Then I wait for "PopUpWindow" will be visible
     Then I click the "ClearIconOld" button
@@ -342,8 +343,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     And I will see the success message "修改成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
-    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'2','name':'<newTag>'}"
+    Then I wait for "1000" millsecond
+    And I will see the data "{'column':'0','name':'<dictionaryName>'}" values "{'column':'3','name':'<newTag>'}"
 
     Examples:
       | dictionaryName                | newTag | dictionaryNameWithOutCsv  | twoTag  |
@@ -361,7 +362,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
     And I wait for loading invisible
@@ -391,7 +392,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
     And I wait for loading invisible
@@ -429,7 +430,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
     And I wait for loading invisible
@@ -465,7 +466,7 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "创建字典成功"
     Then I click the "EnsureButton" button
-    Then I wait for loading invisible
+    Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
     And I wait for loading invisible

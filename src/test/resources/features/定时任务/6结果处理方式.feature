@@ -29,7 +29,7 @@ Feature: 定时任务_结果处理方式
 
   Scenario Outline: add_jdbc_fields
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'oracle_3301'}" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'oracle_3301'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "5000" millsecond
     When I click the "ResultHandling" button
@@ -61,7 +61,7 @@ Feature: 定时任务_结果处理方式
 
   Scenario Outline: add_jdbc
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'<name>_<caseNum>'}" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'<name>_<caseNum>'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "5000" millsecond
     When I click the "ResultHandling" button
@@ -80,6 +80,7 @@ Feature: 定时任务_结果处理方式
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "验证成功"
     And I click the "EnsureButton" button
+    And I wait for "Count" will be visible
     When I set the parameter "Count" with value "count"
     And I set the parameter "Percent" with value "percent"
     And I set the parameter "Resplen" with value "apache.resp_len"
