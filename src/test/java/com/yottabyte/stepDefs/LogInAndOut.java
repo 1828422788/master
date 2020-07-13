@@ -54,14 +54,21 @@ public class LogInAndOut {
      */
     @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\"$")
     public void userLogin(String username, String password) {
-        this.logout();
-        webDriver.navigate().refresh();
-
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.getUsername().clear();
-        loginPage.getUsername().sendKeys(username);
-        loginPage.getPassword().clear();
-        loginPage.getPassword().sendKeys(password);
-        loginPage.getLoginButton().click();
+        int times = 0;
+        while (webDriver.manage().getCookies().size() == 1) {
+            this.logout();
+            webDriver.navigate().refresh();
+            LoginPage loginPage = new LoginPage(webDriver);
+            loginPage.getUsername().clear();
+            loginPage.getUsername().sendKeys(username);
+            loginPage.getPassword().clear();
+            loginPage.getPassword().sendKeys(password);
+            loginPage.getLoginButton().click();
+            System.out.println();
+            times++;
+            if (times > 10) {
+                return;
+            }
+        }
     }
 }
