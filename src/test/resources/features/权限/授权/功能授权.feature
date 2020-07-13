@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-功能（URL校验）
 
   @logout

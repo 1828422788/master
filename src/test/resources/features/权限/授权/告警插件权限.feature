@@ -1,4 +1,4 @@
-@authtest
+#@auth
 Feature: 授权告警插件
 
   Scenario: 上传告警插件

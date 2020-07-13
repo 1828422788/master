@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-知识
 
   Scenario: 验证无新建权限

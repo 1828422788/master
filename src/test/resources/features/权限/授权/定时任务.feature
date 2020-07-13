@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-定时任务
 
 #  @logout

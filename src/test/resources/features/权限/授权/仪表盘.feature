@@ -1,4 +1,4 @@
-@authtest
+#@auth
 Feature: 权限-仪表盘
 
   @logout

@@ -1,4 +1,4 @@
-#@auth
+@auth
 Feature: 权限-agent
 
   Scenario: 勾选agent所需功能权限
@@ -388,6 +388,7 @@ Feature: 权限-agent
     And I set the parameter "Memo" with value "AutoTest"
     And I click the "EnsureButton" button
     Then I will see the element "GroupMemo" name is "修改备注成功"
+    Then I logout current user
 
   Scenario Outline: 授权组内读取编辑+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -408,14 +409,7 @@ Feature: 权限-agent
       | 验证组内权限 |
 
   Scenario: 移除分组
-    Given open the "LoginPage" page for uri "/dashboard/"
-    And I wait for title change text to "仪表盘"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible

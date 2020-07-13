@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-报表
 
   Scenario Outline: 新建所需趋势图
