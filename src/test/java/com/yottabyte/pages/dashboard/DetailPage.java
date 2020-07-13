@@ -118,6 +118,21 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='el-form-item dynamic-search-btn']//span")
     private WebElement searchInputButton;
 
+    @FindBy(xpath = "//*[@id='filter_title']")
+    private WebElement inputSettingTitle;
+
+    @FindBy(xpath = "//div[text()='文本输入']")
+    private WebElement inputSettingType;
+
+    @FindBy(xpath = "//li[text()='时间范围']")
+    private WebElement timeRangee;
+
+    @FindBy(xpath = "//span[text()='设为全局时间']")
+    private WebElement setGlobalTimeRange;
+
+    @FindBy(xpath = "//span[text()='全局时间']/following-sibling::div//i[contains(@class,'anticon css-ifnfqv')][2]")
+    private WebElement deleteIcon;
+
     @FindBy(xpath = "//label[contains(text(),'搜索内容')]/following-sibling::div//textarea")
     private WebElement searchInput;
 
@@ -422,6 +437,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//i[@class='anticon css-ifnfqv']")
     private List<WebElement> iconList;
 
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[1]")
+    private WebElement AddIcon;
+
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[2]")
     private WebElement settingIcon;
 
@@ -464,7 +482,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='appname:']")
     private WebElement hoverElement;
 
-    @FindBy(xpath = "//span[contains(text(),'标签页名称')]/following-sibling::span/input")
+    @FindBy(xpath = "//span[contains(text(),'名称')]/following-sibling::span/input")
     private WebElement tagName;
 
     @FindBy(className = "ant-spin-dot")
@@ -519,6 +537,18 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getAddInput() {
         return addInput;
+    }
+
+    public WebElement getInputSettingType() {
+        return inputSettingType;
+    }
+
+    public WebElement getTimeRangee() {
+        return timeRangee;
+    }
+
+    public WebElement getSetGlobalTimeRange() {
+        return setGlobalTimeRange;
     }
 
     public WebElement getAddEvent() {
@@ -649,6 +679,14 @@ public class DetailPage extends PageTemplate {
     private WebElement getSwitchButton(String name) {
         String xpath = "//span[text()='" + name + "']/following-sibling::button";
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getDeleteIcon() {
+        return deleteIcon;
+    }
+
+    public WebElement getAddIcon() {
+        return AddIcon;
     }
 
     public WebElement getSettingIcon() {
@@ -787,6 +825,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getParamValue() {
         return paramValue;
+    }
+
+    public WebElement getInputSettingTitle() {
+        return inputSettingTitle;
     }
 
     public WebElement getInputGroup() {

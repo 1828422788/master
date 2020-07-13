@@ -19,7 +19,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
       | FirstAutoTest |
 
   Scenario: 验证新建成功
-    Then I will see the data "FirstAutoTest" values "{'column':'3','name':'AutoTest'}"
+    Then I will see the data "FirstAutoTest" values "{'column':'5','name':'AutoTest'}"
 
   Scenario Outline: 新建失败校验
     When I click the "Create" button

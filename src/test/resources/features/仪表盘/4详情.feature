@@ -44,8 +44,10 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     And I click the "TagIcon" button
     And I click the "AddTag" button
-    And I set the parameter "TagInput" with value "testSearch"
-    And I click the "SaveTagInput" button
+    When I set the parameter "TagName" with value "testSearch"
+    And I click the "EnsureCreateTagButton" button
+#    And I set the parameter "TagInput" with value "testSearch"
+#    And I click the "SaveTagInput" button
 
   Scenario: 验证标签搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -101,13 +103,29 @@ Feature: 仪表盘详情页
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
+  Scenario: 新建全局时间选择器
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "AddIcon" button
+    And I click the "addInput" button
+    And I set the parameter "inputSettingTitle" with value "全局时间"
+    And I click the "inputSettingType" button
+#    And I choose the "时间范围" from the "LastDropdownList"
+    And I click the "timeRangee" button
+    Then I wait for "setGlobalTimeRange" will be visible
+    And I click the "setGlobalTimeRange" button
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "添加输入项成功"
+
+
   Scenario: 验证全局时间生效
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "SettingIcon" button
-    And I click the "ShowFilter" button
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Yesterday" button
