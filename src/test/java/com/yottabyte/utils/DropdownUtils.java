@@ -14,9 +14,16 @@ import java.util.List;
  */
 public class DropdownUtils {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+    String currentUrl = webDriver.getCurrentUrl();
 
     public WebElement getDropdownList(String text) {
-        String xpath = "//div[contains(text(),'" + text + "')]/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath;
+        if (currentUrl.contains("/dictionary/") && (text.equals("字典标签") || text.equals("资源标签"))) {
+            xpath = "//div[contains(text(),'" + text + "')]/following-sibling::span//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        }
+        else {
+            xpath = "//div[contains(text(),'" + text + "')]/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        }
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);

@@ -251,7 +251,11 @@ public class ListPage extends ListPageFactory {
         return tip;
     }
 
-    public WebElement getTagList(){
+    public WebElement getDictionaryTagList(){
+        return dropdownUtils.getDropdownList("字典标签");
+    }
+
+    public WebElement getTagList() {
         return dropdownUtils.getDropdownList("标签");
     }
 }
