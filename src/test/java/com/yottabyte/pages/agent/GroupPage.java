@@ -133,6 +133,13 @@ public class GroupPage extends ListPageFactory {
     @FindBy(xpath = "//p/span[text()='中文角色']")
     private WebElement Deletetwo;
 
+    @FindBy(xpath = "//span[text()='没有相关资源权限']")
+    private WebElement notice;
+
+    public WebElement getNotice() {
+        return notice;
+    }
+
     public WebElement getDeletetwo() {
         return Deletetwo;
     }

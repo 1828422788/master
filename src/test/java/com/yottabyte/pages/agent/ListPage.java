@@ -46,6 +46,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//span[text()='验证组内权限'])[2]")
     private WebElement authButton;
 
+    @FindBy(id = "update_comment_comment")
+    private WebElement memo;
+
     public WebElement getAuthButton() {
         return authButton;
     }
@@ -100,8 +103,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getMemo() {
-        String xpath = "//input[contains(@placeholder,'请填写备注')]";
-        return webDriver.findElement(By.xpath(xpath));
+        return memo;
 
     }
 

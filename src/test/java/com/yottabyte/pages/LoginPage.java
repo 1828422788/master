@@ -1,8 +1,5 @@
 package com.yottabyte.pages;
 
-import com.yottabyte.stepDefs.ClickSomeButton;
-import com.yottabyte.stepDefs.SetKeyWithValue;
-import com.yottabyte.utils.ElementExist;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +25,20 @@ public class LoginPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement errorMessage;
 
+    @FindBy(xpath = "//span[text()='去修改→']")
+    private WebElement modify;
+
+    @FindBy(className = "ant-popover-inner-content")
+    private WebElement innerContent;
+
+    public WebElement getInnerContent() {
+        return innerContent;
+    }
+
+    public WebElement getModify() {
+        return modify;
+    }
+
     public WebElement getUsername() {
         return this.getInputElement("用户名");
     }
@@ -38,6 +49,18 @@ public class LoginPage extends PageTemplate {
 
     public WebElement getLoginButton() {
         return super.getButton("登 录");
+    }
+
+    public WebElement getUpdate() {
+        return super.getButton("更 新");
+    }
+
+    public WebElement getNewPassword() {
+        return this.getInputElement("新密码");
+    }
+
+    public WebElement getRepeatPassword() {
+        return this.getInputElement("重复密码");
     }
 
     public String getTitle() {
@@ -56,7 +79,6 @@ public class LoginPage extends PageTemplate {
         String xpath = "//label[text()='" + name + "']/following-sibling::input";
         return webDriver.findElement(By.xpath(xpath));
     }
-
 
     public void getLogin(String userName, String password) {
         this.getUsername().sendKeys(userName);
