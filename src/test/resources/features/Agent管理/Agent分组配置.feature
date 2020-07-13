@@ -1,17 +1,20 @@
 @agent3 @agent_group2
 
 Feature: Agent分组采集
+
   Background:
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
     And I close all tabs except main tab
-
-  Scenario Outline: 新建Agent分组设置
+    And I click the "More" button
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "agent.GroupPage" page
     And I wait for loading invisible
+
+
+  Scenario Outline: 新建Agent分组设置并添加ip
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
@@ -20,23 +23,20 @@ Feature: Agent分组采集
     And I click the "Save" button
     And I wait for "Addsuccessmsg" will be visible
     And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"
-
-#  @indexSettingSmoke
-    Examples: 成功
-      | name       | description | role      |
-      | sunxctest  | English     | __admin__ |
-
-  Scenario Outline: Agent分组添加ip并分组采集数据
+    And I click the "Back" button
+    And I will see the "agent.ListPage" page
     Then the column is "1" then i click the "分组" button in agent page
     And  I wait for loading invisible
     And I click the "GroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
     And I click the "FinishButton" button
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
+
+#  @indexSettingSmoke
+    Examples: 成功
+      | name      | description | role      | message              |
+      | sunxctest | English     | __admin__ | 成功加入分组 [ sunxctest ] |
+
+  Scenario: Agent分组采集数据
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I click the "Addgroupinputbutton" button
@@ -57,17 +57,7 @@ Feature: Agent分组采集
     And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
-#  @indexSettingSmokes
-    Examples:
-      | message              |
-      | 成功加入分组 [ sunxctest ] |
-
   Scenario: 分组采集数据源禁用
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
@@ -77,11 +67,6 @@ Feature: Agent分组采集
     Then I will see the element "DataSourceSwitchStatus" name is "已禁用"
 
   Scenario: 分组采集数据源启用
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
@@ -93,11 +78,6 @@ Feature: Agent分组采集
 
 
   Scenario: 分组采集数据修改日志内容白名单
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
@@ -110,11 +90,6 @@ Feature: Agent分组采集
 
 
   Scenario: 分组采集数据修改日志内容黑名单
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
@@ -126,11 +101,6 @@ Feature: Agent分组采集
     Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
   Scenario Outline: 分组采集数据修改最后修改时间
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
@@ -150,11 +120,6 @@ Feature: Agent分组采集
       | 分钟       |
 
   Scenario Outline: 分组采集数据配置修改字符集
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
@@ -169,15 +134,10 @@ Feature: Agent分组采集
 
     Examples:
       | characterkind |
-      |   utf-8    |
-      |    gbk    |
+      | utf-8         |
+      | gbk           |
 
   Scenario: 分组采集数据修改tag
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
@@ -190,11 +150,6 @@ Feature: Agent分组采集
 
 
   Scenario: 分组采集数据修改appname
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
@@ -213,11 +168,6 @@ Feature: Agent分组采集
 
 
   Scenario: 分组采集数据数据源删除
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I click the "Addgroupinput" button
     And I will see the "agent.CreatePage" page
@@ -229,11 +179,6 @@ Feature: Agent分组采集
     Then I will see the element "ChangeMemo" name is "删除 Agent 配置成功。"
 
   Scenario Outline: 删除Agent分组
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "<name>" button
     And I click the "More" button
     And I click the "Delete" button
@@ -243,5 +188,5 @@ Feature: Agent分组采集
 
 
     Examples:
-      | name        |
-      | Deletefour   |
+      | name       |
+      | Deletefour |
