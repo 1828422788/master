@@ -52,6 +52,8 @@ Feature: Agent分组设置
     Then I will see the element "searchRole" name is "请选择角色"
 
   Scenario Outline: Agent分组添加和跳转
+    And I click the "Back" button
+    And I will see the "agent.ListPage" page
     Then the column is "1" then i click the "分组" button in agent page
     And  I wait for loading invisible
     And I click the "GroupButton" button
@@ -66,11 +68,8 @@ Feature: Agent分组设置
       | 成功加入分组 [ sunxctest ] |
 
   Scenario Outline: Agent从分组设置页面跳转
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
+    And I click the "Back" button
+    And I will see the "agent.ListPage" page
     And I click the "OpenGroupButton" button
     And I click the "More" button
     And I click the "Jump" button
@@ -84,6 +83,8 @@ Feature: Agent分组设置
       | 成功加入分组 [ sunxctest ] |
 
   Scenario Outline: Agent移出分组
+    And I click the "Back" button
+    And I will see the "agent.ListPage" page
     Then the column is "1" then i click the "分组" button in agent page
     And  I wait for loading invisible
     And I click the "MoveGroupButton" button
@@ -97,14 +98,17 @@ Feature: Agent分组设置
       | 成功移出分组 [ sunxctest ] |
 
   Scenario Outline: cenario Outline:  Agent批量操作空操作
+    And I click the "Back" button
+    And I will see the "agent.ListPage" page
     And I click the "AgentMultiButton" button
     And I will see the message "请务必选择至少一个 Agent 进行操作。"
-    Then I click the "EnsureButton" button
     Examples:
       | message              |
       | 成功移出分组 [ sunxctest ] |
 
   Scenario Outline: Agent批量操作加入分组
+    And I click the "Back" button
+    And I will see the "agent.ListPage" page
     When the column is "1" then i "checked" the agent label in agent page
     And I click the "AgentMultiButton" button
     And I click the "MultiGruopButton" button
@@ -119,6 +123,8 @@ Feature: Agent分组设置
       | 成功加入分组 [ sunxctest ] |
 
   Scenario Outline: Agent批量操作移出分组
+    And I click the "Back" button
+    And I will see the "agent.ListPage" page
     When the column is "1" then i "checked" the agent label in agent page
     And I click the "AgentMultiButton" button
     And I click the "MultiGruopButton" button
@@ -133,11 +139,6 @@ Feature: Agent分组设置
       | 成功移出分组 [ sunxctest ] |
 
   Scenario Outline: 编辑Agent资源分组
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "OpenGroupButton" button
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
@@ -154,11 +155,6 @@ Feature: Agent分组设置
 
 
   Scenario Outline: 删除Agent分组
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "<name>" button
     And I click the "More" button
     And I click the "Delete" button
