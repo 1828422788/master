@@ -13,10 +13,6 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
-    public WebElement getGroupInput() {
-        return super.getInputElement("资源标签");
-    }
-
     public WebElement getSaveButton() {
         return super.getButton("保存");
     }
@@ -51,6 +47,9 @@ public class CreatePage extends PageTemplate {
         actions.moveToElement(span).perform();
         return super.getDeleteIcon("wymdoubletest1.csv");
     }
+
+    @FindBy(xpath = "//div[text()='资源标签']/following-sibling::span[1]//input")
+    private WebElement groupInput;
 
     @FindBy(xpath = "//div[text()='提示']")
     private WebElement Tip;
@@ -109,6 +108,10 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getTagList(){
-        return super.getDropdownList("标签");
+        return super.getDropdownList("资源标签");
+    }
+
+    public WebElement getGroupInput() {
+        return groupInput;
     }
 }
