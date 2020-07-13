@@ -5,13 +5,14 @@ Feature: Agent分组设置
     Given open the "agent.ListPage" page for uri "/sources/input/agent/"
     And I wait for loading invisible
     And I close all tabs except main tab
-
-  Scenario Outline: 新建Agent分组设置成功
+    And I click the "More" button
     And I click the "AgentGroupButton" button
     And switch to another window
     And I close all tabs except main tab
     And I will see the "agent.GroupPage" page
     And I wait for loading invisible
+
+  Scenario Outline: 新建Agent分组设置成功
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "<name>"
     When I set the parameter "Description" with value "<description>"
@@ -29,11 +30,6 @@ Feature: Agent分组设置
       | sunxc_test |             | __admin__ |
 
   Scenario: Agent分组重名新建失败
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest"
 #    When I set the parameter "Description" with value "<description>"
@@ -42,11 +38,6 @@ Feature: Agent分组设置
     Then I will see the message "操作失败，原因：1062-Duplicate entry '1-sunxctest' for key 'domain_id_name'"
 
   Scenario: Agent分组未填写名称新建失败
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
 #    When I set the parameter "Description" with value "<description>"
     And I choose the "__admin__" from the "Role"
@@ -54,11 +45,6 @@ Feature: Agent分组设置
     Then I will see the element "searchInput" name is "请输入名称"
 
   Scenario: Agent分组未填写角色新建失败
-    And I click the "AgentGroupButton" button
-    And switch to another window
-    And I close all tabs except main tab
-    And I will see the "agent.GroupPage" page
-    And I wait for loading invisible
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest2"
 #    When I set the parameter "Description" with value "<description>"
