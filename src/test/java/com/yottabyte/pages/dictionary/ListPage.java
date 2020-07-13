@@ -98,6 +98,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[@class='ant-spin-container']/table/tbody/tr[1]/td[3]")
     private WebElement deadLine;
 
+    @FindBy(xpath = "//div[text()='请输入标签名称']/following-sibling::ul/li/div[1]/input")
+    private WebElement groupInput;
+
     public WebElement getName() {
         return name;
     }
@@ -127,7 +130,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getGroupInput() {
-        return super.getInputElement("字典标签");
+        return groupInput;
     }
 
     @Override
