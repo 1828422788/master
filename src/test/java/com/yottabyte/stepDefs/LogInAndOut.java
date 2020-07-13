@@ -1,12 +1,8 @@
 package com.yottabyte.stepDefs;
 
-import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.LoginPage;
-import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.CurlUtils;
 import cucumber.api.java.en.And;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
@@ -54,21 +50,14 @@ public class LogInAndOut {
      */
     @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\"$")
     public void userLogin(String username, String password) {
-        int times = 0;
-        while (webDriver.manage().getCookies().size() == 1) {
-            this.logout();
-            webDriver.navigate().refresh();
-            LoginPage loginPage = new LoginPage(webDriver);
-            loginPage.getUsername().clear();
-            loginPage.getUsername().sendKeys(username);
-            loginPage.getPassword().clear();
-            loginPage.getPassword().sendKeys(password);
-            loginPage.getLoginButton().click();
-            System.out.println();
-            times++;
-            if (times > 10) {
-                return;
-            }
-        }
+        this.logout();
+        webDriver.navigate().refresh();
+        LoginPage loginPage = new LoginPage(webDriver);
+        loginPage.getUsername().clear();
+        loginPage.getUsername().sendKeys(username);
+        loginPage.getPassword().clear();
+        loginPage.getPassword().sendKeys(password);
+        loginPage.getLoginButton().click();
+        System.out.println();
     }
 }
