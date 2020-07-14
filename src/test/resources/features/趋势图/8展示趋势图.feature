@@ -21,6 +21,10 @@ Feature: 展示趋势图
     @viewTrendOrder
     Examples:
       | name                                     |
+      | ColumnChart_分面                         |
+      | ScatterChart_分面                        |
+      | AreaChart_分面                           |
+      | LineChart_分面                           |
       | ScatterChart_2492_limit                  |
       | ColumnChart_2500_limit                   |
       | AreaChart_2483_ConnectEmptyData          |
@@ -68,6 +72,9 @@ Feature: 展示趋势图
     @viewTrendConnection
     Examples:
       | name                                     |
+#      | Force_分面                               |
+      | Sankey_分面                              |
+      | Chord_分面                               |
       | Sankey_Multistage                        |
 #      | Force_repulsion                          |
 #      | Force_2511                               |
@@ -83,6 +90,8 @@ Feature: 展示趋势图
     @viewTrendMap
     Examples:
       | name                                     |
+      | Regionmap_分面                           |
+      | Heatmap_分面                             |
       | Regionmap_Jiangsu_2547_white             |
       | Regionmap_China_2546_white               |
       | Regionmap_2545_white                     |
@@ -135,6 +144,7 @@ Feature: 展示趋势图
       | Single_icon                     |
       | Funnel_2654                     |
       | Radar_2633                      |
+#      | Wordcloud_分面                  |
 #      | Wordcloud_2625                  |
       | Single_2549                     |
 
