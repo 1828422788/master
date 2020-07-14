@@ -18,7 +18,7 @@ Feature: 事件操作新建（RZY-1387）
     Then I will see the message "<message>"
     Given open the "event.ListPage" page for uri "/event/action/"
     And I wait for loading invisible
-    Then I will see the search result contains "{'column':'0','name':'<name>'}"
+    Then I will see the search result contains "{'column':'1','name':'<name>'}"
 
     Examples:
       | name     | field | display | action | url                                                                                                                                            | openUrl | message  |
