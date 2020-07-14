@@ -73,6 +73,7 @@ Feature: 数据大屏-b双轴折线图
 #Y1轴
     And I click the "YaxisHeader" button
      #文本
+    And I wait for "XaxisWordSize" will be visible
     And I set the parameter "YaxisWordSize" with value "20"
     And I click the "YaxisWordColor" button
     And I wait for "ColorInput" will be visible
