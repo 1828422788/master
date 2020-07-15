@@ -26,14 +26,6 @@ Feature: 权限-字典
     Then I will see the "UploadButton" doesn't exist
 
   @logout
-  Scenario: 验证告警插件有效期限生效
-    And I logout current user
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "alert.PluginPage" page for uri "/plugins/"
-    Then I will see the search result "{'column':'0','name':'sendsms','contains':'no'}"
-
-  @logout
   Scenario: 验证可新建字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button

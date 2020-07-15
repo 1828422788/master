@@ -49,7 +49,7 @@ public class WaitElement {
      * @param elementName 元素名称
      */
     @And("^I wait for \"([^\"]*)\" will be invisible")
-    public void iWaitForWillBeInvisible(String elementName) {
+    public void waitForElementInvisible(String elementName) {
         try {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
             com.yottabyte.utils.WaitForElement.waitElementInvisible(element);
