@@ -283,7 +283,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='max']//ancestor::div/preceding-sibling::div[1]/i")
     private WebElement deleteLastInterval;
 
-    @FindBy(xpath = "//span[text()='自 动']/ancestor::button")
+    @FindBy(xpath = "//span[text()='默 认']/ancestor::button")
+    private WebElement defaultColor;
+
+    @FindBy(xpath = "//span[text()='随 机']/ancestor::button")
     private WebElement autoColor;
 
     @FindBy(xpath = "//span[text()='自定义']/ancestor::button")
@@ -1935,6 +1938,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDeleteLastInterval() {
         return deleteLastInterval;
+    }
+
+    public WebElement getDefaultColor() {
+        return defaultColor;
     }
 
     public WebElement getAutoColor() {
