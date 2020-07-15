@@ -2,6 +2,7 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.LoginPage;
+import com.yottabyte.utils.WaitForElement;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.WebDriver;
 
@@ -52,12 +53,21 @@ public class LogInAndOut {
     public void userLogin(String username, String password) {
         this.logout();
         webDriver.navigate().refresh();
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.getUsername().clear();
-        loginPage.getUsername().sendKeys(username);
-        loginPage.getPassword().clear();
-        loginPage.getPassword().sendKeys(password);
-        loginPage.getLoginButton().click();
-        System.out.println();
+        int times = 10;
+        webDriver.navigate().refresh();
+        while (webDriver.manage().getCookies().size() != 2) {
+            LoginPage loginPage = new LoginPage(webDriver);
+            loginPage.getUsername().clear();
+            loginPage.getUsername().sendKeys(username);
+            loginPage.getPassword().clear();
+            loginPage.getPassword().sendKeys(password);
+            loginPage.getLoginButton().click();
+            WaitForElement.waitElementInvisible(loginPage.getLoginButton());
+            System.out.println();
+            times++;
+            if (times > 10) {
+                return;
+            }
+        }
     }
 }

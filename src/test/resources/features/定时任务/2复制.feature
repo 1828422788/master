@@ -51,13 +51,13 @@ Feature: 定时任务复制
     And I wait for "SuccessMessage" will be invisible
     And I will see the search result contains "{'column':'1','name':'copytask(副本)'}"
     And the data name is "{'column':'1','name':'copytask(副本)'}" then I "open" the switch
-    And I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'8','name':'auto_package'}"
-    And I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'7','name':'test_app'}"
     Then I will see the success message "开启成功"
 
 
   Scenario: copy_schedule_detailpage
     Given open the "timedTask.ListPage" page for uri "/schedule/"
+    And I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'8','name':'auto_package'}"
+    And I will see the data "{'column':'1','name':'copytask(副本)'}" values "{'column':'7','name':'test_app'}"
     When the data name is "{'column':'1','name':'copytask(副本)'}" then i click the "copytask(副本)" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "DetailDataSet" contains "(*)"

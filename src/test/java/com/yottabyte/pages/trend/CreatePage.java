@@ -283,7 +283,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='max']//ancestor::div/preceding-sibling::div[1]/i")
     private WebElement deleteLastInterval;
 
-    @FindBy(xpath = "//span[text()='自 动']/ancestor::button")
+    @FindBy(xpath = "//span[text()='默 认']/ancestor::button")
+    private WebElement defaultColor;
+
+    @FindBy(xpath = "//span[text()='随 机']/ancestor::button")
     private WebElement autoColor;
 
     @FindBy(xpath = "//span[text()='自定义']/ancestor::button")
@@ -1937,6 +1940,10 @@ public class CreatePage extends PageTemplate {
         return deleteLastInterval;
     }
 
+    public WebElement getDefaultColor() {
+        return defaultColor;
+    }
+
     public WebElement getAutoColor() {
         return autoColor;
     }
@@ -2010,12 +2017,25 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]//input")
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//input")
     private WebElement tagInput;
 
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//div[@class='ant-select-selection__choice__content']")
+    private WebElement selectedTag;
+
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//div[@class='ant-select-selection__choice__content']/following-sibling::span")
+    private WebElement deleteTag;
+
     public WebElement getTagInput() {
-        groupField.click();
         return tagInput;
+    }
+
+    public WebElement getSelectedTag() {
+        return selectedTag;
+    }
+
+    public WebElement getDeleteTag() {
+        return deleteTag;
     }
 
 }

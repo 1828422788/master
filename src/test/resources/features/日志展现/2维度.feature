@@ -196,7 +196,7 @@ Feature: 日志展现_维度
       |      Rose     | Green   | 只展示名称   |
       |      Bar      | Orange  | 展示全部     |
 
-    @sunfacet
+
   Scenario Outline: dimension_facet_sun
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button

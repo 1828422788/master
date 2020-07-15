@@ -75,7 +75,7 @@ Feature: 基础用户创建
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'索引配置'}" button
+    Then I click the "{'TabButton':'索引'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "yotta" in auth table
     And I click the "SaveButton" button
