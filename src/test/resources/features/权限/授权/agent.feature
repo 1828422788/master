@@ -198,6 +198,58 @@ Feature: 权限-agent
       | 权限自动化测试 |
       | 验证组内权限  |
 
+  Scenario Outline: 授权读取+编辑+删除
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'Agent 管理'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
+    And I "checked" function "读取,编辑,删除" from the auth table which name is "<name>"
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
+
+    Examples:
+      | name    |
+      | 权限自动化测试 |
+
+  @logout
+  Scenario Outline: 验证读取+编辑+删除
+    Given I login user "AutoTest" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
+    And I wait for loading invisible
+    And I click the "{'AgentName':'<name>'}" button
+    Then I set the parameter "Description" with value "TestDesc"
+    And I click the "Update" button
+    And I will see the element "Addsuccessmsg" name is "更新 Agent 分组成功"
+    And I wait for loading invisible
+    And I click the "More" button
+    And I click the "Jump" button
+    And switch to another window
+    And I close all tabs except main tab
+    Then I wait for "Notice" will be visible
+    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
+    And I wait for loading invisible
+    And I click the "{'AgentName':'<name>'}" button
+    And I click the "Addgroupinput" button
+    And I wait for title change text to "Agent 分组配置"
+    Then I will see the "AddDataSource" doesn't exist
+    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
+    And I wait for loading invisible
+    And I click the "{'AgentName':'<name>'}" button
+    And I click the "More" button
+    And I click the "Delete" button
+    And I click the "Ensure" button
+    Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
+    And I logout current user
+
+    Examples:
+      | name    |
+      | 权限自动化测试 |
+
   @logout
   Scenario: 验证有效期限生效
     When I login user "AutoTest" with password "All#123456"
@@ -256,58 +308,6 @@ Feature: 权限-agent
     Examples:
       | name     |
       | TestAuth |
-
-  Scenario Outline: 授权读取+编辑+删除
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'Agent 管理'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    And I "unchecked" the checkbox which name is "<name>" in auth table
-    And I "checked" function "读取,编辑,删除" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-
-    Examples:
-      | name    |
-      | 权限自动化测试 |
-
-  @logout
-  Scenario Outline: 验证读取+编辑+删除
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
-    And I wait for loading invisible
-    And I click the "{'AgentName':'<name>'}" button
-    Then I set the parameter "Description" with value "TestDesc"
-    And I click the "Update" button
-    And I will see the element "Addsuccessmsg" name is "更新 Agent 分组成功"
-    And I wait for loading invisible
-    And I click the "More" button
-    And I click the "Jump" button
-    And switch to another window
-    And I close all tabs except main tab
-    Then I wait for "Notice" will be visible
-    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
-    And I wait for loading invisible
-    And I click the "{'AgentName':'<name>'}" button
-    And I click the "Addgroupinput" button
-    And I wait for title change text to "Agent 分组配置"
-    Then I will see the "AddDataSource" doesn't exist
-    Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
-    And I wait for loading invisible
-    And I click the "{'AgentName':'<name>'}" button
-    And I click the "More" button
-    And I click the "Delete" button
-    And I click the "Ensure" button
-    Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
-    And I logout current user
-
-    Examples:
-      | name    |
-      | 权限自动化测试 |
 
   Scenario Outline: 授权组内读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
