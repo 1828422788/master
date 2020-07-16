@@ -66,7 +66,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 修改事件操作
     Given open the "event.ListPage" page for uri "/event/action/"
-    When the data name is "仪表盘测试事件列表" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "appname"
     And I choose the "两者" from the "Display"
@@ -107,7 +107,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 修改事件操作显示于字段
     Given open the "event.ListPage" page for uri "/event/action/"
-    When the data name is "仪表盘测试事件列表" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "appname"
     And I choose the "字段菜单" from the "Display"
@@ -147,7 +147,7 @@ Feature: 仪表盘事件列表
   @dashboard @dashboardSmoke
   Scenario: 修改事件操作动作类型为搜索
     Given open the "event.ListPage" page for uri "/event/action/"
-    When the data name is "仪表盘测试事件列表" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I wait for loading invisible
     And I choose the "搜索" from the "Action"
@@ -257,7 +257,8 @@ Feature: 仪表盘事件列表
   @cleanDashboard
   Scenario: 删除事件操作
     Given open the "event.ListPage" page for uri "/event/action/"
-    When the data name is "仪表盘测试事件列表" then i click the "删除" button
+    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除事件操作成功"
 

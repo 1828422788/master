@@ -12,6 +12,7 @@ Feature: 仪表盘设为/取消默认（RZY-211）
     Then I will see the success message "设置默认仪表盘成功"
     And I refresh the website
     And I wait for loading invisible
+    Then I will see the "dashboard.DetailPage" page
     And I click the "ReturnToList" button under some element
     And I wait for loading invisible
     When the data name is "FirstAutoTest" then i click the "取消默认" button
