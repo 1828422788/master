@@ -80,6 +80,7 @@ Feature: 趋势图新建_维度
       |      Bar      | Red    |只展示名称| 柱状内中央   |
       |      Bar      | Red    |只展示名称| 柱状内靠左侧 |
       |      Bar      | Red    |只展示名称| 柱状内靠右侧 |
+      |      Bar      | Green  |展示全部  | 柱状外两侧   |
       |      Bar      | Green  |展示全部  | 柱状外左侧   |
       |      Bar      | Green  |展示全部  | 柱状外右侧   |
       |      Bar      | Green  |展示全部  | 柱状内中央   |

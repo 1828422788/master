@@ -154,6 +154,7 @@ Feature: 日志展现_维度
       |      Bar      | Red     |只展示名称| 柱状内中央 | middle    |
       |      Bar      | Red     |只展示名称|柱状内靠左侧 | in_left  |
       |      Bar      | Red     |只展示名称|柱状内靠右侧 | in_right |
+      |      Bar      | Yellow  |展示全部  |柱状外两侧   | both     |
       |      Bar      | Yellow  |展示全部  |柱状外左侧   | out_left |
       |      Bar      | Yellow  |展示全部  |柱状外右侧   | out_right|
       |      Bar      | Yellow  |展示全部  |柱状内中央   | middle   |
