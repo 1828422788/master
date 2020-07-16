@@ -93,7 +93,7 @@ Feature: 应用数据集
     And I choose the "AutoApp" from the "TagDropdown"
     And I click the "Ensure" button
     Then I will see the success message "修改成功"
-    Then I will see the data "{'column':'0','name':'DatasetApp内新建'}" values "{'column':'5','name':'AutoApp'}"
+    Then I will see the data "{'column':'0','name':'DatasetApp内新建'}" values "{'column':'6','name':'AutoApp'}"
 
   Scenario: 新建无标签数据集
     Given open the "app.ListPage" page for uri "/app/list/"

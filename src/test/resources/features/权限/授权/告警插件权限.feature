@@ -133,7 +133,6 @@ Feature: 授权告警插件
 
   @logout
   Scenario: 验证告警插件有效期限生效
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.PluginPage" page for uri "/plugins/"
