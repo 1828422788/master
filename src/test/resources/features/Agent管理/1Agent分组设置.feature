@@ -32,14 +32,12 @@ Feature: Agent分组设置
   Scenario: Agent分组重名新建失败
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest"
-#    When I set the parameter "Description" with value "<description>"
     And I choose the "__admin__" from the "Role"
     And I click the "Save" button
     Then I will see the message "操作失败，原因：1062-Duplicate entry '1-sunxctest' for key 'domain_id_name'"
 
   Scenario: Agent分组未填写名称新建失败
     And I click the "CreateAgentGroupButton" button
-#    When I set the parameter "Description" with value "<description>"
     And I choose the "__admin__" from the "Role"
     And I click the "Save" button
     Then I will see the element "searchInput" name is "请输入名称"
@@ -47,7 +45,6 @@ Feature: Agent分组设置
   Scenario: Agent分组未填写角色新建失败
     And I click the "CreateAgentGroupButton" button
     And I set the parameter "Name" with value "sunxctest2"
-#    When I set the parameter "Description" with value "<description>"
     And I click the "Save" button
     Then I will see the element "searchRole" name is "请选择角色"
 
@@ -90,8 +87,6 @@ Feature: Agent分组设置
     And I click the "MoveGroupButton" button
     Then I will see the element "GroupMemo" name is "<message>"
     And I click the "FinishButton" button
-#    And I click the "OpenGroupButton" button
-#    Then I will see the agent doesn't exist in "1" cloumn
 
     Examples:
       | message              |
@@ -132,8 +127,6 @@ Feature: Agent分组设置
     Then I will see the element "GroupMemo" name is "<message>"
     And I click the "FinishButton" button
 
-#    Then I will see the agent search result not contains "1"
-
     Examples:
       | message              |
       | 成功移出分组 [ sunxctest ] |
@@ -161,7 +154,6 @@ Feature: Agent分组设置
     And I click the "Ensure" button
     And I wait for "Addsuccessmsg" will be visible
     Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
-
 
     Examples: 模糊搜索ip过滤成功
 
