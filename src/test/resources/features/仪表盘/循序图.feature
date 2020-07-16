@@ -77,7 +77,8 @@ Feature: 仪表盘循序图
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
-    And I click the "Other" button
+    And I click the "Other" button under some element
+    And I wait for "<image>" will be visible
     And I click the "<image>" button
     And I hide the element "Content"
     And I wait for "1000" millsecond

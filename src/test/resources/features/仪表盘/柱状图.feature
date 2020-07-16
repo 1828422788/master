@@ -77,7 +77,8 @@ Feature: 仪表盘柱状图
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Order" will be visible
-    And I click the "Order" button
+    And I click the "Order" button under some element
+    And I wait for "<targetName>" will be visible
     And I click the "<targetName>" button
     And I hide the element "Content"
     And I wait for "1000" millsecond
