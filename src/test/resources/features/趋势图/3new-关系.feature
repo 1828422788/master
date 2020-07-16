@@ -148,6 +148,6 @@ Feature: 趋势图新建_关系
 
     Examples:
       |   chartType   |   spl   |
-      |    Chord      |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path, apache.method \| limit 15 |
+      |    Chord      |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.clientip, apache.request_path, apache.method \| limit 15 \| sort by +apache.method, cnt, +apache.request_path, apache.clientip |
       |    Sankey     |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND  apache.clientip:183.14.126.214  OR ( apache.clientip:1.207.60.51 AND (apache.resp_len:87 OR apache.resp_len:1935)) \| stats count() by apache.clientip,apache.resp_len,apache.method \| sort by apache.resp_len |
       |    Force      |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path, apache.method \|limit 10 |
