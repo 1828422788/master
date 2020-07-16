@@ -7,7 +7,6 @@ Feature: 字段提取删除
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-#    Then I will see the success message "删除成功"
 
     Examples:
       | name                        |
