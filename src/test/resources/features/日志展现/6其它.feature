@@ -26,7 +26,7 @@ Feature: 日志展现_其它
       |  chartType    |caseNum  |   spl   |
       |   Wordcloud   | 2804    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
-  @facet
+
   Scenario Outline: wordcloud_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button

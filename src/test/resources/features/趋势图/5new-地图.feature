@@ -283,7 +283,7 @@ Feature: 趋势图新建_地图
       |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2546_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
       |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2547_white |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
 
-  @facettrend
+
   Scenario Outline: heatmap_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
@@ -322,7 +322,7 @@ Feature: 趋势图新建_地图
       |   chartType   |   caseNum  |   spl   |
       |   Heatmap     |    分面    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city, apache.status |
 
-  @facettrend
+
   Scenario Outline: regionmap_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
