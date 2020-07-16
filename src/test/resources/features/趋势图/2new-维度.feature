@@ -217,4 +217,84 @@ Feature: 趋势图新建_维度
       |   chartType   |  color   |  spl   |
       |      Sun      | DarkBlue |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.province:贵州 AND NOT apache.status:304 AND NOT apache.status:499 \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
+    @flame
+  Scenario Outline: dimension_flame
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I click the "Exhibition" button
+    And I choose the "<option>" from the "DrillDownMode"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "Chart" will be visible
+    And I click the "ShenZhen" button
+    And I click the "HideElement" button
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/<chartType>_<option>"
+    And I compare source image "actual/<chartType>_<option>" with target image "expect/<chartType>_<option>"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<option>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |   chartType   |  option        |
+      |      Flame    | 不使用外部钻取 |
+
+  @flame
+  Scenario Outline: dimension_facet
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Dimension" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "2"
+    And I set the parameter "ColumnNum" with value "1"
+    And I click the "Exhibition" button
+    And I choose the "<option>" from the "DrillDownMode"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I click the "ShenZhen" button
+    And I click the "HideElement" button
+    And I wait for "2000" millsecond
+    And I wait for "StatisticalChart" will be visible
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<option>_分面"
+    And I compare source image "actual/<chartType>_<option>_分面" with target image "expect/<chartType>_<option>_分面"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<option>_分面"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |   chartType   |  option        |
+      |      Flame    | 使用外部钻取   |
