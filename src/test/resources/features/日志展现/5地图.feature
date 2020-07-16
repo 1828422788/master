@@ -112,7 +112,7 @@ Feature: 日志展现_地图
       |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793    | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
       |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794    | tag:sample04061424_chart \| stats count() by apache.geo.city |
 
-@maptest
+
   Scenario Outline: regionMap_click(RZY-2792)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -268,7 +268,7 @@ Feature: 日志展现_地图
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum      |   spl   |
       |Regionmap| count() | apache.geo.province |  China  | apache.geo.province | apache.geo.city | 2793_white  | tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
       |Regionmap| count() | apache.geo.province | Jiangsu | apache.geo.province | apache.geo.city | 2794_white  | tag:sample04061424_chart \| stats count() by apache.geo.city |
-  @maptest
+
   Scenario Outline: regionMap_click(RZY-2792_white)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -317,7 +317,7 @@ Feature: 日志展现_地图
       |chartType|  value  | divideField         |  region | provinceDrilldown   | cityDrilldown   |caseNum  |   spl   |
       |Regionmap| count() | apache.geo.country  |  World  | apache.geo.province | apache.geo.city | 2792    |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.country, apache.geo.province, apache.geo.city |
 
-  @facetmap @facet
+
   Scenario Outline:heatmap_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -345,7 +345,7 @@ Feature: 日志展现_地图
       |   chartType   |   caseNum  |   spl   |
       |   Heatmap     |    分面    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city, apache.status |
 
-  @facet
+
   Scenario Outline:regionmap_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button

@@ -72,7 +72,7 @@ Feature: 趋势图新建-其他
       | chartType | caseNum | spl                                                                                                          |
       | Wordcloud | 2625    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city  |
 
-  @facettrend
+
   Scenario Outline: others_wordcloud_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
@@ -862,7 +862,7 @@ Feature: 趋势图新建-其他
       | Matrixheatmap | count()         | apache.status | 10     | 2660    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       | Matrixheatmap | apache.geo.city | count()       | 5      | 2661    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-  @chain
+
   Scenario Outline: chain
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
@@ -972,7 +972,7 @@ Feature: 趋势图新建-其他
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
-  @chain
+
   Scenario Outline: chain_tree
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond

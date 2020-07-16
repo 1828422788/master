@@ -199,7 +199,7 @@ Feature: 趋势图新建_序列
       |   ScatterChart |   个       |  2492     |
       |   ColumnChart  |   pcs.     |  2500     |
 
-  @facettrend
+
   Scenario Outline: order_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method, apache.status  \| sort by cnt, apache.clientip "
     And I wait for "1000" millsecond

@@ -112,7 +112,7 @@ Feature: 日志展现_序列
       |   chartType   |   bubbleSize |caseNum  |
       |  ScatterChart |    cnt       | bubbles   |
 
-  @facet
+
   Scenario Outline: order_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method, apache.status  \| sort by cnt, apache.clientip"
     And I click the "SearchButton" button
