@@ -42,11 +42,11 @@ Feature: Agent分组设置
     And I click the "Save" button
     Then I will see the element "searchInput" name is "请输入名称"
 
-  Scenario: Agent分组未填写角色新建失败
-    And I click the "CreateAgentGroupButton" button
-    And I set the parameter "Name" with value "sunxctest2"
-    And I click the "Save" button
-    Then I will see the element "searchRole" name is "请选择角色"
+#  Scenario: Agent分组未填写角色新建失败
+#    And I click the "CreateAgentGroupButton" button
+#    And I set the parameter "Name" with value "sunxctest2"
+#    And I click the "Save" button
+#    Then I will see the element "searchRole" name is "请选择角色"
 
   Scenario Outline: Agent分组添加和跳转
     And I click the "Back" button
