@@ -54,8 +54,15 @@ public class ListPage extends ListPageFactory {
         return auth;
     }
 
-    public WebElement getAgentGroupButton(){
-        return super.getButton("分组设置");
+    public WebElement getMore(){
+        return super.getButton("更多");
+    }
+
+    @FindBy(xpath = "//span[text()='分组设置']")
+    private WebElement AgentGroupButton;
+
+    public WebElement getAgentGroupButton() {
+        return AgentGroupButton;
     }
 
     public WebElement getAgentMultiButton(){

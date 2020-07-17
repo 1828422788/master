@@ -2010,12 +2010,25 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
-    @FindBy(xpath = "(//label[text()='资源标签'][last()])/following-sibling::div[1]//input")
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//input")
     private WebElement tagInput;
 
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//div[@class='ant-select-selection__choice__content']")
+    private WebElement selectedTag;
+
+    @FindBy(xpath = "(//label[text()='资源标签'][last()])/ancestor::div[1]//div[@class='ant-select-selection__choice__content']/following-sibling::span")
+    private WebElement deleteTag;
+
     public WebElement getTagInput() {
-        groupField.click();
         return tagInput;
+    }
+
+    public WebElement getSelectedTag() {
+        return selectedTag;
+    }
+
+    public WebElement getDeleteTag() {
+        return deleteTag;
     }
 
 }

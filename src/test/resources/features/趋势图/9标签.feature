@@ -27,7 +27,7 @@ Feature: 趋势图标签
     Then I will see the success message "更新成功"
     And I refresh the website
     #column 2 is user, column 3 is tag
-    Then I will see the data "Tag_Test" values "{'column':'3','name':'auto_package'}"
+    Then I will see the data "Tag_Test" values "{'column':'4','name':'auto_package'}"
 
 
   Scenario: verify_tag
@@ -39,11 +39,13 @@ Feature: 趋势图标签
     And I click the "NextButton" button
     And I will see the input element "NameInput" value will be "Tag_Test"
     And I will see the input element "DescribeInput" value will be "AutoCreate"
-    And I cancel selection "auto_package" from the "GroupField"
+    And I will see the element "SelectedTag" contains "auto_package"
+    And I click the "DeleteTag" button
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
     When open the "trend.ListPage" page for uri "/trend/"
-    Then I will see the data "Tag_Test" values "{'column':'3','name':'无'}"
+    Then I will see the data "Tag_Test" values "{'column':'4','name':'无'}"
+    And I will see the data "Tag_Test" values "{'column':'3','name':'无'}"
 
 
   Scenario Outline: delete_trend

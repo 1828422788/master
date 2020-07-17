@@ -24,7 +24,7 @@ import java.util.List;
         dryRun = false,
         snippets = SnippetType.CAMELCASE,
         glue = {"com.yottabyte"},
-        tags = {"@dashboard"}
+        tags = {"@topology"}
 )
 /**
  * @param projectName

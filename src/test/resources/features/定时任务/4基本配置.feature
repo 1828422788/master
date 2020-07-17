@@ -24,7 +24,7 @@ Feature: 定时任务_基本配置
 
   Scenario Outline: check_details_period
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'Test_Schedule'}" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "ResultHandling" will be visible
     And I refresh the website
@@ -53,7 +53,7 @@ Feature: 定时任务_基本配置
 
   Scenario Outline: check_details_crontab
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'Test_Schedule'}" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "ResultHandling" will be visible
     And I refresh the website
@@ -72,7 +72,7 @@ Feature: 定时任务_基本配置
 
   Scenario: modify_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'Test_Schedule'}" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'Test_Schedule'}" then i click the "编辑" button
     And I will see the "timedTask.EditPage" page
     And I wait for "ResultHandling" will be visible
     And I refresh the website
@@ -80,8 +80,9 @@ Feature: 定时任务_基本配置
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Name" with value "Schedule_Test"
     And I set the parameter "Describe" with value "testing schedule"
+    And I set the parameter "TaskGroupInput" with value "auto_package"
     And I set the value "tag:*| stats count() by appname | limit 10" to the textarea "SearchTextarea"
-    And I choose the "auto_package" from the "TaskGroup"
+#    And I choose the "auto_package" from the "TaskGroup"
     And I choose the "test_app" from the "TaskApp"
     And I will see the input element "Period" value will be "5"
     And I set the parameter "CrontabInput" with value "0 */57 * * * ?"
@@ -93,8 +94,8 @@ Feature: 定时任务_基本配置
 
   Scenario: verify_changes
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then I will see the data "{'column':'2','name':'Schedule_Test'}" values "{'column':'7','name':'auto_package'}"
-    When the data name is "{'column':'2','name':'Schedule_Test'}" then i click the "Schedule_Test" button
+    Then I will see the data "{'column':'1','name':'Schedule_Test'}" values "{'column':'8','name':'auto_package'}"
+    When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "Schedule_Test" button
     Then I will see the "timedTask.DetailPage" page
     And I will see the element "SearchContent" contains "*| stats count() by appname | limit 10"
     And I will see the element "TimePeriod" contains "now/d ~ now"
@@ -103,7 +104,7 @@ Feature: 定时任务_基本配置
 
   Scenario: delete_schedule
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    When the data name is "{'column':'2','name':'Schedule_Test'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'Schedule_Test'}" then i click the "删除" button
     And I click the "Ensure" button under some element
     Then I will see the success message "删除成功"
 

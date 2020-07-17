@@ -42,6 +42,7 @@ Feature: 趋势图复制(RZY-1889)
     Then I wait for "SuccessCreate" will be visible
 
   Scenario: copy_trend
+    And I wait for "2000" millsecond
     When the data name is "Copy_Test" then i click the "复制" button
     Then I will see the message "复制成功"
     When I click the "EnsureButton" button
@@ -50,6 +51,9 @@ Feature: 趋势图复制(RZY-1889)
 
 
   Scenario: verify_copy
+    And I wait for "2000" millsecond
+    And I will see the data "{'column':'0','name':'Copy_Test(副本)'}" values "{'column':'4','name':'auto_package'}"
+    And I will see the data "{'column':'0','name':'Copy_Test(副本)'}" values "{'column':'3','name':'test_app'}"
     When the data name is "Copy_Test(副本)" then i click the "编辑" button
     And I will see the "trend.CreatePage" page
     And I wait for "Header" will be visible
@@ -64,7 +68,7 @@ Feature: 趋势图复制(RZY-1889)
     And I will see the input element "NameInput" value will be "Copy_Test(副本)"
     And I will see the input element "DescribeInput" value will be "AutoCreate"
     And I cancel selection "test_app" from the "AppField"
-    And I cancel selection "auto_package" from the "GroupField"
+    And I will see the element "SelectedTag" contains "auto_package"
     And I click the "NextButton" button
     Then I wait for "SuccessUpdate" will be visible
 
