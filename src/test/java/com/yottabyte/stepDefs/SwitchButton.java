@@ -36,4 +36,31 @@ public class SwitchButton {
             System.out.println("error value :" + value);
         }
     }
+
+    /**
+     * 关闭或开启仪表盘开关
+     *
+     * @param buttonName  元素名称
+     * @param value    状态 enable/disable
+     */
+    @And("^I switch the dashboard \"([^\"]*)\" button to \"([^\"]*)\"$")
+    public void operateDashboardSwitch(String buttonName, String value) {
+        WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
+        String status = element.getAttribute("aria-checked");
+        if (value.equalsIgnoreCase("enable")) {
+            if (status.contains("false")) {
+                element.click();
+            } else {
+                System.out.println("already enable");
+            }
+        } else if (value.equalsIgnoreCase("disable")) {
+            if (status.contains("true")) {
+                element.click();
+            } else {
+                System.out.println("already disable");
+            }
+        } else {
+            System.out.println("error value :" + value);
+        }
+    }
 }

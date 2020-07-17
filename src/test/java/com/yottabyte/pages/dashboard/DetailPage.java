@@ -672,6 +672,10 @@ public class DetailPage extends PageTemplate {
         return getSwitchButton("显示过滤项");
     }
 
+    public WebElement getFilterAutoRefresh() {
+        return getSwitchButton("过滤输入项自动更新");
+    }
+
     //添加趋势图的确定按钮
     @FindBy(xpath = "//div[@class='Yt5JX-42Xe_Kz4p92ocJI']/button")
     private WebElement ensureAddTrend;

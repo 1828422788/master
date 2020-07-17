@@ -73,7 +73,7 @@ Feature: 仪表盘矩阵热力图
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
-    And I click the "Other" button
+    And I click the "Other" button under some element
     And I click the "Matrixheatmap" button
     And I hide the element "Content"
     And I wait for "1000" millsecond

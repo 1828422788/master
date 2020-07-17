@@ -15,7 +15,7 @@ Feature: 仪表盘详情页
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I click the "OpenEdit" button
+    And I switch the dashboard "OpenEdit" button to "disable"
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "编辑功能已禁用"
 
