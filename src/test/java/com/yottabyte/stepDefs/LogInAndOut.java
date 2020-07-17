@@ -1,11 +1,9 @@
 package com.yottabyte.stepDefs;
 
-import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.LoginPage;
-import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.WaitForElement;
 import cucumber.api.java.en.And;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
@@ -52,29 +50,24 @@ public class LogInAndOut {
      * @param password
      */
     @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\"$")
-    public void userLogin(String username, String password) throws InterruptedException {
-        int time = 0;
-        while (webDriver.manage().getCookies().size() != 0) {
-            this.logout();
-            webDriver.navigate().refresh();
-            if (time < 10)
-                time++;
-            else
-                break;
-        }
-
-        while (webDriver.manage().getCookies().size() == 0) {
+    public void userLogin(String username, String password) {
+        this.logout();
+        webDriver.navigate().refresh();
+        int times = 10;
+        webDriver.navigate().refresh();
+        while (webDriver.manage().getCookies().size() != 2) {
             LoginPage loginPage = new LoginPage(webDriver);
             loginPage.getUsername().clear();
             loginPage.getUsername().sendKeys(username);
             loginPage.getPassword().clear();
             loginPage.getPassword().sendKeys(password);
             loginPage.getLoginButton().click();
-            if (time < 20)
-                time++;
-            else
-                break;
+            WaitForElement.waitElementInvisible(loginPage.getLoginButton());
+            System.out.println();
+            times++;
+            if (times > 10) {
+                return;
+            }
         }
-
     }
 }

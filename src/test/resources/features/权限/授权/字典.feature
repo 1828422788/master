@@ -1,4 +1,4 @@
-@authtest
+#@auth
 Feature: 权限-字典
 
   @logout
@@ -24,14 +24,6 @@ Feature: 权限-字典
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then I will see the "UploadButton" doesn't exist
-
-  @logout
-  Scenario: 验证告警插件有效期限生效
-    And I logout current user
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "alert.PluginPage" page for uri "/plugins/"
-    Then I will see the search result "{'column':'0','name':'sendsms','contains':'no'}"
 
   @logout
   Scenario: 验证可新建字典

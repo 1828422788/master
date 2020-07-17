@@ -1,4 +1,4 @@
-@authtest
+#@auth
 Feature: 权限-应用列表页
 
   Scenario: 授权可使用应用功能,可新建应用,可使用数据集,数据集操作权限
@@ -10,7 +10,7 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用拓扑图,新建拓扑图"
+    When I "checked" the checkbox which name is "可查看应用,可新建应用,可使用拓扑图,新建拓扑图"
     And I click the "SaveButton" button
 
   @logout

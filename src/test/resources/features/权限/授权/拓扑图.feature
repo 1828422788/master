@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-拓扑图
 
   Scenario: 验证无新建权限

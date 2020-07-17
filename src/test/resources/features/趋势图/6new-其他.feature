@@ -72,6 +72,47 @@ Feature: 趋势图新建-其他
       | chartType | caseNum | spl                                                                                                          |
       | Wordcloud | 2625    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city  |
 
+
+  Scenario Outline: others_wordcloud_facet
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+#    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType    |caseNum  |   spl   |
+      |   Wordcloud   | 分面    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city, apache.method \| limit 7 |
+
+
   Scenario Outline: single_icon
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") "
     And I wait for "500" millsecond
@@ -821,7 +862,7 @@ Feature: 趋势图新建-其他
       | Matrixheatmap | count()         | apache.status | 10     | 2660    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       | Matrixheatmap | apache.geo.city | count()       | 5      | 2661    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-  @chain
+
   Scenario Outline: chain
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
@@ -931,7 +972,7 @@ Feature: 趋势图新建-其他
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
-  @chain
+
   Scenario Outline: chain_tree
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond

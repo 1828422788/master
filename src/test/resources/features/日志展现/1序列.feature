@@ -111,3 +111,40 @@ Feature: 日志展现_序列
     Examples:
       |   chartType   |   bubbleSize |caseNum  |
       |  ScatterChart |    cnt       | bubbles   |
+
+
+  Scenario Outline: order_facet
+    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method, apache.status  \| sort by cnt, apache.clientip"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Group" button
+    And I choose the "apache.status" from the "FieldValue" in config
+    And I click the "Exhibition" button
+    And I click the "AddColor" button
+    And I click the "Red" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/高级搜索视图/1序列/分面_<chartType>"
+    Then I compare source image "actual/高级搜索视图/1序列/分面_<chartType>" with target image "expect/高级搜索视图/1序列/分面_<chartType>"
+
+    Examples:
+      |   chartType   |
+      |   LineChart   |
+      |   AreaChart   |
+      |  ScatterChart |
+      |  ColumnChart  |

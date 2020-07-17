@@ -1,5 +1,17 @@
-@authtest
+#@auth
 Feature: 权限-仪表盘
+
+  Scenario: 勾选仪表盘所需功能权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "可查看仪表盘,新建仪表盘"
+    And I click the "SaveButton" button
 
   @logout
   Scenario: 验证无新建权限
@@ -9,9 +21,7 @@ Feature: 权限-仪表盘
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
+    And I "unchecked" the checkbox which name is "新建仪表盘"
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     And I login user "AutoTest" with password "All#123456"
@@ -28,9 +38,7 @@ Feature: 权限-仪表盘
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
+    When I "checked" the checkbox which name is "新建仪表盘"
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     And I login user "AutoTest" with password "All#123456"
@@ -42,6 +50,7 @@ Feature: 权限-仪表盘
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
     And I logout current user
+    And I wait for "<string>" will be invisible
 
   @logout
   Scenario: 验证无读取权限
@@ -49,13 +58,6 @@ Feature: 权限-仪表盘
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用仪表盘"
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
     Then I click the "Dashboard" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "仪表盘验证权限1" in auth table
@@ -80,12 +82,6 @@ Feature: 权限-仪表盘
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可使用搜索权限,可使用仪表盘,新建仪表盘,可使用搜索页"
-    And I click the "SaveButton" button
     And I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

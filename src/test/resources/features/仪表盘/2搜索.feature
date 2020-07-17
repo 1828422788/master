@@ -30,4 +30,4 @@ Feature: 仪表盘搜索（RZY-216）
     Then I will see the search result "{'column':'0','name':'UIautotest','contains':'no'}"
 
   Scenario: 验证资源标签删除成功
-    Then I will see the data "UIautotest" values "{'column':'3','name':''}"
+    Then I will see the data "UIautotest" values "{'column':'5','name':''}"

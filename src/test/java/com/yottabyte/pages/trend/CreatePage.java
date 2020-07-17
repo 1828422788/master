@@ -283,7 +283,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='max']//ancestor::div/preceding-sibling::div[1]/i")
     private WebElement deleteLastInterval;
 
-    @FindBy(xpath = "//span[text()='自 动']/ancestor::button")
+    @FindBy(xpath = "//span[text()='默 认']/ancestor::button")
+    private WebElement defaultColor;
+
+    @FindBy(xpath = "//span[text()='随 机']/ancestor::button")
     private WebElement autoColor;
 
     @FindBy(xpath = "//span[text()='自定义']/ancestor::button")
@@ -453,6 +456,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[contains(text(),'旭日图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement sunburst;
+
+    @FindBy(xpath = "(//div[contains(text(),'火焰图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement flame;
 
     @FindBy(className = "tracing")
     private WebElement tracing;
@@ -722,6 +728,15 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='标签展示'])[last()]/ancestor::div/following-sibling::div")
     private WebElement showLabel;
+
+    @FindBy(xpath = "(//span[text()='钻取模式'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement drillDownMode;
+
+    @FindBy(xpath = "(//div[text()='深圳市']/ancestor::*[@class='vx-group'][1])[last()]")
+    private WebElement shenZhen;
+
+    @FindBy(xpath = "(//*[@class='_1_m_DyhFaFqqMWBfXY4Evv']) | (//div[text()='配置'])")
+    private WebElement hideElement;
 
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
@@ -1021,6 +1036,19 @@ public class CreatePage extends PageTemplate {
         wait.until(ExpectedConditions.elementToBeClickable(showLabel));
         showLabel.click();
         return super.getLastDropdownList();
+    }
+
+    public WebElement getDrillDownMode() {
+        drillDownMode.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getShenZhen() {
+        return shenZhen;
+    }
+
+    public WebElement getHideElement() {
+        return hideElement;
     }
 
     public WebElement getLabelLocation() {
@@ -1636,6 +1664,10 @@ public class CreatePage extends PageTemplate {
         return sunburst;
     }
 
+    public WebElement getFlame() {
+        return flame;
+    }
+
     public WebElement getAddField() {
         return addField;
     }
@@ -1935,6 +1967,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDeleteLastInterval() {
         return deleteLastInterval;
+    }
+
+    public WebElement getDefaultColor() {
+        return defaultColor;
     }
 
     public WebElement getAutoColor() {

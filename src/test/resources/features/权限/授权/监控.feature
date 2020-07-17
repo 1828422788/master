@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-监控
 
   Scenario: 验证无新建监控、查看告警插件的权限

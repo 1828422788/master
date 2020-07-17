@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-字段提取
 
   @logout

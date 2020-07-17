@@ -253,7 +253,7 @@ Feature: 应用字段提取（RZY-2129）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.CreatePage" page
-    And I click the "DeleteApp" button
+    And I choose the "ConfigsApp" from the "App"
     Then I click the "SaveButton" button
     And I wait for "Message" will be visible
     Then I will see the message "更新字典内容成功"

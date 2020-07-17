@@ -30,7 +30,7 @@ public class CreatePage extends PageTemplate {
     private List<WebElement> tabs;
 
     // 监控名称
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='名称']/following-sibling::div/input")
     private WebElement alertName;
 
     // 监控描述

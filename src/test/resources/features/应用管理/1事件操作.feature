@@ -72,7 +72,7 @@ Feature: 应用事件操作（RZY-2141）
 
   Scenario: 编辑事件操作
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "EventApp" then i click the "打开" button
+    When the data name is "{'column':'1','name':'EventApp'}" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page
@@ -93,7 +93,7 @@ Feature: 应用事件操作（RZY-2141）
     Then I will see the "event.ListPage" page
     Given I set the parameter "SearchInput" with value "<name>"
     And I wait for loading invisible
-    Then I will see the search result "<name>"
+    Then I will see the search result "{'column':'1','name':'<name>'}"
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
 
@@ -107,11 +107,11 @@ Feature: 应用事件操作（RZY-2141）
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "EventApp"
     Then I will see the "event.ListPage" page
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I refresh the website
-    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
+    Then I will see the search result "{'column':'1','name':'<name>','contains':'no'}"
     And I will see the "app.AppPage" page
     Then I will see the element "Title" name is "EventApp"
 

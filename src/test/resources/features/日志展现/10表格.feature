@@ -137,13 +137,13 @@ Feature: 日志展现_表格
       |  DeleteLastInterval   |  829_del_green   |
 
 
-  Scenario Outline: table_value_autocolor
+  Scenario Outline: table_value_color
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
 
-    And I wait for "AutoColor" will be visible
-    And I click the "AutoColor" button
+    And I wait for "<button>" will be visible
+    And I click the "<button>" button
     And I click the "CreateEnsureButton" button
 
     And I wait for "ChartView" will be visible
@@ -153,8 +153,9 @@ Feature: 日志展现_表格
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
 
     Examples:
-      | caseNum     |
-      |  830_auto   |
+      |   button      | caseNum       |
+      |  DefaultColor | defaultColor  |
+      |  AutoColor    |  830_auto     |
 
 
   Scenario Outline: table_value_customcolor

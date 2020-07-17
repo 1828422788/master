@@ -198,3 +198,48 @@ Feature: 趋势图新建_序列
       |   chartType    | unitValue  |  caseNum  |
       |   ScatterChart |   个       |  2492     |
       |   ColumnChart  |   pcs.     |  2500     |
+
+
+  Scenario Outline: order_facet
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method, apache.status  \| sort by cnt, apache.clientip "
+    And I wait for "1000" millsecond
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Order" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Group" button
+    And I choose the "apache.status" from the "FieldValue" in config
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_分面"
+    And I compare source image "actual/<chartType>_分面" with target image "expect/<chartType>_分面"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_分面"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+
+    Examples:
+      |   chartType   |
+      |    LineChart  |
+      |   AreaChart   |
+      |  ScatterChart |
+      |  ColumnChart  |

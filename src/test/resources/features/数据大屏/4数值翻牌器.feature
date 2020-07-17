@@ -15,6 +15,7 @@ Feature: 数据大屏-a数值翻牌器
     #选择数值翻牌器
     And I click the "Index" button
     And I click the "FlipNumber" button
+    And I hide the element "IndexDropdown"
     #样式
     And I click the "Style" button
     And I click the "Flip" button

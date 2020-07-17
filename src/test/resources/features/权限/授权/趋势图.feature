@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-趋势图
 
   @logout

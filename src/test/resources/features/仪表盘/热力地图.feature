@@ -77,7 +77,7 @@ Feature: 仪表盘热力地图
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Map" will be visible
-    And I click the "Map" button
+    And I click the "Map" button under some element
     And I click the "<targetName>" button
     And I hide the element "Content"
     And I wait for "1000" millsecond
