@@ -62,7 +62,7 @@ public class LogInAndOut {
             loginPage.getPassword().clear();
             loginPage.getPassword().sendKeys(password);
             loginPage.getLoginButton().click();
-            WaitForElement.waitElementInvisible(loginPage.getLoginButton());
+//            WaitForElement.waitElementInvisible(loginPage.getLoginButton());
             System.out.println();
             times++;
             if (times > 10) {
