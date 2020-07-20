@@ -242,6 +242,7 @@
                 <configuration>
                     <forkMode>once</forkMode>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                     <!--<suiteXmlFiles>-->
                     <!--<suiteXmlFile>testng.xml</suiteXmlFile>-->
                     <!--</suiteXmlFiles>-->
