@@ -34,6 +34,7 @@ Feature: 仪表盘输入项
     Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
+    And I wait for "Today" will be visible
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
@@ -114,7 +115,7 @@ Feature: 仪表盘输入项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I wait for "FilterName" will be invisible
 
   @dashboard @dashboardSmoke
@@ -174,7 +175,7 @@ Feature: 仪表盘输入项
     And I click the "FilterName" button
     And I click the "DeleteTag" button
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     Then I wait for "FilterName" will be invisible
 
   @dashboard @dashboardSmoke
@@ -254,7 +255,8 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
     And I click the "DeleteTag" button
-    And I click the "Ensure" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button under some element
     Then I wait for "FilterName" will be invisible
 
   @dashboard @dashboardSmoke
@@ -444,7 +446,7 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
     And I click the "DeleteTag" button
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -505,12 +507,13 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
     And I click the "DeleteTag" button
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.resp_len:>${filter}| table apache.resp_len"
     And I click the "Ensure" button under some element
+    And I wait for "1000" millsecond
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
@@ -611,7 +614,7 @@ Feature: 仪表盘输入项
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
     And I click the "DeleteTag" button
-    And I click the "Ensure" button
+    And I click the "Ensure" button under some element
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I wait for loading invisible
@@ -711,6 +714,7 @@ Feature: 仪表盘输入项
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:
@@ -724,6 +728,7 @@ Feature: 仪表盘输入项
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:

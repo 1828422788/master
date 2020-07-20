@@ -87,6 +87,9 @@ Feature: 仪表盘输入项联动
     And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"
     Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I choose the "192.168.1.171" from the "LastFilter"
     And I click the "Update" button
     When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -119,8 +122,10 @@ Feature: 仪表盘输入项联动
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "测试输入项联动" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for "Spl" will be visible
     And I set the parameter "Spl" with value "${filter|e}"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
@@ -146,6 +151,7 @@ Feature: 仪表盘输入项联动
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
