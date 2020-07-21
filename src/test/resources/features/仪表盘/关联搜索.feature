@@ -144,6 +144,7 @@ Feature: 仪表盘关联搜索
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:${workflow} | table tag,workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"
     Then I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
@@ -211,6 +212,7 @@ Feature: 仪表盘关联搜索
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
@@ -223,6 +225,7 @@ Feature: 仪表盘关联搜索
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除成功"
 
     Examples:
@@ -237,6 +240,7 @@ Feature: 仪表盘关联搜索
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:

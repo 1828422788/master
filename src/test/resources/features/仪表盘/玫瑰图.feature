@@ -73,6 +73,7 @@ Feature: 仪表盘玫瑰图
     And I wait for loading invisible
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Dimension" will be visible
@@ -132,6 +133,7 @@ Feature: 仪表盘玫瑰图
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
+    And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I hide the element "Content"

@@ -74,6 +74,7 @@ Feature: 仪表盘力图
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
+    And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Relation" will be visible

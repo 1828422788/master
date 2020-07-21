@@ -1,3 +1,4 @@
+@yibiaopanshuruxiang
 Feature: 仪表盘输入项
 
   @dashboard @dashboardSmoke
@@ -270,6 +271,7 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I set the parameter "Spl" with value "apache.geo.city:${filter} | stats count() by apache.geo.city"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
@@ -452,6 +454,7 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I set the parameter "Spl" with value "${filter} apache.geo.city:成都市 | stats count() by apache.geo.city"
     And I click the "Ensure" button under some element
+    And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
