@@ -74,6 +74,7 @@ Feature: 仪表盘面积图
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
+    And I wait for "ChartType" will be visible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Order" will be visible
