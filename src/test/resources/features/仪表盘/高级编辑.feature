@@ -1,4 +1,3 @@
-@highedit
 Feature: 仪表盘高级编辑
 
   @dashboard @dashboardSmoke

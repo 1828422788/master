@@ -126,7 +126,10 @@ Feature: 仪表盘详情页
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "DateEditor" button
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "enable"
+    And I click the "DateEditor" button under some element
     And I click the "Shortcut" button
     And I click the "Yesterday" button
     And I wait for "Progress" will be invisible
@@ -153,6 +156,21 @@ Feature: 仪表盘详情页
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
+  Scenario: 删除全局时间
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "TimeName" button
+    And I click the "deleteTimeTag" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button under some element
+    Then I wait for "TimeName" will be invisible
+
 
   Scenario Outline: 删除报表
     When open the "report.ListPage" page for uri "/reports/"
