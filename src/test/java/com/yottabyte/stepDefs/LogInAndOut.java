@@ -55,15 +55,16 @@ public class LogInAndOut {
         webDriver.navigate().refresh();
         int times = 10;
         webDriver.navigate().refresh();
+        LoginPage loginPage = new LoginPage(webDriver);
+        String baseURL = LoginBeforeAllTests.getBaseURL();
         while (webDriver.manage().getCookies().size() != 2) {
-            LoginPage loginPage = new LoginPage(webDriver);
+            webDriver.navigate().to(baseURL);
+            webDriver.navigate().refresh();
             loginPage.getUsername().clear();
             loginPage.getUsername().sendKeys(username);
             loginPage.getPassword().clear();
             loginPage.getPassword().sendKeys(password);
             loginPage.getLoginButton().click();
-//            WaitForElement.waitElementInvisible(loginPage.getLoginButton());
-            System.out.println();
             times++;
             if (times > 10) {
                 return;

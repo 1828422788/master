@@ -74,7 +74,7 @@ public class SharedDriver extends EventFiringWebDriver {
             URL url = new URL("http://" + ServerHOst + ":4444/wd/hub");
             REAL_DRIVER = new RemoteWebDriver(url, browser);
             REAL_DRIVER = new EventFiringWebDriver(REAL_DRIVER).register(eventListener);
-            REAL_DRIVER.manage().window().fullscreen();
+//            REAL_DRIVER.manage().window().fullscreen();
             WebDriverType = "Remote";
         } catch (MalformedURLException exceptions) {
 
@@ -94,7 +94,7 @@ public class SharedDriver extends EventFiringWebDriver {
             service = LocalChromeDriverService.getService();
             REAL_DRIVER = new RemoteWebDriver(service.getUrl(), browser);
             REAL_DRIVER = new EventFiringWebDriver(REAL_DRIVER).register(eventListener);
-            REAL_DRIVER.manage().window().fullscreen();
+//            REAL_DRIVER.manage().window().fullscreen();
             WebDriverType = "Local";
         }
     }
