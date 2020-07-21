@@ -136,6 +136,7 @@ Feature: 权限-定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
     And I click the "Ensure" button
@@ -150,6 +151,7 @@ Feature: 权限-定时任务
     And I wait for element "SelectedUser" change text to "AutoTest"
     And I set the parameter "Name" with value "AutoTestRename"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -184,8 +186,10 @@ Feature: 权限-定时任务
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
+    And I wait for element "SelectedUser" change text to "AutoTest"
     And I set the parameter "Name" with value "AutoTest重命名"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'AutoTest重命名'}" then i click the "删除" button
@@ -374,6 +378,7 @@ Feature: 权限-定时任务
     And I wait for "SuccessMessage" will be visible
     And I wait for "SuccessMessage" will be invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
     And I click the "Ensure" button
@@ -393,6 +398,7 @@ Feature: 权限-定时任务
     And I wait for element "SelectedUser" change text to "AutoTest"
     And I set the parameter "Name" with value "AutoTestRename"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -513,6 +519,7 @@ Feature: 权限-定时任务
     And I wait for element "SelectedUser" change text to "AutoTest"
     And I set the parameter "Name" with value "AutoTestRename"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
     Examples:
@@ -549,6 +556,7 @@ Feature: 权限-定时任务
     And I wait for element "SelectedUser" change text to "AutoTest"
     And I set the parameter "Name" with value "AutoTest重命名"
     And I click the "SaveButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'AutoTest重命名'}" then i click the "删除" button

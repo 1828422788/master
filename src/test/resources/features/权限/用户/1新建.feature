@@ -64,6 +64,6 @@ Feature: 用户新建（RZY-1164）
     Examples:
       | UserName | Email            | Password           | message                   |
       | test     | eee@yottabyte.cn | 123456             | 密码须满足：8-16个字符             |
-      | test     | 22@yottabyte.cn  | qqq123456          | 密码须满足：必须同时包含数字、大小写字母和特殊字符 |
-      | test     | 22@yottabyte.cn  | Qqq123456          | 密码须满足：必须同时包含数字、大小写字母和特殊字符 |
+      | test     | 22@yottabyte.cn  | qqq123456          | 密码须满足：必须同时且仅包含数字、大小写字母和特殊字符 |
+      | test     | 22@yottabyte.cn  | Qqq123456          | 密码须满足：必须同时且仅包含数字、大小写字母和特殊字符 |
       | test     | 22@yottabyte.cn  | Qqq123456#12134555 | 密码须满足：8-16个字符             |
