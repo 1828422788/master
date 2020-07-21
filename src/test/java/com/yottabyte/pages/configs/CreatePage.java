@@ -176,7 +176,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRuleName() {
-        return getInputElement("规则名称");
+        return getInputElement("自定义类型");
     }
 
     public WebElement getRedirect() {
