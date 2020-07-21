@@ -222,6 +222,15 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "anticon-loading")
     private WebElement loading;
 
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
+    private WebElement app;
+
+    @Override
+    public WebElement getApp() {
+        app.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getLoading() {
         return loading;
     }
