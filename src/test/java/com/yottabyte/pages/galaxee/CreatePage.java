@@ -117,10 +117,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "left-fixed_right-auto")
     private WebElement preview;
 
-    @FindBy(xpath = "(//input[@class='el-color-dropdown__value'])[last()]")
-    private WebElement colorInput;
+//    @FindBy(xpath = "(//input[@class='el-color-dropdown__value'])[last()]")
+//    private WebElement colorInput;
 
-    @FindBy(xpath = "(//button[@class='el-color-dropdown__btn'])[last()]")
+    @FindBy(xpath = "//div[@class='sp-container sp-light sp-alpha-enabled sp-clear-enabled sp-palette-buttons-disabled']//div[@class='sp-button-container sp-cf']/button[text()='choose']")
     private WebElement ensureColor;
 
     @FindBy(xpath = "//label[contains(text(),'平滑')]/following-sibling::label")
@@ -1023,7 +1023,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getExampleColor() {
-        return this.colorPicker("图例", "");
+        return this.colorInput("图例", "颜色");
     }
 
     public WebElement getExample() {
@@ -1135,8 +1135,12 @@ public class CreatePage extends PageTemplate {
         return ensureColor;
     }
 
-    public WebElement getColorInput() {
-        return colorInput;
+    public WebElement getXColorInput() {
+        return this.colorInput("x轴", "颜色");
+    }
+
+    public WebElement getYColorInput() {
+        return this.colorInput("y轴", "颜色");
     }
 
     public WebElement getXaxisWordColor() {
@@ -1312,6 +1316,16 @@ public class CreatePage extends PageTemplate {
             xpath = "//div[text()='" + title + "']/following-sibling::div//label/ancestor::div/following-sibling::div//span[@class='el-color-picker__color-inner']";
         } else {
             xpath = "//div[text()='" + title + "']/following-sibling::div//label[text()='" + name + "']/ancestor::div/following-sibling::div//span[@class='el-color-picker__color-inner']";
+        }
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    private WebElement colorInput(String title, String name) {
+        String xpath;
+        if ("".equals(name)) {
+            xpath = "//div[text()='" + title + "']/following-sibling::div//label/ancestor::div/following-sibling::div//span[@class='el-color-picker__color-inner']";
+        } else {
+            xpath = "//div[text()='" + title + "']/following-sibling::div//label[contains(text(),'" + name + "')]/following-sibling::div//span[@class='sp-original-input-container']//input";
         }
         return webDriver.findElement(By.xpath(xpath));
     }
@@ -2449,52 +2463,52 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
 
 // 柱图-X轴-分割线
     //宽度
-    @FindBy(xpath = "//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[1]/div/input")
+    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[1]//label[contains(text(),'宽度')]/following-sibling::div/input")
     private WebElement xDividingLineBold;
     public WebElement  getXDividingLineBold(){return xDividingLineBold;}
     //颜色
-    @FindBy(xpath = "//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[2]/div")
+    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[2]//label[contains(text(),'颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
     private WebElement xDividingLineColor;
     public WebElement getXDividingLineColor(){return xDividingLineColor;}
     //类型
-    @FindBy(xpath = "//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[3]/div")
+    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[3]//label[contains(text(),'类型')]/following-sibling::div//input")
     private WebElement xDividingLineType;
     public WebElement getXDividingLineType(){
         xDividingLineType.click();
         return this.getLastDropdownList();
     }
     //轴线
-    @FindBy(xpath = "//label[contains(text(),'轴线')]/parent::div/following-sibling::div[1]/div")
+    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'轴线')]/parent::div/following-sibling::div[1]//label[contains(text(),'颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
     private WebElement xLineColor;
     public WebElement getXLineColor(){return xLineColor;}
 
-    @FindBy(xpath = "//label[contains(text(),'轴线')]/parent::div/following-sibling::div[2]/div/input")
+    @FindBy(xpath = "//div[text()='x轴']/following-sibling::div//label[contains(text(),'轴线')]/parent::div/following-sibling::div[2]//label[contains(text(),'宽度')]/following-sibling::div//input")
     private WebElement xLineBold;
     public WebElement getXLineBold(){return xLineBold;}
 
 
 // 柱图-Y轴-分割线
     //宽度
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[11]/div/input")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[1]//label[contains(text(),'宽度')]/following-sibling::div//input")
     private WebElement yDividingLineBold;
     public WebElement  getYDividingLineBold(){return yDividingLineBold;}
     //颜色
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[12]/div")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[2]//label[contains(text(),'颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
     private WebElement yDividingLineColor;
     public WebElement getYDividingLineColor(){return yDividingLineColor;}
     //类型
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[13]/div")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'显示分割线')]/parent::div/following-sibling::div[3]//label[contains(text(),'类型')]/following-sibling::div//input")
     private WebElement yDividingLineType;
     public WebElement getYDividingLineType(){
         yDividingLineType.click();
         return this.getLastDropdownList();
     }
 //轴线
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[16]/div")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'轴线')]/parent::div/following-sibling::div[1]//label[contains(text(),'颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
     private WebElement yLineColor;
     public WebElement getYLineColor(){return yLineColor;}
 
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div/div[17]/div/input")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'轴线')]/parent::div/following-sibling::div[2]//label[contains(text(),'宽度')]/following-sibling::div//input")
     private WebElement yLineBold;
     public WebElement getYLineBold(){return yLineBold;}
 
