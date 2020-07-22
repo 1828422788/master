@@ -57,14 +57,14 @@ public class LogInAndOut {
         webDriver.navigate().refresh();
         LoginPage loginPage = new LoginPage(webDriver);
         String baseURL = LoginBeforeAllTests.getBaseURL();
-        while (webDriver.manage().getCookies().size() != 2) {
-            webDriver.navigate().to(baseURL);
+        while (webDriver.getTitle() != "仪表盘") {
             webDriver.navigate().refresh();
             loginPage.getUsername().clear();
             loginPage.getUsername().sendKeys(username);
             loginPage.getPassword().clear();
             loginPage.getPassword().sendKeys(password);
             loginPage.getLoginButton().click();
+            webDriver.navigate().to(baseURL + "/dashboard/");
             times++;
             if (times > 10) {
                 return;
