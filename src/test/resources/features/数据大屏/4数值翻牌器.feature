@@ -24,9 +24,9 @@ Feature: 数据大屏-a数值翻牌器
     #字体大小
     And I set the parameter "FlipWordSize" with value "62"
     #字体颜色
-    And I click the "numberFontColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D74B7A"
+#    And I click the "numberFontColor" button
+    And I wait for "numberFontColor" will be visible
+    And I set the parameter "numberFontColor" with value "#D74B7A"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细

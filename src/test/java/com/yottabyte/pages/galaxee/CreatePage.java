@@ -1501,7 +1501,7 @@ private WebElement dataType;
    //数值字体颜色
     @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div/div[3]/div[2]/div/div/div[7]/div")
     private WebElement Top3numberTypefaceColor;
-    public WebElement getTop3numberTypefaceColor(){return Top3numberTypefaceColor;}
+    public WebElement getTop3numberTypefaceColor(){return this.colorInput("Top3", "字体颜色");}
     //数值字体粗细
     public WebElement getTop3WordBold() {
         return this.dropdownList("Top3", "字体粗细");
@@ -1544,14 +1544,15 @@ private WebElement dataType;
       //文本字体颜色
       @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div[1]/div[3]/div")
       private WebElement text_fontColor;
-      public WebElement getText_fontColor(){return text_fontColor;}
+      public WebElement getText_fontColor(){return this.colorInput("百分比", "字体颜色");}
       //字体粗细
       public WebElement getPercentageWordBold() {
         return this.dropdownList("百分比", "字体粗细");
     }
     //图表
       //图表颜色
-      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div[2]/div")
+//      @FindBy(xpath = "//*[@id=\"big_v_edit\"]/div[2]/div/div/div[3]/div/div[3]/div/div/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div[2]/div")
+      @FindBy(xpath = "//div[text()='百分比']/following-sibling::div//label[text()='图表']/parent::div/following-sibling::div//span[@class='sp-original-input-container']//input")
       private WebElement chartColor;
       public WebElement getChartColor(){return chartColor;}
       //图表高度
@@ -2451,7 +2452,7 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
     //字体颜色
     @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
     private WebElement numberFontColor;
-    public WebElement getNumberFontColor(){return numberFontColor;}
+    public WebElement getNumberFontColor(){return this.colorInput("翻转", "字体颜色");}
     //字体粗细
     public WebElement getFlipNumberWordBold(){return this.dropdownList("翻转","字体粗细");}
     //对齐方式
@@ -2516,26 +2517,26 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
 
 //双轴折线图-Y轴1-分割线
     //宽度
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[12]/div/input")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'yAxis1')]/parent::div/following-sibling::div[11]//label[contains(text(),'宽度')]/following-sibling::div//input")
     private WebElement y1DividingLineBold;
     public WebElement  getY1DividingLineBold(){return y1DividingLineBold;}
     //颜色
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[13]/div")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'yAxis1')]/parent::div/following-sibling::div[12]//label[contains(text(),'颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
     private WebElement y1DividingLineColor;
     public WebElement getY1DividingLineColor(){return y1DividingLineColor;}
     //类型
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[14]/div")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'yAxis1')]/parent::div/following-sibling::div[13]//label[contains(text(),'类型')]/following-sibling::div//input")
     private WebElement y1DividingLineType;
     public WebElement getY1DividingLineType(){
         y1DividingLineType.click();
         return this.getLastDropdownList();
     }
     //轴线
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[17]/div")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'yAxis1')]/parent::div/following-sibling::div[16]//label[contains(text(),'颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
     private WebElement y1LineColor;
     public WebElement getY1LineColor(){return y1LineColor;}
 
-    @FindBy(xpath = "//div[contains(text(),'y轴')]/following-sibling::div/div/div/div[1]/div[18]/div/input")
+    @FindBy(xpath = "//div[text()='y轴']/following-sibling::div//label[contains(text(),'yAxis1')]/parent::div/following-sibling::div[17]//label[contains(text(),'宽度')]/following-sibling::div//input")
     private WebElement y1LineBold;
     public WebElement getY1LineBold(){return y1LineBold;}
 

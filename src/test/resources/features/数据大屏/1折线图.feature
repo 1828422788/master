@@ -59,7 +59,7 @@ Feature: 数据大屏-a折线图
     And I click the "YaxisHeader" button
      #文本
     And I set the parameter "YaxisWordSize" with value "20"
-    And I click the "YaxisWordColor" button
+#    And I click the "YaxisWordColor" button
     And I wait for "YColorInput" will be visible
     And I set the parameter "YColorInput" with value "#19B535"
     And I wait for "EnsureColor" will be visible
