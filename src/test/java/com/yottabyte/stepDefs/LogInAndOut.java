@@ -2,7 +2,6 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.LoginPage;
-import com.yottabyte.utils.WaitForElement;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.WebDriver;
 
@@ -53,10 +52,10 @@ public class LogInAndOut {
     public void userLogin(String username, String password) throws InterruptedException {
         this.logout();
         webDriver.navigate().refresh();
-        int times = 10;
         webDriver.navigate().refresh();
         LoginPage loginPage = new LoginPage(webDriver);
         String baseURL = LoginBeforeAllTests.getBaseURL();
+        int times = 10;
         while (webDriver.getTitle() != "仪表盘") {
             webDriver.navigate().refresh();
             loginPage.getUsername().clear();

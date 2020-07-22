@@ -1,4 +1,4 @@
-#@auth
+@auth
 Feature: 权限-已存搜索
 
   Scenario Outline: 勾选所需功能权限
