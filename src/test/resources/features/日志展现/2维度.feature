@@ -231,7 +231,7 @@ Feature: 日志展现_维度
       |   chartType   |  color   |  spl   |
       |      Sun      | DarkBlue |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND NOT apache.geo.province:贵州 AND NOT apache.status:304 AND NOT apache.status:499 \| stats count() as cnt by apache.status,apache.geo.province, apache.geo.city \| sort by apache.status,apache.province, apache.geo.city, cnt|
 
-@flame
+
   Scenario Outline: flame
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I click the "SearchButton" button
@@ -261,7 +261,7 @@ Feature: 日志展现_维度
       |      Flame    | 图内钻取       |
       |      Flame    | 图外钻取       |
 
-  @flame
+
   Scenario Outline: flame_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I click the "SearchButton" button
