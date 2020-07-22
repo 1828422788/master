@@ -218,7 +218,7 @@ Feature: 趋势图新建_维度
       |   chartType   |  color   |  spl   |
       |      Sun      | DarkBlue |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart AND NOT apache.geo.province:贵州 AND NOT apache.status:304 AND NOT apache.status:499 \| stats count() by apache.status,apache.geo.province, apache.geo.city|
 
-
+  @flame
   Scenario Outline: dimension_flame
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I wait for "1000" millsecond
@@ -254,11 +254,11 @@ Feature: 趋势图新建_维度
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |   chartType   |  option        |
-      |      Flame    | 不使用外部钻取 |
+      |   chartType   |  option  |
+      |      Flame    | 图内钻取 |
 
-
-  Scenario Outline: dimension_facet
+  @flame
+  Scenario Outline: dimension_flame_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart AND (apache.status:200) AND NOT (apache.geo.city:黔东南苗族侗族自治州) AND NOT (apache.geo.city:南京市)   | stats count() as cnt by apache.method, apache.status, apache.geo.province, apache.geo.city | sort by apache.method, apache.status, apache.geo.province, apache.geo.city"
     And I wait for "1000" millsecond
     And I click the "SearchButton" button
@@ -297,5 +297,5 @@ Feature: 趋势图新建_维度
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
-      |   chartType   |  option        |
-      |      Flame    | 使用外部钻取   |
+      |   chartType   |  option    |
+      |      Flame    | 图外钻取   |

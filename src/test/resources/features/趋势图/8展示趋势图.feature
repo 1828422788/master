@@ -42,8 +42,8 @@ Feature: 展示趋势图
     @viewTrendDimension
     Examples:
       | name                                     |
-      | Flame_使用外部钻取_分面                  |
-      | Flame_不使用外部钻取                     |
+      | Flame_图外钻取_分面                      |
+      | Flame_图内钻取                           |
       | Sun_分面                                 |
       | Bar_展示全部_分面                        |
       | Rose_只展示名称_分面                     |

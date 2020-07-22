@@ -435,12 +435,11 @@ Feature: 日志展现_普通统计视图
     And I click the "StatisticsGram" button
     And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
-    # RZY-6164
-#    And I wait for "2000" millsecond
-#    And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
-#    And I wait for "2000" millsecond
-#    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step3"
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step3"
 #    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step3" with target image "expect/普通统计视图/822_多级统计/822_chart_step3"
 
 
