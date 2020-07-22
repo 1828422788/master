@@ -311,6 +311,7 @@ Feature: 权限-已存搜索
     And I click the "SavedSearch" button
     And I set the parameter "TaskName" with value "<name>"
     And I click the "EnsureCreateSavedSearch" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button

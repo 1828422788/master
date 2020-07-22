@@ -50,7 +50,7 @@ public class LogInAndOut {
      * @param password
      */
     @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\"$")
-    public void userLogin(String username, String password) {
+    public void userLogin(String username, String password) throws InterruptedException {
         this.logout();
         webDriver.navigate().refresh();
         int times = 10;
@@ -64,6 +64,7 @@ public class LogInAndOut {
             loginPage.getPassword().clear();
             loginPage.getPassword().sendKeys(password);
             loginPage.getLoginButton().click();
+            Thread.sleep(2000);
             webDriver.navigate().to(baseURL + "/dashboard/");
             times++;
             if (times > 10) {
