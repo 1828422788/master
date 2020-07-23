@@ -19,21 +19,21 @@ Feature: 数据大屏-m攻击地图
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
     #边界颜色
-    And I click the "BoundaryColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#00EEFF"
+#    And I click the "BoundaryColor" button
+    And I wait for "BoundaryColor" will be visible
+    And I set the parameter "BoundaryColor" with value "#00EEFF"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #区域颜色
-    And I click the "AreaColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#AA5353"
+#    And I click the "AreaColor" button
+    And I wait for "AreaColor" will be visible
+    And I set the parameter "AreaColor" with value "#AA5353"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #事件颜色
-    And I click the "EventColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#F2321D"
+#    And I click the "EventColor" button
+    And I wait for "EventColor" will be visible
+    And I set the parameter "EventColor" with value "#F2321D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #缩放

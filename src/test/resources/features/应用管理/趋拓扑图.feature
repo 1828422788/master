@@ -150,7 +150,6 @@ Feature: 应用拓扑图（RZY-2142）
     Then I will see the url contains "app"
     Then the page's title will be "拓扑图详情"
     And open the "topology.ListPage" page for uri "/topology/"
-    And I accept alert window
 
   Scenario: 新建无所属应用的拓扑图
     And open the "topology.ListPage" page for uri "/topology/"

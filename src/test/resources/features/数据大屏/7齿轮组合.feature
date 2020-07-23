@@ -12,10 +12,10 @@
       And I set the parameter "Name" with value "齿轮组合默认设置"
       And I click the "Ensure" button
       #选择齿轮组合
-      And I click the "Other" button
+      And I click the "Decorate" button
       And I wait for "gearCombination" will be visible
       And I click the "gearCombination" button
-      And I hide the element "otherDropdown"
+      And I hide the element "DecorateDropdown"
      #保存
       And I wait for "Save" will be visible
       And  I wait for "2000" millsecond
@@ -51,10 +51,10 @@
       And I set the parameter "Name" with value "齿轮组合样式"
       And I click the "Ensure" button
       #选择齿轮组合
-      And I click the "Other" button
+      And I click the "Decorate" button
       And I wait for "gearCombination" will be visible
       And I click the "gearCombination" button
-      And I hide the element "otherDropdown"
+      And I hide the element "DecorateDropdown"
 #设置样式
       And I wait for "Style" will be visible
       And I click the "Style" button
@@ -69,15 +69,15 @@
       #2设置齿轮组合外观
       And I click the "styleGearCombination" button
       #光环颜色
-     And I click the "haloColor" button
-      And I wait for "ColorInput" will be visible
-     And I set the parameter "ColorInput" with value "#E8EB1B"
+#     And I click the "haloColor" button
+      And I wait for "haloColor" will be visible
+     And I set the parameter "haloColor" with value "#E8EB1B"
      And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       #背景颜色
-      And I click the "backgroundColor" button
-      And I wait for "ColorInput" will be visible
-     And I set the parameter "ColorInput" with value "#C120C4"
+#      And I click the "backgroundColor" button
+      And I wait for "backgroundColor" will be visible
+     And I set the parameter "backgroundColor" with value "#C120C4"
      And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       #关闭图层1

@@ -32,9 +32,9 @@
      And I set the parameter "nameTypefaceSize" with value "20"
      And I set the parameter "numberTypefaceSize" with value "40"
 
-     And I click the "Top3numberTypefaceColor" button
-     And I wait for "ColorInput" will be visible
-     And I set the parameter "ColorInput" with value "#9FF50B"
+#     And I click the "Top3numberTypefaceColor" button
+     And I wait for "Top3numberTypefaceColor" will be visible
+     And I set the parameter "Top3numberTypefaceColor" with value "#9FF50B"
      And I click the "EnsureColor" button
      And I wait for "EnsureColor" will be invisible
      #数值字体粗细的设置

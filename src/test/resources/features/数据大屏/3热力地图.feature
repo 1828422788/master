@@ -20,33 +20,33 @@ Feature: 数据大屏-j热力地图
     And I click the "MapHeader" button
 #    And I choose the "山东" from the "MapArea"
     #区域颜色
-    And I click the "AreaColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#253D58"
+#    And I click the "AreaColor" button
+    And I wait for "AreaColor" will be visible
+    And I set the parameter "AreaColor" with value "#253D58"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边界颜色
-    And I click the "BoundaryColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#85DEDE"
+#    And I click the "BoundaryColor" button
+    And I wait for "BoundaryColor" will be visible
+    And I set the parameter "BoundaryColor" with value "#85DEDE"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 #  标注色(起)
-    And I click the "markColor1" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#C11970"
+#    And I click the "markColor1" button
+    And I wait for "markColor1" will be visible
+    And I set the parameter "markColor1" with value "#C11970"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 #  标注色(中)
-    And I click the "markColor2" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#EAEBB3"
+#    And I click the "markColor2" button
+    And I wait for "markColor2" will be visible
+    And I set the parameter "markColor2" with value "#EAEBB3"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 #  标注色(止)
-    And I click the "markColor3" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#53B11D"
+#    And I click the "markColor3" button
+    And I wait for "markColor3" will be visible
+    And I set the parameter "markColor3" with value "#53B11D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #缩放

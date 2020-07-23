@@ -258,8 +258,8 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  option        |
-      |      Flame    | 不使用外部钻取 |
-      |      Flame    | 使用外部钻取   |
+      |      Flame    | 图内钻取       |
+      |      Flame    | 图外钻取       |
 
 
   Scenario Outline: flame_facet
@@ -292,5 +292,5 @@ Feature: 日志展现_维度
 
     Examples:
       |   chartType   |  option        |
-      |      Flame    | 不使用外部钻取 |
-      |      Flame    | 使用外部钻取   |
+      |      Flame    | 图内钻取       |
+      |      Flame    | 图外钻取       |

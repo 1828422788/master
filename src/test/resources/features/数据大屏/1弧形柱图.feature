@@ -23,9 +23,9 @@ Feature: 数据大屏-a弧形柱图
     And I click the "RadiusAxis" button
     And I set the parameter "RadiusAxisSize" with value "20"
 
-    And I click the "RadiusAxisColor" button
-    And  I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#41F1F1"
+#    And I click the "RadiusAxisColor" button
+    And  I wait for "RadiusAxisColor" will be visible
+    And I set the parameter "RadiusAxisColor" with value "#41F1F1"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "bold" from the "RadiusAxisBold"
@@ -33,9 +33,9 @@ Feature: 数据大屏-a弧形柱图
     #角度轴
     And I click the "AngleAxisHeader" button
     And I set the parameter "AngleAxisSize" with value "20"
-    And I click the "AngleAxisColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#E3A6F2"
+#    And I click the "AngleAxisColor" button
+    And I wait for "AngleAxisColor" will be visible
+    And I set the parameter "AngleAxisColor" with value "#E3A6F2"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "AngleAxisBold"
@@ -48,9 +48,9 @@ Feature: 数据大屏-a弧形柱图
     #图例
     And I click the "Example" button
     And I set the parameter "ExampleWordSize" with value "20"
-    And I click the "ExampleColor" button
-    And  I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D73535"
+#    And I click the "ExampleColor" button
+    And  I wait for "ExampleColor" will be visible
+    And I set the parameter "ExampleColor" with value "#D73535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "ExampleWordBold"
