@@ -5,15 +5,28 @@ Feature: 数据集-d编辑根事件
     Given open the "dataset.ListPage" page for uri "/dataset/"
 
 
-      Scenario: 新建一个数据集进行编辑
-      When I click the "Create" button
+  Scenario: 新建一个数据集进行编辑
+    When I click the "Create" button
+    And I wait for loading invisible
 
-      And I set the parameter "Name" with value "edit"
-      And I set the parameter "Alias" with value "editRootTest"
-      And I set the parameter "Spl" with value "*"
+    And I set the parameter "Name" with value "edit"
+    And I set the parameter "Alias" with value "editRootTest"
+    And I set the parameter "Spl" with value "*"
 
-      And I click the "Save" button
-      Then I wait for title change text to "数据集详情"
+    And I click the "Save" button
+    Then I wait for title change text to "数据集详情"
+
+
+  Scenario: 新建一个数据集，目的为测试修改名称
+    When I click the "Create" button
+    And I wait for loading invisible
+
+    And I set the parameter "Name" with value "name_toupdate"
+    And I set the parameter "Alias" with value "name_toupdate"
+    And I set the parameter "Spl" with value "*"
+
+    And I click the "Save" button
+    Then I wait for title change text to "数据集详情"
 
 
   Scenario: RZY-4122:修改别名
@@ -40,7 +53,6 @@ Feature: 数据集-d编辑根事件
     Then I will see the "AfterYuJu" result will be "tag:heka"
 
 
-
   Scenario: 修改父子行为为汇聚-RZY-4125:修改父子行为
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
@@ -54,7 +66,6 @@ Feature: 数据集-d编辑根事件
     And I wait for loading invisible
 
     Then I will see the "AfterFatherChild" result will be "汇聚"
-
 
 
   Scenario: 修改父子行为为继承-RZY-4125:修改父子行为
@@ -83,7 +94,6 @@ Feature: 数据集-d编辑根事件
     And I will see the "AfterFatherChild" result will be "无"
 
 
-
   Scenario: RZY-4124:修改所属应用和分组
     When the data name is "edit" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
@@ -98,21 +108,17 @@ Feature: 数据集-d编辑根事件
     And I click the "backList" button
     Then I will see the "dataset.ListPage" page
     And I wait for loading invisible
-    Then I will see the data "{'column':'0','name':'edit'}" values "{'column':'4','name':'app之api全部用例'}"
-    And I will see the data "{'column':'0','name':'edit'}" values "{'column':'5','name':'auto_package'}"
-
-
+    Then I will see the data "{'column':'0','name':'edit'}" values "{'column':'5,'name':'app之api全部用例'}"
+    And I will see the data "{'column':'0','name':'edit'}" values "{'column':'6','name':'auto_package'}"
 
 
   Scenario: RZY-4121:修改名称(最后测试修改名称)
-    When the data name is "edit" then i click the "编辑" button
+    When the data name is "name_toupdate" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
     And I wait for loading invisible
 
     When I click the "editEvent" button
-    And I set the parameter "editName" with value "rootname"
+    And I set the parameter "editName" with value "name_updated"
     And I click the "rootSave" button
     And I wait for loading invisible
-    Then I will see the "afterName" result will be "rootname"
-
-
+    Then I will see the "afterName" result will be "name_updated"

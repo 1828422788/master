@@ -378,6 +378,43 @@ public class ValidateResult {
         Assert.assertEquals(valuesMap.get("name"), actualName);
     }
 
+
+    /**
+     * 验证某一行某一列的值是否修改正确
+     *
+     * @param benchmarkName 基准名称 {'column':'比较列(from 0)','name':'名称'} 字符串则默认为第一列
+     * @param values1       格式：{'column':'比较列(from 1)','name':'比较名称'}
+     * @param values2       格式：{'column':'比较列(from 1)','name':'比较名称'}
+     */
+    @Then("^I will see the data \"([^\"]*)\" values1 \"([^\"]*)\" values2 \"([^\"]*)\"$")
+    public void iWillSeeTheData1(String benchmarkName, String values1, String values2) {
+        Map<String, Object> valuesMap1 = JsonStringPaser.json2Stirng(values1);
+        Map<String, Object> valuesMap2 = JsonStringPaser.json2Stirng(values2);
+
+        if (valuesMap1.get("name") == null)
+            return;
+        ListPageUtils clickButton = new ListPageUtils();
+        WebElement tr;
+
+        if (!JsonStringPaser.isJson(benchmarkName)) {
+            tr = clickButton.findName(benchmarkName);
+        } else {
+            Map<String, Object> benchmarkNameMap = JsonStringPaser.json2Stirng(benchmarkName);
+            String name = benchmarkNameMap.get("name").toString();
+            int columnNum = Integer.parseInt(benchmarkNameMap.get("column").toString());
+            tr = clickButton.getRowWithColumnNum(name, columnNum);
+        }
+
+        String xpath = ".//td[" + valuesMap1.get("column") + "]";
+        String actualName = tr.findElement(By.xpath(xpath)).getText();
+
+        boolean retCmpName;
+        retCmpName = (actualName.equals(valuesMap2.get("name").toString())) || (actualName.equals(valuesMap1.get("name").toString()));
+
+        Assert.assertTrue(retCmpName);
+    }
+
+
     private String getAgentIp(String columnNum) {
         Agent agent = new Agent();
         String ip = agent.getIp();
