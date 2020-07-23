@@ -28,9 +28,9 @@
       And I set the parameter "ChartYaxis" with value "300"
       #2 设置地图->事件颜色
       And I click the "GlobelabelMapHeader" button
-      And I click the "EventColor" button
-      And I wait for "ColorInput" will be visible
-      And I set the parameter "ColorInput" with value "#F2321D"
+#      And I click the "EventColor" button
+      And I wait for "EventColor" will be visible
+      And I set the parameter "EventColor" with value "#F2321D"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       #3 全局样式修改名成

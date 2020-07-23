@@ -28,21 +28,21 @@ Feature: 数据大屏-p地理分布
     #样式设置
     And I click the "GlobelabelMapHeader" button
     #区域颜色
-    And I click the "AreaColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#AA5353"
+#    And I click the "AreaColor" button
+    And I wait for "AreaColor" will be visible
+    And I set the parameter "AreaColor" with value "#AA5353"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #标注颜色
-    And I click the "MarkColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#6CF26A"
+#    And I click the "MarkColor" button
+    And I wait for "MarkColor" will be visible
+    And I set the parameter "MarkColor" with value "#6CF26A"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #文本颜色
-    And I click the "textColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#7F3F9F"
+#    And I click the "textColor" button
+    And I wait for "textColor" will be visible
+    And I set the parameter "textColor" with value "#7F3F9F"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
      #全局样式修改名成

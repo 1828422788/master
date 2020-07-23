@@ -28,15 +28,15 @@ Feature: 数据大屏-n攻击地图3D
     #样式
     And I click the "GlobelabelMapHeader" button
     #区域颜色
-    And I click the "AreaColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#AA5353"
+#    And I click the "AreaColor" button
+    And I wait for "AreaColor" will be visible
+    And I set the parameter "AreaColor" with value "#AA5353"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #事件颜色
-    And I click the "EventColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#F2321D"
+#    And I click the "EventColor" button
+    And I wait for "EventColor" will be visible
+    And I set the parameter "EventColor" with value "#F2321D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
      #3 全局样式修改名成
