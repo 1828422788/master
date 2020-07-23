@@ -31,25 +31,25 @@ Feature: 数据大屏-i表格
     #字号
     And I set the parameter "TableHeaderWordSize" with value "20"
     #颜色
-    And I click the "color" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#783737"
+#    And I click the "color" button
+    And I wait for "GridHeadColor" will be visible
+    And I set the parameter "GridHeadColor" with value "#783737"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I choose the "bolder" from the "TableHeaderBold"
     #背景颜色
-    And I click the "TableHeaderBgColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D8DA44"
+#    And I click the "TableHeaderBgColor" button
+    And I wait for "TableHeaderBgColor" will be visible
+    And I set the parameter "TableHeaderBgColor" with value "#D8DA44"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边框粗细
     And I set the parameter "TableHeadFrameBold" with value "6"
     #边框颜色
-    And I click the "borderColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#C279DD"
+#    And I click the "borderColor" button
+    And I wait for "TableHeaderBorderColor" will be visible
+    And I set the parameter "TableHeaderBorderColor" with value "#C279DD"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #表头高度
@@ -59,25 +59,25 @@ Feature: 数据大屏-i表格
     #字号
     And I set the parameter "CellWordSize" with value "20"
     #颜色
-    And I click the "tableColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#787A13"
+#    And I click the "tableColor" button
+    And I wait for "tableColor" will be visible
+    And I set the parameter "tableColor" with value "#787A13"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I choose the "lighter" from the "CellBold"
     #背景颜色
-    And I click the "tableBgColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#9BC577"
+#    And I click the "tableBgColor" button
+    And I wait for "tableBgColor" will be visible
+    And I set the parameter "tableBgColor" with value "#9BC577"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边框粗细
     And I set the parameter "CellFrameBold" with value "2"
     #边框颜色
-    And I click the "tableFrameColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#00CC96"
+#    And I click the "tableFrameColor" button
+    And I wait for "tableFrameColor" will be visible
+    And I set the parameter "tableFrameColor" with value "#00CC96"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #内边距

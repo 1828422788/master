@@ -32,15 +32,15 @@ Feature: 数据大屏-g动态卡片二
 #  名称字体粗细
     And I choose the "bold" from the "DynamicCardTwoWordBold"
     #名称颜色
-    And I click the "nameColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#ED3939"
+#    And I click the "nameColor" button
+    And I wait for "nameColor2" will be visible
+    And I set the parameter "nameColor2" with value "#ED3939"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
    #背景颜色
-    And I click the "backColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#00FF84"
+#    And I click the "backColor" button
+    And I wait for "backColor2" will be visible
+    And I set the parameter "backColor2" with value "#00FF84"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #  值字体大小
@@ -48,25 +48,25 @@ Feature: 数据大屏-g动态卡片二
    #  值字体粗细
     And I choose the "lighter" from the "ValueFontTwoWordBold"
   #值颜色
-    And I click the "valueColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#C843BD"
+#    And I click the "valueColor" button
+    And I wait for "valueColor2" will be visible
+    And I set the parameter "valueColor2" with value "#C843BD"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #线宽度
     And  I set the parameter "lineBold" with value "4"
     #线颜色
-    And I click the "lineColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#DDFF00"
+#    And I click the "lineColor" button
+    And I wait for "lineColor2" will be visible
+    And I set the parameter "lineColor2" with value "#DDFF00"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边框宽度
     And I set the parameter "bordWidth" with value "3"
     #边框颜色
-    And I click the "bordColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#EC31EF"
+#    And I click the "bordColor" button
+    And I wait for "bordColor2" will be visible
+    And I set the parameter "bordColor2" with value "#EC31EF"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #动画停留
