@@ -165,8 +165,8 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[@class='chart-color-block'])[6]")
     private WebElement green;
 
-    @FindBy(xpath = "//div[text()='单环颜色']/following-sibling::div//label/following-sibling::div//span[@class='el-color-picker__color-inner']")
-    private WebElement monocycleColor;
+//    @FindBy(xpath = "//div[text()='单环颜色']/following-sibling::div//label/following-sibling::div//span[@class='el-color-picker__color-inner']")
+//    private WebElement monocycleColor;
 
     @FindBy(className = "arcbarchart")
     private WebElement arcBar;
@@ -286,14 +286,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[contains(text(),'显示')]/following-sibling::label")
     private WebElement outerFrameSwitch;
 
-    @FindBy(xpath = "//label[contains(text(),'水波内颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
-    private WebElement tagColorInWaterWave;
+//    @FindBy(xpath = "//label[contains(text(),'水波内颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
+//    private WebElement tagColorInWaterWave;
 
-    @FindBy(xpath = "//label[contains(text(),'水波外颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
-    private WebElement tagColorOutWaterWave;
+//    @FindBy(xpath = "//label[contains(text(),'水波外颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
+//    private WebElement tagColorOutWaterWave;
 
-    @FindBy(xpath = "(//label[contains(text(),'颜色')]/following-sibling::div//div[@class='el-color-picker__trigger'])[last()]")
-    private WebElement waterWaveColor;
+//    @FindBy(xpath = "(//label[contains(text(),'颜色')]/following-sibling::div//div[@class='el-color-picker__trigger'])[last()]")
+//    private WebElement waterWaveColor;
 
     @FindBy(className = "chordchart")
     private WebElement chord;
@@ -425,7 +425,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getWaterWaveColor() {
-        return waterWaveColor;
+        return this.colorInput("水波颜色", "颜色");
     }
 
     public WebElement getWaterWaveColorHeader() {
@@ -433,11 +433,11 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getTagColorInWaterWave() {
-        return tagColorInWaterWave;
+        return this.colorInput("标签", "水波内颜色");
     }
 
     public WebElement getTagColorOutWaterWave() {
-        return tagColorOutWaterWave;
+        return this.colorInput("标签", "水波外颜色");
     }
 
     public WebElement getOuterFrameSwitch() {
@@ -844,7 +844,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getMonocycleColor() {
-        return monocycleColor;
+        return this.colorInput("单环颜色", "颜色");
     }
 
     public WebElement getMonocycle() {
@@ -852,7 +852,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getTitleColor() {
-        return this.colorPicker("标题", "");
+        return this.colorInput("标题", "颜色");
     }
 
     public WebElement getTitle() {
@@ -1053,7 +1053,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getTagWordColor() {
-        return this.colorPicker("标签", "");
+        return this.colorInput("标签", "颜色");
     }
 
     public WebElement getYaxisWordSize() {
@@ -1983,9 +1983,9 @@ private WebElement dataType;
     private WebElement percent3dNameFontSize;
       public WebElement getPercent3dNameFontSize(){return percent3dNameFontSize;}
     //名称颜色
-    @FindBy(xpath = "//label[contains(text(),'名称颜色')]/following-sibling::div")
-    private WebElement percent3dNameColor;
-      public WebElement getPercent3dNameColor(){return percent3dNameColor;}
+//    @FindBy(xpath = "//label[contains(text(),'名称颜色')]/following-sibling::div")
+//    private WebElement percent3dNameColor;
+      public WebElement getPercent3dNameColor(){return this.colorInput("占比图3D", "名称颜色");}
     //数值字号
     @FindBy(xpath = "//label[contains(text(),'数值字号')]/following-sibling::div/input")
     private WebElement numberFontSize;
@@ -1993,7 +1993,7 @@ private WebElement dataType;
     //数值颜色
     @FindBy(xpath = "//label[contains(text(),'数值颜色')]/following-sibling::div")
     private WebElement numberColor;
-      public WebElement getNumberColor(){return numberColor;}
+      public WebElement getNumberColor(){return this.colorInput("占比图3D", "数值颜色");}
 
       //数据-搜索-类别
       @FindBy(xpath = "//label[contains(text(),'类别')]/following-sibling::div")
@@ -2042,25 +2042,25 @@ private WebElement dataType;
    private WebElement textFontSize;
       public WebElement getTextFontSize(){return textFontSize;}
     //文本字体颜色
-    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
-    private WebElement textFontColor;
-      public WebElement getTextFontColor(){return textFontColor;}
+//    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
+//    private WebElement textFontColor;
+      public WebElement getTextFontColor(){return this.colorInput("图表", "字体颜色");}
     //文本字体粗细
     public WebElement getTextWordBold() {
         return this.dropdownList("图表", "字体粗细");
     }
     //环柱渐变色1
-    @FindBy(xpath = "//label[contains(text(),'渐变色1')]/following-sibling::div")
-    private WebElement gradation1;
-      public WebElement getGradation1(){return gradation1;}
+//    @FindBy(xpath = "//label[contains(text(),'渐变色1')]/following-sibling::div")
+//    private WebElement gradation1;
+      public WebElement getGradation1(){return this.colorInput("图表", "渐变色1");}
     //环柱渐变色2
-    @FindBy(xpath = "//label[contains(text(),'渐变色2')]/following-sibling::div")
-    private WebElement gradation2;
-      public WebElement getGradation2(){return gradation2;}
+//    @FindBy(xpath = "//label[contains(text(),'渐变色2')]/following-sibling::div")
+//    private WebElement gradation2;
+      public WebElement getGradation2(){return this.colorInput("图表", "渐变色2");}
     //环柱渐变色3
-    @FindBy(xpath = "//label[contains(text(),'渐变色3')]/following-sibling::div")
-    private WebElement gradation3;
-      public WebElement getGradation3(){return gradation3;}
+//    @FindBy(xpath = "//label[contains(text(),'渐变色3')]/following-sibling::div")
+//    private WebElement gradation3;
+      public WebElement getGradation3(){return this.colorInput("图表", "渐变色3");}
 
     //环形柱图-数据-搜索-标签
     @FindBy(xpath = "//label[contains(text(),'标签')]/following-sibling::div")
@@ -2094,7 +2094,7 @@ private WebElement dataType;
       //字体颜色
     @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
     private WebElement fontColor;
-      public WebElement getFontColor(){return fontColor;}
+      public WebElement getFontColor(){return this.colorInput("滚动条形图", "字体颜色");}
      //字体粗细
      public WebElement getScrollBarWordBold() {
          return this.dropdownList("滚动条形图", "字体粗细");
@@ -2133,21 +2133,21 @@ private WebElement dataType;
           return this.input("滚动柱形图", "字体大小");
       }
       //字体颜色
-    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
-    private WebElement rollHistFontColor;
-      public WebElement getRollHistFontColor(){return rollHistFontColor;}
+//    @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
+//    private WebElement rollHistFontColor;
+      public WebElement getRollHistFontColor(){return this.colorInput("滚动柱形图", "字体颜色");}
       //字体粗细
       public WebElement getRollHistWordBold() {
           return this.dropdownList("滚动柱形图", "字体粗细");
       }
       //图表颜色1
-      @FindBy(xpath = "//label[contains(text(),'颜色 1')]/following-sibling::div")
-      private WebElement chartColor1;
-      public WebElement getChartColor1(){return chartColor1;}
+//      @FindBy(xpath = "//label[contains(text(),'颜色 1')]/following-sibling::div")
+//      private WebElement chartColor1;
+      public WebElement getChartColor1(){return this.colorInput("滚动柱形图", "颜色 1");}
       //图表颜色2
-     @FindBy(xpath = "//label[contains(text(),'颜色 2')]/following-sibling::div")
-    private WebElement chartColor2;
-      public WebElement getChartColor2(){return chartColor2;}
+//     @FindBy(xpath = "//label[contains(text(),'颜色 2')]/following-sibling::div")
+//    private WebElement chartColor2;
+      public WebElement getChartColor2(){return this.colorInput("滚动柱形图", "颜色 2");}
 
 
 //滚动列表
@@ -2163,17 +2163,23 @@ private WebElement dataType;
           return this.input("滚动列表", "字体大小");
       }
     //序号颜色
-    @FindBy(xpath = "//label[contains(text(),'序号颜色')]/following-sibling::div")
-    private WebElement serialNumberColor;
-      public WebElement getSerialNumberColor(){return serialNumberColor;}
+//    @FindBy(xpath = "//label[contains(text(),'序号颜色')]/following-sibling::div")
+//    private WebElement serialNumberColor;
+      public WebElement getSerialNumberColor(){return this.colorInput("滚动列表", "序号颜色");}
+
+    public WebElement getSerialNumberColor2(){return this.colorInput("滚动列表II", "序号颜色");}
       //背景颜色
-       @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div")
-        private WebElement listOfTurnsBackgroundColor;
-      public WebElement getListOfTurnsBackgroundColor(){return listOfTurnsBackgroundColor;}
+//       @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div")
+//        private WebElement listOfTurnsBackgroundColor;
+      public WebElement getListOfTurnsBackgroundColor(){return this.colorInput("滚动列表", "背景颜色");}
+
+    public WebElement getListOfTurnsBackgroundColor2(){return this.colorInput("滚动列表II", "背景颜色");}
       //内容颜色
-      @FindBy(xpath = "//label[contains(text(),'内容颜色')]/following-sibling::div")
-    private WebElement contentColor;
-      public WebElement getContentColor(){return contentColor;}
+//      @FindBy(xpath = "//label[contains(text(),'内容颜色')]/following-sibling::div")
+//    private WebElement contentColor;
+      public WebElement getContentColor(){return this.colorInput("滚动列表", "内容颜色");}
+
+    public WebElement getContentColor2(){return this.colorInput("滚动列表II", "内容颜色");}
     //字体粗细
     public WebElement getListOfTurnsWordBold() {
         return this.dropdownList("滚动列表", "字体粗细");
@@ -2194,9 +2200,9 @@ private WebElement dataType;
           return this.input("水平胶囊", "字体大小");
       }
       //字体颜色
-      @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
-      private WebElement capsuleFontColor;
-      public WebElement getCapsuleFontColor(){return capsuleFontColor;}
+//      @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
+//      private WebElement capsuleFontColor;
+      public WebElement getCapsuleFontColor(){return this.colorInput("水平胶囊", "字体颜色");}
       //字体粗细
      public WebElement getCapsuleWordBold(){return this.dropdownList("水平胶囊","字体粗细");}
      //条高比
@@ -2204,9 +2210,9 @@ private WebElement dataType;
     private WebElement aspectRatio;
       public WebElement getAspectRatio(){return aspectRatio;}
       //条颜色
-      @FindBy(xpath = "//label[contains(text(),'条颜色')]/following-sibling::div")
-      private WebElement aspectColor;
-      public WebElement getAspectColor(){return aspectColor;}
+//      @FindBy(xpath = "//label[contains(text(),'条颜色')]/following-sibling::div")
+//      private WebElement aspectColor;
+      public WebElement getAspectColor(){return this.colorInput("水平胶囊", "条颜色");}
 
 //综合列表
     @FindBy(xpath = "//li[text()='综合列表']/i")
@@ -2217,9 +2223,14 @@ private WebElement dataType;
     private WebElement styleComprehensiveList;
       public WebElement getStyleComprehensiveList(){return styleComprehensiveList;}
      //标题颜色
-    @FindBy(xpath = "//label[contains(text(),'标题颜色')]/following-sibling::div")
-    private WebElement listTitleColor;
-      public WebElement getListTitleColor(){return listTitleColor;}
+//    @FindBy(xpath = "//label[contains(text(),'标题颜色')]/following-sibling::div")
+//    private WebElement listTitleColor;
+      public WebElement getListTitleColor(){return this.colorInput("综合列表", "标题颜色");}
+    //数值颜色
+    public WebElement getListNumberColor(){return this.colorInput("综合列表", "数值颜色");}
+
+    //条颜色
+    public WebElement getListAspectColor(){return this.colorInput("综合列表", "条颜色");}
 
     //缩略比例
     @FindBy(xpath = "//label[contains(text(),'缩略比例')]/following-sibling::div")
@@ -2246,17 +2257,17 @@ private WebElement dataType;
     //字体粗细
     public WebElement getRollList2WordBold(){return this.dropdownList("滚动列表II","字体粗细");}
      //背景颜色1
-    @FindBy(xpath = "//label[contains(text(),'背景颜色1')]/following-sibling::div")
-    private WebElement backgroundColor1;
-      public WebElement getBackgroundColor1(){return backgroundColor1;}
+//    @FindBy(xpath = "//label[contains(text(),'背景颜色1')]/following-sibling::div")
+//    private WebElement backgroundColor1;
+      public WebElement getBackgroundColor1(){return this.colorInput("滚动列表II", "背景颜色1");}
       //背景颜色2
-    @FindBy(xpath = "//label[contains(text(),'背景颜色2')]/following-sibling::div")
-    private WebElement backgroundColor2;
-      public WebElement getBackgroundColor2(){return backgroundColor2;}
+//    @FindBy(xpath = "//label[contains(text(),'背景颜色2')]/following-sibling::div")
+//    private WebElement backgroundColor2;
+      public WebElement getBackgroundColor2(){return this.colorInput("滚动列表II", "背景颜色2");}
       //背景颜色3
-    @FindBy(xpath = "//label[contains(text(),'背景颜色3')]/following-sibling::div")
-    private WebElement backgroundColor3;
-      public WebElement getBackgroundColor3(){return backgroundColor3;}
+//    @FindBy(xpath = "//label[contains(text(),'背景颜色3')]/following-sibling::div")
+//    private WebElement backgroundColor3;
+      public WebElement getBackgroundColor3(){return this.colorInput("滚动列表II", "背景颜色3");}
 
 //滚动列表三
     @FindBy(xpath = "//li[text()='滚动列表III']/i")

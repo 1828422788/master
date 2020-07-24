@@ -20,9 +20,9 @@ Feature: 数据大屏-o玫瑰图
     #标签
     And I click the "Tag" button
     And I set the parameter "TagWordSize" with value "20"
-    And I click the "TagWordColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#CF3131"
+#    And I click the "TagWordColor" button
+    And I wait for "TagWordColor" will be visible
+    And I set the parameter "TagWordColor" with value "#CF3131"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "TagBold"
@@ -150,7 +150,7 @@ Feature: 数据大屏-o玫瑰图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"

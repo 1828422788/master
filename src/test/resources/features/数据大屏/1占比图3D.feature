@@ -43,9 +43,9 @@ Feature: 数据大屏-r占比图3D
     #数值字号
     And I set the parameter "numberFontSize" with value "40"
     #数值颜色
-    And I click the "numberColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#C11C6C"
+#    And I click the "numberColor" button
+    And I wait for "numberColor" will be visible
+    And I set the parameter "numberColor" with value "#C11C6C"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #3 全局样式修改名成
@@ -175,7 +175,7 @@ Feature: 数据大屏-r占比图3D
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"

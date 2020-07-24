@@ -21,16 +21,16 @@ Feature: 数据大屏-q环形占比图
     #标题
     And I click the "Title" button
     And I set the parameter "TitleSize" with value "38"
-    And I click the "TitleColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#00A9F0"
+#    And I click the "TitleColor" button
+    And I wait for "TitleColor" will be visible
+    And I set the parameter "TitleColor" with value "#00A9F0"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #单环颜色
     And I click the "Monocycle" button
-    And I click the "MonocycleColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#00A9F0"
+#    And I click the "MonocycleColor" button
+    And I wait for "MonocycleColor" will be visible
+    And I set the parameter "MonocycleColor" with value "#00A9F0"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #半径
@@ -148,7 +148,7 @@ Feature: 数据大屏-q环形占比图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
    And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/2800000"
