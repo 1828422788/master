@@ -35,9 +35,9 @@ Feature: 数据大屏-r占比图3D
     #名称字号
     And I set the parameter "percent3dNameFontSize" with value "20"
     #名称颜色
-    And I click the "percent3dNameColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#8EE1D1"
+#    And I click the "percent3dNameColor" button
+    And I wait for "percent3dNameColor" will be visible
+    And I set the parameter "percent3dNameColor" with value "#8EE1D1"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #数值字号

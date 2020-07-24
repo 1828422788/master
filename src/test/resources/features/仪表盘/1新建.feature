@@ -9,6 +9,8 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
     And I set the parameter "DashBoardName" with value "<name>"
     And I set the parameter "ResourceInput" with value "AutoTest"
     And I choose the "AutoTest" from the "LastDropdownList"
+    And I set the parameter "AppOwningInput" with value "app之api全部用例"
+    And I choose the "app之api全部用例" from the "LastDropdownList"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
@@ -20,6 +22,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
 
   Scenario: 验证新建成功
     Then I will see the data "FirstAutoTest" values "{'column':'5','name':'AutoTest'}"
+    Then I will see the data "FirstAutoTest" values "{'column':'4','name':'app之api全部用例'}"
 
   Scenario Outline: 新建失败校验
     When I click the "Create" button
@@ -47,3 +50,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
     And I click the "Ensure" button
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "名称格式有误, 仅支持汉字，数字，字母，中划线及下划线"
+
+  Scenario: 仪表盘资源标签
+    When I click the "Create" button
+    And I set the parameter "DashBoardName" with value "选择资源标签"

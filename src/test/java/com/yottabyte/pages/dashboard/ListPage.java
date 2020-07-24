@@ -47,6 +47,10 @@ public class ListPage extends ListPageFactory {
         return this.getInput("资源标签");
     }
 
+    public WebElement getAppOwningInput() {
+        return this.getInput("所属应用");
+    }
+
     public WebElement getInput(String name) {
         return webDriver.findElement(By.xpath("(//span[text()='" + name + "'])[last()]/following-sibling::span//input"));
     }
