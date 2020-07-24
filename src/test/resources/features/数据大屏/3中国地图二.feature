@@ -36,9 +36,9 @@
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
       #数值颜色
-    And I click the "ChineseMapTwoNumberColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#9FF50B"
+#    And I click the "ChineseMapTwoNumberColor" button
+    And I wait for "ChineseMapTwoNumberColor" will be visible
+    And I set the parameter "ChineseMapTwoNumberColor" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边框宽度

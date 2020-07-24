@@ -26,7 +26,7 @@ Feature: 数据大屏-l世界地图
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
    #边界颜色
-    And I click the "BoundaryColor" button
+#    And I click the "BoundaryColor" button
     And I wait for "BoundaryColor" will be visible
     And I set the parameter "BoundaryColor" with value "#0E0E0E"
     And I click the "EnsureColor" button
