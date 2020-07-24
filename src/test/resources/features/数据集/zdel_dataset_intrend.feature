@@ -1,4 +1,4 @@
-@datasettmp  @ddataset
+@dataset  @ddataset
 Feature: 清理数据集用例
 
   @ddatasettrend
@@ -13,12 +13,6 @@ Feature: 清理数据集用例
 
     Examples:
       | name    |
-      | 父子继承 |
-      | 父子汇聚 |
-      | 父子无 |
-      | 父子继承 |
-      | 父子汇聚 |
-      | 父子无 |
       | 父子继承 |
       | 父子汇聚 |
       | 父子无 |

@@ -16,6 +16,7 @@ Feature: 数据集-j在趋势图中的应用
     And I click the "saveTrend" button
     And I set the parameter "trendName" with value "<trendName>"
     And I click the "EnsureCrontab" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "创建成功"
 
     Examples:
@@ -30,6 +31,7 @@ Feature: 数据集-j在趋势图中的应用
     Then I will see the "trend.CreatePage" page
     And I wait for loading invisible
     And I click the "zhanKai" button
+    And I wait for loading invisible
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
 
     Examples:
@@ -53,12 +55,15 @@ Feature: 数据集-j在趋势图中的应用
     And I set the parameter "trendName" with value "<trendName>"
 
     And I click the "EnsureCrontab" button
+    And I wait for "SuccessMessage" will be visible
     And I will see the success message "创建成功"
 
     Examples:
       | spl                                                  | trendName |
       | tag:sample04061424 \| stats count() by apache.status | 父子汇聚      |
 
+
+  @t4131
   Scenario Outline:  RZY-4131:趋势图-父子行为汇聚
     Given open the "trend.ListPage" page for uri "/trend/"
     And I wait for loading invisible
@@ -67,15 +72,14 @@ Feature: 数据集-j在趋势图中的应用
     And I wait for loading invisible
 
     And I click the "zhanKai" button
+    And I wait for loading invisible
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
 
     Examples:
       | trendName | dataSetResult                                         |
       | 父子汇聚      | * AND tag:sample* AND (tag:beyond4 OR appname:apache) |
 
-
 ##################################无耻的分割线###############################
-
 
   Scenario Outline: 新建父子行为继承的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -109,6 +113,7 @@ Feature: 数据集-j在趋势图中的应用
     And I wait for loading invisible
 
     And I click the "zhanKai" button
+    And I wait for loading invisible
     Then I will see the "dataSetPosition" result will be "<dataSetResult>"
 
 
