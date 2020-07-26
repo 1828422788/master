@@ -15,11 +15,9 @@ Feature: 数据集-z删除所有
 
     Examples:
       | name            |
-      | have_root_field |
       | JNDTest         |
       | node_op_jnd     |
       | edit            |
-      | rootname        |
       | name_updated    |
       | 父子无tree       |
       | 父子汇聚tree     |
