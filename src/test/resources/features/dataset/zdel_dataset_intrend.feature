@@ -1,8 +1,8 @@
 @dataset  @ddataset
-Feature: 清理数据集用例
+Feature: 清理数据集与趋势图关联用例
 
   @ddatasettrend
-  Scenario Outline: 删除数据集相关的趋势图用例
+  Scenario Outline: 删除3个趋势图用例
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
     And I wait for "2000" millsecond

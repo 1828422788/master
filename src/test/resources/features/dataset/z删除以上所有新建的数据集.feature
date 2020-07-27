@@ -5,7 +5,7 @@ Feature: 数据集-z删除所有
     Given open the "dataset.ListPage" page for uri "/dataset/"
 
   @deldataset
-  Scenario Outline: 删除数据集
+  Scenario Outline: 删除数据集列表页面用例
     Given the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     When I click the "Ensure" button

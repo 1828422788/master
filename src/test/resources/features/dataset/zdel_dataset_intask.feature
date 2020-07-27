@@ -1,8 +1,8 @@
 @dataset @ddataset
-Feature: 清理数据集用例
+Feature: 清理数据集与定时任务关联用例
 
   @ddatasettask
-  Scenario Outline: 删除数据集相关的定时任务用例
+  Scenario Outline: 删除3个定时任务用例
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"
     And I wait for "Loading" will be invisible
