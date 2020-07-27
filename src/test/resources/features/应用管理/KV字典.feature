@@ -1,4 +1,4 @@
-#@all @smoke @app @appSmoke
+@all @smoke @app @appSmoke
 Feature: 应用KV字典
 
   Scenario Outline: 新建KV字典应用
@@ -54,7 +54,37 @@ Feature: 应用KV字典
     Then I will see the "app.CreatePage" page
     And I click the "AddKVStore" button
     And I set the parameter "KVName" with value "AutoTestForKVStore"
-    And I set the parameter "KVFieldInput" with value "city"
+    And I set the parameter "KVFieldInput" with value "apachecity"
     And I click the "AddKVField" button
-    And I set the parameter "KVFieldInput" with value "cnt"
+    And I set the parameter "KVFieldInput" with value "count"
+    And I click the "AddKVField" button
+    And I set the parameter "KVFieldInput" with value "appname"
     And I click the "CreateKVStore" button
+    And I click the "SaveButton" button under some element
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "更新成功"
+
+  Scenario: 存储kvstore
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "KVApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "KVApp"
+    Then I will see the "splSearch.SearchPage" page
+    Given I set the parameter "SearchInput" with value "* | stats count() as 'count' by apache.geo.city,appname| rename apache.geo.city as apachecity| outputlookup AutoTestForKVStore"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+
+  Scenario: 验证是否成功
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "KVApp" then i click the "打开" button
+    And I will see the "app.AppPage" page
+    And I will see the element "Title" name is "KVApp"
+    Then I will see the "splSearch.SearchPage" page
+    Given I set the parameter "SearchInput" with value "* | stats count() by apache.geo.city | lookup appname AutoTestForKVStore on apache.geo.city=apachecity"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    Then I will see the element "Thead" name is "apache.geo.city  count()  appname  apachecity "

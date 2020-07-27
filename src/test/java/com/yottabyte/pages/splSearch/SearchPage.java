@@ -128,6 +128,12 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='搜索']/ancestor::button/following-sibling::div//input")
     private WebElement timeRange;
 
+    @FindBy(tagName = "thead")
+    private WebElement thead;
+
+    public WebElement getThead() {
+        return thead;
+    }
 
     public WebElement getTimeRange() {
         return timeRange;
