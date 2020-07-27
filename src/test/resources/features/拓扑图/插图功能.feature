@@ -69,8 +69,6 @@ Feature: 拓扑图插图功能
     Then I will see the "topology.DetailPage" page
     And I wait for "AddInputButton" will be visible
     Then I will see the element "ValueList" value contains "28,61,2,1222"
-    And I refresh the website
-    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline: 删除拓扑图
