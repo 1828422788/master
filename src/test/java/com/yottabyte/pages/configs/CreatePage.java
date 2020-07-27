@@ -16,8 +16,41 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
+    @FindBy(xpath = "//span[text()='选为日志样例']")
+    private WebElement asLogSample;
+
+    @FindBy(xpath = "//div[@class='W-DzZZK_oRaoRqzRvaYh6']/div")
+    private List<WebElement> ruleList;
+
+    @FindBy(xpath = "//span[@class='ant-modal-close-x']/i[@aria-label='图标: close']")
+    private WebElement clearIcon;
+
+    @FindBy(xpath = "//span[text()='保 存']/ancestor::button")
+    private WebElement save;
+
+    @FindBy(xpath = "//span[text()='新 建']/ancestor::button")
+    private WebElement create;
+
+    @FindBy(xpath = "//div[contains(text(),'读取已存日志')]")
+    private WebElement readSavedLog;
+
+    @FindBy(xpath = "//span[text()='事件列表']")
+    private WebElement eventList;
+
+    @FindBy(xpath = "//span[text()='收起']")
+    private WebElement packup;
+
+    @FindBy(xpath = "//div[text()='规则别名']/following-sibling::div[1]/input")
+    private WebElement ruleRemark;
+
     @FindBy(xpath = "//textarea[@placeholder='请输入raw_message']")
     private WebElement logSample;
+
+    @FindBy(xpath = "//div[@class='ant-tabs-tabpane ant-tabs-tabpane-active']/div[2]/div/div[2]/div[1]/textarea[@placeholder='请输入raw_message']")
+    private WebElement eventListLogSample;
+
+    @FindBy(xpath = "//div[@class='ant-tabs-tabpane ant-tabs-tabpane-active']/div[2]/div/div[2]/div[1]/textarea[@placeholder='请输入raw_message']/following-sibling::div[1]//input[@placeholder='请输入source']")
+    private WebElement eventListSource;
 
     @FindBy(xpath = "//span[text()='添加解析规则']")
     private WebElement addRule;
@@ -176,7 +209,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getRuleName() {
-        return getInputElement("规则名称");
+        return getInputElement("自定义类型");
     }
 
     public WebElement getRedirect() {
@@ -403,5 +436,50 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getMessage() {
         return message;
+    }
+
+    public WebElement getRuleRemark() {
+        return ruleRemark;
+    }
+
+    public WebElement getPackup() {
+        return packup;
+    }
+
+    public WebElement getEventList() {
+        return eventList;
+    }
+
+    public WebElement getReadSavedLog() {
+        return readSavedLog;
+    }
+
+    public WebElement getCreate() {
+        return create;
+    }
+
+    public WebElement getEventListLogSample() {
+        return eventListLogSample;
+    }
+
+    public WebElement getEventListSource() {
+        return eventListSource;
+    }
+
+    @Override
+    public WebElement getSave() {
+        return save;
+    }
+
+    public WebElement getClearIcon() {
+        return clearIcon;
+    }
+
+    public List<WebElement> getRuleList() {
+        return ruleList;
+    }
+
+    public WebElement getAsLogSample() {
+        return asLogSample;
     }
 }

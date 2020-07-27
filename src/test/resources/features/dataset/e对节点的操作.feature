@@ -34,7 +34,6 @@ Feature: 数据集-e对节点的操作
     Then I will see the "B" result will be "after"
 
 
-  @dataset
   Scenario: RZY-4494:修改节点的约束语句
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "node_op_jnd" then i click the "编辑" button
@@ -53,6 +52,7 @@ Feature: 数据集-e对节点的操作
 
 
   @dataset @Override
+  @tc4495
   Scenario: RZY-4495:删除节点
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "node_op_jnd" then i click the "编辑" button
@@ -60,5 +60,6 @@ Feature: 数据集-e对节点的操作
     And I wait for loading invisible
     When I click the "B" button
     And I click the "delete" button
+    And I wait for loading invisible
     And I click the "ensure" button
     Then I will see the success message "删除数据集节点成功"

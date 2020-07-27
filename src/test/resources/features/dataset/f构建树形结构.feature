@@ -1,7 +1,7 @@
 @dataset @datasetf @dataset1
 Feature: 数据集-f构建树形结构
 
-
+  @fatherson
   Scenario: RZY-4085:父子行为-无
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -36,19 +36,19 @@ Feature: 数据集-f构建树形结构
     And I click the "DRightDuiHao" button
     And I set the parameter "sentenceInput" with value "appname:apache"
     And I click the "save" button
-    And I wait for "3000" millsecond
+    And I wait for "2000" millsecond
 
-   #返回列表页验证
-    And I click the "BackList" button
+  @y4085
+  Scenario: 验证：RZY-4085:父子行为-无
+    Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'2','name':'无tree'}"
-    And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'3','name':'无'}"
     And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'4','name':'无'}"
     And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'5','name':'无'}"
+    And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'6','name':'无'}"
 #    And I will see the data "{'column':'0','name':'父子无tree'}" values "{'column':'6','name':'admin'}"
 
-
-
+  @fatherson
   Scenario: RZY-4083:父子行为-汇聚
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -85,23 +85,24 @@ Feature: 数据集-f构建树形结构
     And I click the "DRightDuiHao" button
     And I set the parameter "sentenceInput" with value "appname:apache"
     And I click the "save" button
-    And I wait for "3000" millsecond
-   #返回列表页验证
-    And I click the "BackList" button
+    And I wait for "2000" millsecond
+
+  @y4083
+  Scenario: 验证：RZY-4083
+    Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
       #别名
     Then I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'2','name':'汇聚tree'}"
       #父子行为
-    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'3','name':'汇聚'}"
+    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'4','name':'汇聚'}"
       #所属应用
-    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'4','name':'无'}"
-      #标签
     And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'5','name':'无'}"
+      #标签
+    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'6','name':'无'}"
       #创建者
 #    And I will see the data "{'column':'0','name':'父子汇聚tree'}" values "{'column':'6','name':'admin'}"
 
-
-
+  @fatherson
   Scenario: RZY-4084:父子行为-继承
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -138,18 +139,20 @@ Feature: 数据集-f构建树形结构
     And I click the "DRightDuiHao" button
     And I set the parameter "sentenceInput" with value "appname:apache"
     And I click the "save" button
-    And I wait for "3000" millsecond
-   #返回列表页验证
-    And I click the "BackList" button
+    And I wait for "2000" millsecond
+
+  @y4084
+  Scenario: 验证：RZY-4084:父子行为-继承
+    Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
       #别名
     Then I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'2','name':'继承tree'}"
       #父子行为
-    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'3','name':'继承'}"
+    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'4','name':'继承'}"
       #所属应用
-    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'4','name':'无'}"
-      #标签
     And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'5','name':'无'}"
+      #标签
+    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'6','name':'无'}"
       #创建者
 #    And I will see the data "{'column':'0','name':'父子继承tree'}" values "{'column':'6','name':'admin'}"
 

@@ -70,6 +70,7 @@ Feature: 字段提取删除
       | wym复制和编辑的副本                 |
       | RZY3417多值字段                 |
       | 禁用和启用                       |
+      | wym保存日志样例                   |
 
   Scenario Outline: 删除字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
