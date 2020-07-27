@@ -16,6 +16,24 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
+    @FindBy(xpath = "//div[@class='ant-table ant-table-small ant-table-scroll-position-left']/div[1]/div[1]/table/thead/tr/th")
+    private List<WebElement> fieldTitle;
+
+    @FindBy(xpath = "//div[@class='ant-table ant-table-small ant-table-scroll-position-left']/div[1]/div[1]/table/tbody/tr/td")
+    private List<WebElement> fieldValue;
+
+    @FindBy(xpath = "//i[@class='anticon anticon-down ant-select-arrow-icon']")
+    private WebElement parseField;
+
+    @FindBy(xpath = "//span[text()='字 段']/ancestor::button")
+    private WebElement field;
+
+    @FindBy(xpath = "//tr[@class='ant-table-row ant-table-row-level-0']/td[1]")
+    private WebElement status;
+
+    @FindBy(xpath = "//span[text()='使用检索日志验证']/ancestor::button")
+    private WebElement useCheckLog;
+
     @FindBy(xpath = "//span[text()='选为日志样例']")
     private WebElement asLogSample;
 
@@ -481,5 +499,29 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAsLogSample() {
         return asLogSample;
+    }
+
+    public WebElement getUseCheckLog() {
+        return useCheckLog;
+    }
+
+    public WebElement getStatus() {
+        return status;
+    }
+
+    public WebElement getField() {
+        return field;
+    }
+    public WebElement getParseField(){
+        parseField.click();
+        return super.getLastDropdownList();
+    }
+
+    public List<WebElement> getFieldTitle() {
+        return fieldTitle;
+    }
+
+    public List<WebElement> getFieldValue() {
+        return fieldValue;
     }
 }
