@@ -5,7 +5,6 @@ Feature: v3.3 spl cases
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @v33fail
   Scenario Outline: v3.3版本用例
     Given I set the parameter "SearchInput" with value "<splQuery>"
     #When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 2"
