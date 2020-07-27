@@ -132,6 +132,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[text()='添加字段']")
     private WebElement addKVField;
 
+    @FindBy(xpath = "//div[@class='ant-modal-body']//i")
+    private WebElement resourceType;
+
+    public WebElement getResourceType() {
+        resourceType.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getCreateKVStore() {
         return super.getButton("创建");
     }

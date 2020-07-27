@@ -88,6 +88,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "ant-message-error")
     private WebElement errorMessage;
 
+    @FindBy(xpath = "(//span[text()='全局时间']/following-sibling::i)[last()]")
+    private WebElement deleteTimeTag;
+
     @FindBy(xpath = "(//span[text()='filter']/following-sibling::i)[last()]")
     private WebElement deleteTag;
 
@@ -367,6 +370,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='filter']")
     private WebElement filterName;
+
+    @FindBy(xpath = "//span[text()='全局时间']")
+    private WebElement timeName;
 
     @FindBy(xpath = "(//span[text()='000000001203094955'])[2]")
     private WebElement entry;
@@ -672,6 +678,10 @@ public class DetailPage extends PageTemplate {
         return getSwitchButton("显示过滤项");
     }
 
+    public WebElement getFilterAutoRefresh() {
+        return getSwitchButton("过滤输入项自动更新");
+    }
+
     //添加趋势图的确定按钮
     @FindBy(xpath = "//div[@class='Yt5JX-42Xe_Kz4p92ocJI']/button")
     private WebElement ensureAddTrend;
@@ -791,6 +801,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getFilterName() {
         return filterName;
+    }
+
+    public WebElement getTimeName() {
+        return timeName;
     }
 
     public WebElement getUpdate() {
@@ -1242,6 +1256,8 @@ public class DetailPage extends PageTemplate {
     public WebElement getDeleteTag() {
         return deleteTag;
     }
+
+    public WebElement getDeleteTimeTag() { return deleteTimeTag; }
 
     public WebElement getRecoverTag() {
         return recoverTag;

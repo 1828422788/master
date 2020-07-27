@@ -35,21 +35,21 @@ Feature: 数据大屏-i滚动列表
     #字体大小
     And I set the parameter "ListOfTurnsWordSize" with value "28"
     #序号颜色
-    And I click the "serialNumberColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#B42F2F"
+#    And I click the "serialNumberColor" button
+    And I wait for "serialNumberColor" will be visible
+    And I set the parameter "serialNumberColor" with value "#B42F2F"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #背景颜色
-    And I click the "listOfTurnsBackgroundColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D7D55F"
+#    And I click the "listOfTurnsBackgroundColor" button
+    And I wait for "listOfTurnsBackgroundColor" will be visible
+    And I set the parameter "listOfTurnsBackgroundColor" with value "#D7D55F"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
    #内容颜色
-    And I click the "contentColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#EE4CE1"
+#    And I click the "contentColor" button
+    And I wait for "contentColor" will be visible
+    And I set the parameter "contentColor" with value "#EE4CE1"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
@@ -171,7 +171,7 @@ Feature: 数据大屏-i滚动列表
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"

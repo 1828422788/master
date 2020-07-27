@@ -77,7 +77,7 @@ Feature: 仪表盘雷达图
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
-    And I click the "Other" button
+    And I click the "Other" button under some element
     And I click the "Radar" button
     And I hide the element "Content"
     And I wait for "1000" millsecond
@@ -102,6 +102,7 @@ Feature: 仪表盘雷达图
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
@@ -114,6 +115,7 @@ Feature: 仪表盘雷达图
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:

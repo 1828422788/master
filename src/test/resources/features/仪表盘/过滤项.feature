@@ -73,6 +73,9 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
     And I choose the "<city>" from the "FilterDropdown"
     And I click the "Update" button
     And I wait for "Progress" will be invisible
@@ -124,6 +127,8 @@ Feature: 仪表盘过滤项
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
     And I click the "DeleteTag" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button under some element
 
   @dashboard @dashboardSmoke
   Scenario: 添加动态菜单
@@ -215,6 +220,8 @@ Feature: 仪表盘过滤项
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
     And I click the "DeleteTag" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button under some element
 
   @dashboard @dashboardSmoke
   Scenario: 添加文本过滤项
@@ -302,6 +309,8 @@ Feature: 仪表盘过滤项
     Then I will see the "dashboard.DetailPage" page
     And I click the "FilterName" button
     And I click the "DeleteTag" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button under some element
     When I click the "AddEventButton" button
     And I click the "AddFilter" button
     And I set the parameter "FilterTitle" with value "filter"
@@ -339,6 +348,7 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
     When the chart title is "测试过滤项" then I click the button which classname is "anticon css-ifnfqv" in dashboard
     And I click the "Ensure" button
 
@@ -362,6 +372,7 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
     When the chart title is "测试仪表盘eval" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "*|stats count() by 'apache.status'","startTime": "-1d/d","endTime": "now/d"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "target2","value": "${click.value2}-9101"}]}}" to json editor
@@ -376,6 +387,7 @@ Feature: 仪表盘过滤项
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:
@@ -388,6 +400,7 @@ Feature: 仪表盘过滤项
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:

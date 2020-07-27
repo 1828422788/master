@@ -370,7 +370,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='图例'])[last()]")
     private WebElement example;
 
-    @FindBy(xpath = "(//div[contains(text(),'展示')])[last()]")
+    @FindBy(xpath = "(//div[text()='展示'])[last()]")
     private WebElement exhibition;
 
     @FindBy(xpath = "(//div[contains(text(),'对比')])[last()]")
@@ -1916,7 +1916,7 @@ public class CreatePage extends PageTemplate {
 //-----------------------------------------------------------
 
     private WebElement getChartButton(String chartName) {
-        String xpath = "((//div[text()='" + chartName + "'])[last()]/ancestor::div/preceding-sibling::div)[last()]";
+        String xpath = "((//div[text()='" + chartName + "'])[last()]/parent::div/preceding-sibling::div)[last()]";
         return webDriver.findElement(By.xpath(xpath));
     }
 

@@ -36,9 +36,9 @@ Feature: 数据大屏-g水平胶囊
     #字体大小
     And I set the parameter "CapsuleWordSize" with value "28"
     #字体颜色
-    And I click the "capsuleFontColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#C23535"
+#    And I click the "capsuleFontColor" button
+    And I wait for "capsuleFontColor" will be visible
+    And I set the parameter "capsuleFontColor" with value "#C23535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
@@ -46,9 +46,9 @@ Feature: 数据大屏-g水平胶囊
     #条高比
     And I set the parameter "aspectRatio" with value "0.2"
     #条颜色
-    And I click the "aspectColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#CCE42C"
+#    And I click the "aspectColor" button
+    And I wait for "aspectColor" will be visible
+    And I set the parameter "aspectColor" with value "#CCE42C"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #4 全局样式修改名成
@@ -161,7 +161,7 @@ Feature: 数据大屏-g水平胶囊
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
   And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"

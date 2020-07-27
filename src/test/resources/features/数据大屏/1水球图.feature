@@ -33,22 +33,22 @@ Feature: 数据大屏-s水球图
     #标签
     And I click the "Tag" button
     And I set the parameter "TagWordSize" with value "70"
-    And I click the "TagColorInWaterWave" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#F87272"
+#    And I click the "TagColorInWaterWave" button
+    And I wait for "TagColorInWaterWave" will be visible
+    And I set the parameter "TagColorInWaterWave" with value "#F87272"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 
-    And I click the "TagColorOutWaterWave" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#010206"
+#    And I click the "TagColorOutWaterWave" button
+    And I wait for "TagColorOutWaterWave" will be visible
+    And I set the parameter "TagColorOutWaterWave" with value "#010206"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #水波颜色
     And I click the "WaterWaveColorHeader" button
-    And I click the "WaterWaveColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#ECF492"
+#    And I click the "WaterWaveColor" button
+    And I wait for "WaterWaveColor" will be visible
+    And I set the parameter "WaterWaveColor" with value "#ECF492"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #尺寸
@@ -162,7 +162,7 @@ Feature: 数据大屏-s水球图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"

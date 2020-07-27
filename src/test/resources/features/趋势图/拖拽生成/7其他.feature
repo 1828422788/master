@@ -191,7 +191,6 @@ Feature: 拖拽生成趋势图_其他
     And I click the "<chartType>" button
     And I click the "CompareButton" button
     And I wait for "2000" millsecond
-    Then I wait for "OtherChart" will be visible
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "CompareField" will be visible
@@ -213,7 +212,7 @@ Feature: 拖拽生成趋势图_其他
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/<chartType>_对比"
-    And I compare source image "actual/<chartType>_对比" with target image "expect/<chartType>_对比"
+#    And I compare source image "actual/<chartType>_对比" with target image "expect/<chartType>_对比"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page

@@ -30,23 +30,23 @@
     And I click the "MapHeader" button
       #区域默认是【中国】
        #名称颜色
-    And I click the "ChineseMapTwoNameColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#9FF50B"
+#    And I click the "ChineseMapTwoNameColor" button
+    And I wait for "ChineseMapTwoNameColor" will be visible
+    And I set the parameter "ChineseMapTwoNameColor" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
       #数值颜色
-    And I click the "ChineseMapTwoNumberColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#9FF50B"
+#    And I click the "ChineseMapTwoNumberColor" button
+    And I wait for "ChineseMapTwoNumberColor" will be visible
+    And I set the parameter "ChineseMapTwoNumberColor" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边框宽度
     And I set the parameter "borderWidth" with value "5"
     #边框颜色
-    And I click the "borderColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D72644"
+#    And I click the "borderColor" button
+    And I wait for "borderColor" will be visible
+    And I set the parameter "borderColor" with value "#D72644"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #3 全局样式修改名成

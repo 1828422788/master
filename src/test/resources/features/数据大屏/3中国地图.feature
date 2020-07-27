@@ -18,15 +18,15 @@ Feature: 数据大屏-i中国地图
     And I click the "Style" button
     And I click the "MapHeader" button
      #区域颜色
-    And I click the "AreaColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#9FF50B"
+#    And I click the "AreaColor" button
+    And I wait for "AreaColor" will be visible
+    And I set the parameter "AreaColor" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边界颜色
-    And I click the "BoundaryColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#0E0E0E"
+#    And I click the "BoundaryColor" button
+    And I wait for "BoundaryColor" will be visible
+    And I set the parameter "BoundaryColor" with value "#0E0E0E"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #标注类型
@@ -36,9 +36,9 @@ Feature: 数据大屏-i中国地图
     #字体大小
     And I set the parameter "MapWordSize" with value "20"
     #字体颜色
-    And I click the "WordColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#F5CACA"
+#    And I click the "WordColor" button
+    And I wait for "WordColor" will be visible
+    And I set the parameter "WordColor" with value "#F5CACA"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细

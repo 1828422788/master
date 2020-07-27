@@ -2,7 +2,6 @@ package com.yottabyte.stepDefs;
 
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.LoginPage;
-import com.yottabyte.utils.WaitForElement;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.WebDriver;
 
@@ -50,20 +49,22 @@ public class LogInAndOut {
      * @param password
      */
     @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\"$")
-    public void userLogin(String username, String password) {
-        this.logout();
+    public void userLogin(String username, String password) throws InterruptedException {
+        webDriver.manage().deleteAllCookies();
         webDriver.navigate().refresh();
+        LoginPage loginPage = new LoginPage(webDriver);
+        String baseURL = LoginBeforeAllTests.getBaseURL();
         int times = 10;
-        webDriver.navigate().refresh();
-        while (webDriver.manage().getCookies().size() != 2) {
-            LoginPage loginPage = new LoginPage(webDriver);
+        while (!webDriver.getTitle().equals("仪表盘")) {
+            webDriver.manage().deleteAllCookies();
+            webDriver.navigate().refresh();
             loginPage.getUsername().clear();
             loginPage.getUsername().sendKeys(username);
             loginPage.getPassword().clear();
             loginPage.getPassword().sendKeys(password);
             loginPage.getLoginButton().click();
-            WaitForElement.waitElementInvisible(loginPage.getLoginButton());
-            System.out.println();
+            Thread.sleep(2000);
+            webDriver.navigate().to(baseURL + "/dashboard/");
             times++;
             if (times > 10) {
                 return;

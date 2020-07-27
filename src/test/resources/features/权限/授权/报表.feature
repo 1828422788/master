@@ -1,6 +1,24 @@
 #@auth
 Feature: 权限-报表
 
+  Scenario Outline: 勾选所需功能权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "<name>" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    When I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可查看报表,新建报表"
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
+
+    Examples:
+      | name              |
+      | __user_AutoTest__ |
+      | __user_验证授权用户__   |
+
   Scenario Outline: 新建所需趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -29,18 +47,10 @@ Feature: 权限-报表
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "新建报表"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for loading invisible

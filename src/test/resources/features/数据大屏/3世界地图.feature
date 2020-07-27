@@ -20,21 +20,21 @@ Feature: 数据大屏-l世界地图
     And I click the "Style" button
     And I click the "MapHeader" button
     #区域颜色
-    And I click the "AreaColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#9FF50B"
+#    And I click the "AreaColor" button
+    And I wait for "AreaColor" will be visible
+    And I set the parameter "AreaColor" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
    #边界颜色
-    And I click the "BoundaryColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#0E0E0E"
+#    And I click the "BoundaryColor" button
+    And I wait for "BoundaryColor" will be visible
+    And I set the parameter "BoundaryColor" with value "#0E0E0E"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #标注颜色
-    And I click the "MarkColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#F5CACA"
+#    And I click the "MarkColor" button
+    And I wait for "MarkColor" will be visible
+    And I set the parameter "MarkColor" with value "#F5CACA"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #尺寸

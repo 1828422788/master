@@ -62,6 +62,7 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
@@ -79,9 +80,11 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-2d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
     Then I click the "Ensure" button
@@ -96,10 +99,13 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "<start>","endTime": "<end>"},"chart": {"chartType": "table"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the error message "<message>"
 
     Examples:
@@ -113,11 +119,15 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": <x>,"y": <y>,"w": <w>,"h": <h>,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
-    Then I will see the error message "<message>"
+    And I wait for "500" millsecond
+    And I wait for element "ErrorMessage" change text to "<message>"
+#    Then I will see the error message "<message>"
 
     Examples:
       | x  | y  | w  | h  | message               |
@@ -134,10 +144,13 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     Then I will see the "TrendTitle" result will be "仪表盘高级编辑"
@@ -151,7 +164,9 @@ Feature: 仪表盘高级编辑
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I click the "CustomTitle" button
@@ -170,6 +185,7 @@ Feature: 仪表盘高级编辑
     And I click the "Operate" button
     And I choose the "清空JSON" from the "ChartDropdown"
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the error message "title 字段为必填项"
 
   @dashboard @dashboardSmoke
@@ -178,14 +194,17 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": -1,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-2d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the error message "x 字段值的有效区间范围为'0'至'12'"
     And I click the "Operate" button
     And I choose the "重置JSON" from the "ChartDropdown"
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the success message "校验通过"
 
   @dashboard @dashboardSmoke
@@ -204,10 +223,13 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "auto"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I click the "Jiangsu" button
@@ -223,10 +245,13 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": false,"mode": "auto"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I click the "Jiangsu" button
@@ -241,10 +266,13 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": false,"mode": "custom","query": "tag:sample04061424 | where apache.status<400 && apache.status>200 | stats count() as cnt","timeRange": "-1d/d,now/d"}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I click the "Jiangsu" button
@@ -259,10 +287,13 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘高级编辑","description": "测试描述","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": false,<json>}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the message contains "<message>"
 
     Examples:
@@ -289,10 +320,13 @@ Feature: 仪表盘高级编辑
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
     When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "filter","value": "${click.value2}+200"}]}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
+    And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
 
@@ -312,6 +346,7 @@ Feature: 仪表盘高级编辑
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
@@ -324,8 +359,10 @@ Feature: 仪表盘高级编辑
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:
       | name  |
-      | 仪表盘单值 |
+      | 仪表盘所有 |
+      | 仪表盘所有 |

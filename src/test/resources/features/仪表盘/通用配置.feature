@@ -1,3 +1,4 @@
+@tongyongpeizhiybp
 Feature: 仪表盘通用配置
 
   @dashboard @dashboardSmoke
@@ -6,6 +7,7 @@ Feature: 仪表盘通用配置
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -43,6 +45,7 @@ Feature: 仪表盘通用配置
     And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
     When the chart title is "测试高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
@@ -93,6 +96,7 @@ Feature: 仪表盘通用配置
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:

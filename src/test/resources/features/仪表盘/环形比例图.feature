@@ -3,7 +3,7 @@ Feature: 仪表盘环形比例图
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I click the "Create" button
+    And I click the "Create" button under some element
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
@@ -74,10 +74,11 @@ Feature: 仪表盘环形比例图
     And I click the detail which name is "仪表盘环形比例图"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
+    And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Other" will be visible
-    And I click the "Other" button
+    And I click the "Other" button under some element
     And I click the "Annular" button
     And I hide the element "Content"
     And I wait for "1000" millsecond
@@ -111,8 +112,9 @@ Feature: 仪表盘环形比例图
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I click the "Setting" button under some element
-    And I click the "Exhibition" button
-    And I click the "AccordingArea" button
+    And I wait for "1000" millsecond
+    And I click the "Exhibition" button under some element
+    And I click the "AccordingArea" button under some element
     And I wait for "MinRange" will be visible
     And I set the parameter "MinRange" with value "0.1"
     And I wait for "MaxRange" will be visible

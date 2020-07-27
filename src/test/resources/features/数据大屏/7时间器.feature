@@ -74,9 +74,9 @@ Feature: 数据大屏-o时间器
     #字体大小
     And I set the parameter "ClockWordSize" with value "40"
     #字体颜色
-     And I click the "clockFontColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#E8EB1B"
+#     And I click the "clockFontColor" button
+    And I wait for "clockFontColor" will be visible
+    And I set the parameter "clockFontColor" with value "#E8EB1B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
