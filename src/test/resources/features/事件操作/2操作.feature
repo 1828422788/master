@@ -28,5 +28,5 @@ Feature: 事件操作
   @second
     Examples:
       | searchSpl                                      | field    | buttonName       | spl                                                                                   |
-      | tag:sample04061424 OR tag:sample04061424_chart | Tag      | AddToSearch      | ((tag:sample04061424) OR (tag:sample04061424_chart)) AND 'tag':sample04061424   |
+      | tag:sample04061424 OR tag:sample04061424_chart | Tag      | AddToSearch      | ((tag:sample04061424) OR (tag:sample04061424_chart)) AND 'tag':sample04061424_chart   |
       | tag:sample04061424 OR tag:sample04061424_chart | Clientip | RemoveFromSearch | ((tag:sample04061424) OR (tag:sample04061424_chart)) AND NOT 'hostname':192.168.1.171 |
