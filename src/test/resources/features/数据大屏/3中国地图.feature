@@ -14,7 +14,9 @@ Feature: 数据大屏-i中国地图
     #中国地图
     And I click the "Map" button
     And I click the "ChinaMap" button
+    And I hide the element "MapDropdown"
 #样式
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I click the "MapHeader" button
      #区域颜色
@@ -108,7 +110,9 @@ Feature: 数据大屏-i中国地图
     #中国地图
     And I click the "Map" button
     And I click the "ChinaMap" button
+    And I hide the element "MapDropdown"
     #省份-四川
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
@@ -165,7 +169,7 @@ Feature: 数据大屏-i中国地图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_display AND apache.geo.province:四川 | stats count() by apache.geo.city"
@@ -177,7 +181,9 @@ Feature: 数据大屏-i中国地图
       #中国地图
     And I click the "Map" button
     And I click the "ChinaMap" button
+    And I hide the element "MapDropdown"
     #省份-甘肃
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button

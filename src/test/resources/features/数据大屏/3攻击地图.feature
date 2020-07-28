@@ -14,7 +14,9 @@ Feature: 数据大屏-m攻击地图
     #攻击地图
     And I click the "Map" button
     And I click the "Attackmap" button
+    And I hide the element "MapDropdown"
     #样式
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
@@ -104,7 +106,9 @@ Feature: 数据大屏-m攻击地图
     #攻击地图
     And I click the "Map" button
     And I click the "Attackmap" button
+    And I hide the element "MapDropdown"
       #开启背景动画
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I click the "globalStyle" button
     And I click the "backgroundAuto" button
@@ -169,7 +173,7 @@ Feature: 数据大屏-m攻击地图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
@@ -181,7 +185,9 @@ Feature: 数据大屏-m攻击地图
      #攻击地图
     And I click the "Map" button
     And I click the "Attackmap" button
+    And I hide the element "MapDropdown"
       #开启背景动画
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I click the "globalStyle" button
     And I click the "backgroundAuto" button
