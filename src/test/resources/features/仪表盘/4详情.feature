@@ -99,6 +99,7 @@ Feature: 仪表盘详情页
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I set the parameter "SearchChartInput" with value "验证仪表盘全局时间"
+    And I wait for loading invisible
     And I click the "{'Checkbox':'验证仪表盘全局时间'}" button
     And I click the "Ensure" button
     And I wait for "1000" millsecond
