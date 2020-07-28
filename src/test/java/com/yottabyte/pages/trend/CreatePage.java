@@ -112,6 +112,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'调用链')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement chain;
 
+    @FindBy(xpath = "(//div[contains(text(),'网络节点图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement networkNode;
+
     @FindBy(xpath = "(//div[contains(text(),'数值')])[last()]")
     private WebElement value;
 
@@ -873,6 +876,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getChain() {
         return chain;
+    }
+
+    public WebElement getNetworkNode() {
+        return networkNode;
     }
 
     public WebElement getDivideSide() {
@@ -2065,6 +2072,34 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDeleteTag() {
         return deleteTag;
+    }
+
+    @FindBy(xpath = "(//div[text()='指标'])[last()]")
+    private WebElement indicators;
+
+    @FindBy(xpath = "(//div[text()='添加指标'])[last()]")
+    private WebElement addIndicator;
+
+    @FindBy(xpath = "//*[text()='POST']/preceding-sibling::*")
+    private WebElement clickPOST;
+
+    @FindBy(xpath = "//*[text()='北京']/preceding-sibling::*")
+    private WebElement clickBeijing;
+
+    public WebElement getIndicators() {
+        return indicators;
+    }
+
+    public WebElement getAddIndicator() {
+        return addIndicator;
+    }
+
+    public WebElement getClickPOST() {
+        return clickPOST;
+    }
+
+    public WebElement getClickBeijing() {
+        return clickBeijing;
     }
 
 }
