@@ -14,7 +14,9 @@ Feature: 数据大屏-j热力地图
     #热力地图
     And I click the "Map" button
     And I click the "Heatmap" button
+    And I hide the element "MapDropdown"
     #样式
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
@@ -106,8 +108,8 @@ Feature: 数据大屏-j热力地图
     And I click the "Map" button
     And I click the "Heatmap" button
     And I hide the element "MapDropdown"
-    And I click the "Style" button
      #数据设置
+    And I wait for "Data" will be visible
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.geo.province"
 #    And I click the "DateEditor" button
@@ -158,7 +160,7 @@ Feature: 数据大屏-j热力地图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.geo.province"
@@ -171,7 +173,7 @@ Feature: 数据大屏-j热力地图
     And I click the "Map" button
     And I click the "Heatmap" button
     And I hide the element "MapDropdown"
-    And I click the "Style" button
+    And I wait for "Data" will be visible
       #在数据源类型中选择绑定搜索
     And I click the "Data" button
     And I click the "dataSourceType" button
