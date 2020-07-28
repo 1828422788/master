@@ -135,6 +135,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//i")
     private WebElement resourceType;
 
+    @FindBy(className = "ant-message-custom-content")
+    private WebElement messageContent;
+
+    public WebElement getMessageContent() {
+        return messageContent;
+    }
+
     public WebElement getResourceType() {
         resourceType.click();
         return super.getLastDropdownList();

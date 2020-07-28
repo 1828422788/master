@@ -48,6 +48,27 @@ Feature: 应用KV字典
       | appName |
       | KVApp   |
 
+  Scenario Outline: 添加KV字典失败校验
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "KVApp" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I click the "AddKVStore" button
+    And I set the parameter "KVName" with value "<name>"
+    And I set the parameter "KVFieldInput" with value "<input>"
+    And I click the "CreateKVStore" button
+    Then I will see the element "MessageContent" name is "<message>"
+
+    Examples:
+      | name | input | message          |
+      |      |       | 名称不能为空           |
+      | test |       | 字段名称不能为空         |
+      | 测试   |       | 名称仅支持字母、数字、下划线   |
+      | t e  |       | 名称仅支持字母、数字、下划线   |
+      | #@   |       | 名称仅支持字母、数字、下划线   |
+      | test | @!    | 字段名称仅支持字母、数字、下划线 |
+      | test | te te | 字段名称仅支持字母、数字、下划线 |
+      | test | 测试    | 字段名称仅支持字母、数字、下划线 |
+
   Scenario: 添加KV字典
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "KVApp" then i click the "编辑" button
