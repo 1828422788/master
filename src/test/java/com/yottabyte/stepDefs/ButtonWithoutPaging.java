@@ -58,7 +58,7 @@ public class ButtonWithoutPaging {
     //大屏编辑
     @When("^the galaxee name is \"([^\"]*)\" then I click the \"([^\"]*)\" edit button$")
     public void clickGalaxeeEditButton(String dataName, String className) {
-        String xpath = "//a[contains(@href, '" + dataName + "')]/button[@class='" + className + "']";
+        String xpath = "//a[contains(@href, '" + dataName + "')]/i[@class='" + className + "']";
         WebElement button = webDriver.findElement(By.xpath(xpath));
         button.click();
     }
