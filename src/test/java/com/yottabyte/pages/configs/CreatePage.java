@@ -16,6 +16,24 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
+    @FindBy(xpath = "//div[@class='ant-popover-inner']")
+    private WebElement popOverTip;
+
+    @FindBy(xpath = "//div[@class='ant-modal-content']/div[@class='ant-modal-body']//div[@aria-hidden='false']//p[@class='ant-empty-description']")
+    private WebElement saveLog;
+
+    @FindBy(xpath = "//span[text()='不删除']/ancestor::button")
+    private WebElement cancelDelete;
+
+    @FindBy(xpath = "//div[@class='O1G8NKe6Vvcsh5km5jrL']/div[1]")
+    private WebElement alertMessage;
+
+    @FindBy(xpath = "//span[text()='删 除']/ancestor::button")
+    private WebElement delete;
+
+    @FindBy(xpath = "//span[text()='返 回']/ancestor::button")
+    private WebElement goBack;
+
     @FindBy(xpath = "//div[@class='ant-table ant-table-small ant-table-scroll-position-left']/div[1]/div[1]/table/thead/tr/th")
     private List<WebElement> fieldTitle;
 
@@ -523,5 +541,29 @@ public class CreatePage extends PageTemplate {
 
     public List<WebElement> getFieldValue() {
         return fieldValue;
+    }
+
+    public WebElement getGoBack() {
+        return goBack;
+    }
+
+    public WebElement getDelete() {
+        return delete;
+    }
+
+    public WebElement getAlertMessage() {
+        return alertMessage;
+    }
+
+    public WebElement getCancelDelete() {
+        return cancelDelete;
+    }
+
+    public WebElement getSaveLog() {
+        return saveLog;
+    }
+
+    public WebElement getPopOverTip() {
+        return popOverTip;
     }
 }
