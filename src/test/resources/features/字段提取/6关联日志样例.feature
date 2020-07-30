@@ -1,6 +1,6 @@
 # new feature
 # Tags: optional
-
+@configsSmoke
 Feature: 关联日志样例
 
   Background:
