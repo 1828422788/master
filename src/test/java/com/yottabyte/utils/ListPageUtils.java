@@ -74,6 +74,18 @@ public class ListPageUtils {
         return tr;
     }
 
+    public WebElement getTrWithoutPagingInConfig(String dataName) {
+        WebElement tr;
+        if (!JsonStringPaser.isJson(dataName)) {
+            tr = this.findNameWithoutPaging(dataName);
+        } else {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
+            String name = map.get("name").toString();
+            WebElement table = webDriver.findElement(By.xpath("//div[@class='ant-table ant-table-small ant-table-scroll-position-left']"));
+            tr = this.getRowWithoutPaging(name, table);
+        }
+        return tr;
+    }
     public List<WebElement> getTrList() {
         WebElement table = pagingInfo.getTableList().get(0);
         List<WebElement> list = null;

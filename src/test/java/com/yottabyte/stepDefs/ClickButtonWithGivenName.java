@@ -71,6 +71,19 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 寻找对应的操作按钮并点击，无分页【字段提取列表操作中读取已存日志】
+     *
+     * @param name       字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
+     * @param buttonName 待点击的按钮名称
+     */
+    @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging in config$")
+    public void clickButtonWithoutPagingInConfig(String name, String buttonName) {
+        WebElement tr = listPageUtils.getTrWithoutPagingInConfig(name);
+        WebElement button = tr.findElement(By.xpath("//span[text()='"+ buttonName + "']"));
+        button.click();
+    }
+
+    /**
      * 在agent页中，点击正在运行的某一ip的功能按钮
      *
      * @param columnNum  agentIp所在列号（从0开始）
@@ -118,7 +131,7 @@ public class ClickButtonWithGivenName {
     public void clickBeatsButtonWithGivenName(String tableName, String buttonName) {
         Agent agent = new Agent();
         String ip = agent.getIp();
-        String dataName = ip+":"+"299";
+        String dataName = ip + ":" + "299";
         WebElement table = GetElementFromPage.getWebElementWithName(tableName);
         WebElement tr = listPageUtils.getRowWithoutPaging(dataName, table);
         this.click(buttonName, tr);
@@ -144,7 +157,7 @@ public class ClickButtonWithGivenName {
      */
     private void click(String buttonName, WebElement tr) {
         String xpath;
-        if (pagingInfo.checkUrl() || webDriver.getCurrentUrl().contains("/app/list/")|| webDriver.getCurrentUrl().contains("/app/siem/assets/")) {
+        if (pagingInfo.checkUrl() || webDriver.getCurrentUrl().contains("/app/list/") || webDriver.getCurrentUrl().contains("/app/siem/assets/")) {
             xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
@@ -214,6 +227,7 @@ public class ClickButtonWithGivenName {
         WebElement tr = listPageUtils.getRowWithColumnNum(name, columnNum, table);
         this.click(buttonName, tr);
     }
+
     /**
      * 读取配置文件获取名称并点击详情
      *
@@ -345,7 +359,7 @@ public class ClickButtonWithGivenName {
     public void BeatsoperateSwitch(String tableName, String status) {
         Agent agent = new Agent();
         String ip = agent.getIp();
-        String dataName = ip+":"+"299";
+        String dataName = ip + ":" + "299";
         WebElement table = GetElementFromPage.getWebElementWithName(tableName);
         WebElement tr = listPageUtils.getRowWithoutPaging(dataName, table);
         WebElement label = tr.findElement(By.xpath(".//button"));
