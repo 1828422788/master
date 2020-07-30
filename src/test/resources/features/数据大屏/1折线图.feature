@@ -222,7 +222,7 @@ Feature: 数据大屏-a折线图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | bucket timestamp span=2000s as ts| stats count() by ts | sort by +ts"
