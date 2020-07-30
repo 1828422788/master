@@ -77,6 +77,13 @@ public class VerifyElementTextWillBe {
         assertEquals(errorMessage, realResult);
     }
 
+    @Then("^I will see the alertMessage \"([^\"]*)\"$")
+    public void iWillSeeAlertMessage(String alertMessage) {
+        WebElement element = GetElementFromPage.getWebElementWithName("AlertMessage");
+        String realResult = element.getText();
+        assertEquals(alertMessage, realResult);
+    }
+
     @Then("^I will see the success message \"([^\"]*)\"$")
     public void iWillSeeTheSuccessMessage(String messageText) {
         WebElement element = GetElementFromPage.getWebElementWithName("getSuccessMessage");
