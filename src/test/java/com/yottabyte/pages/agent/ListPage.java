@@ -46,9 +46,63 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//span[text()='验证组内权限'])[2]")
     private WebElement authButton;
 
+<<<<<<< HEAD
     @FindBy(id = "update_comment_comment")
     private WebElement memo;
 
+||||||| merged common ancestors
+=======
+    public WebElement getAgentExportButton() {
+        return AgentExportButton;
+    }
+
+    @FindBy(xpath = "//li/span[text()='导出 Agent 信息']")
+    private WebElement AgentExportButton;
+
+    public WebElement getAgentExportGUIButton() {
+        return AgentExportGUIButton;
+    }
+
+    @FindBy(xpath = "//li/span[text()='桌面客户端']")
+    private WebElement AgentExportGUIButton;
+
+    public WebElement getAgentDownloadButton() {
+        return AgentDownloadButton;
+    }
+
+    @FindBy(xpath = "//span[text()='下载命令']")
+    private WebElement CopyLinux;
+
+    public WebElement getCopyLinux() {
+        return CopyLinux;
+    }
+
+    public WebElement getDownloadFile() {
+        return DownloadFile;
+    }
+
+    @FindBy(xpath = "//span[text()='下载文件']")
+    private WebElement DownloadFile;
+
+    @FindBy(xpath = "//li/span[text()='下载安装包']")
+    private WebElement AgentDownloadButton;
+
+    @FindBy(xpath = "//div[text()='Windows']")
+    private WebElement WindowsGUIButton;
+
+    public WebElement getWindowsGUIButton() {
+        return WindowsGUIButton;
+    }
+
+    public WebElement getMacOsGUIButton() {
+
+        return MacOsGUIButton;
+    }
+
+    @FindBy(xpath = "//div[text()='MacOS']")
+    private WebElement MacOsGUIButton;
+
+>>>>>>> 42f844811cad3ac670394c902b1c8bead2c3c720
     public WebElement getAuthButton() {
         return authButton;
     }
