@@ -121,6 +121,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='常规'])[last()]")
     private WebElement general;
 
+    @FindBy(xpath = "(//div[text()='平铺'])[last()]")
+    private WebElement tile;
+
     @FindBy(xpath = "(//div[text()='时序'])[last()]")
     private WebElement timeSequence;
 
@@ -720,6 +723,27 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'最大半径')])[last()]/ancestor::div/following-sibling::input")
     private WebElement maxRadius;
 
+    @FindBy(xpath = "(//span[contains(text(),'纬度')])[last()]/following-sibling::input")
+    private WebElement centerLatitude;
+
+    @FindBy(xpath = "(//span[contains(text(),'经度')])[last()]/following-sibling::input")
+    private WebElement centerLongitude;
+
+    @FindBy(xpath = "(//span[contains(text(),'缩放级别')])[last()]/ancestor::div/following-sibling::input[1]")
+    private WebElement zoomLevel;
+
+    @FindBy(xpath = "((//span[text()='数据圆圈图层'][last()])/ancestor::div/following-sibling::div)[1]")
+    private WebElement dataCircleLayer;
+
+    @FindBy(xpath = "((//span[text()='热力图图层'][last()])/ancestor::div/following-sibling::div)[1]")
+    private WebElement heatmapLayer;
+
+    @FindBy(xpath = "//*[@class='leaflet-control-layers-toggle']")
+    private WebElement mapSettings;
+
+    @FindBy(xpath = "//span[contains(text(),'min(apache.resp_len)')]")
+    private WebElement deleteMin;
+
     @FindBy(xpath = "(//div[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
     private WebElement delete;
 
@@ -1147,6 +1171,36 @@ public class CreatePage extends PageTemplate {
         return maxRadius;
     }
 
+    public WebElement getCenterLatitude() {
+        return centerLatitude;
+    }
+
+    public WebElement getCenterLongitude() {
+        return centerLongitude;
+    }
+
+    public WebElement getZoomLevel() {
+        return zoomLevel;
+    }
+
+    public WebElement getDataCircleLayer() {
+        dataCircleLayer.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getHeatmapLayer() {
+        heatmapLayer.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getMapSettings() {
+        return mapSettings;
+    }
+
+    public WebElement getDeleteMin() {
+        return deleteMin;
+    }
+
     public WebElement getFunction() {
         function.click();
         return super.getLastDropdownList();
@@ -1288,6 +1342,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getGeneral() {
         return general;
+    }
+
+    public WebElement getTile() {
+        return tile;
     }
 
     public WebElement getActualValueInput() {
