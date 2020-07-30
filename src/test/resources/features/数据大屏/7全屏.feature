@@ -90,6 +90,8 @@ Feature: 数据大屏-l全屏
     And I click the "Interactive" button under some element
     And I wait for "2000" millsecond
     And I choose the "全屏" from the "ShareGalaxeeDropDown"
+    And I hide the element "ShareGalaxeeDropDown"
+    And I wait for "ShareGalaxeeDropDown" will be invisible
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
     And I close all tabs except main tab
