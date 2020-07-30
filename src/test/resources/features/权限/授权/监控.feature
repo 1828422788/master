@@ -1,56 +1,38 @@
-#@auth
+@auth
 Feature: 权限-监控
 
-  Scenario: 验证无新建监控、查看告警插件的权限
+  Scenario Outline: 勾选所需功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "新建监控,可查看告警插件"
+    When I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可查看监控,新建监控"
     And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    Then I will see the "CreateAlert" doesn't exist
-    Then I will see the "AlertPlugin" doesn't exist
+    And I will see the success message "更新成功"
 
-  Scenario: 验证可查看告警插件，无新建告警插件权限
+    Examples:
+      | name              |
+      | __user_AutoTest__ |
+      | __user_验证授权用户__   |
+
+  Scenario: 验证无新建监控的权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可查看告警插件,可使用监控"
+    And I "unchecked" the checkbox which name is "新建监控"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     Then I will see the "CreateAlert" doesn't exist
-    And I click the "AlertPlugin" button
-    Then I will see the "alert.PluginPage" page
-    Then I will see the "Upload" doesn't exist
 
   Scenario: 验证可新建监控
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -59,19 +41,10 @@ Feature: 权限-监控
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可查看告警插件,可使用监控,新建监控"
+    And I "checked" the checkbox which name is "新建监控"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I click the "CreateAlert" button
@@ -96,18 +69,7 @@ Feature: 权限-监控
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     Then I will see the search result "{'column':'1','name':'<name>','contains':'no'}"
@@ -128,23 +90,11 @@ Feature: 权限-监控
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "新建监控"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制授权" button
     Then I will see the switch button before "{'column':'1','name':'<name>'}" is disabled
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     Then I will see the "alert.CreatePage" page
@@ -171,28 +121,17 @@ Feature: 权限-监控
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "新建监控"
-    And I click the "SaveButton" button
 
     Examples:
       | name         |
       | AutoTest用户创建 |
 
   Scenario Outline: 验证有读取+编辑权限
-    When I wait for "2000" millsecond
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制授权" button
     When the data name is "{'column':'1','name':'<name>'}" then I "close" the switch
     And I wait for "SuccessMessage" will be invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
@@ -228,43 +167,17 @@ Feature: 权限-监控
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "新建监控"
-    And I click the "SaveButton" button
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Alert" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    And I "unchecked" the checkbox which name is "<name>" in auth table
-    And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "新建监控"
-    And I click the "SaveButton" button
 
     Examples:
       | name             |
       | AutoTest权限验证修改名称 |
-
+#todo
   Scenario Outline: 验证有读取+编辑+转授权限
-    When I wait for "2000" millsecond
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制授权" button
     When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
 #    Then I will see the success message "启用成功"
     And I wait for "SuccessMessage" will be invisible
@@ -277,18 +190,11 @@ Feature: 权限-监控
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制授权" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
     And I wait for loading invisible
@@ -311,11 +217,6 @@ Feature: 权限-监控
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "新建监控"
-    And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -326,23 +227,11 @@ Feature: 权限-监控
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "新建监控"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制授权" button
     Then I will see the switch button before "{'column':'1','name':'<name>'}" is disabled
     When the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
     And I wait for "LoadingElement" will be invisible
@@ -352,21 +241,15 @@ Feature: 权限-监控
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
+    And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看授权" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看复制授权" button
 
     Examples:
       | name         |
@@ -383,23 +266,23 @@ Feature: 权限-监控
     And I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_验证授权用户__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
+    Then I click the "Alert" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    Then I will see the success message "更新成功"
 
     Examples:
       | name         |
       | AutoTestAuth |
 
   Scenario Outline: 验证有读取+删除权限
-    When I wait for "2000" millsecond
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -439,23 +322,13 @@ Feature: 权限-监控
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
 
     Examples:
       | name             |
       | AutoTestAuth(副本) |
 
   Scenario Outline: 验证有读取+编辑+删除权限
-    When I wait for "2000" millsecond
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -485,6 +358,7 @@ Feature: 权限-监控
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
 
@@ -492,7 +366,7 @@ Feature: 权限-监控
       | name             |
       | AutoTestAuth(副本) |
 
-  Scenario Outline: 验证有读取+删除+转授权限
+  Scenario Outline: 授权读取+删除+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -503,10 +377,6 @@ Feature: 权限-监控
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -517,18 +387,13 @@ Feature: 权限-监控
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name                 |
+      | AutoTestAuth(副本)(副本) |
+
+  Scenario Outline: 验证读取+删除+转授权限
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -548,12 +413,7 @@ Feature: 权限-监控
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -567,7 +427,7 @@ Feature: 权限-监控
       | name                 |
       | AutoTestAuth(副本)(副本) |
 
-  Scenario Outline: 验证所有权限
+  Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -577,10 +437,6 @@ Feature: 权限-监控
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -591,18 +447,13 @@ Feature: 权限-监控
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name                     |
+      | AutoTestAuth(副本)(副本)(副本) |
+
+  Scenario Outline: 验证所有权限
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -613,14 +464,7 @@ Feature: 权限-监控
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -646,10 +490,6 @@ Feature: 权限-监控
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Then I click the "Alert" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoTest权限验证修改名称" in auth table
@@ -660,37 +500,6 @@ Feature: 权限-监控
     And I click the "EnsureTime" button
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-
-  Scenario: 修改名称
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "编辑" button
-    Then I will see the "alert.CreatePage" page
-    And I wait for loading invisible
-    And I set the parameter "AlertName" with value "未删除则证明有bug"
-    And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
-
-  Scenario: 验证有效期限
-    When I wait for "2000" millsecond
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
-    Then I will see the search result "{'column':'1','name':'未删除则证明有bug','contains':'no'}"
-
-  Scenario: 删除监控
-    Given open the "alert.ListPage" page for uri "/alerts/"
-    And I wait for loading invisible
-    When the data name is "{'column':'1','name':'未删除则证明有bug'}" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除成功"
 
   Scenario: 新建监控以测试二次授权
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -870,3 +679,34 @@ Feature: 权限-监控
     Examples:
       | authRole | authName | function | name       |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权修改名称 |
+
+  Scenario: 修改名称
+    Given open the "alert.ListPage" page for uri "/alerts/"
+    And I wait for loading invisible
+    When the data name is "{'column':'1','name':'AutoTest权限验证修改名称'}" then i click the "编辑" button
+    Then I will see the "alert.CreatePage" page
+    And I wait for loading invisible
+    And I set the parameter "AlertName" with value "未删除则证明有bug"
+    And I click the "SaveButton" button
+    Then I will see the success message "更新成功"
+
+  Scenario: 验证有效期限
+    When I wait for "2000" millsecond
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "AutoTest"
+    And I set the parameter "Password" with value "All#123456"
+    And I click the "LoginButton" button
+    And I wait for "2000" millsecond
+    Given open the "alert.ListPage" page for uri "/alerts/"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'1','name':'未删除则证明有bug','contains':'no'}"
+
+  Scenario: 删除监控
+    Given open the "alert.ListPage" page for uri "/alerts/"
+    And I wait for loading invisible
+    When the data name is "{'column':'1','name':'未删除则证明有bug'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
