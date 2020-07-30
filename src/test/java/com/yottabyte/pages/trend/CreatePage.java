@@ -714,6 +714,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='信息'])[last()]")
     private WebElement info;
 
+    @FindBy(xpath = "//span[text()='使用在线地图']/ancestor::div/following-sibling::button")
+    private WebElement onlineMap;
+
     @FindBy(xpath = "(//span[contains(text(),'透明度')])[last()]/ancestor::div/following-sibling::input")
     private WebElement transparency;
 
@@ -731,6 +734,18 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[contains(text(),'缩放级别')])[last()]/ancestor::div/following-sibling::input[1]")
     private WebElement zoomLevel;
+
+    @FindBy(xpath = "(//span[contains(text(),'来源名称')])[last()]/following-sibling::input")
+    private WebElement mapName;
+
+    @FindBy(xpath = "(//span[contains(text(),'URL')])[last()]/following-sibling::input")
+    private WebElement mapURL;
+
+    @FindBy(xpath = "(//span[contains(text(),'Subdomains')])[last()]/following-sibling::input")
+    private WebElement subdomains;
+
+    @FindBy(xpath = "(//span[contains(text(),'地图透明度')])[last()]/ancestor::div/following-sibling::input[1]")
+    private WebElement mapOpacity;
 
     @FindBy(xpath = "((//span[text()='数据圆圈图层'][last()])/ancestor::div/following-sibling::div)[1]")
     private WebElement dataCircleLayer;
@@ -1159,6 +1174,10 @@ public class CreatePage extends PageTemplate {
         return delete;
     }
 
+    public WebElement getOnlineMap() {
+        return onlineMap;
+    }
+
     public WebElement getTransparency() {
         return transparency;
     }
@@ -1181,6 +1200,22 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getZoomLevel() {
         return zoomLevel;
+    }
+
+    public WebElement getMapName() {
+        return mapName;
+    }
+
+    public WebElement getMapURL() {
+        return mapURL;
+    }
+
+    public WebElement getSubdomains() {
+        return subdomains;
+    }
+
+    public WebElement getMapOpacity() {
+        return mapOpacity;
     }
 
     public WebElement getDataCircleLayer() {

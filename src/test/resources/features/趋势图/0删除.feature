@@ -81,6 +81,19 @@ Feature: 趋势图删除（RZY-1891）
       | Multiaxis_2523                           |
       | Rangeline_2516                           |
 
+    @cleanTrendStatMap
+    Examples:
+      | name                                     |
+      | Statisticalmap_Google                    |
+      | Statisticalmap_Gtimg                     |
+      | Statisticalmap_OSM                       |
+      | Statisticalmap_Amap                      |
+      | Statisticalmap_ArcGIS                    |
+      | Statisticalmap_2098_param                |
+      | Statisticalmap_2098                      |
+      | Statisticalmap_2797_param                |
+      | Statisticalmap_2797                      |
+
     @cleanTrendMap
     Examples:
       | name                                     |
@@ -89,10 +102,6 @@ Feature: 趋势图删除（RZY-1891）
       | Regionmap_Jiangsu_2547_white             |
       | Regionmap_China_2546_white               |
       | Regionmap_2545_white                     |
-      | Statisticalmap_2098_param                |
-      | Statisticalmap_2098                      |
-      | Statisticalmap_2797_param                |
-      | Statisticalmap_2797                      |
       | Regionmap_Jiangsu_2547                   |
       | Regionmap_China_2546                     |
       | Attackmap_China_2543                     |
