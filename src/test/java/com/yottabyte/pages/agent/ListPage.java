@@ -108,6 +108,19 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='分组设置']")
     private WebElement AgentGroupButton;
 
+    public WebElement getStop() {
+        return Stop;
+    }
+
+    @FindBy(xpath = "//span[text()='停止']")
+    private WebElement Stop;
+
+    public WebElement getStart() {
+        return Start;
+    }
+
+    @FindBy(xpath = "//span[text()='停止']")
+    private WebElement Start;
     public WebElement getAgentGroupButton() {
         return AgentGroupButton;
     }

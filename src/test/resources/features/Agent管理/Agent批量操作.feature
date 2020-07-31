@@ -20,7 +20,6 @@ Feature: Agent批量操作
     And  I wait for loading invisible
     Then I will see the search result contains "{'column':'3','name':'<memory>'}"
 
-#  @indexSettingSmoke
     Examples: 备注成功
       | memory  |
       | 中文中文    |
@@ -28,3 +27,7 @@ Feature: Agent批量操作
       | *A￥,%&^ |
       | 68      |
 
+#  Scenario:  Agent批量操作空操作
+#    And I click the "AgentMultiButton" button
+#    And I click the "Stop" button
+#    And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"

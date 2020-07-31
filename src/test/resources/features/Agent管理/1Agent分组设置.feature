@@ -22,7 +22,6 @@ Feature: Agent分组设置
     And I wait for "Addsuccessmsg" will be visible
     And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"
 
-#  @indexSettingSmoke
     Examples: 成功
       | name       | description | role      |
       | sunxctest  | English     | __admin__ |
@@ -59,7 +58,6 @@ Feature: Agent分组设置
     And I click the "OpenGroupButton" button
     Then I will see the agent search result contains "1"
 
-#  @indexSettingSmokes
     Examples:
       | message              |
       | 成功加入分组 [ sunxctest ] |
@@ -74,7 +72,6 @@ Feature: Agent分组设置
     And I close all tabs except main tab
     Then I will see the agent search result contains "1"
 
-#  @indexSettingSmokes
     Examples:
       | message              |
       | 成功加入分组 [ sunxctest ] |
