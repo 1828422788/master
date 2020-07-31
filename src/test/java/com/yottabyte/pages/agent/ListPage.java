@@ -46,12 +46,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//span[text()='验证组内权限'])[2]")
     private WebElement authButton;
 
-<<<<<<< HEAD
     @FindBy(id = "update_comment_comment")
     private WebElement memo;
 
-||||||| merged common ancestors
-=======
     public WebElement getAgentExportButton() {
         return AgentExportButton;
     }
@@ -102,7 +99,6 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text()='MacOS']")
     private WebElement MacOsGUIButton;
 
->>>>>>> 42f844811cad3ac670394c902b1c8bead2c3c720
     public WebElement getAuthButton() {
         return authButton;
     }
