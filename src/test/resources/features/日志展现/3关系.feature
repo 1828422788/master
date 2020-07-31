@@ -7,7 +7,7 @@ Feature: 日志展现_关系
 
 
   Scenario Outline: connection(RZY-834,2783,2784)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" <spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -50,7 +50,7 @@ Feature: 日志展现_关系
 
     Examples:
       |   chartType   |repValue  |   spl   |
-      |    Force      |    20    |  starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
+      |    Force      |    20    |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.clientip,apache.request_path \|limit 10      |
 
 
   Scenario Outline: multistage(RZY-4224)
@@ -80,9 +80,8 @@ Feature: 日志展现_关系
       |   chartType   |  button    |   spl   |
       |    Sankey     | Multistage |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:t_with \|transaction json.sid keepevicted=true with states a,b,c in json.module results by flow \| stats count() by fromstate,tostate \| limit 3      |
 
-@chordtest
   Scenario Outline: connection_facet
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" <spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
