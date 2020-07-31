@@ -104,6 +104,18 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "textarea-icon-padding")
     private WebElement splInput;
 
+    @FindBy(xpath = "//i[@class='iconfont icon-shangyi_icon']")
+    private WebElement upMove;
+
+    @FindBy(xpath = "//i[@class='iconfont icon-xiayi_icon']")
+    private WebElement downMove;
+
+    @FindBy(xpath = "//i[@class='iconfont icon-yidaodingbu_icon']")
+    private WebElement upMoveToTop;
+
+    @FindBy(xpath = "//i[@class='iconfont icon-yidaodibu_icon']")
+    private WebElement downMoveToBottom;
+
     @FindBy(xpath = "//div[text()='样式']")
   //   @FindBy(xpath = "//div[@class='el-tabs__nav']/div[text()='样式']")
      private WebElement style;
@@ -350,6 +362,26 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getMapDropdown() {
         return mapDropdown;
+    }
+
+    public WebElement getChartDropdown() {
+        return chartDropdown;
+    }
+
+    public WebElement getUpMove() {
+        return upMove;
+    }
+
+    public WebElement getDownMove() {
+        return downMove;
+    }
+
+    public WebElement getUpMoveToTop() {
+        return upMoveToTop;
+    }
+
+    public WebElement getDownMoveToBottom() {
+        return downMoveToBottom;
     }
 
     public WebElement getLastUlList() {
@@ -1485,6 +1517,10 @@ private WebElement dataType;
     @FindBy(xpath = "//div[contains(text(),'图层')]/parent::div/ul/li[2]")
     private WebElement pictureTwo;
     public WebElement getPictureTwo(){return pictureTwo;}
+    //右侧图层的第三个选择按钮
+    @FindBy(xpath = "//div[contains(text(),'图层')]/parent::div/ul/li[3]")
+    private WebElement pictureThree;
+    public WebElement getPictureThree(){return pictureThree;}
 
     //指标中的top3
     @FindBy(xpath ="//li[text()='Top3']/i")
