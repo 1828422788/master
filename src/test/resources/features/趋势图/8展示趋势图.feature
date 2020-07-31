@@ -122,6 +122,7 @@ Feature: 展示趋势图
     @viewTrendOther
     Examples:
       | name                            |
+      | NetworkNode                     |
       | Chain_2831_tree                 |
       | Chain_2982_tree                 |
       | Table_Test                      |

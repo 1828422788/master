@@ -112,6 +112,7 @@ Feature: 趋势图删除（RZY-1891）
     @cleanTrendOther
     Examples:
       | name                                     |
+      | NetworkNode                              |
       | Chain_2831_tree                          |
       | Chain_2982_tree                          |
       | Table_Test                               |
