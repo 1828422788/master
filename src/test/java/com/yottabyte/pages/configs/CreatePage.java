@@ -1,5 +1,6 @@
 package com.yottabyte.pages.configs;
 
+import com.yottabyte.pages.DateEditorPage;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
@@ -16,11 +17,26 @@ public class CreatePage extends PageTemplate {
         super(driver);
     }
 
+    @FindBy(xpath = "//span[text()='保存']")
+    private WebElement saveSearchLog;
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']//div[@aria-hidden='false']//tbody[@class='ant-table-tbody']/tr/td[4]")
+    private WebElement rawLog;
+
+    @FindBy(xpath = "//input[@placeholder='请输入hostname']")
+    private WebElement hostNameInput;
+
+    @FindBy(className = "CodeMirror")
+    private WebElement searchInput;
+
+    @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
+    private WebElement dateEditor;
+
     @FindBy(xpath = "//div[@class='ant-popover-inner']")
     private WebElement popOverTip;
 
     @FindBy(xpath = "//div[@class='ant-modal-content']/div[@class='ant-modal-body']//div[@aria-hidden='false']//p[@class='ant-empty-description']")
-    private WebElement saveLog;
+    private WebElement saveLogEmpty;
 
     @FindBy(xpath = "//span[text()='不删除']/ancestor::button")
     private WebElement cancelDelete;
@@ -530,7 +546,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getField() {
         return field;
     }
-    public WebElement getParseField(){
+
+    public WebElement getParseField() {
         parseField.click();
         return super.getLastDropdownList();
     }
@@ -559,11 +576,40 @@ public class CreatePage extends PageTemplate {
         return cancelDelete;
     }
 
-    public WebElement getSaveLog() {
-        return saveLog;
+    public WebElement getSaveLogEmpty() {
+        return saveLogEmpty;
     }
 
     public WebElement getPopOverTip() {
         return popOverTip;
+    }
+
+    @Override
+    public WebElement getSearchInput() {
+        return searchInput;
+    }
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    public WebElement getRecentOneHour() {
+        return (new DateEditorPage(webDriver)).getOneHour();
+    }
+
+    public WebElement getSearchButton() {
+        return super.getButton("搜索");
+    }
+
+    public WebElement getHostNameInput() {
+        return hostNameInput;
+    }
+
+    public WebElement getRawLog() {
+        return rawLog;
+    }
+
+    public WebElement getSaveSearchLog() {
+        return saveSearchLog;
     }
 }
