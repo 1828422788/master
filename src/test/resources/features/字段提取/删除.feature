@@ -72,6 +72,7 @@ Feature: 字段提取删除
       | 禁用和启用                       |
       | wym保存日志样例                   |
       | wym检索日志验证状态                 |
+      | wym保存搜索日志                   |
 
   Scenario Outline: 删除字典管理
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
