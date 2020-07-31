@@ -108,6 +108,10 @@ public class CreatePage extends PageTemplate {
   //   @FindBy(xpath = "//div[@class='el-tabs__nav']/div[text()='样式']")
      private WebElement style;
 
+    @FindBy(xpath = "//div[text()='交互']")
+    //   @FindBy(xpath = "//div[@class='el-tabs__nav']/div[text()='样式']")
+    private WebElement interactive;
+
     @FindBy(xpath = "//div[text()='图表尺寸位置']")
     private WebElement position;
 
@@ -1188,6 +1192,10 @@ public class CreatePage extends PageTemplate {
         return style;
     }
 
+    public WebElement getInteractive() {
+        return interactive;
+    }
+
     public WebElement getPosition() {
         return position;
     }
@@ -1305,6 +1313,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSave() {
         return super.getButton("保存");
+    }
+
+    public WebElement getRelease() {
+        return super.getButton("发布");
     }
 
     private WebElement colorPicker(String title, String name) {
@@ -1772,6 +1784,10 @@ private WebElement dataType;
      }
      //对齐方式
     public WebElement getClockHorizontal(){return this.dropdownList("时间器","对齐");}
+//    //分享给大屏
+//    public WebElement getShareGalaxee() {
+//        return this.dropdownList("", "分享给大屏");
+//    }
     //时间格式
     @FindBy(xpath = "//label[contains(text(),'时间格式')]/following-sibling::div")
     private WebElement timeFormat;
@@ -1779,6 +1795,13 @@ private WebElement dataType;
           timeFormat.click();
           return getLastDropdownList();
       }
+    //分享给大屏
+    @FindBy(xpath = "//label[contains(text(),'分享给大屏')]/following-sibling::div")
+    private WebElement shareGalaxee;
+    public WebElement getShareGalaxeeDropDown(){
+        shareGalaxee.click();
+        return getLastDropdownList();
+    }
 
 //视频流
     //其他中的视频流

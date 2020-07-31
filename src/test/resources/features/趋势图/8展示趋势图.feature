@@ -104,11 +104,19 @@ Feature: 展示趋势图
       | Attackmap_World_2542                     |
       | Regionmap_2545                           |
       | Heatmap_2539                             |
-#  parameters of statistical map displayed not correctly - bug
-#      | Statisticalmap_2098_param                |
+
+    @viewTrendStatMap
+    Examples:
+      | name                                     |
+      | Statisticalmap_2098_param                |
       | Statisticalmap_2098                      |
-#      | Statisticalmap_2797_param                |
+      | Statisticalmap_2797_param                |
       | Statisticalmap_2797                      |
+      | Statisticalmap_Google                    |
+      | Statisticalmap_Gtimg                     |
+      | Statisticalmap_OSM                       |
+      | Statisticalmap_Amap                      |
+      | Statisticalmap_ArcGIS                    |
 
 
     @viewTrendOther
