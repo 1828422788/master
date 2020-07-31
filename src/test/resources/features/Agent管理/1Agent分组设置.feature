@@ -92,14 +92,6 @@ Feature: Agent分组设置
       | message              |
       | 成功移出分组 [ sunxctest ] |
 
-  Scenario Outline: cenario Outline:  Agent批量操作空操作
-    And I click the "Back" button
-    And I will see the "agent.ListPage" page
-    And I click the "AgentMultiButton" button
-    And I will see the message "请务必选择至少一个 Agent 进行操作。"
-    Examples:
-      | message              |
-      | 成功移出分组 [ sunxctest ] |
 
   Scenario Outline: Agent批量操作加入分组
     And I click the "Back" button

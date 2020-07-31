@@ -67,19 +67,13 @@ public class ListPage extends ListPageFactory {
         return AgentDownloadButton;
     }
 
-    @FindBy(xpath = "//span[text()='下载命令']/ancestor::button")
-    private WebElement CopyLinux;
-
     public WebElement getCopyLinux() {
-        return CopyLinux;
+        return super.getButton("下载命令");
     }
 
     public WebElement getDownloadFile() {
-        return DownloadFile;
+        return super.getButton("下载文件");
     }
-
-    @FindBy(xpath = "//span[text()='下载文件']/ancestor::button")
-    private WebElement DownloadFile;
 
     @FindBy(xpath = "//li/span[text()='下载安装包']")
     private WebElement AgentDownloadButton;
