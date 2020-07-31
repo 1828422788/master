@@ -18,6 +18,7 @@ Feature: Agent更多操作
   Scenario: Agent下载软件到本地-Mac
     And I click the "AgentExportGUIButton" button
     And I click the "MacOsGUIButton" button
+<<<<<<< HEAD
 
   Scenario: Agent下载安装包-linux
     And I click the "AgentDownloadButton" button
@@ -26,5 +27,24 @@ Feature: Agent更多操作
 #  Scenario: Agent下载安装包-windows
 #    And I click the "AgentDownloadButton" button
 #    And I click the "DownloadFile" button
+||||||| parent of 6a4bca39... 修改Agent下载安装包case
+#
+#  Scenario: Agent下载安装包-linux
+#    And I click the "AgentDownloadButton" button
+#    And I click the "CopyLinux" button
+#
+#  Scenario: Agent下载安装包-windows
+#    And I click the "AgentDownloadButton" button
+#    And I click the "DownloadFile" button
+=======
+
+  Scenario: Agent下载安装包-linux
+    And I click the "AgentDownloadButton" button
+    And I click the "CopyLinux" button
+
+  Scenario: Agent下载安装包-windows
+    And I click the "AgentDownloadButton" button
+    And I click the "DownloadFile" button
+>>>>>>> 6a4bca39... 修改Agent下载安装包case
 
 
