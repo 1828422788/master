@@ -67,6 +67,7 @@ Feature: 数据大屏-j热力地图
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
+    And I wait for "7000" millsecond
 
     And I choose the "count()" from the "DataField"
     And I choose the "apache.geo.province" from the "NameField"

@@ -79,37 +79,37 @@ Feature: 数据大屏-l全屏
 #    And switch to another window
     And I close all tabs except main tab
 
-  Scenario: 大屏共享
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "验证发布及分享" then I click the "iconfont icon-bianji" edit button
-    Then I will see the "galaxee.CreatePage" page
-    And switch to another window
-    And I wait for "PictureOne" will be visible
-    And I click the "PictureOne" button
-    And I wait for "Interactive" will be visible
-    And I click the "Interactive" button under some element
-    And I wait for "2000" millsecond
-    And I choose the "全屏" from the "ShareGalaxeeDropDown"
-    And I hide the element "ShareGalaxeeDropDown"
-    And I wait for "ShareGalaxeeDropDown" will be invisible
-    And I click the "Ensure" button
-    Then I will see the success message "保存成功"
-    And I close all tabs except main tab
-
-  Scenario: 验证大屏共享
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-    When the galaxee name is "全屏" then I click the "iconfont icon-bianji" edit button
-    Then I will see the "galaxee.CreatePage" page
-    And switch to another window
-    And I wait for "PictureTwo" will be visible
-    Then I will see the element "PictureTwo" value is "时间器"
-    And I wait for "1000" millsecond
-    And switch to another window
-    And I close all tabs except main tab
-    Then I will see the "galaxee.ListPage" page
-    And I wait for "2000" millsecond
-    When the galaxee name is "验证发布及分享" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-    Then I click the "Ensure" button
+#  Scenario: 大屏共享
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "验证发布及分享" then I click the "iconfont icon-bianji" edit button
+#    Then I will see the "galaxee.CreatePage" page
+#    And switch to another window
+#    And I wait for "PictureOne" will be visible
+#    And I click the "PictureOne" button
+#    And I wait for "Interactive" will be visible
+#    And I click the "Interactive" button under some element
+#    And I wait for "2000" millsecond
+#    And I choose the "全屏" from the "ShareGalaxeeDropDown"
+#    And I hide the element "ShareGalaxeeDropDown"
+#    And I wait for "ShareGalaxeeDropDown" will be invisible
+#    And I click the "Ensure" button
+#    Then I will see the success message "保存成功"
+#    And I close all tabs except main tab
+#
+#  Scenario: 验证大屏共享
+#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+#    When the galaxee name is "全屏" then I click the "iconfont icon-bianji" edit button
+#    Then I will see the "galaxee.CreatePage" page
+#    And switch to another window
+#    And I wait for "PictureTwo" will be visible
+#    Then I will see the element "PictureTwo" value is "时间器"
+#    And I wait for "1000" millsecond
+#    And switch to another window
+#    And I close all tabs except main tab
+#    Then I will see the "galaxee.ListPage" page
+#    And I wait for "2000" millsecond
+#    When the galaxee name is "验证发布及分享" then I click the "iconfont icon-shanchuxuanting_icon" delete button
+#    Then I click the "Ensure" button
 
 
 
