@@ -100,8 +100,8 @@ Feature: 数据大屏-l全屏
   Scenario: 验证大屏共享
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When the galaxee name is "全屏" then I click the "iconfont icon-bianji" edit button
-    Then I will see the "galaxee.CreatePage" page
     And switch to another window
+    Then I will see the "galaxee.CreatePage" page
     And I wait for "PictureTwo" will be visible
     Then I will see the element "PictureTwo" value is "时间器"
     And I wait for "1000" millsecond
