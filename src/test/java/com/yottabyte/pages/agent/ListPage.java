@@ -149,11 +149,22 @@ public class ListPage extends ListPageFactory {
         String xpath = "(//span[text()='确定']/ancestor::button)[last()]";
         return webDriver.findElement(By.xpath(xpath));
     }
+    public WebElement getCancelButton() {
+        String xpath = "(//span[text()='取消']/ancestor::button)[last()]";
+        return webDriver.findElement(By.xpath(xpath));
+    }
 
     public WebElement getResetButton() {
         String xpath = "//span[text()='清空筛选']";
         return webDriver.findElement(By.xpath(xpath));
     }
+
+    public WebElement getAddsuccessmsg() {
+        return Addsuccessmsg;
+    }
+
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']//span")
+    private WebElement Addsuccessmsg;
 
 
     public WebElement getSeniorfilterButton() {

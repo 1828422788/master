@@ -27,7 +27,11 @@ Feature: Agent批量操作
       | *A￥,%&^ |
       | 68      |
 
-#  Scenario:  Agent批量操作空操作
-#    And I click the "AgentMultiButton" button
-#    And I click the "Stop" button
-#    And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"
+  Scenario:  Agent批量操作停止采集数据
+    When the column is "1" then i "checked" the agent label in agent page
+    And I click the "AgentMultiButton" button
+    And I click the "Stop" button
+    And I will see the message "您选中的 Agents 将停止采集数据，是否继续？"
+    And I click the "CancelButton" button
+#    And I wait for "30000" millsecond
+#    Then I will see the element "" name contain
