@@ -171,7 +171,7 @@ Feature: 权限-监控
     Examples:
       | name             |
       | AutoTest权限验证修改名称 |
-#todo
+
   Scenario Outline: 验证有读取+编辑+转授权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -522,23 +522,9 @@ Feature: 权限-监控
     And I "check" the checkbox which name is "AutoTest" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
 
   Scenario Outline: 二次授权读取
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -547,12 +533,7 @@ Feature: 权限-监控
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -573,13 +554,7 @@ Feature: 权限-监控
       | 用户       | 验证授权用户   | 读取       | 测试二次授权 |
 
   Scenario Outline: 二次授权读取+编辑
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -590,12 +565,7 @@ Feature: 权限-监控
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -615,7 +585,7 @@ Feature: 权限-监控
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
     Then I will see the "alert.CreatePage" page
-    And I set the parameter "AlertName" with value "<name>修改名称"
+    And I set the parameter "AlertName" with value "<name>"
     And I set the parameter "TimeInput" with value "100000"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
@@ -625,13 +595,7 @@ Feature: 权限-监控
       | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
 
   Scenario Outline: 二次授权读取+编辑+删除
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
@@ -641,20 +605,16 @@ Feature: 权限-监控
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible
     Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签复制删除授权" button
     When the data name is "{'column':'1','name':'<name>'}" then I "open" the switch
-    Then I will see the success message "启用成功"
+#    Then I will see the success message "启用成功"
     And I wait for "SuccessMessage" will be invisible
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
+    And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "test"
     And I choose the "test" from the "TagDropdown"
     And I click the "Ensure" button
@@ -678,7 +638,7 @@ Feature: 权限-监控
 
     Examples:
       | authRole | authName | function | name       |
-      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权修改名称 |
+      | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权 |
 
   Scenario: 修改名称
     Given open the "alert.ListPage" page for uri "/alerts/"
@@ -691,13 +651,7 @@ Feature: 权限-监控
     Then I will see the success message "更新成功"
 
   Scenario: 验证有效期限
-    When I wait for "2000" millsecond
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "alert.ListPage" page for uri "/alerts/"
     And I wait for loading invisible

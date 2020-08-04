@@ -103,7 +103,7 @@ public class PublicNavBarPage extends PageTemplate {
     @FindBy(xpath = "//span[@class='yw-nav-icon iconfont icon-xitongzhuangtai_icon']")
     private WebElement status;
 
-    @FindBy(xpath = "//span[contains(text(),'运行')]/ancestor::p/following-sibling::div")
+    @FindBy(xpath = "(//i[contains(@class,'anticon css-ifnfqv')])[2]")
     private WebElement running;
 
     @FindBy(className = "icon-yingyong_icon_gaoliang")

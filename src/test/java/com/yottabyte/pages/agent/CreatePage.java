@@ -103,7 +103,6 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSyslogEditdelete() {
-
         return SyslogEditdelete;
     }
 

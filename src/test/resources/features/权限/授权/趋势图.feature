@@ -1,6 +1,24 @@
 #@auth
 Feature: 权限-趋势图
 
+  Scenario Outline: 勾选功能权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "<name>" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'功能'}" button
+    And I wait for "Loading" will be invisible
+    When I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "可查看趋势图,新建趋势图"
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
+
+    Examples:
+      | name              |
+      | __user_AutoTest__ |
+      | __user_验证授权用户__   |
+
   @logout
   Scenario: 验证无新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -9,9 +27,7 @@ Feature: 权限-趋势图
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用趋势图"
+    And I "unchecked" the checkbox which name is "新建趋势图"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Given I login user "AutoTest" with password "All#123456"
@@ -28,7 +44,7 @@ Feature: 权限-趋势图
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "新建趋势图"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Given I login user "AutoTest" with password "All#123456"
@@ -62,10 +78,6 @@ Feature: 权限-趋势图
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -90,10 +102,6 @@ Feature: 权限-趋势图
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -136,7 +144,6 @@ Feature: 权限-趋势图
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "新建趋势图"
     And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
@@ -175,11 +182,6 @@ Feature: 权限-趋势图
     When I "checked" function "读取,编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "新建趋势图,可使用报表"
-    And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -232,11 +234,6 @@ Feature: 权限-趋势图
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "新建趋势图"
-    And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -307,7 +304,7 @@ Feature: 权限-趋势图
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "新建趋势图"
     And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -354,18 +351,6 @@ Feature: 权限-趋势图
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -411,10 +396,6 @@ Feature: 权限-趋势图
     When I "unchecked" function "删除" from the auth table which name is "AutoTest(副本)(副本)"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -425,10 +406,6 @@ Feature: 权限-趋势图
     And I "checked" the checkbox which name is "AutoTest(副本)(副本)" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -482,10 +459,6 @@ Feature: 权限-趋势图
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -496,10 +469,6 @@ Feature: 权限-趋势图
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     And open the "trend.ListPage" page for uri "/trend/"
@@ -545,19 +514,6 @@ Feature: 权限-趋势图
     Then I click the "Trend" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Given I login user "AutoTest" with password "All#123456"
@@ -628,10 +584,6 @@ Feature: 权限-趋势图
     And I "unchecked" the checkbox which name is "AutoEditCopy(副本)" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
 
   @logout
   Scenario Outline: 二次授权读取
@@ -707,7 +659,7 @@ Feature: 权限-趋势图
       | authRole | authName        | function | name             |
       | 角色       | __user_验证授权用户__ | 编辑       | AutoEditCopy(副本) |
 
-    @logout
+  @logout
   Scenario Outline: 二次授权读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond

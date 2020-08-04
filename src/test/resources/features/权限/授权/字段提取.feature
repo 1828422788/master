@@ -594,22 +594,6 @@ Feature: 权限-字段提取
       | appName        | log            |
       | auto_test_auth | dictionary.log |
 
-  Scenario Outline: RZY-3418:在搜索页验证
-    When open the "splSearch.SearchPage" page for uri "/search/"
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I set the parameter "SearchInput" with value "tag:<tag>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I click the "RightIcon" button
-    Then I will see the spl search result "<result>"
-
-    Examples:
-      | tag            | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-      | auto_test_auth | {'json.Category':'json.Category： ','json.ComputerName':'json.ComputerName：WIN-999OGBVAHMI ','json.EventCode':'json.EventCode：7036 ','json.EventIdentifier':'json.EventIdentifier：1073748860 ','json.EventType':'json.EventType：3 ','json.Logfile':'json.Logfile：System ','json.Message':'json.Message：Application Experience 服务处于 正在运行 状态。 ','json.RecordNumber':'json.RecordNumber：108343 ','json.SourceName':'json.SourceName：Service Control Manager ','json.TimeGenerated':'json.TimeGenerated：2015-01-04T20:45:09+08:00 ','json.level':'json.level：2 ','json.source':'json.source：sys '} |
-
-
   @logout
   Scenario: 验证有效期限生效
     Given I login user "AutoTest" with password "All#123456"
@@ -675,6 +659,23 @@ Feature: 权限-字段提取
     Examples:
       | authRole | authName        | function | name     |
       | 角色       | __user_验证授权用户__ | 编辑       | 测试Auth相关 |
+
+  Scenario Outline: RZY-3418:在搜索页验证
+    Given I login user "AutoTest" with password "All#123456"
+    When open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I set the parameter "SearchInput" with value "tag:<tag>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "RightIcon" button
+    Then I will see the spl search result "<result>"
+
+    Examples:
+      | tag            | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+      | auto_test_auth | {'json.Category':'json.Category： ','json.ComputerName':'json.ComputerName：WIN-999OGBVAHMI ','json.EventCode':'json.EventCode：7036 ','json.EventIdentifier':'json.EventIdentifier：1073748860 ','json.EventType':'json.EventType：3 ','json.Logfile':'json.Logfile：System ','json.Message':'json.Message：Application Experience 服务处于 正在运行 状态。 ','json.RecordNumber':'json.RecordNumber：108343 ','json.SourceName':'json.SourceName：Service Control Manager ','json.TimeGenerated':'json.TimeGenerated：2015-01-04T20:45:09+08:00 ','json.level':'json.level：2 ','json.source':'json.source：sys '} |
+
 
   @logout
   Scenario Outline: 验证二次授权读取+编辑+删除
