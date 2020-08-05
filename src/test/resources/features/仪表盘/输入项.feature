@@ -120,6 +120,92 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be invisible
 
   @dashboard @dashboardSmoke
+  Scenario: 添加时间范围输入项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I click the "AddInput" button
+    And I set the parameter "FilterTitle" with value "time"
+    And I set the parameter "FilterToken" with value "time"
+    And I click the "inputSettingType" button
+    And I click the "timeRangee" button
+    And I wait for "DateEditor" will be visible
+    And I click the "DateEditor" button
+    And I click the "Shortcut" button
+    And I click the "Today" button
+    Then I click the "Ensure" button
+    Then I wait for "FilterTime" will be visible
+
+  @dashboard @dashboardSmoke
+  Scenario: 验证默认值添加图表
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    And I will see the element "DateEditor" value is "今天"
+    When I click the "AddEventButton" button
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "仪表盘所用趋势图"
+    And I wait for loading invisible
+    And I click the "{'Checkbox':'仪表盘所用趋势图'}" button
+    And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "添加成功"
+
+  @dashboard @dashboardSmoke
+  Scenario: 验证时间范围输入项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    And I set value with element "TableList"
+    When the chart title is "仪表盘所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "starttime=${time.start} endtime=${time.end} * | stats count() by 'apache.geo.city' "
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    Then I compare with list "TableList"
+
+  @dashboard @dashboardSmoke
+  Scenario: 验证时间范围标识前后缀
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    And I set value with element "TableList"
+    And I click the "FilterTime" button
+    And I click the "EditTime" button
+    And I wait for "Prefix" will be visible
+    And I set the parameter "Prefix" with value "="
+    And I wait for "1000" millsecond
+    And I click the "Ensure" button
+    Then I wait for "FilterTime" will be visible
+#    And I click the "DeleteTime" button
+    When the chart title is "仪表盘所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "starttime${time.start} endtime${time.end} * | stats count() by 'apache.geo.city' "
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    Then I compare with list "TableList"
+
+  @dashboard @dashboardSmoke
+  Scenario: 删除图表单和输入项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "DeleteChart" button
+    And I click the "Ensure" button
+    And I click the "FilterTime" button
+    And I click the "DeleteTime" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button under some element
+    Then I wait for "FilterTime" will be invisible
+
+  @dashboard @dashboardSmoke
   Scenario Outline: RZY-1669添加输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -686,17 +772,7 @@ Feature: 仪表盘输入项
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
 
-#  @dashboard @dashboardSmoke
-#  Scenario: 添加输入项
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    And I click the detail which name is "测试输入项"
-#    Then I will see the "dashboard.DetailPage" page
-#    When I click the "AddEventButton" button
-#    And I click the "AddInput" button
-#    And I set the parameter "FilterTitle" with value "filter"
-#    And I set the parameter "FilterToken" with value "filter"
-#    Then I click the "Ensure" button
-#    Then I wait for "FilterName" will be visible
+
 #
 #  @dashboard @dashboardSmoke
 #  Scenario: RZY-1834:输入值支持eval（未完成·）

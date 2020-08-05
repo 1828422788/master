@@ -94,6 +94,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='filter']/following-sibling::i)[last()]")
     private WebElement deleteTag;
 
+    @FindBy(xpath = "(//span[text()='time']/following-sibling::i)[1]")
+    private WebElement editTime;
+
+    @FindBy(xpath = "(//span[text()='time']/following-sibling::i)[last()]")
+    private WebElement deleteTime;
+
     @FindBy(xpath = "//i[@class='anticon css-ifnfqv ant-dropdown-trigger']")
     private WebElement addEventButton;
 
@@ -370,6 +376,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='filter']")
     private WebElement filterName;
+
+    @FindBy(xpath = "//span[text()='time']")
+    private WebElement filterTime;
 
     @FindBy(xpath = "//span[text()='全局时间']")
     private WebElement timeName;
@@ -801,6 +810,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getFilterName() {
         return filterName;
+    }
+
+    public WebElement getFilterTime() {
+        return filterTime;
     }
 
     public WebElement getTimeName() {
@@ -1255,6 +1268,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getDeleteTag() {
         return deleteTag;
+    }
+
+    public WebElement getDeleteTime() {
+        return deleteTime;
+    }
+
+    public WebElement getEditTime() {
+        return editTime;
     }
 
     public WebElement getDeleteTimeTag() { return deleteTimeTag; }
