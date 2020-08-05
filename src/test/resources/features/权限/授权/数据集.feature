@@ -24,7 +24,7 @@ Feature: 权限-数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then I will see the "Create" doesn't exist
 
-  Scenario Outline: 授权新建
+  Scenario: 授权新建
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
