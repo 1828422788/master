@@ -172,6 +172,18 @@ Feature: 仪表盘详情页
     And I click the "Ensure" button under some element
     Then I wait for "TimeName" will be invisible
 
+  @cleanDashboard
+  Scenario Outline: 删除验证仪表盘全局时间趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name   |
+      | 验证仪表盘全局时间 |
+
 
   Scenario Outline: 删除报表
     When open the "report.ListPage" page for uri "/reports/"
