@@ -385,61 +385,6 @@ Feature: 权限-搜索宏
       | name     |
       | AutoTest |
 
-  Scenario: 验证有效期限
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "searchMacro.ListPage" page for uri "/macro/"
-    Then I will see the search result "{'column':'0','name':'AutoTestCreate','contains':'no'}"
-
-  Scenario Outline: 授权读取+删除+转授
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'搜索宏'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    When I "unchecked" function "编辑" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'搜索宏'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    And I "unchecked" the checkbox which name is "<name>" in auth table
-    And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
-
-    Examples:
-      | name           |
-      | AutoTestCreate |
-
-  Scenario Outline: 验证读取+删除+转授
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "searchMacro.ListPage" page for uri "/macro/"
-    Then the data name is "<name>" then i will see "授权删除" button
-    And the data name is "<name>" then i click the "授权" button
-    And I "check" the checkbox which name is "验证授权用户" in tiny table
-    And I click the "Ensure" button
-    Then I will see the message "保存成功"
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "searchMacro.ListPage" page for uri "/macro/"
-    And I wait for loading invisible
-    Then the data name is "<name>" then i will see "授权删除" button
-    And the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    Then I click the "Ensure" button
-    Then I wait for element "SuccessMessage" change text to "删除成功"
-
-    Examples:
-      | name           |
-      | AutoTestCreate |
-
   Scenario: 新建搜索宏以测试二次授权
     Given open the "searchMacro.ListPage" page for uri "/macro/"
     And I wait for loading invisible
@@ -562,3 +507,58 @@ Feature: 权限-搜索宏
     Examples:
       | authRole | authName | function | name         |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权Rename |
+
+  Scenario: 验证有效期限
+    Given I login user "AutoTest" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "searchMacro.ListPage" page for uri "/macro/"
+    Then I will see the search result "{'column':'0','name':'AutoTestCreate','contains':'no'}"
+
+  Scenario Outline: 授权读取+删除+转授
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'搜索宏'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    When I "unchecked" function "编辑" from the auth table which name is "<name>"
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_验证授权用户__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "{'TabButton':'搜索宏'}" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    And I "unchecked" the checkbox which name is "<name>" in auth table
+    And I click the "SaveButton" button
+    Then I will see the success message "更新成功"
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 验证读取+删除+转授
+    Given I login user "AutoTest" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "searchMacro.ListPage" page for uri "/macro/"
+    Then the data name is "<name>" then i will see "授权删除" button
+    And the data name is "<name>" then i click the "授权" button
+    And I "check" the checkbox which name is "验证授权用户" in tiny table
+    And I click the "Ensure" button
+    Then I will see the message "保存成功"
+    Given I login user "AutoTest" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "searchMacro.ListPage" page for uri "/macro/"
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "授权删除" button
+    And the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    Then I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "删除成功"
+
+    Examples:
+      | name           |
+      | AutoTestCreate |

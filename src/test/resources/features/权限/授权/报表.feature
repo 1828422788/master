@@ -452,55 +452,6 @@ Feature: 权限-报表
       | name           |
       | AutoTestCreate |
 
-  Scenario: 验证有效期限
-    Given I login user "Autotest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "report.ListPage" page for uri "/reports/"
-    Then I will see the search result "{'column':'1','name':'AutoTestRename','contains':'no'}"
-
-  Scenario Outline: 授权读取+删除+转授权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Report" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    When I "unchecked" function "编辑" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "report.ListPage" page for uri "/reports/"
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看删除授权" button
-    Then I will see the switch button before "{'column':'1','name':'<name>'}" is disabled
-    And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
-    And I wait for loading invisible
-    And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
-    And I "check" the checkbox which name is "验证授权用户" in tiny table
-    And I click the "Ensure" button
-    Then I will see the message "保存成功"
-    Given I login user "验证授权用户" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "report.ListPage" page for uri "/reports/"
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看删除授权" button
-    And the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
-    Then I will see the "report.CreatePage" page
-    And I set the parameter "Name" with value "AutoCreate"
-    And I click the "NextButton" button
-    And I wait for "TopoTitle" will be visible
-    And I click the "Save" button
-    Then I will see the success message "没有相关资源权限"
-    Given open the "report.ListPage" page for uri "/reports/"
-    And the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I wait for element "Message" change text to "删除成功"
-
-    Examples:
-      | name           |
-      | AutoTestRename |
-
   Scenario: 新建报表用来测试二次授权
     Given open the "report.ListPage" page for uri "/reports/"
     And I click the "Create" button
@@ -627,3 +578,52 @@ Feature: 权限-报表
     Examples:
       | authRole | authName | function | name    |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试权限重命名 |
+
+  Scenario: 验证有效期限
+    Given I login user "Autotest" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "report.ListPage" page for uri "/reports/"
+    Then I will see the search result "{'column':'1','name':'AutoTestRename','contains':'no'}"
+
+  Scenario Outline: 授权读取+删除+转授权限
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for "Loading" will be invisible
+    Then I click the "Report" button
+    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    When I "unchecked" function "编辑" from the auth table which name is "<name>"
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
+    Given I login user "AutoTest" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "report.ListPage" page for uri "/reports/"
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看删除授权" button
+    Then I will see the switch button before "{'column':'1','name':'<name>'}" is disabled
+    And the data name is "{'column':'1','name':'<name>'}" then i click the "授权" button
+    And I wait for loading invisible
+    And I "uncheck" the checkbox which name is "验证授权用户" in tiny table
+    And I "check" the checkbox which name is "验证授权用户" in tiny table
+    And I click the "Ensure" button
+    Then I will see the message "保存成功"
+    Given I login user "验证授权用户" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "report.ListPage" page for uri "/reports/"
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "查看删除授权" button
+    And the data name is "{'column':'1','name':'<name>'}" then i click the "查看" button
+    Then I will see the "report.CreatePage" page
+    And I set the parameter "Name" with value "AutoCreate"
+    And I click the "NextButton" button
+    And I wait for "TopoTitle" will be visible
+    And I click the "Save" button
+    Then I will see the success message "没有相关资源权限"
+    Given open the "report.ListPage" page for uri "/reports/"
+    And the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I wait for element "Message" change text to "删除成功"
+
+    Examples:
+      | name           |
+      | AutoTestRename |
