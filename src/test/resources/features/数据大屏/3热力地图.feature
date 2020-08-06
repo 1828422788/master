@@ -15,38 +15,48 @@ Feature: 数据大屏-j热力地图
     And I click the "Map" button
     And I click the "Heatmap" button
     And I hide the element "MapDropdown"
+    #数据
+    And I wait for "Data" will be visible
+    And I click the "Data" button
+    And I wait for "SplInput" will be visible
+    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.geo.province"
+    And I wait for "1000" millsecond
+    And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
+    And I set the parameter "updateFrequency" with value "0.1"
+    And I wait for "3000" millsecond
+
+    And I choose the "count()" from the "DataField"
+    And I choose the "apache.geo.province" from the "NameField"
+
     #样式
     And I wait for "Style" will be visible
     And I click the "Style" button
     And I wait for "MapHeader" will be visible
     And I click the "MapHeader" button
+    And I wait for "2000" millsecond
 #    And I choose the "山东" from the "MapArea"
     #区域颜色
-    And I click the "AreaColor" button
     And I wait for "AreaColor" will be visible
     And I set the parameter "AreaColor" with value "#253D58"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边界颜色
-#    And I click the "BoundaryColor" button
     And I wait for "BoundaryColor" will be visible
     And I set the parameter "BoundaryColor" with value "#85DEDE"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 #  标注色(起)
-#    And I click the "markColor1" button
     And I wait for "markColor1" will be visible
     And I set the parameter "markColor1" with value "#C11970"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 #  标注色(中)
-#    And I click the "markColor2" button
     And I wait for "markColor2" will be visible
     And I set the parameter "markColor2" with value "#EAEBB3"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 #  标注色(止)
-#    And I click the "markColor3" button
     And I wait for "markColor3" will be visible
     And I set the parameter "markColor3" with value "#53B11D"
     And I click the "EnsureColor" button
@@ -59,20 +69,6 @@ Feature: 数据大屏-j热力地图
     And I set the parameter "Height" with value "500"
     And I set the parameter "ChartXaxis" with value "242"
     And I set the parameter "ChartYaxis" with value "315"
-    #数据
-    And I click the "Data" button
-    And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.geo.province"
-    And I wait for "1000" millsecond
-  #    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I set the parameter "updateFrequency" with value "0.1"
-    And I wait for "3000" millsecond
-
-    And I choose the "count()" from the "DataField"
-    And I choose the "apache.geo.province" from the "NameField"
 
       #保存
     And I wait for "Save" will be visible
