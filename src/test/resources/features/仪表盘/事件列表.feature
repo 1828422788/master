@@ -17,6 +17,7 @@ Feature: 仪表盘事件列表
     When I set the parameter "TagName" with value "事件操作"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name    |

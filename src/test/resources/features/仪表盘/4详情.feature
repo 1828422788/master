@@ -8,6 +8,7 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "first"
     And I click the "EnsureCreateTagButton" button
+    And I back to before
 
   Scenario: 关闭编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
