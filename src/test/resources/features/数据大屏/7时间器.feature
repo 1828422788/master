@@ -203,6 +203,7 @@ Feature: 数据大屏-o时间器
     And I set the parameter "ChartYaxis" with value "400"
       #2设置齿轮组合外观
     And I click the "styleClock" button
+    And  I wait for "500" millsecond
     #字体粗细
     And I wait for "ClockWordBold" will be visible
     And I choose the "lighter" from the "ClockWordBold"
