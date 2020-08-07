@@ -699,6 +699,11 @@ public class CreatePage extends PageTemplate {
         return getDropDownListElement("超时时间");
     }
 
+    public WebElement getCharset(){
+        return getInputElement("charset");
+    }
+
+
     public WebElement getCharacterKind(){
         return getDropDownListElement("字符集");
     }

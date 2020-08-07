@@ -126,7 +126,8 @@ Feature: Agent编辑文件目录类型数据源
   Scenario Outline: 文件目录配置修改字符集
     And I click the "EditAutoFile" button
     And I wait for loading invisible
-    When I choose the "<characterkind>" from the "CharacterKind"
+    And I set the parameter "Charset" with value "<characterkind>"
+#    When I choose the "<characterkind>" from the "CharacterKind"
     And I click the "Ensure" button
     Then I will see the element value in json "{'ChangeMemo':'修改 Agent 配置成功。'}"
 
@@ -135,6 +136,7 @@ Feature: Agent编辑文件目录类型数据源
       | characterkind |
       |   utf-8    |
       |    gbk    |
+      |   utf-16    |
 
   Scenario: 文件目录配置修改tag
     And I click the "EditAutoFile" button
