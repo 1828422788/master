@@ -87,9 +87,10 @@ Feature: 数据大屏-l全屏
 #    And switch to another window
     And I wait for "PictureOne" will be visible
     And I click the "PictureOne" button
+    And I wait for "5000" millsecond
     And I wait for "Interactive" will be visible
     And I click the "Interactive" button under some element
-    And I wait for "2000" millsecond
+    And I wait for "500" millsecond
     And I choose the "全屏" from the "ShareGalaxeeDropDown"
     And I hide the element "ShareGalaxeeDropDown"
     And I wait for "ShareGalaxeeDropDown" will be invisible

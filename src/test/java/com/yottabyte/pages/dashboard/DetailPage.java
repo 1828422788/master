@@ -112,8 +112,14 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='添加']")
     private WebElement addChoiceValueButton;
 
+    @FindBy(xpath = "//span[text()='添加行']")
+    private WebElement addRow;
+
     @FindBy(xpath = "//span[text()='添加图表']")
     private WebElement addChart;
+
+    @FindBy(xpath = "//span[text()='添加图表']/ancestor::li")
+    private WebElement addChartItem;
 
     @FindBy(xpath = "//span[text()='添加事件列表']")
     private WebElement addEvent;
@@ -500,6 +506,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'名称')]/following-sibling::span/input")
     private WebElement tagName;
 
+    @FindBy(xpath = "//span[contains(text(),'行布局')]/preceding-sibling::span")
+    private WebElement rowLayout;
+
     @FindBy(className = "ant-spin-dot")
     private WebElement spinDot;
 
@@ -572,6 +581,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getAddChart() {
         return addChart;
+    }
+
+    public WebElement getAddChartItem() {
+        return addChartItem;
+    }
+
+    public WebElement getAddRow() {
+        return addRow;
     }
 
     public WebElement getTextLayer() {
@@ -1348,9 +1365,9 @@ public class DetailPage extends PageTemplate {
         return getNewInputElement("名称");
     }
 
-    public WebElement getTagName() {
-        return tagName;
-    }
+    public WebElement getTagName() { return tagName; }
+
+    public WebElement getRowLayout() { return rowLayout; }
 
     public WebElement getEnsureCreateTagButton() {
         return super.getButton("确定");

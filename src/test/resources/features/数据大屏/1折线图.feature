@@ -58,6 +58,7 @@ Feature: 数据大屏-a折线图
 #Y轴
     And I click the "YaxisHeader" button
      #文本
+    And I wait for "YaxisWordSize" will be visible
     And I set the parameter "YaxisWordSize" with value "20"
 #    And I click the "YaxisWordColor" button
     And I wait for "YColorInput" will be visible
@@ -69,6 +70,7 @@ Feature: 数据大屏-a折线图
      # 轴标签
     And I set the parameter "YaxisShift" with value "10"
     And I choose the "倾斜" from the "YaxisAngle"
+    And I wait for "500" millsecond
      #分割线
     #分割线的设置
     And I set the parameter "YDividingLineBold" with value "2"
@@ -79,6 +81,7 @@ Feature: 数据大屏-a折线图
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "dashed" from the "YDividingLineType"
+    And I wait for "500" millsecond
     # 轴线
 #    And I click the "YLineColor" button
     And I wait for "YLineColor" will be visible
