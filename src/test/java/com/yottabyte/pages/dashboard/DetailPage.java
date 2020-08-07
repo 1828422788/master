@@ -323,6 +323,30 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='测试描述']")
     private WebElement describeText;
 
+    @FindBy(xpath = "//div[text()='第一行']/preceding-sibling::div/i[1]")
+    private WebElement editRowIcon;
+
+    @FindBy(xpath = "//div[text()='首行']/preceding-sibling::div/i[2]")
+    private WebElement deleteRowIcon;
+
+    @FindBy(xpath = "//div[text()='首行']")
+    private WebElement firstRow;
+
+    @FindBy(xpath = "//div[text()='首行']/following-sibling::div//span[text()='innerFilter']")
+    private WebElement innerInputFilter;
+
+    @FindBy(xpath = "//div[text()='首行']/following-sibling::div//div[text()='测试行事件']")
+    private WebElement rowEventName;
+
+    @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div[1]/i")
+    private WebElement moreXuanTing;
+
+    @FindBy(xpath = "//div[text()='行布局趋势图1']")
+    private WebElement trendOne;
+
+    @FindBy(xpath = "//span[text()='删除']")
+    private WebElement chartDelete;
+
     @FindBy(xpath = "//span[text()='操作']")
     private WebElement operate;
 
@@ -500,6 +524,15 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='返回列表']")
     private WebElement returnToList;
 
+    @FindBy(xpath = "//div[text()='请选择要加入的行']")
+    private WebElement joinRow;
+
+    @FindBy(xpath = "//li[text()='L2: ']")
+    private WebElement line2;
+
+    @FindBy(xpath = "//li[text()='L1: 首行']")
+    private WebElement line1;
+
     @FindBy(xpath = "//span[text()='appname:']")
     private WebElement hoverElement;
 
@@ -517,6 +550,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(id = "filter_textValue")
     private WebElement filterDefaultValue;
+
+    @FindBy(id = "filter_rowId")
+    private WebElement filterJoinRow;
 
     @FindBy(xpath = "//div[text()='快捷选项']")
     private WebElement shortcut;
@@ -594,6 +630,22 @@ public class DetailPage extends PageTemplate {
     public WebElement getTextLayer() {
         return textLayer;
     }
+
+    public WebElement getEditRowIcon() { return editRowIcon; }
+
+    public WebElement getDeleteRowIcon() { return deleteRowIcon; }
+
+    public WebElement getFirstRow() { return firstRow; }
+
+    public WebElement getInnerInputFilter() { return innerInputFilter; }
+
+    public WebElement getRowEventName() { return rowEventName; }
+
+    public WebElement getMoreXuanTing() { return moreXuanTing; }
+
+    public WebElement getTrendOne() { return trendOne; }
+
+    public WebElement getChartDelete() { return chartDelete; }
 
     public WebElement getFullScreen() {
         return fullScreen;
@@ -1251,6 +1303,10 @@ public class DetailPage extends PageTemplate {
         return filterDefaultValue;
     }
 
+    public WebElement getFilterJoinRow() {
+        return filterJoinRow;
+    }
+
     public WebElement getPrefix() {
         return getInput("标识前缀");
     }
@@ -1368,6 +1424,12 @@ public class DetailPage extends PageTemplate {
     public WebElement getTagName() { return tagName; }
 
     public WebElement getRowLayout() { return rowLayout; }
+
+    public WebElement getJoinRow() { return joinRow; }
+
+    public WebElement getLine2() { return line2; }
+
+    public WebElement getLine1() { return line1; }
 
     public WebElement getEnsureCreateTagButton() {
         return super.getButton("确定");
