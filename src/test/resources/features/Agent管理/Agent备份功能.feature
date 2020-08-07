@@ -68,7 +68,6 @@ Feature: Agent备份功能
     And I set the parameter "ThreadNum" with value "4"
     And I set the parameter "ServerAddress" with value "192.168.1.2:10001"
     And I set the parameter "TimeOut" with value "30"
-    Then I wait for loading invisible
     And I wait for "Save" will be visible
     And I click the "Save" button
     And I will see the success message "保存成功"
