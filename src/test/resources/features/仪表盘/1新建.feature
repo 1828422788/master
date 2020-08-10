@@ -51,6 +51,3 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "名称格式有误, 仅支持汉字，数字，字母，中划线及下划线"
 
-  Scenario: 仪表盘资源标签
-    When I click the "Create" button
-    And I set the parameter "DashBoardName" with value "选择资源标签"

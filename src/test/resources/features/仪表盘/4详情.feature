@@ -123,7 +123,7 @@ Feature: 仪表盘详情页
     Then I will see the success message "添加输入项成功"
 
 
-  Scenario: 验证全局时间生效
+  Scenario: 验证全局时间生效及打开过滤输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -136,6 +136,27 @@ Feature: 仪表盘详情页
     And I click the "Yesterday" button
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
+
+  Scenario: 验证全局时间生效
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
+    And I wait for "Update" will be visible
+    And I click the "DateEditor" button under some element
+    And I click the "Shortcut" button
+    And I click the "Today" button
+#    And I wait for "Progress" will be invisible
+    And I will see the "DropdownLink" result will be "最近1天"
+    And I click the "Update" button
+    And I wait for "Progress" will be invisible
+    Then I will see the "DropdownLink" result will be "今天"
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "enable"
 
   Scenario: 存为报表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
