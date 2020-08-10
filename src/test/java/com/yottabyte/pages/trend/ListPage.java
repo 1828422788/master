@@ -26,6 +26,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//div[text() = '新建']")
     private WebElement newTrendButton;
 
+    @FindBy(xpath = "//div[text() = '选择数据集']")
+    private WebElement newTrendFromDataset;
+
     @FindBy(xpath = "//span[text()='确定']/ancestor::button")
     private WebElement ensureButton;
 
@@ -40,6 +43,9 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[@class = 'ant-spin-dot ant-spin-dot-spin']")
     private WebElement loading;
+
+    @FindBy(xpath = "//p[text()='单个数据集']/preceding-sibling::div")
+    private WebElement singleDataset;
 
     public WebElement getLoading() {
         return loading;
@@ -60,6 +66,15 @@ public class ListPage extends ListPageFactory {
     public WebElement getNewTrendButton(){
         createButton.click();
         return newTrendButton;
+    }
+
+    public WebElement getNewTrendFromDataset() {
+        createButton.click();
+        return newTrendFromDataset;
+    }
+
+    public WebElement getSingleDataset() {
+        return singleDataset;
     }
 
     public WebElement getEnsureButton(){

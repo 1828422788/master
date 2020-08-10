@@ -75,6 +75,32 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//span[text()='展示字号']/ancestor::div[1]/following-sibling::span//input")
     private WebElement fontSize;
 
+    @FindBy(xpath = "//span[text()='dataset_1']")
+    private WebElement dataset_1;
+
+    @FindBy(xpath = "//div[@class='_1eGH0JWTfcA_3z1BXlH42u']")
+    private WebElement dateEditor;
+
+    @FindBy(xpath = "//button[text()='今天']")
+    private WebElement today;
+
+    @FindBy(xpath = "(//div[@class='_2rT4h5iRfwtqnpHKelgSZv'])[last()]/div[1]")
+    private WebElement columnField;
+
+    @FindBy(xpath = "(//div[@class='_2rT4h5iRfwtqnpHKelgSZv'])[last()]/div[2]")
+    private WebElement operator;
+
+    @FindBy(xpath = "(//div[@class='_2rT4h5iRfwtqnpHKelgSZv'])[last()]/input")
+    private WebElement value;
+
+    @FindBy(xpath = "//*[@class='ant-table-tbody']/tr[1]")
+    private WebElement tableBody;
+
+    @FindBy(xpath = "//span[text()='应用']")
+    private WebElement apply;
+
+    @FindBy(xpath = "//div[@class='ant-message-notice']//span")
+    private WebElement message;
 
     //Charts --------------------------------------------------------------------------
     public WebElement getLine() {
@@ -305,6 +331,43 @@ public class DragAndDropPage extends CreatePage {
         return fontSize;
     }
 
+    public WebElement getDataset_1() {
+        return dataset_1;
+    }
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    public WebElement getToday() {
+        return today;
+    }
+
+    public WebElement getColumnField() {
+        columnField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOperator() {
+        operator.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getValue() {
+        return value;
+    }
+
+    public WebElement getTableBody() {
+        return tableBody;
+    }
+
+    public WebElement getApply() {
+        return apply;
+    }
+
+    public WebElement getMessage() {
+        return message;
+    }
 
     private WebElement getElementById(String name){
         return webDriver.findElement(By.id(name));
