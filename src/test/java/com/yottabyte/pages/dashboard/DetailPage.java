@@ -226,7 +226,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='高级编辑']")
     private WebElement edit;
 
-    @FindBy(xpath = "(//ul[@class='el-dropdown-menu yw-dropdown-menu'])[last()]//span[text()='恢复初始']")
+    @FindBy(xpath = "//span[text()='恢复初始']")
     private WebElement recover;
 
     @FindBy(xpath = "//span[text()='钻取配置']")
