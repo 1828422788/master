@@ -47,6 +47,12 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//p[text()='单个数据集']/preceding-sibling::div")
     private WebElement singleDataset;
 
+    @FindBy(xpath = "//p[text()='多表关联']/preceding-sibling::div")
+    private WebElement multiDataset;
+
+    @FindBy(xpath = "//p[text()='追加合并']/preceding-sibling::div")
+    private WebElement unionDataset;
+
     public WebElement getLoading() {
         return loading;
     }
@@ -75,6 +81,14 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getSingleDataset() {
         return singleDataset;
+    }
+
+    public WebElement getMultiDataset() {
+        return multiDataset;
+    }
+
+    public WebElement getUnionDataset() {
+        return unionDataset;
     }
 
     public WebElement getEnsureButton(){

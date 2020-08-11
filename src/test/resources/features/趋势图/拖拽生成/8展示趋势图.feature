@@ -46,3 +46,29 @@ Feature: 展示趋势图
       | Scatter_timechart   |
       | Area_timechart      |
       | Line_timechart      |
+
+  @dragAndDropViewDataset
+  Scenario Outline: compare_view_dataset
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When I set the parameter "SearchInput" with value "数据集_<name>"
+    And I wait for "3000" millsecond
+    And the data name is "{'column':'0','name':'数据集_<name>'}" then i click the "展示趋势图" button
+    And switch to window "查看趋势图"
+    And I close all tabs except main tab
+    Then I will see the "trend.ViewPage" page
+    And I wait for "ChartName" will be visible
+    And I wait for "ChartView" will be visible
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "3000" millsecond
+    And I will see the element "ChartName" contains "数据集_<name>"
+    And take part of "ChartView" with name "actual/view_<name>"
+    And I compare source image "actual/view_<name>" with target image "expect/view_<name>"
+
+    Examples:
+      | name            |
+      | Line_单         |
+      | Area_单         |
+      | Column_全部_单  |
+      | Column_任一_单  |
+      | Column_表达式_单|
+      | Area_追加       |

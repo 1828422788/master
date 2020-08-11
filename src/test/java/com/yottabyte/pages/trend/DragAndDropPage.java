@@ -78,6 +78,12 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//span[text()='dataset_1']")
     private WebElement dataset_1;
 
+    @FindBy(xpath = "//span[text()='dataset_2']")
+    private WebElement dataset_2;
+
+    @FindBy(xpath = "//span[text()='dataset_3']")
+    private WebElement dataset_3;
+
     @FindBy(xpath = "//div[@class='_1eGH0JWTfcA_3z1BXlH42u']")
     private WebElement dateEditor;
 
@@ -96,11 +102,26 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//*[@class='ant-table-tbody']/tr[1]")
     private WebElement tableBody;
 
+    @FindBy(xpath = "//span[text()='满足下列条件']/following-sibling::div/div")
+    private WebElement condition;
+
     @FindBy(xpath = "//span[text()='应用']")
     private WebElement apply;
 
+    @FindBy(xpath = "//span[text()='添加']")
+    private WebElement add;
+
     @FindBy(xpath = "//div[@class='ant-message-notice']//span")
     private WebElement message;
+
+    @FindBy(xpath = "//span[text()='表达式过滤']/preceding-sibling::span")
+    private WebElement expression;
+
+    @FindBy(xpath = "(//div[text()='请拖入数据集']) | (//span[text()='拖入数据集到此加入表格']) | (//div[@class='_3J-0LSb-pcRagbVvd09jPY'])")
+    private WebElement dropDataset;
+
+    @FindBy(xpath = "//span[text()='数据概览']")
+    private WebElement overview;
 
     //Charts --------------------------------------------------------------------------
     public WebElement getLine() {
@@ -335,6 +356,14 @@ public class DragAndDropPage extends CreatePage {
         return dataset_1;
     }
 
+    public WebElement getDataset_2() {
+        return dataset_2;
+    }
+
+    public WebElement getDataset_3() {
+        return dataset_3;
+    }
+
     public WebElement getDateEditor() {
         return dateEditor;
     }
@@ -361,12 +390,33 @@ public class DragAndDropPage extends CreatePage {
         return tableBody;
     }
 
+    public WebElement getCondition() {
+        condition.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getApply() {
         return apply;
     }
 
+    public WebElement getAdd() {
+        return add;
+    }
+
     public WebElement getMessage() {
         return message;
+    }
+
+    public WebElement getExpression() {
+        return expression;
+    }
+
+    public WebElement getDropDataset() {
+        return dropDataset;
+    }
+
+    public WebElement getOverview() {
+        return overview;
     }
 
     private WebElement getElementById(String name){
