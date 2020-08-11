@@ -396,32 +396,33 @@ public class CreatePage extends PageTemplate {
 
     // 执行计划-定时-输入框
     @FindBy(xpath = "//div[contains(text(),'监控执行')]/following::label[contains(text(),'执行计划')]/following::input[@placeholder='请输入']")
-    private WebElement alertPlanTimeInput;
+    private WebElement alertPlanTimeInput1;
 
-    public WebElement getAlertPlanTimeInput() {
-        return alertPlanTimeInput;
+    public WebElement getAlertPlanTimeInput1() {
+        return alertPlanTimeInput1;
+    }
 
-//        if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
-//            return alertPlanInputs.get(0);
-//        } else {
-//            throw new NoSuchElementException("定时按钮未激活");
-//        }
+        public WebElement getAlertPlanTimeInput() {
+        if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
+            return alertPlanInputs.get(0);
+        } else {
+            throw new NoSuchElementException("定时按钮未激活");
+        }
     }
 
     // 执行计划-定时-单位
-    public WebElement getAlertPlanTimeUnits() {
+    public WebElement getAlertPlanTimeUnits1() {
         String xpath = "//label[text()='执行计划']/following::div[text()='请选择']/parent::div[@class='ant-select-selection__rendered']";
         return getDropdownListbyPath(xpath);
     }
 
-    //    public List<WebElement> getAlertPlanTimeUnits() {
-
-//        if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
-//            return getSelectors(alertPlanInputs.get(1)).findElements(By.tagName("li"));
-//        } else {
-//            throw new NoSuchElementException("定时按钮未激活");
-//        }
-//}
+        public List<WebElement> getAlertPlanTimeUnits() {
+        if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
+            return getSelectors(alertPlanInputs.get(1)).findElements(By.tagName("li"));
+        } else {
+            throw new NoSuchElementException("定时按钮未激活");
+        }
+    }
 
     public WebElement getAlertPlanCrontabButton() {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(alertPlanCrontabButton));
