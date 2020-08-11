@@ -140,6 +140,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         return dropdownUtils.getDropdownList(text);
     }
 
+    public WebElement getDropdownListbyPath(String path) {
+        return dropdownUtils.getDropdownListbyPath(path);
+    }
+
     public WebElement getButton(String text) {
         String xpath = "//span[text()='" + text + "']//ancestor::button";
         return webDriver.findElement(By.xpath(xpath));

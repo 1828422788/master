@@ -1565,6 +1565,18 @@ public class SearchPage extends ListPageFactory {
         return splEventRetNum;
     }
 
+//  @FindBy(xpath = "//svg[@href='#icon-sousuoyeyemiantuozhuai']")
+//  @FindBy(xpath = "//svg[@id='icon-sousuoyeyemiantuozhuai']"
+    @FindBy(xpath = "//span[@class='_1_m_DyhFaFqqMWBfXY4Evv']")
+    private WebElement searchPageSvg;
+    public WebElement getSearchPageSvg() {
+        return searchPageSvg;
+    }
 
+    @FindBy(xpath = "//aside[@class='_2GaHYplAvgzSUrZjcyaHYW css-eavujn ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed']")
+    private WebElement searchPageLeft;
+    public WebElement getSearchPageLeft() {
+        return searchPageLeft;
+    }
 
 }

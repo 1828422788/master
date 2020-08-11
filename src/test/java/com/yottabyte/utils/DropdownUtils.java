@@ -30,6 +30,7 @@ public class DropdownUtils {
         return getLastDropdownList();
     }
 
+
     public WebElement getLastDropdownList() {
         String className;
         Paging paging = new Paging();
@@ -61,4 +62,12 @@ public class DropdownUtils {
         WebElement element = webDriver.findElement(By.xpath("(//ul[@class='el-dropdown-menu yw-table-group__group-menu'])[last()]"));
         return element;
     }
+
+    public WebElement getDropdownListbyPath(String xpath) {
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+    }
+
 }

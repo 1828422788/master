@@ -138,8 +138,6 @@ public class ListPage extends ListPageFactory {
     private WebElement strStr;
     public WebElement getStrStr(){return strStr;}
 
-
-
     @FindBy(xpath = "//label[@title='字段']/parent::div/following-sibling::div//span[text()='添加']")
     private WebElement fieldAdd;
     public WebElement getFieldAdd(){return fieldAdd;}
