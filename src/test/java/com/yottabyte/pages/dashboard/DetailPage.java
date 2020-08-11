@@ -509,6 +509,22 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[text()='first']")
     private WebElement firstTag;
 
+    @FindBy(xpath = "//span[contains(text(),'first')]")
+    private WebElement first;
+
+    @FindBy(xpath = "//span[text()='新建标签页']")
+    private WebElement creatNewTag;
+
+    @FindBy(xpath = "//a[text()='Delete']/following-sibling::span[2]")
+    private WebElement deleteNewTag;
+
+//    @FindBy(xpath = "//span[text()='新建标签页']/preceding-sibling::ul/li[2]")
+    @FindBy(xpath = "//span[text()='新建标签页']/preceding-sibling::ul/li[2]//input")
+    private WebElement inputforTag;
+
+    @FindBy(xpath = "//a[text()='forDelete']/following-sibling::span[1]")
+    private WebElement editTag;
+
     @FindBy(xpath = "//a[text()='testSearch']")
     private WebElement testSearch;
 
@@ -710,6 +726,26 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getFirstTag() {
         return firstTag;
+    }
+
+    public WebElement getFirst() {
+        return first;
+    }
+
+    public WebElement getCreatNewTag() {
+        return creatNewTag;
+    }
+
+    public WebElement getEditTag() {
+        return editTag;
+    }
+
+    public WebElement getDeleteNewTag() {
+        return deleteNewTag;
+    }
+
+    public WebElement getInputforTag() {
+        return inputforTag;
     }
 
     public WebElement getSearchTagInput() {

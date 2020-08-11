@@ -78,6 +78,19 @@ public class AlterElementAttribute {
     }
 
     /**
+     * 修改input元素的value属性为其他值
+     *
+     * @param elementName 元素名称
+     * @param value       要修改的value值
+     */
+    @And("^I alter the input element \"([^\"]*)\" value to \"([^\"]*)\"$")
+    public void alterElementValue(String elementName, String value) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        element.clear();
+        element.sendKeys(value);
+    }
+
+    /**
      * app编辑时显示菜单栏的隐藏按钮
      *
      * @param style

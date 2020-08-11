@@ -10,6 +10,51 @@ Feature: 仪表盘详情页
     And I click the "EnsureCreateTagButton" button
     And I back to before
 
+
+  Scenario: 新建tag
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "First" will be visible
+    And I click the "First" button
+    And I wait for "500" millsecond
+    And I click the "CreatNewTag" button
+    When I set the parameter "TagName" with value "forDelete"
+    And I click the "EnsureCreateTagButton" button
+    And I back to before
+
+  Scenario: 编辑tag
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "First" will be visible
+    And I click the "First" button
+    And I wait for "500" millsecond
+    And I click the "EditTag" button
+    And I wait for "InputforTag" will be visible
+    And I alter the input element "InputforTag" value to "Delete"
+#    And I wait for "500" millsecond
+    And I click the "SaveTagInput" button
+    And I wait for "500" millsecond  
+    Then I will see the success message "标签名称修改成功"
+
+  Scenario: 删除tag
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "First" will be visible
+    And I click the "First" button
+    And I wait for "500" millsecond
+    And I click the "DeleteNewTag" button
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "标签页删除成功"
+
+
+
   Scenario: 关闭编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -200,6 +245,7 @@ Feature: 仪表盘详情页
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond  
     And I will see the success message "删除成功"
 
     Examples:
