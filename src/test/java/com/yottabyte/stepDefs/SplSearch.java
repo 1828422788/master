@@ -29,7 +29,7 @@ public class SplSearch {
         Map<String, Object> map = JsonStringPaser.json2Stirng(json);
 
         for (String key : map.keySet()) {
-            WebElement tr = webDriver.findElement(By.xpath("((//span[text()='" + key + "'])[last()]/ancestor::div)[last()]"));
+            WebElement tr = webDriver.findElement(By.xpath("((//span[text()='" + key + "'])[last()]/ancestor::pre)[last()]"));
             String actualValue = tr.getText();
             Assert.assertEquals(map.get(key), actualValue);
         }
