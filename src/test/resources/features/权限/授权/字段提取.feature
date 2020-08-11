@@ -549,7 +549,7 @@ Feature: 权限-字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
-    When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
+      When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
@@ -593,14 +593,6 @@ Feature: 权限-字段提取
     Examples:
       | appName        | log            |
       | auto_test_auth | dictionary.log |
-
-  @logout
-  Scenario: 验证有效期限生效
-    Given I login user "AutoTest" with password "All#123456"
-    And I wait for "2000" millsecond
-    Given open the "configs.ListPage" page for uri "/configs/"
-    Then I will see the search result "{'column':'1','name':'测试有效期限','contains':'no'}"
-
   @logout
   Scenario Outline: 验证二次授权读取
     Given I login user "AutoTest" with password "All#123456"
@@ -676,7 +668,6 @@ Feature: 权限-字段提取
       | tag            | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
       | auto_test_auth | {'json.Category':'json.Category： ','json.ComputerName':'json.ComputerName：WIN-999OGBVAHMI ','json.EventCode':'json.EventCode：7036 ','json.EventIdentifier':'json.EventIdentifier：1073748860 ','json.EventType':'json.EventType：3 ','json.Logfile':'json.Logfile：System ','json.Message':'json.Message：Application Experience 服务处于 正在运行 状态。 ','json.RecordNumber':'json.RecordNumber：108343 ','json.SourceName':'json.SourceName：Service Control Manager ','json.TimeGenerated':'json.TimeGenerated：2015-01-04T20:45:09+08:00 ','json.level':'json.level：2 ','json.source':'json.source：sys '} |
 
-
   @logout
   Scenario Outline: 验证二次授权读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
@@ -719,6 +710,13 @@ Feature: 权限-字段提取
     Examples:
       | authRole | authName | function | name         |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试AuthRename |
+
+  @logout
+  Scenario: 验证有效期限生效
+    Given I login user "AutoTest" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "configs.ListPage" page for uri "/configs/"
+    Then I will see the search result "{'column':'1','name':'测试有效期限','contains':'no'}"
 
   @logout
   Scenario Outline: 删除字段提取

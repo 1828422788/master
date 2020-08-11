@@ -613,6 +613,13 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//label[text()='资源标签']/ancestor::div[1])//input")
     private WebElement tagInput;
 
+    @FindBy(xpath = "//label[text()='文件类型']/following-sibling::div")
+    private WebElement fileType;
+
+    public WebElement getFileType() {
+        fileType.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getResourceAll() {
         return resourceAll;

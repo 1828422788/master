@@ -39,6 +39,19 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 寻找对应的操作按钮并点击
+     *
+     * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
+     * @param buttonName 按钮名称
+     */
+    @When("^the data name contains \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
+    public void clickButtonWithName(String dataName, String buttonName) {
+        WebElement tr = listPageUtils.getContainsTr(dataName);
+        List<WebElement> button = tr.findElements(By.xpath(".//a[contains(text(),'" + buttonName + "')]"));
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
+    }
+
+    /**
      * 根据配置名称点击对应按钮
      *
      * @param propertyName 若为字符串：第一列所要匹配的名称，若为json：{'column':'start from 0','name':''}
@@ -79,7 +92,7 @@ public class ClickButtonWithGivenName {
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging in config$")
     public void clickButtonWithoutPagingInConfig(String name, String buttonName) {
         WebElement tr = listPageUtils.getTrWithoutPagingInConfig(name);
-        WebElement button = tr.findElement(By.xpath("//span[text()='"+ buttonName + "']"));
+        WebElement button = tr.findElement(By.xpath("//span[text()='" + buttonName + "']"));
         button.click();
     }
 
