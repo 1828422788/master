@@ -509,6 +509,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[text()='first']")
     private WebElement firstTag;
 
+    @FindBy(xpath = "(//span[text()='新建标签页']/preceding-sibling::ul/li)[last()]//a")
+    private WebElement lastTag;
+
     @FindBy(xpath = "//span[contains(text(),'first')]")
     private WebElement first;
 
@@ -728,6 +731,10 @@ public class DetailPage extends PageTemplate {
         return firstTag;
     }
 
+    public WebElement getLastTag() {
+        return lastTag;
+    }
+
     public WebElement getFirst() {
         return first;
     }
@@ -770,6 +777,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getRemoveTag() {
         return this.getLi("移出标签页");
+    }
+
+    public WebElement getCopyTag() {
+        return this.getLi("复制标签页");
+    }
+
+    public WebElement getSuperEdit() {
+        return this.getLi("高级编辑");
     }
 
     public WebElement getManualRefresh() {

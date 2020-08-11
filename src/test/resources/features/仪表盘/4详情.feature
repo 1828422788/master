@@ -37,7 +37,7 @@ Feature: 仪表盘详情页
     And I alter the input element "InputforTag" value to "Delete"
 #    And I wait for "500" millsecond
     And I click the "SaveTagInput" button
-    And I wait for "500" millsecond  
+    And I wait for "500" millsecond
     Then I will see the success message "标签名称修改成功"
 
   Scenario: 删除tag
@@ -52,8 +52,6 @@ Feature: 仪表盘详情页
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the success message "标签页删除成功"
-
-
 
   Scenario: 关闭编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -150,6 +148,33 @@ Feature: 仪表盘详情页
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
+  Scenario: 复制标签页
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "SettingIcon" will be visible
+    And I click the "SettingIcon" button
+    And I click the "CopyTag" button
+    And I wait for "3000" millsecond
+    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
+    Then I will see the element "LastTag" value is "testSearch_copy"
+
+  Scenario: 高级编辑
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "SettingIcon" will be visible
+    And I click the "SettingIcon" button
+    And I click the "SuperEdit" button
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    Then I will see the "TrendTitle" result will be "验证仪表盘全局时间"
+
   Scenario: 新建全局时间选择器
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -182,7 +207,7 @@ Feature: 仪表盘详情页
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
 
-  Scenario: 验证全局时间生效
+  Scenario: 关闭过滤输入项自动更新
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
