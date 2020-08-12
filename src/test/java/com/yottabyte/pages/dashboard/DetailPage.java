@@ -497,6 +497,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='新建标签页']")
     private WebElement addTag;
 
+    @FindBy(xpath = "//div[text()='暂无数据']")
+    private WebElement noData;
+
     @FindBy(xpath = "//span[text()='保存']/preceding-sibling::input")
     private WebElement tagInput;
 
@@ -757,6 +760,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getSearchTagInput() {
         return searchTagInput;
+    }
+
+    public WebElement getNoData() {
+        return noData;
     }
 
     public WebElement getSaveTagInput() {
