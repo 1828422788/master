@@ -21,6 +21,8 @@ Feature: 仪表盘热力地图
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
+    And I click the "FenPianQuYang" button
+    And I alter the input element "FenPianQuYang" value to "0"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button

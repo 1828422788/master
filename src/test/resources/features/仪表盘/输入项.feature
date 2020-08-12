@@ -37,6 +37,8 @@ Feature: 仪表盘输入项
     And I click the "DateEditor" button
     And I wait for "Today" will be visible
     And I click the "Today" button
+    And I click the "FenPianQuYang" button
+    And I alter the input element "FenPianQuYang" value to "0"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
