@@ -318,6 +318,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
     private WebElement dateEditor;
 
+    @FindBy(xpath = "//span[text()='每个分片取样']/following-sibling::input")
+    private WebElement fenPianQuYang;
+
     @FindBy(xpath = "//span[text()='设置图表类型']")
     private WebElement chartType;
 
@@ -1599,6 +1602,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDateEditor() {
         return dateEditor;
+    }
+
+    public WebElement getFenPianQuYang() {
+        return fenPianQuYang;
     }
 
     public WebElement getHorizontal() {
