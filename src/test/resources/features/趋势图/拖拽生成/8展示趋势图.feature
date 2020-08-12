@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropView
+@dragAndDropView @trendView
 Feature: 展示趋势图
 
   Scenario Outline: compare_view
@@ -14,8 +14,8 @@ Feature: 展示趋势图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "3000" millsecond
     And I will see the element "ChartName" contains "拖拽_<name>"
-    And take part of "ChartView" with name "actual/view_<name>"
-    And I compare source image "actual/view_<name>" with target image "expect/view_<name>"
+    And take part of "ChartView" with name "actual/拖拽_<name>"
+    And I compare source image "actual/拖拽_<name>" with target image "expect/拖拽_<name>"
 
     Examples:
       | name                |
@@ -61,8 +61,8 @@ Feature: 展示趋势图
     And I drag the scroll bar to the element "ChartView"
     And I wait for "3000" millsecond
     And I will see the element "ChartName" contains "数据集_<name>"
-    And take part of "ChartView" with name "actual/view_<name>"
-    And I compare source image "actual/view_<name>" with target image "expect/view_<name>"
+    And take part of "ChartView" with name "actual/数据集_<name>"
+    And I compare source image "actual/数据集_<name>" with target image "expect/数据集_<name>"
 
     Examples:
       | name            |

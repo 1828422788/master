@@ -1,4 +1,4 @@
-@cleanDragAndDrop
+@cleanDragAndDrop @cleanTrend
 Feature: 趋势图删除
 
   Scenario Outline: delete_dd

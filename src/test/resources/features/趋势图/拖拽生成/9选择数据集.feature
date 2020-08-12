@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropDataset @dragAndDropCreate
+@dragAndDrop @dragAndDropDataset @trend
 Feature: 趋势图_选择数据集
 
   Background:

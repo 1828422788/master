@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropOrder @dragAndDropCreate
+@dragAndDrop @dragAndDropOrder @trend
 Feature: 拖拽生成趋势图_序列
 
   Background:
@@ -61,8 +61,8 @@ Feature: 拖拽生成趋势图_序列
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "actual/<chartType>"
-    And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>"
+    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -117,8 +117,8 @@ Feature: 拖拽生成趋势图_序列
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "actual/<chartType>_Pile"
-    And I compare source image "actual/<chartType>_Pile" with target image "expect/<chartType>_Pile"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_Pile"
+    And I compare source image "actual/拖拽_<chartType>_Pile" with target image "expect/拖拽_<chartType>_Pile"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -170,8 +170,8 @@ Feature: 拖拽生成趋势图_序列
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip) by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "actual/<chartType>"
-    And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>"
+    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -220,8 +220,8 @@ Feature: 拖拽生成趋势图_序列
     And I will see the element "SPL" contains "<SPLcheck>"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "actual/<chartType>_对比"
-#    And I compare source image "actual/<chartType>_对比" with target image "expect/<chartType>_对比"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_对比"
+#    And I compare source image "actual/拖拽_<chartType>_对比" with target image "expect/拖拽_<chartType>_对比"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -258,8 +258,8 @@ Feature: 拖拽生成趋势图_序列
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count() by apache.clientip,apache.method"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "actual/<chartType>_无数值"
-    And I compare source image "actual/<chartType>_无数值" with target image "expect/<chartType>_无数值"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_无数值"
+    And I compare source image "actual/拖拽_<chartType>_无数值" with target image "expect/拖拽_<chartType>_无数值"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -282,8 +282,8 @@ Feature: 拖拽生成趋势图_序列
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count() by apache.clientip"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>_1"
-    And I compare source image "actual/<chartType>_1" with target image "expect/<chartType>_1"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_1"
+    And I compare source image "actual/拖拽_chartType>_1" with target image "expect/拖拽_<chartType>_1"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -318,8 +318,8 @@ Feature: 拖拽生成趋势图_序列
     And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.method) by apache.method | eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.method) by apache.method | eval _compare="同比一周" ]]"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>_对比_1"
-    And I compare source image "actual/<chartType>_对比_1" with target image "expect/<chartType>_对比_1"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_对比_1"
+    And I compare source image "actual/拖拽_<chartType>_对比_1" with target image "expect/拖拽_<chartType>_对比_1"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
