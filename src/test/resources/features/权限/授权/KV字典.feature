@@ -222,3 +222,40 @@ Feature: 权限-KV字典
     Then I will see the success message "保存成功"
 
   Scenario: 验证读取+编辑+转授+删除权限
+    Given I login user "AutoTest" with password "All#123456"
+    And open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "KVAuth" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I click the "KvDropdown" button
+    And I choose the "删除" from the "KVDropdownList"
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I "check" the checkbox which name is "验证授权用户" in tiny table
+    And I click the "Ensure" button
+    Then I will see the element "MessageContent" value is "删除成功"
+
+  Scenario Outline: 删除app
+    Given open the "app.ListPage" page for uri "/app/list/"
+    And I wait for loading invisible
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name   |
+      | KVAuth |
+
+  @cleanAuth
+  Scenario Outline: 清理
+    Given open the "topology.ListPage" page for uri "/topology/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除成功"
+
+    Examples:
+      | name       |
+      | KVAuthTopo |
+      | KVAuthTopo |

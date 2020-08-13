@@ -123,9 +123,9 @@ Feature: 权限-功能（URL校验）
     Then I wait for title change text to "<title>"
 
     Examples:
-      | function      | name                             | url             | title     |
-      | 可查看域使用额度      | \n使用限额\n                         | /account/usage/ | 使用限额      |
-      | 可查看域标识        | \n使用限额\n域标识\n                    | /tokens/        | 域标识       |
-      | 可使用结算管理       | \n使用限额\n域标识\n结算管理\n              | /payments/      | 结算管理      |
-      | 可查看用户搜索用量     | \n使用限额\n域标识\n结算管理\n搜索用量\n        | /usage/         | 搜索用量      |
-      | 可使用 ApiKey 认证 | \n使用限额\n域标识\n结算管理\n搜索用量\nAPI密钥\n | /apikey/        | Apikey 管理 |
+      | function      | name                             | url             | title    |
+      | 可查看域使用额度      | \n使用限额\n                         | /account/usage/ | 使用限额     |
+      | 可查看域标识        | \n使用限额\n域标识\n                    | /tokens/        | 域标识      |
+      | 可使用结算管理       | \n使用限额\n域标识\n结算管理\n              | /payments/      | 结算管理     |
+      | 可查看用户搜索用量     | \n使用限额\n域标识\n结算管理\n搜索用量\n        | /usage/         | 搜索用量     |
+      | 可使用 ApiKey 认证 | \n使用限额\n域标识\n结算管理\n搜索用量\nAPI密钥\n | /apikey/        | Apikey密钥 |

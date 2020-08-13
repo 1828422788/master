@@ -55,7 +55,6 @@ Feature: 权限-字典
     Then I set the parameter "Name" with value "权限测试"
     And I click the "EnsureUpload" button
     Then I will see the success message "创建字典成功"
-    Then I logout current user
 
   Scenario: 授权无读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
