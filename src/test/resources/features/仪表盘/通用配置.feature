@@ -23,6 +23,7 @@ Feature: 仪表盘通用配置
     When I set the parameter "TagName" with value "chart"
     And I click the "Ensure" button
     And I wait for loading complete
+    And I back to before
 
   @dashboard @dashboardSmoke
   Scenario: 添加事件列表

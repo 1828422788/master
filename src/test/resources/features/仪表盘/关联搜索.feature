@@ -71,6 +71,7 @@ Feature: 仪表盘关联搜索
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -124,6 +125,7 @@ Feature: 仪表盘关联搜索
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "<json>" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
     Then I click the "Ensure" button

@@ -169,7 +169,8 @@ Feature: 仪表盘高级编辑
     And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
-    And I click the "CustomTitle" button
+    And I wait for "2000" millsecond
+    And I click the "CustomTitle" button under some element
     And I click the "Describe" button
     Then I will see the "DescribeText" result will be "测试描述"
 

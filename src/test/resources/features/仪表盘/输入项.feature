@@ -22,6 +22,7 @@ Feature: 仪表盘输入项
     When I set the parameter "TagName" with value "过滤项"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name  |

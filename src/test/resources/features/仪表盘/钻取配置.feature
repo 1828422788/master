@@ -40,6 +40,7 @@ Feature: 仪表盘钻取配置
     When I set the parameter "TagName" with value "chart"
     And I click the "Ensure" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name   |
