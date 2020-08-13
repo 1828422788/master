@@ -143,6 +143,7 @@ Feature: 数据大屏-o时间器
       #2设置齿轮组合外观
     And I click the "styleClock" button
     #字体粗细
+    And  I wait for "1000" millsecond
     And I wait for "ClockWordBold" will be visible
     And I choose the "bolder" from the "ClockWordBold"
     #对齐方式
