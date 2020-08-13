@@ -1,5 +1,6 @@
 package com.yottabyte.pages.trend;
 
+import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -122,6 +123,9 @@ public class DragAndDropPage extends CreatePage {
 
     @FindBy(xpath = "//span[text()='数据概览']")
     private WebElement overview;
+
+    @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
+    private WebElement customTimeTab;
 
     //Charts --------------------------------------------------------------------------
     public WebElement getLine() {
@@ -370,6 +374,34 @@ public class DragAndDropPage extends CreatePage {
 
     public WebElement getToday() {
         return today;
+    }
+
+    public WebElement getCustomTimeTab() {
+        return customTimeTab;
+    }
+
+    public void getCustomTime() {
+        GetTime.getTime(webDriver, "CustomTime");
+    }
+
+    public WebElement getStartTimeField() {
+        return GetTime.getTime(webDriver, "StartTimeInput");
+    }
+
+    public WebElement getEndTimeField() {
+        return GetTime.getTime(webDriver, "EndTimeInput");
+    }
+
+    public WebElement getStartDateField() {
+        return GetTime.getTime(webDriver, "StartDateInput");
+    }
+
+    public WebElement getEndDateField() {
+        return GetTime.getTime(webDriver, "EndDateInput");
+    }
+
+    public WebElement getApplyCustomTime() {
+        return GetTime.getTime(webDriver, "ApplyCustomTime");
     }
 
     public WebElement getColumnField() {

@@ -25,13 +25,17 @@ Feature: 趋势图_选择数据集
     And I wait for "TableBody" will be visible
     And I click the "NextButton" button
 
-    And I wait for "Dimensions" will be visible
+    Then I wait for "Dimensions" will be visible
     And I drag the element "Timestamp" to the "Dimensions"
     And I drag the element "Clientip" to the "Values"
     And I click the "<chart>" button
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
+    When I click the "ElementInDimensions" button
+    And I set the parameter "Span" with value "30m"
+    And I hide the element "Panel"
+    And I wait for "ElementInValues" will be visible
     And I drag the element "Method" to the "CompareBy"
     And I wait for "2000" millsecond
     Then I wait for "Chart" will be visible
@@ -40,6 +44,15 @@ Feature: 趋势图_选择数据集
     And I click the "CheckSPL" button
     And I will see the element "SPL" contains "<spl>"
     When I click the "CloseSPL" button
+    And I wait for "1000" millsecond
+    And I click the "DateEditor" button
+    And I click the "CustomTimeTab" button
+    And I set the parameter "StartDateField" with yesterday date
+    And I set the parameter "EndDateField" with current date
+    And I click the "StartTimeField" button
+    And I click the "ApplyCustomTime" button
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/数据集_<chart>_单"
     And I compare source image "actual/数据集_<chart>_单" with target image "expect/数据集_<chart>_单"
@@ -53,8 +66,8 @@ Feature: 趋势图_选择数据集
 
   Examples:
     | chart    |  operator   |  datasetspl                                                             |spl    |
-    | Line     |  不等于     |  tag:sample04061424_chart \| where(apache.clientip!="221.226.97.92")    |tag:sample04061424_chart \| where(apache.clientip!="221.226.97.92") \| timechart count(apache.clientip) by apache.method |
-    | Area     |    等于     |  tag:sample04061424_chart \| where(apache.clientip=="221.226.97.92")    |tag:sample04061424_chart \| where(apache.clientip=="221.226.97.92") \| timechart count(apache.clientip) by apache.method |
+    | Line     |  不等于     |  tag:sample04061424_chart \| where(apache.clientip!="221.226.97.92")    |tag:sample04061424_chart \| where(apache.clientip!="221.226.97.92") \| timechart span=30m count(apache.clientip) by apache.method |
+    | Area     |    等于     |  tag:sample04061424_chart \| where(apache.clientip=="221.226.97.92")    |tag:sample04061424_chart \| where(apache.clientip=="221.226.97.92") \| timechart span=30m count(apache.clientip) by apache.method |
 
 
   Scenario Outline:  single_dataset_3
@@ -187,6 +200,10 @@ Feature: 趋势图_选择数据集
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
+    When I click the "ElementInDimensions" button
+    And I set the parameter "Span" with value "30m"
+    And I hide the element "Panel"
+    And I wait for "ElementInValues" will be visible
     And I drag the element "Method" to the "CompareBy"
     And I wait for "2000" millsecond
     And I wait for "Chart" will be visible
@@ -202,8 +219,17 @@ Feature: 趋势图_选择数据集
     And I wait for "Chart" will be visible
 
     And I click the "CheckSPL" button
-    Then I will see the element "SPL" contains "tag:sample04061424_chart | append [[ tag:sample04061424_display ]] | timechart count(apache.clientip) by apache.method"
+    Then I will see the element "SPL" contains "tag:sample04061424_chart | append [[ tag:sample04061424_display ]] | timechart span=30m count(apache.clientip) by apache.method"
     When I click the "CloseSPL" button
+    And I wait for "1000" millsecond
+    And I click the "DateEditor" button
+    And I click the "CustomTimeTab" button
+    And I set the parameter "StartDateField" with yesterday date
+    And I set the parameter "EndDateField" with current date
+    And I click the "StartTimeField" button
+    And I click the "ApplyCustomTime" button
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/数据集_<chart>_追加"
     And I compare source image "actual/数据集_<chart>_追加" with target image "expect/数据集_<chart>_追加"
