@@ -213,6 +213,8 @@ Feature: 趋势图_选择数据集
     And I wait for "1500" millsecond
     And I click the "<color>" button
     And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I wait for "2000" millsecond
     And I click the "ElementInCompare" button
     And I click the "Pile" button
     And I wait for "3000" millsecond
