@@ -85,12 +85,12 @@ Feature: 仪表盘攻击地图
     And I wait for "1000" millsecond
     And I click the "Setting" button under some element
     And I choose the "apache.clientip" from the "DataValue"
-    And I choose the "client_lat" from the "Longitude"
-    And I choose the "client_lon" from the "Latitude"
+    And I choose the "client_lon" from the "Longitude"
+    And I choose the "client_lat" from the "Latitude"
     And I click the "Target" button
     And I choose the "gw_address" from the "DataValue"
-    And I choose the "gw_lat" from the "Longitude"
-    And I choose the "gw_lon" from the "Latitude"
+    And I choose the "gw_lon" from the "Longitude"
+    And I choose the "gw_lat" from the "Latitude"
     And I click the "Weight" button
     And I choose the "cnt" from the "DataValue"
     Then I click the "Generate" button
@@ -105,6 +105,22 @@ Feature: 仪表盘攻击地图
     Examples:
       | name    | targetName |
       | 仪表盘攻击地图 | Attackmap  |
+
+  @dashboard
+  Scenario Outline: 验证配置是否在高级编辑中体现
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+#    Then I will see the "TextLayer" result will be "<json>"
+
+    Examples:
+      | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
+      | 仪表盘攻击地图 |  \n  "chart": {\n    "chartType": "attackmap",\n    "from": {\n      "field": "apache.clientip",\n      "longitudeField": "client_lon",\n      "latitudeField": "client_lat"\n    },\n    "to": {\n      "field": "gw_address",\n      "longitudeField": "gw_lon",\n      "latitudeField": "gw_lat"\n    },\n    "weight": {\n      "field": "cnt"\n    } |
+#      | 仪表盘攻击地图 | {\n  "title": "仪表盘攻击地图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample* \| parse field=apache.request_query \\"^gw_address=(?<gw_address>,\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "attackmap",\n    "from": {\n      "field": "apache.clientip",\n      "longitudeField": "client_lon",\n      "latitudeField": "client_lat"\n    },\n    "to": {\n      "field": "gw_address",\n      "longitudeField": "gw_lon",\n      "latitudeField": "gw_lat"\n    },\n    "weight": {\n      "field": "cnt"\n    } |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
