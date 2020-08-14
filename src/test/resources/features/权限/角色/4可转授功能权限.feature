@@ -79,6 +79,7 @@ Feature: 角色可转授功能权限
     And I click the "Auth" button
     And I choose the "AutoTestFunctionRole" from the "AuthUser"
     And I click the "ExpiredTime" button
+    And I wait for "CalendarInput" will be visible
     And I set the time input "CalendarInput" to "50" minutes later
     And I click the "CalendarEnsure" button
     And I "checked" the checkbox which name is "可查看敏感内容,可下载搜索结果"
