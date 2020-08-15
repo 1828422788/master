@@ -1,5 +1,7 @@
 package com.yottabyte.stepDefs;
 
+import com.steadystate.css.parser.Locatable;
+import com.sun.glass.ui.Robot;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
@@ -8,6 +10,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.interactions.touch.TouchActions;
+
+import java.awt.event.InputEvent;
 
 /**
  * 滚动条相关操作
@@ -99,4 +105,51 @@ public class ScrollBar {
         JavascriptExecutor executor = (JavascriptExecutor)webDriver;
         executor.executeScript(js, sourceElement, targetElement);
     }
+
+    /**
+     * 把一个元素拖拽到另一个元素处
+     *
+     * @param source 想要拖拽的元素名称
+     * @param target 目标元素名称
+     */
+    @And("^I drag the element1 \"([^\"]*)\" to the \"([^\"]*)\"$")
+    public void JavascriptDragAndDrop1(String source, String target) {
+        WebElement sourceElement = GetElementFromPage.getWebElementWithName(source);
+        WebElement targetElement = GetElementFromPage.getWebElementWithName(target);
+        String js = "function createEvent(typeOfEvent) {\n" +
+                "    var event = document.createEvent(\"CustomEvent\");\n" +
+                "    event.initCustomEvent(typeOfEvent, true, true, null);\n" +
+                "    event.dataTransfer = {\n" +
+                "        data: {},\n" +
+                "        setData: function (key, value) {\n" +
+                "            this.data[key] = value;\n" +
+                "        },\n" +
+                "        getData: function (key) {\n" +
+                "            return this.data[key];\n" +
+                "        }\n" +
+                "    };\n" +
+                "    return event;\n" +
+                "}\n" +
+                "function dispatchEvent(element, event, transferData) {\n" +
+                "    if (transferData !== undefined) {\n" +
+                "        event.dataTransfer = transferData;\n" +
+                "    }\n" +
+                "    if (element.dispatchEvent) {\n" +
+                "        element.dispatchEvent(event);\n" +
+                "    } else if (element.fireEvent) {\n" +
+                "        element.fireEvent(\"on\" + event.type, event);\n" +
+                "    }\n" +
+                "}\n" +
+                "function simulateDragAndDrop(element, target) {\n" +
+                "    var dragStartEvent = createEvent('dragstart');\n" +
+                "    dispatchEvent(element, dragStartEvent);\n" +
+                "    var dropEvent = createEvent('drop');\n" +
+                "    dispatchEvent(target, dropEvent, dragStartEvent.dataTransfer);\n" +
+                "    var dragEndEvent = createEvent('dragend');\n" +
+                "    dispatchEvent(element, dragEndEvent, dropEvent.dataTransfer);\n" +
+                "}\n";
+        js += "simulateDragAndDrop(arguments[0], arguments[1])";
+        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+    }
+
 }

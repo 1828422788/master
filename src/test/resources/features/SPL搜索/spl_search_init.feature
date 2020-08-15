@@ -5,7 +5,7 @@ Feature: 搜索初始配置
 
   @v33init
   Scenario Outline: 拖动分屏按钮至屏幕最左端
-    And I drag the element "SearchPageSvg" to the "searchPageLeft"
+    And I drag the element1 "SearchPageSvg" to the "SearchPageLeft"
 
 #    Given I set the parameter "SearchInput" with value "<splQuery>"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 2"

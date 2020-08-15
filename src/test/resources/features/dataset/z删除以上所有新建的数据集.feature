@@ -1,4 +1,4 @@
- @ddataset
+@dataset @ddataset
 Feature: 数据集-z删除所有
 
   Background:
