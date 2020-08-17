@@ -100,6 +100,7 @@ Feature: 仪表盘事件列表
     And I click the "HoverElement" button
     And I click the "IconRight" button
     And I click the "EventAppname" button
+    And I wait for "500" millsecond
     And I click the "Event" button
     And switch to another window
     And I close all tabs except main tab
@@ -269,6 +270,7 @@ Feature: 仪表盘事件列表
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:

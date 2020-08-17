@@ -21,6 +21,7 @@ Feature: 数据大屏-d散点图
   # x轴
     And I wait for "XaxisHeader" will be visible
     And I click the "XaxisHeader" button
+    And I wait for "500" millsecond
       #文本
     And I set the parameter "XaxisWordSize" with value "20"
 #    And I click the "XaxisWordColor" button
