@@ -500,6 +500,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='暂无数据']")
     private WebElement noData;
 
+    @FindBy(className = "vx-group")
+    private WebElement pieData;
+
     @FindBy(xpath = "//span[text()='保存']/preceding-sibling::input")
     private WebElement tagInput;
 
@@ -764,6 +767,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getNoData() {
         return noData;
+    }
+
+    public WebElement getPieData() {
+        return pieData;
     }
 
     public WebElement getSaveTagInput() {

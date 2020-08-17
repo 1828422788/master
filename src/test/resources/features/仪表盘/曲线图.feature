@@ -110,7 +110,108 @@ Feature: 仪表盘曲线图
 
     Examples:
       | name   | targetName |
-      | 仪表盘曲线图 | AreaChart  |
+      | 仪表盘曲线图 | LineChart  |
+
+  @dashboard
+  Scenario Outline: 验证配置是否在高级编辑中体现
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+    And I will see the "TextLayer" result will contain "<json1>"
+    And I will see the "TextLayer" result will contain "<json2>"
+#    Then I will see the "TextLayer" result will be "<json>"
+
+    Examples:
+      | name       | json                                     | json1                                                |  json2                                     |
+      | 仪表盘曲线图 |  \n  "chart": {\n    "chartType": "line",|  \n    "xAxis": {\n      "field": "apache.clientip", | \n    "yAxis": {\n      "field": "count()",|
+
+  @dashboard
+  Scenario: RZY-1362:修改chartType为不存在的类型
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘曲线图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘曲线图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "1a","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持1a"
+
+  @dashboard
+  Scenario: RZY-1362:修改chartType为空
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘曲线图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘曲线图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持"
+
+  @dashboard
+  Scenario: RZY-1362:修改xAxis field字段值置为空
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘曲线图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘曲线图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
+
+  @dashboard
+  Scenario: RZY-1362:修改yAxis field字段值置为空
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘曲线图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘曲线图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
+
+  @dashboard
+  Scenario: RZY-1362:修改legend字段值置为空
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘曲线图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘曲线图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": ""}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "chart -> placement 字段值不能为空"
+
+  @dashboard
+  Scenario: RZY-1362:修改legend字段值置为空
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘曲线图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘曲线图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "111"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "chart -> placement 字段值不支持 111"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

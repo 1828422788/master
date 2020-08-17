@@ -192,6 +192,27 @@ Feature: 仪表盘单值
     And I wait for "Progress" will be invisible
     Then I wait for "Table" will be visible
 
+  Scenario Outline: RZY-3694修改表格chartType
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘单值" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘单值","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats avg(apache.status) as a_|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\")","startTime": "now/d","endTime": "now"},"chart": {"chartType": "<chartType>"}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "<ErrorMessage>"
+
+    Examples:
+      | chartType    | ErrorMessage                       |
+      | line         | chart -> xAxis 字段为必填项          |
+      | pie          | chart -> field 字段为必填项          |
+      | hello        | chart -> chartType 字段值不支持hello |
+
+
+
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
