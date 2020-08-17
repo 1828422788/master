@@ -1,4 +1,4 @@
-@auth
+#@auth
 Feature: 权限-字段提取
 
   Scenario Outline: 勾选字段提取所需功能权限
@@ -26,7 +26,6 @@ Feature: 权限-字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
     Then I will see the "CreateButton" doesn't exist
-    And I logout current user
 
   @logout
   Scenario: 验证有新建权限
