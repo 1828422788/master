@@ -56,7 +56,7 @@ Feature: Agent分组设置
     Then I will see the element "GroupMemo" name is "<message>"
     And I click the "FinishButton" button
     And I click the "OpenGroupButton" button
-#    And I wait for loading invisible
+    And I wait for loading invisible
     And I wait for loading complete
     Then I will see the agent search result contains "1"
 

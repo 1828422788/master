@@ -34,7 +34,7 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Tag" with value "autotestmysql"
     And I click the "Next" button
     And I wait for loading invisible
-    And I click the "Finish" button
+    And I click the "Next" button
     And I will see the element "Addsuccessmsg" name is "添加成功"
 
 
