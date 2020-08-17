@@ -1,4 +1,4 @@
-#@auth
+@authtest
 Feature: 权限-KV字典
 
   Scenario Outline: 授权可使用应用功能
@@ -186,9 +186,7 @@ Feature: 权限-KV字典
   Scenario: 存储kvstore
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "KVApp" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "KVApp"
+    When the data name is "KVAuth" then i click the "打开" button
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() as 'count' by apache.geo.city,appname| rename apache.geo.city as apachecity| outputlookup AutoAuthKV"
     And I click the "DateEditor" button
@@ -199,9 +197,7 @@ Feature: 权限-KV字典
   Scenario: 验证是否成功
     Given I login user "AutoTest" with password "All#123456"
     Given open the "app.ListPage" page for uri "/app/list/"
-    When the data name is "KVApp" then i click the "打开" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "KVApp"
+    When the data name is "KVAuth" then i click the "打开" button
     Then I will see the "splSearch.SearchPage" page
     Given I set the parameter "SearchInput" with value "* | stats count() by apache.geo.city | lookup appname AutoAuthKV on apache.geo.city=apachecity"
     And I click the "DateEditor" button
@@ -229,8 +225,6 @@ Feature: 权限-KV字典
     And I click the "KvDropdown" button
     And I choose the "删除" from the "KVDropdownList"
     And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the element "MessageContent" value is "删除成功"
 

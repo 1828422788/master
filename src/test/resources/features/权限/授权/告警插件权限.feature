@@ -1,5 +1,5 @@
 @auth
-Feature: 授权告警插件
+Feature: 权限-授权告警插件
 
   Scenario Outline: 告警插件功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
