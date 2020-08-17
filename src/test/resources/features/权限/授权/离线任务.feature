@@ -1,5 +1,5 @@
 @auth
-Feature: 权限-模式学习
+Feature: 权限-离线任务
 
   Scenario Outline: 取消离线任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
