@@ -20,6 +20,7 @@ Feature: 日志展现_复合
     And I click the "Yaxis" button
     And I choose the "<actualValue>" from the "Actual" in config
     And I choose the "<predictedValue>" from the "Predict" in config
+    And I choose the "<upperValue>" from the "Outlier" in config
     And I choose the "<upperValue>" from the "TopLimit" in config
     And I choose the "<lowerValue>" from the "LowerLimit" in config
     And I click the "Generate" button

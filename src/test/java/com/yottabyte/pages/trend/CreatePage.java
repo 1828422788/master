@@ -523,6 +523,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='实际值']/ancestor::div/following-sibling::div")
     private WebElement actual;
 
+    @FindBy(xpath = "//span[text()='异常值']/ancestor::div/following-sibling::div")
+    private WebElement outlier;
+
     @FindBy(xpath = "(//span[text()='上限'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement topLimit;
 
@@ -1826,6 +1829,13 @@ public class CreatePage extends PageTemplate {
         WebDriverWait wait = new WebDriverWait(webDriver,10);
         wait.until(ExpectedConditions.elementToBeClickable(actual));
         actual.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOutlier() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(outlier));
+        outlier.click();
         return super.getLastDropdownList();
     }
 
