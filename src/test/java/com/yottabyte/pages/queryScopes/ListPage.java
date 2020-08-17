@@ -28,7 +28,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(id = "ConfigModify_expiredTime")
     private WebElement expiredTime;
 
-    @FindBy(className = "ant-calendar-input ")
+    @FindBy(className = "ant-calendar-input")
     private WebElement calendarInput;
 
     @FindBy(className = "ant-calendar-ok-btn")
