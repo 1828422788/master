@@ -164,7 +164,7 @@ Feature: 权限-字典
       | name         |
       | AutoTest.csv |
 
-  Scenario Outline: 读取+编辑+删除
+  Scenario Outline: 授权读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -179,6 +179,12 @@ Feature: 权限-字典
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
+
+    Examples:
+      | name         |
+      | AutoTest.csv |
+
+  Scenario Outline: 验证读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
