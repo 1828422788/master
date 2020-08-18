@@ -8,6 +8,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"
     And I set the parameter "ResourceInput" with value "AutoTest"
+    And I wait for "500" millsecond
     And I choose the "AutoTest" from the "LastDropdownList"
     And I set the parameter "AppOwningInput" with value "app之api全部用例"
     And I choose the "app之api全部用例" from the "LastDropdownList"
