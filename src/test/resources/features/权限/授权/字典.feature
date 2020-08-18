@@ -19,7 +19,6 @@ Feature: 权限-字典
       | __user_AutoTest__ |
       | __user_验证授权用户__   |
 
-  @logout
   Scenario: 验证无新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -35,7 +34,6 @@ Feature: 权限-字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then I will see the "UploadButton" doesn't exist
 
-  @logout
   Scenario: 验证可新建字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -68,7 +66,6 @@ Feature: 权限-字典
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
-  @logout
   Scenario: 验证无读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -87,7 +84,6 @@ Feature: 权限-字典
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
-  @logout
   Scenario: 验证有读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -98,7 +94,6 @@ Feature: 权限-字典
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
     And I logout current user
 
-  @logout
   Scenario Outline: 授权读取+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -169,7 +164,6 @@ Feature: 权限-字典
       | name         |
       | AutoTest.csv |
 
-  @logout
   Scenario Outline: 读取+编辑+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -219,7 +213,6 @@ Feature: 权限-字典
       | name         |
       | AutoTest.csv |
 
-  @logout
   Scenario Outline: 授权读取+转授
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When I click the "UploadButton" button
@@ -257,14 +250,12 @@ Feature: 权限-字典
       | name                   |
       | AutoTestUserCreate.csv |
 
-  @logout
   Scenario: 验证有效期限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then I will see the search result "{'column':'0','name':'权限测试.csv','contains':'no'}"
 
-  @logout
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -295,7 +286,6 @@ Feature: 权限-字典
       | 权限测试.csv |
 
 
-  @logout
   Scenario: 验证读取+转授
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -338,7 +328,6 @@ Feature: 权限-字典
       | name                   |
       | AutoTestUserCreate.csv |
 
-  @logout
   Scenario Outline: 验证读取+编辑+转授
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -400,7 +389,6 @@ Feature: 权限-字典
       | name                   |
       | AutoTestUserCreate.csv |
 
-  @logout
   Scenario: 验证读取+删除+转授
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -455,7 +443,6 @@ Feature: 权限-字典
       | name                   |
       | AutoTestUserCreate.csv |
 
-  @logout
   Scenario Outline: 验证所有权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -512,7 +499,6 @@ Feature: 权限-字典
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
-  @logout
   Scenario: 验证用户读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -537,7 +523,6 @@ Feature: 权限-字典
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
-  @logout
   Scenario: 验证角色读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -564,7 +549,6 @@ Feature: 权限-字典
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
-  @logout
   Scenario: 验证用户分组读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -581,7 +565,6 @@ Feature: 权限-字典
     And I click the "Ensure" button
     Then I will see the success message "保存成功"
 
-  @logout
   Scenario Outline: 二次授权读取
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -604,7 +587,6 @@ Feature: 权限-字典
       | authRole | authName | function |
       | 用户       | 验证授权用户   | 读取       |
 
-  @logout
   Scenario Outline: 二次授权读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -642,7 +624,6 @@ Feature: 权限-字典
       | authRole | authName        | function | name         |
       | 角色       | __user_验证授权用户__ | 编辑       | AuthTest.csv |
 
-  @logout
   Scenario Outline: 二次授权读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
