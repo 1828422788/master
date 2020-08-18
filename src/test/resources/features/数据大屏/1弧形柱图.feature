@@ -26,7 +26,7 @@ Feature: 数据大屏-a弧形柱图
 #    And I click the "RadiusAxisColor" button
     And  I wait for "RadiusAxisColor" will be visible
     And I set the parameter "RadiusAxisColor" with value "#41F1F1"
-    And I click the "EnsureColor" button
+    And I click the button "EnsureColor" if exist
     And I wait for "EnsureColor" will be invisible
     And I choose the "bold" from the "RadiusAxisBold"
     And I choose the "倾斜" from the "RadiusAxisAngle"
@@ -36,7 +36,8 @@ Feature: 数据大屏-a弧形柱图
 #    And I click the "AngleAxisColor" button
     And I wait for "AngleAxisColor" will be visible
     And I set the parameter "AngleAxisColor" with value "#E3A6F2"
-    And I click the "EnsureColor" button
+    And I click the button "EnsureColor" if exist
+#    And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "AngleAxisBold"
     #极坐标系
@@ -51,7 +52,8 @@ Feature: 数据大屏-a弧形柱图
 #    And I click the "ExampleColor" button
     And  I wait for "ExampleColor" will be visible
     And I set the parameter "ExampleColor" with value "#D73535"
-    And I click the "EnsureColor" button
+    And I click the button "EnsureColor" if exist
+#    And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "ExampleWordBold"
     And I choose the "居中" from the "ExampleHorizontal"

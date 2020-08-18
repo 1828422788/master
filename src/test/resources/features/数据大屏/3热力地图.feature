@@ -39,27 +39,32 @@ Feature: 数据大屏-j热力地图
     #区域颜色
     And I wait for "AreaColor" will be visible
     And I set the parameter "AreaColor" with value "#253D58"
-    And I click the "EnsureColor" button
+#    And I click the "EnsureColor" button
+    And I click the button "EnsureColor" if exist
     And I wait for "EnsureColor" will be invisible
     #边界颜色
     And I wait for "BoundaryColor" will be visible
     And I set the parameter "BoundaryColor" with value "#85DEDE"
-    And I click the "EnsureColor" button
+#    And I click the "EnsureColor" button
+    And I click the button "EnsureColor" if exist
     And I wait for "EnsureColor" will be invisible
 #  标注色(起)
     And I wait for "markColor1" will be visible
     And I set the parameter "markColor1" with value "#C11970"
-    And I click the "EnsureColor" button
+#    And I click the "EnsureColor" button
+    And I click the button "EnsureColor" if exist
     And I wait for "EnsureColor" will be invisible
 #  标注色(中)
     And I wait for "markColor2" will be visible
     And I set the parameter "markColor2" with value "#EAEBB3"
-    And I click the "EnsureColor" button
+#    And I click the "EnsureColor" button
+    And I click the button "EnsureColor" if exist
     And I wait for "EnsureColor" will be invisible
 #  标注色(止)
     And I wait for "markColor3" will be visible
     And I set the parameter "markColor3" with value "#53B11D"
-    And I click the "EnsureColor" button
+#    And I click the "EnsureColor" button
+    And I click the button "EnsureColor" if exist
     And I wait for "EnsureColor" will be invisible
     #缩放
     And I set the parameter "Scaling" with value "1.5"
