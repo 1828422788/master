@@ -18,20 +18,9 @@ Feature: 数据大屏-e力图
     And I wait for "Force" will be visible
     And I drag the scroll bar to the element "Force"
     And I click the "Force" button
-    And I wait for "5000" millsecond
+    And I wait for "500" millsecond
 
-     #数据
-    And I wait for "Data" will be visible
-    And I click the "Data" button
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart| stats count() by apache.clientip,apache.request_path |limit 10"
-    And I click the "Search" button
-    And I wait for "SearchTip" will be invisible
-    And I set the parameter "updateFrequency" with value "0.1"
-
-    And I choose the "apache.clientip" from the "SourceField"
-    And I choose the "count()" from the "WeightField"
-    And I choose the "apache.request_path" from the "TargetField"
-
+    And I wait for "Style" will be visible
     And I click the "Style" button
     #样式
     And I wait for "ChartTag" will be visible
@@ -58,6 +47,16 @@ Feature: 数据大屏-e力图
      #开启背景动画
     And I click the "backgroundAuto" button
 
+      #数据
+    And I click the "Data" button
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart| stats count() by apache.clientip,apache.request_path |limit 10"
+    And I click the "Search" button
+    And I wait for "SearchTip" will be invisible
+    And I set the parameter "updateFrequency" with value "0.1"
+
+    And I choose the "apache.clientip" from the "SourceField"
+    And I choose the "count()" from the "WeightField"
+    And I choose the "apache.request_path" from the "TargetField"
 
    #保存
     And I wait for "Save" will be visible

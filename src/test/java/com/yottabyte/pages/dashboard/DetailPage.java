@@ -353,6 +353,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='江苏']")
     private WebElement jiangsu;
 
+    @FindBy(xpath = "(//*[name()='rect'])[3]")
+    private WebElement zhutiao;
+
     @FindBy(xpath = "//span[text()='南京市']")
     private WebElement nanjing;
 
@@ -1052,6 +1055,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getJiangsu() {
         return jiangsu;
+    }
+
+    public WebElement getZhutiao() {
+        return zhutiao;
     }
 
     public WebElement getDescribeText() {

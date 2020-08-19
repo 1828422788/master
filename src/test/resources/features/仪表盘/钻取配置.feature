@@ -70,9 +70,9 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I click the "OpenDrilldown" button
+    And I switch the dashboard "OpenDrilldown" button to "enable"
+#    And I click the "OpenDrilldown" button
     And I wait for "500" millsecond
-    Then I will see the success message "钻取功能已启用"
 
   @dashboard @dashboardSmoke
   Scenario: 在当前页面跳转到搜索页-自动
