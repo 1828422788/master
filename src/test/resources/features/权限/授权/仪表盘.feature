@@ -100,7 +100,6 @@ Feature: 权限-仪表盘
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     Then I will see the "AddTag" doesn't exist
-    And I logout current user
 
     Examples:
       | name     |
@@ -280,7 +279,6 @@ Feature: 权限-仪表盘
       | 仪表盘验证权限 |
 
   Scenario: 验证有效期限生效
-    And I logout current user
     Given I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -320,13 +318,11 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
-    And I logout current user
 
     Examples:
       | name        |
       | 仪表盘验证权限1重命名 |
 
-  @logout
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -379,7 +375,6 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
-    And I logout current user
 
     Examples:
       | name    |
@@ -412,7 +407,6 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
-    And I logout current user
     Given I login user "验证授权用户" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -433,7 +427,6 @@ Feature: 权限-仪表盘
       | name       |
       | 仪表盘验证权限重命名 |
 
-  @logout
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -441,7 +434,6 @@ Feature: 权限-仪表盘
     And I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
     Then I will see the success message "新建仪表盘成功"
-    And I logout current user
 
     Examples:
       | name     |
@@ -504,7 +496,6 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
-    And I logout current user
 
     Examples:
       | name     |
@@ -526,7 +517,6 @@ Feature: 权限-仪表盘
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
 
-  @logout
   Scenario Outline: 二次授权读取
     Given I login user "AutoTest" with password "All#123456"
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

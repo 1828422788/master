@@ -10,7 +10,7 @@ Feature: 权限-趋势图
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可查看趋势图,新建趋势图"
+    And I "checked" the checkbox which name is "可查看趋势图,新建趋势图,可查看仪表盘,新建仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
