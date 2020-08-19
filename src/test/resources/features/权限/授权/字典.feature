@@ -1,4 +1,4 @@
-@authtest
+@auth
 Feature: 权限-字典
 
   Scenario Outline: 授权功能权限
