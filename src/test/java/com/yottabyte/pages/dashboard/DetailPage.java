@@ -606,6 +606,13 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='请选择'])[last()]")
     private WebElement lastFilter;
 
+    @FindBy(xpath = "//span[text()='AutoTest(副本)']")
+    private WebElement autotestCopy;
+
+    public WebElement getAutotestCopy() {
+        return autotestCopy;
+    }
+
     public WebElement getLastFilter() {
         lastFilter.click();
         return super.getLastDropdownList();

@@ -1,4 +1,4 @@
-@authtest
+@auth
 Feature: 权限-仪表盘
 
   Scenario Outline: 勾选仪表盘所需功能权限
