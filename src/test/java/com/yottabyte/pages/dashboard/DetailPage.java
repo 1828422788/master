@@ -1,6 +1,7 @@
 package com.yottabyte.pages.dashboard;
 
 import com.yottabyte.pages.PageTemplate;
+import com.yottabyte.utils.ConstructPageFactoryWithName;
 import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.Paging;
 import com.yottabyte.utils.WaitForElement;
@@ -10,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
@@ -332,6 +334,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='首行']")
     private WebElement firstRow;
 
+    @FindBy(xpath = "//div[text()='中国']")
+    private WebElement chinaDadio;
+
     @FindBy(xpath = "//div[text()='首行']/following-sibling::div//span[text()='innerFilter']")
     private WebElement innerInputFilter;
 
@@ -355,6 +360,30 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "(//*[name()='rect'])[3]")
     private WebElement zhutiao;
+
+    @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']")
+    private WebElement ipZifu;
+
+    @FindBy(xpath = "(//*[name()='circle'])[last()]")
+    private WebElement taiwan;
+
+    @FindBy(xpath = "(//*[name()='circle'])[1]")
+    private WebElement neimenggu;
+
+    @FindBy(xpath = "(//*[@class='vx-arc'])[8]")
+    private WebElement partOfPie;
+
+    @FindBy(xpath = "//span[text()='36.46.208.22']")
+    private WebElement tableRow22;
+
+    @FindBy(xpath = "//table/tbody/tr[1]/td[2]")
+    private WebElement tableRowResplen;
+
+    @FindBy(xpath = "//div[text()='钻取变量单值']/following-sibling::div[last()]/div/div[last()]/div/span")
+    private WebElement singleValue;
+
+    @FindBy(xpath = "//div[text()='钻取变量单值value']/following-sibling::div[last()]/div/div[last()]/div/span")
+    private WebElement singleValue1;
 
     @FindBy(xpath = "//span[text()='南京市']")
     private WebElement nanjing;
@@ -490,6 +519,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[2]")
     private WebElement settingIcon;
+
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[3]")
+    private WebElement settingChart;
 
     @FindBy(xpath = "(//ul[contains(@class,'ant-dropdown-menu')])[1]/li")
     private List<WebElement> liList;
@@ -856,12 +888,20 @@ public class DetailPage extends PageTemplate {
         return settingIcon;
     }
 
+    public WebElement getSettingChart() {
+        return settingChart;
+    }
+
     public WebElement getType() {
         return iconList.get(3);
     }
 
     public WebElement getSetting() {
         return iconList.get(4);
+    }
+
+    public WebElement getDelete() {
+        return iconList.get(5);
     }
 
     public WebElement getCreateConfig() {
@@ -1043,6 +1083,12 @@ public class DetailPage extends PageTemplate {
         return GetTime.getTime(webDriver, "Yesterday");
     }
 
+    @FindBy(xpath = "//button[text()='所有时间']")
+    private WebElement wholeTime;
+
+    @FindBy(xpath = "//button[text()='最近7天']")
+    private WebElement recentSevenDay;
+
     public WebElement getCustom() {
         return custom;
     }
@@ -1066,6 +1112,38 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getZhutiao() {
         return zhutiao;
+    }
+
+    public WebElement getIpZifu() {
+        return ipZifu;
+    }
+
+    public WebElement getNeimenggu() {
+        return neimenggu;
+    }
+
+    public WebElement getTaiwan() {
+        return taiwan;
+    }
+
+    public WebElement getPartOfPie() {
+        return partOfPie;
+    }
+
+    public WebElement getTableRow22() {
+        return tableRow22;
+    }
+
+    public WebElement getTableRowResplen() {
+        return tableRowResplen;
+    }
+
+    public WebElement getSingleValue() {
+        return singleValue;
+    }
+
+    public WebElement getSingleValue1() {
+        return singleValue1;
     }
 
     public WebElement getDescribeText() {
@@ -1155,6 +1233,16 @@ public class DetailPage extends PageTemplate {
     public WebElement getExhibition() {
         return this.getTagText("展示");
     }
+
+    public WebElement getIcon() { return this.getTagText("图标"); }
+
+    public WebElement getValue() { return this.getTagText("数值"); }
+
+    public WebElement getRegion() {
+        return this.getTagText("区域");
+    }
+
+    public WebElement getChinaDadio() { return chinaDadio; }
 
     public WebElement getProgress() {
         return progress;
@@ -1280,6 +1368,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getConfigs() {
         return configs;
+    }
+
+    public WebElement getWholeTime() {
+        return this.getDateButton(wholeTime);
+    }
+
+    public WebElement getRecentSevenDay() {
+        return this.getDateButton(recentSevenDay);
     }
 
     public List<WebElement> getTableList() {
@@ -1581,5 +1677,19 @@ public class DetailPage extends PageTemplate {
         return super.getButton("确定");
     }
 
+    /**
+     * 获取时间控件上的按钮
+     *
+     * @param webElement 按钮元素
+     * @return
+     */
+    private WebElement getDateButton(WebElement webElement) {
+        ExpectedCondition expectedCondition = ExpectedConditions.elementToBeClickable(webElement);
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
+        WebElement e = webElement;
+        ConstructPageFactoryWithName c = new ConstructPageFactoryWithName();
+        c.constructPageFactoryWithName("splSearch." + parentPageName);
+        return e;
+    }
 
 }
