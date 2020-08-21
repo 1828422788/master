@@ -22,8 +22,11 @@ public class CustomConfigs extends PageTemplate {
     @FindBy(xpath = "//span[text()='测试是否保存']")
     private WebElement test;
 
-    @FindBy(className = "el-message__group")
+    @FindBy(className = "ant-message-success")
     private WebElement successMessage;
+
+    @FindBy(className = "ant-message-notice")
+    private WebElement message;
 
     @FindBy(xpath = "//span[text()='/knowledge/']/following-sibling::i")
     private WebElement close;
@@ -45,6 +48,10 @@ public class CustomConfigs extends PageTemplate {
 
     public WebElement getEmailPassword() {
         return super.getInputElement("邮箱密码");
+    }
+
+    public WebElement getTrendLimit() {
+        return super.getInputElement("报表趋势图个数限制");
     }
 
     public WebElement getChartLabel() {
@@ -73,6 +80,10 @@ public class CustomConfigs extends PageTemplate {
 
     public WebElement getSuccessMessage() {
         return successMessage;
+    }
+
+    public WebElement getMessage() {
+        return message;
     }
 
     public WebElement getErrorMessage() {

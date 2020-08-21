@@ -33,6 +33,7 @@ Feature: 报表_删除
       |  test_deleteFirst     |
       |  test_deleteLast      |
       |  test_10trends        |
+      |  test_5trends         |
 
     @cleanReportFromTrend
     Examples:

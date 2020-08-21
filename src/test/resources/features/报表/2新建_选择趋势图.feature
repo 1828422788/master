@@ -9,7 +9,7 @@ Feature: 报表新建_选择
 
   Scenario Outline: new_report_10_trends
     When I set the parameter "Name" with value "test_10trends"
-    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "00"
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
@@ -58,7 +58,7 @@ Feature: 报表新建_选择
 
   Scenario Outline: new_report_moveTrends
     When I set the parameter "Name" with value "<caseNum>"
-    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "00"
     And I choose the "PDF" from the "ReportType"
     And I click the "NextButton" button
