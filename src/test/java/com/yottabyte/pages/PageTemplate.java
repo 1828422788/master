@@ -176,4 +176,19 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     public WebElement getTagInput(String text) {
         return webDriver.findElement(By.xpath("//div[text()='" + text + "']/following-sibling::div//input"));
     }
+
+    public WebElement getDropdownListByCruxeePageXpath(String text) {
+        return dropdownUtils.getDropdownListByCruxeePageXpath(text);
+    }
+
+    public WebElement getLastDropdownListOnSendPolicyPage(String xpath) {
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        element.click();
+        return dropdownUtils.getLastDropdownListOnSendPolicyPage();
+    }
+
+    public WebElement getLastSendPluginDropdownList() {
+        return dropdownUtils.getLastSendPluginDropdownList();
+    }
+
 }

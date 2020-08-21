@@ -20,8 +20,7 @@ public class DropdownUtils {
         String xpath;
         if (currentUrl.contains("/dictionary/") && (text.equals("字典标签") || text.equals("资源标签"))) {
             xpath = "//div[contains(text(),'" + text + "')]/following-sibling::span//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-        }
-        else {
+        } else {
             xpath = "//div[contains(text(),'" + text + "')]/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         }
         WebElement element = webDriver.findElement(By.xpath(xpath));
@@ -29,7 +28,6 @@ public class DropdownUtils {
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
     }
-
 
     public WebElement getLastDropdownList() {
         String className;
@@ -68,6 +66,47 @@ public class DropdownUtils {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
+    }
+
+    public WebElement getDropdownListByCruxeePageXpath(String text) {
+        String xpath = text;
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+    }
+
+    //getLastDropdownList1
+    public WebElement getLastDropdownListOnSendPolicyPage() {
+        String className;
+        Paging paging = new Paging();
+        className = "ant-select-dropdown-menu-item";
+
+        List<WebElement> list = webDriver.findElements(By.className(className));
+
+//      WebElement lastDropdownList = list.get(list.size() - 1);
+        WebElement lastDropdownList = list.get(1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+
+        WebElement li = lastDropdownList.findElement(By.xpath("//li"));
+        return lastDropdownList;
+    }
+
+    public WebElement getLastSendPluginDropdownList() {
+        String className;
+        Paging paging = new Paging();
+        className = "ant-select-dropdown-menu-item";
+        List<WebElement> list = webDriver.findElements(By.className(className));
+
+        WebElement lastDropdownList = list.get(list.size() - 1);
+        if (lastDropdownList.getAttribute("style").contains("display: none;")) {
+            ((JavascriptExecutor) webDriver).executeScript("arguments[0].style.display='block';", lastDropdownList);
+        }
+
+        WebElement li = lastDropdownList.findElement(By.xpath("//li"));
+        return lastDropdownList;
     }
 
 }

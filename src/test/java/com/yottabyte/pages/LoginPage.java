@@ -40,6 +40,7 @@ public class LoginPage extends PageTemplate {
         return super.getButton("登 录");
     }
 
+
     public String getTitle() {
         return webDriver.getTitle();
     }
@@ -56,7 +57,6 @@ public class LoginPage extends PageTemplate {
         String xpath = "//label[text()='" + name + "']/following-sibling::input";
         return webDriver.findElement(By.xpath(xpath));
     }
-
 
     public void getLogin(String userName, String password) {
         this.getUsername().sendKeys(userName);
