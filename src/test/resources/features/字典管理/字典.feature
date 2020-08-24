@@ -619,7 +619,7 @@ Feature: 字典管理
     Then I wait for "500" millsecond
     Then I will see the success message "确认删除 [<dictionaryName>] ?"
     Then I click the "EnsureButton" button
-    Then I wait for "1500" millsecond
+    Then I wait for "2000" millsecond
     Then I will see the success message "删除成功"
     Then I click the "EnsureButton" button
 
