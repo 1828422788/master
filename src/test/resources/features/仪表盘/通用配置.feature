@@ -84,7 +84,7 @@ Feature: 仪表盘通用配置
     When the chart title is "测试通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "ChartDesc" with value "描述信息"
+    And I set the parameter "ChartDesc" with value "测试描述"
     And I click the "Ensure" button
     And I wait for "Ensure" will be invisible
     And I click the "CustomTitle" button

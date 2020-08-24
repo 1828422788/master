@@ -229,31 +229,6 @@ Feature: 仪表盘柱状图
     And I wait for "3000" millsecond
     And I click the "Zhutiao" button
     And switch to another window
-#    And I close all tabs except main tab
-    And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==6"
-
-  @dashboard
-  Scenario: 序列图支持的钻取变量click.value2
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘柱状图"
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
-    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "DrillSetting" button
-    And I wait for "500" millsecond
-    And I choose the "跳转到搜索页" from the "DrillAction"
-    And I click the "Custom" button
-    And I set the parameter "Spl" with value "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==${click.value2}"
-    And I click the "DateEditor" button
-    And I click the "Shortcut" button
-    And I click the "Today" button
-    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
-    And I click the "Ensure" button
-    And I wait for "3000" millsecond
-    And I click the "Zhutiao" button
-    And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==6"

@@ -796,21 +796,21 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "WholeTime" button
 #    Then I will see the "dashboard.DetailPage" page
     And I click the "Ensure" button
-    And I click the "Setting" button under some element
-    And I click the "Value" button
-    And I choose the "apache.clientip" from the "DataField"
-    Then I click the "Generate" button
+#    And I click the "Setting" button under some element
+#    And I click the "Value" button
+#    And I choose the "avg(apache.status)" from the "DataField"
+#    Then I click the "Generate" button
     And I wait for "2000" millsecond
     And I click the "SettingChart" button
     And I click the "DrillSetting" button
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
-    And I set the parameter "Spl" with value "apache.clientip:${click.value}"
+    And I set the parameter "Spl" with value "starttime=${start} endtime=${end} *"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I wait for "500" millsecond
-    And I click the "WholeTime" button
+    And I click the "ThisMonth" button
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
     And I wait for "3000" millsecond

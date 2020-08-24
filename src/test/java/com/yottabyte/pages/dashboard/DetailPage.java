@@ -370,7 +370,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "(//*[name()='circle'])[1]")
     private WebElement neimenggu;
 
-    @FindBy(xpath = "(//*[@class='vx-arc'])[8]")
+    @FindBy(xpath = "(//*[name()='text'])[text()='64.20.177.254']/preceding-sibling::*")
     private WebElement partOfPie;
 
     @FindBy(xpath = "//span[text()='36.46.208.22']")
