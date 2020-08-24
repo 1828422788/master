@@ -52,6 +52,7 @@ Feature: 权限-字典
     And I wait for "FileName" will be visible
     Then I set the parameter "Name" with value "权限测试"
     And I click the "EnsureUpload" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建字典成功"
 
   Scenario: 授权无读取权限

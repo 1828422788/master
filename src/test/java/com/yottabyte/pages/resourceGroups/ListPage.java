@@ -1,5 +1,6 @@
 package com.yottabyte.pages.resourceGroups;
 
+import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.stepDefs.ClickSomeButton;
 import com.yottabyte.stepDefs.IChooseValueFromSelectList;
@@ -133,6 +134,10 @@ public class ListPage extends PageTemplate {
 
     @FindBy(xpath = "//span[contains(text(),'sunxjAutoTest')]/ancestor::td/preceding-sibling::td//label")
     private WebElement sunxjAutoTest;
+
+    public WebElement getImportAndExportButton() {
+        return super.getButton("导入/导出");
+    }
 
     public WebElement getSunxjAutoTest() {
         return sunxjAutoTest;
