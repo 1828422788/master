@@ -32,11 +32,11 @@ Feature: 仪表盘钻取配置-钻取变量
 
     Examples:
       | name          | spl                                                       |
-#      | 钻取变量字符云图 | tag:* \| stats count() by apache.clientip \| limit 10     |
-#      | 钻取变量区划地图 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
-#      | 钻取变量饼图    | tag:* \| stats count() by apache.clientip \| limit 10     |
-#      | 钻取变量表格    | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
-#      | 钻取变量单值    | tag:*display \| stats avg(apache.status) \|eval icon=if('avg(apache.status)'>300,'thumbs-down','thumbs-up')    |
+      | 钻取变量字符云图 | tag:* \| stats count() by apache.clientip \| limit 10     |
+      | 钻取变量区划地图 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
+      | 钻取变量饼图    | tag:* \| stats count() by apache.clientip \| limit 10     |
+      | 钻取变量表格    | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
+      | 钻取变量单值    | tag:*display \| stats avg(apache.status) \|eval icon=if('avg(apache.status)'>300,'thumbs-down','thumbs-up')    |
       | 钻取变量单值value    | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
 
   @dashboard @dashboardSmoke
@@ -1119,32 +1119,32 @@ Feature: 仪表盘钻取配置-钻取变量
 
 
 
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    When the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I wait for "500" millsecond
-#    Then I will see the success message "删除仪表盘成功"
-#
-#    Examples:
-#      | name   |
-#      | 测试钻取变量   |
-#
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘所建趋势图
-#    Given open the "trend.ListPage" page for uri "/trend/"
-#    When the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I wait for "500" millsecond
-#    And I will see the success message "删除成功"
-#
-#    Examples:
-#      | name    |
-#      | 钻取变量字符云图  |
-#      | 钻取变量区划地图 |
-#      | 钻取变量饼图 |
-#      | 钻取变量表格 |
-#      | 钻取变量单值 |
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "删除仪表盘成功"
+
+    Examples:
+      | name   |
+      | 测试钻取变量   |
+
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name    |
+      | 钻取变量字符云图  |
+      | 钻取变量区划地图 |
+      | 钻取变量饼图 |
+      | 钻取变量表格 |
+      | 钻取变量单值 |
