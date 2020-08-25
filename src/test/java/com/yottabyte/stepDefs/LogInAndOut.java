@@ -56,8 +56,6 @@ public class LogInAndOut {
         String baseURL = LoginBeforeAllTests.getBaseURL();
         int times = 10;
         while (webDriver.getTitle().equals("登录")) {
-//            webDriver.manage().deleteAllCookies();
-//            webDriver.navigate().refresh();
             loginPage.getUsername().clear();
             loginPage.getUsername().sendKeys(username);
             loginPage.getPassword().clear();

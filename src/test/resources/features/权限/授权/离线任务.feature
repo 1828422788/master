@@ -52,15 +52,4 @@ Feature: 权限-离线任务
     And I click the "DateEditor" button
     And I click the "WholeTime" button
     And I click the "SearchButton" button
-    And I click the "OfflineTask" button
-    And I set the parameter "OfflineTaskName" with value "AutoAuth"
-    And I click the "EnsureButton" button
-    Then I will see the message "提交成功，请到设置-离线任务页查看离线任务状态！"
-
-  Scenario: 删除离线任务
-    Given I login user "AutoTest" with password "All#123456"
-    And open the "ListPageFactory" page for uri "/offlinetask/"
-    And the data name contains "AutoAuth" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除成功"
+    Then I wait for "OfflineTask" will be visible

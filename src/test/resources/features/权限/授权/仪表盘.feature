@@ -66,6 +66,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "仪表盘验证权限1" in auth table
     And I "unchecked" the checkbox which name is "仪表盘验证权限1" in auth table
     And I click the "SaveButton" button
+    And I wait for "2000" millsecond
     And I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
