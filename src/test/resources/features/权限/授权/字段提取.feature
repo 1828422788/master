@@ -10,7 +10,7 @@ Feature: 权限-字段提取
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可查看字段提取,新建字段提取"
+    When I "checked" the checkbox which name is "可查看字段提取,新建字段提取,可查看搜索页"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -19,7 +19,6 @@ Feature: 权限-字段提取
       | __user_AutoTest__ |
       | __user_验证授权用户__   |
 
-  @logout
   Scenario: 验证无新建权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -27,7 +26,6 @@ Feature: 权限-字段提取
     And I wait for loading invisible
     Then I will see the "CreateButton" doesn't exist
 
-  @logout
   Scenario: 验证有新建权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -48,7 +46,6 @@ Feature: 权限-字段提取
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
-  @logout
   Scenario: 取消读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -65,7 +62,6 @@ Feature: 权限-字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I will see the search result "{'column':'0','name':'AutoTestUserCreate','contains':'no'}"
 
-  @logout
   Scenario Outline: 授权读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -103,7 +99,6 @@ Feature: 权限-字段提取
       | name               |
       | AutoTestUserCreate |
 
-  @logout
   Scenario: 授权读取+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -146,7 +141,6 @@ Feature: 权限-字段提取
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
 
-  @logout
   Scenario Outline: 授权读取+编辑+删除权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -200,7 +194,6 @@ Feature: 权限-字段提取
       | name                   |
       | AutoTestUserCreate(副本) |
 
-  @logout
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -237,7 +230,6 @@ Feature: 权限-字段提取
       | name                       |
       | AutoTestUserCreate(副本)(副本) |
 
-  @logout
   Scenario: 读取+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -247,7 +239,6 @@ Feature: 权限-字段提取
     And I click the "Ensure" button
     Then I will see the success message "删除成功"
 
-  @logout
   Scenario Outline: 授权读取+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -293,7 +284,6 @@ Feature: 权限-字段提取
       | name               |
       | AutoTestUserRename |
 
-  @logout
   Scenario Outline: 授权读取+编辑+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -356,7 +346,6 @@ Feature: 权限-字段提取
       | name               |
       | AutoTestUserRename |
 
-  @logout
   Scenario Outline: 授权读取+删除+转授权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -410,7 +399,6 @@ Feature: 权限-字段提取
       | name   |
       | Auto副本 |
 
-  @logout
   Scenario: 新建字段提取测试所有权限
     Given open the "configs.ListPage" page for uri "/configs/"
     And I wait for loading invisible
@@ -429,7 +417,6 @@ Feature: 权限-字段提取
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
-  @logout
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
@@ -526,7 +513,6 @@ Feature: 权限-字段提取
     And I click the "EnsureUpload" button
     Then I will see the success message "创建字典成功"
 
-  @logout
   Scenario Outline: 修改字段提取名称
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "编辑" button
@@ -541,14 +527,13 @@ Feature: 权限-字段提取
       | name |
       | 副本   |
 
-  @logout
   Scenario Outline: 新建字段提取关联字典
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
-      When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
+    When I set the parameter "LogSample" with value "{"Category":"","ComputerName":"WIN-999OGBVAHMI","EventCode":7036,"EventIdentifier":1073748860,"EventType":3,"Logfile":"System","Message":"Application Experience 服务处于 正在运行 状态。","RecordNumber":108343,"SourceName":"Service Control Manager","User":"","TimeGenerated":"2015-01-04T20:45:09+08:00"}"
     And I click the "AddRule" button
     And I choose the "JSON解析" from the "ParseRule"
     And I choose the "raw_message" from the "SourceField"
@@ -592,7 +577,7 @@ Feature: 权限-字段提取
     Examples:
       | appName        | log            |
       | auto_test_auth | dictionary.log |
-  @logout
+
   Scenario Outline: 验证二次授权读取
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -619,7 +604,6 @@ Feature: 权限-字段提取
       | authRole | authName | function | name     |
       | 用户       | 验证授权用户   | 读取       | 测试Auth相关 |
 
-  @logout
   Scenario Outline: 验证二次授权读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -667,7 +651,6 @@ Feature: 权限-字段提取
       | tag            | result                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
       | auto_test_auth | {'json.Category':'json.Category： ','json.ComputerName':'json.ComputerName：WIN-999OGBVAHMI ','json.EventCode':'json.EventCode：7036 ','json.EventIdentifier':'json.EventIdentifier：1073748860 ','json.EventType':'json.EventType：3 ','json.Logfile':'json.Logfile：System ','json.Message':'json.Message：Application Experience 服务处于 正在运行 状态。 ','json.RecordNumber':'json.RecordNumber：108343 ','json.SourceName':'json.SourceName：Service Control Manager ','json.TimeGenerated':'json.TimeGenerated：2015-01-04T20:45:09+08:00 ','json.level':'json.level：2 ','json.source':'json.source：sys '} |
 
-  @logout
   Scenario Outline: 验证二次授权读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -710,14 +693,12 @@ Feature: 权限-字段提取
       | authRole | authName | function | name         |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试AuthRename |
 
-  @logout
   Scenario: 验证有效期限生效
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I will see the search result "{'column':'1','name':'测试有效期限','contains':'no'}"
 
-  @logout
   Scenario Outline: 删除字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
@@ -729,7 +710,6 @@ Feature: 权限-字段提取
       | name   |
       | 测试有效期限 |
 
-  @logout
   Scenario: 删除字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     When the data name is "TestAuth.csv" then i click the "删除" button

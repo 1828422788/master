@@ -72,7 +72,6 @@ Feature: 权限-字典
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then I will see the search result "{'column':'0','name':'权限测试.csv','contains':'no'}"
-    And I logout current user
 
   Scenario: 授权有读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -93,7 +92,6 @@ Feature: 权限-字典
     When the data name is "权限测试.csv" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
-    And I logout current user
 
   Scenario Outline: 授权读取+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -130,7 +128,6 @@ Feature: 权限-字典
     When the data name is "<name>" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
-    And I logout current user
 
     Examples:
       | name     |
@@ -214,7 +211,6 @@ Feature: 权限-字典
     And I wait for "EnsureButton" will be visible
     And I click the "EnsureButton" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
-    And I logout current user
 
     Examples:
       | name         |
@@ -307,7 +303,6 @@ Feature: 权限-字典
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then the data name is "AutoTestUserCreate.csv" then i will see "授权" button
-    And I logout current user
 
   Scenario Outline: 授权读取+编辑+转授
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -364,7 +359,6 @@ Feature: 权限-字典
     And I set the parameter "GroupInput" with value "字典分组AutoTest"
     And I choose the "字典分组AutoTest" from the "Group"
     And I click the "Save" button
-    And I logout current user
 
     Examples:
       | name                   |
@@ -414,7 +408,6 @@ Feature: 权限-字典
     And I wait for "EnsureButton" will be visible
     And I click the "EnsureButton" button
     Then I wait for element "SuccessMessage" change text to "删除成功"
-    And I logout current user
 
   Scenario: 再次创建字典
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -588,7 +581,6 @@ Feature: 权限-字典
     When the data name is "AuthTest.csv" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
-    And I logout current user
 
     Examples:
       | authRole | authName | function |
