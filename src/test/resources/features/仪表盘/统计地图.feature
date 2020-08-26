@@ -34,6 +34,7 @@ Feature: 仪表盘统计地图
     And I click the "Today" button
     And I click the "FenPianQuYang" button
     And I alter the input element "FenPianQuYang" value to "0"
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button

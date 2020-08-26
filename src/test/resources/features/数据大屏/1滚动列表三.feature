@@ -14,6 +14,7 @@ Feature: 数据大屏-l滚动列表三
     And I set the parameter "Name" with value "滚动列表3样式-搜索"
     And I click the "Ensure" button
       #选择滚动列表三
+    And I move the mouse pointer to the "Chart"
     And I click the "Chart" button
     And I wait for "rollList3" will be visible
     And I click the "rollList3" button
@@ -89,6 +90,7 @@ Feature: 数据大屏-l滚动列表三
     And I set the parameter "Name" with value "滚动列表3数据之静态数据"
     And I click the "Ensure" button
       #选择滚动列表三
+    And I move the mouse pointer to the "Chart"
     And I click the "Chart" button
     And I wait for "rollList3" will be visible
     And I click the "rollList3" button
@@ -165,6 +167,7 @@ Feature: 数据大屏-l滚动列表三
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
 #选择滚动列表三
+    And I move the mouse pointer to the "Chart"
     And I click the "Chart" button
 
     And I wait for "rollList3" will be visible

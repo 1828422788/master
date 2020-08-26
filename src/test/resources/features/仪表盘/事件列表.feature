@@ -201,7 +201,7 @@ Feature: 仪表盘事件列表
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+#    And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "EventOperate" button
