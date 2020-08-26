@@ -17,7 +17,7 @@
       Examples:
         | UserName        | FullName         | Email                        | Password   | Result |
         | ctest | ctest | chen.shuang@yottabyte.cn | All#123456 | success message "创建成功" |
-        | Derek | Derek Parfit  | 2312200836@qq.cn | All#123456 | success message "创建成功" |
+        | Derek | Derek Parfit  | 2312200836@qq.com | All#123456 | success message "创建成功" |
         | Leibniz | Gottfried Wilhelm Leibniz | Leibniz@qq.cn | All#123456 | success message "创建成功" |
         | kongfeili | kongfeili | kongfeili@qq.cn | All#123456 | success message "创建成功" |
 
