@@ -188,6 +188,7 @@ Feature: 数据大屏-e揭示牌
       And I click the "pictureOne" button
       And I click the "Data" button
       And I choose the "num" from the "tipsCardNumber"
+      And I wait for "1000" millsecond
       And I set the parameter "thresholdOne" with value "6"
       And I set the parameter "displayOne" with value "6亿"
       And I set the parameter "tipsOne" with value "同比上涨250%"
