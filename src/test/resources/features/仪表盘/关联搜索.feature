@@ -113,7 +113,7 @@ Feature: 仪表盘关联搜索
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I wait for "OpenDrilldown" will be visible
-    And I click the "OpenDrilldown" button
+    And I switch the dashboard "OpenDrilldown" button to "enable"
     And I wait for "SuccessMessage" will be visible
 
   @dashboard @dashboardSmoke

@@ -197,7 +197,7 @@ Feature: 仪表盘钻取配置
     Examples:
       | url                    | title     |
       | https://www.baidu.com/ | 百度一下，你就知道 |
-      | /trend/                | 趋势图       |
+      | /trend/                | 趋势图列表     |
 
   @dashboard @dashboardSmoke
   Scenario: 新建标签页钻取所需趋势图

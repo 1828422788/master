@@ -82,11 +82,11 @@ Feature: 仪表盘区间图
     And I click the "Compound" button
     And I click the "<targetName>" button
     And I hide the element "Content"
-    And I wait for "1000" millsecond
+    And I wait for "3000" millsecond
     And I click the "Setting" button under some element
     And I choose the "ts" from the "DataValue"
     And I click the "Yaxis" button
-    And I choose the "count" from the "ActualValue"
+    And I choose the "count" from the "Actual"
     And I choose the "_predict_count" from the "Predict"
     And I choose the "upper95" from the "TopLimit"
     And I choose the "lower95" from the "LowerLimit"

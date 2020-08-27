@@ -286,7 +286,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
+    And I wait for "500" millsecond
     And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -499,7 +501,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
+    And I wait for "500" millsecond
     And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -701,7 +705,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
+    And I wait for "500" millsecond
     And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -839,7 +845,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
+    And I wait for "500" millsecond
     And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
@@ -875,7 +883,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | 钻取变量单值value | Single  |
 
   @dashboard
-  Scenario: 钻取变量单值click.value calue2
+  Scenario: 修改为单值value click.value value2
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -942,7 +950,9 @@ Feature: 仪表盘钻取配置-钻取变量
     And I set the parameter "SearchChartInput" with value "<name>"
     And I wait for loading invisible
     And I click the "{'Checkbox':'<name>'}" button
+    And I wait for "500" millsecond
     And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "添加成功"
 
     Examples:
       | name    |
