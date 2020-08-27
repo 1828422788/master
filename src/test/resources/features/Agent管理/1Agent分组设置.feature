@@ -72,7 +72,7 @@ Feature: Agent分组设置
     And I click the "Jump" button
     And switch to another window
     And I close all tabs except main tab
-    Then I will see the agent search result contains "1"
+#    Then I will see the agent search result contains "1"
 
     Examples:
       | message              |
