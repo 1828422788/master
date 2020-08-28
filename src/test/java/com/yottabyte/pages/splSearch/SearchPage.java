@@ -1612,7 +1612,6 @@ public class SearchPage extends ListPageFactory {
         return searchPageSvg;
     }
 
-<<<<<<< HEAD
 //  @FindBy(xpath = "//svg[@href='#icon-sousuoyeyemiantuozhuai']")
     @FindBy(xpath = "//svg[@id='icon-sousuoyeyemiantuozhuai']")
     private WebElement searchPageSvg1;
