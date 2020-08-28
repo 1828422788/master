@@ -43,18 +43,22 @@ public class UserCreatePage extends PageTemplate {
     @FindBy(className = "el-select-dropdown")
     private List<WebElement> selectors;
 
-    @FindBy(xpath = "//span[contains(text(),'新建')]//ancestor::button")
+    @FindBy(xpath = "//span[contains(text(),'新建')]/ancestor::button")
     private WebElement createButton;
+
     public WebElement getCreateButton() {
         return createButton;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'确定')]//ancestor::button")
-    private WebElement OKButton;
-    public WebElement getOKButton() {
-        return OKButton;
-    }
+    //@FindBy(xpath = "//span[contains(text(),'确定')]/parent::button")
+    //@FindBy(xpath = "(//span[text()='确定']/parent::button)[last()]")
+    @FindBy(xpath = "//div[@class='ant-modal-body']/div/button[@class='ant-btn _3aTYSyOZTloazTQBYnBoxo css-hz5ttt ant-btn-primary']")
+    private WebElement oKButton;
 
+    public WebElement getOKButton() {
+        return oKButton;
+//        return super.getButton("确定");
+    }
 
     @FindBy(className = "el-message-box__message")
     private WebElement message;
@@ -102,17 +106,72 @@ public class UserCreatePage extends PageTemplate {
         return getDropdownList("角色");
     }
 
-    public WebElement getSuccessMessage() {
-        return super.getErrorMessage();
-    }
-
-    public WebElement getErrorMessage() {
-        return message;
-    }
-
     public WebElement getDropdownList(String name) {
         String xpath = "//label[text()='" + name + "']/ancestor::div[1]/following-sibling::div//span/div[1]";
         webDriver.findElement(By.xpath(xpath)).click();
         return this.getLastDropdownList();
     }
+
+    @FindBy(partialLinkText = "添加管理员")
+//    @FindBy(xpath = "//a[contains(text(),'添加管理员')]/parent::div")
+    private WebElement addAdmin;
+
+    public WebElement getAddAdmin() {
+        return addAdmin;
+    }
+
+    @FindBy(partialLinkText = "添加成员")
+//    @FindBy(xpath = "//a[contains(text(),'添加成员')]/parent::div")
+    private WebElement addMember;
+
+    public WebElement getAddMember() {
+        return addMember;
+    }
+
+    @FindBy(xpath = "(//span[text()='新建']/parent::button)[last()]")
+    private WebElement saveMember;
+
+    public WebElement getSaveMember() {
+        return saveMember;
+    }
+
+    public WebElement getEnsure() {
+        return super.getButton("确定");
+    }
+
+    @FindBy(id = "UserGroupUpdate_name")
+    private WebElement userGroupName;
+
+    @FindBy(id = "UserGroupUpdate_memo")
+    private WebElement userGroupDes;
+
+    @FindBy(className = "yw-select-owner")
+    private WebElement ownerButton;
+
+    @FindBy(className = "yw-select-info")
+    private WebElement roleButton;
+
+    @FindBy(className = "el-input__icon")
+    private WebElement dropdownIcon;
+
+    @FindBy(className = "el-scrollbar__view")
+    private WebElement dropdownList;
+
+    public WebElement getUserGroupName() {
+        return userGroupName;
+    }
+
+    public WebElement getUserGroupDes() {
+        return userGroupDes;
+    }
+
+    public WebElement getUserGroupOwner() {
+        return super.getDropdownList("拥有者");
+    }
+
+    public WebElement getUserGroupRole() {
+        dropdownIcon.click();
+        return dropdownList;
+    }
+
 }

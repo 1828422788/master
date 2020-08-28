@@ -147,6 +147,20 @@ public class SendPolicyPage extends PageTemplate {
         return sendIntervalTime;
     }
 
+    @FindBy(xpath = "//span[contains(text(),'incident新增event时发送')]")
+    private WebElement checkboxNewEventSend;
+
+    public WebElement getCheckboxNewEventSend() {
+        return checkboxNewEventSend;
+    }
+
+    @FindBy(xpath = "//span[contains(text(),'incident变更时发送')]")
+    private WebElement checkboxUpdatingSend;
+
+    public WebElement getCheckboxUpdatingSend() {
+        return checkboxUpdatingSend;
+    }
+
     public WebElement getTunnelPriorityLevel() {
         String xpath = "//span[contains(text(),'优先级')]/following-sibling::span//div[@class='ant-select-selection__rendered']";
         return super.getLastDropdownListOnSendPolicyPage(xpath);

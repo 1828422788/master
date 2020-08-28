@@ -1,7 +1,6 @@
-@incident
 Feature: 事件管理_用户接收组_7个
 
-  @newrec
+  @incident @newrec @incident3
   Scenario Outline: 新建3个接收组
     Given open the "incident.SendPolicyPage" page for uri "/app/incident/sender-policy/list/"
     And I click the "NoticeReceiveGroup" button

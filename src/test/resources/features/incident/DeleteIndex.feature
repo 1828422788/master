@@ -16,6 +16,6 @@ Feature: 删索引
 
     Examples:
       | IndexName |
-      | ops_* |
+      | self_* |
 #      | ops_ |
 #      | ops_ |
