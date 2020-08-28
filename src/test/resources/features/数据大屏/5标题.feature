@@ -27,6 +27,7 @@ Feature: 数据大屏-h标题
     And I set the parameter "ChartYaxis" with value "390"
     #字体大小
     And I click the "Title" button
+    And I wait for "500" millsecond
     And I set the parameter "WordSize" with value "62"
     #字体颜色
 #    And I click the "ColorInner" button
