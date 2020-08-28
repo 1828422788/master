@@ -3,10 +3,13 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.LoginPage;
 import cucumber.api.java.en.And;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author sunxj
@@ -52,9 +55,10 @@ public class LogInAndOut {
     public void userLogin(String username, String password) throws InterruptedException {
         webDriver.manage().deleteAllCookies();
         webDriver.navigate().refresh();
+        this.deleteCookie();
+        int times = 0;
         LoginPage loginPage = new LoginPage(webDriver);
         String baseURL = LoginBeforeAllTests.getBaseURL();
-        int times = 10;
         while (webDriver.getTitle().equals("登录")) {
             loginPage.getUsername().clear();
             loginPage.getUsername().sendKeys(username);
@@ -66,6 +70,16 @@ public class LogInAndOut {
             times++;
             if (times > 10) {
                 return;
+            }
+        }
+    }
+
+    private void deleteCookie() {
+        Set<Cookie> cookies = webDriver.manage().getCookies();
+        Iterator<Cookie> iterator = cookies.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().getName().equals("sessionid")) {
+                webDriver.manage().deleteAllCookies();
             }
         }
     }
