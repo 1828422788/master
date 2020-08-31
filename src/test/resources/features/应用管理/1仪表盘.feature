@@ -140,11 +140,11 @@ Feature: 应用仪表盘
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "DashboardApp"
     Then I will see the "dashboard.ListPage" page
-    When the data name is "AutoApp" then i click the "重命名" button
+    When the data name is "AutoApp" then i click the "编辑" button
     And I set the parameter "DashBoardName" with value "仪表盘重命名"
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "重命名仪表盘成功"
+    Then I will see the success message "更新仪表盘成功"
 
   Scenario: 仪表盘标签
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -168,6 +168,7 @@ Feature: 应用仪表盘
     And I click the "Dashboard" button
     Then I will see the "dashboard.ListPage" page
     Given the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
@@ -199,6 +200,7 @@ Feature: 应用仪表盘
     And I click the "Dashboard" button
     Then I will see the "dashboard.ListPage" page
     Given the data name is "仪表盘验证无app" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     Then I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"

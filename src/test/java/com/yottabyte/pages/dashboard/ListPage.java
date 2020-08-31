@@ -23,7 +23,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[contains(text(),'返回列表')]")
     private WebElement returnList;
 
-    @FindBy(xpath = "//div[text()='请选择']")
+    @FindBy(xpath = "//span[text()='所属应用']/following-sibling::span/div")
     private WebElement belongedApp;
 
     public WebElement getBelongedApp() {

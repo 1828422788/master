@@ -153,7 +153,8 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     When the data name is "{'column':'1','name':'AutoTestCreate'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
-    And I choose the "AutoTestAppWithAllResources" from the "AppDropdown"
+    And I move the mouse pointer to the "DeleteApp"
+    And I click the "DeleteApp" button
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
