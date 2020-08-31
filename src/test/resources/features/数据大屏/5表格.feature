@@ -62,7 +62,8 @@ Feature: 数据大屏-i表格
 #    And I click the "tableColor" button
     And I wait for "tableColor" will be visible
     And I set the parameter "tableColor" with value "#787A13"
-    And I click the "EnsureColor" button
+    And I click the button "EnsureColor" if exist
+#    And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I choose the "lighter" from the "CellBold"

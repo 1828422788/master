@@ -60,8 +60,9 @@ Feature: 仪表盘详情行布局
     And I click the "{'Checkbox':'行布局趋势图1'}" button
     And I click the "{'Checkbox':'行布局趋势图2'}" button
     And I click the "{'Checkbox':'行布局趋势图3'}" button
-    And I wait for "1000" millsecond
+    And I wait for "500" millsecond
     And I click the "Ensure" button
+    And I wait for "1000" millsecond
 
   Scenario: 编辑行
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
