@@ -1,4 +1,4 @@
-@all @app
+@app
 Feature: 应用新建（RZY-1899）
 
   Background:
