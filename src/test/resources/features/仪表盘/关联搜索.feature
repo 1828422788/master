@@ -17,7 +17,7 @@ Feature: 仪表盘关联搜索
     And I set the parameter "Logtype" with value "<logtype>"
     And I set the parameter "AppName" with value "<appname>"
     And I set the parameter "Tag" with value "<appname>"
-    And I click the "Done" button
+    And I click the "NextButton" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:

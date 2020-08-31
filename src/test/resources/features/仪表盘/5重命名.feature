@@ -5,7 +5,7 @@ Feature: 仪表盘重命名（RZY-213）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
 
   Scenario Outline: 重命名
-    Given the data name is "<name>" then i click the "重命名" button
+    Given the data name is "<name>" then i click the "编辑" button
     And I set the parameter "DashBoardName" with value "<newName>"
     And I click the "Ensure" button
     Then I will see the success message "<message>"
@@ -15,4 +15,4 @@ Feature: 仪表盘重命名（RZY-213）
 
     Examples: 重命名成功
       | name       | newName | message |
-      | UIautotest | UI自动化创建 | 重命名仪表盘成功   |
+      | UIautotest | UI自动化创建 | 更新仪表盘成功   |
