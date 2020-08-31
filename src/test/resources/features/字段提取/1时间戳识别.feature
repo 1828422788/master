@@ -113,7 +113,7 @@ Feature: 字段提取时间戳识别
     And I upload a file with name "/src/test/resources/testdata/log/<log>"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
-    Then I wait for "1000" millsecond
+    Then I wait for "40000" millsecond
     When open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I set the parameter "SearchInput" with value "<splsearch>"
