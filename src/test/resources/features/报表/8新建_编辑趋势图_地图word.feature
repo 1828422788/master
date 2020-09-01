@@ -1,4 +1,4 @@
-@reportCreateCharts @allReports
+@reportCreateCharts @reportChartsWORD
 Feature: 报表新建_编辑_地图
 #6
 
@@ -9,7 +9,7 @@ Feature: 报表新建_编辑_地图
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "50"
+    And I set the parameter "Minute" with value "30"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
@@ -18,11 +18,11 @@ Feature: 报表新建_编辑_地图
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -43,25 +43,20 @@ Feature: 报表新建_编辑_地图
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |
-      |  PDF        | Heatmap        | Heatmap    |
+      |  WORD       | Heatmap        | Heatmap    |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name      |
-      |  EXCEL      | Heatmap        | Heatmap    |
 
   Scenario Outline: new_report_trend_attackmap
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<name>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<name>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<name>"
+    And I click the button with text "table_<name>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -91,27 +86,21 @@ Feature: 报表新建_编辑_地图
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   region         |  name               |
-      |  PDF        |   World          | Attackmap_World     |
-      |  PDF        |   China          | Attackmap_China     |
+      |  WORD       |   World          | Attackmap_World     |
+      |  WORD       |   China          | Attackmap_China     |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   region         |  name               |
-      |  EXCEL      |   World          | Attackmap_World     |
-      |  EXCEL      |   China          | Attackmap_China     |
 
   Scenario Outline: new_report_trend_regionmap
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "<table>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "<table>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "<table>"
+    And I click the button with text "<table>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -139,16 +128,8 @@ Feature: 报表新建_编辑_地图
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart |  name             |   divideField       |   province          |   city          |  region |  table                  |
-      |  PDF        | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | table_Regionmap         |
-      |  PDF        | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | table_Regionmap         |
-      |  PDF        | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| table_Regionmap_Jiangsu |
-
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart |  name             |   divideField       |   province          |   city          |  region |  table                  |
-      |  EXCEL      | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | table_Regionmap         |
-      |  EXCEL      | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | table_Regionmap         |
-      |  EXCEL      | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| table_Regionmap_Jiangsu |
+      |  WORD       | Regionmap   | Regionmap_World   | apache.geo.country  |     无              |   无            |  World  | table_Regionmap         |
+      |  WORD       | Regionmap   | Regionmap_China   | apache.geo.province | apache.geo.province | apache.geo.city |  China  | table_Regionmap         |
+      |  WORD       | Regionmap   | Regionmap_Jiangsu | apache.geo.city     | apache.geo.city     | apache.geo.city |  Jiangsu| table_Regionmap_Jiangsu |

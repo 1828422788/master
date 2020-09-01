@@ -1,4 +1,4 @@
-@reportCreateCharts @allReports
+@reportCreateCharts @reportChartsWORD
 Feature: 报表新建_编辑_其他
 #10
 
@@ -8,8 +8,8 @@ Feature: 报表新建_编辑_其他
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameter "Hour" with value "13"
-    And I set the parameter "Minute" with value "00"
+    And I set the parameter "Hour" with value "12"
+    And I set the parameter "Minute" with value "40"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
@@ -17,11 +17,11 @@ Feature: 报表新建_编辑_其他
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -43,25 +43,20 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |  color  |
-      |  PDF        | Single         | Single     |  Green  |
+      |  WORD       | Single         | Single     |  Green  |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name      |  color  |
-      |  EXCEL      | Single         | Single     |  Green  |
 
   Scenario Outline: new_report_trend_icon
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -87,26 +82,20 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name         |  color  |  iconValue |
-      |  PDF        |    Single      | Single_icon   |  Red    | icon       |
+      |  WORD       |    Single      | Single_icon   |  Red    | icon       |
 
-# file is not generated
-#    @reportChartsEXCEL
-#    Examples:
-#      |  reportType |   typeChart    |  name         |  color  |  iconValue |
-#      |  EXCEL      |    Single      | Single_icon   |  Red    | icon       |
 
   Scenario Outline: new_report_trend_font
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -126,35 +115,26 @@ Feature: 报表新建_编辑_其他
     And I click the "<color>" button
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
-    ###
-    And I click the "EditButton" button
-    And I click the "EnsureButton" button
-    ###
 
     When I click the "FinishButton" button
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name         |  color  |  fontValue        |
-      |  PDF        |   Single       | Single_font   |  Orange | font-awesome-flag |
+      |  WORD       |   Single       | Single_font   |  Orange | font-awesome-flag |
 
-# file is not generated
-#    Examples:
-#      |  reportType |   typeChart    |  name         |  color  |  fontValue        |
-#      |  EXCEL      |   Single       | Single_font   |  Orange | font-awesome-flag |
 
   Scenario Outline: new_report_trend_range_background
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>_Range" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>_Range"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>_Range"
+    And I click the button with text "table_<typeChart>_Range"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -186,25 +166,20 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name                 |  color1  |  color2 |
-      |  PDF        |   Single       | Single_range_backgr   |  Yellow  | Orange  |
+      |  WORD       |   Single       | Single_range_backgr   |  Yellow  | Orange  |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name                 |  color1  |  color2 |
-      |  EXCEL      |   Single       | Single_range_backgr   |  Yellow  | Orange  |
 
   Scenario Outline: new_report_trend_liquidfill
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -226,25 +201,20 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name        |  color  |
-      |  PDF        |   Liquidfill   | Liquidfill   |  Green  |
+      |  WORD       |   Liquidfill   | Liquidfill   |  Green  |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name        |  color  |
-      |  EXCEL      |   Liquidfill   | Liquidfill   |  Green  |
 
   Scenario Outline: new_report_trend_wordcloud
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -262,34 +232,24 @@ Feature: 报表新建_编辑_其他
     And I click the "<color>" button
     And I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
-    ###
-    And I click the "EditButton" button
-    And I click the "EnsureButton" button
-    ###
     When I click the "FinishButton" button
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name        |  color  |
-      |  PDF        |   Wordcloud    | Wordcloud    |  Green  |
-
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name        |  color  |
-      |  EXCEL      |   Wordcloud    | Wordcloud    |  Green  |
+      |  WORD       |   Wordcloud    | Wordcloud    |  Green  |
 
   Scenario Outline: new_report_trend_radar
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Radar_Matr" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Radar_Matr"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_Radar_Matr"
+    And I click the button with text "table_Radar_Matr"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -318,25 +278,20 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType | typeChart   |  name     |   color  |
-      |  PDF        | Radar       | Radar     | DarkBlue |
+      |  WORD       | Radar       | Radar     | DarkBlue |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType | typeChart   |  name     |   color  |
-      |  EXCEL      | Radar       | Radar     | DarkBlue |
 
   Scenario Outline: new_report_trend_funnel
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -363,26 +318,20 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType | typeChart   |  name     |   color    |   label          |
-      |  PDF        | Funnel      | Funnel    | LightGreen | FirstPosition    |
-
-    @reportChartsEXCEL
-    Examples:
-      |  reportType | typeChart   |  name     |   color    |   label          |
-      |  EXCEL      | Funnel      | Funnel    | LightGreen | FirstPosition    |
+      |  WORD       | Funnel      | Funnel    | LightGreen | FirstPosition    |
 
 
   Scenario Outline: new_report_trend_matrixheatmap
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Radar_Matr" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Radar_Matr"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_Radar_Matr"
+    And I click the button with text "table_Radar_Matr"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -405,25 +354,20 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType | typeChart   |  name       |
-      |  PDF        |Matrixheatmap|Matrixheatmap|
+      |  WORD       |Matrixheatmap|Matrixheatmap|
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType | typeChart   |  name       |
-      |  EXCEL      |Matrixheatmap|Matrixheatmap|
 
   Scenario Outline: new_report_trend_table
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Funnel" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Funnel"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_Funnel"
+    And I click the button with text "table_Funnel"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -438,12 +382,6 @@ Feature: 报表新建_编辑_其他
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType | typeChart   |  name       |
-      |  PDF        |  Table      |  Table      |
-
-    @reportChartsEXCEL
-    Examples:
-      |  reportType | typeChart   |  name       |
-      |  EXCEL      |  Table      |  Table      |
+      |  WORD       |  Table      |  Table      |

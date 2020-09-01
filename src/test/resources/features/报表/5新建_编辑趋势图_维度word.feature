@@ -1,4 +1,4 @@
-@reportCreateCharts @allReports
+@reportCreateCharts @reportChartsWORD
 Feature: 报表新建_编辑_维度
 #6
 
@@ -9,7 +9,7 @@ Feature: 报表新建_编辑_维度
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "20"
+    And I set the parameter "Minute" with value "00"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
@@ -17,11 +17,11 @@ Feature: 报表新建_编辑_维度
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Dimension" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Dimension"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_Dimension"
+    And I click the button with text "table_Dimension"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -49,30 +49,23 @@ Feature: 报表新建_编辑_维度
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |  typeInfo     |   color   |
-      |  PDF        |  Pie           |  Pie       |  只展示名称    |   Red     |
-      |  PDF        |  Rose          |  Rose      |  展示全部      |   Green   |
-      |  PDF        |  Bar           |  Bar       |  不展示        |   Yellow  |
+      |  WORD       |  Pie           |  Pie       |  只展示名称    |   Red     |
+      |  WORD       |  Rose          |  Rose      |  展示全部      |   Green   |
+      |  WORD       |  Bar           |  Bar       |  不展示        |   Yellow  |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name      |  typeInfo     |   color   |
-      |  EXCEL      |  Pie           |  Pie       |  只展示名称    |   Red     |
-      |  EXCEL      |  Rose          |  Rose      |  展示全部      |   Green   |
-      |  EXCEL      |  Bar           |  Bar       |  不展示        |   Yellow  |
 
 
   Scenario Outline: new_report_trend_Dimension_Sun
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Sun" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Sun"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_Sun"
+    And I click the button with text "table_Sun"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -101,25 +94,20 @@ Feature: 报表新建_编辑_维度
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |   color     |
-      |  PDF        |  Sun           |  Sun       |   DarkBlue  |
+      |  WORD       |  Sun           |  Sun       |   DarkBlue  |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name      |   color    |
-      |  EXCEL      |  Sun           |  Sun       |   DarkBlue |
 
   Scenario Outline: new_report_trend_bar_label
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_Dimension" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_Dimension"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_Dimension"
+    And I click the button with text "table_Dimension"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -148,14 +136,8 @@ Feature: 报表新建_编辑_维度
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
-      |  PDF        |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
-      |  PDF        |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Green    |
+      |  WORD       |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
+      |  WORD       |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Green    |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
-      |  EXCEL      |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |
-      |  EXCEL      |  Bar           |  Bar2       |  展示全部      |  柱状内靠左侧  | Green    |

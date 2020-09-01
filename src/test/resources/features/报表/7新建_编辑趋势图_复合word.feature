@@ -1,4 +1,4 @@
-@reportCreateCharts @allReports
+@reportCreateCharts @reportChartsWORD
 Feature: 报表新建_编辑_复合
 #2
 
@@ -9,7 +9,7 @@ Feature: 报表新建_编辑_复合
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "40"
+    And I set the parameter "Minute" with value "20"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
@@ -17,11 +17,11 @@ Feature: 报表新建_编辑_复合
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -46,25 +46,20 @@ Feature: 报表新建_编辑_复合
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |
-      |  PDF        | Rangeline      | Rangeline  |
+      |  WORD       | Rangeline      | Rangeline  |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name      |
-      |  EXCEL      | Rangeline      | Rangeline  |
 
   Scenario Outline: new_report_trend_multiaxis
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -119,12 +114,7 @@ Feature: 报表新建_编辑_复合
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |
-      |  PDF        | Multiaxis      | Multiaxis  |
+      |  WORD       | Multiaxis      | Multiaxis  |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name      |
-      |  EXCEL      | Multiaxis      | Multiaxis  |

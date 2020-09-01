@@ -1,4 +1,4 @@
-@reportCreateCharts @allReports
+@reportCreateCharts @reportChartsWORD
 Feature: 报表新建_编辑_关系
 #4
 
@@ -9,7 +9,7 @@ Feature: 报表新建_编辑_关系
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "30"
+    And I set the parameter "Minute" with value "10"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
@@ -17,11 +17,11 @@ Feature: 报表新建_编辑_关系
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -50,27 +50,20 @@ Feature: 报表新建_编辑_关系
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
-      |  PDF        |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |
-      |  PDF        |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   |
-
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
-      |  EXCEL      |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |
-      |  EXCEL      |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   |
+      |  WORD       |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |
+      |  WORD       |  Sankey        |  Sankey    | apache.clientip   | apache.resp_len      |   count()    | Yellow   |
 
   Scenario Outline: new_report_trend_Force
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -100,25 +93,19 @@ Feature: 报表新建_编辑_关系
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
-      |  PDF        |  Force         |  Force     | apache.clientip   | apache.request_path  |  count()     | Green    |
-
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
-      |  EXCEL      |  Force         |  Force     | apache.clientip   | apache.request_path  |  count()     | Green    |
+      |  WORD       |  Force         |  Force     | apache.clientip   | apache.request_path  |  count()     | Green    |
 
   Scenario Outline: new_report_trend_Sankey_Mult
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
-    Then I wait for "ChartListButton" will be visible
-    When I choose the "table_<typeChart>_Mult" from the "ChartList"
-    And I click the "ChartListButton" button
-    Then I will see the element "ChosenTrendLast" contains "table_<typeChart>_Mult"
-    And I click the "ChosenTrendLast" button
+    Then I wait for "ChartListButtonWord" will be visible
+    And I wait for "4000" millsecond
+    And I set the parameter "ChartListInput" with value "table_<typeChart>"
+    And I click the button with text "table_<typeChart>"
+    And I wait for "2000" millsecond
     And I click the "EditButton" button
 
     Then I set the parameter "TrendNameField" with value "<name>"
@@ -148,12 +135,7 @@ Feature: 报表新建_编辑_关系
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name        |  color   |
-      |  PDF        |  Sankey        |  Sankey_Mult | Red      |
+      |  WORD       |  Sankey        |  Sankey_Mult | Red      |
 
-    @reportChartsEXCEL
-    Examples:
-      |  reportType |   typeChart    |  name        |  color   |
-      |  EXCEL      |  Sankey        |  Sankey_Mult | Red      |

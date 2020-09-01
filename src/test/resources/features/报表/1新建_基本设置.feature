@@ -1,4 +1,4 @@
-@report @all @reportBasic
+@report @allReports @reportBasic
 Feature: 报表新建_执行计划
 
   Background:

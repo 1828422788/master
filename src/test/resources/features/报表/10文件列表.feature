@@ -1,4 +1,4 @@
-@reportFiles @checkFiles
+@reportFiles @checkFiles @checkAllFiles
 Feature: 报表_文件列表
 # need to wait till reports test_report_PDF, test_report_URL, test_report_EXCEL from 新建_基本设置 are generated
 

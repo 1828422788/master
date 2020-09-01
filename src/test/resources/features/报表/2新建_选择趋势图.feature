@@ -1,4 +1,4 @@
-@report @all @reportSelectTrend
+@report @allReports @reportSelectTrend
 Feature: 报表新建_选择
 
   Background:

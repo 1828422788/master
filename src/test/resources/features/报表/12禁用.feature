@@ -1,4 +1,4 @@
-@report @all @switchReport
+@report @allReports @switchReport
 Feature: 报表禁用/启用
 
   Background:
