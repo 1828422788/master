@@ -14,8 +14,8 @@ Feature: 应用新建（RZY-1899）
 
     Examples:
       | name | message   |
-      |      | 请确保输入完整正确 |
-      | test | 请确保输入完整正确 |
+      |      | 请确保基本配置输入完整正确 |
+      | test | 请确保基本配置输入完整正确 |
 
   Scenario Outline: 新建失败（菜单栏校验）
     When I click the "AddMenuButton" button

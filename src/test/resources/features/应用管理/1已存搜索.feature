@@ -82,6 +82,7 @@ Feature: 应用已存搜索（RZY-2125）
   Scenario: 新建无所属app的已存搜索
     Given open the "splSearch.SearchPage" page for uri "/search/"
     When I click the "SavedSearch" button
+    And I choose the "新建" from the "DropdownMenu"
     And I set the parameter "OfflineTaskName" with value "验证无App"
     And I click the "EnsureCreateSavedSearch" button
     And I wait for "SuccessMessage" will be visible

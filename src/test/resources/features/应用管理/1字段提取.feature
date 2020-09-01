@@ -90,7 +90,7 @@ Feature: 应用字段提取（RZY-2129）
     And I set the parameter "AppName" with value "auto_test_csv"
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "auto_test_csv"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
     And I click the "Return" button
     And I will see the "app.AppPage" page
@@ -129,7 +129,7 @@ Feature: 应用字段提取（RZY-2129）
     And I move the mouse pointer to the "DeleteApp"
     And I click the "DeleteApp" button
     And I click the "SwitchButton" button
-    Then I click the "NextButton" button
+    Then I click the "Done" button
     And I wait for "ConfigDone" will be visible
 
   Scenario: 验证所属app生效及修改标签
