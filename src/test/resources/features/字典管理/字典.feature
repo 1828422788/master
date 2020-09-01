@@ -493,60 +493,79 @@ Feature: 字典管理
       | dictionaryName            | user | dictionaryNameWithOutCsv |
       | wymtestrevokeauthsave.csv | wym  | wymtestrevokeauthsave    |
 
-#  Scenario Outline: RZY-4160(授权页：自定义有效期-当前日期)
-#
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-#    Then I set the parameter "UserFilter" with value "<user>"
-#    Then I wait for "2000" millsecond
-#    Then I "checked" the label before "<user>" in the dictionary
-#    Then I click the "Indefinitely" button
-#    Then I click the "Customize" button
-#    And I click the "TimeSelector" button
-#    Then I click the "DateNow" button
-#    And I click the "DateSelectConfirm" button
-#    Then I click the "EnsureButton" button
-#    Then I will see the success message "请选择合理的有效期限"
-#    Then I click the "EnsureButton2" button
-#    Then I wait for "1000" millsecond
-#    Then I click the "AuthCancelButton" button
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-#    Then I set the parameter "UserFilter" with value "<user>"
-#    Then I wait for "2000" millsecond
-#    Then I check the label "unchecked" status before "<user>" in the dictionary
-#    Then I will see the "DeadLine" result will be "无限期"
-#
-#    Examples:
-#      | dictionaryName | user |
-#      | wymtest1.csv   | wym  |
-#
-#
-#  Scenario Outline: RZY-4160(授权页：自定义有效期-当前日期的下一天)
-#
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-#    Then I set the parameter "UserFilter" with value "<user>"
-#    Then I wait for "2000" millsecond
-#    Then I "checked" the label before "<user>" in the dictionary
-#    Then I click the "Indefinitely" button
-#    Then I click the "Customize" button
-#    And I click the "TimeSelector" button
-#    Then I click the "DateNext" button
-#    And I click the "DateSelectConfirm" button
-#    Then I click the "EnsureButton" button
-#    Then I will see the success message "保存成功"
-#    Then I click the "EnsureButton2" button
-#    Then I wait for "1000" millsecond
-#    Then I click the "AuthCancelButton" button
-#    Then I wait for "1000" millsecond
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-#    Then I set the parameter "UserFilter" with value "<user>"
-#    Then I wait for "2000" millsecond
-#    Then I check the label "checked" status before "<user>" in the dictionary
-#    And I will see the element "DeadLine" contains "<customizeDate>"
-#
-#
-#    Examples:
-#      | dictionaryName | user | customizeDate |
-#      | wymtest1.csv   | wym  | 2020          |
+  Scenario Outline: RZY-4160(授权页：自定义有效期-当前日期)
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for "1000" millsecond
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    Then I set the parameter "UserFilter" with value "<user>"
+    Then I wait for "2000" millsecond
+    Then I "checked" the label before "<user>" in the dictionary
+    Then I click the "Indefinitely" button
+    Then I click the "Customize" button
+    And I click the "TimeSelector" button
+    Then I click the "DateNow" button
+    And I click the "DateSelectConfirm" button
+    Then I click the "EnsureButton" button
+    Then I wait for "1000" millsecond
+    Then I will see the success message "请选择合理的有效期限"
+    Then I click the "EnsureButton2" button
+    Then I wait for "1000" millsecond
+    Then I click the "AuthCancelButton" button
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    Then I set the parameter "UserFilter" with value "<user>"
+    Then I wait for "2000" millsecond
+    Then I check the label "unchecked" status before "<user>" in the dictionary
+    Then I will see the "DeadLine" result will be "无限期"
+
+    Examples:
+      | dictionaryName         | user | dictionaryNameWithOutCsv |
+      | wymtestcurrentdate.csv | wym  | wymtestcurrentdate       |
+
+
+  Scenario Outline: RZY-4160(授权页：自定义有效期-当前日期的下一天)
+
+    When I click the "UploadButton" button
+    Then I wait for "PopUpWindow" will be visible
+    And I upload a file with name "/src/test/resources/testdata/dictionary/wymtest1.csv"
+    And I wait for "FileName" will be visible
+    Then I set the parameter "Name" with value "<dictionaryNameWithOutCsv>"
+    And I click the "EnsureUpload" button
+    Then I wait for "Tip" will be visible
+    Then I will see the success message "创建字典成功"
+    Then I click the "EnsureButton" button
+    Then I wait for "1000" millsecond
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    Then I set the parameter "UserFilter" with value "<user>"
+    Then I wait for "2000" millsecond
+    Then I "checked" the label before "<user>" in the dictionary
+    Then I click the "Indefinitely" button
+    Then I click the "Customize" button
+    And I click the "TimeSelector" button
+    Then I click the "DateNext" button
+    And I click the "DateSelectConfirm" button
+    Then I click the "EnsureButton" button
+    Then I wait for "1000" millsecond
+    Then I will see the success message "保存成功"
+    Then I click the "EnsureButton2" button
+    Then I wait for "1000" millsecond
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    Then I set the parameter "UserFilter" with value "<user>"
+    Then I wait for "2000" millsecond
+    Then I check the label "checked" status before "<user>" in the dictionary
+    And I will see the element "DeadLine" contains "<customizeDate>"
+
+
+    Examples:
+      | dictionaryName     | user | customizeDate | dictionaryNameWithOutCsv |
+      | wymtestnextday.csv | wym  | 2020          | wymtestnextday           |
 #
 #
 #  Scenario Outline: RZY-4162(授权页：自定义有效期-当前日期23时59分59秒)
@@ -578,30 +597,6 @@ Feature: 字典管理
 #    Examples:
 #      | dictionaryName | user | customizeDate |
 #      | wymtest1.csv   | wym  | 23:59:59      |
-#
-#
-#  Scenario Outline: RZY-4161(授权页：自定义改为无限期)
-#
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-#    Then I set the parameter "UserFilter" with value "<user>"
-#    Then I wait for "1000" millsecond
-#    Then I click the "DeadLine" button
-#    Then I wait for "1000" millsecond
-#    And I click the "UnCustomize" button
-#    Then I click the "EnsureButton" button
-#    Then I will see the success message "保存成功"
-#    Then I click the "EnsureButton2" button
-#    Then I wait for "1000" millsecond
-#    Then I click the "AuthCancelButton" button
-#    Then I wait for "1000" millsecond
-#    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
-#    Then I set the parameter "UserFilter" with value "<user>"
-#    Then I wait for "1000" millsecond
-#    Then I check the label "checked" status before "<user>" in the dictionary
-#    Then I will see the "DeadLine" result will be "无限期"
-#    Examples:
-#      | dictionaryName | user |
-#      | wymtest1.csv   | wym  |
 
 
   Scenario Outline: RZY-4158删除字典
@@ -636,3 +631,5 @@ Feature: 字典管理
       | wymtestauthorizesave.csv        | 1         |
       | wymtestcleartagatlistpage.csv   | 1         |
       | wymtest.csv                     | 1         |
+      | wymtestcurrentdate.csv          | 1         |
+      | wymtestnextday.csv              | 1         |
