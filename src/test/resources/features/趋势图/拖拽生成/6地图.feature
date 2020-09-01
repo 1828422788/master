@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropMap @dragAndDropCreate
+@dragAndDrop @dragAndDropMap @trend
 Feature: 拖拽生成趋势图_地图
 
   Background:
@@ -31,8 +31,8 @@ Feature: 拖拽生成趋势图_地图
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.geo.city) by apache.geo.city"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "actual/<chartType>"
-    And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>"
+    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page

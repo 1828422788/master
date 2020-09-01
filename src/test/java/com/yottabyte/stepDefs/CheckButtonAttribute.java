@@ -39,14 +39,14 @@ public class CheckButtonAttribute {
             if (element instanceof List) {
                 List<WebElement> elements = (List<WebElement>) element;
                 for (WebElement webElement : elements) {
-                    Assert.assertTrue(webElement.getAttribute("class").contains(attribute));
+                    Assert.assertTrue("实际class"+webElement.getAttribute("class"),webElement.getAttribute("class").contains(attribute));
                 }
                 return;
             }
         }
         for (String buttonName : buttonNameList) {
             WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
-            Assert.assertTrue(element.getAttribute("class").contains(attribute));
+            Assert.assertTrue("实际class"+element.getAttribute("class"),element.getAttribute("class").contains(attribute));
         }
     }
 

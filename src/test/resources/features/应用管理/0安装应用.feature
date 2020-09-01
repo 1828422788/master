@@ -41,6 +41,7 @@ Feature: 应用安装（RZY-1988）
     Given delete file "/target/download-files/<name>.tar"
     And I set the parameter "NameInput" with value "<name>"
     And I click the "AddResource" button
+    And I choose the "数据集" from the "ResourceType"
     And I set the parameter "SearchResourceInput" with value "AutoTestApp"
     And I wait for "SearchLoading" will be invisible
     And I "check" the checkbox which name is "AutoTestApp" in tiny table

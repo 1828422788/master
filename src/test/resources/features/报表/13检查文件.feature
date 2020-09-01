@@ -90,3 +90,46 @@ Feature: 报表_检查文件
       |   AreaChart_Pile     |
       |   AreaChart          |
       |   LineChart          |
+
+  @checkFilesWORD
+  Scenario Outline: check_type_word
+    When I set the parameter "SearchInput" with value "<name>_WORD"
+    And I wait for "Loading" will be invisible
+    And the data name is "{'column':'1','name':'<name>_WORD'}" then i click the "<name>_WORD" button
+    Then I will see the element "LastGeneratedReport" contains ".docx"
+
+    Examples:
+      |          name        |
+      |   Table              |
+      |   Matrixheatmap      |
+      |   Funnel             |
+      |   Radar              |
+      |   Wordcloud          |
+      |   Liquidfill         |
+      |   Single_range_backgr|
+      |   Single_font        |
+      |   Single_icon        |
+      |   Single             |
+      |   Regionmap_Jiangsu  |
+      |   Regionmap_China    |
+      |   Regionmap_World    |
+      |   Attackmap_China    |
+      |   Attackmap_World    |
+      |   Heatmap            |
+      |   Multiaxis          |
+      |   Rangeline          |
+      |   Sankey_Mult        |
+      |   Force              |
+      |   Sankey             |
+      |   Chord              |
+      |   Bar2               |
+      |   Bar1               |
+      |   Sun                |
+      |   Bar                |
+      |   Rose               |
+      |   Pie                |
+      |   ScatterChart       |
+      |   ColumnChart_Pile   |
+      |   AreaChart_Pile     |
+      |   AreaChart          |
+      |   LineChart          |

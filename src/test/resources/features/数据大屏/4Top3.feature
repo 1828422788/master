@@ -32,9 +32,9 @@
      And I set the parameter "nameTypefaceSize" with value "20"
      And I set the parameter "numberTypefaceSize" with value "40"
 
-     And I click the "Top3numberTypefaceColor" button
-     And I wait for "ColorInput" will be visible
-     And I set the parameter "ColorInput" with value "#9FF50B"
+#     And I click the "Top3numberTypefaceColor" button
+     And I wait for "Top3numberTypefaceColor" will be visible
+     And I set the parameter "Top3numberTypefaceColor" with value "#9FF50B"
      And I click the "EnsureColor" button
      And I wait for "EnsureColor" will be invisible
      #数值字体粗细的设置
@@ -150,7 +150,7 @@
       And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
-      And I click the "otherSearch" button
+      And I click the "otherSearch" button under some element
       And I hide the element "otherDropdown"
       And I wait for "SplInput" will be visible
       And I set the parameter "SplInput" with value "tag:sample04061424 | stats count() by apache.clientip"

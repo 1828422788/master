@@ -1,4 +1,4 @@
-@reportFiles @checkFiles
+@reportFiles @checkFiles @checkAllFiles
 Feature: 报表_文件列表
 # need to wait till reports test_report_PDF, test_report_URL, test_report_EXCEL from 新建_基本设置 are generated
 
@@ -10,7 +10,7 @@ Feature: 报表_文件列表
     And I wait for loading invisible
     And the data name is "{'column':'1','name':'test_report_PDF'}" then i click the "test_report_PDF" button
     Then I will see the element "FirstColumnTitle" contains "文件名称"
-    And I will see the element "SecondColumnTitle" contains "拥有者"
+    And I will see the element "SecondColumnTitle" contains "创建者"
     And I will see the element "ThirdColumnTitle" contains "生成时间"
     And I will see the element "FourthColumnTitle" contains "操作"
     And I click the "Download" button

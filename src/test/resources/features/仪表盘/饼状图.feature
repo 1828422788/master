@@ -43,6 +43,7 @@ Feature: 仪表盘饼状图
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name |
@@ -77,7 +78,7 @@ Feature: 仪表盘饼状图
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Dimension" will be visible
-    And I click the "Dimension" button
+    And I click the "Dimension" button under some element
     And I click the "<targetName>" button
     And I hide the element "Content"
     And I wait for "1000" millsecond
@@ -99,6 +100,39 @@ Feature: 仪表盘饼状图
       | name   | targetName |
       | 仪表盘饼状图 | Pie  |
 
+  @dashboard
+  Scenario Outline: 验证配置是否在高级编辑中体现
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+#    Then I will see the "TextLayer" result will be "<json>"
+
+    Examples:
+      | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
+      | 仪表盘饼状图 |  \n  "chart": {\n    "chartType": "pie",\n    "field": "count()",\n    "byFields": [\n      "apache.clientip"\n    ],\n    "precision": "",\n    "useFlameDrillDown": false\n  } |
+
+  @dashboard
+  Scenario: RZY-1362:修改为不存在的字段
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘饼状图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    Then I wait for "PieData" will be visible
+    When the chart title is "仪表盘饼状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I set the parameter "{"title": "仪表盘饼状图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "pie","field": "count()qwert","byFields": ["apache.resp_lenasdfg"],"precision": "","useFlameDrillDown": false}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    Then I click the "Ensure" button
+    And I wait for "3000" millsecond
+    Then I will see the "PieData" is not exist
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -106,6 +140,7 @@ Feature: 仪表盘饼状图
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
@@ -118,6 +153,7 @@ Feature: 仪表盘饼状图
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:

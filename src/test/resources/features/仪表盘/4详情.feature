@@ -8,6 +8,50 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "first"
     And I click the "EnsureCreateTagButton" button
+    And I back to before
+
+
+  Scenario: 新建tag
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "First" will be visible
+    And I click the "First" button
+    And I wait for "500" millsecond
+    And I click the "CreatNewTag" button
+    When I set the parameter "TagName" with value "forDelete"
+    And I click the "EnsureCreateTagButton" button
+    And I back to before
+
+  Scenario: 编辑tag
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "First" will be visible
+    And I click the "First" button
+    And I wait for "500" millsecond
+    And I click the "EditTag" button
+    And I wait for "InputforTag" will be visible
+    And I alter the input element "InputforTag" value to "Delete"
+#    And I wait for "500" millsecond
+    And I click the "SaveTagInput" button
+    And I wait for "500" millsecond
+    Then I will see the success message "标签名称修改成功"
+
+  Scenario: 删除tag
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "First" will be visible
+    And I click the "First" button
+    And I wait for "500" millsecond
+    And I click the "DeleteNewTag" button
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "标签页删除成功"
 
   Scenario: 关闭编辑
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -15,7 +59,7 @@ Feature: 仪表盘详情页
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I click the "OpenEdit" button
+    And I switch the dashboard "OpenEdit" button to "disable"
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "编辑功能已禁用"
 
@@ -44,8 +88,10 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     And I click the "TagIcon" button
     And I click the "AddTag" button
-    And I set the parameter "TagInput" with value "testSearch"
-    And I click the "SaveTagInput" button
+    When I set the parameter "TagName" with value "testSearch"
+    And I click the "EnsureCreateTagButton" button
+#    And I set the parameter "TagInput" with value "testSearch"
+#    And I click the "SaveTagInput" button
 
   Scenario: 验证标签搜索
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -76,6 +122,8 @@ Feature: 仪表盘详情页
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
+    And I click the "FenPianQuYang" button
+    And I alter the input element "FenPianQuYang" value to "0"
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -97,22 +145,90 @@ Feature: 仪表盘详情页
     When I click the "AddEventButton" button
     And I click the "AddChart" button
     And I set the parameter "SearchChartInput" with value "验证仪表盘全局时间"
+    And I wait for loading invisible
     And I click the "{'Checkbox':'验证仪表盘全局时间'}" button
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
-  Scenario: 验证全局时间生效
+  Scenario: 复制标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "SettingIcon" will be visible
     And I click the "SettingIcon" button
-    And I click the "ShowFilter" button
-    And I click the "DateEditor" button
+    And I click the "CopyTag" button
+    And I wait for "3000" millsecond
+    And I click the "TagIcon" button
+    And I wait for "LastTag" will be visible
+    Then I will see the element "LastTag" value is "testSearch_copy"
+
+  Scenario: 高级编辑
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "SettingIcon" will be visible
+    And I click the "SettingIcon" button
+    And I click the "SuperEdit" button
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    Then I will see the "TrendTitle" result will be "验证仪表盘全局时间"
+
+  Scenario: 新建全局时间选择器
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "AddIcon" button
+    And I click the "addInput" button
+    And I set the parameter "inputSettingTitle" with value "全局时间"
+    And I click the "inputSettingType" button
+#    And I choose the "时间范围" from the "LastDropdownList"
+    And I click the "timeRangee" button
+    Then I wait for "setGlobalTimeRange" will be visible
+    And I click the "setGlobalTimeRange" button
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "添加输入项成功"
+
+
+  Scenario: 验证全局时间生效及打开过滤输入项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "enable"
+    And I click the "DateEditor" button under some element
     And I click the "Shortcut" button
     And I click the "Yesterday" button
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
+
+  Scenario: 关闭过滤输入项自动更新
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
+    And I wait for "Update" will be visible
+    And I click the "DateEditor" button under some element
+    And I click the "Shortcut" button
+    And I click the "Today" button
+#    And I wait for "Progress" will be invisible
+    And I will see the "DropdownLink" result will be "最近1天"
+    And I click the "Update" button
+    And I wait for "Progress" will be invisible
+    Then I will see the "DropdownLink" result will be "今天"
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "enable"
 
   Scenario: 存为报表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -135,6 +251,34 @@ Feature: 仪表盘详情页
     And I click the "Save" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
+
+  Scenario: 删除全局时间
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "TimeName" button
+    And I click the "deleteTimeTag" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button under some element
+    Then I wait for "TimeName" will be invisible
+
+  @cleanDashboard
+  Scenario Outline: 删除验证仪表盘全局时间趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond  
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name   |
+      | 验证仪表盘全局时间 |
+
 
   Scenario Outline: 删除报表
     When open the "report.ListPage" page for uri "/reports/"

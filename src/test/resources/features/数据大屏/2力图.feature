@@ -18,7 +18,9 @@ Feature: 数据大屏-e力图
     And I wait for "Force" will be visible
     And I drag the scroll bar to the element "Force"
     And I click the "Force" button
+    And I wait for "500" millsecond
 
+    And I wait for "Style" will be visible
     And I click the "Style" button
     #样式
     And I wait for "ChartTag" will be visible
@@ -44,11 +46,10 @@ Feature: 数据大屏-e力图
     And I set the parameter "globalStyleName" with value "力图-样式搜索"
      #开启背景动画
     And I click the "backgroundAuto" button
-    #数据
+
+      #数据
     And I click the "Data" button
     And I set the parameter "SplInput" with value "tag:sample04061424_chart| stats count() by apache.clientip,apache.request_path |limit 10"
-#    And I click the "DateEditor" button
-#    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
@@ -149,7 +150,7 @@ Feature: 数据大屏-e力图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart| stats count() by apache.clientip,apache.request_path |limit 10"

@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropDimension @dragAndDropCreate
+@dragAndDrop @dragAndDropDimension @trend
 Feature: 拖拽生成趋势图_维度
 
   Background:
@@ -38,8 +38,8 @@ Feature: 拖拽生成趋势图_维度
     And I wait for "500" millsecond
     Then I wait for "Chart" will be visible
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "actual/<chartType>"
-    And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>"
+    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page

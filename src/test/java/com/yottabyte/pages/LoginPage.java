@@ -1,8 +1,5 @@
 package com.yottabyte.pages;
 
-import com.yottabyte.stepDefs.ClickSomeButton;
-import com.yottabyte.stepDefs.SetKeyWithValue;
-import com.yottabyte.utils.ElementExist;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +15,7 @@ public class LoginPage extends PageTemplate {
     public LoginPage(WebDriver driver) {
         super(driver);
         webDriver = driver;
-        webDriver.manage().window().fullscreen();
+//        webDriver.manage().window().fullscreen();
         parentPageName = "";
     }
 
@@ -27,6 +24,20 @@ public class LoginPage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement errorMessage;
+
+    @FindBy(xpath = "//span[text()='去修改→']")
+    private WebElement modify;
+
+    @FindBy(className = "ant-popover-inner-content")
+    private WebElement innerContent;
+
+    public WebElement getInnerContent() {
+        return innerContent;
+    }
+
+    public WebElement getModify() {
+        return modify;
+    }
 
     public WebElement getUsername() {
         return this.getInputElement("用户名");
@@ -40,7 +51,23 @@ public class LoginPage extends PageTemplate {
         return super.getButton("登 录");
     }
 
+<<<<<<< HEAD
 
+||||||| merged common ancestors
+=======
+    public WebElement getUpdate() {
+        return super.getButton("更 新");
+    }
+
+    public WebElement getNewPassword() {
+        return this.getInputElement("新密码");
+    }
+
+    public WebElement getRepeatPassword() {
+        return this.getInputElement("重复密码");
+    }
+
+>>>>>>> 5469ee6f50b0866be8576a58526781f5218f6fdc
     public String getTitle() {
         return webDriver.getTitle();
     }

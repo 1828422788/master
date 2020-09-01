@@ -31,8 +31,6 @@ Feature: 拓扑图图标节点
     When I click the detail which name is "图标节点"
     And I will see the "topology.DetailPage" page
     Then I wait for "ImgNode" will be visible
-    And I refresh the website
-    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario: 更新图标节点
@@ -52,8 +50,6 @@ Feature: 拓扑图图标节点
     When I click the detail which name is "图标节点"
     And I will see the "topology.DetailPage" page
     And I wait for "ExchangeMachineIcon" will be visible
-    And I refresh the website
-    And I accept alert window
     And open the "topology.ListPage" page for uri "/topology/"
 
   Scenario Outline: 删除拓扑图

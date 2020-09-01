@@ -21,6 +21,10 @@ Feature: 展示趋势图
     @viewTrendOrder
     Examples:
       | name                                     |
+      | ColumnChart_分面                         |
+      | ScatterChart_分面                        |
+      | AreaChart_分面                           |
+      | LineChart_分面                           |
       | ScatterChart_2492_limit                  |
       | ColumnChart_2500_limit                   |
       | AreaChart_2483_ConnectEmptyData          |
@@ -38,6 +42,8 @@ Feature: 展示趋势图
     @viewTrendDimension
     Examples:
       | name                                     |
+      | Flame_图外钻取_分面                      |
+      | Flame_图内钻取                           |
       | Sun_分面                                 |
       | Bar_展示全部_分面                        |
       | Rose_只展示名称_分面                     |
@@ -54,6 +60,7 @@ Feature: 展示趋势图
       | Bar_展示全部_柱状内中央                   |
       | Bar_展示全部_柱状外右侧                   |
       | Bar_展示全部_柱状外左侧                   |
+      | Bar_展示全部_柱状外两侧                   |
       | Bar_只展示名称_柱状内靠右侧               |
       | Bar_只展示名称_柱状内靠左侧               |
       | Bar_只展示名称_柱状内中央                 |
@@ -68,6 +75,9 @@ Feature: 展示趋势图
     @viewTrendConnection
     Examples:
       | name                                     |
+#      | Force_分面                               |
+      | Sankey_分面                              |
+      | Chord_分面                               |
       | Sankey_Multistage                        |
 #      | Force_repulsion                          |
 #      | Force_2511                               |
@@ -83,6 +93,8 @@ Feature: 展示趋势图
     @viewTrendMap
     Examples:
       | name                                     |
+      | Regionmap_分面                           |
+      | Heatmap_分面                             |
       | Regionmap_Jiangsu_2547_white             |
       | Regionmap_China_2546_white               |
       | Regionmap_2545_white                     |
@@ -92,16 +104,25 @@ Feature: 展示趋势图
       | Attackmap_World_2542                     |
       | Regionmap_2545                           |
       | Heatmap_2539                             |
-#  parameters of statistical map displayed not correctly - bug
-#      | Statisticalmap_2098_param                |
+
+    @viewTrendStatMap
+    Examples:
+      | name                                     |
+      | Statisticalmap_2098_param                |
       | Statisticalmap_2098                      |
-#      | Statisticalmap_2797_param                |
+      | Statisticalmap_2797_param                |
       | Statisticalmap_2797                      |
+      | Statisticalmap_Google                    |
+      | Statisticalmap_Gtimg                     |
+      | Statisticalmap_OSM                       |
+      | Statisticalmap_Amap                      |
+      | Statisticalmap_ArcGIS                    |
 
 
     @viewTrendOther
     Examples:
       | name                            |
+      | NetworkNode                     |
       | Chain_2831_tree                 |
       | Chain_2982_tree                 |
       | Table_Test                      |
@@ -135,6 +156,7 @@ Feature: 展示趋势图
       | Single_icon                     |
       | Funnel_2654                     |
       | Radar_2633                      |
+#      | Wordcloud_分面                  |
 #      | Wordcloud_2625                  |
       | Single_2549                     |
 

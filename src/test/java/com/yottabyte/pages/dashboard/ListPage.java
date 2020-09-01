@@ -23,7 +23,7 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[contains(text(),'返回列表')]")
     private WebElement returnList;
 
-    @FindBy(xpath = "//div[text()='请选择所属应用']")
+    @FindBy(xpath = "//span[text()='所属应用']/following-sibling::span/div")
     private WebElement belongedApp;
 
     public WebElement getBelongedApp() {
@@ -45,6 +45,10 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getResourceInput() {
         return this.getInput("资源标签");
+    }
+
+    public WebElement getAppOwningInput() {
+        return this.getInput("所属应用");
     }
 
     public WebElement getInput(String name) {

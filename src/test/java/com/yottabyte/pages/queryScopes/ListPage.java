@@ -19,6 +19,40 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-modal-content")
     private WebElement modalContent;
 
+    @FindBy(xpath = "//td[text()='SearchAuth']/ancestor::tr//label")
+    private WebElement searchAuth;
+
+    @FindBy(xpath = "//div[text()='请选择用户']")
+    private WebElement authUser;
+
+    @FindBy(id = "ConfigModify_expiredTime")
+    private WebElement expiredTime;
+
+    @FindBy(className = "ant-calendar-input")
+    private WebElement calendarInput;
+
+    @FindBy(className = "ant-calendar-ok-btn")
+    private WebElement calendarEnsure;
+
+    @FindBy(xpath = "(//input[@id='ConfigModify_desensiveChecked']/ancestor::span)[last()]")
+    private WebElement desensiveChecked;
+
+    public WebElement getDesensiveChecked() {
+        return desensiveChecked;
+    }
+
+    public WebElement getCalendarEnsure() {
+        return calendarEnsure;
+    }
+
+    public WebElement getCalendarInput() {
+        return calendarInput;
+    }
+
+    public WebElement getExpiredTime() {
+        return expiredTime;
+    }
+
     public WebElement getModalContent() {
         return modalContent;
     }
@@ -53,5 +87,22 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getMessage() {
         return successMessage;
+    }
+
+    public WebElement getTempAuth() {
+        return super.getButton("临时授权");
+    }
+
+    public WebElement getAuth() {
+        return super.getButton("授权");
+    }
+
+    public WebElement getSearchAuth() {
+        return searchAuth;
+    }
+
+    public WebElement getAuthUser() {
+        authUser.click();
+        return super.getLastDropdownList();
     }
 }

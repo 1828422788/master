@@ -33,6 +33,7 @@ Feature: 报表_删除
       |  test_deleteFirst     |
       |  test_deleteLast      |
       |  test_10trends        |
+      |  test_5trends         |
 
     @cleanReportFromTrend
     Examples:
@@ -69,7 +70,7 @@ Feature: 报表_删除
 
 
 
-  @cleanReport @cleanReportPDF @cleanReportCharts @cleanKate @clean
+  @cleanReport @cleanReportPDF @cleanReportCharts
   Scenario Outline: delete_report_charts_pdf
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>_PDF"
@@ -140,6 +141,54 @@ Feature: 报表_删除
       |   Single_range_backgr|
 #      |   Single_font        |
 #      |   Single_icon        |
+      |   Single             |
+      |   Regionmap_Jiangsu  |
+      |   Regionmap_China    |
+      |   Regionmap_World    |
+      |   Attackmap_China    |
+      |   Attackmap_World    |
+      |   Heatmap            |
+      |   Multiaxis          |
+      |   Rangeline          |
+      |   Sankey_Mult        |
+      |   Force              |
+      |   Sankey             |
+      |   Chord              |
+      |   Bar2               |
+      |   Bar1               |
+      |   Sun                |
+      |   Bar                |
+      |   Rose               |
+      |   Pie                |
+      |   ScatterChart       |
+      |   ColumnChart_Pile   |
+      |   AreaChart_Pile     |
+      |   AreaChart          |
+      |   LineChart          |
+
+  @cleanReportWORD @cleanReportCharts
+  Scenario Outline: delete_report_charts_word
+    When open the "report.ListPage" page for uri "/reports/"
+    And I set the parameter "SearchInput" with value "<name>_WORD"
+    And I wait for "2000" millsecond
+    And the data name is "{'column':'1','name':'<name>_WORD'}" then i click the "删除" button
+    Then I will see the message "此操作将删除 [<name>_WORD], 是否继续？"
+    When I click the "EnsureButton" button
+    And I wait for "500" millsecond
+    Then I will see the message "删除成功"
+    And I click the "EnsureButton" button
+
+    Examples:
+      |          name        |
+      |   Table              |
+      |   Matrixheatmap      |
+      |   Funnel             |
+      |   Radar              |
+      |   Wordcloud          |
+      |   Liquidfill         |
+      |   Single_range_backgr|
+      |   Single_font        |
+      |   Single_icon        |
       |   Single             |
       |   Regionmap_Jiangsu  |
       |   Regionmap_China    |

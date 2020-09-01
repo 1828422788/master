@@ -43,6 +43,7 @@ Feature: 仪表盘和弦图
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name |
@@ -100,6 +101,22 @@ Feature: 仪表盘和弦图
       | name   | targetName |
       | 仪表盘和弦图 | Chord      |
 
+  @dashboard
+  Scenario Outline: 验证配置是否在高级编辑中体现
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+#    Then I will see the "TextLayer" result will be "<json>"
+
+    Examples:
+      | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
+      | 仪表盘和弦图 |  \n  "chart": {\n    "chartType": "chord",\n    "fromField": "apache.x_forward",\n    "toField": "apache.resp_len",\n    "weightField": "count()",\n    "repulsionField": 8,\n    "precision": ""\n  } |
+
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -118,6 +135,7 @@ Feature: 仪表盘和弦图
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:

@@ -1,4 +1,4 @@
-@authtest
+#@auth
 Feature: 权限-应用列表页
 
   Scenario: 授权可使用应用功能,可新建应用,可使用数据集,数据集操作权限
@@ -10,10 +10,9 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用拓扑图,新建拓扑图"
+    When I "checked" the checkbox which name is "可查看应用,可新建应用,可查看拓扑图,新建拓扑图"
     And I click the "SaveButton" button
 
-  @logout
   Scenario Outline: 验证可新建应用
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
@@ -46,16 +45,14 @@ Feature: 权限-应用列表页
       | name            | menuName | url            |
       | EventAppForAuth | 事件操作     | /event/action/ |
 
-  Scenario: 授权可使用应用功能
+  Scenario: 取消可新建应用权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集"
+    When I "unchecked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -79,9 +76,7 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集,新建拓扑图,可新建应用"
+    When I "checked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -110,9 +105,7 @@ Feature: 权限-应用列表页
     And I wait for loading invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集,新建拓扑图"
+    And I "unchecked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     And I wait for "Loading" will be invisible
@@ -161,9 +154,7 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集"
+    When I "checked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -210,11 +201,8 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集"
+    When I "unchecked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
@@ -245,14 +233,6 @@ Feature: 权限-应用列表页
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集,可使用入库优先级"
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
@@ -291,12 +271,6 @@ Feature: 权限-应用列表页
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可使用数据集"
-    And I click the "SaveButton" button
     Then I click the "{'TabButton':'应用'}" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
@@ -311,7 +285,7 @@ Feature: 权限-应用列表页
     And I will see the success message "更新成功"
 
     Examples:
-      | name  |
+      | name            |
       | AutoTestForAuth |
 
   @logout
@@ -323,11 +297,8 @@ Feature: 权限-应用列表页
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集,可使用事件操作"
+    When I "checked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
@@ -360,13 +331,7 @@ Feature: 权限-应用列表页
 
   @logout
   Scenario: 验证有效期限生效
-    Given I wait for "2000" millsecond
-    And I logout current user
-    And I wait for "2000" millsecond
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -379,14 +344,6 @@ Feature: 权限-应用列表页
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集"
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
@@ -394,14 +351,7 @@ Feature: 权限-应用列表页
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -438,27 +388,12 @@ Feature: 权限-应用列表页
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用应用功能,可新建应用,可使用数据集,可使用事件操作"
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -496,24 +431,11 @@ Feature: 权限-应用列表页
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "app.ListPage" page for uri "/app/list/"
     And I wait for loading invisible
@@ -587,12 +509,6 @@ Feature: 权限-应用列表页
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'应用'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table

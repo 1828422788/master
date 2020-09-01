@@ -43,6 +43,7 @@ Feature: 仪表盘水球图
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name |
@@ -114,25 +115,55 @@ Feature: 仪表盘水球图
       | 仪表盘水球图 | {\n  "title": "仪表盘水球图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:*display \| stats count() by apache.clientip \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "liquidfill",\n    "field": "count()",\n    "precision": ""\n  }\n} |
 
   @dashboard
-  Scenario Outline: RZY-1362:修改field
+  Scenario: RZY-1362:修改field为空
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "<name>"
+    And I click the detail which name is "仪表盘水球图"
     Then I will see the "dashboard.DetailPage" page
-    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘水球图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I set the parameter "<json>" to json editor
+    And I set the parameter "{"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "","precision": ""}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
+
+  @dashboard
+  Scenario: RZY-1362:修改field为不存在
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘水球图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘水球图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "qwertycount()","precision": ""}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    Then I wait for element "SuccessMessage" change text to "配置成功"
+    And I wait for "2000" millsecond
+    Then I wait for "NoData" will be visible
+
+  @dashboard
+  Scenario: RZY-1362:修改field为'apache.clientip'
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘水球图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
+    When the chart title is "仪表盘水球图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I set the parameter "{"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display | stats count() by apache.clientip | limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "apache.clientip","precision": ""}}" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
     Then I click the "Ensure" button
     Then I wait for element "SuccessMessage" change text to "配置成功"
     And I wait for "2000" millsecond
-    And take part of "FullScreen" with name "dashboard/<name>1362"
-#    Then I compare source image "dashboard/<name>1362" with target image "dashboard/Liquidfill1362"
+    Then I wait for "NoData" will be visible
 
-    Examples:
-      | name   | json                                                                                                                                                                                                                                                                         |
-      | 仪表盘水球图 | {"title": "仪表盘水球图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:*display \| stats count() by apache.clientip \| limit 10","startTime": "now/d","endTime": "now"},"chart": {"chartType": "liquidfill","field": "apache.clientip","precision": ""}} |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

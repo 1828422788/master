@@ -119,16 +119,17 @@ public class SetKeyWithValue {
                 e.printStackTrace();
             }
             sendKeys(element, value);
+            System.out.println(times);
             times++;
         }
     }
 
     private void sendKeys(WebElement element, String value) {
         element.click();
-        //element.sendKeys(Keys.CONTROL + "a");
-//            element.sendKeys(Keys.END);
-//            element.sendKeys(Keys.SHIFT, Keys.HOME);
-//            element.sendKeys(Keys.BACK_SPACE);
+        element.sendKeys(Keys.CONTROL + "a");
+            element.sendKeys(Keys.END);
+            element.sendKeys(Keys.SHIFT, Keys.HOME);
+            element.sendKeys(Keys.BACK_SPACE);
         element.clear();
         element.sendKeys(value);
 

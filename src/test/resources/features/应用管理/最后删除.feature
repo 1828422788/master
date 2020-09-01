@@ -23,6 +23,7 @@ Feature: 应用删除
       | ConfigsApp                  |
       | AuthApp                     |
       | DatasetApp                  |
+      | KVApp                       |
 
   Scenario: 删除数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"

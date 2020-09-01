@@ -62,7 +62,7 @@ Feature: 应用索引配置(RZY-2183)
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.ListPage" page
-    When the data name is "{'column':'1','name':'auto_app_create'}" then i click the "编辑" button
+    When the data name is "{'column':'0','name':'auto_app_create'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.CreatePage" page
@@ -71,21 +71,12 @@ Feature: 应用索引配置(RZY-2183)
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
 
-  Scenario: 索引禁用
-    When I click the "Index" button
-    And I will see the "app.AppPage" page
-    And I will see the element "Title" name is "AutoTestAppWithAllResources"
-    And I will see the "index.ListPage" page
-    Then the data name is "{'column':'1','name':'auto_app_create'}" then I "close" the switch
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "禁用成功"
-
   Scenario: 删除索引
     When I click the "Index" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     Then I will see the "index.ListPage" page
-    When the data name is "{'column':'1','name':'auto_app_create'}" then i click the "删除" button
+    When the data name is "{'column':'0','name':'auto_app_create'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I wait for element "Message" change text to "删除成功"

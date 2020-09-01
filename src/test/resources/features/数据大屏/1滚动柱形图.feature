@@ -36,23 +36,23 @@ Feature: 数据大屏-h滚动柱形图
     #字体大小
     And I set the parameter "RollHistWordSize" with value "28"
     #字体颜色
-    And I click the "rollHistFontColor" button
-    And  I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#DD6D6D"
+#    And I click the "rollHistFontColor" button
+    And  I wait for "rollHistFontColor" will be visible
+    And I set the parameter "rollHistFontColor" with value "#DD6D6D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I choose the "bold" from the "RollHistWordBold"
     #图表颜色1
-    And I click the "chartColor1" button
-    And  I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#EA90E8"
+#    And I click the "chartColor1" button
+    And  I wait for "chartColor1" will be visible
+    And I set the parameter "chartColor1" with value "#EA90E8"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #图表颜色2
-    And I click the "chartColor2" button
-    And  I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#FFEA00"
+#    And I click the "chartColor2" button
+    And  I wait for "chartColor2" will be visible
+    And I set the parameter "chartColor2" with value "#FFEA00"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #4 全局样式修改名成
@@ -166,7 +166,7 @@ Feature: 数据大屏-h滚动柱形图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"

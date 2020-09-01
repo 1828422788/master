@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropTimechart @dragAndDropCreate
+@dragAndDrop @dragAndDropTimechart @trend
 Feature: 拖拽生成趋势图_timechart
 
   Background:
@@ -61,8 +61,8 @@ Feature: 拖拽生成趋势图_timechart
     And I will see the element "SPL" contains "<SPLcheck>"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "Chart" with name "actual/<chartType>_timechart"
-    And I compare source image "actual/<chartType>_timechart" with target image "expect/<chartType>_timechart"
+    Then take part of "Chart" with name "actual/拖拽_<chartType>_timechart"
+#    And I compare source image "actual/拖拽_<chartType>_timechart" with target image "expect/拖拽_<chartType>_timechart"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page

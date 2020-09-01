@@ -29,8 +29,12 @@ Feature: 仪表盘统计地图
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
+    And I click the "FenPianQuYang" button
+    And I alter the input element "FenPianQuYang" value to "0"
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -53,6 +57,7 @@ Feature: 仪表盘统计地图
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name |
@@ -91,6 +96,7 @@ Feature: 仪表盘统计地图
     And I click the "Geostatsmap" button
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "500" millsecond
     And I click the "TrendTitle" button
     And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/Geostatsmap"

@@ -72,6 +72,47 @@ Feature: 趋势图新建-其他
       | chartType | caseNum | spl                                                                                                          |
       | Wordcloud | 2625    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city  |
 
+
+  Scenario Outline: others_wordcloud_facet
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
+#    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
+    And I set the parameter "DescribeInput" with value "AutoCreate"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType    |caseNum  |   spl   |
+      |   Wordcloud   | 分面    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city, apache.method \| limit 7 |
+
+
   Scenario Outline: single_icon
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") "
     And I wait for "500" millsecond
@@ -821,7 +862,7 @@ Feature: 趋势图新建-其他
       | Matrixheatmap | count()         | apache.status | 10     | 2660    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       | Matrixheatmap | apache.geo.city | count()       | 5      | 2661    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-  @chain
+
   Scenario Outline: chain
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
@@ -931,7 +972,7 @@ Feature: 趋势图新建-其他
     And I click the "NextButton" button
     Then I wait for "SuccessCreate" will be visible
 
-  @chain
+
   Scenario Outline: chain_tree
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
@@ -980,4 +1021,54 @@ Feature: 趋势图新建-其他
       | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
       | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
 
+    @networktrend
+  Scenario Outline: network
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
 
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Indicators" button
+    And I click the "AddIndicator" button
+    And I choose the "cnt" from the "FieldValue" in config
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "5"
+    And I set the parameter "MaxRange" with value "7"
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "7"
+    And I set the parameter "MaxRange" with value "8"
+    And I click the "Exhibition" button
+    And I set the parameter "Repulsion" with value "<repValue>"
+    And I click the "AddColor" button
+    And I click the "<color_1>" button
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/<chartType>_1"
+    And I compare source image "actual/<chartType>_1" with target image "expect/<chartType>_1"
+    And I click the "Click<node>" button
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_2"
+    And I compare source image "actual/<chartType>_2" with target image "expect/<chartType>_2"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>"
+    And I set the parameter "DescribeInput" with value "in<color>_out<color_1>_<repValue>_<node>"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType    | color   | color_1 | repValue |  node    |
+      |  NetworkNode  | Red     | Orange  | 20       |  Beijing |

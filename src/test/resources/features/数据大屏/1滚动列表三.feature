@@ -14,6 +14,7 @@ Feature: 数据大屏-l滚动列表三
     And I set the parameter "Name" with value "滚动列表3样式-搜索"
     And I click the "Ensure" button
       #选择滚动列表三
+    And I move the mouse pointer to the "Chart"
     And I click the "Chart" button
     And I wait for "rollList3" will be visible
     And I click the "rollList3" button
@@ -89,6 +90,7 @@ Feature: 数据大屏-l滚动列表三
     And I set the parameter "Name" with value "滚动列表3数据之静态数据"
     And I click the "Ensure" button
       #选择滚动列表三
+    And I move the mouse pointer to the "Chart"
     And I click the "Chart" button
     And I wait for "rollList3" will be visible
     And I click the "rollList3" button
@@ -155,7 +157,7 @@ Feature: 数据大屏-l滚动列表三
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"
@@ -165,6 +167,7 @@ Feature: 数据大屏-l滚动列表三
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
 #选择滚动列表三
+    And I move the mouse pointer to the "Chart"
     And I click the "Chart" button
 
     And I wait for "rollList3" will be visible

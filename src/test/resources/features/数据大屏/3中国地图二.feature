@@ -19,6 +19,7 @@
     And I hide the element "MapDropdown"
 #设置样式
     #1 设置图表尺寸位置
+    And I wait for "Style" will be visible
     And I click the "Style" button
     And I click the "ChartPosition" button
     And I wait for "Width" will be visible
@@ -30,23 +31,23 @@
     And I click the "MapHeader" button
       #区域默认是【中国】
        #名称颜色
-    And I click the "ChineseMapTwoNameColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#9FF50B"
+#    And I click the "ChineseMapTwoNameColor" button
+    And I wait for "ChineseMapTwoNameColor" will be visible
+    And I set the parameter "ChineseMapTwoNameColor" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
       #数值颜色
-    And I click the "ChineseMapTwoNumberColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#9FF50B"
+#    And I click the "ChineseMapTwoNumberColor" button
+    And I wait for "ChineseMapTwoNumberColor" will be visible
+    And I set the parameter "ChineseMapTwoNumberColor" with value "#9FF50B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #边框宽度
     And I set the parameter "borderWidth" with value "5"
     #边框颜色
-    And I click the "borderColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D72644"
+#    And I click the "borderColor" button
+    And I wait for "borderColor" will be visible
+    And I set the parameter "borderColor" with value "#D72644"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #3 全局样式修改名成
@@ -106,7 +107,7 @@
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
-      And I click the "Style" button
+      And I wait for "Data" will be visible
      #数据设置
       And I click the "Data" button
       And I set the parameter "SplInput" with value "tag:sample04061424_chart|stats count() by apache.geo.province"
@@ -158,7 +159,7 @@
       And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
-      And I click the "otherSearch" button
+      And I click the "otherSearch" button under some element
       And I hide the element "otherDropdown"
       And I wait for "SplInput" will be visible
       And I set the parameter "SplInput" with value "tag:sample04061424_chart|stats count() by apache.geo.province"
@@ -173,6 +174,7 @@
       #选择中国地图二
       And I click the "ChineseMapTwo" button
       And I hide the element "MapDropdown"
+      And I wait for "Style" will be visible
       And I click the "Style" button
       #在数据源类型中选择绑定搜索
       And I click the "Data" button

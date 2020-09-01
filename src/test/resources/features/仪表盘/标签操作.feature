@@ -22,6 +22,7 @@ Feature: 仪表盘标签操作
     When I set the parameter "TagName" with value "第一个标签"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I back to before
 
   Scenario: 移出标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

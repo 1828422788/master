@@ -8,7 +8,7 @@ Feature: 日志展现_普通统计视图
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   Scenario Outline: count(RZY-807,808,809,810)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -33,7 +33,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: count_independent(RZY-2718)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -106,7 +106,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: dataslice(RZY-814,3137)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -137,7 +137,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: timehistogram(RZY-815)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d-19h\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -160,7 +160,7 @@ Feature: 日志展现_普通统计视图
       | 3600     | 秒     | 815_时间直方图/815_3600s  |
       | 60       | 分钟   | 815_时间直方图/815_60m    |
 
-    @test_month
+
   Scenario Outline: timehistogram(RZY-2725)
     When I set the parameter "SearchInput" with value "tag:display_may"
     And I click the "DateEditor" button
@@ -194,7 +194,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: datehistogram(RZY-816)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -218,7 +218,7 @@ Feature: 日志展现_普通统计视图
 
 # can not compare, because of same values
   Scenario Outline: classifyfieldvalue(RZY-817)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -244,7 +244,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: fieldnumber1(RZY-2727)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d-19h\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -272,7 +272,7 @@ Feature: 日志展现_普通统计视图
       |  最大值   |  散点图   |   60    |  分钟 |
       |  最小值   |  柱状图   |  3600   |  秒   |
 
-    @test_month
+
   Scenario Outline: fieldnumber2(RZY-2727)
     When I set the parameter "SearchInput" with value "tag:display_may"
     And I click the "DateEditor" button
@@ -309,7 +309,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: totalpercent(RZY-819,2730)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -335,7 +335,7 @@ Feature: 日志展现_普通统计视图
 
 
   Scenario Outline: percentdegree(RZY-821, 3136)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -360,7 +360,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario: multilevelstats_step1(RZY-822)
     # types of chart
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -381,7 +381,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario: multilevelstats_step2(RZY-822)
     # types of chart
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -409,7 +409,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario: multilevelstats_step3(RZY-822)
     # types of chart
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
@@ -435,17 +435,16 @@ Feature: 日志展现_普通统计视图
     And I click the "StatisticsGram" button
     And I choose the "饼图" from the "PresentType" in config
     And I click the "Generate" button
-    # RZY-6164
-#    And I wait for "2000" millsecond
-#    And I wait for "Chart" will be visible
-#    And I drag the scroll bar to the element "Chart"
-#    And I wait for "2000" millsecond
-#    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step3"
+    And I wait for "2000" millsecond
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/822_多级统计/822_chart_step3"
 #    Then I compare source image "actual/普通统计视图/822_多级统计/822_chart_step3" with target image "expect/普通统计视图/822_多级统计/822_chart_step3"
 
 
   Scenario:geogrdistr(RZY-825)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_display"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button

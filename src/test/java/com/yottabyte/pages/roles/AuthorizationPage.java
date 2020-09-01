@@ -86,6 +86,18 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//a[text()='知识'])[last()]")
     private WebElement knowledge;
 
+    public WebElement getAgent() {
+        return this.getMenuButton("Agent 管理");
+    }
+
+    public WebElement getData() {
+        return this.getFunctionButton("数据");
+    }
+
+    public WebElement getSearch() {
+        return this.getFunctionButton("搜索");
+    }
+
     public WebElement getKnowledge() {
         return knowledge;
     }
@@ -208,12 +220,20 @@ public class AuthorizationPage extends PageTemplate {
         return super.getErrorMessage();
     }
 
-
     private WebElement getElementFromTable(String targetName) {
         WebElement tr = Pagination.forEachThePaginationDesc(tab, 2, targetName);
         return tr;
     }
 
+    private WebElement getFunctionButton(String functionName) {
+        String xpath = "//div[text()='" + functionName + "']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    private WebElement getMenuButton(String menuName) {
+        String xpath = "//p[text()='" + menuName + "']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
 
     @Override
     protected void load() {

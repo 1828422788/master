@@ -6,6 +6,7 @@ Feature: 仪表盘柱状图
     And I click the "Create" button
     When I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "新建仪表盘成功"
 
     Examples:
@@ -43,6 +44,7 @@ Feature: 仪表盘柱状图
     When I set the parameter "TagName" with value "<name>"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name |
@@ -74,10 +76,12 @@ Feature: 仪表盘柱状图
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
+    And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
     And I wait for "Order" will be visible
-    And I click the "Order" button
+    And I click the "Order" button under some element
+    And I wait for "<targetName>" will be visible
     And I click the "<targetName>" button
     And I hide the element "Content"
     And I wait for "1000" millsecond
@@ -109,12 +113,134 @@ Feature: 仪表盘柱状图
       | name   | targetName  |
       | 仪表盘柱状图 | ColumnChart |
 
+  @dashboard
+  Scenario: 序列图支持的钻取变量预置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘柱状图"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10"
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "配置成功"
+    And I wait for "1500" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenDrilldown" button to "enable"
+    And I wait for "500" millsecond
+
+  @dashboard
+  Scenario: 序列图支持的钻取变量click.name
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘柱状图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "500" millsecond
+    And I choose the "跳转到搜索页" from the "DrillAction"
+    And I click the "Custom" button
+    And I set the parameter "Spl" with value "* | stats count() by ${click.name}"
+    And I click the "DateEditor" button
+    And I click the "Shortcut" button
+    And I click the "Today" button
+    And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I wait for "3000" millsecond
+    And I click the "Zhutiao" button
+    Then I wait for title change text to "搜索"
+    And I will see the "splSearch.SearchPage" page
+    Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
+    Then I will see the input element "TimeRange" value will contains "今天"
+
+  @dashboard
+  Scenario: 序列图支持的钻取变量click.value
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘柱状图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "500" millsecond
+    And I choose the "跳转到搜索页" from the "DrillAction"
+    And I click the "Custom" button
+    And I set the parameter "Spl" with value "apache.clientip:${click.value}"
+    And I click the "DateEditor" button
+    And I click the "Shortcut" button
+    And I click the "Today" button
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I wait for "3000" millsecond
+    And I click the "Zhutiao" button
+    And switch to another window
+#    And I close all tabs except main tab
+    And I will see the "splSearch.SearchPage" page
+    Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
+    Then I will see the input element "TimeRange" value will contains "今天"
+
+  @dashboard
+  Scenario: 序列图支持的钻取变量click.name2
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘柱状图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "500" millsecond
+    And I choose the "跳转到搜索页" from the "DrillAction"
+    And I click the "Custom" button
+    And I set the parameter "Spl" with value "* | stats ${click.name2} by appname"
+    And I click the "DateEditor" button
+    And I click the "Shortcut" button
+    And I click the "Today" button
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I wait for "3000" millsecond
+    And I click the "Zhutiao" button
+    And switch to another window
+#    And I close all tabs except main tab
+    And I will see the "splSearch.SearchPage" page
+    Then I will see the "SearchInput" result will be "* | stats count() by appname"
+    Then I will see the input element "TimeRange" value will contains "今天"
+
+  @dashboard
+  Scenario: 序列图支持的钻取变量click.value2
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘柱状图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘柱状图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "500" millsecond
+    And I choose the "跳转到搜索页" from the "DrillAction"
+    And I click the "Custom" button
+    And I set the parameter "Spl" with value "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==${click.value2}"
+    And I click the "DateEditor" button
+    And I click the "Shortcut" button
+    And I click the "Today" button
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I wait for "3000" millsecond
+    And I click the "Zhutiao" button
+    And switch to another window
+    And I close all tabs except main tab
+    And I will see the "splSearch.SearchPage" page
+    Then I will see the "SearchInput" result will contain "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==2"
+#    Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==6"
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
@@ -127,6 +253,7 @@ Feature: 仪表盘柱状图
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:

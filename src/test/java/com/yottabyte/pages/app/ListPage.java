@@ -31,7 +31,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getCreateButton() {
-        return super.getButton("新 建");
+        return super.getButton("制 作");
     }
 
     public WebElement getInstallButton() {

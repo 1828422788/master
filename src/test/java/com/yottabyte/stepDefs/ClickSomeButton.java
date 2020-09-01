@@ -133,4 +133,17 @@ public class ClickSomeButton {
 
         WebElement ul = webDriver.findElement(By.className("yw-searchbar__prepend-menu"));
     }
+
+    /**
+     * 如果元素存在则点击（word报表）
+     *
+     * @param buttonName 元素名称
+     */
+    @When("^I click the button with text \"([^\"]*)\"$")
+    public void clickTheButtonWithText(String buttonName) {
+        String xpath = "//span[text()='" + buttonName + " ']";
+        WebElement button = webDriver.findElement(By.xpath(xpath));
+        if (ElementExist.isElementExist(webDriver, button))
+            button.click();
+    }
 }
