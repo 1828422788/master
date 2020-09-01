@@ -51,10 +51,6 @@ public class LoginPage extends PageTemplate {
         return super.getButton("登 录");
     }
 
-<<<<<<< HEAD
-
-||||||| merged common ancestors
-=======
     public WebElement getUpdate() {
         return super.getButton("更 新");
     }
@@ -67,7 +63,6 @@ public class LoginPage extends PageTemplate {
         return this.getInputElement("重复密码");
     }
 
->>>>>>> 0e71a4c340a4993cff44966d1711f646ee78a8b6
     public String getTitle() {
         return webDriver.getTitle();
     }
