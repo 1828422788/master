@@ -395,21 +395,18 @@ Feature: 字典管理
     Then I wait for "1000" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
-    And I wait for loading invisible
+    And I wait for "1500" millsecond
     Then I set the parameter "UserFilter" with value "<user>"
-    And I wait for loading invisible
+    And I wait for "1500" millsecond
     Then I "checked" the label before "<user>" in the dictionary
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "保存成功"
     Then I click the "EnsureButton2" button
-    Then I wait for "1000" millsecond
-    Then I check the label "checked" status before "<user>" in the dictionary
-    Then I refresh the website
-    And I wait for loading invisible
+    And I wait for "800" millsecond
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     And I wait for "PopUpWindow" will be visible
-    And I wait for loading invisible
+    And I wait for "1000" millsecond
     Then I set the parameter "UserFilter" with value "<user>"
     And I wait for loading invisible
     Then I check the label "checked" status before "<user>" in the dictionary
@@ -441,9 +438,8 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "保存成功"
     Then I click the "EnsureButton2" button
-    Then I wait for "1000" millsecond
-    Then I check the label "checked" status before "<user>" in the dictionary
-    Then I wait for "2000" millsecond
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    Then I set the parameter "UserFilter" with value "<user>"
     Then I "unchecked" the label before "<user>" in the dictionary
     Then I click the "AuthCancelButton" button
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
@@ -477,19 +473,17 @@ Feature: 字典管理
     Then I wait for "Tip" will be visible
     Then I will see the success message "保存成功"
     Then I click the "EnsureButton2" button
-    Then I wait for "1000" millsecond
-    Then I check the label "checked" status before "<user>" in the dictionary
-    Then I wait for "2000" millsecond
+    Then I wait for "200" millsecond
+    Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    Then I set the parameter "UserFilter" with value "<user>"
+    Then I wait for loading invisible
     Then I "unchecked" the label before "<user>" in the dictionary
     Then I click the "EnsureButton" button
     Then I wait for "Tip" will be visible
     Then I will see the success message "保存成功"
     Then I click the "EnsureButton2" button
-    Then I wait for "1000" millsecond
-    Then I check the label "unchecked" status before "<user>" in the dictionary
-    Then I refresh the website
-    And I wait for loading invisible
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
+    Then I wait for loading invisible
     Then I set the parameter "UserFilter" with value "<user>"
     Then I wait for loading invisible
     Then I check the label "unchecked" status before "<user>" in the dictionary
