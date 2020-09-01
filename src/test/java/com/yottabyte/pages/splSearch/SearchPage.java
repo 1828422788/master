@@ -1612,7 +1612,6 @@ public class SearchPage extends ListPageFactory {
         return searchPageSvg;
     }
 
-<<<<<<< HEAD
 //  @FindBy(xpath = "//svg[@href='#icon-sousuoyeyemiantuozhuai']")
     @FindBy(xpath = "//svg[@id='icon-sousuoyeyemiantuozhuai']")
     private WebElement searchPageSvg1;
@@ -1631,8 +1630,4 @@ public class SearchPage extends ListPageFactory {
     public WebElement getSearchPageLeft1() {
         return searchPageLeft1;
     }
-||||||| merged common ancestors
-
-=======
->>>>>>> 0e71a4c340a4993cff44966d1711f646ee78a8b6
 }
