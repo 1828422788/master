@@ -16,6 +16,7 @@ Feature: 权限-agent
     And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     Then I will see the "CreateAgentGroupButton" doesn't exist
+    And I logout current user
 
   Scenario: 勾选新建agent分组权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -36,6 +37,7 @@ Feature: 权限-agent
     And I choose the "__admin__" from the "Role"
     And I click the "Save" button
     And I will see the element "Addsuccessmsg" name is "添加 Agent 分组成功"
+    And I logout current user
 
   Scenario Outline: 验证无读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -50,6 +52,7 @@ Feature: 权限-agent
     And I wait for "2000" millsecond
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     Then I will see the "<name>" doesn't exist
+    And I logout current user
 
     Examples:
       | name     |
@@ -87,6 +90,7 @@ Feature: 权限-agent
     And I click the "Addgroupinput" button
     And I wait for title change text to "Agent 分组采集配置"
     Then I will see the "AddDataSource" doesn't exist
+    And I logout current user
 
     Examples:
       | name     |
@@ -129,6 +133,7 @@ Feature: 权限-agent
     And I click the "Addgroupinput" button
     And I wait for title change text to "Agent 分组采集配置"
     Then I will see the "AddDataSource" doesn't exist
+    And I logout current user
 
     Examples:
       | name     |
@@ -205,6 +210,7 @@ Feature: 权限-agent
     And I click the "Delete" button
     And I click the "Ensure" button
     Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
+    And I logout current user
 
     Examples:
       | name    |
@@ -248,6 +254,7 @@ Feature: 权限-agent
     And switch to another window
     And I close all tabs except main tab
     Then I will see the agent result in column "1"
+    And I logout current user
 
     Examples:
       | name   |
@@ -279,6 +286,7 @@ Feature: 权限-agent
     And I set the parameter "Memo" with value "AutoTest"
     And I click the "EnsureButton" button
     Then I will see the element "GroupMemo" name is "修改备注成功"
+    And I logout current user
 
   Scenario Outline: 授权组内读取编辑+编辑权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -306,6 +314,7 @@ Feature: 权限-agent
     And I click the "AuthButton" button
     Then I will see the element "GroupMemo" name is "成功移出分组 [ 验证组内权限 ]"
     And I click the "FinishButton" button
+    And I logout current user
 
   Scenario: 删除Agent分组
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
@@ -322,6 +331,7 @@ Feature: 权限-agent
     Given open the "agent.GroupPage" page for uri "/agent/agentgroup/"
     And I wait for loading invisible
     Then I will see the "TestAuth" doesn't exist
+    And I logout current user
 
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -364,6 +374,7 @@ Feature: 权限-agent
     And I click the "Delete" button
     And I click the "Ensure" button
     Then I will see the element "Addsuccessmsg" name is "删除 Agent 分组成功"
+    And I logout current user
 
     Examples:
       | name     |
