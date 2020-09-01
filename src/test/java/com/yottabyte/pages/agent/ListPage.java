@@ -46,6 +46,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "(//span[text()='验证组内权限'])[2]")
     private WebElement authButton;
 
+    @FindBy(id = "update_comment_comment")
+    private WebElement memo;
+
     public WebElement getAgentExportButton() {
         return AgentExportButton;
     }
@@ -64,20 +67,34 @@ public class ListPage extends ListPageFactory {
         return AgentDownloadButton;
     }
 
+<<<<<<< HEAD
     @FindBy(xpath = "//span[text()='下载命令']/ancestor::button")
     private WebElement CopyLinux;
 
+||||||| merged common ancestors
+    @FindBy(xpath = "//span[text()='下载命令']")
+    private WebElement CopyLinux;
+
+=======
+>>>>>>> 0e71a4c340a4993cff44966d1711f646ee78a8b6
     public WebElement getCopyLinux() {
-        return CopyLinux;
+        return super.getButton("下载命令");
     }
 
     public WebElement getDownloadFile() {
-        return DownloadFile;
+        return super.getButton("下载文件");
     }
 
+<<<<<<< HEAD
     @FindBy(xpath = "//span[text()='下载文件']/ancestor::button")
     private WebElement DownloadFile;
 
+||||||| merged common ancestors
+    @FindBy(xpath = "//span[text()='下载文件']")
+    private WebElement DownloadFile;
+
+=======
+>>>>>>> 0e71a4c340a4993cff44966d1711f646ee78a8b6
     @FindBy(xpath = "//li/span[text()='下载安装包']")
     private WebElement AgentDownloadButton;
 
@@ -111,6 +128,19 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='分组设置']")
     private WebElement AgentGroupButton;
 
+    public WebElement getStop() {
+        return Stop;
+    }
+
+    @FindBy(xpath = "//span[text()='停止']")
+    private WebElement Stop;
+
+    public WebElement getStart() {
+        return Start;
+    }
+
+    @FindBy(xpath = "//span[text()='停止']")
+    private WebElement Start;
     public WebElement getAgentGroupButton() {
         return AgentGroupButton;
     }
@@ -136,7 +166,11 @@ public class ListPage extends ListPageFactory {
         return webDriver.findElement(By.xpath(xpath));
     }
     public WebElement getEnsureButton() {
-        String xpath = "//span[text()='确定']/ancestor::button";
+        String xpath = "(//span[text()='确定']/ancestor::button)[last()]";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+    public WebElement getCancelButton() {
+        String xpath = "(//span[text()='取消']/ancestor::button)[last()]";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -144,6 +178,13 @@ public class ListPage extends ListPageFactory {
         String xpath = "//span[text()='清空筛选']";
         return webDriver.findElement(By.xpath(xpath));
     }
+
+    public WebElement getAddsuccessmsg() {
+        return Addsuccessmsg;
+    }
+
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']//span")
+    private WebElement Addsuccessmsg;
 
 
     public WebElement getSeniorfilterButton() {
@@ -157,8 +198,7 @@ public class ListPage extends ListPageFactory {
     }
 
     public WebElement getMemo() {
-        String xpath = "//input[contains(@placeholder,'请填写备注')]";
-        return webDriver.findElement(By.xpath(xpath));
+        return memo;
 
     }
 

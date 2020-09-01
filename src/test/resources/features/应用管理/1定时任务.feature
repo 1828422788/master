@@ -32,7 +32,7 @@ Feature: 应用定时任务(RZY-2123)
     When the data name is "AutoTestAppWithAllResources" then i click the "打开" button
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
-    And the data name is "{'column':'2','name':'AutoApp'}" then i click the "编辑" button
+    And the data name is "{'column':'1','name':'AutoApp'}" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "AutoTestAppWithAllResources"
     And I will see the "timedTask.EditPage" page
@@ -53,7 +53,7 @@ Feature: 应用定时任务(RZY-2123)
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     Then I will see the "timedTask.ListPage" page
-    When the data name is "{'column':'2','name':'AutoCreateApp'}" then I "close" the switch
+    When the data name is "{'column':'1','name':'AutoCreateApp'}" then I "close" the switch
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "禁用成功"
     And I will see the "app.AppPage" page
@@ -65,11 +65,11 @@ Feature: 应用定时任务(RZY-2123)
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
-    When the data name is "{'column':'2','name':'AutoCreateApp'}" then i click the "复制" button
+    When the data name is "{'column':'1','name':'AutoCreateApp'}" then i click the "复制" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "复制成功"
     And I refresh the website
-    Then I will see the search result contains "{'column':'2','name':'AutoCreateApp(副本)'}"
+    Then I will see the search result contains "{'column':'1','name':'AutoCreateApp(副本)'}"
 
   Scenario: 定时任务标签
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -77,7 +77,7 @@ Feature: 应用定时任务(RZY-2123)
     Then I will see the "app.AppPage" page
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
-    When the data name is "{'column':'2','name':'AutoCreateApp'}" then i click the "标签" button
+    When the data name is "{'column':'1','name':'AutoCreateApp'}" then i click the "标签" button
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
@@ -96,8 +96,8 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     And I choose the "测试标签" from the "ResourceDropdown"
     And I wait for loading invisible
-    Then I will see the search result contains "{'column':'2','name':'AutoCreateApp'}"
-    Then I will see the search result "{'column':'2','name':'AutoCreateApp(副本)','contains':'no'}"
+    Then I will see the search result contains "{'column':'1','name':'AutoCreateApp'}"
+    Then I will see the search result "{'column':'1','name':'AutoCreateApp(副本)','contains':'no'}"
 
   Scenario Outline: 根据定时任务名称进行查询
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -142,7 +142,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     And I choose the "AutoTestAppWithAllResources" from the "AppDropdown"
     And I wait for loading invisible
-    Then I will see the search result contains "{'column':'2','name':'AutoTestCreate'}"
+    Then I will see the search result contains "{'column':'1','name':'AutoTestCreate'}"
 
   Scenario: 取消所属应用
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -151,9 +151,10 @@ Feature: 应用定时任务(RZY-2123)
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-    When the data name is "{'column':'2','name':'AutoTestCreate'}" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'AutoTestCreate'}" then i click the "编辑" button
     Then I will see the "timedTask.EditPage" page
-    And I choose the "AutoTestAppWithAllResources" from the "AppDropdown"
+    And I move the mouse pointer to the "DeleteApp"
+    And I click the "DeleteApp" button
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
@@ -163,7 +164,7 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     And I choose the "AutoTestAppWithAllResources" from the "AppDropdown"
     And I wait for loading invisible
-    Then I will see the search result "{'column':'2','name':'AutoTestCreate','contains':'no'}"
+    Then I will see the search result "{'column':'1','name':'AutoTestCreate','contains':'no'}"
 
   Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -186,7 +187,7 @@ Feature: 应用定时任务(RZY-2123)
     When I click the "TimedTask" button
     And I will see the "timedTask.ListPage" page
     And I wait for loading invisible
-    When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button under some element
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"

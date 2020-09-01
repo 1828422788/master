@@ -17,6 +17,7 @@ Feature: 仪表盘事件列表
     When I set the parameter "TagName" with value "事件操作"
     And I click the "EnsureCreateTagButton" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name    |
@@ -61,12 +62,12 @@ Feature: 仪表盘事件列表
     And I click the "Event" button
     And switch to another window
     And I close all tabs except main tab
-    Then the page's title will be "趋势图"
+    Then the page's title will be "趋势图列表"
 
   @dashboard @dashboardSmoke
   Scenario: 修改事件操作
     Given open the "event.ListPage" page for uri "/event/action/"
-    When the data name is "仪表盘测试事件列表" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "appname"
     And I choose the "两者" from the "Display"
@@ -86,7 +87,7 @@ Feature: 仪表盘事件列表
     And I click the "Event" button
     And switch to another window
     And I close all tabs except main tab
-    Then the page's title will be "趋势图"
+    Then the page's title will be "趋势图列表"
 
   @dashboard @dashboardSmoke
   Scenario: 验证事件操作显示于两者
@@ -99,15 +100,16 @@ Feature: 仪表盘事件列表
     And I click the "HoverElement" button
     And I click the "IconRight" button
     And I click the "EventAppname" button
+    And I wait for "500" millsecond
     And I click the "Event" button
     And switch to another window
     And I close all tabs except main tab
-    Then the page's title will be "趋势图"
+    Then the page's title will be "趋势图列表"
 
   @dashboard @dashboardSmoke
   Scenario: 修改事件操作显示于字段
     Given open the "event.ListPage" page for uri "/event/action/"
-    When the data name is "仪表盘测试事件列表" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "appname"
     And I choose the "字段菜单" from the "Display"
@@ -142,12 +144,12 @@ Feature: 仪表盘事件列表
     And I click the "Event" button
     And switch to another window
     And I close all tabs except main tab
-    Then the page's title will be "趋势图"
+    Then the page's title will be "趋势图列表"
 
   @dashboard @dashboardSmoke
   Scenario: 修改事件操作动作类型为搜索
     Given open the "event.ListPage" page for uri "/event/action/"
-    When the data name is "仪表盘测试事件列表" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I wait for loading invisible
     And I choose the "搜索" from the "Action"
@@ -199,7 +201,7 @@ Feature: 仪表盘事件列表
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
     Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
+#    And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
     And I click the "HoverElement" button
     And I click the "EventOperate" button
@@ -215,7 +217,7 @@ Feature: 仪表盘事件列表
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "仪表盘配置字段提取"
     And I set the parameter "Logtype" with value "other"
-    And I click the "Done" button
+    And I click the "NextButton" button
     Then I wait for "ConfigDone" will be visible
 
   @dashboard @dashboardSmoke
@@ -257,7 +259,8 @@ Feature: 仪表盘事件列表
   @cleanDashboard
   Scenario: 删除事件操作
     Given open the "event.ListPage" page for uri "/event/action/"
-    When the data name is "仪表盘测试事件列表" then i click the "删除" button
+    When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "删除" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the success message "删除事件操作成功"
 
@@ -267,6 +270,7 @@ Feature: 仪表盘事件列表
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:

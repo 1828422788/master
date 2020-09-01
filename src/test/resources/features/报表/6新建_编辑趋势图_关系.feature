@@ -1,4 +1,4 @@
-@reportCreateCharts
+@reportCreateCharts @allReports
 Feature: 报表新建_编辑_关系
 #4
 
@@ -8,7 +8,7 @@ Feature: 报表新建_编辑_关系
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "30"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
@@ -50,7 +50,7 @@ Feature: 报表新建_编辑_关系
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @all @report @reportChartsPDF
+    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
       |  PDF        |  Chord         |  Chord     | apache.clientip   | apache.request_path  |   count()    |  Red     |
@@ -100,7 +100,7 @@ Feature: 报表新建_编辑_关系
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @all @report @reportChartsPDF
+    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |       source      |   target             |   weight     |  color   |
       |  PDF        |  Force         |  Force     | apache.clientip   | apache.request_path  |  count()     | Green    |
@@ -148,7 +148,7 @@ Feature: 报表新建_编辑_关系
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @all @report @reportChartsPDF
+    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name        |  color   |
       |  PDF        |  Sankey        |  Sankey_Mult | Red      |

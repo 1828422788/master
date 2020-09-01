@@ -40,6 +40,7 @@ Feature: 仪表盘钻取配置
     When I set the parameter "TagName" with value "chart"
     And I click the "Ensure" button
     And I wait for loading complete
+    And I back to before
 
     Examples:
       | name   |
@@ -69,8 +70,9 @@ Feature: 仪表盘钻取配置
     And I click the detail which name is "测试钻取配置"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
-    And I click the "OpenDrilldown" button
-    Then I will see the success message "钻取功能已启用"
+    And I switch the dashboard "OpenDrilldown" button to "enable"
+#    And I click the "OpenDrilldown" button
+    And I wait for "500" millsecond
 
   @dashboard @dashboardSmoke
   Scenario: 在当前页面跳转到搜索页-自动
@@ -161,6 +163,7 @@ Feature: 仪表盘钻取配置
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "DrillSetting" button
+    And I wait for "DrillAction" will be visible
     And I choose the "跳转到自定义URL" from the "DrillAction"
     And I set the parameter "Url" with value "<url>"
     And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
@@ -194,7 +197,7 @@ Feature: 仪表盘钻取配置
     Examples:
       | url                    | title     |
       | https://www.baidu.com/ | 百度一下，你就知道 |
-      | /trend/                | 趋势图       |
+      | /trend/                | 趋势图列表     |
 
   @dashboard @dashboardSmoke
   Scenario: 新建标签页钻取所需趋势图
@@ -257,6 +260,7 @@ Feature: 仪表盘钻取配置
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:sample04061424_chart AND apache.geo.city:${city}| stats count() by apache.geo.country, apache.geo.province, apache.geo.city"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
@@ -268,6 +272,7 @@ Feature: 仪表盘钻取配置
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "DrillSetting" button
+    And I wait for "DrillAction" will be visible
     And I choose the "跳转到标签页" from the "DrillAction"
     And I click the "TargetTag" button
     And I choose the "钻取跳转" from the "DashboardMenu"
@@ -290,6 +295,7 @@ Feature: 仪表盘钻取配置
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
@@ -303,6 +309,7 @@ Feature: 仪表盘钻取配置
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:

@@ -32,7 +32,7 @@ public class CreatePage extends PageTemplate {
     private List<WebElement> tabs;
 
     // 监控名称
-    @FindBy(xpath = "//label[text()='名称']/following-sibling::input")
+    @FindBy(xpath = "//label[text()='名称']/following-sibling::div/input")
     private WebElement alertName;
 
     // 监控描述
@@ -219,6 +219,15 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(className = "anticon-loading")
     private WebElement loading;
+
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i")
+    private WebElement app;
+
+    @Override
+    public WebElement getApp() {
+        app.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getLoading() {
         return loading;

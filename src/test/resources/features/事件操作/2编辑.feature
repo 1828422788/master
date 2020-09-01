@@ -5,7 +5,7 @@ Feature: 事件操作编辑（RZY-1390）
     Given open the "event.ListPage" page for uri "/event/action/"
 
   Scenario Outline: 链接类型（RZY-1377）
-    And the data name is "AutoTest" then i click the "编辑" button
+    And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     When I set the parameter "Alias" with value "<alias>"
     And I set the parameter "Field" with value "<field>"
@@ -31,7 +31,7 @@ Feature: 事件操作编辑（RZY-1390）
       |       | logtype |        | Url       | https://www.baidu.com/s?wd=${logtype} | 当前窗口    |
 
   Scenario Outline: 搜索类型（RZY-1378）
-    And the data name is "AutoTest" then i click the "编辑" button
+    And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     And I set the parameter "Field" with value "<field>"
     And I choose the "<action>" from the "Action"
@@ -56,7 +56,7 @@ Feature: 事件操作编辑（RZY-1390）
       | logtype | 搜索     | Spl       | hostname:${hostname} |
 
   Scenario Outline: 美化格式（RZY-1379，RZY-1388）
-    And the data name is "AutoTest" then i click the "编辑" button
+    And the data name is "{'column':'1','name':'AutoTest'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     When I set the parameter "Field" with value "<name>"
     And I choose the "美化格式" from the "Action"
@@ -80,7 +80,7 @@ Feature: 事件操作编辑（RZY-1390）
       | raw_message,tag,hostname,logtype | XML           |
 
   Scenario: RZY-1376:显示于-两者
-    When the data name is "查看上下文sample" then i click the "编辑" button
+    When the data name is "{'column':'1','name':'查看上下文sample'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
     When I set the parameter "Field" with value "raw_message"
     And I choose the "两者" from the "Display"

@@ -1,4 +1,4 @@
-@reportCreateCharts
+@reportCreateCharts @allReports
 Feature: 报表新建_编辑_维度
 #6
 
@@ -8,7 +8,7 @@ Feature: 报表新建_编辑_维度
     Then I will see the "report.CreatePage" page
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
-    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "20"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
@@ -49,7 +49,7 @@ Feature: 报表新建_编辑_维度
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @all @report @reportChartsPDF
+    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |  typeInfo     |   color   |
       |  PDF        |  Pie           |  Pie       |  只展示名称    |   Red     |
@@ -101,7 +101,7 @@ Feature: 报表新建_编辑_维度
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @all @report @reportChartsPDF
+    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name      |   color     |
       |  PDF        |  Sun           |  Sun       |   DarkBlue  |
@@ -148,7 +148,7 @@ Feature: 报表新建_编辑_维度
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 
-    @all @report @reportChartsPDF
+    @report @reportChartsPDF
     Examples:
       |  reportType |   typeChart    |  name       |  typeInfo     | option         |  color   |
       |  PDF        |  Bar           |  Bar1       |  只展示名称    |  柱状外右侧    | Red      |

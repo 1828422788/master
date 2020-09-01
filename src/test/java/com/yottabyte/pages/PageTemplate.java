@@ -45,7 +45,7 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
         this.webDriver = driver;
         PageFactory.initElements(driver, this);
         parentPageName = LoginBeforeAllTests.getPageFactory() == null ? "" : LoginBeforeAllTests.getPageFactory().getClass().getSimpleName();
-        this.webDriver.manage().window().fullscreen();
+//        this.webDriver.manage().window().fullscreen();
 
     }
 
@@ -61,10 +61,10 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(className = "ant-input-search-icon")
     private WebElement searchIcon;
 
-    @FindBy(className = "ant-select-remove-icon")
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//*[@class='ant-select-selection__clear']")
     private WebElement deleteApp;
 
-    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//i[@class='anticon anticon-down ant-select-arrow-icon']")
+    @FindBy(xpath = "//div[text()='所属应用']/following-sibling::div//i")
     private WebElement app;
 
     @FindBy(className = "ant-message-success")

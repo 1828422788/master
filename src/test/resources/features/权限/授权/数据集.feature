@@ -1,50 +1,42 @@
-@auth
+#@auth
 Feature: 权限-数据集
 
-  Scenario: 验证无新建权限
+  Scenario Outline: 勾选所需功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用数据集"
+    When I "unchecked" the checkbox which name is "全选"
+    When I "checked" the checkbox which name is "可查看数据集"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
+
+    Examples:
+      | name              |
+      | __user_AutoTest__ |
+      | __user_验证授权用户__   |
+
+  Scenario: 验证无新建权限
+    Given I login user "AutoTest" with password "All#123456"
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then I will see the "Create" doesn't exist
 
-  Scenario Outline: 授权新建
+  Scenario: 授权新建
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'功能'}" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用数据集,新建数据集,可使用应用功能"
+    And I "checked" the checkbox which name is "新建数据集"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+  Scenario Outline: 验证新建
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I click the "Create" button
@@ -63,26 +55,15 @@ Feature: 权限-数据集
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可使用数据集,新建数据集,可使用应用功能"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
     Then I click the "{'TabButton':'数据集'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "AutoAuth" in auth table
     And I "unchecked" the checkbox which name is "AutoAuth" in auth table
     And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    And I will see the success message "更新成功"
+
+  Scenario: 验证无任何权限
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then I will see the search result "{'column':'0','name':'AutoAuth','contains':'no'}"
@@ -99,18 +80,13 @@ Feature: 权限-数据集
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name     |
+      | AutoAuth |
+
+  Scenario Outline: 验证读取
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then the data name is "<name>" then i will see "设为默认授权" button
@@ -133,18 +109,13 @@ Feature: 权限-数据集
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name     |
+      | AutoAuth |
+
+  Scenario Outline: 验证读取+编辑
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权" button
@@ -181,18 +152,13 @@ Feature: 权限-数据集
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name         |
+      | AutoAuthEdit |
+
+  Scenario Outline: 验证读取+编辑+删除
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签删除授权" button
@@ -243,19 +209,13 @@ Feature: 权限-数据集
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for loading invisible
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name     |
+      | AutoAuth |
+
+  Scenario Outline: 验证读取+删除
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -292,40 +252,13 @@ Feature: 权限-数据集
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I wait for loading invisible
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'数据集'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    And I "unchecked" the checkbox which name is "<name>" in auth table
-    And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
 
     Examples:
       | name     |
       | AutoAuth |
 
   Scenario Outline: 验证读取+授权
-    Given I will see the "PublicNavBarPage" page
-    And I wait for loading invisible
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -334,12 +267,7 @@ Feature: 权限-数据集
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -360,32 +288,13 @@ Feature: 权限-数据集
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'数据集'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    And I "unchecked" the checkbox which name is "<name>" in auth table
-    And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name     |
+      | AutoAuth |
+
+  Scenario Outline: 验证读取+编辑+授权
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权" button
@@ -399,15 +308,7 @@ Feature: 权限-数据集
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for loading invisible
-    And I wait for "Dashboard" will be visible
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -428,10 +329,6 @@ Feature: 权限-数据集
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Then I click the "{'TabButton':'数据集'}" button
     And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoAuthEdit" in auth table
@@ -452,89 +349,6 @@ Feature: 权限-数据集
     And I click the "Save" button
     And I wait for title change text to "数据集详情"
 
-  Scenario: 验证有效期限
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for loading invisible
-    Then I will see the search result "{'column':'0','name':'AutoAuthEdit','contains':'no'}"
-
-  Scenario Outline: 授权读取+删除+授权
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And I wait for loading invisible
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "{'TabButton':'数据集'}" button
-    And I wait for loading invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    When I "unchecked" function "编辑" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'数据集'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    And I "unchecked" the checkbox which name is "<name>" in auth table
-    And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-
-    Examples:
-      | name         |
-      | AutoAuthEdit |
-
-  Scenario Outline: 验证读取+删除+授权
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for loading invisible
-    Then the data name is "<name>" then i will see "删除授权" button
-    When the data name is "<name>" then i click the "授权" button
-    And I "check" the checkbox which name is "验证授权用户" in tiny table
-    And I click the "Ensure" button
-    Then I will see the message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
-    And I wait for "2000" millsecond
-    Given open the "dataset.ListPage" page for uri "/dataset/"
-    And I wait for loading invisible
-    Then the data name is "<name>" then i will see "设为默认删除授权" button
-    When the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    Then I will see the success message "删除数据集成功"
-
-    Examples:
-      | name         |
-      | AutoAuthEdit |
-
   Scenario Outline: 授权所有权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And I wait for loading invisible
@@ -546,37 +360,13 @@ Feature: 权限-数据集
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_验证授权用户__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'数据集'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "<name>" in auth table
-    And I "unchecked" the checkbox which name is "<name>" in auth table
-    And I click the "SaveButton" button
-    Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
 
     Examples:
       | name     |
       | AutoAuth |
 
   Scenario Outline: 验证所有权限
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签删除授权" button
@@ -590,12 +380,7 @@ Feature: 权限-数据集
     And I "check" the checkbox which name is "验证授权用户" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -642,13 +427,7 @@ Feature: 权限-数据集
     And I click the "SaveButton" button
 
   Scenario Outline: 二次授权读取
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -657,12 +436,7 @@ Feature: 权限-数据集
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then the data name is "<name>" then i will see "设为默认授权" button
@@ -675,13 +449,7 @@ Feature: 权限-数据集
       | 用户       | 验证授权用户   | 读取       | 测试二次授权 |
 
   Scenario Outline: 二次授权读取+编辑
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -691,12 +459,7 @@ Feature: 权限-数据集
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签授权" button
@@ -723,13 +486,7 @@ Feature: 权限-数据集
       | 角色       | __user_验证授权用户__ | 编辑       | 测试二次授权 |
 
   Scenario Outline: 二次授权读取+编辑+删除
-    When I wait for "2000" millsecond
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -739,12 +496,7 @@ Feature: 权限-数据集
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
-    And I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "验证授权用户"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "验证授权用户" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dataset.ListPage" page for uri "/dataset/"
     Then the data name is "{'column':'0','name':'<name>'}" then i will see "设为默认编辑标签删除授权" button
@@ -773,5 +525,53 @@ Feature: 权限-数据集
     Then I will see the success message "删除数据集成功"
 
     Examples:
-      | authRole | authName | function | name         |
+      | authRole | authName | function | name       |
       | 用户分组     | 验证授权用户分组 | 读取,编辑,删除 | 测试二次授权Edit |
+
+  Scenario: 验证有效期限
+    Given I login user "AutoTest" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I wait for loading invisible
+    Then I will see the search result "{'column':'0','name':'AutoAuthEdit','contains':'no'}"
+
+  Scenario Outline: 授权读取+删除+授权
+    Given open the "roles.ListPage" page for uri "/account/roles/"
+    And I wait for loading invisible
+    And the data name is "__user_AutoTest__" then i click the "授权" button
+    And I will see the "roles.AuthorizationPage" page
+    And I wait for loading invisible
+    Then I click the "{'TabButton':'数据集'}" button
+    And I wait for loading invisible
+    And I "checked" the checkbox which name is "<name>" in auth table
+    When I "unchecked" function "编辑" from the auth table which name is "<name>"
+    And I click the "SaveButton" button
+    And I will see the success message "更新成功"
+
+    Examples:
+      | name         |
+      | AutoAuthEdit |
+
+  Scenario Outline: 验证读取+删除+授权
+    Given I login user "AutoTest" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "删除授权" button
+    When the data name is "<name>" then i click the "授权" button
+    And I "check" the checkbox which name is "验证授权用户" in tiny table
+    And I click the "Ensure" button
+    Then I will see the message "保存成功"
+    Given I login user "验证授权用户" with password "All#123456"
+    And I wait for "2000" millsecond
+    Given open the "dataset.ListPage" page for uri "/dataset/"
+    And I wait for loading invisible
+    Then the data name is "<name>" then i will see "设为默认删除授权" button
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除数据集成功"
+
+    Examples:
+      | name         |
+      | AutoAuthEdit |

@@ -31,29 +31,29 @@ Feature: 数据大屏-p环形柱图
   #文本字体大小
     And I set the parameter "textFontSize" with value "20"
   #文本字体颜色
-    And I click the "textFontColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#E0CD41"
+#    And I click the "textFontColor" button
+    And I wait for "textFontColor" will be visible
+    And I set the parameter "textFontColor" with value "#E0CD41"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
   #文本字体粗细
     And I choose the "bolder" from the "TextWordBold"
   #环柱渐变色1
-    And I click the "gradation1" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D931DC"
+#    And I click the "gradation1" button
+    And I wait for "gradation1" will be visible
+    And I set the parameter "gradation1" with value "#D931DC"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
   #环柱渐变色2
-    And I click the "gradation2" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#8CD927"
+#    And I click the "gradation2" button
+    And I wait for "gradation2" will be visible
+    And I set the parameter "gradation2" with value "#8CD927"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
   #环柱渐变色3
-    And I click the "gradation3" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D75541"
+#    And I click the "gradation3" button
+    And I wait for "gradation3" will be visible
+    And I set the parameter "gradation3" with value "#D75541"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #3 全局样式修改名成
@@ -173,7 +173,7 @@ Feature: 数据大屏-p环形柱图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
      And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip  | limit 10"

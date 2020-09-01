@@ -1,4 +1,4 @@
-@report @all @tagReport
+@report @allReports @tagReport
 Feature: 报表标签
 
   Background:

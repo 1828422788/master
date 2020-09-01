@@ -48,6 +48,27 @@ public class ListPageUtils {
         return tr;
     }
 
+    public WebElement getContainsTr(String dataName) {
+        WebElement table = pagingInfo.getTableList().get(0);
+        int totalPage = pagingInfo.getTotalPage();
+        WebElement nextPage = pagingInfo.getNextPage();
+        int i = 0;
+        while (i < totalPage) {
+            if (i != 0 && i <= totalPage - 1) {
+                nextPage.click();
+                WaitForElement.waitUntilLoadingDisappear();
+            }
+            List<WebElement> trList = table.findElements(By.tagName("tr"));
+            for (WebElement tr : trList) {
+                if (tr.findElements(By.tagName("td")).get(0).getText().contains(dataName)) {
+                    return tr;
+                }
+            }
+            i++;
+        }
+        return null;
+    }
+
     public WebElement getTinyTr(String dataName) {
         String name;
         if (!JsonStringPaser.isJson(dataName)) {

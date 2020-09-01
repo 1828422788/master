@@ -16,6 +16,7 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
+      And I hide the element "MapDropdown"
       And I wait for "Style" will be visible
       And I click the "Style" button
 #设置样式
@@ -28,9 +29,9 @@
       And I set the parameter "ChartYaxis" with value "300"
       #2 设置地图->事件颜色
       And I click the "GlobelabelMapHeader" button
-      And I click the "EventColor" button
-      And I wait for "ColorInput" will be visible
-      And I set the parameter "ColorInput" with value "#F2321D"
+#      And I click the "EventColor" button
+      And I wait for "EventColor" will be visible
+      And I set the parameter "EventColor" with value "#F2321D"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       #3 全局样式修改名成
@@ -97,6 +98,7 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
+      And I hide the element "MapDropdown"
       And I wait for "Style" will be visible
       And I click the "Style" button
       #数据设置
@@ -154,7 +156,7 @@
       And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
-      And I click the "otherSearch" button
+      And I click the "otherSearch" button under some element
       And I hide the element "otherDropdown"
       And I wait for "SplInput" will be visible
       And I set the parameter "SplInput" with value "logtype:apache | parse field=apache.request_query "^gw_address=(?<gw_address>\d+\.\d+\.\d+\.\d+)" | bucket timestamp span=1h as ts| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address,ts | eval gw_lat=39.5427 | eval gw_lon=116.2317"
@@ -165,8 +167,8 @@
       And I click the "Map" button
       #选择攻击地图3D II
       And I click the "attackMapThreeDTwo" button
-      And I wait for "Style" will be visible
-      And I click the "Style" button
+      And I hide the element "MapDropdown"
+      And I wait for "Data" will be visible
       #在数据源类型中选择绑定搜索
       And I click the "Data" button
       And I click the "dataSourceType" button

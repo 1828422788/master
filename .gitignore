@@ -3,3 +3,4 @@ target/
 smoke-test.iml
 smokeTest.iml
 test.iml
+*/.DS_Store

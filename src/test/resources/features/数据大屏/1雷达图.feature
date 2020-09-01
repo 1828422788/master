@@ -31,35 +31,35 @@ Feature: 数据大屏-d雷达图
     #字号
     And I set the parameter "radarFontSize" with value "20"
     #颜色
-    And I click the "radarColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#EAEE0E"
+#    And I click the "radarColor" button
+    And I wait for "radarColor" will be visible
+    And I set the parameter "radarColor" with value "#EAEE0E"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I choose the "bold" from the "RadarWordBold"
      #区域边框颜色
-    And I click the "areaBorderColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#DB13ED"
+#    And I click the "areaBorderColor" button
+    And I wait for "areaBorderColor" will be visible
+    And I set the parameter "areaBorderColor" with value "#DB13ED"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
      #区域颜色
-     And I click the "radarAreaColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#A1A937"
+#     And I click the "radarAreaColor" button
+    And I wait for "radarAreaColor" will be visible
+    And I set the parameter "radarAreaColor" with value "#A1A937"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #辐射线颜色
-    And I click the "radarLineColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#EE2415"
+#    And I click the "radarLineColor" button
+    And I wait for "radarLineColor" will be visible
+    And I set the parameter "radarLineColor" with value "#EE2415"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
      #分割线颜色
-    And I click the "splitLineColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#32CC49"
+#    And I click the "splitLineColor" button
+    And I wait for "splitLineColor" will be visible
+    And I set the parameter "splitLineColor" with value "#32CC49"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #雷达图占比大小
@@ -177,7 +177,7 @@ Feature: 数据大屏-d雷达图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() by apache.clientip | limit 10"

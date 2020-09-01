@@ -23,20 +23,21 @@ Feature: 数据大屏-a弧形柱图
     And I click the "RadiusAxis" button
     And I set the parameter "RadiusAxisSize" with value "20"
 
-    And I click the "RadiusAxisColor" button
-    And  I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#41F1F1"
-    And I click the "EnsureColor" button
+#    And I click the "RadiusAxisColor" button
+    And  I wait for "RadiusAxisColor" will be visible
+    And I set the parameter "RadiusAxisColor" with value "#41F1F1"
+    And I click the button "EnsureColor" if exist
     And I wait for "EnsureColor" will be invisible
     And I choose the "bold" from the "RadiusAxisBold"
     And I choose the "倾斜" from the "RadiusAxisAngle"
     #角度轴
     And I click the "AngleAxisHeader" button
     And I set the parameter "AngleAxisSize" with value "20"
-    And I click the "AngleAxisColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#E3A6F2"
-    And I click the "EnsureColor" button
+#    And I click the "AngleAxisColor" button
+    And I wait for "AngleAxisColor" will be visible
+    And I set the parameter "AngleAxisColor" with value "#E3A6F2"
+    And I click the button "EnsureColor" if exist
+#    And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "AngleAxisBold"
     #极坐标系
@@ -48,10 +49,11 @@ Feature: 数据大屏-a弧形柱图
     #图例
     And I click the "Example" button
     And I set the parameter "ExampleWordSize" with value "20"
-    And I click the "ExampleColor" button
-    And  I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D73535"
-    And I click the "EnsureColor" button
+#    And I click the "ExampleColor" button
+    And  I wait for "ExampleColor" will be visible
+    And I set the parameter "ExampleColor" with value "#D73535"
+    And I click the button "EnsureColor" if exist
+#    And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "ExampleWordBold"
     And I choose the "居中" from the "ExampleHorizontal"
@@ -173,7 +175,7 @@ Feature: 数据大屏-a弧形柱图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"

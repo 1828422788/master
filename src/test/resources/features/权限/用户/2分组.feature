@@ -15,7 +15,6 @@ Feature: 用户分组（RZY-1167）
     And I choose the "测试用户所需分组" from the "UserGroups"
     And I wait for "2000" millsecond
     And I click the "Ensure" button
-    And I will see the success message "更新成功"
     And I wait for "2000" millsecond
     And I refresh the website
     And I wait for loading invisible

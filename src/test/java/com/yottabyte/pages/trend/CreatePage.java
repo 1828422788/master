@@ -112,11 +112,17 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'调用链')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement chain;
 
+    @FindBy(xpath = "(//div[contains(text(),'网络节点图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement networkNode;
+
     @FindBy(xpath = "(//div[contains(text(),'数值')])[last()]")
     private WebElement value;
 
     @FindBy(xpath = "(//div[text()='常规'])[last()]")
     private WebElement general;
+
+    @FindBy(xpath = "(//div[text()='平铺'])[last()]")
+    private WebElement tile;
 
     @FindBy(xpath = "(//div[text()='时序'])[last()]")
     private WebElement timeSequence;
@@ -283,7 +289,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//input[@value='max']//ancestor::div/preceding-sibling::div[1]/i")
     private WebElement deleteLastInterval;
 
-    @FindBy(xpath = "//span[text()='自 动']/ancestor::button")
+    @FindBy(xpath = "//span[text()='默 认']/ancestor::button")
+    private WebElement defaultColor;
+
+    @FindBy(xpath = "//span[text()='随 机']/ancestor::button")
     private WebElement autoColor;
 
     @FindBy(xpath = "//span[text()='自定义']/ancestor::button")
@@ -308,6 +317,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='请选择快捷时间或时间范围']")
     private WebElement dateEditor;
+
+    @FindBy(xpath = "//span[text()='每个分片取样']/following-sibling::input")
+    private WebElement fenPianQuYang;
 
     @FindBy(xpath = "//span[text()='设置图表类型']")
     private WebElement chartType;
@@ -367,7 +379,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='图例'])[last()]")
     private WebElement example;
 
-    @FindBy(xpath = "(//div[contains(text(),'展示')])[last()]")
+    @FindBy(xpath = "(//div[text()='展示'])[last()]")
     private WebElement exhibition;
 
     @FindBy(xpath = "(//div[contains(text(),'对比')])[last()]")
@@ -454,6 +466,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'旭日图')]/ancestor::div[1])/preceding-sibling::div")
     private WebElement sunburst;
 
+    @FindBy(xpath = "(//div[contains(text(),'火焰图')]/ancestor::div[1])/preceding-sibling::div")
+    private WebElement flame;
+
     @FindBy(className = "tracing")
     private WebElement tracing;
 
@@ -507,6 +522,9 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='实际值']/ancestor::div/following-sibling::div")
     private WebElement actual;
+
+    @FindBy(xpath = "//span[text()='异常值']/ancestor::div/following-sibling::div")
+    private WebElement outlier;
 
     @FindBy(xpath = "(//span[text()='上限'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement topLimit;
@@ -702,6 +720,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='信息'])[last()]")
     private WebElement info;
 
+    @FindBy(xpath = "//span[text()='使用在线地图']/ancestor::div/following-sibling::button")
+    private WebElement onlineMap;
+
     @FindBy(xpath = "(//span[contains(text(),'透明度')])[last()]/ancestor::div/following-sibling::input")
     private WebElement transparency;
 
@@ -710,6 +731,39 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[contains(text(),'最大半径')])[last()]/ancestor::div/following-sibling::input")
     private WebElement maxRadius;
+
+    @FindBy(xpath = "(//span[contains(text(),'纬度')])[last()]/following-sibling::input")
+    private WebElement centerLatitude;
+
+    @FindBy(xpath = "(//span[contains(text(),'经度')])[last()]/following-sibling::input")
+    private WebElement centerLongitude;
+
+    @FindBy(xpath = "(//span[contains(text(),'缩放级别')])[last()]/ancestor::div/following-sibling::input[1]")
+    private WebElement zoomLevel;
+
+    @FindBy(xpath = "(//span[contains(text(),'来源名称')])[last()]/following-sibling::input")
+    private WebElement mapName;
+
+    @FindBy(xpath = "(//span[contains(text(),'URL')])[last()]/following-sibling::input")
+    private WebElement mapURL;
+
+    @FindBy(xpath = "(//span[contains(text(),'Subdomains')])[last()]/following-sibling::input")
+    private WebElement subdomains;
+
+    @FindBy(xpath = "(//span[contains(text(),'地图透明度')])[last()]/ancestor::div/following-sibling::input[1]")
+    private WebElement mapOpacity;
+
+    @FindBy(xpath = "((//span[text()='数据圆圈图层'][last()])/ancestor::div/following-sibling::div)[1]")
+    private WebElement dataCircleLayer;
+
+    @FindBy(xpath = "((//span[text()='热力图图层'][last()])/ancestor::div/following-sibling::div)[1]")
+    private WebElement heatmapLayer;
+
+    @FindBy(xpath = "//*[@class='leaflet-control-layers-toggle']")
+    private WebElement mapSettings;
+
+    @FindBy(xpath = "//span[contains(text(),'min(apache.resp_len)')]")
+    private WebElement deleteMin;
 
     @FindBy(xpath = "(//div[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
     private WebElement delete;
@@ -722,6 +776,15 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='标签展示'])[last()]/ancestor::div/following-sibling::div")
     private WebElement showLabel;
+
+    @FindBy(xpath = "(//span[text()='钻取模式'])[last()]/ancestor::div/following-sibling::div")
+    private WebElement drillDownMode;
+
+    @FindBy(xpath = "(//div[text()='深圳市']/ancestor::*[@class='vx-group'][1])[last()]")
+    private WebElement shenZhen;
+
+    @FindBy(xpath = "(//*[@class='_1_m_DyhFaFqqMWBfXY4Evv']) | (//div[text()='配置'])")
+    private WebElement hideElement;
 
     @FindBy(xpath = "(//*[@class='el-scrollbar'])[last()]")
     private WebElement scrollbar;
@@ -858,6 +921,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getChain() {
         return chain;
+    }
+
+    public WebElement getNetworkNode() {
+        return networkNode;
     }
 
     public WebElement getDivideSide() {
@@ -1023,6 +1090,19 @@ public class CreatePage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    public WebElement getDrillDownMode() {
+        drillDownMode.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getShenZhen() {
+        return shenZhen;
+    }
+
+    public WebElement getHideElement() {
+        return hideElement;
+    }
+
     public WebElement getLabelLocation() {
         WebDriverWait wait = new WebDriverWait(webDriver,10);
         wait.until(ExpectedConditions.elementToBeClickable(labelLocation));
@@ -1100,6 +1180,10 @@ public class CreatePage extends PageTemplate {
         return delete;
     }
 
+    public WebElement getOnlineMap() {
+        return onlineMap;
+    }
+
     public WebElement getTransparency() {
         return transparency;
     }
@@ -1110,6 +1194,52 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getMaxRadius() {
         return maxRadius;
+    }
+
+    public WebElement getCenterLatitude() {
+        return centerLatitude;
+    }
+
+    public WebElement getCenterLongitude() {
+        return centerLongitude;
+    }
+
+    public WebElement getZoomLevel() {
+        return zoomLevel;
+    }
+
+    public WebElement getMapName() {
+        return mapName;
+    }
+
+    public WebElement getMapURL() {
+        return mapURL;
+    }
+
+    public WebElement getSubdomains() {
+        return subdomains;
+    }
+
+    public WebElement getMapOpacity() {
+        return mapOpacity;
+    }
+
+    public WebElement getDataCircleLayer() {
+        dataCircleLayer.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getHeatmapLayer() {
+        heatmapLayer.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getMapSettings() {
+        return mapSettings;
+    }
+
+    public WebElement getDeleteMin() {
+        return deleteMin;
     }
 
     public WebElement getFunction() {
@@ -1253,6 +1383,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getGeneral() {
         return general;
+    }
+
+    public WebElement getTile() {
+        return tile;
     }
 
     public WebElement getActualValueInput() {
@@ -1473,6 +1607,10 @@ public class CreatePage extends PageTemplate {
         return dateEditor;
     }
 
+    public WebElement getFenPianQuYang() {
+        return fenPianQuYang;
+    }
+
     public WebElement getHorizontal() {
         return horizontal;
     }
@@ -1636,6 +1774,10 @@ public class CreatePage extends PageTemplate {
         return sunburst;
     }
 
+    public WebElement getFlame() {
+        return flame;
+    }
+
     public WebElement getAddField() {
         return addField;
     }
@@ -1687,6 +1829,13 @@ public class CreatePage extends PageTemplate {
         WebDriverWait wait = new WebDriverWait(webDriver,10);
         wait.until(ExpectedConditions.elementToBeClickable(actual));
         actual.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOutlier() {
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(outlier));
+        outlier.click();
         return super.getLastDropdownList();
     }
 
@@ -1884,7 +2033,7 @@ public class CreatePage extends PageTemplate {
 //-----------------------------------------------------------
 
     private WebElement getChartButton(String chartName) {
-        String xpath = "((//div[text()='" + chartName + "'])[last()]/ancestor::div/preceding-sibling::div)[last()]";
+        String xpath = "((//div[text()='" + chartName + "'])[last()]/parent::div/preceding-sibling::div)[last()]";
         return webDriver.findElement(By.xpath(xpath));
     }
 
@@ -1935,6 +2084,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDeleteLastInterval() {
         return deleteLastInterval;
+    }
+
+    public WebElement getDefaultColor() {
+        return defaultColor;
     }
 
     public WebElement getAutoColor() {
@@ -2029,6 +2182,34 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDeleteTag() {
         return deleteTag;
+    }
+
+    @FindBy(xpath = "(//div[text()='指标'])[last()]")
+    private WebElement indicators;
+
+    @FindBy(xpath = "(//div[text()='添加指标'])[last()]")
+    private WebElement addIndicator;
+
+    @FindBy(xpath = "//*[text()='POST']/preceding-sibling::*")
+    private WebElement clickPOST;
+
+    @FindBy(xpath = "//*[text()='北京']/preceding-sibling::*")
+    private WebElement clickBeijing;
+
+    public WebElement getIndicators() {
+        return indicators;
+    }
+
+    public WebElement getAddIndicator() {
+        return addIndicator;
+    }
+
+    public WebElement getClickPOST() {
+        return clickPOST;
+    }
+
+    public WebElement getClickBeijing() {
+        return clickBeijing;
     }
 
 }

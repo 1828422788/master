@@ -46,7 +46,7 @@ public class SetTime {
     }
 
     /**
-     * 输入当前时间后的若干分钟，返回格式为HH:mm:ss
+     * 输入当前时间后的若干分钟，返回格式为yyyy-MM-dd HH:mm:ss
      *
      * @param elementName 元素名称
      * @param time        分钟数（整数）

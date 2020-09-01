@@ -24,7 +24,36 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    |caseNum  |   spl   |
-      |   Wordcloud   | 2804    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+      |   Wordcloud   | 2804    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city |
+
+
+  Scenario Outline: wordcloud_facet
+    When I set the parameter "SearchInput" with value "<spl>"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Facet" button
+    And I click the "AddField" button
+    And I choose the "apache.method" from the "FieldValue"
+    And I set the parameter "RowNum" with value "1"
+    And I set the parameter "ColumnNum" with value "2"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
+#    Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
+
+    Examples:
+      |  chartType    |caseNum  |   spl   |
+      |   Wordcloud   | 分面    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.geo.city, apache.method \| limit 7 |
 
   Scenario Outline: liquidfill
     When I set the parameter "SearchInput" with value "<spl>"
@@ -51,7 +80,7 @@ Feature: 日志展现_其它
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
-      | Liquidfill | percent | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
+      | Liquidfill | percent | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt\| eval cnt_perc=cnt/1000 |
 
   Scenario Outline: liquidfill_facet
     When I set the parameter "SearchInput" with value "<spl>"
@@ -82,11 +111,11 @@ Feature: 日志展现_其它
 
     Examples:
       | chartType  | caseNum | spl                                                                       |
-      | Liquidfill | 分面    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10 \| sort by cnt|
+      | Liquidfill | 分面    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10 \| sort by cnt|
 
 
   Scenario Outline: others(RZY-2807,2449)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" <spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -135,7 +164,7 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    | divField       | color1   | caseNum  |   spl   |
-      |   Radar       | apache.geo.city| DarkBlue | 2808    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
+      |   Radar       | apache.geo.city| DarkBlue | 2808    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
 
   Scenario Outline: funnel(RZY-2809)
@@ -168,10 +197,10 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType    | countValue |  divValue      |  color1   |caseNum  |   spl   |
-      |   Funnel      |  cnt       | apache.geo.city|LightGreen |2809    | starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
+      |   Funnel      |  cnt       | apache.geo.city|LightGreen |2809    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt by apache.geo.city \| sort by cnt, +apache.geo.city |
 
   Scenario Outline: matrixheatmap(RZY-2810,2811)
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" <spl>"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -266,7 +295,7 @@ Feature: 日志展现_其它
 
     Examples:
       |  chartType |  timeSeq  |  source         | target    |   segmentation    | mark   | caseNum |   spl   |
-      |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 4|
+      |  Sequence  | hostname  | apache.clientip | hostname  |  apache.clientip  | count()|  2805   |starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 4|
 
 
   Scenario Outline: chain_tree(RZY-2812,2814)
@@ -306,3 +335,91 @@ Feature: 日志展现_其它
       |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum   |   spl   |
       |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812_tree | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
       |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+
+    @network
+  Scenario Outline: network
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+
+    And I click the "Type" button
+    And I wait for "ChartView" will be visible
+    And I click the "<node>" button
+    And I wait for "2000" millsecond  
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/Network/<chartType>_<node>"
+    Then I compare source image "actual/高级搜索视图/6其它/Network/<chartType>_<node>" with target image "expect/高级搜索视图/6其它/Network/<chartType>_<node>"
+
+    Examples:
+      |  chartType    | node             |
+      |  NetworkNode  |                  |
+      |  NetworkNode  | ClickPOST        |
+
+  @network
+  Scenario Outline: network
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Exhibition" button
+    And I set the parameter "Repulsion" with value "<repValue>"
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "Generate" button
+    And I click the "Settings" button
+
+    And I wait for "ChartView" will be visible
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>"
+    Then I compare source image "actual/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>" with target image "expect/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>"
+
+    Examples:
+      |  chartType    | color      | repValue  |
+      |  NetworkNode  | Red        | 20        |
+
+  @network
+  Scenario Outline: network
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+
+    And I click the "Settings" button
+    And I click the "Indicators" button
+    And I click the "AddIndicator" button
+    And I choose the "cnt" from the "FieldValue" in config
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "5"
+    And I set the parameter "MaxRange" with value "7"
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "AddRange" button
+    And I set the parameter "MinRange" with value "7"
+    And I set the parameter "MaxRange" with value "8"
+    And I click the "Generate" button
+    And I click the "Settings" button
+    And I wait for "ChartView" will be visible
+    And I click the "Click<node>" button
+    And I wait for "2000" millsecond
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/Network/<chartType>_<node>_<color>"
+    Then I compare source image "actual/高级搜索视图/6其它/Network/<chartType>_<node>_<color>" with target image "expect/高级搜索视图/6其它/Network/<chartType>_<node>_<color>"
+
+    Examples:
+      |  chartType    | node        | color   |
+      |  NetworkNode  | Beijing     | Red     |

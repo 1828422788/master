@@ -29,5 +29,11 @@ Feature: 仪表盘搜索（RZY-216）
     Then I will see the search result contains "FirstAutoTest"
     Then I will see the search result "{'column':'0','name':'UIautotest','contains':'no'}"
 
+  Scenario: 按照所属应用搜索
+    When I choose the "app之api全部用例" from the "AppDropdown"
+    And I wait for loading invisible
+    Then I will see the search result contains "FirstAutoTest"
+    Then I will see the search result contains "UIautotest"
+
   Scenario: 验证资源标签删除成功
-    Then I will see the data "UIautotest" values "{'column':'3','name':''}"
+    Then I will see the data "UIautotest" values "{'column':'5','name':''}"

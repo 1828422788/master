@@ -74,9 +74,9 @@ Feature: 数据大屏-o时间器
     #字体大小
     And I set the parameter "ClockWordSize" with value "40"
     #字体颜色
-     And I click the "clockFontColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#E8EB1B"
+#     And I click the "clockFontColor" button
+    And I wait for "clockFontColor" will be visible
+    And I set the parameter "clockFontColor" with value "#E8EB1B"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
@@ -143,6 +143,7 @@ Feature: 数据大屏-o时间器
       #2设置齿轮组合外观
     And I click the "styleClock" button
     #字体粗细
+    And  I wait for "1000" millsecond
     And I wait for "ClockWordBold" will be visible
     And I choose the "bolder" from the "ClockWordBold"
     #对齐方式
@@ -203,6 +204,7 @@ Feature: 数据大屏-o时间器
     And I set the parameter "ChartYaxis" with value "400"
       #2设置齿轮组合外观
     And I click the "styleClock" button
+    And  I wait for "500" millsecond
     #字体粗细
     And I wait for "ClockWordBold" will be visible
     And I choose the "lighter" from the "ClockWordBold"

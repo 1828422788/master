@@ -1,4 +1,4 @@
-@report @all @reportBasic
+@report @allReports @reportBasic
 Feature: 报表新建_执行计划
 
   Background:
@@ -111,7 +111,7 @@ Feature: 报表新建_执行计划
     And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
     And I will see the element "SubjectNote" contains "注: 可用变量: 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
-    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "FinishButton" will be visible
@@ -120,7 +120,7 @@ Feature: 报表新建_执行计划
     When I set the parameter "Name" with value "test_report_<type>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "<type>" from the "ReportType"
-    And I set the parameter "Hour" with value "05"
+    And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "00"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible

@@ -30,11 +30,8 @@ public class SearchPage extends ListPageFactory {
     TakeScreenShot shot = SharedDriver.getScreenShot();
     ExpectedCondition expectedCondition;
 
-    public SearchPage(WebDriver driver) {
-        super(driver);
-        driver.manage().window().setPosition(new Point(0, 0));
-        driver.manage().window().setSize(new Dimension(1800,970));
-    }
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div//*[@class='ant-select-selection__clear']")
+    private WebElement deleteApp;
 
     @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']/div[1]")
     private WebElement result;
@@ -125,9 +122,19 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//li[text()='查看上下文']")
     private WebElement context;
 
-    @FindBy(xpath = "//span[text()='搜索']/ancestor::button/following-sibling::div//input")
+    @FindBy(xpath = "//span[text()='搜索']/ancestor::button/preceding-sibling::div//input")
     private WebElement timeRange;
 
+    @FindBy(tagName = "thead")
+    private WebElement thead;
+    @FindBy(xpath = "//span[text()='已存搜索']")
+    private WebElement savedSearch;
+    @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
+    private WebElement appIcon;
+
+    public WebElement getThead() {
+        return thead;
+    }
 
     public WebElement getTimeRange() {
         return timeRange;
@@ -424,9 +431,8 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[text()='新建离线任务']")
     private WebElement offlineTask;
-
-    @FindBy(xpath = "//span[text()='新建搜索']")
-    private WebElement savedSearch;
+    @FindBy(className = "ant-dropdown-menu-root")
+    private WebElement dropdownMenu;
 
     @FindBy(xpath = "//span[text()='新建监控']")
     private WebElement alert;
@@ -585,9 +591,9 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "(//span[text()='确 定']/ancestor::button)[last()]")
     private WebElement ensureCrontab;
-
-    @FindBy(xpath = "(//label[text()='所属应用']/ancestor::div//i[@class='anticon anticon-down ant-select-arrow-icon'])[last()]")
-    private WebElement appIcon;
+    //验证字段列表
+    @FindBy(xpath = "//span[text()='#']/following-sibling::span")
+    private WebElement fieldOne;
 
     @FindBy(xpath = "//div[text()='事件']/span")
     private WebElement eventNumber;
@@ -607,6 +613,23 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//label[text()='资源标签']/ancestor::div[1])//input")
     private WebElement tagInput;
 
+    @FindBy(xpath = "//label[text()='文件类型']/following-sibling::div")
+    private WebElement fileType;
+
+    public SearchPage(WebDriver driver) {
+        super(driver);
+        driver.manage().window().setPosition(new Point(0, 0));
+        driver.manage().window().setSize(new Dimension(1800, 970));
+    }
+
+    public WebElement getDeleteApp() {
+        return deleteApp;
+    }
+
+    public WebElement getFileType() {
+        fileType.click();
+        return super.getLastDropdownList();
+    }
 
     public WebElement getResourceAll() {
         return resourceAll;
@@ -675,8 +698,8 @@ public class SearchPage extends ListPageFactory {
         return crontabInput;
     }
 
-    public WebElement getCrontab(){
-        return crontab;
+    public WebElement getDropdownMenu() {
+        return dropdownMenu;
     }
 
     public WebElement getExecuteTime() {
@@ -1210,12 +1233,15 @@ public class SearchPage extends ListPageFactory {
     public WebElement getStartTimeField() {
         return GetTime.getTime(webDriver, "StartTimeInput");
     }
+
     public WebElement getEndTimeField() {
         return GetTime.getTime(webDriver, "EndTimeInput");
     }
+
     public WebElement getStartDateField() {
         return GetTime.getTime(webDriver, "StartDateInput");
     }
+
     public WebElement getEndDateField() {
         return GetTime.getTime(webDriver, "EndDateInput");
     }
@@ -1447,15 +1473,25 @@ public class SearchPage extends ListPageFactory {
     //有字段的数据集
     @FindBy(xpath = "//span[text()='hrfield']")
     private WebElement hrField;
-   public WebElement getHrField(){return hrField;}
-   //验证字段列表
-    @FindBy(xpath = "//span[text()='#']/following-sibling::span")
-    private WebElement fieldOne;
-    public WebElement getFieldOne(){return fieldOne;}
+
+    public WebElement getCrontab() {
+        return crontab;
+    }
+
+    public WebElement getHrField() {
+        return hrField;
+    }
+
+    public WebElement getFieldOne() {
+        return fieldOne;
+    }
 
     @FindBy(xpath = "//span[text()='a']/following-sibling::span")
     private WebElement fieldTwo;
-    public WebElement getFieldTwo(){return fieldTwo;}
+
+    public WebElement getFieldTwo() {
+        return fieldTwo;
+    }
 
     //数据集的展开按钮
     @FindBy(xpath = "//a[text()='展开']")
@@ -1537,30 +1573,35 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
     private WebElement splStatsRetTable;
+
     public WebElement getSplStatsRetTable() {
         return splStatsRetTable;
     }
 
     @FindBy(xpath = "//div[@class='eua4mwMYB7k125sVmyyzn']")
     private WebElement splChartRetView;
+
     public WebElement getSplChartRetView() {
         return splChartRetView;
     }
 
     @FindBy(xpath = "//div[@class='_1RUvRKI62LgS00VRtmcaq']")
     private WebElement splTransactionRetView;
+
     public WebElement getSplTransactionRetView() {
         return splTransactionRetView;
     }
 
     @FindBy(xpath = "//div[@class='_284Y6gRNbLs9PP8RvGX76B Fqdex4rec8vrc91HwX3oB']/span")
     private WebElement splStatsRetNum;
+
     public WebElement getSplStatsRetNum() {
         return splStatsRetNum;
     }
 
     @FindBy(xpath = "//div[@class='_284Y6gRNbLs9PP8RvGX76B']/span")
     private WebElement splEventRetNum;
+
     public WebElement getSplEventRetNum() {
         return splEventRetNum;
     }
@@ -1571,6 +1612,7 @@ public class SearchPage extends ListPageFactory {
         return searchPageSvg;
     }
 
+<<<<<<< HEAD
 //  @FindBy(xpath = "//svg[@href='#icon-sousuoyeyemiantuozhuai']")
     @FindBy(xpath = "//svg[@id='icon-sousuoyeyemiantuozhuai']")
     private WebElement searchPageSvg1;
@@ -1589,4 +1631,8 @@ public class SearchPage extends ListPageFactory {
     public WebElement getSearchPageLeft1() {
         return searchPageLeft1;
     }
+||||||| merged common ancestors
+
+=======
+>>>>>>> 0e71a4c340a4993cff44966d1711f646ee78a8b6
 }

@@ -17,6 +17,10 @@ Feature: 应用字段提取（RZY-2129）
     And I set the parameter "MenuName" with value "<menuName>"
     And I set the parameter "Url" with value "<url>"
     And I click the "SaveMenuButton" button
+    And I click the "AddMenuButton" button under some element
+    And I set the parameter "MenuName" with value "字典管理"
+    And I set the parameter "Url" with value "/dictionary/"
+    And I click the "SaveMenuButton" button
     And I choose the "<menuName>" from the "DefaultPage"
     And I click the "CurrentApp" button
     And I click the "ColorPicker" button
@@ -122,8 +126,9 @@ Feature: 应用字段提取（RZY-2129）
     When I set the parameter "LogSample" with value "testtesttesttest"
     And I click the "NextButton" button
     And I set the parameter "Name" with value "AutoTestCopy"
+    And I move the mouse pointer to the "DeleteApp"
+    And I click the "DeleteApp" button
     And I click the "SwitchButton" button
-    And I choose the "ConfigsApp" from the "App"
     Then I click the "Done" button
     And I wait for "ConfigDone" will be visible
 
@@ -162,9 +167,7 @@ Feature: 应用字段提取（RZY-2129）
     When the data name is "ConfigsApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
-    Then I will see the "configs.ListPage" page
-    And I wait for "Create" will be visible
-    When I click the "Dictionary" button
+    And I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.ListPage" page
@@ -186,9 +189,7 @@ Feature: 应用字段提取（RZY-2129）
     When the data name is "ConfigsApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
-    Then I will see the "configs.ListPage" page
-    And I wait for "Create" will be visible
-    When I click the "Dictionary" button
+    And I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.ListPage" page
@@ -204,12 +205,9 @@ Feature: 应用字段提取（RZY-2129）
     When the data name is "ConfigsApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
-    Then I will see the "configs.ListPage" page
-    And I wait for "Create" will be visible
-    When I click the "Dictionary" button
+    And I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
-    And I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     And I choose the "测试标签" from the "ResourceDropdown"
     And I wait for loading invisible
@@ -223,12 +221,9 @@ Feature: 应用字段提取（RZY-2129）
     When the data name is "ConfigsApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
-    Then I will see the "configs.ListPage" page
-    And I wait for "Create" will be visible
-    When I click the "Dictionary" button
+    And I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
-    And I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     And I set the parameter "SearchInput" with value "字典管理"
     And I wait for loading invisible
@@ -242,17 +237,15 @@ Feature: 应用字段提取（RZY-2129）
     When the data name is "ConfigsApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
-    Then I will see the "configs.ListPage" page
-    And I wait for "Create" will be visible
-    When I click the "Dictionary" button
+    And I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
-    And I wait for loading invisible
     Then I will see the "dictionary.ListPage" page
     When the data name is "app对比测试.csv" then i click the "编辑" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.CreatePage" page
+    And I move the mouse pointer to the "DeleteApp"
     And I click the "DeleteApp" button
     Then I click the "SaveButton" button
     And I wait for "Message" will be visible
@@ -274,48 +267,6 @@ Feature: 应用字段提取（RZY-2129）
     Then I will see the search result contains "{'column':'1','name':'AutoTest'}"
     Then I will see the search result "{'column':'1','name':'AutoTestCopy','contains':'no'}"
 
-#  Scenario: 授权字典管理
-#    Given open the "app.ListPage" page for uri "/app/list/"
-#    When the data name is "ConfigsApp" then i click the "打开" button
-#    And I will see the "app.AppPage" page
-#    And I will see the element "Title" name is "ConfigsApp"
-#    Then I will see the "configs.ListPage" page
-#    When I click the "Dictionary" button
-#    And I will see the "app.AppPage" page
-#    And I will see the element "Title" name is "ConfigsApp"
-#    And I wait for loading invisible
-#    Then I will see the "dictionary.ListPage" page
-#    When the data name is "字典管理app.csv" then i click the "授权" button
-#    And I wait for loading invisible
-#    And I "check" the checkbox which name is "AutoTest" in tiny table
-#    And I click the "Ensure" button
-#    Then I will see the success message "保存成功"
-#
-#  Scenario: 验证授权成功
-#    Given open the "roles.ListPage" page for uri "/account/roles/"
-#    And the data name is "__user_AutoTest__" then i click the "授权" button
-#    And I will see the "roles.AuthorizationPage" page
-#    And I wait for "Loading" will be invisible
-#    Then I click the "{'TabButton':'功能'}" button
-#    And I wait for "Loading" will be invisible
-#    When I "checked" the checkbox which name is "全选"
-#    And I click the "SaveButton" button
-#    And I will see the success message "更新成功"
-#    Given I will see the "PublicNavBarPage" page
-#    And I wait for "Dashboard" will be visible
-#    And I logout current user
-#    And I wait for title change text to "登录"
-#    And open the "LoginPage" page for uri "/auth/login/"
-#    When I set the parameter "Username" with value "AutoTest"
-#    And I set the parameter "Password" with value "All#123456"
-#    And I click the "LoginButton" button
-#    And I wait for "2000" millsecond
-#    Given open the "configs.ListPage" page for uri "/configs/"
-#    When I click the "Dictionary" button
-#    And I wait for loading invisible
-#    Then I will see the "dictionary.ListPage" page
-#    Then the data name is "{'column':'0','name':'字典管理app.csv'}" then i will see "下载编辑标签删除授权" button
-
   Scenario Outline: 修改app资源范围
     Given open the "app.ListPage" page for uri "/app/list/"
     When the data name is "<name>" then i click the "编辑" button
@@ -335,9 +286,7 @@ Feature: 应用字段提取（RZY-2129）
     When the data name is "ConfigsApp" then i click the "打开" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
-    Then I will see the "configs.ListPage" page
-    And I wait for "Create" will be visible
-    When I click the "Dictionary" button
+    And I click the "Dictionary" button
     And I will see the "app.AppPage" page
     And I will see the element "Title" name is "ConfigsApp"
     Then I will see the "dictionary.ListPage" page

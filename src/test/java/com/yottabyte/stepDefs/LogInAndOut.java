@@ -1,15 +1,15 @@
 package com.yottabyte.stepDefs;
 
-import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.LoginPage;
-import com.yottabyte.pages.PageTemplate;
 import cucumber.api.java.en.And;
-import org.apache.commons.codec.digest.DigestUtils;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author sunxj
@@ -53,28 +53,34 @@ public class LogInAndOut {
      */
     @And("^I login user \"([^\"]*)\" with password \"([^\"]*)\"$")
     public void userLogin(String username, String password) throws InterruptedException {
-        int time = 0;
-        while (webDriver.manage().getCookies().size() != 0) {
-            this.logout();
-            webDriver.navigate().refresh();
-            if (time < 10)
-                time++;
-            else
-                break;
-        }
-
-        while (webDriver.manage().getCookies().size() == 0) {
-            LoginPage loginPage = new LoginPage(webDriver);
+        webDriver.manage().deleteAllCookies();
+        webDriver.navigate().refresh();
+        this.deleteCookie();
+        int times = 0;
+        LoginPage loginPage = new LoginPage(webDriver);
+        String baseURL = LoginBeforeAllTests.getBaseURL();
+        while (webDriver.getTitle().equals("登录")) {
             loginPage.getUsername().clear();
             loginPage.getUsername().sendKeys(username);
             loginPage.getPassword().clear();
             loginPage.getPassword().sendKeys(password);
             loginPage.getLoginButton().click();
-            if (time < 20)
-                time++;
-            else
-                break;
+            Thread.sleep(2000);
+            webDriver.navigate().to(baseURL + "/dashboard/");
+            times++;
+            if (times > 10) {
+                return;
+            }
         }
+    }
 
+    private void deleteCookie() {
+        Set<Cookie> cookies = webDriver.manage().getCookies();
+        Iterator<Cookie> iterator = cookies.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().getName().equals("sessionid")) {
+                webDriver.manage().deleteAllCookies();
+            }
+        }
     }
 }

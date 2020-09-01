@@ -4,7 +4,7 @@ Feature: 日志展现_表格
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    When I set the parameter "SearchInput" with value "starttime=\"now/d-24h\" endtime=\"now/d\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 13"
    And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I will see the "trend.CreatePage" page
@@ -42,7 +42,6 @@ Feature: 日志展现_表格
       | caseNum      |
       | 827_default  |
 
-# bug add for another color     827 828
   Scenario Outline: table_gradient
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
@@ -52,16 +51,17 @@ Feature: 日志展现_表格
     And I wait for "1000" millsecond
     And I click the "<color>" button
 
-    And I set the parameter "LowerLimitValue" with value "4"
-    And I set the parameter "MiddleValue" with value "7"
-    And I set the parameter "UpperLimitValue" with value "39"
+    #改进RZY-5672
+#    And I set the parameter "LowerLimitValue" with value "4"
+#    And I set the parameter "MiddleValue" with value "7"
+#    And I set the parameter "UpperLimitValue" with value "39"
     And I click the "CreateEnsureButton" button
 
     And I wait for "ChartView" will be visible
 #    And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>_<color>"
-    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>_<color>" with target image "expect/高级搜索视图/8表格/<caseNum>_<color>"
+#    Then I compare source image "actual/高级搜索视图/8表格/<caseNum>_<color>" with target image "expect/高级搜索视图/8表格/<caseNum>_<color>"
 
     Examples:
       |   color      | caseNum  |
@@ -137,13 +137,13 @@ Feature: 日志展现_表格
       |  DeleteLastInterval   |  829_del_green   |
 
 
-  Scenario Outline: table_value_autocolor
+  Scenario Outline: table_value_color
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
     And I choose the "值" from the "ColorType"
 
-    And I wait for "AutoColor" will be visible
-    And I click the "AutoColor" button
+    And I wait for "<button>" will be visible
+    And I click the "<button>" button
     And I click the "CreateEnsureButton" button
 
     And I wait for "ChartView" will be visible
@@ -153,8 +153,9 @@ Feature: 日志展现_表格
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
 
     Examples:
-      | caseNum     |
-      |  830_auto   |
+      |   button      | caseNum       |
+      |  DefaultColor | defaultColor  |
+      |  AutoColor    |  830_auto     |
 
 
   Scenario Outline: table_value_customcolor

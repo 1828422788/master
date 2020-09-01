@@ -1,4 +1,4 @@
-@dragAndDrop @dragAndDropOther @dragAndDropCreate
+@dragAndDrop @dragAndDropOther @trend
 Feature: 拖拽生成趋势图_其他
 
   Background:
@@ -41,8 +41,8 @@ Feature: 拖拽生成趋势图_其他
     When I click the "CloseSPL" button
     Then I wait for "OtherChart" will be visible
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>_<button>"
-    And I compare source image "actual/<chartType>_<button>" with target image "expect/<chartType>_<button>"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_<button>"
+    And I compare source image "actual/拖拽_<chartType>_<button>" with target image "expect/拖拽_<chartType>_<button>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -69,8 +69,8 @@ Feature: 拖拽生成趋势图_其他
     When I click the "CloseSPL" button
     Then I wait for "OtherChart" will be visible
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>_trend"
-    And I compare source image "actual/<chartType>_trend" with target image "expect/<chartType>_trend"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_trend"
+    And I compare source image "actual/拖拽_<chartType>_trend" with target image "expect/拖拽_<chartType>_trend"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -106,8 +106,8 @@ Feature: 拖拽生成趋势图_其他
     When I click the "CloseSPL" button
     Then I wait for "OtherChart" will be visible
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>_area"
-    And I compare source image "actual/<chartType>_area" with target image "expect/<chartType>_area"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_area"
+    And I compare source image "actual/拖拽_<chartType>_area" with target image "expect/拖拽_<chartType>_area"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -138,8 +138,8 @@ Feature: 拖拽生成趋势图_其他
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.geo.city) by apache.geo.city"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>"
-    And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>"
+    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -171,8 +171,8 @@ Feature: 拖拽生成趋势图_其他
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.status) by apache.status,apache.geo.city"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>"
-    And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>"
+    And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -191,7 +191,6 @@ Feature: 拖拽生成趋势图_其他
     And I click the "<chartType>" button
     And I click the "CompareButton" button
     And I wait for "2000" millsecond
-    Then I wait for "OtherChart" will be visible
     And I wait for "ElementInValues" will be visible
     When I click the "ElementInValues" button
     And I wait for "CompareField" will be visible
@@ -212,8 +211,8 @@ Feature: 拖拽生成趋势图_其他
     And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.status) by apache.status | eval _compare="当前" | append [[ starttime="now/d-1d" endtime="now-1d" tag:sample04061424_chart|stats count(apache.status) by apache.status | eval _compare="环比" ]] | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.status) by apache.status | eval _compare="同比一周" ]]"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>_对比"
-    And I compare source image "actual/<chartType>_对比" with target image "expect/<chartType>_对比"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_对比"
+#    And I compare source image "actual/拖拽_<chartType>_对比" with target image "expect/拖拽_<chartType>_对比"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -236,8 +235,8 @@ Feature: 拖拽生成趋势图_其他
     And I will see the element "SPL" contains "tag:sample04061424_chart|stats count(apache.clientip)"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>_2"
-    And I compare source image "actual/<chartType>_2" with target image "expect/<chartType>_2"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_2"
+    And I compare source image "actual/拖拽_<chartType>_2" with target image "expect/拖拽_<chartType>_2"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page
@@ -271,8 +270,8 @@ Feature: 拖拽生成趋势图_其他
     And I will see the element "SPL" contains "starttime="now/d" endtime="now" tag:sample04061424_chart|stats count(apache.clientip) | eval _compare="当前" | append [[ starttime="now/d-1w" endtime="now-1w" tag:sample04061424_chart|stats count(apache.clientip) | eval _compare="同比一周" ]]"
     When I click the "CloseSPL" button
     And I wait for "2000" millsecond
-    Then take part of "OtherChart" with name "actual/<chartType>_对比_2"
-    And I compare source image "actual/<chartType>_对比_2" with target image "expect/<chartType>_对比_2"
+    Then take part of "OtherChart" with name "actual/拖拽_<chartType>_对比_2"
+    And I compare source image "actual/拖拽_<chartType>_对比_2" with target image "expect/拖拽_<chartType>_对比_2"
     And I click the "NextButton" button
 
     When I will see the "trend.CreatePage" page

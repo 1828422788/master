@@ -11,5 +11,5 @@ Feature: 角色查询（RZY-523）
     Then I will see the search result "{'column':'0','name':'<name>'}"
 
     Examples:
-      | name     |
-      | AutoTest |
+      | name         |
+      | AutoTestEdit |

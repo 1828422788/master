@@ -162,7 +162,8 @@ Feature: 应用趋势图
     And I wait for "Header" will be visible
     And I click the "NextButton" button
     When I set the parameter "NameInput" with value "AutoApp"
-    And I choose the "TrendApp" from the "AppDropdown"
+    And I move the mouse pointer to the "DeleteApp"
+    And I click the "DeleteApp" button
     And I click the "NextButton" button
     Then I will see the element "SuccessUpdate" name is "更新成功"
 

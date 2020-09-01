@@ -76,17 +76,17 @@
       #流程线粗细
       And I set the parameter "flowLineCoarseness" with value "10"
       #流程线颜色
-      And I click the "flowLineColor" button
-      And I wait for "ColorInput" will be visible
-      And I set the parameter "ColorInput" with value "#9FF50B"
+#      And I click the "flowLineColor" button
+      And I wait for "flowLineColor" will be visible
+      And I set the parameter "flowLineColor" with value "#9FF50B"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       #角度
       And I set the parameter "angle" with value "90"
       #标注颜色
-      And I click the "taggingColor" button
-      And I wait for "ColorInput" will be visible
-      And I set the parameter "ColorInput" with value "#55B11F"
+#      And I click the "taggingColor" button
+      And I wait for "taggingColor" will be visible
+      And I set the parameter "taggingColor" with value "#55B11F"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       #标注大小

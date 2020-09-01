@@ -34,17 +34,17 @@ Feature: 数据大屏-h栅格百分图
     #行高
     And I set the parameter "rowHeight" with value "2"
     #字体颜色
-    And I click the "gridFontColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#E333E0"
+#    And I click the "gridFontColor" button
+    And I wait for "gridFontColor" will be visible
+    And I set the parameter "gridFontColor" with value "#E333E0"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #栅格间隙
     And I set the parameter "gridClearance" with value "10"
     #栅格颜色
-    And I click the "gridColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#42C87E"
+#    And I click the "gridColor" button
+    And I wait for "gridColor" will be visible
+    And I set the parameter "gridColor" with value "#42C87E"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #标题
@@ -152,7 +152,7 @@ Feature: 数据大屏-h栅格百分图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() as num | eval p = num/28000"

@@ -90,6 +90,10 @@ public class AppPage extends PageTemplate {
         return this.getElementWithLinkName("字段提取");
     }
 
+    public WebElement getDictionary() {
+        return this.getElementWithLinkName("字典管理");
+    }
+
     public WebElement getEvent() {
         return this.getElementWithLinkName("事件操作");
     }

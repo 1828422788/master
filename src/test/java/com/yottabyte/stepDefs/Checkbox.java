@@ -53,7 +53,6 @@ public class Checkbox {
     @When("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\"$")
     public void clickCheckboxWithGivenName(String status, List<String> nameList) {
         for (String name : nameList) {
-//            String xpath = "(//span[@class='el-checkbox__label'][contains(text(),'" + name + "')])[last()]";
             String xpath = "(//span[contains(text(),'" + name + "')])[last()]";
             WebElement label = webDriver.findElement(By.xpath(xpath));
             WebElement span = label.findElement(By.xpath(".//preceding-sibling::span"));
@@ -160,10 +159,7 @@ public class Checkbox {
     public void iCheckLabeldic(String status, List<String> nameList) {
         for (String name : nameList) {
             String xpath = "//span[text()='" + name + "']/ancestor::td//label";
-            WebElement label = webDriver.findElement(By.xpath(xpath));
-            String attribute = label.getAttribute("class");
-            Assert.assertTrue((attribute.contains("checked") && "checked".equals(status))
-                    || (!attribute.contains("checked") && "unchecked".equals(status)));
+            this.assertCheckboxStatus(status, xpath);
         }
     }
 
@@ -240,5 +236,26 @@ public class Checkbox {
                 label.findElement(By.xpath(".//ancestor::label")).click();
             }
         }
+    }
+
+    /**
+     * 判断权限功能页面checkbox是否被勾选
+     *
+     * @param nameList
+     * @param status
+     */
+    @Then("^I will see the checkbox in auth which name is \"([^\"]*)\" and status is \"([^\"]*)\"$")
+    public void iWillSeeTheCheckboxInAuthWhichNameIsAndStatusIs(List<String> nameList, String status) {
+        for (String name : nameList) {
+            String xpath = "//span[text()='" + name + "']/ancestor::label";
+            this.assertCheckboxStatus(status, xpath);
+        }
+    }
+
+    private void assertCheckboxStatus(String status, String xpath) {
+        WebElement label = webDriver.findElement(By.xpath(xpath));
+        String attribute = label.getAttribute("class");
+        Assert.assertTrue((attribute.contains("checked") && "checked".equals(status))
+                || (!attribute.contains("checked") && "unchecked".equals(status)));
     }
 }

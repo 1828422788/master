@@ -132,6 +132,59 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//a[text()='添加字段']")
     private WebElement addKVField;
 
+    @FindBy(xpath = "//div[@class='ant-modal-body']//i")
+    private WebElement resourceType;
+
+    @FindBy(className = "ant-message-custom-content")
+    private WebElement messageContent;
+
+    @FindBy(className = "css-nil")
+    private WebElement kvDropdown;
+
+    @FindBy(className = "ant-dropdown-menu")
+    private WebElement kvDropdownList;
+
+    @FindBy(className = "ant-select-search__field")
+    private WebElement KVTag;
+
+    public WebElement getKVTag() {
+        return KVTag;
+    }
+
+    public WebElement getChangeTag() {
+        return this.getKVLi("变更标签");
+    }
+
+    public WebElement getDeleteKV() {
+        return this.getKVLi("删除");
+    }
+
+    public WebElement getKVLi(String name) {
+        String xpath = "//span[text()='" + name + "']//ancestor::li";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getEnsure() {
+        return super.getButton("确定");
+    }
+
+    public WebElement getKVDropdownList() {
+        return kvDropdownList;
+    }
+
+    public WebElement getKvDropdown() {
+        return kvDropdown;
+    }
+
+    public WebElement getMessageContent() {
+        return messageContent;
+    }
+
+    public WebElement getResourceType() {
+        resourceType.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getCreateKVStore() {
         return super.getButton("创建");
     }

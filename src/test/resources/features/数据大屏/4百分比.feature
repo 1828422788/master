@@ -30,16 +30,16 @@
       And I click the "stylePercentage" button
       #文本
       And I set the parameter "text_fontSize" with value "30"
-      And I click the "text_fontColor" button
-      And I wait for "ColorInput" will be visible
-      And I set the parameter "ColorInput" with value "#9FF50B"
+#      And I click the "text_fontColor" button
+      And I wait for "text_fontColor" will be visible
+      And I set the parameter "text_fontColor" with value "#9FF50B"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       And I choose the "bold" from the "PercentageWordBold"
       #图表
-      And I click the "chartColor" button
-      And I wait for "ColorInput" will be visible
-      And I set the parameter "ColorInput" with value "#55B11F"
+#      And I click the "chartColor" button
+      And I wait for "chartColor" will be visible
+      And I set the parameter "chartColor" with value "#55B11F"
       And I click the "EnsureColor" button
       And I wait for "EnsureColor" will be invisible
       And I set the parameter "chartHeight" with value "20"
@@ -146,7 +146,7 @@
       And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
       And I click the "Other" button
-      And I click the "otherSearch" button
+      And I click the "otherSearch" button under some element
       And I hide the element "otherDropdown"
      And I wait for "SplInput" will be visible
       And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() as num | eval p = num/28000"

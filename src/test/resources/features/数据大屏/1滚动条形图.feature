@@ -35,9 +35,9 @@ Feature: 数据大屏-g滚动条形图
     #字体大小
     And I set the parameter "scrollBarFontSize" with value "28"
     #字体颜色
-    And I click the "fontColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#EEE311"
+#    And I click the "fontColor" button
+    And I wait for "fontColor" will be visible
+    And I set the parameter "fontColor" with value "#EEE311"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #字体粗细
@@ -151,7 +151,7 @@ Feature: 数据大屏-g滚动条形图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count(apache.clientip) as ip_count by apache.clientip | sort by ip_count | limit 10"

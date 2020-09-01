@@ -1,16 +1,10 @@
 package com.yottabyte.pages.users;
 
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.stepDefs.ClickSomeButton;
-import com.yottabyte.stepDefs.IChooseValueFromSelectList;
-import com.yottabyte.stepDefs.SetKeyWithValue;
-import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -91,6 +85,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getRole() {
         return getDropdownList("角色");
+    }
+
+    public WebElement getManageRole() {
+        return getDropdownList("可管理角色");
     }
 
     public WebElement getCreateButton() {

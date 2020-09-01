@@ -67,8 +67,8 @@ Feature: 定时任务删除
   Scenario Outline: delete_complement
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"
-    And I wait for loading invisible
-    When the data name is "{'column':'2','name':'<name>'}" then i click the "删除" button
+    And I wait for "2000" millsecond
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button under some element
     Then I will see the success message "删除成功"
     And I click the "Complement" button

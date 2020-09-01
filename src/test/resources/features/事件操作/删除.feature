@@ -5,7 +5,7 @@ Feature: 事件操作删除（RZY-1391）
     Given open the "event.ListPage" page for uri "/event/action/"
 
   Scenario Outline:
-    When the data name is "<name>" then i click the "删除" button
+    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I refresh the website

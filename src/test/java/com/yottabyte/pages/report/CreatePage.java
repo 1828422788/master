@@ -80,6 +80,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='趋势图列表']/following-sibling::div/button")
     private WebElement chartList;
 
+    @FindBy(xpath = "//a[@aria-label='选择趋势图']/span")
+    private WebElement chartListWord;
+
+    @FindBy(xpath = "//input[@placeholder='选择趋势图']")
+    private WebElement chartListInput;
+
     @FindBy(className = "ant-dropdown-menu")
 //    @FindBy(xpath = "//li[@class='ant-dropdown-menu-item']/ancestor::ul")
     private WebElement chartDropdownList;
@@ -148,7 +154,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[@class='popover-setting-content'])[last()]")
     private WebElement settingContent;
 
-    @FindBy(xpath = "//span[text()='编辑']/ancestor::button")
+    @FindBy(xpath = "(//span[text()='编辑']/ancestor::button) | (//label[@name='operate_edit']/*)")
     private WebElement editButton;
 
     @FindBy(className = "ant-collapse-header")
@@ -968,6 +974,17 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getChartListButton() {
         return chartList;
+    }
+
+    public WebElement getChartListButtonWord() {
+        return chartListWord;
+    }
+
+    public WebElement getChartListInput() {
+        chartListWord.click();
+        WebDriverWait wait = new WebDriverWait(webDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(chartListInput));
+        return chartListInput;
     }
 
     public WebElement getListOfCharts(){

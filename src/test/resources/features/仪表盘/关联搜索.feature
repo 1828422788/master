@@ -17,7 +17,7 @@ Feature: 仪表盘关联搜索
     And I set the parameter "Logtype" with value "<logtype>"
     And I set the parameter "AppName" with value "<appname>"
     And I set the parameter "Tag" with value "<appname>"
-    And I click the "Done" button
+    And I click the "NextButton" button
     Then I wait for "ConfigDone" will be visible
 
     Examples:
@@ -71,6 +71,7 @@ Feature: 仪表盘关联搜索
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
     And I set the parameter "SearchInput" with value "<spl>"
+    And I wait for "500" millsecond
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -112,7 +113,7 @@ Feature: 仪表盘关联搜索
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I wait for "OpenDrilldown" will be visible
-    And I click the "OpenDrilldown" button
+    And I switch the dashboard "OpenDrilldown" button to "enable"
     And I wait for "SuccessMessage" will be visible
 
   @dashboard @dashboardSmoke
@@ -124,6 +125,7 @@ Feature: 仪表盘关联搜索
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "<json>" to json editor
+    And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
     Then I click the "Ensure" button
@@ -144,6 +146,7 @@ Feature: 仪表盘关联搜索
     And I wait for loading invisible
     And I set the parameter "Spl" with value "tag:auto_test_dashboard_workflow AND workflow.ENTRY_ID:${workflow} | table tag,workflow.ENTRY_ID | rename workflow.ENTRY_ID as ENTRY_ID"
     Then I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
@@ -211,6 +214,7 @@ Feature: 仪表盘关联搜索
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:
@@ -223,6 +227,7 @@ Feature: 仪表盘关联搜索
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除成功"
 
     Examples:
@@ -237,6 +242,7 @@ Feature: 仪表盘关联搜索
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:

@@ -1,5 +1,6 @@
 package com.yottabyte.pages.trend;
 
+import com.yottabyte.utils.GetTime;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -75,6 +76,56 @@ public class DragAndDropPage extends CreatePage {
     @FindBy(xpath = "//span[text()='展示字号']/ancestor::div[1]/following-sibling::span//input")
     private WebElement fontSize;
 
+    @FindBy(xpath = "//span[text()='dataset_1']")
+    private WebElement dataset_1;
+
+    @FindBy(xpath = "//span[text()='dataset_2']")
+    private WebElement dataset_2;
+
+    @FindBy(xpath = "//span[text()='dataset_3']")
+    private WebElement dataset_3;
+
+    @FindBy(xpath = "//div[@class='_1eGH0JWTfcA_3z1BXlH42u']")
+    private WebElement dateEditor;
+
+    @FindBy(xpath = "//button[text()='今天']")
+    private WebElement today;
+
+    @FindBy(xpath = "(//div[@class='_2rT4h5iRfwtqnpHKelgSZv'])[last()]/div[1]")
+    private WebElement columnField;
+
+    @FindBy(xpath = "(//div[@class='_2rT4h5iRfwtqnpHKelgSZv'])[last()]/div[2]")
+    private WebElement operator;
+
+    @FindBy(xpath = "(//div[@class='_2rT4h5iRfwtqnpHKelgSZv'])[last()]/input")
+    private WebElement value;
+
+    @FindBy(xpath = "//*[@class='ant-table-tbody']/tr[1]")
+    private WebElement tableBody;
+
+    @FindBy(xpath = "//span[text()='满足下列条件']/following-sibling::div/div")
+    private WebElement condition;
+
+    @FindBy(xpath = "//span[text()='应用']")
+    private WebElement apply;
+
+    @FindBy(xpath = "//span[text()='添加']")
+    private WebElement add;
+
+    @FindBy(xpath = "//div[@class='ant-message-notice']//span")
+    private WebElement message;
+
+    @FindBy(xpath = "//span[text()='表达式过滤']/preceding-sibling::span")
+    private WebElement expression;
+
+    @FindBy(xpath = "(//div[text()='请拖入数据集']) | (//span[text()='拖入数据集到此加入表格']) | (//div[@class='_3J-0LSb-pcRagbVvd09jPY'])")
+    private WebElement dropDataset;
+
+    @FindBy(xpath = "//span[text()='数据概览']")
+    private WebElement overview;
+
+    @FindBy(xpath = "//div[@class='ant-tabs-nav-wrap']/div/div/div/div[3]")
+    private WebElement customTimeTab;
 
     //Charts --------------------------------------------------------------------------
     public WebElement getLine() {
@@ -305,6 +356,100 @@ public class DragAndDropPage extends CreatePage {
         return fontSize;
     }
 
+    public WebElement getDataset_1() {
+        return dataset_1;
+    }
+
+    public WebElement getDataset_2() {
+        return dataset_2;
+    }
+
+    public WebElement getDataset_3() {
+        return dataset_3;
+    }
+
+    public WebElement getDateEditor() {
+        return dateEditor;
+    }
+
+    public WebElement getToday() {
+        return today;
+    }
+
+    public WebElement getCustomTimeTab() {
+        return customTimeTab;
+    }
+
+    public void getCustomTime() {
+        GetTime.getTime(webDriver, "CustomTime");
+    }
+
+    public WebElement getStartTimeField() {
+        return GetTime.getTime(webDriver, "StartTimeInput");
+    }
+
+    public WebElement getEndTimeField() {
+        return GetTime.getTime(webDriver, "EndTimeInput");
+    }
+
+    public WebElement getStartDateField() {
+        return GetTime.getTime(webDriver, "StartDateInput");
+    }
+
+    public WebElement getEndDateField() {
+        return GetTime.getTime(webDriver, "EndDateInput");
+    }
+
+    public WebElement getApplyCustomTime() {
+        return GetTime.getTime(webDriver, "ApplyCustomTime");
+    }
+
+    public WebElement getColumnField() {
+        columnField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOperator() {
+        operator.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getValue() {
+        return value;
+    }
+
+    public WebElement getTableBody() {
+        return tableBody;
+    }
+
+    public WebElement getCondition() {
+        condition.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getApply() {
+        return apply;
+    }
+
+    public WebElement getAdd() {
+        return add;
+    }
+
+    public WebElement getMessage() {
+        return message;
+    }
+
+    public WebElement getExpression() {
+        return expression;
+    }
+
+    public WebElement getDropDataset() {
+        return dropDataset;
+    }
+
+    public WebElement getOverview() {
+        return overview;
+    }
 
     private WebElement getElementById(String name){
         return webDriver.findElement(By.id(name));

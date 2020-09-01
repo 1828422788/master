@@ -143,9 +143,6 @@ public class LoginBeforeAllTests {
     private static void deleteAllCookies() {
         WebDriverWait wait = new WebDriverWait(webDriver, 20);
         wait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
-        wait.until(driver -> {
-            webDriver.manage().deleteAllCookies();
-            return driver.manage().getCookies().size() == 0;
-        });
+        webDriver.manage().deleteAllCookies();
     }
 }

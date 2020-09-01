@@ -103,7 +103,6 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSyslogEditdelete() {
-
         return SyslogEditdelete;
     }
 
@@ -699,6 +698,11 @@ public class CreatePage extends PageTemplate {
     public WebElement getBackUpTimeoutUnit(){
         return getDropDownListElement("超时时间");
     }
+
+    public WebElement getCharset(){
+        return getInputElement("charset");
+    }
+
 
     public WebElement getCharacterKind(){
         return getDropDownListElement("字符集");

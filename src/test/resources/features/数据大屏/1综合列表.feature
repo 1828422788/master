@@ -33,21 +33,21 @@ Feature: 数据大屏-m综合列表
     And I click the "styleComprehensiveList" button
 
     #标题颜色
-    And I click the "listTitleColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#DEE119"
+#    And I click the "listTitleColor" button
+    And I wait for "listTitleColor" will be visible
+    And I set the parameter "listTitleColor" with value "#DEE119"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #数值颜色
-    And I click the "numberColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#58DA29"
+#    And I click the "numberColor" button
+    And I wait for "ListNumberColor" will be visible
+    And I set the parameter "ListNumberColor" with value "#58DA29"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #条颜色
-    And I click the "aspectColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#E047FF"
+#    And I click the "aspectColor" button
+    And I wait for "ListAspectColor" will be visible
+    And I set the parameter "ListAspectColor" with value "#E047FF"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     #缩略比例
@@ -165,7 +165,7 @@ Feature: 数据大屏-m综合列表
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "tag:sample* | stats sparkline(count(), 1m) as spk by appname"

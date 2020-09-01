@@ -33,6 +33,20 @@ public class VerifyElementTextWillBe {
     }
 
     /**
+     * 验证某一元素文本内容是否包含
+     *
+     * @param elementName
+     * @param excpText
+     */
+    @Then("^I will see the \"([^\"]*)\" result will contain \"([^割]*)\"$")
+    public void iWillSeeTheResultWillContain(String elementName, String excpText) {
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        String realText = element.getText();
+        assertTrue(realText.contains(excpText));
+//        assertEquals(excpText, realText);
+    }
+
+    /**
      * 验证输入框中的内容
      *
      * @param elementName

@@ -23,62 +23,69 @@ Feature: 数据大屏-a折线图
       #文本
     And I wait for "XaxisWordSize" will be visible
     And I set the parameter "XaxisWordSize" with value "20"
-    And I click the "XaxisWordColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#CF3131"
+#    And I click the "XaxisWordColor" button
+    And I wait for "XColorInput" will be visible
+    And I set the parameter "XColorInput" with value "#CF3131"
+    And I wait for "EnsureColor" will be visible
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "XaxisWordBold"
      #轴标签
     And I set the parameter "XaxisShift" with value "5"
     And I choose the "倾斜" from the "XaxisAngle"
-     #显示分割线
+     #显示分割线this.colorPicker("x轴", "文本")
     And I switch the "XaxisSeparator" button to "enable"
        #分割线的设置
     And I set the parameter "XDividingLineBold" with value "3"
 
-    And I click the "XDividingLineColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#CD9080"
+#    And I click the "XDividingLineColor" button
+    And I wait for "XDividingLineColor" will be visible
+    And I set the parameter "XDividingLineColor" with value "#CD9080"
+#    And I let element "ColorInput" lose focus
+    And I wait for "EnsureColor" will be visible
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
 
     And I choose the "dotted" from the "XDividingLineType"
      # 轴线
-    And I click the "xLineColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#26CC55"
+#    And I click the "xLineColor" button
+    And I wait for "xLineColor" will be visible
+    And I set the parameter "xLineColor" with value "#26CC55"
+    And I wait for "EnsureColor" will be visible
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I set the parameter "XLineBold" with value "4"
 #Y轴
     And I click the "YaxisHeader" button
      #文本
+    And I wait for "YaxisWordSize" will be visible
     And I set the parameter "YaxisWordSize" with value "20"
-    And I click the "YaxisWordColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#19B535"
+#    And I click the "YaxisWordColor" button
+    And I wait for "YColorInput" will be visible
+    And I set the parameter "YColorInput" with value "#19B535"
+    And I wait for "EnsureColor" will be visible
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "bold" from the "YaxisWordBold"
      # 轴标签
     And I set the parameter "YaxisShift" with value "10"
     And I choose the "倾斜" from the "YaxisAngle"
+    And I wait for "500" millsecond
      #分割线
     #分割线的设置
     And I set the parameter "YDividingLineBold" with value "2"
-
-    And I click the "YDividingLineColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#BBB80B"
+#    And I click the "YDividingLineColor" button
+    And I wait for "YDividingLineColor" will be visible
+    And I set the parameter "YDividingLineColor" with value "#BBB80B"
+    And I wait for "EnsureColor" will be visible
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
-
     And I choose the "dashed" from the "YDividingLineType"
+    And I wait for "500" millsecond
     # 轴线
-    And I click the "YLineColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#CBD50D"
+#    And I click the "YLineColor" button
+    And I wait for "YLineColor" will be visible
+    And I set the parameter "YLineColor" with value "#CBD50D"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I set the parameter "YLineBold" with value "4"
@@ -148,9 +155,9 @@ Feature: 数据大屏-a折线图
     #图例
     And I click the "Example" button
     And I set the parameter "ExampleWordSize" with value "20"
-    And I click the "ExampleColor" button
-    And I wait for "ColorInput" will be visible
-    And I set the parameter "ColorInput" with value "#D73535"
+#    And I click the "ExampleColor" button
+    And I wait for "ExampleColor" will be visible
+    And I set the parameter "ExampleColor" with value "#D73535"
     And I click the "EnsureColor" button
     And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "ExampleWordBold"
@@ -218,7 +225,7 @@ Feature: 数据大屏-a折线图
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
     And I click the "Other" button
-    And I click the "otherSearch" button
+    And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
     And I set the parameter "SplInput" with value "starttime="now/d" endtime="now/d+24h" tag:sample04061424_chart | bucket timestamp span=2000s as ts| stats count() by ts | sort by +ts"

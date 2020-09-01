@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 # new feature
 # Tags: optional
 @configsSmoke
 Feature: 字段提取关联日志样例
+||||||| merged common ancestors
+# new feature
+# Tags: optional
+=======
+@configsSmoke
+Feature: 字段提取关联日志样例
+>>>>>>> 0e71a4c340a4993cff44966d1711f646ee78a8b6
 
 
   Scenario Outline: RZY-4568、4569:保存关联日志样例并查看[规则名称自定义]

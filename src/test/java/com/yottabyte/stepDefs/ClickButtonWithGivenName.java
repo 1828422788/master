@@ -39,6 +39,19 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+     * 寻找对应的操作按钮并点击
+     *
+     * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
+     * @param buttonName 按钮名称
+     */
+    @When("^the data name contains \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
+    public void clickButtonWithName(String dataName, String buttonName) {
+        WebElement tr = listPageUtils.getContainsTr(dataName);
+        List<WebElement> button = tr.findElements(By.xpath(".//a[contains(text(),'" + buttonName + "')]"));
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].click()", button.get(0));
+    }
+
+    /**
      * 根据配置名称点击对应按钮
      *
      * @param propertyName 若为字符串：第一列所要匹配的名称，若为json：{'column':'start from 0','name':''}
@@ -71,6 +84,7 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+<<<<<<< HEAD
      * 寻找对应的操作按钮并点击，无分页【字段提取列表操作中读取已存日志】
      *
      * @param name       字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
@@ -84,6 +98,22 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+||||||| merged common ancestors
+=======
+     * 寻找对应的操作按钮并点击，无分页【字段提取列表操作中读取已存日志】
+     *
+     * @param name       字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
+     * @param buttonName 待点击的按钮名称
+     */
+    @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging in config$")
+    public void clickButtonWithoutPagingInConfig(String name, String buttonName) {
+        WebElement tr = listPageUtils.getTrWithoutPagingInConfig(name);
+        WebElement button = tr.findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        button.click();
+    }
+
+    /**
+>>>>>>> 0e71a4c340a4993cff44966d1711f646ee78a8b6
      * 在agent页中，点击正在运行的某一ip的功能按钮
      *
      * @param columnNum  agentIp所在列号（从0开始）

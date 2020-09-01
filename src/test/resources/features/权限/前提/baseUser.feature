@@ -23,7 +23,7 @@ Feature: 基础用户创建
     And I wait for "UserName" will be visible
     When I set the parameter "UserName" with value "<name>"
     And I set the parameter "Email" with value "<email>"
-    And I set the parameter "Password" with value "All#123456"
+    And I set the parameter "Password" with value "All!123456"
     And I choose the "<group>" from the "UserGroups"
     And I click the "CreateButton" button
     Then I wait for "SuccessMessage" will be visible
@@ -33,6 +33,26 @@ Feature: 基础用户创建
       | AutoTest | autoFullName@yottabyte.cn | AutoTestGroup |
       | 验证授权用户   | testAuthGroup@autotest.cn | 验证授权用户分组      |
       | wym      | 123@rizhiyi.com           | 脱敏用户          |
+
+  Scenario Outline: 修改密码（首次登录需修改）
+    Given I logout current user
+    And I wait for title change text to "登录"
+    And open the "LoginPage" page for uri "/auth/login/"
+    When I set the parameter "Username" with value "<name>"
+    And I set the parameter "Password" with value "All!123456"
+    And I click the "LoginButton" button
+    And I wait for "Modify" will be visible
+    And I click the "Modify" button under some element
+    And I set the parameter "NewPassword" with value "All#123456"
+    And I hide the element "InnerContent"
+    And I set the parameter "RepeatPassword" with value "All#123456"
+    And I click the "Update" button
+
+    Examples:
+      | name     |
+      | AutoTest |
+      | 验证授权用户   |
+      | wym      |
 
   Scenario: 新建搜索权限
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
@@ -55,7 +75,7 @@ Feature: 基础用户创建
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'索引配置'}" button
+    Then I click the "{'TabButton':'索引'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "yotta" in auth table
     And I click the "SaveButton" button
