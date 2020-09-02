@@ -1,5 +1,5 @@
-@reportCreateCharts @reportChartsWORD
-Feature: 报表新建_编辑_维度
+@reportCreateCharts @allReports @reportChartsWORD
+Feature: 报表新建_编辑_维度word
 #6
 
   Background:

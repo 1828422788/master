@@ -1,5 +1,5 @@
 @reportCreateCharts @allReports @reportChartsWORD
-Feature: 报表新建_编辑_序列
+Feature: 报表新建_编辑_序列word
 #5
 
   Background:

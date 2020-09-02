@@ -1,5 +1,5 @@
-@reportCreateCharts @reportChartsWORD
-Feature: 报表新建_编辑_关系
+@reportCreateCharts @allReports @reportChartsWORD
+Feature: 报表新建_编辑_关系word
 #4
 
   Background:
