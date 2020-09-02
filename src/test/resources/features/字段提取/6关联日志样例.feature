@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # new feature
 # Tags: optional
 @configsSmoke
