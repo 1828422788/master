@@ -145,7 +145,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement typeChartField;
 
-    @FindBy(xpath = "(//span[text()='数值字段'][last()])/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "((//span[text()='数值字段'][last()])/ancestor::div/following-sibling::div)[1]")
     private WebElement numericField;
 
     @FindBy(xpath = "(//span[text()='经度'][last()])/ancestor::div/following-sibling::div[1]")
@@ -163,7 +163,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='开始时间'])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement startTime;
 
-    @FindBy(xpath = "(//span[text()='字段信息'])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "((//span[text()='展开信息'])[last()]/ancestor::div/following-sibling::div)[1]")
     private WebElement infoField;
 
     @FindBy(xpath = "(//span[text()='标签位置'])[last()]/ancestor::div/following-sibling::div")
@@ -834,7 +834,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='统一度量']/ancestor::div/following-sibling::button")
     private WebElement unifiedMetric;
 
-    @FindBy(xpath = "//span[text()='展示字段']/ancestor::div/following-sibling::div//i")
+    @FindBy(xpath = "(//span[text()='展示字段']/ancestor::div/following-sibling::div)[1]")
     private WebElement displayField;
 
     @FindBy(xpath = "//input[@placeholder='展示字号']")

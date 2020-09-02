@@ -12,7 +12,7 @@ Feature: 报表_删除
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 
-    @cleanReport @cleanKate @cleanAllReports
+    @cleanReport @cleanAllReports
     Examples:
       |   name                |
       |  test_report_EXCEL    |
@@ -23,7 +23,7 @@ Feature: 报表_删除
       |  test_report_每周     |
       |  test_report_每天     |
 
-    @cleanReport @cleanKate @clean @cleanAllReports
+    @cleanReport @cleanAllReports
     Examples:
       |   name                |
       |  test_downFirst       |

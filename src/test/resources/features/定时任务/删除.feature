@@ -9,7 +9,7 @@ Feature: 定时任务删除
     And I click the "Ensure" button under some element
     Then I will see the success message "删除成功"
 
-    @clean @cleanTimedTask @cleanKate
+    @cleanTimedTask
     Examples:
     |    name            |
     |  sql_server_3358   |
@@ -63,7 +63,7 @@ Feature: 定时任务删除
       |  3329_AreaChart     |
       |  3328_LineChart     |
 
-  @clean @cleanTimedTask @cleanKate
+  @cleanTimedTask
   Scenario Outline: delete_complement
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"
