@@ -154,22 +154,6 @@ public class ListPage extends ListPageFactory {
         //  return super.getLastDropdownList();
         return secondFieldType;
     }
-<<<<<<< HEAD
-    @FindBy(xpath = "//li[contains(text(),'字符串')]")
-    private WebElement strStr;
-    public WebElement getStrStr(){return strStr;}
-
-||||||| merged common ancestors
-    @FindBy(xpath = "//li[contains(text(),'字符串')]")
-    private WebElement strStr;
-    public WebElement getStrStr(){return strStr;}
-
-
-
-=======
-
-
->>>>>>> 5469ee6f50b0866be8576a58526781f5218f6fdc
     @FindBy(xpath = "//label[@title='字段']/parent::div/following-sibling::div//span[text()='添加']")
     private WebElement fieldAdd;
 

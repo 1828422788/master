@@ -1631,8 +1631,5 @@ public class SearchPage extends ListPageFactory {
     public WebElement getSearchPageLeft1() {
         return searchPageLeft1;
     }
-||||||| merged common ancestors
 
-=======
->>>>>>> 5469ee6f50b0866be8576a58526781f5218f6fdc
 }
