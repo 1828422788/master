@@ -430,7 +430,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='事件列表']/ancestor::div/following-sibling::div//i")
     private WebElement iconRight;
 
-    @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::span/pre")
+    @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::pre/span")
     private WebElement cityTd;
 
     @FindBy(className = "ant-select-selection")
@@ -508,10 +508,10 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//li[text()='添加到知识库']")
     private WebElement addKnowledge;
 
-    @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomRight']/ul")
+    @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomLeft']/ul")
     private WebElement addChartDropdown;
 
-    @FindBy(xpath = "//i[@class='anticon css-ifnfqv']")
+    @FindBy(xpath = "(//i[@tabindex='-1'])[@class='anticon css-ifnfqv']")
     private List<WebElement> iconList;
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[1]")
@@ -625,6 +625,12 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//label[text()='今天']/following-sibling::i")
     private WebElement chartType;
+
+    @FindBy(xpath = "//label[text()='今天']/following-sibling::i[4]")
+    private WebElement delete;
+
+    @FindBy(xpath = "//label[text()='本月']/following-sibling::i[4]")
+    private WebElement deleteForTable;
 
     @FindBy(id = "fullscreenAll")
     private WebElement fullScreen;
@@ -893,15 +899,19 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getType() {
-        return iconList.get(3);
+        return iconList.get(1);
     }
 
     public WebElement getSetting() {
-        return iconList.get(4);
+        return iconList.get(2);
     }
 
     public WebElement getDelete() {
-        return iconList.get(5);
+        return iconList.get(3);
+    }
+
+    public WebElement getDeleteForTable() {
+        return deleteForTable;
     }
 
     public WebElement getCreateConfig() {

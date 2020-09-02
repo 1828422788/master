@@ -28,21 +28,22 @@ public class LogInAndOut {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        webDriver.manage().deleteAllCookies();
-
-        try {
-            URL url = new URL(webDriver.getCurrentUrl());
-            String loginUrl = String.format("%s://%s:%s/auth/login/",
-                    url.getProtocol(), url.getHost(), url.getPort() > 0 ? url.getPort() : url.getDefaultPort());
-            webDriver.get(loginUrl);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        String currentUrl = webDriver.getCurrentUrl();
-        while (!currentUrl.contains("/auth/login/")) {
-            webDriver.manage().deleteAllCookies();
-        }
+        this.deleteCookie();
+//        webDriver.manage().deleteAllCookies();
+//        try {
+//            URL url = new URL(webDriver.getCurrentUrl());
+//            String loginUrl = String.format("%s://%s:%s/auth/login/",
+//                    url.getProtocol(), url.getHost(), url.getPort() > 0 ? url.getPort() : url.getDefaultPort());
+//            webDriver.get(loginUrl);
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        String currentUrl = webDriver.getCurrentUrl();
+//        while (!currentUrl.contains("/auth/login/")) {
+//            webDriver.manage().deleteAllCookies();
+//            currentUrl = webDriver.getCurrentUrl();
+//        }
     }
 
     /**

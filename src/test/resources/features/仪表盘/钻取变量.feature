@@ -323,7 +323,6 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
       | name    |
@@ -532,7 +531,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+#    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
       | name   | targetName |
@@ -738,7 +737,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+#    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
       | name   | targetName |
@@ -876,7 +875,7 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+#    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
       | name   | targetName |

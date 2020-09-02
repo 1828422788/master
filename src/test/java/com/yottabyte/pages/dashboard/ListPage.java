@@ -26,6 +26,9 @@ public class ListPage extends ListPageFactory {
     @FindBy(xpath = "//span[text()='所属应用']/following-sibling::span/div")
     private WebElement belongedApp;
 
+    @FindBy(xpath = "//div[text()='标签']/following-sibling::div//*[contains(@class, 'ant-select-remove-icon')]")
+    private WebElement removeDashboardTagIcon;
+
     public WebElement getBelongedApp() {
         belongedApp.click();
         return super.getLastDropdownList();
@@ -50,6 +53,11 @@ public class ListPage extends ListPageFactory {
     public WebElement getAppOwningInput() {
         return this.getInput("所属应用");
     }
+
+    public WebElement getRemoveDashboardTagIcon() {
+        return removeDashboardTagIcon;
+    }
+
 
     public WebElement getInput(String name) {
         return webDriver.findElement(By.xpath("(//span[text()='" + name + "'])[last()]/following-sibling::span//input"));
