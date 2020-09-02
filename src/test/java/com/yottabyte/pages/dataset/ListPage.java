@@ -154,8 +154,6 @@ public class ListPage extends ListPageFactory {
         //  return super.getLastDropdownList();
         return secondFieldType;
     }
-
-
     @FindBy(xpath = "//label[@title='字段']/parent::div/following-sibling::div//span[text()='添加']")
     private WebElement fieldAdd;
 

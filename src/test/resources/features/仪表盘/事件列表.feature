@@ -217,7 +217,7 @@ Feature: 仪表盘事件列表
     And I click the "NextButton" button under some element
     When I set the parameter "Name" with value "仪表盘配置字段提取"
     And I set the parameter "Logtype" with value "other"
-    And I click the "NextButton" button
+    And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
   @dashboard @dashboardSmoke

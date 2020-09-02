@@ -84,6 +84,7 @@ public class ClickButtonWithGivenName {
     }
 
     /**
+<<<<<<< HEAD
      * 寻找对应的操作按钮并点击，无分页【字段提取列表操作中读取已存日志】
      *
      * @param name       字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
@@ -92,7 +93,7 @@ public class ClickButtonWithGivenName {
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging in config$")
     public void clickButtonWithoutPagingInConfig(String name, String buttonName) {
         WebElement tr = listPageUtils.getTrWithoutPagingInConfig(name);
-        WebElement button = tr.findElement(By.xpath("//span[text()='" + buttonName + "']"));
+        WebElement button = tr.findElement(By.xpath("//span[text()='"+ buttonName + "']"));
         button.click();
     }
 

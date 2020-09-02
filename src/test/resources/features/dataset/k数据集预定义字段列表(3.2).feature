@@ -32,7 +32,6 @@ Feature: 数据集-k预定义字段列表
       | name            | alias   | spl |
       | have_root_field | hrfield | *   |
 
-
   Scenario: RZY-4491:在编辑根事件中添加字段
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button

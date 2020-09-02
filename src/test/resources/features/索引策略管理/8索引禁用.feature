@@ -3,8 +3,8 @@ Feature: 索引信息禁用（RZY-1475）
 
   Scenario: 禁用索引
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
-    Then the data name is "{'column':'1','name':'indexerror'}" then I "close" the switch
-    Then I will see the success message "禁用成功"
+    Then the data name is "{'column':'0','name':'indexerror'}" then i click the "停止入库" button
+    Then I will see the success message "停止入库成功"
 
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
@@ -25,8 +25,8 @@ Feature: 索引信息禁用（RZY-1475）
 
   Scenario: 启用索引
     Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
-    Then the data name is "{'column':'1','name':'indexerror'}" then I "open" the switch
-    Then I will see the success message "启用成功"
+    Then the data name is "{'column':'0','name':'indexerror'}" then i click the "启用入库" button
+    Then I will see the success message "启用入库成功"
 
   Scenario: 上传
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"

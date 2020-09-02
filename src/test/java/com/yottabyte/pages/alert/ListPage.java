@@ -20,8 +20,6 @@ public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();
-//        driver.manage().window().setPosition(new Point(0, 0));
-//        driver.manage().window().setSize(new Dimension(2100,1100));
     }
 
     @FindBy(className = "el-loading-mask")
@@ -273,7 +271,6 @@ public class ListPage extends ListPageFactory {
 ////        p.thereIsAnAlert("AutoTest", list, list1, list2);
 //    }
 
-
     // 搜索输入框
     @FindBy(xpath = "//input[@placeholder='请输入名称']")
     private WebElement alertListSearchInput;
@@ -286,6 +283,13 @@ public class ListPage extends ListPageFactory {
     public WebElement getAlertListDeleteButton() throws InterruptedException {
         Thread.sleep(2000);
         return alertListDeleteButton;
+    }
+
+    @FindBy(xpath = "(//span[text()='操作']/following::td[@class='ant-table-row-cell-break-word']/span/a[@class='_3ubOsxW59qVzx3_uFMqnCR css-19iea6n'][contains(text(),'编辑')])")
+    private WebElement alertListEditButton;
+    public WebElement getAlertListEditButton() throws InterruptedException {
+        Thread.sleep(2000);
+        return alertListEditButton;
     }
 
     @FindBy(className = "ant-btn-primary")

@@ -1606,5 +1606,29 @@ public class SearchPage extends ListPageFactory {
         return splEventRetNum;
     }
 
+    @FindBy(xpath = "//span[@class='_1_m_DyhFaFqqMWBfXY4Evv']")
+    private WebElement searchPageSvg;
+    public WebElement getSearchPageSvg() {
+        return searchPageSvg;
+    }
+
+//  @FindBy(xpath = "//svg[@href='#icon-sousuoyeyemiantuozhuai']")
+    @FindBy(xpath = "//svg[@id='icon-sousuoyeyemiantuozhuai']")
+    private WebElement searchPageSvg1;
+    public WebElement getSearchPageSvg1() {
+        return searchPageSvg1;
+    }
+
+    @FindBy(xpath = "//aside[@class='_2GaHYplAvgzSUrZjcyaHYW css-eavujn ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed']")
+    private WebElement searchPageLeft;
+    public WebElement getSearchPageLeft() {
+        return searchPageLeft;
+    }
+
+    @FindBy(xpath = "//div[@class='_3jCwU33luOoDfATyPI4BPZ']")
+    private WebElement searchPageLeft1;
+    public WebElement getSearchPageLeft1() {
+        return searchPageLeft1;
+    }
 
 }

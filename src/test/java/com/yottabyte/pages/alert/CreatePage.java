@@ -5,7 +5,9 @@ import com.yottabyte.stepDefs.IChooseValueFromSelectList;
 import com.yottabyte.stepDefs.SetKeyWithValue;
 import com.yottabyte.stepDefs.WaitElement;
 import com.yottabyte.utils.CheckSelectedFromDropdownList;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetLogger;
+import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -68,10 +70,6 @@ public class CreatePage extends PageTemplate {
     // 监控类型的按钮
     @FindBy(xpath = "//div[@class='el-select']//input[@placeholder='请选择']")
     private WebElement alertTypeButton;
-
-    // 执行计划-定时按钮
-    @FindBy(xpath = "//span[@class='el-radio-button__inner'][text()='定时']")
-    private WebElement alertPlanTimeButton;
 
     // 执行计划输入框 定时激活时为输入框和单位下拉框;crontab激活时为输入框
     @FindBy(xpath = "//div[@class='el-form-item__content']/div[@class='el-row']//input")
@@ -396,13 +394,25 @@ public class CreatePage extends PageTemplate {
         return getSelectors(alertTypeButton);
     }
 
-    public WebElement getAlertPlanTimeButton() {
-        return alertPlanTimeButton;
+    //    @FindBy(xpath = "//span[@class='el-radio-button__inner'][text()='定时']")
+//    @FindBy(xpath = "//label[text()='执行计划']/following-sibling::div/descendant::div[text()='定时']/parent::span")
+    @FindBy(xpath = "//label[contains(text(),'执行计划')]/following::div[text()='定时']/parent::span/parent::label")
+    private WebElement alertPlanTimingButton;
+
+    public WebElement getAlertPlanTimingButton() {
+        return alertPlanTimingButton;
     }
 
     // 执行计划-定时-输入框
-    public WebElement getAlertPlanTimeInput() {
-        if (alertPlanTimeButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
+    @FindBy(xpath = "//div[contains(text(),'监控执行')]/following::label[contains(text(),'执行计划')]/following::input[@placeholder='请输入']")
+    private WebElement alertPlanTimeInput1;
+
+    public WebElement getAlertPlanTimeInput1() {
+        return alertPlanTimeInput1;
+    }
+
+        public WebElement getAlertPlanTimeInput() {
+        if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
             return alertPlanInputs.get(0);
         } else {
             throw new NoSuchElementException("定时按钮未激活");
@@ -410,8 +420,13 @@ public class CreatePage extends PageTemplate {
     }
 
     // 执行计划-定时-单位
-    public List<WebElement> getAlertPlanTimeUnits() {
-        if (alertPlanTimeButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
+    public WebElement getAlertPlanTimeUnits1() {
+        String xpath = "//label[text()='执行计划']/following::div[text()='请选择']/parent::div[@class='ant-select-selection__rendered']";
+        return getDropdownListbyPath(xpath);
+    }
+
+        public List<WebElement> getAlertPlanTimeUnits() {
+        if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
             return getSelectors(alertPlanInputs.get(1)).findElements(By.tagName("li"));
         } else {
             throw new NoSuchElementException("定时按钮未激活");
@@ -889,5 +904,23 @@ public class CreatePage extends PageTemplate {
 //        driver.quit();
 //    }
 
+
+    @FindBy(xpath = "//span[text()='执行一次']//preceding-sibling::span/input[@placeholder='请输入']")
+    private WebElement period;
+
+    public WebElement getPeriod() {
+        return period;
+    }
+
+    @FindBy(xpath = "//div[text()='crontab']/ancestor::span")
+    private WebElement crontab;
+
+    @FindBy(xpath = "//div[text()='crontab']/ancestor::span/ancestor::span/following-sibling::div//input")
+    private WebElement crontabInput;
+
+    public WebElement getCrontabInput() {
+        crontab.click();
+        return crontabInput;
+    }
 
 }

@@ -44,7 +44,7 @@ Feature: SPL stats
       | stats_count | tag:\"sample04061424\" \| stats count() as cnt by apache.status |
       | stats_min_timestamp_formatdate | tag:\"sample04061424_chart\" \| stats min(timestamp) as min_time by apache.status \| eval t_min_time = typeof(min_time) \| eval long_min_time = tolong(min_time) \| eval f_min_time = formatdate(log_min_time,\"HH:mm:ss\") \| sort by +apache.status |
       | stats_sort | tag:\"sample04061424\" \| sort by +apache.status,+apache.resp_len\| table apache.status, apache.resp_len |
-      | stats_sort_fail | tag:\"sample04061424\" \| stats avg(apache.resp_len) as avg_length by apache.clientip \| sort by +avg_length, apache.clientip \| eval eval_length = avg_length + 200 |
+      | stats_sort_fail | tag:\"sample04061424\" \| stats avg(apache.resp_len) as avg_length by apache.clientip \| sort by +avg_length, apache.clientip \| eval eval_length = avg_length + 200 \| limit 10 |
       | stats_sort_true | tag:\"sample04061424\" \| stats avg(apache.resp_len) as avg_length by apache.status \| eval eval_length = avg_length + 200 \| sort by eval_length |
       | stats_avg_count_sort | tag:\"sample04061424\" \| stats avg(apache.resp_len) as avg_length, count(apache.clientip) as ip_count by apache.status \| sort by ip_count, apache.status |
       | stats_stats_avg | tag:\"sample04061424\" \| stats count() as cnt, max(apache.status) as r_max by apache.clientip \| stats avg(cnt) by  r_max |

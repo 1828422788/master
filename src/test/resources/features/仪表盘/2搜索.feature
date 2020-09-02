@@ -18,7 +18,7 @@ Feature: 仪表盘搜索（RZY-216）
 
   Scenario: 删除资源标签
     When the data name is "UIautotest" then i click the "标签" button
-    And I click the "RemoveTagIcon" button
+    And I click the "RemoveDashboardTagIcon" button
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "更新仪表盘成功"

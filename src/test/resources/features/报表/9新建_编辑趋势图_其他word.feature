@@ -1,5 +1,5 @@
-@reportCreateCharts @reportChartsWORD
-Feature: 报表新建_编辑_其他
+@reportCreateCharts @allReports @reportChartsWORD
+Feature: 报表新建_编辑_其他word
 #10
 
   Background:

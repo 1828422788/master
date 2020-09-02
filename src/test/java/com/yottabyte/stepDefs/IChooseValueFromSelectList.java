@@ -293,4 +293,40 @@ public class IChooseValueFromSelectList {
 //
 //        System.out.println("done");
 //    }
+
+    @And("^I choose1 the \"([^\"]*)\" from the \"([^\"]*)\"$")
+    public void iChooseTheFromThe1(List<String> values, String selectListName) {
+        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+        WebElement element = (WebElement) o;
+        iChooseTheFromThe1(values, element);
+    }
+
+    public void iChooseTheFromThe1(List<String> values, WebElement parentElement) {
+        List<WebElement> elements = parentElement.findElements(By.xpath("//li"));
+        for (String value : values) {
+            if (value != null && value.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    if (value.equals(e.getText())) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+
+    @And("^I choose1 the \"([^\"]*)\" from the \"([^\"]*)\" in config$")
+    public void iChooseTheFromTheInConfig1(List<String> values, String selectListName) {
+        if (values.size() == 0) {
+            return;
+        }
+        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+        if (o != null) {
+            WebElement element = (WebElement) o;
+            iChooseTheFromThe1(values, element);
+        }
+    }
+
 }
