@@ -511,7 +511,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-dropdown ant-dropdown-placement-bottomLeft']/ul")
     private WebElement addChartDropdown;
 
-    @FindBy(xpath = "(//i[@tabindex='-1'])[@class='anticon css-ifnfqv']")
+    @FindBy(xpath = "(//i[@class='anticon css-ifnfqv'])/*")
     private List<WebElement> iconList;
 
     @FindBy(xpath = "(//i[@class='anticon css-ifnfqv ant-dropdown-trigger'])[1]")
@@ -899,15 +899,15 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getType() {
-        return iconList.get(1);
+        return iconList.get(4);
     }
 
     public WebElement getSetting() {
-        return iconList.get(2);
+        return iconList.get(5);
     }
 
     public WebElement getDelete() {
-        return iconList.get(3);
+        return iconList.get(6);
     }
 
     public WebElement getDeleteForTable() {
