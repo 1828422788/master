@@ -361,33 +361,6 @@ public class ListPage extends PageTemplate {
         }
     }
 
-    public void thereIsAResourceGroup(String resourceGroupsName, List<String> typeName, List<String> ownerName) {
-        ExpectedCondition expectedCondition = ExpectedConditions.invisibilityOf(loadingElement);
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
-        getSearchInput().sendKeys(Keys.END);
-        getSearchInput().sendKeys(Keys.SHIFT, Keys.HOME);
-        getSearchInput().sendKeys(Keys.BACK_SPACE);
-        getSearchInput().sendKeys(resourceGroupsName);
-        String text = getSearchResult().getText();
-        SetKeyWithValue setKeyWithValue = new SetKeyWithValue();
-        if ("暂无数据".equals(text)) {
-            getCreateResourceGroup().click();
-            LoadingPage page = new LoadingPage();
-            page.iWillSeeNewPage("resourceGroups.CreatePage");
-            setKeyWithValue.iSetTheParameterWithValue("ResourceGroupName", resourceGroupsName);
-            IChooseValueFromSelectList chooseValueFromSelectList = new IChooseValueFromSelectList();
-            chooseValueFromSelectList.iChooseTheFromThe(typeName, "ResourceGroupType");
-            chooseValueFromSelectList.iChooseTheFromThe(ownerName, "ResourceGroupOwner");
-            ClickSomeButton clickSomeButton = new ClickSomeButton();
-            clickSomeButton.clickButton("CreateButton");
-            WebElement element = GetElementFromPage.getWebElementWithName("OKButton");
-            element.click();
-            page.iWillSeeNewPage("resourceGroups.CreatePage");
-        } else if (text.equals(resourceGroupsName)) {
-            System.out.println("There is a resource groups");
-        }
-    }
-
     public void thereIsNoResourceGroup(String resourceGroupsName) {
         List<String> list = new ArrayList<>();
         list.add("all");

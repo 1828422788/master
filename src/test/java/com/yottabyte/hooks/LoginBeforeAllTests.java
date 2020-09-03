@@ -38,7 +38,6 @@ public class LoginBeforeAllTests {
         if (isValidCookie()) {
             return;
         }
-
         System.out.println("Login Before Test!");
         deleteAllCookies();
         webDriver.get(baseURL + loginURL);

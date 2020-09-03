@@ -1,4 +1,4 @@
-package com.yottabyte.config;
+package com.yottabyte.utils;
 
 import java.io.*;
 
