@@ -26,7 +26,7 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getInfo(String name) {
-        String xpath = "//div[contains(text(),'" + name + "')]/following-sibling::span";
+        String xpath = "//span[text()='" + name + ":']/following-sibling::span";
         return webDriver.findElement(By.xpath(xpath));
     }
 }
