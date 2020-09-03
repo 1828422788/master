@@ -204,38 +204,6 @@ Feature: 日志展现_其他_单值
       |   Single      |   1       |  UnitPositionBefore | ThousandSeparator |prec1_1000on__before     |
       |   Single      |   2       |  UnitPositionAfter  | Background        |prec2_1000off_back_after |
 
-  Scenario Outline: second_title
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-    And I will see the "trend.CreatePage" page
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
-    And I click the "AddColor" button
-    And I click the "Purple" button
-    And I click the "Icon" button
-    And I click the "AccordingField" button
-    And I choose the "<iconValue>" from the "FieldValue" in config
-    And I click the "SecondTitle" button
-    And I set the parameter "TitleName" with value "二级title"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "ChartView" will be visible
-    And I drag the scroll bar to the element "ChartView"
-    And I wait for "2000" millsecond
-    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
-    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
-
-    Examples:
-      |  chartType    |   iconValue  |  caseNum         |   spl   |
-      |   Single      |    icon      |   secondTitle    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval icon=if(cnt\>1000000,\"thumbs-down\",\"thumbs-up\") |
-
-
   Scenario Outline: sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button
@@ -266,7 +234,6 @@ Feature: 日志展现_其他_单值
     Examples:
       |  chartType    | colorFill    | caseNum     |
       |   Single      | Background   | Sparkline   |
-      |   Single      | Font         | Sparkline   |
 
 
   Scenario Outline: sparkline_facet
@@ -312,3 +279,42 @@ Feature: 日志展现_其他_单值
     Examples:
       |  chartType    | caseNum          |
       |   Single      | Sparkline_分面   |
+  @datavalsingle
+  Scenario Outline: data_value
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I will see the "trend.CreatePage" page
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "count()" from the "NumericField"
+    And I choose the "time" from the "DisplayField"
+    And I choose the "<option>" from the "DisplayedOnChart"
+    And I click the "Sparkline" button
+    And I choose the "ts" from the "SparklineField"
+    And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "60"
+    And I set the parameter "Unit" with value "个"
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "Icon" button
+    And I click the "AccordingName" button
+    And I set the parameter "IconName" with value "<fontValue>"
+    And I click the "SecondTitle" button
+    And I set the parameter "TitleName" with value "二级title"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "ChartView" will be visible
+    And I drag the scroll bar to the element "ChartView"
+    And I wait for "2000" millsecond
+    And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<option>"
+    Then I compare source image "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<option>" with target image "expect/高级搜索视图/6其它/<chartType>/<caseNum>_<option>"
+
+    Examples:
+      |  chartType    | caseNum     | fontValue          | option         | color    |
+      |   Single      | display     | air-freshener      | 两者同时展示   | Red      |
+      |   Single      | display     | meh-rolling-eyes   | 仅数值字段     | Green    |
+      |   Single      | display     | tablets            | 仅展示字段     | Orange   |

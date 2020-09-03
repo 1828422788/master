@@ -351,46 +351,6 @@ Feature: 趋势图新建-其他
       | Single    | 1         | UnitPositionBefore | ThousandSeparator | prec1_1000on__before     | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
       | Single    | 2         | UnitPositionAfter  | Background        | prec2_1000off_back_after | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() as cnt \| eval data = cnt*cnt*cnt/1000 \| eval name = \"result\" |
 
-  Scenario Outline: second_title
-    When I set the parameter "SearchInput" with value "<spl>"
-    And I wait for "500" millsecond
-    And I click the "SearchButton" button
-    And I wait for "Loading" will be invisible
-    And I wait for "Header" will be visible
-    And I click the "NextButton" button
-
-    And I wait for "Type" will be visible
-    And I click the "Type" button
-    And I click the "Other" button
-    And I click the "<chartType>" button
-    And I click the "Settings" button
-    And I click the "Exhibition" button
-    And I set the parameter "FontSize" with value "100"
-    And I click the "AddColor" button
-    And I click the "Purple" button
-    And I click the "Icon" button
-    And I click the "AccordingField" button
-    And I choose the "<iconValue>" from the "FieldValue" in config
-    And I click the "SecondTitle" button
-    And I set the parameter "TitleName" with value "二级title"
-    And I click the "Generate" button
-
-    And I click the "Settings" button
-    And I wait for "StatisticalChart" will be visible
-    And I drag the scroll bar to the element "StatisticalChart"
-    And I wait for "2000" millsecond
-    And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
-    And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
-
-    When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
-    And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
-    Then I wait for "SuccessCreate" will be visible
-
-    Examples:
-      | chartType | iconValue | caseNum     | spl                                                                                                              |
-      | Single    | icon      | secondTitle | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count\(\) as cnt \| eval icon=if\(cnt\>1000000,\"thumbs-down\",\"thumbs-up\"\) |
 
   Scenario Outline: sparkline
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
@@ -431,8 +391,54 @@ Feature: 趋势图新建-其他
     Examples:
       |  chartType    | colorFill    | caseNum     |
       |   Single      | Background   | Sparkline   |
-      |   Single      | Font         | Sparkline   |
 
+    @datavalsingle
+  Scenario Outline: data_value_display
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
+    And I click the "SearchButton" button
+    And I wait for "Loading" will be invisible
+    And I wait for "Header" will be visible
+    And I click the "NextButton" button
+
+    And I wait for "Type" will be visible
+    And I click the "Type" button
+    And I click the "Other" button
+    And I click the "<chartType>" button
+    And I click the "Settings" button
+    And I choose the "count()" from the "NumericField"
+    And I choose the "time" from the "DisplayField"
+    And I choose the "<option>" from the "DisplayedOnChart"
+    And I click the "Sparkline" button
+    And I choose the "ts" from the "SparklineField"
+    And I click the "Exhibition" button
+    And I set the parameter "FontSize" with value "60"
+    And I set the parameter "Unit" with value "个"
+    And I click the "AddColor" button
+    And I click the "<color>" button
+    And I click the "Icon" button
+    And I click the "AccordingName" button
+    And I set the parameter "IconName" with value "<fontValue>"
+    And I click the "SecondTitle" button
+    And I set the parameter "TitleName" with value "二级title"
+    And I click the "Generate" button
+
+    And I click the "Settings" button
+    And I wait for "StatisticalChart" will be visible
+    And I drag the scroll bar to the element "StatisticalChart"
+    And I wait for "2000" millsecond
+    And take part of "StatisticalChart" with name "actual/<chartType>_<option>"
+    And I compare source image "actual/<chartType>_<option>" with target image "expect/<chartType>_<option>"
+    Then I click the "NextButton" button
+
+    When I set the parameter "NameInput" with value "<chartType>_<option>"
+    And I set the parameter "DescribeInput" with value "<option>_<color>_<fontValue>"
+    And I click the "NextButton" button
+    Then I wait for "SuccessCreate" will be visible
+
+    Examples:
+      |  chartType    | fontValue          | option         | color    |
+      |   Single      | meh-rolling-eyes   | 仅数值字段     | Green    |
+      |   Single      | tablets            | 仅展示字段     | Orange   |
 
   Scenario Outline: sparkline_facet
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() as cnt by ts, apache.method | eval time=formatdate(ts,\"hh-mm\") | eval cnt_2 = cnt*3"

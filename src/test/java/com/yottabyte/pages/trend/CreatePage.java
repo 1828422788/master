@@ -837,6 +837,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='展示字段']/ancestor::div/following-sibling::div)[1]")
     private WebElement displayField;
 
+    @FindBy(xpath = "(//span[text()='图中展示']/ancestor::div/following-sibling::div)[1]")
+    private WebElement displayedOnChart;
+
     @FindBy(xpath = "//input[@placeholder='展示字号']")
     private WebElement wordSize;
 
@@ -989,6 +992,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDisplayField() {
         displayField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getDisplayedOnChart() {
+        displayedOnChart.click();
         return super.getLastDropdownList();
     }
 
