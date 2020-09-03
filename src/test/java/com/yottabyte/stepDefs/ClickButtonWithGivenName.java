@@ -3,7 +3,6 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -27,19 +26,19 @@ public class ClickButtonWithGivenName {
     ListPageUtils listPageUtils = new ListPageUtils();
 
     /**
-     * 寻找对应的操作按钮并点击
+     * 寻找对应名称的操作按钮并点击
      *
      * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
      * @param buttonName 按钮名称
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String buttonName) {
-        WebElement tr = listPageUtils.getTr(dataName);
+        WebElement tr = listPageUtils.getRow(dataName);
         this.click(buttonName, tr);
     }
 
     /**
-     * 寻找对应的操作按钮并点击
+     * 寻找包含对应名称的操作按钮并点击
      *
      * @param dataName   字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
      * @param buttonName 按钮名称
@@ -84,7 +83,6 @@ public class ClickButtonWithGivenName {
     }
 
     /**
-<<<<<<< HEAD
      * 寻找对应的操作按钮并点击，无分页【字段提取列表操作中读取已存日志】
      *
      * @param name       字符串：第一列所要匹配的名称，json：{'column':'start from 0','name':''}
@@ -93,7 +91,7 @@ public class ClickButtonWithGivenName {
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button without paging in config$")
     public void clickButtonWithoutPagingInConfig(String name, String buttonName) {
         WebElement tr = listPageUtils.getTrWithoutPagingInConfig(name);
-        WebElement button = tr.findElement(By.xpath("//span[text()='"+ buttonName + "']"));
+        WebElement button = tr.findElement(By.xpath("//span[text()='" + buttonName + "']"));
         button.click();
     }
 
@@ -159,7 +157,7 @@ public class ClickButtonWithGivenName {
      */
     @And("^the data name is \"([^\"]*)\" then i will see \"([^\"]*)\" button$")
     public void checkButton(String dataName, String result) {
-        WebElement tr = listPageUtils.getTr(dataName);
+        WebElement tr = listPageUtils.getRow(dataName);
         Assert.assertTrue("实际值：" + tr.getText(), tr.getText().contains(result));
     }
 
@@ -171,7 +169,7 @@ public class ClickButtonWithGivenName {
      */
     private void click(String buttonName, WebElement tr) {
         String xpath;
-        if (pagingInfo.checkUrl() || webDriver.getCurrentUrl().contains("/app/list/") || webDriver.getCurrentUrl().contains("/app/siem/assets/")) {
+        if (webDriver.getCurrentUrl().contains("/app/list/") || webDriver.getCurrentUrl().contains("/app/siem/assets/")) {
             xpath = ".//span[contains(text(),'" + buttonName + "')][not(@class)]";
         } else if ("详情".equals(buttonName)) {
             xpath = ".//span[contains(text(),'" + buttonName + "')]";
@@ -193,7 +191,7 @@ public class ClickButtonWithGivenName {
         WebElement tr;
 
         if (!JsonStringPaser.isJson(name)) {
-            tr = listPageUtils.findName(name);
+            tr = listPageUtils.getRowWithName(name);
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(name);
             name = map.get("name").toString();
@@ -201,9 +199,7 @@ public class ClickButtonWithGivenName {
             tr = listPageUtils.getRowWithColumnNum(name, columnNum);
         }
 
-        if (pagingInfo.checkUrl()) {
-            xpath = ".//span[contains(text(),'" + name + "')]";
-        } else if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
+        if (webDriver.getCurrentUrl().contains("/sources/input/agent/")) {
             xpath = "(.//span[contains(text(),'" + name + "')])[2]";
         } else {
             xpath = ".//a";
@@ -255,7 +251,7 @@ public class ClickButtonWithGivenName {
         // 非json格式
         if (!JsonStringPaser.isJson(json)) {
             String name = config.get(json);
-            tr = listPageUtils.findName(name);
+            tr = listPageUtils.getRowWithName(name);
             xpath = ".//span[contains(text(),'" + name + "')]";
         } else {
             Map<String, Object> map = JsonStringPaser.json2Stirng(json);
@@ -299,7 +295,7 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then i click the label \"([^\"]*)\"$")
     public void clickLabelWithGivenName(String dataName, String labelName) {
-        WebElement tr = listPageUtils.getTr(dataName);
+        WebElement tr = listPageUtils.getRow(dataName);
         this.clickLabel(labelName, tr);
     }
 
@@ -360,7 +356,7 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then I \"([^\"]*)\" the switch$")
     public void operateSwitch(String name, String status) {
-        WebElement tr = listPageUtils.getTr(name);
+        WebElement tr = listPageUtils.getRow(name);
         WebElement label = tr.findElement(By.xpath(".//button"));
         String labelAttribute = label.getAttribute("aria-checked");
         if (status.equals("close") && labelAttribute.contains("true") || status.equals("open") && labelAttribute.contains("false")) {
@@ -410,7 +406,7 @@ public class ClickButtonWithGivenName {
      */
     @Then("^I will see the element \"([^\"]*)\" is \"([^\"]*)\"$")
     public void verifySwitchStatus(String name, String status) {
-        WebElement tr = listPageUtils.getTr(name);
+        WebElement tr = listPageUtils.getRow(name);
         WebElement label = tr.findElement(By.xpath(".//button"));
         String labelAttribute = label.getAttribute("aria-checked");
         Assert.assertTrue(status.equals("close") && labelAttribute.contains("false") || status.equals("open") && labelAttribute.contains("true"));
@@ -476,7 +472,7 @@ public class ClickButtonWithGivenName {
      */
     @Then("^I will see the switch button before \"([^\"]*)\" is disabled$")
     public void checkSwitch(String name) {
-        WebElement tr = listPageUtils.getTr(name);
+        WebElement tr = listPageUtils.getRow(name);
         WebElement switchButton = tr.findElement(By.xpath(".//button"));
         Assert.assertFalse(switchButton.isEnabled());
     }
@@ -525,22 +521,6 @@ public class ClickButtonWithGivenName {
         WebElement table = webDriver.findElement(By.className("ant-table-tbody"));
         WebElement tr = listPageUtils.getRowWithoutPaging(name, table);
         this.click(function, tr);
-    }
-
-    /**
-     * 用户分组中添加管理员操作
-     *
-     * @param status checked/unchecked
-     * @param name   管理员名称
-     */
-    @And("^I \"([^\"]*)\" the checkbox which name is \"([^\"]*)\" in user group$")
-    public void addMemeberInUserGroup(String status, String name) {
-        WebElement tr = listPageUtils.getRowWithoutTotalPage(name);
-        WebElement checkbox = tr.findElement(By.xpath(".//label[@class='el-checkbox']"));
-        String currentStatus = checkbox.findElement(By.xpath(".//span")).getAttribute("class");
-        if (currentStatus.contains("checked") && "uncheck".equals(status) || !currentStatus.contains("checked") && "check".equals(status)) {
-            checkbox.click();
-        }
     }
 
     @When("^the data name is \"([^\"]*)\" then I click the \"([^\"]*)\" button in auth table$")

@@ -4,7 +4,6 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.Agent;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.ListPageUtils;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -19,7 +18,6 @@ import java.util.Map;
 /**
  * 对复选框的操作
  *
- * @author sunxj
  */
 public class Checkbox {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
@@ -72,7 +70,7 @@ public class Checkbox {
     @Then("^I will see the checkbox in list before \"([^\"]*)\" is \"([^\"]*)\"$")
     public void checkAttribute(String name, String attribute) {
         ListPageUtils listPageUtils = new ListPageUtils();
-        WebElement tr = listPageUtils.getTr(name);
+        WebElement tr = listPageUtils.getRow(name);
         WebElement label = tr.findElement(By.xpath(".//button"));
         Assert.assertTrue("enabled".equals(attribute) && label.isEnabled() || "disabled".equals(attribute) && !label.isEnabled());
     }

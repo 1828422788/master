@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 与分页相关的元素
+ *
  * @author sunxj
  */
 public class Paging {
@@ -33,41 +35,15 @@ public class Paging {
     }
 
     private Map<String, String> getXpath() {
-        String totalNumberElementXpath;
-        String numbersPerPageElementXpath;
-        String nextPageClass;
-        String tableListClass;
-        if (!checkUrl()) {
-            totalNumberElementXpath = "//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span";
-            numbersPerPageElementXpath = "(//div[@class='ant-select-selection-selected-value'])[last()]";
-            nextPageClass = "ant-pagination-next";
-            tableListClass = "ant-table-tbody";
-        }
-        else{
-            totalNumberElementXpath = "//span[@class='el-pagination__total']";
-            numbersPerPageElementXpath = "(//li[@class='el-select-dropdown__item selected'])[last()]";
-            nextPageClass = "el-icon-arrow-right";
-            tableListClass = "el-table__body";
-        }
+        String totalNumberElementXpath = "//span[@class='_1a4SFPSKE5LHZ9oIlWNopk']/span";
+        String numbersPerPageElementXpath = "(//div[@class='ant-select-selection-selected-value'])[last()]";
+        String nextPageClass = "ant-pagination-next";
+        String tableListClass = "ant-table-tbody";
         Map<String, String> map = new HashMap<>();
         map.put("totalNumberElementXpath", totalNumberElementXpath);
         map.put("numbersPerPageElementXpath", numbersPerPageElementXpath);
         map.put("nextPageClass", nextPageClass);
         map.put("tableListClass", tableListClass);
         return map;
-    }
-
-    /**
-     * @return true为旧框架
-     */
-    public boolean checkUrl() {
-        String currentUrl = webDriver.getCurrentUrl();
-        String[] vueUrl = {"/app/siem/assets/"};
-        for (String url : vueUrl) {
-            if (currentUrl.contains(url)) {
-                return true;
-            }
-        }
-        return false;
     }
 }

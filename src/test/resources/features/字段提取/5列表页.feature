@@ -30,7 +30,7 @@ Feature: 字段提取列表页
     And I wait for loading invisible
     Then I will see the search result "{'column':'1','name':'<name>'}"
     Examples:
-      | name     | appName   |
+      | name     | appName    |
       | wym按名称过滤 | filtByName |
 
 
@@ -80,4 +80,4 @@ Feature: 字段提取列表页
       | wym按标签过滤 | filtByTag |
 
   Scenario: 验证运行统计是否自动关闭
-    Then I will see the "SwitchButton" equals "ant-switch-small ant-switch"
+    Then I will see the "SwitchButton" is "ant-switch-small ant-switch"

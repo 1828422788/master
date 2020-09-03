@@ -3,7 +3,6 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.*;
-import cucumber.api.java.cs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -138,7 +137,7 @@ public class ValidateResult {
      */
     @Then("^I will see the search result contains \"([^\"]*)\"$")
     public void validateSearchResultContainsValue(String searchResult) {
-        WebElement tr = listPageUtils.getTr(searchResult);
+        WebElement tr = listPageUtils.getRow(searchResult);
         Assert.assertNotNull("列表下不包含该字段！", tr);
     }
 
@@ -365,7 +364,7 @@ public class ValidateResult {
         WebElement tr;
 
         if (!JsonStringPaser.isJson(benchmarkName)) {
-            tr = clickButton.findName(benchmarkName);
+            tr = clickButton.getRowWithName(benchmarkName);
         } else {
             Map<String, Object> benchmarkNameMap = JsonStringPaser.json2Stirng(benchmarkName);
             String name = benchmarkNameMap.get("name").toString();
@@ -397,7 +396,7 @@ public class ValidateResult {
         WebElement tr;
 
         if (!JsonStringPaser.isJson(benchmarkName)) {
-            tr = clickButton.findName(benchmarkName);
+            tr = clickButton.getRowWithName(benchmarkName);
         } else {
             Map<String, Object> benchmarkNameMap = JsonStringPaser.json2Stirng(benchmarkName);
             String name = benchmarkNameMap.get("name").toString();
