@@ -1,5 +1,5 @@
-@reportCreateCharts @reportChartsWORD
-Feature: 报表新建_编辑_关系
+@reportCreateCharts @allReports @reportChartsWORD
+Feature: 报表新建_编辑_关系word
 #4
 
   Background:
@@ -103,8 +103,8 @@ Feature: 报表新建_编辑_关系
     And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
     And I wait for "4000" millsecond
-    And I set the parameter "ChartListInput" with value "table_<typeChart>"
-    And I click the button with text "table_<typeChart>"
+    And I set the parameter "ChartListInput" with value "table_<name>"
+    And I click the button with text "table_<name>"
     And I wait for "2000" millsecond
     And I click the "EditButton" button
 

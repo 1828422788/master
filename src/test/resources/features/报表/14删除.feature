@@ -12,7 +12,7 @@ Feature: 报表_删除
     Then I will see the message "删除成功"
     And I click the "EnsureButton" button
 
-    @cleanReport @cleanKate @clean
+    @cleanReport @cleanAllReports
     Examples:
       |   name                |
       |  test_report_EXCEL    |
@@ -23,7 +23,7 @@ Feature: 报表_删除
       |  test_report_每周     |
       |  test_report_每天     |
 
-    @cleanReport @cleanKate @clean
+    @cleanReport @cleanAllReports
     Examples:
       |   name                |
       |  test_downFirst       |
@@ -70,7 +70,7 @@ Feature: 报表_删除
 
 
 
-  @cleanReport @cleanReportPDF @cleanReportCharts
+  @cleanReport @cleanReportPDF @cleanReportCharts @cleanAllReports
   Scenario Outline: delete_report_charts_pdf
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>_PDF"
@@ -118,7 +118,7 @@ Feature: 报表_删除
       |   AreaChart          |
       |   LineChart          |
 
-  @cleanReportEXCEL @cleanReportCharts
+  @cleanReportEXCEL @cleanReportCharts @cleanAllReports
   Scenario Outline: delete_report_charts_excel
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>_EXCEL"
@@ -166,7 +166,7 @@ Feature: 报表_删除
       |   AreaChart          |
       |   LineChart          |
 
-  @cleanReportWORD @cleanReportCharts
+  @cleanReportWORD @cleanReportCharts @cleanAllReports
   Scenario Outline: delete_report_charts_word
     When open the "report.ListPage" page for uri "/reports/"
     And I set the parameter "SearchInput" with value "<name>_WORD"
@@ -214,7 +214,7 @@ Feature: 报表_删除
       |   AreaChart          |
       |   LineChart          |
 
-  @cleanReportData @clean @cleanEssentialData
+  @cleanReportData @cleanEssentialData
   Scenario Outline: delete
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
