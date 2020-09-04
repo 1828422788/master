@@ -2,7 +2,7 @@
 Feature: topic删除（RZY-2429）
 
   Background:
-    Given open the "index.TopicSetting" page for uri "/indexsettings/topicsettings/"
+    Given open the "index.TopicSetting" page for uri "/ingestpriority/"
 
   Scenario:
     When the data name is "topictest" then i click the "删除" button
