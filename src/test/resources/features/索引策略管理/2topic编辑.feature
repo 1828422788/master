@@ -2,7 +2,7 @@
 Feature: topic编辑（RZY-2428）
 
   Background:
-    Given open the "index.TopicSetting" page for uri "/indexsettings/topicsettings/"
+    Given open the "index.TopicSetting" page for uri "/ingestpriority/"
 
   Scenario Outline:
     When the data name is "topictest" then i click the "编辑" button
