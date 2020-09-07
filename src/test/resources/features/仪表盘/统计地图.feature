@@ -97,7 +97,7 @@ Feature: 仪表盘统计地图
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I wait for "500" millsecond
-    And I click the "TrendTitle" button
+    And I click the "TrendTitle" button under some element
     And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/Geostatsmap"
 

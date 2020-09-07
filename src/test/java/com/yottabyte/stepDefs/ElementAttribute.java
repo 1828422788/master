@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * 修改元素属性
  */
-public class AlterElementAttribute {
+public class ElementAttribute {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     /**
@@ -112,7 +112,7 @@ public class AlterElementAttribute {
      * @param elementName 需要失去焦点的元素名称
      */
     @And("^I let element \"([^\"]*)\" lose focus$")
-    public void iLetElementLoseFocus(String elementName) {
+    public void letElementLoseFocus(String elementName) {
         WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].blur();", element);

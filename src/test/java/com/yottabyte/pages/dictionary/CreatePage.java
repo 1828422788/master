@@ -75,6 +75,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='撤销修改']//ancestor::button/preceding-sibling::button")
     private WebElement saveEdit;
 
+    @FindBy(xpath = "//div[text()='所属应用']/following-sibling::div//*[contains(@class,'ant-select-clear-icon')]")
+    private WebElement deleteApp;
+
+    @Override
+    public WebElement getDeleteApp() {
+        return deleteApp;
+    }
+
     public WebElement getEditOnline() {
         return editOnline;
     }

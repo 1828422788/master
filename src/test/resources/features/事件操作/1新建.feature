@@ -43,7 +43,7 @@ Feature: 事件操作新建（RZY-1387）
     And I click the "ContextSample" button
     And switch to another window
     And I close all tabs except main tab
-    Then the page's title will be "上下文检索"
+    Then the page's title will be "搜索上下文"
 
     Examples:
       | name        | url                                                                                                                                                                            | message  |

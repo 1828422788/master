@@ -71,7 +71,6 @@ public class CompareResult {
     public void saveTheResult(String result) {
         Map<String, Object> map = JsonStringPaser.json2Stirng(result);
         Class<CompareResult> compareResultClass = CompareResult.class;
-
         try {
             for (String key : map.keySet()) {
                 String methodName = "set" + key;

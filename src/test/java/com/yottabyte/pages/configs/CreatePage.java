@@ -200,6 +200,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//p")
     private WebElement message;
 
+    @FindBy(className = "ant-select-selection__clear")
+    private WebElement deleteApp;
+
+    @Override
+    public WebElement getDeleteApp() {
+        return deleteApp;
+    }
+
     public WebElement getApp() {
         return super.getDropdownList("应用");
     }

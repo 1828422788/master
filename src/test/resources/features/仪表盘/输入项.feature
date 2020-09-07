@@ -177,17 +177,16 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
-#    And I set value with element "TableList"
+    And I set value with element "TableList"
     And I click the "FilterTime" button
     And I click the "EditTime" button
     And I wait for "Prefix" will be visible
     And I set the parameter "Prefix" with value "="
-    And I wait for "1000" millsecond
+    And I wait for "500" millsecond
     And I click the "Ensure" button
-    Then I wait for "FilterTime" will be visible
+#    Then I wait for "FilterTime" will be visible
     And I wait for "Progress" will be invisible
-    And I wait for "1000" millsecond
-    And I set value with element "TableList"
+#    And I set value with element "TableList"
 #    And I click the "DeleteTime" button
     When the chart title is "仪表盘所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
@@ -195,6 +194,7 @@ Feature: 仪表盘输入项
     And I set the parameter "Spl" with value "starttime${time.start} endtime${time.end} * | stats count() by 'apache.geo.city' "
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
+#    And I wait for "3000" millsecond
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke

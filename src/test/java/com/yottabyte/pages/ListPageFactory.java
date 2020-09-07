@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.LoadableComponent;
@@ -17,7 +18,7 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     public static ConfigManager config = new ConfigManager();
     public WebDriver webDriver;
-    DropdownUtils utils = new DropdownUtils();
+    private DropdownUtils utils = new DropdownUtils();
 
     @FindBy(className = "ant-input")
     private WebElement searchInput;
@@ -55,7 +56,7 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     }
 
     public WebElement getAuthDropdown() {
-        WaitForElement.waitForElementWithExpectedCondition(webDriver,ExpectedConditions.visibilityOf(authDropdown));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(authDropdown));
         authDropdown.click();
         return utils.getLastDropdownList();
     }
@@ -82,7 +83,6 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
 
     public ListPageFactory(WebDriver driver) {
         this.webDriver = driver;
-//        this.webDriver.manage().window().fullscreen();
         PageFactory.initElements(driver, this);
     }
 
@@ -150,22 +150,22 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         return utils.getLastDropdownList();
     }
 
-    @Override
-    protected void load() {
-        System.out.println("load方法运行！");
-    }
-
-    @Override
-    protected void isLoaded() throws Error {
-        System.out.println("isloaded方法运行！");
-    }
-
     public WebElement getPlaceholderInput(String placeholder) {
         return webDriver.findElement(By.xpath("(//input[@placeholder='" + placeholder + "'])[last()]"));
     }
 
-    public WebElement getClearIcon(String text){
-        String xpath = "//div[contains(text(),'"+ text + "')]/following-sibling::span/i[@aria-label='图标: close']";
+    public WebElement getClearIcon(String text) {
+        String xpath = "//div[contains(text(),'" + text + "')]/following-sibling::span/i[@aria-label='图标: close']";
         return webDriver.findElement(By.xpath(xpath));
+    }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
     }
 }

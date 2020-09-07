@@ -13,6 +13,7 @@ Feature: 数据大屏-s水球图
     And I set the parameter "Name" with value "水球图-样式搜索"
     And I click the "Ensure" button
     #水球图
+    And I wait for "Chart" will be visible
     And I click the "Chart" button
 
     And I wait for "Liquidfill" will be visible

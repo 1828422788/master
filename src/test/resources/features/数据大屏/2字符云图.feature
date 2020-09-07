@@ -30,7 +30,8 @@ Feature: 数据大屏-g字符云图
    #2修改样式
     And I click the "styleCloudChart" button
     #图表起始颜色
-    And I wait for "chartStartColor" will be visible
+    And I wait for "2000" millsecond
+#    And I wait for "chartStartColor" will be visible
     And I click the "chartStartColor" button under some element
     And I click the "red" button
     #最大字号

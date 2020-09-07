@@ -13,6 +13,7 @@ Feature: 数据大屏-c区间图
     And I set the parameter "Name" with value "区间图XY轴布局搜索"
     And I click the "Ensure" button
     #区间图
+    And I wait for "Chart" will be visible
     And I click the "Chart" button
     And I wait for "Range" will be visible
     And I click the "Range" button

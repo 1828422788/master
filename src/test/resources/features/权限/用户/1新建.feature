@@ -49,7 +49,7 @@ Feature: 用户新建（RZY-1164）
 
     Examples:
       | UserName        | Email                        | Password      | message                                       |
-      | AutoTestForEdit | autoFullName@yottabyte.cn    | qqqAll#123456 | 创建失败: email: AutoTestForEdit 已存在              |
+      | AutoTestForEdit | autoFullName@yottabyte.cn    | qqqAll#123456 | 创建失败: account: AutoTestForEdit 已存在              |
       | fffff           | autoTestForEdit@yottabyte.cn | qqqAll#123456 | 创建失败: email: autoTestForEdit@yottabyte.cn 已存在 |
 
   Scenario Outline: 密码格式校验

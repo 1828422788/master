@@ -1,19 +1,11 @@
 package com.yottabyte.stepDefs;
 
-import com.steadystate.css.parser.Locatable;
-import com.sun.glass.ui.Robot;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.interactions.touch.TouchActions;
-
-import java.awt.event.InputEvent;
 
 /**
  * 滚动条相关操作

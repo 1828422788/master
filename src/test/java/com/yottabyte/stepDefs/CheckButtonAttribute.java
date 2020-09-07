@@ -34,44 +34,9 @@ public class CheckButtonAttribute {
      */
     @Then("^I will see the \"([^\"]*)\" is \"([^\"]*)\"$")
     public void checkClass(List<String> buttonNameList, String attribute) {
-        if (buttonNameList.size() == 1) {
-            Object element = GetElementFromPage.getWebElementWithName(buttonNameList.get(0));
-            if (element instanceof List) {
-                List<WebElement> elements = (List<WebElement>) element;
-                for (WebElement webElement : elements) {
-                    Assert.assertTrue("实际class"+webElement.getAttribute("class"),webElement.getAttribute("class").contains(attribute));
-                }
-                return;
-            }
-        }
-        for (String buttonName : buttonNameList) {
-            WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
-            Assert.assertTrue("实际class"+element.getAttribute("class"),element.getAttribute("class").contains(attribute));
-        }
+        this.checkElementsContainsAttribute(buttonNameList, "class", attribute);
     }
 
-    /**
-     * 检查元素class是否等于某值
-     * @param buttonNameList
-     * @param attribute
-     */
-    @Then("^I will see the \"([^\"]*)\" equals \"([^\"]*)\"$")
-    public void checkClassEqual(List<String> buttonNameList, String attribute) {
-        if (buttonNameList.size() == 1) {
-            Object element = GetElementFromPage.getWebElementWithName(buttonNameList.get(0));
-            if (element instanceof List) {
-                List<WebElement> elements = (List<WebElement>) element;
-                for (WebElement webElement : elements) {
-                    Assert.assertTrue(webElement.getAttribute("class").equals(attribute));
-                }
-                return;
-            }
-        }
-        for (String buttonName : buttonNameList) {
-            WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
-            Assert.assertTrue(element.getAttribute("class").equals(attribute));
-        }
-    }
     /**
      * 检查元素style是否包含某值
      *
@@ -80,10 +45,30 @@ public class CheckButtonAttribute {
      */
     @Then("^I will see the element \"([^\"]*)\" style contains \"([^\"]*)\"$")
     public void checkStyle(List<String> buttonNameList, String attribute) {
+        this.checkElementsContainsAttribute(buttonNameList, "style", attribute);
+    }
+
+    /**
+     * 检查元素的某一属性是否包含某一值
+     *
+     * @param buttonNameList 两种情况：1：传入的是列表 2：传入的元素是一个列表
+     * @param type
+     * @param attribute
+     */
+    private void checkElementsContainsAttribute(List<String> buttonNameList, String type, String attribute) {
+        if (buttonNameList.size() == 1) {
+            Object element = GetElementFromPage.getWebElementWithName(buttonNameList.get(0));
+            if (element instanceof List) {
+                List<WebElement> elements = (List<WebElement>) element;
+                for (WebElement webElement : elements) {
+                    Assert.assertTrue("实际值：" + webElement.getAttribute(type), webElement.getAttribute(type).contains(attribute));
+                }
+                return;
+            }
+        }
         for (String buttonName : buttonNameList) {
             WebElement element = GetElementFromPage.getWebElementWithName(buttonName);
-            String actualStyle = element.getAttribute("style");
-            Assert.assertTrue("style实际值：" + actualStyle, actualStyle.contains(attribute));
+            Assert.assertTrue("实际值：" + element.getAttribute(type), element.getAttribute(type).contains(attribute));
         }
     }
 
@@ -242,42 +227,6 @@ public class CheckButtonAttribute {
      */
     @And("^I will see the \"([^\"]*)\" doesn't exist$")
     public void elementNotExist(String name) {
-        if (name.startsWith("get")) {
-            name = name.split("get")[1];
-        }
-        if (Character.isLowerCase(name.charAt(0))) {
-            System.out.println("\n Wanning: name is " + name + " , might be UpperCase in the first! \n");
-            name = "get" + name.substring(0, 1).toUpperCase() + name.substring(1);
-        } else {
-            name = "get" + name;
-        }
-        Object page = LoginBeforeAllTests.getPageFactory();
-        Method method;
-        try {
-            Object object = page.getClass().getDeclaredMethod(name).invoke(page);
-            method = page.getClass().getDeclaredMethod(name);
-            WebElement element = (WebElement) object;
-            this.ifExist(element);
-        } catch (Exception e) {
-            method = null;
-        }
-        if (method == null) {
-            try {
-                method = page.getClass().getSuperclass().getDeclaredMethod(name);
-                Object object = method.invoke(page);
-                this.ifExist((WebElement) object);
-            } catch (Exception e) {
-                Assert.assertTrue(true);
-            }
-        }
-    }
-
-    @And("^I will see the agent doesn't exist in \"([^\"]*)\" cloumn$")
-    public void AgentelementNotExist(String columnNum) {
-        Agent agent = new Agent();
-        String ip = agent.getIp();
-        Assert.assertNotNull("无正在运行的agent！", ip);
-        String name = "{'column':'" + columnNum + "','name':'" + ip + "'}";
         if (name.startsWith("get")) {
             name = name.split("get")[1];
         }

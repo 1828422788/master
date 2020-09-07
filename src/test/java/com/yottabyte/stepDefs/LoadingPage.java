@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 /**
  * 对页面的操作
- * Created by A on 2017/4/7.
+ * Created by yang.wei on 2017/4/7.
  */
 public class LoadingPage {
     private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
@@ -20,13 +20,13 @@ public class LoadingPage {
      * @param pageName 页面名称
      */
     @Then("^I will see the \"([^\"]*)\" page$")
-    public void iWillSeeNewPage(String pageName) {
+    public void loadNewPage(String pageName) {
         ConstructPageFactoryWithName c = new ConstructPageFactoryWithName();
         c.constructPageFactoryWithName(pageName);
     }
 
     /**
-     * 打开指定页面  参数由feature            提供
+     * 打开指定页面  参数由feature提供
      *
      * @param pageName
      */

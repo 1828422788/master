@@ -200,25 +200,26 @@ public class DateEditorPage extends PageTemplate {
         return this.getDateButton(recentlyRadioButton);
     }
 
-    public WebElement getStartTimeInput(){
+    public WebElement getStartTimeInput() {
         return startTimeInput;
     }
 
-    public WebElement getStartDateInput(){
+    public WebElement getStartDateInput() {
         return startDateInput;
     }
 
-    public WebElement getEndTimeInput(){
+    public WebElement getEndTimeInput() {
         return endTimeInput;
     }
 
-    public WebElement getEndDateInput(){
+    public WebElement getEndDateInput() {
         return endDateInput;
     }
 
-    public WebElement getApplyCustomTime(){
+    public WebElement getApplyCustomTime() {
         return applyCustomTime;
     }
+
     public void getCustomTime(String startTime, String endTime, String startDate, String endDate) {
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(customTime));
         customTime.click();

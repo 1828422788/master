@@ -144,6 +144,7 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     When I click the "AddEventButton" button
     And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
     And I set the parameter "SearchChartInput" with value "验证仪表盘全局时间"
     And I wait for loading invisible
     And I click the "{'Checkbox':'验证仪表盘全局时间'}" button
@@ -272,7 +273,7 @@ Feature: 仪表盘详情页
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
-    And I wait for "500" millsecond  
+    And I wait for "500" millsecond
     And I will see the success message "删除成功"
 
     Examples:

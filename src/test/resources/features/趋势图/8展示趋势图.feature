@@ -140,10 +140,10 @@ Feature: 展示趋势图
       | Ring_table_3r_2c                |
       | Ring_twofields                  |
       | Ring_onefield                   |
+      | Single_仅展示字段               |
+      | Single_仅数值字段               |
       | Single_Sparkline_分面           |
-      | Single_Sparkline_Font           |
       | Single_Sparkline_Background     |
-      | Single_secondTitle              |
       | Single_prec2_1000off_back_after |
       | Single_prec1_1000on__before     |
       | Single_rangeB                   |
@@ -163,16 +163,16 @@ Feature: 展示趋势图
     @viewTrendTimechart
     Examples:
       | name                                     |
+      | timechart_area_pile                      |
+      | timechart_column_pile                    |
       | timechart_3250_column                    |
       | timechart_3249_scatter                   |
       | timechart_3248_area                      |
       | timechart_3247_line                      |
       | timechart_3099_column                    |
-      | timechart_3098_column                    |
       | timechart_3097_scatter                   |
       | timechart_3096_scatter                   |
       | timechart_3095_area                      |
-      | timechart_3094_area                      |
       | timechart_3093_line                      |
       | timechart_3092_line                      |
 

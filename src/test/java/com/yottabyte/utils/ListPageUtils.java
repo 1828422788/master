@@ -8,12 +8,28 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author sunxj
- */
 public class ListPageUtils {
     Paging pagingInfo = new Paging();
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
+
+    /**
+     * 获取名称所在行，有分页
+     *
+     * @param dataName 支持json格式指定名称所在列
+     * @return
+     */
+    public WebElement getRow(String dataName) {
+        WebElement tr;
+        if (!JsonStringPaser.isJson(dataName)) {
+            tr = this.getRowWithName(dataName);
+        } else {
+            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
+            String name = map.get("name").toString();
+            int columnNum = Integer.parseInt(map.get("column").toString());
+            tr = this.getRowWithColumnNum(name, columnNum);
+        }
+        return tr;
+    }
 
     /**
      * 寻找name所在行
@@ -21,7 +37,7 @@ public class ListPageUtils {
      * @param name
      * @return 行元素
      */
-    public WebElement findName(String name) {
+    public WebElement getRowWithName(String name) {
         String url = webDriver.getCurrentUrl();
         WebElement table = pagingInfo.getTableList().get(0);
         if (url.contains("agent")) {
@@ -30,22 +46,64 @@ public class ListPageUtils {
         return this.getRow(name, table);
     }
 
-    public WebElement findNameWithoutPaging(String name) {
+    /**
+     * 根据名称及名称所在列获得该行
+     *
+     * @param name
+     * @param columnNum
+     * @return
+     */
+    public WebElement getRowWithColumnNum(String name, int columnNum) {
         WebElement table = pagingInfo.getTableList().get(0);
-        return this.getRowWithoutPaging(name, table);
+        return this.getRowWithColumnNum(name, columnNum, table);
     }
 
-    public WebElement getTr(String dataName) {
-        WebElement tr;
-        if (!JsonStringPaser.isJson(dataName)) {
-            tr = this.findName(dataName);
-        } else {
-            Map<String, Object> map = JsonStringPaser.json2Stirng(dataName);
-            String name = map.get("name").toString();
-            int columnNum = Integer.parseInt(map.get("column").toString());
-            tr = this.getRowWithColumnNum(name, columnNum);
+    /**
+     * 根据名称、名称所在列、名称所在table获取该行
+     *
+     * @param name
+     * @param columnNum
+     * @param table
+     * @return
+     */
+    public WebElement getRowWithColumnNum(String name, int columnNum, WebElement table) {
+        int totalPage = pagingInfo.getTotalPage();
+        WebElement nextPage = pagingInfo.getNextPage();
+        for (int i = 0; i < totalPage; i++) {
+            if (i != 0 && i <= totalPage - 1) {
+                nextPage.click();
+                WaitForElement.waitUntilLoadingDisappear();
+            }
+            List<WebElement> trList = table.findElements(By.tagName("tr"));
+            for (WebElement tr : trList) {
+                if (tr.findElements(By.tagName("td")).get(columnNum).getText().equals(name)) {
+                    return tr;
+                }
+            }
         }
-        return tr;
+        return null;
+    }
+
+    /**
+     * 无分页下获取名称所在行
+     *
+     * @param name
+     * @param table
+     * @return
+     */
+    public WebElement getRowWithoutPaging(String name, WebElement table) {
+        List<WebElement> trList = table.findElements(By.xpath(".//tr"));
+        for (WebElement tr : trList) {
+            if (tr.getText().contains(name)) {
+                return tr;
+            }
+        }
+        return null;
+    }
+
+    private WebElement findNameWithoutPaging(String name) {
+        WebElement table = pagingInfo.getTableList().get(0);
+        return this.getRowWithoutPaging(name, table);
     }
 
     public WebElement getContainsTr(String dataName) {
@@ -107,6 +165,7 @@ public class ListPageUtils {
         }
         return tr;
     }
+
     public List<WebElement> getTrList() {
         WebElement table = pagingInfo.getTableList().get(0);
         List<WebElement> list = null;
@@ -129,54 +188,9 @@ public class ListPageUtils {
         return this.getRowWithColumnNum(name, 0, table);
     }
 
-    public WebElement getRowWithColumnNum(String name, int columnNum) {
-        WebElement table = pagingInfo.getTableList().get(0);
-        return this.getRowWithColumnNum(name, columnNum, table);
-    }
-
-    public WebElement getRowWithColumnNum(String name, int columnNum, WebElement table) {
-        int totalPage = pagingInfo.getTotalPage();
-        WebElement nextPage = pagingInfo.getNextPage();
-        int i = 0;
-        while (i < totalPage) {
-            if (i != 0 && i <= totalPage - 1) {
-                nextPage.click();
-                WaitForElement.waitUntilLoadingDisappear();
-            }
-            List<WebElement> trList = table.findElements(By.tagName("tr"));
-            for (WebElement tr : trList) {
-                if (tr.findElements(By.tagName("td")).get(columnNum).getText().equals(name)) {
-                    return tr;
-                }
-            }
-            i++;
-        }
-        return null;
-    }
-
-    public WebElement getRowWithoutPaging(String name, WebElement table) {
-        // 找到一行元素
-        List<WebElement> trList = table.findElements(By.xpath(".//tr"));
-
-        for (WebElement tr : trList) {
-            if (tr.getText().contains(name)) {
-                return tr;
-            }
-        }
-        return null;
-    }
-
     public WebElement getRowWithoutTotalPage(String name) {
-        String nextPageXpath;
-        String trListXpath;
-        if (pagingInfo.checkUrl()) {
-            nextPageXpath = "//button[contains(@class,'btn-next')]";
-            trListXpath = "//tr";
-        } else {
-            nextPageXpath = "//li[@class=' ant-pagination-next']";
-//            trListXpath = "//div[@class='ant-modal-content']//tr";
-            trListXpath = "//tr";
-        }
+        String nextPageXpath = "//li[@class=' ant-pagination-next']";
+        String trListXpath = "//tr";
         return this.clickNextPage(trListXpath, nextPageXpath, name);
     }
 
