@@ -166,6 +166,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "((//span[text()='展开信息'])[last()]/ancestor::div/following-sibling::div)[1]")
     private WebElement infoField;
 
+    @FindBy(xpath = "((//span[text()='列信息'])[last()]/ancestor::div/following-sibling::div)[1]")
+    private WebElement infoColumn;
+
     @FindBy(xpath = "(//span[text()='标签位置'])[last()]/ancestor::div/following-sibling::div")
     private WebElement labelLocation;
 
@@ -1277,6 +1280,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getInfoField() {
         infoField.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getInfoColumn() {
+        infoColumn.click();
         return super.getLastDropdownList();
     }
 

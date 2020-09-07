@@ -227,7 +227,7 @@ Feature: 日志展现_其它
       |  Matrixheatmap |  count()        | apache.status |  10    |2810    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       |  Matrixheatmap | apache.geo.city |    count()    |  5     |2811    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-
+@chaintest
   Scenario Outline: chain(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
@@ -243,10 +243,13 @@ Feature: 日志展现_其它
     And I click the "Time" button
     And I choose the "<starttime>" from the "StartTime" in config
     And I choose the "<duration>" from the "KeepTime" in config
+    And I click the "Info" button
+    And I choose the "<infoValue>" from the "InfoField" in config
+    And I cancel selection "<cancelcol>" from the "InfoColumn" in config
     And I click the "Divide" button
     And I choose the "<childIDvalue>" from the "FieldValue" in config
     And I click the "Info" button
-    And I choose the "<infoValue>" from the "InfoField" in config
+    And I choose the "<column>" from the "InfoColumn" in config
     And I click the "Exhibition" button
     And I click the "AddColor" button
     And I click the "<color>" button
@@ -261,9 +264,9 @@ Feature: 日志展现_其它
     Then I compare source image "actual/高级搜索视图/6其它/<caseNum>_<chartType>" with target image "expect/高级搜索视图/6其它/<caseNum>_<chartType>"
 
     Examples:
-      |  chartType | color  | precision |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
-      |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
-      |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  chartType | color  | precision |  column           | cancelcol          |function     |  parentIDvalue       | childIDvalue  |      starttime         | duration            | infoValue                             | caseNum |   spl   |
+      |  Chain     | Green  | 1         |dapper.msg.duration| timestamp          |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812    | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
+      |  Chain     | Red    | 2         |                   |dapper.msg.timestamp|dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814    | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
 
   Scenario Outline: sequence(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"
