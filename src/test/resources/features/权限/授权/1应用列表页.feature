@@ -5,12 +5,12 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可查看应用,可新建应用,可查看拓扑图,新建拓扑图"
+    And I "checked" the checkbox which name is "全选" in trend page
+    And I "unchecked" the checkbox which name is "全选" in trend page
+    And I click the "App" button
+    And I "checked" the checkbox which name is "可新建应用"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "新建拓扑图"
     And I click the "SaveButton" button
 
   Scenario Outline: 验证可新建应用
@@ -49,14 +49,10 @@ Feature: 权限-应用列表页
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "unchecked" the checkbox which name is "可新建应用"
+    And I click the "App" button
+    And I "unchecked" the checkbox which name is "可新建应用"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
 
-  @logout
   Scenario: 无新建权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond

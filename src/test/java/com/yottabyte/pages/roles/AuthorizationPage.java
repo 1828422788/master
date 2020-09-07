@@ -1,21 +1,14 @@
 package com.yottabyte.pages.roles;
 
-import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.stepDefs.ICheckValuesFromCheckBox;
 import com.yottabyte.stepDefs.Pagination;
-import com.yottabyte.utils.ElementExist;
-import com.yottabyte.utils.WaitForElement;
-import com.yottabyte.webDriver.SharedDriver;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.assertTrue;
 
 public class AuthorizationPage extends PageTemplate {
 
@@ -43,7 +36,6 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(className = "el-input__inner")
     private WebElement maxTime;
 
-    //    @FindBy(xpath = "(//div[@class='el-checkbox-group'])[last()]")
     @FindBy(className = "url-checkbox")
     private WebElement checkboxGroup;
 
@@ -92,6 +84,14 @@ public class AuthorizationPage extends PageTemplate {
 
     public WebElement getData() {
         return this.getFunctionButton("数据");
+    }
+
+    public WebElement getResource() {
+        return this.getFunctionButton("资源");
+    }
+
+    public WebElement getApp() {
+        return this.getFunctionButton("应用");
     }
 
     public WebElement getSearch() {
