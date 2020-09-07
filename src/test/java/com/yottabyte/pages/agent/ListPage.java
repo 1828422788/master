@@ -16,7 +16,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class ListPage extends ListPageFactory {
 
-
     public WebElement getMemoButton() {
         return MemoButton;
     }

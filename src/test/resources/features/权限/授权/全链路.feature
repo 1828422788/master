@@ -398,6 +398,7 @@ Feature: 权限-全链路
     When I "check" the function "<function>" which name is "<authName>" in tiny table
     And I click the "Ensure" button
     Then I will see the message "保存成功"
+
     Examples:
       | authRole | authName | function | name   |
       | 用户       | 验证授权用户   | 读取       | 二次授权测试 |
