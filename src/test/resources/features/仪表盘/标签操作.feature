@@ -34,6 +34,8 @@ Feature: 仪表盘标签操作
     And I wait for loading invisible
     And I "checked" the checkbox which name is "接收标签页"
     And I click the "Ensure" button
+    And I wait for loading complete
+    And I back to before
 
   Scenario: 验证标签页移出成功
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -47,6 +49,7 @@ Feature: 仪表盘标签操作
     When the data name is "<name>" then i click the "删除" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I will see the success message "删除仪表盘成功"
 
     Examples:

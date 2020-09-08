@@ -85,6 +85,7 @@ Feature: 仪表盘详情行布局
     And I wait for "AddEventButton" will be visible
     When I click the "AddEventButton" button
     And I click the "AddChart" button
+    And I wait for "1000" millsecond
     And I click the "JoinRow" button
     And I wait for "500" millsecond
 #    And I set the parameter "JoinRow" with value "L2: "
@@ -179,7 +180,6 @@ Feature: 仪表盘详情行布局
     Then I will see the success message "删除成功"
     Then I will see the "TrendOne" is not exist
 
-  @cleanDashboard
   Scenario Outline: 删除行布局所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button
