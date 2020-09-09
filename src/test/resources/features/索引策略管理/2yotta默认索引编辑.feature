@@ -2,7 +2,7 @@
 Feature: 索引-yotta默认索引信息编辑（RZY-1477至1480）
 
   Background:
-    Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
+    Given open the "index.ListPage" page for uri "/indexsettings/"
     And I wait for loading invisible
 
   Scenario Outline:

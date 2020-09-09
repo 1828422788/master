@@ -2,7 +2,7 @@
 Feature: 索引信息搜索
 
   Background:
-    Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
+    Given open the "index.ListPage" page for uri "/indexsettings/"
     And I wait for loading invisible
 
   Scenario Outline:

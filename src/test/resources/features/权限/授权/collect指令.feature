@@ -18,7 +18,7 @@ Feature: 权限-collect指令
       | __user_AutoTest__ |
 
   Scenario: 新建索引
-    Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
+    Given open the "index.ListPage" page for uri "/indexsettings/"
     And I click the "AddButton" button
     Then I will see the "index.CreatePage" page
     When I set the parameter "Name" with value "autotestauth"
@@ -97,7 +97,7 @@ Feature: 权限-collect指令
     Then I will see the element "Tag" name is "autotesttag "
 
   Scenario Outline: 删除索引
-    Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
+    Given open the "index.ListPage" page for uri "/indexsettings/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     Then I click the "Ensure" button
 
