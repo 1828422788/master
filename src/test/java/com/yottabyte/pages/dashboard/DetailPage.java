@@ -237,7 +237,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
     private WebElement ensureEdit;
 
-    @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div")
+    @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
     private WebElement trendTitle;
 
     @FindBy(xpath = "//span[text()='second'][@class='main']")
