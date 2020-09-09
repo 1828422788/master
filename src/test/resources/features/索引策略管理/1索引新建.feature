@@ -18,7 +18,7 @@ Feature: 索引信息新建
     And I click the "CreateButton" button
     And I wait for "1000" millsecond
     And I will see the element "Message" name is "保存成功"
-    Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
+    Given open the "index.ListPage" page for uri "/indexmatchrule/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I wait for "2000" millsecond
@@ -80,7 +80,7 @@ Feature: 索引信息新建
     And I click the "CreateButton" button
     And I wait for "1000" millsecond
     And I will see the element "Message" name is "保存成功"
-    Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
+    Given open the "index.ListPage" page for uri "/indexmatchrule/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
     When I choose the "<name>" from the "IndexName"
@@ -115,7 +115,7 @@ Feature: 索引信息新建
     And I click the "CreateButton" button
     And I wait for "1000" millsecond
     And I will see the element "Message" name is "保存成功"
-    Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
+    Given open the "index.ListPage" page for uri "/indexmatchrule/"
     When I click the "AddButton" button
     Then I will see the "index.MatchRuleCreatePage" page
     And I wait for "1000" millsecond

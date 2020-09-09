@@ -2,7 +2,7 @@
 Feature: 路由搜索
 
   Background:
-    Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
+    Given open the "index.ListPage" page for uri "/indexmatchrule/"
 
   Scenario Outline:
     When I set the parameter "SearchInput" with value "<searchName>"
