@@ -2,7 +2,7 @@
 Feature: 路由编辑
 
   Background:
-    Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
+    Given open the "index.ListPage" page for uri "/indexmatchrule/"
 
   Scenario Outline: RZY-1483、1484
     When the data name is "{'column':'3','name':'AutoAppName'}" then i click the "编辑" button

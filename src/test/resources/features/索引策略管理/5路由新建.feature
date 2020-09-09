@@ -2,7 +2,7 @@
 Feature: 路由新建（RZY-1481）
 
   Background:
-    Given open the "index.ListPage" page for uri "/indexsettings/indexmatchrule/"
+    Given open the "index.ListPage" page for uri "/indexmatchrule/"
 
   @second
   Scenario Outline: RZY-1481:新建-路由规则
