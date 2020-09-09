@@ -2,7 +2,7 @@
 Feature: 索引信息禁用（RZY-1475）
 
   Scenario: 禁用索引
-    Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
+    Given open the "index.ListPage" page for uri "/indexsettings/"
     Then the data name is "{'column':'0','name':'indexerror'}" then i click the "停止入库" button
     Then I will see the success message "停止入库成功"
 
@@ -24,7 +24,7 @@ Feature: 索引信息禁用（RZY-1475）
     Then I will see the element "NoResult" name is "查询无结果。"
 
   Scenario: 启用索引
-    Given open the "index.ListPage" page for uri "/indexsettings/indexinfo/"
+    Given open the "index.ListPage" page for uri "/indexsettings/"
     Then the data name is "{'column':'0','name':'indexerror'}" then i click the "启用入库" button
     Then I will see the success message "启用入库成功"
 
