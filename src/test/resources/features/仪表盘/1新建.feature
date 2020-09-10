@@ -4,7 +4,7 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
 
-  Scenario Outline: 新建
+  Scenario Outline: 新建(RZY-208，RZY-4472，RZY-4473)
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"
     And I set the parameter "ResourceInput" with value "AutoTest"
@@ -21,11 +21,11 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
       | UIautotest    |
       | FirstAutoTest |
 
-  Scenario: 验证新建成功
+  Scenario: 验证新建成功RZY-208，RZY-4472，RZY-4473）
     Then I will see the data "FirstAutoTest" values "{'column':'5','name':'AutoTest'}"
     Then I will see the data "FirstAutoTest" values "{'column':'4','name':'app之api全部用例'}"
 
-  Scenario Outline: 新建失败校验
+  Scenario Outline: 新建失败校验(RZY-209)
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "<name>"
     And I click the "Ensure" button
@@ -38,14 +38,14 @@ Feature: 仪表盘新建（RZY-208至RZY-210）
       |       | 仪表盘名称不能为空                   |
       | !@    | 名称格式有误, 仅支持汉字，数字，字母，中划线及下划线 |
 
-  Scenario: 新建失败（前面有空格）
+  Scenario: RZY-209新建失败（前面有空格）
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value " test"
     And I click the "Ensure" button
     And I wait for "ErrorMessage" will be visible
     Then I will see the error message "名称格式有误, 仅支持汉字，数字，字母，中划线及下划线"
 
-  Scenario: 新建失败（后面有空格）
+  Scenario: RZY-209新建失败（后面有空格）
     When I click the "Create" button
     And I set the parameter "DashBoardName" with value "test "
     And I click the "Ensure" button

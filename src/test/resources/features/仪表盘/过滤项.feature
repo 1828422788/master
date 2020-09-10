@@ -70,7 +70,7 @@ Feature: 仪表盘过滤项
       | filter | filter | apache.geo.city | 下拉菜单      | 南京市         |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 验证下拉过滤项
+  Scenario Outline: 验证下拉过滤项(RZY-226)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"

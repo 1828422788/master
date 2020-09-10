@@ -50,7 +50,7 @@ Feature: 仪表盘力图
       | 力图   |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 添加图表
+  Scenario Outline: 添加图表(RZY-4490，RZY-3394)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

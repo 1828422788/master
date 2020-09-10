@@ -24,7 +24,7 @@ Feature: 仪表盘标签操作
     And I wait for loading complete
     And I back to before
 
-  Scenario: 移出标签页
+  Scenario: 移出标签页(RZY-230)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "标签页移出"
@@ -37,7 +37,7 @@ Feature: 仪表盘标签操作
     And I wait for loading complete
     And I back to before
 
-  Scenario: 验证标签页移出成功
+  Scenario: 验证标签页移出成功(RZY-230)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "标签页移出" values "{'column':'2','name':''}"
