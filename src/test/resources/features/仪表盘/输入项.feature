@@ -123,7 +123,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be invisible
 
   @dashboard @dashboardSmoke
-  Scenario: 添加时间范围输入项
+  Scenario: 添加时间范围输入项(RZY-227)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page

@@ -5,7 +5,7 @@ Feature: 仪表盘设为/取消默认（RZY-211）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
 
-  Scenario:设为默认
+  Scenario:设为默认（RZY-211，RZY-239）
     Given the data name is "FirstAutoTest" then i click the "设为默认" button
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button

@@ -1,10 +1,10 @@
 @dashboard @dashboardSmoke
-Feature: 仪表盘重命名（RZY-213）
+Feature: 仪表盘重命名
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
 
-  Scenario Outline: 重命名
+  Scenario Outline: 重命名（RZY-213）
     Given the data name is "<name>" then i click the "编辑" button
     And I set the parameter "DashBoardName" with value "<newName>"
     And I click the "Ensure" button

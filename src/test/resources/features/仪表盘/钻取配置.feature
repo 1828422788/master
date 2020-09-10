@@ -64,7 +64,7 @@ Feature: 仪表盘钻取配置
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 开启钻取配置
+  Scenario: 开启钻取配置(RZY-4479)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"

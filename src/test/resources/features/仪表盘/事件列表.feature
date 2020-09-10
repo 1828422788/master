@@ -24,7 +24,7 @@ Feature: 仪表盘事件列表
       | 仪表盘事件操作 |
 
   @dashboard @dashboardSmoke
-  Scenario: 添加事件列表
+  Scenario: 添加事件列表(RZY-3389)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"

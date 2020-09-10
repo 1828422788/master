@@ -1,7 +1,7 @@
 @dashboard @dashboardSmoke
 Feature: 仪表盘详情页
 
-  Scenario: 新建第一个tag
+  Scenario: 新建第一个tag(RZY-3388)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -11,7 +11,7 @@ Feature: 仪表盘详情页
     And I back to before
 
 
-  Scenario: 新建tag
+  Scenario: 新建待删除tag(RZY-3390)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -24,7 +24,7 @@ Feature: 仪表盘详情页
     And I click the "EnsureCreateTagButton" button
     And I back to before
 
-  Scenario: 编辑tag
+  Scenario: 编辑tag(RZY-4488)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -40,7 +40,7 @@ Feature: 仪表盘详情页
     And I wait for "500" millsecond
     Then I will see the success message "标签名称修改成功"
 
-  Scenario: 删除tag
+  Scenario: 删除tag(RZY-4489)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -53,7 +53,7 @@ Feature: 仪表盘详情页
     And I wait for "500" millsecond
     Then I will see the success message "标签页删除成功"
 
-  Scenario: 关闭编辑
+  Scenario: 关闭编辑(RZY-229)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -63,7 +63,7 @@ Feature: 仪表盘详情页
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "编辑功能已禁用"
 
-  Scenario: 验证关闭编辑
+  Scenario: 验证关闭编辑(RZY-229)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -72,7 +72,7 @@ Feature: 仪表盘详情页
     And I click the "SettingIcon" button
     Then I will see the "EditLayout,RemoveTag,ManualRefresh,AutoRefresh" is "disabled"
 
-  Scenario: 验证关闭编辑
+  Scenario: 验证关闭编辑(RZY-229)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -137,7 +137,7 @@ Feature: 仪表盘详情页
       | name      | spl                                   |
       | 验证仪表盘全局时间 | *\|stats count() by 'apache.geo.city' |
 
-  Scenario: 添加趋势图至仪表盘
+  Scenario: 添加趋势图至仪表盘(RZY-3389)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -151,7 +151,7 @@ Feature: 仪表盘详情页
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
-  Scenario: 复制标签页
+  Scenario: 复制标签页(RZY-4484)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -178,7 +178,7 @@ Feature: 仪表盘详情页
     And I click the "Ensure" button
     Then I will see the "TrendTitle" result will be "验证仪表盘全局时间"
 
-  Scenario: 新建全局时间选择器
+  Scenario: 新建全局时间选择器(RZY-225)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -196,7 +196,7 @@ Feature: 仪表盘详情页
     Then I will see the success message "添加输入项成功"
 
 
-  Scenario: 验证全局时间生效及打开过滤输入项
+  Scenario: 验证全局时间生效及打开过滤输入项(RZY-225,RZY-4638)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -210,7 +210,7 @@ Feature: 仪表盘详情页
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
 
-  Scenario: 关闭过滤输入项自动更新
+  Scenario: 关闭过滤输入项自动更新(RZY-4637)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -231,7 +231,7 @@ Feature: 仪表盘详情页
     And I wait for "FilterAutoRefresh" will be visible
     And I switch the dashboard "FilterAutoRefresh" button to "enable"
 
-  Scenario: 存为报表
+  Scenario: 存为报表(RZY-235)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
