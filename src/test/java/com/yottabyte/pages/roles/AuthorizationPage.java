@@ -78,6 +78,10 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//a[text()='知识'])[last()]")
     private WebElement knowledge;
 
+    public WebElement getIndex() {
+        return this.getSubMenuButton("索引");
+    }
+
     public WebElement getAgent() {
         return this.getMenuButton("Agent 管理");
     }
@@ -232,6 +236,11 @@ public class AuthorizationPage extends PageTemplate {
 
     private WebElement getMenuButton(String menuName) {
         String xpath = "//p[text()='" + menuName + "']";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    private WebElement getSubMenuButton(String name) {
+        String xpath = "//div[text()='" + name + "']";
         return webDriver.findElement(By.xpath(xpath));
     }
 
