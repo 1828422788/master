@@ -1,23 +1,14 @@
-@auth
+#@auth
 Feature: 权限-KV字典
 
-  Scenario Outline: 授权可使用应用功能
+  Scenario: 授权可使用应用功能
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "<name>" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    When I "unchecked" the checkbox which name is "全选"
+    And I "checked" the checkbox which name is "全选" in trend page
+    And I "unchecked" the checkbox which name is "全选" in trend page
     And I "checked" the checkbox which name is "可查看应用,可查看仪表盘,可查看搜索页"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-
-    Examples:
-      | name              |
-      | __user_AutoTest__ |
-      | __user_验证授权用户__   |
 
   Scenario: 新建拓扑图资源
     Given open the "topology.ListPage" page for uri "/topology/"

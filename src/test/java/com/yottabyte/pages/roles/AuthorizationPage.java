@@ -60,9 +60,6 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='新建用户']/preceding-sibling::span")
     private WebElement createUser;
 
-    @FindBy(xpath = "(//a[text()='仪表盘'])[last()]")
-    private WebElement dashboard;
-
     @FindBy(xpath = "(//a[text()='定时任务'])[last()]")
     private WebElement schedule;
 
@@ -84,6 +81,10 @@ public class AuthorizationPage extends PageTemplate {
 
     public WebElement getAgent() {
         return this.getMenuButton("Agent 管理");
+    }
+
+    public WebElement getResourceAuth() {
+        return this.getFunctionButton("资源权限");
     }
 
     public WebElement getData() {
@@ -123,7 +124,7 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getDashboard() {
-        return dashboard;
+        return this.getFunctionButton("仪表盘");
     }
 
     public WebElement getResourceName(String name) {
