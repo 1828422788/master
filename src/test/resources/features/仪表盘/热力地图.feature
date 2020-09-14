@@ -103,7 +103,7 @@ Feature: 仪表盘热力地图
       | 仪表盘热力地图 | Heatmap    |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3758
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -113,12 +113,12 @@ Feature: 仪表盘热力地图
     Then I will see the "TextLayer" result will be "<json>"
 
     Examples:
-      | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
+      | name        | json                                                                                                                                                                                                                                                                                                                                                                           |
       | 仪表盘热力地图 | {\n  "title": "仪表盘热力地图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:* \| stats count() by apache.geo.city",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "heatmap",\n    "field": "count()",\n    "category": "apache.geo.city"\n  }\n} |
 
 
   @dashboard
-  Scenario: RZY-1362:修改field为空
+  Scenario: 修改field为空 RZY-3759
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘热力地图"
@@ -132,7 +132,7 @@ Feature: 仪表盘热力地图
     Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
-  Scenario: RZY-1362:修改field为不存在
+  Scenario: 修改field为不存在 RZY-3759
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘热力地图"
@@ -149,7 +149,7 @@ Feature: 仪表盘热力地图
     Then I wait for "NoData" will be visible
 
   @dashboard
-  Scenario: RZY-1362:修改field为'apache.clientip'
+  Scenario: 修改field为'apache.clientip' RZY-3759
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘热力地图"
@@ -166,7 +166,7 @@ Feature: 仪表盘热力地图
     Then I wait for "NoData" will be visible
 
   @dashboard
-  Scenario: RZY-1362:修改category为其他值
+  Scenario: 修改category为其他值 RZY-3760
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘热力地图"

@@ -113,7 +113,7 @@ Feature: 仪表盘曲线图
       | 仪表盘曲线图 | LineChart  |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3693
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -130,7 +130,7 @@ Feature: 仪表盘曲线图
       | 仪表盘曲线图 |  \n  "chart": {\n    "chartType": "line",|  \n    "xAxis": {\n      "field": "apache.clientip", | \n    "yAxis": {\n      "field": "count()",|
 
   @dashboard
-  Scenario: RZY-1362:修改chartType为不存在的类型
+  Scenario: 修改chartType为不存在的类型 RZY-1281
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘曲线图"
@@ -144,7 +144,7 @@ Feature: 仪表盘曲线图
     Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持1a"
 
   @dashboard
-  Scenario: RZY-1362:修改chartType为空
+  Scenario: 修改chartType为空 RZY-1271
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘曲线图"
@@ -158,7 +158,7 @@ Feature: 仪表盘曲线图
     Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持"
 
   @dashboard
-  Scenario: RZY-1362:修改xAxis field字段值置为空
+  Scenario: 修改xAxis field字段值置为空 field字段值置为空
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘曲线图"
@@ -172,7 +172,7 @@ Feature: 仪表盘曲线图
     Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
-  Scenario: RZY-1362:修改yAxis field字段值置为空
+  Scenario: 修改yAxis field字段值置为空 RZY-1301
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘曲线图"
@@ -186,7 +186,7 @@ Feature: 仪表盘曲线图
     Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
-  Scenario: RZY-1362:修改legend字段值置为空
+  Scenario: 修改legend字段值置为空 RZY-1314
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘曲线图"
@@ -200,7 +200,7 @@ Feature: 仪表盘曲线图
     Then I wait for element "ErrorMessage" change text to "chart -> placement 字段值不能为空"
 
   @dashboard
-  Scenario: RZY-1362:修改legend字段值置为空
+  Scenario: 修改legend字段值置为任意值 RZY-1315
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘曲线图"

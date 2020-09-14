@@ -70,7 +70,7 @@ Feature: 仪表盘字符云图
       | 仪表盘字符云图 |
 
   @dashboard
-  Scenario Outline: 修改为字符云图
+  Scenario Outline: 修改为字符云图 RZY-3754
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -104,7 +104,7 @@ Feature: 仪表盘字符云图
       | 仪表盘字符云图 | Wordcloud |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3754
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -118,7 +118,7 @@ Feature: 仪表盘字符云图
       | 仪表盘字符云图 | {\n  "title": "仪表盘字符云图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:*display \| stats count() by apache.clientip, apache.resp_len \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "wordcloud",\n    "field": "count()",\n    "category": "apache.clientip"\n  }\n} |
 
   @dashboard
-  Scenario: RZY-1362:修改field为空
+  Scenario: 修改field为空 RZY-1362
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘字符云图"
@@ -132,7 +132,7 @@ Feature: 仪表盘字符云图
     Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
-  Scenario: RZY-1362:修改field为不存在
+  Scenario: 修改field为不存在 RZY-3755
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘字符云图"
@@ -149,7 +149,7 @@ Feature: 仪表盘字符云图
     Then I wait for "NoData" will be visible
 
   @dashboard
-  Scenario: RZY-1362:修改field为'apache.clientip'
+  Scenario: 修改field为'apache.clientip' RZY-3755
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘字符云图"
@@ -166,7 +166,7 @@ Feature: 仪表盘字符云图
     Then I wait for "NoData" will be visible
 
   @dashboard
-  Scenario: RZY-1362:修改category为'apache.resp_len'
+  Scenario: 修改category为'apache.resp_len' RZY-3756
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘字符云图"
@@ -185,7 +185,7 @@ Feature: 仪表盘字符云图
 #    Then I wait for "NoData" will be visible
 
   @dashboard
-  Scenario: RZY-1362:修改category为'qwerty123'
+  Scenario: 修改category为'qwerty123' RZY-3756
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘字符云图"
