@@ -180,8 +180,8 @@ public class AuthorizationPage extends PageTemplate {
     }
 
     public WebElement getTabButton(String tabName) {
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.invisibilityOf(loading));
-        return webDriver.findElement(By.xpath("//a[text()='" + tabName + "']"));
+        String xpath = "//div[text()='" + tabName + "']";
+        return webDriver.findElement(By.xpath(xpath));
     }
 
     public WebElement getCreateGroupButton(String value) {

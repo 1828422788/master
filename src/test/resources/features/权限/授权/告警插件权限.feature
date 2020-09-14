@@ -1,15 +1,13 @@
-@auth
+@authtest
 Feature: 权限-授权告警插件
 
   Scenario Outline: 告警插件功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
+    And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看告警插件"
     And I click the "SaveButton" button
 
@@ -27,6 +25,7 @@ Feature: 权限-授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for loading invisible
     Then I click the "{'TabButton':'告警插件'}" button
     And I wait for loading invisible
@@ -47,6 +46,7 @@ Feature: 权限-授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for loading invisible
     Then I click the "{'TabButton':'告警插件'}" button
     And I wait for loading invisible
@@ -65,6 +65,7 @@ Feature: 权限-授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'告警插件'}" button
     And I wait for "Loading" will be invisible
@@ -86,6 +87,7 @@ Feature: 权限-授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for loading invisible
     Then I click the "{'TabButton':'告警插件'}" button
     And I wait for loading invisible
@@ -116,8 +118,7 @@ Feature: 权限-授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "{'TabButton':'功能'}" button
+    And I click the "Resource" button
     And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
@@ -135,9 +136,7 @@ Feature: 权限-授权告警插件
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看告警插件"
     And I click the "SaveButton" button
 

@@ -1,13 +1,10 @@
-@auth
+@authtest
 Feature: 权限-事件操作
 
   Scenario Outline: 取消事件操作权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "unchecked" the checkbox which name is "可使用事件操作"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -25,9 +22,6 @@ Feature: 权限-事件操作
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "可使用事件操作"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"

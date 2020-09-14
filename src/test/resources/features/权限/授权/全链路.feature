@@ -1,15 +1,13 @@
-@auth
+@authtest
 Feature: 权限-全链路
 
   Scenario Outline: 勾选字段提取所需功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
+    And I click the "Resource" button
     When I "checked" the checkbox which name is "可查看全链路"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -28,9 +26,7 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "Resource" button
     When I "checked" the checkbox which name is "新建全链路"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -51,9 +47,8 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
     Then I click the "{'TabButton':'全链路'}" button
-    And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
@@ -72,9 +67,8 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
     Then I click the "{'TabButton':'全链路'}" button
-    And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
@@ -101,6 +95,7 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'全链路'}" button
     And I wait for "Loading" will be invisible
@@ -141,6 +136,7 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'全链路'}" button
     And I wait for "Loading" will be invisible
@@ -187,6 +183,7 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'全链路'}" button
     And I wait for loading invisible
@@ -214,6 +211,7 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'全链路'}" button
     And I wait for "Loading" will be invisible
@@ -246,6 +244,7 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'全链路'}" button
     And I wait for "Loading" will be invisible
@@ -288,6 +287,7 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'全链路'}" button
     And I wait for "Loading" will be invisible
@@ -339,6 +339,7 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'全链路'}" button
     And I wait for "Loading" will be invisible
@@ -382,6 +383,7 @@ Feature: 权限-全链路
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'全链路'}" button
     And I wait for "Loading" will be invisible

@@ -1,16 +1,14 @@
-@auth
+@authtest
 Feature: 权限-字典
 
   Scenario Outline: 授权功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可查看字典管理,新建字典"
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "可查看字典管理"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -20,30 +18,21 @@ Feature: 权限-字典
       | __user_验证授权用户__   |
 
   Scenario: 验证无新建权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "unchecked" the checkbox which name is "新建字典"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
     Then I will see the "UploadButton" doesn't exist
 
-  Scenario: 验证可新建字典
+  Scenario: 勾选可新建字典权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "Resource" button
     And I "checked" the checkbox which name is "新建字典"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+  Scenario: 验证可新建字典权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "dictionary.ListPage" page for uri "/dictionary/"
@@ -59,6 +48,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -77,6 +67,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -97,6 +88,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -137,6 +129,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for loading invisible
@@ -166,16 +159,12 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
 
     Examples:
@@ -227,6 +216,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -237,6 +227,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -244,10 +235,6 @@ Feature: 权限-字典
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
 
     Examples:
       | name                   |
@@ -263,6 +250,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -308,6 +296,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -318,6 +307,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -368,6 +358,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -378,6 +369,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -422,6 +414,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
@@ -431,6 +424,7 @@ Feature: 权限-字典
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字典'}" button
     And I wait for "Loading" will be invisible
