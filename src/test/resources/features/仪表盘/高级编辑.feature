@@ -116,7 +116,7 @@ Feature: 仪表盘高级编辑
       | -2d   |     | search -> endTime 字段不能为空   |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 校验row和column RZY-1269,RZY-1272
+  Scenario Outline: 校验x、y、w、h RZY-1269,RZY-1272,RZY-1273,RZY-1274
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -133,15 +133,19 @@ Feature: 仪表盘高级编辑
 
     Examples:
       | x  | y  | w  | h  | message               |
-      | 0  | 15 | 0  | 1  | w 字段值的有效区间范围为'1'至'12' |
-      | 0  | 15 | 13 | 1  | w 字段值的有效区间范围为'1'至'12' |
-      | 0  | 15 | 1  | 0  | h 字段值不能低于其允许最小值'1'    |
+      |    | 0  | 12 | 5  | 0行 41列：Unexpected ',' |
       | -1 | 15 | 1  | 12 | x 字段值的有效区间范围为'0'至'12' |
       | 13 | 15 | 1  | 12 | x 字段值的有效区间范围为'0'至'12' |
       | 1  | -1 | 1  | 12 | y 字段值不能低于其允许最小值'0'    |
+      | 0  |    | 12 | 5  | 0行 48列：Unexpected ',' |
+      | 0  | 0  |    | 5  | 0行 55列：Unexpected ',' |
+      | 0  | 15 | 0  | 5  | w 字段值的有效区间范围为'1'至'12' |
+      | 0  | 15 | 13 | 5  | w 字段值的有效区间范围为'1'至'12' |
+      | 0  | 0  | 12 |    | 0行 63列：Unexpected ',' |
+      | 0  | 0  | 12 | 0  | h 字段值不能低于其允许最小值'1'    |
 
   @dashboard @dashboardSmoke
-  Scenario: 验证title字段
+  Scenario: 验证修改title字段 RZY-1278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -158,7 +162,23 @@ Feature: 仪表盘高级编辑
     Then I will see the "TrendTitle" result will be "仪表盘高级编辑"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证备注字段
+  Scenario: 验证title字段为空 RZY-1278
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试高级编辑"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    When the chart title is "仪表盘高级编辑" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart | stats count() by apache.geo.country, apache.geo.province, apache.geo.city","startTime": "-1d","endTime": "now"},"chart": {"chartType": "table"}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I will see the success message "校验通过"
+
+
+  @dashboard @dashboardSmoke
+  Scenario: 验证备注字段 RZY-1279
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -179,7 +199,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "DescribeText" result will be "测试描述"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证清空JSON
+  Scenario: 验证清空JSON RZY-3442
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -194,7 +214,7 @@ Feature: 仪表盘高级编辑
     Then I will see the error message "title 字段为必填项"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证重置JSON
+  Scenario: 验证重置JSON RZY-3441
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -225,7 +245,7 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "钻取功能已启用"
 
   @dashboard @dashboardSmoke
-  Scenario: 高级搜索钻取-type
+  Scenario: 高级搜索钻取-type RZY-1489
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -247,7 +267,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
   @dashboard @dashboardSmoke
-  Scenario: 高级搜索钻取-blank
+  Scenario: 高级搜索钻取-blank RZY-1490 RZY-3764
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -268,7 +288,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
   @dashboard @dashboardSmoke
-  Scenario: 高级搜索钻取-query及timeRange
+  Scenario: 高级搜索钻取-query及timeRange  RZY-3821,RZY-1492,RZY-1493
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -289,7 +309,7 @@ Feature: 仪表盘高级编辑
     Then I will see the input element "TimeRange" value will contains "昨天"
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 高级搜索钻取修改校验
+  Scenario Outline: 高级搜索钻取修改校验query,timeRange RZY-1492,RZY-1493
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
