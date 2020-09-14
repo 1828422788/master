@@ -43,7 +43,7 @@ Feature: 仪表盘过滤项
     And I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 添加下拉菜单类型的过滤项（RZY-1869）
+  Scenario Outline: 添加下拉菜单类型的过滤项（RZY-253,RZY-1869,RZY-266）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -92,7 +92,7 @@ Feature: 仪表盘过滤项
       | 成都市  |
 
   @dashboard @dashboardSmoke
-  Scenario: 修改为过滤项发生变化自动搜索
+  Scenario: 修改为过滤项发生变化自动搜索(RZY-255,RZY-256,RZY-257)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -104,7 +104,7 @@ Feature: 仪表盘过滤项
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 验证过滤项发生变化自动搜索
+  Scenario Outline: 验证过滤项发生变化自动搜索(RZY-255,RZY-256,RZY-257)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -133,7 +133,7 @@ Feature: 仪表盘过滤项
     And I click the "Ensure" button under some element
 
   @dashboard @dashboardSmoke
-  Scenario: 添加动态菜单
+  Scenario: 添加动态菜单(RZY-258,RZY-263,RZY-264)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -168,7 +168,7 @@ Feature: 仪表盘过滤项
     Then I will see the element "CityTd" name is "成都市 "
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 切换动态值
+  Scenario Outline: 切换动态值(RZY-259)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -198,7 +198,7 @@ Feature: 仪表盘过滤项
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 验证动态菜单自动搜索
+  Scenario Outline: 验证动态菜单自动搜索(RZY-266)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -215,7 +215,7 @@ Feature: 仪表盘过滤项
       | 苏州市  |
 
   @dashboard @dashboardSmoke
-  Scenario: 删除动态菜单过滤项
+  Scenario: 删除动态菜单过滤项(RZY-3419)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -226,7 +226,7 @@ Feature: 仪表盘过滤项
     And I click the "Ensure" button under some element
 
   @dashboard @dashboardSmoke
-  Scenario: 添加文本过滤项
+  Scenario: 添加文本过滤项(RZY-248)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -242,7 +242,7 @@ Feature: 仪表盘过滤项
     Then I wait for "FilterName" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 验证文本过滤绑定成功
+  Scenario: 验证文本过滤绑定成功(RZY-3611)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -254,7 +254,7 @@ Feature: 仪表盘过滤项
     Then I will see the element "CityTd" name is "成都市 "
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 验证修改文本值搜索内容是否正确
+  Scenario Outline: 验证修改文本值搜索内容是否正确(RZY-252)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -274,7 +274,7 @@ Feature: 仪表盘过滤项
       | 苏州市  |
 
   @dashboard @dashboardSmoke
-  Scenario: 修改文本过滤为自动搜索
+  Scenario: 修改文本过滤为自动搜索(RZY-251)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -286,7 +286,7 @@ Feature: 仪表盘过滤项
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 验证文本过滤自动搜索
+  Scenario Outline: 验证文本过滤自动搜索(RZY-251)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"

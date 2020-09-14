@@ -58,7 +58,7 @@ Feature: 仪表盘高级编辑
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改query字段
+  Scenario: 修改query字段 RZY-1276
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -76,7 +76,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "TableHeader" result will be "apache.geo.country  apache.geo.province  apache.geo.city  count() "
 
   @dashboard @dashboardSmoke
-  Scenario: 修改开始时间
+  Scenario: 修改开始时间 RZY-1277
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -96,7 +96,7 @@ Feature: 仪表盘高级编辑
     Then I will see the "DropdownLink" result will be "最近2天"
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 校验开始时间和结束时间
+  Scenario Outline: 校验开始时间和结束时间 RZY-1277
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"
@@ -116,7 +116,7 @@ Feature: 仪表盘高级编辑
       | -2d   |     | search -> endTime 字段不能为空   |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 校验row和column
+  Scenario Outline: 校验row和column RZY-1269,RZY-1272
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试高级编辑"

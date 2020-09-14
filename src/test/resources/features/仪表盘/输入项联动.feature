@@ -84,7 +84,7 @@ Feature: 仪表盘输入项联动
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario: 验证
+  Scenario: 验证 RZY-3635
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘输入项联动"

@@ -62,7 +62,7 @@ Feature: 仪表盘单值
     And I "checked" the checkbox which name is "仪表盘单值"
     And I click the "Ensure" button
 
-  Scenario: 修改为单值
+  Scenario: 修改为单值 RZY-342
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
