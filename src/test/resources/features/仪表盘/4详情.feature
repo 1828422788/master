@@ -210,7 +210,7 @@ Feature: 仪表盘详情页
     And I wait for "Progress" will be invisible
     Then I will see the "DropdownLink" result will be "昨天"
 
-  Scenario: 关闭过滤输入项自动更新(RZY-4637)
+  Scenario: 关闭过滤输入项自动更新(RZY-4637,)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"

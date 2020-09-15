@@ -69,7 +69,7 @@ Feature: 仪表盘雷达图
       | 仪表盘雷达图 |
 
   @dashboard
-  Scenario: 修改为雷达图
+  Scenario: 修改为雷达图 RZY-3401
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘雷达图"

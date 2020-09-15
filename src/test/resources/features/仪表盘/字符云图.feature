@@ -70,7 +70,7 @@ Feature: 仪表盘字符云图
       | 仪表盘字符云图 |
 
   @dashboard
-  Scenario Outline: 修改为字符云图 RZY-3754
+  Scenario Outline: 修改为字符云图 RZY-3754,RZY-312
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

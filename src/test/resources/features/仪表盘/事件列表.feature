@@ -24,7 +24,7 @@ Feature: 仪表盘事件列表
       | 仪表盘事件操作 |
 
   @dashboard @dashboardSmoke
-  Scenario: 添加事件列表(RZY-3389)
+  Scenario: 添加事件列表 RZY-3389,RZY-339
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -50,7 +50,7 @@ Feature: 仪表盘事件列表
     Then I will see the message "提交事件操作成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证事件操作
+  Scenario: 验证事件操作 RZY-338
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -107,7 +107,7 @@ Feature: 仪表盘事件列表
     Then the page's title will be "趋势图列表"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改事件操作显示于字段
+  Scenario: 修改事件操作显示于字段 RZY-3628
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
@@ -118,7 +118,7 @@ Feature: 仪表盘事件列表
     Then I will see the message "提交事件操作成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证事件操作显示于字段
+  Scenario: 验证事件操作显示于字段 RZY-3628
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -131,7 +131,7 @@ Feature: 仪表盘事件列表
     Then I will see the "Event" doesn't exist
 
   @dashboard @dashboardSmoke
-  Scenario: 验证事件操作显示于字段
+  Scenario: 验证事件操作显示于字段 RZY-3628
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -180,7 +180,7 @@ Feature: 仪表盘事件列表
       | EventAppname |
 
   @dashboard @dashboardSmoke
-  Scenario: 实时查看
+  Scenario: 实时查看 RZY-3409
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -196,7 +196,7 @@ Feature: 仪表盘事件列表
     Then I will see the input element "TimeRange" value will contains "30秒窗口"
 
   @dashboard @dashboardSmoke
-  Scenario: 配置字段提取
+  Scenario: 配置字段提取 RZY-3412
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -221,7 +221,7 @@ Feature: 仪表盘事件列表
     Then I wait for "ConfigDone" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 添加到知识库
+  Scenario: 添加到知识库 RZY-3413
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"

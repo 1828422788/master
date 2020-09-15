@@ -270,7 +270,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "本月"
 
   @dashboard
-  Scenario Outline: 添加区划地图图表
+  Scenario Outline: 添加区划地图图表 RZY-331
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"

@@ -69,7 +69,7 @@ Feature: 仪表盘循序图
       | 仪表盘循序图 |
 
   @dashboard
-  Scenario Outline: 修改为循序图 RZY-3757
+  Scenario Outline: 修改为循序图 RZY-3757,RZY-315
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
