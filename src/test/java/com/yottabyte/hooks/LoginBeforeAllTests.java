@@ -45,7 +45,7 @@ public class LoginBeforeAllTests {
         try {
             login();
         } catch (NoSuchElementException e) {
-            webDriver.get(baseURL);
+            webDriver.get(baseURL + loginURL);
             login();
         }
         setPageFactory("PublicNavBarPage");
