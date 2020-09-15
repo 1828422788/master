@@ -68,6 +68,7 @@ Feature: 日志展现_表格
       |  Continuity  |  827     |
       |  Discrete    |  828     |
 
+  @refreshDisplay
   Scenario Outline: table_interval
     When I click the "Pencil" button
     And I wait for "ColorPanel" will be visible
@@ -91,7 +92,9 @@ Feature: 日志展现_表格
     And I click the "CreateEnsureButton" button
 
     And I wait for "ChartView" will be visible
-#    And I drag the scroll bar to the element "ChartView"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "ChartView" will be visible
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/8表格/<caseNum>"
     Then I compare source image "actual/高级搜索视图/8表格/<caseNum>" with target image "expect/高级搜索视图/8表格/<caseNum>"
