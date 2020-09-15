@@ -69,7 +69,7 @@ Feature: 仪表盘区间图
       | 仪表盘区间图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为区间图
+  Scenario Outline: 修改为区间图 RZY-308
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

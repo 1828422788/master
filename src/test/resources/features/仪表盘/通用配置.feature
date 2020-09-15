@@ -41,7 +41,7 @@ Feature: 仪表盘通用配置
     And I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario: 修改图表标题
+  Scenario: 修改图表标题  RZY-290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
@@ -56,7 +56,7 @@ Feature: 仪表盘通用配置
     Then I will see the element "CustomTitle" name is "测试通用配置"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改spl
+  Scenario: 修改spl RZY-291
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
@@ -76,7 +76,7 @@ Feature: 仪表盘通用配置
     Then I will see the element "SearchInput" name is "*|stats count() by apache.geo.city"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改图表描述
+  Scenario: 修改图表描述 RZY-295
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试通用配置"

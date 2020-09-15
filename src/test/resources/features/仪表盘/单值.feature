@@ -193,7 +193,7 @@ Feature: 仪表盘单值
 
     ###########
 
-  Scenario: 恢复至初始
+  Scenario: 恢复至初始 RZY-296
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"

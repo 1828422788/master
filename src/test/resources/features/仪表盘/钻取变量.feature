@@ -115,7 +115,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | 测试钻取变量 | Wordcloud |
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量字符云图click.name
+  Scenario: 钻取变量字符云图click.name RZY-3265
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -140,7 +140,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量字符云图click.value
+  Scenario: 钻取变量字符云图click.value RZY-3266
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -166,7 +166,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量字符云图click.name2
+  Scenario: 钻取变量字符云图click.name2 RZY-3267
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -191,7 +191,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 钻取变量字符云图click.value2
+  Scenario: 钻取变量字符云图click.value2 RZY-3268
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -217,7 +217,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 钻取变量字符云图row.fieldname
+  Scenario: 钻取变量字符云图row.fieldname RZY-3675
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -243,7 +243,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 钻取变量字符云图start end
+  Scenario: 钻取变量字符云图start end RZY-3676
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -329,7 +329,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | 测试钻取变量 |
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量区划地图click.name
+  Scenario: 钻取变量区划地图click.name RZY-3269
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -354,7 +354,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量区划地图click.value
+  Scenario: 钻取变量区划地图click.value RZY-3270
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -380,7 +380,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量区划地图click.name2
+  Scenario: 钻取变量区划地图click.name2 RZY-3269
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -406,7 +406,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 钻取变量区划地图click.value2
+  Scenario: 钻取变量区划地图click.value2 RZY-3272
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -431,7 +431,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "tag:sample04061424 | stats count() as cn by apache.geo.country,apache.geo.province,apache.geo.city | where cn ==1"
 
   @dashboard
-  Scenario: 钻取变量区划地图row.fieldname
+  Scenario: 钻取变量区划地图row.fieldname RZY-3673
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -457,7 +457,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 钻取变量区划地图start end
+  Scenario: 钻取变量区划地图start end RZY-3674
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -538,7 +538,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | 仪表盘饼状图 | Pie  |
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量饼图click.name
+  Scenario: 钻取变量饼图click.name RZY-3677
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -562,7 +562,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量饼图click.name2
+  Scenario: 钻取变量饼图click.name2 RZY-3678
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -587,7 +587,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量饼图click.value
+  Scenario: 钻取变量饼图click.value RZY-3679
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -611,7 +611,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
 
   @dashboard
-  Scenario: 钻取变量饼图click.value2
+  Scenario: 钻取变量饼图click.value2 RZY-3680
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -636,7 +636,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==24"
 
   @dashboard
-  Scenario: 钻取变量饼图row.fieldname
+  Scenario: 钻取变量饼图row.fieldname RZY-3681
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -661,7 +661,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "apache.clientip:64.20.177.254"
 
   @dashboard
-  Scenario: 钻取变量饼图start end
+  Scenario: 钻取变量饼图start end RZY-3682
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -744,7 +744,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | 钻取变量单值 | Single  |
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量单值click.name click.name2
+  Scenario: 钻取变量单值click.name,click.name2 RZY-3278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -787,7 +787,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "tag:*display | stats avg(apache.status) |eval icon=if('avg(apache.status)'>300,'thumbs-down','thumbs-up')"
 
   @dashboard
-  Scenario: 钻取变量单值start end
+  Scenario: 钻取变量单值start end RZY-3667
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -882,7 +882,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | 钻取变量单值value | Single  |
 
   @dashboard
-  Scenario: 修改为单值value click.value value2
+  Scenario: 修改为单值value click.value value2 RZY-3666
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -958,7 +958,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | 钻取变量表格 |
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量表格click.name
+  Scenario: 钻取变量表格click.name RZY-3280
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -983,7 +983,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量表格click.name2
+  Scenario: 钻取变量表格click.name2 RZY-3282
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -1017,7 +1017,7 @@ Feature: 仪表盘钻取配置-钻取变量
 
 
   @dashboard @dashboardSmoke
-  Scenario: 钻取变量表格click.value
+  Scenario: 钻取变量表格click.value RZY-3281
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -1041,7 +1041,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "apache.clientip:36.46.208.22"
 
   @dashboard
-  Scenario: 钻取变量表格click.value2
+  Scenario: 钻取变量表格click.value2 RZY-3283
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -1066,7 +1066,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "apache.resp_len:1222"
 
   @dashboard
-  Scenario: 钻取变量表格row.fieldname
+  Scenario: 钻取变量表格row.fieldname RZY-3284
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"
@@ -1091,7 +1091,7 @@ Feature: 仪表盘钻取配置-钻取变量
     Then I will see the "SearchInput" result will be "apache.resp_len:1222"
 
   @dashboard
-  Scenario: 钻取变量表格start end
+  Scenario: 钻取变量表格start,end RZY-3654
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取变量"

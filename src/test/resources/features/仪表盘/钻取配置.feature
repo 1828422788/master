@@ -75,7 +75,7 @@ Feature: 仪表盘钻取配置
     And I wait for "500" millsecond
 
   @dashboard @dashboardSmoke
-  Scenario: 在当前页面跳转到搜索页-自动
+  Scenario: 在当前页面跳转到搜索页-自动 RZY-318
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -92,7 +92,7 @@ Feature: 仪表盘钻取配置
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
   @dashboard @dashboardSmoke
-  Scenario: 在新标签页跳转到搜索页-自动
+  Scenario: 在新标签页跳转到搜索页-自动 RZY-318
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -109,7 +109,7 @@ Feature: 仪表盘钻取配置
     Then I will see the "SearchInput" result will be "tag:sample04061424_chart AND 'apache.geo.province':江苏"
 
   @dashboard @dashboardSmoke
-  Scenario: 在当前页面跳转到搜索页-自定义
+  Scenario: 在当前页面跳转到搜索页-自定义 RZY-3439
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -132,7 +132,7 @@ Feature: 仪表盘钻取配置
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
-  Scenario: 在新标签页跳转到搜索页-自定义
+  Scenario: 在新标签页跳转到搜索页-自定义 RZY-3439
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -155,7 +155,7 @@ Feature: 仪表盘钻取配置
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 在当前页面跳转到自定义URL
+  Scenario Outline: 在当前页面跳转到自定义URL RZY-319
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
@@ -177,7 +177,7 @@ Feature: 仪表盘钻取配置
       | /alerts/               | 监控        |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 在新标签跳转到自定义URL
+  Scenario Outline: 在新标签跳转到自定义URL RZY-319
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试钻取配置"
