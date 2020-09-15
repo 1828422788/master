@@ -71,7 +71,7 @@ Feature: 仪表盘热力地图
       | 仪表盘热力地图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为热力地图
+  Scenario Outline: 修改为热力地图 RZY-313
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

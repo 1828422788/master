@@ -69,7 +69,7 @@ Feature: 仪表盘攻击地图
       | 仪表盘攻击地图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为攻击地图
+  Scenario Outline: 修改为攻击地图 RZY-314
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
