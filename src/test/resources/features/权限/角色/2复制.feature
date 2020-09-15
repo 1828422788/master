@@ -7,9 +7,7 @@ Feature: 角色复制
   Scenario: 授权角色所有功能权限
     When the data name is "AutoTestEdit" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    When I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "全选"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
