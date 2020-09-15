@@ -91,6 +91,6 @@ Feature: 定时任务_结果处理方式
 
     Examples:
       |    name     | caseNum | connectName | userName | password    | host          | port | dbName         | tableName |
-#        |  oracle     |  3301   | oraclerzy   | system   | oracle      | 192.168.1.88  | 1521 | XE             | DATAAJ    |
+      |  oracle     |  3301   | oraclerzy   | system   | oracle      | 192.168.1.88  | 1521 | XE             | DATAAJ    |
       |  mysql      |  3357   | mysqlrzy    | root     | rizhiyi&2014| 192.168.1.139 | 3306 | rizhiyi_system | atable    |
       |  sql_server |  3358   | sqlserverrzy| sa       | rizhiyi&2014| 192.168.1.156 | 1433 | rizhiyijdbc    | tableb    |

@@ -47,7 +47,7 @@ Feature: 定时任务_基本配置
     |               |  10         | tag:*\| stats count() by appname \| limit 10  |  5     | 名称 不能为空                            |
     | Test_Schedule |             | tag:*\| stats count() by appname \| limit 10  |  5     | 请输入正确的搜索条数                     |
     | Test_Schedule |  10         |                                               |  5     | 搜索内容 不能为空                        |
-    | Test_Schedule |  10         | tag:*\| /stats count() by appname \| limit 10 |  5     | 语法错误: Syntax Error, can't parse pipecommands: unexpected token '/stats'|
+    | Test_Schedule |  10         | tag:*\| /stats count() by appname \| limit 10 |  5     | 语法错误: Syntax Error, can't parse pipecommands: unexpected token: '/'|
     | Test_Schedule |  10         | tag:*\| stats count() by appname \| limit 10  |  0     | 定时模式下, 时间间隔不能为零或空          |
     | Test_Schedule |  10         | tag:*\| stats count() by appname \| limit 10  |  a     | 定时模式下, 时间间隔应该为正整数          |
 

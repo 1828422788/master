@@ -17,6 +17,7 @@ import java.lang.reflect.Constructor;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
+import java.util.NoSuchElementException;
 
 public class LoginBeforeAllTests {
     private static WebDriver webDriver;
@@ -41,7 +42,12 @@ public class LoginBeforeAllTests {
         System.out.println("Login Before Test!");
         deleteAllCookies();
         webDriver.get(baseURL + loginURL);
-        login();
+        try {
+            login();
+        } catch (NoSuchElementException e) {
+            webDriver.get(baseURL + loginURL);
+            login();
+        }
         setPageFactory("PublicNavBarPage");
     }
 

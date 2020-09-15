@@ -1,16 +1,16 @@
 #@auth
 Feature: 权限-定时任务
 
-  Scenario Outline: 勾选所需功能权限
+
+  Scenario Outline: 授权功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可查看搜索页,可查看定时任务,新建定时任务"
+    When I "checked" the checkbox which name is "可查看搜索页"
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "可查看定时任务"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -21,15 +21,6 @@ Feature: 权限-定时任务
 
   @logout
   Scenario: 验证无新建权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "unchecked" the checkbox which name is "新建定时任务"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -42,7 +33,7 @@ Feature: 权限-定时任务
     Then I will see the "TimedTask" doesn't exist
 
   @logout
-  Scenario: 验证有新建权限
+  Scenario: 授权新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
@@ -52,6 +43,8 @@ Feature: 权限-定时任务
     When I "checked" the checkbox which name is "新建定时任务"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+  Scenario: 验证新建权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -75,13 +68,14 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Schedule" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'定时任务'}" button
     And I "checked" the checkbox which name is "AutoTestCreate" in auth table
     And I "unchecked" the checkbox which name is "AutoTestCreate" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+  Scenario: 授权无读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -92,14 +86,15 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Schedule" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'定时任务'}" button
     And I "checked" the checkbox which name is "AutoTestCreate" in auth table
     And I "unchecked" the checkbox which name is "AutoTestCreate" in auth table
     When I "checked" function "读取" from the auth table which name is "AutoTestCreate"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+  Scenario: 验证有读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -120,21 +115,22 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Schedule" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'定时任务'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "unchecked" the checkbox which name is "新建定时任务"
-    And I click the "SaveButton" button
+
+    Examples:
+      | name               |
+      | AutoTestCreate(副本) |
+
+  Scenario Outline: 验证读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑复制标签授权" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I wait for "Tag" will be visible
     And I set the parameter "Tag" with value "测试标签"
@@ -163,17 +159,22 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Schedule" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'定时任务'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name           |
+      | AutoTestRename |
+
+  Scenario Outline: 验证读取+编辑+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
-    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑标签授权" button
+    Then the data name is "{'column':'1','name':'<name>'}" then i will see "编辑复制标签授权" button
     When the data name is "{'column':'1','name':'<name>'}" then i click the "标签" button
     And I set the parameter "Tag" with value "测试标签"
     And I choose the "测试标签" from the "TagDropdown"
@@ -206,17 +207,18 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Schedule" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'定时任务'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "新建定时任务"
-    And I click the "SaveButton" button
+
+    Examples:
+      | name           |
+      | AutoTestCreate |
+
+  Scenario Outline: 授权读取+删除
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -247,13 +249,18 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Schedule" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'定时任务'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name               |
+      | AutoTestCreate(副本) |
+
+  Scenario Outline: 授权读取+转授
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -284,9 +291,8 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Schedule" button
-    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'定时任务'}" button
     And I "checked" the checkbox which name is "AutoTestCreate(副本)" in auth table
     When the data name is "AutoTestCreate(副本)" then I click the "无限期" button in auth table
     And I click the "Customize" button
@@ -301,13 +307,18 @@ Feature: 权限-定时任务
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Schedule" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'定时任务'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name                   |
+      | AutoTestCreate(副本)(副本) |
+
+  Scenario Outline: 授权读取+删除+转授
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "timedTask.ListPage" page for uri "/schedule/"

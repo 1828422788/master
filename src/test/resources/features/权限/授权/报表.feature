@@ -5,12 +5,10 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可查看报表,新建报表"
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "可查看报表"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -41,35 +39,25 @@ Feature: 权限-报表
       | ForAutoTest | tag:*hide \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") |
 
   Scenario: 验证无新建权限
-    Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "__user_AutoTest__" then i click the "授权" button
-    And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "unchecked" the checkbox which name is "新建报表"
-    And I click the "SaveButton" button
-    And I will see the success message "更新成功"
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
     And I wait for loading invisible
     Then I will see the "Create" doesn't exist
 
-  Scenario: 验证有新建权限
+  Scenario: 授权有新建权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "Trend" button
-    And I wait for loading invisible
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "新建报表"
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'趋势图'}" button
     And I "checked" the checkbox which name is "ForAutoTest" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "新建报表"
-    And I click the "SaveButton" button
+
+  Scenario: 验证有新建权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "report.ListPage" page for uri "/reports/"
@@ -90,6 +78,7 @@ Feature: 权限-报表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "Report" button
     And I wait for "Loading" will be invisible

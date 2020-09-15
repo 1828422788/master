@@ -876,6 +876,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div")
     private WebElement typeDropdown;
 
+    @FindBy(className = "_3YQ9T5DTgCrQ0NSzwkV6a5")
+    private WebElement searchStatus;
+
+    public WebElement getSearchStatus() {
+        return searchStatus;
+    }
+
     public WebElement getTypeDropdown() {
         typeDropdown.click();
         return getLastDropdownList();
