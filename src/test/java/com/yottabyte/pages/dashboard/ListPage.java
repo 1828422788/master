@@ -20,6 +20,15 @@ public class ListPage extends ListPageFactory {
     @FindBy(className = "ant-message-error")
     private WebElement errorMessage;
 
+    @FindBy(className = "ant-select-selection-selected-value")
+    private WebElement chartYeQian;
+
+    @FindBy(xpath = "//li[text()='5 条/页']")
+    private WebElement fiveOnePage;
+
+    @FindBy(xpath = "//li[text()='50 条/页']")
+    private WebElement fiftyOnePage;
+
     @FindBy(xpath = "//span[contains(text(),'返回列表')]")
     private WebElement returnList;
 
@@ -40,6 +49,18 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getErrorMessage() {
         return errorMessage;
+    }
+
+    public WebElement getChartYeQian() {
+        return chartYeQian;
+    }
+
+    public WebElement getFiveOnePage() {
+        return fiveOnePage;
+    }
+
+    public WebElement getFiftyOnePage() {
+        return fiftyOnePage;
     }
 
     public WebElement getDashBoardName() {
