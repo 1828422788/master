@@ -28,6 +28,7 @@ Feature: 数据大屏-p地理分布
     And I set the parameter "ChartYaxis" with value "120"
     #样式设置
     And I click the "GlobelabelMapHeader" button
+    And I wait for "2000" millsecond
     #区域颜色
 #    And I click the "AreaColor" button
     And I wait for "AreaColor" will be visible
