@@ -1,47 +1,34 @@
-#@auth
+@authtest
 Feature: 权限-用户分组
 
-  Scenario: 验证无新建用户分组的权限
+  Scenario: 授权无新建用户分组的权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "新建用户分组"
+    When I "unchecked" the checkbox which name is "全选"
+    And I click the "{'FunctionButton':'用户与验证'}" button
+    When I "checked" the checkbox which name is "可查看用户分组"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+  Scenario: 验证无新建用户分组的权限
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     Then I will see the "Create" doesn't exist
 
-  Scenario: 验证新建用户分组
+  Scenario: 授权新建用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
+    And I click the "{'FunctionButton':'用户与验证'}" button
+    When I "checked" the checkbox which name is "新建用户分组"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+  Scenario: 验证新建用户分组
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I click the "Create" button
@@ -54,18 +41,18 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
     Then I click the "{'TabButton':'用户分组'}" button
-    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
+
+    Examples:
+      | name     |
+      | 用户分组权限验证 |
+
+  Scenario Outline: 验证读取
     Given I will see the "PublicNavBarPage" page
     And I wait for "Dashboard" will be visible
     Given I logout current user
@@ -90,25 +77,18 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'用户分组'}" button
-    And I wait for loading invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name     |
+      | 用户分组权限验证 |
+
+  Scenario Outline: 授权读取+编辑
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible
@@ -133,13 +113,7 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
     Then I click the "{'TabButton':'用户分组'}" button
-    And I wait for loading invisible
     And I "checked" the checkbox which name is "AutoTest用户修改" in auth table
     When the data name is "AutoTest用户修改" then I click the "无限期" button in auth table
     And I click the "Customize" button
@@ -158,13 +132,7 @@ Feature: 权限-用户分组
     Then I will see the success message "创建成功"
 
   Scenario: 验证有效期限
-    When I wait for "2000" millsecond
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible
@@ -176,25 +144,18 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'用户分组'}" button
-    And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name         |
+      | AutoTest用户修改 |
+
+  Scenario Outline: 验证读取+编辑+删除
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible
@@ -214,29 +175,22 @@ Feature: 权限-用户分组
       | name         |
       | AutoTest用户修改 |
 
-  Scenario Outline: 读取+删除
+  Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'用户分组'}" button
-    And I wait for "Loading" will be invisible
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I click the "SaveButton" button
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+
+    Examples:
+      | name         |
+      | AutoTest用户测试 |
+
+  Scenario Outline: 验证读取+删除
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible

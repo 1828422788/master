@@ -1,15 +1,13 @@
-@auth
+@authtest
 Feature: 权限-知识
 
   Scenario Outline: 勾选所需权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
+    And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看知识库"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -30,9 +28,7 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "Resource" button
     When I "checked" the checkbox which name is "新建知识"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -54,9 +50,8 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Knowledge" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'知识'}" button
     And I "checked" the checkbox which name is "AutoTestUserCreate" in auth table
     And I "unchecked" the checkbox which name is "AutoTestUserCreate" in auth table
     And I click the "SaveButton" button
@@ -73,9 +68,8 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Knowledge" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'知识'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
@@ -112,9 +106,8 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Knowledge" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'知识'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -156,9 +149,8 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Knowledge" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'知识'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -219,9 +211,8 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Knowledge" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'知识'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -276,10 +267,8 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    And I wait for "Loading" will be invisible
-    Then I click the "Knowledge" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'知识'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -326,9 +315,8 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "Knowledge" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'知识'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -377,9 +365,8 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "Knowledge" button
-    And I wait for loading invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'知识'}" button
     And I "checked" the checkbox which name is "AutoTestAuth" in auth table
     When the data name is "AutoTestAuth" then I click the "无限期" button in auth table
     And I click the "Customize" button
@@ -404,9 +391,8 @@ Feature: 权限-知识
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for loading invisible
-    Then I click the "Knowledge" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
+    Then I click the "{'TabButton':'知识'}" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
