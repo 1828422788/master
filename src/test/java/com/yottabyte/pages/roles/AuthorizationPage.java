@@ -75,6 +75,14 @@ public class AuthorizationPage extends PageTemplate {
     @FindBy(xpath = "(//a[text()='知识'])[last()]")
     private WebElement knowledge;
 
+    public WebElement getUserGroup() {
+        return this.getMenuButton("用户分组");
+    }
+
+    public WebElement getUserAndValidate() {
+        return this.getFunctionButton("用户与验证");
+    }
+
     public WebElement getIndex() {
         return this.getSubMenuButton("索引");
     }

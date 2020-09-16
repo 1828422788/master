@@ -7,7 +7,7 @@ Feature: 权限-用户分组
     And I will see the "roles.AuthorizationPage" page
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    And I click the "{'FunctionButton':'用户与验证'}" button
+    And I click the "UserAndValidate" button
     When I "checked" the checkbox which name is "可查看用户分组"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
@@ -22,7 +22,7 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I click the "{'FunctionButton':'用户与验证'}" button
+    And I click the "UserAndValidate" button
     When I "checked" the checkbox which name is "新建用户分组"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
@@ -41,7 +41,7 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'用户分组'}" button
+    And I click the "UserGroup" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
@@ -53,14 +53,7 @@ Feature: 权限-用户分组
       | 用户分组权限验证 |
 
   Scenario Outline: 验证读取
-    Given I will see the "PublicNavBarPage" page
-    And I wait for "Dashboard" will be visible
-    Given I logout current user
-    And I wait for title change text to "登录"
-    And open the "LoginPage" page for uri "/auth/login/"
-    When I set the parameter "Username" with value "AutoTest"
-    And I set the parameter "Password" with value "All#123456"
-    And I click the "LoginButton" button
+    Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
     And I wait for "Loading" will be invisible
@@ -77,7 +70,7 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'用户分组'}" button
+    And I click the "UserGroup" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "删除,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -87,7 +80,7 @@ Feature: 权限-用户分组
       | name     |
       | 用户分组权限验证 |
 
-  Scenario Outline: 授权读取+编辑
+  Scenario Outline: 验证读取+编辑
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "userGroups.ListPage" page for uri "/account/usergroups/"
@@ -113,7 +106,7 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'用户分组'}" button
+    And I click the "UserGroup" button
     And I "checked" the checkbox which name is "AutoTest用户修改" in auth table
     When the data name is "AutoTest用户修改" then I click the "无限期" button in auth table
     And I click the "Customize" button
@@ -144,7 +137,7 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'用户分组'}" button
+    And I click the "UserGroup" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
@@ -179,7 +172,7 @@ Feature: 权限-用户分组
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    Then I click the "{'TabButton':'用户分组'}" button
+    And I click the "UserGroup" button
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button

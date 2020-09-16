@@ -303,6 +303,7 @@ Feature: 权限-趋势图
     And I will see the "roles.AuthorizationPage" page
     And I click the "Resource" button
     And I "checked" the checkbox which name is "新建趋势图"
+    And I click the "SaveButton" button
     And I click the "ResourceAuth" button
     Then I click the "{'TabButton':'趋势图'}" button
     And I "checked" the checkbox which name is "<name>" in auth table

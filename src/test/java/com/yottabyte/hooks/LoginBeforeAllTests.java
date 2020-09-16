@@ -5,6 +5,7 @@ import com.yottabyte.pages.LoginPage;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.pages.manager.ManagerLoginPage;
 import com.yottabyte.pages.saas.SaasLoginPage;
+import com.yottabyte.stepDefs.LogInAndOut;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -40,14 +41,11 @@ public class LoginBeforeAllTests {
             return;
         }
         System.out.println("Login Before Test!");
-        deleteAllCookies();
+        LogInAndOut logInAndOut = new LogInAndOut();
+        logInAndOut.logout();
+//        deleteAllCookies();
         webDriver.get(baseURL + loginURL);
-        try {
-            login();
-        } catch (NoSuchElementException e) {
-            webDriver.get(baseURL + loginURL);
-            login();
-        }
+        login();
         setPageFactory("PublicNavBarPage");
     }
 
