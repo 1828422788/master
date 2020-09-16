@@ -168,6 +168,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//a[contains(text(),'UIautotest')]")
     private WebElement uiautotest;
 
+    @FindBy(xpath = "//li[contains(text(),' 测试市')]")
+    private WebElement ceshishi;
+
     @FindBy(xpath = "//a[contains(text(),'测试标签页移出')]")
     private WebElement testMoveTag;
 
@@ -385,9 +388,6 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='钻取变量单值value']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue1;
 
-    @FindBy(xpath = "//span[text()='南京市']")
-    private WebElement nanjing;
-
     @FindBy(xpath = "//div[@class='ant-select ant-select-enabled']")
     private WebElement drillAction;
 
@@ -465,6 +465,12 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div/input")
     private WebElement filterInput;
+
+    @FindBy(xpath = "//div[text()='南京市']")
+    private WebElement nanJing;
+
+    @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div//input")
+    private WebElement filterDropDown1;
 
     @FindBy(xpath = "//th[text()='appname']")
     private WebElement appname;
@@ -769,6 +775,10 @@ public class DetailPage extends PageTemplate {
         return uiAutoTest;
     }
 
+    public WebElement getCeshishi() {
+        return ceshishi;
+    }
+
     public WebElement getFirstAutoTest() {
         return firstAutoTest;
     }
@@ -859,6 +869,10 @@ public class DetailPage extends PageTemplate {
 
     public List<WebElement> getLiList() {
         return liList;
+    }
+
+    public WebElement getNightMode() {
+        return getSwitchButton("夜间模式");
     }
 
     public WebElement getOpenEdit() {
@@ -986,6 +1000,10 @@ public class DetailPage extends PageTemplate {
         return filterInput;
     }
 
+    public WebElement getFilterDropDown1() {
+        return filterDropDown1;
+    }
+
     public WebElement getSingleChoice() {
         return singleChoice;
     }
@@ -1060,9 +1078,7 @@ public class DetailPage extends PageTemplate {
         return targetParam;
     }
 
-    public WebElement getNanjing() {
-        return nanjing;
-    }
+    public WebElement getNanjing() { return nanJing; }
 
     public WebElement getDashboardMenu() {
         return dashboardMenu;

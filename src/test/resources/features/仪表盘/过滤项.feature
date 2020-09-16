@@ -70,7 +70,7 @@ Feature: 仪表盘过滤项
       | filter | filter | apache.geo.city | 下拉菜单      | 南京市         |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 验证下拉过滤项(RZY-226)
+  Scenario Outline: 验证下拉过滤项(RZY-226，RZY-254)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
@@ -90,6 +90,28 @@ Feature: 仪表盘过滤项
       | city |
       | 苏州市  |
       | 成都市  |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 验证下拉过滤字段校验(RZY-254)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
+#    And I choose the "<city>" from the "FilterDropdown"
+    And I click the "Nanjing" button
+    And I set the parameter "FilterDropDown1" with value "<cityNo>"
+    And I hide the element "FilterDropDown"
+    And I wait for "2000" millsecond
+    And I click the "Update" button
+    And I wait for "Progress" will be invisible
+    Then I wait for "NoData" will be visible
+
+    Examples:
+      | cityNo |
+      | 测试市  |
 
   @dashboard @dashboardSmoke
   Scenario: 修改为过滤项发生变化自动搜索(RZY-255,RZY-256,RZY-257)
@@ -120,6 +142,22 @@ Feature: 仪表盘过滤项
       | city |
       | 苏州市  |
       | 成都市  |
+
+  @dashboard @dashboardSmoke
+  Scenario: 修改并验证下拉过滤项为多选 RZY-3415
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for loading invisible
+    And I click the "FilterName" button
+    And I click the "FilterSetting" button
+    And I click the "MultiSelect" button
+    Then I click the "Ensure" button
+    And I choose the "苏州市,成都市" from the "FilterDropdown"
+    And I click the "Update" button
+    And I wait for "Progress" will be invisible
+    Then I will see the "NoData" doesn't exist
 
   @dashboard @dashboardSmoke
   Scenario: 删除下拉过滤项
@@ -268,10 +306,17 @@ Feature: 仪表盘过滤项
     And I click the "HoverElement" button
     And I click the "IconRight" button
     Then I will see the element "CityTd" name is "<city> "
+    And I wait for "1000" millsecond
+    And I set the parameter "FilterInput" with value "<cityNo>"
+    And I click the "Update" button
+    And I wait for "3000" millsecond
+    Then I wait for "NoData" will be visible
+
 
     Examples:
-      | city |
-      | 苏州市  |
+      | city  | cityNo |
+      | 苏州市 | 测试市  |
+
 
   @dashboard @dashboardSmoke
   Scenario: 修改文本过滤为自动搜索(RZY-251)
@@ -384,6 +429,26 @@ Feature: 仪表盘过滤项
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
+
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 标识校验（RZY-249,RZY-250）
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I click the "AddFilter" button
+    And I set the parameter "FilterTitle" with value "<title>"
+    And I set the parameter "FilterToken" with value "<token>"
+    And I set the parameter "FilterField" with value "<field>"
+    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "添加过滤项成功"
+
+    Examples:
+      | title  | token  | field           |
+      | @#¥%xiaoxiezimu汉字DAXIEZIMU（）*&……%¥¥%520 | @#¥%xiaoxiezimu汉字DAXIEZIMU（）*&……%¥¥%520 | apache.geo.city |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图

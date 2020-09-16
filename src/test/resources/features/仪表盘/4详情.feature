@@ -53,12 +53,30 @@ Feature: 仪表盘详情页
     And I wait for "500" millsecond
     Then I will see the success message "标签页删除成功"
 
-  Scenario: 关闭编辑(RZY-229)
+  Scenario: 夜间模式(RZY-237)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
+    And I switch the dashboard "NightMode" button to "enable"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "夜间模式已启用"
+    And I wait for "3000" millsecond
+    And I switch the dashboard "NightMode" button to "disable"
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "夜间模式已关闭"
+    And I compare source image "<string>" with target image "<string>"
+
+  Scenario: 关闭编辑(RZY-228)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "FirstAutoTest"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    Then I will see the element "EditLayout" attribute "aria-disabled" is "false"
+    Then I will see the element "ManualRefresh" attribute "aria-disabled" is "false"
+    Then I will see the element "AutoRefresh" attribute "aria-disabled" is "false"
     And I switch the dashboard "OpenEdit" button to "disable"
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "编辑功能已禁用"
@@ -103,7 +121,7 @@ Feature: 仪表盘详情页
     Then I will see the "FirstTag" doesn't exist
     Then I click the "TestSearch" button
 
-  Scenario: 仪表盘搜索
+  Scenario: 仪表盘搜索，切换 RZY-240
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"
@@ -112,7 +130,9 @@ Feature: 仪表盘详情页
     And I set the parameter "SearchTagInput" with value "UIautotest"
     And I wait for loading invisible
     Then I will see the "FirstAutoTest" doesn't exist
-    Then I click the "UIAutoTest" button
+    And I click the "UIAutoTest" button
+    And I wait for loading invisible
+    Then I will see the url contains "null"
 
   Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
