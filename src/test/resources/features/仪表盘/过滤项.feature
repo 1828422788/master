@@ -206,12 +206,35 @@ Feature: 仪表盘过滤项
     Then I will see the element "CityTd" name is "成都市 "
 
   @dashboard @dashboardSmoke
+  Scenario Outline: 验证动态过滤字段校验(RZY-259)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "FilterAutoRefresh" button to "disable"
+#    And I choose the "<city>" from the "FilterDropdown"
+    And I click the "Chengdu" button
+    And I set the parameter "FilterDropDown1" with value "<cityNo>"
+    And I hide the element "FilterDropDown"
+    And I wait for "2000" millsecond
+    And I click the "Update" button
+    And I wait for "Progress" will be invisible
+    Then I wait for "NoData" will be visible
+
+    Examples:
+      | cityNo |
+      | 测试市  |
+
+  @dashboard @dashboardSmoke
   Scenario Outline: 切换动态值(RZY-259)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"
     Then I will see the "dashboard.DetailPage" page
     And I choose the "<city>" from the "FilterDropdown"
+    And I wait for "1000" millsecond
     And I click the "Update" button
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
@@ -222,6 +245,36 @@ Feature: 仪表盘过滤项
     Examples:
       | city |
       | 纽约   |
+
+  @dashboard @dashboardSmoke
+  Scenario: 验证动态字段、搜索内容 RZY-261,RZY-262
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for loading invisible
+    And I click the "FilterName" button
+    And I click the "FilterSetting" button
+    And I set the parameter "DynamicField" with value ""
+    And I wait for "500" millsecond
+    And I click the "Search" button under some element
+    And I wait for "500" millsecond
+    Then I wait for element "NoticeMessage" change text to "缺少动态字段值"
+    And I set the parameter "DynamicField" with value "hhhhhhhhhhhhh"
+    And I wait for "500" millsecond
+    And I click the "Search" button under some element
+    And I wait for loading invisible
+    Then I wait for "LackField" will be visible
+    Then I click the "EnsureErrorSplButton" button
+    And I wait for "1500" millsecond
+    And I set the parameter "DynamicField" with value "apache.geo.city"
+    And I set the parameter "Spl" with value "hello goodbey"
+    And I wait for "500" millsecond
+    And I click the "Search" button under some element
+    And I wait for loading invisible
+    Then I wait for "ErrorSpl" will be visible
+    And I click the "EnsureErrorSplButton" button
+
 
   @dashboard @dashboardSmoke
   Scenario: 设置动态菜单自动搜索

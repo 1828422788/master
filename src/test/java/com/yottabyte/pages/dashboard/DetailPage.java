@@ -75,6 +75,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'恢复')][@class='action']")
     private WebElement recoverTag;
 
+    @FindBy(xpath = "//div[@class='ant-modal-body']//span[text()='确定']/ancestor::button")
+    private WebElement ensureErrorSplButton;
+
     @FindBy(xpath = "//span[text()='移出标签页']")
     private WebElement moveoutTag;
 
@@ -468,6 +471,21 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='南京市']")
     private WebElement nanJing;
+
+    @FindBy(xpath = "//div[text()='成都市']")
+    private WebElement chengDu;
+
+    @FindBy(xpath = "//div[text()='缺少动态字段值']")
+    private WebElement tipOfLack;
+
+    @FindBy(xpath = "//div[@class='ant-message-notice']//span")
+    private WebElement noticeMessage;
+
+    @FindBy(xpath = "//p[text()='缺少选中的字段']")
+    private WebElement lackField;
+
+    @FindBy(xpath = "//p[text()='搜索语句须为stats类型']")
+    private WebElement errorSpl;
 
     @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div//input")
     private WebElement filterDropDown1;
@@ -1080,6 +1098,22 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getNanjing() { return nanJing; }
 
+    public WebElement getChengdu() { return chengDu; }
+
+    public WebElement getTipOfLack() { return tipOfLack; }
+
+    public WebElement getNoticeMessage() {
+        return noticeMessage;
+    }
+
+    public WebElement getLackField() {
+        return lackField;
+    }
+
+    public WebElement getErrorSpl() {
+        return errorSpl;
+    }
+
     public WebElement getDashboardMenu() {
         return dashboardMenu;
     }
@@ -1636,29 +1670,19 @@ public class DetailPage extends PageTemplate {
         return super.getButton("确定");
     }
 
-    public WebElement getEnsureMoveTagButton() {
-        return ensureList.get(4);
-    }
+    public WebElement getEnsureErrorSplButton() { return ensureErrorSplButton; }
 
-    public WebElement getEnsureDeleteTagButton() {
-        return ensureList.get(6);
-    }
+    public WebElement getEnsureMoveTagButton() { return ensureList.get(4); }
 
-    public WebElement getEnsureCreateFilter() {
-        return ensureList.get(8);
-    }
+    public WebElement getEnsureDeleteTagButton() { return ensureList.get(6); }
 
-    public WebElement getEnsureCreateInput() {
-        return ensureList.get(9);
-    }
+    public WebElement getEnsureCreateFilter() { return ensureList.get(8); }
 
-    public WebElement getChartTitle() {
-        return this.getInput("图表标题");
-    }
+    public WebElement getEnsureCreateInput() { return ensureList.get(9); }
 
-    public WebElement getEnsure() {
-        return super.getButton("确定");
-    }
+    public WebElement getChartTitle() { return this.getInput("图表标题"); }
+
+    public WebElement getEnsure() { return super.getButton("确定"); }
 
     public WebElement getInputElement(String name) {
         return webDriver.findElement(By.xpath("//label[contains(text(),'" + name + "')]/following-sibling::div//input"));
