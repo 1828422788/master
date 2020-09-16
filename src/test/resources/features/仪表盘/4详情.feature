@@ -176,6 +176,7 @@ Feature: 仪表盘详情页
     And I wait for "500" millsecond
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
+    And I wait for loading invisible
     Then I will see the "TrendTitle" result will be "验证仪表盘全局时间"
 
   Scenario: 新建全局时间选择器(RZY-225,RZY-4566)

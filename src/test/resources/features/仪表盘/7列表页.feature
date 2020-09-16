@@ -1,5 +1,5 @@
-#@dashboard
-Feature: 仪表盘设为/取消默认（RZY-211）
+@dashboard @dashboardSmoke
+Feature: 仪表盘列表页
 
   Scenario:页签管理（RZY-215）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
