@@ -13,12 +13,12 @@ Feature: 仪表盘高级编辑
       | 测试高级编辑 |
 
   @dashboard @dashboardSmoke
-  Scenario: 新建趋势图
+  Scenario Outline: 新建趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
     And I click the "Create" button
     Then I will see the "trend.CreatePage" page
-    And I set the parameter "SearchInput" with value "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10 "
+    And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -26,9 +26,14 @@ Feature: 仪表盘高级编辑
     And I click the "NextButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
-    When I set the parameter "NameInput" with value "仪表盘所有"
+    When I set the parameter "NameInput" with value "<name>"
     And I click the "NextButton" button
     And I wait for "SuccessCreate" will be visible
+
+    Examples:
+      | spl                                                                           | name   |
+      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10  | 仪表盘所有 |
+      | tag:*display \| stats count() by apache.clientip                              | 仪表盘高级编辑饼状图 |
 
   @dashboard @dashboardSmoke
   Scenario: 新建标签页
@@ -367,6 +372,99 @@ Feature: 仪表盘高级编辑
     And I click the "CountNum" button
     Then I will see the input element "FilterInput" value will contains "224"
 
+  @dashboard @dashboardSmoke
+  Scenario Outline: 跳转到搜索页面—自动 RZY-3762
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I choose the "跳转到搜索页" from the "DrillAction"
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I wait for "1000" millsecond
+    And I click the "ChartType" button
+    Then I will see the "trend.CreatePage" page
+    And I wait for "Dimension" will be visible
+    And I click the "Dimension" button under some element
+    And I click the "<targetName>" button
+    And I hide the element "Content"
+    And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
+    And I choose the "count()" from the "DataValue"
+    And I click the "Divide" button
+    And I click the "AddField" button
+    And I choose the "apache.geo.city" from the "DataValue"
+    Then I click the "Generate" button
+    And I wait for "500" millsecond
+    Then I hide the element "SettingContent"
+    And I wait for "Progress" will be invisible
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingChart" button
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+
+    Examples:
+      | name       | targetName |  json    |
+      | 测试高级编辑 | Pie        | "drilldown": {\n    "type": "search",\n    "blank": true,\n    "mode": "auto"\n  }  |
+
+  @dashboard @dashboardSmoke
+  Scenario: 跳转到搜索页—自定义 RZY-3763
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试高级编辑1"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "custom"}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I will see the message contains "drilldown -> query 字段为必填项"
+    And I wait for "1500" millsecond
+    And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "search","blank": true,"mode": "custom","query": "tag:*display | stats count() by apache.clientip,apache.resp_len | limit 10","timeRange": "-1000d,+1d"}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 跳转到自定义URL RZY-3765
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I choose the "跳转到自定义URL" from the "DrillAction"
+    And I set the parameter "Url" with value "<url>"
+    And I "unchecked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingChart" button
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+    And I wait for "1500" millsecond
+    And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "table"},"drilldown": {"type": "custom","blank": true,"link": "/alerts/new/"}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I will see the success message "校验通过"
+    And I click the "Ensure" button
+    And I click the "Shanghai" button
+    Then I wait for title change text to "监控详情"
+
+    Examples:
+      | name       | url                              |  json    |
+      | 测试高级编辑1 | https://www.rizhiyi.com/        | "drilldown": {\n    "type": "custom",\n    "blank": true,\n    "link": "https://www.rizhiyi.com/"\n  }  |
+
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -392,4 +490,4 @@ Feature: 仪表盘高级编辑
     Examples:
       | name  |
       | 仪表盘所有 |
-      | 仪表盘所有 |
+      | 仪表盘高级编辑饼状图 |
