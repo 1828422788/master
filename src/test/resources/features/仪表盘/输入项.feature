@@ -675,6 +675,40 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
+  Scenario: 验证动态字段、搜索内容 RZY-284,RZY-285
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "FilterName" button
+    And I click the "FilterSetting" button
+    And I wait for loading invisible
+    And I set the parameter "DynamicField" with value ""
+    And I wait for "500" millsecond
+    And I click the "Search" button under some element
+    And I wait for "500" millsecond
+    Then I wait for element "NoticeMessage" change text to "缺少动态字段值"
+    And I set the parameter "DynamicField" with value "hhhhhhhhhhhhh"
+    And I wait for "500" millsecond
+    And I click the "Search" button under some element
+    And I wait for loading invisible
+    Then I wait for "LackField" will be visible
+    Then I click the "EnsureErrorSplButton" button
+    And I wait for "1500" millsecond
+    And I set the parameter "DynamicField" with value "avg_len"
+#    And I click the "EnsureErrorSplButton" button
+    And I set the parameter "Spl" with value "hello goodbey"
+    And I wait for "500" millsecond
+    And I click the "Search" button under some element
+    And I wait for loading invisible
+    Then I wait for "ErrorSpl" will be visible
+    And I click the "EnsureErrorSplButton" button
+    And I wait for "1500" millsecond
+    And I set the parameter "Spl" with value ""
+    And I wait for "1500" millsecond
+    Then I wait for "ErrorNoSpl" will be visible
+
+  @dashboard @dashboardSmoke
   Scenario: 增加动态菜单标识符前后缀 RZY-288
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -792,6 +826,26 @@ Feature: 仪表盘输入项
 #    Then I will see the success message "校验通过"
 #    And I click the "Ensure" button
 #    And I wait for "Progress" will be invisible
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 标题、标识校验（RZY-270,RZY-271）
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I click the "AddInput" button
+    And I set the parameter "FilterTitle" with value "<title>"
+    And I set the parameter "FilterToken" with value "apache.status"
+    Then I wait for "ErrorContainPoin" will be visible
+    And I set the parameter "FilterToken" with value "<token>"
+    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "添加输入项成功"
+
+    Examples:
+      | title  | token  |
+      | @#¥%xiaoxiezimu汉字DAXIEZIMU（）*&……%¥¥%520 | @#¥%xiaoxiezimu汉字DAXIEZIMU（）*&……%¥¥%520 |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图

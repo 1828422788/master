@@ -306,6 +306,22 @@ Feature: 仪表盘过滤项
       | 苏州市  |
 
   @dashboard @dashboardSmoke
+  Scenario: 修改并验证动态过滤项为多选 RZY-3416
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for loading invisible
+    And I click the "FilterName" button
+    And I click the "FilterSetting" button
+    And I click the "MultiSelect" button
+    Then I click the "Ensure" button
+    And I choose the "苏州市,成都市" from the "FilterDropdown"
+    And I click the "Update" button
+    And I wait for "Progress" will be invisible
+    Then I will see the "NoData" doesn't exist
+
+  @dashboard @dashboardSmoke
   Scenario: 删除动态菜单过滤项(RZY-3419)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -455,6 +471,19 @@ Feature: 仪表盘过滤项
     And I click the "Ensure" button
 
   @dashboard @dashboardSmoke
+  Scenario: 验证绑定图表默认 RZY-265
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for loading invisible
+    And I click the "FilterName" button
+    And I click the "FilterSetting" button
+    Then I will see the "ListForBang" doesn't exist
+#    And I "checked" the checkbox which name is "当过滤项值改变时自动搜索"
+    Then I click the "Ensure" button
+
+  @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -467,6 +496,29 @@ Feature: 仪表盘过滤项
     And I wait for loading invisible
     And I click the "{'Checkbox':'测试仪表盘eval'}" button
     And I click the "Ensure" button
+    And I wait for loading invisible
+    And I click the "AddEventButton" button
+    And I click the "AddChart" button
+    And I wait for "SpinDot" will be invisible
+    And I set the parameter "SearchChartInput" with value "仪表盘所用趋势图"
+    And I wait for loading invisible
+    And I click the "{'Checkbox':'仪表盘所用趋势图'}" button
+    And I click the "Ensure" button
+
+  @dashboard @dashboardSmoke
+  Scenario: 验证绑定图表默认 RZY-265,RZY-267
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试过滤项"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for loading invisible
+    And I click the "FilterName" button
+    And I click the "FilterSetting" button
+    Then I wait for "ListForBang" will be visible
+    And I "checked" the checkbox which name is "测试仪表盘eval"
+    And I "checked" the checkbox which name is "仪表盘所用趋势图"
+    Then I click the "Ensure" button
+    And I wait for loading invisible
 
   @dashboard @dashboardSmoke
   Scenario: 验证eval(undone)
@@ -485,7 +537,7 @@ Feature: 仪表盘过滤项
 
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 标识校验（RZY-249,RZY-250）
+  Scenario Outline: 标题、标识校验（RZY-249,RZY-250）
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试过滤项"

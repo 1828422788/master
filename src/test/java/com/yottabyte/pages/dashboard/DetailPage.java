@@ -78,6 +78,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//span[text()='确定']/ancestor::button")
     private WebElement ensureErrorSplButton;
 
+    @FindBy(xpath = "//div[@class='ant-checkbox-group']//span[@class='ant-checkbox']")
+    private WebElement listForBang;
+
     @FindBy(xpath = "//span[text()='移出标签页']")
     private WebElement moveoutTag;
 
@@ -483,6 +486,12 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//p[text()='缺少选中的字段']")
     private WebElement lackField;
+
+    @FindBy(xpath = "//div[text()='无效标识 包含（.）']")
+    private WebElement errorContainPoin;
+
+    @FindBy(xpath = "//div[text()='请填写查询语句']")
+    private WebElement errorNoSpl;
 
     @FindBy(xpath = "//p[text()='搜索语句须为stats类型']")
     private WebElement errorSpl;
@@ -1110,6 +1119,14 @@ public class DetailPage extends PageTemplate {
         return lackField;
     }
 
+    public WebElement getErrorContainPoin() {
+        return errorContainPoin;
+    }
+
+    public WebElement getErrorNoSpl() {
+        return errorNoSpl;
+    }
+
     public WebElement getErrorSpl() {
         return errorSpl;
     }
@@ -1671,6 +1688,8 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getEnsureErrorSplButton() { return ensureErrorSplButton; }
+
+    public WebElement getListForBang() { return listForBang; }
 
     public WebElement getEnsureMoveTagButton() { return ensureList.get(4); }
 
