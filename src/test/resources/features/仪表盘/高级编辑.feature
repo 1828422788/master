@@ -33,7 +33,6 @@ Feature: 仪表盘高级编辑
     Examples:
       | spl                                                                           | name   |
       | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10  | 仪表盘所有 |
-      | tag:*display \| stats count() by apache.clientip                              | 仪表盘高级编辑饼状图 |
 
   @dashboard @dashboardSmoke
   Scenario: 新建标签页
@@ -414,7 +413,7 @@ Feature: 仪表盘高级编辑
   Scenario: 跳转到搜索页—自定义 RZY-3763
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
-    And I click the detail which name is "测试高级编辑1"
+    And I click the detail which name is "测试高级编辑"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
@@ -458,11 +457,34 @@ Feature: 仪表盘高级编辑
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
     And I click the "Shanghai" button
+    And switch to another window
+    And I close all tabs except main tab
     Then I wait for title change text to "监控详情"
 
     Examples:
       | name       | url                              |  json    |
-      | 测试高级编辑1 | https://www.rizhiyi.com/        | "drilldown": {\n    "type": "custom",\n    "blank": true,\n    "link": "https://www.rizhiyi.com/"\n  }  |
+      | 测试高级编辑 | https://www.rizhiyi.com/        | "drilldown": {\n    "type": "custom",\n    "blank": false,\n    "link": "https://www.rizhiyi.com/"\n  }  |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: chartType RZY-3694
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘所有" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+    And I wait for "1500" millsecond
+    And I set the parameter "{"title": "仪表盘所有","description": "","x": 0,"y": 15,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display|stats count() by apache.geo.city","startTime": "now/d","endTime": "now"},"chart": {"chartType": "<chartType>"},"drilldown": {"type": "custom","blank": true,"link": "/alerts/new/"}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I will see the message contains "chart -> field 字段为必填项"
+
+    Examples:
+      | name       | chartType |  json    |
+      | 测试高级编辑 | pie       | "chart": {\n    "chartType": "table"\n  },  |
 
 
   @cleanDashboard

@@ -289,6 +289,42 @@ Feature: 仪表盘钻取配置
     And I wait for "Progress" will be invisible
     Then I will see the element "GeoCity" attribute "Value" is "南京市"
 
+  @dashboard @dashboardSmoke
+  Scenario: 单引号和双引号包裹 RZY-1740
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试钻取配置"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "* AND NOT tag:${double_quotes|d} | stats count() by ${single_quotes|s}"
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    When I click the "AddEventButton" button
+    And I click the "AddInput" button
+    And I wait for loading invisible
+    And I set the parameter "FilterTitle" with value "single_quotes"
+    And I set the parameter "FilterToken" with value "single_quotes"
+    And I set the parameter "FilterDefaultValue" with value "appname"
+    Then I click the "Ensure" button
+    And I click the "AddEventButton" button
+    And I click the "AddInput" button
+    And I wait for loading invisible
+    And I set the parameter "FilterTitle" with value "double_quotes"
+    And I set the parameter "FilterToken" with value "double_quotes"
+    And I set the parameter "FilterDefaultValue" with value "sample04061424_display"
+    Then I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    And I set value with element "TableList"
+    When the chart title is "仪表盘钻取配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "Spl" with value "* AND NOT tag:"sample04061424_display" | stats count() by 'appname'"
+    And I click the "Ensure" button
+    And I wait for "Progress" will be invisible
+    Then I compare with list "TableList"
+
   @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

@@ -217,7 +217,7 @@ Feature: 仪表盘详情页
     Then I will see the success message "添加输入项成功"
 
 
-  Scenario: 验证全局时间生效及打开过滤输入项(RZY-4567,RZY-225,RZY-4638)
+  Scenario: 验证全局时间生效及打开过滤输入项(RZY-4567,RZY-225,RZY-4638,RZY-3392)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "FirstAutoTest"

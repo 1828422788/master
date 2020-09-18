@@ -193,7 +193,7 @@ Feature: 仪表盘单值
 
     ###########
 
-  Scenario: 恢复至初始 RZY-296
+  Scenario: 恢复至初始 RZY-296,RZY-3391
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
@@ -207,6 +207,18 @@ Feature: 仪表盘单值
 #    And I click the "SettingEnsure" button
     And I wait for "Progress" will be invisible
     Then I wait for "Table" will be visible
+
+  Scenario: 时间范围选择 RZY-3392
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "TimeRangeDanzhi" button
+    And I wait for "1000" millsecond
+    And I click the "RecentSevenDay1" button
+    And I wait for loading invisible
+    Then I wait for element "TimeRangeDanzhi" change text to "最近7天"
 
   Scenario Outline: RZY-3694修改表格chartType
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

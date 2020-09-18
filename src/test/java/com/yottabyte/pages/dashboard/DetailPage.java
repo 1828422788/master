@@ -484,6 +484,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='缺少动态字段值']")
     private WebElement tipOfLack;
 
+    @FindBy(xpath = "//div[text()='请填写查询语句']")
+    private WebElement splOfLack;
+
     @FindBy(xpath = "//div[@class='ant-message-notice']//span")
     private WebElement noticeMessage;
 
@@ -665,6 +668,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//label[text()='今天']/following-sibling::i[4]")
     private WebElement delete;
 
+    @FindBy(xpath = "//div[text()='仪表盘单值']/following-sibling::div/label")
+    private WebElement timeRangeDanzhi;
+
     @FindBy(xpath = "//label[text()='本月']/following-sibling::i[4]")
     private WebElement deleteForTable;
 
@@ -714,6 +720,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getTimeRangee() {
         return timeRangee;
+    }
+
+    public WebElement getTimeRangeDanzhi() {
+        return timeRangeDanzhi;
     }
 
     public WebElement getSetGlobalTimeRange() {
@@ -1114,6 +1124,8 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getTipOfLack() { return tipOfLack; }
 
+    public WebElement getSplOfLack() { return splOfLack; }
+
     public WebElement getNoticeMessage() {
         return noticeMessage;
     }
@@ -1168,6 +1180,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//button[text()='最近7天']")
     private WebElement recentSevenDay;
+
+    @FindBy(xpath = "//div[text()='最近7天']")
+    private WebElement recentSevenDay1;
 
     public WebElement getCustom() {
         return custom;
@@ -1460,6 +1475,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getRecentSevenDay() {
         return this.getDateButton(recentSevenDay);
+    }
+
+    public WebElement getRecentSevenDay1() {
+        return this.getDateButton(recentSevenDay1);
     }
 
     public List<WebElement> getTableList() {
