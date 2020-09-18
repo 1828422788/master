@@ -94,5 +94,26 @@ Feature: 索引信息编辑（RZY-1477至1480）
       | AutoTestForsxc2      | 保存成功    |
       | AutoTestForsxc中文test | 保存成功    |
 
+  Scenario:修改索引数据
+    Given the data name is "{'column':'1','name':'index_data'}" then i click the "编辑" button without paging
+    Then I will see the "index.CreatePage" page
+    And I choose the "1份" from the "IndexDataDropDown"
+    And I click the "SavedButton" button
+    And I will see the element "Message" name is "保存成功"
+
+  Scenario:修改索引冻结
+    Given the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button without paging
+    Then I will see the "index.CreatePage" page
+    And I set the parameter "Freeze" with value "60"
+    And I click the "SavedButton" button
+    And I will see the element "Message" name is "保存成功"
+
+  Scenario:关闭索引下沉
+    Given the data name is "{'column':'1','name':'index_sink'}" then i click the "编辑" button without paging
+    Then I will see the "index.CreatePage" page
+    And I switch the "索引下沉" button to "unchecked"
+    And I click the "SavedButton" button
+    And I will see the element "Message" name is "保存成功"
+
 
 
