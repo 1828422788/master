@@ -370,6 +370,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='上海市']")
     private WebElement  shanghai;
 
+    @FindBy(xpath = "//span[text()='成都市 ']")
+    private WebElement  chengdushi;
+
     @FindBy(xpath = "(//*[name()='rect'])[3]")
     private WebElement zhutiao;
 
@@ -424,11 +427,26 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='=']//i")
     private WebElement paramValue;
 
+    @FindBy(xpath = "//div[text()='=']/div[2]//i")
+    private WebElement paramValue1;
+
     @FindBy(className = "is-multiple")
     private WebElement paramDropdown;
 
     @FindBy(xpath = "//span[text()='${click.value2}']")
     private WebElement clickValue;
+
+    @FindBy(xpath = "//span[text()='${click.value}']")
+    private WebElement clickValue1;
+
+    @FindBy(xpath = "//span[text()='${start},${end}']")
+    private WebElement startEnd;
+
+    @FindBy(xpath = "//span[text()='+ 新建']/ancestor::button")
+    private WebElement newCreat;
+
+    @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]")
+    private WebElement tokenInput;
 
     @FindBy(xpath = "//div[contains(@class,'yw-filter-container')]//input[@class='ant-input']")
     private WebElement geoCity;
@@ -1097,6 +1115,22 @@ public class DetailPage extends PageTemplate {
         return clickValue;
     }
 
+    public WebElement getClickValue1() {
+        return clickValue1;
+    }
+
+    public WebElement getStartEnd() {
+        return startEnd;
+    }
+
+    public WebElement getNewCreat() {
+        return newCreat;
+    }
+
+    public WebElement getTokenInput() {
+        return tokenInput;
+    }
+
     public WebElement getParamDropdown() {
 //        return paramDropdown;
         return super.getLastDropdownList();
@@ -1104,6 +1138,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getParamValue() {
         return paramValue;
+    }
+
+    public WebElement getParamValue1() {
+        return paramValue1;
     }
 
     public WebElement getInputSettingTitle() {
@@ -1207,6 +1245,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getShanghai() {
         return shanghai;
+    }
+
+    public WebElement getChengdushi() {
+        return chengdushi;
     }
 
     public WebElement getZhutiao() {
