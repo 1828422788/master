@@ -283,7 +283,7 @@ Feature: 仪表盘钻取配置
     And I click the "ParamValue" button
     And I click the "ClickValue" button
     And I click the "Ensure" button
-    And I click the "Nanjing" button
+    And I click the "Nanjingshi" button
     And switch to another window
     And I close all tabs except main tab
     And I wait for "Progress" will be invisible

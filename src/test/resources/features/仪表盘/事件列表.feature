@@ -361,6 +361,7 @@ Feature: 仪表盘事件列表
       | url                    | title     |
       | https://www.baidu.com/ | 百度一下，你就知道 |
 
+  @dashboard @dashboardSmoke
   Scenario: 新建全局时间选择器
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -406,6 +407,7 @@ Feature: 仪表盘事件列表
     Then the page's title will be "仪表盘"
     Then I will see the url contains "globalTimeRange="
 
+  @dashboard @dashboardSmoke
   Scenario: 删除全局时间添加文本输入过滤项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible

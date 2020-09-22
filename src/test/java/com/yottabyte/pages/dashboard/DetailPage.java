@@ -493,6 +493,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='filter']/ancestor::div/following-sibling::div/input")
     private WebElement filterInput;
 
+    @FindBy(xpath = "//span[text()='南京市']")
+    private WebElement nanjingshi;
+
     @FindBy(xpath = "//div[text()='南京市']")
     private WebElement nanJing;
 
@@ -1155,6 +1158,8 @@ public class DetailPage extends PageTemplate {
     public WebElement getTargetParam() {
         return targetParam;
     }
+
+    public WebElement getNanjingshi() { return nanjingshi; }
 
     public WebElement getNanjing() { return nanJing; }
 

@@ -212,7 +212,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterTime" will be invisible
 
   @dashboard @dashboardSmoke
-  Scenario Outline: RZY-1669添加输入项
+  Scenario Outline: 添加输入项 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -230,7 +230,7 @@ Feature: 仪表盘输入项
       | filter | aa           |
 
   @dashboard @dashboardSmoke
-  Scenario: RZY-1669:添加图表
+  Scenario: 添加图表 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -242,10 +242,11 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘1669所用趋势图'}" button
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证RZY-1669
+  Scenario: 验证 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
