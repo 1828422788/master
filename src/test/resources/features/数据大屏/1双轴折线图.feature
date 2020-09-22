@@ -52,7 +52,8 @@ Feature: 数据大屏-b双轴折线图
     And I set the parameter "XaxisShift" with value "5"
     And I choose the "倾斜" from the "XaxisAngle"
      #显示分割线
-    And I switch the "XaxisSeparator" button to "enable"
+    And I click the "XaxisSeparator" button
+#    And I switch the "XaxisSeparator" button to "enable"
        #分割线的设置
     And I set the parameter "XDividingLineBold" with value "3"
 
