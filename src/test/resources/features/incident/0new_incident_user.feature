@@ -45,7 +45,7 @@ Feature: 创建接收告警邮件用户、用户组
 
     Examples:
       | UserGroupName | UserGroupDes | message |
-      | 日志易用户体验组    | 测试incident策略 | 创建成功    |
+      | incident用户体验组    | 测试incident策略 | 创建成功    |
 
   @incidentdel @delcruusers
   Scenario Outline: 删除4个事件管理体验用户
@@ -71,4 +71,4 @@ Feature: 创建接收告警邮件用户、用户组
 
     Examples:
       | UserGroupName |
-      | 日志易用户体验组      |
+      | incident用户体验组      |

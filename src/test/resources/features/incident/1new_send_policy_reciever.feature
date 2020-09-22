@@ -21,9 +21,9 @@ Feature: 事件管理_用户接收组_7个
 
     Examples:
       | NoticeReceiveGroupName | ReceiveGroupMemberValue | ReceiveGroupNonMemberValue |
-      | 发送策略一级组 | 日志易用户体验组 | kongfeili       |
-      | delete_响应组 | 日志易用户体验组 | kongfeili       |
-      | update_响应组 | 日志易用户体验组 | Leibniz         |
+      | 接收策略一级组 | incident用户体验组 | kongfeili       |
+      | delete_响应组 | incident用户体验组 | kongfeili       |
+      | update_响应组 | incident用户体验组 | Leibniz         |
 
 
   @editrec @incident
@@ -60,5 +60,5 @@ Feature: 事件管理_用户接收组_7个
     Examples:
       | NoticeReceiveGroupName |
       | delete_响应组 |
-      | 发送策略一级组 |
+      | 接收策略一级组 |
       | update_响应组 |
