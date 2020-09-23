@@ -12,8 +12,8 @@ Feature: 事件管理_发送策略_4个
 
     And I choose1 the "严重" from the "TunnelPriorityLevel"
     And I choose1 the "邮件告警" from the "RelatedSendPluginList" in config
-#    And I choose1 the "发送策略一级组<日志易用户体验组>,不发送: <kongfeili>" from the "MailReceiver"
     And I choose contain the "<接收策略一级组>" from the "MailReceiver"
+ #And I choose1 the "发送策略一级组<日志易用户体验组>,不发送: <kongfeili>" from the "MailReceiver"
 #    And I choose1 the "admin@rizhiyi.com" from the "MailReceiver"
 
     And I click the "SaveSendPolicy" button
@@ -23,10 +23,10 @@ Feature: 事件管理_发送策略_4个
     And I click the "RetListButton" button
 
     Examples:
-      | SendPolicyName    | SendIntervalTimeValue     | Result|
-      | 邮件_all_20分钟19127801 | 20 | "提交发送策略成功" |
-#      | 邮件_高_20分钟1 | 20 | "提交发送策略成功" |
-#      | 邮件_中_20分钟1 | 20 | "提交发送策略成功" |
+      | SendPolicyName | SendIntervalTimeValue | Result     |
+      | 邮件_all_20分钟     | 20                    | "提交发送策略成功" |
+      | 邮件_高_20分钟      | 20                    | "提交发送策略成功" |
+      | 邮件_中_20分钟      | 20                    | "提交发送策略成功" |
 
   @delsends @incidentdel
   Scenario Outline: 删除2个发送策略
@@ -37,9 +37,9 @@ Feature: 事件管理_发送策略_4个
     And I click the "ConfirmDeleteSendPolicyNameButton" button
 
     Examples:
-      | SendPolicyName |
-      | 邮件_高_20分钟 |
-      | 邮件all_20分钟 |
+      | SendPolicyName  |
+      | 邮件_高_20分钟   |
+      | 邮件all_20分钟   |
 
 #      | NoticeReceiveGroupName | ReceiveGroupMemberValue | ReceiveGroupNonMemberValue |
 #      | 发送策略一级组 | 日志易用户体验组<Derek> | kongfeili       |

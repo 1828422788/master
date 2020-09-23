@@ -329,4 +329,24 @@ public class IChooseValueFromSelectList {
         }
     }
 
+    @And("^I choose contain the \"([^\"]*)\" from the \"([^\"]*)\"$")
+    public void iChooseTheFromTheContain(List<String> values, String elementName) {
+//        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+//        WebElement element = (WebElement) o;
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        for (String value : values) {
+            if (value != null && value.trim().length() != 0) {
+//                for (WebElement e : elements) {
+                WebElement e = element;
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                String curElementText = e.getText();
+                if (curElementText.contains(value)) {
+                    e.click();
+                    break;
+                }
+            }
+        }
+    }
+
+
 }
