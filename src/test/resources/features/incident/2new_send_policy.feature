@@ -1,7 +1,7 @@
 Feature: 事件管理_发送策略_4个
 
   @incident4 @newsend @incident
-  Scenario Outline: 新建2个发送策略
+  Scenario Outline: 新建3个发送策略
     Given open the "incident.SendPolicyPage" page for uri "/app/incident/sender-policy/list/"
     And I click the "CreateSendPolicy" button
     And I set the parameter "SendPolicyName" with value "<SendPolicyName>"

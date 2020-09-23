@@ -349,4 +349,43 @@ public class IChooseValueFromSelectList {
     }
 
 
+    @And("^I choose contain bk the \"([^\"]*)\" from the \"([^\"]*)\"$")
+    public void iChooseTheFromTheContainbk(List<String> values, String elementName) {
+//        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+//        WebElement element = (WebElement) o;
+        WebElement element = GetElementFromPage.getWebElementWithName(elementName);
+        for (String value : values) {
+            if (value != null && value.trim().length() != 0) {
+//                for (WebElement e : elements) {
+                WebElement e = element;
+                ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                String curElementText = e.getText();
+                if (curElementText.contains(value)) {
+                    e.click();
+                    break;
+                }
+            }
+        }
+    }
+
+    @And("^I choose contain bk2 the \"([^\"]*)\" from the \"([^\"]*)\"$")
+    public void iChooseTheFromTheContainbk2(List<String> values, String selectListName) {
+        Object o = GetElementFromPage.getWebElementWithName(selectListName);
+        WebElement parentElement = (WebElement) o;
+        List<WebElement> elements = parentElement.findElements(By.xpath("//li"));
+        for (String value : values) {
+            if (value != null && value.trim().length() != 0) {
+                for (WebElement e : elements) {
+                    ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
+                    String curElementText = e.getText();
+                    if (curElementText.contains(value)) {
+                        e.click();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
 }
