@@ -8,6 +8,8 @@ Feature: 权限-collect指令
     And I "checked" the checkbox which name is "全选" in trend page
     And I "unchecked" the checkbox which name is "全选" in trend page
     When I "checked" the checkbox which name is "可查看搜索页"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
 
   Scenario: 新建索引
