@@ -11,6 +11,7 @@ Feature: 权限-定时任务
     When I "checked" the checkbox which name is "可查看搜索页"
     And I click the "Resource" button
     When I "checked" the checkbox which name is "可查看定时任务"
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 

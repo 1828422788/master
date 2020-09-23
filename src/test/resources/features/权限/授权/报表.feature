@@ -9,6 +9,7 @@ Feature: 权限-报表
     When I "unchecked" the checkbox which name is "全选"
     And I click the "Resource" button
     When I "checked" the checkbox which name is "可查看报表"
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 

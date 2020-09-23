@@ -7,6 +7,8 @@ Feature: 权限-下载管理
     And I will see the "roles.AuthorizationPage" page
     When I "checked" the checkbox which name is "可查看搜索页"
     When I "unchecked" the checkbox which name is "可下载搜索结果(download指令)"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 

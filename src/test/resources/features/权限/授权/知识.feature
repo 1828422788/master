@@ -8,7 +8,7 @@ Feature: 权限-知识
     When I "checked" the checkbox which name is "全选"
     And I "unchecked" the checkbox which name is "全选"
     And I click the "Resource" button
-    And I "checked" the checkbox which name is "可查看知识库"
+    And I "checked" the checkbox which name is "可查看知识库,可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 

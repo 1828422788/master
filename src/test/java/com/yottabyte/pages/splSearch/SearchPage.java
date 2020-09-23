@@ -127,10 +127,19 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(tagName = "thead")
     private WebElement thead;
+
     @FindBy(xpath = "//span[text()='已存搜索']")
     private WebElement savedSearch;
+
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
     private WebElement appIcon;
+
+    @FindBy(xpath = "//tbody/tr")
+    private List<WebElement> trList;
+
+    public List<WebElement> getTrList() {
+        return trList;
+    }
 
     public WebElement getThead() {
         return thead;

@@ -50,6 +50,20 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[text()='请选择应用']")
     private WebElement app;
 
+    @FindBy(xpath = "//span[@class='ant-badge']/i")
+    private WebElement userIcon;
+
+    @FindBy(xpath = "//div[@class='ant-popover-inner-content']//p")
+    private WebElement loginUserName;
+
+    public WebElement getUserIcon() {
+        return userIcon;
+    }
+
+    public WebElement getLoginUserName() {
+        return loginUserName;
+    }
+
     public WebElement getApp() {
         app.click();
         return utils.getLastDropdownList();

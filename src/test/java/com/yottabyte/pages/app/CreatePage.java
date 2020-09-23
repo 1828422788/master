@@ -147,6 +147,38 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "ant-select-search__field")
     private WebElement KVTag;
 
+    @FindBy(xpath = "//div[text()='字段配置']")
+    private WebElement fieldConfig;
+
+    @FindBy(id = "FieldConfig_name")
+    private WebElement fieldConfigName;
+
+    @FindBy(id = "FieldConfig_aliasMappings[0].original")
+    private WebElement originalField;
+
+    @FindBy(id = "FieldConfig_aliasMappings[0].alias")
+    private WebElement fieldAlias;
+
+    public WebElement getFieldConfigName() {
+        return fieldConfigName;
+    }
+
+    public WebElement getOriginalField() {
+        return originalField;
+    }
+
+    public WebElement getFieldAlias() {
+        return fieldAlias;
+    }
+
+    public WebElement getAddFieldAlias() {
+        return super.getButton("添加字段别名");
+    }
+
+    public WebElement getFieldConfig() {
+        return fieldConfig;
+    }
+
     public WebElement getKVTag() {
         return KVTag;
     }

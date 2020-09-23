@@ -7,6 +7,8 @@ Feature: 权限-资源列表
     And I will see the "roles.AuthorizationPage" page
     And I click the "Resource" button
     And I "unchecked" the checkbox which name is "可查看资源列表"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
 

@@ -6,6 +6,8 @@ Feature: 权限-事件操作
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
     When I "unchecked" the checkbox which name is "可使用事件操作"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 

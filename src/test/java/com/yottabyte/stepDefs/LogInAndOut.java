@@ -3,8 +3,11 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.pages.LoginPage;
 import cucumber.api.java.en.And;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -72,6 +75,19 @@ public class LogInAndOut {
             if (times > 10) {
                 return;
             }
+        }
+        // 验证是否登录到正确用户下
+        this.validateUser(username, password);
+    }
+
+    private void validateUser(String username, String password) throws InterruptedException {
+        WaitElement waitElement = new WaitElement();
+        waitElement.iWaitForWillBeVisible("userIcon");
+        WebElement userIcon = webDriver.findElement(By.xpath("//span[@class='ant-badge']/i"));
+        userIcon.click();
+        WebElement loginUserName = webDriver.findElement(By.xpath("//div[@class='ant-popover-inner-content']//p"));
+        if (!loginUserName.getText().equals(username)) {
+            userLogin(username, password);
         }
     }
 

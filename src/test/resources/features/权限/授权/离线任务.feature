@@ -8,6 +8,8 @@ Feature: 权限-离线任务
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
     When I "checked" the checkbox which name is "可查看搜索页"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 

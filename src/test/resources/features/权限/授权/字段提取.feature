@@ -10,6 +10,7 @@ Feature: 权限-字段提取
     When I "checked" the checkbox which name is "可查看搜索页"
     And I click the "Resource" button
     When I "checked" the checkbox which name is "可查看字段提取"
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
