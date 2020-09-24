@@ -5,7 +5,6 @@ Feature: 日志展现_维度
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @refreshDisplay
   Scenario Outline: dimension(RZY-833,2776,2778,2782)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button

@@ -5,7 +5,6 @@ Feature: 日志展现_关系
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-  @refreshDisplay
   Scenario Outline: connection(RZY-834,2783,2784)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
