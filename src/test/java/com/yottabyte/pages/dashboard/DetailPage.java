@@ -457,7 +457,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='事件列表']/ancestor::div/following-sibling::div//i")
     private WebElement iconRight;
 
-    @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::pre/span")
+    @FindBy(xpath = "//span[text()='apache.geo.city']/following-sibling::span/pre/span")
     private WebElement cityTd;
 
     @FindBy(className = "ant-select-selection")

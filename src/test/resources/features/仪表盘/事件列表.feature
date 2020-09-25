@@ -337,7 +337,7 @@ Feature: 仪表盘事件列表
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
     Then I will see the "SearchInput" result will be "* | stats count() by appname"
-    Then I will see the input element "TimeRange" value will contains "-1000d,+1d"
+    Then I will see the input element "TimeRange" value will contains "所有时间"
 
   @dashboard @dashboardSmoke
   Scenario Outline: 在新标签跳转到自定义URL RZY-3625
