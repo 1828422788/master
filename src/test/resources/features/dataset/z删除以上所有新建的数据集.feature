@@ -19,6 +19,8 @@ Feature: 数据集-z删除所有
       | node_op_jnd     |
       | edit            |
       | name_updated    |
-      | 父子无tree       |
-      | 父子汇聚tree     |
-      | 父子继承tree     |
+      | have_root_field |
+      | rootname        |
+      | 父子无tree         |
+      | 父子汇聚tree        |
+      | 父子继承tree        |

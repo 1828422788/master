@@ -307,7 +307,8 @@ public class IChooseValueFromSelectList {
             if (value != null && value.trim().length() != 0) {
                 for (WebElement e : elements) {
                     ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", e);
-                    if (value.equals(e.getText())) {
+                    String TmpText = e.getText();
+                    if (value.equals(TmpText)) {
                         e.click();
                         break;
                     }

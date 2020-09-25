@@ -1,7 +1,7 @@
 @dataset @dataseta @dataset1
 Feature: 数据集-a新建
 
-
+  @tc4082
   Scenario Outline: RZY-4082:新建数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
@@ -32,7 +32,7 @@ Feature: 数据集-a新建
       | JNDTest | jnd   | *   |
 
 # # ################################## 插播几条查询的case，依赖与上一条case的新建
-
+  @tc4075
   Scenario Outline: RZY-4075:按资源查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -58,7 +58,6 @@ Feature: 数据集-a新建
       | name    |
       | JNDTest |
 
-
   Scenario: RZY-4074:按应用查询
     Given open the "dataset.ListPage" page for uri "/dataset/"
     And I wait for loading invisible
@@ -77,8 +76,8 @@ Feature: 数据集-a新建
     And I click the "Ensure" button
 #    Then I will see the success message "修改成功"
     And I wait for loading invisible
-    And I will see the data "{'column':'0','name':'JNDTest'}" values1 "{'column':'6','name':'1pre_package,auto_package'}" values2 "{'column':'6','name':'auto_package,1pre_package'}"
-
+#    And I will see the data "{'column':'0','name':'JNDTest'}" values1 "{'column':'6','name':'1pre_package,auto_package'}" values2 "{'column':'6','name':'auto_package,1pre_package'}"
+    And I will see the data "{'column':'0','name':'JNDTest'}" values "{'column':'6','name':'1pre_package'}"
 
     Examples:
       | name    | Type         |

@@ -1,7 +1,7 @@
 @dataset @datasetf @dataset1
 Feature: 数据集-f构建树形结构
 
-  @fatherson
+  @fatherson @tc4085
   Scenario: RZY-4085:父子行为-无
       #新建
     Given open the "dataset.ListPage" page for uri "/dataset/"

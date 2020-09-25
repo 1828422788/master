@@ -1,11 +1,15 @@
 package com.yottabyte.pages.dataset;
 
 import com.yottabyte.pages.ListPageFactory;
+import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.GetElementFromPage;
+import com.yottabyte.utils.WaitForElement;
 import cucumber.api.java.en.Then;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import javax.xml.xpath.XPath;
 
@@ -84,9 +88,22 @@ public class ListPage extends ListPageFactory {
     //第2个字段类型
     @FindBy(id = "EditDatabase_fields[1].type")
     private WebElement secondFieldType;
+    public WebElement getSecondFieldType() {
+        //  secondFieldType.click();
+        //  return super.getLastDropdownList();
+        return secondFieldType;
+    }
+
+    public WebElement getSecondFieldTypeList() {
+        String xpath = "//div/label[contains(text(),'字段')]/following::div[@class='ant-select-selection__rendered']/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+    }
+
     @FindBy(xpath = "//div[@id='EditDatabase_app_ids']//i[contains(@class,'anticon-close-circle')]")
     private WebElement deleteApp;
-
 
     //新建数据集弹窗中的汇聚继承
     @FindBy(xpath = "//label[@title='父子行为']/parent::div/following-sibling::div//span[text()='汇聚']")
@@ -147,12 +164,6 @@ public class ListPage extends ListPageFactory {
 
     public WebElement getSecondFieldName() {
         return secondFieldName;
-    }
-
-    public WebElement getSecondFieldType() {
-        //  secondFieldType.click();
-        //  return super.getLastDropdownList();
-        return secondFieldType;
     }
 
     @FindBy(xpath = "//label[@title='字段']/parent::div/following-sibling::div//span[text()='添加']")
