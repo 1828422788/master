@@ -80,7 +80,7 @@ public class LogInAndOut {
         this.validateUser(username, password);
     }
 
-    private void validateUser(String username, String password) throws InterruptedException {
+    public void validateUser(String username, String password) throws InterruptedException {
         WaitElement waitElement = new WaitElement();
         waitElement.iWaitForWillBeVisible("userIcon");
         WebElement userIcon = webDriver.findElement(By.xpath("//span[@class='ant-badge']/i"));
