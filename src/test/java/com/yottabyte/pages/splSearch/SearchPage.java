@@ -1571,7 +1571,8 @@ public class SearchPage extends ListPageFactory {
         return result;
     }
 
-    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
+//    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
+    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1']")
     private WebElement splStatsRetTable;
 
     public WebElement getSplStatsRetTable() {

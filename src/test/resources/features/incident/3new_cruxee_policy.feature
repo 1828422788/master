@@ -28,7 +28,7 @@ Feature: 事件管理-合并策略-11个
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |
-      | 合并2组_高_字段统计_分组条件name_归并告警数量18条  | 邮件all_20分钟 |
+      | 合并2组_高_字段统计_分组条件name_归并告警数量18条  | 邮件_all_20分钟 |
 
   @incident @newcru2 @newcru
   Scenario Outline: 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时
@@ -65,7 +65,7 @@ Feature: 事件管理-合并策略-11个
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |
-      | 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时  | 邮件all_20分钟 |
+      | 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时  | 邮件_all_20分钟 |
 
   @incident @newcru3 @newcru
   Scenario Outline: 合并1组_低_连续统计_无分组_未收到新告警的时间1小时
@@ -95,7 +95,7 @@ Feature: 事件管理-合并策略-11个
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |
-      | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时  | 邮件all_20分钟 |
+      | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时  | 邮件_all_20分钟 |
 
   @incident @newcru4 @newcru
   Scenario Outline: 合并1组_低_连续统计_无分组_未收到新告警的时间1小时
@@ -129,7 +129,7 @@ Feature: 事件管理-合并策略-11个
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |
-      | 合并2组_高中_SPL统计_分组条件priority_最后一条告警字段priority低或5小时 | 邮件all_20分钟 |
+      | 合并2组_高中_SPL统计_分组条件priority_最后一条告警字段priority低或5小时 | 邮件_all_20分钟 |
 
   @incident @newcru5 @newcru
   Scenario Outline: 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则
@@ -158,7 +158,7 @@ Feature: 事件管理-合并策略-11个
 
     Examples:
       | CruxeePolicyName    | SendPolicyName |
-      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 | 邮件all_20分钟 |
+      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 | 邮件_all_20分钟 |
 
   @incident @editcru1 @newcru
   Scenario Outline: 编辑合并策略，加自动规则
@@ -183,7 +183,6 @@ Feature: 事件管理-合并策略-11个
     And I choose the "已解决" from the "TaskStatusList" in config
 
     And I click the "SaveCruxeePolicy" button
-#    Then I will see the <Result>
     And I wait for "RetListButton" will be visible
     And I click the "RetListButton" button
 

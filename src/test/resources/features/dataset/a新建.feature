@@ -106,7 +106,6 @@ Feature: 数据集-a新建
     Then I will see the element "tipsAlias" name is "请输入别名"
     Then I will see the element "tipsYuJu" name is "请输入约束语句"
 
-
   Scenario: 新建数据集失败-RZY-4088:1个提示
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When I click the "Create" button
