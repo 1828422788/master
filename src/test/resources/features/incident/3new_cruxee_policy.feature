@@ -164,8 +164,9 @@ Feature: 事件管理-合并策略-11个
   Scenario Outline: 编辑合并策略，加自动规则
     Given open the "incident.CruxeePolicyPage" page for uri "/app/incident/policy/list/"
     When I set the parameter "CruPolicyNameListSearchInput" with value "<CruxeePolicyName>"
+    And I wait for "3000" millsecond
     And I click the "EditCruPolicyNameButton" button
-    And I wait for "1000" millsecond
+    And I wait for "3000" millsecond
 
     And I click the "SetAutoRule" button
     And I wait for "1000" millsecond
