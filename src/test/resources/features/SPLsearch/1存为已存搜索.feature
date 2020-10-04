@@ -1,4 +1,4 @@
-@spl
+@saved
 Feature: 已存搜索新建（RZY-150）
 
   Background:

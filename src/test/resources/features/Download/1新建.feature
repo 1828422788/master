@@ -1,4 +1,4 @@
-@offlineTask
+@db1
 Feature: 下载任务新建（RZY-192至RZY-205）
 
   Background:

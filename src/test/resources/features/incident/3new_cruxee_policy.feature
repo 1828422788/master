@@ -50,6 +50,8 @@ Feature: 事件管理-合并策略-11个
     And I click the "AddGroupCondition" button
     And I choose the "alert_id" from the "GroupConditionFieldslist" in config
 
+    And I set the parameter "StopConditionContinuousAlertInput" with value "6"
+    And I choose the "小时" from the "StopConditionContinuousAlertInputUnitList" in config
     And I click the "AddStopCondition" button
     And I choose the "最后一条告警的字段" from the "StopConditionNameslist" in config
     And I choose the "name" from the "StopConditionLastAlertFieldNamesList" in config
@@ -175,10 +177,10 @@ Feature: 事件管理-合并策略-11个
     And I wait for "1000" millsecond
 
     And I choose the "归并的告警数量" from the "AutoRulesList" in config
-    When I set the parameter "CruAlertCountInput" with value "60"
+    When I set the parameter "CruAlertCountInput" with value "10"
 
     And I choose the "将任务分配给" from the "AutoHandleTaskTypeList" in config
-    And I choose the "Derek" from the "TaskToUsersList" in config
+    And I choose the "<username>" from the "TaskToUsersList" in config
     And I click the "AddSecondAutoHandleRuleButton" button
     And I choose the "修改状态为" from the "SecondAutoHandleTaskTypeList" in config
     And I choose the "已解决" from the "TaskStatusList" in config
@@ -188,8 +190,11 @@ Feature: 事件管理-合并策略-11个
     And I click the "RetListButton" button
 
     Examples:
-      | CruxeePolicyName    |
-      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 |
+      | CruxeePolicyName    | username |
+      | 合并2组_高_事件_分组条件alertid_name包含停止或连续6小时	 |admin|
+      | 合并1组_低_连续统计_无分组_未收到新告警的时间1小时		 |admin|
+      | 合并2组_高中_SPL统计_分组条件priority_最后一条告警字段priority低或5小时 | admin |
+      | 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则 |Derek|
 
   @delcru @incidentdel
   Scenario Outline: 合并1组_中低_基线_分组条件eventtype_连续不断发送6小时_自动规则1
