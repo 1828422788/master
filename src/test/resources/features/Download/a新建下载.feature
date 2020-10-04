@@ -1,10 +1,10 @@
 @db1
-Feature: 下载任务新建（RZY-192至RZY-205）
+Feature: 新建下载任务
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
-  Scenario Outline: 新建下载任务（RZY-192）
+  Scenario Outline: 新建下载任务3个
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
