@@ -468,9 +468,6 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'最大行数')]/following-sibling::div//i")
     private WebElement maxLineDropdown;
 
-    @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
-    private WebElement downloadEvent;
-
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
 
@@ -832,10 +829,6 @@ public class SearchPage extends ListPageFactory {
         return savedSearch;
     }
 
-    public WebElement getDownloadEvent() {
-        return downloadEvent;
-    }
-
     public WebElement getMaxLineDropdown() {
         maxLineDropdown.click();
         return dropdownList.get(dropdownList.size() - 1);
@@ -845,12 +838,37 @@ public class SearchPage extends ListPageFactory {
         return downloadName;
     }
 
+//    public WebElement getMaxLineNum() {
+//        return super.getInputElement("最大行数");
+//    }
+
     public WebElement getMaxLineNum() {
-        return super.getInputElement("最大行数");
+        String xpath = "//label[text()='最大行数']//following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+    public WebElement getDocumentTypeList() {
+        String xpath = "//div/label[contains(text(),'文件类型')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+    }
+
+    public WebElement getDocumentEncodeList() {
+        String xpath = "//div/label[contains(text(),'文件编码')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
     }
 
     public WebElement getCreateDownloadTask() {
-        return super.getButton("创建");
+        return super.getButton("确 定");
+    }
+
+    public WebElement getAcceptCreateDownloadTask() {
+        return super.getButton("确定");
     }
 
     public WebElement getDownload() {
@@ -1416,10 +1434,25 @@ public class SearchPage extends ListPageFactory {
         return message;
     }
 
+//    public WebElement getDownloadButton() {
+//        return super.getButton("下载");
+//    }
+
+    @FindBy(xpath = "//span[text()='下载']/parent::button")
+    private WebElement downloadButton;
+
     public WebElement getDownloadButton() {
-        return super.getButton("下载");
+        return downloadButton;
     }
 
+//  @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
+//    @FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
+    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::i[@class='anticon css-ifnfqv _1Csj3jD9igXHB0MQUflN8F']")
+    private WebElement downloadEvent;
+
+    public WebElement getDownloadEvent() {
+        return downloadEvent;
+    }
 
     public WebElement getCustomizeTimeField() {
         return CustomizeTimeField;
@@ -1571,7 +1604,7 @@ public class SearchPage extends ListPageFactory {
         return result;
     }
 
-//    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
+    //    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
     @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1']")
     private WebElement splStatsRetTable;
 
@@ -1609,25 +1642,29 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//span[@class='_1_m_DyhFaFqqMWBfXY4Evv']")
     private WebElement searchPageSvg;
+
     public WebElement getSearchPageSvg() {
         return searchPageSvg;
     }
 
-//  @FindBy(xpath = "//svg[@href='#icon-sousuoyeyemiantuozhuai']")
+    //  @FindBy(xpath = "//svg[@href='#icon-sousuoyeyemiantuozhuai']")
     @FindBy(xpath = "//svg[@id='icon-sousuoyeyemiantuozhuai']")
     private WebElement searchPageSvg1;
+
     public WebElement getSearchPageSvg1() {
         return searchPageSvg1;
     }
 
     @FindBy(xpath = "//aside[@class='_2GaHYplAvgzSUrZjcyaHYW css-eavujn ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed']")
     private WebElement searchPageLeft;
+
     public WebElement getSearchPageLeft() {
         return searchPageLeft;
     }
 
     @FindBy(xpath = "//div[@class='_3jCwU33luOoDfATyPI4BPZ']")
     private WebElement searchPageLeft1;
+
     public WebElement getSearchPageLeft1() {
         return searchPageLeft1;
     }
