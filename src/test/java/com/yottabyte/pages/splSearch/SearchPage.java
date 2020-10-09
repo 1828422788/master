@@ -137,6 +137,13 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//tbody/tr")
     private List<WebElement> trList;
 
+    @FindBy(xpath = "//div[text()='统计']/span")
+    private WebElement countNum;
+
+    public WebElement getCountNum() {
+        return countNum;
+    }
+
     public List<WebElement> getTrList() {
         return trList;
     }

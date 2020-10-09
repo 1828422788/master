@@ -3,8 +3,6 @@ package com.yottabyte.stepDefs;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
-import com.yottabyte.utils.WaitForElement;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -35,11 +33,11 @@ public class WaitElement {
         if (o instanceof List) {
             List<WebElement> list = (List) o;
             for (WebElement ele : list) {
-                this.elementInvisible(ele);
+                this.elementVisible(ele);
             }
         } else {
             WebElement element = GetElementFromPage.getWebElementWithName(elementName);
-            this.elementInvisible(element);
+            this.elementVisible(element);
         }
     }
 
@@ -84,10 +82,10 @@ public class WaitElement {
         } catch (Exception e) {
             return;
         }
-        this.elementInvisible(element);
+        this.elementVisible(element);
     }
 
-    private void elementInvisible(WebElement element) {
+    public void elementVisible(WebElement element) {
         ExpectedCondition expectedCondition = ExpectedConditions.visibilityOf(element);
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, expectedCondition);
     }

@@ -3,6 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.JsonStringPaser;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -10,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import javax.lang.model.element.Element;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +36,7 @@ public class SplSearch {
             Assert.assertEquals(map.get(key), actualValue);
         }
     }
+
 
     @Then("^I will see the spl search result \"([^割]*)\" which is selected$")
     public void iWillSeeTheSplSearchResultWhichIsSelected(String json) {
@@ -75,11 +78,22 @@ public class SplSearch {
         int totalPage = Integer.parseInt(pages.get(pages.size() - 1).getText());
         int realTotalLogNum = 20 * (totalPage - 1) + table.findElements(By.tagName("tr")).size();
         if (realTotalLogNum != totalLogNum) {
-//            logger.error("\n搜索语句：" + spl + "\n期望日志条数：" + logNum + "\n实际日志条数：" + realTotalLogNum);
             Assert.assertTrue(false);
         }
     }
 
-
-
+    /**
+     * 验证搜索页存在某个字段，不验证字段值
+     *
+     * @param fieldName
+     */
+    @Then("^I will see the field \"([^\"]*)\" exist$")
+    public void iWillSeeTheFieldExist(List<String> fieldName) {
+        for (String name : fieldName) {
+            String xpath = "(//span[text()='" + name + "'])";
+            WebElement webElement = webDriver.findElement(By.xpath(xpath));
+            WaitElement waitElement = new WaitElement();
+            waitElement.elementVisible(webElement);
+        }
+    }
 }
