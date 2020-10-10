@@ -26,6 +26,12 @@ public class OfflineTaskPage extends PageTemplate {
     @FindBy(xpath = "//td[@class='el-table_1_column_1']")
     private WebElement emptyElement;
 
+    @FindBy(xpath = "//a[contains(text(),'删除')]")
+    private WebElement delDownLoadButton;
+    public WebElement getDelDownLoadButton() {
+        return delDownLoadButton;
+    }
+
     //@FindBy(className = "el-button--primary")
     @FindBy(xpath = "//span[contains(text(),'确定')]/parent::button")
     private WebElement ensureButton;
