@@ -122,6 +122,7 @@ Feature: 展示趋势图
     @viewTrendOther
     Examples:
       | name                            |
+      | sunburst                        |
       | NetworkNode                     |
       | Chain_2831_tree                 |
       | Chain_2982_tree                 |
@@ -163,6 +164,7 @@ Feature: 展示趋势图
     @viewTrendTimechart
     Examples:
       | name                                     |
+      | sparkline                                |
       | timechart_area_pile                      |
       | timechart_column_pile                    |
       | timechart_3250_column                    |

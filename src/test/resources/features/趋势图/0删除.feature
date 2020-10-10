@@ -112,6 +112,7 @@ Feature: 趋势图删除（RZY-1891）
     @cleanTrendOther
     Examples:
       | name                                     |
+      | sunburst                                 |
       | NetworkNode                              |
       | Chain_2831_tree                          |
       | Chain_2982_tree                          |
@@ -153,6 +154,7 @@ Feature: 趋势图删除（RZY-1891）
     @cleanTrendTimechart
     Examples:
       | name                                     |
+      | sparkline                                |
       | timechart_area_pile                      |
       | timechart_column_pile                    |
       | timechart_3250_column                    |
