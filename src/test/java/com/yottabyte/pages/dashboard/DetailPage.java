@@ -90,6 +90,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='存为报表']")
     private WebElement saveAsReport;
 
+    @FindBy(xpath = "//span[text()='更多配置']")
+    private WebElement moreConfig;
+
+    @FindBy(xpath = "(//span[text()='通用配置'])[2]")
+    private WebElement moreConfigs;
+
     @FindBy(className = "ant-message-success")
     private WebElement successMessage;
 
@@ -191,6 +197,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//input[@placeholder='请输入选项值']")
     private WebElement choiceValue;
+
+    @FindBy(xpath = "//input[@placeholder='请输入']")
+    private WebElement filterValue;
 
     @FindBy(xpath = "//*[@placeholder='请输入趋势图名称']")
     private WebElement trendName;
@@ -355,8 +364,17 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div[1]/i")
     private WebElement moreXuanTing;
 
+    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i")
+    private WebElement moreXuanTing2;
+
     @FindBy(xpath = "//div[text()='行布局趋势图1']")
     private WebElement trendOne;
+
+    @FindBy(xpath = "//div[text()='行布局趋势图2']")
+    private WebElement trendTwo;
+
+    @FindBy(xpath = "//div[text()='行布局趋势图3']")
+    private WebElement trendThree;
 
     @FindBy(xpath = "//span[text()='删除']")
     private WebElement chartDelete;
@@ -550,6 +568,24 @@ public class DetailPage extends PageTemplate {
     @FindBy(id = "filter_trendDescription")
     private WebElement chartDesc;
 
+    @FindBy(xpath = "//div[text()='请选择输入项']/ancestor::div[@class='ant-select-selection__rendered']")
+    private WebElement showFilterConfig;
+
+    @FindBy(xpath = "//div[text()='请选择输入项']/ancestor::div[@class='ant-select-selection__rendered']/following-sibling::span[@class='ant-select-selection__clear']")
+    private WebElement cleanShowFilterConfig;
+
+    @FindBy(xpath = "//div[text()='请选择条件']/ancestor::div[@class='ant-select-selection__rendered']")
+    private WebElement showCondition;
+
+    @FindBy(xpath = "//div[text()='请选择条件']/ancestor::div[@class='ant-select-selection__rendered']/following-sibling::span[@class='ant-select-selection__clear']")
+    private WebElement cleanShowConditio;
+
+    @FindBy(xpath = "//input[@placeholder='请输入值']")
+    private WebElement showValue;
+
+    @FindBy(xpath = "//div[text()='请补全展示条件']")
+    private WebElement tipErrorShowCondition;
+
     @FindBy(className = "icon-fanyeqishangjiantou")
     private WebElement eventIcon;
 
@@ -719,6 +755,16 @@ public class DetailPage extends PageTemplate {
         return super.getLastDropdownList();
     }
 
+    public WebElement getShowCondition() {
+        showCondition.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getShowFilterConfig() {
+        showFilterConfig.click();
+        return super.getLastDropdownList();
+    }
+
     public WebElement getCheckbox(String name) {
         return webDriver.findElement(By.xpath("//span[text()='" + name + "']/ancestor::label"));
     }
@@ -729,6 +775,30 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getAddFilter() {
         return addFilter;
+    }
+
+    public WebElement getShowValue() {
+        return showValue;
+    }
+
+    public WebElement getCleanShowFilterConfig() {
+        return cleanShowFilterConfig;
+    }
+
+    public WebElement getCleanShowConditio() {
+        return cleanShowConditio;
+    }
+
+    public WebElement getTipErrorShowCondition() {
+        return tipErrorShowCondition;
+    }
+
+    public WebElement getMoreConfig() {
+        return moreConfig;
+    }
+
+    public WebElement getMoreConfigs() {
+        return moreConfigs;
     }
 
     public WebElement getAddInput() {
@@ -783,7 +853,13 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getMoreXuanTing() { return moreXuanTing; }
 
+    public WebElement getMoreXuanTing2() { return moreXuanTing2; }
+
     public WebElement getTrendOne() { return trendOne; }
+
+    public WebElement getTrendTwo() { return trendTwo; }
+
+    public WebElement getTrendThree() { return trendThree; }
 
     public WebElement getChartDelete() { return chartDelete; }
 
@@ -1614,6 +1690,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getChoiceValue() {
         return choiceValue;
+    }
+
+    public WebElement getFilterValue() {
+        return filterValue;
     }
 
     public WebElement getFilterToken() {
