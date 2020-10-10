@@ -1815,6 +1815,10 @@ public class DetailPage extends PageTemplate {
         return getSwitchButton("启用钻取");
     }
 
+    public WebElement getOpenShowCondition() {
+        return getSwitchButton("启用展示条件");
+    }
+
     public WebElement getEnsureAddTrend() {
         return super.getButton("确定");
     }

@@ -64,6 +64,17 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
+    Scenario: 开启展示条件 RZY-4783
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "UIautotest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenShowCondition" button to "enable"
+    And I wait for "500" millsecond
+    And I will see the success message "展示条件已启用"
+
   Scenario: 编辑行(RZY-4630)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -166,6 +177,18 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button
     And I wait for "500" millsecond
     Then I will see the success message "删除行成功"
+
+  Scenario: 关闭"启用展示条件" RZY-4793
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "UIautotest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I will see the success message "展示条件已禁用"
+
 
   Scenario: 删除行内图表(RZY-4636)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
