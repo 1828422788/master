@@ -127,8 +127,22 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(tagName = "thead")
     private WebElement thead;
-    @FindBy(xpath = "//span[text()='已存搜索']")
-    private WebElement savedSearch;
+
+    public WebElement getSavedSearch() {
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(openSavedSearchButton));
+        openSavedSearchButton.click();
+        List<WebElement> list = webDriver.findElements(By.className("ant-dropdown-menu-item"));
+        com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
+        return list.get(list.size() - 1);
+    }
+
+    @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
+    private WebElement savedSearchName;
+    public WebElement getSavedSearchName()
+    {
+        return savedSearchName;
+    }
+
     @FindBy(xpath = "//label[text()='所属应用']/following-sibling::div")
     private WebElement appIcon;
 
@@ -823,10 +837,6 @@ public class SearchPage extends ListPageFactory {
 
     public WebElement getNoDataInfo() {
         return noDataInfo;
-    }
-
-    public WebElement getSavedSearch() {
-        return savedSearch;
     }
 
     public WebElement getMaxLineDropdown() {

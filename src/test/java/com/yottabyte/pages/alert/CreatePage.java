@@ -60,7 +60,8 @@ public class CreatePage extends PageTemplate {
     private WebElement searchContent;
 
     // 已存搜索按钮
-    @FindBy(xpath = "//i[@class='iconfont icon-beizhu_icon graph-tips']/following-sibling::div/span")
+//    @FindBy(xpath = "//i[@class='iconfont icon-beizhu_icon graph-tips']/following-sibling::div/span")
+    @FindBy(xpath = "(//a[contains(text(),'已存搜索 +')])")
     private WebElement savedSearchButton;
 
     // 启用/禁用按钮
@@ -380,7 +381,8 @@ public class CreatePage extends PageTemplate {
     public WebElement getSavedSearch() {
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(savedSearchButton));
         savedSearchButton.click();
-        List<WebElement> list = webDriver.findElements(By.className("saved-search-dropdown-menu"));
+//        List<WebElement> list = webDriver.findElements(By.className("saved-search-dropdown-menu"));
+        List<WebElement> list = webDriver.findElements(By.className("ant-dropdown-menu-item"));
         com.yottabyte.utils.WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.visibilityOf(list.get(list.size() - 1)));
         return list.get(list.size() - 1);
     }
@@ -411,7 +413,7 @@ public class CreatePage extends PageTemplate {
         return alertPlanTimeInput1;
     }
 
-        public WebElement getAlertPlanTimeInput() {
+    public WebElement getAlertPlanTimeInput() {
         if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
             return alertPlanInputs.get(0);
         } else {
@@ -425,7 +427,7 @@ public class CreatePage extends PageTemplate {
         return getDropdownListbyPath(xpath);
     }
 
-        public List<WebElement> getAlertPlanTimeUnits() {
+    public List<WebElement> getAlertPlanTimeUnits() {
         if (alertPlanTimingButton.findElement(By.xpath("./parent::label")).getAttribute("class").contains("is-active")) {
             return getSelectors(alertPlanInputs.get(1)).findElements(By.tagName("li"));
         } else {
