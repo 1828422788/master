@@ -12,6 +12,7 @@ Feature: 用户新建（RZY-1164）
     And I set the parameter "Email" with value "<Email>"
     And I set the parameter "Password" with value "<Password>"
     And I click the "CreateButton" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the <Result>
 
     @smoke @usersSmoke

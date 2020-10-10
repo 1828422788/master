@@ -1,7 +1,7 @@
 @dashboard @dashboardSmoke
 Feature: 仪表盘详情行布局
 
-  Scenario: 新建一个行布局tag
+  Scenario: 新建一个行布局tag(RZY-4628)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
@@ -36,7 +36,7 @@ Feature: 仪表盘详情行布局
       | 行布局趋势图2 | *\|stats count() by 'apache.geo.city' |
       | 行布局趋势图3 | *\|stats count() by 'apache.geo.city' |
 
-  Scenario: 添加行
+  Scenario: 添加行(RZY-4629，RZY-3607)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
@@ -64,7 +64,7 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button
     And I wait for "1000" millsecond
 
-  Scenario: 编辑行
+  Scenario: 编辑行(RZY-4630)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
@@ -77,7 +77,7 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
     Then I wait for "FirstRow" will be visible
 
-  Scenario: 行布局添加图表
+  Scenario: 行布局添加图表(RZY-4631)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
@@ -101,7 +101,7 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
     And I click the "Ensure" button
 
-  Scenario: 行布局添加全局输入项
+  Scenario: 行布局添加全局输入项(RZY-4632)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
@@ -116,7 +116,7 @@ Feature: 仪表盘详情行布局
     Then I wait for "FilterName" will be visible
 
 
-  Scenario: 行布局添加行内输入项
+  Scenario: 行布局添加行内输入项(RZY-4633)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
@@ -133,7 +133,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     Then I wait for "InnerInputFilter" will be visible
 
-  Scenario: 行布局添加事件列表
+  Scenario: 行布局添加事件列表(RZY-4634)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
@@ -154,7 +154,7 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button under some element
     Then I wait for "RowEventName" will be visible
 
-  Scenario: 删除行
+  Scenario: 删除行(RZY-4635)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
@@ -167,7 +167,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     Then I will see the success message "删除行成功"
 
-  Scenario: 删除行内图表
+  Scenario: 删除行内图表(RZY-4636)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"

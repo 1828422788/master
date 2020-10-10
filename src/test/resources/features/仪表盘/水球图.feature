@@ -69,7 +69,7 @@ Feature: 仪表盘水球图
       | 仪表盘水球图 |
 
   @dashboard
-  Scenario Outline: 修改为字符云图
+  Scenario Outline: 修改为水球图 RZY-311
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -101,7 +101,7 @@ Feature: 仪表盘水球图
       | 仪表盘水球图 |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3753
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -115,7 +115,7 @@ Feature: 仪表盘水球图
       | 仪表盘水球图 | {\n  "title": "仪表盘水球图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:*display \| stats count() by apache.clientip \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "liquidfill",\n    "field": "count()",\n    "precision": ""\n  }\n} |
 
   @dashboard
-  Scenario: RZY-1362:修改field为空
+  Scenario: 修改field为空 RZY-1362
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘水球图"
@@ -129,7 +129,7 @@ Feature: 仪表盘水球图
     Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
 
   @dashboard
-  Scenario: RZY-1362:修改field为不存在
+  Scenario: 修改field为不存在 RZY-1362
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘水球图"
@@ -147,7 +147,7 @@ Feature: 仪表盘水球图
     Then I wait for "NoData" will be visible
 
   @dashboard
-  Scenario: RZY-1362:修改field为'apache.clientip'
+  Scenario: 修改field为'apache.clientip' RZY-1362
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘水球图"

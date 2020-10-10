@@ -1,16 +1,16 @@
 #@auth
 Feature: 权限-字段提取
 
-  Scenario Outline: 勾选字段提取所需功能权限
+  Scenario Outline: 授权功能权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
     When I "checked" the checkbox which name is "全选"
     When I "unchecked" the checkbox which name is "全选"
-    When I "checked" the checkbox which name is "可查看字段提取,新建字段提取,可查看搜索页"
+    When I "checked" the checkbox which name is "可查看搜索页"
+    And I click the "Resource" button
+    When I "checked" the checkbox which name is "可查看字段提取"
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
 
@@ -50,6 +50,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -57,6 +58,8 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "AutoTestUserCreate" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+  Scenario: 验证无读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -66,6 +69,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -74,6 +78,12 @@ Feature: 权限-字段提取
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name               |
+      | AutoTestUserCreate |
+
+  Scenario Outline: 验证读取权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -103,6 +113,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -110,6 +121,8 @@ Feature: 权限-字段提取
     When I "unchecked" function "删除,转授" from the auth table which name is "AutoTestUserCreate"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+  Scenario: 验证读取+编辑权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -145,6 +158,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -152,6 +166,12 @@ Feature: 权限-字段提取
     When I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name                   |
+      | AutoTestUserCreate(副本) |
+
+  Scenario Outline: 验证读取+编辑+删除权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -198,6 +218,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -243,6 +264,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -257,6 +279,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -264,6 +287,12 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name               |
+      | AutoTestUserRename |
+
+  Scenario Outline: 授权读取+转授权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -288,6 +317,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -298,6 +328,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -305,6 +336,12 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name               |
+      | AutoTestUserRename |
+
+  Scenario Outline: 验证读取+编辑+转授
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -350,6 +387,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -360,6 +398,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -367,6 +406,12 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name   |
+      | Auto副本 |
+
+  Scenario Outline: 授权读取+删除+转授权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -421,6 +466,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -430,6 +476,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_验证授权用户__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for "Loading" will be invisible
@@ -437,6 +484,12 @@ Feature: 权限-字段提取
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+
+    Examples:
+      | name   |
+      | 副本(副本) |
+
+  Scenario Outline: 验证所有权限
     Given I login user "AutoTest" with password "All#123456"
     And I wait for "2000" millsecond
     Given open the "configs.ListPage" page for uri "/configs/"
@@ -474,6 +527,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
+    And I click the "ResourceAuth" button
     And I wait for "Loading" will be invisible
     Then I click the "{'TabButton':'字段提取'}" button
     And I wait for loading invisible
@@ -490,9 +544,7 @@ Feature: 权限-字段提取
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "<name>" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "ResourceAuth" button
     When I "checked" the checkbox which name is "新建字段提取,可查看字典管理,新建字典"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"

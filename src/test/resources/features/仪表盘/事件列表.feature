@@ -24,7 +24,7 @@ Feature: 仪表盘事件列表
       | 仪表盘事件操作 |
 
   @dashboard @dashboardSmoke
-  Scenario: 添加事件列表
+  Scenario: 添加事件列表 RZY-3389,RZY-339
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -50,7 +50,7 @@ Feature: 仪表盘事件列表
     Then I will see the message "提交事件操作成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证事件操作
+  Scenario: 验证事件操作 RZY-338
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -65,7 +65,7 @@ Feature: 仪表盘事件列表
     Then the page's title will be "趋势图列表"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改事件操作
+  Scenario: 修改事件操作 RZY-3291,RZY-3289
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
@@ -76,7 +76,7 @@ Feature: 仪表盘事件列表
     Then I will see the message "提交事件操作成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证事件操作显示于两者
+  Scenario: 验证事件操作显示于两者 RZY-3291,RZY-3288
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -107,7 +107,7 @@ Feature: 仪表盘事件列表
     Then the page's title will be "趋势图列表"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改事件操作显示于字段
+  Scenario: 修改事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "event.ListPage" page for uri "/event/action/"
     When the data name is "{'column':'1','name':'仪表盘测试事件列表'}" then i click the "编辑" button
     Then I will see the "event.CreatePage" page
@@ -118,7 +118,7 @@ Feature: 仪表盘事件列表
     Then I will see the message "提交事件操作成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证事件操作显示于字段
+  Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -131,7 +131,7 @@ Feature: 仪表盘事件列表
     Then I will see the "Event" doesn't exist
 
   @dashboard @dashboardSmoke
-  Scenario: 验证事件操作显示于字段
+  Scenario: 验证事件操作显示于字段 RZY-3628,RZY-3290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -180,7 +180,7 @@ Feature: 仪表盘事件列表
       | EventAppname |
 
   @dashboard @dashboardSmoke
-  Scenario: 实时查看
+  Scenario: 实时查看 RZY-3409
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -196,7 +196,7 @@ Feature: 仪表盘事件列表
     Then I will see the input element "TimeRange" value will contains "30秒窗口"
 
   @dashboard @dashboardSmoke
-  Scenario: 配置字段提取
+  Scenario: 配置字段提取 RZY-3412
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -221,7 +221,7 @@ Feature: 仪表盘事件列表
     Then I wait for "ConfigDone" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 添加到知识库
+  Scenario: 添加到知识库 RZY-3413
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -239,6 +239,233 @@ Feature: 仪表盘事件列表
     And I wait for element "EventCode" value change text to "apache"
     And I click the "Next" button
     Then I will see the element "SuccessAdd" name is "添加成功"
+
+  @dashboard @dashboardSmoke
+  Scenario: 通用配置 RZY-3619
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "测试事件操作" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for loading invisible
+    And I set the parameter "ChartTitle" with value "通用配置"
+    And I wait for "500" millsecond
+    And I set the parameter "Spl" with value "*|stats count() by apache.geo.city"
+    And I click the "OpenInSearch" button
+    And switch to another window
+#    And I close all tabs except main tab
+    Then I will see the "splSearch.SearchPage" page
+    Then I will see the element "SearchInput" name is "*|stats count() by apache.geo.city"
+    Then I will see the input element "TimeRange" value will contains "今天"
+    And switch to another window
+    And I close all tabs except main tab
+    Then I will see the "dashboard.DetailPage" page
+    And I set the parameter "ChartDesc" with value "测试描述"
+    And I click the "Ensure" button
+    And I wait for "Ensure" will be invisible
+    And I click the "CustomTitle" button
+    And I wait for "500" millsecond
+    And I click the "Describe" button
+    And I move the mouse pointer to the "CustomTitle"
+    Then I will see the "DescribeText" result will be "测试描述"
+
+  @dashboard
+  Scenario Outline: 高级编辑 RZY-3620
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+#    Then I will see the "TextLayer" result will contain "<json>"
+    Then I will see the "TextLayer" result will be "<json>"
+
+    Examples:
+      | name        | json                                                                                                                                                                                                                          |
+      | 仪表盘事件操作 | {\n  "title": "通用配置",\n  "description": "测试描述",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 6,\n  "search": {\n    "query": "*\|stats count() by apache.geo.city",\n    "startTime": "now/d",\n    "endTime": "now"\n  }\n} |
+
+
+  @dashboard @dashboardSmoke
+  Scenario: 开启钻取配置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenDrilldown" button to "enable"
+#    And I click the "OpenDrilldown" button
+    And I wait for "500" millsecond
+
+  @dashboard @dashboardSmoke
+  Scenario: 跳转到搜索页 RZY-3622
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I choose the "跳转到搜索页" from the "DrillAction"
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I click the "Chengdushi" button
+    And switch to another window
+    And I will see the "splSearch.SearchPage" page
+    Then I will see the "SearchInput" result will be "* AND 'apache.geo.city':成都市"
+
+  @dashboard @dashboardSmoke
+  Scenario: 跳转到搜索页 RZY-3622
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I choose the "跳转到搜索页" from the "DrillAction"
+    And I click the "Custom" button
+    And I set the parameter "Spl" with value "* | stats count() by appname"
+    And I click the "DateEditor" button
+    And I click the "Shortcut" button
+    And I click the "WholeTime" button
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I click the "Chengdushi" button
+    And switch to another window
+    And I close all tabs except main tab
+    And I will see the "splSearch.SearchPage" page
+    Then I will see the "SearchInput" result will be "* | stats count() by appname"
+    Then I will see the input element "TimeRange" value will contains "所有时间"
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 在新标签跳转到自定义URL RZY-3625
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I choose the "跳转到自定义URL" from the "DrillAction"
+    And I set the parameter "Url" with value "<url>"
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I wait for "Chengdushi" will be visible
+    And I click the "Chengdushi" button
+    And switch to another window
+    Then the page's title will be "<title>"
+
+    Examples:
+      | url                    | title     |
+      | https://www.baidu.com/ | 百度一下，你就知道 |
+
+  @dashboard @dashboardSmoke
+  Scenario: 新建全局时间选择器
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "AddIcon" button
+    And I click the "addInput" button
+    And I set the parameter "inputSettingTitle" with value "全局时间"
+    And I click the "inputSettingType" button
+#    And I choose the "时间范围" from the "LastDropdownList"
+    And I click the "timeRangee" button
+    Then I wait for "setGlobalTimeRange" will be visible
+    And I click the "setGlobalTimeRange" button
+    And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "添加输入项成功"
+
+  @dashboard @dashboardSmoke
+  Scenario: 跳转到标签页 RZY-3802,RZY-3624
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "DrillAction" will be visible
+    And I choose the "跳转到标签页" from the "DrillAction"
+    And I click the "TargetTag" button
+    And I choose the "仪表盘事件操作" from the "DashboardMenu"
+    And I choose the "事件操作" from the "DashboardMenu"
+    And I click the "TargetParam" button
+    And I choose the "globalTimeRange" from the "InputGroup"
+    And I hide the element "ParamDropdown"
+    And I click the "ParamValue" button
+    And I click the "StartEnd" button
+    And I "checked" the checkbox which name is "在浏览器新标签页中打开"
+    And I click the "Ensure" button
+    And I click the "Chengdushi" button
+    And switch to another window
+    And I close all tabs except main tab
+    And I wait for "Progress" will be invisible
+    Then the page's title will be "仪表盘"
+    Then I will see the url contains "globalTimeRange="
+
+  @dashboard @dashboardSmoke
+  Scenario: 删除全局时间添加文本输入过滤项
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "settingIcon" button
+    And I wait for "FilterAutoRefresh" will be visible
+    And I switch the dashboard "OpenEdit" button to "enable"
+    And I click the "TimeName" button
+    And I click the "deleteTimeTag" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button under some element
+    Then I wait for "TimeName" will be invisible
+    When I click the "AddEventButton" button
+    And I click the "AddFilter" button
+    And I set the parameter "FilterTitle" with value "filter"
+    And I set the parameter "FilterToken" with value "filter"
+    And I set the parameter "FilterField" with value "apache.geo.city"
+#    And I set the parameter "FilterDefaultValue" with value "成都市"
+    Then I "checked" the checkbox which name is "通用配置"
+    Then I click the "Ensure" button
+    Then I wait for "FilterName" will be visible
+
+  @dashboard @dashboardSmoke
+  Scenario: 管理本页过滤项/输入项 数值 RZY-3626
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "DrillAction" will be visible
+    And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
+    And I wait for "1000" millsecond
+    And I click the "NewCreat" button
+    And I set the parameter "TokenInput" with value "filter"
+    And I click the "ParamValue1" button
+    And I click the "ClickValue1" button
+    And I click the "Ensure" button
+    And I click the "Chengdushi" button
+    And I wait for "Progress" will be invisible
+    Then I will see the element "FilterInput" value is "成都市"
+    And I will see the "shanghai" doesn't exist
+
+  @dashboard @dashboardSmoke
+  Scenario: 校验添加名称 RZY-337
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘事件操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "AddEventButton" will be visible
+    When I click the "AddEventButton" button
+    And I click the "AddEvent" button
+    And I set the parameter "EventName" with value "12345rewqASD?><.¥#@！～哈萨克哈萨克挥洒啊快点好#@！gfds"
+    And I set the parameter "Spl" with value "*"
+    And I click the "Ensure" button
+    Then I will see the success message "添加中，请稍后"
 
   @cleanDashboard
   Scenario: 删除知识库

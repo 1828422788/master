@@ -67,6 +67,20 @@ public class PageTemplate extends LoadableComponent<PageTemplate> {
     @FindBy(className = "ant-message-success")
     private WebElement successMessage;
 
+    @FindBy(xpath = "//span[@class='ant-badge']/i")
+    private WebElement userIcon;
+
+    @FindBy(xpath = "//div[@class='ant-popover-inner-content']//p")
+    private WebElement loginUserName;
+
+    public WebElement getUserIcon() {
+        return userIcon;
+    }
+
+    public WebElement getLoginUserName() {
+        return loginUserName;
+    }
+
     public WebElement getMessage() {
         return message;
     }

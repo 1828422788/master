@@ -69,7 +69,7 @@ Feature: 仪表盘旭日图
       | 仪表盘旭日图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为旭日图
+  Scenario Outline: 修改为旭日图 RZY-3398
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

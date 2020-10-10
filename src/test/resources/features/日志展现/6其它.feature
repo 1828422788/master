@@ -5,7 +5,6 @@ Feature: 日志展现_其它
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-    # the chart is different every time, can not compare
   Scenario Outline: others(RZY-2804)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
@@ -16,6 +15,9 @@ Feature: 日志展现_其它
     And I click the "<chartType>" button
 
     And I click the "Type" button
+    And I wait for "ChartView" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
@@ -73,6 +75,9 @@ Feature: 日志展现_其它
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>_<caseNum>"
@@ -113,7 +118,6 @@ Feature: 日志展现_其它
       | chartType  | caseNum | spl                                                                       |
       | Liquidfill | 分面    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip, apache.method \| sort by apache.clientip \| limit 2 \| eval cnt = ip_count/10 \| sort by cnt|
 
-
   Scenario Outline: others(RZY-2807,2449)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
@@ -123,7 +127,11 @@ Feature: 日志展现_其它
     And I click the "Other" button
     And I click the "<chartType>" button
 
+    And I wait for "2000" millsecond
     And I click the "Type" button
+    And I wait for "ChartView" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
@@ -175,6 +183,7 @@ Feature: 日志展现_其它
     And I click the "Type" button
     And I click the "Other" button
     And I click the "<chartType>" button
+    And I wait for "2000" millsecond
     And I click the "Settings" button
     And I click the "Value" button
     And I choose the "<countValue>" from the "FieldValue" in config
@@ -217,6 +226,9 @@ Feature: 日志展现_其它
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<caseNum>_<chartType>"
@@ -227,7 +239,6 @@ Feature: 日志展现_其它
       |  Matrixheatmap |  count()        | apache.status |  10    |2810    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       |  Matrixheatmap | apache.geo.city |    count()    |  5     |2811    | tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-@chaintest
   Scenario Outline: chain(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
@@ -257,6 +268,9 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "ChartView" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
@@ -290,6 +304,9 @@ Feature: 日志展现_其它
     And I click the "Generate" button
 
     And I click the "Settings" button
+    And I wait for "ChartView" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
@@ -339,7 +356,7 @@ Feature: 日志展现_其它
       |  Chain     | Green  | 1         |dapper.class | dapper.msg.parentId  | dapper.msg.id |dapper.msg.timestamp    | dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2812_tree | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
       |  Chain     | Red    | 2         |dapper.class | dapper.msg.parentId  | dapper.msg.id |               timestamp| dapper.msg.duration |  dapper.msg.binaryAnnotations[].value | 2814_tree | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations[].value, timestamp \| sort by dapper.msg.duration|
 
-    @network
+
   Scenario Outline: network
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
     And I click the "SearchButton" button
@@ -363,7 +380,6 @@ Feature: 日志展现_其它
       |  NetworkNode  |                  |
       |  NetworkNode  | ClickPOST        |
 
-  @network
   Scenario Outline: network
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
     And I click the "SearchButton" button
@@ -382,6 +398,9 @@ Feature: 日志展现_其它
     And I click the "Settings" button
 
     And I wait for "ChartView" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/Network/<chartType>_<color>_<repValue>"
@@ -391,7 +410,7 @@ Feature: 日志展现_其它
       |  chartType    | color      | repValue  |
       |  NetworkNode  | Red        | 20        |
 
-  @network
+
   Scenario Outline: network
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
     And I click the "SearchButton" button

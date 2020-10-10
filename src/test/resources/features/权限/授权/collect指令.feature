@@ -1,21 +1,16 @@
-@auth
+@authtest
 Feature: 权限-collect指令
 
-  Scenario Outline: 取消可使用collect指令
+  Scenario: 取消可使用collect指令
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "<name>" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "全选" in trend page
+    And I "unchecked" the checkbox which name is "全选" in trend page
     When I "checked" the checkbox which name is "可查看搜索页"
-    When I "unchecked" the checkbox which name is "可使用collect指令"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-
-    Examples:
-      | name              |
-      | __user_AutoTest__ |
 
   Scenario: 新建索引
     Given open the "index.ListPage" page for uri "/indexsettings/"
@@ -37,20 +32,14 @@ Feature: 权限-collect指令
     And I click the "SearchButton" button
     Then I wait for element "SearchStatus" change text to "搜索出错!"
 
-  Scenario Outline: 勾选collect指令
+  Scenario: 勾选collect指令
     Given open the "roles.ListPage" page for uri "/account/roles/"
-    And the data name is "<name>" then i click the "授权" button
+    And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "全选" in trend page
+    And I "unchecked" the checkbox which name is "全选" in trend page
     When I "checked" the checkbox which name is "可使用collect指令"
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
-
-    Examples:
-      | name              |
-      | __user_AutoTest__ |
 
   Scenario: 验证无写入索引权限
     Given I login user "AutoTest" with password "All#123456"
@@ -65,9 +54,7 @@ Feature: 权限-collect指令
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'索引'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "Index" button
     When I "checked" function "读取,编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
@@ -98,7 +85,7 @@ Feature: 权限-collect指令
 
   Scenario Outline: 删除索引
     Given open the "index.ListPage" page for uri "/indexsettings/"
-    When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
+    When the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     Then I click the "Ensure" button
 
     Examples:

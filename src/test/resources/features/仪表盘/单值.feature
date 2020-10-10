@@ -62,7 +62,7 @@ Feature: 仪表盘单值
     And I "checked" the checkbox which name is "仪表盘单值"
     And I click the "Ensure" button
 
-  Scenario: 修改为单值
+  Scenario: 修改为单值 RZY-342
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
@@ -87,7 +87,23 @@ Feature: 仪表盘单值
     And take part of "FullScreen" with name "dashboard/仪表盘单值"
 #    Then I compare source image "dashboard/仪表盘单值" with target image "dashboard/single"
 
-  Scenario Outline: 验证单值图的fontSize
+  @dashboard
+  Scenario Outline: 验证配置是否在高级编辑中体现
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I will see the "TextLayer" result will contain "<json>"
+#    Then I will see the "TextLayer" result will be "<json>"
+
+    Examples:
+      | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
+      | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "30",\n    "precision": "3",\n    "useThousandSeparators": false,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n |
+
+
+  Scenario Outline: 验证单值图的fontSize RZY-1345,RZY-1346,RZY-1347,RZY-1348,RZY-1349
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
@@ -107,7 +123,7 @@ Feature: 仪表盘单值
       | 1000     | SuccessMessage | 校验通过                                          |
       | 14       | SuccessMessage | 校验通过                                          |
 
-  Scenario Outline: 验证单值图的color
+  Scenario Outline: 验证单值图的color RZY-1350,RZY-1351
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
@@ -177,7 +193,7 @@ Feature: 仪表盘单值
 
     ###########
 
-  Scenario: 恢复至初始
+  Scenario: 恢复至初始 RZY-296,RZY-3391
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘单值"
@@ -191,6 +207,18 @@ Feature: 仪表盘单值
 #    And I click the "SettingEnsure" button
     And I wait for "Progress" will be invisible
     Then I wait for "Table" will be visible
+
+  Scenario: 时间范围选择 RZY-3392
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘单值"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "TimeRangeDanzhi" button
+    And I wait for "1000" millsecond
+    And I click the "RecentSevenDay1" button
+    And I wait for loading invisible
+    Then I wait for element "TimeRangeDanzhi" change text to "最近7天"
 
   Scenario Outline: RZY-3694修改表格chartType
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

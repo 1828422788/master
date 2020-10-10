@@ -41,7 +41,7 @@ Feature: 仪表盘通用配置
     And I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario: 修改图表标题
+  Scenario: 修改图表标题  RZY-290
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
@@ -56,7 +56,7 @@ Feature: 仪表盘通用配置
     Then I will see the element "CustomTitle" name is "测试通用配置"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改spl
+  Scenario: 修改spl RZY-291,RZY-292,RZY-293
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试通用配置"
@@ -64,19 +64,29 @@ Feature: 仪表盘通用配置
     When the chart title is "测试通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
+    And I set the parameter "Spl" with value ""
+    And I wait for "500" millsecond
+    And I wait for "SplOfLack" will be visible
+    And I click the "OpenInSearch" button
+    And I will see the error message "查询语句错误"
     And I set the parameter "Spl" with value "*|stats count() by apache.geo.city"
-    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I click the "Ensure" button under some element
     And I wait for "Ensure" will be invisible
     When the chart title is "测试通用配置" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for "OpenInSearch" will be visible
+    And I click the "DateEditor" button
+    And I click the "Yesterday" button
     And I click the "OpenInSearch" button
     And switch to another window
+    And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
     Then I will see the element "SearchInput" name is "*|stats count() by apache.geo.city"
+    Then I will see the input element "TimeRange" value will contains "昨天"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改图表描述
+  Scenario: 修改图表描述 RZY-295
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试通用配置"

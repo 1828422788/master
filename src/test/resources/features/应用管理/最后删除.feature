@@ -24,6 +24,7 @@ Feature: 应用删除
       | AuthApp                     |
       | DatasetApp                  |
       | KVApp                       |
+      | AppFieldConfig              |
 
   Scenario: 删除数据集
     Given open the "dataset.ListPage" page for uri "/dataset/"
@@ -39,6 +40,7 @@ Feature: 应用删除
 
     Examples:
       | name    |
+      | app所选资源 |
       | app所选资源 |
       | app所选资源 |
       | app所选资源 |

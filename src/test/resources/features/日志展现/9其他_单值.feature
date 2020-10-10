@@ -44,6 +44,9 @@ Feature: 日志展现_其他_单值
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<iconValue>"
@@ -226,6 +229,9 @@ Feature: 日志展现_其他_单值
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
     And I wait for "2000" millsecond
     And take part of "ChartView" with name "actual/高级搜索视图/6其它/<chartType>/<caseNum>_<colorFill>"
@@ -279,7 +285,7 @@ Feature: 日志展现_其他_单值
     Examples:
       |  chartType    | caseNum          |
       |   Single      | Sparkline_分面   |
-  @datavalsingle
+
   Scenario Outline: data_value
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button

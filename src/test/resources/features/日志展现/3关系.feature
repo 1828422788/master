@@ -5,7 +5,6 @@ Feature: 日志展现_关系
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-
   Scenario Outline: connection(RZY-834,2783,2784)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
     And I click the "SearchButton" button
@@ -16,6 +15,9 @@ Feature: 日志展现_关系
     And I click the "<chartType>" button
 
     And I click the "Type" button
+    And I wait for "Chart" will be visible
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
     And I wait for "2000" millsecond

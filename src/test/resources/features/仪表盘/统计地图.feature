@@ -83,7 +83,7 @@ Feature: 仪表盘统计地图
       | 仪表盘统计地图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为统计地图
+  Scenario Outline: 修改为统计地图 RZY-3400
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

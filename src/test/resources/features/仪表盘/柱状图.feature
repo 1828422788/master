@@ -70,7 +70,7 @@ Feature: 仪表盘柱状图
       | 仪表盘柱状图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为柱状图
+  Scenario Outline: 修改为柱状图 RZY-303
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -132,7 +132,7 @@ Feature: 仪表盘柱状图
     And I wait for "500" millsecond
 
   @dashboard
-  Scenario: 序列图支持的钻取变量click.name
+  Scenario: 序列图支持的钻取变量click.name RZY-3255
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
@@ -157,7 +157,7 @@ Feature: 仪表盘柱状图
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 序列图支持的钻取变量click.value
+  Scenario: 序列图支持的钻取变量click.value RZY-3257
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
@@ -183,7 +183,7 @@ Feature: 仪表盘柱状图
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 序列图支持的钻取变量click.name2
+  Scenario: 序列图支持的钻取变量click.name2 RZY-3258
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"
@@ -209,7 +209,7 @@ Feature: 仪表盘柱状图
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
-  Scenario: 序列图支持的钻取变量click.value2
+  Scenario: 序列图支持的钻取变量click.value2 RZY-3259
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘柱状图"

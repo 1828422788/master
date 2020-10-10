@@ -55,7 +55,7 @@ Feature: 仪表盘输入项
       | 仪表盘1669所用趋势图 | (appname:\"aa\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: RZY-1668添加输入项
+  Scenario Outline: RZY-1668添加单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -87,7 +87,7 @@ Feature: 仪表盘输入项
     And I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario: 验证输入项
+  Scenario: 验证单引号输入项
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -123,7 +123,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be invisible
 
   @dashboard @dashboardSmoke
-  Scenario: 添加时间范围输入项
+  Scenario: 添加时间范围输入项(RZY-4573,RZY-227)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the detail which name is "测试输入项"
     Then I will see the "dashboard.DetailPage" page
@@ -141,7 +141,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterTime" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 验证默认值添加图表
+  Scenario: 验证默认值添加图表 RZY-4617
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -157,7 +157,7 @@ Feature: 仪表盘输入项
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证时间范围输入项
+  Scenario: 验证时间范围输入项 RZY-4573
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -172,7 +172,7 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证时间范围标识前后缀
+  Scenario: 验证时间范围标识前后缀 RZY-4641
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -212,7 +212,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterTime" will be invisible
 
   @dashboard @dashboardSmoke
-  Scenario Outline: RZY-1669添加输入项
+  Scenario Outline: 添加输入项 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -230,7 +230,7 @@ Feature: 仪表盘输入项
       | filter | aa           |
 
   @dashboard @dashboardSmoke
-  Scenario: RZY-1669:添加图表
+  Scenario: 添加图表 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -242,10 +242,11 @@ Feature: 仪表盘输入项
     And I wait for loading invisible
     And I click the "{'Checkbox':'仪表盘1669所用趋势图'}" button
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     Then I wait for element "SuccessMessage" change text to "添加成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证RZY-1669
+  Scenario: 验证 RZY-1669
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -272,7 +273,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be invisible
 
   @dashboard @dashboardSmoke
-  Scenario: 增加标识前后缀
+  Scenario: 增加标识前后缀RZY-273，RZY-274
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -288,7 +289,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 验证标识前后缀
+  Scenario: 验证标识前后缀RZY-3798
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -324,7 +325,7 @@ Feature: 仪表盘输入项
     Then I wait for "Appname" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 修改为自动搜索
+  Scenario: 修改为自动搜索(RZY-272)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -367,7 +368,7 @@ Feature: 仪表盘输入项
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 添加下拉菜单输入项
+  Scenario: 添加下拉菜单输入项 RZY-275，RZY-279
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -389,7 +390,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 验证下拉菜单默认输入项
+  Scenario: 验证下拉菜单默认输入项 RZY-280
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -405,7 +406,7 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证下拉菜单搜索
+  Scenario: 验证下拉菜单搜索 RZY-276
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -429,7 +430,7 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改下拉菜单为自动搜索
+  Scenario: 修改下拉菜单为自动搜索 RZY-278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -441,7 +442,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario: 验证下拉菜单为自动搜索
+  Scenario: 验证下拉菜单为自动搜索 RZY-278
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -464,7 +465,7 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
-  Scenario: 修改为多选并填入分割符
+  Scenario: 修改为多选并填入分割符 RZY-3428,RZY-3431
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -478,7 +479,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario: 验证多选生效
+  Scenario: 验证多选生效 RZY-3428,RZY-3431
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -497,7 +498,7 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
-  Scenario: 增加前后缀值
+  Scenario: 增加前后缀值 RZY-3429
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -510,7 +511,7 @@ Feature: 仪表盘输入项
     Then I click the "Ensure" button
 
   @dashboard @dashboardSmoke
-  Scenario: 验证前后缀生效
+  Scenario: 验证前后缀生效 RZY-3429
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -550,7 +551,7 @@ Feature: 仪表盘输入项
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 增加标识值前后缀
+  Scenario: 增加标识值前后缀 RZY-3430
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -576,7 +577,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 验证标识符前后缀
+  Scenario: 验证标识符前后缀 RZY-3430
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -612,7 +613,7 @@ Feature: 仪表盘输入项
     Then I will see the success message "配置成功"
 
   @dashboard @dashboardSmoke
-  Scenario: 添加动态菜单输入项
+  Scenario: 添加动态菜单输入项 RZY-281,RZY-283,RZY-286
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -635,7 +636,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 验证动态菜单默认值结果
+  Scenario: 验证动态菜单默认值结果 RZY-287
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -651,7 +652,7 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
-  Scenario: 切换动态菜单值并验证结果
+  Scenario: 切换动态菜单值并验证结果 RZY-284
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -675,7 +676,41 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
-  Scenario: 增加动态菜单标识符前后缀
+  Scenario: 验证动态字段、搜索内容 RZY-284,RZY-285
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "FilterName" button
+    And I click the "FilterSetting" button
+    And I wait for loading invisible
+    And I set the parameter "DynamicField" with value ""
+    And I wait for "500" millsecond
+    And I click the "Search" button under some element
+    And I wait for "500" millsecond
+    Then I wait for element "NoticeMessage" change text to "缺少动态字段值"
+    And I set the parameter "DynamicField" with value "hhhhhhhhhhhhh"
+    And I wait for "500" millsecond
+    And I click the "Search" button under some element
+    And I wait for loading invisible
+    Then I wait for "LackField" will be visible
+    Then I click the "EnsureErrorSplButton" button
+    And I wait for "1500" millsecond
+    And I set the parameter "DynamicField" with value "avg_len"
+#    And I click the "EnsureErrorSplButton" button
+    And I set the parameter "Spl" with value "hello goodbey"
+    And I wait for "500" millsecond
+    And I click the "Search" button under some element
+    And I wait for loading invisible
+    Then I wait for "ErrorSpl" will be visible
+    And I click the "EnsureErrorSplButton" button
+    And I wait for "1500" millsecond
+    And I set the parameter "Spl" with value ""
+    And I wait for "1500" millsecond
+    Then I wait for "ErrorNoSpl" will be visible
+
+  @dashboard @dashboardSmoke
+  Scenario: 增加动态菜单标识符前后缀 RZY-288
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -702,7 +737,7 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
-  Scenario: 增加动态菜单多选及标识值前后缀
+  Scenario: 增加动态菜单多选及标识值前后缀 RZY-288，RZY-3432
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -731,7 +766,7 @@ Feature: 仪表盘输入项
     Then I wait for "FilterName" will be visible
 
   @dashboard @dashboardSmoke
-  Scenario: 验证多选
+  Scenario: 验证多选 RZY-3432
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -755,7 +790,7 @@ Feature: 仪表盘输入项
     Then I compare with list "TableList"
 
   @dashboard @dashboardSmoke
-  Scenario: 验证修改值自动搜索
+  Scenario: 验证修改值自动搜索 RZY-282
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "测试输入项"
@@ -792,6 +827,26 @@ Feature: 仪表盘输入项
 #    Then I will see the success message "校验通过"
 #    And I click the "Ensure" button
 #    And I wait for "Progress" will be invisible
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: 标题、标识校验（RZY-270,RZY-271）
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "测试输入项"
+    Then I will see the "dashboard.DetailPage" page
+    When I click the "AddEventButton" button
+    And I click the "AddInput" button
+    And I set the parameter "FilterTitle" with value "<title>"
+    And I set the parameter "FilterToken" with value "apache.status"
+    Then I wait for "ErrorContainPoin" will be visible
+    And I set the parameter "FilterToken" with value "<token>"
+    Then I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
+    Then I will see the success message "添加输入项成功"
+
+    Examples:
+      | title  | token  |
+      | @#¥%xiaoxiezimu汉字DAXIEZIMU（）*&……%¥¥%520 | @#¥%xiaoxiezimu汉字DAXIEZIMU（）*&……%¥¥%520 |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图

@@ -69,7 +69,7 @@ Feature: 仪表盘散点图
       | 仪表盘散点图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为散点图
+  Scenario Outline: 修改为散点图 RZY-304
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"

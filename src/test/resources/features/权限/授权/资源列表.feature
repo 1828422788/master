@@ -1,14 +1,14 @@
-@auth
+@authtest
 Feature: 权限-资源列表
 
   Scenario: 取消勾选可查看资源列表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I click the "Resource" button
     And I "unchecked" the checkbox which name is "可查看资源列表"
+    And I click the "Resource" button
+    And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
 
@@ -21,11 +21,10 @@ Feature: 权限-资源列表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
+    And I "checked" the checkbox which name is "全选"
+    And I "unchecked" the checkbox which name is "全选"
+    And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看资源列表"
-    And I "unchecked" the checkbox which name is "可使用资源包导入、导出"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"
 
@@ -38,10 +37,7 @@ Feature: 权限-资源列表
     Given open the "roles.ListPage" page for uri "/account/roles/"
     And the data name is "__user_AutoTest__" then i click the "授权" button
     And I will see the "roles.AuthorizationPage" page
-    And I wait for "Loading" will be invisible
-    Then I click the "{'TabButton':'功能'}" button
-    And I wait for "Loading" will be invisible
-    And I "checked" the checkbox which name is "可查看资源列表"
+    And I click the "Resource" button
     And I "checked" the checkbox which name is "可使用资源包导入、导出"
     And I click the "SaveButton" button
     Then I will see the success message "更新成功"

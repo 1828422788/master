@@ -69,7 +69,7 @@ Feature: 仪表盘区间图
       | 仪表盘区间图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为区间图
+  Scenario Outline: 修改为区间图 RZY-308
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -104,7 +104,7 @@ Feature: 仪表盘区间图
       | 仪表盘区间图 | Rangeline  |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3703
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -119,7 +119,7 @@ Feature: 仪表盘区间图
       | 仪表盘区间图 |  \n  "chart": {\n    "chartType": "rangeline",\n    "xAxis": {\n      "field": "ts"\n    },\n    "precision": "",\n    "yAxis": {\n      "field": "count",\n      "predictField": "_predict_count",\n      "anomalyField": ""\n    },\n    "boundary": {\n      "upperField": "upper95",\n      "lowerField": "lower95"\n    } |
 
   @dashboard
-  Scenario: RZY-1362:修改chartType为其他值
+  Scenario: 修改chartType为其他值 RZY-3704
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘区间图"
@@ -133,7 +133,7 @@ Feature: 仪表盘区间图
     Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持qwertyuiop"
 
   @dashboard
-  Scenario: RZY-3706:修改yAxis:field为不存在
+  Scenario: 修改yAxis:field为不存在 RZY-3706
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘区间图"

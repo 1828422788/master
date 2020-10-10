@@ -69,7 +69,7 @@ Feature: 仪表盘饼状图
       | 仪表盘饼状图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为饼状图
+  Scenario Outline: 修改为饼状图 RZY-298
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -101,7 +101,7 @@ Feature: 仪表盘饼状图
       | 仪表盘饼状图 | Pie  |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3695
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -116,7 +116,7 @@ Feature: 仪表盘饼状图
       | 仪表盘饼状图 |  \n  "chart": {\n    "chartType": "pie",\n    "field": "count()",\n    "byFields": [\n      "apache.clientip"\n    ],\n    "precision": "",\n    "useFlameDrillDown": false\n  } |
 
   @dashboard
-  Scenario: RZY-1362:修改为不存在的字段
+  Scenario: 修改为不存在的字段 RZY-3697
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘饼状图"

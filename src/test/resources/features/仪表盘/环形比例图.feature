@@ -69,7 +69,7 @@ Feature: 仪表盘环形比例图
       | 仪表盘环形比例图 |
 
   @dashboard @dashboardSmoke
-  Scenario: 修改为环形比例图
+  Scenario: 修改为环形比例图 RZY-4388
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘环形比例图"
