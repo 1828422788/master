@@ -367,6 +367,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i")
     private WebElement moreXuanTing2;
 
+    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[3]")
+    private WebElement deleteTrend2;
+
     @FindBy(xpath = "//div[text()='行布局趋势图1']")
     private WebElement trendOne;
 
@@ -854,6 +857,8 @@ public class DetailPage extends PageTemplate {
     public WebElement getMoreXuanTing() { return moreXuanTing; }
 
     public WebElement getMoreXuanTing2() { return moreXuanTing2; }
+
+    public WebElement getDeleteTrend2() { return deleteTrend2; }
 
     public WebElement getTrendOne() { return trendOne; }
 

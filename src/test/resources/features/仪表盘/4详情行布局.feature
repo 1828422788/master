@@ -186,8 +186,7 @@ Feature: 仪表盘详情行布局
     When I click the detail which name is "UIautotest"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    And I click the "MoreXuanTing2" button
-    And I click the "ChartDelete" button
+    And I click the "DeleteTrend2" button
     And I click the "Ensure" button
     And I wait for "500" millsecond
 
@@ -224,10 +223,10 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
     Then I will see the "dashboard.DetailPage" page
-#    And I click the "SettingIcon" button
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "500" millsecond
-#    And I will see the success message "展示条件已禁用"
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I will see the success message "过展示条件已禁用"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for "1000" millsecond
@@ -486,7 +485,8 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "展示条件已启用"
     Then I wait for "trendThree" will be visible
-    Then I wait for "trendTwo" will be visible
+    Then I will see the "trendTwo" doesn't exist
+#    Then I wait for "trendTwo" will be visible
 
   Scenario: 展示条件缺失校验 RZY-4792
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -508,6 +508,330 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
+
+  Scenario: 展示条件-下拉菜单输入项预置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "UIautotest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    And I click the "FilterName" button
+    And I click the "FilterSetting" button
+    And I wait for "500" millsecond
+    And I choose the "下拉菜单" from the "InputType"
+    And I click the "SingleChoice" button
+    And I set the parameter "ChoiceValue" with value "111"
+    And I click the "AddChoiceValueButton" button
+    And I set the parameter "ChoiceValue" with value "a1111b"
+    And I click the "AddChoiceValueButton" button
+    And I set the parameter "ChoiceValue" with value "6"
+    And I click the "AddChoiceValueButton" button
+    And I set the parameter "ChoiceValue" with value "0"
+    And I click the "AddChoiceValueButton" button
+    And I choose the "111" from the "DefaultDropdownList"
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    Then I wait for "FilterName" will be visible
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I will see the success message "过展示条件已禁用"
+
+  Scenario: 展示条件-下拉菜单输入项 RZY-4785
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "UIautotest"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "不为空" from the "ShowCondition"
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "配置成功"
+    And I click the "MoreXuanTing2" button
+    And I click the "MoreConfig" button
+    And I click the "MoreConfigs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "为空" from the "ShowCondition"
+    And I click the "Ensure" button
+    And I wait for "1000" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "3000" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "enable"
+    And I wait for "500" millsecond
+    Then I will see the "trendTwo" doesn't exist
+    Then I wait for "trendThree" will be visible
+    And I click the "trendThree" button
+    And I wait for "1500" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I click the "trendThree" button
+    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "包含" from the "ShowCondition"
+    And I wait for "ShowValue" will be visible
+    And I set the parameter "ShowValue" with value "a"
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "配置成功"
+    And I click the "MoreXuanTing2" button
+    And I click the "MoreConfig" button
+    And I click the "MoreConfigs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "匹配正则" from the "ShowCondition"
+    And I set the parameter "ShowValue" with value "a1?b"
+    And I click the "Ensure" button
+    And I wait for "1000" millsecond
+    And I choose the "a1111b" from the "FilterDropdown"
+    And I click the "SettingIcon" button
+    And I wait for "1500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "enable"
+    And I wait for "500" millsecond
+    Then I will see the "trendTwo" doesn't exist
+    Then I wait for "trendThree" will be visible
+    And I click the "trendThree" button
+    And I wait for "1500" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I click the "trendThree" button
+    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "等于" from the "ShowCondition"
+    And I wait for "ShowValue" will be visible
+    And I set the parameter "ShowValue" with value "a1111b"
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "配置成功"
+    And I click the "MoreXuanTing2" button
+    And I click the "MoreConfig" button
+    And I click the "MoreConfigs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "不等于" from the "ShowCondition"
+    And I set the parameter "ShowValue" with value "a1111b"
+    And I click the "Ensure" button
+    And I wait for "1000" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "1000" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "enable"
+    And I wait for "500" millsecond
+    Then I wait for "trendThree" will be visible
+    Then I will see the "trendTwo" doesn't exist
+    And I click the "trendThree" button
+    And I wait for "1500" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I click the "trendThree" button
+    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "大于" from the "ShowCondition"
+    And I wait for "ShowValue" will be visible
+    And I set the parameter "ShowValue" with value "5"
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "配置成功"
+    And I click the "MoreXuanTing2" button
+    And I click the "MoreConfig" button
+    And I click the "MoreConfigs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "小于" from the "ShowCondition"
+    And I set the parameter "ShowValue" with value "9"
+    And I click the "Ensure" button
+    And I refresh the website
+    And I wait for "1000" millsecond
+    And I choose the "6" from the "FilterDropdown"
+    And I click the "SettingIcon" button
+    And I wait for "3000" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "enable"
+    And I wait for "500" millsecond
+    And I will see the success message "展示条件已启用"
+    Then I wait for "trendTwo" will be visible
+    Then I wait for "trendThree" will be visible
+    And I click the "trendThree" button
+    And I refresh the website
+    And I choose the "0" from the "FilterDropdown"
+    Then I will see the "trendThree" doesn't exist
+    Then I wait for "trendTwo" will be visible
+    And I click the "trendTwo" button
+    And I refresh the website
+    And I choose the "111" from the "FilterDropdown"
+    Then I will see the "trendTwo" doesn't exist
+    Then I wait for "trendThree" will be visible
+
+  Scenario: 展示条件-动态菜单输入项预置
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "UIautotest"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "1000" millsecond
+    And I click the "FilterName" button
+    And I click the "FilterSetting" button
+    And I wait for "500" millsecond
+    And I choose the "动态菜单" from the "InputType"
+    And I click the "SingleChoice" button
+    And I set the parameter "DynamicField" with value "avg_len"
+    And I set the parameter "Spl" with value "* | stats avg(apache.resp_len) as avg_len by apache.clientip"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "Search" button under some element
+    And I wait for loading invisible
+    And I choose the "1441" from the "DefaultDropdownList"
+    Then I click the "Ensure" button
+    Then I wait for "FilterName" will be visible
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+
+  Scenario: 展示条件-动态菜单输入项 RZY-4786
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    When I click the detail which name is "UIautotest"
+    Then I will see the "dashboard.DetailPage" page
+    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "不为空" from the "ShowCondition"
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "配置成功"
+    And I click the "MoreXuanTing2" button
+    And I click the "MoreConfig" button
+    And I click the "MoreConfigs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "为空" from the "ShowCondition"
+    And I click the "Ensure" button
+    And I wait for "1000" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "3000" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "enable"
+    And I wait for "500" millsecond
+    Then I will see the "trendTwo" doesn't exist
+    Then I wait for "trendThree" will be visible
+    And I click the "trendThree" button
+    And I wait for "1500" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I click the "trendThree" button
+    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "包含" from the "ShowCondition"
+    And I wait for "ShowValue" will be visible
+    And I set the parameter "ShowValue" with value "."
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "配置成功"
+    And I click the "MoreXuanTing2" button
+    And I click the "MoreConfig" button
+    And I click the "MoreConfigs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "匹配正则" from the "ShowCondition"
+    And I set the parameter "ShowValue" with value "14?41"
+    And I click the "Ensure" button
+    And I wait for "1000" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "1500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "enable"
+    And I wait for "500" millsecond
+    Then I will see the "trendThree" doesn't exist
+    Then I wait for "trendTwo" will be visible
+    And I click the "trendTwo" button
+    And I wait for "1500" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I click the "trendThree" button
+    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "等于" from the "ShowCondition"
+    And I wait for "ShowValue" will be visible
+    And I set the parameter "ShowValue" with value "1441"
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "配置成功"
+    And I click the "MoreXuanTing2" button
+    And I click the "MoreConfig" button
+    And I click the "MoreConfigs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "不等于" from the "ShowCondition"
+    And I set the parameter "ShowValue" with value "1441"
+    And I click the "Ensure" button
+    And I wait for "1000" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "1000" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "enable"
+    And I wait for "500" millsecond
+    Then I wait for "trendThree" will be visible
+    Then I will see the "trendTwo" doesn't exist
+    And I click the "trendThree" button
+    And I wait for "1500" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "500" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "disable"
+    And I wait for "500" millsecond
+    And I click the "trendThree" button
+    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Configs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "大于" from the "ShowCondition"
+    And I wait for "ShowValue" will be visible
+    And I set the parameter "ShowValue" with value "1000"
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "配置成功"
+    And I click the "MoreXuanTing2" button
+    And I click the "MoreConfig" button
+    And I click the "MoreConfigs" button
+    And I wait for "1000" millsecond
+    And I choose the "filter" from the "ShowFilterConfig"
+    And I choose the "小于" from the "ShowCondition"
+    And I set the parameter "ShowValue" with value "2000"
+    And I click the "Ensure" button
+    And I refresh the website
+    And I wait for "1000" millsecond
+    And I click the "SettingIcon" button
+    And I wait for "3000" millsecond
+    And I switch the dashboard "OpenShowCondition" button to "enable"
+    And I wait for "500" millsecond
+    And I will see the success message "展示条件已启用"
+    Then I wait for "trendTwo" will be visible
+    Then I wait for "trendThree" will be visible
+    And I click the "trendThree" button
+    And I refresh the website
+    And I choose the "0" from the "FilterDropdown"
+    Then I will see the "trendThree" doesn't exist
+    Then I wait for "trendTwo" will be visible
+    And I click the "trendTwo" button
 
   Scenario Outline: 删除行布局所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
