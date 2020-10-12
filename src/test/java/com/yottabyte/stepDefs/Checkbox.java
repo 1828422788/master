@@ -32,10 +32,9 @@ public class Checkbox {
     @And("^I \"([^\"]*)\" the label before \"([^\"]*)\"$")
     public void clickCheckLabel(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "//div[contains(text(),'" + name + "')]/ancestor::td/preceding-sibling::td//label";
+            String xpath = "//span[contains(text(),'" + name + "')]/preceding-sibling::label";
             WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//span"));
-            String attribute = span.getAttribute("class");
+            String attribute = label.getAttribute("class");
             if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
                 label.click();
             }
