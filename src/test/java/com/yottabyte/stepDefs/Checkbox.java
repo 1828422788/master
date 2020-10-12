@@ -17,7 +17,6 @@ import java.util.Map;
 
 /**
  * 对复选框的操作
- *
  */
 public class Checkbox {
     WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
@@ -32,15 +31,52 @@ public class Checkbox {
     @And("^I \"([^\"]*)\" the label before \"([^\"]*)\"$")
     public void clickCheckLabel(String status, List<String> nameList) {
         for (String name : nameList) {
-            String xpath = "//div[contains(text(),'" + name + "')]/ancestor::td/preceding-sibling::td//label";
+            String xpath = "//span[contains(text(),'" + name + "')]/preceding-sibling::label";
             WebElement label = webDriver.findElement(By.xpath(xpath));
-            WebElement span = label.findElement(By.xpath(".//span"));
-            String attribute = span.getAttribute("class");
+            String attribute = label.getAttribute("class");
             if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
                 label.click();
             }
         }
     }
+
+    /**
+     * 勾选某个名称后面的checkbox
+     *
+     * @param status   想要将复选框置为的状态，checked/unchecked
+     * @param nameList 想要勾选/取消勾选的名称（支持传入list）
+     */
+    @And("^I \"([^\"]*)\" the label after \"([^\"]*)\"$")
+    public void clickLabelAfterName(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "//label[text()='" + name + "']/following-sibling::div//label";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            String attribute = label.getAttribute("class");
+            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                label.click();
+            }
+        }
+    }
+
+    /**
+     * 在列表页中勾选checkbox，支持批量勾选
+     *
+     * @param status
+     * @param nameList
+     */
+    @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\"$")
+    public void clickCheckBoxInList(String status, List<String> nameList) {
+        for (String name : nameList) {
+            String xpath = "//td[text()='" + name + "']/preceding-sibling::td//label";
+            WebElement label = webDriver.findElement(By.xpath(xpath));
+            String attribute = label.getAttribute("class");
+            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                label.click();
+            }
+        }
+
+    }
+
 
     /**
      * 勾选或取消勾选checkbox（名称可直接点击）
