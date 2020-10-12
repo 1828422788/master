@@ -84,6 +84,9 @@ public class Checkbox {
                     break;
                 }
             }
+            if (nameList.size() == 0) {
+                return;
+            }
         }
     }
 
