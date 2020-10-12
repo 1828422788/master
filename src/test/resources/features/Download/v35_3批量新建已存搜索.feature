@@ -1,4 +1,4 @@
-@newsaved
+@newallsaved
 Feature: 已存搜索新建（RZY-150）
 
   Background:
@@ -18,7 +18,7 @@ Feature: 已存搜索新建（RZY-150）
     And I click the "EnsureCreateSavedSearch" button
     Then I will see the success message "创建成功"
 
-    @smoke @splSmoke
+    @newallsaved
     Examples: 保存成功
       | name     | splQuery                                  |
       | eval_noempty_logic_and | tag:sample04061424 \| eval bool_is_empty=empty(apache.request_path) \| eval bool_not_empty=! empty(apache.request_path) \| eval bool_is_false= false && empty(apache.request_path) \| table bool_is_empty, bool_not_empty,bool_is_false, apache.x_forward \| sort by  apache.x_forward |
