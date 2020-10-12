@@ -63,18 +63,28 @@ public class Checkbox {
      *
      * @param status
      * @param nameList
+     * @param num
      */
-    @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\"$")
-    public void clickCheckBoxInList(String status, List<String> nameList) {
-        for (String name : nameList) {
-            String xpath = "//td[text()='" + name + "']/preceding-sibling::td//label";
-            WebElement label = webDriver.findElement(By.xpath(xpath));
-            String attribute = label.getAttribute("class");
-            if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-                label.click();
+    @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\" in column \"([^\"]*)\" $")
+    public void clickCheckBoxInList(String status, List<String> nameList, String num) {
+        List<WebElement> trList = webDriver.findElements(By.className("ant-table-row"));
+        int columnNum = Integer.parseInt(num);
+        for (WebElement tr : trList) {
+            List<WebElement> tdList = tr.findElements(By.tagName("td"));
+            String tdText = tdList.get(columnNum).getText();
+            for (int i = 0; i < nameList.size(); i++) {
+                String name = nameList.get(i);
+                if (tdText.equals(name)) {
+                    WebElement checkLabel = tr.findElement(By.xpath(".//label"));
+                    String attribute = checkLabel.getAttribute("class");
+                    if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                        checkLabel.click();
+                    }
+                    nameList.remove(i);
+                    break;
+                }
             }
         }
-
     }
 
 
