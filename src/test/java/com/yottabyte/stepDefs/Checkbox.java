@@ -61,9 +61,9 @@ public class Checkbox {
     /**
      * 在列表页中勾选checkbox，支持批量勾选
      *
-     * @param status
-     * @param nameList
-     * @param num
+     * @param status   checked/unchecked
+     * @param nameList 待操作的数据名称列表
+     * @param num      名称所在列，从0开始
      */
     @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\" in column \"([^\"]*)\" $")
     public void clickCheckBoxInList(String status, List<String> nameList, String num) {
