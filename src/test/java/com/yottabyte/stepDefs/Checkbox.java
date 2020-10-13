@@ -71,9 +71,11 @@ public class Checkbox {
         int columnNum = Integer.parseInt(num);
         List<WebElement> trList = webDriver.findElements(By.className("ant-table-row"));
         while (true) {
+            // 遍历列表页数据
             for (WebElement tr : trList) {
                 List<WebElement> tdList = tr.findElements(By.tagName("td"));
                 String tdText = tdList.get(columnNum).getText();
+                // 遍历传递进来的名称列表，若匹配成功则点击前面的checkbox并从列表中移除该名称
                 for (int i = 0; i < nameList.size(); i++) {
                     String name = nameList.get(i);
                     if (tdText.equals(name)) {
