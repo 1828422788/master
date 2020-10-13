@@ -21,21 +21,18 @@ Feature: 已存搜索新建（RZY-150）
     @smoke @splSmoke
     Examples: 保存成功
       | name     | group              | splQuery                                  |
-      | AutoTest | default_SavedSearch | starttime=\"-2d/w\" endtime=\"now\" tag:ty*  |
-      |	扩展chart	| default_SavedSearch |	starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| chart count() as cnt over apache.resp_len span=\"500\"	|
-      |	spark_count	| default_SavedSearch |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip	|
-      |	base_sample	| default_SavedSearch |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip	|
-      |	spark_dataset	| default_SavedSearch |	tag:spark OR tag:c* \| stats count() as cnt by apache.clientip	|
-      |	where与	| default_SavedSearch |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip \| where cnt>17&& cnt<33	|
-      |	where或	| default_SavedSearch |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip \| where cnt>17 \|\| cnt<33	|
-      |	GET	| default_SavedSearch |	GET	|
-      |	极简模式200status	| default_SavedSearch |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip	|
-      |	200status_continuous_spark	| default_SavedSearch |	tag:continuous	|
-      |	app_spark_count_byip_sort_授权	| default_SavedSearch |	tag:spark OR tag:c* \| stats count() as cnt by apache.clientip \| sort by cnt	|
-      |	offlinetask_sample	| default_SavedSearch |	* \| transaction apache.status maxspan=1h	|
-
-
-
+      | AutoTest | auto_ui | starttime=\"-2d/w\" endtime=\"now\" tag:ty*  |
+      |	page_扩展chart	| auto_ui |	starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| chart count() as cnt over apache.resp_len span=\"500\"	|
+      |	page_spark_count	| auto_ui |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip	|
+      |	page_base_sample	| auto_ui |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip	|
+      |	page_spark_dataset	| auto_ui |	tag:spark OR tag:c* \| stats count() as cnt by apache.clientip	|
+      |	page_where与	| auto_ui |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip \| where cnt>17&& cnt<33	|
+      |	page_where或	| auto_ui |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip \| where cnt>17 \|\| cnt<33	|
+      |	page_GET	| auto_ui |	GET	|
+      |	page_极简模式200status	| auto_ui |	starttime=\"now/M\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| stats count() as cnt by apache.clientip	|
+      |	page_200status_continuous_spark	| auto_ui |	tag:continuous	|
+      |	page_app_spark_count_byip_sort_授权	| auto_ui |	tag:spark OR tag:c* \| stats count() as cnt by apache.clientip \| sort by cnt	|
+      |	page_offlinetask_sample	| auto_ui |	* \| transaction apache.status maxspan=1h |
 
   @savedsample
   Scenario: new监控
