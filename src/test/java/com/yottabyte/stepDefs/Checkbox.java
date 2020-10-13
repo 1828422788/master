@@ -4,6 +4,7 @@ import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.Agent;
 import com.yottabyte.utils.JsonStringPaser;
 import com.yottabyte.utils.ListPageUtils;
+import com.yottabyte.utils.WaitForElement;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -59,7 +60,7 @@ public class Checkbox {
     }
 
     /**
-     * 在列表页中勾选checkbox，支持批量勾选
+     * 在列表页中勾选checkbox，支持批量勾选，可分页
      *
      * @param status   checked/unchecked
      * @param nameList 待操作的数据名称列表
@@ -67,25 +68,37 @@ public class Checkbox {
      */
     @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\" in column \"([^\"]*)\" $")
     public void clickCheckBoxInList(String status, List<String> nameList, String num) {
-        List<WebElement> trList = webDriver.findElements(By.className("ant-table-row"));
         int columnNum = Integer.parseInt(num);
-        for (WebElement tr : trList) {
-            List<WebElement> tdList = tr.findElements(By.tagName("td"));
-            String tdText = tdList.get(columnNum).getText();
-            for (int i = 0; i < nameList.size(); i++) {
-                String name = nameList.get(i);
-                if (tdText.equals(name)) {
-                    WebElement checkLabel = tr.findElement(By.xpath(".//label"));
-                    String attribute = checkLabel.getAttribute("class");
-                    if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
-                        checkLabel.click();
+        List<WebElement> trList = webDriver.findElements(By.className("ant-table-row"));
+        while (true) {
+            for (WebElement tr : trList) {
+                List<WebElement> tdList = tr.findElements(By.tagName("td"));
+                String tdText = tdList.get(columnNum).getText();
+                for (int i = 0; i < nameList.size(); i++) {
+                    String name = nameList.get(i);
+                    if (tdText.equals(name)) {
+                        WebElement checkLabel = tr.findElement(By.xpath(".//label"));
+                        String attribute = checkLabel.getAttribute("class");
+                        if (attribute.contains("checked") && "unchecked".equals(status) || !attribute.contains("checked") && "checked".equals(status)) {
+                            checkLabel.click();
+                        }
+                        nameList.remove(i);
+                        break;
                     }
-                    nameList.remove(i);
-                    break;
+                }
+                if (nameList.size() == 0) {
+                    return;
                 }
             }
-            if (nameList.size() == 0) {
+            // 分页
+            WebElement nextButton = webDriver.findElement(By.className("ant-pagination-next"));
+            String nextButtonAttr = nextButton.getAttribute("class");
+            if (nextButtonAttr.contains("disabled")) {
                 return;
+            } else {
+                nextButton.click();
+                WaitForElement.waitUntilLoadingDisappear();
+                trList = webDriver.findElements(By.className("ant-table-row"));
             }
         }
     }
