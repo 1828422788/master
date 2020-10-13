@@ -76,3 +76,149 @@ Feature: 多选菜单数组操作
     And I click the "MultiSelect" button
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
+
+  @dashboard @dashboardSmoke
+  Scenario: 开启钻取配置 (RZY-4479)
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘多选菜单数组操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I click the "SettingIcon" button
+    And I switch the dashboard "OpenDrilldown" button to "enable"
+#    And I click the "OpenDrilldown" button
+    And I wait for "500" millsecond
+
+  @dashboard @dashboardSmoke
+  Scenario: 多选菜单数组操作-Push RZY-4794
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘多选菜单数组操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "DrillAction" will be visible
+    And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
+    And I wait for "1000" millsecond
+    And I click the "NewCreat" button
+    And I choose the "Push" from the "OptionItems"
+    And I set the parameter "TokenInput" with value "filter"
+    And I click the "ParamValue1" button
+    And I click the "ClickValue" button
+    And I wait for "1000" millsecond
+    And I click the "Ensure" button
+    And I wait for "2000" millsecond
+    And I click the "ChengDuShi" button
+    And I click the "Nanjingshi" button
+    And I click the "FilterDropDown1" button
+    Then I wait for "ChengdushiList" will be visible
+    Then I wait for "NanjingshiList" will be visible
+
+  @dashboard @dashboardSmoke
+  Scenario: 多选菜单数组操作-Pop RZY-4795
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘多选菜单数组操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "ChengDuShi" button
+    And I click the "Nanjingshi" button
+    And I wait for "1000" millsecond
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "DrillAction" will be visible
+    And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
+    And I wait for "1000" millsecond
+#    And I click the "NewCreat" button
+    And I choose the "Pop" from the "OptionItems"
+    And I set the parameter "TokenInput" with value "filter"
+    And I wait for "1000" millsecond
+    And I click the "Ensure" button
+    And I wait for "2000" millsecond
+    And I click the "ChengDuShi" button
+#    And I click the "Nanjingshi" button
+    And I click the "FilterDropDown1" button
+    Then I wait for "ChengdushiList" will be visible
+    Then I wait for "NanjingshiList" will be invisible
+
+  @dashboard @dashboardSmoke
+  Scenario: 多选菜单数组操作-Unshift RZY-4796
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘多选菜单数组操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "DrillAction" will be visible
+    And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
+    And I wait for "1000" millsecond
+    And I choose the "Unshift" from the "OptionItems"
+    And I set the parameter "TokenInput" with value "filter"
+#    And I click the "ParamValue1" button
+#    And I wait for "ClickValue" will be visible
+#    And I click the "ClickValue" button
+    And I wait for "1000" millsecond
+    And I click the "Ensure" button
+    And I wait for "2000" millsecond
+    And I click the "ChengDuShi" button
+    And I click the "Nanjingshi" button
+    And I click the "FilterDropDown1" button
+    Then I wait for "ChengdushiList" will be visible
+    Then I wait for "NanjingshiList" will be visible
+
+  @dashboard @dashboardSmoke
+  Scenario: 多选菜单数组操作-Shift RZY-4797
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘多选菜单数组操作"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    And I click the "ChengDuShi" button
+    And I click the "Nanjingshi" button
+    And I click the "FilterDropDown1" button
+    Then I wait for "NanjingshiList" will be visible
+    And I wait for "1000" millsecond
+    When the chart title is "仪表盘多选菜单数组" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "DrillSetting" button
+    And I wait for "DrillAction" will be visible
+    And I choose the "管理本页过滤项/输入项数值" from the "DrillAction"
+    And I wait for "1000" millsecond
+#    And I click the "NewCreat" button
+    And I choose the "Shift" from the "OptionItems"
+    And I set the parameter "TokenInput" with value "filter"
+    And I wait for "1000" millsecond
+    And I click the "Ensure" button
+    And I wait for "2000" millsecond
+    And I click the "ChengDuShi" button
+#    And I click the "Nanjingshi" button
+    And I click the "FilterDropDown1" button
+    Then I wait for "ChengdushiList" will be visible
+    Then I wait for "NanjingshiList" will be invisible
+
+
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    Then I will see the success message "删除仪表盘成功"
+
+    Examples:
+      | name   |
+      | 仪表盘多选菜单数组操作   |
+
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I wait for "500" millsecond
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name    |
+      | 仪表盘多选菜单数组  |

@@ -394,6 +394,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='成都市 ']")
     private WebElement  chengdushi;
 
+    @FindBy(xpath = "//span[text()='成都市']")
+    private WebElement  chengDuShi;
+
+    @FindBy(xpath = "//li[text()='成都市']")
+    private WebElement  chengdushiList;
+
     @FindBy(xpath = "(//*[name()='rect'])[3]")
     private WebElement zhutiao;
 
@@ -421,7 +427,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='钻取变量单值value']/following-sibling::div[last()]/div/div[last()]/div/span")
     private WebElement singleValue1;
 
-    @FindBy(xpath = "//div[@class='ant-select ant-select-enabled']")
+    @FindBy(xpath = "//label[text()='点击图表时']/following-sibling::div[@class='ant-select ant-select-enabled']")
     private WebElement drillAction;
 
     @FindBy(xpath = "//label[contains(text(),'自定义URL')]/following-sibling::textarea")
@@ -466,8 +472,14 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='+ 新建']/ancestor::button")
     private WebElement newCreat;
 
+    @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]/preceding-sibling::div")
+    private WebElement optionItems;
+
     @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]")
     private WebElement tokenInput;
+
+    @FindBy(xpath = "(//input[@class='ant-input'])[not(@placeholder)]/following-sibling::div")
+    private WebElement optionFilterValue;
 
     @FindBy(xpath = "//div[contains(@class,'yw-filter-container')]//input[@class='ant-input']")
     private WebElement geoCity;
@@ -516,6 +528,9 @@ public class DetailPage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='南京市']")
     private WebElement nanjingshi;
+
+    @FindBy(xpath = "//li[text()='南京市']")
+    private WebElement nanjingshiList;
 
     @FindBy(xpath = "//div[text()='南京市']")
     private WebElement nanJing;
@@ -765,6 +780,16 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getShowFilterConfig() {
         showFilterConfig.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOptionItems() {
+        optionItems.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getOptionFilterValue() {
+        optionFilterValue.click();
         return super.getLastDropdownList();
     }
 
@@ -1242,6 +1267,8 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getNanjingshi() { return nanjingshi; }
 
+    public WebElement getNanjingshiList() { return nanjingshiList; }
+
     public WebElement getNanjing() { return nanJing; }
 
     public WebElement getChengdu() { return chengDu; }
@@ -1335,6 +1362,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getChengdushi() {
         return chengdushi;
+    }
+
+    public WebElement getChengDuShi() {
+        return chengDuShi;
+    }
+
+    public WebElement getChengdushiList() {
+        return chengdushiList;
     }
 
     public WebElement getZhutiao() {
