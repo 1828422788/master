@@ -66,7 +66,7 @@ public class Checkbox {
      * @param nameList 待操作的数据名称列表
      * @param num      名称所在列，从0开始
      */
-    @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\" in column \"([^\"]*)\" $")
+    @And("^I \"([^\"]*)\" the checkbox in list which name is \"([^\"]*)\" in column \"([^\"]*)\"$")
     public void clickCheckBoxInList(String status, List<String> nameList, String num) {
         int columnNum = Integer.parseInt(num);
         List<WebElement> trList = webDriver.findElements(By.className("ant-table-row"));

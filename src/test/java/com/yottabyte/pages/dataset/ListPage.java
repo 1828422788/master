@@ -59,6 +59,14 @@ public class ListPage extends ListPageFactory {
 
     @FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div")
     private WebElement resourceGroup; //分组
+
+    @FindBy(xpath = "//label[@title='资源标签']/parent::div/following-sibling::div//input")
+    private WebElement resourceTagInput;
+
+    public WebElement getResourceTagInput() {
+        return resourceTagInput;
+    }
+
     @FindBy(xpath = "//label[text()='约束语句']/ancestor::div//following-sibling::div//div[text()='请输入约束语句']")
     // @FindBy(xpath= "//div[text()='请输入约束语句']")
     private WebElement tipsYuJu;

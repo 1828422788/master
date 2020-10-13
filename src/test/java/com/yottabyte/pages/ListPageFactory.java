@@ -50,6 +50,18 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
     @FindBy(xpath = "//div[text()='请选择应用']")
     private WebElement app;
 
+    @FindBy(xpath = "//div[@class='ant-popover _1HlalPPMzGz9AUFUs3fnQU ant-popover-placement-bottom']//span[contains(text(),'启动')]/ancestor::li")
+    private WebElement enableResources;
+
+    @FindBy(xpath = "//div[@class='ant-popover _1HlalPPMzGz9AUFUs3fnQU ant-popover-placement-bottom']//span[contains(text(),'添加资源标签')]/ancestor::li")
+    private WebElement addResourceTags;
+
+    @FindBy(xpath = "//div[@class='ant-popover _1HlalPPMzGz9AUFUs3fnQU ant-popover-placement-bottom']//span[contains(text(),'删除')]/ancestor::li")
+    private WebElement deleteResources;
+
+    @FindBy(xpath = "//div[@class='ant-modal-root']//*[contains(@class, \"ant-modal\")]")
+    private WebElement modal;
+
     public WebElement getApp() {
         app.click();
         return utils.getLastDropdownList();
@@ -158,6 +170,20 @@ public class ListPageFactory extends LoadableComponent<ListPageFactory> {
         String xpath = "//div[contains(text(),'" + text + "')]/following-sibling::span/i[@aria-label='图标: close']";
         return webDriver.findElement(By.xpath(xpath));
     }
+
+    public WebElement getBatchControl(){ return this.getButton("批量操作"); }
+
+    public WebElement getSelectBatchOperation(){ return this.getButton("请选择"); }
+
+    public WebElement getCompleteBatchControl(){ return this.getButton("完成"); }
+
+    public WebElement getEnableResources() { return enableResources; }
+
+    public WebElement getAddResourceTags() { return addResourceTags; }
+
+    public WebElement getDeleteResources() { return deleteResources; }
+
+    public WebElement getModal() { return modal; }
 
     @Override
     protected void load() {
