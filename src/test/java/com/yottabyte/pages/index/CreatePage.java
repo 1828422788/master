@@ -26,6 +26,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//label[text()='保存大小']/following-sibling::div//i")
     private WebElement savedSizeDropDown;
 
+    @FindBy(xpath = "//label[text()='索引数据']/following-sibling::div//i")
+    private WebElement indexDataDropDown;
+
     public WebElement getDivideTimeDropDown() {
         divideTimeDropDown.click();
         return getLastDropdownList();
@@ -43,6 +46,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSavedTimeDropDown() {
         savedTimeDropDown.click();
+        return getLastDropdownList();
+    }
+
+    public WebElement getIndexDataDropDown() {
+        indexDataDropDown.click();
         return getLastDropdownList();
     }
 
@@ -80,6 +88,11 @@ public class CreatePage extends PageTemplate {
         return getInputElement("保存大小");
     }
 
+    public WebElement getSavedCopy() { return getInputElementWithoutLabel("天后删除副本"); }
+    public WebElement getFreeze() { return getInputElementWithoutLabel("天后拒绝入库"); }
+    public WebElement getSinkHDD() { return getInputElementWithoutLabel("天后下沉到HDD"); }
+    public WebElement getSinkNAS() { return getInputElementWithoutLabel("天后下沉到NAS"); }
+
     public WebElement getCreateButton() {
         return getContainsTextButton("新建");
     }
@@ -106,5 +119,9 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getLastDropdownList() {
         return webDriver.findElement(By.xpath("(//ul[@class='ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical'])[last()]"));
+    }
+
+    public WebElement getInputElementWithoutLabel(String name) {
+        return webDriver.findElement(By.xpath("//div[text()='" + name + "']/input"));
     }
 }
