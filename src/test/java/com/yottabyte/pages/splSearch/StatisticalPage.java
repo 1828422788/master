@@ -142,7 +142,10 @@ public class StatisticalPage extends PageTemplate {
     private WebElement classifyFieldValue;
 
 // 字段数值
-//分组字段值 usage of this field to write in tests
+//分组字段值
+
+    @FindBy(xpath = "//span[text()='Top']/ancestor::label/following-sibling::input")
+    private WebElement groupValue;
 
     @FindBy(xpath = "//span[text()='字段数值']")
     private WebElement fieldNumber;
@@ -711,6 +714,10 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getFieldNumber() {
         return fieldNumber;
+    }
+
+    public WebElement getGroupValue() {
+        return groupValue;
     }
 
     public WebElement getTimeSlice() {
