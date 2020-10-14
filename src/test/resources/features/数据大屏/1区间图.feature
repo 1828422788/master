@@ -5,6 +5,18 @@ Feature: 数据大屏-c区间图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
+  Scenario: 新建大屏流程 RZY-1924
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    And I click the "Create" button
+    Then I will see the "galaxee.CreatePage" page
+    And I click the "Create" button
+    And I click the "Ensure" button
+    Then I wait for "TipOfCreat" will be visible
+    And I click the "TipOfEnsure" button
+    And I wait for "500" millsecond
+    And I click the "Cancel" button
+    Then I will see the url contains "app/galaxee/create/"
+
   Scenario: 区间图XY轴布局搜索
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     And I click the "Create" button

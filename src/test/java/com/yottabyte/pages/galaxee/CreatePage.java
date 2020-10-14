@@ -95,6 +95,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)])[last()]")
     private WebElement ensureDelete;
 
+    @FindBy(xpath = "//p[text()='请正确填写大屏名称！']")
+    private WebElement tipOfCreat;
+
+    @FindBy(xpath = "(//span[contains(text(),'确定')]/parent::button)[last()]")
+    private WebElement tipOfEnsure;
+
     @FindBy(className = "percentchart")
     private WebElement percent;
 
@@ -1244,6 +1250,14 @@ public class CreatePage extends PageTemplate {
         return ensureDelete;
     }
 
+    public WebElement getTipOfCreat() {
+        return tipOfCreat;
+    }
+
+    public WebElement getTipOfEnsure() {
+        return tipOfEnsure;
+    }
+
     public WebElement getDelete() {
         return delete;
     }
@@ -1341,6 +1355,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getEnsure() {
         return super.getContainsTextButton("确定");
+    }
+
+    public WebElement getCancel() {
+        return super.getContainsTextButton("取消");
     }
 
     public WebElement getSave() {
