@@ -4,7 +4,7 @@ Feature: 数据大屏-l全屏
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 全屏
+  Scenario: 全屏 RZY-1915
 
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button

@@ -5,7 +5,7 @@ Feature: 数据大屏-i表格
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 新建默认类型的表格
+  Scenario: 新建默认类型的表格 RZY-1914
 #    Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button

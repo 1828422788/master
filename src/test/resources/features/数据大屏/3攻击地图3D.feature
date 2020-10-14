@@ -5,7 +5,7 @@ Feature: 数据大屏-n攻击地图3D
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 攻击地图3D样式-搜索
+  Scenario: 攻击地图3D样式-搜索 RZY-3053
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

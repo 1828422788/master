@@ -5,7 +5,7 @@ Feature: 数据大屏-a折线图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 折线图-搜索
+  Scenario: 折线图-搜索 RZY-1904
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

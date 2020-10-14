@@ -5,7 +5,7 @@
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible
 
-    Scenario: 攻击地图3DII之样式-搜索
+    Scenario: 攻击地图3DII之样式-搜索 RZY-1911
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page

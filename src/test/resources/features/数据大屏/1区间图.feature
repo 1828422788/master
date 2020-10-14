@@ -17,7 +17,7 @@ Feature: 数据大屏-c区间图
     And I click the "Cancel" button
     Then I will see the url contains "app/galaxee/create/"
 
-  Scenario: 区间图XY轴布局搜索
+  Scenario: 区间图XY轴布局搜索 RZY-3027
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

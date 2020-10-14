@@ -6,7 +6,7 @@ Feature: 数据大屏-图层及右键
 #     And I wait for "Dashboard" will be visible
 
 
-  Scenario: 图层
+  Scenario: 图层 RZY-1921
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
