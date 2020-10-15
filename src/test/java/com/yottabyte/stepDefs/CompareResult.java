@@ -260,7 +260,6 @@ public class CompareResult {
                 }
             }
         }
-        Assert.fail();
     }
 
 
