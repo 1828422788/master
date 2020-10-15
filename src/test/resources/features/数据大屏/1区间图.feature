@@ -13,7 +13,7 @@ Feature: 数据大屏-c区间图
     And I click the "Ensure" button
     Then I wait for "TipOfCreat" will be visible
     And I click the "TipOfEnsure" button
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     And I click the "Cancel" button
     Then I will see the url contains "app/galaxee/create/"
 

@@ -4,7 +4,7 @@ Feature: 数据大屏-f桑基图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 桑基图-样式搜索 RZY-3033
+  Scenario: 桑基图-样式搜索 RZY-3033,RZY-3233,RZY-3234
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

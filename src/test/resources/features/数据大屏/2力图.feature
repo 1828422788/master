@@ -6,7 +6,7 @@ Feature: 数据大屏-e力图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 力图-样式搜索 RZY-3034
+  Scenario: 力图-样式搜索 RZY-3034,RZY-3231,RZY-3232
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
