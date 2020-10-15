@@ -5,7 +5,7 @@ Feature: 数据大屏-c区间图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 新建大屏流程 RZY-1924
+  Scenario: 新建大屏流程 RZY-1924,RZY-3139,RZY-3140,RZY-3141,RZY-3142,RZY-3143
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

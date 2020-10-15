@@ -5,7 +5,7 @@ Feature: 数据大屏-e柱图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 柱图-图例-分组-静态数据 RZY-1906
+  Scenario: 柱图-图例-分组-静态数据 RZY-1906,RZY-2018,RZY-2019,RZY-2020,RZY-2022,RZY-2023
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

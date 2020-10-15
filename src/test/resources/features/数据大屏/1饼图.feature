@@ -5,7 +5,7 @@ Feature: 数据大屏-n饼图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 饼图-样式搜索 RZY-1908
+  Scenario: 饼图-样式搜索 RZY-1908,RZY-2032,RZY-2036,RZY-2033
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

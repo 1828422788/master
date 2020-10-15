@@ -5,7 +5,7 @@ Feature: 数据大屏-d散点图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 散点图XY轴-布局-搜索 RZY-2554
+  Scenario: 散点图XY轴-布局-搜索 RZY-2554,RZY-2619,RZY-2620,RZY-2621,RZY-2622,RZY-2624
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

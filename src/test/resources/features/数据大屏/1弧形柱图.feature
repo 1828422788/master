@@ -5,7 +5,7 @@ Feature: 数据大屏-a弧形柱图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 弧形柱图-样式搜索 RZY-2555
+  Scenario: 弧形柱图-样式搜索 RZY-2555,RZY-2613,RZY-2614,RZY-2615,RZY-2616
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
