@@ -1,8 +1,30 @@
-@dblist
-Feature: 下载列表查看并下载
+@db1
+Feature: 新建下载任务
 
-  @dbstatslist
-  Scenario Outline: 过滤文件后，下载到本地
+  Background:
+    Given open the "splSearch.SearchPage" page for uri "/search/"
+
+  @v35dbstats
+  Scenario Outline: 新建下载任务3个
+    Given I set the parameter "SearchInput" with value "<splQuery>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "2000" millsecond
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+
+    And I wait for "2000" millsecond
+    Then I click the "downloadButton" button
+    Then I set the parameter "DownloadName" with value "<name>"
+    Then I set the parameter "MaxLineNum" with value "100"
+#    Then I choose the "<unit>" from the "MaxLineDropdown"
+    Then I choose the "CSV" from the "DocumentTypeList"
+    Then I choose the "UTF" from the "DocumentEncodeList"
+    Then I click the "CreateDownloadTask" button
+    And I wait for "2000" millsecond
+    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
+
+    #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
     When I set the parameter "DbListPageSearchInput" with value "<name>"
     And I wait for "2000" millsecond
@@ -10,7 +32,7 @@ Feature: 下载列表查看并下载
     And I wait for "2000" millsecond
     Then I compare source download file "expect/<name>.csv" with target download files "<name>.csv"
 
-    Examples:
+    Examples: 新建成功
       | name                                         | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
       | sub_join_inner1 | tag:\"sample04061424\" \| stats avg(apache.status) by apache.clientip \| join type=inner apache.clientip [[ tag:\"sample04061424\" AND apache.clientip:23.166.125.53 \| stats sum(apache.status) by apache.clientip ]] |
       | sub_join_inner2 | tag:\"sample04061424\" \| stats avg(apache.status) by apache.clientip \| join type=inner apache.clientip [[ tag:\"sample04061424\" AND apache.clientip:23.166.125.53 \| stats sum(apache.status) by apache.clientip ]] |
