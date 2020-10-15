@@ -575,6 +575,50 @@ Feature: 日志展现_普通统计视图
     |            | 请正确填写分组字段值! | GroupValue     |
     | a          | 请正确填写分组字段值! | GroupValue     |
 
+  Scenario: check_field6
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "TotalPercent" button
+    And I wait for "1000" millsecond
+    Then I choose the "apache.resp_len" from the "FieldValue" in config
+    And I click the "DeleteIcon" button
+    And I click the "DeleteIcon" button
+    And I click the "DeleteIcon" button
+    And I click the "DeleteIcon" button
+    And I click the "DeleteIcon" button
+    When I click the "Generate" button
+    And I will see the message "添加百分比"
+
+  Scenario: check_field7
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "MultilevelStatistics" button
+    And I wait for "1000" millsecond
+    And I choose the "apache.status" from the "FieldValue" in config
+    And I click the "Generate" button
+
+    And I click the "NextStep" button
+    And I click the "Generate" button
+    And I will see the message "请选择统计字段"
+    And I click the "Ensure" button
+    And I choose the "apache.clientip" from the "FieldValue" in config
+    And I click the "Generate" button
+    And I will see the message "请选择step1字段!"
+    And I click the "Ensure" button
+    # Click checkbox with 200
+    When I click the "Field" button
+    And I click the "Generate" button
+    And I click the "StatisticsGram" button
+    And I click the "Generate" button
+    And I will see the message "请输入时间桶!"
+
+
 
 
 

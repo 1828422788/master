@@ -32,6 +32,9 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='生成']/ancestor::button)[last()]")
     private WebElement generate;
 
+    @FindBy(xpath = "(//span[text()='确定']/ancestor::button)[last()]")
+    private WebElement ensure;
+
     @FindBy(xpath = "//*[local-name()='g' and @class='vx-group']/ancestor::div[1]")
     private WebElement chart;
 
@@ -355,6 +358,9 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "(//a[@class='img iconfont icon-shanchuxuanting_icon'])[last()]")
     private WebElement delete;
 
+    @FindBy(xpath = "(//p[text()='百分比']/following-sibling::div//i)[1]")
+    private WebElement deleteIcon;
+
     @FindBy(xpath = "(//span[@class='el-color-picker__color-inner'])[last()]")
     private WebElement colorPicker;
 
@@ -457,6 +463,10 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getDelete() {
         return delete;
+    }
+
+    public WebElement getDeleteIcon() {
+        return deleteIcon;
     }
 
     public WebElement getMaxInput() {
@@ -684,6 +694,10 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getGenerate() {
         return generate;
+    }
+
+    public WebElement getEnsure() {
+        return ensure;
     }
 
 //    public WebElement getEnsureButton() {
