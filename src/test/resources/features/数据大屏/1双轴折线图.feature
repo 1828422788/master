@@ -111,6 +111,16 @@ Feature: 数据大屏-b双轴折线图
     And I set the parameter "LayoutLeft" with value "20"
     And I set the parameter "LayoutRight" with value "20"
 
+#数据系列
+    And I click the "DataSeries" button
+    And I wait for "FirstSeriesBold" will be visible
+    And I set the parameter "FirstSeriesBold" with value "5"
+    And I click the "Smooth" button
+    And I click the "Area" button
+    And I set the parameter "SecondSeriesBold" with value "5"
+    And I click the "SecondSmooth" button
+    And I click the "SecondArea" button
+
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
     And I click the "Save" button
@@ -139,7 +149,7 @@ Feature: 数据大屏-b双轴折线图
 
 ##################################无耻的分割线##############################
 
-  Scenario: 双轴折线图-静态数据
+  Scenario: 双轴折线图-静态数据 RZY-2014
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

@@ -177,6 +177,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'类型')]//following-sibling::div//i)[2]")
     private WebElement secondSeriesType;
 
+    @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'粗细')]/following-sibling::div//input)[1]")
+    private WebElement firstSeriesBold;
+
     @FindBy(xpath = "(//div[text()='数据系列']/following-sibling::div//label[contains(text(),'粗细')]/following-sibling::div//input)[2]")
     private WebElement secondSeriesBold;
 
@@ -1011,6 +1014,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getSecondArea() {
         return secondArea;
+    }
+
+    public WebElement getFirstSeriesBold() {
+        return firstSeriesBold;
     }
 
     public WebElement getSecondSeriesBold() {
