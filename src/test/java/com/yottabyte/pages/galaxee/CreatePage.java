@@ -367,6 +367,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'图表')]/ul")
     private  WebElement chartDropdown;
 
+    @FindBy(xpath = "//div[@class='back']")
+    private  WebElement backGalaxee;
+
     @FindBy(xpath = "//div[@class='panel-search-option']/div/button/span")
     private WebElement dataSearch;
 
@@ -376,6 +379,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDataSearch() {
         return dataSearch;
+    }
+
+    public WebElement getBackGalaxee() {
+        return backGalaxee;
     }
 
     public WebElement getMapDropdown() {
