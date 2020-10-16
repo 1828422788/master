@@ -42,7 +42,7 @@ Feature: 数据大屏-图层及右键
     And I will see the element "PictureTwo" value is "折线图"
     Then I will see the element "PictureThree" value is "柱图"
 
-  Scenario: 背景颜色及发布大屏 RZY-1751
+  Scenario: 背景颜色及发布大屏 RZY-1986,RZY-1751
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
