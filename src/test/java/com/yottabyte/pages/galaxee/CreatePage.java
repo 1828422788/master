@@ -1381,8 +1381,10 @@ public class CreatePage extends PageTemplate {
         return super.getButton("保存");
     }
 
+    @FindBy(xpath = "//span[text()='发布']/parent::button")
+    private WebElement release;
     public WebElement getRelease() {
-        return super.getButton("发布");
+        return release;
     }
 
     private WebElement colorPicker(String title, String name) {

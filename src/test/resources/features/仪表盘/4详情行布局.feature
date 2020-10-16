@@ -226,7 +226,7 @@ Feature: 仪表盘详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
-    And I will see the success message "过展示条件已禁用"
+    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for "1000" millsecond
@@ -262,7 +262,7 @@ Feature: 仪表盘详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
-    And I will see the success message "过展示条件已禁用"
+    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for "1000" millsecond
@@ -296,7 +296,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
-    And I will see the success message "过展示条件已禁用"
+    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for "1000" millsecond
@@ -329,7 +329,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
-    And I will see the success message "过展示条件已禁用"
+    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for "1000" millsecond
@@ -388,7 +388,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
-    And I will see the success message "过展示条件已禁用"
+    And I will see the success message "展示条件已关闭"
 
   Scenario: 展示条件-时间范围输入项 RZY-4790
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -424,7 +424,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
-    And I will see the success message "过展示条件已禁用"
+    And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
@@ -458,7 +458,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
-    And I will see the success message "过展示条件已禁用"
+    And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
@@ -536,7 +536,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
-    And I will see the success message "过展示条件已禁用"
+    And I will see the success message "展示条件已关闭"
 
   Scenario: 展示条件-下拉菜单输入项 RZY-4785
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
