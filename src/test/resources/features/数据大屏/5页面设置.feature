@@ -43,24 +43,27 @@ Feature: 数据大屏-图层及右键
     And I will see the element "PictureTwo" value is "折线图"
     Then I will see the element "PictureThree" value is "柱图"
 
+  Scenario: 背景颜色
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    When I click the "Create" button
+    Then I will see the "galaxee.CreatePage" page
+    And I click the "Create" button
+    And I set the parameter "Name" with value "页面设置"
+    And I click the "Ensure" button
+    #背景颜色 #0f2a42
+    And I wait for loading complete
+    And I wait for "PageBackgroundColor" will be visible
+    And I set the parameter "PageBackgroundColor" with value "#D74B7A"
+    And I click the "EnsureColor" button
+    And I wait for "EnsureColor" will be invisible
+#    Then I will see the element "PageBackground" attribute "<string>" is "<string>"
+    Then I will see the element "PageBackground" style contains "rgb(215, 75, 122)"
 
 
-#  Scenario Outline: 发布页截图
-#    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-#    And switch to window "<name>"
-#    And I close all tabs except main tab
-#    And I wait for "Loading" will be invisible
-#    And I wait for "1000" millsecond
-#    Then take a screenshot with name "galaxee/<name>"
-#    #删除
-#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-#    Then I click the "Ensure" button
-#
-#    Examples:
-#      | name |
-#      | 标题   |
+
+
+
+
 
 
 

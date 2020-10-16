@@ -145,6 +145,14 @@ public class CreatePage extends PageTemplate {
 //    @FindBy(xpath = "(//input[@class='el-color-dropdown__value'])[last()]")
 //    private WebElement colorInput;
 
+//    @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div")
+//    private WebElement pageBackgroundColor;
+
+//    public WebElement getPageBackgroundColor() { return this.colorInput("页面设置", "背景颜色"); }
+
+    @FindBy(xpath = "//div[@class='preview']")
+    private WebElement pageBackground;
+
     @FindBy(xpath = "//div[@class='sp-container sp-light sp-alpha-enabled sp-clear-enabled sp-palette-buttons-disabled']//div[@class='sp-button-container sp-cf']/button[text()='choose']")
     private WebElement ensureColor;
 
@@ -361,6 +369,10 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='panel-search-option']/div/button/span")
     private WebElement dataSearch;
+
+    @FindBy(xpath = "//div[contains(text(),'页面设置')]/following-sibling::div//label[contains(text(),'背景颜色')]/following-sibling::div//span[@class='sp-original-input-container']//input")
+    private WebElement pageBackgroundColor;
+    public WebElement getPageBackgroundColor() { return pageBackgroundColor; }
 
     public WebElement getDataSearch() {
         return dataSearch;
@@ -1174,6 +1186,10 @@ public class CreatePage extends PageTemplate {
         return ensureColor;
     }
 
+    public WebElement getPageBackground() {
+        return pageBackground;
+    }
+
     public WebElement getXColorInput() {
         return this.colorInput("x轴", "颜色");
     }
@@ -1796,9 +1812,6 @@ private WebElement dataType;
       @FindBy(xpath = "//label[contains(text(),'光环颜色')]/following-sibling::div")
       private WebElement haloColor;
       public WebElement getHaloColor(){ return this.colorInput("齿轮组合", "光环颜色");}
-      //背景颜色
-      @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div")
-      private WebElement backgroundColor;
       public WebElement getBackgroundColor(){
           return this.colorInput("齿轮组合", "背景颜色");
       }
@@ -2551,6 +2564,7 @@ public WebElement getTitleHorizontal(){return this.dropdownList("标题","对齐
     @FindBy(xpath = "//label[contains(text(),'字体颜色')]/following-sibling::div")
     private WebElement numberFontColor;
     public WebElement getNumberFontColor(){return this.colorInput("翻转", "字体颜色");}
+
     //字体粗细
     public WebElement getFlipNumberWordBold(){return this.dropdownList("翻转","字体粗细");}
     //对齐方式
