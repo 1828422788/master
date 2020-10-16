@@ -307,6 +307,32 @@ Feature: 日志展现_普通统计视图
       |  总计     |  曲线图   |   7     | 天   |
       |  平均值   |  面积图   |   1     |  周  |
 
+  Scenario Outline: fieldnumber3
+    When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
+    And I click the "SearchButton" button
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I click the "CountButton" button
+    And I will see the "splSearch.StatisticalPage" page
+    And I click the "FieldNumber" button
+    And I wait for "1000" millsecond
+    And I choose the "apache.resp_len" from the "YAxis" in config
+    And I choose the "apache.clientip" from the "GroupField" in config
+    And I click the "SelfRadio" button
+    And I wait for "2000" millsecond  
+    And I choose the "36.46.208.22" from the "SelfRadioField" in config
+    And I choose the "<chart>" from the "PresentType" in config
+    When I set the parameter "TimeSpan" with value "<timeSpan>"
+    And I click the "Generate" button
+    And I wait for "4000" millsecond
+    And I wait for "Chart" will be visible
+    And I drag the scroll bar to the element "Chart"
+    And I wait for "2000" millsecond
+    And take part of "Chart" with name "actual/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
+    Then I compare source image "actual/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip" with target image "expect/普通统计视图/2727_字段数值/2727_<chart>_<timeSpan>_clientip"
+
+    Examples:
+      | chart     | timeSpan|
+      |  柱状图   |   1     |
 
   Scenario Outline: totalpercent(RZY-819,2730)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
@@ -513,7 +539,7 @@ Feature: 日志展现_普通统计视图
 #      | TimeSlice               | 请正确填写时间分段!    | FieldValue    |
       | DataSlice               | 请填写合理的数值分段！ | FieldValue    |
       | DataHistogram           | 请填写合理的数值间隔！ | FieldValue    |
-      | FieldNumber             | 请输入时间桶!          | YAxis         |
+#      | FieldNumber             | 请选择分组字段！        | YAxis         |
       | PercentDegree           | 请输入目标值。         | FieldValue    |
 
   Scenario Outline: check_field3
@@ -565,15 +591,17 @@ Feature: 日志展现_普通统计视图
     And I choose the "apache.resp_len" from the "YAxis" in config
     And I choose the "apache.clientip" from the "GroupField" in config
     And I set the parameter "<field>" with value "<value>"
+    And I click the "<button>" button
     When I click the "Generate" button
     And I will see the message "<message>"
 
   Examples:
-    | value      |  message              | field          |
-    |            | 请输入时间桶!         | TimeSpan       |
-    | a          | 请输入正整数          | TimeSpan       |
-    |            | 请正确填写分组字段值! | GroupValue     |
-    | a          | 请正确填写分组字段值! | GroupValue     |
+    | value      |  message              | field          |  button    |
+    |            | 请输入时间桶!         | TimeSpan       |            |
+    | a          | 请输入正整数          | TimeSpan       |            |
+    |            | 请正确填写分组字段值! | GroupValue     |            |
+    | a          | 请正确填写分组字段值! | GroupValue     |            |
+    |            | 请正确填写分组字段值! |                | SelfRadio  |
 
   Scenario: check_field6
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"

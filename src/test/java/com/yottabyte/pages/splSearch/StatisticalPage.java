@@ -291,6 +291,8 @@ public class StatisticalPage extends PageTemplate {
     @FindBy(xpath = "//span[text()='自选']")
     private WebElement selfRadio;
 
+    @FindBy(xpath = "//span[text()='自选']/ancestor::label/following-sibling::div")
+    private WebElement selfRadioField;
 
     @FindBy(xpath = "(//p[text()='时间桶'])[last()]/following-sibling::div/button")
     private WebElement generateWithGram;
@@ -649,6 +651,11 @@ public class StatisticalPage extends PageTemplate {
 
     public WebElement getSelfRadio() {
         return selfRadio;
+    }
+
+    public WebElement getSelfRadioField() {
+        selfRadioField.click();
+        return this.getLastDropdownList();
     }
 
     public WebElement getTimeBucketDropdownButton() {
