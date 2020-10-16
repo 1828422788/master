@@ -91,7 +91,7 @@ Feature: 数据大屏-n攻击地图3D
 
     ######################################无耻的分割线################################
 
-  Scenario: 攻击地图3D-静态数据
+  Scenario: 攻击地图3D-静态数据 RZY-3216,RZY-3217
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

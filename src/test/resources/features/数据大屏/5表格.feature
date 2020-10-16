@@ -5,13 +5,13 @@ Feature: 数据大屏-i表格
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 新建默认类型的表格 RZY-1914
+  Scenario: 新建默认类型的表格 RZY-1914,RZY-1975,RZY-2038
 #    Given I wait for title change text to "仪表盘"
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
-    And I set the parameter "Name" with value "表格"
+    And I set the parameter "Name" with value "表格-搜索"
     And I click the "Ensure" button
     #选择表格控件
     And I click the "Word" button

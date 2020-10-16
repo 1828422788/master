@@ -6,7 +6,7 @@ Feature: 数据大屏-h标题
 #     And I wait for "Dashboard" will be visible
 
 
-  Scenario: 标题 RZY-1913
+  Scenario: 标题 RZY-1913,RZY-1973,RZY-1974
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

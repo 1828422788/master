@@ -4,7 +4,7 @@ Feature: 数据大屏-j热力地图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 热力地图-样式搜索 RZY-3051
+  Scenario: 热力地图-样式搜索 RZY-3051,RZY-3213,RZY-3211
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

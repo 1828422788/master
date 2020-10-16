@@ -48,7 +48,7 @@ Feature: 数据大屏-b状态图
 
   ######################################无耻的分割线################################
 
-  Scenario: 状态图值异常-搜索
+  Scenario: 状态图值异常-搜索 RZY-2313
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When  I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

@@ -4,7 +4,7 @@
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible
 
-    Scenario: 实体数据之搜索值异常
+    Scenario: 实体数据之搜索值异常 RZY-3772
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"

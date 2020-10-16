@@ -5,7 +5,7 @@ Feature: 数据大屏-p地理分布
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 地理分布样式-搜索 RZY-3054
+  Scenario: 地理分布样式-搜索 RZY-3054,RZY-3020,RZY-3021
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

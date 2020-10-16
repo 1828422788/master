@@ -1,5 +1,5 @@
 @galaxeeD0
-Feature: 数据大屏-所有控件删除
+Feature: 数据大屏-所有控件删除 RZY-1963
 
   Scenario Outline: 数据大屏-所有控件删除
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
