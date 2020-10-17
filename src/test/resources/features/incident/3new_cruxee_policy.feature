@@ -120,10 +120,10 @@ Feature: 事件管理-合并策略-11个
     And I choose the "最后一条告警的字段" from the "StopConditionNameslist" in config
     And I choose the "priority" from the "StopConditionLastAlertFieldNamesList" in config
     And I choose the ">" from the "StopConditionLastAlertFieldOperatorsList" in config
-    And I set the parameter "StopConditionLastAlertFieldInput" with value "60"
+#    And I set the parameter "StopConditionLastAlertFieldInput" with value "60"
+    And I choose the "(10) 恢复" from the "StopConditionLastAlertFieldInputList" in config
 
     And I choose1 the "<SendPolicyName>" from the "SendPolicyNameslist" in config
-
     And I click the "SaveCruxeePolicy" button
 #    Then I will see the <Result>
     And I wait for "RetListButton" will be visible
