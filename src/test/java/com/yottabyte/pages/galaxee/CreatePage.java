@@ -400,8 +400,20 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='自定义']")
     private  WebElement customConfig;
 
+    @FindBy(xpath = "(//span[text()='值'])[3]")
+    private  WebElement colorValue;
+
+    @FindBy(xpath = "(//span[text()='范围'])[3]")
+    private  WebElement colorRange;
+
+    @FindBy(xpath = "(//span[text()='梯度'])[3]")
+    private  WebElement colorGradient;
+
     @FindBy(xpath = "//span[text()='添加值颜色']")
     private  WebElement addValueColor;
+
+    @FindBy(xpath = "//span[text()='添加范围颜色']")
+    private  WebElement addRangeColor;
 
     @FindBy(xpath = "//input[@placeholder='Please input']")
     private WebElement columnValue;
@@ -630,6 +642,10 @@ public class CreatePage extends PageTemplate {
         return addValueColor;
     }
 
+    public WebElement getAddRangeColor() {
+        return addRangeColor;
+    }
+
     public WebElement getColumnValue() {
         return columnValue;
     }
@@ -640,12 +656,18 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getStyleColumnConfig() {
         styleColumnConfig.click();
-        return getLastDropdownList();
+        return styleColumnConfig;
     }
 
+    public WebElement getColorValue() { return colorValue; }
+
+    public WebElement getColorRange() { return colorRange; }
+
+    public WebElement getColorGradient() { return colorGradient; }
+
     public WebElement getColorColumnConfig() {
-        colorColumnConfig.click();
-        return getLastDropdownList();
+//        colorColumnConfig.click();
+        return colorColumnConfig;
     }
 
     public WebElement getRowNumber() {

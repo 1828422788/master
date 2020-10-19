@@ -172,15 +172,27 @@ Feature: 数据大屏-i表格
     Then I will see the element "NumberWidth" value is "30"
     And I set the parameter "NumberWidth" with properties "50"
     And I choose the "字体颜色" from the "StyleColumnConfig"
-    And I choose the "值" from the "StyleColumnConfig"
+    And I click the "ColorColumnConfig" button
+    And I click the "ColorValue" button
+#    And I choose the "值" from the "StyleColumnConfig"
     And I wait for "1000" millsecond
     And I click the "CustomConfig" button
-    And I will see the "AddValueColor" is not exist
+    And I wait for "AddValueColor" will be visible
+#    And I will see the "AddValueColor" is not exist
     And I click the "AddValueColor" button
     And I wait for "500" millsecond
     And I set the parameter "ColumnValue" with properties "71.221.121.107"
     And I wait for "500" millsecond
     And I click the "ValueColorDelete" button
+    And I click the "ColorColumnConfig" button
+    And I wait for "500" millsecond
+    And I click the "ColorRange" button
+#    And I choose the "范围" from the "StyleColumnConfig"
+    And I wait for "AddRangeColor" will be visible
+    And I click the "AddRangeColor" button
+    And I wait for "500" millsecond
+    And I click the "ValueColorDelete" button
+
      #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
