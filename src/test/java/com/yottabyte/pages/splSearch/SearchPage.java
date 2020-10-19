@@ -138,8 +138,8 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//input[@placeholder='请输入已存搜索名称']")
     private WebElement savedSearchName;
-    public WebElement getSavedSearchName()
-    {
+
+    public WebElement getSavedSearchName() {
         return savedSearchName;
     }
 
@@ -1455,7 +1455,7 @@ public class SearchPage extends ListPageFactory {
         return downloadButton;
     }
 
-//  @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
+    //  @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
 //    @FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
     @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::i[@class='anticon css-ifnfqv _1Csj3jD9igXHB0MQUflN8F']")
     private WebElement downloadEvent;
@@ -1614,8 +1614,8 @@ public class SearchPage extends ListPageFactory {
         return result;
     }
 
-    //    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
-    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1']")
+    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1 yw-table']")
+//    @FindBy(xpath = "//div[@class='_2s3Fd-GN0DsYSjwg0ByfD1']")
     private WebElement splStatsRetTable;
 
     public WebElement getSplStatsRetTable() {
