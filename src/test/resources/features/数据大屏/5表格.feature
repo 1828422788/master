@@ -95,6 +95,7 @@ Feature: 数据大屏-i表格
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
+
     #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond
@@ -124,7 +125,7 @@ Feature: 数据大屏-i表格
 
 ######################################无耻的分割线################################
 
-  Scenario: 表格数据之静态数据
+  Scenario: 表格数据之静态数据 RZY-2685,RZY-2686，RZY-2687,RZY-2692
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -133,8 +134,11 @@ Feature: 数据大屏-i表格
     And I click the "Ensure" button
     #选择表格控件
     And I click the "Word" button
+#    And I wait for "1000" millsecond
     And I click the "Table" button
+    And I wait for "1000" millsecond
     And I hide the element "wordDropdown"
+    And I wait for "Style" will be visible
     And I click the "Style" button
         #数据
     And I click the "Data" button
@@ -149,7 +153,34 @@ Feature: 数据大屏-i表格
     And I click the "Ensure" button
     And I wait for "tipsText" will be invisible
 
+    And I click the "TimeDelete" button
+    And I click the "PassRatioDelete" button
     And I choose the "apache.clientip,apache.status,count()" from the "DataItem"
+
+     #列配置
+    And I click the "Style" button
+    And I wait for "ColumnConfig" will be visible
+    Then I will see the element "NumberWidth" value is "10"
+    And I click the "OrderNum" button
+    And I click the "TableOrderNum" button
+    Then I will see the element "NumberWidth" value is "0"
+    And I click the "TableOrderNum" button
+    And I wait for "OrderNumSix" will be visible
+    And I click the "TableOrderNumRoll" button
+    Then I wait for "OrderNumSix" will be invisible
+    And I click the "ItemApacheClientip" button
+    Then I will see the element "NumberWidth" value is "30"
+    And I set the parameter "NumberWidth" with properties "50"
+    And I choose the "字体颜色" from the "StyleColumnConfig"
+    And I choose the "值" from the "StyleColumnConfig"
+    And I wait for "1000" millsecond
+    And I click the "CustomConfig" button
+    And I will see the "AddValueColor" is not exist
+    And I click the "AddValueColor" button
+    And I wait for "500" millsecond
+    And I set the parameter "ColumnValue" with properties "71.221.121.107"
+    And I wait for "500" millsecond
+    And I click the "ValueColorDelete" button
      #保存
     And I wait for "Save" will be visible
     And I wait for "2000" millsecond

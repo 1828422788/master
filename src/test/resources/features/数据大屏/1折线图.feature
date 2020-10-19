@@ -141,7 +141,7 @@ Feature: 数据大屏-a折线图
 
 ##################################无耻的分割线##############################
 
-  Scenario: 折线图-静态数据
+  Scenario: 折线图-静态数据 RZY-1944,RZY-1945
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -164,6 +164,14 @@ Feature: 数据大屏-a折线图
     And I choose the "bolder" from the "ExampleWordBold"
     And I choose the "居中" from the "ExampleHorizontal"
     And I choose the "顶部" from the "ExampleVertical"
+
+    #数据系列
+    And I click the "DataSeries" button
+    And I wait for "FirstSeriesBold" will be visible
+    And I set the parameter "FirstSeriesBold" with value "5"
+    And I click the "Smooth" button
+    And I click the "Area" button
+
     #尺寸
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button

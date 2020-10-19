@@ -295,6 +295,18 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='标号']")
     private WebElement orderNum;
 
+    @FindBy(xpath = "//div[text()='apache.clientip']")
+    private WebElement itemApacheClientip;
+
+    @FindBy(xpath = "//label[contains(text(),'标号')]/following-sibling::label//span[@class='el-switch__button'][1]")
+    private WebElement tableOrderNum;
+
+    @FindBy(xpath = "//label[contains(text(),'标号重复滚动')]/following-sibling::label//span[@class='el-switch__button']")
+    private WebElement tableOrderNumRoll;
+
+    @FindBy(xpath = "//span[text()='6']")
+    private WebElement orderNumSix;
+
     @FindBy(xpath = "//div[text()='count()']")
     private WebElement count;
 
@@ -306,6 +318,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//div[@class='divergent-list'])[2]//img")
     private WebElement color1;
+
+    @FindBy(xpath = "//span[text()='时间']/following-sibling::i")
+    private WebElement timeDelete;
+
+    @FindBy(xpath = "//span[text()='成功率']/following-sibling::i")
+    private WebElement passRatioDelete;
 
     @FindBy(xpath = "//div[@class='panel-style-setting table-color-setting-modal']//div[@class='el-tab-pane'][not(@style='display: none;')]//label[contains(text(),'风格')]/following-sibling::div//i")
     private WebElement numberStyle;
@@ -372,6 +390,24 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[@class='back']")
     private  WebElement backGalaxee;
+
+    @FindBy(xpath = "(//div[text()='列配置']/following-sibling::div//label[contains(text(),'风格')]//following-sibling::div//i)[2]")
+    private  WebElement styleColumnConfig;
+
+    @FindBy(xpath = "(//div[text()='列配置']/following-sibling::div//label[contains(text(),'颜色')]//following-sibling::div//i)[1]")
+    private  WebElement colorColumnConfig;
+
+    @FindBy(xpath = "//span[text()='自定义']")
+    private  WebElement customConfig;
+
+    @FindBy(xpath = "//span[text()='添加值颜色']")
+    private  WebElement addValueColor;
+
+    @FindBy(xpath = "//input[@placeholder='Please input']")
+    private WebElement columnValue;
+
+    @FindBy(xpath = "//div[@class='color-picker']/following-sibling::a")
+    private WebElement valueColorDelete;
 
     @FindBy(xpath = "//div[@class='panel-search-option']/div/button/span")
     private WebElement dataSearch;
@@ -558,6 +594,10 @@ public class CreatePage extends PageTemplate {
         return orderNum;
     }
 
+    public WebElement getItemApacheClientip() {
+        return itemApacheClientip;
+    }
+
     public WebElement getNumberWidth() {
         return columnsWidth.get(0);
     }
@@ -568,6 +608,44 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getColumnConfig() {
         return this.header("列配置");
+    }
+
+    public WebElement getTableOrderNum() {
+        return tableOrderNum;
+    }
+
+    public WebElement getTableOrderNumRoll() {
+        return tableOrderNumRoll;
+    }
+
+    public WebElement getOrderNumSix() {
+        return orderNumSix;
+    }
+
+    public WebElement getCustomConfig() {
+        return customConfig;
+    }
+
+    public WebElement getAddValueColor() {
+        return addValueColor;
+    }
+
+    public WebElement getColumnValue() {
+        return columnValue;
+    }
+
+    public WebElement getValueColorDelete() {
+        return valueColorDelete;
+    }
+
+    public WebElement getStyleColumnConfig() {
+        styleColumnConfig.click();
+        return getLastDropdownList();
+    }
+
+    public WebElement getColorColumnConfig() {
+        colorColumnConfig.click();
+        return getLastDropdownList();
     }
 
     public WebElement getRowNumber() {
@@ -611,8 +689,12 @@ public class CreatePage extends PageTemplate {
         return this.dropdownList("", "数据项");
     }
 
-    public WebElement getTable() {
-        return table;
+    public WebElement getTimeDelete() {
+        return timeDelete;
+    }
+
+    public WebElement getPassRatioDelete() {
+        return passRatioDelete;
     }
 
     public WebElement getTitleWordBold() {
