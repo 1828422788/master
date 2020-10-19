@@ -66,7 +66,7 @@ Feature: 仪表盘详情页
     And I switch the dashboard "NightMode" button to "disable"
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "夜间模式已关闭"
-    And I compare source image "<string>" with target image "<string>"
+#    And I compare source image "<string>" with target image "<string>"
 
   Scenario: 关闭编辑(RZY-228)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"

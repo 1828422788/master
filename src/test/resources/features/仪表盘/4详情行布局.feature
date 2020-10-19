@@ -529,7 +529,7 @@ Feature: 仪表盘详情行布局
     And I set the parameter "ChoiceValue" with value "0"
     And I click the "AddChoiceValueButton" button
     And I choose the "111" from the "DefaultDropdownList"
-    And I wait for "500" millsecond
+    And I wait for "1500" millsecond
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
     And I click the "SettingIcon" button
@@ -694,6 +694,7 @@ Feature: 仪表盘详情行布局
     And I click the "Search" button under some element
     And I wait for loading invisible
     And I choose the "1441" from the "DefaultDropdownList"
+    And I wait for "1500" millsecond
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
     And I click the "SettingIcon" button
