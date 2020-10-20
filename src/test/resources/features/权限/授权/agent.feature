@@ -1,4 +1,4 @@
-@authtest @authtest1
+@authtest
 Feature: 权限-agent
 
   Scenario: 勾选agent所需功能权限
