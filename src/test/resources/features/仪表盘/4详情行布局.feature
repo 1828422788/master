@@ -186,9 +186,24 @@ Feature: 仪表盘详情行布局
     When I click the detail which name is "UIautotest"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "1000" millsecond
-    And I click the "DeleteTrend2" button
+    And I move the mouse pointer to the "DeleteNoNameRowIcon"
+    And I click the "DeleteNoNameRowIcon" button
+    And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     And I wait for "500" millsecond
+    Then I will see the success message "删除行成功"
+    And I wait for "AddEventButton" will be visible
+    When I click the "AddEventButton" button
+#    Then I will see the "AddChart,AddEvent,AddInput" is "disabled"
+    And I wait for "AddChart" will be visible
+    And I will see the element "AddChartItem" attribute "aria-disabled" is "true"
+    And I click the "AddRow" button
+    And I wait for loading invisible
+#    And I set the parameter "TagName" with value "第一行"
+    And I click the "{'Checkbox':'行布局趋势图2'}" button
+    And I click the "{'Checkbox':'行布局趋势图3'}" button
+    And I click the "Ensure" button
+    And I wait for "1000" millsecond
 
   Scenario: 展示条件-文本输入输入项 RZY-4783,RZY-4784
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -204,7 +219,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -238,7 +253,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -274,7 +289,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -308,7 +323,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -341,7 +356,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -404,7 +419,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -437,7 +452,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -471,7 +486,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -552,7 +567,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -583,7 +598,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -616,7 +631,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -648,7 +663,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -716,7 +731,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -747,7 +762,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -779,7 +794,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
@@ -811,7 +826,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
     And I click the "MoreXuanTing2" button
-    And I click the "MoreConfig" button
+#    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"

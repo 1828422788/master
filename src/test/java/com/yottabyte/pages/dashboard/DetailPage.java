@@ -349,6 +349,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='首行']/preceding-sibling::div/i[2]")
     private WebElement deleteRowIcon;
 
+    @FindBy(xpath = "//div[@id='fullscreenAll']/div/div/i[last()]")
+    private WebElement deleteNoNameRowIcon;
+
     @FindBy(xpath = "//div[text()='首行']")
     private WebElement firstRow;
 
@@ -364,7 +367,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='行布局趋势图1']/following-sibling::div[1]/i")
     private WebElement moreXuanTing;
 
-    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i")
+    @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[2]")
     private WebElement moreXuanTing2;
 
     @FindBy(xpath = "//div[text()='行布局趋势图2']/following-sibling::div[1]/i[3]")
@@ -872,6 +875,8 @@ public class DetailPage extends PageTemplate {
     public WebElement getEditRowIcon() { return editRowIcon; }
 
     public WebElement getDeleteRowIcon() { return deleteRowIcon; }
+
+    public WebElement getDeleteNoNameRowIcon() { return deleteNoNameRowIcon; }
 
     public WebElement getFirstRow() { return firstRow; }
 
