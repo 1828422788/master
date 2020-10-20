@@ -1,12 +1,12 @@
 package com.yottabyte.stepDefs;
 
 import com.yottabyte.utils.EmbeddingFile;
+import com.yottabyte.utils.SFTPUtil;
 import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.Scenario;
 import cucumber.api.java.en.Then;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 /**
  * @author sunxj
@@ -26,6 +26,29 @@ public class EmbeddingFileToReport {
             scenario.embed(EmbeddingFile.readContent(in), "text/plain");
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Then("^I download file \"([^\"]*)\" to local$")
+    public void downloadFileToLocal(String fileName) {
+        FileOutputStream outputStream = null;
+        try {
+            File file = new File("downloadFile/" + fileName);
+            file.createNewFile();
+            SFTPUtil util = new SFTPUtil();
+            byte[] bytes = util.download("target/download-files/", fileName);
+            outputStream = new FileOutputStream(file);
+            outputStream.write(bytes);
+            outputStream.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (outputStream != null)
+                    outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
