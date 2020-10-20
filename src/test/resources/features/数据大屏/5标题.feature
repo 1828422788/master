@@ -15,7 +15,7 @@ Feature: 数据大屏-h标题
     And I click the "Ensure" button
     And I click the "Word" button
     And I click the "TitleImg" button
-    And I hide the element "wordDropdown"
+    And I hide the element "WordDropdown"
     #样式
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
