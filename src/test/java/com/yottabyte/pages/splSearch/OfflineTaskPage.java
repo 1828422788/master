@@ -25,13 +25,6 @@ public class OfflineTaskPage extends PageTemplate {
     @FindBy(xpath = "//td[@class='el-table_1_column_1']")
     private WebElement emptyElement;
 
-    @FindBy(className = "el-button--primary")
-    private WebElement ensureButton;
-
-    public WebElement getEmptyElement() {
-        return emptyElement;
-    }
-
     public WebElement getFirstData() {
         return tdList.get(1);
     }
@@ -44,12 +37,24 @@ public class OfflineTaskPage extends PageTemplate {
         return super.getSuccessMessage();
     }
 
-    public WebElement getEnsureButton() {
-        return ensureButton;
-    }
-
     public WebElement getSearch() {
         return super.getSearchIcon();
+    }
+
+    @FindBy(xpath = "//a[contains(text(),'删除')]")
+    private WebElement delDownLoadButton;
+    public WebElement getDelDownLoadButton() {
+        return delDownLoadButton;
+    }
+
+    //@FindBy(className = "el-button--primary")
+    @FindBy(xpath = "//span[contains(text(),'确定')]/parent::button")
+    private WebElement ensureButton;
+    @FindBy(xpath = "//input[@placeholder='请输入名称']")
+    private WebElement dbListPageSearchInput;
+
+    public WebElement getDbListPageSearchInput() {
+        return dbListPageSearchInput;
     }
 
 }
