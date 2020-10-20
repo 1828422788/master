@@ -30,6 +30,7 @@ Feature: 新建下载任务
     And I wait for "2000" millsecond
     Given the data name is "<name>.csv" then i click the "下载" button
     And I wait for "2000" millsecond
+    Given the data name is "<name>.csv" then i click the "删除" button
     And I download file "<name>.csv" to local
     Then I compare source download file "expect/<name>.csv" with target download files "<name>.csv"
 
