@@ -172,9 +172,7 @@ Feature: 应用定时任务(RZY-2123)
     Then I will see the "app.CreatePage" page
     And I wait for loading invisible
     And I click the "OverallSituation" button
-    And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
+    And I click the "SaveButton" button under some element
 
     Examples:
       | name                        |
@@ -205,8 +203,6 @@ Feature: 应用定时任务(RZY-2123)
     And I wait for loading invisible
     And I click the "CurrentApp" button
     And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
     Examples:
       | name                        |

@@ -175,8 +175,6 @@ Feature: 应用拓扑图（RZY-2142）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
     Examples:
       | name        |

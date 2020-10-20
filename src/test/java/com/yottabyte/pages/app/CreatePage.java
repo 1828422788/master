@@ -150,7 +150,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='字段配置']")
     private WebElement fieldConfig;
 
-    @FindBy(id = "FieldConfig_name")
+    @FindBy(id = "FieldAliasModal_name")
     private WebElement fieldConfigName;
 
     @FindBy(xpath = "(//input[contains(@id,'original')])[last()]")
@@ -167,6 +167,12 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='字段查找']")
     private WebElement fieldSearch;
+
+    @FindBy(xpath = "//div[text()='字段转换']")
+    private WebElement fieldConvert;
+
+    @FindBy(xpath = "//div[text()='字段萃取']")
+    private WebElement fieldExtract;
 
     @FindBy(id = "FieldConfig_name")
     private WebElement fieldSearchName;
@@ -188,6 +194,71 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//input[contains(@id,'.output')])[last()]")
     private WebElement outputField;
+
+    @FindBy(id = "FieldConfig_regex")
+    private WebElement fieldConfigRegex;
+
+    @FindBy(id = "FieldConfig_format")
+    private WebElement fieldConfigFormat;
+
+    @FindBy(partialLinkText = "添加字段转换")
+    private WebElement addFieldConvertRule;
+
+    @FindBy(xpath = "(//input[contains(@id,'.name')])[last()]")
+    private WebElement lastNameInput;
+
+    @FindBy(xpath = "(//div[@class='ant-select-selection__rendered'])[last()]")
+    private WebElement fieldConvertRule;
+
+    @FindBy(id = "FieldConfig_delims")
+    private WebElement fieldConfigDelims;
+
+    @FindBy(id = "FieldConfig_fields")
+    private WebElement fieldConfigFields;
+
+    @FindBy(xpath = "(//span[text()='保存'])[last()]/ancestor::button")
+    private WebElement saveButton;
+
+    public WebElement getFieldConfigFields() {
+        return fieldConfigFields;
+    }
+
+    public WebElement getFieldConfigDelims() {
+        return fieldConfigDelims;
+    }
+
+    public WebElement getFieldConvertRule() {
+        fieldConvertRule.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getLastNameInput() {
+        return lastNameInput;
+    }
+
+    public WebElement getAddFieldConvertRule() {
+        return addFieldConvertRule;
+    }
+
+    public WebElement getFieldExtract() {
+        return fieldExtract;
+    }
+
+    public WebElement getFieldConfigFormat() {
+        return fieldConfigFormat;
+    }
+
+    public WebElement getFieldConfigRegex() {
+        return fieldConfigRegex;
+    }
+
+    public WebElement getAddFieldConvert() {
+        return super.getButton("添加字段转换");
+    }
+
+    public WebElement getFieldConvert() {
+        return fieldConvert;
+    }
 
     public WebElement getAddOutputField() {
         return addOutputField;
@@ -369,7 +440,7 @@ public class CreatePage extends PageTemplate {
     }
 
     public WebElement getSaveButton() {
-        return super.getButton("保存");
+        return saveButton;
     }
 
     public WebElement getImportButton() {

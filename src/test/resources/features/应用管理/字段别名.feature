@@ -1,5 +1,5 @@
 @all @smoke @app @appSmoke
-Feature: 应用字段配置
+Feature: 应用字段别名
 
   Scenario Outline: 新建KV字典应用
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -58,10 +58,7 @@ Feature: 应用字段配置
     And I set the parameter "FieldConfigName" with value "AutoTest"
     And I set the parameter "OriginalField" with value "appname"
     And I set the parameter "FieldAlias" with value "app"
-    And I click the "Ensure" button
     And I click the "SaveButton" button under some element
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
   Scenario: 验证字段别名
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -91,11 +88,7 @@ Feature: 应用字段配置
     And I click the "AddAlias" button
     And I set the parameter "OriginalField" with value "apache.geo.province"
     And I set the parameter "FieldAlias" with value "province"
-    And I click the "Ensure" button
     And I click the "SaveButton" button under some element
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
-    Then I will see the data "<string>" values "<string>"
 
   Scenario: 验证多个字段别名映射
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -123,10 +116,7 @@ Feature: 应用字段配置
     And I wait for "AddFieldAlias" will be visible
     When the data name is "AutoTest" then i click the "编辑" button
     And I click the "DeleteAlias" button
-    And I click the "Ensure" button
     And I click the "SaveButton" button under some element
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
   Scenario: 验证删除成功
     Given open the "app.ListPage" page for uri "/app/list/"
@@ -149,10 +139,7 @@ Feature: 应用字段配置
     And I set the parameter "FieldConfigName" with value "test"
     And I set the parameter "OriginalField" with value "appname"
     And I set the parameter "FieldAlias" with value "app"
-    And I click the "Ensure" button
     And I click the "SaveButton" button under some element
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
   Scenario: 验证多个字段别名
     Given open the "splSearch.SearchPage" page for uri "/search/"

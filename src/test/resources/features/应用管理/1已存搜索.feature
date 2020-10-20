@@ -140,8 +140,6 @@ Feature: 应用已存搜索（RZY-2125）
     And I wait for loading invisible
     And I click the "OverallSituation" button
     And I click the "SaveButton" button
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
     Examples:
       | name             |
