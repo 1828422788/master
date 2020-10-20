@@ -4,7 +4,7 @@ Feature: 新建下载任务
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
-  @v33dbeval
+  @v35dbeval
   Scenario Outline: 新建下载任务3个
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
