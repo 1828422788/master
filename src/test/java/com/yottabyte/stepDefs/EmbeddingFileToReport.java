@@ -1,5 +1,6 @@
 package com.yottabyte.stepDefs;
 
+import com.yottabyte.config.ConfigManager;
 import com.yottabyte.utils.EmbeddingFile;
 import com.yottabyte.utils.SFTPUtil;
 import com.yottabyte.webDriver.SharedDriver;
@@ -35,7 +36,9 @@ public class EmbeddingFileToReport {
         try {
             File file = new File("downloadFile/" + fileName);
             file.createNewFile();
-            SFTPUtil util = new SFTPUtil();
+            ConfigManager config = new ConfigManager();
+            SFTPUtil util = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
+            util.login();
             byte[] bytes = util.download("target/download-files/", fileName);
             outputStream = new FileOutputStream(file);
             outputStream.write(bytes);
