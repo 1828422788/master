@@ -6,7 +6,7 @@ Feature: 数据大屏-k滚动列表二
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 滚动列表2样式-搜索
+  Scenario: 滚动列表2样式-搜索 RZY-4822
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

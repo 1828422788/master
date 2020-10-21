@@ -5,7 +5,7 @@ Feature: 数据大屏-i滚动列表
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 滚动列表样式-搜索
+  Scenario: 滚动列表样式-搜索 RZY-4821
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
