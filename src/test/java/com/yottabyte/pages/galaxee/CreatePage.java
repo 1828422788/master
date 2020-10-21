@@ -1467,6 +1467,16 @@ public class CreatePage extends PageTemplate {
         return this.dropdownList("", "Y轴2");
     }
 
+    public WebElement getColumnName(){return this.dropdownList("","名称");}
+
+    public WebElement getColumnValue1() {
+        return this.dropdownList("", "值 1");
+    }
+
+    public WebElement getColumnValue2() {
+        return this.dropdownList("", "值 2");
+    }
+
     public WebElement getXaxisField() {
         return this.dropdownList("", "横坐标字段");
     }
@@ -2451,6 +2461,29 @@ private WebElement dataType;
 //      @FindBy(xpath = "//label[contains(text(),'条颜色')]/following-sibling::div")
 //      private WebElement aspectColor;
       public WebElement getAspectColor(){return this.colorInput("水平胶囊", "条颜色");}
+
+//3D柱图
+    @FindBy(xpath = "//li[text()='3D柱图']/i")
+    private WebElement column3D;
+    public WebElement getColumn3D(){return column3D;}
+
+    //样式中的水平胶囊
+    @FindBy(xpath = "//div[text()='3D柱图']/i")
+    private WebElement styleColumn3D;
+    public WebElement getStyleColumn3D(){return styleColumn3D;}
+    //字体大小
+    public WebElement getColumnWordSize() {
+        return this.input("3D柱图", "字体大小");
+    }
+    //字体颜色
+    public WebElement getColumnFontColor(){return this.colorInput("3D柱图", "字体颜色");}
+    //轴颜色
+    public WebElement getAxisColor(){return this.colorInput("3D柱图", "轴颜色");}
+    //柱1颜色
+    public WebElement getColumnOneColor(){return this.colorInput("3D柱图", "柱1颜色");}
+    //柱2颜色
+    public WebElement getColumnTwoColor(){return this.colorInput("3D柱图", "柱2颜色");}
+
 
 //综合列表
     @FindBy(xpath = "//li[text()='综合列表']/i")
