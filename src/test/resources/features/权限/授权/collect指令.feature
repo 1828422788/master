@@ -22,6 +22,7 @@ Feature: 权限-collect指令
     And I click the "CreateButton" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
+    And I logout current user
 
   Scenario: 验证无法使用collect指令
     Given I login user "AutoTest" with password "All#123456"
@@ -31,6 +32,7 @@ Feature: 权限-collect指令
     And I click the "Today" button
     And I click the "SearchButton" button
     Then I wait for element "SearchStatus" change text to "搜索出错!"
+    And I logout current user
 
   Scenario: 勾选collect指令
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -40,6 +42,7 @@ Feature: 权限-collect指令
     And I "unchecked" the checkbox which name is "全选" in trend page
     When I "checked" the checkbox which name is "可使用collect指令"
     And I click the "SaveButton" button
+    And I logout current user
 
   Scenario: 验证无写入索引权限
     Given I login user "AutoTest" with password "All#123456"
@@ -49,6 +52,7 @@ Feature: 权限-collect指令
     And I click the "Today" button
     And I click the "SearchButton" button
     Then I wait for element "SearchStatus" change text to "搜索出错!"
+    And I logout current user
 
   Scenario Outline: 授权写入索引权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -58,6 +62,7 @@ Feature: 权限-collect指令
     When I "checked" function "读取,编辑" from the auth table which name is "<name>"
     And I click the "SaveButton" button
     And I will see the success message "更新成功"
+    And I logout current user
 
     Examples:
       | name         |
