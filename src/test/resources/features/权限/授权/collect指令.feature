@@ -1,4 +1,4 @@
-@authtest @autotest1
+@authtest @authtest1
 Feature: 权限-collect指令
 
   Scenario: 取消可使用collect指令
