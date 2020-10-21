@@ -6,7 +6,7 @@ Feature: 数据大屏-h标题
 #     And I wait for "Dashboard" will be visible
 
 
-  Scenario: 标题 RZY-1913,RZY-1973,RZY-1974
+  Scenario: 标题 RZY-1913,RZY-1973,RZY-1974,RZY-1938
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -15,8 +15,8 @@ Feature: 数据大屏-h标题
     And I click the "Ensure" button
     And I click the "Word" button
     And I click the "TitleImg" button
-    And I hide the element "wordDropdown"
-    #样式
+    And I hide the element "WordDropdown"
+    #图表尺寸位置
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
     And I click the "ChartPosition" button
@@ -43,6 +43,13 @@ Feature: 数据大屏-h标题
     And I set the parameter "TitleAngle" with value "49"
     #动画
     And I click the "dynamic" button
+#全局样式
+    And I click the "OverallStyle" button
+    And I wait for "Pellucidity" will be visible
+    And I set the parameter "Pellucidity" with value ""
+    And I set the parameter "Pellucidity" with value "0.6"
+    And I will see the element "Pellucidity" value is "0.6"
+
     #数据
     And I click the "Data" button
     And I set the parameter "Content" with value "数据模块"

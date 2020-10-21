@@ -862,11 +862,33 @@ public class SearchPage extends ListPageFactory {
     }
 
     public WebElement getMaxLineNum() {
-        return super.getInputElement("最大行数");
+        String xpath = "//label[text()='最大行数']//following-sibling::input";
+        return webDriver.findElement(By.xpath(xpath));
+    }
+
+
+    public WebElement getDocumentTypeList() {
+        String xpath = "//div/label[contains(text(),'文件类型')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+    }
+
+    public WebElement getDocumentEncodeList() {
+        String xpath = "//div/label[contains(text(),'文件编码')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
     }
 
     public WebElement getCreateDownloadTask() {
-        return super.getButton("创建");
+        return super.getButton("确 定");
+    }
+
+    public WebElement getAcceptCreateDownloadTask() {
+        return super.getButton("确定");
     }
 
     public WebElement getDownload() {

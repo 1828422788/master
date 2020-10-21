@@ -280,11 +280,14 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//li[contains(text(),'标题')]")
     private WebElement title;
 
+    @FindBy(xpath = "//li[contains(text(),'表格')]")
+    private WebElement table;
+
     @FindBy(className = "el-color-picker__color-inner")
     private WebElement colorInner;
 
-    @FindBy(className = "table")
-    private WebElement table;
+//    @FindBy(className = "table")
+//    private WebElement table;
 
     @FindBy(xpath = "//label[contains(text(),'背景颜色')]/following-sibling::div//div[@class='el-color-picker__trigger']")
     private WebElement tableHeaderBgColor;
@@ -298,10 +301,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='apache.clientip']")
     private WebElement itemApacheClientip;
 
-    @FindBy(xpath = "//label[contains(text(),'标号')]/following-sibling::label//span[@class='el-switch__button'][1]")
+    @FindBy(xpath = "(//label[contains(text(),'标号')]/following-sibling::label)[1]")
     private WebElement tableOrderNum;
 
-    @FindBy(xpath = "//label[contains(text(),'标号重复滚动')]/following-sibling::label//span[@class='el-switch__button']")
+    @FindBy(xpath = "//label[contains(text(),'标号重复滚动')]/following-sibling::label/div[@class='el-switch__label el-switch__label--left']")
     private WebElement tableOrderNumRoll;
 
     @FindBy(xpath = "//span[text()='6']")
@@ -414,6 +417,15 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//span[text()='添加范围颜色']")
     private  WebElement addRangeColor;
+
+    @FindBy(xpath = "//div[@class='preset-btn-container']/label[contains(text(),'预设置')]/following-sibling::span")
+    private  WebElement colorPreConfig;
+
+    @FindBy(xpath = "//div[@class='sequential-list']/label[contains(text(),'连续')]")
+    private  WebElement preConfigSeries;
+
+    @FindBy(xpath = "//div[@class='divergent-list']/label[contains(text(),'离散')]")
+    private  WebElement preConfigSpread;
 
     @FindBy(xpath = "//input[@placeholder='Please input']")
     private WebElement columnValue;
@@ -646,6 +658,18 @@ public class CreatePage extends PageTemplate {
         return addRangeColor;
     }
 
+    public WebElement getColorPreConfig() {
+        return colorPreConfig;
+    }
+
+    public WebElement getPreConfigSeries() {
+        return preConfigSeries;
+    }
+
+    public WebElement getPreConfigSpread() {
+        return preConfigSpread;
+    }
+
     public WebElement getColumnValue() {
         return columnValue;
     }
@@ -656,7 +680,7 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getStyleColumnConfig() {
         styleColumnConfig.click();
-        return styleColumnConfig;
+        return getLastDropdownList();
     }
 
     public WebElement getColorValue() { return colorValue; }
@@ -737,6 +761,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getTitleImg() {
         return title;
+    }
+
+    public WebElement getTable() {
+        return table;
     }
 
     public WebElement getContent() {

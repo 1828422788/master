@@ -5,18 +5,18 @@ Feature: 数据大屏-i表格
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 新建默认类型的表格 RZY-1914,RZY-1975,RZY-2038
+  Scenario: 新建表格 RZY-1914,RZY-1975,RZY-2038
 #    Given I wait for title change text to "仪表盘"
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     And I click the "Create" button
     And I set the parameter "Name" with value "表格-搜索"
     And I click the "Ensure" button
-    #选择表格控件
     And I click the "Word" button
     And I click the "Table" button
-    And I hide the element "wordDropdown"
+    And I hide the element "WordDropdown"
+
     #样式
     And I click the "Style" button
     And I wait for "ChartPosition" will be visible
@@ -125,8 +125,8 @@ Feature: 数据大屏-i表格
 
 ######################################无耻的分割线################################
 
-  Scenario: 表格数据之静态数据 RZY-2685,RZY-2686，RZY-2687,RZY-2692
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+  Scenario: 表格数据之静态数据 RZY-2685,RZY-2687,RZY-2692,RZY-2688,RZY-2691,RZY-2690,RZY-2689
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
@@ -160,30 +160,34 @@ Feature: 数据大屏-i表格
      #列配置
     And I click the "Style" button
     And I wait for "ColumnConfig" will be visible
+    And I click the "ColumnConfig" button
     Then I will see the element "NumberWidth" value is "10"
     And I click the "OrderNum" button
     And I click the "TableOrderNum" button
     Then I will see the element "NumberWidth" value is "0"
+    And I make the element "TableOrderNum" visible
     And I click the "TableOrderNum" button
-    And I wait for "OrderNumSix" will be visible
+    And I wait for "OrderNumSix" will be invisible
     And I click the "TableOrderNumRoll" button
-    Then I wait for "OrderNumSix" will be invisible
+    Then I wait for "OrderNumSix" will be visible
     And I click the "ItemApacheClientip" button
-    Then I will see the element "NumberWidth" value is "30"
-    And I set the parameter "NumberWidth" with properties "50"
+    Then I will see the element "FieldWidth1" value is "30"
     And I choose the "字体颜色" from the "StyleColumnConfig"
+    And I set the parameter "FieldWidth1" with value "50"
     And I click the "ColorColumnConfig" button
     And I click the "ColorValue" button
 #    And I choose the "值" from the "StyleColumnConfig"
     And I wait for "1000" millsecond
+    #值
     And I click the "CustomConfig" button
     And I wait for "AddValueColor" will be visible
 #    And I will see the "AddValueColor" is not exist
     And I click the "AddValueColor" button
     And I wait for "500" millsecond
-    And I set the parameter "ColumnValue" with properties "71.221.121.107"
+    And I set the parameter "ColumnValue" with value "71.221.121.107"
     And I wait for "500" millsecond
     And I click the "ValueColorDelete" button
+    #范围
     And I click the "ColorColumnConfig" button
     And I wait for "500" millsecond
     And I click the "ColorRange" button
@@ -191,7 +195,17 @@ Feature: 数据大屏-i表格
     And I wait for "AddRangeColor" will be visible
     And I click the "AddRangeColor" button
     And I wait for "500" millsecond
+    #梯度
     And I click the "ValueColorDelete" button
+    And I click the "ColorColumnConfig" button
+    And I wait for "500" millsecond
+    And I click the "ColorGradient" button
+    And I click the "ColorPreConfig" button
+    And I wait for "PreConfigSeries" will be visible
+    And I click the "PreConfigSeries" button
+    And I click the "ColorPreConfig" button
+    And I wait for "PreConfigSpread" will be visible
+    And I click the "PreConfigSpread" button
 
      #保存
     And I wait for "Save" will be visible
@@ -225,7 +239,7 @@ Feature: 数据大屏-i表格
   Scenario: 表格数据之绑定搜索
 #      Given I will see the "PublicNavBarPage" page
 #      And I wait for "Dashboard" will be visible
-    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
+    Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
     When I click the "Create" button
