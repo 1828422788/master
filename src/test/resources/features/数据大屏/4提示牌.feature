@@ -1,10 +1,10 @@
  @galaxee  @galaxee2  @3.5
-Feature: 数据大屏-e揭示牌
+Feature: 数据大屏-e提示牌
 #  Background:
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-    Scenario: 揭示牌样式搜索
+    Scenario: 揭示牌样式搜索 RZY-4826
 
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button

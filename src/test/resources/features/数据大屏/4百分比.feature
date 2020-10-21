@@ -5,7 +5,7 @@
 #      And I wait for "Dashboard" will be visible
 
 
-    Scenario: 百分比样式-搜索
+    Scenario: 百分比样式-搜索 RZY-4825
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
