@@ -1,4 +1,4 @@
-@authtest
+@authtest @authtest1
 Feature: 权限-下载管理
 
   Scenario Outline: 取消勾选下载管理

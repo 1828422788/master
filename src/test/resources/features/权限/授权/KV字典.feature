@@ -100,8 +100,6 @@ Feature: 权限-KV字典
     And I set the parameter "KVFieldInput" with value "appname"
     And I click the "CreateKVStore" button
     And I click the "SaveButton" button under some element
-    And I wait for "SuccessMessage" will be visible
-    Then I will see the success message "更新成功"
 
   Scenario: 授权读取权限
     Given open the "app.ListPage" page for uri "/app/list/"
