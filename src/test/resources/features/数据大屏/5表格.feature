@@ -125,7 +125,7 @@ Feature: 数据大屏-i表格
 
 ######################################无耻的分割线################################
 
-  Scenario: 表格数据之静态数据 RZY-2685,RZY-2686，RZY-2687,RZY-2692
+  Scenario: 表格数据之静态数据 RZY-2685,RZY-2687,RZY-2692,RZY-2688,RZY-2691,RZY-2690,RZY-2689
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
