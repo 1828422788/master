@@ -1,4 +1,4 @@
-@authtest @authtest1
+@authtest1
 Feature: 权限-KV字典
 
   Scenario Outline: 授权可使用应用功能

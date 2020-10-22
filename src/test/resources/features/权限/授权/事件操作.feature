@@ -1,4 +1,4 @@
-@authtest
+@authtest1
 Feature: 权限-事件操作
 
   Scenario Outline: 取消事件操作权限
