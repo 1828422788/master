@@ -1,4 +1,4 @@
-@authtest @authtest1
+@authtest1
 Feature: 权限-KV字典
 
   Scenario Outline: 授权可使用应用功能
@@ -224,6 +224,7 @@ Feature: 权限-KV字典
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the element "MessageContent" value is "删除成功"
+    And I logout current user
 
   Scenario Outline: 删除app
     Given open the "app.ListPage" page for uri "/app/list/"

@@ -1,4 +1,4 @@
-@authtest
+@authtest1
 Feature: 权限-授权告警插件
 
   Scenario Outline: 告警插件功能权限
