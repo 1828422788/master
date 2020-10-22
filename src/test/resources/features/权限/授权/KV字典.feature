@@ -224,6 +224,7 @@ Feature: 权限-KV字典
     And I wait for "Ensure" will be visible
     And I click the "Ensure" button
     Then I will see the element "MessageContent" value is "删除成功"
+    And I logout current user
 
   Scenario Outline: 删除app
     Given open the "app.ListPage" page for uri "/app/list/"
