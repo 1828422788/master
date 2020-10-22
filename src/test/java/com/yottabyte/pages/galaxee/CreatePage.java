@@ -1477,6 +1477,14 @@ public class CreatePage extends PageTemplate {
         return this.dropdownList("", "值 2");
     }
 
+    public WebElement getTimeField() {
+        return this.dropdownList("", "时间字段");
+    }
+
+    public WebElement getValueField() {
+        return this.dropdownList("", "数值字段");
+    }
+
     public WebElement getXaxisField() {
         return this.dropdownList("", "横坐标字段");
     }
@@ -2467,7 +2475,7 @@ private WebElement dataType;
     private WebElement column3D;
     public WebElement getColumn3D(){return column3D;}
 
-    //样式中的水平胶囊
+    //样式中的3D柱图
     @FindBy(xpath = "//div[text()='3D柱图']/i")
     private WebElement styleColumn3D;
     public WebElement getStyleColumn3D(){return styleColumn3D;}
@@ -2483,6 +2491,40 @@ private WebElement dataType;
     public WebElement getColumnOneColor(){return this.colorInput("3D柱图", "柱1颜色");}
     //柱2颜色
     public WebElement getColumnTwoColor(){return this.colorInput("3D柱图", "柱2颜色");}
+
+//日历图
+    @FindBy(xpath = "//li[text()='日历图']/i")
+    private WebElement calendar;
+    public WebElement getCalendar(){return calendar;}
+
+    //样式中的日历图
+    @FindBy(xpath = "//div[text()='日历图']/i")
+    private WebElement styleCalendar;
+    public WebElement getStyleCalendar(){return styleCalendar;}
+    //字体大小
+    public WebElement getCalendarTopMargin() {
+        return this.input("日历图", "上边距");
+    }
+    //月份字号
+    public WebElement getCalendarMonthSize() {
+        return this.input("日历图", "月份字号");
+    }
+    //星期字号
+    public WebElement getCalendarWeekSize() {
+        return this.input("日历图", "星期字号");
+    }
+    //表格大小
+    public WebElement getCalendarTableSize() {
+        return this.input("日历图", "表格大小");
+    }
+    //月份颜色
+    public WebElement getCalendarMonthColor(){return this.colorInput("日历图", "月份颜色");}
+    //星期颜色
+    public WebElement getCalendarWeekColor(){return this.colorInput("日历图", "星期颜色");}
+    //标注颜色
+    public WebElement getCalendarTaggingColor(){return this.colorInput("日历图", "标注颜色");}
+    //背景颜色
+    public WebElement getCalendarBackgroundColor(){return this.colorInput("日历图", "背景颜色");}
 
 
 //综合列表

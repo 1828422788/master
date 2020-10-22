@@ -20,7 +20,7 @@ Feature: 数据大屏-g3D柱图
 
     #数据设置（数据源类型默认：搜索）
     And I wait for "Data" will be visible
-    And I click the "Data" button
+    And I click the "Data" button under some element
     And I set the parameter "SplInput" with value "tag:sample04061424_chart | bucket timestamp span=2h as ts |stats count(apache.status),dc(apache.status) by apache.status"
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
