@@ -3,6 +3,7 @@ package com.yottabyte.stepDefs;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.GetElementFromPage;
 import cucumber.api.java.en.And;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -157,7 +158,10 @@ public class ScrollBar {
         if (side.equals("right")) {
             new Actions(webDriver).dragAndDropBy(sourceElement, 200, 0).build().perform();
         } else if (side.equals("left")) {
-            new Actions(webDriver).dragAndDropBy(sourceElement, -400, 0).build().perform();
+            WebElement bar = webDriver.findElement(By.xpath("//div[@class='_1qX0nA1xhWDv7qXoKxXaKo']"));
+            int targetX = bar.getLocation().getX() + 21; //half width
+            int sourceX = sourceElement.getLocation().getX();
+            new Actions(webDriver).dragAndDropBy(sourceElement, -(sourceX - targetX), 0).build().perform();
         }
     }
 
