@@ -4,6 +4,7 @@ Feature: 定时任务复制
   Scenario Outline: create_new
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
     And I click the "ResourceAll" button
     And I click the "DateEditor" button

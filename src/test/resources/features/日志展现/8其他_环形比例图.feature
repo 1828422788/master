@@ -4,6 +4,7 @@ Feature: 日志展现_其它_环形比例图
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "left" side
 
   Scenario Outline:  ringchart_onefield(RZY-4198,4199)
     When I set the parameter "SearchInput" with value "<spl>"

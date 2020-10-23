@@ -4,6 +4,7 @@ Feature: 日志展现_其他_单值
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "left" side
 
   Scenario Outline: others(RZY-2303)
     When I set the parameter "SearchInput" with value "<spl>"

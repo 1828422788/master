@@ -6,6 +6,7 @@ import cucumber.api.java.en.And;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * 滚动条相关操作
@@ -142,6 +143,22 @@ public class ScrollBar {
                 "}\n";
         js += "simulateDragAndDrop(arguments[0], arguments[1])";
         JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+    }
+
+    /**
+     * 把一个元素拖拽到右边/左边(搜索页页面拖拽)
+     *
+     * @param source 想要拖拽的元素名称
+     * @param side   想要元素拖拽到方向，right/left
+     */
+    @And("^I drag the element \"([^\"]*)\" to the \"([^\"]*)\" side$")
+    public void JavascriptDragToRightOrLeft(String source, String side) {
+        WebElement sourceElement = GetElementFromPage.getWebElementWithName(source);
+        if (side.equals("right")) {
+            new Actions(webDriver).dragAndDropBy(sourceElement, 200, 0).build().perform();
+        } else if (side.equals("left")) {
+            new Actions(webDriver).dragAndDropBy(sourceElement, -400, 0).build().perform();
+        }
     }
 
 }

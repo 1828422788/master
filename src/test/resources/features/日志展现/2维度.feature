@@ -4,6 +4,7 @@ Feature: 日志展现_维度
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "left" side
 
   Scenario Outline: dimension(RZY-833,2776,2778,2782)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
@@ -228,7 +229,7 @@ Feature: 日志展现_维度
     And I drag the scroll bar to the element "StatisticalChart"
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/高级搜索视图/2维度/<chartType>_分面"
-    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_分面"
+#    Then I compare source image "actual/高级搜索视图/2维度/<chartType>_分面" with target image "expect/高级搜索视图/2维度/<chartType>_分面"
 
     Examples:
       |   chartType   |  color   |  spl   |
