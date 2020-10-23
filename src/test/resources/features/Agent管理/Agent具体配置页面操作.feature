@@ -85,7 +85,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
   Scenario Outline: 输出配置修改发送速率限制
     And I click the "OutputEdit" button
-    And I set the parameter "SendSpeedLimit" with value "10"
+    And I set the parameter "SendSpeedLimit" with value "100"
     And I choose the "<sendspeed>" from the "SendSpeed"
     And I click the "Ensure" button
     And I wait for loading invisible
@@ -94,8 +94,8 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
     Examples:
       | sendspeed | sendspeedstatus |
-      | KB/S      | 10.00 KB/s       |
-      | B/S       | 10 B/s          |
+      | KB/S      | 100.00 KB/s       |
+      | B/S       | 100 B/s          |
       | MB/S      | 100.00 MB/s      |
 
 
@@ -109,7 +109,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
     Examples:
       | loglength | loglengthstatus |
-      | 70000      | 10000 Byte       |
+      | 70000      | 70000 Byte       |
       | 65536      |  65536 Byte       |
 
 
