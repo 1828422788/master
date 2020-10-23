@@ -313,7 +313,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "等于" from the "ShowCondition"
@@ -346,7 +346,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "大于" from the "ShowCondition"
@@ -442,7 +442,7 @@ Feature: 仪表盘详情行布局
     And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "包含" from the "ShowCondition"
@@ -476,7 +476,7 @@ Feature: 仪表盘详情行布局
     And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "等于" from the "ShowCondition"
@@ -588,7 +588,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "包含" from the "ShowCondition"
@@ -621,7 +621,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "等于" from the "ShowCondition"
@@ -653,7 +653,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "大于" from the "ShowCondition"
@@ -752,7 +752,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "包含" from the "ShowCondition"
@@ -784,7 +784,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "等于" from the "ShowCondition"
@@ -816,7 +816,7 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-    And I click the "Configs" button
+    And I click the "Configs" button under some element
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "大于" from the "ShowCondition"

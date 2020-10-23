@@ -25,10 +25,11 @@ Feature: 数据大屏-n饼图
     And I wait for "TagWordColor" will be visible
     And I set the parameter "TagWordColor" with value "#DFFE19"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "TagBold"
     #半径
     And I click the "Radius" button
+    And I wait for "500" millsecond
     And I set the parameter "InnerRadius" with value "20%"
     And I wait for "OuterRadius" will be visible
     And I set the parameter "OuterRadius" with value "80%"

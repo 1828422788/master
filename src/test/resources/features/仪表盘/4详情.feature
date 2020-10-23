@@ -22,6 +22,7 @@ Feature: 仪表盘详情页
     And I click the "CreatNewTag" button
     When I set the parameter "TagName" with value "forDelete"
     And I click the "EnsureCreateTagButton" button
+    And I wait for "500" millsecond
     And I back to before
 
   Scenario: 编辑tag(RZY-4488)
