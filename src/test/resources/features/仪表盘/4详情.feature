@@ -63,7 +63,7 @@ Feature: 仪表盘详情页
     And I switch the dashboard "NightMode" button to "enable"
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "夜间模式已启用"
-    And I wait for "3000" millsecond
+    And I wait for "5000" millsecond
     And I switch the dashboard "NightMode" button to "disable"
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "夜间模式已关闭"
