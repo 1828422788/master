@@ -186,7 +186,7 @@ Feature: 索引信息新建
     And I set the parameter "DivideTime" with value "10"
     And I set the parameter "SavedSize" with value "2"
     And I choose the "TB" from the "SavedSizeDropDown"
-    And I choose the "2份" from the "IndexDataDropDown"
+#    And I choose the "2份" from the "IndexDataDropDown"
 #    And I switch the "副本存留" button to "checked"
 #    And I set the parameter "SavedCopy" with value "20"
 #    And I click the "CreateButton" button
@@ -215,7 +215,7 @@ Feature: 索引信息新建
     And I set the parameter "Desc" with value "<desc>"
     And I set the parameter "SavedTime" with value "<savedTime>"
     And I set the parameter "DivideTime" with value "<divideTime>"
-    And I choose the "2份" from the "IndexDataDropDown"
+#    And I choose the "2份" from the "IndexDataDropDown"
 #    And I switch the "副本存留" button to "checked"
 #    And I set the parameter "SavedCopy" with value "<savedCopy>"
 #    And I click the "CreateButton" button
