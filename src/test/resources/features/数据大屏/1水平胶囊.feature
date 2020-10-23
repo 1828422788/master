@@ -5,7 +5,7 @@ Feature: 数据大屏-g水平胶囊
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 水平胶囊样式-搜索
+  Scenario: 水平胶囊样式-搜索 RZY-3721,RZY-3722
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
 
     When I click the "Create" button
@@ -40,7 +40,7 @@ Feature: 数据大屏-g水平胶囊
     And I wait for "capsuleFontColor" will be visible
     And I set the parameter "capsuleFontColor" with value "#C23535"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I choose the "bold" from the "CapsuleWordBold"
     #条高比
@@ -50,7 +50,7 @@ Feature: 数据大屏-g水平胶囊
     And I wait for "aspectColor" will be visible
     And I set the parameter "aspectColor" with value "#CCE42C"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #4 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "水平胶囊样式修改"

@@ -2305,6 +2305,14 @@ private WebElement dataType;
     public WebElement getTextWordBold() {
         return this.dropdownList("图表", "字体粗细");
     }
+    //值阈Min
+    public WebElement getThresholdMin() {
+        return this.input("图表", "值阈Min");
+    }
+    //缓存值
+    public WebElement getCacheValue() {
+        return this.input("图表", "缓存值");
+    }
     //环柱渐变色1
 //    @FindBy(xpath = "//label[contains(text(),'渐变色1')]/following-sibling::div")
 //    private WebElement gradation1;
