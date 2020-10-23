@@ -158,10 +158,9 @@ public class ScrollBar {
         if (side.equals("right")) {
             new Actions(webDriver).dragAndDropBy(sourceElement, 200, 0).build().perform();
         } else if (side.equals("left")) {
-            WebElement bar = webDriver.findElement(By.xpath("//div[@class='_1qX0nA1xhWDv7qXoKxXaKo']"));
-            int targetX = bar.getLocation().getX() + 21; //half width
             int sourceX = sourceElement.getLocation().getX();
-            new Actions(webDriver).dragAndDropBy(sourceElement, -(sourceX - targetX), 0).build().perform();
+            //21-half width of bar
+            new Actions(webDriver).dragAndDropBy(sourceElement, -(sourceX - 21), 0).build().perform();
         }
     }
 
