@@ -5,7 +5,7 @@ Feature: 数据大屏-f条形图
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 条形图-样式搜索 RZY-1907
+  Scenario: 条形图-样式搜索 RZY-1907,RZY-4381
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -27,7 +27,7 @@ Feature: 数据大屏-f条形图
     And I wait for "TagWordColor" will be visible
     And I set the parameter "TagWordColor" with value "#DFFE19"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "lighter" from the "TagBold"
     #布局
     And I click the "Layout" button
@@ -50,13 +50,15 @@ Feature: 数据大屏-f条形图
     #数据
     And I click the "Data" button
     And I wait for "SplInput" will be visible
-    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method"
+    And I set the parameter "SplInput" with value "tag:sample04061424_chart | stats count() by apache.clientip,apache.method | limit 10"
 #    And I click the "DateEditor" button
 #    And I click the "RecentSevenDay" button
     And I click the "Search" button
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
 
+    And I choose the "count()" from the "DataField"
+    And I wait for "1000" millsecond
     And I choose the "count()" from the "DataField"
     And I wait for "2000" millsecond
     And I choose the "apache.clientip" from the "DivideField"
@@ -151,7 +153,7 @@ Feature: 数据大屏-f条形图
 
 ##################################无耻的分割线###############################
 
-  Scenario: 条形图-绑定搜索
+  Scenario: 条形图-绑定搜索 RZY-4382
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

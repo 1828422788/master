@@ -6,7 +6,7 @@ Feature: 数据大屏-k滚动列表二
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 滚动列表2样式-搜索 RZY-4822
+  Scenario: 滚动列表2样式-搜索 RZY-4822,RZY-4375
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -42,37 +42,37 @@ Feature: 数据大屏-k滚动列表二
     And I wait for "serialNumberColor2" will be visible
     And I set the parameter "serialNumberColor2" with value "#B42F2F"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #背景颜色
 #    And I click the "listOfTurnsBackgroundColor" button
     And I wait for "ListOfTurnsBackgroundColor2" will be visible
     And I set the parameter "ListOfTurnsBackgroundColor2" with value "#D7D55F"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #背景颜色1
 #    And I click the "backgroundColor1" button
     And I wait for "backgroundColor1" will be visible
     And I set the parameter "backgroundColor1" with value "#00FF73"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #背景颜色2
 #    And I click the "backgroundColor2" button
     And I wait for "backgroundColor2" will be visible
     And I set the parameter "backgroundColor2" with value "#DDA6DC"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #背景颜色3
 #    And I click the "backgroundColor3" button
     And I wait for "backgroundColor3" will be visible
     And I set the parameter "backgroundColor3" with value "#50B6DC"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
    #内容颜色
 #    And I click the "contentColor" button
     And I wait for "contentColor2" will be visible
     And I set the parameter "contentColor2" with value "#EE4CE1"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #4 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "滚动列表2样式修改"
@@ -98,22 +98,6 @@ Feature: 数据大屏-k滚动列表二
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-
-#  Scenario Outline: 滚动列表2样式-搜索发布并截图
-#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-#    And switch to window "<name>"
-#    And I close all tabs except main tab
-#    And I wait for loading invisible
-#    Then take a screenshot with name "galaxee/<name>"
-#    #删除
-#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-#    Then I click the "Ensure" button
-#
-#    Examples:
-#      |name              |
-#      |滚动列表2样式-搜索    |
 
 ######################################无耻的分割线################################
 
@@ -165,27 +149,10 @@ Feature: 数据大屏-k滚动列表二
     Then I will see the success message "保存成功"
 
 
-#  Scenario Outline: 滚动列表2数据之静态数据发布并截图
-#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-#    And switch to window "<name>"
-#    And I close all tabs except main tab
-#    And I wait for loading invisible
-#    Then take a screenshot with name "galaxee/<name>"
-#    #删除
-#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-#    Then I click the "Ensure" button
-#
-#    Examples:
-#      |name            |
-#      |滚动列表2数据之静态数据 |
-
-
 ##################################无耻的分割线###############################
 
 
-  Scenario: 滚动列表2数据之绑定搜索
+  Scenario: 滚动列表2数据之绑定搜索 RZY-4376
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

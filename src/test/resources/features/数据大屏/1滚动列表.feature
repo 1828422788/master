@@ -5,7 +5,7 @@ Feature: 数据大屏-i滚动列表
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-  Scenario: 滚动列表样式-搜索 RZY-4821
+  Scenario: 滚动列表样式-搜索 RZY-4821,RZY-4370
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -39,19 +39,19 @@ Feature: 数据大屏-i滚动列表
     And I wait for "serialNumberColor" will be visible
     And I set the parameter "serialNumberColor" with value "#B42F2F"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #背景颜色
 #    And I click the "listOfTurnsBackgroundColor" button
     And I wait for "listOfTurnsBackgroundColor" will be visible
     And I set the parameter "listOfTurnsBackgroundColor" with value "#D7D55F"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
    #内容颜色
 #    And I click the "contentColor" button
     And I wait for "contentColor" will be visible
     And I set the parameter "contentColor" with value "#EE4CE1"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I choose the "bold" from the "ListOfTurnsWordBold"
     #4 全局样式修改名成
@@ -77,22 +77,6 @@ Feature: 数据大屏-i滚动列表
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-#
-#  Scenario Outline: 滚动列表样式-搜索发布并截图
-#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-#    And switch to window "<name>"
-#    And I close all tabs except main tab
-#    And I wait for loading invisible
-#    Then take a screenshot with name "galaxee/<name>"
-#    #删除
-#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-#    Then I click the "Ensure" button
-#
-#    Examples:
-#      |name              |
-#      |滚动列表样式-搜索    |
 
 ######################################无耻的分割线################################
 
@@ -141,28 +125,12 @@ Feature: 数据大屏-i滚动列表
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "保存成功"
 
-#
-#  Scenario Outline: 滚动列表数据之静态数据发布并截图
-#    And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-fabu" release button
-#    And switch to window "<name>"
-#    And I close all tabs except main tab
-#    And I wait for loading invisible
-#    Then take a screenshot with name "galaxee/<name>"
-#    #删除
-#    Then open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
-#    When the galaxee name is "<name>" then I click the "iconfont icon-shanchuxuanting_icon" delete button
-#    Then I click the "Ensure" button
-#
-#    Examples:
-#      |name            |
-#      |滚动列表数据之静态数据 |
 
 
 ##################################无耻的分割线###############################
 
 
-  Scenario: 滚动列表数据之绑定搜索
+  Scenario: 滚动列表数据之绑定搜索 RZY-4372
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
