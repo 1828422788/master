@@ -15,7 +15,7 @@ public class LocalChromeDriverService {
             File driverFile;
             System.out.println(System.getProperty("os.name"));
             String osName = System.getProperty("os.name");
-            if (osName.startsWith("Linux")) {
+            if (osName.startsWith("Windows")) {
                 driverFile = new File("lib/chromedriver.exe");
             }else {
                 System.setProperty("webdriver.chrome.driver","lib/chromedriver");
