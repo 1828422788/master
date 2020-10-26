@@ -150,7 +150,7 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//div[text()='字段配置']")
     private WebElement fieldConfig;
 
-    @FindBy(id = "FieldAliasModal_name")
+    @FindBy(id = "FieldConfig_name")
     private WebElement fieldConfigName;
 
     @FindBy(xpath = "(//input[contains(@id,'original')])[last()]")

@@ -1,5 +1,5 @@
 @all @smoke @app @appSmoke
-Feature: 字段转换
+Feature: 应用字段转换
 
   Scenario: 添加字段转换
     Given open the "app.ListPage" page for uri "/app/list/"
