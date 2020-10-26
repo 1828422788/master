@@ -5,7 +5,7 @@
 #      And I wait for "Dashboard" will be visible
 
 
-    Scenario: 百分比样式-搜索 RZY-4825
+    Scenario: 百分比样式-搜索 RZY-4825,RZY-4340,RZY-4341
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -34,14 +34,14 @@
       And I wait for "text_fontColor" will be visible
       And I set the parameter "text_fontColor" with value "#9FF50B"
       And I click the "EnsureColor" button
-      And I wait for "EnsureColor" will be invisible
+#      And I wait for "EnsureColor" will be invisible
       And I choose the "bold" from the "PercentageWordBold"
       #图表
 #      And I click the "chartColor" button
       And I wait for "chartColor" will be visible
       And I set the parameter "chartColor" with value "#55B11F"
       And I click the "EnsureColor" button
-      And I wait for "EnsureColor" will be invisible
+#      And I wait for "EnsureColor" will be invisible
       And I set the parameter "chartHeight" with value "20"
        #3 全局样式修改名成
       And I click the "globalStyle" button
@@ -50,7 +50,7 @@
       And I click the "backgroundAuto" button
        #数据设置（数据源类型默认：搜索）
       And I click the "Data" button
-      And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() as num | eval p = num/28000"
+      And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() as num | eval p = num/2800"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
@@ -137,7 +137,7 @@
  ######################################无耻的分割线################################
 
 
-    Scenario: 百分比数据之绑定搜索
+    Scenario: 百分比数据之绑定搜索 RZY-4341
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page
@@ -149,7 +149,7 @@
       And I click the "otherSearch" button under some element
       And I hide the element "otherDropdown"
      And I wait for "SplInput" will be visible
-      And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() as num | eval p = num/28000"
+      And I set the parameter "SplInput" with value "tag:sample04061424_display | stats count() as num | eval p = num/2800"
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"

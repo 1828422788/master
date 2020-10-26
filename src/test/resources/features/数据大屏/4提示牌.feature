@@ -4,7 +4,7 @@ Feature: 数据大屏-e提示牌
 #    Given I will see the "PublicNavBarPage" page
 #    And I wait for "Dashboard" will be visible
 
-    Scenario: 揭示牌样式搜索 RZY-4826
+    Scenario: 揭示牌样式搜索 RZY-4826,RZY-4343
 
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
@@ -44,6 +44,8 @@ Feature: 数据大屏-e提示牌
       And I click the "Search" button
       And I wait for "SearchTip" will be invisible
       And I set the parameter "updateFrequency" with value "0.1"
+      And I choose the "num" from the "tipsCardNumber"
+      And I wait for "1500" millsecond
       And I choose the "num" from the "tipsCardNumber"
       #设置阈值以及显示值
       And I set the parameter "thresholdOne" with value "6"
@@ -147,7 +149,7 @@ Feature: 数据大屏-e提示牌
 
 ######################################无耻的分割线################################
 
-    Scenario: 揭示牌数据之绑定搜索
+    Scenario: 揭示牌数据之绑定搜索 RZY-4345
 
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
