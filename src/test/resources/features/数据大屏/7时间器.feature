@@ -5,7 +5,7 @@ Feature: 数据大屏-o时间器
 #    And I wait for "Dashboard" will be visible
 
   @v33gs
-  Scenario: 时间器默认设置
+  Scenario: 时间器默认设置 RZY-3665
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
