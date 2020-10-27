@@ -43,7 +43,7 @@
 
 ######################################无耻的分割线################################
 
-    Scenario: 齿轮组合样式
+    Scenario: 齿轮组合样式 RZY-4339
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
       Then I will see the "galaxee.CreatePage" page

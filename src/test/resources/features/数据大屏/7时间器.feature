@@ -45,7 +45,7 @@ Feature: 数据大屏-o时间器
 ######################################无耻的分割线################################
 
   @v33gs
-  Scenario: 时间器样式
+  Scenario: 时间器样式 RZY-3752
 
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -78,7 +78,7 @@ Feature: 数据大屏-o时间器
     And I wait for "clockFontColor" will be visible
     And I set the parameter "clockFontColor" with value "#E8EB1B"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #字体粗细
     And I wait for "ClockWordBold" will be visible
     And I choose the "bold" from the "ClockWordBold"
