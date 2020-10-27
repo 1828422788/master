@@ -2,7 +2,7 @@
 Feature: 字段提取脱敏配置
 
   @logout
-  Scenario Outline: RZY-2827：新建脱敏配置规则
+  Scenario Outline: RZY-2827: 新建脱敏配置规则
 
     Given open the "queryScopes.ListPage" page for uri "/queryscopes/"
     Then I wait for loading invisible
@@ -109,7 +109,7 @@ Feature: 字段提取脱敏配置
     And I wait for element "SearchStatus" change text to "搜索完成!"
     Then I move the mouse pointer to the "Result"
     And I click the "RightIcon" button
-    Then I will see the spl search result "{"raw_message":"raw_message：qweqwe159****8361qwe 159****8361 ","replace.phone":"replace.phone：qweqwe159****8361qwe 159****8361  "}"
+    Then I will see the spl search result "{"raw_message":"raw_message: qweqwe159****8361qwe 159****8361 ","replace.phone":"replace.phone: qweqwe159****8361qwe 159****8361  "}"
 
 
     Examples:

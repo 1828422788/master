@@ -86,7 +86,7 @@ Feature: 字段提取重命名字段
 
     Examples:
       | appName         | lg         | log                                 | result                                                                                                | result1                                                                                               | searchResult                                                    |
-      | wym_test_rename | rename.log | {"a":{"b":{"c":"d"},"e":{"c":"g"}}} | Object\na:Object\nb:Object\nc:"d"\ne:Object\nc:"g"\nraw_message:"{"a":{"b":{"c":"d"},"e":{"c":"g"}}}" | Object\na:Object\nb:Object\nh:"d"\ne:Object\nh:"g"\nraw_message:"{"a":{"b":{"c":"d"},"e":{"c":"g"}}}" | {'other.a.b.h':'other.a.b.h：d ','other.a.e.h':'other.a.e.h：g '} |
+      | wym_test_rename | rename.log | {"a":{"b":{"c":"d"},"e":{"c":"g"}}} | Object\na:Object\nb:Object\nc:"d"\ne:Object\nc:"g"\nraw_message:"{"a":{"b":{"c":"d"},"e":{"c":"g"}}}" | Object\na:Object\nb:Object\nh:"d"\ne:Object\nh:"g"\nraw_message:"{"a":{"b":{"c":"d"},"e":{"c":"g"}}}" | {'other.a.b.h':'other.a.b.h: d ','other.a.e.h':'other.a.e.h: g '} |
 
 
   Scenario Outline: 重命名字段支持通配符详情页验证

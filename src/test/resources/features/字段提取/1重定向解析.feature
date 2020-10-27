@@ -1,7 +1,7 @@
 @configsSmoke
 Feature: 字段提取重定向解析
 
-  Scenario Outline: RZY-2867：副规则+主规则
+  Scenario Outline: RZY-2867: 副规则+主规则
     Given open the "configs.ListPage" page for uri "/configs/"
     Then I wait for loading invisible
     And I click the "Create" button
@@ -58,4 +58,4 @@ Feature: 字段提取重定向解析
 
     Examples:
       | appName      | log              | tag                                   | searchResult                     |
-      | redirect_zhu | json_sdyd_41.log | redirect_zhu AND appname:redirect_zhu | {"other.key":"other.key：value "} |
+      | redirect_zhu | json_sdyd_41.log | redirect_zhu AND appname:redirect_zhu | {"other.key":"other.key: value "} |
