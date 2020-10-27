@@ -31,8 +31,8 @@ Feature: 仪表盘循序图
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | spl                                                                                                  | name   |
-      | tag:sample04061424* \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5 | 仪表盘循序图 |
+      | spl                                                                                                        | name   |
+      | tag:sample04061424_chart \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5  | 仪表盘循序图 |
 
   @dashboard
   Scenario Outline: 新建标签页
@@ -118,7 +118,7 @@ Feature: 仪表盘循序图
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-      | 仪表盘循序图 | {\n  "title": "仪表盘循序图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424* \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
+      | 仪表盘循序图 | {\n  "title": "仪表盘循序图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424_chart \|sort by +apache.clientip\| stats count() by hostname,apache.clientip \|limit 5",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "sequence",\n    "field": "hostname",\n    "fromField": "apache.clientip",\n    "toField": "hostname",\n    "labelField": "apache.clientip",\n    "category": "apache.clientip"\n  }\n} |
 
   @dashboard
   Scenario Outline: 两个字段为同一个值 RZY-1365:
@@ -139,7 +139,7 @@ Feature: 仪表盘循序图
 
     Examples:
       | name   | json                                                                                                                                                                                                                                                                                                                                                                          |
-      | 仪表盘循序图 | {"title": "仪表盘循序图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424* \| stats count() by hostname,apache.clientip \|limit 5","startTime": "now/d","endTime": "now"},"chart": {"chartType": "sequence","field": "hostname","fromField": "hostname","toField": "hostname","labelField": "apache.clientip","category": "apache.clientip"}} |
+      | 仪表盘循序图 | {"title": "仪表盘循序图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_chart \| stats count() by hostname,apache.clientip \|limit 5","startTime": "now/d","endTime": "now"},"chart": {"chartType": "sequence","field": "hostname","fromField": "hostname","toField": "hostname","labelField": "apache.clientip","category": "apache.clientip"}} |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
