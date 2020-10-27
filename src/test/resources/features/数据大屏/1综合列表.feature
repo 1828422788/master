@@ -37,19 +37,19 @@ Feature: 数据大屏-m综合列表
     And I wait for "listTitleColor" will be visible
     And I set the parameter "listTitleColor" with value "#DEE119"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #数值颜色
 #    And I click the "numberColor" button
     And I wait for "ListNumberColor" will be visible
     And I set the parameter "ListNumberColor" with value "#58DA29"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #条颜色
 #    And I click the "aspectColor" button
     And I wait for "ListAspectColor" will be visible
     And I set the parameter "ListAspectColor" with value "#E047FF"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     #缩略比例
     And I choose the "1" from the "abbRatio"
     #单位不显示
