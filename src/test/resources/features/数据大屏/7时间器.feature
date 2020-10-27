@@ -45,7 +45,7 @@ Feature: 数据大屏-o时间器
 ######################################无耻的分割线################################
 
   @v33gs
-  Scenario: 时间器样式 RZY-3752
+  Scenario: 时间器样式 RZY-3752,RZY-4346
 
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
@@ -89,6 +89,8 @@ Feature: 数据大屏-o时间器
       #3 全局样式修改名成
     And I click the "globalStyle" button
     And I set the parameter "globalStyleName" with value "时间器样式修改"
+    And I wait for "1000" millsecond
+    Then I will see the element "PictureOne" value is "时间器样式修改"
      #保存
     And I wait for "Save" will be visible
     And  I wait for "2000" millsecond
