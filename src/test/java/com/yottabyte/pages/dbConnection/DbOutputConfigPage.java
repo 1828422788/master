@@ -1,7 +1,5 @@
 package com.yottabyte.pages.dbConnection;
 
-import com.yottabyte.pages.DateEditorPage;
-import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
 import com.yottabyte.utils.ClickEvent;
 import com.yottabyte.utils.WaitForElement;
@@ -12,26 +10,24 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
-
 /**
  * @author sunxj
  */
-public class dbSettingPage extends PageTemplate {
-    public dbSettingPage(WebDriver driver) {
+public class DbOutputConfigPage extends PageTemplate {
+    public DbOutputConfigPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//div[contains(text(),'连接配置')]")
-    private WebElement dbConnConfig;
+    @FindBy(xpath = "//div[contains(text(),'数据库输出')]")
+    private WebElement dbOutput;
 
-    public WebElement getDbConnConfig() {
-        return dbConnConfig;
+    public WebElement getDbConn() {
+        return dbOutput;
     }
 
     public WebElement getCreateDbConn() {
-        return super.getButton("新建连接");
+        return super.getButton("新建输出");
     }
 
     @FindBy(xpath = "//label[contains(text(),'名称')]/following::input[@placeholder='请输入名称']")
@@ -125,10 +121,10 @@ public class dbSettingPage extends PageTemplate {
     }
 
     @FindBy(xpath = "//span[contains(text(),'新建查找对象')]/parent::button")
-    private WebElement newDbLookup;
+    private WebElement newDbOutputButton;
 
-    public WebElement getNewDbLookup() {
-        return newDbLookup;
+    public WebElement getNewDbOutputButton() {
+        return newDbOutputButton;
     }
 
     //    @FindBy(xpath = "//div[@class='CodeMirror-code']/pre[@class='CodeMirror-line']/span/[@role='presentation']/span[@class='cm-variable']")

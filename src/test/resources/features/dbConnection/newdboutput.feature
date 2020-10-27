@@ -2,11 +2,11 @@ Feature: 新建数据库查找
 
   @newdblookup
   Scenario Outline: 新建查找-3个
-    Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
-    And I click the "DbLookupConfig" button
+    Given open the "DbOutputConfigPage.dbSettingPage" page for uri "/dbsettings/"
+    And I click the "DbOutputConfig" button
     And I wait for "1000" millsecond
 
-    And I click the "NewDbLookup" button
+    And I click the "NewDbOutputButton" button
     And I wait for loading complete
 
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -44,22 +44,4 @@ Feature: 新建数据库查找
     Examples:
       | dbLookupName | DbLookupConnList | DbLookupDirList | splQuery                                                      |
       | lookupsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
-      | dellookupsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
-      | u_lookupsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
-
-  @delconn
-  Scenario Outline: 删除连接
-    Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
-    And I click the "DbLookupConfig" button
-    And I wait for "1000" millsecond
-
-    When I set the parameter "DbConnNameSearchInput" with value "<dbLookupName>"
-    And I click the "DelDbConnNameButton" button
-    And I wait for "AffirmDelDbConnNameButton" will be visible
-    And I click the "AffirmDelDbConnNameButton" button
-
-    Examples:
-      | dbLookupName |
-      | dellookupsample |
-      | u_lookupsample |
 
