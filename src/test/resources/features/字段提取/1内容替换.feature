@@ -72,7 +72,7 @@ Feature: 字段提取内容替换
 
     Examples:
       | appName                 | log                | replaceContent | result                          | searchResult                            |
-      | wym_test_replaceContent | replaceContent.log | $1             | Object\nraw_message:"123456qwe" | {'raw_message':'raw_message：123456qwe'} |
+      | wym_test_replaceContent | replaceContent.log | $1             | Object\nraw_message:"123456qwe" | {'raw_message':'raw_message: 123456qwe'} |
 
 
   Scenario Outline: RZY-1556:内容替换详情验证
@@ -162,7 +162,7 @@ Feature: 字段提取内容替换
 
     Examples:
       | tag                 | log        | searchResult                                |
-      | wym_test_replaceTag | rename.log | {"tag":"tag： wym_test_replaceTag newinfo "} |
+      | wym_test_replaceTag | rename.log | {"tag":"tag:  wym_test_replaceTag newinfo "} |
 
 
   Scenario Outline: tag替换详情验证
