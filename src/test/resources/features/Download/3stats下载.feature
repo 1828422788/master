@@ -1,11 +1,11 @@
 @db1
-Feature: 新建下载任务
+Feature: 执行stats类型命令
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
-  @v35dbstats
-  Scenario Outline: 新建下载任务3个
+  @v35dlstats
+  Scenario Outline: stats用例结果下载
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
