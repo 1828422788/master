@@ -5,7 +5,7 @@
 #      And I wait for "Dashboard" will be visible
 
     @v33gs
-    Scenario: 流程线默认设置
+    Scenario: 流程线默认设置 RZY-3664
 
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button
@@ -45,7 +45,7 @@
 
 ######################################无耻的分割线################################
 
-    Scenario: 流程线样式
+    Scenario: 流程线样式 RZY-3771
 
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button

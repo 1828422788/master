@@ -1,37 +1,13 @@
 @db1
-Feature: 执行stats类型命令
+Feature: 处理下载结果
 
   Background:
-    Given open the "splSearch.SearchPage" page for uri "/search/"
-
-  @dlstats
-  Scenario Outline: stats用例结果下载
-    Given I set the parameter "SearchInput" with value "<splQuery>"
-    And I click the "DateEditor" button
-    And I click the "Today" button
-    And I click the "SearchButton" button
-    And I wait for "2000" millsecond
-    And I wait for element "SearchStatus" change text to "搜索完成!"
-
-    And I wait for "2000" millsecond
-    Then I click the "downloadButton" button
-    Then I set the parameter "DownloadName" with value "<name>"
-    Then I set the parameter "MaxLineNum" with value "100"
-#    Then I choose the "<unit>" from the "MaxLineDropdown"
-    Then I choose the "CSV" from the "DocumentTypeList"
-    Then I choose the "UTF" from the "DocumentEncodeList"
-    Then I click the "CreateDownloadTask" button
-    And I wait for "2000" millsecond
-    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
-
-    #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
-    When I set the parameter "DbListPageSearchInput" with value "<name>"
-    And I wait for "2000" millsecond
-    Given the data name is "<name>.csv" then i click the "下载" button
-#    And I wait for "2000" millsecond
-#    And I download file "<name>.csv" to local
-#    Then I compare source download file "expect/<name>.csv" with target download files "<name>.csv"
+
+  @vdl
+  Scenario Outline: 下载后，比较
+#    And download file "<name>.csv" to local
+    Then I compare source download file "expect/<name>.csv" with target download files "<name>.csv"
 
     Examples: 新建成功
       | name                                         | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -40,7 +16,7 @@ Feature: 执行stats类型命令
       | sub_join_left | tag:\"sample04061424\" \| stats count(logtype) as count_all by apache.geo.isp \| sort by count_all,apache.geo.isp \| join type=left apache.geo.isp [[tag:\"sample04061424\" AND apache.status:[400 TO 499] \| stats count(logtype) as count_400l by apache.geo.isp]] \| join type=left apache.geo.isp [[tag:\"sample04061424\" AND apache.status:[500 TO 599] \| stats count(logtype) as count_500l by apache.geo.isp]] |
       | sub_join_left1 | tag:\"sample04061424\" \| stats avg(apache.status) by apache.clientip \| sort by apache.clientip \| join type=left apache.clientip [[ tag:\"sample04061424\" AND apache.clientip:23.166.125.53 \| stats sum(apache.status) by apache.clientip ]] |
       | sub_join_left_count_3times | tag:\"sample04061424\" \| stats count(logtype) as count_all by apache.clientip \| sort by count_all \| limit 20 \| join type=left apache.clientip [[tag:\"sample04061424\" AND apache.status:[400 TO 499] \| stats count(logtype) as count_400l by apache.clientip]] \| join type=left apache.clientip [[tag:\"sample04061424\" AND apache.status:[500 TO 599] \| stats count(logtype) as count_500l by apache.clientip]] \| join type=left apache.clientip [[tag:\"sample04061424\"AND apache.resp_len:>1000\| stats count(logtype) as len_1000l by apache.clientip]] \| sort by count_all, apache.clientip |
-#      | sub_join_left_if_divide | tag:\"sample04061424\" \| stats count(logtype) as count_all by apache.clientip \| sort by count_all \| limit 5 \| join type=left apache.clientip [[logtype:\"apache\" AND apache.status:[400 TO 499]\|stats count(logtype) as count_400 by apache.clientip]]\|join type=left apache.clientip [[logtype:\"apache\" AND apache.status:[500 TO 599]\|stats count(logtype) as count_500 by apache.clientip]]\|join type=left apache.clientip [[logtype:\"apache\" AND apache.resp_len:>1000\|stats count(logtype) as len_1000 by apache.clientip]]\|eval rate_400=if(empty(count_400),0,count_400/count_all)\|eval rate_500=if(empty(count_500),0,count_500/count_all)\|eval rate_len_1000=if(empty(len_1000),0,len_1000/count_all) |
+      | sub_join_left_if_divide | tag:\"sample04061424\" \| stats count(logtype) as count_all by apache.clientip \| sort by count_all \| limit 5 \| join type=left apache.clientip [[logtype:\"apache\" AND apache.status:[400 TO 499]\|stats count(logtype) as count_400 by apache.clientip]]\|join type=left apache.clientip [[logtype:\"apache\" AND apache.status:[500 TO 599]\|stats count(logtype) as count_500 by apache.clientip]]\|join type=left apache.clientip [[logtype:\"apache\" AND apache.resp_len:>1000\|stats count(logtype) as len_1000 by apache.clientip]]\|eval rate_400=if(empty(count_400),0,count_400/count_all)\|eval rate_500=if(empty(count_500),0,count_500/count_all)\|eval rate_len_1000=if(empty(len_1000),0,len_1000/count_all) |
       | sub_join_percent | tag:\"sample04061424\" \| stats count(logtype) as count_all by apache.clientip \| sort by count_all \| limit 50 \| join type=left apache.clientip [[ tag:\"sample04061424\" AND apache.status:[400 TO 499] \| stats count(logtype) as count_400 by apache.clientip]] \| join type=left apache.clientip [[ tag:\"sample04061424\" AND apache.status:[500 TO 599] \| stats count(logtype) as count_500 by apache.clientip ]] \| join type=left apache.clientip [[tag:\"sample04061424\" AND apache.resp_len:>1000 \| stats count(logtype) as len_1000 by apache.clientip]] \| eval rate_400=if(empty(count_400),0,count_400/count_all) \| eval rate_500=if(empty(count_500),0,count_500/count_all) \| eval rate_len_1000=if(empty(len_1000),0,len_1000/count_all) \| sort by count_all, apache.clientip |
       | sub_multi | starttime = \"now/d\" endtime = \"now\" tag:sample04061424_rizhiyi_access_1000 AND (apache.clientip:1.197.41.37 OR  apache.clientip:123.150.214.81) \| append [[tag:sample04061424 apache.status:200 AND apache.method:\"GET\" AND apache.clientip:\"49.85.230.247\" \| append [[tag:sample04061424 \| stats count() as cnt by apache.status]]]] \| sort by cnt, apache.status |
       | sub_nest_1 | tag:\"sample04061424\" \| stats dc(apache.status) as dc_count by apache.method \| join apache.method [[ tag:\"sample04061424\" \| stats count(apache.status) as cnt by apache.method \| append [[ tag:\"sample04061424\" \| stats count() as total ]] ]] |

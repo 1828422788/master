@@ -47,7 +47,7 @@ Feature: 字段提取自定义配置高级算子
 
     Examples:
       | tag              | log         | result                                                                                                 | searchResult                                                                                              |
-      | wym_test_dissect | dissect.log | Object\ndomain:"rizhiyi.com"\nid:123\nurl:"index.do"\nraw_message:"http://rizhiyi.com/index.do?id=123" | {"other.id":"other.id：123 ","other.domain":"other.domain：rizhiyi.com ","other.url":"other.url：index.do "} |
+      | wym_test_dissect | dissect.log | Object\ndomain:"rizhiyi.com"\nid:123\nurl:"index.do"\nraw_message:"http://rizhiyi.com/index.do?id=123" | {"other.id":"other.id: 123 ","other.domain":"other.domain: rizhiyi.com ","other.url":"other.url: index.do "} |
 
   Scenario Outline: RZY-2870:创建dissect解析详情验证
     And I click the "Create" button
@@ -140,7 +140,7 @@ Feature: 字段提取自定义配置高级算子
 
     Examples:
       | log        | tag             | result                                                                                                                                              | result1                                                                                                                                                                                      | searchResult                                                                                       |
-      | script.log | wym_test_script | Object\nfields:Array[2]\n0:"time"\n1:"count"\nvalues:Array[2]\n0:1516189\n1:5664\nraw_message:"{"fields":["time","count"],"values":[1516189,5664]}" | Object\nfields:Array[2]\n0:"time"\n1:"count"\nresult:Object\ncount:5664\ntime:1516189\nvalues:Array[2]\n0:1516189\n1:5664\nraw_message:"{"fields":["time","count"],"values":[1516189,5664]}" | {"other.result.count":"other.result.count：5664 ","other.result.time":"other.result.time：1516189 "} |
+      | script.log | wym_test_script | Object\nfields:Array[2]\n0:"time"\n1:"count"\nvalues:Array[2]\n0:1516189\n1:5664\nraw_message:"{"fields":["time","count"],"values":[1516189,5664]}" | Object\nfields:Array[2]\n0:"time"\n1:"count"\nresult:Object\ncount:5664\ntime:1516189\nvalues:Array[2]\n0:1516189\n1:5664\nraw_message:"{"fields":["time","count"],"values":[1516189,5664]}" | {"other.result.count":"other.result.count: 5664 ","other.result.time":"other.result.time: 1516189 "} |
 
   Scenario Outline: RZY-2875:创建script解析详情验证
     And I click the "Create" button
@@ -242,7 +242,7 @@ Feature: 字段提取自定义配置高级算子
 
     Examples:
       | tag             | log        | result                                                          | result1                                                     | searchResult                              |
-      | wym_test_base64 | base64.log | Object\ncode:"aGVsbG8gYmFzZTY0"\nraw_message:"aGVsbG8gYmFzZTY0" | Object\ncode:"hello base64"\nraw_message:"aGVsbG8gYmFzZTY0" | {"other.code":"other.code：hello base64 "} |
+      | wym_test_base64 | base64.log | Object\ncode:"aGVsbG8gYmFzZTY0"\nraw_message:"aGVsbG8gYmFzZTY0" | Object\ncode:"hello base64"\nraw_message:"aGVsbG8gYmFzZTY0" | {"other.code":"other.code: hello base64 "} |
 
   Scenario Outline: RZY-2877:建立base64解析规则详情验证
     And I click the "Create" button
@@ -346,4 +346,4 @@ Feature: 字段提取自定义配置高级算子
 
     Examples:
       | tag              | log         | result                                                                                                                                                                                                    | result1                                                                                                                                           | searchResult                                            |
-      | wym_test_unicode | unicode.log | Object\nrr:"PartyBasicInfoService_\\\u5ba2\\\u6237\\\u57fa\\\u672c\\\u4fe1\\\u606f\\\u670d\\\u52a1"\nraw_message:"PartyBasicInfoService_\\\u5ba2\\\u6237\\\u57fa\\\u672c\\\u4fe1\\\u606f\\\u670d\\\u52a1" | Object\nrr:"PartyBasicInfoService_客户基本信息服务"\nraw_message:"PartyBasicInfoService_\\\u5ba2\\\u6237\\\u57fa\\\u672c\\\u4fe1\\\u606f\\\u670d\\\u52a1" | {"other.rr":"other.rr：PartyBasicInfoService_客户基本信息服务 "} |
+      | wym_test_unicode | unicode.log | Object\nrr:"PartyBasicInfoService_\\\u5ba2\\\u6237\\\u57fa\\\u672c\\\u4fe1\\\u606f\\\u670d\\\u52a1"\nraw_message:"PartyBasicInfoService_\\\u5ba2\\\u6237\\\u57fa\\\u672c\\\u4fe1\\\u606f\\\u670d\\\u52a1" | Object\nrr:"PartyBasicInfoService_客户基本信息服务"\nraw_message:"PartyBasicInfoService_\\\u5ba2\\\u6237\\\u57fa\\\u672c\\\u4fe1\\\u606f\\\u670d\\\u52a1" | {"other.rr":"other.rr: PartyBasicInfoService_客户基本信息服务 "} |

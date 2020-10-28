@@ -67,7 +67,7 @@ Feature: 字段提取结构体解析
 
     Examples:
       | struct         | result                                             | appName        | log       | searchResult                                                  |
-      | name:3,val:4:i | Object\nname:"aaa"\nval:111\nraw_message:"aaa 111" | wym_test_codec | 结构体解析.log | {"other.name":"other.name：aaa ","other.val":"other.val：111 "} |
+      | name:3,val:4:i | Object\nname:"aaa"\nval:111\nraw_message:"aaa 111" | wym_test_codec | 结构体解析.log | {"other.name":"other.name: aaa ","other.val":"other.val: 111 "} |
 
 
   Scenario Outline: 详情验证

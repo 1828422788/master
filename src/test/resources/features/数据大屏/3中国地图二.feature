@@ -5,7 +5,7 @@
 #      And I wait for "Dashboard" will be visible
 
 
-  Scenario: 对中国地图II进行样式-搜索
+  Scenario: 对中国地图II进行样式-搜索 RZY-4357
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
@@ -65,6 +65,9 @@
     And I set the parameter "updateFrequency" with value "0.1"
 
     And I choose the "apache.geo.province" from the "ChineseMapTwoDataSearchCategory"
+    And I wait for "1500" millsecond
+    And I choose the "apache.geo.province" from the "ChineseMapTwoDataSearchCategory"
+    And I wait for "2000" millsecond
     And I choose the "count()" from the "ChineseMapTwoDataSearchValue"
 
    #保存
@@ -150,7 +153,7 @@
 
 ######################################无耻的分割线################################
   #数据-绑定数据
-    Scenario: 中国地图II数据之绑定搜索
+    Scenario: 中国地图II数据之绑定搜索 RZY-4358
       Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       And I click the "Create" button
       Then I will see the "galaxee.CreatePage" page

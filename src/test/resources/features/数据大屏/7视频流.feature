@@ -46,7 +46,7 @@ Feature: 数据大屏-p视频流
 
  ######################################无耻的分割线################################
 
-  Scenario: 视频流样式
+  Scenario: 视频流样式 RZY-4338
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

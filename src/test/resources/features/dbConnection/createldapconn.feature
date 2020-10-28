@@ -8,7 +8,6 @@ Feature: 新建ldap连接配置
 
     And I wait for loading complete
     And I wait for "2000" millsecond
-    Then I will see the "dbConnection.EditPage" page
 
     And I set the parameter "NewLdapConnName" with value "ldpconn"
 #    And I set the parameter "NewBaseDName" with value "<NewBaseDName>"
