@@ -1,4 +1,4 @@
-@db1
+@alldownload
 Feature: 执行stats类型命令
 
   Background:
@@ -21,8 +21,8 @@ Feature: 执行stats类型命令
     Then I choose the "CSV" from the "DocumentTypeList"
     Then I choose the "UTF" from the "DocumentEncodeList"
     Then I click the "CreateDownloadTask" button
-    And I wait for "2000" millsecond
-    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
+#    And I wait for "2000" millsecond
+#    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
