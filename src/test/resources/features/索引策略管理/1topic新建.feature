@@ -1,4 +1,4 @@
-@indexSetting
+@indexSetting @topictest
 Feature: topic新建（RZY-2430）
 
   Background
