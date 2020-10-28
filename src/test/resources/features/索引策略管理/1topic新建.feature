@@ -1,7 +1,7 @@
 @indexSetting
 Feature: topic新建（RZY-2430）
 
-  Background:
+  Background
     Given open the "index.TopicSetting" page for uri "/indexmatchrules/topicsettings/"
 
   Scenario Outline:新建topic

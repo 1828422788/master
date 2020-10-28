@@ -12,9 +12,9 @@ Feature: 入库优先级新建（RZY-1485）
     And I choose the "<priority>" from the "Priority"
     And I click the "SaveButton" button
     Then I will see the <message>
-    And I click the "EnsureButton" button
-    And I refresh the website
-    Then I will see the search result contains "{'column':'0','name':'<appName>'}"
+#    And I click the "EnsureButton" button
+#    And I refresh the website
+#    Then I will see the search result contains "{'column':'0','name':'<appName>'}"
 
   @indexSettingSmoke
     Examples: 保存成功
