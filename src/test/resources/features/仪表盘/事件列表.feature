@@ -57,7 +57,8 @@ Feature: 仪表盘事件列表
     Then I will see the "dashboard.DetailPage" page
     And I wait for "Progress" will be invisible
     And I wait for "HoverElement" will be visible
-    And I click the "HoverElement" button
+    And I move the mouse pointer to the "HoverElement"
+#    And I click the "HoverElement" button
     And I click the "EventOperate" button
     And I click the "Event" button
     And switch to another window
