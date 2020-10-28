@@ -28,6 +28,18 @@ public class CreatePage extends PageTemplate {
     @FindBy(className = "el-input__inner")
     private WebElement name;
 
+    @FindBy(xpath = "(//span[contains(text(),'确定')][not(@class)]/ancestor::button)[2]")
+    private WebElement ensureT;
+
+    @FindBy(xpath = "(//span[contains(text(),'取消')][not(@class)]/ancestor::button)[2]")
+    private WebElement cancelT;
+
+    @FindBy(xpath = "//div[@class='el-message-box__message']/p[text()='操作成功']")
+    private WebElement oprateSuccess;
+
+    @FindBy(xpath = "//div[@class='el-message-box__message']/p[text()='删除成功！']")
+    private WebElement deleteSuccess;
+
     @FindBy(xpath = "(//div[@class='screenshot'])[2]")
     private WebElement bank;
 
@@ -75,6 +87,18 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "//div[text()='数据']")
     private WebElement data;
+
+    @FindBy(xpath = "//div[contains(text(),'银行运维')]")
+    private WebElement bankTemplate;
+
+    @FindBy(xpath = "//div[contains(text(),'模版test')]")
+    private WebElement templateTest;
+
+    @FindBy(xpath = "//div[contains(text(),'银行运维')]/parent::div[@class='info']/following-sibling::div[@class='delete']/i[@class]")
+    private WebElement bankTemplateDelete;
+
+    @FindBy(xpath = "//div[contains(text(),'模版test')]/parent::div[@class='info']/following-sibling::div[@class='delete']/i[@class]")
+    private WebElement templateDelete;
 
    // @FindBy(xpath = "(//span[contains(text(),'搜索')][not(@class)])[last()]")
    @FindBy(xpath = "//button[@class='el-button yw-searchbar__append el-button--default']/span[contains(text(),'搜索')]")
@@ -1067,6 +1091,22 @@ public class CreatePage extends PageTemplate {
         return pie;
     }
 
+    public WebElement getBankTemplate() {
+        return bankTemplate;
+    }
+
+    public WebElement getTemplateTest() {
+        return templateTest;
+    }
+
+    public WebElement getBankTemplateDelete() {
+        return bankTemplateDelete;
+    }
+
+    public WebElement getTemplateDelete() {
+        return templateDelete;
+    }
+
     public WebElement getChartWordSize() {
         return this.input("图表颜色标签", "标签字号");
     }
@@ -1445,6 +1485,12 @@ public class CreatePage extends PageTemplate {
         return successMessage;
     }
 
+    @FindBy(xpath = "//p[text()='操作成功]")
+    private WebElement successOperate;
+    public WebElement getSuccessOperate() {
+        return successOperate;
+    }
+
     public WebElement getSaveAsTemplate() {
         return super.getButton("保存为模版");
     }
@@ -1527,6 +1573,22 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getName() {
         return name;
+    }
+
+    public WebElement getEnsureT() {
+        return ensureT;
+    }
+
+    public WebElement getCancelT() {
+        return cancelT;
+    }
+
+    public WebElement getDeleteSuccess() {
+        return deleteSuccess;
+    }
+
+    public WebElement getOprateSuccess() {
+        return oprateSuccess;
     }
 
     public WebElement getCreate() {
