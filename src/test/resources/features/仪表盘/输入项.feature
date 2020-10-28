@@ -51,7 +51,7 @@ Feature: 仪表盘输入项
 
     Examples:
       | name         | spl                                                                                       |
-      | 仪表盘所用趋势图     | *\|stats count() by 'apache.geo.city'                                                     |
+      | 仪表盘所用趋势图     | tag: sample04061424_chart \|stats count() by 'apache.geo.city'                            |
       | 仪表盘1669所用趋势图 | (appname:\"aa\") \|bucket timestamp span=6h as ts \|stats count(\'tag\') as \'tag\' by ts |
 
   @dashboard @dashboardSmoke
@@ -96,7 +96,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "* | stats count() by ${filter|s}"
+    And I set the parameter "Spl" with value "tag: sample04061424_chart | stats count() by ${filter|s}"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
@@ -166,7 +166,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "starttime=${time.start} endtime=${time.end} * | stats count() by 'apache.geo.city' "
+    And I set the parameter "Spl" with value "starttime=${time.start} endtime=${time.end} tag: sample04061424_chart | stats count() by 'apache.geo.city' "
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"
@@ -191,7 +191,7 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "starttime${time.start} endtime${time.end} * | stats count() by 'apache.geo.city' "
+    And I set the parameter "Spl" with value "starttime${time.start} endtime${time.end} tag: sample04061424_chart | stats count() by 'apache.geo.city' "
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
 #    And I wait for "3000" millsecond
@@ -297,14 +297,14 @@ Feature: 仪表盘输入项
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "* | stats count() by apache.geo.city |limit 5"
+    And I set the parameter "Spl" with value "tag: sample04061424_chart | stats count() by apache.geo.city |limit 5"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     And I set value with element "TableList"
     When the chart title is "仪表盘1669所用趋势图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
-    And I set the parameter "Spl" with value "* | stats count() ${filter}"
+    And I set the parameter "Spl" with value "tag: sample04061424_chart | stats count() ${filter}"
     And I click the "Ensure" button
     And I wait for "Progress" will be invisible
     Then I compare with list "TableList"

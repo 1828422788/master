@@ -101,7 +101,7 @@ Feature: 数据大屏-p环形柱图
 
 ##################################无耻的分割线###############################
 
-  Scenario: 环形柱图数据之静态数据
+  Scenario: 环形柱图数据之静态数据 RZY-3660
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

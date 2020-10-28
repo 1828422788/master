@@ -100,7 +100,7 @@ Feature: 数据大屏-r占比图3D
 ######################################无耻的分割线################################
 
 
-  Scenario: 占比图3D数据之静态数据
+  Scenario: 占比图3D数据之静态数据 RZY-3782
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
