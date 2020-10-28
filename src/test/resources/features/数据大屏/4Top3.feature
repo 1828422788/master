@@ -83,7 +83,7 @@
 
 #############################无耻的分割线################################
 
-    Scenario: Top3数据之静态数据      
+    Scenario: Top3数据之静态数据 RZY-3662
 
       And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
       When I click the "Create" button

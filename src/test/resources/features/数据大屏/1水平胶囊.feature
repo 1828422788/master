@@ -94,7 +94,7 @@ Feature: 数据大屏-g水平胶囊
 
 ######################################无耻的分割线################################
 
-  Scenario: 水平胶囊数据之静态数据
+  Scenario: 水平胶囊数据之静态数据 RZY-3658
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

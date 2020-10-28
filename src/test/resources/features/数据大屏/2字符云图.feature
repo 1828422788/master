@@ -78,7 +78,7 @@ Feature: 数据大屏-g字符云图
 
 ######################################无耻的分割线################################
 
-  Scenario: 字符云图数据之静态数据
+  Scenario: 字符云图数据之静态数据 RZY-3662
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

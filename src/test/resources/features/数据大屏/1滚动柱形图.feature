@@ -99,7 +99,7 @@ Feature: 数据大屏-h滚动柱形图
 
 ######################################无耻的分割线################################
 
-  Scenario: 滚动柱形图数据之静态数据
+  Scenario: 滚动柱形图数据之静态数据 RZY-3656
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page

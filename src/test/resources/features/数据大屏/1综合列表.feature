@@ -98,7 +98,7 @@ Feature: 数据大屏-m综合列表
 
 ######################################无耻的分割线################################
 
-  Scenario: 综合列表数据之静态数据
+  Scenario: 综合列表数据之静态数据 RZY-3661
     And open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
