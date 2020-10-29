@@ -1,4 +1,0 @@
-"ts","base_len","base_count","_es.apache.status.count","_es.apache.status.min","_es.apache.status.max","_es.apache.status.avg","_es.apache.status.sum","_es.apache.status.sum_of_squares","_es.apache.status.variance","_es.apache.status.std_deviation"
-"200","200.0","4.0","4.0","200.0","200.0","200.0","800.0","160000.0","0.0","0.0"
-"400","404.0","1.0","1.0","404.0","404.0","404.0","404.0","163216.0","0.0","0.0"
-
