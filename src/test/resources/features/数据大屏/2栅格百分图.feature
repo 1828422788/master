@@ -5,7 +5,7 @@ Feature: 数据大屏-h栅格百分图
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 栅格百分图样式-搜索 RZY-4359
+  Scenario: 栅格百分图样式-搜索 RZY-4359,RZY-3657
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
