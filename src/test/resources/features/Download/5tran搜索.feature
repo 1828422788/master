@@ -30,12 +30,11 @@ Feature: 新建下载任务
     When I set the parameter "DbListPageSearchInput" with value "<name>"
     And I wait for "1000" millsecond
     Given the data name is "<name>.json" then i click the "下载" button
-    And I wait for "1000" millsecond
-    Then I compare source download file "expect/<name>.json" with target download files "<name>.json"
+#    And I wait for "1000" millsecond
+#    Then I compare source download file "expect/<name>.json" with target download files "<name>.json"
 
     Examples: 新建成功
       | name                                         | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-      |splcasename| splQuery|
       | eval_case_tran | tag:sample04061424_display OR tag:sample04061424_chart \| eval status_com = case(tag==\"sample04061424_display\", apache.status, tag==\"sample04061424_chart\", apache.status) \| transaction status_com maxevents=100 |
       | rename_apache_tran2len_sort | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| rename apache.* as new.* \| transaction new.resp_len \| sort by new.resp_len |
       | fields_result_seq | tag:\"sample04061424\" \| fields appname, tag, apache.clientip, apache.geo.country, apache.request_path, apache.status, apache.resp_len, apache.method, apache.x_forward \| sort by  apache.x_forward |
