@@ -790,6 +790,7 @@ Feature: 仪表盘详情行布局
     And I set the parameter "ShowValue" with value "14?41"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
+    And I choose the "1441" from the "FilterDropdown"
     And I click the "SettingIcon" button
     And I wait for "1500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"

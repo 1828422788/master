@@ -23,6 +23,21 @@ Feature: 仪表盘统计地图
       | 仪表盘统计地图 |
 
   @dashboard @dashboardSmoke
+  Scenario Outline: 新建标签页
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘<name>"
+    Then I will see the "dashboard.DetailPage" page
+    When I set the parameter "TagName" with value "<name>"
+    And I click the "EnsureCreateTagButton" button
+    And I wait for loading complete
+    And I back to before
+
+    Examples:
+      | name |
+      | 统计地图 |
+
+  @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -47,21 +62,6 @@ Feature: 仪表盘统计地图
     Examples:
       | spl                                                                                                                                                                                                                                                                                  | name    |
       | appname:geostats \| parse \"^(?<raw>.*)$\" \| eval array=split(raw, \",\") \| eval lon=todouble(mvindex(array, 3)) \| eval lat=todouble(mvindex(array, 4)) \| eval cnt=tolong(mvindex(array, 2)) \| eval group=mvindex(array, 7) \| geostats latfield=lat longfield=lon count() by group | 仪表盘统计地图 |
-
-  @dashboard @dashboardSmoke
-  Scenario Outline: 新建标签页
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘<name>"
-    Then I will see the "dashboard.DetailPage" page
-    When I set the parameter "TagName" with value "<name>"
-    And I click the "EnsureCreateTagButton" button
-    And I wait for loading complete
-    And I back to before
-
-    Examples:
-      | name |
-      | 统计地图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 添加图表
