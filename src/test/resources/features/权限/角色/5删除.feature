@@ -16,14 +16,14 @@ Feature: 角色删除（RZY-524）
       | AutoTestCopy |
       | AutoTestEdit |
 
-  Scenario Outline: 验证删除成功
-    And open the "roles.ListPage" page for uri "/account/roles/"
-    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
-
-    Examples:
-      | name         |
-      | AutoTestCopy |
-      | AutoTestEdit |
+#  Scenario Outline: 验证删除成功
+#    And open the "roles.ListPage" page for uri "/account/roles/"
+#    Then I will see the search result "{'column':'0','name':'<name>','contains':'no'}"
+#
+#    Examples:
+#      | name         |
+#      | AutoTestCopy |
+#      | AutoTestEdit |
 
 
 
