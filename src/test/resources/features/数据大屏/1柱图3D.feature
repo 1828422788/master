@@ -5,7 +5,7 @@ Feature: 数据大屏-g3D柱图
 #    And I wait for "Dashboard" will be visible
 
 
-  Scenario: 3D柱图样式-搜索 RZY-4820
+  Scenario: 3D柱图样式-搜索 RZY-4820,RZY-4830
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
 
@@ -82,7 +82,7 @@ Feature: 数据大屏-g3D柱图
 
 ######################################无耻的分割线################################
 
-  Scenario: 3D柱图样式-搜索之静态数据
+  Scenario: 3D柱图样式-搜索之静态数据 RZY-4831
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     When I click the "Create" button
 
