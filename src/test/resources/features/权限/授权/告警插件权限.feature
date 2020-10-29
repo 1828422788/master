@@ -94,7 +94,6 @@ Feature: 权限-授权告警插件
     And I wait for loading invisible
     And I "checked" the checkbox which name is "baixin_alert" in auth table
     And I click the "SaveButton" button
-    And I will see the success message "更新成功"
 
   Scenario: 验证转授权限
     Given I login user "AutoTest" with password "All#123456"
@@ -121,9 +120,7 @@ Feature: 权限-授权告警插件
     And I will see the "roles.AuthorizationPage" page
     And I click the "Resource" button
     And I wait for "Loading" will be invisible
-    When I "checked" the checkbox which name is "全选"
-    And I "unchecked" the checkbox which name is "全选"
-    And I "checked" the checkbox which name is "可查看监控"
+    And I "unchecked" the checkbox which name is "可查看告警插件"
     And I click the "SaveButton" button
 
   @logout
