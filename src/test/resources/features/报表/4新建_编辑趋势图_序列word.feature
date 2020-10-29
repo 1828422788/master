@@ -9,7 +9,7 @@ Feature: 报表新建_编辑_序列word
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "50"
+    And I set the parameter "Minute" with value "15"
  #   And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 

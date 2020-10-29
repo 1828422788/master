@@ -278,7 +278,8 @@ public class CompareResult {
      */
     @And("^I compare source report file \"([^\"]*)\" with target report file \"([^\"]*)\"$")
     public void compareReportFile(String sourceReportFile, String targetReportFile) {
-        String curPath = System.getProperty("user.dir");
+//        String curPath = System.getProperty("user.dir");
+        String curPath = ".";
 
         FileInputStream fis1 = null;
         FileInputStream fis2 = null;

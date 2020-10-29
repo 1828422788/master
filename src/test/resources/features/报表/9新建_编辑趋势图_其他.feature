@@ -238,6 +238,7 @@ Feature: 报表新建_编辑_其他
 
   Scenario Outline: new_report_trend_wordcloud
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "10"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
