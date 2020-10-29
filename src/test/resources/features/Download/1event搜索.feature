@@ -114,3 +114,35 @@ Feature: 新建下载任务
       | dedup_double_fields_keepevents_false | tag:\"sample04061424\" \| dedup 3 apache.status, appname keepevents = false \| sort by timestamp |
       | dedup_keepempty_true | tag:sample04061424_win_sys_20 \| dedup json.Category keepempty = true |
       | dedup_keepempty_false | tag:sample04061424_win_sys_20 \| dedup json.Category keepempty = false |
+
+  @dlevent
+  Scenario Outline: 新建下载任务3个
+    Given I set the parameter "SearchInput" with value "<splQuery>"
+    And I click the "DateEditor" button
+    And I click the "Today" button
+    And I click the "SearchButton" button
+    And I wait for "2000" millsecond
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+
+    And I wait for "2000" millsecond
+    And I wait for "DownloadEvent" will be visible
+    Then I click the "DownloadEvent" button
+    Then I set the parameter "DownloadName" with value "<name>"
+    Then I set the parameter "MaxLineNum" with value "100"
+#    Then I choose the "<unit>" from the "MaxLineDropdown"
+    Then I choose the "TXT" from the "DocumentTypeList"
+    Then I choose the "UTF" from the "DocumentEncodeList"
+    Then I click the "CreateDownloadTask" button
+
+    #下载到本地
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    When I set the parameter "DbListPageSearchInput" with value "<name>"
+    And I wait for "1000" millsecond
+    Given the data name is "<name>.txt" then i click the "下载" button
+
+    Examples: 新建成功
+      | name                                         | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+      | fields_result_seq | tag:\"sample04061424\" \| fields appname, tag, apache.clientip, apache.geo.country, apache.request_path, apache.status, apache.resp_len, apache.method, apache.x_forward \| sort by  apache.x_forward |
+      | rename_apache_fields_sort | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rename apache.* as test.* \| fields test.clientip, test.resp_len, test.status, test.x_forward, test.request_query \| sort by test.x_forward, test.clientip |
+      | rename_apache_table2all_fields2test_sort | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rename apache.* as test.* \| table * \| fields test.* \| fields test.clientip, test.resp_len, test.status, test.x_forward, test.request_query \| sort by test.x_forward, test.clientip |
+      | spl_eval_add | tag:sample04061424 \| eval status = apache.status \| eval resp_len =  apache.resp_len \| eval status_add0=apache.status+0 \| eval len_add0=resp_len+0 |
