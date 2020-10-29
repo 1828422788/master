@@ -484,7 +484,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[contains(text(),'最大行数')]/following-sibling::div//i")
     private WebElement maxLineDropdown;
 
-    @FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
+    //@FindBy(xpath = "//button[@class='el-button yw-search-pages-download el-button--primary']/span")
+    //@FindBy(xpath = "//svg/use/svg[@id='icon-sousuoye_xiazai']::parent")
+    @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::i[@class='anticon css-ifnfqv _1Csj3jD9igXHB0MQUflN8F']")
     private WebElement downloadEvent;
 
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
