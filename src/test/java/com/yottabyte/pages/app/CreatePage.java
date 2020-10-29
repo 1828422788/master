@@ -153,6 +153,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(id = "FieldConfig_name")
     private WebElement fieldConfigName;
 
+    @FindBy(id = "FieldAliasModal_name")
+    private WebElement fieldAliasModalName;
+
     @FindBy(xpath = "(//input[contains(@id,'original')])[last()]")
     private WebElement originalField;
 
@@ -218,6 +221,10 @@ public class CreatePage extends PageTemplate {
 
     @FindBy(xpath = "(//span[text()='保存'])[last()]/ancestor::button")
     private WebElement saveButton;
+
+    public WebElement getFieldAliasModalName() {
+        return fieldAliasModalName;
+    }
 
     public WebElement getFieldConfigFields() {
         return fieldConfigFields;

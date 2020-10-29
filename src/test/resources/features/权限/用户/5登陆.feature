@@ -10,6 +10,7 @@ Feature: 用户登陆（RZY-1152、RZY-1153）
     And I set the parameter "Password" with value "<passwordValue>"
     And I click the "LoginButton" button
     Then I will see the <errorMessage>
+    Then I logout current user
 
     Examples:
       | usernameValue   | passwordValue | errorMessage                        |

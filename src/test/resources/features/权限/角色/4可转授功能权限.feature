@@ -1,4 +1,4 @@
-@role @roleSmoke
+#@role @roleSmoke
 Feature: 角色可转授功能权限
 
   Scenario Outline: 添加用户

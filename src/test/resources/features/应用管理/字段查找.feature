@@ -1,4 +1,4 @@
-@all @smoke @app @appSmoke
+#@all @smoke @app @appSmoke
 Feature: 应用字段查找
 
   Scenario: 添加模糊字段查找

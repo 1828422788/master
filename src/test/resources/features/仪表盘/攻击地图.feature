@@ -69,7 +69,7 @@ Feature: 仪表盘攻击地图
       | 仪表盘攻击地图 |
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 修改为攻击地图 RZY-314
+  Scenario Outline: 修改为攻击地图 RZY-314,RZY-3761
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
@@ -107,7 +107,7 @@ Feature: 仪表盘攻击地图
       | 仪表盘攻击地图 | Attackmap  |
 
   @dashboard
-  Scenario Outline: 验证配置是否在高级编辑中体现
+  Scenario Outline: 验证配置是否在高级编辑中体现 RZY-3761
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "<name>"
