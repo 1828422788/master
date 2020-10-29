@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBuffer;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -305,26 +306,61 @@ public class CompareResult {
 
             System.out.println("Comparing files: " + "<" + sourceReportFile + "> and <" + targetReportFile + ">");
 
-            PDDocument document1 = PDDocument.load(fis1);
-            PDDocument document2 = PDDocument.load(fis2);
-            PDFRenderer renderer1 = new PDFRenderer(document1);
-            PDFRenderer renderer2 = new PDFRenderer(document2);
-
-            //Rendering an image from the PDF document
-            BufferedImage image1 = renderer1.renderImage(0);
-            BufferedImage image2 = renderer2.renderImage(0);
-
-            //Writing the image to a file
             String path1 = curPath + "/" + sourceReportFile.split("\\.")[0];
             String path2 = curPath + "/actual/" + targetReportFile.split("\\.")[0];
-            ImageIO.write(image2, "JPEG", new File(path2 + ".png"));
-            System.out.println("Image created");
+            BufferedImage image1, image2;
+            if (format.equals("pdf")) {
+                PDDocument document1 = PDDocument.load(fis1);
+                PDDocument document2 = PDDocument.load(fis2);
+                PDFRenderer renderer1 = new PDFRenderer(document1);
+                PDFRenderer renderer2 = new PDFRenderer(document2);
 
-            //Closing the document
-            document1.close();
-            document2.close();
+                //Rendering an image from the PDF document
+                image1 = renderer1.renderImage(0);
+                image2 = renderer2.renderImage(0);
 
-            compareImage(path1, path2);
+                //Writing the image to a file
+                ImageIO.write(image2, "JPEG", new File(path2 + ".png"));
+                System.out.println("Image created");
+
+                double percentage = 0;
+                DataBuffer db1 = image1.getData().getDataBuffer();
+                int size1 = db1.getSize();
+                DataBuffer db2 = image2.getData().getDataBuffer();
+                int size2 = db2.getSize();
+                int count = 0;
+                // compare data-buffer objects //
+                if (size1 == size2) { // checks the size of the both the bufferedImage
+
+                    for (int i = 0; i < size1; i++) {
+
+                        if (db1.getElem(i) == db2.getElem(i)) { // checks bufferedImage array is same in both the image
+                            count = count + 1;
+                        }
+                    }
+                    percentage = ((double)count * 100) / size1; // calculates matching percentage
+                    if (percentage < 99) {
+                        System.out.printf("文件内容不一样: %.2f \n", percentage);
+                        EmbeddingFile.embedImage(path1 + ".png");
+                        EmbeddingFile.embedImage(path2 + ".png");
+                        Assert.fail();
+                    } else {
+                        System.out.printf("文件内容一样: %.2f \n", percentage);
+                    }
+                } else {
+                    System.out.println("文件内容不一样");
+                    Assert.fail();
+                }
+
+                //Closing the document
+                document1.close();
+                document2.close();
+            } else if (format.equals("xls")) {
+
+            } else if (format.equals("docx")){
+
+            }
+//            compareImage(path1, path2);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -349,7 +385,4 @@ public class CompareResult {
             }
         }
     }
-
-
-
 }
