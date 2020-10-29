@@ -3,6 +3,8 @@ Feature: 新建下载任务
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+#    And I drag the element "SearchPageSvg" to the "left" side
 
   @dlmv
   Scenario Outline: 新建下载任务3个

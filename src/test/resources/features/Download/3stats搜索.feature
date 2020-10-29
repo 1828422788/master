@@ -3,6 +3,7 @@ Feature: 执行stats类型命令
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
+    And I wait for element "SearchStatus" change text to "搜索完成!"
 
   @dlstats
   Scenario Outline: stats用例结果下载
