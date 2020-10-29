@@ -92,7 +92,7 @@ Feature: 新建下载任务
       | search_highlight_last_asterisk_match | tag:last_update_timestamp_100 AND last* |
       | search_highlight_before_capital_letter | tag:highlight_huawei_10 \"the message is\" |
       | start_time_para_mon | starttime=\"now-1M/M-1d/w\"  endtime=\"now\" tag:sample04061424 |
-      | start_time_value | starttime=2017-08-13 endtime=2017-08-13:23:59:00 tag:sample |
+#      | start_time_value | starttime=2017-08-13 endtime=2017-08-13:23:59:00 tag:sample |
       | startt_today | starttime=\"now/d\" endtime=\"now\" tag:sample04061424 |
       | limit_1 | tag:\"sample04061424\"\| limit 10 |
 #      | gf_dapper_tracing | tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp, dapper.msg.binaryAnnotations[].value, collector_recv_timestamp \| sort by dapper.msg.id |
