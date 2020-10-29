@@ -21,6 +21,7 @@ Feature: 仪表盘循序图
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "DateEditor" button
     And I click the "Today" button
+    And I wait for "1000" millsecond
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
     And I click the "NextButton" button
