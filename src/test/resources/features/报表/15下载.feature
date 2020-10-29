@@ -12,7 +12,7 @@ Feature: 报表_下载
     And I wait for element "SelectedReport" change text to "<name>_PDF"
     Then I will see the element "LastGeneratedReport" contains ".pdf"
     And I click the "Download" button
-    And I download latest report to local
+#    And I download latest report to local
     And I wait for "2000" millsecond
     Then I compare source report file "expect/<name>_PDF.pdf" with target report file "<name>_PDF.pdf"
 
@@ -60,7 +60,7 @@ Feature: 报表_下载
     And I wait for element "SelectedReport" change text to "<name>_EXCEL"
     Then I will see the element "LastGeneratedReport" contains ".xls"
     And I click the "Download" button
-    And I download latest report to local
+#    And I download latest report to local
     And I wait for "2000" millsecond
 #    Then I compare source report file "expect/<name>_EXCEL.xls" with target report file "<name>_EXCEL.xls"
 
@@ -108,7 +108,7 @@ Feature: 报表_下载
     And I wait for element "SelectedReport" change text to "<name>_WORD"
     Then I will see the element "LastGeneratedReport" contains ".docx"
     And I click the "Download" button
-    And I download latest report to local
+#    And I download latest report to local
     And I wait for "2000" millsecond
 #    Then I compare source report file "expect/<name>_WORD.docx" with target report file "<name>_WORD.docx"
 
