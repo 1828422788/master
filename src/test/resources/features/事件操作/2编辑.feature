@@ -41,7 +41,7 @@ Feature: 事件操作编辑（RZY-1390）
     Then I will see the message "提交事件操作成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Given I set the parameter "SearchInput" with value "hostname:192.168.1.171"
+    Given I set the parameter "SearchInput" with value "hostname:centos"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -49,7 +49,7 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "EventOperate" button
     And I click the "EventOperatorAutoTest" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the input element "SearchInput" value will be "hostname:192.168.1.171"
+    Then I will see the input element "SearchInput" value will be "hostname:centos"
 
     Examples:
       | field   | action | inputName | url                  |
@@ -66,7 +66,7 @@ Feature: 事件操作编辑（RZY-1390）
     Then I will see the message "提交事件操作成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Given I set the parameter "SearchInput" with value "hostname:192.168.1.171"
+    Given I set the parameter "SearchInput" with value "hostname:centos"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
@@ -89,7 +89,7 @@ Feature: 事件操作编辑（RZY-1390）
     Then I will see the message "提交事件操作成功"
     And open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Given I set the parameter "SearchInput" with value "hostname:192.168.1.171"
+    Given I set the parameter "SearchInput" with value "hostname:centos"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
