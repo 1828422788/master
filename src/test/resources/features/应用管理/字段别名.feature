@@ -55,7 +55,7 @@ Feature: 应用字段别名
     And I click the "FieldConfig" button
     And I wait for "AddFieldAlias" will be visible
     And I click the "AddFieldAlias" button
-    And I set the parameter "FieldConfigName" with value "AutoTest"
+    And I set the parameter "FieldAliasModalName" with value "AutoTest"
     And I set the parameter "OriginalField" with value "appname"
     And I set the parameter "FieldAlias" with value "app"
     And I click the "SaveButton" button under some element
@@ -136,7 +136,7 @@ Feature: 应用字段别名
     And I click the "FieldConfig" button
     And I wait for "AddFieldAlias" will be visible
     And I click the "AddFieldAlias" button
-    And I set the parameter "FieldConfigName" with value "test"
+    And I set the parameter "FieldAliasModalName" with value "test"
     And I set the parameter "OriginalField" with value "appname"
     And I set the parameter "FieldAlias" with value "app"
     And I click the "SaveButton" button under some element
