@@ -5,7 +5,7 @@
 #      And I wait for "Dashboard" will be visible
 
 
-  Scenario: 对中国地图II进行样式-搜索 RZY-4357
+  Scenario: 对中国地图II进行样式-搜索 RZY-4357,RZY-3055
     Given open the "galaxee.ListPage" page for uri "/app/galaxee/manager/"
     And I click the "Create" button
     Then I will see the "galaxee.CreatePage" page
