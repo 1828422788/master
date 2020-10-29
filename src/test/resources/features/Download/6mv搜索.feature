@@ -4,7 +4,7 @@ Feature: 新建下载任务
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
 
-  @dltran
+  @dlmv
   Scenario Outline: 新建下载任务3个
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
@@ -14,8 +14,8 @@ Feature: 新建下载任务
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
     And I wait for "1000" millsecond
-    And I wait for "DownloadEvent" will be visible
-    Then I click the "DownloadEvent" button
+    And I wait for "downloadButton" will be visible
+    Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
     Then I set the parameter "MaxLineNum" with value "100"
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
@@ -35,8 +35,6 @@ Feature: 新建下载任务
 
     Examples: 新建成功
       | name                                         | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-      | eval_case_tran | tag:sample04061424_display OR tag:sample04061424_chart \| eval status_com = case(tag==\"sample04061424_display\", apache.status, tag==\"sample04061424_chart\", apache.status) \| transaction status_com maxevents=100 |
-      | rename_apache_tran2len_sort | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| rename apache.* as new.* \| transaction new.resp_len \| sort by new.resp_len |
       | fields_result_seq | tag:\"sample04061424\" \| fields appname, tag, apache.clientip, apache.geo.country, apache.request_path, apache.status, apache.resp_len, apache.method, apache.x_forward \| sort by  apache.x_forward |
       | rename_apache_fields_sort | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rename apache.* as test.* \| fields test.clientip, test.resp_len, test.status, test.x_forward, test.request_query \| sort by test.x_forward, test.clientip |
       | rename_apache_table2all_fields2test_sort | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424 \| rename apache.* as test.* \| table * \| fields test.* \| fields test.clientip, test.resp_len, test.status, test.x_forward, test.request_query \| sort by test.x_forward, test.clientip |

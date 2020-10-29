@@ -51,3 +51,5 @@ Feature: 新建下载任务
       | tran_startswith_endswith_maxopenevents2 | starttime=\"now/d\" endtime = \"now/d+24h\" tag:\"sample04061424\" \| transaction apache.clientip  startswith=\"1977\" endswith=\"Android 4.3\" maxspan=1d maxevents=50 maxopentxn=1000 maxopenevents=1000 |
       | tran_sort | tag:\"sample04061424\" \| transaction apache.resp_len \| sort by apache.resp_len |
       | bug_tran_with | tag:t_with \| transaction json.sid with states a, b, c in json.module results by flow |
+      | eval_case_tran | tag:sample04061424_display OR tag:sample04061424_chart \| eval status_com = case(tag==\"sample04061424_display\", apache.status, tag==\"sample04061424_chart\", apache.status) \| transaction status_com maxevents=100 |
+      | rename_apache_tran2len_sort | starttime=\"now/d\" endtime=\"now/d+24h\" tag:\"sample04061424\" \| rename apache.* as new.* \| transaction new.resp_len \| sort by new.resp_len |
