@@ -828,6 +828,9 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='字段值']/ancestor::div/following-sibling::div//i")
     private WebElement dataValue;
 
+    @FindBy(xpath = "(//span[text()='字段值'])[2]/parent::div/following-sibling::div//i")
+    private WebElement dataValue2;
+
     public WebElement getStatisticalChart() {
         return statisticalChart;
     }
@@ -1027,6 +1030,11 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getDataValue() {
         dataValue.click();
+        return super.getLastDropdownList();
+    }
+
+    public WebElement getDataValue2() {
+        dataValue2.click();
         return super.getLastDropdownList();
     }
 
