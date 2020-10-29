@@ -6,6 +6,8 @@ Feature: 新建下载任务
 
   @dlxtable
   Scenario Outline: bucket相关
+    And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for loading complete
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button

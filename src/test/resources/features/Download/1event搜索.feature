@@ -115,7 +115,7 @@ Feature: 新建下载任务
       | dedup_keepempty_true | tag:sample04061424_win_sys_20 \| dedup json.Category keepempty = true |
       | dedup_keepempty_false | tag:sample04061424_win_sys_20 \| dedup json.Category keepempty = false |
 
-  @dlevent
+  @dlevent1
   Scenario Outline: 新建下载任务3个
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button

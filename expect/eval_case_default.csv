@@ -1,0 +1,25 @@
+"apache.status","r_status","apache.x_forward"
+"499","status: error","60"
+"404","status: error","36"
+"502","status: other","35"
+"500","status: other","34"
+"404","status: error","33"
+"404","status: error","32"
+"404","status: error","31"
+"404","status: error","30"
+"500","status: other","29"
+"404","status: error","28"
+"404","status: error","27"
+"404","status: error","26"
+"404","status: error","25"
+"404","status: error","24"
+"500","status: other",
+"206","status: error",
+"502","status: other",
+"500","status: other",
+"502","status: other",
+"502","status: other",
+"500","status: other",
+"502","status: other",
+"404","status: error",
+
