@@ -9,12 +9,12 @@ Feature: 报表新建_编辑_序列word
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "15"
  #   And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
   Scenario Outline: new_report_trend_Order_button
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "10"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
@@ -63,6 +63,7 @@ Feature: 报表新建_编辑_序列word
 # Save two times to save parameters
   Scenario Outline: new_report_trend_Order_Pile
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "14"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
@@ -112,6 +113,7 @@ Feature: 报表新建_编辑_序列word
 
   Scenario Outline: new_report_trend_Order_bubbles
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "16"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible

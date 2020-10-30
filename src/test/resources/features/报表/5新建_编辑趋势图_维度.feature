@@ -9,12 +9,12 @@ Feature: 报表新建_编辑_维度
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameter "Hour" with value "11"
-    And I set the parameter "Minute" with value "30"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
   Scenario Outline: new_report_trend_Dimension
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "20"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
@@ -66,6 +66,7 @@ Feature: 报表新建_编辑_维度
 
   Scenario Outline: new_report_trend_Dimension_Sun
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "25"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
@@ -113,6 +114,7 @@ Feature: 报表新建_编辑_维度
 
   Scenario Outline: new_report_trend_bar_label
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "27"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButton" will be visible
