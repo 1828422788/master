@@ -43,7 +43,7 @@ Feature: 路由编辑
     And I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
-    Then I will see the element "EventNumber" name is "(10)"
+#    Then I will see the element "EventNumber" name is "(10)"
 
     Examples:
       | spl           |
