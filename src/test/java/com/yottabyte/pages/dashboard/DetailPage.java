@@ -295,6 +295,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(className = "widget-chartType-selection-popover")
     private WebElement selectionPopover;
 
+    @FindBy(xpath = "(//*[name()='text'])[text()]")
+    private WebElement xaxisField;
+
     @FindBy(xpath = "//div[@class='el-dialog__wrapper yw-modal-plain yw-selection-modal dialog-fade-leave-active dialog-fade-leave-to']")
     private WebElement fadingLeave;
 
@@ -1606,6 +1609,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getContent() {
         return content;
+    }
+
+    public WebElement getXaxisField() {
+        return xaxisField;
     }
 
     public WebElement getGenerate() {

@@ -49,6 +49,17 @@ public class CheckButtonAttribute {
     }
 
     /**
+     * 检查元素style是否包含某值
+     *
+     * @param buttonNameList 元素名称（支持list）
+     * @param attribute      属性值
+     */
+    @Then("^I will see the element \"([^\"]*)\" transform contains \"([^\"]*)\"$")
+    public void checkTransform(List<String> buttonNameList, String attribute) {
+        this.checkElementsContainsAttribute(buttonNameList, "transform", attribute);
+    }
+
+    /**
      * 检查元素的某一属性是否包含某一值
      *
      * @param buttonNameList 两种情况：1：传入的是列表 2：传入的元素是一个列表
