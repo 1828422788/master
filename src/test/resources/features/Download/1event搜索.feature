@@ -22,7 +22,7 @@ Feature: 事件搜索
 #    Then I choose the "<unit>" from the "MaxLineDropdown"
     Then I choose the "TXT" from the "DocumentTypeList"
     Then I choose the "UTF" from the "DocumentEncodeList"
-    Then I click the "CreateDownloadTask" button
+    Then I click the "CreateDownloadTask" buttgiton
 #    And I wait for "2000" millsecond
 #    Then I will see the success message "提交成功，请到设置-下载管理页查看下载状态！"
 
