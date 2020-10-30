@@ -9,13 +9,13 @@ Feature: 报表新建_编辑_地图word
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "Describe" with value "AutoCreate"
     And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "50"
 #    And I choose the "ekaterina.kiseleva@yottabyte.cn" from the "EmailInput"
 #    And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
 
 
   Scenario Outline: new_report_trend_heatmap
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "25"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
@@ -50,6 +50,7 @@ Feature: 报表新建_编辑_地图word
 
   Scenario Outline: new_report_trend_attackmap
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "27"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
@@ -94,6 +95,7 @@ Feature: 报表新建_编辑_地图word
 
   Scenario Outline: new_report_trend_regionmap
     When I set the parameter "Name" with value "<name>_<reportType>"
+    And I set the parameter "Minute" with value "30"
     And I choose the "<reportType>" from the "ReportType"
     And I click the "NextButton" button
     Then I wait for "ChartListButtonWord" will be visible
