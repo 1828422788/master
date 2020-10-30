@@ -29,7 +29,7 @@ Feature: transaction命令
 
     #下载到本地
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
-    When I set the parameter "DbListPageSearchInput" with value "<name>"
+    When I set the parameter "DbListPageSearchInput" with value "<name>.json"
     And I wait for "1000" millsecond
     Given the data name is "<name>.json" then i click the "下载" button
 #    And I wait for "1000" millsecond

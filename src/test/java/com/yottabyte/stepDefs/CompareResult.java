@@ -201,6 +201,7 @@ public class CompareResult {
             e.printStackTrace();
         }
     }
+
     /**
      * 比较两个文本文件是否相等，
      *
@@ -214,9 +215,10 @@ public class CompareResult {
         FileInputStream fis1 = null;
         FileInputStream fis2 = null;
         try {
-            fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
+//          fis1 = new FileInputStream(curPath + "/" + sourceDownloadFile);
+            fis1 = new FileInputStream("/opt/expect/" + sourceDownloadFile);
 //          fis2 = new FileInputStream(curPath + "/target/download-files/" + targetDownloadFile);
-            fis2 = new FileInputStream("/Users/chs/Desktop/download-files/" + targetDownloadFile);
+            fis2 = new FileInputStream("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
 
             int len1 = fis1.available();//返回总的字节数
             int len2 = fis2.available();
@@ -246,8 +248,10 @@ public class CompareResult {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+//            Assert.fail();
         } catch (IOException e) {
             e.printStackTrace();
+//            Assert.fail();
         } finally {//关闭文件流，防止内存泄漏
             if (fis1 != null) {
                 try {
@@ -266,7 +270,6 @@ public class CompareResult {
                 }
             }
         }
-        Assert.fail();
     }
 
 
@@ -288,7 +291,7 @@ public class CompareResult {
             String format = targetReportFile.split("\\.")[1];
             String targetName = targetReportFile.split("\\.")[0];
 
-            SimpleDateFormat formatter= new SimpleDateFormat("yyyyMMdd");
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
             Date date = new Date(System.currentTimeMillis());
             String current_date = formatter.format(date);
 
@@ -339,7 +342,7 @@ public class CompareResult {
                             count = count + 1;
                         }
                     }
-                    percentage = ((double)count * 100) / size1; // calculates matching percentage
+                    percentage = ((double) count * 100) / size1; // calculates matching percentage
                     if (percentage < 99) {
                         System.out.printf("文件内容不一样: %.2f \n", percentage);
                         EmbeddingFile.embedImage(path1 + ".png");
@@ -358,7 +361,7 @@ public class CompareResult {
                 document2.close();
             } else if (format.equals("xls")) {
 
-            } else if (format.equals("docx")){
+            } else if (format.equals("docx")) {
 
             }
 //            compareImage(path1, path2);
