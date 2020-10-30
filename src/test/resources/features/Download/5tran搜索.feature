@@ -1,5 +1,5 @@
-@db1
-Feature: 新建下载任务
+@alldownload
+Feature: transaction命令
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
@@ -7,7 +7,7 @@ Feature: 新建下载任务
     And I wait for loading complete
 
   @dltran
-  Scenario Outline: 新建下载任务3个
+  Scenario Outline: 执行
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button

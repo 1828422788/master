@@ -1,11 +1,11 @@
-@db1
+@valldownload
 Feature: 处理下载结果
 
   Background:
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
 
   @vdl
-  Scenario Outline: 下载后，比较
+  Scenario Outline: 下载比较
 #    And download file "<name>.csv" to local
     Then I compare source download file "expect/<name>.csv" with target download files "<name>.csv"
 

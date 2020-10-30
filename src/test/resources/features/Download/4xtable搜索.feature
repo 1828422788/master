@@ -1,5 +1,5 @@
 @alldownload
-Feature: 新建下载任务
+Feature: bucket命令
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

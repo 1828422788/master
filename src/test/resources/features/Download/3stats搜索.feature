@@ -1,5 +1,5 @@
 @alldownload
-Feature: 执行stats类型命令
+Feature: stats命令
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"

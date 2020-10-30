@@ -1,12 +1,12 @@
 @alldownload
-Feature: 新建下载任务
+Feature: 事件搜索
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
   @dlevent
-  Scenario Outline: 新建下载任务3个
+  Scenario Outline: 执行
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button

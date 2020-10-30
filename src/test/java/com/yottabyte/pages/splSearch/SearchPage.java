@@ -637,8 +637,8 @@ public class SearchPage extends ListPageFactory {
     public SearchPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();
-//        driver.manage().window().setPosition(new Point(0, 0));
 //        driver.manage().window().setSize(new Dimension(1800, 970));
+//        driver.manage().window().setPosition(new Point(0, 0));
 
     }
 
