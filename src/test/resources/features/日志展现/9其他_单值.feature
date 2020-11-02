@@ -147,6 +147,7 @@ Feature: 日志展现_其他_单值
     And I click the "Other" button
     And I click the "<chartType>" button
     And I click the "Settings" button
+    And I choose the "cnt" from the "NumericField" in config
     And I click the "Exhibition" button
     And I click the "AccordingArea" button
     And I set the parameter "FontSize" with value "100"

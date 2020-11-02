@@ -121,17 +121,6 @@ Feature: 仪表盘多Y轴图
       | 仪表盘多Y轴图 | Multiaxis  |
 
   @dashboard @dashboardSmoke
-  Scenario: labelRotate-left RZY-1325
-    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-    And I wait for loading invisible
-    And I click the detail which name is "仪表盘多Y轴图"
-    Then I will see the "dashboard.DetailPage" page
-    And I wait for "Progress" will be invisible
-    #默认：left
-    Then I will see the element "XaxisField" transform contains "rotate(-45)"
-
-
-  @dashboard @dashboardSmoke
   Scenario Outline: labelRotate-left-right-horizontal-vertical RZY-1325,RZY-1326,RZY-1327,RZY-1328
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -143,7 +132,7 @@ Feature: 仪表盘多Y轴图
     Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "<labelRotate>",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "type": "line",        "field": "count(apache.resp_len)",        "smooth": false,        "unit": "",        "connectNull": false,        "range": {          "min": "",          "max": ""        }      },      {        "type": "column",        "field": "max(apache.resp_len)",        "unit": "柱",        "connectNull": false,        "range": {          "min": "2",          "max": ""        }      }    ],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
-    Then I will see the success message "校验通过"
+#    Then I will see the success message "校验通过"
     Then I click the "Ensure" button
     And I wait for loading invisible
     And I wait for "2000" millsecond
@@ -155,6 +144,20 @@ Feature: 仪表盘多Y轴图
       | 仪表盘多Y轴图 |      right     |  rotate(45)   |
       | 仪表盘多Y轴图 |   horizontal   |  rotate(0)    |
       | 仪表盘多Y轴图 |    vertical    |  rotate(-90)  |
+
+  @dashboard @dashboardSmoke
+  Scenario: 设置对象个数为空 RZY-1333
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘多Y轴图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I wait for element "ErrorMessage" change text to "chart -> yAxis 字段值不能为空"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
