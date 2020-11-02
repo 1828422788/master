@@ -382,8 +382,16 @@ public class CompareResult {
 
             System.out.println("Comparing files: " + "<" + sourceReportFile + "> and <" + targetReportFile + ">");
 
+            String PATH = curPath + "/actual/";
+            String directoryName = PATH.concat("report" + current_date);
+
+            File directory = new File(directoryName);
+            if (! directory.exists()){
+                directory.mkdir();
+            }
+
             String path1 = curPath + "/" + sourceReportFile.split("\\.")[0];
-            String path2 = curPath + "/actual/" + targetReportFile.split("\\.")[0];
+            String path2 = curPath + "/actual/report" + current_date + "/" + sourceReportFile.split("\\/")[1].split("\\.")[0];
             BufferedImage image1, image2;
             if (format.equals("pdf")) {
                 PDDocument document1 = PDDocument.load(fis1);
@@ -396,6 +404,7 @@ public class CompareResult {
                 image2 = renderer2.renderImage(0);
 
                 //Writing the image to a file
+                ImageIO.write(image1, "JPEG", new File(path1 + ".png"));
                 ImageIO.write(image2, "JPEG", new File(path2 + ".png"));
                 System.out.println("Image created");
 
@@ -436,7 +445,6 @@ public class CompareResult {
             } else if (format.equals("docx")) {
 
             }
-//            compareImage(path1, path2);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
