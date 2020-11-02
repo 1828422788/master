@@ -14,7 +14,7 @@ Feature: fail待修改
     And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
 
-    And I wait for "1000" millsecond
+    And I wait for "5000" millsecond
     And I wait for "downloadButton" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
@@ -36,8 +36,8 @@ Feature: fail待修改
 
     Examples: 新建成功
       | name                                         | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-      | mvrange_step_minus | tag:sample04061424 \| eval base=mvrange(10,2,-3) \| table base |
       | mvfilter_sample | tag:sample04061424 AND apache.referer_domain:m5.baidu.com \| eval m_referers=split(apache.referer, \"%\") \| eval m_referers_filter = mvfilter(m_referers, _x == \"E4\") \| table apache.referer, m_referers, m_referers_filter |
+      | mvrange_step_minus | tag:sample04061424 \| eval base=mvrange(10,2,-3) \| table base |
       | mvjoin_sample | tag:sample04061424 \| eval m_ips=split(apache.clientip, \".\") \| eval m_ips_join = mvjoin(m_ips, \", \") \| table m_ips,m_ips_join |
       | mvfind_from0 | tag:sample04061424 AND apache.referer_domain:m5.baidu.com  \| eval m_referers=split(apache.referer, \"%\") \| eval m_referers_find=mvfind(m_referers, \"http://m5.baidu.com/s?from=124n&word=\") \| table m_referers, m_referers_find |
       | mvdedup | tag:sample04061424 AND apache.referer_domain:m5.baidu.com \| eval m_referers=split(apache.referer, \"%\") \| eval r_dup = mvdedup(m_referers) \| table m_referers, r_dup |

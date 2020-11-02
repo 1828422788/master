@@ -14,10 +14,7 @@ import org.openqa.selenium.WebElement;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -200,6 +197,81 @@ public class CompareResult {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean getFtpDownloadFiletoLocal(String sourceDownloadFile) {
+        String linuxCmd = "wget ftp://172.18.0.22:/target/download-files/*";
+//        Process p = Runtime.getRuntime().exec(linuxCmd);
+
+        final String METHOD_NAME = "runCMD";
+
+        // Process p = Runtime.getRuntime().exec("cmd.exe /C " + cmd);
+        Process p = null;
+        try {
+            p = Runtime.getRuntime().exec(linuxCmd);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = null;
+//        try {
+            // br = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+            br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        String readLine = null;
+        try {
+            readLine = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        StringBuilder builder = new StringBuilder();
+            while (readLine != null) {
+                try {
+                    readLine = br.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                builder.append(readLine);
+            }
+//            logger.debug(METHOD_NAME + "#readLine: " + builder.toString());
+
+        try {
+            p.waitFor();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        int i = p.exitValue();
+//            logger.info(METHOD_NAME + "#exitValue = " + i);
+            if (i == 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+//        catch (IOException e) {
+////            logger.error(METHOD_NAME + "#ErrMsg=" + e.getMessage());
+//            e.printStackTrace();
+//            throw e;
+//        } finally {
+//            if (br != null) {
+//                br.close();
+//            }
+//        }
+    }
+
+    /**
+     *  获取ftp文件，下载到本地
+     *
+     * @param sourceDownloadFile 源文件路径名称
+     */
+    @And("^I get remote ftp download file \"([^\"]*)\"$")
+    public void getFtpDownloadFile(String sourceDownloadFile) {
+        String curPath = System.getProperty("user.dir");
+//        try {
+            Boolean tt = getFtpDownloadFiletoLocal(sourceDownloadFile);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**

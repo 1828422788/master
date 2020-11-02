@@ -2,6 +2,7 @@ package com.yottabyte.pages.splSearch;
 
 import com.yottabyte.pages.PageTemplate;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,22 +18,25 @@ public class OfflineTaskPage extends PageTemplate {
     public OfflineTaskPage(WebDriver driver) {
         super(driver);
 //        isLoaded();
-        driver.manage().window().fullscreen();
+//        driver.manage().window().maximize();
+//        driver.manage().window().setSize(new Dimension(1, 1));
+//        driver.manage().window().setPosition(new Point(0, 0));
+
     }
 
-//    @FindBy(className = "el-table_1_column_1")
-//    private List<WebElement> tdList;
-//
-//    @FindBy(xpath = "//td[@class='el-table_1_column_1']")
-//    private WebElement emptyElement;
+    @FindBy(className = "el-table_1_column_1")
+    private List<WebElement> tdList;
 
-//    public WebElement getEmptyElement() {
-//        return emptyElement;
-//    }
+    @FindBy(xpath = "//td[@class='el-table_1_column_1']")
+    private WebElement emptyElement;
 
-//    public WebElement getFirstData() {
-//        return tdList.get(1);
-//    }
+    public WebElement getEmptyElement() {
+        return emptyElement;
+    }
+
+    public WebElement getFirstData() {
+        return tdList.get(1);
+    }
 
     public WebElement getErrorMessage() {
         return super.getErrorMessage();
