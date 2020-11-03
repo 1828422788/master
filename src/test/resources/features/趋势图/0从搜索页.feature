@@ -7,7 +7,7 @@ Feature: 趋势图_搜索页
     When I set the parameter "SearchInput" with value "* | stats count()"
     And I click the "DateEditor" button
     And I click the "<timePeriod>" button
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "SaveAsOther" will be visible
     Then I click the "SaveAsOther" button
     Then I click the "Trend" button

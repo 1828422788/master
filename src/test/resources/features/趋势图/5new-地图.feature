@@ -12,10 +12,10 @@ Feature: 趋势图新建_地图
   Scenario Outline: map
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -28,11 +28,11 @@ Feature: 趋势图新建_地图
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -44,10 +44,10 @@ Feature: 趋势图新建_地图
   Scenario Outline: attackmap
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 <spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -89,7 +89,7 @@ Feature: 趋势图新建_地图
   Scenario Outline: regionmap
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -132,7 +132,7 @@ Feature: 趋势图新建_地图
   Scenario Outline: regionmap_world_white
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -168,7 +168,7 @@ Feature: 趋势图新建_地图
   Scenario Outline: regionmap_white
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -214,7 +214,7 @@ Feature: 趋势图新建_地图
   Scenario Outline: heatmap_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -253,7 +253,7 @@ Feature: 趋势图新建_地图
   Scenario Outline: regionmap_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button

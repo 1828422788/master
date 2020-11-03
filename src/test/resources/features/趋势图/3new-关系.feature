@@ -11,7 +11,7 @@ Feature: 趋势图新建_关系
   Scenario Outline: connection(RZY-2505,2507,2511)
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -43,7 +43,7 @@ Feature: 趋势图新建_关系
   Scenario Outline: connection_force_repulsion
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -79,7 +79,7 @@ Feature: 趋势图新建_关系
   Scenario Outline: connection_sankey_multistage
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button
@@ -115,7 +115,7 @@ Feature: 趋势图新建_关系
   Scenario Outline: connection_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button

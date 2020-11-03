@@ -10,13 +10,13 @@ Feature: 拖拽生成趋势图_序列
     And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     Then I wait for "CheckBox" will be visible
     When I "checked" the checkbox which name is "apache.clientip" in trend page
     And I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.method" in trend page
     And I wait for "CheckBox" will be visible
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible

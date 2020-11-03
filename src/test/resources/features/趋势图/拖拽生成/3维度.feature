@@ -10,7 +10,7 @@ Feature: 拖拽生成趋势图_维度
     And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.method" in trend page
     And I wait for "CheckBox" will be visible
