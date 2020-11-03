@@ -258,7 +258,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "((//*[name()='g'])[@class='vx-group'])[2]")
     private WebElement multiYaxisArea;
 
-    @FindBy(xpath = "//div[@id='fullscreenAll']//diensureEditv[@id]/div[1]")
+    @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
     private WebElement trendTitle;
 
     @FindBy(xpath = "//span[text()='second'][@class='main']")
