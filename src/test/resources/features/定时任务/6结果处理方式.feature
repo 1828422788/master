@@ -1,6 +1,7 @@
-@all @timedTask @JDBCtimedTask
+@all @JDBCtimedTask
 Feature: 定时任务_结果处理方式
 
+  @timedTask
   Scenario Outline: create_schedule
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -27,6 +28,7 @@ Feature: 定时任务_结果处理方式
     |  mysql      |  3357        |
     |  sql_server |  3358        |
 
+  @timedTask
   Scenario Outline: add_jdbc_fields
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'oracle_3301'}" then i click the "编辑" button
