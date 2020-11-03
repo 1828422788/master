@@ -222,6 +222,13 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//span[text()='保存'])[last()]/ancestor::button")
     private WebElement saveButton;
 
+    @FindBy(className = "ant-form-explain")
+    private WebElement warningInfo;
+
+    public WebElement getWarningInfo() {
+        return warningInfo;
+    }
+
     public WebElement getFieldAliasModalName() {
         return fieldAliasModalName;
     }

@@ -60,6 +60,27 @@ Feature: 应用字段别名
     And I set the parameter "FieldAlias" with value "app"
     And I click the "SaveButton" button under some element
 
+  Scenario Outline: 字段别名失败校验
+    Given open the "app.ListPage" page for uri "/app/list/"
+    When the data name is "AppFieldConfig" then i click the "编辑" button
+    Then I will see the "app.CreatePage" page
+    And I click the "FieldConfig" button
+    And I wait for "AddFieldAlias" will be visible
+    And I click the "AddFieldAlias" button
+    And I set the parameter "FieldAliasModalName" with value "<name>"
+    And I set the parameter "OriginalField" with value "<original>"
+    And I set the parameter "FieldAlias" with value "<alias>"
+    And I click the "SaveButton" button under some element
+    Then I will see the element "WarningInfo" value is "<warning>"
+
+    Examples:
+      | name | original | alias | warning        |
+      |      |          |       | 请输入别名名称        |
+      | 测试   |          |       | 名称由字母、数字和下划线组成 |
+      | ！@   |          |       | 名称由字母、数字和下划线组成 |
+      | test |          |       | 请填写至少一组别名映射    |
+      | test | test     |       | 请输入字段别名        |
+
   Scenario: 验证字段别名
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I set the parameter "SearchInput" with value "*|stats count() by appname"
