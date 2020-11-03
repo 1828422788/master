@@ -26,7 +26,8 @@ Feature: 数据大屏-c区间图
     And I click the "Ensure" button
     #区间图
     And I wait for "Chart" will be visible
-    And I click the "Chart" button
+    And I move the mouse pointer to the "Chart"
+#    And I click the "Chart" button
     And I wait for "Range" will be visible
     And I click the "Range" button
     And I click the "Style" button
@@ -40,7 +41,7 @@ Feature: 数据大屏-c区间图
     And I wait for "XColorInput" will be visible
     And I set the parameter "XColorInput" with value "#CF3131"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "XaxisWordBold"
      #轴标签
     And I set the parameter "XaxisShift" with value "5"
@@ -55,7 +56,7 @@ Feature: 数据大屏-c区间图
     And I wait for "XDividingLineColor" will be visible
     And I set the parameter "XDividingLineColor" with value "#CD9080"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 
     And I choose the "dotted" from the "XDividingLineType"
      # 轴线
@@ -63,7 +64,7 @@ Feature: 数据大屏-c区间图
     And I wait for "xLineColor" will be visible
     And I set the parameter "xLineColor" with value "#26CC55"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I set the parameter "XLineBold" with value "4"
 #Y轴
     And I click the "YaxisHeader" button
@@ -74,7 +75,7 @@ Feature: 数据大屏-c区间图
     And I wait for "YColorInput" will be visible
     And I set the parameter "YColorInput" with value "#19B535"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "bold" from the "YaxisWordBold"
      # 轴标签
     And I set the parameter "YaxisShift" with value "10"
@@ -87,7 +88,7 @@ Feature: 数据大屏-c区间图
     And I wait for "YDividingLineColor" will be visible
     And I set the parameter "YDividingLineColor" with value "#BBB80B"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
 
     And I choose the "dashed" from the "YDividingLineType"
     # 轴线
@@ -95,7 +96,7 @@ Feature: 数据大屏-c区间图
     And I wait for "YLineColor" will be visible
     And I set the parameter "YLineColor" with value "#CBD50D"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I set the parameter "YLineBold" with value "4"
 #布局
     And I click the "Layout" button
@@ -165,8 +166,10 @@ Feature: 数据大屏-c区间图
     When I click the "Create" button
     And I set the parameter "Name" with value "区间图-图例-静态数据"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
     #区间图
-    And I click the "Chart" button
+    And I move the mouse pointer to the "Chart"
+#    And I click the "Chart" button
     And I wait for "Range" will be visible
     And I click the "Range" button
 
@@ -179,7 +182,7 @@ Feature: 数据大屏-c区间图
     And I wait for "ExampleColor" will be visible
     And I set the parameter "ExampleColor" with value "#D73535"
     And I click the "EnsureColor" button
-    And I wait for "EnsureColor" will be invisible
+#    And I wait for "EnsureColor" will be invisible
     And I choose the "bolder" from the "ExampleWordBold"
     And I choose the "居中" from the "ExampleHorizontal"
     And I choose the "顶部" from the "ExampleVertical"
@@ -246,7 +249,8 @@ Feature: 数据大屏-c区间图
     And I set the parameter "Name" with value "区间图-绑定搜索"
     And I click the "Ensure" button
       #在【其他】中添加一个【搜索】控件
-    And I click the "Other" button
+    And I move the mouse pointer to the "Other"
+#    And I click the "Other" button
     And I click the "otherSearch" button under some element
     And I hide the element "otherDropdown"
     And I wait for "SplInput" will be visible
@@ -257,7 +261,8 @@ Feature: 数据大屏-c区间图
     And I wait for "SearchTip" will be invisible
     And I set the parameter "updateFrequency" with value "0.1"
     #区间图
-    And I click the "Chart" button
+    And I move the mouse pointer to the "Chart"
+#    And I click the "Chart" button
     And I wait for "Range" will be visible
     And I click the "Range" button under some element
     And I click the "Style" button

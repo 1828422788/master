@@ -13,7 +13,9 @@ Feature: 数据大屏-o时间器
     And I set the parameter "Name" with value "时间器默认设置"
     And I click the "Ensure" button
       #选择时间器
-    And I click the "Other" button
+    And I wait for "500" millsecond
+    And I move the mouse pointer to the "Other"
+#    And I click the "Other" button
     And I wait for "Clock" will be visible
     And I click the "Clock" button
     And I hide the element "otherDropdown"
@@ -54,7 +56,9 @@ Feature: 数据大屏-o时间器
     And I set the parameter "Name" with value "时间器样式"
     And I click the "Ensure" button
       #选择时间器
-    And I click the "Other" button
+    And I wait for "500" millsecond
+    And I move the mouse pointer to the "Other"
+#    And I click the "Other" button
     And I wait for "Clock" will be visible
     And I click the "Clock" button
     And I hide the element "otherDropdown"
@@ -127,7 +131,9 @@ Feature: 数据大屏-o时间器
     And I set the parameter "Name" with value "时间器样式2"
     And I click the "Ensure" button
       #选择时间器
-    And I click the "Other" button
+    And I wait for "500" millsecond
+    And I move the mouse pointer to the "Other"
+#    And I click the "Other" button
     And I wait for "Clock" will be visible
     And I click the "Clock" button
     And I hide the element "otherDropdown"
@@ -189,7 +195,9 @@ Feature: 数据大屏-o时间器
     And I set the parameter "Name" with value "时间器样式3"
     And I click the "Ensure" button
       #选择时间器
-    And I click the "Other" button
+    And I wait for "500" millsecond
+    And I move the mouse pointer to the "Other"
+#    And I click the "Other" button
     And I wait for "Clock" will be visible
     And I click the "Clock" button
     And I hide the element "otherDropdown"
