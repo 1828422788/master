@@ -209,7 +209,9 @@ Feature: 仪表盘详情页
     And I click the "AddIcon" button
     And I click the "addInput" button
     And I set the parameter "inputSettingTitle" with value "全局时间"
+    And I wait for "500" millsecond
     And I click the "inputSettingType" button
+
 #    And I choose the "时间范围" from the "LastDropdownList"
     And I click the "timeRangee" button
     Then I wait for "setGlobalTimeRange" will be visible

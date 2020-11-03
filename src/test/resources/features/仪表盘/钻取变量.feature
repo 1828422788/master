@@ -23,11 +23,11 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "<name>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "SuccessCreate" will be visible
 
     Examples:
