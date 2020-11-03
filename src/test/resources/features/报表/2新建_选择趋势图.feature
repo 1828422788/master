@@ -12,7 +12,7 @@ Feature: 报表新建_选择
     And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "00"
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartList"
@@ -47,7 +47,7 @@ Feature: 报表新建_选择
     Then I will see the element "ChosenTrendLast" contains "<chart10>"
     When I choose the "<chart11>" from the "ChartList"
     Then I will see the error message "每个报表最多保存10个趋势图"
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -61,7 +61,7 @@ Feature: 报表新建_选择
     And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "00"
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
@@ -76,7 +76,7 @@ Feature: 报表新建_选择
     When I click the "<button>" button
     Then I will see the element "ChosenTrendFirst" contains "<trendFirst>"
     And I will see the element "ChosenTrendLast" contains "<trendLast>"
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -95,7 +95,7 @@ Feature: 报表新建_选择
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "00"
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "LineChart" from the "ChartList"
@@ -123,9 +123,9 @@ Feature: 报表新建_选择
     And I choose the "<type>" from the "ReportType"
     And I set the parameter "Hour" with value "05"
     And I set the parameter "Minute" with value "00"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "FinishButton" will be visible
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the message "至少选择一个趋势图"
 

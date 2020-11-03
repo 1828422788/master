@@ -35,7 +35,7 @@ Feature: 报表_趋势图个数限制
     And I set the parameter "Hour" with value "12"
     And I set the parameter "Minute" with value "00"
     And I choose the "PDF" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "2000" millsecond
     Then I wait for "ChartListButton" will be visible
     When I choose the "<chart1>" from the "ChartList"
@@ -55,7 +55,7 @@ Feature: 报表_趋势图个数限制
     Then I will see the element "ChosenTrendLast" contains "<chart5>"
     When I choose the "<chart6>" from the "ChartList"
     Then I will see the error message "每个报表最多保存5个趋势图"
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button

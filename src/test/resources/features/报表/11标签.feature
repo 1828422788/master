@@ -14,12 +14,12 @@ Feature: 报表标签
     And I choose the "test_app" from the "App"
     And I set the parameter "Hour" with value "15"
     And I set the parameter "Minute" with value "50"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
     Then I will see the element "ChosenTrendLast" contains "table_Order"
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -46,9 +46,9 @@ Feature: 报表标签
     And I will see the input element "Name" value will be "Test_Tag"
     And I will see the input element "Describe" value will be "AutoCreate"
     And I will see the element "ChosenTag" contains "auto_package"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I will see the element "ChosenTrendLast" contains "table_Order"
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
