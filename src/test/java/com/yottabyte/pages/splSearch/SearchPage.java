@@ -489,6 +489,14 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//span[contains(text(),'事件列表')]/following-sibling::i[@class='anticon css-ifnfqv _1Csj3jD9igXHB0MQUflN8F']")
     private WebElement downloadEvent;
 
+    @FindBy(xpath = "//div[contains(text(),'下载任务')]")
+    private WebElement downloadTipsText;
+    public WebElement getDownloadTipsText(){return downloadTipsText;}
+
+    @FindBy(xpath = "//div[text()='静态数据确认，接下来请配置展示字段']/following-sibling::div")
+    private WebElement tips;
+    public WebElement getTips(){return tips;}
+
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
 

@@ -14,8 +14,10 @@ Feature: MV命令
     And I click the "SearchButton" button
 #    And I wait for "2000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I wait for loading complete
+    And I wait for "DownloadTipsText" will be invisible
+    And I wait for "2000" millsecond
 
-    And I wait for "9000" millsecond
     And I wait for "downloadButton" will be visible
     Then I click the "downloadButton" button
     Then I set the parameter "DownloadName" with value "<name>"
