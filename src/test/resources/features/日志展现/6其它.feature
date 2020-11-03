@@ -8,7 +8,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: others(RZY-2804)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -17,7 +17,7 @@ Feature: 日志展现_其它
 
     And I click the "Type" button
     And I wait for "ChartView" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
@@ -32,7 +32,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: wordcloud_facet
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -60,7 +60,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: liquidfill
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -76,7 +76,7 @@ Feature: 日志展现_其它
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
@@ -90,7 +90,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: liquidfill_facet
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -121,7 +121,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: others(RZY-2807,2449)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -131,7 +131,7 @@ Feature: 日志展现_其它
     And I wait for "2000" millsecond
     And I click the "Type" button
     And I wait for "ChartView" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
@@ -147,7 +147,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: radar(RZY-2808)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -178,7 +178,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: funnel(RZY-2809)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -211,7 +211,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: matrixheatmap(RZY-2810,2811)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -227,7 +227,7 @@ Feature: 日志展现_其它
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
@@ -242,7 +242,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: chain(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -270,7 +270,7 @@ Feature: 日志展现_其它
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
@@ -285,7 +285,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: sequence(RZY-2805)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -306,7 +306,7 @@ Feature: 日志展现_其它
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
@@ -321,7 +321,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: chain_tree(RZY-2812,2814)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -360,7 +360,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: network
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -383,7 +383,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: network
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -399,7 +399,7 @@ Feature: 日志展现_其它
     And I click the "Settings" button
 
     And I wait for "ChartView" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
@@ -414,7 +414,7 @@ Feature: 日志展现_其它
 
   Scenario Outline: network
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button

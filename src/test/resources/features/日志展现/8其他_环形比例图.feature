@@ -8,7 +8,7 @@ Feature: 日志展现_其它_环形比例图
 
   Scenario Outline:  ringchart_onefield(RZY-4198,4199)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -23,7 +23,7 @@ Feature: 日志展现_其它_环形比例图
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
@@ -37,7 +37,7 @@ Feature: 日志展现_其它_环形比例图
 
   Scenario Outline:  ringchart_twofields(RZY-4200)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -63,7 +63,7 @@ Feature: 日志展现_其它_环形比例图
 
   Scenario Outline:  ringchart_table(RZY-4201)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -96,7 +96,7 @@ Feature: 日志展现_其它_环形比例图
 
   Scenario Outline:  ringchart_colors(RZY-4202)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -136,7 +136,7 @@ Feature: 日志展现_其它_环形比例图
 
     And I click the "Settings" button
     And I wait for "ChartView" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "ChartView" will be visible
     And I drag the scroll bar to the element "ChartView"
@@ -150,7 +150,7 @@ Feature: 日志展现_其它_环形比例图
 
   Scenario Outline:  ringchart_precision(RZY-4203)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count(apache.clientip) as ip_count by apache.clientip \| sort by ip_count \|eval count_perc=ip_count/51 \| eval count2_perc=ip_count/204 \| limit 6 "
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
