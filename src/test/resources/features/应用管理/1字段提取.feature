@@ -49,7 +49,7 @@ Feature: 应用字段提取（RZY-2129）
     And I click the "ResultDataset" button
     And I click the "Ensure" button
     And I click the "NextButton" button under some element
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "ImportSuccess" will be visible
     And I will see the element "ImportSuccess" name is "添加成功"
 
