@@ -8,6 +8,8 @@ Feature: MV命令
   @dlmv
   Scenario Outline: 执行
     And I wait for "2000" millsecond
+    And I wait for loading complete
+    And I wait for "DownloadTipsText" will be invisible
     Given I set the parameter "SearchInput" with value "<splQuery>"
     And I click the "DateEditor" button
     And I click the "Today" button
