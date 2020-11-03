@@ -160,7 +160,7 @@ Feature: 仪表盘多Y轴图
     Then I wait for element "ErrorMessage" change text to "chart -> yAxis 字段值不能为空"
 
   @dashboard @dashboardSmoke
-  Scenario Outline: 设置对象个数为1个，修改type为area RZY-1332,RZY-1334
+  Scenario Outline: 设置对象个数为1个，修改type为area RZY-1332,RZY-1334,RZY-3727,RZY-3728,RZY-3729
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘多Y轴图"
@@ -183,8 +183,8 @@ Feature: 仪表盘多Y轴图
       | type    |   image        |
       | area    | 多Y轴图_area    |
       | scatter | 多Y轴图_scatter |
-      | line    | 多Y轴图_line    |
       | column  | 多Y轴图_column  |
+      | line    | 多Y轴图_line    |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
