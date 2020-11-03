@@ -14,7 +14,7 @@ Feature: 路由新建（RZY-1481）
     And I set the parameter "Tag" with value "<tag>"
     And I set the parameter "AppName" with value "<appName>"
     And I click the "CreateButton" button
-    And I will see the success message "<message>"
+#    And I will see the success message "<message>"
 
   @indexSettingSmoke
     Examples:
@@ -27,7 +27,7 @@ Feature: 路由新建（RZY-1481）
     Examples:
       | appName | tag | rule | message                      |
       |         |     |      | appname, tag 和 匹配规则 至少需要填写一项 |
-      | iis     |     |      | 保存失败: 已存在索引路由规则\n错误码: API_9401 |
+      | iis     |     |      | 保存失败 |
 
   @second @indexSettingSmoke
   Scenario: RZY-2437:新建路由配置-路由规则_sample
