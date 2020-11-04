@@ -23,8 +23,8 @@ Feature: 数据集-k预定义字段列表
 
     And I click the "Save" button
     Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
-    And I wait for "3000" millsecond
+    And I wait for loading complete
+    And I wait for "5000" millsecond
     #验证添加的字段
     Then I will see the "firstName" result will be "apache.status"
     Then I will see the "secondName" result will be "appname"
@@ -38,7 +38,7 @@ Feature: 数据集-k预定义字段列表
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
+    And I wait for loading complete
 
     When I click the "editEvent" button
     And I click the "childFieldAdd" button
@@ -48,7 +48,7 @@ Feature: 数据集-k预定义字段列表
     And I click the "strType" button
 
     And I click the "rootSave" button
-    And I wait for loading invisible
+    And I wait for loading complete
     Then I will see the "thirdName" result will be "ip"
 
 
@@ -56,12 +56,12 @@ Feature: 数据集-k预定义字段列表
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
+    And I wait for loading complete
 
     When I click the "editEvent" button
     And I click the "deleteField" button
     And I click the "rootSave" button
-    And I wait for loading invisible
+    And I wait for loading complete
     Then I will see the "firstName" result will be "apache.status"
     Then I will see the "secondName" result will be "appname"
 
@@ -70,7 +70,7 @@ Feature: 数据集-k预定义字段列表
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
+    And I wait for loading complete
       #构建一个子节点
     And I click the "root" button
     And I click the "rootAdd" button
@@ -106,7 +106,7 @@ Feature: 数据集-k预定义字段列表
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
+    And I wait for loading complete
 
     And I click the "B" button
     And I click the "childDeleteField" button
@@ -117,7 +117,7 @@ Feature: 数据集-k预定义字段列表
     Given open the "dataset.ListPage" page for uri "/dataset/"
     When the data name is "have_root_field" then i click the "编辑" button
     Then I will see the "dataset.DetailPage" page
-    And I wait for loading invisible
+    And I wait for loading complete
 
     And I click the "B" button
     And I click the "batchOperation" button
