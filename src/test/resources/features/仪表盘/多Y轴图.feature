@@ -178,7 +178,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | type    |   image        |
@@ -205,7 +205,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/多Y轴图_修改Yfield"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
   @dashboard @dashboardSmoke
   Scenario Outline: rang RZY-1336
@@ -225,7 +225,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | min     |   max          |   image               |
