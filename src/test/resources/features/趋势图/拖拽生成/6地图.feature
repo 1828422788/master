@@ -10,11 +10,11 @@ Feature: 拖拽生成趋势图_地图
     And I click the "DateEditor" button
     And I click the "Today" button
     And I wait for "1000" millsecond
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     Then I wait for "CheckBox" will be visible
     And I "checked" the checkbox which name is "apache.geo.city" in trend page
     And I wait for "CheckBox" will be visible
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I will see the "trend.DragAndDropPage" page
     And I wait for "Dimensions" will be visible
@@ -33,12 +33,12 @@ Feature: 拖拽生成趋势图_地图
     And I wait for "2000" millsecond
     Then take part of "Chart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<chartType>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

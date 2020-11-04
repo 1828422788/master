@@ -20,10 +20,8 @@ Feature: Agent编辑数据库数据类型数据源
     And I set the parameter "Password" with value "rizhiyi&2014"
     And I set the parameter "Host" with value "192.168.1.139"
     And I set the parameter "DataBaseName" with value "rizhiyi_system"
-    And I click the "Save" button
-    And I wait for "ChangeMemo" will be visible
-    Then I will see the element "ChangeMemo" name is "保存成功"
     And I wait for loading invisible
+    And I click the "Save" button
     And I click the "MysqlDatabase" button
     And I click the "Next" button
     And I wait for loading invisible

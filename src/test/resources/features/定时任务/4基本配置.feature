@@ -5,9 +5,9 @@ Feature: 定时任务_基本配置
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart  | stats count() by tag"
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "Today" button
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -38,7 +38,7 @@ Feature: 定时任务_基本配置
     And I set the parameter "Number" with value "<number>"
     And I set the value "<spl>" to the textarea "SearchTextarea"
     And I set the parameter "Period" with value "<period>"
-    And I click the "SaveButton" button
+    And I click the "SaveButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the message "<result>"
 
@@ -60,7 +60,7 @@ Feature: 定时任务_基本配置
     And I wait for "10000" millsecond
     And I wait for element "SelectedUser" change text to username
     And I set the parameter "CrontabInput" with value "<crontab>"
-    And I click the "SaveButton" button
+    And I click the "SaveButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the message "<result>"
 
@@ -86,7 +86,7 @@ Feature: 定时任务_基本配置
     And I choose the "test_app" from the "TaskApp"
     And I will see the input element "Period" value will be "5"
     And I set the parameter "CrontabInput" with value "0 */57 * * * ?"
-    And I click the "SaveButton" button
+    And I click the "SaveButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button

@@ -8,7 +8,7 @@ Feature: 日志展现_地图
 
   Scenario Outline:heatmap(RZY-1229)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -17,7 +17,7 @@ Feature: 日志展现_地图
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
@@ -31,7 +31,7 @@ Feature: 日志展现_地图
 
   Scenario Outline: attackMap(RZY-2302)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| parse field=apache.request_query \"\^gw_address=(\?<gw_address>\\d+\\.\\d+\\.\\d+\\.\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
     And I click the "Map" button
@@ -53,7 +53,7 @@ Feature: 日志展现_地图
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "StatisticalChart" will be visible
 #    And I drag the scroll bar to the element "Chart"
@@ -68,7 +68,7 @@ Feature: 日志展现_地图
 
   Scenario Outline: regionmap(RZY-2790)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -77,7 +77,7 @@ Feature: 日志展现_地图
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
 #    And I drag the scroll bar to the element "Chart"
@@ -91,7 +91,7 @@ Feature: 日志展现_地图
 
   Scenario Outline: regionMap(RZY-2793,2794)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -124,7 +124,7 @@ Feature: 日志展现_地图
 
   Scenario Outline: regionMap_click(RZY-2792)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -169,7 +169,7 @@ Feature: 日志展现_地图
 
   Scenario Outline: statMap(RZY-2795,2797)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" <spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "10000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -190,7 +190,7 @@ Feature: 日志展现_地图
 
   Scenario Outline: statMap(RZY-2796)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for "10000" millsecond
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
@@ -220,7 +220,7 @@ Feature: 日志展现_地图
 
   Scenario Outline: statMap_param
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -237,7 +237,7 @@ Feature: 日志展现_地图
     And I click the "Settings" button
     And I wait for "3000" millsecond
     And I wait for "StatisticalChart" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "StatisticalChart" will be visible
     And I wait for "3000" millsecond
@@ -250,7 +250,7 @@ Feature: 日志展现_地图
 
   Scenario Outline: statMap_param
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -280,7 +280,7 @@ Feature: 日志展现_地图
 
   Scenario Outline: regionmap(RZY-2790white)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button

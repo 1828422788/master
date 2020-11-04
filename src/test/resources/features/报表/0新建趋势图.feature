@@ -12,14 +12,14 @@ Feature: 报表_新建趋势图_表格
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "<name>"
     And I set the parameter "TagInput" with value "auto_package"
     And I set the parameter "DescribeInput" with value "AutoCreate"
 #    And I choose the "auto_package" from the "GroupField"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
    Examples:
@@ -56,7 +56,7 @@ Feature: 报表_新建趋势图_表格
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -65,11 +65,11 @@ Feature: 报表_新建趋势图_表格
 
     And I click the "Type" button
     And I wait for "Chart" will be visible
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
 

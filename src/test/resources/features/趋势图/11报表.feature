@@ -10,7 +10,7 @@ Feature: 趋势图新建_报表
     And I click the "SearchButton" button
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -20,10 +20,10 @@ Feature: 趋势图新建_报表
     And I click the "Type" button
     And I wait for "Chart" will be visible
 
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     When I set the parameter "NameInput" with value "<trend_name>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
     When I click the "Report" button
 
@@ -42,9 +42,9 @@ Feature: 趋势图新建_报表
     And I set the parameter "Subject" with value " 报表名称：<%report_name%>，发送时间：<%report_time%>"
     And I set the parameter "Hour" with value "16"
     And I set the parameter "Minute" with value "45"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I will see the element "ChosenTrendLast" contains "<trend_name>"
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
 

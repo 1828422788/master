@@ -255,6 +255,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
     private WebElement ensureEdit;
 
+    @FindBy(xpath = "((//*[name()='g'])[@class='vx-group'])[2]")
+    private WebElement multiYaxisArea;
+
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
     private WebElement trendTitle;
 
@@ -1589,6 +1592,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getCheck() {
         return super.getButton("校验");
+    }
+
+    public WebElement getMultiYaxisArea() {
+        return multiYaxisArea;
     }
 
     public WebElement getEnsureEdit() {

@@ -231,7 +231,7 @@ Feature: 仪表盘柱状图
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will contain "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==2"
+    Then I will see the "SearchInput" result will contain "* | stats count() as cn by apache.resp_len,apache.clientip | where cn=="
 #    Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==6"
 
   @cleanDashboard

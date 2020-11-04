@@ -7,9 +7,9 @@ Feature: 定时任务复制
     And I drag the element "SearchPageSvg" to the "right" side
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart | stats count() as cnt | eval icon=if(cnt>1000000,1,0)"
     And I click the "ResourceAll" button
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "<time>" button
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -41,7 +41,7 @@ Feature: 定时任务复制
     And I wait for element "SelectedUser" change text to username
     And I will see the input element "Number" value will be "20000"
     And I set the parameter "Number" with value "123"
-    And I click the "SaveButton" button
+    And I click the "SaveButton" button under some element
     And I wait for "EnsureButton" will be visible
     And I will see the success message "保存成功"
     And I click the "EnsureButton" button

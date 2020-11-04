@@ -16,7 +16,7 @@ Feature: 报表新建_编辑_关系
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I set the parameter "Minute" with value "40"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_<typeChart>" from the "ChartList"
     And I click the "ChartListButton" button
@@ -45,7 +45,7 @@ Feature: 报表新建_编辑_关系
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -66,7 +66,7 @@ Feature: 报表新建_编辑_关系
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I set the parameter "Minute" with value "44"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_<typeChart>" from the "ChartList"
     And I click the "ChartListButton" button
@@ -96,7 +96,7 @@ Feature: 报表新建_编辑_关系
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -115,7 +115,7 @@ Feature: 报表新建_编辑_关系
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I set the parameter "Minute" with value "46"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_<typeChart>_Mult" from the "ChartList"
     And I click the "ChartListButton" button
@@ -145,7 +145,7 @@ Feature: 报表新建_编辑_关系
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button

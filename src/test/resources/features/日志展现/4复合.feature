@@ -8,7 +8,7 @@ Feature: 日志展现_复合
 
   Scenario Outline: compound(RZY-835)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -28,7 +28,7 @@ Feature: 日志展现_复合
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"
@@ -43,7 +43,7 @@ Feature: 日志展现_复合
 
   Scenario Outline: manyy(RZY-2785,2786)
     When I set the parameter "SearchInput" with value "<spl>"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I will see the "trend.CreatePage" page
     And I click the "Type" button
@@ -87,7 +87,7 @@ Feature: 日志展现_复合
 
     And I click the "Settings" button
     And I wait for "Chart" will be visible
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for "Chart" will be visible
     And I drag the scroll bar to the element "Chart"

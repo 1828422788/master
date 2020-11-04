@@ -33,8 +33,14 @@ public class ClickButtonWithGivenName {
      */
     @When("^the data name is \"([^\"]*)\" then i click the \"([^\"]*)\" button$")
     public void clickButtonWithGivenName(String dataName, String buttonName) {
-        WebElement tr = listPageUtils.getRow(dataName);
-        this.click(buttonName, tr);
+        try{
+            WebElement tr = listPageUtils.getRow(dataName);
+            this.click(buttonName, tr);
+        }
+        catch (org.openqa.selenium.StaleElementReferenceException exception){
+            WebElement tr = listPageUtils.getRow(dataName);
+            this.click(buttonName, tr);
+        }
     }
 
     /**

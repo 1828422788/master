@@ -6,8 +6,11 @@ import com.yottabyte.utils.ImageComparison;
 import com.yottabyte.utils.JsonStringPaser;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+//import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
+//import fr.opensagres.poi.xwpf.converter.pdf.PdfOptions;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
+//import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
@@ -393,20 +396,41 @@ public class CompareResult {
             String path1 = curPath + "/" + sourceReportFile.split("\\.")[0];
             String path2 = curPath + "/actual/report" + current_date + "/" + sourceReportFile.split("\\/")[1].split("\\.")[0];
             BufferedImage image1, image2;
-            if (format.equals("pdf")) {
+            //indicates whether pdfs are created or not
+            boolean flag = false;
+            if (format.equals("docx")) {
+
+//                XWPFDocument document_1 = new XWPFDocument(fis1);
+//                PdfOptions options1 = PdfOptions.create();
+//                OutputStream out1 = new FileOutputStream(new File(path1 + ".pdf"));
+//                PdfConverter.getInstance().convert(document_1, out1, options1);
+
+//                XWPFDocument document_2 = new XWPFDocument(fis2);
+//                PdfOptions options2 = PdfOptions.create();
+//                OutputStream out2 = new FileOutputStream(new File(path2 + ".pdf"));
+//                PdfConverter.getInstance().convert(document_2, out2, options2);
+//
+//                fis1 = new FileInputStream(path1 + ".pdf");
+//                fis2 = new FileInputStream(path2 + ".pdf");
+//                flag = true;
+
+            } else if (format.equals("xls")) {
+
+            } else if (format.equals("pdf")) {
+                flag = true;
+            }
+
+            if (flag) {
                 PDDocument document1 = PDDocument.load(fis1);
-                PDDocument document2 = PDDocument.load(fis2);
                 PDFRenderer renderer1 = new PDFRenderer(document1);
-                PDFRenderer renderer2 = new PDFRenderer(document2);
-
-                //Rendering an image from the PDF document
                 image1 = renderer1.renderImage(0);
-                image2 = renderer2.renderImage(0);
-
-                //Writing the image to a file
                 ImageIO.write(image1, "JPEG", new File(path1 + ".png"));
+
+                PDDocument document2 = PDDocument.load(fis2);
+                PDFRenderer renderer2 = new PDFRenderer(document2);
+                image2 = renderer2.renderImage(0);
                 ImageIO.write(image2, "JPEG", new File(path2 + ".png"));
-                System.out.println("Image created");
+                System.out.println("Images created");
 
                 double percentage = 0;
                 DataBuffer db1 = image1.getData().getDataBuffer();
@@ -440,15 +464,13 @@ public class CompareResult {
                 //Closing the document
                 document1.close();
                 document2.close();
-            } else if (format.equals("xls")) {
-
-            } else if (format.equals("docx")) {
-
             }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {//关闭文件流，防止内存泄漏
             if (fis1 != null) {

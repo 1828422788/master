@@ -16,7 +16,7 @@ Feature: 报表新建_编辑_序列
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I set the parameter "Minute" with value "00"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
@@ -49,7 +49,7 @@ Feature: 报表新建_编辑_序列
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -72,7 +72,7 @@ Feature: 报表新建_编辑_序列
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I set the parameter "Minute" with value "05"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
@@ -108,7 +108,7 @@ Feature: 报表新建_编辑_序列
     And I click the "EditButton" button
     And I click the "EnsureButton" button
     ###
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
@@ -129,7 +129,7 @@ Feature: 报表新建_编辑_序列
     When I set the parameter "Name" with value "<name>_<reportType>"
     And I set the parameter "Minute" with value "07"
     And I choose the "<reportType>" from the "ReportType"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
     And I click the "ChartListButton" button
@@ -162,7 +162,7 @@ Feature: 报表新建_编辑_序列
     When I click the "ParameterSetting" button
     Then I click the "EnsureButton" button
 
-    When I click the "FinishButton" button
+    When I click the "FinishButton" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
     And I click the "EnsureButton" button
