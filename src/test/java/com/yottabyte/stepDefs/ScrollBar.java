@@ -164,4 +164,22 @@ public class ScrollBar {
         }
     }
 
+    /**
+     * 把一个元素拖拽到右边/左边(搜索页页面拖拽)
+     *
+     * @param source 想要拖拽的元素名称
+     * @param side   想要元素拖拽到方向，right/left
+     */
+    @And("^I drag1 the element \"([^\"]*)\" to the \"([^\"]*)\" side$")
+    public void JavascriptDragToRightOrLeft1(String source, String side) {
+        WebElement sourceElement = GetElementFromPage.getWebElementWithName(source);
+        if (side.equals("right")) {
+            new Actions(webDriver).dragAndDropBy(sourceElement, 200, 0).build().perform();
+        } else if (side.equals("left")) {
+            int sourceX = sourceElement.getLocation().getX();
+            //21-half width of bar
+            new Actions(webDriver).dragAndDropBy(sourceElement, -(sourceX - 21), 0).build().perform();
+        }
+    }
+
 }

@@ -16,3 +16,13 @@ Feature: 处理下载结果
     Examples:
       | name                                         | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
       | search_verify_chart_log | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart |
+
+  @vldt
+  Scenario Outline: 测试比较
+    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+#    And I download file "<name>.csv" to local
+    Then I compare source download file "expect/<name>.csv" with target download files "<name>.csv"
+
+    Examples:
+      | name                                         | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+      | bucket_movingavg_rollingstd_eval | (logtype:apache AND tag:\"sample04061424_chart\") \| bucket timestamp span=1m as ts \| stats sum(apache.resp_len) as sum_len by ts,apache.status \| eval time=formatdate(ts,\"HH:mm:ss\") |
