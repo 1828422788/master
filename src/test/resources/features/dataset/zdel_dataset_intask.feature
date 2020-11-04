@@ -1,7 +1,7 @@
 @dataset @ddataset
 Feature: 清理数据集与定时任务关联用例
 
-  @ddatasettask
+  @deldatasettask
   Scenario Outline: 删除3个定时任务用例
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I set the parameter "SearchInput" with value "<name>"
@@ -9,6 +9,7 @@ Feature: 清理数据集与定时任务关联用例
     And I wait for "1000" millsecond
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button under some element
+    And I wait for "3000" millsecond
     Then I will see the success message "删除成功"
 
     Examples:

@@ -30,6 +30,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     And I set the parameter "TaskName" with value "<taskName>"
 
     And I click the "EnsureCrontab" button
+    And I wait for "3000" millsecond
     Then I will see the success message "保存成功"
 
     Examples:
@@ -51,7 +52,6 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
       | taskName | dataSetResult |
       | 父子行为无    | (tag:sample*) |
 
-
   Scenario Outline: RZY-4126:定时任务-父子行为无-详情页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
@@ -63,7 +63,6 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     Examples:
       | dataSetResult |
       | (tag:sample*) |
-
 
 ##################################无耻的分割线###############################
   Scenario Outline: 新建数据集父子行为汇聚的定时任务
@@ -91,6 +90,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
 
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureCrontab" button
+    And I wait for "3000" millsecond
     Then I will see the success message "保存成功"
 
 
@@ -129,7 +129,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
       | (* AND tag:sample* AND (tag:beyond4 OR appname:apache)) |
 
 ##################################无耻的分割线###############################
-
+  @tc4129n
   Scenario Outline: 新建数据集父子行为继承的定时任务
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
@@ -157,12 +157,12 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
 
     And I set the parameter "TaskName" with value "<taskName>"
     And I click the "EnsureCrontab" button
+    And I wait for "3000" millsecond
     Then I will see the success message "保存成功"
 
     Examples:
       | spl                                                  | taskName | describe       | crontab        |
       | tag:sample04061424 \| stats count() by apache.status | 父子行为继承   | 选择了父子行为为继承的数据集 | 0 */57 * * * ? |
-
 
   Scenario Outline: RZY-4130:定时任务-父子行为继承-编辑页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
@@ -178,7 +178,6 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
       | taskName | dataSetResult       |
       | 父子行为继承   | (* AND tag:sample*) |
 
-
   Scenario Outline: RZY-4130:定时任务-父子行为继承-详情页
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     And I wait for loading invisible
@@ -186,7 +185,6 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     And I will see the "timedTask.DetailPage" page
     And I wait for "3000" millsecond
     Then I will see the "detailDataSet" result will be "<dataSetResult>"
-
 
     Examples:
       | dataSetResult       |

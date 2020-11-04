@@ -493,10 +493,6 @@ public class SearchPage extends ListPageFactory {
     private WebElement downloadTipsText;
     public WebElement getDownloadTipsText(){return downloadTipsText;}
 
-    @FindBy(xpath = "//div[text()='静态数据确认，接下来请配置展示字段']/following-sibling::div")
-    private WebElement tips;
-    public WebElement getTips(){return tips;}
-
     @FindBy(xpath = "//div[@class='yw-search-info-content error-status']/span")
     private WebElement noDataInfo;
 

@@ -1,7 +1,7 @@
 @dataset  @ddataset
 Feature: 清理数据集与趋势图关联用例
 
-  @ddatasettrend
+  @deldatasettrend
   Scenario Outline: 删除3个趋势图用例
     Given open the "trend.ListPage" page for uri "/trend/"
     When I set the parameter "SearchInput" with value "<name>"
@@ -9,6 +9,7 @@ Feature: 清理数据集与趋势图关联用例
     And the data name is "{'column':'0','name':'<name>'}" then i click the "删除" button
     Then I will see the message "确认删除 [<name>] ?"
     When I click the "EnsureButton" button
+        And I wait for "3000" millsecond
     Then I will see the success message "删除成功"
 
     Examples:
