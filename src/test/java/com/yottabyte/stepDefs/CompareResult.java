@@ -363,22 +363,32 @@ public class CompareResult {
             fis1 = new FileInputStream("/opt/expect/" + sourceDownloadFile);
             fis2 = new FileInputStream("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
 
-            int len1 = fis1.available();//返回总的字节数
-            int len2 = fis2.available();
+//            int len1 = fis1.available();//返回总的字节数
+//            int len2 = fis2.available();
 
             //建立两个字节缓冲区
             byte[] data1 = new byte[len1];
             byte[] data2 = new byte[len2];
 
+            //分别将两个文件的内容读入缓冲区
+            fis1.read(data1);
+            fis2.read(data2);
+
+            String[] line_count1 = fis1.toString().split("\r\n");
+            String[] line_count2 = fis1.toString().split("\r\n");
+            int len1 = line_count1.length;
+            int len2 = line_count2.length;
+
             if (len1 == len2) {//长度相同，则比较具体内容
-
-                //分别将两个文件的内容读入缓冲区
-                fis1.read(data1);
-                fis2.read(data2);
-
                 //依次比较文件中的每一个字节
                 for (int i = 0; i < len1; i++) {
+                    String[] col_count1 = fis1.toString().split("\r\n");
+                    String[] col_count2 = fis1.toString().split("\r\n");
+                    int len1 = line_count1.length;
+                    int len2 = line_count2.length;
+
                     //只要有一个字节不同，两个文件就不一样
+
                     if (data1[i] != data2[i]) {
                         System.out.println("文件内容不一样");
                         Assert.fail();

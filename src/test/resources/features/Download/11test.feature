@@ -7,7 +7,7 @@ Feature: 处理下载结果
 
   @vdlftp
   Scenario Outline: 下载
-    Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
+    Given open the "splSearch.OfflineTaskPageNohup" page for uri "/download/#"
     And I wait for loading complete
 #    Then I compare source download file "expect/<name>.csv" with target download files "<name>.csv"
     Then I get remote ftp download file "<name>.csv"
@@ -20,8 +20,7 @@ Feature: 处理下载结果
   @vldt
   Scenario Outline: 测试比较
     Given open the "splSearch.OfflineTaskPage" page for uri "/download/#"
-#    Andbucket_movingavg_rollingstd_eval I download file "<name>.csv" to local
-    Then I compare source download file "<name>.csv" with target download files "<name>.csv"
+    Then I compare source bucket file "<name>.csv" with target bucket files "<name>.csv"
 
     Examples:
       | name                                         | splQuery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
