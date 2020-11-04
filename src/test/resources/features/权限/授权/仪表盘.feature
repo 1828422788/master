@@ -10,6 +10,7 @@ Feature: 权限-仪表盘
     And I click the "Resource" button
     And I "checked" the checkbox which name is "可查看仪表盘"
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name              |
@@ -21,6 +22,7 @@ Feature: 权限-仪表盘
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for "2000" millsecond
     Then I will see the "Create" doesn't exist
+    Then I logout current user
 
   Scenario: 授权新建仪表盘
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -31,6 +33,7 @@ Feature: 权限-仪表盘
     And I click the "Resource" button
     And I "checked" the checkbox which name is "新建仪表盘"
     And I click the "SaveButton" button
+    Then I logout current user
 
   Scenario: 验证新建仪表盘
     And I login user "AutoTest" with password "All#123456"
@@ -42,6 +45,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "新建仪表盘成功"
+    Then I logout current user
 
   Scenario: 授权无读取权限
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -52,12 +56,14 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "仪表盘验证权限1" in auth table
     And I "unchecked" the checkbox which name is "仪表盘验证权限1" in auth table
     And I click the "SaveButton" button
+    Then I logout current user
 
   Scenario: 验证无读取权限
     When I login user "AutoTest" with password "All#123456"
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the search result "{'column':'0','name':'仪表盘验证权限1','contains':'no'}"
+    Then I logout current user
 
   Scenario Outline: 授权读取（RZY-615）
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -69,6 +75,7 @@ Feature: 权限-仪表盘
     And I "unchecked" the checkbox which name is "<name>" in auth table
     When I "checked" function "读取" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name     |
@@ -87,6 +94,7 @@ Feature: 权限-仪表盘
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     Then I will see the "AddTag" doesn't exist
+    Then I logout current user
 
     Examples:
       | name     |
@@ -101,6 +109,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "转授,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name     |
@@ -136,6 +145,7 @@ Feature: 权限-仪表盘
     When the data name is "<name>重命名" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "验证授权用户" is disabled
+    Then I logout current user
 
     Examples:
       | name     |
@@ -157,6 +167,7 @@ Feature: 权限-仪表盘
     And I click the "SaveButton" button
     And I wait for "SuccessMessage" will be visible
     And I will see the success message "更新成功"
+    Then I logout current user
 
   Scenario Outline: 新建权限仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
@@ -181,6 +192,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name               |
@@ -219,6 +231,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
+    Then I logout current user
 
     Examples:
       | name               |
@@ -233,6 +246,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     When I "unchecked" function "编辑,删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name    |
@@ -266,6 +280,7 @@ Feature: 权限-仪表盘
     And open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I will see the search result "{'column':'0','name':'仪表盘验证权限1重命名','contains':'no'}"
+    Then I logout current user
 
   Scenario Outline: 授权读取+删除
     Given open the "roles.ListPage" page for uri "/account/roles/"
@@ -276,6 +291,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "编辑,转授" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name        |
@@ -298,6 +314,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
+    Then I logout current user
 
     Examples:
       | name        |
@@ -312,6 +329,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" function "删除" from the auth table which name is "<name>"
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name    |
@@ -355,6 +373,7 @@ Feature: 权限-仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     Then I will see the data "{'column':'0','name':'<name>重命名'}" values "{'column':'2','name':'test'}"
+    Then I logout current user
 
     Examples:
       | name    |
@@ -383,6 +402,7 @@ Feature: 权限-仪表盘
     And I "checked" the checkbox which name is "<name>" in auth table
     And I "unchecked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name       |
@@ -415,6 +435,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
+    Then I logout current user
 
     Examples:
       | name       |
@@ -441,6 +462,7 @@ Feature: 权限-仪表盘
     Then I click the "Dashboard" button
     And I "checked" the checkbox which name is "<name>" in auth table
     And I click the "SaveButton" button
+    Then I logout current user
 
     Examples:
       | name     |
@@ -489,6 +511,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
+    Then I logout current user
 
     Examples:
       | name     |
@@ -509,6 +532,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "Message" will be visible
     Then I will see the message "保存成功"
+    Then I logout current user
 
   Scenario Outline: 二次授权读取
     Given I login user "AutoTest" with password "All#123456"
@@ -532,6 +556,7 @@ Feature: 权限-仪表盘
     And I click the detail which name is "<name>"
     Then I will see the "dashboard.DetailPage" page
     Then I will see the "AddTag" doesn't exist
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name   |
@@ -576,6 +601,7 @@ Feature: 权限-仪表盘
     When the data name is "<name>重命名" then i click the "授权" button
     And I wait for loading invisible
     Then I will see the checkbox in tiny table before "AutoTest" is disabled
+    Then I logout current user
 
     Examples:
       | authRole | authName        | function | name   |
@@ -623,6 +649,7 @@ Feature: 权限-仪表盘
     And I click the "Ensure" button
     And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除仪表盘成功"
+    Then I logout current user
 
     Examples:
       | authRole | authName | function | name      |
