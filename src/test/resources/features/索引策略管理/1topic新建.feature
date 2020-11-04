@@ -2,7 +2,7 @@
 Feature: topic新建（RZY-2430）
 
   Background:
-    Given open the "index.TopicSetting" page for uri "/topicsettings/"
+    Given open the "index.TopicSetting" page for uri "/indexmatchrules/topicsettings/"
 
   Scenario Outline:新建topic
     When I click the "CreateButton" button
