@@ -13,11 +13,13 @@ Feature: 数据集-g在搜索页
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     And I click the "zhanKai" button
        #验证内容是：tag:sample*
     And I will see the "dataSetPosition" result will be "tag:sample*"
     And I refresh the website
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     And I click the "zhanKai" button
        #验证内容是：tag:sample*
     Then I will see the "dataSetPosition" result will be "tag:sample*"
@@ -29,11 +31,13 @@ Feature: 数据集-g在搜索页
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     And I click the "zhanKai" button
     #验证内容是：* AND tag:sample* AND (tag:beyond4 OR appname:apache)
     And I will see the "dataSetPosition" result will be "* AND tag:sample* AND (tag:beyond4 OR appname:apache)"
     And I refresh the website
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     And I click the "zhanKai" button
     #验证内容是：* AND tag:sample* AND (tag:beyond4 OR appname:apache)
     And I will see the "dataSetPosition" result will be "* AND tag:sample* AND (tag:beyond4 OR appname:apache)"
@@ -46,11 +50,13 @@ Feature: 数据集-g在搜索页
     And I click the "Today" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     And I click the "zhanKai" button
     #验证内容是： * AND tag:sample*
     Then I will see the "dataSetPosition" result will be "* AND tag:sample*"
     And I refresh the website
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     And I click the "zhanKai" button
     #验证内容是： * AND tag:sample*
     Then I will see the "dataSetPosition" result will be "* AND tag:sample*"

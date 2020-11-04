@@ -16,6 +16,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for loading invisible
+    And I drag the element "SearchPageSvg" to the "right" side
 
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -70,6 +71,8 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for loading invisible
+    And I drag the element "SearchPageSvg" to the "right" side
+
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为汇聚的数据集
     And I click the "huiJu" button
@@ -79,6 +82,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for loading invisible
+    And I drag the element "SearchPageSvg" to the "right" side
 
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button
@@ -135,6 +139,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for loading invisible
+    And I drag the element "SearchPageSvg" to the "right" side
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为继承的数据集
     And I click the "jiCheng" button
@@ -144,6 +149,7 @@ Feature: 数据集-h在定时任务应用-编辑页面&详情页
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I wait for loading invisible
+    And I drag the element "SearchPageSvg" to the "right" side
 
     And I click the "SaveAsOther" button
     And I click the "TimedTask" button

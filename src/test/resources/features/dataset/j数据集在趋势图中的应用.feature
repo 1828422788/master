@@ -13,6 +13,7 @@ Feature: 数据集-j在趋势图中的应用
     And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     And I click the "SaveAsOther" button
     And I click the "saveTrend" button
     And I set the parameter "trendName" with value "<trendName>"
@@ -44,6 +45,7 @@ Feature: 数据集-j在趋势图中的应用
   Scenario Outline: 新建父子行为汇聚的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为汇聚的数据集
     And I click the "huiJu" button
@@ -51,6 +53,7 @@ Feature: 数据集-j在趋势图中的应用
     And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     And I click the "SaveAsOther" button
     And I click the "saveTrend" button
     And I set the parameter "trendName" with value "<trendName>"
@@ -85,6 +88,7 @@ Feature: 数据集-j在趋势图中的应用
   Scenario Outline: 新建父子行为继承的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为继承的数据集
     And I click the "jiCheng" button
@@ -92,6 +96,7 @@ Feature: 数据集-j在趋势图中的应用
     And I click the "RecentSevenDay" button
     And I click the "SearchButton" button
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     And I click the "SaveAsOther" button
     And I click the "saveTrend" button
     And I set the parameter "trendName" with value "<trendName>"
