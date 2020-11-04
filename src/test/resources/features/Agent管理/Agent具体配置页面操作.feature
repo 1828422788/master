@@ -94,7 +94,7 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
     Examples:
       | sendspeed | sendspeedstatus |
-      | KB/S      | 10.00 KB/s       |
+      | KB/S      | 10.00 KB/s      |
       | B/S       | 10 B/s          |
       | MB/S      | 10.00 MB/s      |
 
@@ -109,8 +109,8 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
     Examples:
       | loglength | loglengthstatus |
-      | 10000      | 10000 Byte       |
-      | 65536      |  65536 Byte       |
+      | 10000     | 10000 Byte      |
+      | 65536     | 65536 Byte      |
 
 
 
