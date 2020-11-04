@@ -722,6 +722,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'名称')]/following-sibling::span/input")
     private WebElement tagName;
 
+    @FindBy(xpath = "//span[contains(text(),'插入图表')]/following-sibling::span/input")
+    private WebElement chartForAdd;
+
     @FindBy(xpath = "//span[contains(text(),'行布局')]/preceding-sibling::span")
     private WebElement rowLayout;
 
@@ -1886,6 +1889,8 @@ public class DetailPage extends PageTemplate {
     }
 
     public WebElement getTagName() { return tagName; }
+
+    public WebElement getChartForAdd() { return chartForAdd; }
 
     public WebElement getRowLayout() { return rowLayout; }
 
