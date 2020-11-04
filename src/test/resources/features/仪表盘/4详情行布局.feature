@@ -207,8 +207,10 @@ Feature: 仪表盘详情行布局
     And I wait for "AddChart" will be visible
     And I will see the element "AddChartItem" attribute "aria-disabled" is "true"
     And I click the "AddRow" button
-    And I wait for loading invisible
+    And I wait for "1500" millsecond
 #    And I set the parameter "TagName" with value "第一行"
+    And I set the parameter "ChartForAdd" with value "行布局"
+    And I wait for loading invisible
     And I click the "{'Checkbox':'行布局趋势图2'}" button
     And I click the "{'Checkbox':'行布局趋势图3'}" button
     And I click the "Ensure" button
@@ -222,6 +224,7 @@ Feature: 仪表盘详情行布局
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "为空" from the "ShowCondition"
@@ -231,6 +234,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "不为空" from the "ShowCondition"
@@ -239,7 +243,7 @@ Feature: 仪表盘详情行布局
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I wait for "3000" millsecond
-    And I will see the success message "展示条件已启用"
+#    And I will see the success message "展示条件已启用"
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
 
@@ -251,10 +255,11 @@ Feature: 仪表盘详情行布局
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "500" millsecond
-    And I will see the success message "展示条件已关闭"
+    And I wait for "1500" millsecond
+#    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "匹配正则" from the "ShowCondition"
@@ -266,6 +271,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "包含" from the "ShowCondition"
@@ -274,9 +280,10 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
     And I set the parameter "FilterValue" with value "a1111b"
     And I click the "SettingIcon" button
+    And I wait for "1000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I wait for "3000" millsecond
-    And I will see the success message "展示条件已启用"
+#    And I will see the success message "展示条件已启用"
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
 
@@ -288,10 +295,11 @@ Feature: 仪表盘详情行布局
     Then I will see the "dashboard.DetailPage" page
     And I click the "SettingIcon" button
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "500" millsecond
-    And I will see the success message "展示条件已关闭"
+    And I wait for "1500" millsecond
+#    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "匹配正则" from the "ShowCondition"
@@ -303,6 +311,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "包含" from the "ShowCondition"
@@ -314,7 +323,7 @@ Feature: 仪表盘详情行布局
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I wait for "500" millsecond
-    And I will see the success message "展示条件已启用"
+#    And I will see the success message "展示条件已启用"
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
     And I click the "trendTwo" button
@@ -323,9 +332,10 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
     And I wait for "500" millsecond
-    And I will see the success message "展示条件已关闭"
+#    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "MoreConfigs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "等于" from the "ShowCondition"
@@ -337,6 +347,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "Configs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "不等于" from the "ShowCondition"
@@ -347,7 +358,7 @@ Feature: 仪表盘详情行布局
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I wait for "500" millsecond
-    And I will see the success message "展示条件已启用"
+#    And I will see the success message "展示条件已启用"
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
     And I click the "trendThree" button
@@ -355,10 +366,11 @@ Feature: 仪表盘详情行布局
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "500" millsecond
-    And I will see the success message "展示条件已关闭"
+    And I wait for "1500" millsecond
+#    And I will see the success message "展示条件已关闭"
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button under some element
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "大于" from the "ShowCondition"
@@ -370,6 +382,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "小于" from the "ShowCondition"
@@ -380,8 +393,8 @@ Feature: 仪表盘详情行布局
     And I click the "SettingIcon" button
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
-    And I wait for "500" millsecond
-    And I will see the success message "展示条件已启用"
+    And I wait for "1500" millsecond
+#    And I will see the success message "展示条件已启用"
 #    Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
     Then I wait for "trendThree" will be visible
@@ -426,6 +439,7 @@ Feature: 仪表盘详情行布局
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "不为空" from the "ShowCondition"
@@ -435,6 +449,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "为空" from the "ShowCondition"
@@ -444,7 +459,7 @@ Feature: 仪表盘详情行布局
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I wait for "500" millsecond
-    And I will see the success message "展示条件已启用"
+#    And I will see the success message "展示条件已启用"
     Then I will see the "trendTwo" doesn't exist
     Then I wait for "trendThree" will be visible
     And I click the "trendThree" button
@@ -452,11 +467,12 @@ Feature: 仪表盘详情行布局
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "500" millsecond
-    And I will see the success message "展示条件已关闭"
+    And I wait for "1500" millsecond
+#    And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "包含" from the "ShowCondition"
@@ -468,6 +484,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "匹配正则" from the "ShowCondition"
@@ -478,7 +495,7 @@ Feature: 仪表盘详情行布局
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I wait for "500" millsecond
-    And I will see the success message "展示条件已启用"
+#    And I will see the success message "展示条件已启用"
     Then I will see the "trendThree" doesn't exist
     Then I wait for "trendTwo" will be visible
     And I click the "trendTwo" button
@@ -486,11 +503,12 @@ Feature: 仪表盘详情行布局
     And I click the "SettingIcon" button
     And I wait for "500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "disable"
-    And I wait for "500" millsecond
-    And I will see the success message "展示条件已关闭"
+    And I wait for "1500" millsecond
+#    And I will see the success message "展示条件已关闭"
     And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "MoreConfigs" button under some element
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "等于" from the "ShowCondition"
@@ -502,6 +520,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "Configs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "不等于" from the "ShowCondition"
@@ -512,7 +531,7 @@ Feature: 仪表盘详情行布局
     And I wait for "3000" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I wait for "500" millsecond
-    And I will see the success message "展示条件已启用"
+#    And I will see the success message "展示条件已启用"
     Then I wait for "trendThree" will be visible
     Then I will see the "trendTwo" doesn't exist
 #    Then I wait for "trendTwo" will be visible
@@ -577,6 +596,7 @@ Feature: 仪表盘详情行布局
     Then I will see the "dashboard.DetailPage" page
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "不为空" from the "ShowCondition"
@@ -586,6 +606,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "为空" from the "ShowCondition"
@@ -773,6 +794,7 @@ Feature: 仪表盘详情行布局
 #    And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button under some element
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "包含" from the "ShowCondition"
@@ -784,6 +806,7 @@ Feature: 仪表盘详情行布局
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
+    And I wait for loading invisible
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "匹配正则" from the "ShowCondition"
