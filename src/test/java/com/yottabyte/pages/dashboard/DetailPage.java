@@ -255,7 +255,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
     private WebElement ensureEdit;
 
-    @FindBy(xpath = "((//*[name()='g'])[@class='vx-group'])[2]")
+    @FindBy(xpath = "(//*[name()='g'])[@class='vx-group']")
     private WebElement multiYaxisArea;
 
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
