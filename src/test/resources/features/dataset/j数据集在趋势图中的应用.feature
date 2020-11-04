@@ -5,6 +5,7 @@ Feature: 数据集-j在趋势图中的应用
   Scenario Outline: 新建父子行为无的趋势图
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
+    And I drag the element "SearchPageSvg" to the "right" side
     Given I set the parameter "SearchInput" with value "<spl>"
         #选择父子行为为无的数据集
     And I click the "fatherChildNull" button
