@@ -155,10 +155,10 @@ public class ScrollBar {
     @And("^I drag the element \"([^\"]*)\" to the \"([^\"]*)\" side$")
     public void JavascriptDragToRightOrLeft(String source, String side) {
         WebElement sourceElement = GetElementFromPage.getWebElementWithName(source);
+        int sourceX = sourceElement.getLocation().getX();
         if (side.equals("right")) {
-            new Actions(webDriver).dragAndDropBy(sourceElement, 200, 0).build().perform();
+            new Actions(webDriver).dragAndDropBy(sourceElement, 230-sourceX, 0).build().perform();
         } else if (side.equals("left")) {
-            int sourceX = sourceElement.getLocation().getX();
             //21-half width of bar
             new Actions(webDriver).dragAndDropBy(sourceElement, -(sourceX - 21), 0).build().perform();
         }
