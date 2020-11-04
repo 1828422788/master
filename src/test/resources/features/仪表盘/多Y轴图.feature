@@ -229,9 +229,9 @@ Feature: 仪表盘多Y轴图
 
     Examples:
       | min     |   max          |   image               |
-      |   50    |     2000       |   多Y轴图_min小于max    |
+      |   50    |     500       |   多Y轴图_min小于max    |
       |         |     350        |   多Y轴图_min空        |
-      | 100     |                |   多Y轴图_max空         |
+      | 100     |                |   多Y轴图_max空        |
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
