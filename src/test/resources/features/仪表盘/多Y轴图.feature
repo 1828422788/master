@@ -231,7 +231,7 @@ Feature: 仪表盘多Y轴图
       | min     |   max          |   image               |
       |   50    |     500       |   多Y轴图_min小于max    |
       |         |     350        |   多Y轴图_min空        |
-      | 100     |                |   多Y轴图_max空        |
+      | 50      |                |   多Y轴图_max空        |
 
   @dashboard @dashboardSmoke
   Scenario Outline: rang-min大于max RZY-1338
