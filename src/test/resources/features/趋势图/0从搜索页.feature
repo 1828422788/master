@@ -5,7 +5,7 @@ Feature: 趋势图_搜索页
     Given open the "splSearch.SearchPage" page for uri "/search/"
     And I wait for element "SearchStatus" change text to "搜索完成!"
     When I set the parameter "SearchInput" with value "* | stats count()"
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "<timePeriod>" button
     And I click the "SearchButton" button under some element
     And I wait for "SaveAsOther" will be visible

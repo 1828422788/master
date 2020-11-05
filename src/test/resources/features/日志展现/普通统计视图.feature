@@ -437,7 +437,7 @@ Feature: 日志展现_普通统计视图
   Scenario: multilevelstats_step3(RZY-822)
     # types of chart
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -472,7 +472,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario:geogrdistr(RZY-825)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -500,7 +500,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: check_field
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -525,7 +525,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: check_field2
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -545,7 +545,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: check_field3
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -562,7 +562,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: check_field4
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -583,7 +583,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario Outline: check_field5
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -606,7 +606,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario: check_field6
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page
@@ -623,7 +623,7 @@ Feature: 日志展现_普通统计视图
 
   Scenario: check_field7
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_display"
-    And I click the "SearchButton" button
+    And I click the "SearchButton" button under some element
     And I wait for element "SearchStatus" change text to "搜索完成!"
     And I click the "CountButton" button
     And I will see the "splSearch.StatisticalPage" page

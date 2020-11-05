@@ -10,7 +10,7 @@ Feature: 趋势图_选择数据集
     And I click the "EnsureButton" button
     Then I will see the "trend.DragAndDropPage" page
     When I click the "Dataset_1" button
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "TableBody" will be visible
     And I choose the "apache.clientip" from the "ColumnField" in config
@@ -45,7 +45,7 @@ Feature: 趋势图_选择数据集
     And I will see the element "SPL" contains "<spl>"
     When I click the "CloseSPL" button
     And I wait for "1000" millsecond
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with yesterday date
     And I set the parameter "EndDateField" with current date
@@ -75,7 +75,7 @@ Feature: 趋势图_选择数据集
     And I click the "EnsureButton" button
     Then I will see the "trend.DragAndDropPage" page
     When I click the "Dataset_3" button
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "TableBody" will be visible
     And I choose the "<condition>" from the "Condition"
@@ -132,7 +132,7 @@ Feature: 趋势图_选择数据集
     And I click the "EnsureButton" button
     Then I will see the "trend.DragAndDropPage" page
     When I click the "Dataset_3" button
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "TableBody" will be visible
     And I click the "Expression" button
@@ -183,7 +183,7 @@ Feature: 趋势图_选择数据集
     Then I will see the "trend.DragAndDropPage" page
     When I drag the element "Dataset_1" to the "DropDataset"
     And I drag the element "Dataset_2" to the "DropDataset"
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I click the "Overview" button
     And I wait for "TableBody" will be visible
@@ -224,7 +224,7 @@ Feature: 趋势图_选择数据集
     Then I will see the element "SPL" contains "tag:sample04061424_chart | append [[ tag:sample04061424_display ]] | timechart span=30m count(apache.clientip) by apache.method"
     When I click the "CloseSPL" button
     And I wait for "1000" millsecond
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "CustomTimeTab" button
     And I set the parameter "StartDateField" with yesterday date
     And I set the parameter "EndDateField" with current date

@@ -86,7 +86,7 @@ Feature: 定时任务_结果处理方式
     When I set the parameter "Count" with value "count"
     And I set the parameter "Percent" with value "percent"
     And I set the parameter "Resplen" with value "apache.resp_len"
-    And I click the "Save" button
+    And I click the "Save" button under some element
     And I wait for "EnsureButton" will be visible
     Then I will see the success message "保存成功"
 
