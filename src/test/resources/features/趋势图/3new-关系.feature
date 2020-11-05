@@ -111,7 +111,7 @@ Feature: 趋势图新建_关系
     Examples:
       |   chartType   |  button    |   spl   |
       |    Sankey     | Multistage |  starttime=\"now/d\" endtime=\"now/d+24h\" tag:t_with \|transaction json.sid keepevicted=true with states a,b,c in json.module results by flow \| stats count() by fromstate,tostate \| limit 3      |
-  @chordtest
+
   Scenario Outline: connection_facet
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "1000" millsecond

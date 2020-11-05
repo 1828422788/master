@@ -84,7 +84,6 @@ Feature: 趋势图新建_统计地图
       |Statisticalmap |        0.5          |     10         |      50         |  2098_param    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude count() as cnt |
       |Statisticalmap |        0.5          |     10         |      50         |  2797_param    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:vendors_461 \| geostats binspanlat=22.5 binspanlat=45.0 latfield=vendors.VendorLatitude longfield=vendors.VendorLongitude maxzoomlevel=3 sum(vendors.Weight)  by vendors.VendorStateProvince|
 
-@onlinemap
   Scenario Outline: statistical_map_online
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424* | geostats latfield=apache.geo.latitude longfield=apache.geo.longitude count() avg(apache.resp_len) min(apache.resp_len)"
     And I wait for "2000" millsecond
