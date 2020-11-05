@@ -269,7 +269,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/多Y轴图_smooth_true"
-#    And I compare source image "actual/<image>" with target image "expect/<image>"
+    And I compare source image "actual/多Y轴图_smooth_true" with target image "expect/多Y轴图_smooth_true"
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘
