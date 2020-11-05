@@ -268,6 +268,7 @@ Feature: 仪表盘详情行布局
     And I click the "Ensure" button
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
+    And I wait for "MoreXuanTing2" will be visible
     And I click the "MoreXuanTing2" button
 #    And I click the "MoreConfig" button
     And I click the "MoreConfigs" button
@@ -741,13 +742,13 @@ Feature: 仪表盘详情行布局
     And I wait for "500" millsecond
     And I choose the "动态菜单" from the "InputType"
     And I click the "SingleChoice" button
-    And I set the parameter "DynamicField" with value "avg_len"
-    And I set the parameter "Spl" with value "* | stats avg(apache.resp_len) as avg_len by apache.clientip"
+    And I set the parameter "DynamicField" with value "apache.geo.city"
+    And I set the parameter "Spl" with value "*|stats count() by 'apache.geo.city'"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "Search" button under some element
     And I wait for loading invisible
-    And I choose the "1441" from the "DefaultDropdownList"
+    And I choose the "成都市" from the "DefaultDropdownList"
     And I wait for "1500" millsecond
     Then I click the "Ensure" button
     Then I wait for "FilterName" will be visible
@@ -763,35 +764,6 @@ Feature: 仪表盘详情行布局
     And I wait for loading invisible
     When I click the detail which name is "UIautotest"
     Then I will see the "dashboard.DetailPage" page
-#    When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
-#    And I click the "Configs" button
-#    And I wait for "1000" millsecond
-#    And I choose the "filter" from the "ShowFilterConfig"
-#    And I choose the "不为空" from the "ShowCondition"
-#    And I click the "Ensure" button
-#    And I wait for "500" millsecond
-#    And I will see the success message "配置成功"
-#    And I click the "MoreXuanTing2" button
-##    And I click the "MoreConfig" button
-#    And I click the "MoreConfigs" button
-#    And I wait for "1000" millsecond
-#    And I choose the "filter" from the "ShowFilterConfig"
-#    And I choose the "为空" from the "ShowCondition"
-#    And I click the "Ensure" button
-#    And I wait for "1000" millsecond
-#    And I click the "SettingIcon" button
-#    And I wait for "3000" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "enable"
-#    And I wait for "500" millsecond
-#    Then I will see the "trendTwo" doesn't exist
-#    Then I wait for "trendThree" will be visible
-#    And I click the "trendThree" button
-#    And I wait for "1500" millsecond
-#    And I click the "SettingIcon" button
-#    And I wait for "500" millsecond
-#    And I switch the dashboard "OpenShowCondition" button to "disable"
-#    And I wait for "500" millsecond
-#    And I click the "trendThree" button
     When the chart title is "行布局趋势图3" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button under some element
     And I wait for loading invisible
@@ -799,7 +771,7 @@ Feature: 仪表盘详情行布局
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "包含" from the "ShowCondition"
     And I wait for "ShowValue" will be visible
-    And I set the parameter "ShowValue" with value "."
+    And I set the parameter "ShowValue" with value "市"
     And I click the "Ensure" button
     And I wait for "500" millsecond
     And I will see the success message "配置成功"
@@ -810,16 +782,16 @@ Feature: 仪表盘详情行布局
     And I wait for "1000" millsecond
     And I choose the "filter" from the "ShowFilterConfig"
     And I choose the "匹配正则" from the "ShowCondition"
-    And I set the parameter "ShowValue" with value "14?41"
+    And I set the parameter "ShowValue" with value "aab?市"
     And I click the "Ensure" button
     And I wait for "1000" millsecond
-    And I choose the "1441" from the "FilterDropdown"
+    And I choose the "成都市" from the "FilterDropdown"
     And I click the "SettingIcon" button
     And I wait for "1500" millsecond
     And I switch the dashboard "OpenShowCondition" button to "enable"
     And I wait for "500" millsecond
-    Then I will see the "trendThree" doesn't exist
-    Then I wait for "trendTwo" will be visible
+    Then I will see the "trendTwo" doesn't exist
+    Then I wait for "trendThree" will be visible
 #    And I click the "trendTwo" button
 #    And I wait for "1500" millsecond
 #    And I click the "SettingIcon" button
@@ -893,20 +865,20 @@ Feature: 仪表盘详情行布局
 #    Then I wait for "trendTwo" will be visible
 #    And I click the "trendTwo" button
 
-  @cleanDashboard
-  Scenario Outline: 删除行布局所建趋势图
-    Given open the "trend.ListPage" page for uri "/trend/"
-    When the data name is "<name>" then i click the "删除" button
-    And I wait for "Ensure" will be visible
-    And I click the "Ensure" button
-    And I wait for "500" millsecond
-    And I will see the success message "删除成功"
-
-    Examples:
-      | name   |
-      | 行布局趋势图1 |
-      | 行布局趋势图2 |
-      | 行布局趋势图3 |
+#  @cleanDashboard
+#  Scenario Outline: 删除行布局所建趋势图
+#    Given open the "trend.ListPage" page for uri "/trend/"
+#    When the data name is "<name>" then i click the "删除" button
+#    And I wait for "Ensure" will be visible
+#    And I click the "Ensure" button
+#    And I wait for "500" millsecond
+#    And I will see the success message "删除成功"
+#
+#    Examples:
+#      | name   |
+#      | 行布局趋势图1 |
+#      | 行布局趋势图2 |
+#      | 行布局趋势图3 |
 
 
 

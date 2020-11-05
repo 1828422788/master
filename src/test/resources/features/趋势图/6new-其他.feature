@@ -220,7 +220,7 @@ Feature: 趋势图新建-其他
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -233,7 +233,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -252,11 +252,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -269,7 +269,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -297,11 +297,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -315,7 +315,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -340,11 +340,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -358,7 +358,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -382,24 +382,23 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>_<colorFill>"
     And I compare source image "actual/<chartType>_<caseNum>_<colorFill>" with target image "expect/<chartType>_<caseNum>_<colorFill>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>_<colorFill>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
       |  chartType    | colorFill    | caseNum     |
       |   Single      | Background   | Sparkline   |
 
-    @datavalsingle
   Scenario Outline: data_value_display
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | bucket timestamp span=30m as ts | stats count() by ts | eval time=formatdate(ts,\"hh-mm\") | limit 5 "
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -429,11 +428,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<option>"
     And I compare source image "actual/<chartType>_<option>" with target image "expect/<chartType>_<option>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<option>"
     And I set the parameter "DescribeInput" with value "<option>_<color>_<fontValue>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -446,7 +445,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -483,11 +482,11 @@ Feature: 趋势图新建-其他
     And I wait for "4000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -500,7 +499,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -519,11 +518,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -536,7 +535,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -555,11 +554,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -572,7 +571,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -596,11 +595,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -615,7 +614,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -659,11 +658,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -677,7 +676,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -697,11 +696,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -713,7 +712,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -737,11 +736,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -755,7 +754,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -778,11 +777,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -795,7 +794,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -820,11 +819,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -837,7 +836,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -857,11 +856,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -869,14 +868,13 @@ Feature: 趋势图新建-其他
       | Matrixheatmap | count()         | apache.status | 10     | 2660    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
       | Matrixheatmap | apache.geo.city | count()       | 5      | 2661    | starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart \| stats count() by apache.status,apache.geo.city |
 
-  @chaintest
   Scenario Outline: chain
     When I set the parameter "SearchInput" with value "<spl>"
     And I wait for "500" millsecond
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -908,11 +906,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -927,7 +925,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -952,11 +950,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -969,17 +967,17 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "StatisticalChart" will be visible
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/Table_Test"
     And I compare source image "actual/Table_Test" with target image "expect/Table_Test"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "Table_Test"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
 
@@ -989,7 +987,7 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -1019,11 +1017,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_<caseNum>"
     And I compare source image "actual/<chartType>_<caseNum>" with target image "expect/<chartType>_<caseNum>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>_<caseNum>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -1031,13 +1029,12 @@ Feature: 趋势图新建-其他
       | Chain     | Green | 1         | dapper.class | dapper.msg.parentId | dapper.msg.id | dapper.msg.timestamp     | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2831_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
       | Chain     | Red   | 2         | dapper.class | dapper.msg.parentId | dapper.msg.id |                timestamp | dapper.msg.duration | dapper.msg.binaryAnnotations[].value | 2982_tree | starttime=\"now/d\" endtime=\"now/d+24h\" tag:gf_dapper* AND dapper.msg.traceId:\"511f8756ce1d0b8a\" dapper.msg.duration:\>0 \| table dapper.msg.id, dapper.msg.parentId, dapper.class, dapper.msg.duration, dapper.msg.timestamp,dapper.msg.binaryAnnotations\[\].value, timestamp \| sort by dapper.msg.duration|
 
-    @networktrend
   Scenario Outline: network
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() as cnt by apache.method, apache.geo.province, apache.geo.city | sort by +apache.geo.province, cnt, apache.go.city | limit 10"
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Type" will be visible
     And I click the "Type" button
@@ -1072,11 +1069,11 @@ Feature: 趋势图新建-其他
     And I wait for "2000" millsecond
     And take part of "StatisticalChart" with name "actual/<chartType>_2"
     And I compare source image "actual/<chartType>_2" with target image "expect/<chartType>_2"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>"
     And I set the parameter "DescribeInput" with value "in<color>_out<color_1>_<repValue>_<node>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -1090,17 +1087,17 @@ Feature: 趋势图新建-其他
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     And I wait for "Chart" will be visible
     And I wait for "2000" millsecond
     And take part of "Chart" with name "actual/<chartType>"
     And I compare source image "actual/<chartType>" with target image "expect/<chartType>"
-    Then I click the "NextButton" button
+    Then I click the "NextButton" button under some element
 
     When I set the parameter "NameInput" with value "<chartType>"
     And I set the parameter "DescribeInput" with value "AutoCreate"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

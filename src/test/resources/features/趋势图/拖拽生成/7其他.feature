@@ -7,7 +7,7 @@ Feature: 拖拽生成趋势图_其他
     Then I will see the "trend.CreatePage" page
 
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element
@@ -43,12 +43,12 @@ Feature: 拖拽生成趋势图_其他
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/拖拽_<chartType>_<button>"
     And I compare source image "actual/拖拽_<chartType>_<button>" with target image "expect/拖拽_<chartType>_<button>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_<button>"
     And I set the parameter "DescribeInput" with value "<color>_<size>_<button>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -71,12 +71,12 @@ Feature: 拖拽生成趋势图_其他
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/拖拽_<chartType>_trend"
     And I compare source image "actual/拖拽_<chartType>_trend" with target image "expect/拖拽_<chartType>_trend"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_trend"
     And I set the parameter "DescribeInput" with value "<size>_<timeValue>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -108,12 +108,12 @@ Feature: 拖拽生成趋势图_其他
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/拖拽_<chartType>_area"
     And I compare source image "actual/拖拽_<chartType>_area" with target image "expect/拖拽_<chartType>_area"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_area"
     And I set the parameter "DescribeInput" with value "<size>_<minVal2>_<maxVal2>_<color2>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -140,12 +140,12 @@ Feature: 拖拽生成趋势图_其他
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<color>_<button>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -173,12 +173,12 @@ Feature: 拖拽生成趋势图_其他
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/拖拽_<chartType>"
     And I compare source image "actual/拖拽_<chartType>" with target image "expect/拖拽_<chartType>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>"
     And I set the parameter "DescribeInput" with value "<color>_<button>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -213,12 +213,12 @@ Feature: 拖拽生成趋势图_其他
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/拖拽_<chartType>_对比"
 #    And I compare source image "actual/拖拽_<chartType>_对比" with target image "expect/拖拽_<chartType>_对比"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_对比"
     And I set the parameter "DescribeInput" with value "<color>_<button>"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -237,12 +237,12 @@ Feature: 拖拽生成趋势图_其他
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/拖拽_<chartType>_2"
     And I compare source image "actual/拖拽_<chartType>_2" with target image "expect/拖拽_<chartType>_2"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_2"
     And I set the parameter "DescribeInput" with value "Table"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:
@@ -272,12 +272,12 @@ Feature: 拖拽生成趋势图_其他
     And I wait for "2000" millsecond
     Then take part of "OtherChart" with name "actual/拖拽_<chartType>_对比_2"
     And I compare source image "actual/拖拽_<chartType>_对比_2" with target image "expect/拖拽_<chartType>_对比_2"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
 
     When I will see the "trend.CreatePage" page
     And I set the parameter "NameInput" with value "拖拽_<chartType>_对比_2"
     And I set the parameter "DescribeInput" with value "Table"
-    And I click the "NextButton" button
+    And I click the "NextButton" button under some element
     Then I wait for "SuccessCreate" will be visible
 
     Examples:

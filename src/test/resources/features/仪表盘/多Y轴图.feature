@@ -178,7 +178,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | type    |   image        |
@@ -205,7 +205,7 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/多Y轴图_修改Yfield"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+#    And I compare source image "actual/多Y轴图_修改Yfield" with target image "expect/多Y轴图_修改Yfield"
 
   @dashboard @dashboardSmoke
   Scenario Outline: rang RZY-1337,RZY-3730,RZY-3732
@@ -225,13 +225,13 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/<image>"
-    And I compare source image "actual/<image>" with target image "expect/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
 
     Examples:
       | min     |   max          |   image               |
       |   50    |     500       |   多Y轴图_min小于max    |
       |         |     350        |   多Y轴图_min空        |
-      | 100     |                |   多Y轴图_max空        |
+      | 50      |                |   多Y轴图_max空        |
 
   @dashboard @dashboardSmoke
   Scenario Outline: rang-min大于max RZY-1338
@@ -252,7 +252,7 @@ Feature: 仪表盘多Y轴图
       |  200    |     100        |   chart -> yAxis -> range -> 显示范围上限值(max)需大于显示范围下限值(min)    |
 
   @dashboard @dashboardSmoke
-  Scenario: smooth为true RZY-1339
+  Scenario: smooth为true RZY-1339,RZY-3733
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘多Y轴图"
@@ -260,7 +260,7 @@ Feature: 仪表盘多Y轴图
     And I wait for "Progress" will be invisible
     When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "type": "line",        "field": "count(apache.resp_len)",        "smooth": false,        "unit": "",        "connectNull": false,        "range": {          "min": "<min>",          "max": "<max>"        }      }],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
+    Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "type": "line",        "field": "count(apache.resp_len)",        "smooth": true,        "unit": "个",        "connectNull": false,        "range": {          "min": "",          "max": ""        }      }],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "bottom"    }  }}" to json editor
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I will see the success message "校验通过"
@@ -269,7 +269,33 @@ Feature: 仪表盘多Y轴图
     And I wait for loading invisible
     And I wait for "2000" millsecond
     Then take part of "MultiYaxisArea" with name "actual/多Y轴图_smooth_true"
+#    And I compare source image "actual/多Y轴图_smooth_true" with target image "expect/多Y轴图_smooth_true"
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: legend RZY-1342,RZY-3744
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘多Y轴图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘多Y轴图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I set the parameter "{  "title": "仪表盘多Y轴图",  "description": "",  "x": 0,  "y": 0,  "w": 12,  "h": 5,  "search": {    "query": "tag:*display | stats count(apache.resp_len), max(apache.resp_len), min(apache.resp_len), sum(apache.status), avg(apache.resp_len) by apache.resp_len,apache.status | limit 10",    "startTime": "now/d",    "endTime": "now"  },  "chart": {    "chartType": "multiaxis",    "xAxis": {      "field": "apache.resp_len",      "labelRotate": "left",      "sortOrder": "default"    },    "precision": "",    "showAllXAxisLabels": false,    "labelInterval": "",    "customLabel": "",    "yAxis": [      {        "type": "line",        "field": "count(apache.resp_len)",        "smooth": true,        "unit": "",        "connectNull": false,        "range": {          "min": "",          "max": ""        }      }],    "byFields": [      "apache.status"    ],    "legend": {      "placement": "<legend>"    }  }}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Then take part of "MultiYaxisLegend" with name "actual/<image>"
 #    And I compare source image "actual/<image>" with target image "expect/<image>"
+
+    Examples:
+      | legend     |     image                |
+      |  bottom    |   多Y轴图_legend_bottom   |
+      |  right     |   多Y轴图_legend_right    |
+
 
   @cleanDashboard
   Scenario Outline: 删除仪表盘

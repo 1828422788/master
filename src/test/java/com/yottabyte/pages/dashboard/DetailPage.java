@@ -22,6 +22,7 @@ import java.util.List;
 public class DetailPage extends PageTemplate {
     public DetailPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "el-loading-mask")
@@ -255,8 +256,11 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//span[contains(text(),'校验')]/ancestor::button/following-sibling::button")
     private WebElement ensureEdit;
 
-    @FindBy(xpath = "(//*[name()='g'])[@class='vx-group']")
+    @FindBy(xpath = "//div[text()='仪表盘多Y轴图']/parent::div")
     private WebElement multiYaxisArea;
+
+    @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-AxirZ')]")
+    private WebElement multiYaxisLegend;
 
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
     private WebElement trendTitle;
@@ -1599,6 +1603,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getMultiYaxisArea() {
         return multiYaxisArea;
+    }
+
+    public WebElement getMultiYaxisLegend() {
+        return multiYaxisLegend;
     }
 
     public WebElement getEnsureEdit() {

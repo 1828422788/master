@@ -9,7 +9,7 @@ Feature: 拖拽生成趋势图_timechart
 
   Scenario Outline: drag_and_drop_timechart
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
-    And I click the "DateEditor" button
+    And I click the "DateEditor" button under some element
     And I click the "Today" button
     And I wait for "1000" millsecond
     And I click the "SearchButton" button under some element

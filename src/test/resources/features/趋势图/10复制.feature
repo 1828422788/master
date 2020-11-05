@@ -11,6 +11,7 @@ Feature: 趋势图复制(RZY-1889)
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "Dataset_1" button
     And I click the "ZhanKai" button
+    And I wait for "DataSetPosition" will be visible
     And I will see the element "DataSetPosition" contains "tag:sample04061424_chart"
     And I set the parameter "FenPianQuYang" with value "150"
     And I click the "SearchButton" button under some element
@@ -60,8 +61,9 @@ Feature: 趋势图复制(RZY-1889)
     And I will see the data "{'column':'0','name':'Copy_Test(副本)'}" values "{'column':'3','name':'test_app'}"
     When the data name is "Copy_Test(副本)" then i click the "编辑" button
     And I will see the "trend.CreatePage" page
-    And I wait for "2000" millsecond
+    And I wait for loading invisible
     And I click the "ZhanKai" button
+    And I wait for "DataSetPosition" will be visible
     And I will see the element "DataSetPosition" contains "tag:sample04061424_chart"
     And I will see the input element "FenPianQuYang" value will be "5000"
     And I wait for "Header" will be visible

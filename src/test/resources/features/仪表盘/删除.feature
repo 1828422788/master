@@ -1,8 +1,9 @@
-@dashboard @dashboardSmoke
+@cleanDashboard
 Feature: 仪表盘删除
 
   Background:
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
+
 
   Scenario Outline: 删除仪表盘(RZY-214)
     When the data name is "<name>" then i click the "删除" button
