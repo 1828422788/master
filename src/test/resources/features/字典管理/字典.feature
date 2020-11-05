@@ -455,6 +455,7 @@ Feature: 字典管理
     Then I click the "EnsureButton2" button
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
     Then I set the parameter "UserFilter" with value "<user>"
+    Then I wait for loading invisible
     Then I "unchecked" the label before "<user>" in the dictionary
     Then I click the "AuthCancelButton" button
     Then the data name is "{'column':'0','name':'<dictionaryName>'}" then i click the "授权" button
