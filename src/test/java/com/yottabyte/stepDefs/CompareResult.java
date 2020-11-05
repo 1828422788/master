@@ -347,50 +347,75 @@ public class CompareResult {
         }
     }
 
+
+    public ArrayList<String> readFromTextFile(String pathname) {
+        ArrayList<String> strArray = new ArrayList<String>();
+        File filename = new File(pathname);
+        InputStreamReader reader = null;
+        try {
+            reader = new InputStreamReader(new FileInputStream(filename));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(reader);
+        String line = "";
+        try {
+            line = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        while(line != null) {
+            strArray.add(line);
+            try {
+                line = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return strArray;
+    }
+
     /**
-     * 比较两个文本文件是否相等，
+     * 比较两个bucket文件是否相等，
      *
      * @param sourceDownloadFile 源文件路径名称
      * @param targetDownloadFile 目标文件路径名称
      */
     @And("^I compare source bucket file \"([^\"]*)\" with target bucket files \"([^\"]*)\"$")
-    public void compareBucketFile(String sourceDownloadFile, String targetDownloadFile) {
+    public void compareBucketFile(String sourceDownloadFile, String targetDownloadFile){
         String curPath = System.getProperty("user.dir");
 
-        FileInputStream fis1 = null;
-        FileInputStream fis2 = null;
-        try {
-            fis1 = new FileInputStream("/opt/expect/" + sourceDownloadFile);
-            fis2 = new FileInputStream("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
+        ArrayList<String>  fis1 = null;
+        ArrayList<String>  fis2 = null;
 
-            int len1 = fis1.available();//返回总的字节数
-            int len2 = fis2.available();
+            fis1 = readFromTextFile("/opt/expect/" + sourceDownloadFile);
+            fis2 = readFromTextFile("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
 
-            //建立两个字节缓冲区
-            byte[] data1 = new byte[len1];
-            byte[] data2 = new byte[len2];
+            int row_len1 = fis1.toArray().length;
+            int row_len2 = fis2.toArray().length;
 
-            //分别将两个文件的内容读入缓冲区
-            fis1.read(data1);
-            fis2.read(data2);
+            String[] row_arrylist1 = (String[])fis1.toArray(new String[fis1.size()]);
+            String[] row_arrylist2 = (String[])fis2.toArray(new String[fis2.size()]);
 
-            String[] line_count1 = fis1.toString().split("\r\n");
-            String[] line_count2 = fis1.toString().split("\r\n");
-            int row_len1 = line_count1.length;
-            int row_len2 = line_count2.length;
-
-            if (row_len1 == row_len2) {//长度相同，则比较具体内容
-                //依次比较文件中的每一个字节
+            if (row_len1 == row_len2) { //行数比较
                 for (int i = 0; i < row_len1; i++) {
-                    String[] col_count1 = fis1.toString().split("\r\n");
-                    String[] col_count2 = fis1.toString().split("\r\n");
-//                    int col_count1 = line_count1.length;
-//                    int col_count2 = line_count2.length;
-
-                    //只要有一个字节不同，两个文件就不一样
-
-                    if (data1[i] != data2[i]) {
-                        System.out.println("文件内容不一样");
+                    String[] col_arry1 = row_arrylist1[i].split(",");
+                    String[] col_arry2 = row_arrylist2[i].split(",");
+                    int col_count1 = col_arry1.length;
+                    int col_count2 = col_arry2.length;
+                    if (col_count1 == col_count2){
+                        for (int j = 1; j < col_count1; i++) {
+                            String cur_ArryValue1=col_arry1[j];
+                            String cur_ArryValue2=col_arry2[j];
+//                            if (cur_ArryValue1!= cur_ArryValue2) {
+                            if (cur_ArryValue1.compareTo(cur_ArryValue2)!=0)
+                            {
+                                System.out.println("行内容不一样");
+                                Assert.fail();
+                            }
+                        }
+                    }else{
+                        System.out.println("行内容不一样");
                         Assert.fail();
                     }
                 }
@@ -400,30 +425,6 @@ public class CompareResult {
                 //长度不一样，文件肯定不同
                 Assert.fail();
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-//            Assert.fail();
-        } catch (IOException e) {
-            e.printStackTrace();
-//            Assert.fail();
-        } finally {//关闭文件流，防止内存泄漏
-            if (fis1 != null) {
-                try {
-                    fis1.close();
-                } catch (IOException e) {
-                    //忽略
-                    e.printStackTrace();
-                }
-            }
-            if (fis2 != null) {
-                try {
-                    fis2.close();
-                } catch (IOException e) {
-                    //忽略
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 
     /**
