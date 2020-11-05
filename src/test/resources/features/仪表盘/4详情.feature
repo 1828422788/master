@@ -8,7 +8,7 @@ Feature: 仪表盘详情页
     Then I will see the "dashboard.DetailPage" page
     When I set the parameter "TagName" with value "first"
     And I click the "EnsureCreateTagButton" button
-    And I wait for "1500" millsecond
+    And I wait for "2000" millsecond
     And I back to before
 
 
@@ -23,7 +23,7 @@ Feature: 仪表盘详情页
     And I click the "CreatNewTag" button
     When I set the parameter "TagName" with value "forDelete"
     And I click the "EnsureCreateTagButton" button
-    And I wait for "1500" millsecond
+    And I wait for "3000" millsecond
     And I back to before
 
   Scenario: 编辑tag(RZY-4488)

@@ -15,6 +15,7 @@ import java.util.List;
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
+        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "ant-message-error")
