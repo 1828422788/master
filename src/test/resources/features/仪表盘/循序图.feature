@@ -100,8 +100,9 @@ Feature: 仪表盘循序图
     And I wait for "1000" millsecond
     Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+#    And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/<image>"
 
     Examples:

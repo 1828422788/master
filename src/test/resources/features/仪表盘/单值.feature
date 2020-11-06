@@ -83,8 +83,9 @@ Feature: 仪表盘单值
     And I wait for "1000" millsecond
     Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/仪表盘单值"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+#    And take part of "FullScreen" with name "dashboard/仪表盘单值"
 #    Then I compare source image "dashboard/仪表盘单值" with target image "dashboard/single"
 
   @dashboard

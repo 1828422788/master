@@ -109,12 +109,13 @@ Feature: 仪表盘多Y轴图
     And I click the "StartColour" button
     And I click the "Red" button
     Then I click the "Generate" button
-    And I wait for "1000" millsecond
+    And I wait for "3000" millsecond
     Then I hide the element "SettingContent"
     And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+#    And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:
@@ -297,26 +298,26 @@ Feature: 仪表盘多Y轴图
       |  right     |   多Y轴图_legend_right    |
 
 
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘
-#    Given open the "dashboard.ListPage" page for uri "/dashboard/"
-#    When the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    Then I will see the success message "删除仪表盘成功"
-#
-#    Examples:
-#      | name    |
-#      | 仪表盘多Y轴图 |
-#
-#  @cleanDashboard
-#  Scenario Outline: 删除仪表盘所建趋势图
-#    Given open the "trend.ListPage" page for uri "/trend/"
-#    When the data name is "<name>" then i click the "删除" button
-#    And I wait for "Ensure" will be visible
-#    And I click the "Ensure" button
-#    And I will see the success message "删除成功"
-#
-#    Examples:
-#      | name    |
-#      | 仪表盘多Y轴图 |
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    Then I will see the success message "删除仪表盘成功"
+
+    Examples:
+      | name    |
+      | 仪表盘多Y轴图 |
+
+  @cleanDashboard
+  Scenario Outline: 删除仪表盘所建趋势图
+    Given open the "trend.ListPage" page for uri "/trend/"
+    When the data name is "<name>" then i click the "删除" button
+    And I wait for "Ensure" will be visible
+    And I click the "Ensure" button
+    And I will see the success message "删除成功"
+
+    Examples:
+      | name    |
+      | 仪表盘多Y轴图 |
