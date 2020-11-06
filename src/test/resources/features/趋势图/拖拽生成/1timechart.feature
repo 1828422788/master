@@ -5,6 +5,7 @@ Feature: 拖拽生成趋势图_timechart
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
 
 
   Scenario Outline: drag_and_drop_timechart

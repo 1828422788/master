@@ -8,6 +8,7 @@ Feature: 趋势图复制(RZY-1889)
   Scenario: create_trend
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart  \| stats count() as cnt by apache.clientip,apache.method  \| sort by cnt, apache.clientip"
     And I click the "Dataset_1" button
     And I click the "ZhanKai" button
@@ -61,6 +62,7 @@ Feature: 趋势图复制(RZY-1889)
     And I will see the data "{'column':'0','name':'Copy_Test(副本)'}" values "{'column':'3','name':'test_app'}"
     When the data name is "Copy_Test(副本)" then i click the "编辑" button
     And I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
     And I wait for loading invisible
     And I click the "ZhanKai" button
     And I wait for "DataSetPosition" will be visible

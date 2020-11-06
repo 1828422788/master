@@ -5,6 +5,7 @@ Feature: 拖拽生成趋势图_序列
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
 
     When I set the parameter "SearchInput" with value "tag:sample04061424_chart"
     And I click the "DateEditor" button under some element
