@@ -1,4 +1,4 @@
-@dashboard
+@dashboard1
 Feature: 仪表盘循序图
 
   @dashboard

@@ -1,4 +1,4 @@
-@dashboard
+@dashboard1
 Feature: 仪表盘区间图
 
   @dashboard @dashboardSmoke
