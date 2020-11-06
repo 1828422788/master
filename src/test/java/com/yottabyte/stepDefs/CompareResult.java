@@ -217,8 +217,8 @@ public class CompareResult {
         }
         BufferedReader br = null;
 //        try {
-            // br = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-            br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+        // br = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+        br = new BufferedReader(new InputStreamReader(p.getInputStream()));
         String readLine = null;
         try {
             readLine = br.readLine();
@@ -226,14 +226,14 @@ public class CompareResult {
             e.printStackTrace();
         }
         StringBuilder builder = new StringBuilder();
-            while (readLine != null) {
-                try {
-                    readLine = br.readLine();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                builder.append(readLine);
+        while (readLine != null) {
+            try {
+                readLine = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            builder.append(readLine);
+        }
 //            logger.debug(METHOD_NAME + "#readLine: " + builder.toString());
 
         try {
@@ -243,11 +243,11 @@ public class CompareResult {
         }
         int i = p.exitValue();
 //            logger.info(METHOD_NAME + "#exitValue = " + i);
-            if (i == 0) {
-                return true;
-            } else {
-                return false;
-            }
+        if (i == 0) {
+            return true;
+        } else {
+            return false;
+        }
 
 //        catch (IOException e) {
 ////            logger.error(METHOD_NAME + "#ErrMsg=" + e.getMessage());
@@ -261,7 +261,7 @@ public class CompareResult {
     }
 
     /**
-     *  获取ftp文件，下载到本地
+     * 获取ftp文件，下载到本地
      *
      * @param sourceDownloadFile 源文件路径名称
      */
@@ -269,7 +269,7 @@ public class CompareResult {
     public void getFtpDownloadFile(String sourceDownloadFile) {
         String curPath = System.getProperty("user.dir");
 //        try {
-            Boolean tt = getFtpDownloadFiletoLocal(sourceDownloadFile);
+        Boolean tt = getFtpDownloadFiletoLocal(sourceDownloadFile);
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        } catch (InterruptedException e) {
@@ -353,21 +353,21 @@ public class CompareResult {
         InputStreamReader reader = null;
         try {
             reader = new InputStreamReader(new FileInputStream(filename));
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         BufferedReader br = new BufferedReader(reader);
         String line = "";
         try {
             line = br.readLine();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        while(line != null) {
+        while (line != null) {
             strArray.add(line);
             try {
                 line = br.readLine();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -381,49 +381,46 @@ public class CompareResult {
      * @param targetDownloadFile 目标文件路径名称
      */
     @And("^I compare source bucket file \"([^\"]*)\" with target bucket files \"([^\"]*)\"$")
-    public void compareBucketFile(String sourceDownloadFile, String targetDownloadFile){
+    public void compareBucketFile(String sourceDownloadFile, String targetDownloadFile) {
         String curPath = System.getProperty("user.dir");
 
-        ArrayList<String>  fis1 = null;
-        ArrayList<String>  fis2 = null;
+        ArrayList<String> fis1 = null;
+        ArrayList<String> fis2 = null;
 
-            fis1 = readFromTextFile("/opt/expect/" + sourceDownloadFile);
-            fis2 = readFromTextFile("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
+        fis1 = readFromTextFile("/opt/expect/" + sourceDownloadFile);
+        fis2 = readFromTextFile("/var/lib/jenkins/workspace/downloadFile/" + targetDownloadFile);
 
-            int row_len1 = fis1.toArray().length;
-            int row_len2 = fis2.toArray().length;
+        int row_len1 = fis1.toArray().length;
+        int row_len2 = fis2.toArray().length;
 
-            String[] row_arrylist1 = (String[])fis1.toArray(new String[fis1.size()]);
-            String[] row_arrylist2 = (String[])fis2.toArray(new String[fis2.size()]);
+        String[] row_arrylist1 = (String[]) fis1.toArray(new String[fis1.size()]);
+        String[] row_arrylist2 = (String[]) fis2.toArray(new String[fis2.size()]);
 
-            if (row_len1 == row_len2) { //行数比较
-                for (int i = 0; i < row_len1; i++) {
-                    String[] col_arry1 = row_arrylist1[i].split(",");
-                    String[] col_arry2 = row_arrylist2[i].split(",");
-                    int col_count1 = col_arry1.length;
-                    int col_count2 = col_arry2.length;
-                    if (col_count1 == col_count2){
-                        for (int j = 1; j < col_count1; i++) {
-                            String cur_ArryValue1=col_arry1[j];
-                            String cur_ArryValue2=col_arry2[j];
-//                            if (cur_ArryValue1!= cur_ArryValue2) {
-                            if (cur_ArryValue1.compareTo(cur_ArryValue2)!=0)
-                            {
-                                System.out.println("行内容不一样");
-                                Assert.fail();
-                            }
+        if (row_len1 == row_len2) { //行数比较
+            for (int i = 0; i < row_len1; i++) {
+                String[] col_arry1 = row_arrylist1[i].split(",");
+                String[] col_arry2 = row_arrylist2[i].split(",");
+                int col_count1 = col_arry1.length;
+                int col_count2 = col_arry2.length;
+                if (col_count1 == col_count2) {
+                    for (int j = 1; j < col_count1; j++) {
+                        String cur_ArryValue1 = col_arry1[j];
+                        String cur_ArryValue2 = col_arry2[j];
+                        if (!cur_ArryValue1.equals(cur_ArryValue2)) {
+                            System.out.println("行内容不一样");
+                            Assert.fail();
                         }
-                    }else{
-                        System.out.println("行内容不一样");
-                        Assert.fail();
                     }
+                } else {
+                    System.out.println("行内容不一样");
+                    Assert.fail();
                 }
-                System.out.println("两个文件完全相同");
-//                return true;
-            } else {
-                //长度不一样，文件肯定不同
-                Assert.fail();
             }
+            System.out.println("两个文件完全相同");
+        } else {
+            //长度不一样，文件不同
+            Assert.fail();
+        }
     }
 
     /**
@@ -467,7 +464,7 @@ public class CompareResult {
             String directoryName = PATH.concat("report" + current_date);
 
             File directory = new File(directoryName);
-            if (! directory.exists()){
+            if (!directory.exists()) {
                 directory.mkdir();
             }
 
