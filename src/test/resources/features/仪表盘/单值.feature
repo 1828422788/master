@@ -1,4 +1,4 @@
-@dashboard @dashboardSmoke
+@@dashboard1 @dashboardSmoke
 Feature: 仪表盘单值
 
   Scenario Outline: 新建仪表盘
