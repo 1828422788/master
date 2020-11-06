@@ -1,4 +1,4 @@
-@dashboard1
+@dashboard
 Feature: 仪表盘环形比例图
 
   @dashboard @dashboardSmoke
