@@ -347,7 +347,6 @@ public class CompareResult {
         }
     }
 
-
     public ArrayList<String> readFromTextFile(String pathname) {
         ArrayList<String> strArray = new ArrayList<String>();
         File filename = new File(pathname);

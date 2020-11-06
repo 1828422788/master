@@ -1,5 +1,5 @@
 @alldownload
-Feature: MV命令
+Feature: MV下载
 
   Background:
     Given open the "splSearch.SearchPage" page for uri "/search/"
