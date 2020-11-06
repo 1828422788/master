@@ -87,6 +87,7 @@ Feature: 仪表盘单值
     And I set the parameter "Unit" with value "个"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond

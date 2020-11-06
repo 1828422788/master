@@ -1,4 +1,4 @@
-@dashboard2
+@dashboard1
 Feature: 仪表盘和弦图
 
   @dashboard @dashboardSmoke

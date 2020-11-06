@@ -99,6 +99,7 @@ Feature: 仪表盘环形比例图
     And I choose the "2" from the "DataPrecision"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I click the "TrendTitle" button

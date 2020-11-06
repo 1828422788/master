@@ -111,6 +111,7 @@ Feature: 仪表盘多Y轴图
     And I click the "Red" button
     Then I click the "Generate" button
     And I wait for "3000" millsecond
+    And I click the "Setting" button under some element
 #    Then I hide the element "SettingContent"
 #    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page

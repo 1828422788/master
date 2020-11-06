@@ -94,6 +94,7 @@ Feature: 仪表盘区间图
     And I choose the "lower95" from the "LowerLimit"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
 #    Then I hide the element "SettingContent"
 #    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page

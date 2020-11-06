@@ -99,6 +99,7 @@ Feature: 仪表盘循序图
     And I choose the "apache.clientip" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
+    And I click the "Setting" button under some element
 #    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
