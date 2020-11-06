@@ -6,6 +6,7 @@ Feature: 趋势图新建_维度
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
 
   Scenario Outline: dimension_default(RZY-2503,2858,2676,2850)
     When I set the parameter "SearchInput" with value "<spl>"

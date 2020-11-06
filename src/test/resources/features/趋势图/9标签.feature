@@ -7,6 +7,7 @@ Feature: 趋势图标签
   Scenario: create_trend
     Then I click the "NewTrendButton" button
     And I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
     When I set the parameter "SearchInput" with value "starttime=\"now/d\" endtime=\"now/d+24h\" tag:sample04061424_chart | stats count() by apache.status,apache.geo.city"
     And I click the "SearchButton" button under some element
     And I wait for "Loading" will be invisible
@@ -33,6 +34,7 @@ Feature: 趋势图标签
   Scenario: verify_tag
     When the data name is "Tag_Test" then i click the "编辑" button
     And I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
     And I wait for "Header" will be visible
     And I click the "NextButton" button under some element
     And I wait for "Header" will be visible

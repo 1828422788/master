@@ -1,3 +1,4 @@
+@dashboard1
 Feature: 仪表盘攻击地图
 
   @dashboard @dashboardSmoke

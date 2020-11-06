@@ -7,6 +7,7 @@ Feature: 趋势图新建_复合
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
 
   Scenario Outline: compound_rangeline(rzy-2516)
     When I set the parameter "SearchInput" with value "<spl>"

@@ -347,7 +347,7 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[@class='ant-modal-body']//i/ancestor::div")
     private WebElement message;
 
-    @FindBy(xpath = "(//div[@id='fullscreenAll']//div[@id]/div/following-sibling::div)[2]/i")
+    @FindBy(xpath = "//div[contains(@class,'yw-chart-action')]/i[1]")
     private WebElement describe;
 
     @FindBy(xpath = "//div[text()='测试描述']")

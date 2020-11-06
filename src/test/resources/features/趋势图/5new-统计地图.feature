@@ -5,6 +5,7 @@ Feature: 趋势图新建_统计地图
     Given open the "trend.ListPage" page for uri "/trend/"
     And I click the "NewTrendButton" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "Loading" will be invisible
 
   Scenario Outline: statistical_map
     When I set the parameter "SearchInput" with value "<spl>"
