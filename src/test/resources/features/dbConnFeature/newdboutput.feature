@@ -1,7 +1,7 @@
 Feature: 新建数据库查找
 
-  @newdblookup
-  Scenario Outline: 新建查找-3个
+  @newdboutput
+  Scenario Outline: 新建查找-3
     Given open the "DbOutputConfigPage.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbOutputConfig" button
     And I wait for "1000" millsecond

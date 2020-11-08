@@ -19,108 +19,18 @@ public class DbOutputConfigPage extends PageTemplate {
         driver.manage().window().fullscreen();
     }
 
-    @FindBy(xpath = "//div[contains(text(),'数据库输出')]")
-    private WebElement dbOutput;
-
-    public WebElement getDbConn() {
-        return dbOutput;
-    }
-
-    public WebElement getCreateDbConn() {
-        return super.getButton("新建输出");
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'名称')]/following::input[@placeholder='请输入名称']")
-    private WebElement newDbConnName;
-
-    public WebElement getNewDbConnName() {
-        return newDbConnName;
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'账户名')]/following::input[@placeholder='请输入账户名']")
-    private WebElement newDbUserName;
-
-    public WebElement getNewDbUserName() {
-        return newDbUserName;
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'密码')]/following::input[@placeholder='请输入密码']")
-    private WebElement newDbUserPassword;
-
-    public WebElement getNewDbUserPassword() {
-        return newDbUserPassword;
-    }
-
-    @FindBy(xpath = "//input[@placeholder='请输入获取行数']")
-    private WebElement newDbRetLines;
-
-    public WebElement getNewDbRetLines() {
-        return newDbRetLines;
-    }
-
-    public WebElement getNewDbConnTypeList() {
-        String xpath = "//label[contains(text(),'连接类型')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-        WebElement element = webDriver.findElement(By.xpath(xpath));
-        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-        ClickEvent.clickUnderneathButton(element);
-        return getLastDropdownList();
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'主机')]/following::input[@placeholder='请输入主机']")
-    private WebElement newDbConnHost;
-
-    public WebElement getNewDbConnHost() {
-        return newDbConnHost;
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'端口')]/following::input[@placeholder='请输入端口']")
-    private WebElement newDbConnPort;
-
-    public WebElement getNewDbConnPort() {
-        return newDbConnPort;
-    }
-
-    @FindBy(xpath = "//label[contains(text(),'默认数据库')]/following::input[@placeholder='请输入默认数据库']")
-    private WebElement newConnDefaultDb;
-
-    public WebElement getNewConnDefaultDb() {
-        return newConnDefaultDb;
-    }
-
-    public WebElement getNewButtton() {
-        return super.getButton("新建");
-    }
-
-    @FindBy(xpath = "//div[contains(text(),'数据库连接包含连接到远程数据库所需的信息')]/following::span/input[@placeholder='输入关键字']")
-    private WebElement dbConnNameSearchInput;
-
-    public WebElement getDbConnNameSearchInput() {
-        return dbConnNameSearchInput;
-    }
-
-    @FindBy(xpath = "//a[text()='删除']")
-    private WebElement delDbConnNameButton;
-
-    public WebElement getDelDbConnNameButton() {
-        return delDbConnNameButton;
-    }
-
-    public WebElement getAffirmDelDbConnNameButton() {
-        return super.getButton("确定");
-    }
-
     /**
      * 配置数据库查找
      */
 
-    @FindBy(xpath = "//div[contains(text(),'数据库查找')]")
-    private WebElement dbLookupConfig;
+    @FindBy(xpath = "//div[contains(text(),'数据库输出')]")
+    private WebElement dbOutputConfig;
 
-    public WebElement getDbLookupConfig() {
-        return dbLookupConfig;
+    public WebElement getDbOutputConfig() {
+        return dbOutputConfig;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'新建查找对象')]/parent::button")
+    @FindBy(xpath = "//span[contains(text(),'新建输出')]/parent::button")
     private WebElement newDbOutputButton;
 
     public WebElement getNewDbOutputButton() {
@@ -163,7 +73,7 @@ public class DbOutputConfigPage extends PageTemplate {
         return super.getButton("下一步");
     }
 
-    public WebElement getDbLookupConnList() {
+    public WebElement getDbOutputConnList() {
         String xpath = "//div[contains(text(),'连接')]/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -171,7 +81,7 @@ public class DbOutputConfigPage extends PageTemplate {
         return getLastDropdownList();
     }
 
-    public WebElement getDbLookupDirList() {
+    public WebElement getDbOutputDirList() {
         String xpath = "//div[contains(text(),'目录')]/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
 //        WebElement element = webDriver.findElement(By.xpath(xpath));
 //        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -182,17 +92,17 @@ public class DbOutputConfigPage extends PageTemplate {
     }
 
     @FindBy(xpath = "//div[text()='表']/following-sibling::span/input[@placeholder='请输入']")
-    private WebElement lookupDbTable;
+    private WebElement OutputDbTable;
 
-    public WebElement getLookupDbTable() {
-        return lookupDbTable;
+    public WebElement getOutputDbTable() {
+        return OutputDbTable;
     }
 
-    @FindBy(xpath = "//div[text()='表']/following::input[@placeholder='请输入']/following::ul/li/a[text()='lookupsample']")
-    private WebElement lookupDbTableLink;
+    @FindBy(xpath = "//div[text()='表']/following::input[@placeholder='请输入']/following::ul/li/a[text()='Outputsample']")
+    private WebElement OutputDbTableLink;
 
-    public WebElement getLookupDbTableLink() {
-        return lookupDbTableLink;
+    public WebElement getOutputDbTableLink() {
+        return OutputDbTableLink;
     }
 
     @FindBy(xpath = "//span[contains(text(),'搜索字段映射')]/following::div/a[text()='添加映射']")
@@ -202,7 +112,7 @@ public class DbOutputConfigPage extends PageTemplate {
         return addFieldMap;
     }
 
-    public WebElement getDbLookupSearchFieldR1C1List() {
+    public WebElement getDbOutputSearchFieldR1C1List() {
         String xpath = "//span[contains(text(),'搜索字段映射')]/following::span[contains(text(),'搜索字段')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
@@ -210,21 +120,21 @@ public class DbOutputConfigPage extends PageTemplate {
         return getLastDropdownList();
     }
 
-    public WebElement getDbLookupSearchFieldR1C2List() {
+    public WebElement getDbOutputSearchFieldR1C2List() {
         String xpath = "//span[contains(text(),'搜索字段映射')]/following::span[contains(text(),'表格列名称')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         return super.getLastDropdownListOnSendPolicyPage(xpath);
 //        return getLastDropdownList();
     }
 
-    @FindBy(xpath = "//span[contains(text(),'Lookup 字段')]/following::div/a[text()='添加字段']")
-    private WebElement addLookupField;
+    @FindBy(xpath = "//span[contains(text(),'Output 字段')]/following::div/a[text()='添加字段']")
+    private WebElement addOutputField;
 
-    public WebElement getAddLookupField() {
-        return addLookupField;
+    public WebElement getAddOutputField() {
+        return addOutputField;
     }
 
-    public WebElement getDbLookupLookupFieldR1C1List() {
-        String xpath = "//span[contains(text(),'Lookup 字段')]/following::span[contains(text(),'表格列名称')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+    public WebElement getDbOutputOutputFieldR1C1List() {
+        String xpath = "//span[contains(text(),'Output 字段')]/following::span[contains(text(),'表格列名称')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -232,10 +142,28 @@ public class DbOutputConfigPage extends PageTemplate {
     }
 
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input[@placeholder='请输入名称']")
-    private WebElement dbLookupName;
+    private WebElement dbOutputName;
 
-    public WebElement getDbLookupName() {
-        return dbLookupName;
+    public WebElement getDbOutputName() {
+        return dbOutputName;
+    }
+
+    @FindBy(xpath = "//div[contains(text(),'数据库输出会将数据从日志易推送至数据库')]/following::span/input[@placeholder='输入关键字']")
+    private WebElement dbOutputSearchInput;
+
+    public WebElement getDbOutputSearchInput() {
+        return dbOutputSearchInput;
+    }
+
+    @FindBy(xpath = "//a[text()='删除']")
+    private WebElement delDbOutputButton;
+
+    public WebElement getDelDbOutputButton() {
+        return delDbOutputButton;
+    }
+
+    public WebElement getAffirmDelDbOutputButton() {
+        return super.getButton("确定");
     }
 
 }

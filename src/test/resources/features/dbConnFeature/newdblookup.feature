@@ -1,7 +1,7 @@
 Feature: 新建数据库查找
 
   @newdblookup
-  Scenario Outline: 新建查找-3个
+  Scenario Outline: 新建查找-3
     Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button
     And I wait for "1000" millsecond
@@ -47,19 +47,20 @@ Feature: 新建数据库查找
       | dellookupsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
       | u_lookupsample | v33dbx           | v33dbx          | starttime=\"now/d\" endtime=\"now/d+24h\" tag\:sample04061424 |
 
-  @delconn
-  Scenario Outline: 删除连接
+  @deldblookup
+  Scenario Outline: 删除连接-3
     Given open the "dbConnection.dbSettingPage" page for uri "/dbsettings/"
     And I click the "DbLookupConfig" button
     And I wait for "1000" millsecond
 
-    When I set the parameter "DbConnNameSearchInput" with value "<dbLookupName>"
-    And I click the "DelDbConnNameButton" button
-    And I wait for "AffirmDelDbConnNameButton" will be visible
-    And I click the "AffirmDelDbConnNameButton" button
+    When I set the parameter "DbLookupSearchInput" with value "<dbLookupName>"
+    And I click the "DelDbLookupButton" button
+    And I wait for "AffirmDelDbLookupButton" will be visible
+    And I click the "AffirmDelDbLookupButton" button
 
     Examples:
       | dbLookupName |
+      | lookupsample |
       | dellookupsample |
       | u_lookupsample |
 

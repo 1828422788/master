@@ -2,29 +2,21 @@ package com.yottabyte.pages.dbConnection;
 
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.pages.PageTemplate;
-import com.yottabyte.utils.ClickEvent;
-import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
-
-public class LdapConnPage extends ListPageFactory {
-    public LdapConnPage(WebDriver driver) {
+public class LdapConnCreatePage extends PageTemplate {
+    public LdapConnCreatePage(WebDriver driver) {
         super(driver);
-        driver.manage().window().fullscreen();
+//        driver.manage().window().fullscreen();
     }
 
-    public WebElement getCreateLdapConn() {
-        return super.getButton("新建");
-    }
-
-//    @FindBy(xpath = "//label[contains(text(),'名称')]/following::input[@placeholder='请输入']")
+    //    @FindBy(xpath = "//label[contains(text(),'名称')]/following::input[@placeholder='请输入']")
 //    @FindBy(xpath = "//label[@title='名称')]/following::input[@placeholder='请输入']")
-    @FindBy(xpath = "//input[@placeholder='请输入']")
+//            return webDriver.findElement(By.xpath("//label[contains(text(),'名称')]/following::span[@class='ant-form-item-children']/input[@placeholder='请输入']"));
+    @FindBy(xpath = "//form[@class='ant-form ant-form-horizontal']/descendant::label[contains(text(),'名称')]/following::span[@class='ant-form-item-children']/input[@placeholder='请输入']")
     private WebElement newLdapConnName;
 
     public WebElement getNewDbConnName() {

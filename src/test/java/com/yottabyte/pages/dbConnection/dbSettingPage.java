@@ -242,4 +242,22 @@ public class dbSettingPage extends PageTemplate {
         return dbLookupName;
     }
 
+    @FindBy(xpath = "//div[contains(text(),'数据库查找可以利用数据库来丰富日志易中的数据')]/following::span/input[@placeholder='输入关键字']")
+    private WebElement dbLookupSearchInput;
+
+    public WebElement getDbLookupSearchInput() {
+        return dbLookupSearchInput;
+    }
+
+    @FindBy(xpath = "//a[text()='删除']")
+    private WebElement delDbLookupButton;
+
+    public WebElement getDelDbLookupButton() {
+        return delDbLookupButton;
+    }
+
+    public WebElement getAffirmDelDbLookupButton() {
+        return super.getButton("确定");
+    }
+
 }
