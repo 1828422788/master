@@ -1,4 +1,4 @@
-@dashboard
+@dashboard1
 Feature: 仪表盘和弦图
 
   @dashboard @dashboardSmoke
@@ -78,24 +78,31 @@ Feature: 仪表盘和弦图
     And I wait for "Progress" will be invisible
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "2000" millsecond
     And I wait for "Relation" will be visible
     And I click the "Relation" button
     And I click the "<targetName>" button
     And I hide the element "Content"
-    And I wait for "1000" millsecond
+    And I wait for "2000" millsecond
     And I click the "Setting" button under some element
     And I choose the "apache.x_forward" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Target" button
     And I choose the "apache.resp_len" from the "DataValue"
+    And I wait for "1000" millsecond
     And I click the "Weight" button
     And I choose the "count()" from the "DataValue"
+    And I wait for "1000" millsecond
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "2000" millsecond
     And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+    And I wait for "3000" millsecond
+#    And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:

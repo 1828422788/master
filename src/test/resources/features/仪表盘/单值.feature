@@ -1,6 +1,7 @@
-@dashboard @dashboardSmoke
+@dashboard1 @dashboardSmoke
 Feature: 仪表盘单值
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I click the "Create" button
@@ -12,6 +13,7 @@ Feature: 仪表盘单值
       | name  |
       | 仪表盘单值 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 创建仪表盘所用趋势图
     And open the "trend.ListPage" page for uri "/trend/"
     And I click the "CreateButton" button
@@ -33,6 +35,7 @@ Feature: 仪表盘单值
       | spl                                                                                                | name  |
       | tag:*display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | 仪表盘单值 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -47,6 +50,7 @@ Feature: 仪表盘单值
       | name |
       | 单值   |
 
+  @dashboard @dashboardSmoke
   Scenario: 添加图表
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -62,6 +66,7 @@ Feature: 仪表盘单值
     And I "checked" the checkbox which name is "仪表盘单值"
     And I click the "Ensure" button
 
+  @dashboard @dashboardSmoke
   Scenario: 修改为单值 RZY-342
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -69,6 +74,7 @@ Feature: 仪表盘单值
     Then I will see the "dashboard.DetailPage" page
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "2000" millsecond
     And I click the "Other" button
     And I click the "Single" button
     And I hide the element "Content"
@@ -81,13 +87,16 @@ Feature: 仪表盘单值
     And I set the parameter "Unit" with value "个"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/仪表盘单值"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+#    And take part of "FullScreen" with name "dashboard/仪表盘单值"
 #    Then I compare source image "dashboard/仪表盘单值" with target image "dashboard/single"
 
-  @dashboard
+  @dashboard @dashboardSmoke
   Scenario Outline: 验证配置是否在高级编辑中体现
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -102,7 +111,7 @@ Feature: 仪表盘单值
       | name    | json                                                                                                                                                                                                                                                                                                                                                                                           |
       | 仪表盘单值 |  \n  "chart": {\n    "chartType": "single",\n    "field": "a_",\n    "fontSize": "30",\n    "precision": "3",\n    "useThousandSeparators": false,\n    "unit": "个",\n    "unitPosition": "after",\n    "displayField": "icon",\n    "subtitle": "",\n    "useSparkline": false,\n    "sparklineXAxisField": "",\n    "singleFieldDisplayType": "default",\n    "singleChartIcon": "none",\n |
 
-
+  @dashboard @dashboardSmoke
   Scenario Outline: 验证单值图的fontSize RZY-1345,RZY-1346,RZY-1347,RZY-1348,RZY-1349
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -123,6 +132,7 @@ Feature: 仪表盘单值
       | 1000     | SuccessMessage | 校验通过                                          |
       | 14       | SuccessMessage | 校验通过                                          |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 验证单值图的color RZY-1350,RZY-1351
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -141,6 +151,7 @@ Feature: 仪表盘单值
       |       | ErrorMessage   | chart -> color 字段值不能为空 |
       | 1     | SuccessMessage | 校验通过                  |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 验证单值图的展示字段
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -158,6 +169,7 @@ Feature: 仪表盘单值
       | status       | message                       |
       | ErrorMessage | chart -> comparsionTime 字段为必填项 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 单值图按趋势展示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -174,6 +186,7 @@ Feature: 仪表盘单值
       | message                              |
       | chart -> useThousandSeparators 字段为必填项 |
 
+  @dashboard @dashboardSmoke
   Scenario Outline: 单值图按区间展示
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -193,6 +206,7 @@ Feature: 仪表盘单值
 
     ###########
 
+  @dashboard @dashboardSmoke
   Scenario: 恢复至初始 RZY-296,RZY-3391
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -208,6 +222,7 @@ Feature: 仪表盘单值
     And I wait for "Progress" will be invisible
     Then I wait for "Table" will be visible
 
+  @dashboard @dashboardSmoke
   Scenario: 时间范围选择 RZY-3392
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -220,6 +235,7 @@ Feature: 仪表盘单值
     And I wait for loading invisible
     Then I wait for element "TimeRangeDanzhi" change text to "最近7天"
 
+  @dashboard @dashboardSmoke
   Scenario Outline: RZY-3694修改表格chartType
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
@@ -240,7 +256,7 @@ Feature: 仪表盘单值
       | hello        | chart -> chartType 字段值不支持hello |
 
 
-
+  @cleanDashboard
   Scenario Outline: 删除仪表盘
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     When the data name is "<name>" then i click the "删除" button
@@ -252,7 +268,7 @@ Feature: 仪表盘单值
     Examples:
       | name  |
       | 仪表盘单值 |
-
+  @cleanDashboard
   Scenario Outline: 删除仪表盘所建趋势图
     Given open the "trend.ListPage" page for uri "/trend/"
     When the data name is "<name>" then i click the "删除" button

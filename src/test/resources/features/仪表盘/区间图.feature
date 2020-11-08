@@ -1,4 +1,4 @@
-@dashboard
+@dashboard1
 Feature: 仪表盘区间图
 
   @dashboard @dashboardSmoke
@@ -79,6 +79,7 @@ Feature: 仪表盘区间图
     And I wait for "500" millsecond
     And I click the "ChartType" button
     Then I will see the "trend.CreatePage" page
+    And I wait for "2000" millsecond
     And I wait for "Compound" will be visible
     And I click the "Compound" button
     And I click the "<targetName>" button
@@ -93,11 +94,14 @@ Feature: 仪表盘区间图
     And I choose the "lower95" from the "LowerLimit"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+#    And take part of "FullScreen" with name "dashboard/<name>"
 #    Then I compare source image "dashboard/<name>" with target image "dashboard/<targetName>"
 
     Examples:

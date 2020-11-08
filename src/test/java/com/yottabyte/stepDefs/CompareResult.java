@@ -1,5 +1,7 @@
 package com.yottabyte.stepDefs;
 
+//import com.spire.xls.Workbook;
+//import com.spire.xls.Worksheet;
 import com.yottabyte.utils.EmbeddingFile;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.ImageComparison;
@@ -490,6 +492,23 @@ public class CompareResult {
 //                flag = true;
 
             } else if (format.equals("xls")) {
+//                Workbook workbook1=new Workbook();
+//                workbook1.loadFromFile(curPath + "/" + sourceReportFile);
+//                Worksheet sheet1 = workbook1.getWorksheets().get(1);
+//                sheet1.getPageSetup().setFitToPagesWide(1);
+//                sheet1.getPageSetup().setFitToPagesTall(1);
+//                sheet1.saveToPdf(path1 + ".pdf");
+//
+//                Workbook workbook2=new Workbook();
+//                workbook2.loadFromFile(curPath + "/target/download-files/" + targetReportFile);
+//                Worksheet sheet2 = workbook2.getWorksheets().get(1);
+//                sheet2.getPageSetup().setFitToPagesWide(1);
+//                sheet2.getPageSetup().setFitToPagesTall(1);
+//                sheet2.saveToPdf(path2 + ".pdf");
+//
+//                fis1 = new FileInputStream(path1 + ".pdf");
+//                fis2 = new FileInputStream(path2 + ".pdf");
+//                flag = true;
 
             } else if (format.equals("pdf")) {
                 flag = true;
