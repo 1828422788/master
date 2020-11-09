@@ -259,6 +259,12 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='仪表盘多Y轴图']/parent::div")
     private WebElement multiYaxisArea;
 
+    @FindBy(xpath = "//div[text()='仪表盘和弦图']/parent::div")
+    private WebElement chordChart;
+
+    @FindBy(xpath = "//div[text()='仪表盘饼状图']/parent::div")
+    private WebElement dimensionChart;
+
     @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-AxirZ')]")
     private WebElement multiYaxisLegend;
 
@@ -1603,6 +1609,14 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getMultiYaxisArea() {
         return multiYaxisArea;
+    }
+
+    public WebElement getChordChart() {
+        return chordChart;
+    }
+
+    public WebElement getDimensionChart() {
+        return dimensionChart;
     }
 
     public WebElement getMultiYaxisLegend() {
