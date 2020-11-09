@@ -105,10 +105,18 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Orange" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
-    And take part of "FullScreen" with name "dashboard/<name>"
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+#
+#    And I wait for "1000" millsecond
+#    Then I hide the element "SettingContent"
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "TrendTitle" button
+#    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
       | name    | image     |
@@ -319,10 +327,13 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "SelectChina" button
     And I wait for "1000" millsecond
     Then I click the "Generate" button
-    And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
+    And I wait for "1500" millsecond
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
 
     Examples:
       | name    |
@@ -527,10 +538,17 @@ Feature: 仪表盘钻取配置-钻取变量
     And I click the "Divide" button
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+#    And I wait for "1000" millsecond
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "TrendTitle" button
 #    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
@@ -733,10 +751,17 @@ Feature: 仪表盘钻取配置-钻取变量
     And I choose the "icon" from the "DataValue"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+#    And I wait for "1000" millsecond
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "TrendTitle" button
 #    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
@@ -871,10 +896,17 @@ Feature: 仪表盘钻取配置-钻取变量
     And I choose the "apache.clientip" from the "DisplayField"
     Then I click the "Generate" button
     And I wait for "1000" millsecond
-    Then I hide the element "SettingContent"
-    And I wait for "Progress" will be invisible
+    And I click the "Setting" button under some element
+#    Then I hide the element "SettingContent"
     Then I will see the "dashboard.DetailPage" page
-    And I click the "TrendTitle" button
+    And I wait for "2000" millsecond
+    And I click the "TrendTitle" button under some element
+    And I wait for "3000" millsecond
+#    And I wait for "1000" millsecond
+#    Then I hide the element "SettingContent"
+#    And I wait for "Progress" will be invisible
+#    Then I will see the "dashboard.DetailPage" page
+#    And I click the "TrendTitle" button
 #    And take part of "FullScreen" with name "dashboard/<name>"
 
     Examples:
