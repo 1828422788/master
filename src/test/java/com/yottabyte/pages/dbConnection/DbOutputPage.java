@@ -13,14 +13,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 /**
  * @author sunxj
  */
-public class DbOutputConfigPage extends PageTemplate {
-    public DbOutputConfigPage(WebDriver driver) {
+public class DbOutputPage extends PageTemplate {
+    public DbOutputPage(WebDriver driver) {
         super(driver);
         driver.manage().window().fullscreen();
     }
 
     /**
-     * 配置数据库查找
+     * 配置数据库输出
      */
 
     @FindBy(xpath = "//div[contains(text(),'数据库输出')]")
@@ -37,7 +37,6 @@ public class DbOutputConfigPage extends PageTemplate {
         return newDbOutputButton;
     }
 
-    //    @FindBy(xpath = "//div[@class='CodeMirror-code']/pre[@class='CodeMirror-line']/span/[@role='presentation']/span[@class='cm-variable']")
     @FindBy(className = "CodeMirror-code")
     private WebElement searchInput;
 
@@ -83,12 +82,11 @@ public class DbOutputConfigPage extends PageTemplate {
 
     public WebElement getDbOutputDirList() {
         String xpath = "//div[contains(text(),'目录')]/following-sibling::div//div[@class='ant-select-selection__rendered']/following-sibling::span/i";
-//        WebElement element = webDriver.findElement(By.xpath(xpath));
-//        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
-//        ClickEvent.clickUnderneathButton(element);
-//        return getLastDropdownList();
-        return super.getLastDropdownListOnSendPolicyPage(xpath);
-
+        WebElement element = webDriver.findElement(By.xpath(xpath));
+        WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
+        ClickEvent.clickUnderneathButton(element);
+        return getLastDropdownList();
+//        return super.getLastDropdownListOnSendPolicyPage(xpath)
     }
 
     @FindBy(xpath = "//div[text()='表']/following-sibling::span/input[@placeholder='请输入']")
@@ -98,14 +96,14 @@ public class DbOutputConfigPage extends PageTemplate {
         return OutputDbTable;
     }
 
-    @FindBy(xpath = "//div[text()='表']/following::input[@placeholder='请输入']/following::ul/li/a[text()='Outputsample']")
+    @FindBy(xpath = "//div[text()='表']/following::input[@placeholder='请输入']/following::ul/li/a[text()='outsample']")
     private WebElement OutputDbTableLink;
 
     public WebElement getOutputDbTableLink() {
         return OutputDbTableLink;
     }
 
-    @FindBy(xpath = "//span[contains(text(),'搜索字段映射')]/following::div/a[text()='添加映射']")
+    @FindBy(xpath = "//span[contains(text(),'字段映射')]/following::div[contains(text(),'添加映射')]")
     private WebElement addFieldMap;
 
     public WebElement getAddFieldMap() {
@@ -113,7 +111,7 @@ public class DbOutputConfigPage extends PageTemplate {
     }
 
     public WebElement getDbOutputSearchFieldR1C1List() {
-        String xpath = "//span[contains(text(),'搜索字段映射')]/following::span[contains(text(),'搜索字段')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'搜索字段')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
@@ -121,24 +119,23 @@ public class DbOutputConfigPage extends PageTemplate {
     }
 
     public WebElement getDbOutputSearchFieldR1C2List() {
-        String xpath = "//span[contains(text(),'搜索字段映射')]/following::span[contains(text(),'表格列名称')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        String xpath = "//span[contains(text(),'字段映射')]/following::span[contains(text(),'表格列名称')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         return super.getLastDropdownListOnSendPolicyPage(xpath);
 //        return getLastDropdownList();
     }
 
-    @FindBy(xpath = "//span[contains(text(),'Output 字段')]/following::div/a[text()='添加字段']")
-    private WebElement addOutputField;
-
-    public WebElement getAddOutputField() {
-        return addOutputField;
-    }
-
-    public WebElement getDbOutputOutputFieldR1C1List() {
-        String xpath = "//span[contains(text(),'Output 字段')]/following::span[contains(text(),'表格列名称')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+    public WebElement getSearchFieldList() {
+//        @FindBy(xpath = "//span[contains(text(),'字段映射')]/following::div[contains(text(),'添加映射')]")
+        String xpath = "//div[contains(text(),'添加映射')]/preceding::span[contains(text(),'搜索字段')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
         WebElement element = webDriver.findElement(By.xpath(xpath));
         WaitForElement.waitForElementWithExpectedCondition(webDriver, ExpectedConditions.elementToBeClickable(element));
         ClickEvent.clickUnderneathButton(element);
         return getLastDropdownList();
+    }
+
+    public WebElement getTableColNameList() {
+        String xpath = "//div[contains(text(),'添加映射')]/preceding::span[contains(text(),'表格列名称')]/following::div[@class='ant-select-selection__rendered']/following-sibling::span/i";
+        return super.getLastDropdownListOnSendPolicyPage(xpath);
     }
 
     @FindBy(xpath = "//label[contains(text(),'名称')]/following-sibling::input[@placeholder='请输入名称']")
