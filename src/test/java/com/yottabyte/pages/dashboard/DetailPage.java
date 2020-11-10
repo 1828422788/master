@@ -22,7 +22,7 @@ import java.util.List;
 public class DetailPage extends PageTemplate {
     public DetailPage(WebDriver driver) {
         super(driver);
-        driver.manage().window().fullscreen();
+//        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "el-loading-mask")
