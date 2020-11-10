@@ -3,6 +3,7 @@ package com.yottabyte.pages.dashboard;
 import com.yottabyte.pages.ListPageFactory;
 import com.yottabyte.utils.WaitForElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,7 +16,8 @@ import java.util.List;
 public class ListPage extends ListPageFactory {
     public ListPage(WebDriver driver) {
         super(driver);
-        driver.manage().window().fullscreen();
+        driver.manage().window().setSize(new Dimension(1920,1080));
+//        driver.manage().window().fullscreen();
     }
 
     @FindBy(className = "ant-message-error")
