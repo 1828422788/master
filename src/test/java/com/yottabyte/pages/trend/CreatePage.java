@@ -885,8 +885,15 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='dataset_1']")
     private WebElement dataset_1;
 
+    @FindBy(xpath = "//span[text()='all_']")
+    private WebElement allResources;
+
     public WebElement getDataset_1() {
         return dataset_1;
+    }
+
+    public WebElement getAllResources() {
+        return allResources;
     }
 
     public WebElement getSearchStatus() {
