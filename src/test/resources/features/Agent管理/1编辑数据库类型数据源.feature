@@ -39,13 +39,14 @@ Feature: Agent编辑数据库数据类型数据源
   Scenario: mysql数据库类型数据源禁用
     Given the data name "autotestmysql" in agent table "DatabaseTypeTable" then i click the "close" switch
     Then I wait for loading invisible
-    Then I will see the element "DatabaseTypeSwitchStatus" name is "已禁用"
+    And I wait for element "DatabaseTypeSwitchStatus" change text to "已禁用"
+
 
 
   Scenario: mysql数据库类型数据源启用
     Given the data name "autotestmysql" in agent table "DatabaseTypeTable" then i click the "open" switch
     Then I wait for loading invisible
-    Then I will see the element "DatabaseTypeSwitchStatus" name is "已启用"
+    And I wait for element "DatabaseTypeSwitchStatus" change text to "已启用"
 
 
   Scenario:编辑Sql语句

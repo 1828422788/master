@@ -48,12 +48,15 @@ Feature: Agent备份功能
   Scenario: 备份策略禁用
     Given the data name "hekabackup" in agent table "BackUpTable" then i click the "close" switch
     Then I wait for loading invisible
-    Then I will see the element "BackUpSwitchStatus" name is "已禁用"
+    And I wait for element "BackUpSwitchStatus" change text to "已禁用"
+
+
 
   Scenario: 备份策略启用
     Given the data name "hekabackup" in agent table "BackUpTable" then i click the "open" switch
     Then I wait for loading invisible
-    Then I will see the element "BackUpSwitchStatus" name is "已启用"
+    And I wait for element "BackUpSwitchStatus" change text to "已启用"
+
 
   Scenario: 备份策略新建目的对象
     And I click the "AddBackUP" button

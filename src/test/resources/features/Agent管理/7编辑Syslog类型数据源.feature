@@ -31,13 +31,15 @@ Feature: Agent编辑Syslog类型数据源
   Scenario: 修改Syslog数据源禁用
     Given the data name "192.168.1.161:514" in agent table "SyslogTable" then i click the "close" switch
     Then I wait for loading invisible
-    Then I will see the element "SyslogSwitchStatus" name is "已禁用"
+    And I wait for element "SyslogSwitchStatus" change text to "已禁用"
+
 
 
   Scenario: Syslog数据源启用
     Given the data name "192.168.1.161:514" in agent table "SyslogTable" then i click the "open" switch
     Then I wait for loading invisible
-    Then I will see the element "SyslogSwitchStatus" name is "已启用"
+    And I wait for element "SyslogSwitchStatus" change text to "已启用"
+
 
 
 

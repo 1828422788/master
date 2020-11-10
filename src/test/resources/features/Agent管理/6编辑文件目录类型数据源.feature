@@ -50,14 +50,15 @@ Feature: Agent编辑文件目录类型数据源
   Scenario: 文件目录数据源禁用
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "close" switch
     Then I wait for loading invisible
-    Then I will see the element "DataSourceSwitchStatus" name is "已禁用"
+    And I wait for element "DataSourceSwitchStatus" change text to "已禁用"
 
 
 
   Scenario: 文件目录数据源启用
     Given the data name "autohekafiletest" in agent table "AppNameTable" then i click the "open" switch
     Then I wait for loading invisible
-    Then I will see the element "DataSourceSwitchStatus" name is "已启用"
+    And I wait for element "DataSourceSwitchStatus" change text to "已启用"
+
 
 
 

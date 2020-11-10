@@ -22,12 +22,13 @@ Feature: Agent编辑Packetbeat类型数据源
   Scenario: Packetbeat数据源禁用
     Given the data name "autoPacketbeattest" in agent table "PacketbeatTable" then i click the "close" switch
     And I wait for "PacketbeatSwitchStatus" will be visible
-    Then I will see the element "PacketbeatSwitchStatus" name is "已禁用"
+#    Then I will see the element "PacketbeatSwitchStatus" name is "已禁用"
+    And I wait for element "PacketbeatSwitchStatus" change text to "已禁用"
 
   Scenario: Packetbeat数据源启用
     Given the data name "autoPacketbeattest" in agent table "PacketbeatTable" then i click the "open" switch
     And I wait for "PacketbeatSwitchStatus" will be visible
-    Then I will see the element "PacketbeatSwitchStatus" name is "已启用"
+    And I wait for element "PacketbeatSwitchStatus" change text to "已启用"
 
   Scenario Outline: Packetbeat数据源修改appname成功
     Given the data name "autoPacketbeattest" in table "PacketbeatTable" then i click the "编辑" button
