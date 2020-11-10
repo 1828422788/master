@@ -64,9 +64,10 @@ Feature: 趋势图复制(RZY-1889)
     And I will see the "trend.CreatePage" page
     And I wait for "Loading" will be invisible
     And I wait for loading invisible
-    And I wait for "5000" millsecond
-    And I wait for "ZhanKai" will be visible
-    And I click the "ZhanKai" button
+    And I wait for "10000" millsecond
+    And I wait for loading invisible
+    And I click the "zhanKai" button
+    And I wait for loading invisible
     And I wait for "DataSetPosition" will be visible
     And I will see the element "DataSetPosition" contains "tag:sample04061424_chart"
     And I will see the input element "FenPianQuYang" value will be "5000"
