@@ -1,3 +1,4 @@
+@dashboard1
 Feature: 仪表盘高级编辑
 
   @dashboard @dashboardSmoke
@@ -403,8 +404,8 @@ Feature: 仪表盘高级编辑
 #    And I wait for "Progress" will be invisible
     Then I will see the "dashboard.DetailPage" page
     And I wait for "2000" millsecond
-    And I click the "TrendTitle" button under some element
-    And I wait for "3000" millsecond
+    And I click the "TrendTitle" button
+    And I wait for "SettingChart" will be visible
     And I click the "SettingChart" button
     And I click the "Edit" button
     Then I will see the "TextLayer" result will contain "<json>"

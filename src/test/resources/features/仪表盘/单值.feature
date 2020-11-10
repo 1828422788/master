@@ -1,4 +1,3 @@
-@dashboard1 @dashboardSmoke
 Feature: 仪表盘单值
 
   @dashboard @dashboardSmoke

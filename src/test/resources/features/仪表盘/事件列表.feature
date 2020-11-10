@@ -1,3 +1,4 @@
+@dashboard1
 Feature: 仪表盘事件列表
 
   @dashboard @dashboardSmoke
@@ -266,11 +267,13 @@ Feature: 仪表盘事件列表
     And I set the parameter "ChartDesc" with value "测试描述"
     And I click the "Ensure" button
     And I wait for "Ensure" will be invisible
-    And I click the "CustomTitle" button
+    And I wait for "500" millsecond
+#    And I click the "CustomTitle" button
 #    And I wait for "1500" millsecond
-    And I move the mouse pointer to the "Describe"
-    And I click the "Describe" button
     And I move the mouse pointer to the "CustomTitle"
+    And I click the "Describe" button
+    And I wait for "500" millsecond
+#    And I move the mouse pointer to the "CustomTitle"
     Then I will see the "DescribeText" result will be "测试描述"
 
   @dashboard
