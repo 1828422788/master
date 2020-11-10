@@ -22,6 +22,7 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "Today" button
     And I click the "SearchButton" button
     And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
     And I click the "EventOperatorAutoTest" button
     And the page's title will contains "_百度搜索"
@@ -46,6 +47,7 @@ Feature: 事件操作编辑（RZY-1390）
     And I click the "Today" button
     And I click the "SearchButton" button
     And I click the "RightIcon" button
+    And I wait for "EventOperate" will be visible
     And I click the "EventOperate" button
     And I click the "EventOperatorAutoTest" button
     And I wait for element "SearchStatus" change text to "搜索完成!"

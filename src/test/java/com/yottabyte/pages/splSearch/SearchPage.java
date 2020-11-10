@@ -557,6 +557,9 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "(//li[text()='查看上下文sample'])[last()]")
     private WebElement contextSample;
 
+    @FindBy(xpath = "(//li[text()='测试应用条件'])[last()]")
+    private WebElement condition;
+
     @FindBy(xpath = "//span[text()='hostname']/following-sibling::pre")
     private WebElement clientip;
 
@@ -637,6 +640,10 @@ public class SearchPage extends ListPageFactory {
 
     @FindBy(xpath = "//label[text()='文件类型']/following-sibling::div")
     private WebElement fileType;
+
+    public WebElement getCondition() {
+        return condition;
+    }
 
     public SearchPage(WebDriver driver) {
         super(driver);
