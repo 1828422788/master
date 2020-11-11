@@ -456,9 +456,14 @@ public class CompareResult {
             directory.mkdir();
         }
 
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+        Date date = new Date(System.currentTimeMillis());
+        String current_date = formatter.format(date);
+
+        String PATH = curPath + "/actual";
+
         String type = SharedDriver.WebDriverType;
         if ("Remote".equalsIgnoreCase(type)) {
-            System.out.println("Remote \n");
             SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
             sftpUtil.login();
             try {
@@ -468,16 +473,19 @@ public class CompareResult {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+        } else {
+            PATH = PATH.concat("/report" + current_date);
+        }
+
+        directory = new File(PATH);
+        if (!directory.exists()) {
+            directory.mkdir();
         }
 
         try {
             File dir = new File(curPath + "/target/download-files/");
             String format = targetReportFile.split("\\.")[1];
             String targetName = targetReportFile.split("\\.")[0];
-
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-            Date date = new Date(System.currentTimeMillis());
-            String current_date = formatter.format(date);
 
 //            File[] foundFiles = dir.listFiles();
 //            if (foundFiles != null) {
@@ -494,21 +502,14 @@ public class CompareResult {
 
             System.out.println("Comparing files: " + "<" + sourceReportFile + "> and <" + targetReportFile + ">");
 
-            String PATH = curPath + "/actual/";
-            String directoryName = PATH.concat("report" + current_date);
-
-            directory = new File(directoryName);
-            if (!directory.exists()) {
-                directory.mkdir();
-            }
-
             String path1 = curPath + "/" + sourceReportFile.split("\\.")[0];
-            String path2 = curPath + "/actual/report" + current_date + "/" + sourceReportFile.split("\\/")[1].split("\\.")[0];
+            String path2 = PATH+ "/" + sourceReportFile.split("\\/")[1].split("\\.")[0];
             BufferedImage image1, image2;
+
             //indicates whether pdfs are created or not
             boolean flag = false;
-            if (format.equals("docx")) {
 
+            if (format.equals("docx")) {
 //                XWPFDocument document_1 = new XWPFDocument(fis1);
 //                PdfOptions options1 = PdfOptions.create();
 //                OutputStream out1 = new FileOutputStream(new File(path1 + ".pdf"));
@@ -524,7 +525,6 @@ public class CompareResult {
 //                flag = true;
 //
 //                file.deleteFile("/target/download-files/" + targetReportFile);
-
             } else if (format.equals("xls")) {
 //                Workbook workbook1=new Workbook();
 //                workbook1.loadFromFile(curPath + "/" + sourceReportFile);
@@ -545,7 +545,6 @@ public class CompareResult {
 //                flag = true;
 //
 //                file.deleteFile("/target/download-files/" + targetReportFile);
-
             } else if (format.equals("pdf")) {
                 flag = true;
             }
@@ -570,9 +569,7 @@ public class CompareResult {
                 int count = 0;
                 // compare data-buffer objects //
                 if (size1 == size2) { // checks the size of the both the bufferedImage
-
                     for (int i = 0; i < size1; i++) {
-
                         if (db1.getElem(i) == db2.getElem(i)) { // checks bufferedImage array is same in both the image
                             count = count + 1;
                         }
