@@ -32,10 +32,10 @@ Feature: 仪表盘详情行布局
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | name      | spl                                   |
-      | 行布局趋势图1 | *\|stats count() by 'apache.geo.city' |
-      | 行布局趋势图2 | *\|stats count() by 'apache.geo.city' |
-      | 行布局趋势图3 | *\|stats count() by 'apache.geo.city' |
+      | name        | spl                                   |
+      | 行布局趋势图1 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+      | 行布局趋势图2 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
+      | 行布局趋势图3 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
   @dashboard @dashboardSmoke
   Scenario: 添加行(RZY-4629，RZY-3607)

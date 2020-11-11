@@ -32,7 +32,7 @@ Feature: 仪表盘攻击地图
 
     Examples:
       | spl                                                                                                                                                                                                                                                                                    | name    |
-      | tag:sample* \| parse field=apache.request_query \"^gw_address=(?<gw_address>\\\d+\\\.\\\d+\\\.\\\d+\\\.\\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 | 仪表盘攻击地图 |
+      | tag:sample04061424_chart \| parse field=apache.request_query \"^gw_address=(?<gw_address>\\\d+\\\.\\\d+\\\.\\\d+\\\.\\\d+)\" \| stats count() as cnt, min(apache.geo.latitude) as client_lat, min(apache.geo.longitude) as client_lon by apache.clientip, gw_address \| eval gw_lat=39.5427 \| eval gw_lon=116.2317 | 仪表盘攻击地图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页

@@ -156,8 +156,8 @@ Feature: 仪表盘详情页
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | name      | spl                                   |
-      | 验证仪表盘全局时间 | *\|stats count() by 'apache.geo.city' |
+      | name            | spl                                   |
+      | 验证仪表盘全局时间 | tag:sample04061424_chart \|stats count() by 'apache.geo.city' |
 
   Scenario: 添加趋势图至仪表盘(RZY-3389)
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
