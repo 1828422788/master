@@ -183,7 +183,7 @@ Feature: 仪表盘过滤项
     And I set the parameter "FilterField" with value "apache.geo.city"
     And I choose the "动态菜单" from the "InputType"
     And I set the parameter "DynamicField" with value "apache.geo.city"
-    And I set the parameter "Spl" with value "* | stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 | stats count() by apache.geo.city"
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "Search" button under some element
@@ -458,7 +458,7 @@ Feature: 仪表盘过滤项
 
     Examples:
       | name      | spl                                 |
-      | 测试仪表盘eval | *\|stats count() by 'apache.status' |
+      | 测试仪表盘eval | appname:apache\|stats count() by 'apache.status' |
 
   @dashboard @dashboardSmoke
   Scenario: 删除趋势图
@@ -529,7 +529,7 @@ Feature: 仪表盘过滤项
     And I wait for "500" millsecond
     When the chart title is "测试仪表盘eval" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
-    And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "*|stats count() by 'apache.status'","startTime": "-1d/d","endTime": "now/d"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "target2","value": "${click.value2}-9101"}]}}" to json editor
+    And I set the parameter "{"title": "测试仪表盘eval","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "appname:apache|stats count() by 'apache.status'","startTime": "-1d/d","endTime": "now/d"},"chart": {"chartType": "table"},"drilldown": {"type": "local","targets": [{"action": "eval","name": "target2","value": "${click.value2}-9101"}]}}" to json editor
     And I click the "Check" button
     Then I will see the success message "校验通过"
     And I click the "Ensure" button
