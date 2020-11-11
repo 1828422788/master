@@ -254,12 +254,12 @@ Feature: 仪表盘事件列表
     And I wait for loading invisible
     And I set the parameter "ChartTitle" with value "通用配置"
     And I wait for "500" millsecond
-    And I set the parameter "Spl" with value "*|stats count() by apache.geo.city"
+    And I set the parameter "Spl" with value "'apache.geo.city': 成都市"
     And I click the "OpenInSearch" button
     And switch to another window
 #    And I close all tabs except main tab
     Then I will see the "splSearch.SearchPage" page
-    Then I will see the element "SearchInput" name is "*|stats count() by apache.geo.city"
+    Then I will see the element "SearchInput" name is "'apache.geo.city': 成都市"
     Then I will see the input element "TimeRange" value will contains "今天"
     And switch to another window
     And I close all tabs except main tab
@@ -289,7 +289,7 @@ Feature: 仪表盘事件列表
 
     Examples:
       | name        | json                                                                                                                                                                                                                          |
-      | 仪表盘事件操作 | {\n  "title": "通用配置",\n  "description": "测试描述",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 6,\n  "search": {\n    "query": "*\|stats count() by apache.geo.city",\n    "startTime": "now/d",\n    "endTime": "now"\n  }\n} |
+      | 仪表盘事件操作 | {\n  "title": "通用配置",\n  "description": "测试描述",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 6,\n  "search": {\n    "query": "'apache.geo.city': 成都市",\n    "startTime": "now/d",\n    "endTime": "now"\n  }\n} |
 
 
   @dashboard @dashboardSmoke
@@ -304,7 +304,7 @@ Feature: 仪表盘事件列表
     And I wait for "500" millsecond
 
   @dashboard @dashboardSmoke
-  Scenario: 跳转到搜索页 RZY-3622
+  Scenario: 跳转到搜索页1 RZY-3622
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -315,13 +315,18 @@ Feature: 仪表盘事件列表
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
+#    And I wait for "HoverElement" will be visible
+#    And I click the "HoverElement" button
+    And I move the mouse pointer to the "HoverElement"
+    And I click the "IconRight" button
     And I click the "Chengdushi" button
     And switch to another window
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "* AND 'apache.geo.city':成都市"
+    Then I will see the "SearchInput" result will be "apache.geo.city:成都市 AND 'apache.geo.city':成都市"
 
   @dashboard @dashboardSmoke
-  Scenario: 跳转到搜索页 RZY-3622
+  Scenario: 跳转到搜索页2 RZY-3622
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘事件操作"
@@ -337,6 +342,11 @@ Feature: 仪表盘事件列表
     And I click the "WholeTime" button
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
+#    And I wait for "HoverElement" will be visible
+#    And I click the "HoverElement" button
+    And I move the mouse pointer to the "HoverElement"
+    And I click the "IconRight" button
     And I click the "Chengdushi" button
     And switch to another window
     And I close all tabs except main tab
@@ -357,6 +367,11 @@ Feature: 仪表盘事件列表
     And I set the parameter "Url" with value "<url>"
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
+#    And I wait for "HoverElement" will be visible
+#    And I click the "HoverElement" button
+    And I move the mouse pointer to the "HoverElement"
+    And I click the "IconRight" button
     And I wait for "Chengdushi" will be visible
     And I click the "Chengdushi" button
     And switch to another window
@@ -405,6 +420,11 @@ Feature: 仪表盘事件列表
     And I click the "StartEnd" button
     And I "checked" the checkbox which name is "在浏览器新标签页中打开"
     And I click the "Ensure" button
+    And I wait for "500" millsecond
+#    And I wait for "HoverElement" will be visible
+#    And I click the "HoverElement" button
+    And I move the mouse pointer to the "HoverElement"
+    And I click the "IconRight" button
     And I click the "Chengdushi" button
     And switch to another window
     And I close all tabs except main tab
@@ -453,6 +473,11 @@ Feature: 仪表盘事件列表
     And I click the "ParamValue1" button
     And I click the "ClickValue1" button
     And I click the "Ensure" button
+    And I wait for "500" millsecond
+#    And I wait for "HoverElement" will be visible
+#    And I click the "HoverElement" button
+    And I move the mouse pointer to the "HoverElement"
+    And I click the "IconRight" button
     And I click the "Chengdushi" button
     And I wait for "Progress" will be invisible
     Then I will see the element "FilterInput" value is "成都市"
