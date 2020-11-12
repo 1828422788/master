@@ -70,7 +70,7 @@ public class EmbeddingFileToReport {
         String type = SharedDriver.WebDriverType;
         String targetReportFile = webDriver.findElement(By.xpath("(//tbody/tr/td)[1]")).getText();
         String curPath = System.getProperty("user.dir");
-        String targDir = "/target/download-files/";
+        String targDir = "./target/download-files/";
         String[] path = targetReportFile.split("_");
         String fileName = path[0];
         for(int i = 1; i<path.length-1; i++) {
@@ -86,6 +86,7 @@ public class EmbeddingFileToReport {
             SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
             sftpUtil.login();
             try {
+                System.out.println(targDir + "--->" + targetReportFile);
                 sftpUtil.download(targDir, targetReportFile, targDir + fileName);
                 sftpUtil.delete(targDir, targetReportFile);
             } catch (SftpException e) {
