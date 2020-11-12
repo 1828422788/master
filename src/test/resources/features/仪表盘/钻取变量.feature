@@ -31,13 +31,13 @@ Feature: 仪表盘钻取配置-钻取变量
     And I wait for "SuccessCreate" will be visible
 
     Examples:
-      | name          | spl                                                       |
-      | 钻取变量字符云图 | tag:* \| stats count() by apache.clientip \| limit 10     |
-      | 钻取变量区划地图 | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
-      | 钻取变量饼图    | tag:* \| stats count() by apache.clientip \| limit 10     |
-      | 钻取变量表格    | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
-      | 钻取变量单值    | tag:*display \| stats avg(apache.status) \|eval icon=if('avg(apache.status)'>300,'thumbs-down','thumbs-up')    |
-      | 钻取变量单值value    | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
+      | name            | spl                                                       |
+      | 钻取变量字符云图   | tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 \| stats count() by apache.clientip \| limit 10     |
+      | 钻取变量区划地图   | tag:sample04061424 \| stats count() by apache.geo.country,apache.geo.province,apache.geo.city |
+      | 钻取变量饼图      | tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 \| stats count() by apache.clientip \| limit 10     |
+      | 钻取变量表格      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
+      | 钻取变量单值      | tag:sample04061424_display \| stats avg(apache.status) \|eval icon=if('avg(apache.status)'>300,'thumbs-down','thumbs-up')    |
+      | 钻取变量单值value | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页

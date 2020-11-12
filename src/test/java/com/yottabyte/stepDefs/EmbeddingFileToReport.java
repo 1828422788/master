@@ -1,5 +1,6 @@
 package com.yottabyte.stepDefs;
 
+import com.jcraft.jsch.SftpException;
 import com.yottabyte.config.ConfigManager;
 import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.EmbeddingFile;
@@ -11,6 +12,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 /**
  * @author sunxj
@@ -59,26 +65,39 @@ public class EmbeddingFileToReport {
         }
     }
 
-    @Then("^I download latest report to local$")
+    @Then("^I download the latest report to local$")
     public void downloadReportToLocal() {
-        FileOutputStream outputStream = null;
-        try {
-            String fileName = webDriver.findElement(By.xpath("(//tbody/tr/td)[1]")).getText();
-            File file = new File("downloadFile/" + fileName);
-            file.createNewFile();
+        String type = SharedDriver.WebDriverType;
+        String targetReportFile = webDriver.findElement(By.xpath("(//tbody/tr/td)[1]")).getText();
+        String curPath = System.getProperty("user.dir");
+        String targDir = "./target/download-files/";
+        String[] path = targetReportFile.split("_");
+        String fileName = path[0];
+        for(int i = 1; i<path.length-1; i++) {
+            fileName = fileName.concat("_" + path[i]);
+        }
+        fileName = fileName.concat("." + targetReportFile.split("\\.")[1]);
+        File directory = new File(targDir);
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
+        if ("Remote".equalsIgnoreCase(type)) {
             ConfigManager config = new ConfigManager();
-            SFTPUtil util = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
-            util.login();
-            byte[] bytes = util.download("target/download-files/", fileName);
-            outputStream = new FileOutputStream(file);
-            outputStream.write(bytes);
-            outputStream.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+            SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
+            sftpUtil.login();
             try {
-                if (outputStream != null)
-                    outputStream.close();
+                System.out.println(targDir + "--->" + targetReportFile);
+                sftpUtil.download(targDir, targetReportFile, targDir + fileName);
+                sftpUtil.delete(targDir, targetReportFile);
+            } catch (SftpException e) {
+                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Path yourFile = Paths.get(curPath + targDir +targetReportFile);
+            try {
+                Files.move(yourFile, yourFile.resolveSibling(curPath + targDir + fileName),REPLACE_EXISTING);
             } catch (IOException e) {
                 e.printStackTrace();
             }

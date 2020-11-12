@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -68,7 +69,7 @@ public class SetKeyWithValue {
      * @param elementName 输入框元素名称
      */
     @And("^I set the parameter \"([^\"]*)\" with current date$")
-    public void seParamWithCurrentDate(String elementName) {
+    public void setParamWithCurrentDate(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date(System.currentTimeMillis());
@@ -82,12 +83,34 @@ public class SetKeyWithValue {
      * @param elementName 输入框元素名称
      */
     @And("^I set the parameter \"([^\"]*)\" with yesterday date$")
-    public void seParamWithYesterdayDate(String elementName) {
+    public void setParamWithYesterdayDate(String elementName) {
         WebElement element = GetElementFromPage.getWebElementWithName(elementName);
         SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date(System.currentTimeMillis()-24*60*60*1000);
         String current_date = formatter.format(date);
         iSetTheParameterWithValue(element, current_date);
+    }
+
+    /**
+     * 在report中使用，将执行时间设置为当前时间后addMinutes分钟
+     * @param hourElement 输入框小时元素名称
+     * @param minuteElement 输入框分钟元素名称
+     */
+    @And("^I set the parameters \"([^\"]*)\" and \"([^\"]*)\" as \"([^\"]*)\" minutes later from now$")
+    public void seParamWithAsFewMinLater(String hourElement, String minuteElement, int addMinutes) {
+        WebElement elementHour = GetElementFromPage.getWebElementWithName(hourElement);
+        WebElement elementMinute = GetElementFromPage.getWebElementWithName(minuteElement);
+        int hours = LocalDateTime.now().getHour();
+        int minutes = LocalDateTime.now().getMinute() + addMinutes;
+        if (minutes > 59) {
+            minutes = minutes % 60;
+            hours = hours + 1;
+        }
+        if (hours > 23) {
+            hours = 0;
+        }
+        iSetTheParameterWithValue(elementHour, Integer.toString(hours));
+        iSetTheParameterWithValue(elementMinute, Integer.toString(minutes));
     }
 
     /**

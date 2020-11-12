@@ -32,7 +32,7 @@ Feature: 仪表盘雷达图
 
     Examples:
       | spl                                                                        | name   |
-      | tag:*display \| stats count() by apache.clientip,apache.status \| limit 10 | 仪表盘雷达图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip,apache.status \| limit 10 | 仪表盘雷达图 |
 
   @dashboard
   Scenario Outline: 新建标签页

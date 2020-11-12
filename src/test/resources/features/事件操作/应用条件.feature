@@ -3,6 +3,7 @@ Feature: 事件操作应用条件
 
   Scenario: 新建字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for "Create" will be visible
     Then I wait for loading invisible
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
@@ -21,11 +22,12 @@ Feature: 事件操作应用条件
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
+  @test
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "eventTest"
     And I set the parameter "Tag" with value "eventTest"
-    And I upload a file with name "/src/test/resources/testdata/log/autotest.csv"
+    And I upload a file with name "/src/test/resources/testdata/log/autotest.txt"
     And I click the "UploadButton" button
     And I wait for element "VerifyText" change text to "上传完成"
 

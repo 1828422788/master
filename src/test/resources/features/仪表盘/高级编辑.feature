@@ -33,7 +33,7 @@ Feature: 仪表盘高级编辑
 
     Examples:
       | spl                                                                           | name   |
-      | tag:*display \| stats count() by apache.clientip,apache.resp_len \| limit 10  | 仪表盘所有 |
+      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10  | 仪表盘所有 |
 
   @dashboard @dashboardSmoke
   Scenario: 新建标签页

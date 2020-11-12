@@ -59,7 +59,6 @@ Feature: 定时任务_结果处理方式
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 |      |        |                |           | 端口 不能为空         |
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  |                |           | 数据库名 不能为空     |
       | mysqlrzy    | root     | rizhiyi&2014 | 192.168.1.139 | 3306 | mysql  | rizhiyi_system |           | 数据库表名称 不能为空  |
-      | oraclerzy   | system   | oracle       | 192.168.1.88  | 1521 | oracle | XE             | DATAAJ    | 验证成功              |
 
   Scenario Outline: add_jdbc
     Given open the "timedTask.ListPage" page for uri "/schedule/"

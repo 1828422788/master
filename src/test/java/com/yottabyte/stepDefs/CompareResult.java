@@ -1,16 +1,11 @@
 package com.yottabyte.stepDefs;
 
-import com.jcraft.jsch.SftpException;
 //import com.spire.xls.Workbook;
 //import com.spire.xls.Worksheet;
-import com.yottabyte.config.ConfigManager;
-import com.yottabyte.hooks.LoginBeforeAllTests;
 import com.yottabyte.utils.EmbeddingFile;
 import com.yottabyte.utils.GetElementFromPage;
 import com.yottabyte.utils.ImageComparison;
 import com.yottabyte.utils.JsonStringPaser;
-import com.yottabyte.utils.SFTPUtil;
-import com.yottabyte.webDriver.SharedDriver;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 //import fr.opensagres.poi.xwpf.converter.pdf.PdfConverter;
@@ -19,8 +14,6 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
 //import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import javax.imageio.ImageIO;
@@ -28,9 +21,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBuffer;
 import java.io.*;
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -43,9 +34,6 @@ public class CompareResult {
     private static String count;
     private static String value;
     private List<String> list;
-    static UploadFile file = new UploadFile();
-    ConfigManager config = new ConfigManager();
-    private WebDriver webDriver = LoginBeforeAllTests.getWebDriver();
 
     public static String getClientIp() {
         return clientIp;
@@ -499,54 +487,15 @@ public class CompareResult {
         FileInputStream fis1 = null;
         FileInputStream fis2 = null;
 
-        targetReportFile = webDriver.findElement(By.xpath("(//tbody/tr/td)[1]")).getText();
-        String targdir = curPath + "/target/download-files/";
-
-        File directory = new File(targdir);
-        if (!directory.exists()) {
-            directory.mkdir();
-        }
-
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-        Date date = new Date(System.currentTimeMillis());
-        String current_date = formatter.format(date);
-
         String PATH = curPath + "/actual";
 
-        String type = SharedDriver.WebDriverType;
-        if ("Remote".equalsIgnoreCase(type)) {
-            SFTPUtil sftpUtil = new SFTPUtil(config.get("ftp_user"), config.get("ftp_password"), config.get("selenium_server_host"), 22);
-            sftpUtil.login();
-            try {
-                sftpUtil.download(targdir, targetReportFile, targdir + targetReportFile);
-            } catch (SftpException e) {
-                e.printStackTrace();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        } else {
-            PATH = PATH.concat("/report" + current_date);
-        }
-
-        directory = new File(PATH);
+        File directory = new File(PATH);
         if (!directory.exists()) {
             directory.mkdir();
         }
 
         try {
-            File dir = new File(curPath + "/target/download-files/");
             String format = targetReportFile.split("\\.")[1];
-            String targetName = targetReportFile.split("\\.")[0];
-
-//            File[] foundFiles = dir.listFiles();
-//            if (foundFiles != null) {
-//                for (File foundFile : foundFiles) {
-//                    if (foundFile.getName().startsWith(targetName + "_" + current_date) && foundFile.getName().endsWith(format)) {
-//                        targetReportFile = foundFile.getName();
-//                        break;
-//                    }
-//                }
-//            }
 
             fis1 = new FileInputStream(curPath + "/" + sourceReportFile);
             fis2 = new FileInputStream(curPath + "/target/download-files/" + targetReportFile);
@@ -554,7 +503,7 @@ public class CompareResult {
             System.out.println("Comparing files: " + "<" + sourceReportFile + "> and <" + targetReportFile + ">");
 
             String path1 = curPath + "/" + sourceReportFile.split("\\.")[0];
-            String path2 = PATH+ "/" + sourceReportFile.split("\\/")[1].split("\\.")[0];
+            String path2 = PATH+ "/" + targetReportFile.split("\\.")[0];
             BufferedImage image1, image2;
 
             //indicates whether pdfs are created or not
@@ -626,7 +575,7 @@ public class CompareResult {
                         }
                     }
                     percentage = ((double) count * 100) / size1; // calculates matching percentage
-                    if (percentage < 99) {
+                    if (percentage < 93) {
                         System.out.printf("文件内容不一样: %.2f \n", percentage);
                         EmbeddingFile.embedImage(path1 + ".png");
                         EmbeddingFile.embedImage(path2 + ".png");
@@ -642,8 +591,6 @@ public class CompareResult {
                 //Closing the document
                 document1.close();
                 document2.close();
-
-                file.deleteFile("/target/download-files/" + targetReportFile);
             }
 
         } catch (FileNotFoundException e) {
@@ -664,7 +611,6 @@ public class CompareResult {
             if (fis2 != null) {
                 try {
                     fis2.close();
-                    file.deleteFile("/target/download-files/" + targetReportFile);
                 } catch (IOException e) {
                     //忽略
                     e.printStackTrace();
