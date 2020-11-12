@@ -524,7 +524,7 @@ public class CompareResult {
                         }
                     }
                     percentage = ((double) count * 100) / size1; // calculates matching percentage
-                    if (percentage < 99) {
+                    if (percentage < 93) {
                         System.out.printf("文件内容不一样: %.2f \n", percentage);
                         EmbeddingFile.embedImage(path1 + ".png");
                         EmbeddingFile.embedImage(path2 + ".png");
