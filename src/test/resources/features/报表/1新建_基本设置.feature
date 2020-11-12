@@ -120,8 +120,7 @@ Feature: 报表新建_执行计划
     When I set the parameter "Name" with value "test_report_<type>"
     And I set the parameter "Describe" with value "AutoCreate"
     And I choose the "<type>" from the "ReportType"
-    And I set the parameter "Hour" with value "12"
-    And I set the parameter "Minute" with value "00"
+    And I set the parameters "Hour" and "Minute" as "5" minutes later from now
     And I click the "NextButton" button under some element
     Then I wait for "ChartListButton" will be visible
     When I choose the "table_Order" from the "ChartList"
