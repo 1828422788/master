@@ -22,6 +22,7 @@ Feature: 事件操作应用条件
     And I click the "Done" button
     Then I wait for "ConfigDone" will be visible
 
+  @test
   Scenario: 上传日志
     When open the "localUpload.ListPage" page for uri "/sources/input/os/"
     And I set the parameter "AppName" with value "eventTest"
