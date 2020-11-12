@@ -459,7 +459,7 @@ Feature: 仪表盘过滤项
     Examples:
       | name      | spl                                 |
       | 测试仪表盘eval | appname:apache\|stats count() by 'apache.status' |
-      | 仪表盘过滤项所用趋势图| tag: sample04061424_chart \|stats count() by 'apache.geo.city' |
+      | 仪表盘过滤项所用趋势图| tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 \| stats count() by apache.geo.city |
 
   @dashboard @dashboardSmoke
   Scenario: 删除趋势图
