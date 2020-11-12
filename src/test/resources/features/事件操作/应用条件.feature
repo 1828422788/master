@@ -3,6 +3,7 @@ Feature: 事件操作应用条件
 
   Scenario: 新建字段提取
     Given open the "configs.ListPage" page for uri "/configs/"
+    And I wait for "Create" will be visible
     Then I wait for loading invisible
     And I click the "Create" button
     Then I will see the "configs.CreatePage" page
