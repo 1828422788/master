@@ -459,6 +459,7 @@ Feature: 仪表盘过滤项
     Examples:
       | name      | spl                                 |
       | 测试仪表盘eval | appname:apache\|stats count() by 'apache.status' |
+      | 仪表盘过滤项所用趋势图| tag: sample04061424_chart \|stats count() by 'apache.geo.city' |
 
   @dashboard @dashboardSmoke
   Scenario: 删除趋势图
@@ -500,9 +501,9 @@ Feature: 仪表盘过滤项
     And I click the "AddEventButton" button
     And I click the "AddChart" button
     And I wait for "SpinDot" will be invisible
-    And I set the parameter "SearchChartInput" with value "仪表盘所用趋势图"
+    And I set the parameter "SearchChartInput" with value "仪表盘过滤项所用趋势图"
     And I wait for loading invisible
-    And I click the "{'Checkbox':'仪表盘所用趋势图'}" button
+    And I click the "{'Checkbox':'仪表盘过滤项所用趋势图'}" button
     And I click the "Ensure" button
 
   @dashboard @dashboardSmoke
@@ -516,7 +517,7 @@ Feature: 仪表盘过滤项
     And I click the "FilterSetting" button
     Then I wait for "ListForBang" will be visible
     And I "checked" the checkbox which name is "测试仪表盘eval"
-    And I "checked" the checkbox which name is "仪表盘所用趋势图"
+    And I "checked" the checkbox which name is "仪表盘过滤项所用趋势图"
     Then I click the "Ensure" button
     And I wait for loading invisible
 
