@@ -1,5 +1,5 @@
 @yibiaopanshuruxiang
-Feature: 多选菜单数组操作
+Feature: 仪表盘多选菜单数组操作
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建仪表盘

@@ -32,7 +32,7 @@ Feature: 仪表盘和弦图
 
     Examples:
       | spl                                                                                                                                                                                                            | name   |
-      | tag:*display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | 仪表盘和弦图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip,apache.x_forward,apache.resp_len,apache.method \| rename apache.clientip as apache.x_forward_group\| rename apache.method as apache.resp_len_group\| limit 20 | 仪表盘和弦图 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页

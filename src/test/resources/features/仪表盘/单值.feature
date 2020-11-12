@@ -32,7 +32,7 @@ Feature: 仪表盘单值
 
     Examples:
       | spl                                                                                                | name  |
-      | tag:*display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | 仪表盘单值 |
+      | tag:sample04061424_display \| stats avg(apache.status) as a_\|eval icon=if(a_>300,\"thumbs-down\",\"thumbs-up\") | 仪表盘单值 |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页
