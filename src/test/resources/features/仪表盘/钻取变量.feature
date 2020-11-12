@@ -37,7 +37,7 @@ Feature: 仪表盘钻取配置-钻取变量
       | 钻取变量饼图      | tag:sample04061424_display OR tag:sample04061424_chart OR tag:sample04061424 \| stats count() by apache.clientip \| limit 10     |
       | 钻取变量表格      | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
       | 钻取变量单值      | tag:sample04061424_display \| stats avg(apache.status) \|eval icon=if('avg(apache.status)'>300,'thumbs-down','thumbs-up')    |
-      | 钻取变量单值value | tag:sample04061424_displayy \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
+      | 钻取变量单值value | tag:sample04061424_display \| stats count() by apache.clientip,apache.resp_len \| limit 10     |
 
   @dashboard @dashboardSmoke
   Scenario Outline: 新建标签页

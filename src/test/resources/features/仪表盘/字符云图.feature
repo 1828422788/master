@@ -32,7 +32,7 @@ Feature: 仪表盘字符云图
 
     Examples:
       | spl                                                          | name    |
-      | tag:*display \| stats count() by apache.clientip, apache.resp_len \| limit 10 | 仪表盘字符云图 |
+      | tag:sample04061424_display \| stats count() by apache.clientip, apache.resp_len \| limit 10 | 仪表盘字符云图 |
 
   @dashboard
   Scenario Outline: 新建标签页
@@ -115,7 +115,7 @@ Feature: 仪表盘字符云图
 
     Examples:
       | name    | json                                                                                                                                                                                                                                                                                                                                                                           |
-      | 仪表盘字符云图 | {\n  "title": "仪表盘字符云图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:*display \| stats count() by apache.clientip, apache.resp_len \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "wordcloud",\n    "field": "count()",\n    "category": "apache.clientip"\n  }\n} |
+      | 仪表盘字符云图 | {\n  "title": "仪表盘字符云图",\n  "description": "",\n  "x": 0,\n  "y": 0,\n  "w": 12,\n  "h": 5,\n  "search": {\n    "query": "tag:sample04061424_display \| stats count() by apache.clientip, apache.resp_len \| limit 10",\n    "startTime": "now/d",\n    "endTime": "now"\n  },\n  "chart": {\n    "chartType": "wordcloud",\n    "field": "count()",\n    "category": "apache.clientip"\n  }\n} |
 
   @dashboard
   Scenario: 修改field为空 RZY-1362
