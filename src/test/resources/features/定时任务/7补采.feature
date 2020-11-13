@@ -36,6 +36,7 @@ Feature:定时任务补采
     And I click the "OK" button
     And I click the "Overwrite" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
     And I will see the data "{'column':'0','name':'Test_Complement_2'}" values "{'column':'6','name':'准备执行'}"
     And I will see the data "{'column':'0','name':'Test_Complement_2'}" values "{'column':'5','name':'是'}"
@@ -51,15 +52,18 @@ Feature:定时任务补采
     And I set the parameter "End" with value "2020-04-28 05:00:00"
     And I click the "OK" button
     And I click the "Ensure" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "创建成功"
     And I refresh the website
     And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'6','name':'准备执行'}"
     And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'5','name':'否'}"
     When the data name is "{'column':'0','name':'Test_Complement'}" then i click the "暂停" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "暂停成功"
     And I refresh the website
     And I will see the data "{'column':'0','name':'Test_Complement'}" values "{'column':'6','name':'停止'}"
     When the data name is "{'column':'0','name':'Test_Complement'}" then i click the "恢复" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "恢复成功"
 
 
@@ -69,6 +73,7 @@ Feature:定时任务补采
     When I click the "CreateComplement" button
     Then I wait for "ComplementPanel" will be visible
     When I click the "Ensure" button
+    And I wait for "Notice" will be visible
     Then I will see the element "Notice" contains "请选择定时任务"
 
   Scenario: create_complement_checkfields_interval
@@ -78,6 +83,7 @@ Feature:定时任务补采
     Then I wait for "ComplementPanel" will be visible
     When I choose the "Test_Complement" from the "SelectName"
     And I click the "Ensure" button
+    And I wait for "Notice" will be visible
     Then I will see the element "Notice" contains "请选择时间范围"
 
   Scenario: create_complement_checkfields_interval2
@@ -91,5 +97,6 @@ Feature:定时任务补采
     And I set the parameter "End" with value "2029-04-28 05:00:00"
     And I click the "OK" button
     And I click the "Ensure" button
+    And I wait for "Notice" will be visible
     Then I will see the element "Notice" contains "非法时间范围"
 
