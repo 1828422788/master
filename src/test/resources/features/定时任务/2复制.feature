@@ -48,10 +48,12 @@ Feature: 定时任务复制
     Then I will see the "timedTask.ListPage" page
 
     When the data name is "{'column':'1','name':'copytask'}" then i click the "复制" button
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "复制成功"
     And I wait for "SuccessMessage" will be invisible
     And I will see the search result contains "{'column':'1','name':'copytask(副本)'}"
     And the data name is "{'column':'1','name':'copytask(副本)'}" then I "open" the switch
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "开启成功"
 
 
@@ -86,6 +88,7 @@ Feature: 定时任务复制
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'<name>'}" then i click the "删除" button
     And I click the "Ensure" button under some element
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
     Examples:

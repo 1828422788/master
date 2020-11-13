@@ -56,6 +56,7 @@ Feature: 定时任务标签
     Given open the "timedTask.ListPage" page for uri "/schedule/"
     When the data name is "{'column':'1','name':'Tag_Schedule'}" then i click the "删除" button
     And I click the "Ensure" button under some element
+    And I wait for "SuccessMessage" will be visible
     Then I will see the success message "删除成功"
 
 
