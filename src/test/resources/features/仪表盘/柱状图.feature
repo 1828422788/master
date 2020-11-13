@@ -143,7 +143,7 @@ Feature: 仪表盘柱状图
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
-    And I set the parameter "Spl" with value "* | stats count() by ${click.name}"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() by ${click.name}"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
@@ -153,7 +153,7 @@ Feature: 仪表盘柱状图
     And I click the "Zhutiao" button
     Then I wait for title change text to "搜索"
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "* | stats count() by apache.clientip"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by apache.clientip"
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
@@ -194,7 +194,7 @@ Feature: 仪表盘柱状图
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
-    And I set the parameter "Spl" with value "* | stats ${click.name2} by appname"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats ${click.name2} by appname"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
@@ -205,7 +205,7 @@ Feature: 仪表盘柱状图
     And switch to another window
 #    And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will be "* | stats count() by appname"
+    Then I will see the "SearchInput" result will be "tag:sample04061424_display | stats count() by appname"
     Then I will see the input element "TimeRange" value will contains "今天"
 
   @dashboard
@@ -220,7 +220,7 @@ Feature: 仪表盘柱状图
     And I wait for "500" millsecond
     And I choose the "跳转到搜索页" from the "DrillAction"
     And I click the "Custom" button
-    And I set the parameter "Spl" with value "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==${click.value2}"
+    And I set the parameter "Spl" with value "tag:sample04061424_display | stats count() as cn by apache.resp_len,apache.clientip | where cn==${click.value2}"
     And I click the "DateEditor" button
     And I click the "Shortcut" button
     And I click the "Today" button
@@ -231,7 +231,7 @@ Feature: 仪表盘柱状图
     And switch to another window
     And I close all tabs except main tab
     And I will see the "splSearch.SearchPage" page
-    Then I will see the "SearchInput" result will contain "* | stats count() as cn by apache.resp_len,apache.clientip | where cn=="
+    Then I will see the "SearchInput" result will contain "tag:sample04061424_display | stats count() as cn by apache.resp_len,apache.clientip | where cn=="
 #    Then I will see the "SearchInput" result will be "* | stats count() as cn by apache.resp_len,apache.clientip | where cn==6"
 
   @cleanDashboard
