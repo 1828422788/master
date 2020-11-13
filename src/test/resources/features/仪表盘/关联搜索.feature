@@ -141,6 +141,7 @@ Feature: 仪表盘关联搜索
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1500" millsecond
     When the chart title is "仪表盘workflow" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Configs" button
     And I wait for loading invisible
