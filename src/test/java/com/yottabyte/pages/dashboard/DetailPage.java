@@ -267,6 +267,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='仪表盘饼状图']/parent::div")
     private WebElement dimensionChart;
 
+    @FindBy(xpath = "//div[text()='仪表盘曲线图']/parent::div")
+    private WebElement sequenceChart;
+
     @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-AxirZ')]")
     private WebElement multiYaxisLegend;
 
@@ -1619,6 +1622,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getDimensionChart() {
         return dimensionChart;
+    }
+
+    public WebElement getSequenceChart() {
+        return sequenceChart;
     }
 
     public WebElement getMultiYaxisLegend() {

@@ -157,8 +157,35 @@ Feature: 仪表盘曲线图
     And I click the "Check" button
     Then I wait for element "ErrorMessage" change text to "chart -> chartType 字段值不支持"
 
+  @dashboard @dashboardSmoke
+  Scenario Outline: chartType字段-置为序列图其他类型 RZY-1282,RZY-1283,RZY-1284
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘曲线图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘曲线图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "<chartType>","xAxis": {"field": "apache.clientip","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    And I wait for "500" millsecond
+    Then I will see the success message "校验通过"
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Then take part of "SequenceChart" with name "actual/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
+
+    Examples:
+      | chartType |   image                  |
+      | area      | 序列图_chartType_area     |
+      | scatter   | 序列图_chartType_scatter  |
+      | column    | 序列图_chartType_column   |
+
   @dashboard
-  Scenario: 修改xAxis field字段值置为空 field字段值置为空
+  Scenario: 修改xAxis field字段值置为空 RZY-1285
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
     And I wait for loading invisible
     And I click the detail which name is "仪表盘曲线图"
@@ -170,6 +197,55 @@ Feature: 仪表盘曲线图
     And I wait for "500" millsecond
     And I click the "Check" button
     Then I wait for element "ErrorMessage" change text to "chart -> field 字段值不能为空"
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: field byFields RZY-1286,RZY-1287
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "仪表盘曲线图"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "仪表盘曲线图" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "<field>","labelRotate": "right","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["<byField>"],"legend": {"placement": "bottom"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+    Then I will see the success message "校验通过"
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Then take part of "SequenceChart" with name "actual/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
+
+    Examples:
+      | field              | byField         |   image                     |
+      | apache.resp_len    | apache.clientip | 序列图_xAxis_Field_existed   |
+      | apache.clientippppp| apache.resp_len | 序列图_xAxis_Field_error     |
+
+  @dashboard @dashboardSmoke
+  Scenario Outline: labelRotate-left-right-horizontal-vertical RZY-1325,RZY-1326,RZY-1327,RZY-1328
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "<labelRotate>","sortOrder": "asc"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+#    Then I will see the success message "校验通过"
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Then I will see the element "XaxisField" transform contains "<rotate>"
+
+    Examples:
+      | name       |   labelRotate  |  rotate       |
+      | 仪表盘曲线图 |   horizontal   |  rotate(0)    |
+      | 仪表盘曲线图 |      right     |  rotate(45)   |
+      | 仪表盘曲线图 |    vertical    |  rotate(-90)  |
 
   @dashboard
   Scenario: 修改yAxis field字段值置为空 RZY-1301
