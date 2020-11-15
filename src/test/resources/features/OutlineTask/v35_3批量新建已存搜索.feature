@@ -11,11 +11,12 @@ Feature: 新建全部已存搜索用例
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I choose1 the "新建" from the "SavedSearch"
-    And I wait for loading invisible
+    Then I choose1 the "新建" from the "SavedSearchList"
+    And I wait for loading complete
     And I set the parameter "SavedSearchName" with value "<name>"
     And I choose the "auto_ui" from the "GroupComboBox"
     And I click the "EnsureCreateSavedSearch" button
+    And I wait for loading complete
     Then I will see the success message "创建成功"
 
     @newallsaved

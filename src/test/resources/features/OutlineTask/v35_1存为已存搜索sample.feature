@@ -11,11 +11,13 @@ Feature: 已存搜索新建（RZY-150）
     And I click the "DateEditor" button
     And I click the "Today" button
     And I click the "SearchButton" button
-    And I choose1 the "新建" from the "SavedSearch"
-    And I wait for loading invisible
+#    And I choose1 the "新建" from the "SavedSearch"
+    Then I choose1 the "新建" from the "SavedSearchList"
+    And I wait for loading complete
     And I set the parameter "SavedSearchName" with value "<name>"
     And I choose the "<group>" from the "GroupComboBox"
     And I click the "EnsureCreateSavedSearch" button
+    And I wait for loading complete
     Then I will see the success message "创建成功"
 
     @smoke @splSmoke
