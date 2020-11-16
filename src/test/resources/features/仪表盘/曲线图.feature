@@ -247,6 +247,32 @@ Feature: 仪表盘曲线图
       | 仪表盘曲线图 |      right     |  rotate(45)   |
       | 仪表盘曲线图 |    vertical    |  rotate(-90)  |
 
+  @dashboard @dashboardSmoke
+  Scenario Outline: sortOrder-asc-desc-default RZY-1295,RZY-1296,RZY-1297
+    Given open the "dashboard.ListPage" page for uri "/dashboard/"
+    And I wait for loading invisible
+    And I click the detail which name is "<name>"
+    Then I will see the "dashboard.DetailPage" page
+    And I wait for "Progress" will be invisible
+    When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
+    And I click the "Edit" button
+    Then I set the parameter "{"title": "仪表盘曲线图","description": "","x": 0,"y": 0,"w": 12,"h": 5,"search": {"query": "tag:sample04061424_display | stats count() by apache.clientip,apache.resp_len","startTime": "now/d","endTime": "now"},"chart": {"chartType": "line","xAxis": {"field": "apache.clientip","labelRotate": "left","sortOrder": "<sortOrder>"},"precision": "","showAllXAxisLabels": true,"labelInterval": "","customLabel": "","yAxis": {"field": "count()","smooth": true,"unit": "个","connectNull": true,"range": { "min": "","max": ""}},"byFields": ["apache.resp_len"],"legend": {"placement": "bottom"}}}" to json editor
+    And I wait for "500" millsecond
+    And I click the "Check" button
+#    Then I will see the success message "校验通过"
+    And I wait for "500" millsecond
+    Then I click the "Ensure" button
+    And I wait for loading invisible
+    And I wait for "2000" millsecond
+    Then take part of "SequenceChart" with name "actual/<image>"
+#    And I compare source image "actual/<image>" with target image "expect/<image>"
+
+    Examples:
+      | name       |   sortOrder   |    image                 |
+      | 仪表盘曲线图 |      asc      |  序列图_sortOrder_asc     |
+      | 仪表盘曲线图 |      desc     |  序列图_sortOrder_desc    |
+      | 仪表盘曲线图 |    default    |  序列图_sortOrder_default |
+
   @dashboard
   Scenario: 修改yAxis field字段值置为空 RZY-1301
     Given open the "dashboard.ListPage" page for uri "/dashboard/"
