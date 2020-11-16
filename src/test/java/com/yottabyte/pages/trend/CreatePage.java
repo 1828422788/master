@@ -870,7 +870,7 @@ public class CreatePage extends PageTemplate {
         return ring;
     }
 
-    @FindBy(xpath = "(//span[contains(text(),'单位')])[last()]/ancestor::div/following-sibling::input")
+    @FindBy(xpath = "//span[contains(text(),'单位')]/ancestor::div[1]/following-sibling::input")
     private WebElement unit;
 
     @FindBy(xpath = "//span[text()='行数']/preceding-sibling::input")
