@@ -1,5 +1,5 @@
 @event @eventSmoke
-Feature: 事件操作编辑（RZY-1390）
+Feature: 事件操作编辑
 
   Background:
     Given open the "event.ListPage" page for uri "/event/action/"
