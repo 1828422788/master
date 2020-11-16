@@ -273,6 +273,9 @@ public class DetailPage extends PageTemplate {
     @FindBy(xpath = "//div[text()='404']/ancestor::div[contains(@class,'sc-AxirZ')]")
     private WebElement multiYaxisLegend;
 
+    @FindBy(xpath = "//div[contains(@class,'sc-AxjAm')]")
+    private WebElement lineChartLegend;
+
     @FindBy(xpath = "//div[@id='fullscreenAll']//div[@id]/div[1]")
     private WebElement trendTitle;
 
@@ -1630,6 +1633,10 @@ public class DetailPage extends PageTemplate {
 
     public WebElement getMultiYaxisLegend() {
         return multiYaxisLegend;
+    }
+
+    public WebElement getLineChartLegend() {
+        return lineChartLegend;
     }
 
     public WebElement getEnsureEdit() {
