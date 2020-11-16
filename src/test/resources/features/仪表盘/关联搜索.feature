@@ -122,6 +122,7 @@ Feature: 仪表盘关联搜索
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1500" millsecond
     When the chart title is "<name>" then I click the button which classname is "anticon css-ifnfqv ant-dropdown-trigger" in dashboard
     And I click the "Edit" button
     And I set the parameter "<json>" to json editor
@@ -156,6 +157,7 @@ Feature: 仪表盘关联搜索
     And I wait for loading invisible
     And I click the detail which name is "仪表盘关联搜索"
     Then I will see the "dashboard.DetailPage" page
+    And I wait for "1500" millsecond
     When I click the "AddEventButton" button
     And I click the "AddInput" button
     And I set the parameter "FilterTitle" with value "<name>"
