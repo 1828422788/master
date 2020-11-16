@@ -74,14 +74,14 @@ Feature: Agent具体配置高级配置及清理缓存操作
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for loading invisible
-    And I will see the element "CompressStatus" name is "关闭"
+    And I will see the element "CompressStatus" name is "开启"
 
   Scenario: 输出配置开启输出压缩
     And I click the "OutputEdit" button
     And I click the "Compressed" button
     And I click the "Ensure" button
     And I wait for loading invisible
-    And I will see the element "CompressStatus" name is "开启"
+    And I will see the element "CompressStatus" name is "关闭"
 
   Scenario Outline: 输出配置修改发送速率限制
     And I click the "OutputEdit" button
@@ -94,9 +94,15 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
     Examples:
       | sendspeed | sendspeedstatus |
+<<<<<<< HEAD
       | KB/S      | 100.00 KB/s       |
       | B/S       | 100 B/s          |
       | MB/S      | 100.00 MB/s      |
+=======
+      | KB/S      | 10.00 KB/s      |
+      | B/S       | 10 B/s          |
+      | MB/S      | 10.00 MB/s      |
+>>>>>>> 5de9a0fa880b8d2b85102ab3f607855ddb1f6505
 
 
   Scenario Outline: 输出配置修改单行日志最大长度
@@ -109,8 +115,13 @@ Feature: Agent具体配置高级配置及清理缓存操作
 
     Examples:
       | loglength | loglengthstatus |
+<<<<<<< HEAD
       | 70000      | 70000 Byte       |
       | 65536      |  65536 Byte       |
+=======
+      | 10000     | 10000 Byte      |
+      | 65536     | 65536 Byte      |
+>>>>>>> 5de9a0fa880b8d2b85102ab3f607855ddb1f6505
 
 
 

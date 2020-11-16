@@ -691,8 +691,65 @@ public class SearchPage extends ListPageFactory {
     @FindBy(xpath = "//label[text()='文件类型']/following-sibling::div")
     private WebElement fileType;
 
+<<<<<<< HEAD
     public WebElement getCondition() {
         return condition;
+=======
+    @FindBy(xpath = "//th[text()='hostname']/i")
+    private WebElement icon;
+    public WebElement getIcon() {
+        return icon;
+    }
+
+    @FindBy(xpath = "//div[@title='居左']")
+    private  WebElement tableAlignment;
+    public WebElement getTableAlignment() { return tableAlignment; }
+
+    @FindBy(xpath = "//li[text()='居中']")
+    private  WebElement middle;
+    public WebElement getMiddle() { return middle; }
+
+    @FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
+    private WebElement confirm;
+    public WebElement getConfirm() { return confirm; }
+
+    @FindBy(xpath = "(//td[@class='_2y26OafmVfXbjbPLoZ-NYG'])[3]")
+    private  WebElement targetValue;
+    public WebElement getTargetValue() { return targetValue; }
+
+    @FindBy(xpath = "//span[@class='t4zheDaX0848mtd_e7LDW ant-input-group-wrapper']//input")
+    private  WebElement colWidth;
+    public WebElement getColWidth() { return colWidth; }
+
+    @FindBy(xpath = "//th[@title='hostname']")
+    private WebElement targetWidth;
+    public WebElement getTargetWidth() {
+        return targetWidth;
+    }
+
+    @FindBy(xpath = "//div[text()='请选择']")
+    private WebElement textStyle;
+    public WebElement getTextStyle() {
+        return textStyle;
+    }
+
+    @FindBy(xpath = "//li[text()='斜体']")
+    private WebElement italic;
+    public WebElement getItalic() {
+        return italic;
+    }
+
+    @FindBy(xpath = "//span[@class='_2yG4RqCR3-owuoI9z87xoo css-j4ndc3']")
+    private WebElement colorPicker;
+    public WebElement getColorPicker() {
+        return colorPicker;
+    }
+
+    @FindBy(xpath = "(//div[@class='css-1kx576s'])[1]/input")
+    private WebElement colorInput;
+    public WebElement getColorInput() {
+        return colorInput;
+>>>>>>> 5de9a0fa880b8d2b85102ab3f607855ddb1f6505
     }
 
     public SearchPage(WebDriver driver) {
