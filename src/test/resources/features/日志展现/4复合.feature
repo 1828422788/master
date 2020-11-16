@@ -40,7 +40,6 @@ Feature: 日志展现_复合
       | xValue | actualValue|  predictedValue| upperValue | lowerValue |   chartType   |   caseNum  |   spl   |
       |   ts   |   cnt      |   _predict_cnt |    upper95 |    lower95 |    Rangeline  |    835     | starttime=\"now/d\" endtime=\"now/d+24h\" tag: sample04061424_chart \| bucket timestamp span=1h as ts \| stats count\(\) as cnt by ts \| esma cnt timefield=ts  |
 
-
   Scenario Outline: manyy(RZY-2785,2786)
     When I set the parameter "SearchInput" with value "<spl>"
     And I click the "SearchButton" button under some element
@@ -55,30 +54,32 @@ Feature: 日志展现_复合
     And I choose the "apache.resp_len" from the "FieldValue" in config
     And I click the "FirstLabel" button
     And I click the "AscendingOrder" button
+
     And I click the "Yaxis" button
-    And I choose the "max(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "面积图" from the "TypeChartField"
-    And I set the parameter "Unit" with value "面"
-    And I click the "Smooth" button
-    And I click the "ConnectEmptyData" button
     And I set the parameter "Min" with value "1"
     And I set the parameter "Max" with value "170000"
+    And I set the parameter "Unit" with value "面"
+    And I choose the "max(apache.resp_len)" from the "FieldValue" in config
+    And I choose the "面积图" from the "TypeChartField"
+    And I click the "Smooth" button
+    And I click the "ConnectEmptyData" button
 
-    And I click the "AddField" button
-    And I drag the scroll bar to the element "FieldValue"
-    And I choose the "min(apache.resp_len)" from the "FieldValue" in config
-    And I choose the "柱状图" from the "TypeChartField"
+    And I click the "Yaxis2" button
     And I set the parameter "Unit" with value "柱"
     And I set the parameter "Min" with value "2"
     And I set the parameter "Max" with value ""
+    And I click the "AddConfigFields" button
+    And I choose the "min(apache.resp_len)" from the "FieldValue" in config
+    And I choose the "柱状图" from the "TypeChartField"
 
     And I click the "AddField" button
-    And I drag the scroll bar to the element "FieldValue"
-    And I choose the "sum(apache.status)" from the "FieldValue" in config
-    And I choose the "散点图" from the "TypeChartField"
+    And I click the "Yaxis3" button
     And I set the parameter "Unit" with value "散"
     And I set the parameter "Min" with value ""
     And I set the parameter "Max" with value "49000"
+    And I click the "AddConfigFields" button
+    And I choose the "sum(apache.status)" from the "FieldValue" in config
+    And I choose the "散点图" from the "TypeChartField"
 
     And I click the "Exhibition" button
     And I click the "AddColor" button

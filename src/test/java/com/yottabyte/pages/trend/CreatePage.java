@@ -139,10 +139,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "//span[text()='展示字号']/ancestor::div/following-sibling::input")
     private WebElement fontSize;
 
-    @FindBy(xpath = "(//span[text()='字段值'])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[contains(text(),'字段值')])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement fieldValue;
 
-    @FindBy(xpath = "(//span[text()='类型'])[last()]/ancestor::div/following-sibling::div[1]")
+    @FindBy(xpath = "(//span[contains(text(),'类型')])[last()]/ancestor::div/following-sibling::div[1]")
     private WebElement typeChartField;
 
     @FindBy(xpath = "((//span[text()='数值字段'][last()])/ancestor::div/following-sibling::div)[1]")
@@ -370,6 +370,12 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[text()='Y轴'])[last()]")
     private WebElement yaxis;
 
+    @FindBy(xpath = "(//div[contains(text(),'Y轴 2')])[last()]")
+    private WebElement yaxis2;
+
+    @FindBy(xpath = "(//div[contains(text(),'Y轴 3')])[last()]")
+    private WebElement yaxis3;
+
     @FindBy(xpath = "(//div[text()='X轴'])[last()]")
     private WebElement xaxis;
 
@@ -388,10 +394,10 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'对比')])[last()]")
     private WebElement compare;
 
-    @FindBy(xpath = "(//span[text()='平滑'])[last()]/ancestor::div/following-sibling::button")
+    @FindBy(xpath = "(//span[contains(text(),'平滑')])[last()]/ancestor::div/following-sibling::button")
     private WebElement smooth;
 
-    @FindBy(xpath = "(//span[text()='连接空数据'])[last()]/ancestor::div/following-sibling::button")
+    @FindBy(xpath = "(//span[contains(text(),'连接空数据')])[last()]/ancestor::div/following-sibling::button")
     private WebElement connectEmptyData;
 
     @FindBy(xpath = "(//span[text()='显示所有X轴标签'])[last()]/ancestor::div/following-sibling::button")
@@ -481,8 +487,11 @@ public class CreatePage extends PageTemplate {
     @FindBy(xpath = "(//div[contains(text(),'分面')])[last()]")
     private WebElement divideSide;
 
-    @FindBy(xpath = "(//p[text()='+ 添加'])[last()]")
+    @FindBy(xpath = "(//p[text()='+ 添加'])[last()] | (//i[contains(@class,'anticon-plus')])")
     private WebElement addField;
+
+    @FindBy(xpath = "(//p[text()='添加字段配置'])[last()]")
+    private WebElement addConfigFields;
 
     @FindBy(xpath = "(//div[@class='el-select yw-search-setting-select'])[last()]")
     private WebElement secondSettingSelect;
@@ -861,7 +870,7 @@ public class CreatePage extends PageTemplate {
         return ring;
     }
 
-    @FindBy(xpath = "(//span[text()='单位'])[last()]/ancestor::div/following-sibling::input")
+    @FindBy(xpath = "(//span[contains(text(),'单位')])[last()]/ancestor::div/following-sibling::input")
     private WebElement unit;
 
     @FindBy(xpath = "//span[text()='行数']/preceding-sibling::input")
@@ -1692,6 +1701,14 @@ public class CreatePage extends PageTemplate {
         return yaxis;
     }
 
+    public WebElement getYaxis2() {
+        return yaxis2;
+    }
+
+    public WebElement getYaxis3() {
+        return yaxis3;
+    }
+
     public WebElement getXaxis() {
         return xaxis;
     }
@@ -1825,6 +1842,10 @@ public class CreatePage extends PageTemplate {
 
     public WebElement getAddField() {
         return addField;
+    }
+
+    public WebElement getAddConfigFields() {
+        return addConfigFields;
     }
 
     public WebElement getDivide() {
